@@ -146,14 +146,16 @@ const persistentActions = [
 ];
 
 const arraysActions = [
-	[{
-		id: 'monitoring',
-		label: 'monitor something',
-		'data-feature': 'list.item.monitor',
-		icon: 'talend-line-charts',
-		onClick: jest.fn(),
-		hideLabel: true,
-	}],
+	[
+		{
+			id: 'monitoring',
+			label: 'monitor something',
+			'data-feature': 'list.item.monitor',
+			icon: 'talend-line-charts',
+			onClick: jest.fn(),
+			hideLabel: true,
+		},
+	],
 	fewSimpleActions,
 	persistentActions,
 ];

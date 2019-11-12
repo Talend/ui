@@ -85,9 +85,7 @@ export function getItems(context, props) {
 			persistentActions,
 		};
 		if (separatorActions && separatorActions.length > 0) {
-			itemWithAction.arraysActions = [
-				separatorActions, actions, separatorActions
-			]
+			itemWithAction.arraysActions = [separatorActions, actions, separatorActions];
 		}
 		return itemWithAction;
 	});

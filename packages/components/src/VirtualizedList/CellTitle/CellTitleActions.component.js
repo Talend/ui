@@ -34,7 +34,12 @@ function getSeparatorActions(separatorActions, getComponent) {
 				hideLabel
 				link
 			/>
-			<span className={classNames('cell-title-actions-separator', theme['cell-title-actions-separator'])} />
+			<span
+				className={classNames(
+					'cell-title-actions-separator',
+					theme['cell-title-actions-separator'],
+				)}
+			/>
 		</React.Fragment>
 	);
 }
@@ -46,7 +51,7 @@ function getLargeDisplayActions(separatorActions, actions, getComponent) {
 
 	return (
 		<React.Fragment>
-			{ getSeparatorActions(separatorActions, getComponent) }
+			{getSeparatorActions(separatorActions, getComponent)}
 			<Actions
 				getComponent={getComponent}
 				className={classNames('cell-title-actions', theme['cell-title-actions'])}
