@@ -80,9 +80,10 @@ const actions = {
 	items: ['object:delete'],
 };
 
-const actionsWithPersistent = {
+const actionsWithPersistentAndSeparator = {
 	...actions,
 	persistentItemsActions: ['object:add'],
+	separatorActions: ['object:add']
 };
 
 const toolbar = {
@@ -219,7 +220,7 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List {...props} actions={actionsWithPersistent} items={items} />
+				<List {...props} actions={actionsWithPersistentAndSeparator} items={items} />
 			</div>
 		</div>
 	),

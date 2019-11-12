@@ -67,16 +67,30 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.toJS().map(item =>
-		Object.assign({}, item, {
-			actions: getActionsProps(context, get(props, 'actions.items', []), item),
-			persistentActions: getActionsProps(
-				context,
-				get(props, 'actions.persistentItemsActions', []),
-				item,
-			),
-		}),
-	);
+	return props.items.toJS().map(item => {
+		const actions = getActionsProps(context, get(props, 'actions.items', []), item);
+		const persistentActions = getActionsProps(
+			context,
+			get(props, 'actions.persistentItemsActions', []),
+			item,
+		);
+		const separatorActions = getActionsProps(
+			context,
+			get(props, 'actions.separatorActions', []),
+			item,
+		);
+		const itemWithAction = {
+			...item,
+			actions,
+			persistentActions,
+		};
+		if (separatorActions && separatorActions.length > 0) {
+			itemWithAction.arraysActions = [
+				separatorActions, actions, separatorActions
+			]
+		}
+		return itemWithAction;
+	});
 }
 
 class List extends React.Component {
