@@ -18,7 +18,7 @@ function ContextualManager(props) {
 	const [state, setState] = useState(initialState);
 
 	useEffect(() => {
-		if (props.startDate !== state.startDate || props.endDate !== state.endDate) {
+		if (props.startDate !== state.startDate.value || props.endDate !== state.endDate.value) {
 			const parts = extractRangeParts(props.startDate, props.endDate, getOptions());
 			setState(parts);
 		}
@@ -27,8 +27,8 @@ function ContextualManager(props) {
 	function onDatesChange(event, nextState) {
 		if (props.onChange) {
 			const payload = {
-				startDate: nextState.startDate,
-				endDate: nextState.endDate,
+				startDate: nextState.startDate.value,
+				endDate: nextState.endDate.value,
 				errors: nextState.errors,
 				errorMessage: nextState.errorMessage,
 				field: state.focusedInput,
@@ -59,21 +59,15 @@ function ContextualManager(props) {
 		const textInput = event.target.value;
 		const parts = extractRangePartsFromTextInput(textInput, state.focusedInput, getOptions());
 		const nextState = { ...state, ...parts };
-		setState(nextState);
+		setState(prevState => ({ ...prevState, ...parts }));
 		onDatesChange(event, nextState);
 	}
 
 	return (
 		<DateRangeContext.Provider
 			value={{
-				startDate: {
-					value: state.startDate,
-					textInput: state.startDateTextInput,
-				},
-				endDate: {
-					value: state.endDate,
-					textInput: state.endDateTextInput,
-				},
+				startDate: state.startDate,
+				endDate: state.endDate,
 				inputManagement: {
 					onChange: onInputChange,
 					onFocus: onFocusChange,

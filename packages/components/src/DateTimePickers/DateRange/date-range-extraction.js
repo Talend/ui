@@ -9,56 +9,83 @@ function extractRangeParts(startDate, endDate, options) {
 	const endDateParts = extractDate(endDate, options);
 
 	return {
-		startDate: startDateParts.localDate,
-		startDateTextInput: startDateParts.textInput,
-		endDate: endDateParts.localDate,
-		endDateTextInput: endDateParts.textInput,
+		startDate: {
+			value: startDateParts.localDate,
+			textInput: startDateParts.textInput,
+		},
+		endDate: {
+			value: endDateParts.localDate,
+			textInput: endDateParts.textInput,
+		},
 		errors: startDateParts.errors.concat(endDateParts.errors),
 		errorMessage: startDateParts.errorMessage || endDateParts.errorMessage,
 	};
 }
 
 function extractRangePartsFromDate(selectedDate, { startDate, endDate, focusedInput }, options) {
-	const parts = extractFromDate(selectedDate, options);
-	const dateParts = {};
+	const { date, textInput, errors, errorMessage } = extractFromDate(selectedDate, options);
+	const rangeParts = {};
+
 	if (focusedInput === START_DATE) {
-		if (endDate && isAfter(parts.date, endDate)) {
-			dateParts.endDate = undefined;
-			dateParts.endDateTextInput = '';
+		// clear endDate when new startDate is after existing endDate
+		if (endDate.value && isAfter(date, endDate.value)) {
+			rangeParts.endDate = {
+				value: undefined,
+				textInput: '',
+			};
 		}
-		dateParts.startDate = parts.date;
-		dateParts.startDateTextInput = parts.textInput;
-		dateParts.focusedInput = END_DATE;
+
+		rangeParts.startDate = {
+			value: date,
+			textInput,
+		};
+
+		// move focus to endDate
+		rangeParts.focusedInput = END_DATE;
 	} else if (focusedInput === END_DATE) {
-		if (startDate && isBefore(parts.date, startDate)) {
-			dateParts.startDate = parts.date;
-			dateParts.startDateTextInput = parts.textInput;
+		// reset startDate when select a day before existing startDate
+		if (startDate.value && isBefore(date, startDate.value)) {
+			rangeParts.startDate = {
+				value: date,
+				textInput,
+			};
 		} else {
-			dateParts.endDate = parts.date;
-			dateParts.endDateTextInput = parts.textInput;
-			dateParts.focusedInput = startDate ? null : START_DATE;
+			rangeParts.endDate = {
+				value: date,
+				textInput,
+			};
+
+			// move focus to startDate is not selected yet
+			rangeParts.focusedInput = startDate.value ? null : START_DATE;
 		}
 	}
-	dateParts.errors = parts.errors;
-	dateParts.errorMessage = parts.errorMessage;
+	rangeParts.errors = errors;
+	rangeParts.errorMessage = errorMessage;
 
-	return dateParts;
+	return rangeParts;
 }
 
-function extractRangePartsFromTextInput(textInput, focusedInput, options) {
-	const parts = extractPartsFromTextInput(textInput, options);
-	const nextState = {};
-	if (focusedInput === 'startDate') {
-		nextState.startDate = parts.localDate;
-		nextState.startDateTextInput = parts.textInput;
-	} else if (focusedInput === 'endDate') {
-		nextState.endDate = parts.localDate;
-		nextState.endDateTextInput = parts.textInput;
+function extractRangePartsFromTextInput(userInput, focusedInput, options) {
+	const { localDate, textInput, errors, errorMessage } = extractPartsFromTextInput(
+		userInput,
+		options,
+	);
+	const rangeParts = {};
+	if (focusedInput === START_DATE) {
+		rangeParts.startDate = {
+			value: localDate,
+			textInput,
+		};
+	} else if (focusedInput === END_DATE) {
+		rangeParts.endDate = {
+			value: localDate,
+			textInput,
+		};
 	}
-	nextState.errors = parts.errors;
-	nextState.errorMessage = parts.errorMessage;
+	rangeParts.errors = errors;
+	rangeParts.errorMessage = errorMessage;
 
-	return nextState;
+	return rangeParts;
 }
 
 export { extractRangeParts, extractRangePartsFromDate, extractRangePartsFromTextInput };
