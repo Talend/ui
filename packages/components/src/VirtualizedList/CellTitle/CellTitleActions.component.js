@@ -175,7 +175,7 @@ export function CellTitleActionsComponent({
 	let dataActions = get(rowData, actionsKey, []).filter(isAvailable);
 	let persistentActions = get(rowData, persistentActionsKey, []);
 	const arraysActions = get(rowData, arraysActionsKey);
-	const hasActions = dataActions.length || persistentActions.length;
+	const hasActions = dataActions.length || persistentActions.length || arraysActions.length;
 	if (displayMode !== TITLE_MODE_TEXT || !hasActions) {
 		return null;
 	}

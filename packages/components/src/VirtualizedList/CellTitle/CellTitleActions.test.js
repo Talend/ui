@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { CellTitleActionsComponent } from './CellTitleActions.component';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
+import { actions } from '../../List/ListComposition/Manager/hooks/useCollectionActions.hook.test';
 
 const { LARGE } = listTypes;
 
@@ -145,10 +146,24 @@ const persistentActions = [
 	},
 ];
 
+const arraysActions = [
+	[{
+		id: 'monitoring',
+		label: 'monitor something',
+		'data-feature': 'list.item.monitor',
+		icon: 'talend-line-charts',
+		onClick: jest.fn(),
+		hideLabel: true,
+	}],
+	fewSimpleActions,
+	persistentActions,
+];
+
 const props = {
 	id: 'my-actions',
 	actionsKey: 'actions',
 	persistentActionsKey: 'persistentActions',
+	arraysActionsKey: 'arraysActions',
 	getComponent: jest.fn(),
 };
 
@@ -294,6 +309,35 @@ describe('CellTitleActions', () => {
 
 		// then
 		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+	});
+
+	it('should render all type of actions', () => {
+		// when
+		const wrapper = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ arraysActions }}
+			/>,
+		);
+
+		// then
+		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+	});
+
+	it('should render all type of actions with separator in large type', () => {
+		// when
+		const wrapper = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ arraysActions }}
+				type={LARGE}
+			/>,
+		);
+
+		// then
+		expect(wrapper.find('.cell-title-actions-separator').length).toBe(1);
 	});
 
 	it('should stop keydown propagation', () => {

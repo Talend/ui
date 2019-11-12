@@ -40,6 +40,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         ],
         "titleProps": Object {
           "actionsKey": "actions",
+          "arraysActionsKey": "arraysActions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         },
@@ -89,6 +90,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
       titleProps={
         Object {
           "actionsKey": "actions",
+          "arraysActionsKey": "arraysActions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         }
@@ -476,6 +478,7 @@ exports[`List should render 1`] = `
         ],
         "titleProps": Object {
           "actionsKey": "actions",
+          "arraysActionsKey": "arraysActions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         },
@@ -1111,6 +1114,7 @@ exports[`List should render 1`] = `
       titleProps={
         Object {
           "actionsKey": "actions",
+          "arraysActionsKey": "arraysActions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         }
@@ -1499,6 +1503,7 @@ exports[`List should render id if provided 1`] = `
         ],
         "titleProps": Object {
           "actionsKey": "actions",
+          "arraysActionsKey": "arraysActions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         },
@@ -2153,6 +2158,7 @@ exports[`List should render id if provided 1`] = `
       titleProps={
         Object {
           "actionsKey": "actions",
+          "arraysActionsKey": "arraysActions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         }
