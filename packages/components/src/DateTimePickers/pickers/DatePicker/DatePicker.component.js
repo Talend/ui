@@ -32,7 +32,11 @@ class DatePicker extends React.PureComponent {
 	}
 
 	isSelectedDate(date) {
-		return this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date);
+		return (
+			(this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date)) ||
+			this.isStartDate(date) ||
+			this.isEndDate(date)
+		);
 	}
 
 	isDisabledDate(date) {
