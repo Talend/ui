@@ -177,7 +177,7 @@ export function CellTitleActionsComponent({
 }) {
 	let dataActions = get(rowData, actionsKey, []).filter(isAvailable);
 	let persistentActions = get(rowData, persistentActionsKey, []);
-	const arraysActions = get(rowData, arraysActionsKey);
+	const arraysActions = get(rowData, arraysActionsKey, []);
 	const hasActions = dataActions.length || persistentActions.length || arraysActions.length;
 	if (displayMode !== TITLE_MODE_TEXT || !hasActions) {
 		return null;
@@ -185,7 +185,7 @@ export function CellTitleActionsComponent({
 
 	const actions = [];
 	let separatorActions = [];
-	if (Array.isArray(arraysActions)) {
+	if (Array.isArray(arraysActions) && arraysActions.length > 0) {
 		[separatorActions, dataActions = [], persistentActions = []] = arraysActions;
 	}
 	if (type === LARGE) {
