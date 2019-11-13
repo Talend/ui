@@ -44,7 +44,10 @@ describe('EnumerationWidget', () => {
 				schema={{
 					disabled: true,
 				}}
-				value={[{ id: '112', values: ['titi', 'tata'] }, { id: '113', values: ['titi2', 'tata2'] }]}
+				value={[
+					{ id: '112', values: ['titi', 'tata'] },
+					{ id: '113', values: ['titi2', 'tata2'] },
+				]}
 			/>,
 		);
 		expect(
@@ -311,7 +314,10 @@ describe('EnumerationWidget', () => {
 				schema={{}}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
-				value={[{ id: '111', values: ['titi', 'tata'] }, { id: '112', values: ['titi2', 'tata2'] }]}
+				value={[
+					{ id: '111', values: ['titi', 'tata'] },
+					{ id: '112', values: ['titi2', 'tata2'] },
+				]}
 			/>,
 		);
 
@@ -339,7 +345,10 @@ describe('EnumerationWidget', () => {
 				schema={{}}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
-				value={[{ id: '112', values: ['titi', 'tata'] }, { id: '113', values: ['titi2', 'tata2'] }]}
+				value={[
+					{ id: '112', values: ['titi', 'tata'] },
+					{ id: '113', values: ['titi2', 'tata2'] },
+				]}
 			/>,
 		);
 		expect(wrapper.find('.tc-enumeration-item').length).toBe(2);
@@ -404,7 +413,10 @@ describe('EnumerationWidget', () => {
 				schema={{}}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
-				value={[{ id: '111', values: ['titi', 'tata'] }, { id: '112', values: ['toto', 'tutu'] }]}
+				value={[
+					{ id: '111', values: ['titi', 'tata'] },
+					{ id: '112', values: ['toto', 'tutu'] },
+				]}
 			/>,
 		);
 
@@ -650,7 +662,10 @@ describe('EnumerationWidget', () => {
 						expect(wrapper.instance().resetInputFile).toBeCalled();
 						expect(onChange).toBeCalledWith(event, {
 							schema: { allowImport: true },
-							value: [{ id: 1, values: ['val1'] }, { id: 2, values: ['val2'] }],
+							value: [
+								{ id: 1, values: ['val1'] },
+								{ id: 2, values: ['val2'] },
+							],
 						});
 					});
 			},
