@@ -100,26 +100,4 @@ describe('Toggle field', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });
 		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });
 	});
-
-	it('should trigger onFinish on input blur', () => {
-		// given
-		const onFinish = jest.fn();
-		const wrapper = mount(
-			<Toggle
-				id={'myForm'}
-				isValid
-				errorMessage={'My error message'}
-				onChange={jest.fn()}
-				onFinish={onFinish}
-				schema={schema}
-				value
-			/>,
-		);
-
-		// when
-		wrapper.find('input').simulate('blur');
-
-		// then
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema });
-	});
 });

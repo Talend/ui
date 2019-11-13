@@ -26,7 +26,6 @@ function ToggleWidget(props) {
 				disabled={disabled || valueIsUpdating}
 				id={id}
 				label={title}
-				onBlur={event => onFinish(event, { schema })}
 				onChange={event => {
 					onChange(event, { schema, value: !value });
 					onFinish(event, { schema, value: !value });
