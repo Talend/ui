@@ -1,7 +1,7 @@
 .tc-list-checkbox {
 	:global(.checkbox) {
 		margin: 0;
-		height: 12px;
+		height: $font-size-small;
 		display: flex;
 
 		label {
