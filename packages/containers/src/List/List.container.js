@@ -67,16 +67,26 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.toJS().map(item =>
-		Object.assign({}, item, {
-			actions: getActionsProps(context, get(props, 'actions.items', []), item),
+	return props.items.toJS().map(item => {
+		let actionsItems = get(props, 'actions.items', []);
+		let actions = [];
+		if (Array.isArray(actionsItems) && actionsItems.every(item => Array.isArray(item))) {
+			actions = actionsItems.map(actionArray => (
+				getActionsProps(context, actionArray, item)
+			))
+		} else {
+			actions = getActionsProps(context, actionsItems, item);
+		}
+		return {
+			...item,
+			actions,
 			persistentActions: getActionsProps(
 				context,
 				get(props, 'actions.persistentItemsActions', []),
 				item,
 			),
-		}),
-	);
+		};
+	});
 }
 
 class List extends React.Component {
