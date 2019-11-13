@@ -87,7 +87,8 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	&:hover,
 	&:focus,
 	&:global(.ally-focus-within) {
-		:global(.tc-list-title .cell-title-actions) {
+		:global(.tc-list-title .cell-title-actions),
+		:global(.tc-list-title .cell-title-actions-separator) {
 			opacity: 1;
 			transition: opacity 0.15s ease-in;
 			visibility: visible;

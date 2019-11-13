@@ -5,22 +5,27 @@ $tc-list-title-dropdown-menu-triangle: '\25b2';
 $tc-list-title-dropup-menu-triangle: '\25bc';
 
 .main-title-actions-group {
+	display: flex;
+	align-items: center;
 	flex-grow: 0;
 	position: relative;
 	right: 0;
 	top: 0;
 	height: $btn-line-height;
 
+	.cell-title-actions-separator {
+		visibility: hidden;
+		opacity: 0;
+		&:after {
+			content: '|';
+			color: $dark-silver;
+		}
+	}
+
 	.cell-title-actions {
 		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
 		opacity: 0;
 		visibility: hidden;
-
-		position: absolute;
-		right: 100%;
-
-		padding-left: $padding-larger;
-		margin-right: $padding-smaller;
 
 		.cell-title-actions-menu {
 			&:after {

@@ -136,6 +136,46 @@ storiesOf('List Composition', module)
 			</section>
 		</div>
 	))
+	.add('Display mode: uncontrolled with separator', () => {
+		const separatorActions = [{
+			id: 'monitoring',
+			label: 'monitor something',
+			'data-feature': 'list.item.monitor',
+			icon: 'talend-line-charts',
+			onClick: action('onMonitor'),
+			hideLabel: true,
+		}];
+		const collectionWithSeparator =
+			simpleCollection.map(item => ({...item, titleActions: [separatorActions, item.titleActions]}));
+		return (
+			<div className="virtualized-list">
+				<IconsProvider />
+				<h1>List with display mode change</h1>
+				<p>You can change display mode by adding the selector in toolbar</p>
+				<pre>{`
+	<List.Manager id="my-list" collection={collection} initialDisplayMode="table">
+		<List.Toolbar>
+			<List.Toolbar.Right>
+				<List.DisplayMode id="my-list-displayMode" />
+			</List.Toolbar.Right>
+		</List.Toolbar>
+		<List.VList id="my-vlist">
+			...
+		</List.VList>
+	</List.Manager>
+	`}</pre>
+				<section style={{ height: '50vh' }}>
+					<List.Manager id="my-list" collection={collectionWithSeparator}>
+						<List.Toolbar>
+							<List.Toolbar.Right>
+								<List.DisplayMode id="my-list-displayMode" />
+							</List.Toolbar.Right>
+						</List.Toolbar>
+						<CustomList />
+					</List.Manager>
+				</section>
+			</div>
+		)})
 	.add('Display mode: controlled', () => (
 		<div className="virtualized-list">
 			<IconsProvider />
