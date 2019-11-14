@@ -15,7 +15,7 @@ describe('DateRange.Picker', () => {
 				value: new Date(2007, 1, 2),
 			},
 			pickerManagement: {
-				onSubmit: jest.fn(),
+				onStartChange: jest.fn(),
 			},
 			inputManagement: {
 				focusedInput: 'startDate',
@@ -37,7 +37,7 @@ describe('DateRange.Picker', () => {
 				.props(),
 		).toEqual({
 			manageFocus: true,
-			onSubmit: managerValue.pickerManagement.onSubmit,
+			onSubmit: managerValue.pickerManagement.onStartChange,
 			other: 'custom props',
 			selectedDate: new Date(2007, 0, 2),
 			endDate: new Date(2007, 1, 2),
@@ -55,7 +55,7 @@ describe('DateRange.Picker', () => {
 				value: undefined,
 			},
 			pickerManagement: {
-				onSubmit: jest.fn(),
+				onStartChange: jest.fn(),
 			},
 			inputManagement: {
 				focusedInput: 'startDate',
@@ -67,12 +67,12 @@ describe('DateRange.Picker', () => {
 				<Picker />
 			</DateRangeContext.Provider>,
 		);
-		expect(managerValue.pickerManagement.onSubmit).not.toBeCalled();
+		expect(managerValue.pickerManagement.onStartChange).not.toBeCalled();
 
 		// when
 		wrapper.find('CalendarPicker').prop('onSubmit')();
 
 		// then
-		expect(managerValue.pickerManagement.onSubmit).toBeCalled();
+		expect(managerValue.pickerManagement.onStartChange).toBeCalled();
 	});
 });

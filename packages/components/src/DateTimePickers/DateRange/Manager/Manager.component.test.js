@@ -262,10 +262,12 @@ describe('DateRange.Manager', () => {
 					wrapper.update();
 					// 2 - input date
 					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onChange(event);
+						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
+						if (field === 'startDate') {
+							props.onStartChange(event);
+						} else {
+							props.onEndChange(event);
+						}
 					});
 					wrapper.update();
 
@@ -350,10 +352,12 @@ describe('DateRange.Manager', () => {
 					});
 					wrapper.update();
 					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onChange(event);
+						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
+						if (field === 'startDate') {
+							props.onStartChange(event);
+						} else {
+							props.onEndChange(event);
+						}
 					});
 					wrapper.update();
 
@@ -361,7 +365,6 @@ describe('DateRange.Manager', () => {
 					expect(onChange).toBeCalledWith(event, {
 						startDate: expectedStartDate,
 						endDate: expectedEndDate,
-						field,
 						origin: 'RANGE_PICKER',
 						errors: [],
 						errorMessage: null,
@@ -404,10 +407,12 @@ describe('DateRange.Manager', () => {
 					});
 					wrapper.update();
 					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onChange(event);
+						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
+						if (field === 'startDate') {
+							props.onStartChange(event);
+						} else {
+							props.onEndChange(event);
+						}
 					});
 					wrapper.update();
 
@@ -460,10 +465,13 @@ describe('DateRange.Manager', () => {
 					});
 					wrapper.update();
 					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('pickerManagement')
-							.onSubmit(event, { date });
+						const props = wrapper.find('DateRangeConsumerDiv').prop('pickerManagement');
+
+						if (field === 'startDate') {
+							props.onStartChange(event, { date });
+						} else {
+							props.onEndChange(event, { date });
+						}
 					});
 					wrapper.update();
 					// then
@@ -521,21 +529,24 @@ describe('DateRange.Manager', () => {
 					});
 					wrapper.update();
 					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('pickerManagement')
-							.onSubmit(event, {
+						const props = wrapper.find('DateRangeConsumerDiv').prop('pickerManagement');
+						if (field === 'startDate') {
+							props.onStartChange(event, {
 								date: selectedDate,
 							});
+						} else {
+							props.onEndChange(event, {
+								date: selectedDate,
+							});
+						}
 					});
 					wrapper.update();
 					// then
 					expect(onChange).toBeCalledWith(event, {
 						startDate: expectedStartDate,
 						endDate: expectedEndDate,
-						errorMessage: null,
+						errorMessage: undefined,
 						errors: [],
-						field,
 						origin: 'RANGE_PICKER',
 					});
 				},
