@@ -216,4 +216,24 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual('');
 	});
+	it('should return an unequal tql query when value is using the notEqual operator', () => {
+		// Given
+		const badgeNotEqual = [
+			{
+				properties: {
+					attribute: 'name',
+					operator: {
+						label: 'Not equals',
+						name: 'notEqual',
+						iconName: 'not-equal',
+					},
+					value: 'product name',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgeNotEqual);
+		// Then
+		expect(result).toEqual("(name != 'product name')");
+	});
 });

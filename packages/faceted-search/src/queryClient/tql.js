@@ -32,6 +32,7 @@ const getTqlClassOperatorsDictionary = query => ({
 	contains: query.contains,
 	'=': query.equal,
 	in: query.in,
+	notEqual: query.unequal,
 });
 
 const formatValue = value => {
