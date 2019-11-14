@@ -8,6 +8,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     <button id="manager-id-basic-search-action-overlay"
             aria-label="Add filter"
             type="button"
+            aria-describedby="42"
             class="btn btn-link"
     >
       <svg name="talend-plus-circle"
@@ -42,6 +43,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
           <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
                   aria-label="Equals"
                   type="button"
+                  aria-describedby="42"
                   class="btn btn-link"
           >
             <svg name="talend-equal"
@@ -88,6 +90,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
     <button id="manager-id-basic-search-action-overlay"
             aria-label="Add filter"
             type="button"
+            aria-describedby="42"
             class="btn btn-link"
     >
       <svg name="talend-plus-circle"

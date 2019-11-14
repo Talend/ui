@@ -25,6 +25,7 @@ Types of changes
 - `Security` in case of vulnerabilities.
 
 ## [Unreleased]
+- [Fixed](https://github.com/Talend/ui/pull/2544): Get back Tooltip trigger for button icon in BadgeOverlay
 - [Changed](https://github.com/Talend/ui/pull/2530): Update remove / add tooltip labels
 - [Fixed](https://github.com/Talend/ui/pull/2535): Fix onSubmit execution on BasicSearch
 

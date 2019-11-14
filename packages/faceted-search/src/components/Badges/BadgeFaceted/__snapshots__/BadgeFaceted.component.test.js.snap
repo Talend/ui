@@ -16,6 +16,7 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
         <button id="my-id-operator-action-overlay"
                 aria-label="My icon operator equal"
                 type="button"
+                aria-describedby="42"
                 class="btn btn-link"
         >
           <svg name="talend-talend-my-icon-equal"
