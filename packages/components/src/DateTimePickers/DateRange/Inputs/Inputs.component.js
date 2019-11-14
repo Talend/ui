@@ -16,7 +16,7 @@ const OMIT_PROPS_INPUT = ['t', 'id', 'startInputRef', 'endInputRef'];
 function Inputs(props) {
 	const { t } = props;
 	const { startDate, endDate, inputManagement, focusedInput } = useContext(DateRangeContext);
-	const { placeholder, onChange, onFocus } = inputManagement;
+	const { placeholder, onStartChange, onEndChange, onFocus } = inputManagement;
 
 	let startDateInputRef = useRef(null);
 	let endDateInputRef = useRef(null);
@@ -44,7 +44,7 @@ function Inputs(props) {
 						placeholder={placeholder}
 						value={startDate.textInput}
 						style={{ width }}
-						onChange={onChange}
+						onChange={onStartChange}
 						onFocus={event => onFocus(event, START_DATE)}
 						inputRef={ref => {
 							if (props.startInputRef) {
@@ -73,7 +73,7 @@ function Inputs(props) {
 						placeholder={placeholder}
 						value={endDate.textInput}
 						style={{ width }}
-						onChange={onChange}
+						onChange={onEndChange}
 						onFocus={event => onFocus(event, END_DATE)}
 						inputRef={ref => {
 							if (props.endInputRef) {

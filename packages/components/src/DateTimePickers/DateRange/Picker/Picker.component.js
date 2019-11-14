@@ -7,13 +7,14 @@ import CalendarPicker from '../../pickers/CalendarPicker';
 export default function Picker(props) {
 	const { startDate, endDate, pickerManagement, inputManagement } = useContext(DateRangeContext);
 	const { focusedInput } = inputManagement;
+	const { onStartChange, onEndChange } = pickerManagement;
 	return [
 		focusedInput === START_DATE && (
 			<CalendarPicker
 				manageFocus
 				selectedDate={startDate.value}
 				endDate={endDate.value}
-				{...pickerManagement}
+				onSubmit={onStartChange}
 				{...props}
 			/>
 		),
@@ -22,7 +23,7 @@ export default function Picker(props) {
 				manageFocus
 				selectedDate={endDate.value}
 				startDate={startDate.value}
-				{...pickerManagement}
+				onSubmit={onEndChange}
 				{...props}
 			/>
 		),
