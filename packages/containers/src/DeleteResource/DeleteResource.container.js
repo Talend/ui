@@ -122,7 +122,7 @@ export class DeleteResource extends React.Component {
 		const { resourceTypeLabel, label } = resourceInfo;
 		if (this.props.female) {
 			question = (
-				<Trans i18nKey="DELETE_RESOURCE_MESSAGE" context="female">
+				<Trans i18nKey="DELETE_RESOURCE_MESSAGE" context="female" tOptions={{ context: 'female' }}>
 					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
 				</Trans>
 			);
