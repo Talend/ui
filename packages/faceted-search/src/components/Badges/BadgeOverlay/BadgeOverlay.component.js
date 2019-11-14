@@ -4,10 +4,12 @@ import Overlay from 'react-bootstrap/lib/Overlay';
 import Popover from 'react-bootstrap/lib/Popover';
 import Button from 'react-bootstrap/lib/Button';
 import Icon from '@talend/react-components/lib/Icon';
+import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
 const getChildren = (children, setOverlayOpened) => {
 	if (typeof children === 'function') {
 		return children(setOverlayOpened);
+
 	}
 	return children;
 };
@@ -59,18 +61,32 @@ const BadgeOverlay = ({
 	};
 	const currentOpened = opened || overlayOpened;
 
+	const button = (
+		<Button
+			id={`${id}-action-overlay`}
+			bsStyle="link"
+			aria-label={label}
+			type="button"
+			ref={target => setButtonRef(target)}
+			onClick={changeOpened}
+		>
+			{iconName ? <Icon name={`talend-${iconName}`} key="icon" /> : getLabel(label)}
+		</Button>
+	);
+
+	const buttonToRender = iconName ? (
+		<TooltipTrigger
+			label={label}
+			tooltipPlacement="top"
+		>
+			{button}
+		</TooltipTrigger>
+	) : button;
+
 	return (
 		<div className={className}>
-			<Button
-				id={`${id}-action-overlay`}
-				bsStyle="link"
-				aria-label={label}
-				type="button"
-				ref={target => setButtonRef(target)}
-				onClick={changeOpened}
-			>
-				{iconName ? <Icon name={`talend-${iconName}`} key="icon" /> : getLabel(label)}
-			</Button>
+			{buttonToRender}
+
 			<Overlay
 				id={`${id}-overlay`}
 				onHide={onHideOverlay}
