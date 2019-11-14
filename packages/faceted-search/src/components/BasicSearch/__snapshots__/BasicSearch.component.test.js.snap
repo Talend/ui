@@ -67,7 +67,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
         </button>
       </div>
       <button role="button"
-              aria-label="Delete badge"
+              aria-label="Remove filter"
               id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
               aria-describedby="42"
               type="button"

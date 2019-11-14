@@ -36,7 +36,7 @@ const BasicSearch = ({
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 
 	useEffect(() => {
-		if (state.badges.length && !state.badges.some(isInCreation)) {
+		if (!state.badges.some(isInCreation)) {
 			onSubmit({}, state.badges);
 		}
 	}, [state.badges, onSubmit]);
