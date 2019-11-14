@@ -635,7 +635,7 @@ class EnumerationForm extends React.Component {
 		});
 	}
 
-	onDeleteItems() {
+	onDeleteItems(event) {
 		const { schema } = this.props;
 		const itemsToDelete = [];
 		this.state.items.forEach(item => {

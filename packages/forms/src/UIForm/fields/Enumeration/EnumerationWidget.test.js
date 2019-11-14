@@ -262,10 +262,11 @@ describe('EnumerationWidget', () => {
 
 	it('should delete an item', () => {
 		// given
+		const onChange = jest.fn();
 		const wrapper = mount(
 			<EnumerationWidget
 				schema={{}}
-				onChange={jest.fn()}
+				onChange={onChange}
 				onFinish={jest.fn()}
 				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
@@ -280,7 +281,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(wrapper.find('.tc-enumeration-item').length).toBe(0);
+		expect(onChange.mock.calls[0][1].value).toEqual([]);
 	});
 
 	it('should select an item', () => {
@@ -340,10 +341,11 @@ describe('EnumerationWidget', () => {
 
 	it('delete all', () => {
 		// given
+		const onChange = jest.fn();
 		const wrapper = mount(
 			<EnumerationWidget
 				schema={{}}
-				onChange={jest.fn()}
+				onChange={onChange}
 				onFinish={jest.fn()}
 				value={[
 					{ id: '112', values: ['titi', 'tata'] },
@@ -370,7 +372,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(wrapper.find('.tc-enumeration-item').length).toBe(0);
+		expect(onChange.mock.calls[0][1].value).toEqual([]);
 	});
 
 	it('should delete an item calling onTrigger', () => {
