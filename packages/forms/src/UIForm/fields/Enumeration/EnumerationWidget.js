@@ -364,7 +364,12 @@ class EnumerationForm extends React.Component {
 				if (countItems === 0 && displayMode === enumerationStates.DISPLAY_MODE_SELECTED) {
 					displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 				}
-				return { items, displayMode };
+				const payload = {
+					schema,
+					value: items,
+				};
+				this.onChange(event, payload);
+				return { displayMode };
 			});
 		}
 	}
@@ -453,26 +458,28 @@ class EnumerationForm extends React.Component {
 					this.itemSubmitHandler();
 				});
 		} else {
-			this.setState(prevState => {
-				const items = [...prevState.items];
-				let item = items[value.index];
-				if (prevState.searchCriteria) {
-					// retrieve correct item when in non-connected mode
-					item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
-				}
-				item.displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
-				const valueExist = this.valueAlreadyExist(value.value, prevState);
-				// if the value is empty, no value update is done
-				if (value.value && !valueExist) {
-					item.values = EnumerationForm.parseStringValueToArray(value.value);
-				}
-				if (valueExist) {
-					item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-						defaultValue: 'This term is already in the list',
-					});
-				}
-				return { items };
-			});
+			const items = [...this.state.items];
+			let item = items[value.index];
+			if (this.state.searchCriteria) {
+				// retrieve correct item when in non-connected mode
+				item = this.getItemInSearchMode(this.state.searchCriteria, value.index, items);
+			}
+			item.displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
+			const valueExist = this.valueAlreadyExist(value.value, this.state);
+			// if the value is empty, no value update is done
+			if (value.value && !valueExist) {
+				item.values = EnumerationForm.parseStringValueToArray(value.value);
+			}
+			if (valueExist) {
+				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					defaultValue: 'This term is already in the list',
+				});
+			}
+			const payload = {
+				schema,
+				value: items,
+			};
+			this.onChange(event, payload);
 		}
 	}
 
@@ -658,9 +665,13 @@ class EnumerationForm extends React.Component {
 		} else {
 			this.setState(prevState => {
 				const result = deleteSelectedItems([...prevState.items]);
+				const payload = {
+					schema,
+					value: result,
+				};
+				this.onChange(event, payload);
 				return {
 					displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
-					items: result,
 				};
 			});
 		}
@@ -709,13 +720,15 @@ class EnumerationForm extends React.Component {
 					},
 				);
 		} else if (!this.valueAlreadyExist(value.value, this.state)) {
-			this.setState(prevState => ({
-				items: prevState.items.concat([
+			const payload = {
+				schema,
+				value: this.state.items.concat([
 					{
 						values: EnumerationForm.parseStringValueToArray(value.value),
 					},
 				]),
-			}));
+			};
+			this.onChange(event, payload);
 			if (isSingleAdd) {
 				successHandler();
 			}
