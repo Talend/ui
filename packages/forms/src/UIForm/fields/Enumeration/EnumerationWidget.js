@@ -237,7 +237,7 @@ class EnumerationForm extends React.Component {
 			})),
 			itemsProp: {
 				key: 'values',
-				getItemHeight: this.constructor.getItemHeight.bind(this),
+				getItemHeight: EnumerationForm.getItemHeight,
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
@@ -302,7 +302,7 @@ class EnumerationForm extends React.Component {
 			if (displayMode === enumerationStates.DISPLAY_MODE_SELECTED) {
 				displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			}
-			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
+			const validation = EnumerationForm.updateItemValidateDisabled(item.values[0]);
 			return { items, displayMode, ...validation };
 		});
 	}
@@ -314,7 +314,7 @@ class EnumerationForm extends React.Component {
 			item.displayMode = enumerationStates.DISPLAY_MODE_EDIT;
 			// reset selection
 			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
-			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
+			const validation = EnumerationForm.updateItemValidateDisabled(item.values[0]);
 			return { items, displayMode: enumerationStates.DISPLAY_MODE_EDIT, ...validation };
 		});
 	}
@@ -407,7 +407,7 @@ class EnumerationForm extends React.Component {
 					defaultValue: 'This term is already in the list',
 				});
 			}
-			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
+			const validation = EnumerationForm.updateItemValidateDisabled(value, valueExist);
 			return { items, ...validation };
 		});
 	}
@@ -426,7 +426,7 @@ class EnumerationForm extends React.Component {
 					actionsEdit: this.loadingInputsActions,
 				},
 			}));
-			const formattedValue = this.constructor.parseStringValueToArray(value.value);
+			const formattedValue = EnumerationForm.parseStringValueToArray(value.value);
 			this.props
 				.onTrigger(event, {
 					trigger: {
@@ -464,7 +464,7 @@ class EnumerationForm extends React.Component {
 				const valueExist = this.valueAlreadyExist(value.value, prevState);
 				// if the value is empty, no value update is done
 				if (value.value && !valueExist) {
-					item.values = this.constructor.parseStringValueToArray(value.value);
+					item.values = EnumerationForm.parseStringValueToArray(value.value);
 				}
 				if (valueExist) {
 					item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -689,7 +689,7 @@ class EnumerationForm extends React.Component {
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: this.constructor.parseStringValueToArray(value.value),
+						value: EnumerationForm.parseStringValueToArray(value.value),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
@@ -712,7 +712,7 @@ class EnumerationForm extends React.Component {
 			this.setState(prevState => ({
 				items: prevState.items.concat([
 					{
-						values: this.constructor.parseStringValueToArray(value.value),
+						values: EnumerationForm.parseStringValueToArray(value.value),
 					},
 				]),
 			}));
