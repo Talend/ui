@@ -1,6 +1,6 @@
 const operatorNames = {
 	contains: 'contains',
-	equal: '=',
+	equal: 'equal',
 	notEqual: 'notEqual',
 	in: 'in',
 };
@@ -17,7 +17,7 @@ const standardOperators = t => ({
 		label: t('OPERATOR_EQUALS_LABEL', {
 			defaultValue: 'Equals',
 		}),
-		name: '=',
+		name: 'equal',
 		iconName: 'equal',
 	},
 	[operatorNames.contains]: {

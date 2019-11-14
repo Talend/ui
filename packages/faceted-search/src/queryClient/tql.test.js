@@ -18,7 +18,7 @@ describe('createTqlQuery', () => {
 				attribute: 'name',
 				operator: {
 					label: 'Equal',
-					name: '=',
+					name: 'equal',
 					iconName: 'equal',
 				},
 				value: 'another-badge\n\n',
@@ -95,7 +95,7 @@ describe('createTqlQuery', () => {
 					attribute: 'name',
 					operator: {
 						label: 'Equal',
-						name: '=',
+						name: 'equal',
 						iconName: 'equal',
 					},
 					value: 'another-badge\n\n',
