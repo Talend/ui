@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import isBefore from 'date-fns/is_before';
 
 import { DateRangeContext } from '../DateRange/Context';
 
@@ -8,24 +9,42 @@ function Manager(props) {
 		startDate: props.startDate,
 		endDate: props.endDate,
 	});
-	let startRef = useRef(null);
-	let endRef = useRef(null);
 
-	useEffect(() => {
-		if (state.focusedInput === 'startDate' && startRef) {
-			startRef.focus();
-		} else if (state.focusedInput === 'endDate' && endRef) {
-			endRef.focus();
-		}
-	});
-	function onChange(event, payload) {
+	// function onChange(event, payload) {
+	// 	const nextState = {};
+	// 	if (state.focusedInput === 'startDate') {
+	// 		nextState.startDate = payload.date;
+	// 		nextState.focusedInput = 'endDate';
+	// 	} else if (state.focusedInput === 'endDate') {
+	// 		nextState.endDate = payload.date;
+	// 	}
+	// 	setState(prevState => ({ ...prevState, ...nextState }));
+	// 	if (props.onChange) {
+	// 		props.onChange(event, { ...state, ...nextState });
+	// 	}
+	// }
+
+	function onStartChange(event, payload) {
 		const nextState = {};
-		if (state.focusedInput === 'startDate') {
-			nextState.startDate = payload.date;
-			nextState.focusedInput = 'endDate';
-		} else if (state.focusedInput === 'endDate') {
-			nextState.endDate = payload.date;
+		nextState.startDate = payload.date;
+		nextState.focusedInput = 'endDate';
+
+		setState(prevState => ({ ...prevState, ...nextState }));
+		if (props.onChange) {
+			props.onChange(event, { ...state, ...nextState });
 		}
+	}
+
+	function onEndChange(event, payload) {
+		const nextState = {};
+
+		if (state.startDate && isBefore(payload.date, state.startDate)) {
+			nextState.startDate = payload.date;
+		} else {
+			nextState.endDate = payload.date;
+			nextState.focusedInput = null;
+		}
+
 		setState(prevState => ({ ...prevState, ...nextState }));
 		if (props.onChange) {
 			props.onChange(event, { ...state, ...nextState });
@@ -40,9 +59,8 @@ function Manager(props) {
 				startDate: state.startDate,
 				endDate: state.endDate,
 				focusedInput: state.focusedInput,
-				setStartRef: ref => (startRef = ref),
-				setEndRef: ref => (endRef = ref),
-				onChange,
+				onStartChange,
+				onEndChange,
 				onFocus,
 			}}
 		>

@@ -7,21 +7,21 @@ function InputDateRangePicker2(props) {
 	return (
 		<Manager onChange={props.onChange}>
 			<DateRangeContext.Consumer>
-				{({ startDate, endDate, setStartRef, setEndRef, onChange, onFocus }) => (
+				{({ startDate, endDate, onStartChange, onEndChange, onFocus, focusedInput }) => (
 					<div>
 						<InputDatePicker
 							value={startDate}
 							endDate={endDate}
-							onChange={onChange}
+							onChange={onStartChange}
 							onFocus={event => onFocus(event, 'startDate')}
-							setRef={setStartRef}
+							focused={focusedInput === 'startDate'}
 						/>
 						<InputDatePicker
 							value={endDate}
 							startDate={startDate}
-							onChange={onChange}
+							onChange={onEndChange}
 							onFocus={event => onFocus(event, 'endDate')}
-							setRef={setEndRef}
+							focused={focusedInput === 'endDate'}
 						/>
 					</div>
 				)}

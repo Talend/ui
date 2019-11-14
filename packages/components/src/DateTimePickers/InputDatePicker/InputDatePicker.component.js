@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
@@ -38,18 +38,19 @@ export default function InputDatePicker(props) {
 		handleKeyDown: () => focusOnCalendar(containerRef.current),
 	});
 
+	useEffect(() => {
+		if (props.focused && inputRef) {
+			inputRef.current.focus();
+		}
+	}, [props.focused]);
+
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
 		<Date.Input
 			{...inputProps}
 			id={`${props.id}-input`}
 			key="input"
-			inputRef={ref => {
-				inputRef.current = ref;
-				if (props.setRef) {
-					props.setRef(ref);
-				}
-			}}
+			inputRef={inputRef}
 		/>,
 		handlers.showPicker && (
 			<Popper
