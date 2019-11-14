@@ -9,7 +9,6 @@ import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 const getChildren = (children, setOverlayOpened) => {
 	if (typeof children === 'function') {
 		return children(setOverlayOpened);
-
 	}
 	return children;
 };
@@ -75,13 +74,12 @@ const BadgeOverlay = ({
 	);
 
 	const buttonToRender = iconName ? (
-		<TooltipTrigger
-			label={label}
-			tooltipPlacement="top"
-		>
+		<TooltipTrigger label={label} tooltipPlacement="top">
 			{button}
 		</TooltipTrigger>
-	) : button;
+	) : (
+		button
+	);
 
 	return (
 		<div className={className}>
