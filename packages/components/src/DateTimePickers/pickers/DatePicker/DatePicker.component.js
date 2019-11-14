@@ -32,6 +32,9 @@ class DatePicker extends React.PureComponent {
 	}
 
 	isSelectedDate(date) {
+		return this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date);
+	}
+	isHighlightedDate(date) {
 		return (
 			(this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date)) ||
 			this.isStartDate(date) ||
@@ -69,18 +72,6 @@ class DatePicker extends React.PureComponent {
 		const { year, monthIndex } = calendar;
 		const weeks = this.getWeeks(year, monthIndex, 1);
 		return isWithinRange(date, weeks[0][0], weeks[5][6]);
-	}
-
-	isRangeInCurrentCalendar() {
-		const { startDate, endDate, selectedDate } = this.props;
-		if (!startDate && !endDate) {
-			return false;
-		}
-		return (
-			(startDate && this.isDateInCurrentCalendar(startDate)) ||
-			(endDate && this.isDateInCurrentCalendar(endDate)) ||
-			this.isDateInCurrentCalendar(selectedDate)
-		);
 	}
 
 	isDateWithinRange(date) {
@@ -132,7 +123,6 @@ class DatePicker extends React.PureComponent {
 		const weeks = this.getWeeks(year, monthIndex, 1);
 		const dayNames = getDayNames(undefined, this.props.t);
 		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
-		const isRangeInCurrentCalendar = this.isRangeInCurrentCalendar();
 
 		const monthStr = format(setMonth(new Date(0), monthIndex), 'MMMM', pickerLocale);
 
@@ -172,13 +162,11 @@ class DatePicker extends React.PureComponent {
 
 								const cellTheme = {};
 								const dayTheme = {};
-								let isStart = false;
-								let isEnd = false;
-								const isInRange = isRangeInCurrentCalendar && this.isDateWithinRange(date);
+								const isStart = this.isStartDate(date);
+								const isEnd = this.isEndDate(date);
+								const isInRange = this.isDateWithinRange(date);
 
 								if (isInRange) {
-									isStart = this.isStartDate(date);
-									isEnd = this.isEndDate(date);
 									const isMiddle = !isStart && !isEnd && isInRange;
 									cellTheme[theme['date-range']] = isInRange;
 									cellTheme[theme['range-middle']] = isMiddle;
