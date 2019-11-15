@@ -21,7 +21,7 @@ function isDropdown(actionDef) {
 }
 
 function renderActionsGroup(getComponent) {
-	return actions =>  (
+	return actions => (
 		<Actions
 			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
