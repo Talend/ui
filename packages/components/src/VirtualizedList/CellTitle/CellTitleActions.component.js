@@ -20,47 +20,38 @@ function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
 }
 
-function getSeparatorActions(separatorActions, getComponent) {
-	if (!separatorActions || !separatorActions.length) {
-		return null;
-	}
-	return (
-		<React.Fragment>
-			<Actions
-				getComponent={getComponent}
-				className={classNames('cell-title-actions', theme['cell-title-actions'])}
-				key={'large-display-actions'}
-				actions={separatorActions}
-				hideLabel
-				link
-			/>
-			<span
-				className={classNames(
-					'cell-title-actions-separator',
-					theme['cell-title-actions-separator'],
-				)}
-			/>
-		</React.Fragment>
+function renderActionsGroup(getComponent) {
+	return actions =>  (
+		<Actions
+			getComponent={getComponent}
+			className={classNames('cell-title-actions', theme['cell-title-actions'])}
+			key={'large-display-actions'}
+			actions={actions}
+			hideLabel
+			link
+		/>
 	);
 }
 
-function getLargeDisplayActions(separatorActions, actions, getComponent) {
+function getLargeDisplayActions(actions, getComponent) {
 	if (!actions || !actions.length) {
 		return null;
 	}
 
+	if (Array.isArray(actions) &&
+		actions.every(item => Array.isArray(item))) {
+		return actions.map(renderActionsGroup(getComponent));
+	}
+
 	return (
-		<React.Fragment>
-			{getSeparatorActions(separatorActions, getComponent)}
-			<Actions
-				getComponent={getComponent}
-				className={classNames('cell-title-actions', theme['cell-title-actions'])}
-				key={'large-display-actions'}
-				actions={actions}
-				hideLabel
-				link
-			/>
-		</React.Fragment>
+		<Actions
+			getComponent={getComponent}
+			className={classNames('cell-title-actions', theme['cell-title-actions'])}
+			key={'large-display-actions'}
+			actions={actions}
+			hideLabel
+			link
+		/>
 	);
 }
 
@@ -181,17 +172,12 @@ export function CellTitleActionsComponent({
 	}
 
 	const actions = [];
-	let separatorActions = [];
-	const isActionWithSeparator =
-		Array.isArray(dataActions) && dataActions.every(item => Array.isArray(item));
 	if (type === LARGE) {
-		if (isActionWithSeparator) {
-			[separatorActions = [], dataActions = []] = dataActions;
-		}
-		actions.push(getLargeDisplayActions(separatorActions, dataActions, getComponent));
+		actions.push(getLargeDisplayActions(dataActions, getComponent));
 	} else {
 		// flatening in tab case
-		if (isActionWithSeparator) {
+		if (Array.isArray(dataActions) &&
+			dataActions.every(item => Array.isArray(item))) {
 			dataActions = dataActions.flatMap(item => item);
 		}
 		actions.push(getDefaultDisplayActions(dataActions, getComponent, t, id));

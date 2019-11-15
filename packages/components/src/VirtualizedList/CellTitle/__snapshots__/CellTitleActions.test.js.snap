@@ -72,58 +72,56 @@ exports[`CellTitleActions should display all actions on LARGE display mode 1`] =
   id="my-actions"
   onKeyDown={[Function]}
 >
-  <React.Fragment>
-    <Actions
-      actions={
-        Array [
-          Object {
-            "data-feature": "list.item.edit",
-            "icon": "talend-pencil",
-            "id": "edit",
-            "label": "edit",
-            "onClick": [MockFunction],
-          },
-          Object {
-            "data-feature": "list.item.delete",
-            "icon": "talend-trash",
-            "id": "delete",
-            "label": "delete",
-            "onClick": [MockFunction],
-          },
-          Object {
-            "data-feature": "list.item.copy",
-            "icon": "talend-files-o",
-            "id": "copy",
-            "label": "copy",
-            "onClick": [MockFunction],
-          },
-          Object {
-            "data-feature": "list.item.params",
-            "icon": "talend-cog",
-            "id": "params",
-            "label": "edit params",
-            "onClick": [MockFunction],
-          },
-          Object {
-            "data-feature": "list.item.download",
-            "icon": "talend-download",
-            "id": "download",
-            "label": "download",
-            "onClick": [MockFunction],
-          },
-        ]
-      }
-      className="cell-title-actions theme-cell-title-actions"
-      getComponent={[MockFunction]}
-      hideLabel={true}
-      link={true}
-      renderers={
+  <Actions
+    actions={
+      Array [
         Object {
-          "Action": [Function],
-        }
+          "data-feature": "list.item.edit",
+          "icon": "talend-pencil",
+          "id": "edit",
+          "label": "edit",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "data-feature": "list.item.delete",
+          "icon": "talend-trash",
+          "id": "delete",
+          "label": "delete",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "data-feature": "list.item.copy",
+          "icon": "talend-files-o",
+          "id": "copy",
+          "label": "copy",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "data-feature": "list.item.params",
+          "icon": "talend-cog",
+          "id": "params",
+          "label": "edit params",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "data-feature": "list.item.download",
+          "icon": "talend-download",
+          "id": "download",
+          "label": "download",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    className="cell-title-actions theme-cell-title-actions"
+    getComponent={[MockFunction]}
+    hideLabel={true}
+    link={true}
+    renderers={
+      Object {
+        "Action": [Function],
       }
-    />
-  </React.Fragment>
+    }
+  />
 </div>
 `;
 

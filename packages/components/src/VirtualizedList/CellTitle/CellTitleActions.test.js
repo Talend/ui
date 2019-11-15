@@ -343,7 +343,7 @@ describe('CellTitleActions', () => {
 		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
 	});
 
-	it('should render all type of actions with separator in large type', () => {
+	it('should render two actions group in separator case', () => {
 		// when
 		const wrapper = shallow(
 			<CellTitleActionsComponent
@@ -355,6 +355,6 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('.cell-title-actions-separator').length).toBe(1);
+		expect(wrapper.find('.cell-title-actions').length).toBe(2);
 	});
 });

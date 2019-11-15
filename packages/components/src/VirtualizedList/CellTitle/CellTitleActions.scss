@@ -13,19 +13,15 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 	top: 0;
 	height: $btn-line-height;
 
-	.cell-title-actions-separator {
-		visibility: hidden;
-		opacity: 0;
-		&:after {
-			content: '|';
-			color: $dark-silver;
-		}
-	}
-
 	.cell-title-actions {
 		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
 		opacity: 0;
 		visibility: hidden;
+
+		&:not(:last-child):after {
+			content: '|';
+			color: $dark-silver;
+		}
 
 		.cell-title-actions-menu {
 			&:after {
