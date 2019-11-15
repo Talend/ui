@@ -57,17 +57,21 @@ function ContextualManager(props) {
 
 	function onChange(event, nextState) {
 		const errors = [...(nextState.errors || [])];
-		if (nextState.startDate.value && nextState.endDate.value) {
-			if (!isBefore(nextState.startDate.value, nextState.endDate.value)) {
+		const startDate = nextState.startDate.value;
+		const endDate = nextState.endDate.value;
+
+		if (startDate && endDate) {
+			if (!isBefore(startDate, endDate)) {
 				errors.push(new DateRangePickerException('DATE_RANGE_INVALID', 'DATE_RANGE_INVALID'));
 			}
 		}
+
 		if (props.onChange) {
 			const payload = {
-				startDate: nextState.startDate.value,
-				endDate: nextState.endDate.value,
-				errors: nextState.errors,
-				errorMessage: nextState.errorMessage,
+				startDate,
+				endDate,
+				errors,
+				errorMessage: errors[0] ? errors[0].errorMessage : null,
 				origin: nextState.origin,
 			};
 			props.onChange(event, payload);
