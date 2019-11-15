@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import isAfter from 'date-fns/is_after';
 import isBefore from 'date-fns/is_before';
 
 import { DateRangeContext } from '../Context';
-import { START_DATE, END_DATE } from '../constants';
+import getErrorMessage from '../../shared/error-messages';
+
 import {
 	extractDate,
 	extractFromDate,
 	extractPartsFromTextInput,
 } from '../../Date/date-extraction';
+
+export function DateRangePickerException(code, message) {
+	this.message = getErrorMessage(message);
+	this.code = code;
+}
 
 function extractRangeParts(startDate, endDate, options) {
 	const startDateParts = extractDate(startDate, options);
@@ -43,19 +48,6 @@ function ContextualManager(props) {
 		}
 	}, [props.startDate, props.endDate]);
 
-	function onDatesChange(event, nextState) {
-		if (props.onChange) {
-			const payload = {
-				startDate: nextState.startDate.value,
-				endDate: nextState.endDate.value,
-				errors: nextState.errors,
-				errorMessage: nextState.errorMessage,
-				origin: 'RANGE_PICKER',
-			};
-			props.onChange(event, payload);
-		}
-	}
-
 	function onFocusChange(event, focusedInput) {
 		setState(prevState => ({
 			...prevState,
@@ -63,56 +55,55 @@ function ContextualManager(props) {
 		}));
 	}
 
+	function onChange(event, nextState) {
+		const errors = [...(nextState.errors || [])];
+		if (nextState.startDate.value && nextState.endDate.value) {
+			if (!isBefore(nextState.startDate.value, nextState.endDate.value)) {
+				errors.push(new DateRangePickerException('DATE_RANGE_INVALID', 'DATE_RANGE_INVALID'));
+			}
+		}
+		if (props.onChange) {
+			const payload = {
+				startDate: nextState.startDate.value,
+				endDate: nextState.endDate.value,
+				errors: nextState.errors,
+				errorMessage: nextState.errorMessage,
+				origin: nextState.origin,
+			};
+			props.onChange(event, payload);
+		}
+	}
+
 	function onStartChange(event, { date: startDate }) {
 		const { date, textInput } = extractFromDate(startDate, options);
 		const nextState = {};
 
-		// clear endDate when new startDate is after existing endDate
-		if (state.endDate.value && isAfter(date, state.endDate.value)) {
-			nextState.endDate = {
-				value: undefined,
-				textInput: '',
-			};
-		}
 		nextState.startDate = {
 			value: date,
 			textInput,
 		};
 
-		// move focus to endDate
-		nextState.focusedInput = END_DATE;
-
 		setState(prevState => ({
 			...prevState,
 			...nextState,
 		}));
-		onDatesChange(event, { ...state, ...nextState });
+		onChange(event, { ...state, ...nextState, origin: 'START_PICKER' });
 	}
 
 	function onEndChange(event, { date: endDate }) {
 		const { date, textInput } = extractFromDate(endDate, options);
 		const nextState = {};
 
-		// reset startDate when select a day before existing startDate
-		if (state.startDate.value && isBefore(date, state.startDate.value)) {
-			nextState.startDate = {
-				value: date,
-				textInput,
-			};
-		} else {
-			nextState.endDate = {
-				value: date,
-				textInput,
-			};
+		nextState.endDate = {
+			value: date,
+			textInput,
+		};
 
-			// move focus to startDate is not selected yet
-			nextState.focusedInput = state.startDate.value ? null : START_DATE;
-		}
 		setState(prevState => ({
 			...prevState,
 			...nextState,
 		}));
-		onDatesChange(event, { ...state, ...nextState });
+		onChange(event, { ...state, ...nextState, origin: 'END_PICKER' });
 	}
 
 	function onStartInputChange(event) {
@@ -130,7 +121,7 @@ function ContextualManager(props) {
 			errors,
 			errorMessage,
 		}));
-		onDatesChange(event, { ...state, startDate: { value: localDate }, errors, errorMessage });
+		onChange(event, { ...state, startDate: { value: localDate }, errors, errorMessage });
 	}
 
 	function onEndInputChange(event) {
@@ -148,7 +139,7 @@ function ContextualManager(props) {
 			errors,
 			errorMessage,
 		}));
-		onDatesChange(event, { ...state, endDate: { value: localDate }, errors, errorMessage });
+		onChange(event, { ...state, endDate: { value: localDate }, errors, errorMessage });
 	}
 
 	return (
@@ -160,7 +151,6 @@ function ContextualManager(props) {
 					onStartChange: onStartInputChange,
 					onEndChange: onEndInputChange,
 					onFocus: onFocusChange,
-					focusedInput: state.focusedInput,
 					placeholder: props.dateFormat,
 				},
 				pickerManagement: {

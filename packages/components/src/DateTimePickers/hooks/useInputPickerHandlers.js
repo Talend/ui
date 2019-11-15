@@ -22,13 +22,17 @@ export default function useInputPickerHandlers({ handleBlur, handleChange, handl
 		if (handleChange) {
 			handleChange(event, payload);
 		}
-		if (payload.origin !== 'INPUT' && payload.origin !== 'RANGE_PICKER') {
-			// inputRef.focus();
+		if (
+			payload.origin !== 'INPUT' &&
+			payload.origin !== 'START_PICKER' &&
+			payload.origin !== 'END_PICKER'
+		) {
+			inputRef.focus();
 			setPicked(true);
 			closePicker();
 		}
-		if (payload.origin === 'RANGE_PICKER') {
-			if (payload.startDate && payload.endDate && inputRef === null) {
+		if (payload.origin === 'START_PICKER' || payload.origin === 'END_PICKER') {
+			if (payload.startDate && payload.endDate) {
 				setPicked(true);
 				closePicker();
 			}

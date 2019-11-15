@@ -17,15 +17,12 @@ describe('DateRange.Picker', () => {
 			pickerManagement: {
 				onStartChange: jest.fn(),
 			},
-			inputManagement: {
-				focusedInput: 'startDate',
-			},
 		};
 
 		// when
 		const wrapper = mount(
 			<DateRangeContext.Provider value={managerValue}>
-				<Picker other="custom props" />
+				<Picker other="custom props" focusedInput="startDate" />
 			</DateRangeContext.Provider>,
 		);
 
@@ -42,6 +39,7 @@ describe('DateRange.Picker', () => {
 			selectedDate: new Date(2007, 0, 2),
 			endDate: new Date(2007, 1, 2),
 			t: expect.any(Function),
+			focusedInput: 'startDate',
 		});
 	});
 
@@ -57,14 +55,11 @@ describe('DateRange.Picker', () => {
 			pickerManagement: {
 				onStartChange: jest.fn(),
 			},
-			inputManagement: {
-				focusedInput: 'startDate',
-			},
 		};
 
 		const wrapper = mount(
 			<DateRangeContext.Provider value={managerValue}>
-				<Picker />
+				<Picker focusedInput="startDate" />
 			</DateRangeContext.Provider>,
 		);
 		expect(managerValue.pickerManagement.onStartChange).not.toBeCalled();
