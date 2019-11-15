@@ -236,4 +236,84 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual("(name != 'product name')");
 	});
+	it('should return an unequal tql query when value is using the greaterThan operator', () => {
+		// Given
+		const badgeNotEqual = [
+			{
+				properties: {
+					attribute: 'price',
+					operator: {
+						label: 'Greater than',
+						name: 'greaterThan',
+						iconName: 'greater-than',
+					},
+					value: '2298.23',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgeNotEqual);
+		// Then
+		expect(result).toEqual("(price > '2298.23')");
+	});
+	it('should return an unequal tql query when value is using the greaterThanOrEqual operator', () => {
+		// Given
+		const badgeNotEqual = [
+			{
+				properties: {
+					attribute: 'price',
+					operator: {
+						label: 'Greater than or equal',
+						name: 'greaterThanOrEqual',
+						iconName: 'greater-than-equal',
+					},
+					value: '12.9823',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgeNotEqual);
+		// Then
+		expect(result).toEqual("(price >= '12.9823')");
+	});
+	it('should return an unequal tql query when value is using the lessThan operator', () => {
+		// Given
+		const badgeNotEqual = [
+			{
+				properties: {
+					attribute: 'price',
+					operator: {
+						label: 'Less than',
+						name: 'lessThan',
+						iconName: 'less-than',
+					},
+					value: '20938.20938',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgeNotEqual);
+		// Then
+		expect(result).toEqual("(price < '20938.20938')");
+	});
+	it('should return an unequal tql query when value is using the lessThanOrEqual operator', () => {
+		// Given
+		const badgeNotEqual = [
+			{
+				properties: {
+					attribute: 'price',
+					operator: {
+						label: 'Less than or equal',
+						name: 'lessThanOrEqual',
+						iconName: 'less-than-equal',
+					},
+					value: '20982309892.23',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgeNotEqual);
+		// Then
+		expect(result).toEqual("(price <= '20982309892.23')");
+	});
 });

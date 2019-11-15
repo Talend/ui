@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeTextForm should mount a default badge 1`] = `
+<form class="tc-badge-number-form theme-tc-badge-number-form"
+      id="customId-number"
+>
+  <div id="customId"
+       class="theme-body tc-tooltip-body tc-badge-number-form-body theme-tc-badge-number-form-body"
+  >
+    <div id="customId-content"
+         class="theme-content tc-tooltip-content"
+    >
+      <div class="form-group theme-template">
+        <input id="customId-input"
+               class="form-control"
+               placeholder="Apply"
+               type="number"
+               aria-invalid="false"
+               aria-describedby="customId-input-description customId-input-error"
+               value
+        >
+        <div>
+          <p class="help-block"
+             id="customId-input-description"
+          >
+          </p>
+          <p class="help-block"
+             role="status"
+             aria-live="assertive"
+             id="customId-input-error"
+          >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="customId"
+          class="theme-footer tc-tooltip-footer"
+  >
+    <button aria-label="Apply"
+            type="submit"
+            class="btn btn-info"
+    >
+      <span>
+        Apply
+      </span>
+    </button>
+  </footer>
+</form>
+`;
