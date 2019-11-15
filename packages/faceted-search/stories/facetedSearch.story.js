@@ -17,7 +17,7 @@ const badgeName = {
 	metadata: {
 		badges_per_facet: 'N',
 		entities_per_badge: '1',
-		operators: ['contains', '='],
+		operators: ['contains', 'equal', 'notEqual'],
 	},
 };
 

@@ -30,8 +30,9 @@ const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
  */
 const getTqlClassOperatorsDictionary = query => ({
 	contains: query.contains,
-	'=': query.equal,
+	equal: query.equal,
 	in: query.in,
+	notEqual: query.unequal,
 });
 
 const formatValue = value => {
