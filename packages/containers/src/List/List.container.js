@@ -70,11 +70,11 @@ export function getItems(context, props) {
 	return props.items.toJS().map(item => {
 		const actionsItems = get(props, 'actions.items', []);
 		let actions = [];
-		if (Array.isArray(actionsItems) &&
-			actionsItems.every(actionsItem => Array.isArray(actionsItem))) {
-			actions = actionsItems.map(actionArray => (
-				getActionsProps(context, actionArray, item)
-			));
+		if (
+			Array.isArray(actionsItems) &&
+			actionsItems.every(actionsItem => Array.isArray(actionsItem))
+		) {
+			actions = actionsItems.map(actionArray => getActionsProps(context, actionArray, item));
 		} else {
 			// simple array of actions
 			actions = getActionsProps(context, actionsItems, item);

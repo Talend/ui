@@ -38,8 +38,7 @@ function getLargeDisplayActions(actions, getComponent) {
 		return null;
 	}
 
-	if (Array.isArray(actions) &&
-		actions.every(item => Array.isArray(item))) {
+	if (Array.isArray(actions) && actions.every(item => Array.isArray(item))) {
 		return actions.map(renderActionsGroup(getComponent));
 	}
 
@@ -176,8 +175,7 @@ export function CellTitleActionsComponent({
 		actions.push(getLargeDisplayActions(dataActions, getComponent));
 	} else {
 		// flatening in tab case
-		if (Array.isArray(dataActions) &&
-			dataActions.every(item => Array.isArray(item))) {
+		if (Array.isArray(dataActions) && dataActions.every(item => Array.isArray(item))) {
 			dataActions = dataActions.flatMap(item => item);
 		}
 		actions.push(getDefaultDisplayActions(dataActions, getComponent, t, id));
