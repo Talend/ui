@@ -42,16 +42,7 @@ function getLargeDisplayActions(actions, getComponent) {
 		return actions.map(renderActionsGroup(getComponent));
 	}
 
-	return (
-		<Actions
-			getComponent={getComponent}
-			className={classNames('cell-title-actions', theme['cell-title-actions'])}
-			key={'large-display-actions'}
-			actions={actions}
-			hideLabel
-			link
-		/>
-	);
+	return renderActionsGroup(getComponent)(actions);
 }
 
 function getDefaultDisplayActions(actions, getComponent, t, id) {
