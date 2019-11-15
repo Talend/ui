@@ -114,9 +114,9 @@ stories
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction}>
-				{/*<SubHeaderBar.Content tag="form" center>*/}
+				<SubHeaderBar.Content tag="form" center>
 					<input id="inputTitle" type="text" onChange={action('onChange')} value="" />
-				{/*</SubHeaderBar.Content>*/}
+				</SubHeaderBar.Content>
 			</SubHeaderBar>
 		</div>
 	))

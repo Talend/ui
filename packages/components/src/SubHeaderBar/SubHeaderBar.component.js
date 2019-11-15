@@ -2,7 +2,7 @@ import has from 'lodash/has';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import { Action } from '../Actions';
@@ -60,7 +60,6 @@ CustomInject.propTypes = {
 };
 
 function SubHeaderBar({
-	t,
 	onGoBack,
 	components,
 	getComponent,
@@ -73,6 +72,7 @@ function SubHeaderBar({
 	children,
 	...rest
 }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const injected = Inject.all(getComponent, components, CustomInject);
 	const Renderer = Inject.getAll(getComponent, { Action, ActionBar });
 	const hasRight =
@@ -170,5 +170,5 @@ SubHeaderBar.defaultProps = {
 };
 SubHeaderBar.Content = SubHeaderBarActions;
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(SubHeaderBar);
+export default SubHeaderBar;
 export { SubHeaderBar, SubHeaderBarActions, CustomInject };
