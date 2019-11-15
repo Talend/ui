@@ -54,7 +54,6 @@ const componentAction = {
 };
 
 const center = (
-	<SubHeaderBar.Content center>
 		<FilterBar
 			t={() => action('t')}
 			onFilter={() => action('onFilter')}
@@ -62,7 +61,6 @@ const center = (
 			docked={false}
 			dockable={false}
 		/>
-	</SubHeaderBar.Content>
 );
 
 const stories = storiesOf('SubHeaderBar', module);
@@ -116,9 +114,9 @@ stories
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction}>
-				<SubHeaderBar.Content tag="form" center>
+				{/*<SubHeaderBar.Content tag="form" center>*/}
 					<input id="inputTitle" type="text" onChange={action('onChange')} value="" />
-				</SubHeaderBar.Content>
+				{/*</SubHeaderBar.Content>*/}
 			</SubHeaderBar>
 		</div>
 	))

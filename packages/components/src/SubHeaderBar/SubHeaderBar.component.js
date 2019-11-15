@@ -70,6 +70,7 @@ function SubHeaderBar({
 	center,
 	right,
 	rightActionsLoading,
+	children,
 	...rest
 }) {
 	const injected = Inject.all(getComponent, components, CustomInject);
@@ -126,6 +127,7 @@ function SubHeaderBar({
 					<TitleSubHeader t={t} getComponent={getComponent} {...rest} />
 					{injected('after-title')}
 				</SubHeaderBarActions>
+				{children}
 				{Array.isArray(left) && (
 					<SubHeaderBarActions left>
 						{left.map((item, index) => (
