@@ -1,0 +1,35 @@
+{
+  "doc": "Enumeration/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Enumeration",
+    "properties": {
+      "dictionary": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+
+        }
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "dictionary.items",
+      "widget": "enumeration"
+    }
+  ],
+  "properties": {
+    "dictionary": {
+      "items": [{ "values": ["1"]}, { "values": ["2"]}]
+    }
+  }
+}
