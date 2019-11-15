@@ -54,6 +54,7 @@ const componentAction = {
 };
 
 const center = (
+	<SubHeaderBar.Content center>
 		<FilterBar
 			t={() => action('t')}
 			onFilter={() => action('onFilter')}
@@ -61,6 +62,7 @@ const center = (
 			docked={false}
 			dockable={false}
 		/>
+	</SubHeaderBar.Content>
 );
 
 const stories = storiesOf('SubHeaderBar', module);
