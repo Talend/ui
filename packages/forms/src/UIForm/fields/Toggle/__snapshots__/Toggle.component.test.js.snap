@@ -20,7 +20,6 @@ exports[`Toggle field should render autoFocused input 1`] = `
     id="myForm"
     intermediate={false}
     label="My input title"
-    onBlur={[Function]}
     onChange={[Function]}
   />
 </FieldTemplate>
@@ -45,7 +44,6 @@ exports[`Toggle field should render disabled input 1`] = `
     id="myForm"
     intermediate={false}
     label="My input title"
-    onBlur={[Function]}
     onChange={[Function]}
   />
 </FieldTemplate>
@@ -70,7 +68,6 @@ exports[`Toggle field should render input 1`] = `
     id="myForm"
     intermediate={false}
     label="My input title"
-    onBlur={[Function]}
     onChange={[Function]}
   />
 </FieldTemplate>

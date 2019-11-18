@@ -297,4 +297,35 @@ storiesOf('CollapsiblePanel', module)
 				expanded
 			/>
 		</div>
+	))
+	.add('Nested', () => (
+		<div className="col-lg-offset-1 col-lg-10">
+			<IconsProvider defaultIcons={icons} />
+			<h1>Nested</h1>
+			<CollapsiblePanel
+				id="panel-nested-1"
+				header={[{ label: 'First level CollapsiblePanel' }]}
+				onToggle={action('onToggle')}
+				onSelect={action('onSelect')}
+				expanded
+			>
+				<CollapsiblePanel
+					id="panel-nested-2"
+					header={[{ label: 'Second level CollapsiblePanel' }]}
+					onToggle={action('onToggle')}
+					onSelect={action('onSelect')}
+					expanded
+				>
+					<CollapsiblePanel
+						id="panel-nested-3"
+						header={[{ label: 'Third level CollapsiblePanel' }]}
+						onToggle={action('onToggle')}
+						onSelect={action('onSelect')}
+						expanded
+					>
+						Lorem ipsum dolor sit amet.
+					</CollapsiblePanel>
+				</CollapsiblePanel>
+			</CollapsiblePanel>
+		</div>
 	));

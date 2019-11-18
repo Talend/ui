@@ -3,7 +3,7 @@ import React from 'react';
 import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
-import { ObjectViewer as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/ObjectViewer';
 import { cmfConnect } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({
@@ -48,11 +48,13 @@ export function toggleState(prevState, data) {
 export function openAllState(prevState, siblings) {
 	let openedIds = prevState.state.get('opened');
 
-	siblings.filter(({ data }) => typeof data === 'object').forEach(({ jsonpath }) => {
-		if (!openedIds.includes(jsonpath)) {
-			openedIds = openedIds.push(jsonpath);
-		}
-	});
+	siblings
+		.filter(({ data }) => typeof data === 'object')
+		.forEach(({ jsonpath }) => {
+			if (!openedIds.includes(jsonpath)) {
+				openedIds = openedIds.push(jsonpath);
+			}
+		});
 
 	return prevState.state.set('opened', openedIds);
 }

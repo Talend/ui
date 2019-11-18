@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
-import { AboutDialog as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/AboutDialog';
 import Constants from './AboutDialog.constant';
 
 export const DEFAULT_STATE = new Map({

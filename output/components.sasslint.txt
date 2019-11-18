@@ -2,16 +2,13 @@
 
 
 src/CollapsiblePanel/CollapsiblePanel.scss
-  143:5  error  Mixins should come before declarations  mixins-before-declarations
-
-src/DateTimePickers/pickers/TimePicker/TimePicker.scss
-  26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  142:5  error  Mixins should come before declarations  mixins-before-declarations
 
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
-  48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  53:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/GuidedTour/GuidedTour.scss
   71:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
@@ -26,5 +23,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 11 problems (9 errors, 2 warnings)
+✖ 10 problems (8 errors, 2 warnings)
 

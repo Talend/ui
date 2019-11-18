@@ -11,6 +11,10 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
+function forceBlur(event) {
+	event.target.blur();
+}
+
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
 		case keycode.codes.enter:
@@ -34,9 +38,9 @@ function FilterInput(props) {
 		debounceMinLength,
 		debounceTimeout,
 		onBlur,
+		onClear,
 		onFocus,
 		onFilter,
-		onToggle,
 		autoFocus,
 		placeholder,
 		value,
@@ -54,10 +58,14 @@ function FilterInput(props) {
 		autoComplete: 'off',
 		className: classNames(theme.search),
 		'aria-label': placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' }),
-		onBlur: onBlur && (event => onBlur(event, event.target.value)),
+		onBlur:
+			onBlur &&
+			(event => {
+				onBlur(event, event.target.value);
+			}),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
 		onChange: event => onFilter(event, event.target.value),
-		onKeyDown: event => onKeyDown(event, onToggle, onBlur),
+		onKeyDown: event => onKeyDown(event, onClear, forceBlur),
 		autoFocus,
 		role: 'searchbox',
 	};
@@ -81,9 +89,9 @@ FilterInput.propTypes = {
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	onBlur: PropTypes.func,
+	onClear: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
-	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	'data-test': PropTypes.string,
@@ -102,6 +110,7 @@ export class FilterBarComponent extends React.Component {
 		this.onBlur = this.onBlur.bind(this);
 		this.onFilter = this.onFilter.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onClear = this.onClear.bind(this);
 		this.state = { focus: this.props.focus, value: this.props.value };
 	}
 
@@ -123,6 +132,15 @@ export class FilterBarComponent extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
+		if (!this.state.value) {
+			this.props.onToggle(event);
+		}
+	}
+
+	onClear(event) {
+		// needed to avoid blur of the input
+		event.preventDefault();
+		this.onFilter({ target: { value: '' } });
 	}
 
 	onFilter(event) {
@@ -168,7 +186,12 @@ export class FilterBarComponent extends React.Component {
 						[theme.animate]: this.props.dockable,
 					})}
 				>
-					<Icon name="talend-search" className={theme['search-icon']} />
+					<Icon
+						name="talend-search"
+						className={classNames(theme['search-icon'], {
+							[theme['search-focused']]: this.state.focus,
+						})}
+					/>
 					<FilterInput
 						data-test={this.props['data-test']}
 						autoFocus={this.props.autoFocus}
@@ -176,6 +199,7 @@ export class FilterBarComponent extends React.Component {
 						debounceMinLength={this.props.debounceMinLength}
 						debounceTimeout={this.props.debounceTimeout}
 						onBlur={this.onBlur}
+						onClear={this.onClear}
 						onFocus={this.onFocus}
 						onFilter={this.onFilter}
 						onToggle={this.props.onToggle}
@@ -184,16 +208,18 @@ export class FilterBarComponent extends React.Component {
 						dockable={this.props.dockable}
 						t={t}
 					/>
-					<Action
-						className={theme.remove}
-						id={this.props.id && `${this.props.id}-cross-icon`}
-						bsStyle="link"
-						icon="talend-cross"
-						label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
-						hideLabel
-						tooltipPlacement={this.props.tooltipPlacement}
-						onClick={this.props.onToggle}
-					/>
+					{this.state.value ? (
+						<Action
+							className={theme.remove}
+							id={this.props.id && `${this.props.id}-cross-icon`}
+							bsStyle="link"
+							icon="talend-cross"
+							label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
+							hideLabel
+							tooltipPlacement={this.props.tooltipPlacement}
+							onMouseDown={this.onClear}
+						/>
+					) : null}
 				</div>
 			</form>
 		);

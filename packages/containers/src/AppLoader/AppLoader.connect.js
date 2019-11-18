@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { cmfConnect } from '@talend/react-cmf';
-import { AppLoader, Inject } from '@talend/react-components';
+import AppLoader from '@talend/react-components/lib/AppLoader';
+import Inject from '@talend/react-components/lib/Inject';
 import { appLoaderSaga } from './AppLoader.saga';
 
 const CustomInject = cmfConnect({

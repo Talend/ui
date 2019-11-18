@@ -42,8 +42,8 @@ export function renderInputComponent(props) {
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
 					autoFocus
-					{...rest}
 					id={key}
+					{...rest}
 					disabled={disabled}
 					readOnly={readOnly}
 					debounceTimeout={debounceTimeout}
@@ -56,9 +56,9 @@ export function renderInputComponent(props) {
 				/>
 			) : (
 				<FormControl
+					id={key}
 					autoFocus
 					{...rest}
-					id={key}
 					disabled={disabled}
 					readOnly={readOnly}
 					inputRef={inputRef}
@@ -89,7 +89,7 @@ renderInputComponent.propTypes = {
 };
 
 function computePopperPosition(data) {
-	const GAP = 15; // the offset between the end of items container and screen boundaries
+	const GAP = 45; // the offset between the end of items container and screen boundaries
 	const inputDimensions = data.offsets.reference;
 	const { top, height } = inputDimensions;
 	const offsetTop = top - GAP;

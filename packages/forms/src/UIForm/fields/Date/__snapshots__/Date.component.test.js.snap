@@ -11,22 +11,19 @@ exports[`Date widget should render date picker 1`] = `
   label="My date title"
   required={true}
 >
-  <InputDateTimePicker
+  <InputDatePicker
     aria-describedby="myForm-description myForm-error"
     aria-invalid={true}
     aria-required={true}
     autoFocus={true}
     dateFormat="YYYY-MM-DD"
-    formMode={false}
     id="myForm"
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type your date here"
     required={true}
-    selectedDateTime="15/02/2018 23:55:32"
-    useSeconds={true}
-    useTime={true}
     useUTC={false}
+    value="15/02/2018 23:55:32"
   />
 </FieldTemplate>
 `;

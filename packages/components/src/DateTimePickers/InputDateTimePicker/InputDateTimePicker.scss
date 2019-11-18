@@ -1,11 +1,9 @@
-$tc-datetimepicker-width: 31rem !default;
-$tc-datetimepicker-background: $white !default;
-$tc-datetimepicker-box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2) !default;
-$tc-datetimepicker-z-index: $zindex-dropdown !default;
+.date-time-picker {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 
-.popper {
-	width: $tc-datetimepicker-width;
-	background: $tc-datetimepicker-background;
-	box-shadow: $tc-datetimepicker-box-shadow;
-	z-index: $tc-datetimepicker-z-index;
+	:global(.date-picker) {
+		margin-right: $padding-small;
+	}
 }

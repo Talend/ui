@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import classNames from 'classnames';
-import { Action } from '../';
+import Action from '../Actions/Action';
 import TreeViewItem from './TreeViewItem';
 import Foldable from './renderers/Foldable';
 import ThreeState from './renderers/ThreeState';
@@ -16,6 +16,8 @@ import Extensions from './Extensions';
 import { Nodes } from './data';
 //import nodeSelectionHandler from './extensions/selectDown';
 const SELECT = 3;
+
+
 import theme from './TreeView.scss';
 import withTreeGesture from '../Gesture/withTreeGesture';
 

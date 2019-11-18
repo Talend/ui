@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
-import { ConfirmDialog } from '@talend/react-components';
+import ConfirmDialog from '@talend/react-components/lib/ConfirmDialog';
 import { Trans, withTranslation } from 'react-i18next';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
@@ -122,13 +122,13 @@ export class DeleteResource extends React.Component {
 		const { resourceTypeLabel, label } = resourceInfo;
 		if (this.props.female) {
 			question = (
-				<Trans i18nKey="DELETE_RESOURCE_MESSAGE" context="female">
+				<Trans i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE" tOptions={{ context: 'female' }}>
 					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
 				</Trans>
 			);
 		} else {
 			question = (
-				<Trans i18nKey="DELETE_RESOURCE_MESSAGE">
+				<Trans i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE">
 					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
 				</Trans>
 			);

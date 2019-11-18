@@ -80,11 +80,13 @@ describe('FilterBar', () => {
 
 	it('should call onToggle on cross icon click', () => {
 		// given
-		const filterInstance = mount(<FilterBarComponent {...defaultProps} />);
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} value={'initial value'} id={'id1'} />,
+		);
 		// when
-		filterInstance.find('button').simulate('click');
+		filterInstance.find('button').simulate('mouseDown');
 		// then
-		expect(defaultProps.onToggle).toBeCalled();
+		expect(defaultProps.onFilter).toBeCalledWith({ target: { value: '' } }, '');
 	});
 
 	it('should still have the icon visible on click', () => {
@@ -118,22 +120,25 @@ describe('FilterBar', () => {
 
 	it('should call onToggle on ESC keydown', () => {
 		// given
-		const props = { ...defaultProps };
+		const props = { ...defaultProps, id: 'id1' };
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 27 });
 		// then
-		expect(props.onToggle).toBeCalled();
+		expect(props.onFilter).toBeCalledWith({ target: { value: '' } }, '');
 	});
 
 	it('should call onToggle on ENTER keydown', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<FilterBarComponent {...props} />);
+		const filterInstance = mount(<FilterBarComponent {...props} id={'filter'} />);
+		expect(document.activeElement.id).toBe('filter-input');
+
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 13 });
+
 		// then
-		expect(props.onBlur).toBeCalled();
+		expect(document.activeElement.id).toBe('');
 	});
 
 	it('should call onFilter with debounce options', done => {
@@ -182,6 +187,17 @@ describe('FilterBar', () => {
 		}, debounceTimeout);
 	});
 
+	it('when value is not empty search icon should be displayed', () => {
+		// given
+		const props = { ...defaultProps, dockable: false };
+		const filterInstance = mount(<FilterBarComponent {...props} />);
+		// when
+		// value is change by the user
+		filterInstance.setState({ value: 'test' });
+		// then the search icon should appear
+		expect(filterInstance.find(Icon).length).toEqual(2);
+	});
+
 	it('when value is reset to undefined form outside search icon should be displayed', () => {
 		// given
 		const props = { ...defaultProps, dockable: false };
@@ -192,6 +208,6 @@ describe('FilterBar', () => {
 		// and reset by the host
 		filterInstance.setProps({ value: undefined });
 		// then the search icon should appear
-		expect(filterInstance.find(Icon).length).toEqual(2);
+		expect(filterInstance.find(Icon).length).toEqual(1);
 	});
 });

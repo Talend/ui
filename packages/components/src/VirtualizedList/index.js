@@ -7,6 +7,7 @@ import { CheckboxColumn } from './CellCheckbox';
 import { DatetimeColumn } from './CellDatetime';
 import { TextIconColumn } from './CellTextIcon';
 import { TitleColumn } from './CellTitle';
+import { BooleanColumn } from './CellBoolean';
 
 export { cellDictionary, headerDictionary } from './utils/dictionary';
 export * from './utils/constants';
@@ -21,5 +22,6 @@ VirtualizedList.Datetime = DatetimeColumn;
 VirtualizedList.Text = Content;
 VirtualizedList.TextIcon = TextIconColumn;
 VirtualizedList.Title = TitleColumn;
+VirtualizedList.Boolean = BooleanColumn;
 
 export default VirtualizedList;

@@ -41,6 +41,7 @@ Array [
         "label": "Select this element",
         "onChange": [MockFunction],
         "onToggleAll": undefined,
+        "selectionMode": undefined,
       }
     }
     dataKey=""
@@ -90,6 +91,7 @@ Array [
     columnData={
       Object {
         "custom": "lol",
+        "getRowState": undefined,
         "id": "my-id",
       }
     }
@@ -113,6 +115,7 @@ Array [
     className="my-classname theme-classname tc-list-cell-id"
     columnData={
       Object {
+        "getRowState": undefined,
         "id": undefined,
       }
     }
@@ -136,6 +139,7 @@ Array [
     className="tc-list-cell-id"
     columnData={
       Object {
+        "getRowState": undefined,
         "id": undefined,
       }
     }
@@ -160,6 +164,7 @@ Array [
     columnData={
       Object {
         "custom": "lol",
+        "getRowState": undefined,
         "id": "my-id",
       }
     }
@@ -185,6 +190,7 @@ Array [
     columnData={
       Object {
         "custom": "lol",
+        "getRowState": undefined,
         "id": "my-id",
       }
     }

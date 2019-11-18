@@ -8,17 +8,9 @@ exports[`Component ErrorPanel should render the error 1`] = `
     Error
     : 
   </p>
-  <React.Fragment>
-    <p>
-      From here you have two choices:
-    </p>
-    <p>
-      1. Refresh the app and retry
-    </p>
-    <p>
-      2. Download the details and then contact the support
-    </p>
-  </React.Fragment>
+  <p>
+    From here you can either refresh or contact the support.
+  </p>
   <button
     className="btn btn-danger btn-inverse"
     data-feature="refresh-on-error"

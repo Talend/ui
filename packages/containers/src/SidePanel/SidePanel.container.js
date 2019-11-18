@@ -1,5 +1,5 @@
 import React from 'react';
-import { SidePanel as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/SidePanel';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
 import omit from 'lodash/omit';

@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateView should render 1`] = `
+<ViewLayout
+  bodyElement={
+    <div
+      className="theme-body"
+    >
+      <div
+        className="theme-date"
+      >
+        <withI18nextTranslation(CalendarGesture(DatePicker))
+          allowFocus={true}
+          calendar={
+            Object {
+              "monthIndex": 5,
+              "year": 2006,
+            }
+          }
+          goToNextMonth={[Function]}
+          goToPreviousMonth={[Function]}
+          onSelect={[MockFunction]}
+        />
+      </div>
+    </div>
+  }
+  header={
+    Object {
+      "leftElement": <Action
+        aria-label="Go to previous month"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
+        label=""
+        onClick={[Function]}
+        tabIndex="-1"
+      />,
+      "middleElement": <withI18nextTranslation(HeaderTitle)
+        button={
+          Object {
+            "aria-label": "Switch to month and year pickers view",
+            "onClick": [MockFunction],
+            "tabIndex": 0,
+          }
+        }
+        monthIndex={5}
+        year={2006}
+      />,
+      "rightElement": <Action
+        aria-label="Go to next month"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
+        iconTransform="rotate-180"
+        label=""
+        onClick={[Function]}
+        tabIndex="-1"
+      />,
+    }
+  }
+/>
+`;
+
+exports[`DateView should render without timePicker 1`] = `
+<ViewLayout
+  bodyElement={
+    <div
+      className="theme-body"
+    >
+      <div
+        className="theme-date"
+      >
+        <withI18nextTranslation(CalendarGesture(DatePicker))
+          allowFocus={true}
+          calendar={
+            Object {
+              "monthIndex": 5,
+              "year": 2006,
+            }
+          }
+          goToNextMonth={[Function]}
+          goToPreviousMonth={[Function]}
+          onSelect={[MockFunction]}
+        />
+      </div>
+    </div>
+  }
+  header={
+    Object {
+      "leftElement": <Action
+        aria-label="Go to previous month"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
+        label=""
+        onClick={[Function]}
+        tabIndex="-1"
+      />,
+      "middleElement": <withI18nextTranslation(HeaderTitle)
+        button={
+          Object {
+            "aria-label": "Switch to month and year pickers view",
+            "onClick": [MockFunction],
+            "tabIndex": 0,
+          }
+        }
+        monthIndex={5}
+        year={2006}
+      />,
+      "rightElement": <Action
+        aria-label="Go to next month"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
+        iconTransform="rotate-180"
+        label=""
+        onClick={[Function]}
+        tabIndex="-1"
+      />,
+    }
+  }
+/>
+`;

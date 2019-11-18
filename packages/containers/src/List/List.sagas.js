@@ -18,7 +18,6 @@ export function* onToggleFilter(data) {
 		Connected.setStateAction(
 			{
 				filterDocked: !data.payload.filterDocked,
-				searchQuery: '',
 			},
 			data.collectionId || 'default',
 		),
