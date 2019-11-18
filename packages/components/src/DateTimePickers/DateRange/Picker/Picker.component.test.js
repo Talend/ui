@@ -15,17 +15,14 @@ describe('DateRange.Picker', () => {
 				value: new Date(2007, 1, 2),
 			},
 			pickerManagement: {
-				onSubmit: jest.fn(),
-			},
-			inputManagement: {
-				focusedInput: 'startDate',
+				onStartChange: jest.fn(),
 			},
 		};
 
 		// when
 		const wrapper = mount(
 			<DateRangeContext.Provider value={managerValue}>
-				<Picker other="custom props" />
+				<Picker other="custom props" focusedInput="startDate" />
 			</DateRangeContext.Provider>,
 		);
 
@@ -37,11 +34,12 @@ describe('DateRange.Picker', () => {
 				.props(),
 		).toEqual({
 			manageFocus: true,
-			onSubmit: managerValue.pickerManagement.onSubmit,
+			onSubmit: managerValue.pickerManagement.onStartChange,
 			other: 'custom props',
 			selectedDate: new Date(2007, 0, 2),
 			endDate: new Date(2007, 1, 2),
 			t: expect.any(Function),
+			focusedInput: 'startDate',
 		});
 	});
 
@@ -55,24 +53,21 @@ describe('DateRange.Picker', () => {
 				value: undefined,
 			},
 			pickerManagement: {
-				onSubmit: jest.fn(),
-			},
-			inputManagement: {
-				focusedInput: 'startDate',
+				onStartChange: jest.fn(),
 			},
 		};
 
 		const wrapper = mount(
 			<DateRangeContext.Provider value={managerValue}>
-				<Picker />
+				<Picker focusedInput="startDate" />
 			</DateRangeContext.Provider>,
 		);
-		expect(managerValue.pickerManagement.onSubmit).not.toBeCalled();
+		expect(managerValue.pickerManagement.onStartChange).not.toBeCalled();
 
 		// when
 		wrapper.find('CalendarPicker').prop('onSubmit')();
 
 		// then
-		expect(managerValue.pickerManagement.onSubmit).toBeCalled();
+		expect(managerValue.pickerManagement.onStartChange).toBeCalled();
 	});
 });

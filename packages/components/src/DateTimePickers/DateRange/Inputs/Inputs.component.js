@@ -16,7 +16,7 @@ const OMIT_PROPS_INPUT = ['t', 'id', 'startInputRef', 'endInputRef'];
 function Inputs(props) {
 	const { t } = props;
 	const { startDate, endDate, inputManagement, focusedInput } = useContext(DateRangeContext);
-	const { placeholder, onChange, onFocus } = inputManagement;
+	const { placeholder, onStartChange, onEndChange, onFocus } = inputManagement;
 
 	let startDateInputRef = useRef(null);
 	let endDateInputRef = useRef(null);
@@ -32,7 +32,9 @@ function Inputs(props) {
 
 	return [
 		<div>
-			<label htmlFor={`${props.id}-start-date-input`} className="control-label">{t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}</label>
+			<label htmlFor={`${props.id}-start-date-input`} className="control-label">
+				{t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
+			</label>
 			<InputSizer placeholder={placeholder} inputText={startDate.value ? startDate.textInput : ''}>
 				{width => (
 					<DebounceInput
@@ -44,7 +46,7 @@ function Inputs(props) {
 						placeholder={placeholder}
 						value={startDate.textInput}
 						style={{ width }}
-						onChange={onChange}
+						onChange={onStartChange}
 						onFocus={event => onFocus(event, START_DATE)}
 						inputRef={ref => {
 							if (props.startInputRef) {
@@ -61,7 +63,9 @@ function Inputs(props) {
 			<Icon name="talend-arrow-right" className={theme.icon} />
 		</span>,
 		<div>
-			<label htmlFor={`${props.id}-end-date-input`} className="control-label">{t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}</label>
+			<label htmlFor={`${props.id}-end-date-input`} className="control-label">
+				{t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
+			</label>
 			<InputSizer placeholder={placeholder} inputText={endDate.value ? endDate.textInput : ''}>
 				{width => (
 					<DebounceInput
@@ -73,7 +77,7 @@ function Inputs(props) {
 						placeholder={placeholder}
 						value={endDate.textInput}
 						style={{ width }}
-						onChange={onChange}
+						onChange={onEndChange}
 						onFocus={event => onFocus(event, END_DATE)}
 						inputRef={ref => {
 							if (props.endInputRef) {

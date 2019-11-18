@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
+import isAfter from 'date-fns/is_after';
+import isBefore from 'date-fns/is_before';
 import isSameDay from 'date-fns/is_same_day';
 import isToday from 'date-fns/is_today';
 import isWithinRange from 'date-fns/is_within_range';
@@ -65,22 +67,11 @@ class DatePicker extends React.PureComponent {
 		return isWithinRange(date, weeks[0][0], weeks[5][6]);
 	}
 
-	isRangeInCurrentCalendar() {
-		const { startDate, endDate } = this.props;
-		if (!startDate && !endDate) {
-			return false;
-		}
-		return (
-			(startDate && this.isDateInCurrentCalendar(startDate)) ||
-			(endDate && this.isDateInCurrentCalendar(endDate))
-		);
-	}
-
 	isDateWithinRange(date) {
 		const { selectedDate, startDate, endDate } = this.props;
-		if (startDate) {
+		if (startDate && isAfter(selectedDate, startDate)) {
 			return isWithinRange(date, startDate, selectedDate);
-		} else if (endDate) {
+		} else if (endDate && isBefore(selectedDate, endDate)) {
 			return isWithinRange(date, selectedDate, endDate);
 		}
 		return false;
@@ -125,7 +116,6 @@ class DatePicker extends React.PureComponent {
 		const weeks = this.getWeeks(year, monthIndex, 1);
 		const dayNames = getDayNames(undefined, this.props.t);
 		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
-		const isRangeInCurrentCalendar = this.isRangeInCurrentCalendar();
 
 		const monthStr = format(setMonth(new Date(0), monthIndex), 'MMMM', pickerLocale);
 
@@ -165,13 +155,11 @@ class DatePicker extends React.PureComponent {
 
 								const cellTheme = {};
 								const dayTheme = {};
-								let isStart = false;
-								let isEnd = false;
-								const isInRange = isRangeInCurrentCalendar && this.isDateWithinRange(date);
+								const isStart = this.isStartDate(date);
+								const isEnd = this.isEndDate(date);
+								const isInRange = this.isDateWithinRange(date);
 
 								if (isInRange) {
-									isStart = this.isStartDate(date);
-									isEnd = this.isEndDate(date);
 									const isMiddle = !isStart && !isEnd && isInRange;
 									cellTheme[theme['date-range']] = isInRange;
 									cellTheme[theme['range-middle']] = isMiddle;
