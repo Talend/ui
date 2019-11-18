@@ -62,7 +62,12 @@ function ContextualManager(props) {
 
 		if (startDate && endDate) {
 			if (!isBefore(startDate, endDate)) {
-				errors.push(new DateRangePickerException('DATE_RANGE_INVALID', 'DATE_RANGE_INVALID'));
+				errors.push(
+					new DateRangePickerException(
+						'INVALID_RANGE_START_AFTER_END',
+						'INVALID_RANGE_START_AFTER_END',
+					),
+				);
 			}
 		}
 
