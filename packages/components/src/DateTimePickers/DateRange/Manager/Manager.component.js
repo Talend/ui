@@ -79,13 +79,15 @@ function ContextualManager(props) {
 	}
 
 	function onStartChange(event, { date: startDate }) {
-		const { date, textInput } = extractFromDate(startDate, options);
+		const { date, textInput, errors, errorMessage } = extractFromDate(startDate, options);
 		const nextState = {};
 
 		nextState.startDate = {
 			value: date,
 			textInput,
 		};
+		nextState.errors = errors;
+		nextState.errorMessage = errorMessage;
 
 		setState(prevState => ({
 			...prevState,
@@ -95,13 +97,15 @@ function ContextualManager(props) {
 	}
 
 	function onEndChange(event, { date: endDate }) {
-		const { date, textInput } = extractFromDate(endDate, options);
+		const { date, textInput, errors, errorMessage } = extractFromDate(endDate, options);
 		const nextState = {};
 
 		nextState.endDate = {
 			value: date,
 			textInput,
 		};
+		nextState.errors = errors;
+		nextState.errorMessage = errorMessage;
 
 		setState(prevState => ({
 			...prevState,
