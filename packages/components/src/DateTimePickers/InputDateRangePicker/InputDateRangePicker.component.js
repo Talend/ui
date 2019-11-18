@@ -14,14 +14,7 @@ import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import theme from './InputDateRangePicker.scss';
 
-const PROPS_TO_OMIT_FOR_INPUT = [
-	'id',
-	'dateFormat',
-	'required',
-	'value',
-	'onBlur',
-	'onChange',
-];
+const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'required', 'value', 'onBlur', 'onChange'];
 
 export default function InputDateRangePicker(props) {
 	const popoverId = `date-range-picker-${props.id || uuid.v4()}`;

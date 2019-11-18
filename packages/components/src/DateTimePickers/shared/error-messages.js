@@ -40,7 +40,9 @@ export default function getErrorMessage(key) {
 		case 'DATETIME_INVALID_FORMAT':
 			return i18next.t('DATETIME_INVALID_FORMAT', { defaultValue: 'Datetime is invalid' });
 		case 'DATE_RANGE_INVALID':
-			return i18next.t('DATE_RANGE_INVALID', { defaultValue: 'end date should be after start date' });
+			return i18next.t('DATE_RANGE_INVALID', {
+				defaultValue: 'end date should be after start date',
+			});
 		default:
 			return '';
 	}
