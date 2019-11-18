@@ -85,6 +85,11 @@ const actionsWithPersistent = {
 	persistentItemsActions: ['object:add'],
 };
 
+const actionsWithSeparator = {
+	items: [['object:add'], actions.items],
+	persistentItemsActions: ['object:add'],
+};
+
 const toolbar = {
 	sort: {
 		field: 'id',
@@ -220,6 +225,14 @@ const ExampleList = {
 			<IconsProvider />
 			<div className="list-container">
 				<List {...props} actions={actionsWithPersistent} items={items} />
+			</div>
+		</div>
+	),
+	'with separator actions': () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} actions={actionsWithSeparator} items={items} />
 			</div>
 		</div>
 	),
