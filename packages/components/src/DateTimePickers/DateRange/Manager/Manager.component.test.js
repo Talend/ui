@@ -365,7 +365,6 @@ describe('DateRange.Manager', () => {
 					expect(onChange).toBeCalledWith(event, {
 						startDate: expectedStartDate,
 						endDate: expectedEndDate,
-						origin: 'RANGE_PICKER',
 						errors: [],
 						errorMessage: null,
 					});
@@ -510,7 +509,7 @@ describe('DateRange.Manager', () => {
 			);
 			cases(
 				'should trigger props.onChange with valid date',
-				({ field, selectedDate, expectedStartDate, expectedEndDate }) => {
+				({ field, selectedDate, expectedStartDate, expectedEndDate, expectedOrigin }) => {
 					// given
 					const onChange = jest.fn();
 					const event = { target: {}, preventDefault: () => {} };
@@ -545,9 +544,9 @@ describe('DateRange.Manager', () => {
 					expect(onChange).toBeCalledWith(event, {
 						startDate: expectedStartDate,
 						endDate: expectedEndDate,
-						errorMessage: undefined,
+						errorMessage: null,
 						errors: [],
-						origin: 'RANGE_PICKER',
+						origin: expectedOrigin,
 					});
 				},
 				[
@@ -556,12 +555,14 @@ describe('DateRange.Manager', () => {
 						field: 'startDate',
 						selectedDate: new Date(2019, 9, 11),
 						expectedStartDate: new Date(2019, 9, 11),
+						expectedOrigin: 'START_PICKER',
 					},
 					{
 						name: 'select date from endDate picker',
 						field: 'endDate',
 						selectedDate: new Date(2019, 9, 11),
 						expectedEndDate: new Date(2019, 9, 11),
+						expectedOrigin: 'END_PICKER',
 					},
 				],
 			);
