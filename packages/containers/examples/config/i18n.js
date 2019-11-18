@@ -9,6 +9,8 @@ i18n.use(initReactI18next).init({
 	resources: {
 		en: {
 			[I18N_DOMAIN_CONTAINERS]: {
+				DELETE_RESOURCE_YES: 'Of Course',
+				DELETE_RESOURCE_NO: 'OH NO!',
 				DELETE_RESOURCE_MESSAGE:
 					'Are you sure you want to remove the <1>{{resourceType}}</1> <3><0>{{label}}</0></3> ?',
 				DELETE_RESOURCE_MESSAGE_female:
@@ -30,9 +32,12 @@ i18n.use(initReactI18next).init({
 				VIRTUALIZEDLIST_NO_RESULT: 'Pas de résultat',
 			},
 			[I18N_DOMAIN_CONTAINERS]: {
-				DELETE_RESOURCE_MESSAGE: 'Êtes-vous sûr(e) de vouloir supprimer le {{resourceLabel}}',
+				DELETE_RESOURCE_YES: 'Bien sûr',
+				DELETE_RESOURCE_NO: 'Meh non',
+				DELETE_RESOURCE_MESSAGE:
+					'Êtes-vous sûr(e) de vouloir supprimer le <1>{{resourceType}}</1> <3><0>{{label}}</0></3> ?',
 				DELETE_RESOURCE_MESSAGE_female:
-					'Êtes-vous sûr(e) de vouloir supprimer la {{resourceLabel}}',
+					'Êtes-vous sûr(e) de vouloir supprimer la <1>{{resourceType}}</1> <3><0>{{label}}</0></3> ?',
 				DELETE_RESOURCE_QUESTION_MARK: ' ?',
 			},
 		},
