@@ -71,7 +71,7 @@ function ContextualManager(props) {
 				startDate,
 				endDate,
 				errors,
-				errorMessage: errors[0] ? errors[0].errorMessage : null,
+				errorMessage: errors[0] ? errors[0].message : null,
 				origin: nextState.origin,
 			};
 			props.onChange(event, payload);
@@ -120,16 +120,19 @@ function ContextualManager(props) {
 			userInput,
 			options,
 		);
-		setState(prevState => ({
-			...prevState,
+		const nextState = {
 			startDate: {
 				value: localDate,
 				textInput,
 			},
 			errors,
 			errorMessage,
+		};
+		setState(prevState => ({
+			...prevState,
+			...nextState,
 		}));
-		onChange(event, { ...state, startDate: { value: localDate }, errors, errorMessage });
+		onChange(event, { ...state, ...nextState });
 	}
 
 	function onEndInputChange(event) {
@@ -138,16 +141,19 @@ function ContextualManager(props) {
 			userInput,
 			options,
 		);
-		setState(prevState => ({
-			...prevState,
+		const nextState = {
 			endDate: {
 				value: localDate,
 				textInput,
 			},
 			errors,
 			errorMessage,
+		};
+		setState(prevState => ({
+			...prevState,
+			...nextState,
 		}));
-		onChange(event, { ...state, endDate: { value: localDate }, errors, errorMessage });
+		onChange(event, { ...state, ...nextState });
 	}
 
 	return (
