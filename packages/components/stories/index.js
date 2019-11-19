@@ -17,6 +17,7 @@ import './CollapsiblePanel';
 import './ColumnChooser';
 import './ConfirmDialog';
 import './Datalist';
+import './LegacyDatePicker';
 import './DatePicker';
 import './Dialog';
 import './Drawer';
