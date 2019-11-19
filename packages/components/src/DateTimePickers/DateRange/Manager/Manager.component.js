@@ -130,7 +130,7 @@ function ContextualManager(props) {
 			...prevState,
 			...nextState,
 		}));
-		onChange(event, { ...state, ...nextState });
+		onChange(event, { ...state, ...nextState, origin: 'START_INPUT' });
 	}
 
 	function onEndInputChange(event) {
@@ -151,7 +151,7 @@ function ContextualManager(props) {
 			...prevState,
 			...nextState,
 		}));
-		onChange(event, { ...state, ...nextState });
+		onChange(event, { ...state, ...nextState, origin: 'END_INPUT' });
 	}
 
 	return (
