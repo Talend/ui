@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import { ActionFile } from '@talend/react-components';
+import ActionFile from '@talend/react-components/lib/Actions/ActionFile';
 
 export function mapStateToProps(state, ownProps) {
 	if (!ownProps.actionId) {

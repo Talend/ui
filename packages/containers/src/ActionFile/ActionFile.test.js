@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ActionFile } from '@talend/react-components';
+import ActionFile from '@talend/react-components/lib/Actions/ActionFile';
 import mock from '@talend/react-cmf/lib/mock';
 
 import Connected, { mapStateToProps, mergeProps, ContainerActionFile } from './ActionFile.connect';

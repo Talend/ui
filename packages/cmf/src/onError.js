@@ -1,3 +1,5 @@
+import get from 'lodash/get';
+import { captureException, withScope, init } from '@sentry/browser';
 import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
@@ -5,31 +7,19 @@ import actions from './actions';
 /* eslint-disable no-param-reassign */
 /**
  * the ref will contains a reference to
- * headers
  * store
  * actions
- * userInfo
  * reportURL
  * error
  * errors
- * subscribe
  */
 const ref = {
-	callbacks: [],
 	errors: [],
 	actions: [],
-	sensibleKeys: [],
 	store: {
 		getState: () => ({}),
 	},
 };
-
-const DICT = 'abcdefghijklmnopqrstuvwxyz0123456789';
-const SENSIBLE_REGEXP = /^_|^\$|password|secret|key|mail/;
-
-function random() {
-	return DICT[Math.floor(Math.random() * DICT.length)];
-}
 
 function serialize(error) {
 	const std = {
@@ -48,69 +38,6 @@ function serialize(error) {
 	return std;
 }
 
-function isSensibleKey(key) {
-	if (key.toLowerCase().match(SENSIBLE_REGEXP) !== null) {
-		return true;
-	}
-	for (let index = 0; index < ref.sensibleKeys.length; index += 1) {
-		if (key.toLowerCase().match(ref.sensibleKeys[index]) !== null) {
-			return true;
-		}
-	}
-	return false;
-}
-
-/**
- * anon() replaces value by a random string if the key is considered sensitive
- */
-function anon(value, key) {
-	if (isSensibleKey(key)) {
-		const buff = [];
-		for (let index = 0; index < value.length; index += 1) {
-			buff.push(random());
-		}
-		return buff.join('');
-	}
-	return value;
-}
-
-/**
- * prepareObject take a JS object and do some process on it
- * - it call toJS on every immutable data
- * - it remove sensitive data
- * @param {Object} originalState object to process
- * @return {Object} friendly with JSON.stringify
- */
-function prepareObject(originalState) {
-	if (originalState === null) {
-		return null;
-	}
-
-	const state = originalState.toJS ? originalState.toJS() : originalState;
-
-	return Object.keys(state).reduce((acc, key) => {
-		const valueType = Array.isArray(acc[key]) ? 'array' : typeof state[key];
-		if (valueType === 'function') {
-			acc[key] = `function-${state[key].name}`;
-		} else if (valueType === 'array') {
-			acc[key] = state[key].map(item => {
-				if (typeof item === 'object') {
-					return prepareObject(item);
-				}
-				return anon(item);
-			});
-		} else if (valueType === 'object') {
-			acc[key] = prepareObject(state[key]);
-		} else if (valueType === 'undefined') {
-			acc[key] = state[key];
-		} else {
-			// anonym it
-			acc[key] = anon(state[key], key);
-		}
-		return acc;
-	}, {});
-}
-
 /**
  * getReportInfo serialize the error and enrich it
  * so as the dev will have as much information as possible
@@ -120,87 +47,110 @@ function getReportInfo(error) {
 		time: new Date().toISOString(),
 		browser: navigator.userAgent,
 		location: location.href,
-		uiState: prepareObject(ref.store.getState()),
-		error: {
-			message: error.message,
-			name: error.name,
-			stack: error.stack,
-		},
+		error: serialize(error),
 		actions: ref.actions,
 	};
+}
+
+/**
+ * @return {Boolean} true if we can do report to backend using reportURL configuration
+ */
+function hasReportURL() {
+	return !!ref.serverURL;
+}
+
+/**
+ * @return {Boolean} true if we can do report to Sentry
+ */
+function hasReportFeature() {
+	return !!ref.SENTRY_DSN || hasReportURL();
 }
 
 /**
  * report function create a serilized error and dispatch action.
  * @param {Error} error instance of Error
  */
-function report(error) {
-	const info = {
-		error: serialize(error),
-		context: JSON.stringify(getReportInfo(error)),
-		reported: false,
-		reason: 'Draft',
-	};
-	ref.error = info;
-	ref.errors.push(info);
-	if (!ref.serverURL) {
-		ref.store.dispatch({
-			type: CONST.ERROR,
-			...info,
-		});
+function report(error, options = {}) {
+	if (ref.SENTRY_DSN) {
+		if (options.tags) {
+			withScope(scope => {
+				options.tags.forEach(tag => scope.setTag(tag.key, tag.value));
+				captureException(error);
+			});
+		} else {
+			captureException(error);
+		}
 	} else {
-		ref.store.dispatch(
-			actions.http.post(ref.serverURL, info, {
-				onError: err => {
-					info.reported = false;
-					info.reason = serialize(err);
-					return {
-						type: CONST.ERROR,
-						...info,
-					};
-				},
-				onResponse: response => {
-					info.reported = true;
-					info.response = response;
-					return {
-						type: CONST.ERROR_REPORTED,
-						...info,
-					};
-				},
-			}),
-		);
+		const info = {
+			error: serialize(error),
+			context: JSON.stringify(getReportInfo(error)),
+			reported: false,
+			reason: 'Draft',
+		};
+		ref.error = info;
+		ref.errors.push(info);
+		if (!ref.serverURL) {
+			ref.store.dispatch({
+				type: CONST.ERROR,
+				...info,
+			});
+		} else {
+			ref.store.dispatch(
+				actions.http.post(ref.serverURL, info.context, {
+					onError: err => {
+						info.reported = false;
+						info.reason = serialize(err);
+						return {
+							type: CONST.ERROR,
+							...info,
+						};
+					},
+					onResponse: response => {
+						info.reported = true;
+						info.response = response;
+						return {
+							type: CONST.ERROR_REPORTED,
+							...info,
+						};
+					},
+				}),
+			);
+		}
 	}
+}
+
+function onJSError(event) {
+	const error = event.error;
+	if (!error) {
+		return;
+	}
+	// remove duplicate in dev mode
+	// SEE: https://github.com/facebook/react/issues/10474
+	if (process.env.NODE_ENV !== 'production') {
+		if (error.ALREADY_THROWN) {
+			return;
+		}
+		error.ALREADY_THROWN = true;
+	}
+	report(error);
 }
 
 /**
- * addAction store last 20 actions to let onError.report use it.
+ * init Sentry lib
+ * @return {[type]} [description]
  */
-function addAction(action) {
-	if (ref.actions.length >= 20) {
-		ref.actions.shift();
+function setupSentry() {
+	if (!ref.SENTRY_DSN) {
+		return;
 	}
+	window.removeEventListener('error', onJSError);
 	try {
-		let safeAction = { ...action };
-		if (safeAction.type === 'DID_MOUNT_SAGA_START') {
-			delete safeAction.props;
-		} else if (safeAction.type === 'REACT_CMF.REQUEST_SETTINGS_OK') {
-			delete safeAction.settings;
-		} else if (safeAction.url === ref.settingsURL) {
-			delete safeAction.response;
-		}
-		safeAction = prepareObject(safeAction);
-		ref.actions.push(safeAction);
+		init({ dsn: ref.SENTRY_DSN });
 	} catch (error) {
 		// eslint-disable-next-line no-console
-		console.error('onError.actions has not been able to add the following action', action, error);
-	}
-}
-
-function addSensibleKeyRegexp(r) {
-	if (r instanceof RegExp) {
-		ref.sensibleKeys.push(r);
-	} else {
-		throw new Error(`${r} is not a regexp`);
+		console.error(error);
+		delete ref.SENTRY_DSN;
+		window.addEventListener('error', onJSError);
 	}
 }
 
@@ -210,17 +160,17 @@ function addSensibleKeyRegexp(r) {
  * @param {Object} store redux
  */
 function bootstrap(options, store) {
+	window.addEventListener('error', onJSError);
 	assertTypeOf(options, 'onError', 'object');
+	ref.SENTRY_DSN = undefined;
 	ref.actions = [];
-	ref.callbacks = [];
 	ref.errors = [];
-	ref.sensibleKeys = [];
 	ref.store = store;
 	const opt = options.onError || {};
 	ref.serverURL = opt.reportURL;
-	ref.settingsURL = options.settingsURL;
-	if (opt.sensibleKeys) {
-		opt.sensibleKeys.forEach(r => addSensibleKeyRegexp(r));
+	if (opt.SENTRY_DSN) {
+		ref.SENTRY_DSN = opt.SENTRY_DSN;
+		setupSentry();
 	}
 }
 
@@ -231,24 +181,38 @@ function getErrors() {
 	return ref.errors;
 }
 
-/**
- * @return {Boolean} true if we can do report to backend
- */
-function hasReportURL() {
-	return !!ref.serverURL;
+function setupFromSettings(settings) {
+	const dsn = get(settings, 'env.SENTRY_DSN');
+	if (!ref.SENTRY_DSN && ref.SENTRY_DSN !== dsn) {
+		ref.SENTRY_DSN = dsn;
+		setupSentry();
+	}
 }
 
 /**
- * simple try catch middleware for redux
+ * onError redux middleware.
+ * it store last 20 actions
+ * it catch settings fetch OK to try to setup Sentry
+ * it try catch every sub actions effect to report error
  */
 function middleware() {
 	return next => action => {
+		if (!ref.SENTRY_DSN) {
+			if (ref.actions.length >= 20) {
+				ref.actions.shift();
+			}
+			ref.actions.push(get(action, 'type', 'UNKNOWN'));
+		}
+		if (action.type === CONST.REQUEST_OK) {
+			setupFromSettings(action.settings);
+		}
 		try {
 			return next(action);
-		} catch (err) {
-			err.action = action;
-			report(err);
-			throw err;
+		} catch (error) {
+			report(error, { tags: [{ key: 'redux-action-type', value: get(action, 'type', 'UNKNOWN') }] });
+			// eslint-disable-next-line no-console
+			console.error(error);
+			return undefined;
 		}
 	};
 }
@@ -270,8 +234,8 @@ function revokeObjectURL(url) {
 
 export default {
 	bootstrap,
-	addAction,
 	hasReportURL,
+	hasReportFeature,
 	getReportInfo,
 	report,
 	getErrors,

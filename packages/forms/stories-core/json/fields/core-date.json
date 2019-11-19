@@ -24,6 +24,16 @@
       "dateTimeUTC": {
         "type": "string",
         "format": "iso-datetime"
+      },
+      "dateTimeTimezone": {
+        "type": "string",
+        "format": "iso-datetime"
+      },
+      "time": {
+        "type": "string"
+      },
+      "timeWithSeconds": {
+        "type": "string"
       }
     },
     "required": ["dateAsString"]
@@ -67,6 +77,28 @@
       "options": {
         "useSeconds": true,
         "useUTC": true
+      }
+    },
+    {
+      "key": "dateTimeTimezone",
+      "title": "Datetime in timezone",
+      "widget": "datetime",
+      "options": {
+        "useSeconds": true,
+        "timezone": "America/New_York"
+      }
+    },
+    {
+      "key": "time",
+      "title": "Time",
+      "widget": "time"
+    },
+    {
+      "key": "timeWithSeconds",
+      "title": "Time with seconds",
+      "widget": "time",
+      "options": {
+        "useSeconds": true
       }
     }
   ],

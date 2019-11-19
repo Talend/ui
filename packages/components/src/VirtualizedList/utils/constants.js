@@ -14,6 +14,11 @@ export const SORT_BY = {
 	DESC: 'DESC',
 };
 
+export const SELECTION_MODE = {
+	MULTI: 'MULTI',
+	SINGLE: 'SINGLE',
+};
+
 export const internalIds = {
 	rowSelector: 'tc-list-internal-row-selector',
 };

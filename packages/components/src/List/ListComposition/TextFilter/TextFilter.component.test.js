@@ -105,4 +105,110 @@ describe('TextFilter', () => {
 		expect(onToggle).toHaveBeenCalled();
 		expect(onChange).toHaveBeenCalledWith({}, 'my-filter-value');
 	});
+
+	it('should not be docked when text filter is not empty', () => {
+		// given
+		const context = {
+			...defaultContext,
+			textFilter: 'my-filter-value',
+			setTextFilter: jest.fn(),
+		};
+
+		// when
+		let wrapper;
+		act(() => {
+			wrapper = mount(
+				<ListContext.Provider value={context}>
+					<TextFilter id="myTextFilter" initialDocked />
+				</ListContext.Provider>,
+			);
+
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onToggle')();
+		});
+		wrapper.update();
+
+		// then
+		expect(
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('docked'),
+		).toBe(false);
+		expect(
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('value'),
+		).toBe('my-filter-value');
+
+		// when
+		act(() => {
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onToggle')();
+		});
+		wrapper.update();
+
+		// then
+		expect(
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('docked'),
+		).toBe(false);
+	});
+
+	it('should be docked when text filter is empty', () => {
+		// given
+		const context = {
+			...defaultContext,
+			textFilter: '',
+			setTextFilter: jest.fn(),
+		};
+
+		// when
+		let wrapper;
+		act(() => {
+			wrapper = mount(
+				<ListContext.Provider value={context}>
+					<TextFilter id="myTextFilter" initialDocked />
+				</ListContext.Provider>,
+			);
+
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onToggle')();
+		});
+		wrapper.update();
+
+		// then
+		expect(
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('docked'),
+		).toBe(false);
+
+		// when
+		act(() => {
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onToggle')();
+		});
+		wrapper.update();
+
+		// then
+		expect(
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('docked'),
+		).toBe(true);
+	});
 });

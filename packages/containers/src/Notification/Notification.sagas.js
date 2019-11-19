@@ -22,6 +22,9 @@ export function* onPushNotification(action) {
 }
 
 function* onCMFError(action) {
+	if (process.env.DISABLE_JS_ERROR_NOTIFICATION && process.env.NODE_ENV === 'production') {
+		return;
+	}
 	const error = action.error;
 	const download = {
 		href: onError.createObjectURL(error),
@@ -31,8 +34,8 @@ function* onCMFError(action) {
 	};
 	const notification = {
 		type: 'error',
-		title: `${error.name}: ${error.message}`,
-		message: error.stack,
+		title: error.name,
+		message: error.message,
 		action: download,
 	};
 	yield put(pushError(notification));

@@ -1,0 +1,10 @@
+.tc-basic-search {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	height: inherit;
+	margin-right: $padding-large;
+	overflow: auto;
+	padding-left: $padding-large;
+	width: calc(100% - 15rem);
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import cases from 'jest-in-case';
 
 import Manager from './Manager.component';
 import { DateTimeContext } from '../Context';
-import { FIELD_HOURS } from '../constants';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
@@ -24,7 +24,7 @@ describe('DateTime.Manager', () => {
 	it('should render its children', () => {
 		// when
 		const wrapper = shallow(
-			<Manager id={DEFAULT_ID} selectedDateTime={new Date(2017, 3, 4, 15, 27)} useTime>
+			<Manager id={DEFAULT_ID} selectedDateTime={new Date(2017, 3, 4, 15, 27)}>
 				<DateTimeConsumer />
 			</Manager>,
 		);
@@ -36,88 +36,96 @@ describe('DateTime.Manager', () => {
 	describe('datetime management', () => {
 		cases(
 			'initial state',
-			({ initialDate, expectedTextInput, expectedDate, expectedTime }) => {
+			({ initialDate, expectedDate, expectedTime }) => {
 				// when
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} selectedDateTime={initialDate} useTime useSeconds>
+					<Manager id={DEFAULT_ID} value={initialDate} useSeconds>
 						<DateTimeConsumer />
 					</Manager>,
 				);
 
 				// then
 				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
-				expect(contextValue.datetime.textInput).toBe(expectedTextInput);
-				expect(contextValue.datetime.date).toEqual(expectedDate);
-				expect(contextValue.datetime.time).toEqual(expectedTime);
+				expect(contextValue.date).toEqual(expectedDate);
+				expect(contextValue.time).toEqual(expectedTime);
 			},
 			[
 				{
 					name: 'should init default state',
 					initialDate: undefined,
-					expectedTextInput: '',
 					expectedDate: undefined,
-					expectedTime: { hours: '', minutes: '', seconds: '' },
+					expectedTime: undefined,
 				},
 				{
 					name: 'should init default state from props invalid date',
 					initialDate: new Date(''), // invalid date
-					expectedTextInput: '',
 					expectedDate: undefined,
-					expectedTime: { hours: '', minutes: '', seconds: '' },
+					expectedTime: undefined,
 				},
 				{
 					name: 'should init state from props',
 					initialDate: new Date(2015, 3, 4, 12, 36),
-					expectedTextInput: '2015-04-04 12:36:00',
 					expectedDate: new Date(2015, 3, 4),
 					expectedTime: { hours: '12', minutes: '36', seconds: '00' },
+				},
+				{
+					name: 'should init state from datetime string',
+					initialDate: '2019-10-11 12:34',
+					expectedDate: '2019-10-11',
+					expectedTime: '12:34',
 				},
 			],
 		);
 
 		cases(
 			'props update should update state',
-			({ initialDate, newDate, expectedTextInput, expectedDate, expectedTime, useSeconds }) => {
+			({ initialDate, newDate, expectedDate, expectedTime, useSeconds }) => {
 				// given
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} selectedDateTime={initialDate} useSeconds={useSeconds} useTime>
+					<Manager id={DEFAULT_ID} value={initialDate} useSeconds={useSeconds}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
 
 				// when
-				wrapper.setProps({
-					selectedDateTime: newDate,
+				act(() => {
+					wrapper.setProps({
+						value: newDate,
+					});
 				});
+				wrapper.update();
 
 				// then
 				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
-				expect(contextValue.datetime.textInput).toBe(expectedTextInput);
-				expect(contextValue.datetime.date).toEqual(expectedDate);
-				expect(contextValue.datetime.time).toEqual(expectedTime);
+				expect(contextValue.date).toEqual(expectedDate);
+				expect(contextValue.time).toEqual(expectedTime);
 			},
 			[
 				{
-					name: 'from undefined props',
+					name: 'from undefined props(Date type)',
 					initialDate: new Date(),
 					newDate: undefined,
-					expectedTextInput: '',
 					expectedDate: undefined,
-					expectedTime: { hours: '', minutes: '', seconds: '00' },
+					expectedTime: undefined,
+				},
+				{
+					name: 'from undefined props(string type)',
+					initialDate: '2019-09-30 12:00',
+					newDate: undefined,
+					expectedDate: undefined,
+					expectedTime: undefined,
 				},
 				{
 					name: 'from props invalid date',
 					initialDate: new Date(),
 					newDate: new Date(''), // invalid date
-					expectedTextInput: '',
 					expectedDate: undefined,
-					expectedTime: { hours: '', minutes: '', seconds: '00' },
+					expectedTime: undefined,
 				},
 				{
 					name: 'from props valid date',
 					initialDate: new Date(),
 					newDate: new Date(2015, 3, 4, 12, 36),
-					expectedTextInput: '2015-04-04 12:36',
 					expectedDate: new Date(2015, 3, 4),
 					expectedTime: { hours: '12', minutes: '36', seconds: '00' },
 				},
@@ -125,7 +133,6 @@ describe('DateTime.Manager', () => {
 					name: 'from props valid date with seconds',
 					initialDate: new Date(),
 					newDate: new Date(2015, 3, 4, 12, 36, 30),
-					expectedTextInput: '2015-04-04 12:36:30',
 					expectedDate: new Date(2015, 3, 4),
 					expectedTime: { hours: '12', minutes: '36', seconds: '30' },
 					useSeconds: true,
@@ -138,22 +145,24 @@ describe('DateTime.Manager', () => {
 			({ initialDate, newDate }) => {
 				// given
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} selectedDateTime={initialDate} useTime>
+					<Manager id={DEFAULT_ID} value={initialDate}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
-				const previousState = wrapper.find('DateTimeConsumerDiv').props('datetime');
+				const previousState = wrapper.find('DateTimeConsumerDiv').props();
 
 				// when
-				wrapper.setProps({
-					selectedDateTime: newDate,
+				act(() => {
+					wrapper.setProps({
+						value: newDate,
+					});
 				});
+				wrapper.update();
 
 				// then
-				const nextState = wrapper.find('DateTimeConsumerDiv').props('datetime');
-				expect(previousState.textInput).toBe(nextState.textInput);
-				expect(previousState.date).toBe(nextState.date);
-				expect(previousState.time).toBe(nextState.time);
+				const nextState = wrapper.find('DateTimeConsumerDiv').props();
+				expect(previousState.date).toEqual(nextState.date);
+				expect(previousState.time).toEqual(nextState.time);
 			},
 			[
 				{
@@ -168,140 +177,170 @@ describe('DateTime.Manager', () => {
 				},
 			],
 		);
-
-		describe('input change', () => {
+		describe('on change', () => {
 			cases(
-				'should update picker',
-				({ textInput, expectedDate, expectedTime, dateFormat, useSeconds }) => {
+				'should update state when date change',
+				({ expectedDate, expectedTime, textInput, dateFormat, useSeconds }) => {
 					// given
 					const event = { target: { value: textInput } };
 					const wrapper = mount(
-						<Manager id={DEFAULT_ID} dateFormat={dateFormat} useSeconds={useSeconds} useTime>
+						<Manager id={DEFAULT_ID} dateFormat={dateFormat} useSeconds={useSeconds}>
 							<DateTimeConsumer />
 						</Manager>,
 					);
 
 					// when
-					wrapper
-						.find('DateTimeConsumerDiv')
-						.prop('inputManagement')
-						.onChange(event);
+					act(() => {
+						wrapper
+							.find('DateTimeConsumerDiv')
+							.props()
+							.onDateChange(event, { date: expectedDate, textInput, errors: [] });
+					});
 					wrapper.update();
 
 					// then
-					const datetime = wrapper.find('DateTimeConsumerDiv').prop('datetime');
-					expect(datetime.textInput).toBe(textInput);
+					const props = wrapper.find('DateTimeConsumerDiv').props();
 
-					const { date, time } = datetime;
-					expect(date).toEqual(expectedDate);
-					expect(time).toEqual(expectedTime);
+					expect(props.date).toEqual(expectedDate);
+					expect(props.time).toEqual(expectedTime);
 				},
 				[
 					{
-						name: 'with valid datetime',
-						textInput: '2015-01-15 15:45',
+						name: 'with valid date',
+						textInput: '2015-01-15',
 						expectedDate: new Date(2015, 0, 15),
-						expectedTime: { hours: '15', minutes: '45', seconds: '00' },
+						expectedTime: undefined,
 					},
 					{
-						name: 'with valid datetime with seconds',
-						textInput: '2015-01-15 15:45:22',
+						name: 'with invalid date',
+						textInput: '2015aze-01-15',
+						expectedDate: '2015aze-01-15',
+						expectedTime: undefined,
+					},
+					{
+						name: 'with empty string',
+						textInput: '',
+						expectedDate: '',
+						expectedTime: undefined,
+					},
+					{
+						name: 'with custom date format',
+						textInput: '15/01/2015',
+						expectedDate: new Date(2015, 0, 15),
+						expectedTime: undefined,
+						dateFormat: 'DD/MM/YYYY',
+					},
+				],
+			);
+			cases(
+				'should update state when time change',
+				({ expectedDateTime, expectedDate, expectedTime, textInput, dateFormat, useSeconds }) => {
+					// given
+					const event = { target: { value: textInput } };
+					const wrapper = mount(
+						<Manager
+							id={DEFAULT_ID}
+							dateFormat={dateFormat}
+							useSeconds={useSeconds}
+							value={expectedDateTime}
+						>
+							<DateTimeConsumer />
+						</Manager>,
+					);
+
+					// when
+					act(() => {
+						wrapper
+							.find('DateTimeConsumerDiv')
+							.props()
+							.onTimeChange(event, { time: expectedTime, textInput, errors: [] });
+					});
+					wrapper.update();
+
+					// then
+					const props = wrapper.find('DateTimeConsumerDiv').props();
+
+					expect(props.date).toEqual(expectedDate);
+					expect(props.time).toEqual(expectedTime);
+				},
+				[
+					{
+						name: 'with valid time with seconds',
+						textInput: '15:45:22',
+						expectedDateTime: new Date(2015, 0, 15, 15, 45, 22),
 						expectedDate: new Date(2015, 0, 15),
 						expectedTime: { hours: '15', minutes: '45', seconds: '22' },
 						useSeconds: true,
 					},
 					{
-						name: 'with invalid date',
-						textInput: '2015aze-01-15 15:45',
-						expectedDate: undefined,
-						expectedTime: { hours: '15', minutes: '45', seconds: '00' },
-					},
-					{
 						name: 'with invalid time',
-						textInput: '2015-01-15 15aze:45',
+						textInput: '15aze:45',
 						expectedDate: new Date(2015, 0, 15),
+						expectedDateTime: new Date(2015, 0, 15),
 						expectedTime: { hours: '15aze', minutes: '45', seconds: '00' },
-					},
-					{
-						name: 'with empty string',
-						textInput: '',
-						expectedDate: undefined,
-						expectedTime: { hours: '', minutes: '', seconds: '00' },
-					},
-					{
-						name: 'with custom date format',
-						textInput: '15/01/2015 15:45',
-						expectedDate: new Date(2015, 0, 15),
-						expectedTime: { hours: '15', minutes: '45', seconds: '00' },
-						dateFormat: 'DD/MM/YYYY',
 					},
 				],
 			);
 
-			it('should trigger props.onChange with valid datetime', () => {
+			it('should trigger props.onChange when date change', () => {
 				// given
 				const onChange = jest.fn();
-				const event = { target: { value: '2015-01-15 15:45' } };
+				const event = { target: { value: '2015-01-15' } };
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange} useTime>
+					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
-
-				// then
-				expect(onChange).toBeCalledWith(event, {
-					datetime: new Date(2015, 0, 15, 15, 45),
-					origin: 'INPUT',
-					textInput: '2015-01-15 15:45',
-					errors: [],
-					errorMessage: null,
+				act(() => {
+					wrapper
+						.find('DateTimeConsumerDiv')
+						.props()
+						.onDateChange(event, {
+							date: new Date(2015, 0, 15),
+							textInput: '2015-01-15',
+							errors: [],
+						});
 				});
-			});
-
-			it('should not trigger props.onChange when in formMode', () => {
-				// given
-				const onChange = jest.fn();
-				const event = { target: { value: '2015-01-15 15:45' } };
-				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange} useTime formMode>
-						<DateTimeConsumer />
-					</Manager>,
-				);
-				expect(onChange).not.toBeCalled();
-
-				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				wrapper.update();
 
 				// then
-				expect(onChange).not.toBeCalled();
+				expect(onChange).toBeCalled();
+				const args = onChange.mock.calls[0];
+				expect(args[0]).toBe(event);
+				expect(isNaN(args[1].datetime.getTime())).toBe(true);
+				expect(args[1].textInput).toBe('2015-01-15');
+				expect(args[1].errors).toEqual([
+					{ code: 'INVALID_TIME_EMPTY', message: 'Time is required' },
+				]);
+				expect(args[1].errorMessage).toBe('Time is required');
 			});
 
 			it('should trigger props.onChange with invalid date', () => {
 				// given
 				const onChange = jest.fn();
-				const event = { target: { value: '2015aze-01-15 15:45' } };
+				const event = { target: { value: '2015aze-01-15' } };
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange} useTime>
+					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				act(() => {
+					wrapper
+						.find('DateTimeConsumerDiv')
+						.props()
+						.onDateChange(event, {
+							date: null,
+							textInput: '2015aze-01-15',
+							errors: [{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' }],
+						});
+				});
+				wrapper.update();
 
 				// then
 				expect(onChange).toBeCalled();
@@ -312,365 +351,95 @@ describe('DateTime.Manager', () => {
 					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
-				expect(args[1].origin).toBe('INPUT');
 			});
-		});
 
-		describe('picker change', () => {
-			cases(
-				'should update input',
-				({ date, time, expectedTextInput, dateFormat, field = '' }) => {
-					// given
-					const event = { preventDefault: () => {} };
-					const wrapper = mount(
-						<Manager id={DEFAULT_ID} dateFormat={dateFormat} useTime>
-							<DateTimeConsumer />
-						</Manager>,
-					);
+			it('should trigger props.onChange when time change', () => {
+				// given
+				const onChange = jest.fn();
+				const dateEvent = { target: { value: '2015-01-15' } };
+				const timeEvent = { target: { value: '12:45' } };
+				const wrapper = mount(
+					<Manager id={DEFAULT_ID} onChange={onChange}>
+						<DateTimeConsumer />
+					</Manager>,
+				);
+				expect(onChange).not.toBeCalled();
 
-					// when
+				// when
+				act(() => {
 					wrapper
 						.find('DateTimeConsumerDiv')
-						.prop('pickerManagement')
-						.onSubmit(event, { date, time, field });
-					wrapper.update();
-
-					// then
-					const datetime = wrapper.find('DateTimeConsumerDiv').prop('datetime');
-					expect(datetime.textInput).toBe(expectedTextInput);
-					expect(datetime.date).toEqual(date);
-					expect(datetime.time).toEqual(time);
-				},
-				[
-					{
-						name: 'with valid datetime',
-						date: new Date(2015, 0, 15),
-						time: { hours: '15', minutes: '45', seconds: '00' },
-						expectedTextInput: '2015-01-15 15:45',
-					},
-					{
-						name: 'with invalid time',
-						date: new Date(2015, 0, 15),
-						time: { hours: '15aze', minutes: '45', seconds: '00' },
-						field: FIELD_HOURS,
-						expectedTextInput: '2015-01-15 15aze:45',
-					},
-					{
-						name: 'with custom date format',
-						date: new Date(2015, 0, 15),
-						time: { hours: '15', minutes: '45', seconds: '00' },
-						expectedTextInput: '15/01/2015 15:45',
-						dateFormat: 'DD/MM/YYYY',
-					},
-				],
-			);
-
-			it('should trigger props.onChange with valid datetime', () => {
-				// given
-				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
-				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange} useTime>
-						<DateTimeConsumer />
-					</Manager>,
-				);
-
-				expect(onChange).not.toBeCalled();
-
-				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('pickerManagement')
-					.onSubmit(event, {
-						date: new Date(2015, 0, 15),
-						time: { hours: '15', minutes: '45', seconds: '00' },
-					});
-
-				// then
-				expect(onChange).toBeCalledWith(event, {
-					datetime: new Date(2015, 0, 15, 15, 45),
-					origin: 'PICKER',
-					textInput: '2015-01-15 15:45',
-					errors: [],
-					errorMessage: null,
+						.props()
+						.onDateChange(dateEvent, {
+							date: new Date(2015, 0, 15),
+							textInput: '2015-01-15',
+							errors: [],
+						});
 				});
+				wrapper.update();
+				act(() => {
+					wrapper
+						.find('DateTimeConsumerDiv')
+						.props()
+						.onTimeChange(timeEvent, {
+							time: { hours: '12', minutes: '45', seconds: '00' },
+							textInput: '12:45',
+							errors: [],
+						});
+				});
+				wrapper.update();
+				expect(onChange).toHaveBeenCalledTimes(2);
+				const args = onChange.mock.calls[1];
+				expect(args[0]).toBe(timeEvent);
+				expect(args[1].datetime).toEqual(new Date(2015, 0, 15, 12, 45));
+				expect(args[1].textInput).toBe('2015-01-15 12:45');
+				expect(args[1].errors).toEqual([]);
+				expect(args[1].errorMessage).toBe(null);
 			});
-
-			it('should trigger not props.onChange in formMode', () => {
-				// given
-				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
-				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange} useTime formMode>
-						<DateTimeConsumer />
-					</Manager>,
-				);
-
-				expect(onChange).not.toBeCalled();
-
-				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('pickerManagement')
-					.onSubmit(event, {
-						date: new Date(2015, 0, 15),
-						time: { hours: '15', minutes: '45', seconds: '00' },
-					});
-
-				// then
-				expect(onChange).not.toBeCalled();
-			});
-
 			it('should trigger props.onChange with invalid time', () => {
 				// given
 				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
+				const dateEvent = { target: { value: '2015-01-15' } };
+				const timeEvent = { target: { value: '12dfd:45' } };
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange} useTime>
+					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('pickerManagement')
-					.onSubmit(event, {
-						date: new Date(2015, 0, 15),
-						time: { hours: '15aze', minutes: '45', seconds: '00' },
-						field: FIELD_HOURS,
-					});
-
-				// then
-				expect(onChange).toBeCalled();
-				const args = onChange.mock.calls[0];
-				expect(args[0]).toBe(event);
-				expect(args[1].errors).toEqual([
-					{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
-				]);
-				expect(args[1].errorMessage).toBe('Hour must be between 00 and 23');
+				act(() => {
+					wrapper
+						.find('DateTimeConsumerDiv')
+						.props()
+						.onDateChange(dateEvent, {
+							date: new Date(2015, 0, 15),
+							textInput: '2015-01-15',
+							errors: [],
+						});
+				});
+				wrapper.update();
+				act(() => {
+					wrapper
+						.find('DateTimeConsumerDiv')
+						.props()
+						.onTimeChange(timeEvent, {
+							textInput: '12dfd:45',
+							errors: [{ code: 'TIME_FORMAT_INVALID', message: 'Time is invalid' }],
+						});
+				});
+				wrapper.update();
+				expect(onChange).toHaveBeenCalledTimes(2);
+				const args = onChange.mock.calls[1];
+				expect(args[0]).toBe(timeEvent);
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
-				expect(args[1].origin).toBe('PICKER');
+				expect(args[1].textInput).toBe('2015-01-15 12dfd:45');
+				expect(args[1].errors).toEqual([
+					{ code: 'TIME_FORMAT_INVALID', message: 'Time is invalid' },
+				]);
+				expect(args[1].errorMessage).toBe('Time is invalid');
 			});
-		});
-	});
-
-	describe('input management', () => {
-		cases(
-			'should pass placeholder',
-			({ dateFormat, useTime, useSeconds, expectedPlaceholder }) => {
-				// when
-				const wrapper = mount(
-					<Manager
-						id={DEFAULT_ID}
-						dateFormat={dateFormat}
-						useTime={useTime}
-						useSeconds={useSeconds}
-					>
-						<DateTimeConsumer />
-					</Manager>,
-				);
-
-				// then
-				const { placeholder } = wrapper.find('DateTimeConsumerDiv').prop('inputManagement');
-				expect(placeholder).toBe(expectedPlaceholder);
-			},
-			[
-				{
-					name: '(default)',
-					dateFormat: undefined,
-					useTime: false,
-					useSeconds: false,
-					expectedPlaceholder: 'YYYY-MM-DD',
-				},
-				{
-					name: 'with time',
-					dateFormat: undefined,
-					useTime: true,
-					useSeconds: false,
-					expectedPlaceholder: 'YYYY-MM-DD HH:mm',
-				},
-				{
-					name: 'with time and seconds',
-					dateFormat: undefined,
-					useTime: true,
-					useSeconds: true,
-					expectedPlaceholder: 'YYYY-MM-DD HH:mm:ss',
-				},
-				{
-					name: 'with custom format',
-					dateFormat: 'DD/MM/YYYY',
-					useTime: false,
-					useSeconds: false,
-					expectedPlaceholder: 'DD/MM/YYYY',
-				},
-			],
-		);
-	});
-
-	describe('picker management', () => {
-		it('should pass date options', () => {
-			// when
-			const wrapper = mount(
-				<Manager id={DEFAULT_ID} useTime useSeconds useUTC={false}>
-					<DateTimeConsumer />
-				</Manager>,
-			);
-
-			// then
-			const { useTime, useSeconds, useUTC } = wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('pickerManagement');
-			expect(useTime).toBe(true);
-			expect(useSeconds).toBe(true);
-			expect(useUTC).toBe(false);
-		});
-	});
-
-	describe('form management', () => {
-		it('should reset value', () => {
-			// given
-			const initialDate = new Date(2017, 3, 4);
-			const wrapper = mount(
-				<Manager id={DEFAULT_ID} selectedDateTime={initialDate} formMode>
-					<DateTimeConsumer />
-				</Manager>,
-			);
-
-			const event = { target: { value: '2001-01-02' } };
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('inputManagement')
-				.onChange(event);
-			wrapper.update();
-			expect(wrapper.find('DateTimeConsumerDiv').prop('datetime').textInput).toBe('2001-01-02');
-
-			// when
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('formManagement')
-				.onReset();
-			wrapper.update();
-
-			// then
-			expect(wrapper.find('DateTimeConsumerDiv').prop('datetime').textInput).toBe('2017-04-04');
-		});
-
-		it('should submit value', () => {
-			// given
-			const initialDate = new Date(2017, 3, 4);
-			const onChange = jest.fn();
-			const wrapper = mount(
-				<Manager id={DEFAULT_ID} selectedDateTime={initialDate} onChange={onChange} formMode>
-					<DateTimeConsumer />
-				</Manager>,
-			);
-
-			const event = { target: { value: '2001-01-02' } };
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('inputManagement')
-				.onChange(event);
-			wrapper.update();
-			expect(onChange).not.toBeCalled();
-
-			// when
-			const submitEvent = { target: {}, preventDefault: jest.fn() };
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('formManagement')
-				.onSubmit(submitEvent, 'PICKER');
-
-			// then
-			expect(submitEvent.preventDefault).toBeCalled();
-			expect(onChange).toBeCalledWith(submitEvent, {
-				datetime: new Date(2001, 0, 2),
-				errorMessage: '',
-				errors: [],
-				origin: 'PICKER',
-				textInput: '2001-01-02',
-			});
-		});
-	});
-
-	describe('error management', () => {
-		it('should generate error ids', () => {
-			// when
-			const wrapper = mount(
-				<Manager id={DEFAULT_ID}>
-					<DateTimeConsumer />
-				</Manager>,
-			);
-
-			// then
-			const { inputErrorId, hoursErrorId, minutesErrorId, secondsErrorId } = wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('errorManagement');
-			expect(inputErrorId).toBe('DEFAULT_ID-input-error');
-			expect(hoursErrorId).toBe('DEFAULT_ID-hours-error');
-			expect(minutesErrorId).toBe('DEFAULT_ID-minutes-error');
-			expect(secondsErrorId).toBe('DEFAULT_ID-seconds-error');
-		});
-
-		it('should pass formMode', () => {
-			// when
-			const wrapper = mount(
-				<Manager id={DEFAULT_ID} formMode>
-					<DateTimeConsumer />
-				</Manager>,
-			);
-
-			// then
-			const { formMode } = wrapper.find('DateTimeConsumerDiv').prop('errorManagement');
-			expect(formMode).toBe(true);
-		});
-
-		it('should pass errors and error getter', () => {
-			// given
-			const wrapper = mount(
-				<Manager id={DEFAULT_ID} formMode>
-					<DateTimeConsumer />
-				</Manager>,
-			);
-
-			// when
-			const event = { target: { value: 'lol' } };
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('inputManagement')
-				.onChange(event);
-			wrapper.update();
-
-			// then
-			const { errors, hasError } = wrapper.find('DateTimeConsumerDiv').prop('errorManagement');
-			expect(errors).toEqual([{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' }]);
-			expect(hasError('INVALID_DATE_FORMAT')).toBe(true);
-			expect(hasError('INVALID_HOUR_EMPTY')).toBe(false);
-		});
-
-		it('should pass focused input and its modifier', () => {
-			// when
-			const wrapper = mount(
-				<Manager id={DEFAULT_ID} formMode>
-					<DateTimeConsumer />
-				</Manager>,
-			);
-
-			const { focusedInput, onInputFocus } = wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('errorManagement');
-			expect(focusedInput).toBe(undefined);
-
-			// when
-			const nextFocusedInput = `${DEFAULT_ID}-minutes-error`;
-			onInputFocus(null, nextFocusedInput);
-			wrapper.update();
-
-			// then
-			expect(wrapper.find('DateTimeConsumerDiv').prop('errorManagement').focusedInput).toBe(
-				nextFocusedInput,
-			);
 		});
 	});
 });

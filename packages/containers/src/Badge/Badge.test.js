@@ -1,4 +1,4 @@
-import { Badge } from '@talend/react-components';
+import Badge from '@talend/react-components/lib/Badge';
 import Connected from './Badge.component';
 
 describe('Connected Badge', () => {

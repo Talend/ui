@@ -1,114 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
-import InputDateTimePicker from '@talend/react-components/lib/DateTimePickers';
+import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
-import { isoDateTimeRegExp } from '../../customFormats';
+import { convertDate, isoStrToDate } from './Date.utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-const INVALID_DATE = new Date('');
+const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
 
-function isoStrToDate(isoStr) {
-	if (isoDateTimeRegExp.test(isoStr)) {
-		return new Date(isoStr);
-	}
-	return INVALID_DATE;
-}
+function DateWidget(props) {
+	const {
+		errorMessage,
+		id,
+		isValid,
+		onChange,
+		onFinish,
+		options,
+		schema,
+		value,
+		valueIsUpdating,
+	} = props;
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
+	const convertedValue =
+		schema.schema.format === 'iso-datetime' ? memorizedIsoStrToDate(value) : value;
 
-function dateToIsoStr(date) {
-	return date.toISOString();
-}
+	const [state, setState] = useState({ errorMessage: '' });
 
-class DateWidget extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { errorMessage: '' };
-
-		this.isoStrToDate = memoizeOne(isoStrToDate);
-		this.dateToIsoStr = memoizeOne(dateToIsoStr);
-		this.onChange = this.onChange.bind(this);
-		this.onBlur = this.onBlur.bind(this);
-	}
-
-	onChange(event, { errorMessage, datetime, textInput }) {
-		this.setState({ errorMessage });
-
-		let value = datetime;
-		if (!errorMessage && datetime) {
-			const { schema } = this.props.schema;
-			if (schema.format === 'iso-datetime') {
-				value = this.dateToIsoStr(datetime);
-			} else if (schema.type === 'number') {
-				value = datetime.getTime();
-			} else {
-				value = textInput;
-			}
+	function onDateChange(event, { errorMessage: nextErrorMessage, date, textInput }) {
+		setState({ errorMessage: nextErrorMessage });
+		let fieldValue = date;
+		if (!nextErrorMessage && date) {
+			fieldValue = convertDate(date, textInput, props.schema.schema);
 		}
 
 		const payload = {
-			schema: this.props.schema,
-			value,
+			schema,
+			value: fieldValue,
 		};
-		this.props.onChange(event, payload);
+		onChange(event, payload);
 
-		if (!errorMessage) {
-			this.props.onFinish(event, payload);
+		if (!nextErrorMessage) {
+			onFinish(event, payload);
 		}
 	}
 
-	onBlur(event) {
-		this.props.onFinish(event, { schema: this.props.schema });
+	function onBlur(event) {
+		onFinish(event, { schema });
 	}
 
-	render() {
-		const {
-			errorMessage,
-			id,
-			isValid,
-			options,
-			schema,
-			useSeconds,
-			useTime,
-			value,
-			valueIsUpdating,
-		} = this.props;
-		const descriptionId = generateDescriptionId(id);
-		const errorId = generateErrorId(id);
-		const convertedValue = schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
-
-		return (
-			<FieldTemplate
-				description={schema.description}
-				descriptionId={descriptionId}
-				errorId={errorId}
-				errorMessage={this.state.errorMessage || errorMessage}
+	return (
+		<FieldTemplate
+			description={schema.description}
+			descriptionId={descriptionId}
+			errorId={errorId}
+			errorMessage={state.errorMessage || errorMessage}
+			id={id}
+			isValid={isValid}
+			label={schema.title}
+			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
+		>
+			<InputDatePicker
+				autoFocus={schema.autoFocus}
+				dateFormat={options.dateFormat}
+				disabled={schema.disabled || valueIsUpdating}
+				placeholder={schema.placeholder}
 				id={id}
-				isValid={isValid}
-				label={schema.title}
-				required={schema.required}
-				valueIsUpdating={valueIsUpdating}
-			>
-				<InputDateTimePicker
-					autoFocus={schema.autoFocus}
-					dateFormat={options.dateFormat}
-					disabled={schema.disabled || valueIsUpdating}
-					id={id}
-					onChange={this.onChange}
-					onBlur={this.onBlur}
-					placeholder={schema.placeholder}
-					readOnly={schema.readOnly}
-					selectedDateTime={convertedValue}
-					useTime={useTime}
-					useSeconds={useSeconds}
-					useUTC={options.useUTC}
-					// eslint-disable-next-line jsx-a11y/aria-proptypes
-					aria-invalid={!isValid}
-					aria-required={schema.required}
-					aria-describedby={`${descriptionId} ${errorId}`}
-				/>
-			</FieldTemplate>
-		);
-	}
+				onChange={onDateChange}
+				onBlur={onBlur}
+				readOnly={schema.readOnly}
+				value={convertedValue}
+				useUTC={options.useUTC}
+				// eslint-disable-next-line jsx-a11y/aria-proptypes
+				aria-invalid={!isValid}
+				aria-required={schema.required}
+				aria-describedby={`${descriptionId} ${errorId}`}
+			/>
+		</FieldTemplate>
+	);
 }
 
 DateWidget.displayName = 'Date Widget';
@@ -139,8 +109,6 @@ if (process.env.NODE_ENV !== 'production') {
 				type: PropTypes.string,
 			}),
 		}),
-		useTime: PropTypes.bool,
-		useSeconds: PropTypes.bool,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
 		valueIsUpdating: PropTypes.bool,
 	};
