@@ -7,6 +7,7 @@ import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
+import Icon from '../../Icon';
 
 import DateRange from '../DateRange';
 import { DateRangeContext } from '../DateRange/Context';
@@ -86,6 +87,9 @@ export default function InputDateRangePicker(props) {
 									label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 									ref={startDateInputRef}
 								/>,
+								<span className={theme.arrow}>
+									<Icon name="talend-arrow-right" className={theme.icon} />
+								</span>,
 								<DateRange.Input
 									{...inputProps}
 									id={`${props.id || uuid.v4()}-end-input`}
@@ -130,7 +134,6 @@ InputDateRangePicker.displayName = 'InputDateRangePicker';
 InputDateRangePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
 	required: true,
-	useUTC: false,
 	t: getDefaultT(),
 };
 
@@ -141,4 +144,5 @@ InputDateRangePicker.propTypes = {
 	onBlur: PropTypes.func,
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	t: PropTypes.func.isRequired,
 };

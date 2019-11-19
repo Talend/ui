@@ -2,6 +2,7 @@ $tc-datepicker-width: 31rem !default;
 $tc-datepicker-background: $white !default;
 $tc-datepicker-box-shadow: $shadow-default !default;
 $tc-datepicker-z-index: $zindex-dropdown !default;
+$tc-range-picker-arrow-height: 3rem !default;
 
 .popper {
 	width: $tc-datepicker-width;
@@ -12,5 +13,19 @@ $tc-datepicker-z-index: $zindex-dropdown !default;
 .date-picker {
 	width: fit-content;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
+}
+
+.arrow {
+	height: $tc-range-picker-arrow-height;
+	padding: 0 $padding-smaller;
+	margin-bottom: 0.6rem;
+	color: $dove-gray;
+	display: flex;
+	align-items: flex-end;
+
+	.icon {
+		width: $svg-sm-size;
+		height: $svg-sm-size;
+	}
 }
