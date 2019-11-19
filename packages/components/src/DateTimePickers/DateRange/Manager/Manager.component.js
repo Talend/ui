@@ -48,13 +48,6 @@ function ContextualManager(props) {
 		}
 	}, [props.startDate, props.endDate]);
 
-	function onFocusChange(event, focusedInput) {
-		setState(prevState => ({
-			...prevState,
-			focusedInput,
-		}));
-	}
-
 	function onChange(event, nextState) {
 		const errors = [...(nextState.errors || [])];
 		const startDate = nextState.startDate.value;
@@ -169,7 +162,6 @@ function ContextualManager(props) {
 				inputManagement: {
 					onStartChange: onStartInputChange,
 					onEndChange: onEndInputChange,
-					onFocus: onFocusChange,
 					placeholder: props.dateFormat,
 				},
 				pickerManagement: {
