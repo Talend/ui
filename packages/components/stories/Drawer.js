@@ -217,7 +217,11 @@ const editableDrawers = [
 		<h1>Hello drawer 1</h1>
 		<p>{"You should not being able to read this because I'm first"}</p>
 	</Drawer>,
-	<Drawer editableTitle title="Im drawer 20" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+	<Drawer
+		editableTitle
+		title="Im drawer 20"
+		footerActions={Object.assign({}, basicProps, { selected: 0 })}
+	>
 		<h1>Hello drawer 2</h1>
 		<p>The content dictate the scroll</p>
 		<h1>Hello drawer 3</h1>
@@ -225,6 +229,27 @@ const editableDrawers = [
 	</Drawer>,
 ];
 
+const longEditableDrawers = [
+	<Drawer
+		stacked
+		title="Im stacked drawer 1"
+		footerActions={Object.assign({}, basicProps, { selected: 0 })}
+	>
+		<h1>Hello drawer 1</h1>
+		<p>You should not being able to read this because I'm first</p>
+	</Drawer>,
+	<Drawer
+		editableTitle
+		title="Im drawer 20 here in the long title header header header"
+		footerActions={Object.assign({}, basicProps, { selected: 0 })}
+		onCancelAction={onCancelAction}
+	>
+		<h1>Hello drawer 2</h1>
+		<p>The content dictate the scroll</p>
+		<h1>Hello drawer 3</h1>
+		{scrollableContent()}
+	</Drawer>,
+];
 
 const drawersNoTransition = [
 	<Drawer
@@ -263,6 +288,13 @@ storiesOf('Drawer', module)
 	))
 	.add('with editable header', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
+			<span>zone with drawer</span>
+			{twentyRows}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.add('with long editable header', () => (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={longEditableDrawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
 			<IconsProvider defaultIcons={icons} />

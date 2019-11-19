@@ -19,4 +19,16 @@ describe('Badge', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+	it('should render the given children', () => {
+		// Given
+		const Children = () => <div test-id="testId">children</div>;
+		// When
+		const wrapper = mount(
+			<Badge>
+				<Children />
+			</Badge>,
+		);
+		// Then
+		expect(wrapper.find('div[test-id="testId"]').text()).toBe('children');
+	});
 });

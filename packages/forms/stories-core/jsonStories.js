@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm } from '../src/UIForm';
+import Enumeration from '../src/UIForm/fields/Enumeration';
 
 const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);
 const fieldsetsFilenames = require.context('./json/fieldsets', true, /.(js|json)$/);
@@ -216,7 +217,11 @@ class DisplayModeForm extends React.Component {
 
 				<hr style={{ borderColor: 'black' }} />
 
-				<UIForm {...this.props} displayMode={this.state.displayMode} />
+				<UIForm
+					{...this.props}
+					displayMode={this.state.displayMode}
+					widgets={{enumeration: Enumeration}}
+				/>
 			</section>
 		);
 	}

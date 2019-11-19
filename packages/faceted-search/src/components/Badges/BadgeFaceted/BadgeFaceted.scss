@@ -1,0 +1,48 @@
+$width-operator-badge: 27rem;
+$width-label-badge: 23.5rem;
+
+.tc-badge-faceted {
+	padding: $padding-smaller $padding-small $padding-smaller $padding-small;
+	max-width: none;
+
+	:global(.tc-badge-button) {
+		max-width: none;
+	}
+	:global(.tc-badge-button:first-child) {
+		padding-top: 0;
+		margin: 0;
+		> span {
+			align-self: center;
+		}
+	}
+
+	:global(.tc-badge-delete-icon) {
+		align-self: center;
+	}
+
+	&-overlay {
+		align-items: center;
+		display: flex;
+		max-width: $width-label-badge;
+		& > button {
+			font-style: italic;
+			padding: 0;
+			text-transform: none;
+			&:hover,
+			&:visited {
+				text-decoration: none;
+			}
+			span {
+				display: block;
+				overflow: hidden;
+				max-width: 10rem;
+				text-overflow: ellipsis;
+			}
+			span:not(:first-child):before {
+				content: '|';
+				color: $silver;
+				padding: 0 $padding-smaller;
+			}
+		}
+	}
+}

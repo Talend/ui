@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import random from 'lodash/random';
 
 const fewTitleActions = [
 	{
@@ -252,6 +253,7 @@ for (let i = 0; i < 100; i += 1) {
 	simpleCollection.push({
 		id: i,
 		name: `Title with icon and actions ${i}`,
+		isValid: [true, false, undefined][random(2)],
 		tag: 'test',
 		created: 1474495200,
 		modified: 1474495200,

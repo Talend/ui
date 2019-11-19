@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeOperatorPopover should render the html output 1`] = `
+<div class="tc-badge-operator-popover theme-tc-badge-operator-popover">
+  <div id="my-id"
+       class="theme-body tc-tooltip-body"
+  >
+    <div id="my-id-content"
+         class="theme-content tc-tooltip-content"
+    >
+      <button role="button"
+              aria-label="My icon operator equal"
+              id="my-id-operator-row-button-operatorIconEqual"
+              type="button"
+              class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+      >
+        <svg name="talend-my-icon-equal"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+          <use xlink:href="#talend-my-icon-equal">
+          </use>
+        </svg>
+        <span>
+          My icon operator equal
+        </span>
+      </button>
+      <button role="button"
+              aria-label="My icon operator not equal"
+              id="my-id-operator-row-button-operatorIconNotEqual"
+              type="button"
+              class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+      >
+        <svg name="talend-my-icon-not-equal"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+          <use xlink:href="#talend-my-icon-not-equal">
+          </use>
+        </svg>
+        <span>
+          My icon operator not equal
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

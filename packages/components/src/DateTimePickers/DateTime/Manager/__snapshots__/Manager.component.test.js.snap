@@ -4,41 +4,10 @@ exports[`DateTime.Manager should render its children 1`] = `
 <Context.Provider
   value={
     Object {
-      "datetime": Object {
-        "date": 2017-04-03T22:00:00.000Z,
-        "textInput": "2017-04-04 15:27",
-        "time": Object {
-          "hours": "15",
-          "minutes": "27",
-          "seconds": "00",
-        },
-      },
-      "errorManagement": Object {
-        "errors": Array [],
-        "focusedInput": undefined,
-        "formMode": false,
-        "hasError": [Function],
-        "hoursErrorId": "DEFAULT_ID-hours-error",
-        "inputErrorId": "DEFAULT_ID-input-error",
-        "minutesErrorId": "DEFAULT_ID-minutes-error",
-        "onInputFocus": [Function],
-        "secondsErrorId": "DEFAULT_ID-seconds-error",
-      },
-      "formManagement": Object {
-        "onReset": [Function],
-        "onSubmit": [Function],
-      },
-      "inputManagement": Object {
-        "inputRef": [Function],
-        "onChange": [Function],
-        "placeholder": "YYYY-MM-DD HH:mm",
-      },
-      "pickerManagement": Object {
-        "onSubmit": [Function],
-        "useSeconds": false,
-        "useTime": true,
-        "useUTC": false,
-      },
+      "date": undefined,
+      "onDateChange": [Function],
+      "onTimeChange": [Function],
+      "time": undefined,
     }
   }
 >

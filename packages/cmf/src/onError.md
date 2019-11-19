@@ -44,7 +44,7 @@ When an error occurs, we dispatch an action.
 
 ![onError sequence diagram](../assets/diagram-onError-sequence.svg "onError sequence diagram")
 
-## API
+## API (without external service)
 
 To configure error handling (bootstrap > onError) please refer to the [bootstrap documentation](./bootstrap.md#onError)
 
@@ -56,8 +56,7 @@ CMF will post to the backend the following data structure:
 | `browser`  | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" | navigator.userAgent                   |
 | `location` | https://www.myapp.com/path/#/hash                                                                                           | the location.href                     |
 | `error`    | { message, name , stack }                                                                                                   | the fields we have found in the error |
-| `uiState`  | the app state, without any sensitive data (you must configure it)                                                           | the redux store                       |
-| `actions`  | [ { type: 'REDUX_TYPE', payload }]                                                                                          | last actions                          |
+| `actions`  | [ 'REDUX_ACTION_TYPE']                                                                                          | last actions                          |
 
 A component named ErrorBoundary is exposed and already used at the App level, so you can use it
 in your own components in some key places.
@@ -78,17 +77,29 @@ export function ComplexComponent(props) {
 }
 ```
 
-## Anonymisation / remove sensible data
+# Sentry
 
-In the process of the report all data are anonymised if the `key` (lowercase) name match one of the following rules.
+If you have Sentry in your infrastructure you can add the following settings.
 
-* starts with $
-* starts with _
-* contains password
-* contains secret
-* contains key
-* contains mail
+```json
+{
+	"env": {
+		"SENTRY_DSN": "$SENTRY_DSN"
+	}
+}
+```
 
-In that case the content is transformed as a random string of the same length
+If you have an other way to get the DSN you can use it in the bootstrap onError using the same key `SENTRY_DSN`.
 
-[bootstrap API](./bootstrap.md#onError) let you add some other regex to match sensible keys if the previous rules are not enough in your project
+```javascript
+fetch('/api/webapp-config').then(config => {
+	cmf.bootstrap({
+		...
+		onError: {
+			SENTRY_DSN: config.SENTRY_DSN
+		}
+	});
+})
+```
+
+Note: to be compliant with [12 factors](https://12factor.net) the DSN must be read from a server environment variable.

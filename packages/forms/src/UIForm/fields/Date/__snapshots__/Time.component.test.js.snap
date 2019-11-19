@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Time component should render an InputTimePicker 1`] = `
+<FieldTemplate
+  description="talend time picker"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={false}
+  label="Select Time"
+  required={true}
+>
+  <InputTimePicker
+    autoFocus={true}
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    useSeconds={false}
+    value="12:34"
+  />
+</FieldTemplate>
+`;

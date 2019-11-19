@@ -1,6 +1,7 @@
 extends: ./api/eslintrc.base.yaml
 env:
   browser: true
+  jquery: true
 rules:
   import/no-commonjs: error
   import/no-nodejs-modules: error

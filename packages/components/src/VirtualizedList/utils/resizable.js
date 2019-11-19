@@ -188,15 +188,18 @@ const changeWidthColumn = (setWidthFn, getIndexFn) => (index, listWidth) => ([
 	deltaX,
 ]) => {
 	let workingIndex = index;
+	let absDeltaX = deltaX;
 	if (getIndexFn) {
 		workingIndex = getIndexFn(index, columnsWidths);
 	}
-	const currentColumn = columnsWidths[workingIndex];
-	if (!currentColumn.width) {
-		throwNoWidthErrorMsg(currentColumn.dataKey);
-	}
-	const absDeltaX = transformDeltaValue(currentColumn, deltaX);
 	if (workingIndex >= 0) {
+		const currentColumn = columnsWidths[workingIndex];
+
+		if (!currentColumn.width) {
+			throwNoWidthErrorMsg(currentColumn.dataKey);
+		}
+		absDeltaX = transformDeltaValue(currentColumn, deltaX);
+
 		const widthBeforeChange = currentColumn.width;
 		flow([
 			setWidthFn(absDeltaX, listWidth, currentTotalWidth),
