@@ -16,7 +16,7 @@
     "packages/storybook-cmf",
     "packages/theme",
     "packages/datagrid",
-    "packages/dataviz"
+    "packages/dataviz",
     "packages/stepper"
   ]
 }
