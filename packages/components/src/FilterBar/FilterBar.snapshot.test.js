@@ -42,7 +42,7 @@ describe('Filter', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render filter input with given placeholder', () => {
+	it('should render filter input with given placeholder without remove cross', () => {
 		// when
 		const defaultProps = {
 			docked: false,
@@ -54,10 +54,11 @@ describe('Filter', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render filter input with default placeholder', () => {
+	it('should render filter input with default placeholder and remove cross', () => {
 		// when
 		const defaultProps = {
 			docked: false,
+			value: 'search string',
 		};
 		const wrapper = shallow(<FilterBarComponent {...defaultProps} />);
 

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarPicker should render 1`] = `
+<div
+  aria-label="Date picker"
+  className="theme-container"
+  tabIndex={0}
+>
+  <withI18nextTranslation(DateView)
+    allowFocus={true}
+    calendar={
+      Object {
+        "monthIndex": 5,
+        "year": 2018,
+      }
+    }
+    onSelectDate={[Function]}
+    onSelectMonthYear={[Function]}
+    onTitleClick={[Function]}
+  />
+  <div
+    className="theme-footer theme-date-padding"
+  >
+    <Action
+      aria-label="Pick Today"
+      className="btn-tertiary btn-info"
+      label="Today"
+      onClick={[Function]}
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;

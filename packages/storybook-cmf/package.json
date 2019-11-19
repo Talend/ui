@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-storybook-cmf",
   "description": "react-storybook-cmf library.",
-  "version": "4.4.0",
+  "version": "4.18.0",
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "repository": {
@@ -29,8 +29,8 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/react": "^5.1.0",
-    "@talend/react-cmf": "^4.4.0",
+    "@storybook/react": "^5.2.3",
+    "@talend/react-cmf": "^4.18.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.0",
@@ -48,14 +48,14 @@
     "redux-saga": "^0.15.4"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^5.1.0",
-    "@storybook/addon-info": "^5.1.0",
-    "@storybook/addons": "^5.1.0",
+    "@storybook/addon-actions": "^5.2.3",
+    "@storybook/addon-info": "^5.2.3",
+    "@storybook/addons": "^5.2.3",
     "prop-types": "^15.5.10"
   },
   "peerDependencies": {
     "@kadira/storybook": "^2",
-    "@talend/react-cmf": "^4.4.0",
+    "@talend/react-cmf": "^4.18.0",
     "react": "^16.8.6"
   },
   "jest": {

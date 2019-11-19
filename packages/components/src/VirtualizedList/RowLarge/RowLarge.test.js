@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import RowLarge from './RowLarge.component';
-import VirtualizedList from '../VirtualizedList.component';
+import VirtualizedList from '..';
 import CellTitle from '../CellTitle';
 
 const titleProps = {

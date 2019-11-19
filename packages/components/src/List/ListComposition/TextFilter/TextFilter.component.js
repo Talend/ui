@@ -11,14 +11,22 @@ function TextFilter(props) {
 	const isToggleControlled = onToggle;
 	const isFilterControlled = onChange;
 
+	const onFilterFunction = isFilterControlled ? onChange : (_, val) => setTextFilter(val);
+	const onToggleUncontrolled = () => {
+		if (dockedState || !textFilter) {
+			setDocked(!dockedState);
+		}
+	};
+	const onToggleFunction = isToggleControlled ? onToggle : onToggleUncontrolled;
+
 	const filterBarProps = {
 		debounceTimeout: 300,
 
 		value: isFilterControlled ? value : textFilter,
-		onFilter: isFilterControlled ? onChange : (event, val) => setTextFilter(val),
+		onFilter: onFilterFunction,
 
 		docked: isToggleControlled ? docked : dockedState,
-		onToggle: isToggleControlled ? onToggle : () => setDocked(!dockedState),
+		onToggle: onToggleFunction,
 	};
 
 	return <FilterBar {...filterBarProps} {...restProps} />;

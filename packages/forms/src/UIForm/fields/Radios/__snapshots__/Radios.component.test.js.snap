@@ -11,7 +11,7 @@ exports[`Radios field should render disabled input 1`] = `
   required={true}
 >
   <div
-    className="radio"
+    className="radio disabled"
   >
     <label>
       <input
@@ -33,7 +33,7 @@ exports[`Radios field should render disabled input 1`] = `
     </label>
   </div>
   <div
-    className="radio"
+    className="radio disabled"
   >
     <label>
       <input
@@ -55,7 +55,7 @@ exports[`Radios field should render disabled input 1`] = `
     </label>
   </div>
   <div
-    className="radio"
+    className="radio disabled"
   >
     <label>
       <input

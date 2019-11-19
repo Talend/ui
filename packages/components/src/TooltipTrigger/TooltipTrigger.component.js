@@ -3,7 +3,6 @@ import React, { cloneElement, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import uuid from 'uuid';
 import classNames from 'classnames';
-import omit from 'lodash/omit';
 import theme from './TooltipTrigger.scss';
 import useTooltipVisibility from './TooltipTrigger.hook';
 
@@ -100,27 +99,37 @@ const props = {
 	<Icon name="my-icon" />
 </TooltipTrigger>
  */
-function TooltipTrigger(props) {
-	const refContainer = useRef(null);
+function TooltipTrigger({
+	children,
+	label,
+	className,
+	tooltipDelay,
+	tooltipPlacement = 'right',
+	tooltipHeight = DEFAULT_OFFSET_Y,
+	tooltipWidth = DEFAULT_OFFSET_X,
+}) {
+	const refContainer = useRef();
 
-	const [visible, show, hide] = useTooltipVisibility(props.tooltipDelay);
+	const [visible, show, hide] = useTooltipVisibility(tooltipDelay);
 
 	const [id] = useState(uuid.v4());
 
-	function getTooltipPosition() {
-		const {
-			tooltipPlacement = 'right',
-			tooltipHeight = DEFAULT_OFFSET_Y,
-			tooltipWidth = DEFAULT_OFFSET_X,
-		} = props;
+	const { props: childrenProps } = children;
 
-		if (!refContainer.current) {
+	function getTooltipPosition() {
+		if (!refContainer || !refContainer.current) {
 			return {
 				tooltipPlacement,
 			};
 		}
 
-		const dimensions = refContainer.current.getBoundingClientRect();
+		let dimensions;
+		try {
+			// eslint-disable-next-line react/no-find-dom-node
+			dimensions = ReactDOM.findDOMNode(refContainer.current).getBoundingClientRect();
+		} catch (e) {
+			dimensions = {};
+		}
 
 		const placement = getAdjustedTooltipPlacement(tooltipPlacement, dimensions, {
 			tooltipHeight,
@@ -137,57 +146,114 @@ function TooltipTrigger(props) {
 		};
 	}
 
+	/**
+	 * Activate the tooltip when children are focused
+	 */
+	const onFocus = (...args) => {
+		show();
+		if (childrenProps.onFocus) {
+			childrenProps.onFocus(...args);
+		}
+	};
+
+	/**
+	 * Desactive the tooltip when children are not focused anymore
+	 */
+	const onBlur = (...args) => {
+		hide();
+		if (childrenProps.onBlur) {
+			childrenProps.onBlur(...args);
+		}
+	};
+
+	const onKeyPress = (...args) => {
+		hide();
+		if (childrenProps.onKeyPress) {
+			childrenProps.onKeyPress(...args);
+		}
+	};
+
+	const onMouseOver = (...args) => {
+		show();
+		if (childrenProps.onMouseOver) {
+			childrenProps.onMouseOver(...args);
+		}
+	};
+
+	const onMouseOut = (...args) => {
+		hide();
+		if (childrenProps.onMouseOut) {
+			childrenProps.onMouseOut(...args);
+		}
+	};
+
+	const onClick = (...args) => {
+		hide();
+		if (childrenProps.onClick) {
+			childrenProps.onClick(...args);
+		}
+	};
+
 	const { placement, style } = getTooltipPosition();
 
 	return (
-		// we use div here to wrap tooltip trigger
-		// it should not be reachable
-		// It is just a way to handle click and keyboard events
-		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-		<div
-			{...omit(props, Object.keys(TooltipTrigger.propTypes))}
-			className={classNames(theme['tc-tooltip'], props.className)}
-			onFocus={show}
-			onBlur={hide}
-			onKeyPress={hide}
-			onMouseOver={show}
-			onMouseOut={hide}
-			onClick={hide}
-			aria-describedby={id}
-			ref={refContainer}
-		>
-			{React.Children.map(props.children, child =>
+		<React.Fragment>
+			{React.Children.map(children, child =>
 				cloneElement(child, {
 					'aria-describedby': id,
+					onFocus,
+					onBlur,
+					onKeyPress,
+					onMouseOver,
+					onMouseOut,
+					onClick,
+					// Because of React Fragment, we need to maintaining ref through cloneElement
+					// @see https://github.com/facebook/react/issues/8873#issuecomment-275423780
+					// We need to follow the status of this RFC to change it as soon as possible
+					// @see https://github.com/reactjs/rfcs/pull/97
+					ref: node => {
+						refContainer.current = node;
+						const { ref } = child;
+						if (typeof ref === 'function') ref(node);
+						else if (ref) ref.current = node;
+					},
 				}),
 			)}
 
 			{visible &&
 				ReactDOM.createPortal(
-					<div className={theme['tc-tooltip-container']} style={style}>
+					<div
+						className={classNames(theme['tc-tooltip-container'], 'tc-tooltip-container', className)}
+						style={style}
+					>
 						<div
 							id={id}
-							className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${placement}`])}
+							className={classNames(
+								theme['tc-tooltip-body'],
+								theme[`tc-tooltip-${placement}`],
+								'tc-tooltip-body',
+								`tc-tooltip-${placement}`,
+							)}
 						>
-							{props.label}
+							{label}
 						</div>
 					</div>,
 					document.body,
 				)}
-		</div>
+		</React.Fragment>
 	);
 }
 
 TooltipTrigger.displayName = 'TooltipTrigger';
 
 TooltipTrigger.propTypes = {
-	className: PropTypes.string,
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 	tooltipHeight: PropTypes.number,
 	tooltipWidth: PropTypes.number,
 	tooltipDelay: PropTypes.number,
 	children: PropTypes.element,
+	className: PropTypes.string,
 };
 
 export default TooltipTrigger;

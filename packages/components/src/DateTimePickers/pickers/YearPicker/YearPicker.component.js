@@ -89,7 +89,6 @@ class YearPicker extends React.Component {
 						iconTransform="rotate-90"
 						label={t('DATEPICKER_YEAR_PREVIOUS', { defaultValue: 'Go to previous year' })}
 						onClick={this.scrollUp}
-						tabIndex="-1"
 						link
 						hideLabel
 					/>,
@@ -139,7 +138,6 @@ class YearPicker extends React.Component {
 						iconTransform="rotate-270"
 						label={t('DATEPICKER_YEAR_NEXT', { defaultValue: 'Go to next year' })}
 						onClick={this.scrollDown}
-						tabIndex="-1"
 						link
 						hideLabel
 					/>,

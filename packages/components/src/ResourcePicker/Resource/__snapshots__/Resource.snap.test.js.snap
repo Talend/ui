@@ -120,6 +120,47 @@ exports[`Resource component snaps renderers should render a Resource with both C
 </div>
 `;
 
+exports[`Resource component snaps renderers should render a Resource with just a title/subtitle/flags 1`] = `
+<div
+  aria-label="Title with few actions"
+  aria-posinset={1}
+  className="resource-item theme-resource-item"
+  role="listitem"
+  tabIndex="0"
+>
+  <Icon
+    name="talend-file-xls-o"
+  />
+  <div
+    className="data-container theme-data-container"
+  >
+    <span
+      className="title theme-title"
+    >
+      Title with few actions
+    </span>
+    <small
+      className="subtitle theme-subtitle"
+      title="Loreum lopsum"
+    >
+      Loreum lopsum
+    </small>
+  </div>
+  <div
+    className="flags-container theme-flags-container"
+  >
+    <Icon
+      className="theme-flag"
+      name="talend-badge"
+    />
+    <Icon
+      className="theme-flag"
+      name="talend-star"
+    />
+  </div>
+</div>
+`;
+
 exports[`Resource component snaps renderers should render a Resource without icon 1`] = `
 <div
   aria-label="Title with few actions"

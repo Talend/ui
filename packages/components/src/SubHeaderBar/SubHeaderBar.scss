@@ -76,10 +76,6 @@ $tc-svg-icon-size: $padding-large !default;
 		width: $tc-subheader-bar-height;
 		height: $tc-subheader-bar-height;
 
-		&:global(.btn) {
-			margin: $padding-small $padding-large $padding-small 0;
-		}
-
 		&:focus,
 		&:hover,
 		&:active {

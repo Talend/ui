@@ -1,0 +1,40 @@
+@startuml
+'AutoInclude
+title onError sequence diagram
+User -> App: Open
+box "webapp" #LightBlue
+	participant App
+    participant Component
+    participant Redux
+    participant SagaMiddleware
+    participant Saga
+    participant onError
+end box
+App -> Component : render
+Component -> App: ok
+App -> User: your HTML page
+
+== User interaction ==
+User -> Component: click on button
+Component -> Redux: dispatch action
+Redux -> SagaMiddleware: take it
+SagaMiddleware -> Saga: fork
+activate Saga
+Saga -> Saga: yield http call
+Saga -> Saga: response ok
+Saga -> Saga: access to undefined -> throw Error
+== Error handling ==
+Saga -> SagaMiddleware: cancel
+deactivate Saga
+SagaMiddleware -> onError: call report
+onError -> App: notify
+activate App
+onError -> onError: try to POST error to /api/errors
+App -> App: setState({errors})
+App -> User: render ErrorFeedback
+onError -> App: notify on the POST results
+App -> App: setState({errors})
+App -> User: render ErrorFeedback
+deactivate App
+
+@enduml

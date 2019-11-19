@@ -1,6 +1,6 @@
 {
   "lerna": "2.5.1",
-  "version": "4.4.0",
+  "version": "4.18.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
@@ -17,5 +17,6 @@
     "packages/theme",
     "packages/datagrid",
     "packages/dataviz"
+    "packages/stepper"
   ]
 }

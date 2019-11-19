@@ -22,6 +22,8 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
  * <Typeahead {...props} />
  */
 function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+
 	const inputRef = useRef(null);
 
 	if (docked && onToggle) {
@@ -90,7 +92,6 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		},
 	};
 
-	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const noResultText = rest.noResultText || t('NO_RESULT_FOUND', { defaultValue: 'No result.' });
 	const searchingText =
 		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
@@ -105,7 +106,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			searchingText,
 			rest.isLoading,
 			isLoadingText,
-			inputRef.current,
+			inputRef,
 			rest.children,
 		),
 		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },

@@ -8,7 +8,7 @@ import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes, TextModeCheckBox } from '../fields/CheckBox';
 import Code, { CodeTextMode } from '../fields/Code';
 import Datalist, { DatalistTextMode } from '../fields/Datalist';
-import { DateWidget, DateTimeWidget } from '../fields/Date';
+import { DateWidget, DateTimeWidget, TimeWidget } from '../fields/Date';
 import File from '../fields/File';
 import KeyValue from '../fields/KeyValue';
 import Comparator, { TextModeComparator } from '../fields/Comparator';
@@ -72,6 +72,7 @@ const widgets = {
 	datalist: Datalist,
 	date: DateWidget,
 	datetime: DateTimeWidget,
+	time: TimeWidget,
 	keyValue: KeyValue,
 	listView: ListView,
 	multiSelectTag: MultiSelectTag,

@@ -1,5 +1,10 @@
 import cmfMiddleware from '../../src/middlewares/cmf';
+import onError from '../../src/onError';
 import CONSTANT from '../../src/constant';
+
+jest.mock('../../src/onError', () => ({
+	addAction: jest.fn(),
+}));
 
 describe('CMF middleware', () => {
 	let store;

@@ -156,6 +156,31 @@ describe('Text field', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render input with step attribute', () => {
+		// given
+		const stepSchema = {
+			...schema,
+			type: 'number',
+			schema: {
+				type: 'number',
+				step: 0.01,
+			},
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text id={'myForm'} isValid onChange={jest.fn()} onFinish={jest.fn()} schema={stepSchema} />,
+		);
+
+		// then
+		expect(
+			wrapper
+				.find('[type="number"]')
+				.at(0)
+				.props().step,
+		).toEqual(0.01);
+	});
+
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();

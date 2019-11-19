@@ -8,9 +8,9 @@ import Connected, { mapStateToProps } from './ConfirmDialog.connect';
 
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 
-jest.mock('@talend/react-components', () => ({
-	ConfirmDialog: props => <div className="tc-confirm-dialog" {...props} />,
-}));
+jest.mock('@talend/react-components/lib/ConfirmDialog', () => props => (
+	<div className="tc-confirm-dialog" {...props} />
+));
 
 describe('Container ConfirmDialog', () => {
 	it('should not render', () => {

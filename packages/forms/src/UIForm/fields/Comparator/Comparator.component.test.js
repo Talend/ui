@@ -15,7 +15,7 @@ describe('Comparator field', () => {
 				type: 'object',
 				required: ['value'],
 				properties: {
-					operator: { type: 'string', enum: ['>', '<', '='] },
+					operator: { type: 'string', enum: ['greater_than', 'less_than', 'equals'] },
 					value: { type: 'string' },
 				},
 			},
@@ -27,9 +27,9 @@ describe('Comparator field', () => {
 					key: ['default', 'operator'],
 					type: 'select',
 					titleMap: [
-						{ name: 'Greater than', value: '>' },
-						{ name: 'Lower than', value: '<' },
-						{ name: '=', value: '=' },
+						{ name: 'Greater than', value: 'greater_than' },
+						{ name: 'Less than', value: 'less_than' },
+						{ name: 'Equals', value: 'equals' },
 					],
 				},
 				{

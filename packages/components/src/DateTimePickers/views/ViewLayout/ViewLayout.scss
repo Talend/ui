@@ -5,20 +5,11 @@
 
 	.header {
 		display: flex;
-		height: 5rem;
-		margin-bottom: $padding-normal;
-
-		.left,
-		.right {
-			flex: 1;
-		}
-
-		.middle {
-			flex: 4;
-		}
+		justify-content: space-between;
+		margin-bottom: $padding-small;
 
 		:global(.btn-icon-only) {
-			padding: 0;
+			padding: 0 $padding-smaller;
 
 			svg {
 				width: $svg-sm-size;

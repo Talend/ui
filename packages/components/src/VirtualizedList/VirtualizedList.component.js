@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import get from 'lodash/get';
-import { listTypes } from './utils/constants';
+import { listTypes, SELECTION_MODE } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
-import Content from './Content.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import { resizeColumns, extractResizableProps } from './utils/resizable';
@@ -28,6 +27,7 @@ function VirtualizedList(props) {
 		id,
 		isActive,
 		isSelected,
+		getRowState,
 		inProgress,
 		onRowClick,
 		onRowDoubleClick,
@@ -39,11 +39,14 @@ function VirtualizedList(props) {
 		rowRenderers,
 		scrollToIndex,
 		selectionToggle,
+		selectionMode,
 		sort,
 		sortBy,
 		sortDirection,
 		rowCount,
 		type,
+		widthsOfColumns,
+		setWidthsOfColumns,
 	} = props;
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		children,
@@ -51,9 +54,14 @@ function VirtualizedList(props) {
 		isSelected,
 		onToggleAll,
 		selectionToggle,
+		getRowState,
+		selectionMode,
 	});
-	const [columnsWidths, setWidths] = useState();
+	const [widthsOfColumnsState, setWidthsOfColumnsState] = useState();
 	const rendererSelectorRef = useRef();
+
+	const setWidths = setWidthsOfColumns || setWidthsOfColumnsState;
+	const columnsWidths = widthsOfColumns || widthsOfColumnsState;
 
 	// Settings the data for resizable columns only at mount.
 	useEffect(() => {
@@ -70,6 +78,7 @@ function VirtualizedList(props) {
 		theme: tableTheme,
 		children: columnDefinitionsWithSelection,
 		columnsWidths,
+		getRowState,
 	});
 
 	if (type === LARGE && inProgress) {
@@ -88,6 +97,7 @@ function VirtualizedList(props) {
 						id={id}
 						isActive={isActive}
 						isSelected={isSelected}
+						getRowState={getRowState}
 						onRowClick={onRowClick}
 						onRowDoubleClick={onRowDoubleClick}
 						onScroll={onScroll}
@@ -117,8 +127,7 @@ VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
 	defaultHeight: 250,
+	selectionMode: SELECTION_MODE.MULTI,
 };
-
-VirtualizedList.Content = Content;
 
 export default VirtualizedList;
