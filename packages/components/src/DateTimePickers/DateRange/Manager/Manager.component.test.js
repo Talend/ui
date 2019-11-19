@@ -323,7 +323,7 @@ describe('DateRange.Manager', () => {
 
 			cases(
 				'should trigger props.onChange with valid startDate/endDate',
-				({ field, inputText, expectedStartDate, expectedEndDate }) => {
+				({ field, inputText, expectedStartDate, expectedEndDate, expectedOrigin }) => {
 					// given
 					const onChange = jest.fn();
 					const event = { target: { value: inputText } };
@@ -351,6 +351,7 @@ describe('DateRange.Manager', () => {
 						endDate: expectedEndDate,
 						errors: [],
 						errorMessage: null,
+						origin: expectedOrigin,
 					});
 				},
 				[
@@ -359,12 +360,14 @@ describe('DateRange.Manager', () => {
 						field: 'startDate',
 						inputText: '2019-10-11',
 						expectedStartDate: new Date(2019, 9, 11),
+						expectedOrigin: 'START_INPUT',
 					},
 					{
 						name: 'when input valid date on to field',
 						field: 'endDate',
 						inputText: '2019-10-11',
 						expectedEndDate: new Date(2019, 9, 11),
+						expectedOrigin: 'END_INPUT',
 					},
 				],
 			);

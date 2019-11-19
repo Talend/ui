@@ -67,10 +67,7 @@ export default function InputDateRangePicker(props) {
 							divRef={containerRef}
 							onClick={handlers.onClick}
 							onFocusIn={handlers.onFocus}
-							onFocusOut={event => {
-								inputManagement.onFocus(event, null);
-								handlers.onBlur(event);
-							}}
+							onFocusOut={handlers.onBlur}
 							onKeyDown={event => {
 								handlers.onKeyDown(event, inputRef.current);
 							}}
