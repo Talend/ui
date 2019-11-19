@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { List, Map } from 'immutable';
-import { Notification as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/Notification';
 import { cmfConnect } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({

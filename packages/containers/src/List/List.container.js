@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
-import { List as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/List';
 import CellTitleRenderer, {
 	cellType as cellTitleType,
 } from '@talend/react-components/lib/VirtualizedList/CellTitle';
@@ -67,11 +67,28 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.toJS().map(item =>
-		Object.assign({}, item, {
-			actions: getActionsProps(context, get(props, 'actions.items', []), item),
-		}),
-	);
+	return props.items.toJS().map(item => {
+		const actionsItems = get(props, 'actions.items', []);
+		let actions = [];
+		if (
+			Array.isArray(actionsItems) &&
+			actionsItems.every(actionsItem => Array.isArray(actionsItem))
+		) {
+			actions = actionsItems.map(actionArray => getActionsProps(context, actionArray, item));
+		} else {
+			// simple array of actions
+			actions = getActionsProps(context, actionsItems, item);
+		}
+		return {
+			...item,
+			actions,
+			persistentActions: getActionsProps(
+				context,
+				get(props, 'actions.persistentItemsActions', []),
+				item,
+			),
+		};
+	});
 }
 
 class List extends React.Component {

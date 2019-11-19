@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { IconsProvider } from '@talend/react-components';
 import api from '@talend/react-cmf';
 import Immutable from 'immutable';
-import { I18nextProvider } from 'react-i18next';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List } from '../src';
@@ -41,6 +40,7 @@ const list = {
 	columns: [
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Name' },
+		{ key: 'count', label: 'Count' },
 		{ key: 'author', label: 'Author' },
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
@@ -80,6 +80,16 @@ const actions = {
 	items: ['object:delete'],
 };
 
+const actionsWithPersistent = {
+	...actions,
+	persistentItemsActions: ['object:add'],
+};
+
+const actionsWithSeparator = {
+	items: [['object:add'], actions.items],
+	persistentItemsActions: ['object:add'],
+};
+
 const toolbar = {
 	sort: {
 		field: 'id',
@@ -116,6 +126,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'id1',
 		label: 'Title with actions',
+		count: 1,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
@@ -126,6 +137,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'ID2',
 		label: 'Title in input mode',
+		count: 11,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
@@ -136,6 +148,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'iD3',
 		label: 'Super long title to trigger overflow on some rendering',
+		count: 2,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
@@ -204,6 +217,22 @@ const ExampleList = {
 			<IconsProvider />
 			<div className="list-container">
 				<List {...props} items={items} />
+			</div>
+		</div>
+	),
+	'with persistent actions': () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} actions={actionsWithPersistent} items={items} />
+			</div>
+		</div>
+	),
+	'with separator actions': () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} actions={actionsWithSeparator} items={items} />
 			</div>
 		</div>
 	),
@@ -330,17 +359,15 @@ const ExampleList = {
 		</div>
 	),
 	i18n: () => (
-		<I18nextProvider i18n={i18n}>
-			<div>
-				<p>Change language on the toolbar</p>
-				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-				<button onClick={() => i18n.changeLanguage('it')}>it</button>
-				<IconsProvider />
-				<div className="list-container">
-					<List {...props} items={items} />
-				</div>
+		<div>
+			<p>Change language on the toolbar</p>
+			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+			<button onClick={() => i18n.changeLanguage('it')}>it</button>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} items={items} />
 			</div>
-		</I18nextProvider>
+		</div>
 	),
 	'sort on timestamps': () => (
 		<div>

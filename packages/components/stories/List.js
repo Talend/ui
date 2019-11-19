@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
-import { I18nextProvider } from 'react-i18next';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 import MyCustomRow from './List/MyCustomRow.component';
+import { columnChooserService } from '../src/List/Toolbar/ColumnChooserButton';
+
+// eslint-disable-next-line react/prop-types
+function ListColumnChooser({ list, ...rest }) {
+	const [columnsChooser, setColumnsChooser] = useState(list.columns);
+	const onSubmit = (_, newColumnsChooser) => {
+		setColumnsChooser(newColumnsChooser);
+	};
+	const enrichedList = {
+		...list,
+		columns: columnChooserService.mergeWithColumnChooserCollection(list.columns, columnsChooser),
+	};
+	const columnChooser = {
+		columns: columnsChooser,
+		onSubmit,
+		nbLockedLeftItems: 2,
+	};
+	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
+}
+
+
 /**
  * Cell renderer that displays hello + text
  */
@@ -48,6 +68,12 @@ const icons = {
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
 	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
+	'talend-locked': talendIcons['talend-locked'],
+	'talend-unlocked': talendIcons['talend-unlocked'],
+	'talend-column-chooser': talendIcons['talend-column-chooser'],
+	'talend-sort-desc': talendIcons['talend-sort-desc'],
+	'talend-sort-asc': talendIcons['talend-sort-asc'],
+	'talend-line-charts': talendIcons['talend-line-charts'],
 };
 
 const selected = [
@@ -161,10 +187,10 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id', order: 0 },
-			{ key: 'name', label: 'Name', order: 1 },
+			{ key: 'id', label: 'Id', order: 1 },
+			{ key: 'name', label: 'Name', order: 2 },
 			{ key: 'author', label: 'Author', order: 3 },
-			{ key: 'created', label: 'Created', order: 2 },
+			{ key: 'created', label: 'Created', order: 6 },
 			{
 				key: 'modified',
 				label: 'Modified',
@@ -280,14 +306,10 @@ const props = {
 			onChange: action('sort.onChange'),
 			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name With Multiple Words' }],
 		},
-		pagination: {
-			itemsPerPage: 5,
-			totalResults: 10,
-			onChange: action('pagination.onChange'),
-		},
 		filter: {
 			docked: true,
 			onBlur: action('filter.onBlur'),
+			onClear: action('filter.onClear'),
 			onFocus: action('filter.onFocus'),
 			onFilter: action('filter.onFilter'),
 			onToggle: action('filter.onToggle'),
@@ -317,7 +339,89 @@ const propsWithVirtualized = {
 				type: 'datetime',
 				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
 			},
-			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
+			{
+				key: 'modified',
+				label: 'Modified',
+				type: 'datetime',
+				data: { mode: 'ago' },
+			},
+		],
+		items: [
+			{
+				id: 0,
+				name: 'Title with actions',
+				created: 1518596913333,
+				modified: minusThreeHours,
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-0-class',
+			},
+			{
+				persistentActions,
+				id: 1,
+				name: 'Title in input mode',
+				created: 1518596913333,
+				modified: minusTwoHours,
+				author: 'Jean-Pierre DUPONT',
+				icon: 'talend-file-json-o',
+				display: 'input',
+				className: 'item-1-class',
+			},
+			{
+				persistentActions,
+				id: 2,
+				name: 'Super long title to trigger overflow on tile rendering',
+				created: 1518596913333,
+				modified: minusOneHours,
+				author: 'Jean-Pierre DUPONT',
+				className: 'item-2-class',
+			},
+			{
+				persistentActions,
+				id: 3,
+				name: 'Title',
+				created: 1518596913333,
+				modified: minusThreeMin,
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-3-class',
+			},
+		],
+		titleProps: {
+			key: 'name',
+			iconKey: 'icon',
+			displayModeKey: 'display',
+			onClick: action('onTitleClick'),
+			onEditCancel: action('onEditCancel'),
+			onEditSubmit: action('onEditSubmit'),
+		},
+		itemProps: {
+			classNameKey: 'className',
+		},
+	},
+};
+
+const propsWithResizable = {
+	id: 'talend',
+	displayMode: 'table',
+	virtualized: true,
+	list: {
+		columns: [
+			{ key: 'id', label: 'Id', width: 85 },
+			{ key: 'name', label: 'Name', width: 600, resizable: true, header: 'resizable' },
+			{ key: 'author', label: 'Author', width: 600, resizable: true, header: 'resizable' },
+			{
+				key: 'modified',
+				label: 'Modified',
+				type: 'datetime',
+				data: { mode: 'ago' },
+				width: 135,
+				resizable: true,
+			},
 		],
 		items: [
 			{
@@ -476,7 +580,7 @@ storiesOf('List', module)
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			{story()}
 		</div>
 	))
 	.add('Table display', () => (
@@ -526,6 +630,31 @@ storiesOf('List', module)
 			<List {...props} rowHeight={140} displayMode="large" />
 		</div>
 	))
+	.add('Large arrays of actions display', () => {
+		const customProps = cloneDeep(props);
+		const separatorActions = [{
+			id: 'monitoring',
+			label: 'monitor something',
+			'data-feature': 'list.item.monitor',
+			icon: 'talend-line-charts',
+			onClick: action('onMonitor'),
+			hideLabel: true,
+		}];
+		customProps.list.items = customProps.list.items.map(item => (
+			{ ...item, actions: [separatorActions, actions] })
+		);
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode using arrays of actions.
+					<br/>
+					This is the default mode.
+				</p>
+				<List {...customProps} displayMode="large" />
+			</div>
+		);
+	})
 	.add('Large display overrides by rowRenderers', () => (
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
@@ -637,6 +766,33 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Selection - large', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					For table view, user toggle column header to select/disselect all items.
+					<br />
+					When List displayed in large view, there's a one-line checkbox of "Select All" above the
+					list.
+					<br />
+				</p>
+				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
+			</div>
+		);
+	})
 	.add('Activation', () => {
 		const selectedItemsProps = cloneDeep(props);
 		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
@@ -660,9 +816,9 @@ storiesOf('List', module)
 					<br />
 				</pre>
 				<h2>Table</h2>
-				<List {...selectedItemsProps} />
+				<List {...selectedItemsProps} displayMode="table" />
 				<h2>Large</h2>
-				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
+				<List {...cloneDeep(selectedItemsProps)} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
@@ -706,6 +862,17 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Sort - large', () => {
+		const tprops = cloneDeep(props);
+		tprops.list.sort = sort;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Show Sort widgets on List toolbar when display in large view</p>
+				<List {...tprops} rowHeight={140} displayMode="large" />
+			</div>
+		);
+	})
 	.add('Custom cell renderer', () => {
 		const customProps = cloneDeep(props);
 
@@ -730,7 +897,6 @@ storiesOf('List', module)
 	.add('Filter', () => {
 		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
-		dockedProps.toolbar.actionBar = null;
 
 		const inputProps = Immutable.fromJS(dockedProps).toJS();
 		inputProps.toolbar.filter.docked = false;
@@ -773,6 +939,7 @@ storiesOf('List', module)
 		const tprops = {
 			...props,
 			toolbar: {
+				actionBar: {},
 				display: {
 					onChange: action('display.onChange'),
 					displayModes: ['large', 'table'],
@@ -857,11 +1024,19 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('List cell renderer', () => (
-		<div className="virtualized-list">
+		<div className="virtualized-list" style={{ height: '70vh' }}>
 			<h1>List with specified VirtualizedList cell renderer</h1>
 			<p>CellDatetimeRenderer in action.</p>
 			<span>
 				<List {...propsWithVirtualized} />
+			</span>
+		</div>
+	))
+	.add('List resizable', () => (
+		<div className="virtualized-list" style={{ height: '70vh' }}>
+			<h1>List with resizable columns</h1>
+			<span>
+				<List {...propsWithResizable} />
 			</span>
 		</div>
 	))
@@ -895,6 +1070,36 @@ storiesOf('List', module)
 					This is the default mode.
 				</p>
 				<List {...listProps} />
+			</div>
+		);
+	})
+	.add('Table with column chooser', () => (
+		<div style={{ height: '100vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>
+				Display the list with the column chooser.
+				<br />
+				Using columnChooserClientHook.
+			</p>
+			<ListColumnChooser {...props} />
+		</div>
+	))
+	.add('Pagination - to be deprecated', () => {
+		const customProps = cloneDeep(props);
+		customProps.toolbar.pagination = {
+			itemsPerPage: 5,
+			totalResults: 10,
+			onChange: action('pagination.onChange'),
+		};
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p style={{ color: '#ea8330' }}>
+					Warning: Pagination is deprecated and will be removed in the next major version.
+					<br />
+					For now pagination will show on second toolbar if you use it.
+				</p>
+				<List {...customProps} />
 			</div>
 		);
 	});

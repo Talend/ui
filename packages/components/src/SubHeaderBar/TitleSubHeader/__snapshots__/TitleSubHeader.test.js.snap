@@ -9,7 +9,7 @@ exports[`SubTitle should render 1`] = `
 `;
 
 exports[`SubTitle should render in loading mode 1`] = `
-<Translate(Skeleton)
+<withI18nextTranslation(Skeleton)
   className="theme-tc-subheader-details-loading-subtitle tc-subheader-details-loading-subtitle"
   size="large"
   type="text"
@@ -42,8 +42,6 @@ exports[`TitleSubHeader should render 1`] = `
       </TooltipTrigger>
     </div>
     <SubTitle
-      onEdit={[MockFunction]}
-      onSubmit={[MockFunction]}
       t={[Function]}
     />
   </div>
@@ -72,7 +70,6 @@ exports[`TitleSubHeader should render 2`] = `
       </TooltipTrigger>
     </div>
     <SubTitle
-      onEdit={[MockFunction]}
       subTitle="mySubTitle"
       t={[Function]}
     />

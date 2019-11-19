@@ -3,7 +3,7 @@
 
 const REACT_VERSION = process.env.REACT_VERSION || '^16.8.6';
 console.log('REACT_VERSION: ', REACT_VERSION);
-const JEST_VERSION = '^24.0.0';
+const JEST_VERSION = '^24.7.1';
 
 module.exports = {
 	// addons
@@ -35,9 +35,9 @@ module.exports = {
 	react: REACT_VERSION,
 	'react-dom': REACT_VERSION,
 	'react-immutable-proptypes': '^2.1.0',
-	i18next: '^9.0.0',
+	i18next: '^15.1.3',
 	'i18next-parser': '^0.13.0',
-	'react-i18next': '^7.6.1',
+	'react-i18next': '^10.11.4',
 	'react-redux': '^5.0.7',
 	'react-router': '^3.2.0',
 	'react-router-redux': '^4.0.8',
@@ -71,13 +71,12 @@ module.exports = {
 	deepmerge: '^1.5.1',
 
 	// dev deps
-	'@storybook/react': '^4.0.12',
-	'@storybook/addon-a11y': '^4.0.12',
-	'@storybook/addon-storyshots': '^4.0.12',
-	'@storybook/addon-actions': '^4.0.12',
-	'@storybook/addon-info': '^4.0.12',
-	'@storybook/addon-knobs': '^4.0.12',
-	'@storybook/addons': '^4.0.12',
+	'@storybook/react': '^5.1.0',
+	'@storybook/addon-a11y': '^5.1.0',
+	'@storybook/addon-actions': '^5.1.0',
+	'@storybook/addon-info': '^5.1.0',
+	'@storybook/addon-knobs': '^5.1.0',
+	'@storybook/addons': '^5.1.0',
 	autoprefixer: '^7.1.4',
 	'babel-eslint': '^10.0.1',
 	'babel-jest': JEST_VERSION,
@@ -104,7 +103,7 @@ module.exports = {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2', // this is integrated in jest 23
-	'jest-environment-jsdom': '^23.4.0',
+	'jest-environment-jsdom': JEST_VERSION,
 	jsdom: '^11.11.0',
 	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',
@@ -112,7 +111,7 @@ module.exports = {
 	'react-stub-context': '^0.7.0',
 	'regenerator-runtime': '^0.13.1',
 	rimraf: '^2.6.2',
-	'sass-lint': '1.13.0',
+	'sass-lint': '^1.13.1',
 
 	// webpack
 	'babel-loader': '^8.0.0',

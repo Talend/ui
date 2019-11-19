@@ -2,259 +2,169 @@
 
 exports[`List DisplayMode should render 1`] = `
 <ListDisplayMode
-  displayModes={
+  displayModesOptions={
     Array [
       "table",
       "large",
     ]
   }
   id="myDisplayMode"
-  initialDisplayMode="table"
 >
-  <NavbarText
-    componentClass="p"
-    pullLeft={false}
-    pullRight={false}
+  <div
+    className="tc-display-mode-toggle theme-tc-display-mode-toggle"
   >
-    <p
-      className="navbar-text"
+    <Component
+      displayMode="table"
+      displayModeOption="table"
+      icon="talend-table"
+      id="myDisplayMode"
+      key="table"
+      onSelect={[Function]}
     >
-      <label
-        htmlFor="myDisplayMode"
+      <ActionIconToggle
+        active={true}
+        disabled={true}
+        icon="talend-table"
+        id="myDisplayMode-table"
+        key="table"
+        label="Set Table as current display mode."
+        onClick={[Function]}
+        tooltipPlacement="top"
       >
-        Display:
-      </label>
-    </p>
-  </NavbarText>
-  <Nav
-    bsClass="nav"
-    justified={false}
-    pullLeft={false}
-    pullRight={false}
-    stacked={false}
-  >
-    <ul
-      className="nav"
-      role={null}
-    >
-      <NavDropdown
-        aria-label="Change display mode. Current display mode: table."
-        id="myDisplayMode"
-        key=".0"
-        onSelect={[Function]}
-        title={
-          <Icon
-            name="talend-table"
-          />
-        }
-      >
-        <Uncontrolled(Dropdown)
-          className=""
-          componentClass="li"
-          id="myDisplayMode"
-          onSelect={[Function]}
+        <TooltipTrigger
+          label="Set Table as current display mode."
+          tooltipPlacement="top"
         >
-          <Dropdown
-            bsClass="dropdown"
-            className=""
-            componentClass="li"
-            id="myDisplayMode"
-            onSelect={[Function]}
-            onToggle={[Function]}
+          <Button
+            active={false}
+            aria-describedby={42}
+            aria-label="Set Table as current display mode."
+            aria-pressed={true}
+            block={false}
+            bsClass="btn"
+            bsStyle="link"
+            className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
+            disabled={true}
+            id="myDisplayMode-table"
+            key=".0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           >
-            <li
-              className="dropdown"
+            <button
+              aria-describedby={42}
+              aria-label="Set Table as current display mode."
+              aria-pressed={true}
+              className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
+              disabled={true}
+              id="myDisplayMode-table"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
             >
-              <DropdownToggle
-                aria-label="Change display mode. Current display mode: table."
-                bsClass="dropdown-toggle"
-                bsRole="toggle"
-                id="myDisplayMode"
-                key=".0"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                open={false}
-                useAnchor={true}
+              <Icon
+                name="talend-table"
               >
-                <SafeAnchor
-                  aria-expanded={false}
-                  aria-haspopup={true}
-                  aria-label="Change display mode. Current display mode: table."
-                  className="dropdown-toggle"
-                  componentClass="a"
-                  id="myDisplayMode"
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  role="button"
+                <svg
+                  aria-hidden="true"
+                  className="theme-tc-svg-icon tc-svg-icon"
+                  focusable="false"
+                  name="talend-table"
+                  title={null}
                 >
-                  <a
-                    aria-expanded={false}
-                    aria-haspopup={true}
-                    aria-label="Change display mode. Current display mode: table."
-                    className="dropdown-toggle"
-                    href="#"
-                    id="myDisplayMode"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="button"
-                  >
-                    <Icon
-                      name="talend-table"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        name="talend-table"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-table"
-                        />
-                      </svg>
-                    </Icon>
-                     
-                    <span
-                      className="caret"
-                    />
-                  </a>
-                </SafeAnchor>
-              </DropdownToggle>
-              <DropdownMenu
-                bsClass="dropdown-menu"
-                bsRole="menu"
-                key=".1"
-                labelledBy="myDisplayMode"
-                onClose={[Function]}
-                onSelect={[Function]}
-                pullRight={false}
+                  <use
+                    xlinkHref="#talend-table"
+                  />
+                </svg>
+              </Icon>
+            </button>
+          </Button>
+        </TooltipTrigger>
+      </ActionIconToggle>
+    </Component>
+    <Component
+      displayMode="table"
+      displayModeOption="large"
+      icon="talend-expanded"
+      id="myDisplayMode"
+      key="large"
+      onSelect={[Function]}
+    >
+      <ActionIconToggle
+        active={false}
+        disabled={false}
+        icon="talend-expanded"
+        id="myDisplayMode-large"
+        key="large"
+        label="Set Expanded as current display mode."
+        onClick={[Function]}
+        tooltipPlacement="top"
+      >
+        <TooltipTrigger
+          label="Set Expanded as current display mode."
+          tooltipPlacement="top"
+        >
+          <Button
+            active={false}
+            aria-describedby={42}
+            aria-label="Set Expanded as current display mode."
+            aria-pressed={false}
+            block={false}
+            bsClass="btn"
+            bsStyle="link"
+            className="tc-icon-toggle theme-tc-icon-toggle"
+            disabled={false}
+            id="myDisplayMode-large"
+            key=".0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            <button
+              aria-describedby={42}
+              aria-label="Set Expanded as current display mode."
+              aria-pressed={false}
+              className="tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+              disabled={false}
+              id="myDisplayMode-large"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
+            >
+              <Icon
+                name="talend-expanded"
               >
-                <RootCloseWrapper
-                  disabled={true}
-                  event="click"
-                  onRootClose={[Function]}
+                <svg
+                  aria-hidden="true"
+                  className="theme-tc-svg-icon tc-svg-icon"
+                  focusable="false"
+                  name="talend-expanded"
+                  title={null}
                 >
-                  <ul
-                    aria-labelledby="myDisplayMode"
-                    className="dropdown-menu"
-                    role="menu"
-                  >
-                    <MenuItem
-                      aria-label="Set Table as current display mode."
-                      bsClass="dropdown"
-                      disabled={false}
-                      divider={false}
-                      eventKey="table"
-                      header={false}
-                      id="myDisplayMode-table"
-                      key=".$.$table"
-                      onKeyDown={[Function]}
-                      onSelect={[Function]}
-                    >
-                      <li
-                        className=""
-                        role="presentation"
-                      >
-                        <SafeAnchor
-                          aria-label="Set Table as current display mode."
-                          componentClass="a"
-                          id="myDisplayMode-table"
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
-                          role="menuitem"
-                          tabIndex="-1"
-                        >
-                          <a
-                            aria-label="Set Table as current display mode."
-                            href="#"
-                            id="myDisplayMode-table"
-                            onClick={[Function]}
-                            onKeyDown={[Function]}
-                            role="menuitem"
-                            tabIndex="-1"
-                          >
-                            <Icon
-                              name="talend-table"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                className="theme-tc-svg-icon tc-svg-icon"
-                                focusable="false"
-                                name="talend-table"
-                                title={null}
-                              >
-                                <use
-                                  xlinkHref="#talend-table"
-                                />
-                              </svg>
-                            </Icon>
-                            Table
-                          </a>
-                        </SafeAnchor>
-                      </li>
-                    </MenuItem>
-                    <MenuItem
-                      aria-label="Set Expanded as current display mode."
-                      bsClass="dropdown"
-                      disabled={false}
-                      divider={false}
-                      eventKey="large"
-                      header={false}
-                      id="myDisplayMode-large"
-                      key=".$.$large"
-                      onKeyDown={[Function]}
-                      onSelect={[Function]}
-                    >
-                      <li
-                        className=""
-                        role="presentation"
-                      >
-                        <SafeAnchor
-                          aria-label="Set Expanded as current display mode."
-                          componentClass="a"
-                          id="myDisplayMode-large"
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
-                          role="menuitem"
-                          tabIndex="-1"
-                        >
-                          <a
-                            aria-label="Set Expanded as current display mode."
-                            href="#"
-                            id="myDisplayMode-large"
-                            onClick={[Function]}
-                            onKeyDown={[Function]}
-                            role="menuitem"
-                            tabIndex="-1"
-                          >
-                            <Icon
-                              name="talend-expanded"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                className="theme-tc-svg-icon tc-svg-icon"
-                                focusable="false"
-                                name="talend-expanded"
-                                title={null}
-                              >
-                                <use
-                                  xlinkHref="#talend-expanded"
-                                />
-                              </svg>
-                            </Icon>
-                            Expanded
-                          </a>
-                        </SafeAnchor>
-                      </li>
-                    </MenuItem>
-                  </ul>
-                </RootCloseWrapper>
-              </DropdownMenu>
-            </li>
-          </Dropdown>
-        </Uncontrolled(Dropdown)>
-      </NavDropdown>
-    </ul>
-  </Nav>
+                  <use
+                    xlinkHref="#talend-expanded"
+                  />
+                </svg>
+              </Icon>
+            </button>
+          </Button>
+        </TooltipTrigger>
+      </ActionIconToggle>
+    </Component>
+  </div>
 </ListDisplayMode>
 `;

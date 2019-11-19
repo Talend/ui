@@ -995,6 +995,10 @@
               </a>
             </p>
 
+            <p id="btn-tertiary"  class="bs-component">
+              <a href="#" class="btn btn-tertiary btn-info">Tertiary Info</a>
+              <a href="#" class="btn btn-tertiary btn-default">Tertiary Default</a>
+            </p>
           </div>
           <div id="btn-groups" class="col-lg-4">
 
@@ -1238,7 +1242,12 @@
                       </div>
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"><span>Checkbox with label wrapped into <code>span</code></span>
+                          <input type="checkbox" data-checked=1 indeterminate="true"><span>Checkbox intermediate</span>
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" ><span>Checkbox with label wrapped into <code>span</code></span>
                         </label>
                       </div>
                       <div class="checkbox">
@@ -1248,9 +1257,28 @@
                       </div>
                       <div class="checkbox disabled">
                         <label>
-                          <input type="checkbox" disabled=""> Disabled checkbox
+                          <input type="checkbox" disabled checked> Disabled checked checkbox
                         </label>
                       </div>
+                      <div class="checkbox disabled">
+                        <label>
+                          <input type="checkbox" disabled data-checked=1 indeterminate="true"> Disabled intermediate checkbox
+                        </label>
+                      </div>
+                      <div class="checkbox disabled">
+                        <label>
+                          <input type="checkbox" disabled> Disabled checkbox
+                        </label>
+                      </div>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox3" value="option3"> <span>3</span>
+                      </label>
                     </div>
                   </div>
                   <div class="form-group">
@@ -1287,6 +1315,15 @@
                           Disabled option
                         </label>
                       </div>
+                      <label class="radio-inline">
+                        <input type="radio" name="optionsRadios" id="inlineRadio1" value="option1"> 1
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="optionsRadios" id="inlineRadio2" value="option2"> 2
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="optionsRadios" id="inlineRadio3" value="option3"> <span>3</span>
+                      </label>
                     </div>
                   </div>
                   <div class="form-group switch">
@@ -1447,6 +1484,7 @@
                 <li class="active"><button data-target="#home" data-toggle="tab">Home</button></li>
                 <li><button data-target="#profile" data-toggle="tab">Profile</button></li>
                 <li class="disabled"><button disabled>Disabled</button></li>
+                <li><button data-target="#long" data-toggle="tab">Very long text that should be truncated</button></li>
                 <li class="dropdown">
                   <button class="dropdown-toggle" data-toggle="dropdown">
                     Dropdown <span class="caret"></span>
@@ -1470,6 +1508,9 @@
                 </div>
                 <div class="tab-pane fade" id="dropdown2">
                   <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+                </div>
+                <div class="tab-pane fade" id="long">
+                  He's your brother, Mom. Oh Mom, there's nothing wrong with calling a boy. Maybe you were adopted. No no no no no, Marty, both you and Jennifer turn out fine. It's your kids, Marty, something has got to be done about your kids. Right.
                 </div>
               </div>
             </div>
@@ -1621,35 +1662,37 @@
               </ul>
 
               <ul class="breadcrumb">
-                <li><button role="link" type="button" class="btn btn-link">Level 1</button></li>
-                <li><button role="link" type="button" class="btn btn-link">Level 2</button></li>
+                <li><button role="link" type="button" class="btn btn-link"><span>Level 1</span></button></li>
+                <li><button role="link" type="button" class="btn btn-link"><span>Level 2</span></button></li>
                 <li class="active"><span>Level 3</span></li>
               </ul>
 
               <ul class="breadcrumb">
-                <li><button role="link" title="Lorem ipsum" type="button" class="btn btn-link">Lorem ipsum</button></li>
+                <li><button role="link" title="Lorem ipsum" type="button" class="btn btn-link"><span>Lorem ipsum</span></button></li>
                 <li class="active"><span>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</span></li>
               </ul>
 
               <ul class="breadcrumb">
+                <li><button role="link" type="button" class="btn btn-link"><span>Home</span></button></li>
                 <li class="dropdown">
-                  <button class="dropdown-toggle btn btn-link" data-toggle="dropdown"><span>...</span></button>
+                  <button class="dropdown-toggle btn btn-link" data-toggle="dropdown"><span>…</span></button>
                   <ul class="dropdown-menu">
-                    <li><a href="#" >Home</a></li>
                     <li><a href="#" >Level 1</a></li>
                     <li><a href="#" >Level 2</a></li>
                     <li><a href="#" >Level 3</a></li>
+                    <li><a href="#" >Level 4</a></li>
                   </ul>
                 </li>
-                <li><button role="link" type="button" class="btn btn-link">Level 4</button></li>
-                <li><button role="link" type="button" class="btn btn-link">Level 5</button></li>
+                <li><button role="link" type="button" class="btn btn-link"><span>Level 5</span></button></li>
                 <li class="active"><span>Level 6</span></li>
               </ul>
 
               <ul class="breadcrumb">
                 <li class="dropdown">
                   <button class="dropdown-toggle btn btn-link" data-toggle="dropdown">
-                    Dropdown
+                    <span>
+                      Dropdown
+                    </span>
                   </button>
                   <ul class="dropdown-menu">
                     <li><a href="#" >Action</a></li>
@@ -1657,8 +1700,8 @@
                     <li><a href="#" >Another action</a></li>
                   </ul>
                 </li>
-                <li><button role="link" title="Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui." type="button" class="btn btn-link">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</button></li>
-                <li><button role="link" title="Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui." type="button" class="btn btn-link">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</button></li>
+                <li><button role="link" title="Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui." type="button" class="btn btn-link"><span>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</span></button></li>
+                <li><button role="link" title="Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui." type="button" class="btn btn-link"><span>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</span></button></li>
                 <li class="active"><span>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</span></li>
               </ul>
             </div>
@@ -2153,6 +2196,26 @@
 
 	$(function() {
 		setDropDownMenuVisibility();
+        $("input[type=checkbox][data-checked]")
+          .change(function() {
+            const el = $(this);
+            switch(el.attr('data-checked')) {
+              case "0":
+                el.attr('data-checked', 1);
+                el.attr('indeterminate', true);
+                el.prop('checked', false);
+                break;
+              case "1":
+                el.attr('data-checked', 2);
+                el.removeAttr('indeterminate');
+                el.prop('checked', true);
+                break;
+              default:
+                el.attr('data-checked', 0);
+                el.removeAttr('indeterminate');
+                el.prop('checked', false);
+            }
+          });
 	});
 
 	$(window).scroll(function() {
@@ -2169,7 +2232,7 @@
 		e.preventDefault();
 	});
 	var $button = $(
-		"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>",
+		"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>"
 	).click(function() {
 		var html = $(this)
 			.parent()
@@ -2187,7 +2250,7 @@
 		},
 		function() {
 			$button.hide();
-		},
+		}
 	);
 	function cleanSource(html) {
 		html = html

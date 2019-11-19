@@ -1,5 +1,7 @@
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import i18n from 'i18next';
 
 import jsonStories from './jsonStories';
 import playgroundStory from './playgroundStory';
@@ -10,14 +12,13 @@ import customActionsStory from './customActionsStory';
 import customUpdating from './customUpdating';
 import customErrors from './customErrors';
 import customDisplayMode from './customDisplayMode';
+import customHoverSubmitStory from './customHoverSubmitStory';
 
 const coreConceptsStories = storiesOf('Core concepts', module);
 
 const coreFieldsetsStories = storiesOf('Core fieldsets', module);
 
 const coreFieldsStories = storiesOf('Core fields', module);
-
-const oldStories = storiesOf('Migration', module);
 
 const playground = storiesOf('Playground', module);
 playground.addDecorator(withKnobs);
@@ -37,9 +38,6 @@ jsonStories.forEach(({ category, name, story }) => {
 		case 'fields':
 			coreFieldsStories.add(name, story);
 			break;
-		case 'old':
-			oldStories.add(name, story);
-			break;
 		default:
 			console.error(`No category ${category} found for story ${name}`);
 	}
@@ -51,3 +49,4 @@ coreConceptsStories.add(customActionsStory.name, customActionsStory.story);
 coreConceptsStories.add(customUpdating.name, customUpdating.story);
 coreConceptsStories.add(customErrors.name, customErrors.story);
 coreConceptsStories.add(customDisplayMode.name, customDisplayMode.story);
+coreConceptsStories.add(customHoverSubmitStory.name, customHoverSubmitStory.story);

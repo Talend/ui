@@ -1,40 +1,23 @@
-@import '../../shared/styles/mixins';
+.container {
+	padding: $padding-smaller 0;
+	background-color: $white;
 
-.time-picker {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
-	legend {
+	button {
+		width: 100%;
 		border: none;
-		font-size: inherit;
-		text-align: center;
-		text-transform: uppercase;
+		color: $dove-gray;
+		font-size: 1.4rem;
+		font-weight: normal;
+		background-color: $white;
 
-		.utc {
-			color: $silver-chalice;
-			font-size: 1.2rem;
+		&:global(.highlight) {
+			background-color: tint($lochmara, 90%);
 		}
-	}
 
-	hr {
-		width: 100%;
-		border-color: $gallery;
-		margin: $padding-small 0;
-	}
-
-	> input.time-input {
-		border: 1px solid $concrete;
-		height: 3rem;
-		text-align: center;
-		width: 100%;
-
+		&:hover,
 		&:focus {
-			border-color: $scooter;
-		}
-		&.time-error {
-			box-shadow: inset 0 -2px 0 #e96065;
-			border-bottom: none;
+			background-color: $wild-sand;
+			outline: none;
 		}
 	}
 }

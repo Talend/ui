@@ -1,12 +1,13 @@
 import React from 'react';
-import { I18nextProvider } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 import { IconsProvider, Layout, SidePanel } from '../src/index';
 
-import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
+import { TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
+
+const APPS_WITH_SIDEPANEL = ['tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -15,6 +16,12 @@ const icons = {
 	'talend-star': talendIcons['talend-star'],
 	'talend-opener': talendIcons['talend-opener'],
 	'talend-world': talendIcons['talend-world'],
+	'talend-user-circle': talendIcons['talend-user-circle'],
+	'talend-group-circle': talendIcons['talend-group-circle'],
+	'talend-roles': talendIcons['talend-roles'],
+	'talend-license': talendIcons['talend-license'],
+	'talend-projects': talendIcons['talend-projects'],
+	'talend-activity': talendIcons['talend-activity'],
 };
 
 const actions = [
@@ -73,6 +80,39 @@ const items = [
 	},
 ];
 
+const other = [
+	{
+		key: 'users',
+		label: 'Users',
+		icon: 'talend-user-circle',
+	},
+	{
+		key: 'groups',
+		label: 'Groups',
+		icon: 'talend-group-circle',
+	},
+	{
+		key: 'roles',
+		label: 'Roles',
+		icon: 'talend-roles',
+	},
+	{
+		key: 'licenses',
+		label: 'Licenses',
+		icon: 'talend-license',
+	},
+	{
+		key: 'projects',
+		label: 'Projects',
+		icon: 'talend-projects',
+	},
+	{
+		key: 'activity',
+		label: 'Activity',
+		icon: 'talend-activity',
+	},
+];
+
 const stories = storiesOf('SidePanel', module);
 
 stories
@@ -80,7 +120,7 @@ stories
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			{story()}
 		</div>
 	))
 	.add('default', () => (
@@ -108,22 +148,20 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
-	.add('not dockable', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			dockable={false}
-			selected={items[1]}
-			tooltipPlacement="top"
-		/>
-	))
-	.add('large docked', () => (
+	.add('minimised', () => (
 		<SidePanel
 			actions={actions}
 			onToggleDock={action('Toggle dock clicked')}
-			docked
-			large
+			minimised
+			tooltipPlacement="top"
+		/>
+	))
+	.add('with a large amount of items', () => (
+		<SidePanel
+			actions={[...items, ...other, ...other, ...other]}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
 			tooltipPlacement="top"
 		/>
 	))
@@ -134,17 +172,6 @@ stories
 			onToggleDock={action('onToggleDock')}
 			selected={items[1]}
 			reverse
-			tooltipPlacement="top"
-		/>
-	))
-	.add('large reverse', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			selected={items[1]}
-			reverse
-			large
 			tooltipPlacement="top"
 		/>
 	))
@@ -165,7 +192,7 @@ stories
 				]);
 				const panel = (
 					<SidePanel
-						actions={panelItems}
+						actions={[...items, ...other, ...other, ...other]}
 						onSelect={action('onItemSelect')}
 						onToggleDock={() => this.setState({ docked: !this.state.docked })}
 						docked={this.state.docked}
@@ -175,9 +202,9 @@ stories
 				return (
 					<Layout mode="TwoColumns" one={panel}>
 						<ol>
-							{new Array(100)
-								.fill('This is some random content')
-								.map((item, num) => <li key={num}>{item}</li>)}
+							{new Array(100).fill('This is some random content').map((item, num) => (
+								<li key={num}>{item}</li>
+							))}
 						</ol>
 					</Layout>
 				);
@@ -214,9 +241,9 @@ stories
 				return (
 					<Layout mode="TwoColumns" one={panel}>
 						<ol>
-							{new Array(100)
-								.fill('This is some random content')
-								.map((item, num) => <li key={num}>{item}</li>)}
+							{new Array(100).fill('This is some random content').map((item, num) => (
+								<li key={num}>{item}</li>
+							))}
 						</ol>
 					</Layout>
 				);
@@ -228,7 +255,7 @@ stories
 
 const appStyle = require('./config/themes.scss');
 
-apps.forEach(app => {
+APPS_WITH_SIDEPANEL.forEach(app => {
 	stories.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
 		<div className={appStyle[app]}>
 			<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
@@ -243,3 +270,22 @@ apps.forEach(app => {
 		</div>
 	));
 });
+
+stories.add('🎨 [Portal] reverse', () => (
+	<div className={appStyle.portal}>
+		<h1>SidePanel</h1>
+		<p>
+			Keep sidePanel reverse style even if <em>t7</em> styles are applied.
+		</p>
+		<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
+			<SidePanel
+				id="context"
+				actions={actions}
+				onToggleDock={action('Toggle dock clicked')}
+				docked={false}
+				tooltipPlacement="top"
+				reverse
+			/>
+		</div>
+	</div>
+));

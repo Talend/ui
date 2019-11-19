@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderResizable should render with no specific props 1`] = `
+<HeaderResizable>
+  <ConsumerVirtualizedList>
+    <div
+      className="tc-header-cell-resizable theme-tc-header-cell-resizable"
+    >
+      <div
+        className="tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text"
+      >
+        <HeaderResizableContent />
+      </div>
+      <span
+        className="tc-header-cell-resizable-drag-button theme-tc-header-cell-resizable-drag-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <input
+          className="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
+          data-testId="resize-input-button-ally"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          title="Resize column"
+          type="button"
+          value="Resize column"
+        />
+        <Draggable
+          allowAnyClick={false}
+          axis="x"
+          bounds={false}
+          cancel={null}
+          className="tc-header-cell-resizable-drag-button-handle theme-tc-header-cell-resizable-drag-button-handle"
+          defaultClassName="react-draggable"
+          defaultClassNameDragged="react-draggable-dragged"
+          defaultClassNameDragging="react-draggable-dragging"
+          defaultPosition={
+            Object {
+              "x": 0,
+              "y": 0,
+            }
+          }
+          disabled={false}
+          enableUserSelectHack={true}
+          grid={null}
+          handle={null}
+          offsetParent={null}
+          onDrag={[Function]}
+          onMouseDown={[Function]}
+          onStart={[Function]}
+          onStop={[Function]}
+          position={
+            Object {
+              "x": 0,
+            }
+          }
+          scale={1}
+          transform={null}
+        >
+          <DraggableCore
+            allowAnyClick={false}
+            axis="x"
+            bounds={false}
+            cancel={null}
+            className="tc-header-cell-resizable-drag-button-handle theme-tc-header-cell-resizable-drag-button-handle"
+            defaultClassName="react-draggable"
+            defaultClassNameDragged="react-draggable-dragged"
+            defaultClassNameDragging="react-draggable-dragging"
+            defaultPosition={
+              Object {
+                "x": 0,
+                "y": 0,
+              }
+            }
+            disabled={false}
+            enableUserSelectHack={true}
+            grid={null}
+            handle={null}
+            offsetParent={null}
+            onDrag={[Function]}
+            onMouseDown={[Function]}
+            onStart={[Function]}
+            onStop={[Function]}
+            position={
+              Object {
+                "x": 0,
+              }
+            }
+            scale={1}
+            transform={null}
+          >
+            <div
+              className="tc-header-cell-resizable-drag-button-handle-icon theme-tc-header-cell-resizable-drag-button-handle-icon react-draggable"
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+              style={
+                Object {
+                  "touchAction": "none",
+                  "transform": "translate(0px,undefinedpx)",
+                }
+              }
+              title="Resize column"
+              transform={null}
+            />
+          </DraggableCore>
+        </Draggable>
+      </span>
+    </div>
+  </ConsumerVirtualizedList>
+</HeaderResizable>
+`;
+
+exports[`HeaderResizable should render with no specific props 2`] = `
+<div class="tc-header-cell-resizable theme-tc-header-cell-resizable">
+  <div class="tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text">
+  </div>
+  <span class="tc-header-cell-resizable-drag-button theme-tc-header-cell-resizable-drag-button">
+    <input data-testid="resize-input-button-ally"
+           class="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
+           title="Resize column"
+           type="button"
+           value="Resize column"
+    >
+    <div class="tc-header-cell-resizable-drag-button-handle-icon theme-tc-header-cell-resizable-drag-button-handle-icon react-draggable"
+         title="Resize column"
+         style="transform: translate(0px,undefinedpx);"
+    >
+    </div>
+  </span>
+</div>
+`;

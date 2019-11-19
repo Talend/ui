@@ -1,5 +1,6 @@
 $tc-icon-toggle-size: 2.4rem !default;
 $tc-icon-toggle-icon-size: $svg-sm-size !default;
+$tc-icon-toggle-border: 1px solid $gray;
 
 @mixin tc-icon-toggle($btn-size: $tc-icon-toggle-size, $icon-size: $tc-icon-toggle-icon-size) {
 	height: $btn-size;
@@ -19,7 +20,6 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	justify-content: center;
 	align-items: center;
 
-	border: 1px solid $gray;
 	background-color: transparent;
 
 	box-shadow: none;
@@ -28,8 +28,15 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	padding: 0;
 
 	svg {
+		display: block;
 		color: $gray;
 	}
+
+	&,
+	&:focus {
+		border: $tc-icon-toggle-border;
+	}
+
 	&[disabled] {
 		&:hover,
 		&:focus {

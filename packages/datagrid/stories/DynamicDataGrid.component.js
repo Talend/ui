@@ -1,15 +1,12 @@
 import React from 'react';
 import random from 'lodash/random';
 import { IconsProvider } from '@talend/react-components';
+import PropTypes from 'prop-types';
 
 import DataGrid from '../src/components/';
 import serializer from '../src/components/DatasetSerializer';
-import DefaultRenderer from '../src/components/DefaultCellRenderer/DefaultRenderer.component';
-import DefaultIntCellRenderer from '../src/components/DefaultIntCellRenderer';
-import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer';
-import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
-import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
 import sample from './sample.json';
+import { getComponent } from './datagrid.component';
 
 const ADD_ITEMS_NUMBER = 4;
 const LOADING_ITEM = {
@@ -64,23 +61,6 @@ function forceRedrawRows(props, prevProps) {
 	);
 }
 
-export function getComponent(component) {
-	switch (component) {
-		case 'DefaultIntCellRenderer':
-			return DefaultIntCellRenderer;
-		case 'DefaultHeaderRenderer':
-			return DefaultHeaderRenderer;
-		case 'DefaultPinHeaderRenderer':
-			return DefaultPinHeaderRenderer;
-		case 'DefaultCellRenderer':
-			return DefaultCellRenderer;
-		case 'DefaultStringCellRenderer':
-			return DefaultRenderer;
-		default:
-			console.error(component);
-	}
-}
-
 function getItemWithRandomValue() {
 	return {
 		loading: false,
@@ -131,14 +111,19 @@ function getItemWithRandomValue() {
 }
 
 export default class DynamicDataGrid extends React.Component {
+	static propTypes = {
+		forceRedraw: PropTypes.bool,
+	};
+
 	constructor() {
 		super();
 
 		this.addLoadingsItems = this.addLoadingsItems.bind(this);
 		this.terminateItems = this.terminateItems.bind(this);
+		this.changeColumnQuality = this.changeColumnQuality.bind(this);
 
 		const datagridSample = Object.assign({}, sample);
-		datagridSample.data = new Array(ADD_ITEMS_NUMBER).fill(LOADING_ITEM);
+		datagridSample.data = new Array(ADD_ITEMS_NUMBER).fill().map(() => ({ ...LOADING_ITEM }));
 		this.state = { sample: datagridSample, loading: true, index: 1 };
 
 		setTimeout(this.terminateItems, 1000);
@@ -160,10 +145,30 @@ export default class DynamicDataGrid extends React.Component {
 		});
 	}
 
+	changeColumnQuality() {
+		this.setState(prevState => {
+			const datagridSample = Object.assign({}, prevState.sample);
+			datagridSample.data = datagridSample.data.map(rowData => ({
+				...rowData,
+				value: {
+					...rowData.value,
+					field5: {
+						...rowData.value.field5,
+						quality: rowData.value.field5.quality === 1 ? -1 : 1,
+					},
+				},
+			}));
+
+			return {
+				sample: datagridSample,
+			};
+		});
+	}
+
 	addLoadingsItems() {
 		const datagridSample = Object.assign({}, this.state.sample);
 		datagridSample.data = datagridSample.data.concat(
-			new Array(ADD_ITEMS_NUMBER).fill(LOADING_ITEM),
+			new Array(ADD_ITEMS_NUMBER).fill().map(() => ({ ...LOADING_ITEM })),
 		);
 
 		this.setState(prevState => ({
@@ -184,14 +189,20 @@ export default class DynamicDataGrid extends React.Component {
 					onClick={this.addLoadingsItems}
 					disabled={this.state.loading}
 				/>
+				<input
+					type="button"
+					value={'change quality for 1 column(#6)'}
+					onClick={this.changeColumnQuality}
+					disabled={this.state.loading}
+				/>
 				Number of data : {this.state.sample.data.length}
 				<IconsProvider />
 				<DataGrid
-					rowData={serializer.getRowData(this.state.sample)}
 					data={this.state.sample}
 					getComponent={getComponent}
 					rowSelection="multiple"
-					forceRedrawRows={forceRedrawRows}
+					forceRedrawRows={this.props.forceRedraw ? forceRedrawRows : null}
+					rowData={this.props.forceRedraw ? serializer.getRowData(this.state.sample) : null} //
 				/>
 			</div>
 		);

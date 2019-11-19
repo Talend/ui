@@ -14,11 +14,11 @@
   },
   "devDependencies": {
     "@talend/react-components": "2.3.0",
-    "babel-jest": "^24.0.0",
+    "babel-jest": "^24.7.1",
     "eslint": "^4.0.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
-    "jest": "^24.0.0"
+    "jest": "^24.7.1"
   },
   "peerDependencies": {
     "@talend/react-components": ">2.3.0"

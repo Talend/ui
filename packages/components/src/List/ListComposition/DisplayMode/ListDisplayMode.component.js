@@ -1,21 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar, NavDropdown, Nav, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
-
+import { ActionIconToggle } from '../../../Actions';
 import { useListContext } from '../context';
-import Icon from '../../../Icon';
+import { DISPLAY_MODE } from '../constants';
+import cssModule from './DisplayModeToggle.scss';
+import { getTheme } from '../../../theme';
 
-function getIcon(selected) {
-	switch (selected) {
-		case 'table':
-			return 'talend-table';
-		case 'large':
-			return 'talend-expanded';
-		default:
-			return 'talend-table';
-	}
-}
+const theme = getTheme(cssModule);
 
 function getLabel(option, t) {
 	switch (option) {
@@ -28,23 +20,43 @@ function getLabel(option, t) {
 	}
 }
 
-function ListDisplayMode(props) {
-	const { displayMode, setDisplayMode, t } = useListContext();
-	const {
-		id,
-		displayModes,
-		initialDisplayMode,
-		onChange,
-		selectedDisplayMode = displayMode,
-	} = props;
+export const DisplayModeIcon = React.memo(
+	({ displayMode, displayModeOption, icon, id, label, onSelect }) => {
+		const { t } = useListContext();
+		return (
+			<ActionIconToggle
+				key={displayModeOption}
+				id={`${id}-${displayModeOption}`}
+				icon={icon}
+				label={
+					label ||
+					t('LIST_SELECT_DISPLAY_MODE', {
+						defaultValue: 'Set {{displayMode}} as current display mode.',
+						displayMode: getLabel(displayModeOption, t),
+					})
+				}
+				active={displayMode === displayModeOption}
+				disabled={displayMode === displayModeOption}
+				onClick={e => {
+					onSelect(e, displayModeOption);
+				}}
+			/>
+		);
+	},
+);
 
-	useEffect(() => {
-		if (!onChange) {
-			setDisplayMode(initialDisplayMode);
-		}
-	}, []);
+DisplayModeIcon.propTypes = {
+	displayMode: PropTypes.string,
+	displayModeOption: PropTypes.string.isRequired,
+	icon: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	label: PropTypes.string,
+	onSelect: PropTypes.func.isRequired,
+};
 
-	function onSelect(value, event) {
+function ListDisplayMode({ children, displayModesOptions, id, onChange, selectedDisplayMode }) {
+	const { displayMode, setDisplayMode } = useListContext();
+	function onSelect(event, value) {
 		if (onChange) {
 			onChange(event, value);
 		} else {
@@ -52,49 +64,35 @@ function ListDisplayMode(props) {
 		}
 	}
 
+	if (children) {
+		return children;
+	}
 	return (
-		<React.Fragment>
-			<Navbar.Text>
-				<label htmlFor={id}>{t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })}</label>
-			</Navbar.Text>
-			<Nav>
-				<NavDropdown
+		<div className={theme('tc-display-mode-toggle')}>
+			{displayModesOptions.map(displayModeOption => (
+				<DisplayModeIcon
+					displayMode={selectedDisplayMode || displayMode}
+					displayModeOption={displayModeOption}
+					icon={displayModeOption === 'table' ? 'talend-table' : 'talend-expanded'}
 					id={id}
-					title={<Icon name={getIcon(selectedDisplayMode)} />}
+					key={displayModeOption}
 					onSelect={onSelect}
-					aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
-						defaultValue: 'Change display mode. Current display mode: {{displayMode}}.',
-						displayMode: selectedDisplayMode,
-					})}
-				>
-					{displayModes.map(option => (
-						<MenuItem
-							id={`${id}-${option}`}
-							key={option}
-							eventKey={option}
-							aria-label={t('LIST_SELECT_DISPLAY_MODE', {
-								defaultValue: 'Set {{displayMode}} as current display mode.',
-								displayMode: getLabel(option, t),
-							})}
-						>
-							<Icon name={getIcon(option)} />
-							{getLabel(option, t)}
-						</MenuItem>
-					))}
-				</NavDropdown>
-			</Nav>
-		</React.Fragment>
+				/>
+			))}
+		</div>
 	);
 }
+
+export const displayModesOptions = [DISPLAY_MODE.TABLE, DISPLAY_MODE.LARGE];
+
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
-	displayModes: ['table', 'large'],
-	initialDisplayMode: 'table',
+	displayModesOptions,
 };
 ListDisplayMode.propTypes = {
-	displayModes: PropTypes.arrayOf(PropTypes.string),
+	children: PropTypes.node,
+	displayModesOptions: PropTypes.arrayOf(PropTypes.string),
 	id: PropTypes.string,
-	initialDisplayMode: PropTypes.string,
 	onChange: PropTypes.func,
 	selectedDisplayMode: PropTypes.string,
 };

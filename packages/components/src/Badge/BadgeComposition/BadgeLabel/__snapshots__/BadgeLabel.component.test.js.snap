@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeLabel should default render 1`] = `
+<div class="tc-badge-label theme-tc-badge-label">
+  <span class="tc-badge-label-text theme-tc-badge-label-text"
+        aria-describedby="42"
+  >
+    my label
+  </span>
+</div>
+`;

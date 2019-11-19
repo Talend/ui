@@ -1,0 +1,73 @@
+$tf-comparator-operator-height: 3.2rem !default;
+$tf-comparator-operator-width: 5rem !default;
+$tf-comparator-operator-top: 3.4rem !default;
+$tf-comparator-operator-color: $dove-gray !default;
+$tf-comparator-operator-background: $gallery !default;
+
+.comparator {
+	position: relative;
+	padding-top: $padding-normal;
+	margin-bottom: $padding-normal;
+
+	:global {
+		.dropdown {
+			position: absolute;
+			top: $tf-comparator-operator-top;
+
+			&-menu {
+				min-width: auto;
+				border-top: {
+					left-radius: 0;
+					right-radius: 0;
+				}
+			}
+
+			.tc-svg-icon {
+				flex-shrink: 0;
+			}
+
+			.btn {
+				padding: {
+					left: $padding-smaller;
+					right: $padding-smaller;
+				}
+				height: $tf-comparator-operator-height;
+				min-height: $tf-comparator-operator-height;
+				width: $tf-comparator-operator-width;
+				color: $tf-comparator-operator-color;
+				border: {
+					radius: 0;
+					top-left-radius: 0.4rem;
+				}
+				z-index: 1;
+
+				&-default {
+					box-shadow: none;
+					background-color: $tf-comparator-operator-background;
+				}
+			}
+		}
+
+		.form-group {
+			padding-top: $padding-large;
+
+			.control-label {
+				top: 0;
+			}
+
+			.form-control {
+				padding-left: $tf-comparator-operator-width + 1rem;
+			}
+		}
+	}
+}
+
+.operator {
+	&.selected {
+		font-weight: bold;
+	}
+
+	.symbol + .name {
+		padding-left: 1rem;
+	}
+}

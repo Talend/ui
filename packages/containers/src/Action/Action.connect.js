@@ -1,5 +1,5 @@
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import { Action } from '@talend/react-components';
+import Action from '@talend/react-components/lib/Actions/Action';
 
 export function mapStateToProps(state, ownProps) {
 	if (ownProps.actionId) {

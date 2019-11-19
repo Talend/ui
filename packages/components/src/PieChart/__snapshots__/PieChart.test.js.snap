@@ -14,7 +14,7 @@ exports[`PieChart should render a PieChartIcon with a tooltip 1`] = `
   label="myToolTip"
   tooltipPlacement="top"
 >
-  <Translate(PieChartIcon)
+  <withI18nextTranslation(PieChartIcon)
     label="myToolTip"
   />
 </TooltipTrigger>

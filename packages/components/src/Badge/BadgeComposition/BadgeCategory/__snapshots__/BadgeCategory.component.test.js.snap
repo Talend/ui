@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeCategory should render with the label 1`] = `
+<span aria-label="my badge label"
+      class="tc-badge-category theme-tc-badge-category"
+      aria-describedby="42"
+>
+  my badge label
+</span>
+`;

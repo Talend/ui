@@ -2,15 +2,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Inject from '../Inject';
 import Action from '../Actions/Action';
+import ActionIntercom from '../ActionIntercom';
 import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import '../translate';
+import getDefaultT from '../translate';
 
 function Logo({ isFull, getComponent, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
@@ -249,6 +250,26 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 	);
 }
 
+function Intercom({ id, config, tooltipPlacement }) {
+	return (
+		<li
+			role="presentation"
+			className={classNames(
+				theme['tc-header-bar-intercom'],
+				'tc-header-bar-intercom',
+				theme.separated,
+			)}
+		>
+			<ActionIntercom
+				className="btn btn-link"
+				id={id}
+				config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
+				tooltipPlacement={tooltipPlacement}
+			/>
+		</li>
+	);
+}
+
 function HeaderBar(props) {
 	const Components = Inject.getAll(props.getComponent, {
 		Logo,
@@ -260,6 +281,7 @@ function HeaderBar(props) {
 		Information,
 		Help,
 		AppNotification,
+		Intercom,
 	});
 
 	return (
@@ -304,6 +326,9 @@ function HeaderBar(props) {
 						t={props.t}
 					/>
 				)}
+				{props.intercom && (
+					<Components.Intercom getComponent={props.getComponent} {...props.intercom} />
+				)}
 				{props.help && (
 					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
 				)}
@@ -331,6 +356,10 @@ HeaderBar.Help = Help;
 HeaderBar.Information = Information;
 HeaderBar.User = User;
 HeaderBar.displayName = 'HeaderBar';
+
+HeaderBar.defaultProps = {
+	t: getDefaultT(),
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
@@ -397,6 +426,11 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 
+	Intercom.propTypes = {
+		id: PropTypes.string.isRequired,
+		config: PropTypes.object.isRequired,
+	};
+
 	HeaderBar.propTypes = {
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape(Brand.propTypes),
@@ -405,6 +439,7 @@ if (process.env.NODE_ENV !== 'production') {
 		search: PropTypes.shape(Search.propTypes),
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
+		intercom: PropTypes.shape(Intercom.propTypes),
 		user: PropTypes.shape(User.propTypes),
 		notification: PropTypes.shape(omit(AppNotification.propTypes, 't')),
 		products: PropTypes.shape({
@@ -416,4 +451,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(HeaderBar);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(HeaderBar);

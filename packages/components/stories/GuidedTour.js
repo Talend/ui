@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { I18nextProvider, translate } from 'react-i18next';
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { withTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './config/i18n';
 
 import { GuidedTour } from '../src/index';
 import I18N_DOMAIN_COMPONENTS from '../src/constants';
@@ -87,7 +87,7 @@ class GuidedTourContainer extends React.Component {
 	}
 }
 
-const TranslatedGuidedTourContainer = translate(I18N_DOMAIN_COMPONENTS)(GuidedTourContainer);
+const TranslatedGuidedTourContainer = withTranslation(I18N_DOMAIN_COMPONENTS)(GuidedTourContainer);
 
 // @see https://github.com/elrumordelaluz/reactour#steps
 function getSteps({ hideControls, showControls, t }) {
@@ -277,12 +277,10 @@ storiesOf('GuidedTour', module)
 	.addDecorator(story => (
 		<React.Fragment>
 			<LanguageSwitcher />
-			<I18nextProvider i18n={i18n}>
-				<React.Fragment>
-					{story()}
-					{getLayoutWithLoremIpsum()}
-				</React.Fragment>
-			</I18nextProvider>
+			<React.Fragment>
+				{story()}
+				{getLayoutWithLoremIpsum()}
+			</React.Fragment>
 		</React.Fragment>
 	))
 	.add('default', () => <TranslatedGuidedTourContainer getSteps={getSteps} />);

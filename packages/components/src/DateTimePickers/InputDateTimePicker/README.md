@@ -15,11 +15,10 @@ This component display an input with a datetime picker.
 
 All the remaining props are spread to the input
 
-## formMode props
+## required props
 | name | description |
 |------|-------------|
-| formMode         | Date picker is a form. Only the click on a submit button will validate the change. |
 | required         | Accept empty value or not |
 
-The required props is here to allow empty values and so call the onChange callback when emptying + submitting the value
+The required props is here to allow empty values and so call the onChange callback when emptying the value
 

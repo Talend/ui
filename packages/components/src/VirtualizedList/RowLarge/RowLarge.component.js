@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
+import isEmpty from 'lodash/isEmpty';
+
+import Skeleton from '../../Skeleton';
+
 import {
 	extractSpecialFields,
 	getCellData,
@@ -21,6 +25,34 @@ import theme from './RowLarge.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 const { LARGE } = listTypes;
+
+const SKELETON_SIZES = [Skeleton.SIZES.xlarge, Skeleton.SIZES.large, Skeleton.SIZES.medium];
+const LOADING_ROW_COLUMNS_COUNT = 3;
+
+function RandomSizeSkeleton() {
+	const size = Skeleton.SIZES[SKELETON_SIZES[Math.floor(Math.random() * SKELETON_SIZES.length)]];
+
+	return <Skeleton size={size} />;
+}
+
+function LargeInnerRowLoading({ columns, rows }) {
+	return (
+		<div className={theme['loading-large-column-wrapper']}>
+			{Array(columns).fill(
+				<div className={theme['loading-inner-column']}>
+					{Array(rows).fill(<RandomSizeSkeleton />)}
+				</div>,
+			)}
+		</div>
+	);
+}
+
+LargeInnerRowLoading.propTypes = {
+	columns: PropTypes.number,
+	rows: PropTypes.number,
+};
+
+const MemoLargeInnerRowLoading = React.memo(LargeInnerRowLoading);
 
 /**
  * Row renderer that displays a Large item
@@ -99,13 +131,22 @@ class RowLarge extends React.Component {
 				aria-label={titleField && getCellData(titleField, parent, index)}
 			>
 				<div className={`tc-list-large-inner-box ${theme['inner-box']}`} key="inner-box">
-					<div className={theme.header} key="header">
-						{titleCell}
-						{selectionCell}
-					</div>
-					<dl className={`tc-list-large-content ${theme.content}`} key="content">
-						{otherFields.map(this.renderKeyValue)}
-					</dl>
+					{isEmpty(rowData) ? (
+						<MemoLargeInnerRowLoading
+							columns={LOADING_ROW_COLUMNS_COUNT}
+							rows={Math.floor(otherFields.length / LOADING_ROW_COLUMNS_COUNT) + 1}
+						/>
+					) : (
+						<React.Fragment>
+							<div className={theme.header} key="header">
+								{titleCell}
+								{selectionCell}
+							</div>
+							<dl className={`tc-list-large-content ${theme.content}`} key="content">
+								{otherFields.map(this.renderKeyValue)}
+							</dl>
+						</React.Fragment>
+					)}
 				</div>
 			</div>
 		);
@@ -130,4 +171,4 @@ RowLarge.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withListGesture(translate(I18N_DOMAIN_COMPONENTS)(RowLarge));
+export default withListGesture(withTranslation(I18N_DOMAIN_COMPONENTS)(RowLarge));

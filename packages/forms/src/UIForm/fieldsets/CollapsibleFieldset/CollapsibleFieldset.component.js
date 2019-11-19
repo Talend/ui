@@ -2,8 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Actions } from '@talend/react-components/lib/Actions';
-import ActionIconToggle from '@talend/react-components/lib/Actions/ActionIconToggle';
+import { useTranslation } from 'react-i18next';
+import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
 import Widget from '../../Widget';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 import theme from './CollapsibleFieldset.scss';
 
@@ -12,74 +14,43 @@ function defaultTitle(_, schema) {
 }
 
 export default function createCollapsibleFieldset(title = defaultTitle) {
-	class CollapsibleFieldset extends React.Component {
-		constructor(props) {
-			super(props);
-			this.toggle = this.toggle.bind(this);
-		}
-
-		toggle(event) {
+	function CollapsibleFieldset(props) {
+		function toggle(event) {
 			event.stopPropagation();
 			event.preventDefault();
 			const payload = {
-				schema: this.props.schema,
+				schema: props.schema,
 				value: {
-					...this.props.value,
-					isClosed: !this.props.value.isClosed,
+					...props.value,
+					isClosed: !props.value.isClosed,
 				},
 			};
-			this.props.onChange(event, payload);
+			props.onChange(event, payload);
 		}
 
-		render() {
-			const { id, schema, value, ...restProps } = this.props;
-			const { items } = schema;
-			const iconTransform = !this.props.value.isClosed ? 'flip-vertical' : null;
+		const { id, schema, value, actions, ...restProps } = props;
+		const { t } = useTranslation(I18N_DOMAIN_FORMS);
+		const { items } = schema;
+		const iconTransform = !props.value.isClosed ? 'flip-vertical' : null;
+		const expandLabel = t('FIELDSET_EXPAND', { defaultValue: 'Expand' });
+		const collapseLabel = t('FIELDSET_COLLAPSE', { defaultValue: 'Collapse' });
+		const displayAction = actions.map(action => {
+			return { ...action, displayMode: TYPE_ACTION };
+		});
 
-			return (
-				<fieldset
-					className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}
+		return (
+			<fieldset className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}>
+				<CollapsiblePanel id={`${id}`}
+				                  header={[{ label: title(value, schema) }, displayAction]}
+				                  onToggle={toggle}
+				                  expanded={!value.isClosed}
 				>
-					<div
-						onDoubleClick={this.toggle}
-						id={id && `${id}__title_bar`}
-						role="button"
-						className={theme['title-bar']}
-					>
-						<div // eslint-disable-line jsx-a11y/no-static-element-interactions
-							onClick={this.toggle}
-							id={id && `${id}__title_wrapper`}
-							role="button"
-							className={theme.title}
-						>
-							<legend id={id && `${id}__title`}>{title(value, schema)}</legend>
-						</div>
-						<div className={theme['action-wrapper']}>
-							{this.props.actions.length > 0 && (
-								<Actions className={theme.actions} actions={this.props.actions} />
-							)}
-							<ActionIconToggle
-								className={theme.collapse}
-								onClick={this.toggle}
-								id={id && `${id}__collapse`}
-								label="Collapse"
-								type="button"
-								active={!value.isClosed}
-								icon="talend-caret-down"
-								iconTransform={iconTransform}
-							/>
-						</div>
-					</div>
-					{!value.isClosed && (
-						<div className={theme.body}>
-							{items.map((itemSchema, index) => (
-								<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
-							))}
-						</div>
-					)}
-				</fieldset>
-			);
-		}
+					{items.map((itemSchema, index) => (
+						<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
+					))}
+				</CollapsiblePanel>
+			</fieldset>
+		);
 	}
 
 	CollapsibleFieldset.defaultProps = {

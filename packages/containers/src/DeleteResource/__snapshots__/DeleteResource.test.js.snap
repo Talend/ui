@@ -45,8 +45,12 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   }
 >
   <Trans
-    context="female"
-    i18nKey="DELETE_RESOURCE_MESSAGE"
+    i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE"
+    tOptions={
+      Object {
+        "context": "female",
+      }
+    }
   >
     Are you sure you want to remove the 
     Object {
@@ -108,7 +112,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
   }
 >
   <Trans
-    i18nKey="DELETE_RESOURCE_MESSAGE"
+    i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE"
   >
     Are you sure you want to remove the 
     Object {

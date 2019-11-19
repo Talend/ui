@@ -12,7 +12,6 @@ exports[`YearPicker should default render with current year in middle when "sele
     label="Go to previous year"
     link={true}
     onClick={[Function]}
-    tabIndex="-1"
   />
   <ol
     onWheel={[Function]}
@@ -103,7 +102,6 @@ exports[`YearPicker should default render with current year in middle when "sele
     label="Go to next year"
     link={true}
     onClick={[Function]}
-    tabIndex="-1"
   />
 </div>
 `;
@@ -120,7 +118,6 @@ exports[`YearPicker should render 1`] = `
     label="Go to previous year"
     link={true}
     onClick={[Function]}
-    tabIndex="-1"
   />
   <ol
     onWheel={[Function]}
@@ -214,7 +211,6 @@ exports[`YearPicker should render 1`] = `
     label="Go to next year"
     link={true}
     onClick={[Function]}
-    tabIndex="-1"
   />
 </div>
 `;

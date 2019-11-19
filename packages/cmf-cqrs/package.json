@@ -42,9 +42,9 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@talend/react-cmf": "^3.4.0",
+    "@talend/react-cmf": "^4.18.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.0.0",
+    "babel-jest": "^24.7.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^4.0.0",
@@ -52,7 +52,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.0.0",
+    "jest": "^24.7.1",
     "mock-socket": "^7.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
@@ -61,7 +61,7 @@
     "rimraf": "^2.6.2"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^3.4.0",
+    "@talend/react-cmf": "^4.18.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -83,5 +83,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.4.0"
+  "version": "4.18.0"
 }

@@ -14,8 +14,8 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<Button
 				{...getPropsFrom(Button, rest)}
-				onClick={onClick}
 				aria-label={label}
+				onClick={onClick}
 				className={classNames(
 					'tc-resource-picker-order-chooser',
 					theme['tc-resource-picker-order-chooser'],
@@ -44,7 +44,7 @@ OrderChooser.propTypes = {
 	asc: PropTypes.bool,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: OverlayTrigger.propTypes.overlayPlacement,
 };
 
 OrderChooser.defaultProps = {

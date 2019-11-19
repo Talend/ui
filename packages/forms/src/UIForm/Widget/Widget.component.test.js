@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
 import Widget from './Widget.component';
 
@@ -39,6 +40,22 @@ describe('Widget component', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should wrapper widget into a tooltip trigger', () => {
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onFinish={jest.fn('onFinish')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={{ ...schema, tooltip: 'example tooltip' }}
+				errors={errors}
+			/>,
+		);
+
+		expect(wrapper.getElement().type).toBe(TooltipTrigger);
 	});
 
 	it('should render widget with the specific displayMode', () => {

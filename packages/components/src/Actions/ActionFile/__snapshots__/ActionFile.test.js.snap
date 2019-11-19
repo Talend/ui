@@ -39,7 +39,7 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
     className="btn btn-default theme-btn-file disabled"
     htmlFor={42}
   >
-    <Translate(CircularProgress)
+    <withI18nextTranslation(CircularProgress)
       size="small"
     />
     <span>

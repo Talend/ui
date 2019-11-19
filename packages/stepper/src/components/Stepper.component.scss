@@ -1,0 +1,73 @@
+$stepper-icon-size: $svg-md-size !default;
+
+.stepper {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	padding-left: $padding-small;
+
+	&-content-error {
+		width: 75rem;
+	}
+
+	&-step {
+		padding: $padding-small 0;
+
+		&s {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		&-infos {
+			display: flex;
+		}
+		&-message {
+			padding-left: 28px;
+			padding-top: $padding-smaller;
+			font-weight: normal;
+		}
+
+		&-pending,
+		&-aborted {
+			opacity: 0.5;
+		}
+		&-failure {
+			color: $chestnut-rose;
+			font-weight: $font-weight-bold;
+		}
+	}
+
+	&-icon {
+		margin-right: $padding-small;
+		width: $stepper-icon-size;
+		height: $stepper-icon-size;
+
+		&-success {
+			fill: $rio-grande;
+		}
+
+		&-failure {
+			fill: $chestnut-rose;
+		}
+
+		&-aborted {
+			padding-top: 1px;
+			padding-left: 1px;
+			width: $stepper-icon-size - 2;
+			height: $stepper-icon-size - 2;
+		}
+
+		&-pending {
+			line-height: $stepper-icon-size;
+			text-align: center;
+			display: inline-block;
+			font-size: 18px;
+		}
+	}
+
+	&-retry {
+		margin-top: $padding-normal;
+		margin-left: $padding-small;
+	}
+}

@@ -3,13 +3,7 @@ import { mount } from 'enzyme';
 import IconsProvider from './IconsProvider.component';
 
 describe('IconsProvider', () => {
-	it('should render default talend-icons', () => {
-		const wrapper = mount(<IconsProvider />);
-		const symbols = wrapper.find('symbol');
-		expect(symbols.length).toBeGreaterThan(200);
-	});
-
-	it('should render default talend-icons and custom icons defined on icons prop', () => {
+	it('should render default custom icons defined on icons prop', () => {
 		const customIcons = {
 			custom: <svg />,
 		};
@@ -18,7 +12,7 @@ describe('IconsProvider', () => {
 		expect(symbols.filter(symbol => symbol.props().id === 'custom')).not.toBeUndefined();
 	});
 
-	it('should override talend icons by using defaultIcons props', () => {
+	it('should support defaultIcons props', () => {
 		const defaultIcons = {
 			default: <svg id="OverrideDefaultIcon" />,
 		};
@@ -28,7 +22,7 @@ describe('IconsProvider', () => {
 		expect(symbols.filter(symbol => symbol.props().id === 'default')).not.toBeUndefined();
 	});
 
-	it('should override talend icons by using defaultIcons props and render custom icon', () => {
+	it('should support defaultIcons props and render custom icon', () => {
 		const defaultIcons = {
 			default: <svg id="OverrideDefaultIcon" />,
 		};

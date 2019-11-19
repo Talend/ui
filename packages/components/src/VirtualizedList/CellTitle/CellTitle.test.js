@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import CellTitle from './CellTitle.component';
 
@@ -34,6 +34,40 @@ describe('CellTitle', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should use column data as function', () => {
+		// given
+		const columnData = item => ({
+			id: 'my-title',
+			'data-feature': `list.click.${item.id}`,
+			onClick: jest.fn(),
+		});
+		const rowData = {
+			id: 1,
+			displayMode: 'text',
+			icon: 'talend-file-o',
+			title: 'my awesome title',
+		};
+
+		// when
+		const wrapper = mount(
+			<CellTitle
+				cellData={'my awesome title'}
+				columnData={columnData}
+				getComponent={jest.fn()}
+				rowData={rowData}
+				rowIndex={1}
+			/>,
+		);
+
+		// then
+		expect(
+			wrapper
+				.find('button')
+				.at(0)
+				.prop('data-feature'),
+		).toBe('list.click.1');
 	});
 
 	it('should render without active class if no onClick on the title', () => {
@@ -190,6 +224,30 @@ describe('CellTitle', () => {
 			const columnData = {
 				id: 'my-title',
 				actionsKey: undefined, // no actions key
+			};
+
+			// when
+			const wrapper = shallow(
+				<CellTitle
+					cellData={'my awesome title'}
+					columnData={columnData}
+					getComponent={jest.fn()}
+					rowData={rowData}
+					rowIndex={1}
+				/>,
+			);
+
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
+		it('should NOT render the actions when cell is disabled', () => {
+			// given
+			const columnData = {
+				id: 'my-title',
+				actionsKey: undefined, // no actions key
+				disabledKey: 'nop',
+				nop: true,
 			};
 
 			// when

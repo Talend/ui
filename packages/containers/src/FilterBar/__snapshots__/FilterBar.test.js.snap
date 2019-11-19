@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Filter container should render 1`] = `
-<Translate(FilterBar)
+<withI18nextTranslation(FilterBar)
   collectionToFilter="myCollectionToFilter"
   dockable={true}
   docked={false}

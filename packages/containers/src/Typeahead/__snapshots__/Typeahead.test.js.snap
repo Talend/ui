@@ -9,10 +9,8 @@ exports[`Typeahead container should render 1`] = `
   focusedSectionIndex={null}
   icon={Object {}}
   id={42}
-  isLoadingText="Loading..."
   items={Array []}
   multiSection={true}
-  noResultText="No result."
   onBlur={[Function]}
   onKeyDown={[Function]}
   onSelect={[Function]}
@@ -20,6 +18,5 @@ exports[`Typeahead container should render 1`] = `
   position="left"
   readOnly={false}
   searching={false}
-  searchingText="Searching for matches..."
 />
 `;

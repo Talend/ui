@@ -64,4 +64,18 @@ describe('CellDatetime', () => {
 		expect(computedStrOffset).toEqual(expectedStrDate);
 		expect(format).toHaveBeenCalledWith(cellDataWithOffset, columnData.pattern);
 	});
+
+	it('should test CellDatetime render with tooltip', () => {
+		// when
+		const columnData = {
+			mode: 'ago',
+		};
+
+		const wrapper = shallow(
+			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />,
+		);
+		expect(wrapper.find('TooltipTrigger').length).toBe(1);
+		expect(wrapper.find('TooltipTrigger').getElement().props.label).toBe('2016-09-22 09:00:00');
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 });

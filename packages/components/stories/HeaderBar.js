@@ -6,16 +6,17 @@ import { makeDecorator } from '@storybook/addons';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
-import { I18nextProvider } from 'react-i18next';
-import i18n from './config/i18n';
+import './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
 const icons = {
+	'talend-bubbles': talendIcons['talend-bubbles'],
 	'talend-burger': talendIcons['talend-burger'],
 	'talend-cog': talendIcons['talend-cog'],
+	'talend-cross': talendIcons['talend-cross'],
 	'talend-environment': talendIcons['talend-environment'],
 	'talend-filter': talendIcons['talend-filter'],
 	'talend-info-circle': talendIcons['talend-info-circle'],
@@ -175,13 +176,11 @@ const withIcons = makeDecorator({
 	wrapper: (getStory, context) => {
 		const story = getStory(context);
 		return (
-			<I18nextProvider i18n={i18n}>
-				<div>
-					<IconsProvider defaultIcons={icons} />
-					{story}
-					<div className="container" style={{ paddingTop: 40 }} />
-				</div>
-			</I18nextProvider>
+			<div>
+				<IconsProvider defaultIcons={icons} />
+				{story}
+				<div className="container" style={{ paddingTop: 40 }} />
+			</div>
 		);
 	},
 });
@@ -390,6 +389,18 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
+		{ info: { styles: infoStyle } },
+	)
+	.add(
+		'intercom',
+		() => (
+			<HeaderBar
+				logo={props.logo}
+				brand={props.brand}
+				{...props}
+				intercom={{ id: 'intercom', config: { app_id: 'j9pqsz4w' } }}
+			/>
+		),
 		{ info: { styles: infoStyle } },
 	)
 	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } });

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import OrderChooser from './OrderChooser';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -80,4 +80,4 @@ SortOptions.defaultProps = {
 	},
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(SortOptions);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(SortOptions);

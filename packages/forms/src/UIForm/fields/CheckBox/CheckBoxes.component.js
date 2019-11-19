@@ -43,7 +43,12 @@ export default function CheckBoxes(props) {
 							value: getValues(value, item.value, payload.value),
 						})
 					}
-					onFinish={onFinish}
+					onFinish={(event, payload) =>
+						onFinish(event, {
+							schema: payload.schema,
+							value: getValues(value, item.value, payload.value),
+						})
+					}
 					schema={schema}
 					value={value && value.includes(item.value)}
 				/>

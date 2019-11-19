@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
@@ -49,11 +50,12 @@ export default function Text(props) {
 				readOnly={readOnly}
 				type={type}
 				value={value}
-				min={schema.schema.minimum}
-				max={schema.schema.maximum}
+				min={get(schema, 'schema.minimum')}
+				max={get(schema, 'schema.maximum')}
+				step={get(schema, 'schema.step')}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
-				aria-required={schema.required}
+				aria-required={get(schema, 'required')}
 				aria-describedby={`${descriptionId} ${errorId}`}
 			/>
 		</FieldTemplate>

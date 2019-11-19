@@ -8,10 +8,7 @@ const id = 'toolbar-sort';
 const field = 'id';
 const requiredProps = {
 	onChange: jest.fn(),
-	options: [
-		{ id: 'id', name: 'Id' },
-		{ id: 'name', name: 'Name' },
-	],
+	options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 };
 
 describe('SelectSortBy', () => {
@@ -23,9 +20,7 @@ describe('SelectSortBy', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<SelectSortBy {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<SelectSortBy {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -36,15 +31,11 @@ describe('SelectSortBy', () => {
 		const props = {
 			field,
 			...requiredProps,
-			options: [
-				{ id: 'id', name: 'Id' },
-			],
+			options: [{ id: 'id', name: 'Id' }],
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<SelectSortBy {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<SelectSortBy {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -52,9 +43,7 @@ describe('SelectSortBy', () => {
 
 	it('should render without field selected', () => {
 		// when
-		const wrapper = renderer.create(
-			<SelectSortBy {...requiredProps} />
-		).toJSON();
+		const wrapper = renderer.create(<SelectSortBy {...requiredProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -69,9 +58,7 @@ describe('SelectSortBy', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<SelectSortBy {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<SelectSortBy {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -88,7 +75,11 @@ describe('SelectSortBy', () => {
 
 		// when
 		const wrapper = shallow(<SelectSortBy {...props} />);
-		wrapper.find('#toolbar-sort-order').simulate('click', event);
+
+		wrapper
+			.find('.tc-list-toolbar-order-chooser')
+			.at(0)
+			.simulate('click', event);
 
 		// then
 		expect(props.onChange).toBeCalledWith(event, {

@@ -74,7 +74,12 @@ class ResourcePicker extends Component {
 		}
 
 		if (index > -1) {
-			selected.splice(index, 1);
+			if (multi || !this.props.schema.required) {
+				selected.splice(index, 1);
+			} else {
+				// in single selection if the resource is already selected do nothing
+				return;
+			}
 		} else {
 			selected.push(id);
 		}
@@ -143,6 +148,7 @@ class ResourcePicker extends Component {
 		const toolbar = {
 			name: {
 				label: schema.placeholder,
+				value: this.state.filters.name,
 				onChange: this.nameFilterChanged,
 			},
 			state: {

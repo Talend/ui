@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeTextArea should mount a default badge 1`] = `
+<form class="tc-badge-text-form theme-tc-badge-text-form"
+      id="myId-text-area"
+>
+  <div id="myId"
+       class="theme-body tc-tooltip-body tc-badge-text-form-body theme-tc-badge-text-form-body"
+  >
+    <div id="myId-content"
+         class="theme-content tc-tooltip-content"
+    >
+      <div class="form-group theme-template">
+        <textarea id="myId-area"
+                  class="form-control"
+                  placeholder="Apply"
+                  rows="5"
+                  aria-invalid="false"
+                  aria-describedby="myId-area-description myId-area-error"
+        >
+        </textarea>
+        <div>
+          <p class="help-block"
+             id="myId-area-description"
+          >
+          </p>
+          <p class="help-block"
+             role="status"
+             aria-live="assertive"
+             id="myId-area-error"
+          >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="myId"
+          class="theme-footer tc-tooltip-footer"
+  >
+    <button aria-label="Apply"
+            type="submit"
+            class="btn btn-info"
+    >
+      <span>
+        Apply
+      </span>
+    </button>
+  </footer>
+</form>
+`;

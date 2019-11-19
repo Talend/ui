@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { sfPath } from '@talend/json-schema-form-core';
+import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
 import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 import shouldRender from '../utils/condition';
+
+import theme from './Widget.component.scss';
 
 function getWidget(displayMode, widgetId, customWidgets) {
 	// resolve the widget id depending on the display mode
@@ -30,7 +33,17 @@ function isUpdating(updatingKeys = [], key) {
 }
 
 export default function Widget(props) {
-	const { condition, key, options, type, validationMessage, widget, displayMode } = props.schema;
+	const {
+		condition,
+		key,
+		options,
+		type,
+		validationMessage,
+		widget,
+		displayMode,
+		tooltip,
+		tooltipPlacement,
+	} = props.schema;
 	const widgetId = widget || type;
 
 	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
@@ -46,19 +59,32 @@ export default function Widget(props) {
 	const id = sfPath.name(key, '_', props.id);
 	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
+	const all = {
+		...props,
+		id,
+		key: id,
+		options,
+		errorMessage,
+		isValid: !error,
+		value: getValue(props.properties, props.schema),
+		valueIsUpdating: isUpdating(props.updating, props.schema.key),
+	};
 
-	return (
-		<WidgetImpl
-			{...props}
-			id={id}
-			key={id}
-			errorMessage={errorMessage}
-			isValid={!error}
-			value={getValue(props.properties, props.schema)}
-			valueIsUpdating={isUpdating(props.updating, props.schema.key)}
-			options={options}
-		/>
-	);
+	if (tooltip) {
+		return (
+			<TooltipTrigger
+				className={theme.tooltip}
+				label={tooltip}
+				tooltipPlacement={tooltipPlacement || 'left'}
+			>
+				<div>
+					<WidgetImpl {...all} />
+				</div>
+			</TooltipTrigger>
+		);
+	}
+
+	return <WidgetImpl {...all} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {

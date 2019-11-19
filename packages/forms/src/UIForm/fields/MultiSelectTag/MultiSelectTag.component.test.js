@@ -150,7 +150,7 @@ describe('MultiSelectTag field', () => {
 
 		// when
 		wrapper
-			.find('.tc-badge-delete-icon')
+			.find('Button.tc-badge-delete-icon')
 			.at(0)
 			.simulate('click');
 

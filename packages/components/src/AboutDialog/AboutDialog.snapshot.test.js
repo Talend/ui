@@ -17,6 +17,11 @@ const props = {
 };
 
 describe('AboutDialog', () => {
+	beforeAll(() => {
+		const RealDate = Date;
+		global.Date = jest.fn(() => new RealDate(2018, 1, 1));
+	});
+
 	it('should render', () => {
 		const wrapper = shallow(<AboutDialog.WrappedComponent {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();

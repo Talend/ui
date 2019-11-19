@@ -67,8 +67,19 @@ describe('internals', () => {
 			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
 			expect(httpAction.args[0]).toBe('/api/datasets/123');
 			effect = gen.next({ response: { ok: true } }).value;
-			expect(effect.PUT.action.type).toBe(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_SUCCESS);
-			expect(effect.PUT.action.model.labelResource).toBe('Foo');
+			expect(effect).toEqual(
+				put({
+					type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+					model: {
+						id: '123',
+						labelResource: 'Foo',
+						redirectUrl: '/resources',
+						resourceType: 'datasets',
+						uri: '/api',
+					},
+				}),
+			);
+
 			effect = gen.next().value;
 			expect(effect.CALL.fn).toBe(internals.redirect);
 			expect(effect.CALL.args[0]).toBe('/resources');
@@ -174,10 +185,10 @@ describe('internals', () => {
 			};
 			const failedRequest = {
 				response: {
-					ok: false
+					ok: false,
 				},
 				data: {
-					error: 'can\'t delete resource in use',
+					error: "can't delete resource in use",
 				},
 			};
 
@@ -185,11 +196,13 @@ describe('internals', () => {
 			gen.next();
 			gen.next(action);
 			gen.next(resource);
-			expect(gen.next(failedRequest).value).toEqual(put({
-				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_ERROR,
-				error: failedRequest.data,
-			}));
-		})
+			expect(gen.next(failedRequest).value).toEqual(
+				put({
+					type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_ERROR,
+					error: failedRequest.data,
+				}),
+			);
+		});
 	});
 	describe('deleteResourceCancel', () => {
 		it('should call redirect ', () => {
