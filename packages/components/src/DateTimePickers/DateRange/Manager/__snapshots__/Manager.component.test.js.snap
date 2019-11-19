@@ -10,7 +10,6 @@ exports[`DateRange.Manager should render its children 1`] = `
       },
       "inputManagement": Object {
         "onEndChange": [Function],
-        "onFocus": [Function],
         "onStartChange": [Function],
         "placeholder": "YYYY-MM-DD",
       },

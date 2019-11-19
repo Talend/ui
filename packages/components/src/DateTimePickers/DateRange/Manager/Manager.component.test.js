@@ -252,15 +252,6 @@ describe('DateRange.Manager', () => {
 					);
 
 					// when
-					// 1 - focus on startDate or endDate
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus({}, field);
-					});
-					wrapper.update();
-					// 2 - input date
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
 						if (field === 'startDate') {
@@ -345,13 +336,6 @@ describe('DateRange.Manager', () => {
 
 					// when
 					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus({}, field);
-					});
-					wrapper.update();
-					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
 						if (field === 'startDate') {
 							props.onStartChange(event);
@@ -398,13 +382,6 @@ describe('DateRange.Manager', () => {
 					);
 					expect(onChange).not.toBeCalled();
 
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus({}, field);
-					});
-					wrapper.update();
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
 						if (field === 'startDate') {
@@ -456,13 +433,6 @@ describe('DateRange.Manager', () => {
 						</Manager>,
 					);
 					// when
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus(event, field);
-					});
-					wrapper.update();
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('pickerManagement');
 
@@ -519,14 +489,8 @@ describe('DateRange.Manager', () => {
 						</Manager>,
 					);
 					expect(onChange).not.toBeCalled();
+
 					// when
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus(event, field);
-					});
-					wrapper.update();
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('pickerManagement');
 						if (field === 'startDate') {
