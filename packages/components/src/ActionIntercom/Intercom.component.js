@@ -19,17 +19,14 @@ function Intercom({ id, className, config, t, tooltipPlacement }) {
 	useEffect(() => {
 		IntercomService.boot(`#${id}`, config);
 		IntercomService.onShow(setShow.bind(null, true));
-		IntercomService.onHide(setShow.bind(null, false));
+		IntercomService.onHide(() => {
+			setShow(false);
+			// a11y: on intercom dropdown close, focus on the trigger button
+			ref.current.focus();
+		});
 
 		return IntercomService.shutdown;
 	}, [id, config, setShow]);
-
-	// a11y: on intercom dropdown close, focus on the trigger button
-	useEffect(() => {
-		if (!show) {
-			ref.current.focus();
-		}
-	}, [show]);
 
 	// place intercom messenger dropdown depending on the button
 	useLayoutEffect(() => IntercomService.setPosition(ref.current), [ref.current]);

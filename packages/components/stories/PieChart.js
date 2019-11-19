@@ -15,7 +15,7 @@ const pieChartData1 = [
 		percentage: 12,
 	},
 	{
-		color: 'lightning-yellow',
+		color: 'jaffa',
 		percentage: 1,
 	},
 	{
@@ -38,7 +38,7 @@ const pieChartData2 = [
 		percentage: 15,
 	},
 	{
-		color: 'lightning-yellow',
+		color: 'jaffa',
 		percentage: 60,
 	},
 	{

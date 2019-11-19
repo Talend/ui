@@ -1,31 +1,34 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
+import _isEmpty from 'lodash/isEmpty';
 import Enumeration from '@talend/react-components/lib/Enumeration';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
+import FocusManager from '@talend/react-components/lib/FocusManager';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
+import FieldTemplate from '../../../UIForm/fields/FieldTemplate';
 
-const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
-const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
-const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
-const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
-const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
+export const enumerationStates = {
+	DISPLAY_MODE_DEFAULT: 'DISPLAY_MODE_DEFAULT',
+	DISPLAY_MODE_ADD: 'DISPLAY_MODE_ADD',
+	DISPLAY_MODE_SEARCH: 'DISPLAY_MODE_SEARCH',
+	DISPLAY_MODE_EDIT: 'DISPLAY_MODE_EDIT',
+	DISPLAY_MODE_SELECTED: 'DISPLAY_MODE_SELECTED',
+	IMPORT_MODE_APPEND: 'IMPORT_MODE_APPEND',
+	IMPORT_MODE_OVERWRITE: 'IMPORT_MODE_OVERWRITE',
+};
 
 const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
+const ENUMERATION_NEXT_PAGE_ACTION = 'ENUMERATION_NEXT_PAGE_ACTION';
 const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
 const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
 const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
-const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
-const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
 const ENUMERATION_IMPORT_FILE_ACTION = 'ENUMERATION_IMPORT_FILE_ACTION';
-const ENUMERATION_IMPORT_FILE_CLICK = 'ENUMERATION_IMPORT_FILE_CLICK';
-const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE';
-const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
 /*
 For this widget we distinguish 2 modes :
@@ -59,10 +62,6 @@ class EnumerationForm extends React.Component {
 		};
 	}
 
-	static isConnectedMode(registry) {
-		return !!(registry && registry.formContext && registry.formContext.handleAction !== undefined);
-	}
-
 	constructor(props) {
 		super(props);
 		const t = props.t;
@@ -70,7 +69,7 @@ class EnumerationForm extends React.Component {
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
-		const disabledAction = props.uiSchema ? props.uiSchema.disabled : false;
+		const disabledAction = props.schema ? props.schema.disabled : false;
 		this.importFileHandler = this.importFileHandler.bind(this);
 
 		if (props.schema) {
@@ -95,7 +94,7 @@ class EnumerationForm extends React.Component {
 				icon: 'talend-check',
 				id: 'validate',
 				key: 'validate',
-				onClick: this.onAddHandler.bind(this),
+				onClick: this.onSingleAddHandler.bind(this),
 			},
 			{
 				label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
@@ -167,7 +166,7 @@ class EnumerationForm extends React.Component {
 		];
 
 		if (this.allowImport) {
-			const dataFeature = this.props.uiSchema['data-feature'];
+			const dataFeature = this.props.schema['data-feature'];
 			this.defaultHeaderActions.push({
 				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', {
@@ -183,7 +182,7 @@ class EnumerationForm extends React.Component {
 						label: t('ENUMERATION_WIDGET_ADD_FROM_FILE', {
 							defaultValue: 'Add values from a file',
 						}),
-						id: 'append-uploding',
+						id: 'append-uploading',
 						onClick: this.onImportAppendClick.bind(this),
 						'data-feature': dataFeature ? dataFeature.addFromFile : undefined,
 					},
@@ -191,7 +190,7 @@ class EnumerationForm extends React.Component {
 						label: t('ENUMERATION_WIDGET_OVERWRITE_VALUES', {
 							defaultValue: 'Overwrite existing values',
 						}),
-						id: 'append-uploding',
+						id: 'overwrite-uploading',
 						onClick: this.onImportOverwriteClick.bind(this),
 						'data-feature': dataFeature ? dataFeature.overwriteExisting : undefined,
 					},
@@ -219,7 +218,7 @@ class EnumerationForm extends React.Component {
 			},
 		];
 
-		let defaultDisplayMode = DISPLAY_MODE_DEFAULT;
+		let defaultDisplayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 		if (props.schema && props.schema.displayMode) {
 			defaultDisplayMode = props.schema.displayMode;
 		}
@@ -227,17 +226,18 @@ class EnumerationForm extends React.Component {
 		this.state = {
 			inputRef: this.setInputRef.bind(this),
 			displayMode: defaultDisplayMode,
+			searchCriteria: '',
 			required: (props.schema && props.schema.required) || false,
 			headerDefault: this.defaultHeaderActions,
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,
-			items: (props.formData || []).map(item => ({
+			items: (props.value || []).map(item => ({
 				id: item.id,
 				values: item.values,
 			})),
 			itemsProp: {
 				key: 'values',
-				getItemHeight: this.constructor.getItemHeight.bind(this),
+				getItemHeight: EnumerationForm.getItemHeight,
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
@@ -248,29 +248,38 @@ class EnumerationForm extends React.Component {
 			},
 			onInputChange: this.onInputChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
-			setFormData: this.setFormData.bind(this),
 		};
+		this.onBlur = this.onBlur.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState(prevState => ({ ...prevState, items: nextProps.formData }));
+		if (nextProps.value) {
+			this.setState(prevState => ({ ...prevState, items: nextProps.value }));
+		}
+	}
+
+	onBlur(event) {
+		const { schema, onFinish } = this.props;
+		onFinish(event, { schema });
+	}
+
+	onChange(event, payload) {
+		const { schema, onFinish, onChange } = this.props;
+		onChange(event, payload);
+		onFinish(event, { schema });
 	}
 
 	onImportAppendClick() {
-		this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_APPEND_MODE,
-			null,
-			this.importFileHandler,
-			this.importFileHandler,
+		this.setState(
+			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_APPEND }),
+			this.simulateClickInputFile.bind(this),
 		);
 	}
 
 	onImportOverwriteClick() {
-		this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_OVERWRITE_MODE,
-			null,
-			this.importFileHandler,
-			this.importFileHandler,
+		this.setState(
+			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_OVERWRITE }),
+			this.simulateClickInputFile.bind(this),
 		);
 	}
 
@@ -280,20 +289,20 @@ class EnumerationForm extends React.Component {
 			let items = resetItems([...prevState.items]);
 			let item = items[value.index];
 			// if there is a search criteria, retrieve correct item from state in non-connected mode
-			if (prevState.searchCriteria && !this.constructor.isConnectedMode(this.props.registry)) {
+			if (prevState.searchCriteria && !this.isConnectedMode()) {
 				item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
 			}
-			item.displayMode = DISPLAY_MODE_EDIT;
+			item.displayMode = enumerationStates.DISPLAY_MODE_EDIT;
 			// resetting errors
 			items[value.index].error = '';
 			// reset selection
 			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
 			// exit from selected mode to not display 0 values selected
 			let displayMode = prevState.displayMode;
-			if (displayMode === DISPLAY_MODE_SELECTED) {
-				displayMode = DISPLAY_MODE_DEFAULT;
+			if (displayMode === enumerationStates.DISPLAY_MODE_SELECTED) {
+				displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			}
-			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
+			const validation = EnumerationForm.updateItemValidateDisabled(item.values[0]);
 			return { items, displayMode, ...validation };
 		});
 	}
@@ -302,31 +311,42 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => {
 			let items = resetItems([...prevState.items]);
 			const item = items[value.index];
-			item.displayMode = DISPLAY_MODE_EDIT;
+			item.displayMode = enumerationStates.DISPLAY_MODE_EDIT;
 			// reset selection
 			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
-			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
-			return { items, displayMode: DISPLAY_MODE_EDIT, ...validation };
+			const validation = EnumerationForm.updateItemValidateDisabled(item.values[0]);
+			return { items, displayMode: enumerationStates.DISPLAY_MODE_EDIT, ...validation };
 		});
 	}
 
 	onDeleteItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-		if (
-			this.callActionHandler(
-				ENUMERATION_REMOVE_ACTION,
-				[this.state.items[value.index].id],
-				this.onDeleteItemHandler.bind(this),
-				this.onDeleteItemHandler.bind(this),
-			)
-		) {
+		const { schema } = this.props;
+
+		if (this.isConnectedMode()) {
+			// loading
 			this.setState(prevState => ({
 				itemsProp: {
 					...prevState.itemsProp,
 					actionsDefault: this.loadingInputsActions,
 				},
 			}));
+			this.props
+				.onTrigger(event, {
+					trigger: { ids: [this.state.items[value.index].id], action: ENUMERATION_REMOVE_ACTION },
+					schema,
+				})
+				.then(() => {
+					const payload = {
+						schema,
+						value: this.state.items.filter((item, index) => index !== value.index),
+					};
+					this.onChange(event, payload);
+				})
+				.finally(() => {
+					this.onDeleteItemHandler();
+				});
 		} else {
 			this.setState(prevState => {
 				const items = resetItems([...prevState.items]);
@@ -336,15 +356,20 @@ class EnumerationForm extends React.Component {
 					// retrieve correct item when in non-connected mode
 					indexToRemove = this.getIndexToRemoveInSearchMode(sc, value.index, items);
 				}
-				items[indexToRemove].displayMode = DISPLAY_MODE_DEFAULT;
+				items[indexToRemove].displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 				items.splice(indexToRemove, 1);
 				const countItems = items.filter(item => item.isSelected).length;
 
 				let displayMode = prevState.displayMode;
-				if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
-					displayMode = DISPLAY_MODE_DEFAULT;
+				if (countItems === 0 && displayMode === enumerationStates.DISPLAY_MODE_SELECTED) {
+					displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 				}
-				return { items, displayMode };
+				const payload = {
+					schema,
+					value: items,
+				};
+				this.onChange(event, payload);
+				return { displayMode };
 			});
 		}
 	}
@@ -357,8 +382,8 @@ class EnumerationForm extends React.Component {
 					actionsDefault: this.defaultActions,
 				},
 			};
-			if (prevState.displayMode !== DISPLAY_MODE_SEARCH) {
-				newState.displayMode = DISPLAY_MODE_DEFAULT;
+			if (prevState.displayMode !== enumerationStates.DISPLAY_MODE_SEARCH) {
+				newState.displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			}
 			return newState;
 		});
@@ -367,10 +392,10 @@ class EnumerationForm extends React.Component {
 	onAbortItem(event, value) {
 		this.setState(prevState => {
 			const items = [...prevState.items];
-			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+			items[value.index].displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			// resetting error as it was not saved
 			items[value.index].error = '';
-			return { items, displayMode: 'DISPLAY_MODE_DEFAULT' };
+			return { items, displayMode: enumerationStates.DISPLAY_MODE_DEFAULT };
 		});
 	}
 
@@ -387,78 +412,105 @@ class EnumerationForm extends React.Component {
 					defaultValue: 'This term is already in the list',
 				});
 			}
-			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
+			const validation = EnumerationForm.updateItemValidateDisabled(value, valueExist);
 			return { items, ...validation };
 		});
 	}
 
 	onSubmitItem(event, value) {
-		const t = this.props.t;
-
 		// dont want to fire select item on icon click
 		event.preventDefault();
 		event.stopPropagation();
-		if (
-			this.callActionHandler(
-				ENUMERATION_RENAME_ACTION,
-				{
-					index: value.index,
-					value: this.constructor.parseStringValueToArray(value.value),
-				},
-				this.itemSubmitHandler.bind(this),
-				this.itemSubmitHandler.bind(this),
-			)
-		) {
+
+		const { schema } = this.props;
+
+		if (this.isConnectedMode()) {
 			this.setState(prevState => ({
 				itemsProp: {
 					...prevState.itemsProp,
 					actionsEdit: this.loadingInputsActions,
 				},
 			}));
+			const formattedValue = EnumerationForm.parseStringValueToArray(value.value);
+			this.props
+				.onTrigger(event, {
+					trigger: {
+						id: this.state.items[value.index].id,
+						index: value.index,
+						value: formattedValue,
+						action: ENUMERATION_RENAME_ACTION,
+					},
+					schema,
+				})
+				.then(() => {
+					const payload = {
+						schema,
+						value: this.state.items.map((item, index) => {
+							if (index === value.index) {
+								return { ...item, values: formattedValue };
+							}
+							return item;
+						}),
+					};
+					this.onChange(event, payload);
+				})
+				.finally(() => {
+					this.itemSubmitHandler();
+				});
 		} else {
-			this.setState(prevState => {
-				const items = [...prevState.items];
-				let item = items[value.index];
-				if (prevState.searchCriteria) {
-					// retrieve correct item when in non-connected mode
-					item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
-				}
-				item.displayMode = DISPLAY_MODE_DEFAULT;
-				const valueExist = this.valueAlreadyExist(value.value, prevState);
-				// if the value is empty, no value update is done
-				if (value.value && !valueExist) {
-					item.values = this.constructor.parseStringValueToArray(value.value);
-				}
-				if (valueExist) {
-					item.error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-						defaultValue: 'This term is already in the list',
-					});
-				}
-				return { items };
-			});
+			const items = [...this.state.items];
+			let item = items[value.index];
+			if (this.state.searchCriteria) {
+				// retrieve correct item when in non-connected mode
+				item = this.getItemInSearchMode(this.state.searchCriteria, value.index, items);
+			}
+			item.displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
+			const valueExist = this.valueAlreadyExist(value.value, this.state);
+			// if the value is empty, no value update is done
+			if (value.value && !valueExist) {
+				item.values = EnumerationForm.parseStringValueToArray(value.value);
+			}
+			if (valueExist) {
+				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					defaultValue: 'This term is already in the list',
+				});
+			}
+			const payload = {
+				schema,
+				value: items,
+			};
+			this.onChange(event, payload);
 		}
 	}
 
 	onInputChange(event, value) {
-		if (this.state.displayMode === DISPLAY_MODE_ADD) {
+		if (this.state.displayMode === enumerationStates.DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled(value.value);
 		}
-		if (this.state.displayMode === DISPLAY_MODE_SEARCH) {
+		if (this.state.displayMode === enumerationStates.DISPLAY_MODE_SEARCH) {
 			if (this.timerSearch !== null) {
 				clearTimeout(this.timerSearch);
 			}
 			this.timerSearch = setTimeout(() => {
+				const { schema } = this.props;
 				this.timerSearch = null;
-				if (
-					this.callActionHandler(
-						ENUMERATION_SEARCH_ACTION,
-						value.value,
-						this.onSearchHandler.bind(this, value.value),
-					)
-				) {
+				if (this.isConnectedMode()) {
 					this.setState({
 						headerInput: this.loadingInputsActions,
 					});
+					this.props
+						.onTrigger(event, {
+							trigger: { value: value.value, action: ENUMERATION_SEARCH_ACTION },
+							schema,
+						})
+						.then(items => {
+							const payload = {
+								schema,
+								value: items.map(item => ({ id: item.id, values: item.values })),
+							};
+							this.onChange(event, payload);
+							this.onSearchHandler(value.value);
+						});
 				} else {
 					this.setState({
 						searchCriteria: value.value,
@@ -493,25 +545,38 @@ class EnumerationForm extends React.Component {
 	}
 
 	onAbortHandler() {
-		if (this.state.displayMode === DISPLAY_MODE_ADD) {
+		if (this.state.displayMode === enumerationStates.DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled('');
 		}
-		if (
-			this.callActionHandler(ENUMERATION_RESET_LIST, null, this.onConnectedAbortHandler.bind(this))
-		) {
+
+		const { schema } = this.props;
+		if (this.isConnectedMode()) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 			});
+			this.props
+				.onTrigger(event, {
+					trigger: { value: '', action: ENUMERATION_SEARCH_ACTION },
+					schema,
+				})
+				.then(items => {
+					const payload = {
+						schema,
+						value: items.map(item => ({ id: item.id, values: item.values })),
+					};
+					this.onChange(event, payload);
+					this.onConnectedAbortHandler();
+				});
+		} else {
+			this.onConnectedAbortHandler();
 		}
-		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
-			searchCriteria: null,
-		});
 	}
 
 	onConnectedAbortHandler() {
 		this.setState({
 			headerDefault: this.defaultHeaderActions,
+			searchCriteria: null,
+			displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 		});
 	}
 
@@ -519,7 +584,7 @@ class EnumerationForm extends React.Component {
 		if (event.keyCode === keycode('enter')) {
 			event.stopPropagation();
 			event.preventDefault();
-			if (this.state.displayMode === DISPLAY_MODE_ADD) {
+			if (this.state.displayMode === enumerationStates.DISPLAY_MODE_ADD) {
 				this.onValidateAndAddHandler(event, value);
 			}
 		}
@@ -556,12 +621,12 @@ class EnumerationForm extends React.Component {
 			if (countItems === 0) {
 				return {
 					items: itemsSelected,
-					displayMode: DISPLAY_MODE_DEFAULT,
+					displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 				};
 			}
 			return {
 				items: itemsSelected,
-				displayMode: DISPLAY_MODE_SELECTED,
+				displayMode: enumerationStates.DISPLAY_MODE_SELECTED,
 				itemsProp: {
 					...prevState.itemsProp,
 					actionsDefault: this.defaultActions,
@@ -570,29 +635,43 @@ class EnumerationForm extends React.Component {
 		});
 	}
 
-	onDeleteItems() {
+	onDeleteItems(event) {
+		const { schema } = this.props;
 		const itemsToDelete = [];
 		this.state.items.forEach(item => {
 			if (item.isSelected) {
 				itemsToDelete.push(item.id);
 			}
 		});
-		if (
-			this.callActionHandler(
-				ENUMERATION_REMOVE_ACTION,
-				itemsToDelete,
-				this.onDeleteItemsHandler.bind(this),
-			)
-		) {
+
+		if (this.isConnectedMode()) {
+			// loading
 			this.setState({
 				headerSelected: this.loadingInputsActions,
 			});
+			this.props
+				.onTrigger(event, {
+					trigger: { ids: itemsToDelete, action: ENUMERATION_REMOVE_ACTION },
+					schema,
+				})
+				.then(() => {
+					const payload = {
+						schema,
+						value: this.state.items.filter(item => !item.isSelected),
+					};
+					this.onChange(event, payload);
+					this.onDeleteItemsHandler();
+				});
 		} else {
 			this.setState(prevState => {
 				const result = deleteSelectedItems([...prevState.items]);
+				const payload = {
+					schema,
+					value: result,
+				};
+				this.onChange(event, payload);
 				return {
-					displayMode: DISPLAY_MODE_DEFAULT,
-					items: result,
+					displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 				};
 			});
 		}
@@ -600,109 +679,125 @@ class EnumerationForm extends React.Component {
 
 	onDeleteItemsHandler() {
 		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
+			displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 			headerSelected: this.selectedHeaderActions,
 		});
 	}
 
-	onValidateAndAddHandler(event, value) {
+	onAddHandler(event, value, successHandler, failHandler, isSingleAdd = false) {
+		const { schema } = this.props;
 		if (!value.value) {
 			this.setState({
-				displayMode: DISPLAY_MODE_DEFAULT,
+				displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 			});
 			return;
 		}
 
-		if (
-			this.callActionHandler(
-				ENUMERATION_ADD_ACTION,
-				this.constructor.parseStringValueToArray(value.value),
-				this.validateAndAddSuccessHandler.bind(this),
-				this.addFailHandler.bind(this),
-			)
-		) {
+		if (this.isConnectedMode()) {
 			this.setState({
 				headerInput: this.loadingInputsActions,
 			});
-			this.input.focus();
-		} else if (!this.valueAlreadyExist(value.value, this.state)) {
-			this.setState(prevState => {
-				const items = prevState.items.concat([
-					{
-						values: this.constructor.parseStringValueToArray(value.value),
+			this.props
+				.onTrigger(event, {
+					trigger: {
+						value: EnumerationForm.parseStringValueToArray(value.value),
+						action: ENUMERATION_ADD_ACTION,
 					},
-				]);
-				return { items, inputValue: '' };
-			});
+					schema,
+				})
+				.then(
+					newDocument => {
+						const payload = {
+							schema: this.props.schema,
+							value: this.props.value.concat(newDocument),
+						};
+						this.onChange(event, payload);
+						this.input.focus();
+						successHandler();
+					},
+					() => {
+						failHandler();
+					},
+				);
+		} else if (!this.valueAlreadyExist(value.value, this.state)) {
+			const payload = {
+				schema,
+				value: this.state.items.concat([
+					{
+						values: EnumerationForm.parseStringValueToArray(value.value),
+					},
+				]),
+			};
+			this.onChange(event, payload);
+			if (isSingleAdd) {
+				successHandler();
+			}
 			this.updateHeaderInputDisabled('');
-			this.input.focus();
 		}
 	}
 
-	onAddHandler(event, value) {
-		if (!value.value) {
-			this.setState({
-				displayMode: DISPLAY_MODE_DEFAULT,
-			});
-			return;
-		}
+	onValidateAndAddHandler(event, value) {
+		this.onAddHandler(
+			event,
+			value,
+			this.validateAndAddSuccessHandler.bind(this),
+			this.addFailHandler.bind(this),
+		);
+	}
 
-		if (
-			this.callActionHandler(
-				ENUMERATION_ADD_ACTION,
-				this.constructor.parseStringValueToArray(value.value),
-				this.addSuccessHandler.bind(this),
-				this.addFailHandler.bind(this),
-			)
-		) {
-			this.setState({
-				headerInput: this.loadingInputsActions,
-			});
-		} else if (!this.valueAlreadyExist(value.value, this.state)) {
-			this.setState(prevState => ({
-				displayMode: 'DISPLAY_MODE_DEFAULT',
-				items: prevState.items.concat([
-					{
-						values: this.constructor.parseStringValueToArray(value.value),
-					},
-				]),
-			}));
-			this.updateHeaderInputDisabled('');
-		}
+	onSingleAddHandler(event, value) {
+		this.onAddHandler(
+			event,
+			value,
+			this.addSuccessHandler.bind(this),
+			this.addFailHandler.bind(this),
+			true,
+		);
 	}
 
 	// lazy loading
 	onLoadData() {
-		if (
-			this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION, undefined, this.onLazyHandler.bind(this))
-		) {
+		if (this.isConnectedMode()) {
+			const { schema } = this.props;
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 				headerInput: this.loadingInputsActions,
 			});
+			this.props
+				.onTrigger(event, {
+					trigger: {
+						value: this.state.searchCriteria,
+						action: ENUMERATION_NEXT_PAGE_ACTION,
+						numberItems: this.state.items.length,
+					},
+					schema,
+				})
+				.then(items => {
+					const payload = {
+						schema,
+						value: this.props.value.concat(
+							items.map(item => ({ id: item.id, values: item.values })),
+						),
+					};
+					this.onChange(event, payload);
+				})
+				.finally(() => {
+					this.onLazyHandler();
+				});
 		}
 	}
 
 	onImportButtonClick() {
-		this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_CLICK,
-			{
-				simulateClickInputFile: this.simulateClickInputFile.bind(this),
-			},
-			this.importFileHandler,
-			this.importFileHandler,
-		);
+		if (this.state.items.length === 0) {
+			this.setState(
+				state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_APPEND }),
+				this.simulateClickInputFile.bind(this),
+			);
+		}
 	}
 
 	setInputRef(input) {
 		this.input = input;
-	}
-
-	setFormData() {
-		this.props.onChange(this.state.items);
-		if (this.props.onBlur) {
-			this.props.onBlur(this.props.id, this.state.items);
-		}
 	}
 
 	getItemSelectedInSearchMode(searchCriteria, index) {
@@ -720,18 +815,23 @@ class EnumerationForm extends React.Component {
 		return items.findIndex(currentItem => currentItem.values[0] === selectedItem.values[0]);
 	}
 
+	isConnectedMode() {
+		return !!(this.props.properties && this.props.properties.connectedMode);
+	}
+
 	itemSubmitHandler() {
 		this.setState(prevState => ({
 			itemsProp: {
 				...prevState.itemsProp,
 				actionsEdit: this.itemEditActions,
 			},
+			items: resetItems([...prevState.items]),
 		}));
 	}
 
 	addSuccessHandler() {
 		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
+			displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 		});
 	}
 
@@ -749,33 +849,21 @@ class EnumerationForm extends React.Component {
 		});
 	}
 
-	callActionHandler(actionName, value, successHandler, errorHandler) {
-		if (this.constructor.isConnectedMode(this.props.registry)) {
-			this.props.registry.formContext.handleAction(
-				this.props.id,
-				actionName,
-				value,
-				successHandler,
-				errorHandler,
-			);
-			return true;
-		}
-		return false;
-	}
-
 	/**
 	 * simulateClickInputFile - simulate the click on the hidden input
 	 *
 	 */
 	simulateClickInputFile() {
-		// timeout to allow to lost the focus on the dropdown
-		setTimeout(() => {
-			this.inputFile.click();
-
-			// when we close the file dialog focus is still on the import icon. The tooltip still appears.
-			// we force to remove the current focus on the icon
-			document.activeElement.blur();
-		});
+		if (this.state.importMode) {
+			// timeout to allow to lost the focus on the dropdown
+			setTimeout(() => {
+				this.inputFile.click();
+				// when we close the file dialog focus is still on the import icon.
+				// The tooltip still appears.
+				// we force to remove the current focus on the icon
+				document.activeElement.blur();
+			});
+		}
 	}
 
 	/**
@@ -784,19 +872,36 @@ class EnumerationForm extends React.Component {
 	 * @param  {Event} event Event trigger when the user change the input file
 	 */
 	importFile(event) {
-		if (
-			this.callActionHandler(
-				ENUMERATION_IMPORT_FILE_ACTION,
-				event.target.files[0],
-				this.importFileHandler,
-				this.importFileHandler,
-			)
-		) {
+		const { schema } = this.props;
+		if (this.isConnectedMode()) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 			});
+			return this.props
+				.onTrigger(event, {
+					trigger: {
+						value: event.target.files[0],
+						action: ENUMERATION_IMPORT_FILE_ACTION,
+						importMode: this.state.importMode,
+						label: this.props.properties.label,
+					},
+					schema,
+				})
+				.then(items => {
+					if (!_isEmpty(items)) {
+						const payload = {
+							schema,
+							value: items.map(item => ({ id: item.id, values: item.values })),
+						};
+						this.onChange(event, payload);
+					}
+				})
+				.finally(() => {
+					this.resetInputFile();
+					this.importFileHandler();
+				});
 		}
-		this.resetInputFile();
+		return Promise.resolve();
 	}
 
 	resetInputFile() {
@@ -811,6 +916,7 @@ class EnumerationForm extends React.Component {
 	importFileHandler() {
 		this.setState({
 			headerDefault: this.defaultHeaderActions,
+			importMode: '',
 		});
 	}
 
@@ -836,15 +942,15 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => ({
 			items: resetItems([...prevState.items]),
 			headerInput: this.addInputs,
-			displayMode: DISPLAY_MODE_ADD,
+			displayMode: enumerationStates.DISPLAY_MODE_ADD,
 		}));
 	}
 
 	changeDisplayToSearchMode() {
 		this.setState(prevState => ({
 			items: resetItems([...prevState.items]),
-			headerInput: this.addInputs,
-			displayMode: DISPLAY_MODE_SEARCH,
+			headerInput: this.searchInputsActions,
+			displayMode: enumerationStates.DISPLAY_MODE_SEARCH,
 		}));
 	}
 
@@ -900,30 +1006,45 @@ class EnumerationForm extends React.Component {
 	render() {
 		let items = this.state.items;
 		// filter items only in non-connected mode, since in connected mode items are up-to-date
-		if (!this.constructor.isConnectedMode(this.props.registry)) {
+		if (!this.isConnectedMode()) {
 			items = this.searchItems(this.state.searchCriteria);
 		}
 		const stateToShow = { ...this.state, items };
-
+		const { description, required, title } = this.props.schema;
+		const { errorMessage, isValid } = this.props;
 		return (
-			<div>
+			<FieldTemplate
+				description={description}
+				label={title}
+				required={required}
+				isValid={isValid}
+				errorMessage={errorMessage}
+			>
 				{this.allowImport && this.renderImportFile()}
-				<Enumeration {...stateToShow} />
-			</div>
+				<FocusManager onFocusOut={this.onBlur}>
+					<Enumeration {...stateToShow} />
+				</FocusManager>
+			</FieldTemplate>
 		);
 	}
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	EnumerationForm.propTypes = {
-		id: PropTypes.string,
-		registry: PropTypes.object, // eslint-disable-line
-		formData: PropTypes.array, // eslint-disable-line
-		schema: PropTypes.object, // eslint-disable-line
-		uiSchema: PropTypes.object, // eslint-disable-line
+		errorMessage: PropTypes.string,
+		isValid: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
-		onBlur: PropTypes.func,
+		onFinish: PropTypes.func.isRequired,
+		onTrigger: PropTypes.func.isRequired,
+		properties: PropTypes.object,
+		schema: PropTypes.object,
 		t: PropTypes.func.isRequired,
+		value: PropTypes.arrayOf(
+			PropTypes.shape({
+				id: PropTypes.string,
+				values: PropTypes.arrayOf(PropTypes.string),
+			}),
+		),
 	};
 }
 

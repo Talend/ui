@@ -5,6 +5,8 @@ $tc-list-title-dropdown-menu-triangle: '\25b2';
 $tc-list-title-dropup-menu-triangle: '\25bc';
 
 .main-title-actions-group {
+	display: flex;
+	align-items: center;
 	flex-grow: 0;
 	position: relative;
 	right: 0;
@@ -16,11 +18,10 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 		opacity: 0;
 		visibility: hidden;
 
-		position: absolute;
-		right: 100%;
-
-		padding-left: $padding-larger;
-		margin-right: $padding-smaller;
+		&:not(:last-child):after {
+			content: '|';
+			color: $dark-silver;
+		}
 
 		.cell-title-actions-menu {
 			&:after {
