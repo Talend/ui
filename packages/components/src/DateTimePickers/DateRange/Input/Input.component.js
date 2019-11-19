@@ -1,28 +1,24 @@
 import React, { useContext, forwardRef } from 'react';
-import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
 import DebounceInput from 'react-debounce-input';
 
 import { DateRangeContext } from '../Context';
 import InputSizer from '../../shared/InputSizer';
 
-import getDefaultT from '../../../translate';
-
-const OMIT_PROPS_INPUT = ['t', 'id'];
-
 function Input(props, ref) {
-	const { t, date, onChange, onFocus, label } = props;
+	const { date, onChange, onFocus, label } = props;
 	const { inputManagement } = useContext(DateRangeContext);
 	const { placeholder } = inputManagement;
 
 	return (
 		<div>
-			<label htmlFor={`${props.id}-start-date-input`} className="control-label">
+			<label htmlFor={props.id} className="control-label">
 				{label}
 			</label>
 			<InputSizer placeholder={placeholder} inputText={date.value ? date.textInput : ''}>
 				{width => (
 					<DebounceInput
-						id={`${props.id}-start-date-input`}
+						id={props.id}
 						autoComplete="off"
 						className="form-control"
 						debounceTimeout={300}
@@ -41,8 +37,12 @@ function Input(props, ref) {
 }
 
 Input.displayName = 'DateRange.Input';
-Input.defaultProps = {
-	t: getDefaultT(),
+Input.propTypes = {
+	id: PropTypes.string,
+	date: PropTypes.object,
+	onChange: PropTypes.func,
+	onFocus: PropTypes.func,
+	label: PropTypes.string,
 };
 
 export default forwardRef(Input);
