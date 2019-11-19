@@ -130,7 +130,6 @@ InputDateRangePicker.displayName = 'InputDateRangePicker';
 
 InputDateRangePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
-	required: true,
 	t: getDefaultT(),
 };
 
