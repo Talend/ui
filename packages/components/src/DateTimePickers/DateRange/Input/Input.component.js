@@ -10,14 +10,14 @@ import getDefaultT from '../../../translate';
 const OMIT_PROPS_INPUT = ['t', 'id'];
 
 function Input(props, ref) {
-	const { t, date, onChange, onFocus } = props;
+	const { t, date, onChange, onFocus, label } = props;
 	const { inputManagement } = useContext(DateRangeContext);
 	const { placeholder } = inputManagement;
 
 	return (
 		<div>
 			<label htmlFor={`${props.id}-start-date-input`} className="control-label">
-				from
+				{label}
 			</label>
 			<InputSizer placeholder={placeholder} inputText={date.value ? date.textInput : ''}>
 				{width => (

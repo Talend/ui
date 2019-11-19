@@ -12,6 +12,8 @@ import DateRange from '../DateRange';
 import { DateRangeContext } from '../DateRange/Context';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
+import getDefaultT from '../../translate';
+
 import theme from './InputDateRangePicker.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'required', 'value', 'onBlur', 'onChange'];
@@ -81,6 +83,7 @@ export default function InputDateRangePicker(props) {
 									onFocus={() => {
 										setInputRef(startDateInputRef);
 									}}
+									label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 									ref={startDateInputRef}
 								/>,
 								<DateRange.Input
@@ -89,6 +92,7 @@ export default function InputDateRangePicker(props) {
 									date={endDate}
 									onChange={onEndChange}
 									onFocus={() => setInputRef(endDateInputRef)}
+									label={props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
 									ref={endDateInputRef}
 								/>,
 								handlers.showPicker && inputRef && (
@@ -127,6 +131,7 @@ InputDateRangePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
 	required: true,
 	useUTC: false,
+	t: getDefaultT(),
 };
 
 InputDateRangePicker.propTypes = {
