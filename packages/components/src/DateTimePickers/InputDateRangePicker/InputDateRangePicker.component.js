@@ -17,7 +17,7 @@ import getDefaultT from '../../translate';
 
 import theme from './InputDateRangePicker.scss';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'required', 'value', 'onBlur', 'onChange'];
+const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange'];
 
 export default function InputDateRangePicker(props) {
 	const popoverId = `date-range-picker-${props.id || uuid.v4()}`;
@@ -78,9 +78,7 @@ export default function InputDateRangePicker(props) {
 									id={`${props.id || uuid.v4()}-start-input`}
 									date={startDate}
 									onChange={onStartChange}
-									onFocus={() => {
-										setInputRef(startDateInputRef);
-									}}
+									onFocus={() => setInputRef(startDateInputRef)}
 									label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 									ref={startDateInputRef}
 								/>,
