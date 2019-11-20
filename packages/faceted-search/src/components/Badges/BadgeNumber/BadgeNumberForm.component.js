@@ -23,7 +23,7 @@ const BadgeNumberForm = ({ id, onChange, onSubmit, value, t }) => {
 
 	return (
 		<form className={theme('tc-badge-number-form')} id={`${id}-number`} onSubmit={onSubmit}>
-			<RichLayout.Body id={id} className={theme('tc-badge-number-form-body')}>
+			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-number-form-body')}>
 				<Text
 					id={`${id}-input`}
 					onChange={onChangeText}
@@ -32,7 +32,7 @@ const BadgeNumberForm = ({ id, onChange, onSubmit, value, t }) => {
 					value={value}
 				/>
 			</RichLayout.Body>
-			<RichLayout.Footer id={id}>
+			<RichLayout.Footer id={`${id}-badge-footer`}>
 				<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
 			</RichLayout.Footer>
 		</form>

@@ -4,10 +4,10 @@ exports[`BadgeTextForm should mount a default badge 1`] = `
 <form class="tc-badge-number-form theme-tc-badge-number-form"
       id="customId-number"
 >
-  <div id="customId"
+  <div id="customId-badge-body"
        class="theme-body tc-tooltip-body tc-badge-number-form-body theme-tc-badge-number-form-body"
   >
-    <div id="customId-content"
+    <div id="customId-badge-body-content"
          class="theme-content tc-tooltip-content"
     >
       <div class="form-group theme-template">
@@ -34,7 +34,7 @@ exports[`BadgeTextForm should mount a default badge 1`] = `
       </div>
     </div>
   </div>
-  <footer id="customId"
+  <footer id="customId-badge-footer"
           class="theme-footer tc-tooltip-footer"
   >
     <button aria-label="Apply"

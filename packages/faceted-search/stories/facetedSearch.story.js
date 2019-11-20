@@ -59,7 +59,14 @@ const badgePrice = {
 	metadata: {
 		badges_per_facet: 'N',
 		entities_per_badge: '1',
-		operators: ['equal', 'notEqual', 'greaterThan', 'greaterThanOrEqual', 'lessThan', 'lessThanOrEqual'],
+		operators: [
+			'equal',
+			'notEqual',
+			'greaterThan',
+			'greaterThanOrEqual',
+			'lessThan',
+			'lessThanOrEqual',
+		],
 	},
 };
 
