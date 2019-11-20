@@ -9,7 +9,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.js
-  194:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
+  186:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
   72:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
