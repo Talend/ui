@@ -3,6 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { BadgeNumberForm } from './BadgeNumberForm.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import getDefaultT from '../../../translate';
 
 const badgeFacetedContextValue = {
 	onDeleteBadge: jest.fn(),
@@ -16,7 +17,7 @@ describe('BadgeTextForm', () => {
 		const props = {
 			id: 'customId',
 			onSubmit: jest.fn(),
-			t: () => 'Apply',
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(
@@ -35,7 +36,7 @@ describe('BadgeTextForm', () => {
 			id: 'customId',
 			onSubmit,
 			value: 'i230982903',
-			t: () => 'Apply',
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(
