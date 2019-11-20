@@ -26,7 +26,7 @@ describe('BadgeNumber', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should mount a badge with some other values', () => {

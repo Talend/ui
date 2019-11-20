@@ -11,7 +11,7 @@ const badgeFacetedContextValue = {
 	onSubmitBadge: jest.fn(),
 };
 
-describe('BadgeTextForm', () => {
+describe('BadgeNumberForm', () => {
 	it('should mount a default badge', () => {
 		// Given
 		const props = {
@@ -26,7 +26,7 @@ describe('BadgeTextForm', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should mount a badge with some other values', () => {
