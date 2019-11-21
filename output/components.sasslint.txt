@@ -4,6 +4,15 @@
 src/CollapsiblePanel/CollapsiblePanel.scss
   142:5  error  Mixins should come before declarations  mixins-before-declarations
 
+src/DateTimePickers/InputDatePicker/InputDatePicker.scss
+  1:2  error  File extensions are not allowed  clean-import-paths
+
+src/DateTimePickers/InputDateRangePicker/InputDateRangePicker.scss
+  1:2  error  File extensions are not allowed  clean-import-paths
+
+src/DateTimePickers/shared/styles/mixins.scss
+  1:2  error  File extensions are not allowed  clean-import-paths
+
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
@@ -23,5 +32,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 10 problems (8 errors, 2 warnings)
+✖ 13 problems (11 errors, 2 warnings)
 
