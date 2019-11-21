@@ -9,7 +9,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.js
-  95:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
+  186:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
   72:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
@@ -32,6 +32,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   35:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   39:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   41:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
+  43:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
@@ -66,6 +67,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 34 problems (31 errors, 3 warnings)
+✖ 35 problems (32 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
