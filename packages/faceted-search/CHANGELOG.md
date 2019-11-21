@@ -25,6 +25,7 @@ Types of changes
 - `Security` in case of vulnerabilities.
 
 ## [Unreleased]
+- [Fixed](https://github.com/Talend/ui/pull/2554): Fix TQL creation with badges number
 
 ## [0.2.3]
 ### Breaking changes

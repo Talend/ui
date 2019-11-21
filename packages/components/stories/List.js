@@ -29,7 +29,6 @@ function ListColumnChooser({ list, ...rest }) {
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }
 
-
 /**
  * Cell renderer that displays hello + text
  */
@@ -632,23 +631,26 @@ storiesOf('List', module)
 	))
 	.add('Large arrays of actions display', () => {
 		const customProps = cloneDeep(props);
-		const separatorActions = [{
-			id: 'monitoring',
-			label: 'monitor something',
-			'data-feature': 'list.item.monitor',
-			icon: 'talend-line-charts',
-			onClick: action('onMonitor'),
-			hideLabel: true,
-		}];
-		customProps.list.items = customProps.list.items.map(item => (
-			{ ...item, actions: [separatorActions, actions] })
-		);
+		const separatorActions = [
+			{
+				id: 'monitoring',
+				label: 'monitor something',
+				'data-feature': 'list.item.monitor',
+				icon: 'talend-line-charts',
+				onClick: action('onMonitor'),
+				hideLabel: true,
+			},
+		];
+		customProps.list.items = customProps.list.items.map(item => ({
+			...item,
+			actions: [separatorActions, actions],
+		}));
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					Display the list in table mode using arrays of actions.
-					<br/>
+					<br />
 					This is the default mode.
 				</p>
 				<List {...customProps} displayMode="large" />
