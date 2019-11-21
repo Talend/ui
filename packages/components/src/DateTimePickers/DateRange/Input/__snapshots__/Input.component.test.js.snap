@@ -19,8 +19,7 @@ exports[`Date.Input should render 1`] = `
       start date
     </label>
     <InputSizer
-      inputText="2019-10-11"
-      placeholder="YYYY-MM-DD"
+      inputText="YYYY-MM-DD"
     >
       <DebounceInput
         autoComplete="off"
@@ -69,7 +68,7 @@ exports[`Date.Input should render 1`] = `
           }
         }
       >
-        2019-10-11
+        YYYY-MM-DD
       </span>
     </InputSizer>
   </div>
