@@ -15,7 +15,7 @@ function Input(props, ref) {
 			<label htmlFor={props.id} className="control-label">
 				{label}
 			</label>
-			<InputSizer placeholder={placeholder} inputText={date.value ? date.textInput : ''}>
+			<InputSizer inputText={placeholder}>
 				{width => (
 					<DebounceInput
 						id={props.id}
