@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import uuid from 'uuid';
 import classnames from 'classnames';
 import { Popper } from 'react-popper';
 
@@ -20,7 +19,7 @@ import theme from './InputDateRangePicker.scss';
 const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange'];
 
 export default function InputDateRangePicker(props) {
-	const popoverId = `date-range-picker-${props.id || uuid.v4()}`;
+	const popoverId = `date-range-picker-${props.id}`;
 
 	const startDateInputRef = useRef(null);
 	const endDateInputRef = useRef(null);
@@ -75,7 +74,7 @@ export default function InputDateRangePicker(props) {
 							{[
 								<DateRange.Input
 									{...inputProps}
-									id={`${props.id || uuid.v4()}-start-input`}
+									id={`${props.id}-start-input`}
 									date={startDate}
 									onChange={onStartChange}
 									onFocus={() => setInputRef(startDateInputRef)}
@@ -87,7 +86,7 @@ export default function InputDateRangePicker(props) {
 								</span>,
 								<DateRange.Input
 									{...inputProps}
-									id={`${props.id || uuid.v4()}-end-input`}
+									id={`${props.id}-end-input`}
 									date={endDate}
 									onChange={onEndChange}
 									onFocus={() => setInputRef(endDateInputRef)}
