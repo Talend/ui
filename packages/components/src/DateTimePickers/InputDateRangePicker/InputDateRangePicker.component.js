@@ -49,7 +49,7 @@ export default function InputDateRangePicker(props) {
 		if (payload.origin === 'START_PICKER' && endDateInputRef) {
 			endDateInputRef.current.focus();
 		}
-		handlers.onChange(event, payload);
+		handlers.onChange(event, payload, inputRef.current);
 	}
 	return (
 		<DateRange.Manager

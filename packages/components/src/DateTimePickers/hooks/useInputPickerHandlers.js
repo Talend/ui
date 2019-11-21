@@ -22,9 +22,7 @@ export default function useInputPickerHandlers({ handleBlur, handleChange, handl
 		if (handleChange) {
 			handleChange(event, payload);
 		}
-		if (
-			!['INPUT', 'START_INPUT', 'END_INPUT', 'START_PICKER', 'END_PICKER'].includes(payload.origin)
-		) {
+		if (['PICKER', 'END_PICKER'].includes(payload.origin)) {
 			inputRef.focus();
 			setPicked(true);
 			closePicker();
