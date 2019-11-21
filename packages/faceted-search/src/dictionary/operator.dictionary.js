@@ -3,6 +3,10 @@ const operatorNames = {
 	equal: 'equal',
 	notEqual: 'notEqual',
 	in: 'in',
+	greaterThan: 'greaterThan',
+	greaterThanOrEqual: 'greaterThanOrEqual',
+	lessThan: 'lessThan',
+	lessThanOrEqual: 'lessThanOrEqual',
 };
 
 const standardOperators = t => ({
@@ -32,6 +36,34 @@ const standardOperators = t => ({
 			defaultValue: 'In',
 		}),
 		name: 'in',
+	},
+	[operatorNames.greaterThan]: {
+		label: t('OPERATOR_GREATER_THAN_LABEL', {
+			defaultValue: 'Greater than',
+		}),
+		name: 'greaterThan',
+		iconName: 'greater-than',
+	},
+	[operatorNames.greaterThanOrEqual]: {
+		label: t('OPERATOR_GREATER_THAN_OR_EQUAL_LABEL', {
+			defaultValue: 'Greater than or equal',
+		}),
+		name: 'greaterThanOrEqual',
+		iconName: 'greater-than-equal',
+	},
+	[operatorNames.lessThan]: {
+		label: t('OPERATOR_LESS_THAN_LABEL', {
+			defaultValue: 'Less than',
+		}),
+		name: 'lessThan',
+		iconName: 'less-than',
+	},
+	[operatorNames.lessThanOrEqual]: {
+		label: t('OPERATOR_LESS_THAN_OR_EQUAL_LABEL', {
+			defaultValue: 'Less than or equal',
+		}),
+		name: 'lessThanOrEqual',
+		iconName: 'less-than-equal',
 	},
 });
 
