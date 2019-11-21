@@ -76,4 +76,20 @@ InputDateTimePicker.defaultProps = {
 	required: true,
 };
 
-export default InputDateTimePicker;
+const LegacyInputDateTimePicker = React.lazy(() => import('../LegacyDateTimePickers'));
+function InputDateTimePickerSwitch(props) {
+	if (props.formMode) {
+		return (
+			<React.Suspense fallback={<div>Loading...</div>}>
+				<LegacyInputDateTimePicker {...props} />
+			</React.Suspense>
+		);
+	}
+
+	return <InputDateTimePicker {...props} />;
+}
+InputDateTimePickerSwitch.propTypes = {
+	formMode: PropTypes.bool,
+};
+
+export default InputDateTimePickerSwitch;

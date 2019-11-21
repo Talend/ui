@@ -1,4 +1,5 @@
 module.exports = function babel(api) {
+	const isTest = api && api.env('test');
 	if (api) {
 		api.cache(true);
 	}
@@ -17,6 +18,7 @@ module.exports = function babel(api) {
 		'@babel/plugin-proposal-class-properties',
 		'@babel/plugin-transform-object-assign',
 		'@babel/plugin-proposal-object-rest-spread',
+		isTest ? 'dynamic-import-node' : '@babel/plugin-syntax-dynamic-import',
 	];
 	const ignore = ['**/**/*.css'];
 

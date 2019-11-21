@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import DateTimeWidget from './DateTime.component';
 
@@ -39,7 +39,7 @@ describe('DateTime widget', () => {
 		const value = '2018-01-01T10:35:48.951Z';
 
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<DateTimeWidget
 				id={'myForm'}
 				isValid={false}
@@ -59,7 +59,7 @@ describe('DateTime widget', () => {
 	it('should trigger onFinish on picker blur', () => {
 		// given
 		const onFinish = jest.fn();
-		const wrapper = shallow(
+		const wrapper = mount(
 			<DateTimeWidget
 				id={'myForm'}
 				isValid={false}
@@ -84,7 +84,7 @@ describe('DateTime widget', () => {
 		it('should call props onChange', () => {
 			// given
 			const onChange = jest.fn();
-			const wrapper = shallow(
+			const wrapper = mount(
 				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
@@ -117,7 +117,7 @@ describe('DateTime widget', () => {
 				...schema,
 				schema: { type: 'number' },
 			};
-			const wrapper = shallow(
+			const wrapper = mount(
 				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
@@ -174,7 +174,7 @@ describe('DateTime widget', () => {
 			};
 
 			// when
-			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
+			wrapper.find('InputDateTimePickerSwitch').simulate('change', event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, {
@@ -190,7 +190,7 @@ describe('DateTime widget', () => {
 				...schema,
 				schema: { format: 'iso-datetime' },
 			};
-			const wrapper = shallow(
+			const wrapper = mount(
 				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
@@ -222,7 +222,7 @@ describe('DateTime widget', () => {
 		it('should call props onFinish when there is no error', () => {
 			// given
 			const onFinish = jest.fn();
-			const wrapper = shallow(
+			const wrapper = mount(
 				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
@@ -252,7 +252,7 @@ describe('DateTime widget', () => {
 		it('should NOT call props onFinish when there is an error', () => {
 			// given
 			const onFinish = jest.fn();
-			const wrapper = shallow(
+			const wrapper = mount(
 				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
