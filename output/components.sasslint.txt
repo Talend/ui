@@ -4,6 +4,9 @@
 src/CollapsiblePanel/CollapsiblePanel.scss
   142:5  error  Mixins should come before declarations  mixins-before-declarations
 
+src/DateTimePickers/LegacyDateTimePickers/pickers/TimePicker/TimePicker.scss
+  26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
@@ -13,9 +16,6 @@ src/FilterBar/FilterBar.scss
 src/GuidedTour/GuidedTour.scss
   71:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
   80:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
-
-src/LegacyDateTimePickers/pickers/TimePicker/TimePicker.scss
-  26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/List/Toolbar/Toolbar.scss
   71:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
