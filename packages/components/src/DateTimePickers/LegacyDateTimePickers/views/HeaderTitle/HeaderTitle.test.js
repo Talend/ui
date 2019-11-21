@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import HeaderTitle from './HeaderTitle.component';
-import { ActionDropdown } from '../../../Actions';
+import { ActionDropdown } from '../../../../Actions';
 
 describe('HeaderTitle', () => {
 	it('should render a span and ActionDropdown', () => {
