@@ -247,14 +247,14 @@ describe('createTqlQuery', () => {
 						name: 'greaterThan',
 						iconName: 'greater-than',
 					},
-					value: '2298.23',
+					value: 2298.23,
 				},
 			},
 		];
 		// When
 		const result = createTqlQuery(badgeNotEqual);
 		// Then
-		expect(result).toEqual("(price > '2298.23')");
+		expect(result).toEqual('(price > 2298.23)');
 	});
 	it('should return an unequal tql query when value is using the greaterThanOrEqual operator', () => {
 		// Given
@@ -267,14 +267,14 @@ describe('createTqlQuery', () => {
 						name: 'greaterThanOrEqual',
 						iconName: 'greater-than-equal',
 					},
-					value: '12.9823',
+					value: 12.9823,
 				},
 			},
 		];
 		// When
 		const result = createTqlQuery(badgeNotEqual);
 		// Then
-		expect(result).toEqual("(price >= '12.9823')");
+		expect(result).toEqual('(price >= 12.9823)');
 	});
 	it('should return an unequal tql query when value is using the lessThan operator', () => {
 		// Given
@@ -287,14 +287,14 @@ describe('createTqlQuery', () => {
 						name: 'lessThan',
 						iconName: 'less-than',
 					},
-					value: '20938.20938',
+					value: 20938.20938,
 				},
 			},
 		];
 		// When
 		const result = createTqlQuery(badgeNotEqual);
 		// Then
-		expect(result).toEqual("(price < '20938.20938')");
+		expect(result).toEqual('(price < 20938.20938)');
 	});
 	it('should return an unequal tql query when value is using the lessThanOrEqual operator', () => {
 		// Given
@@ -307,13 +307,13 @@ describe('createTqlQuery', () => {
 						name: 'lessThanOrEqual',
 						iconName: 'less-than-equal',
 					},
-					value: '20982309892.23',
+					value: 20982309892.23,
 				},
 			},
 		];
 		// When
 		const result = createTqlQuery(badgeNotEqual);
 		// Then
-		expect(result).toEqual("(price <= '20982309892.23')");
+		expect(result).toEqual('(price <= 20982309892.23)');
 	});
 });

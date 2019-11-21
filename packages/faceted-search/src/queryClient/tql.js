@@ -9,7 +9,7 @@ const getBadgeQueryValues = ({ properties }) => [
 
 const getBadgesQueryValues = badges => badges.map(getBadgeQueryValues);
 
-const isNotEmptyOrNull = value => value && value.length;
+const isNotEmptyOrNull = value => !!(typeof value === 'number' || (value && value.length));
 const isObjectIdNotEmptyOrNull = value => isNotEmptyOrNull(value.id);
 
 const filterBadgeWithNoValue = ({ properties }) => {
