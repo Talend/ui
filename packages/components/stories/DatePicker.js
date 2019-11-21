@@ -439,4 +439,21 @@ storiesOf('DatePicker', module)
 				/>
 			</form>
 		</div>
+	))
+	.add('Legacy - form mode', () => (
+		<div>
+			<IconsProvider />
+			<div style={{ width: 150 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					useTime
+					formMode
+					required={false}
+					useSeconds
+				/>
+			</div>
+		</div>
 	));
