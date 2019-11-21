@@ -10,11 +10,11 @@ src/DateTimePickers/InputDatePicker/InputDatePicker.scss
 src/DateTimePickers/InputDateRangePicker/InputDateRangePicker.scss
   1:2  error  File extensions are not allowed  clean-import-paths
 
-src/DateTimePickers/shared/styles/mixins.scss
-  1:2  error  File extensions are not allowed  clean-import-paths
-
 src/DateTimePickers/LegacyDateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+
+src/DateTimePickers/shared/styles/mixins.scss
+  1:2  error  File extensions are not allowed  clean-import-paths
 
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
@@ -35,9 +35,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-<<<<<<< HEAD
-✖ 13 problems (11 errors, 2 warnings)
-=======
-✖ 11 problems (9 errors, 2 warnings)
->>>>>>> master
+✖ 14 problems (12 errors, 2 warnings)
 
