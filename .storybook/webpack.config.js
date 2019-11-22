@@ -73,5 +73,7 @@ module.exports = ({ config }) => {
 			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
 		}),
 	);
+	config.stats = 'minimal';
+
 	return config;
 };
