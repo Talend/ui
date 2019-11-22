@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthPicker should render 1`] = `
+<MonthCalendarGesture(MonthPicker)
+  onSelect={[MockFunction]}
+  selectedMonthIndex={4}
+  selectedYear={2018}
+>
+  <div>
+    <MonthPicker
+      onKeyDown={[Function]}
+      onSelect={[MockFunction]}
+      selectedMonthIndex={4}
+      selectedYear={2018}
+      t={[Function]}
+    >
+      <table
+        className="theme-container"
+      >
+        <caption
+          className="sr-only"
+        >
+          Year 2018
+        </caption>
+        <tbody>
+          <tr
+            className="theme-calendar-row"
+            key="0"
+          >
+            <td
+              className="theme-calendar-col"
+              key="0"
+            >
+              <button
+                aria-label="January 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={0}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                January
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="1"
+            >
+              <button
+                aria-label="February 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={1}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                February
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="2"
+            >
+              <button
+                aria-label="March 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={2}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                March
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row"
+            key="1"
+          >
+            <td
+              className="theme-calendar-col"
+              key="3"
+            >
+              <button
+                aria-label="April 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={3}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                April
+              </button>
+            </td>
+            <td
+              aria-current="date"
+              className="theme-calendar-col"
+              key="4"
+            >
+              <button
+                aria-label="May 2018, selected"
+                className="theme-calendar-month theme-selected tc-date-picker-month"
+                data-value={4}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                May
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="5"
+            >
+              <button
+                aria-label="June 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={5}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                June
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row"
+            key="2"
+          >
+            <td
+              className="theme-calendar-col"
+              key="6"
+            >
+              <button
+                aria-label="July 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={6}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                July
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="7"
+            >
+              <button
+                aria-label="August 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={7}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                August
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="8"
+            >
+              <button
+                aria-label="September 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={8}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                September
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row"
+            key="3"
+          >
+            <td
+              className="theme-calendar-col"
+              key="9"
+            >
+              <button
+                aria-label="October 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={9}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                October
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="10"
+            >
+              <button
+                aria-label="November 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={10}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                November
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="11"
+            >
+              <button
+                aria-label="December 2018"
+                className="theme-calendar-month tc-date-picker-month"
+                data-value={11}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                December
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </MonthPicker>
+  </div>
+</MonthCalendarGesture(MonthPicker)>
+`;

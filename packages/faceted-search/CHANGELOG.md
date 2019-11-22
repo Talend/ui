@@ -25,6 +25,8 @@ Types of changes
 - `Security` in case of vulnerabilities.
 
 ## [Unreleased]
+- [Added](https://github.com/Talend/ui/pull/2548): Add number type badge 
+- [Fixed](https://github.com/Talend/ui/pull/2545): Fix support of notEqual operator
 - [Fixed](https://github.com/Talend/ui/pull/2544): Get back Tooltip trigger for button icon in BadgeOverlay
 - [Changed](https://github.com/Talend/ui/pull/2530): Update remove / add tooltip labels
 - [Fixed](https://github.com/Talend/ui/pull/2535): Fix onSubmit execution on BasicSearch
