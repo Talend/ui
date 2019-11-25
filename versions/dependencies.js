@@ -57,7 +57,7 @@ module.exports = {
 	tv4: '^1.3.0',
 
 	// deps: libs that interact with the DOM
-	brace: '0.11.1',
+	brace: '^0.11.1',
 	'd3-shape': '1.2.0',
 	'react-ace': '6.2.0',
 	'react-bootstrap': '0.32.4',
