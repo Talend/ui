@@ -86,10 +86,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-<<<<<<< HEAD
-✖ 35 problems (32 errors, 3 warnings)
-=======
 ✖ 50 problems (47 errors, 3 warnings)
->>>>>>> master
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
