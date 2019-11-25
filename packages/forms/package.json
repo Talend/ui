@@ -36,7 +36,7 @@
   "dependencies": {
     "@talend/json-schema-form-core": "1.0.0-alpha.4",
     "ajv": "^6.2.1",
-    "brace": "0.11.1",
+    "brace": "^0.11.1",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^5.0.4",
     "json-logic-js": "^1.2.2",
