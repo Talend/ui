@@ -69,4 +69,4 @@ module.exports = {
 ```
 
 We need this configuration to let ace fetch its own plugin.
-To better understand why what happens you can read the source: https://github.com/thlorenz/brace/blob/master/index.js#L4115
+To better understand why that happens you can read the source: https://github.com/thlorenz/brace/blob/master/index.js#L4115
