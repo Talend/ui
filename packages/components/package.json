@@ -16,7 +16,7 @@
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" lib",
     "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook --quiet",
     "cpx": "cpx \"./src/**/*.scss\" ./lib"
   },
   "keywords": [
