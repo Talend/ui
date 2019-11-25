@@ -73,6 +73,12 @@ module.exports = ({ config }) => {
 			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
 		}),
 	);
+
+	const progressPluginIndex = config.plugins.findIndex(
+		plugin => plugin.constructor.name === 'ProgressPlugin',
+	);
+	config.plugins.splice(progressPluginIndex, 1);
+
 	config.stats = 'errors-only';
 
 	return config;
