@@ -235,8 +235,7 @@ class NotificationsContainer extends React.Component {
 					new Timer(() => {
 						this.props.leaveFn(notification);
 						this.registry.cancel(notification);
-					},
-					this.props.autoLeaveTimeout),
+					}, this.props.autoLeaveTimeout),
 				);
 			});
 	}

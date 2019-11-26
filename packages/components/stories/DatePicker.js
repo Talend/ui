@@ -10,6 +10,7 @@ import DatePicker from '../src/DateTimePickers/Date/Picker';
 import InputDateTimePicker from '../src/DateTimePickers/InputDateTimePicker';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
+import InputDateRangePicker from '../src/DateTimePickers/InputDateRangePicker';
 
 const icons = {
 	'talend-info-circle': talendIcons['talend-info-circle'],
@@ -425,6 +426,20 @@ storiesOf('DatePicker', module)
 			</div>
 		);
 	})
+	.add('Date Range picker - with inputs', () => (
+		<div>
+			<IconsProvider />
+			<h1>Date Range picker</h1>
+			<form style={{ width: 320 }}>
+				<InputDateRangePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+				/>
+			</form>
+		</div>
+	))
 	.add('Legacy - form mode', () => (
 		<div>
 			<IconsProvider />
