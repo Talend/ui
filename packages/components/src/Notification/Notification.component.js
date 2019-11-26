@@ -170,12 +170,6 @@ class Registry {
 	cancel(notification) {
 		if (this.isRegistered(notification)) {
 			this.timerRegistry[notification.id].cancel();
-		}
-	}
-
-	clean(notification) {
-		if (this.isRegistered(notification)) {
-			this.cancel(notification);
 			// Clean registry to avoid memory leak
 			delete this.timerRegistry[notification.id];
 		}
@@ -240,7 +234,7 @@ class NotificationsContainer extends React.Component {
 					notification,
 					new Timer(() => {
 						this.props.leaveFn(notification);
-						this.registry.clean(notification);
+						this.registry.cancel(notification);
 					},
 					this.props.autoLeaveTimeout),
 				);
@@ -279,7 +273,7 @@ class NotificationsContainer extends React.Component {
 }
 
 const notificationShape = {
-	id: PropTypes.any.isRequired, // each notification must have a unique id
+	id: PropTypes.any.isRequired,
 	type: PropTypes.oneOf(['info', 'warning', 'error']),
 	title: PropTypes.string,
 	message: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,

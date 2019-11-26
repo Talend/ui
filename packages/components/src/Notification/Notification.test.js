@@ -130,10 +130,9 @@ describe('NotificationContainer', () => {
 			expect(mockTimer.pause).toHaveBeenCalled();
 			instance.registry.resume(notification);
 			expect(mockTimer.resume).toHaveBeenCalled();
+			expect(instance.registry.timerRegistry).toHaveProperty(notification.id);
 			instance.registry.cancel(notification);
 			expect(mockTimer.cancel).toHaveBeenCalled();
-			expect(instance.registry.timerRegistry).toHaveProperty(notification.id);
-			instance.registry.clean(notification);
 			expect(instance.registry.timerRegistry).toEqual({});
 		});
 	});
