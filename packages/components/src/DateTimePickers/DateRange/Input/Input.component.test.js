@@ -3,28 +3,32 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import { DateRangeContext } from '../Context';
-import Inputs from './Inputs.component';
+import Input from './Input.component';
 
-describe('DateRange.Inputs', () => {
+describe('Date.Input', () => {
 	it('should render', () => {
 		// given
-		const context = {
-			startDate: {
-				textInput: '2007-01-02',
-			},
-			endDate: {
-				textInput: '2007-01-08',
-			},
+		const managerValue = {
 			inputManagement: {
 				placeholder: 'YYYY-MM-DD',
 			},
 		};
+		const props = {
+			onFocus: jest.fn(),
+			onChange: jest.fn(),
+			label: 'start date',
+			date: {
+				value: new Date(2019, 9, 11),
+				textInput: '2019-10-11',
+			},
+		};
+
 		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
 
 		// when
 		const wrapper = mount(
-			<DateRangeContext.Provider value={context}>
-				<Inputs aria-labelledby="labelId" />
+			<DateRangeContext.Provider value={managerValue}>
+				<Input {...props} />
 			</DateRangeContext.Provider>,
 		);
 
