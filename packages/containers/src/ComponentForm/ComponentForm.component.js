@@ -23,7 +23,7 @@ const TO_OMIT = [
 
 export const DEFAULT_STATE = new Map({
 	dirty: false,
-	initialState: {},
+	initialState: new Map(),
 });
 
 /**

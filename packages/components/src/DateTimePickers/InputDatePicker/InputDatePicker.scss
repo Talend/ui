@@ -1,16 +1,9 @@
-$tc-datepicker-width: 31rem !default;
-$tc-datepicker-background: $white !default;
-$tc-datepicker-box-shadow: $shadow-default !default;
-$tc-datepicker-z-index: $zindex-dropdown !default;
+@import '../shared/styles/mixins';
 
 .popper {
-	width: $tc-datepicker-width;
-	background: $tc-datepicker-background;
-	box-shadow: $tc-datepicker-box-shadow;
-	z-index: $tc-datepicker-z-index;
+	@include popper;
 }
 .date-picker {
-	width: fit-content;
-	display: flex;
+	@include date-picker;
 	align-items: center;
 }

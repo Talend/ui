@@ -46,7 +46,31 @@ const badgeConnectionType = {
 	},
 };
 
-const badgesDefinitions = [badgeName, badgeConnectionType];
+const badgePrice = {
+	properties: {
+		attribute: 'price',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Price',
+		operator: {},
+		operators: [],
+		type: 'number',
+	},
+	metadata: {
+		badges_per_facet: 'N',
+		entities_per_badge: '1',
+		operators: [
+			'equal',
+			'notEqual',
+			'greaterThan',
+			'greaterThanOrEqual',
+			'lessThan',
+			'lessThanOrEqual',
+		],
+	},
+};
+
+const badgesDefinitions = [badgeName, badgeConnectionType, badgePrice];
 
 storiesOf('FacetedSearch', module)
 	.addDecorator(story => (
