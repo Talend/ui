@@ -11,18 +11,14 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
   label="Select DateTime"
   required={true}
 >
-  <InputDateTimePicker
+  <InputDateTimePickerSwitch
     aria-describedby="talend-date-time-description talend-date-time-error"
     aria-invalid={true}
     aria-required={true}
     autoFocus={true}
-    dateFormat="YYYY-MM-DD"
     id="talend-date-time"
     onBlur={[Function]}
     onChange={[Function]}
-    required={true}
-    useSeconds={false}
-    useUTC={false}
   />
 </FieldTemplate>
 `;

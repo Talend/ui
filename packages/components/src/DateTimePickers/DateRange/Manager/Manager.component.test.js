@@ -252,15 +252,6 @@ describe('DateRange.Manager', () => {
 					);
 
 					// when
-					// 1 - focus on startDate or endDate
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus({}, field);
-					});
-					wrapper.update();
-					// 2 - input date
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
 						if (field === 'startDate') {
@@ -332,7 +323,7 @@ describe('DateRange.Manager', () => {
 
 			cases(
 				'should trigger props.onChange with valid startDate/endDate',
-				({ field, inputText, expectedStartDate, expectedEndDate }) => {
+				({ field, inputText, expectedStartDate, expectedEndDate, expectedOrigin }) => {
 					// given
 					const onChange = jest.fn();
 					const event = { target: { value: inputText } };
@@ -344,13 +335,6 @@ describe('DateRange.Manager', () => {
 					expect(onChange).not.toBeCalled();
 
 					// when
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus({}, field);
-					});
-					wrapper.update();
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
 						if (field === 'startDate') {
@@ -367,6 +351,7 @@ describe('DateRange.Manager', () => {
 						endDate: expectedEndDate,
 						errors: [],
 						errorMessage: null,
+						origin: expectedOrigin,
 					});
 				},
 				[
@@ -375,12 +360,14 @@ describe('DateRange.Manager', () => {
 						field: 'startDate',
 						inputText: '2019-10-11',
 						expectedStartDate: new Date(2019, 9, 11),
+						expectedOrigin: 'START_INPUT',
 					},
 					{
 						name: 'when input valid date on to field',
 						field: 'endDate',
 						inputText: '2019-10-11',
 						expectedEndDate: new Date(2019, 9, 11),
+						expectedOrigin: 'END_INPUT',
 					},
 				],
 			);
@@ -398,13 +385,6 @@ describe('DateRange.Manager', () => {
 					);
 					expect(onChange).not.toBeCalled();
 
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus({}, field);
-					});
-					wrapper.update();
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
 						if (field === 'startDate') {
@@ -456,13 +436,6 @@ describe('DateRange.Manager', () => {
 						</Manager>,
 					);
 					// when
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus(event, field);
-					});
-					wrapper.update();
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('pickerManagement');
 
@@ -519,14 +492,8 @@ describe('DateRange.Manager', () => {
 						</Manager>,
 					);
 					expect(onChange).not.toBeCalled();
+
 					// when
-					act(() => {
-						wrapper
-							.find('DateRangeConsumerDiv')
-							.prop('inputManagement')
-							.onFocus(event, field);
-					});
-					wrapper.update();
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('pickerManagement');
 						if (field === 'startDate') {

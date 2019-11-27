@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import InputDatePicker from '../InputDatePicker';
 import InputTimePicker from '../InputTimePicker';
+import LegacyInputDateTimePicker from '../LegacyDateTimePickers';
 
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
@@ -76,4 +77,15 @@ InputDateTimePicker.defaultProps = {
 	required: true,
 };
 
-export default InputDateTimePicker;
+function InputDateTimePickerSwitch(props) {
+	if (props.formMode) {
+		return <LegacyInputDateTimePicker {...props} />;
+	}
+
+	return <InputDateTimePicker {...props} />;
+}
+InputDateTimePickerSwitch.propTypes = {
+	formMode: PropTypes.bool,
+};
+
+export default InputDateTimePickerSwitch;
