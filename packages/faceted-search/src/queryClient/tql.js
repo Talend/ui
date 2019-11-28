@@ -12,19 +12,19 @@ const getBadgesQueryValues = badges => badges.map(getBadgeQueryValues);
 
 const isValidValue = value => {
 	if (typeof value === 'string') {
-		return isEmpty(value);
+		return !isEmpty(value);
 	}
-	return Number.isNaN(value);
+	return !Number.isNaN(value);
 };
 
-const filterBadgeWithNoValue = ({ properties }) => {
+const keepValidValues = ({ properties }) => {
 	if (Array.isArray(properties.value)) {
-		return !properties.value.every(({ id }) => isValidValue(id));
+		return properties.value.length && properties.value.every(({ id }) => isValidValue(id));
 	}
-	return !isValidValue(properties.value);
+	return isValidValue(properties.value);
 };
 
-const removeBadgesWithEmptyValue = badges => badges.filter(filterBadgeWithNoValue);
+const removeBadgesWithEmptyValue = badges => badges.filter(keepValidValues);
 
 const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
 
