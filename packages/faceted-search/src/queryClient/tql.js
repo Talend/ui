@@ -1,4 +1,5 @@
 import { Query } from '@talend/daikon-tql-client';
+import isEmpty from 'lodash/isEmpty';
 import flow from 'lodash/flow';
 
 const getBadgeQueryValues = ({ properties }) => [
@@ -9,17 +10,18 @@ const getBadgeQueryValues = ({ properties }) => [
 
 const getBadgesQueryValues = badges => badges.map(getBadgeQueryValues);
 
-const isNotEmptyOrNull = value => value && value.length;
-const isValidNumber = value => typeof value === 'number' && !isNaN(value);
-
-const isObjectIdNotEmptyOrNull = value => isNotEmptyOrNull(value.id);
-const isValidBadge = value => isValidNumber(value) || isNotEmptyOrNull(value);
+const isValidValue = value => {
+	if (typeof value === 'string') {
+		return isEmpty(value);
+	}
+	return Number.isNaN(value);
+};
 
 const filterBadgeWithNoValue = ({ properties }) => {
-	if (Array.isArray(properties.value) && properties.value.length) {
-		return properties.value.every(isObjectIdNotEmptyOrNull);
+	if (Array.isArray(properties.value)) {
+		return !properties.value.every(({ id }) => isValidValue(id));
 	}
-	return isValidBadge(properties.value);
+	return !isValidValue(properties.value);
 };
 
 const removeBadgesWithEmptyValue = badges => badges.filter(filterBadgeWithNoValue);
