@@ -20,4 +20,13 @@ describe('RichLayout', () => {
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should set the focus on the popover', () => {
+		const wrapper = shallow(<RichLayout id="richlayout" text="loreum" />);
+		const focus = jest.fn();
+		wrapper.instance().richLayout = { current: { focus } };
+
+		wrapper.instance().focusRichLayout();
+		expect(focus).toHaveBeenCalled();
+	});
 });
