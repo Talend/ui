@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
-import { UIForm } from '../src/UIForm';
-import Enumeration from '../src/UIForm/fields/Enumeration';
+import { UIForm } from '../src/UIForm-v2/UIForm';
+import Enumeration from '../src/UIForm-v2/UIForm/fields/Enumeration';
 import { PRESIGNED_URL_TRIGGER_ACTION } from '../src/UIForm/fields/File/File.component';
 
 const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);

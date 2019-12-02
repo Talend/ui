@@ -1,7 +1,7 @@
 import React from 'react';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { action } from '@storybook/addon-actions';
-import { UIForm } from '../src/UIForm';
+import { UIForm } from '../src/UIForm-v2/UIForm';
 
 const schema = {
 	jsonSchema: {

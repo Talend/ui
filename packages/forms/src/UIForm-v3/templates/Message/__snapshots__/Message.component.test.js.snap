@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message component should render nothing when field is valid and no description is provided 1`] = `
+<div>
+  <p
+    className="help-block"
+  />
+  <p
+    aria-live="assertive"
+    className="help-block"
+    role="status"
+  >
+    
+  </p>
+</div>
+`;
+
+exports[`Message component should render provided description and no error if the field is valid 1`] = `
+<div>
+  <p
+    className="help-block"
+  >
+    My description
+  </p>
+  <p
+    aria-live="assertive"
+    className="help-block"
+    role="status"
+  >
+    
+  </p>
+</div>
+`;
+
+exports[`Message component should render provided error message and no description if the field is invalid 1`] = `
+<div
+  className="has-error"
+>
+  <p
+    className="help-block"
+  >
+    
+  </p>
+  <p
+    aria-live="assertive"
+    className="help-block"
+    role="status"
+  >
+    My error message
+  </p>
+</div>
+`;

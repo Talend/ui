@@ -1,7 +1,7 @@
 import React from 'react';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { action } from '@storybook/addon-actions';
-import { UIForm } from '../src/UIForm';
+import { UIForm } from '../src/UIForm-v2/UIForm';
 
 const schema = {
 	jsonSchema: {
@@ -189,10 +189,13 @@ const schema = {
 	},
 };
 
-const errors = schema.uiSchema.reduce((acc, current) => ({
-	...acc,
-	[current.key.split('.').join(',')]: 'There is an error',
-}), {});
+const errors = schema.uiSchema.reduce(
+	(acc, current) => ({
+		...acc,
+		[current.key.split('.').join(',')]: 'There is an error',
+	}),
+	{},
+);
 
 function story() {
 	return (

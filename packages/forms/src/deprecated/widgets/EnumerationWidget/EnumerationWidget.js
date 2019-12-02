@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
-import getDefaultT from '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../UIForm-v2/constants';
+import getDefaultT from '../../../UIForm-v2/translate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';

@@ -11,7 +11,7 @@ let Form = () => (
 
 if (process.env.FORM_MOZ) {
 	// eslint-disable-next-line global-require
-	Form = require('./deprecated/Form');
+	Form = require('../deprecated/Form');
 	// eslint-disable-next-line no-console
 	console.warn('FORM_MOZ is deprecated and will be removed in the next major release');
 }

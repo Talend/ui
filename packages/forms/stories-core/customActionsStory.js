@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { UIForm } from '../src/UIForm';
+import { UIForm } from '../src/UIForm-v2/UIForm';
 
 function story() {
 	const actions = [

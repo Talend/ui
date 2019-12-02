@@ -2,19 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import { IconsProvider, Actions } from '@talend/react-components';
-import { UIForm } from '../src/UIForm';
+import { UIForm } from '../src/UIForm-v2/UIForm';
 
 function CustomArrayTemplate(props) {
-	const {
-		canReorder,
-		id,
-		onAdd,
-		onRemove,
-		onReorder,
-		renderItem,
-		schema,
-		value,
-	} = props;
+	const { canReorder, id, onAdd, onRemove, onReorder, renderItem, schema, value } = props;
 
 	return (
 		<div>
@@ -47,19 +38,21 @@ function CustomArrayTemplate(props) {
 								label: 'Move Up',
 								icon: 'talend-caret-down',
 								className: 'icon-up',
-								onClick: event => onReorder(event, {
-									previousIndex: index,
-									nextIndex: index - 1,
-								}),
+								onClick: event =>
+									onReorder(event, {
+										previousIndex: index,
+										nextIndex: index - 1,
+									}),
 							},
 							{
 								label: 'Move Down',
 								icon: 'talend-caret-down',
-								onClick: event => onReorder(event, {
-									previousIndex: index,
-									nextIndex: index + 1,
-								}),
-							}
+								onClick: event =>
+									onReorder(event, {
+										previousIndex: index,
+										nextIndex: index + 1,
+									}),
+							},
 						);
 					}
 

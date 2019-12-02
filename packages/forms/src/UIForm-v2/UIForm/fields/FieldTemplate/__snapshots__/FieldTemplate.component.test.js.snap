@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldTemplate should add animation on value with updating status 1`] = `
+<div
+  aria-busy={true}
+  className="form-group theme-template has-error theme-updating"
+>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={false}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should render invalid className 1`] = `
+<div
+  className="form-group theme-template has-error"
+>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={false}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should render with label after 1`] = `
+<div
+  className="form-group theme-template"
+>
+  <input
+    id="myAwesomeField"
+  />
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should render with label before 1`] = `
+<div
+  className="form-group theme-template"
+>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;

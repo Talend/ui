@@ -4,7 +4,7 @@ import isEqual from 'lodash/isEqual';
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
 
-import Form from '../src/FormSwitcher';
+import Form from '../src/UIForm-v2/FormSwitcher';
 
 const DEFAULT_DATA = { jsonSchema: {}, uiSchema: [], properties: {} };
 

@@ -6,10 +6,6 @@ import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import i18n from '../stories/config/i18n';
 
-function loadStories() {
-	require('../stories-core');
-}
-
 const withFormLayout = (story, options) => {
 	if (options.kind === 'Layout') {
 		return story();
@@ -42,4 +38,11 @@ const withFormLayout = (story, options) => {
 
 addDecorator(withA11y);
 addDecorator(withFormLayout);
-configure(loadStories, module);
+
+configure(
+	[
+		require.context('../stories-core', true, /index.js$/),
+		require.context('../src', true, /\.stories\.js$/),
+	],
+	module,
+);

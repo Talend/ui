@@ -1,7 +1,5 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import i18n from 'i18next';
 
 import jsonStories from './jsonStories';
 import playgroundStory from './playgroundStory';

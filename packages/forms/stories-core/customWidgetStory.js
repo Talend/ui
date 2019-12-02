@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
-import { UIForm } from '../src/UIForm';
+import { UIForm } from '../src/UIForm-v2/UIForm';
 
 function CustomWidget(props) {
 	const { value } = props;

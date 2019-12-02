@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '@talend/react-components/lib/constants';
 
-import { I18N_DOMAIN_FORMS } from '../../src/constants';
+import { I18N_DOMAIN_FORMS } from '../../src/UIForm-v2/constants';
 
 i18n.use(initReactI18next).init({
 	resources: {
