@@ -247,14 +247,14 @@ describe('createTqlQuery', () => {
 						name: 'greaterThan',
 						iconName: 'greater-than',
 					},
-					value: '2298.23',
+					value: 2298.23,
 				},
 			},
 		];
 		// When
 		const result = createTqlQuery(badgeNotEqual);
 		// Then
-		expect(result).toEqual("(price > '2298.23')");
+		expect(result).toEqual('(price > 2298.23)');
 	});
 	it('should return an unequal tql query when value is using the greaterThanOrEqual operator', () => {
 		// Given
@@ -267,14 +267,14 @@ describe('createTqlQuery', () => {
 						name: 'greaterThanOrEqual',
 						iconName: 'greater-than-equal',
 					},
-					value: '12.9823',
+					value: 12.9823,
 				},
 			},
 		];
 		// When
 		const result = createTqlQuery(badgeNotEqual);
 		// Then
-		expect(result).toEqual("(price >= '12.9823')");
+		expect(result).toEqual('(price >= 12.9823)');
 	});
 	it('should return an unequal tql query when value is using the lessThan operator', () => {
 		// Given
@@ -287,14 +287,14 @@ describe('createTqlQuery', () => {
 						name: 'lessThan',
 						iconName: 'less-than',
 					},
-					value: '20938.20938',
+					value: 20938.20938,
 				},
 			},
 		];
 		// When
 		const result = createTqlQuery(badgeNotEqual);
 		// Then
-		expect(result).toEqual("(price < '20938.20938')");
+		expect(result).toEqual('(price < 20938.20938)');
 	});
 	it('should return an unequal tql query when value is using the lessThanOrEqual operator', () => {
 		// Given
@@ -307,13 +307,93 @@ describe('createTqlQuery', () => {
 						name: 'lessThanOrEqual',
 						iconName: 'less-than-equal',
 					},
-					value: '20982309892.23',
+					value: 20982309892.23,
 				},
 			},
 		];
 		// When
 		const result = createTqlQuery(badgeNotEqual);
 		// Then
-		expect(result).toEqual("(price <= '20982309892.23')");
+		expect(result).toEqual('(price <= 20982309892.23)');
+	});
+	it('should handle a NaN number value as an invalid value', () => {
+		// Given
+		const badge = [
+			{
+				properties: {
+					attribute: 'price',
+					operator: {
+						label: 'Equal',
+						name: 'equal',
+						iconName: 'equal',
+					},
+					value: NaN,
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badge);
+		// Then
+		expect(result).toEqual('');
+	});
+	it('should handle a zero number value', () => {
+		// Given
+		const badge = [
+			{
+				properties: {
+					attribute: 'price',
+					operator: {
+						label: 'Equal',
+						name: 'equal',
+						iconName: 'equal',
+					},
+					value: 0,
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badge);
+		// Then
+		expect(result).toEqual('(price = 0)');
+	});
+	it('should handle a negative number value', () => {
+		// Given
+		const badge = [
+			{
+				properties: {
+					attribute: 'price',
+					operator: {
+						label: 'Equal',
+						name: 'equal',
+						iconName: 'equal',
+					},
+					value: -12098029830,
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badge);
+		// Then
+		expect(result).toEqual('(price = -12098029830)');
+	});
+	it('should handle a float number value', () => {
+		// Given
+		const badge = [
+			{
+				properties: {
+					attribute: 'price',
+					operator: {
+						label: 'Equal',
+						name: 'equal',
+						iconName: 'equal',
+					},
+					value: 293820983098.23,
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badge);
+		// Then
+		expect(result).toEqual('(price = 293820983098.23)');
 	});
 });
