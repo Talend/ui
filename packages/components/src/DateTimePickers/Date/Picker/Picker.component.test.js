@@ -25,16 +25,14 @@ describe('Date.Picker', () => {
 		);
 
 		// then
-		expect(wrapper.find('CalendarPicker').props()).toEqual(
-			expect.objectContaining({
-				manageFocus: true,
-				onSubmit: managerValue.pickerManagement.onSubmit,
-				other: 'custom props',
-				selectedDate: new Date(2007, 0, 2),
-				useUTC: false,
-				t: expect.any(Function),
-			})
-		);
+		expect(wrapper.find('CalendarPicker').props()).toMatchObject({
+			manageFocus: true,
+			onSubmit: managerValue.pickerManagement.onSubmit,
+			other: 'custom props',
+			selectedDate: new Date(2007, 0, 2),
+			useUTC: false,
+			t: expect.any(Function),
+		});
 	});
 
 	it('should call manager onSubmit callback on picker submission', () => {
