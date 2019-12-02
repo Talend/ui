@@ -33,7 +33,7 @@ describe('Date.Picker', () => {
 				selectedDate: new Date(2007, 0, 2),
 				useUTC: false,
 				t: expect.any(Function),
-			})
+			}),
 		);
 	});
 
