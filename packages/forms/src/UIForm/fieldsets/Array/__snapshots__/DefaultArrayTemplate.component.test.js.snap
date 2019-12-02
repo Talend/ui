@@ -14,7 +14,7 @@ exports[`Default Array Template component should render default array template 1
     bsStyle="info"
     className="theme-tf-array-add tf-array-add"
     id="my-template-btn"
-    label="New Element"
+    label="Add"
     onClick={[MockFunction]}
   />
   <Message
