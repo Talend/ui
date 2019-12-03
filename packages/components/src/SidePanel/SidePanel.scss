@@ -17,7 +17,6 @@ $tc-side-panel-docked-width: 60px !default;
 $tc-side-panel-labels-width: 135px !default;
 $tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: $svg-lg-size;
-$tc-side-panel-border-size: 2px !default;
 $toggle-button-padding: $padding-small;
 
 .tc-side-panel {
@@ -174,7 +173,6 @@ $toggle-button-padding: $padding-small;
 
 	&.reverse[role='navigation'][aria-expanded] {
 		background: $wild-sand;
-		border-right: $tc-side-panel-border-size solid $alto;
 
 		&:before {
 			background-image: none;
