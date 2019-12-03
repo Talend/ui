@@ -11,6 +11,7 @@ export default function Picker(props) {
 		props.focusedInput === START_DATE && (
 			<CalendarPicker
 				manageFocus
+				key="CalendarPicker_StartDate"
 				selectedDate={startDate.value}
 				endDate={endDate.value}
 				onSubmit={onStartChange}
@@ -20,6 +21,7 @@ export default function Picker(props) {
 		props.focusedInput === END_DATE && (
 			<CalendarPicker
 				manageFocus
+				key="CalendarPicker_EndDate"
 				selectedDate={endDate.value}
 				startDate={startDate.value}
 				onSubmit={onEndChange}
