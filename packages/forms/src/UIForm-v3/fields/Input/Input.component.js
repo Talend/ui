@@ -2,17 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import FieldTemplate from '../../templates/FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../../templates/Message/generateId';
-import { getError } from '../../utils';
+import { generateDescriptionId, generateErrorId } from '../utils';
 
 function Input(props) {
-	const { className, description, inProgress, label, useForm, ...rest } = props;
+	const { className, description, inProgress, label, registerOptions, rhf, ...rest } = props;
 	const { id, name, required } = rest;
-	const { errors, messages, register } = useForm;
+	const { errors, register } = rhf;
 
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const error = getError(errors, name, messages);
+	const error = errors[name];
 
 	return (
 		<FieldTemplate
@@ -26,7 +25,7 @@ function Input(props) {
 		>
 			<input
 				{...rest}
-				ref={register}
+				ref={register(registerOptions)}
 				className={classnames('form-control', className)}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!!error}
@@ -44,7 +43,8 @@ if (process.env.NODE_ENV !== 'production') {
 		description: PropTypes.string,
 		inProgress: PropTypes.bool,
 		label: PropTypes.string.isRequired,
-		useForm: PropTypes.object.isRequired,
+		registerOptions: PropTypes.object,
+		rhf: PropTypes.object.isRequired,
 	};
 }
 

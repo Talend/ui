@@ -10,7 +10,7 @@ export default function Message(props) {
 				{error ? '' : description}
 			</p>
 			<p key="error" className="help-block" role="status" aria-live="assertive" id={errorId}>
-				{error}
+				{error && error.message}
 			</p>
 		</div>
 	);
