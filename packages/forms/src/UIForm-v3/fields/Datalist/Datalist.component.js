@@ -1,23 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import FieldTemplate from '../../templates/FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../utils';
+import useControlledInput from '../useControlledInput';
 
 function Datalist(props) {
 	const { defaultValue, description, inProgress, label, registerOptions, rhf, ...rest } = props;
 	const { id, name, required } = rest;
-	const { errors, register, unregister, setValue, watch } = rhf;
+	const { errors, setValue } = rhf;
 
-	useEffect(() => {
-		register({ name }, registerOptions);
-		if (defaultValue !== undefined) {
-			setValue(name, defaultValue);
-		}
-		return () => unregister(name);
-	}, [name, setValue, register, unregister]);
-
-	const value = watch(name);
+	const value = useControlledInput({ defaultValue, name, registerOptions, rhf });
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const error = errors[name];
