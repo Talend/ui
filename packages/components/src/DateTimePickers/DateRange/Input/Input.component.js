@@ -9,7 +9,15 @@ import InputSizer from '../../shared/InputSizer';
 const OMIT_INPUT_PROPS = ['date', 'onChange', 'onFocus', 'label'];
 
 function Input(props, ref) {
-	const { date, onChange, onFocus, label } = props;
+	const {
+		date,
+		time,
+		onChange,
+		onTimeChange,
+		onFocus,
+		label,
+		timeInputRef,
+	} = props;
 	const { inputManagement } = useContext(DateRangeContext);
 	const { placeholder } = inputManagement;
 
@@ -18,23 +26,42 @@ function Input(props, ref) {
 			<label htmlFor={props.id} className="control-label">
 				{label}
 			</label>
-			<InputSizer inputText={placeholder}>
-				{width => (
-					<DebounceInput
-						autoComplete="off"
-						className="form-control"
-						debounceTimeout={300}
-						type="text"
-						placeholder={placeholder}
-						value={date.textInput}
-						style={{ width }}
-						onChange={onChange}
-						onFocus={onFocus}
-						inputRef={ref}
-						{...omit(props, OMIT_INPUT_PROPS)}
-					/>
-				)}
-			</InputSizer>
+			<div style={{ display: 'flex' }}>
+				<InputSizer inputText={placeholder}>
+					{width => (
+						<DebounceInput
+							autoComplete="off"
+							className="form-control"
+							debounceTimeout={300}
+							type="text"
+							placeholder={placeholder}
+							value={date.textInput}
+							style={{ width }}
+							onChange={onChange}
+							onFocus={() => onFocus(ref)}
+							inputRef={ref}
+							{...omit(props, OMIT_INPUT_PROPS)}
+						/>
+					)}
+				</InputSizer>
+				<InputSizer inputText={placeholder}>
+					{width => (
+						<DebounceInput
+							autoComplete="off"
+							className="form-control"
+							debounceTimeout={300}
+							type="text"
+							placeholder="HH:mm:ss"
+							value={time.textInput}
+							style={{ width }}
+							onChange={onTimeChange}
+							onFocus={() => onFocus(timeInputRef)}
+							inputRef={timeInputRef}
+							{...omit(props, OMIT_INPUT_PROPS)}
+						/>
+					)}
+				</InputSizer>
+			</div>
 		</div>
 	);
 }

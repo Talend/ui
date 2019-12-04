@@ -31,7 +31,15 @@
 	width: $tc-datepicker-width;
 	background: $tc-datepicker-background;
 	box-shadow: $tc-datepicker-box-shadow;
-	z-index: $tc-datepicker-z-index;
+	z-index: $tc-picker-z-index;
+}
+
+@mixin time-popper {
+	@include popper;
+	overflow: auto;
+	width: $tc-timepicker-width;
+	height: $tc-timepicker-height;
+	box-shadow: $tc-timepicker-box-shadow;
 }
 
 @mixin date-picker {

@@ -2,9 +2,14 @@
 
 $tc-range-picker-arrow-height: 3rem !default;
 
-.popper {
+.date-popper {
 	@include popper;
 }
+
+.time-popper {
+	@include time-popper;
+}
+
 .date-picker {
 	@include date-picker;
 	align-items: flex-end;

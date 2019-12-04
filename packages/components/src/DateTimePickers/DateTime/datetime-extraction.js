@@ -84,7 +84,7 @@ function timeToSeconds(hours, minutes, seconds) {
  * @returns {Date}
  * @throws DateTimePickerException
  */
-function dateAndTimeToDateTime(date, time, options) {
+export function dateAndTimeToDateTime(date, time, options) {
 	if (isEmpty(date)) {
 		throw new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
 	}
