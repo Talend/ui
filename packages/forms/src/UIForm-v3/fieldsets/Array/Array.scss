@@ -1,0 +1,8 @@
+.item {
+	background: $wild-sand;
+	list-style: none;
+
+	&:hover {
+		background: $white;
+	}
+}

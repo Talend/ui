@@ -14,18 +14,18 @@ export default {
 };
 
 export const Default = () => {
-	const { handleSubmit, register } = useForm({ mode: 'onBlur' });
+	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
 			<Fieldset legend="My awesome user">
-				<Input type="text" name="user.firstname" label="First name" ref={register} />
-				<Input type="text" name="user.lastname" label="Last name" ref={register} />
-				<Input type="number" name="user.age" label="Age" ref={register} />
+				<Input id="firstname" type="text" name="user.firstname" label="First name" rhf={rhf} />
+				<Input id="lastname" type="text" name="user.lastname" label="Last name" rhf={rhf} />
+				<Input id="age" type="number" name="user.age" label="Age" rhf={rhf} />
 			</Fieldset>
 
 			<Fieldset legend="Contact">
-				<Input type="text" name="contact.phone" label="Phone" ref={register} />
-				<Input type="text" name="contact.email" label="Email" ref={register} />
+				<Input id="phone" type="text" name="contact.phone" label="Phone" rhf={rhf} />
+				<Input id="email" type="text" name="contact.email" label="Email" rhf={rhf} />
 			</Fieldset>
 
 			<button type="submit" className="btn btn-primary">
@@ -36,15 +36,15 @@ export const Default = () => {
 };
 
 export const HiddenLegend = () => {
-	const { handleSubmit, register } = useForm({ mode: 'onBlur' });
+	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
 			<Fieldset legend="My awesome user" hideLegend>
 				<div>(Legend is set to "My awesome user" but not displayed)</div>
 
-				<Input type="text" name="user.firstname" label="First name" ref={register} />
-				<Input type="text" name="user.lastname" label="Last name" ref={register} />
-				<Input type="number" name="user.age" label="Age" ref={register} />
+				<Input id="firstname" type="text" name="user.firstname" label="First name" rhf={rhf} />
+				<Input id="lastname" type="text" name="user.lastname" label="Last name" rhf={rhf} />
+				<Input id="age" type="number" name="user.age" label="Age" rhf={rhf} />
 			</Fieldset>
 
 			<button type="submit" className="btn btn-primary">
