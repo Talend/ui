@@ -7,7 +7,7 @@ import TimePicker from '../../pickers/TimePicker';
 
 export default function Picker(props) {
 	const { startDate, endDate, pickerManagement, startTime, endTime } = useContext(DateRangeContext);
-	const { onStartChange, onEndChange, onStartTimeChange, onEndTimeChange } = pickerManagement;
+	const { onStartChange, onEndChange, onTimeChange } = pickerManagement;
 	return [
 		props.focusedInput === START_DATE && (
 			<CalendarPicker
@@ -28,10 +28,16 @@ export default function Picker(props) {
 			/>
 		),
 		props.focusedInput === START_TIME && (
-			<TimePicker textInput={startTime.textInput} onChange={onStartTimeChange} />
+			<TimePicker
+				textInput={startTime.textInput}
+				onChange={(...args) => onTimeChange(...args, START_TIME, 'START_PICKER_INPUT')}
+			/>
 		),
 		props.focusedInput === END_TIME && (
-			<TimePicker textInput={endTime.textInput} onChange={onEndTimeChange} />
+			<TimePicker
+				textInput={endTime.textInput}
+				onChange={(...args) => onTimeChange(...args, END_TIME, 'END_PICKER_INPUT')}
+			/>
 		),
 	].filter(Boolean);
 }

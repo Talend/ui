@@ -79,6 +79,7 @@ export default function InputDateRangePicker(props) {
 						onStartTimeChange,
 						onEndChange,
 						onEndTimeChange,
+						onTimeChange,
 					} = inputManagement;
 					return (
 						<FocusManager
@@ -98,7 +99,7 @@ export default function InputDateRangePicker(props) {
 									date={startDate}
 									time={startTime}
 									onChange={onStartChange}
-									onTimeChange={onStartTimeChange}
+									onTimeChange={(...args) => onTimeChange(...args, 'startTime', 'START_TIME_INPUT')}
 									onFocus={r => setInputRef(r)}
 									label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 									ref={startDateInputRef}
@@ -113,7 +114,7 @@ export default function InputDateRangePicker(props) {
 									date={endDate}
 									time={endTime}
 									onChange={onEndChange}
-									onTimeChange={onEndTimeChange}
+									onTimeChange={(...args) => onTimeChange(...args, 'endTime', 'END_TIME_INPUT')}
 									onFocus={r => setInputRef(r)}
 									label={props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
 									ref={endDateInputRef}

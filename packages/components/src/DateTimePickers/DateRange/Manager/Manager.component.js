@@ -22,8 +22,6 @@ function extractRangeParts(startDate, endDate, options) {
 	const startDateParts = extractDate(startDate, options);
 	const endDateParts = extractDate(endDate, options);
 
-	// const startTimeParts = extractTime()
-
 	return {
 		startDate: {
 			value: startDateParts.localDate,
@@ -155,42 +153,6 @@ function ContextualManager(props) {
 		onChange(event, { ...state, ...nextState, origin: 'START_INPUT' });
 	}
 
-	function onStartTimeInputChange(event) {
-		const timeInput = event.target.value;
-		const { time, textInput, errors, errorMessage } = extractTime(timeInput, false);
-		const nextState = {
-			startTime: {
-				value: time,
-				textInput,
-			},
-			errors,
-			errorMessage,
-		};
-		setState(prevState => ({
-			...prevState,
-			...nextState,
-		}));
-		onChange(event, { ...state, ...nextState, origin: 'START_TIME_INPUT' });
-	}
-
-	function onEndTimeInputChange(event) {
-		const timeInput = event.target.value;
-		const { time, textInput, errors, errorMessage } = extractTime(timeInput, false);
-		const nextState = {
-			endTime: {
-				value: time,
-				textInput,
-			},
-			errors,
-			errorMessage,
-		};
-		setState(prevState => ({
-			...prevState,
-			...nextState,
-		}));
-		onChange(event, { ...state, ...nextState, origin: 'END_TIME_INPUT' });
-	}
-
 	function onEndInputChange(event) {
 		const userInput = event.target.value;
 		const { localDate, textInput, errors, errorMessage } = extractPartsFromTextInput(
@@ -212,23 +174,27 @@ function ContextualManager(props) {
 		onChange(event, { ...state, ...nextState, origin: 'END_INPUT' });
 	}
 
-	function onStartTimePickerChange(event, { textInput, time }) {
+	function onTimeInputChange(event, type, origin) {
+		const timeInput = event.target.value;
+		const { time, textInput, errors, errorMessage } = extractTime(timeInput, false);
 		const nextState = {
-			startTime: {
+			[type]: {
 				value: time,
 				textInput,
 			},
+			errors,
+			errorMessage,
 		};
 		setState(prevState => ({
 			...prevState,
 			...nextState,
 		}));
-		onChange(event, { ...state, ...nextState, origin: 'START_TIME_PICKER' });
+		onChange(event, { ...state, ...nextState, origin });
 	}
 
-	function onEndTimePickerChange(event, { textInput, time }) {
+	function onTimePickerChange(event, { textInput, time }, type, origin) {
 		const nextState = {
-			endTime: {
+			[type]: {
 				value: time,
 				textInput,
 			},
@@ -237,7 +203,7 @@ function ContextualManager(props) {
 			...prevState,
 			...nextState,
 		}));
-		onChange(event, { ...state, ...nextState, origin: 'END_TIME_PICKER' });
+		onChange(event, { ...state, ...nextState, origin });
 	}
 
 	return (
@@ -250,16 +216,14 @@ function ContextualManager(props) {
 				inputManagement: {
 					onStartChange: onStartInputChange,
 					onEndChange: onEndInputChange,
-					onStartTimeChange: onStartTimeInputChange,
-					onEndTimeChange: onEndTimeInputChange,
+					onTimeChange: onTimeInputChange,
 					placeholder: props.dateFormat,
 					timePlaceholder: getTimeFormat(props.useSeconds),
 				},
 				pickerManagement: {
 					onStartChange,
-					onStartTimeChange: onStartTimePickerChange,
-					onEndTimeChange: onEndTimePickerChange,
 					onEndChange,
+					onTimeChange: onTimePickerChange,
 				},
 			}}
 		>
