@@ -5,7 +5,7 @@ import FieldTemplate from '../../templates/FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../utils';
 
 function Input(props) {
-	const { className, description, inProgress, label, registerOptions, rhf, ...rest } = props;
+	const { className, description, inProgress, label, registerOptions = {}, rhf, ...rest } = props;
 	const { id, name, required } = rest;
 	const { errors, register } = rhf;
 

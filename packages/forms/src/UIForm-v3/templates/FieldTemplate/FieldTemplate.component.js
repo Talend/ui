@@ -45,7 +45,7 @@ if (process.env.NODE_ENV !== 'production') {
 		children: PropTypes.node,
 		description: PropTypes.string,
 		descriptionId: PropTypes.string.isRequired,
-		error: PropTypes.string,
+		error: PropTypes.object,
 		errorId: PropTypes.string.isRequired,
 		id: PropTypes.string,
 		label: PropTypes.string,

@@ -5,14 +5,14 @@ import Fieldset from '../Fieldset';
 import theme from './Array.scss';
 
 export default function ArrayFieldset(props) {
-	const { children, defaultNbItems = 0, name, rhf, ...restProps } = props;
+	const { children, initialNbItems = 0, name, rhf, ...restProps } = props;
 	const value = rhf.watch(name);
 
 	const [nbItems, setNbItems] = useState(() => {
 		if (value) {
 			return value.length;
 		}
-		return defaultNbItems;
+		return initialNbItems;
 	});
 
 	return (
@@ -31,7 +31,7 @@ export default function ArrayFieldset(props) {
 if (process.env.NODE_ENV !== 'production') {
 	ArrayFieldset.propTypes = {
 		children: PropTypes.func.isRequired,
-		defaultNbItems: PropTypes.number,
+		initialNbItems: PropTypes.number,
 		name: PropTypes.string.isRequired,
 		rhf: PropTypes.object.isRequired,
 	};
