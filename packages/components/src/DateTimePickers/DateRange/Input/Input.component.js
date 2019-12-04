@@ -9,17 +9,9 @@ import InputSizer from '../../shared/InputSizer';
 const OMIT_INPUT_PROPS = ['date', 'onChange', 'onFocus', 'label'];
 
 function Input(props, ref) {
-	const {
-		date,
-		time,
-		onChange,
-		onTimeChange,
-		onFocus,
-		label,
-		timeInputRef,
-	} = props;
+	const { date, time, onChange, onTimeChange, onFocus, label, timeInputRef } = props;
 	const { inputManagement } = useContext(DateRangeContext);
-	const { placeholder } = inputManagement;
+	const { placeholder, timePlaceholder } = inputManagement;
 
 	return (
 		<div>
@@ -44,14 +36,14 @@ function Input(props, ref) {
 						/>
 					)}
 				</InputSizer>
-				<InputSizer inputText={placeholder}>
+				<InputSizer inputText={timePlaceholder}>
 					{width => (
 						<DebounceInput
 							autoComplete="off"
 							className="form-control"
 							debounceTimeout={300}
 							type="text"
-							placeholder="HH:mm:ss"
+							placeholder={timePlaceholder}
 							value={time.textInput}
 							style={{ width }}
 							onChange={onTimeChange}
@@ -72,9 +64,14 @@ Input.propTypes = {
 	date: PropTypes.shape({
 		textInput: PropTypes.string,
 	}),
+	time: PropTypes.shape({
+		textInput: PropTypes.string,
+	}),
 	onChange: PropTypes.func,
+	onTimeChange: PropTypes.func,
 	onFocus: PropTypes.func,
 	label: PropTypes.string,
+	timeInputRef: PropTypes.func,
 };
 
 export default forwardRef(Input);

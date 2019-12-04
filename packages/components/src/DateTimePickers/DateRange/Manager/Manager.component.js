@@ -10,7 +10,7 @@ import {
 	extractFromDate,
 	extractPartsFromTextInput,
 } from '../../Date/date-extraction';
-import extractTime from '../../Time/time-extraction';
+import extractTime, { getTimeFormat } from '../../Time/time-extraction';
 import { dateAndTimeToDateTime } from '../../DateTime/datetime-extraction';
 
 export function DateRangePickerException(code, message) {
@@ -253,6 +253,7 @@ function ContextualManager(props) {
 					onStartTimeChange: onStartTimeInputChange,
 					onEndTimeChange: onEndTimeInputChange,
 					placeholder: props.dateFormat,
+					timePlaceholder: getTimeFormat(props.useSeconds),
 				},
 				pickerManagement: {
 					onStartChange,
@@ -268,6 +269,7 @@ function ContextualManager(props) {
 }
 ContextualManager.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
+	useSeconds: false,
 };
 ContextualManager.displayName = 'DateRange.Manager';
 ContextualManager.propTypes = {
@@ -275,6 +277,7 @@ ContextualManager.propTypes = {
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	dateFormat: PropTypes.string,
+	useSeconds: PropTypes.bool,
 	onChange: PropTypes.func.isRequired,
 };
 
