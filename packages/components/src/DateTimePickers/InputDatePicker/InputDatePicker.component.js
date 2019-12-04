@@ -61,7 +61,13 @@ export default function InputDatePicker(props) {
 				referenceElement={inputRef.current}
 			>
 				{({ ref, style }) => (
-					<div id={popoverId} className={theme.popper} style={style} ref={ref} onMouseDown={onMouseDown}>
+					<div
+						id={popoverId}
+						className={theme.popper}
+						style={style}
+						ref={ref}
+						onMouseDown={onMouseDown}
+					>
 						<Date.Picker {...props} />
 					</div>
 				)}
