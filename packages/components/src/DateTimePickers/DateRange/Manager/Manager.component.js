@@ -11,7 +11,7 @@ import {
 	extractPartsFromTextInput,
 } from '../../Date/date-extraction';
 import extractTime, { getTimeFormat } from '../../Time/time-extraction';
-import { dateAndTimeToDateTime } from '../../DateTime/datetime-extraction';
+import { dateAndTimeToDateTime, extractParts } from '../../DateTime/datetime-extraction';
 
 export function DateRangePickerException(code, message) {
 	this.message = getErrorMessage(message);
@@ -19,26 +19,42 @@ export function DateRangePickerException(code, message) {
 }
 
 function extractRangeParts(startDate, endDate, options) {
-	const startDateParts = extractDate(startDate, options);
-	const endDateParts = extractDate(endDate, options);
+	const startDateTime = extractParts(startDate, options);
+	const endDateTime = extractParts(endDate, options);
+
+	const startDateParts = extractDate(startDateTime.date, options);
+	const endDateParts = extractDate(endDateTime.date, options);
+	const startTimeParts = extractTime(startDateTime.time, options.useSeconds);
+	const endTimeParts = extractTime(endDateTime.time, options.useSeconds);
+
+	const errors = [
+		...(startDateTime.errors || []),
+		...(endDateTime.errors || []),
+		...(startDateParts.errors || []),
+		...(endDateParts.errors || []),
+		...(startTimeParts.errors || []),
+		...(endTimeParts.errors || []),
+	];
 
 	return {
 		startDate: {
 			value: startDateParts.localDate,
 			textInput: startDateParts.textInput,
 		},
-		startTime: {
-			textInput: '',
-		},
-		endTime: {
-			textInput: '',
-		},
 		endDate: {
 			value: endDateParts.localDate,
 			textInput: endDateParts.textInput,
 		},
-		errors: startDateParts.errors.concat(endDateParts.errors),
-		errorMessage: startDateParts.errorMessage || endDateParts.errorMessage,
+		startTime: {
+			value: startTimeParts.value,
+			textInput: startTimeParts.textInput,
+		},
+		endTime: {
+			value: endTimeParts.value,
+			textInput: endTimeParts.textInput,
+		},
+		errors,
+		errorMessage: errors[0] ? errors[0].message : null,
 	};
 }
 

@@ -435,6 +435,8 @@ storiesOf('DatePicker', module)
 				<InputDateRangePicker
 					id="my-date-picker"
 					name="Datetime"
+					startDate={1575388800000}
+					endDate={1575993600000}
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
 				/>
