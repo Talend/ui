@@ -6,6 +6,8 @@ import { START_DATE, END_DATE, START_TIME, END_TIME } from '../constants';
 import CalendarPicker from '../../pickers/CalendarPicker';
 import TimePicker from '../../pickers/TimePicker';
 
+const PROPS_TO_OMIT = ['startDate', 'endDate'];
+
 export default function Picker(props) {
 	const { startDate, endDate, pickerManagement, startTime, endTime } = useContext(DateRangeContext);
 	const { onStartChange, onEndChange, onTimeChange } = pickerManagement;
@@ -16,7 +18,7 @@ export default function Picker(props) {
 				selectedDate={startDate.value}
 				endDate={endDate.value}
 				onSubmit={onStartChange}
-				{...omit(props, 'startDate')}
+				{...omit(props, PROPS_TO_OMIT)}
 			/>
 		),
 		props.focusedInput === END_DATE && (
@@ -25,7 +27,7 @@ export default function Picker(props) {
 				selectedDate={endDate.value}
 				startDate={startDate.value}
 				onSubmit={onEndChange}
-				{...omit(props, 'endDate')}
+				{...omit(props, PROPS_TO_OMIT)}
 			/>
 		),
 		props.focusedInput === START_TIME && (
