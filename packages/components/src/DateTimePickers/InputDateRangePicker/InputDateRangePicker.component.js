@@ -76,9 +76,7 @@ export default function InputDateRangePicker(props) {
 				{({ inputManagement, startDate, endDate, startTime, endTime }) => {
 					const {
 						onStartChange,
-						onStartTimeChange,
 						onEndChange,
-						onEndTimeChange,
 						onTimeChange,
 					} = inputManagement;
 					return (
