@@ -74,11 +74,7 @@ export default function InputDateRangePicker(props) {
 		>
 			<DateRangeContext.Consumer>
 				{({ inputManagement, startDate, endDate, startTime, endTime }) => {
-					const {
-						onStartChange,
-						onEndChange,
-						onTimeChange,
-					} = inputManagement;
+					const { onStartChange, onEndChange, onTimeChange } = inputManagement;
 					return (
 						<FocusManager
 							className={classnames(theme['date-picker'], 'date-picker')}

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import omit from 'lodash/omit';
 
 import { DateRangeContext } from '../Context';
 import { START_DATE, END_DATE, START_TIME, END_TIME } from '../constants';
@@ -15,7 +16,7 @@ export default function Picker(props) {
 				selectedDate={startDate.value}
 				endDate={endDate.value}
 				onSubmit={onStartChange}
-				{...props}
+				{...omit(props, 'startDate')}
 			/>
 		),
 		props.focusedInput === END_DATE && (
@@ -24,7 +25,7 @@ export default function Picker(props) {
 				selectedDate={endDate.value}
 				startDate={startDate.value}
 				onSubmit={onEndChange}
-				{...props}
+				{...omit(props, 'endDate')}
 			/>
 		),
 		props.focusedInput === START_TIME && (
