@@ -31,7 +31,7 @@ function Input(props, ref) {
 					{width => (
 						<DebounceInput
 							autoComplete="off"
-							className="form-control"
+							className="form-control range-start-input"
 							debounceTimeout={300}
 							type="text"
 							placeholder={placeholder}

@@ -13,6 +13,10 @@ $tc-range-picker-arrow-height: 3rem !default;
 .date-picker {
 	@include date-picker;
 	align-items: flex-end;
+
+	:global(.range-start-input) {
+		margin-right: $padding-smaller;
+	}
 }
 
 .arrow {
