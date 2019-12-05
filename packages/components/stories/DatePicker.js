@@ -11,7 +11,6 @@ import InputDateTimePicker from '../src/DateTimePickers/InputDateTimePicker';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
 import InputDateRangePicker from '../src/DateTimePickers/InputDateRangePicker';
-import InputDateTimeRangePicker from '../src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component';
 
 const icons = {
 	'talend-info-circle': talendIcons['talend-info-circle'],
