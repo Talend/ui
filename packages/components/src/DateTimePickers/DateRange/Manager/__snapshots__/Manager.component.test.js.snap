@@ -8,18 +8,29 @@ exports[`DateRange.Manager should render its children 1`] = `
         "textInput": "2017-04-10",
         "value": 2017-04-09T22:00:00.000Z,
       },
+      "endTime": Object {
+        "textInput": "00:00",
+        "value": undefined,
+      },
       "inputManagement": Object {
         "onEndChange": [Function],
         "onStartChange": [Function],
+        "onTimeChange": [Function],
         "placeholder": "YYYY-MM-DD",
+        "timePlaceholder": "HH:mm",
       },
       "pickerManagement": Object {
         "onEndChange": [Function],
         "onStartChange": [Function],
+        "onTimeChange": [Function],
       },
       "startDate": Object {
         "textInput": "2017-04-04",
         "value": 2017-04-03T22:00:00.000Z,
+      },
+      "startTime": Object {
+        "textInput": "00:00",
+        "value": undefined,
       },
     }
   }

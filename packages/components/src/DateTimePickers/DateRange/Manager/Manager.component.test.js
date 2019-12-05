@@ -481,8 +481,15 @@ describe('DateRange.Manager', () => {
 				],
 			);
 			cases(
-				'should trigger props.onChange with valid date',
-				({ field, selectedDate, expectedStartDate, expectedEndDate, expectedOrigin }) => {
+				'should trigger props.onChange with valid datetime',
+				({
+					field,
+					selectedDate,
+					selectedTime,
+					expectedStartDate,
+					expectedEndDate,
+					expectedOrigin,
+				}) => {
 					// given
 					const onChange = jest.fn();
 					const event = { target: {}, preventDefault: () => {} };
@@ -507,10 +514,23 @@ describe('DateRange.Manager', () => {
 						}
 					});
 					wrapper.update();
+					act(() => {
+						const props = wrapper.find('DateRangeConsumerDiv').prop('pickerManagement');
+						if (field === 'startDate') {
+							props.onTimeChange(event, { time: selectedTime }, 'startTime', 'START_TIME_PICKER');
+						} else {
+							props.onTimeChange(event, { time: selectedTime }, 'endTime', 'END_TIME_PICKER');
+						}
+					});
+					wrapper.update();
 					// then
-					expect(onChange).toBeCalledWith(event, {
-						startDate: expectedStartDate,
-						endDate: expectedEndDate,
+
+					expect(onChange).toBeCalled();
+					const args = onChange.mock.calls[1];
+					expect(args[0]).toBe(event);
+					expect(args[1]).toEqual({
+						startDateTime: expectedStartDate,
+						endDateTime: expectedEndDate,
 						errorMessage: null,
 						errors: [],
 						origin: expectedOrigin,
@@ -521,15 +541,19 @@ describe('DateRange.Manager', () => {
 						name: 'select date from startDate picker',
 						field: 'startDate',
 						selectedDate: new Date(2019, 9, 11),
-						expectedStartDate: new Date(2019, 9, 11),
-						expectedOrigin: 'START_PICKER',
+						selectedTime: { hours: '02', minutes: '20', seconds: '02' },
+						expectedStartDate: new Date(2019, 9, 11, 2, 20, 2),
+						expectedEndDate: null,
+						expectedOrigin: 'START_TIME_PICKER',
 					},
 					{
 						name: 'select date from endDate picker',
 						field: 'endDate',
 						selectedDate: new Date(2019, 9, 11),
-						expectedEndDate: new Date(2019, 9, 11),
-						expectedOrigin: 'END_PICKER',
+						selectedTime: { hours: '23', minutes: '59', seconds: '59' },
+						expectedStartDate: null,
+						expectedEndDate: new Date(2019, 9, 11, 23, 59, 59),
+						expectedOrigin: 'END_TIME_PICKER',
 					},
 				],
 			);

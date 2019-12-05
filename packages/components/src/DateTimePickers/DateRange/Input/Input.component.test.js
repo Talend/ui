@@ -21,6 +21,9 @@ describe('Date.Input', () => {
 				value: new Date(2019, 9, 11),
 				textInput: '2019-10-11',
 			},
+			time: {
+				textInput: '00:00',
+			},
 		};
 
 		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });

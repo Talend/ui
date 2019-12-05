@@ -11,6 +11,11 @@ exports[`Date.Input should render 1`] = `
   label="start date"
   onChange={[MockFunction]}
   onFocus={[MockFunction]}
+  time={
+    Object {
+      "textInput": "00:00",
+    }
+  }
 >
   <div>
     <label
@@ -18,59 +23,133 @@ exports[`Date.Input should render 1`] = `
     >
       start date
     </label>
-    <InputSizer
-      inputText="YYYY-MM-DD"
-    >
-      <DebounceInput
-        autoComplete="off"
-        className="form-control"
-        debounceTimeout={300}
-        element="input"
-        forceNotifyByEnter={true}
-        forceNotifyOnBlur={true}
-        inputRef={null}
-        minLength={0}
-        onChange={[MockFunction]}
-        onFocus={[MockFunction]}
-        placeholder="YYYY-MM-DD"
-        style={
-          Object {
-            "width": 47,
-          }
+    <div
+      style={
+        Object {
+          "display": "flex",
         }
-        type="text"
-        value="2019-10-11"
+      }
+    >
+      <InputSizer
+        inputText="YYYY-MM-DD"
       >
-        <input
+        <DebounceInput
           autoComplete="off"
-          className="form-control"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[MockFunction]}
-          onKeyDown={[Function]}
+          className="form-control range-start-input"
+          debounceTimeout={300}
+          element="input"
+          forceNotifyByEnter={true}
+          forceNotifyOnBlur={true}
+          inputRef={null}
+          minLength={0}
+          onChange={[MockFunction]}
+          onFocus={[Function]}
           placeholder="YYYY-MM-DD"
           style={
             Object {
               "width": 47,
             }
           }
+          time={
+            Object {
+              "textInput": "00:00",
+            }
+          }
           type="text"
           value="2019-10-11"
-        />
-      </DebounceInput>
-      <span
-        style={
-          Object {
-            "fontSize": "1.6rem",
-            "fontWeight": 400,
-            "position": "absolute",
-            "visibility": "hidden",
+        >
+          <input
+            autoComplete="off"
+            className="form-control range-start-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="YYYY-MM-DD"
+            style={
+              Object {
+                "width": 47,
+              }
+            }
+            time={
+              Object {
+                "textInput": "00:00",
+              }
+            }
+            type="text"
+            value="2019-10-11"
+          />
+        </DebounceInput>
+        <span
+          style={
+            Object {
+              "fontSize": "1.6rem",
+              "fontWeight": 400,
+              "position": "absolute",
+              "visibility": "hidden",
+            }
           }
-        }
-      >
-        YYYY-MM-DD
-      </span>
-    </InputSizer>
+        >
+          YYYY-MM-DD
+        </span>
+      </InputSizer>
+      <InputSizer>
+        <DebounceInput
+          autoComplete="off"
+          className="form-control"
+          debounceTimeout={300}
+          element="input"
+          forceNotifyByEnter={true}
+          forceNotifyOnBlur={true}
+          minLength={0}
+          onFocus={[Function]}
+          style={
+            Object {
+              "width": 47,
+            }
+          }
+          time={
+            Object {
+              "textInput": "00:00",
+            }
+          }
+          type="text"
+          value="00:00"
+        >
+          <input
+            autoComplete="off"
+            className="form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "width": 47,
+              }
+            }
+            time={
+              Object {
+                "textInput": "00:00",
+              }
+            }
+            type="text"
+            value="00:00"
+          />
+        </DebounceInput>
+        <span
+          style={
+            Object {
+              "fontSize": "1.6rem",
+              "fontStyle": "oblique",
+              "fontWeight": 400,
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+        />
+      </InputSizer>
+    </div>
   </div>
 </ForwardRef(DateRange.Input)>
 `;
