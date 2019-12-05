@@ -66,10 +66,7 @@ export default function InputDateRangePicker(props) {
 	}
 
 	function getClassName() {
-		if (getFocusedInput().includes('Date')) {
-			return theme['date-popper'];
-		}
-		return theme['time-popper'];
+		return getFocusedInput().includes('Date') ? theme['date-popper'] : theme['time-popper'];
 	}
 	return (
 		<DateRange.Manager
