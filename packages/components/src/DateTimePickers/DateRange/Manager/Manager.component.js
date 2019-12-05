@@ -61,6 +61,7 @@ function extractRangeParts(startDate, endDate, options) {
 function ContextualManager(props) {
 	const options = {
 		dateFormat: props.dateFormat,
+		useSeconds: props.useSeconds,
 	};
 	const initialState = extractRangeParts(props.startDate, props.endDate, options);
 	const [state, setState] = useState(initialState);
@@ -192,7 +193,7 @@ function ContextualManager(props) {
 
 	function onTimeInputChange(event, type, origin) {
 		const timeInput = event.target.value;
-		const { time, textInput, errors, errorMessage } = extractTime(timeInput, false);
+		const { time, textInput, errors, errorMessage } = extractTime(timeInput, options.useSeconds);
 		const nextState = {
 			[type]: {
 				value: time,
