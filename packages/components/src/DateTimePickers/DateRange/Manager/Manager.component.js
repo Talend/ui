@@ -93,11 +93,11 @@ function ContextualManager(props) {
 
 		let startDateTime = null;
 		let endDateTime = null;
-		if (startDate) {
-			startDateTime = dateAndTimeToDateTime(startDate, startTime || '00:00', options);
+		if (startDate && startTime) {
+			startDateTime = dateAndTimeToDateTime(startDate, startTime, options);
 		}
-		if (endDate) {
-			endDateTime = dateAndTimeToDateTime(endDate, endTime || '23:59', options);
+		if (endDate && endTime) {
+			endDateTime = dateAndTimeToDateTime(endDate, endTime, options);
 		}
 
 		if (props.onChange) {
