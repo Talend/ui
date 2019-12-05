@@ -6,11 +6,7 @@ import theme from './RichLayout.scss';
 
 const TooltipPropTypes = {
 	id: PropTypes.string.isRequired,
-	children: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.arrayOf(PropTypes.element),
-		PropTypes.string,
-	]),
+	children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
 	className: PropTypes.string,
 };
 
@@ -38,7 +34,7 @@ const Footer = ({ id, children, className }) => (
 Footer.propTypes = TooltipPropTypes;
 
 const RichLayout = React.forwardRef((props, ref) => (
-	<span id={props.id} ref={ref} tabIndex="-1">
+	<div id={props.id} ref={ref} tabIndex="-1">
 		<Header id={`${props.id}-header`}>
 			{Inject.getReactElement(props.getComponent, props.Header)}
 		</Header>
@@ -49,7 +45,7 @@ const RichLayout = React.forwardRef((props, ref) => (
 		<Footer id={`${props.id}-footer`}>
 			{Inject.getReactElement(props.getComponent, props.Footer)}
 		</Footer>
-	</span>
+	</div>
 ));
 
 RichLayout.Header = Header;
