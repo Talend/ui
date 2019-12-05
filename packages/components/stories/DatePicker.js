@@ -435,18 +435,9 @@ storiesOf('DatePicker', module)
 				<InputDateRangePicker
 					id="my-date-picker"
 					name="Datetime"
-					startDate={1575388800000}
-					endDate={1575993600000}
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
 				/>
-			</form>
-		</div>
-	))
-	.add('DateTime Range picker', () => (
-		<div>
-			<form style={{ width: 320 }}>
-				<InputDateTimeRangePicker onChange={action('onChange')} />
 			</form>
 		</div>
 	))

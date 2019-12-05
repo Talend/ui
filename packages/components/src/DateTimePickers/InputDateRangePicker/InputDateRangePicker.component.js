@@ -53,8 +53,14 @@ export default function InputDateRangePicker(props) {
 	}
 
 	function onChange(event, payload) {
-		if (payload.origin === 'START_PICKER' && endDateInputRef) {
+		if (payload.origin === 'START_PICKER' && startTimeInputRef) {
+			startTimeInputRef.current.focus();
+		}
+		if (payload.origin === 'START_TIME_PICKER' && endDateInputRef) {
 			endDateInputRef.current.focus();
+		}
+		if (payload.origin === 'END_PICKER' && endTimeInputRef) {
+			endTimeInputRef.current.focus();
 		}
 		handlers.onChange(event, payload, inputRef.current);
 	}
