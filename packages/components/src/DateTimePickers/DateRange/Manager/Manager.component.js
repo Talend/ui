@@ -41,13 +41,13 @@ function extractRangeParts(startDate, endDate, options) {
 			value: startDateParts.localDate,
 			textInput: startDateParts.textInput,
 		},
-		endDate: {
-			value: endDateParts.localDate,
-			textInput: endDateParts.textInput,
-		},
 		startTime: {
 			value: startTimeParts.value,
 			textInput: startTimeParts.textInput,
+		},
+		endDate: {
+			value: endDateParts.localDate,
+			textInput: endDateParts.textInput,
 		},
 		endTime: {
 			value: endTimeParts.value,
@@ -67,10 +67,8 @@ function ContextualManager(props) {
 	const [state, setState] = useState(initialState);
 
 	useEffect(() => {
-		if (props.startDate !== state.startDate.value || props.endDate !== state.endDate.value) {
-			const parts = extractRangeParts(props.startDate, props.endDate, options);
-			setState(parts);
-		}
+		const parts = extractRangeParts(props.startDate, props.endDate, options);
+		setState(parts);
 	}, [props.startDate, props.endDate]);
 
 	function onChange(event, nextState) {
