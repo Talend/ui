@@ -64,7 +64,6 @@ RichLayout.propTypes = {
 	Footer: Inject.getReactElement.propTypes,
 	text: PropTypes.string,
 	id: PropTypes.string.isRequired,
-	ref: PropTypes.func,
 };
 
 export default RichLayout;
