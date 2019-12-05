@@ -62,9 +62,6 @@ class Datalist extends Component {
 	 * @param event The blur event
 	 */
 	onBlur(event) {
-		if (this.props.onBlur) {
-			this.props.onBlur();
-		}
 		const { value, previousValue } = this.state;
 
 		if (value !== previousValue) {
@@ -432,7 +429,6 @@ Datalist.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
 		className: PropTypes.string,
-		onBlur: PropTypes.func,
 		onChange: PropTypes.func.isRequired,
 		onFocus: PropTypes.func,
 		onLiveChange: PropTypes.func,
