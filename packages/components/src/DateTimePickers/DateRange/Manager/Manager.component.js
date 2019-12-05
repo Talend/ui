@@ -27,14 +27,7 @@ function extractRangeParts(startDate, endDate, options) {
 	const startTimeParts = extractTime(startDateTime.time, options.useSeconds);
 	const endTimeParts = extractTime(endDateTime.time, options.useSeconds);
 
-	const errors = [
-		...(startDateTime.errors || []),
-		...(endDateTime.errors || []),
-		...(startDateParts.errors || []),
-		...(endDateParts.errors || []),
-		...(startTimeParts.errors || []),
-		...(endTimeParts.errors || []),
-	];
+	const errors = [...(startDateTime.errors || []), ...(endDateTime.errors || [])];
 
 	return {
 		startDate: {
