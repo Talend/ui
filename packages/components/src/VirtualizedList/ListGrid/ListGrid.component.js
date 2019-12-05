@@ -71,7 +71,7 @@ ListGrid.propTypes = {
 };
 
 ListGrid.defaultProps = {
-	rowHeight: 135,
+	rowHeight: 170,
 };
 
 export default ListGrid;
