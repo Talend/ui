@@ -37,33 +37,21 @@ const Footer = ({ id, children, className }) => (
 );
 Footer.propTypes = TooltipPropTypes;
 
-export default class RichLayout extends React.Component {
-	constructor(props) {
-		super(props);
-		this.richLayout = React.createRef();
-	}
+const RichLayout = React.forwardRef((props, ref) => (
+	<span id={props.id} ref={ref} tabIndex="-1">
+		<Header id={`${props.id}-header`}>
+			{Inject.getReactElement(props.getComponent, props.Header)}
+		</Header>
+		<Body id={`${props.id}-body`} className={props.className}>
+			{props.text && <p>{props.text}</p>}
+			{!props.text && Inject.getReactElement(props.getComponent, props.Content)}
+		</Body>
+		<Footer id={`${props.id}-footer`}>
+			{Inject.getReactElement(props.getComponent, props.Footer)}
+		</Footer>
+	</span>
+));
 
-	focusRichLayout() {
-		this.richLayout.current.focus();
-	}
-
-	render() {
-		return (
-			<span id={this.props.id} ref={this.richLayout} tabIndex="-1">
-				<Header id={`${this.props.id}-header`}>
-					{Inject.getReactElement(this.props.getComponent, this.props.Header)}
-				</Header>
-				<Body id={`${this.props.id}-body`} className={this.props.className}>
-					{this.props.text && <p>{this.props.text}</p>}
-					{!this.props.text && Inject.getReactElement(this.props.getComponent, this.props.Content)}
-				</Body>
-				<Footer id={`${this.props.id}-footer`}>
-					{Inject.getReactElement(this.props.getComponent, this.props.Footer)}
-				</Footer>
-			</span>
-		);
-	}
-}
 RichLayout.Header = Header;
 RichLayout.Body = Body;
 RichLayout.Footer = Footer;
@@ -76,4 +64,7 @@ RichLayout.propTypes = {
 	Footer: Inject.getReactElement.propTypes,
 	text: PropTypes.string,
 	id: PropTypes.string.isRequired,
+	ref: PropTypes.func,
 };
+
+export default RichLayout;
