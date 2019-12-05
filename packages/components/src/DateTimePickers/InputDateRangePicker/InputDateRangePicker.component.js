@@ -77,6 +77,7 @@ export default function InputDateRangePicker(props) {
 			endDate={props.endDate}
 			dateFormat={props.dateFormat}
 			onChange={onChange}
+			useSeconds={props.useSeconds}
 		>
 			<DateRangeContext.Consumer>
 				{({ inputManagement, startDate, endDate, startTime, endTime }) => {
@@ -164,5 +165,6 @@ InputDateRangePicker.propTypes = {
 	onBlur: PropTypes.func,
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	useSeconds: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };

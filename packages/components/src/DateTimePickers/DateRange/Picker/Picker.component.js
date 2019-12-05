@@ -33,12 +33,14 @@ export default function Picker(props) {
 		props.focusedInput === START_TIME && (
 			<TimePicker
 				textInput={startTime.textInput}
+				useSeconds={props.useSeconds}
 				onChange={(...args) => onTimeChange(...args, START_TIME, 'START_TIME_PICKER')}
 			/>
 		),
 		props.focusedInput === END_TIME && (
 			<TimePicker
 				textInput={endTime.textInput}
+				useSeconds={props.useSeconds}
 				onChange={(...args) => onTimeChange(...args, END_TIME, 'END_TIME_PICKER')}
 			/>
 		),

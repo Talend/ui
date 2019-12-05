@@ -437,6 +437,7 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
+					useSeconds
 				/>
 			</form>
 		</div>
