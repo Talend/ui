@@ -91,8 +91,8 @@ describe('DateRange.Manager', () => {
 				},
 				{
 					name: 'should init state from datetime string',
-					startDate: '2019-10-01',
-					endDate: '2019-10-10',
+					startDate: '2019-10-01 00:00',
+					endDate: '2019-10-10 23:59',
 					expectedStartDate: {
 						value: new Date(2019, 9, 1),
 						textInput: '2019-10-01',
@@ -323,10 +323,11 @@ describe('DateRange.Manager', () => {
 
 			cases(
 				'should trigger props.onChange with valid startDate/endDate',
-				({ field, inputText, expectedStartDate, expectedEndDate, expectedOrigin }) => {
+				({ field, dateInput, timeInput, expectedStartDate, expectedEndDate, expectedOrigin }) => {
 					// given
 					const onChange = jest.fn();
-					const event = { target: { value: inputText } };
+					const dateEvent = { target: { value: dateInput } };
+					const timeEvent = { target: { value: timeInput } };
 					const wrapper = mount(
 						<Manager id={DEFAULT_ID} onChange={onChange} dateFormat="YYYY-MM-DD">
 							<DateRangeConsumer />
@@ -338,17 +339,37 @@ describe('DateRange.Manager', () => {
 					act(() => {
 						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
 						if (field === 'startDate') {
-							props.onStartChange(event);
+							props.onStartChange(dateEvent);
 						} else {
-							props.onEndChange(event);
+							props.onEndChange(dateEvent);
+						}
+					});
+					wrapper.update();
+					act(() => {
+						const props = wrapper.find('DateRangeConsumerDiv').prop('inputManagement');
+						if (field === 'startDate') {
+							props.onTimeChange(
+								timeEvent,
+								'startTime',
+								'START_TIME_INPUT',
+							);
+						} else {
+							props.onTimeChange(
+								timeEvent,
+								'endTime',
+								'END_TIME_INPUT',
+							);
 						}
 					});
 					wrapper.update();
 
 					// then
-					expect(onChange).toBeCalledWith(event, {
-						startDate: expectedStartDate,
-						endDate: expectedEndDate,
+					expect(onChange.mock.calls.length).toBe(2);
+					const args = onChange.mock.calls[1];
+					expect(args[0]).toEqual(timeEvent);
+					expect(args[1]).toEqual({
+						startDateTime: expectedStartDate,
+						endDateTime: expectedEndDate,
 						errors: [],
 						errorMessage: null,
 						origin: expectedOrigin,
@@ -358,16 +379,20 @@ describe('DateRange.Manager', () => {
 					{
 						name: 'when input valid date on from field',
 						field: 'startDate',
-						inputText: '2019-10-11',
-						expectedStartDate: new Date(2019, 9, 11),
-						expectedOrigin: 'START_INPUT',
+						dateInput: '2019-10-11',
+						timeInput: '00:01',
+						expectedStartDate: new Date(2019, 9, 11, 0, 1),
+						expectedEndDate: null,
+						expectedOrigin: 'START_TIME_INPUT',
 					},
 					{
 						name: 'when input valid date on to field',
 						field: 'endDate',
-						inputText: '2019-10-11',
-						expectedEndDate: new Date(2019, 9, 11),
-						expectedOrigin: 'END_INPUT',
+						dateInput: '2019-10-11',
+						timeInput: '23:59',
+						expectedStartDate: null,
+						expectedEndDate: new Date(2019, 9, 11, 23, 59),
+						expectedOrigin: 'END_TIME_INPUT',
 					},
 				],
 			);
