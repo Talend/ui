@@ -26,6 +26,10 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'hideTimezone',
 ];
 
+function onMouseDown(event) {
+	event.stopPropagation();
+}
+
 export default function InputDatePicker(props) {
 	const popoverId = `date-picker-${props.id || uuid.v4()}`;
 
@@ -57,7 +61,13 @@ export default function InputDatePicker(props) {
 				referenceElement={inputRef.current}
 			>
 				{({ ref, style }) => (
-					<div id={popoverId} className={theme.popper} style={style} ref={ref}>
+					<div
+						id={popoverId}
+						className={theme.popper}
+						style={style}
+						ref={ref}
+						onMouseDown={onMouseDown}
+					>
 						<Date.Picker {...props} />
 					</div>
 				)}
