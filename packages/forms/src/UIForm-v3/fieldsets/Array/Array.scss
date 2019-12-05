@@ -1,8 +1,29 @@
+.list {
+	padding: 0;
+}
+
 .item {
 	background: $wild-sand;
 	list-style: none;
 
-	&:hover {
+	.delete,
+	.moveUp,
+	.moveDown {
+		opacity: 0;
+	}
+
+	&:hover,
+	&:focus-within {
 		background: $white;
+
+		.delete,
+		.moveUp,
+		.moveDown {
+			opacity: 1;
+
+			&:disabled {
+				color: $silver;
+			}
+		}
 	}
 }
