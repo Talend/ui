@@ -47,6 +47,7 @@ function VirtualizedList(props) {
 		type,
 		widthsOfColumns,
 		setWidthsOfColumns,
+		exposeVisibleRows,
 	} = props;
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		children,
@@ -111,7 +112,14 @@ function VirtualizedList(props) {
 						inProgress={inProgress}
 						rowRenderers={rowRenderers}
 						rowCount={rowCount}
-						onRowsRendered={onRowsRendered}
+						onRowsRendered={params => {
+							if (exposeVisibleRows) {
+								exposeVisibleRows(params);
+							}
+							if (onRowsRendered) {
+								onRowsRendered(params);
+							}
+						}}
 						registerChild={registerChild}
 						scrollToIndex={scrollToIndex}
 					>
