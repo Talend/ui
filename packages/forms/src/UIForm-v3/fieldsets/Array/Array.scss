@@ -3,27 +3,25 @@
 }
 
 .item {
-	background: $wild-sand;
 	list-style: none;
 
 	.delete,
 	.moveUp,
 	.moveDown {
 		opacity: 0;
+		transition: opacity 0.3s;
+
+		&:disabled {
+			color: $silver;
+		}
 	}
 
 	&:hover,
 	&:focus-within {
-		background: $white;
-
 		.delete,
 		.moveUp,
 		.moveDown {
 			opacity: 1;
-
-			&:disabled {
-				color: $silver;
-			}
 		}
 	}
 }

@@ -22,6 +22,13 @@ addDecorator(storyFn => (
 	</React.Fragment>
 ));
 
+const demoStyle = {
+	marginBottom: '1rem',
+	padding: '2rem 3rem',
+	border: '1px solid lightgrey',
+	borderRadius: '5px',
+};
+
 export const InitialItemsNumber = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (
@@ -29,7 +36,7 @@ export const InitialItemsNumber = () => {
 			<Array legend="My awesome users" name="users" initialNbItems={3} rhf={rhf}>
 				<Array.Items>
 					{index => (
-						<div style={{ padding: '2rem 3rem' }}>
+						<div style={demoStyle}>
 							<Input
 								id={`user-${index}-firstname`}
 								type="text"
@@ -73,7 +80,7 @@ export const AddItem = () => {
 				</div>
 				<Array.Items>
 					{index => (
-						<div style={{ padding: '2rem 3rem' }}>
+						<div style={demoStyle}>
 							<Input
 								id={`user-${index}-firstname`}
 								type="text"
@@ -121,7 +128,7 @@ export const MoveItem = () => {
 			<Array legend="My awesome users" name="users" rhf={rhf}>
 				<Array.Items>
 					{index => (
-						<div style={{ padding: '2rem 3rem' }}>
+						<div style={demoStyle}>
 							<div>
 								<Array.MoveUpButton
 									index={index}
@@ -179,7 +186,7 @@ export const DeleteItem = () => {
 				</div>
 				<Array.Items>
 					{index => (
-						<div style={{ padding: '2rem 3rem' }}>
+						<div style={demoStyle}>
 							<div>
 								<Array.DeleteButton
 									index={index}

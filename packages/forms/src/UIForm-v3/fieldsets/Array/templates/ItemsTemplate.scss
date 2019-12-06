@@ -2,11 +2,19 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	margin-bottom: $padding-normal;
 }
 
 .item {
 	display: flex;
 	padding: $padding-smaller 0;
+	background-color: $wild-sand;
+	transition: background-color 0.3s;
+
+	&:hover,
+	&:focus-within {
+		background-color: $white;
+	}
 
 	.main {
 		padding: 0;
