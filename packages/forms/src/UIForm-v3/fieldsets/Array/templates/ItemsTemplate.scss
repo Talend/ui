@@ -1,0 +1,23 @@
+.toolbar {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.item {
+	display: flex;
+	padding: $padding-smaller 0;
+
+	.main {
+		padding: 0;
+		flex: 1 1 0px;
+	}
+
+	.item-toolbar {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		flex: 0 0 3rem;
+	}
+}

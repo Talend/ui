@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
-import ArrayContext from './context';
+import ArrayContext from '../context';
 
-import theme from './Array.scss';
+import theme from '../Array.scss';
 
 export default function MoveUpButton({ index, ...rest }) {
 	const { moveItemUp } = useContext(ArrayContext);

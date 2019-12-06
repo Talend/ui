@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Items from './Items.component';
-import AddButton from './AddButton.component';
-import DeleteButton from './DeleteButton.component';
-import MoveUpButton from './MoveUpButton.component';
-import MoveDownButton from './MoveDownButton.component';
+import ItemsTemplate from './templates/ItemsTemplate.component';
+import AddButton from './buttons/AddButton.component';
+import DeleteButton from './buttons/DeleteButton.component';
+import MoveUpButton from './buttons/MoveUpButton.component';
+import MoveDownButton from './buttons/MoveDownButton.component';
 
 import Fieldset from '../Fieldset';
 import ArrayContext from './context';
@@ -74,6 +75,7 @@ export default function ArrayFieldset(props) {
 	);
 }
 ArrayFieldset.Items = Items;
+ArrayFieldset.ItemsTemplate = ItemsTemplate;
 ArrayFieldset.AddButton = AddButton;
 ArrayFieldset.DeleteButton = DeleteButton;
 ArrayFieldset.MoveUpButton = MoveUpButton;
