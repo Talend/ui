@@ -38,6 +38,7 @@ function Intercom({ id, className, config, t, tooltipPlacement }) {
 	return (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<button
+				data-feature={show ? 'close-ipc' : 'open-ipc'}
 				ref={ref}
 				id={id}
 				className={classnames('btn', 'btn-link', 'tc-intercom', theme['tc-intercom'], className, {
