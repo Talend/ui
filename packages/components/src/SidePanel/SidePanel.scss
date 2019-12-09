@@ -34,7 +34,7 @@ $toggle-button-padding: $padding-small;
 
 	.action-list-container {
 		flex: 1;
-		height: calc(100% - 7rem); // specific to Safari
+		height: calc(100vh - 12rem); // specific to Safari
 
 		:global .tc-action-list-item {
 			.btn.btn-link {
