@@ -11,7 +11,8 @@ const DEFAULT_MIN_BATCH_SIZE = 20;
 const DEFAULT_DEBOUNCE_DELAY = 0;
 
 function LazyLoadingList(props) {
-	const { rowCount, threshold, minimumBatchSize, loadMoreRows, debounceDelay, ...rest } = props;
+	const { rowCount, threshold, minimumBatchSize, loadMoreRows, debounceDelay,
+		onRowsRendered: parentOnRowsRendered, ...rest } = props;
 	const { collection } = useListContext();
 
 	const isRowLoaded = ({ index }) => collection && collection[index];
@@ -29,14 +30,21 @@ function LazyLoadingList(props) {
 			rowCount={rowCount}
 			threshold={threshold}
 		>
-			{({ onRowsRendered, registerChild }) => (
-				<VList
-					registerChild={registerChild}
-					onRowsRendered={onRowsRendered}
-					rowCount={rowCount}
-					{...rest}
-				/>
-			)}
+			{({ onRowsRendered, registerChild }) => {
+				function combinedOnRowsRendered(args) {
+					if (parentOnRowsRendered) {
+						parentOnRowsRendered(args);
+					}
+					onRowsRendered(args);
+				}
+				return (
+					<VList
+						registerChild={registerChild}
+						onRowsRendered={combinedOnRowsRendered}
+						rowCount={rowCount}
+						{...rest}
+					/>);
+			}}
 		</InfiniteLoader>
 	);
 }
@@ -50,6 +58,7 @@ LazyLoadingList.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	LazyLoadingList.propTypes = {
 		loadMoreRows: PropTypes.func.isRequired,
+		onRowsRendered: PropTypes.func,
 		rowCount: PropTypes.number,
 		threshold: PropTypes.number,
 		minimumBatchSize: PropTypes.number,

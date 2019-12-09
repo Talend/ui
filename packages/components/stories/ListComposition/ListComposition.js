@@ -519,7 +519,7 @@ storiesOf('List Composition', module)
 						type="TABLE"
 						loadMoreRows={action('onLoadMoreRows')}
 						rowCount={simpleCollection.length}
-						onVisibleRowsChange={action('onVisibleRowsChange')}
+						onRowsRendered={action('onRowsRendered')}
 					/>
 				</List.Manager>
 			</section>
