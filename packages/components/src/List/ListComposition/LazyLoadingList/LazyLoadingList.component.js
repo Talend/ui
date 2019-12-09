@@ -11,8 +11,15 @@ const DEFAULT_MIN_BATCH_SIZE = 20;
 const DEFAULT_DEBOUNCE_DELAY = 0;
 
 function LazyLoadingList(props) {
-	const { rowCount, threshold, minimumBatchSize, loadMoreRows, debounceDelay,
-		onRowsRendered: parentOnRowsRendered, ...rest } = props;
+	const {
+		rowCount,
+		threshold,
+		minimumBatchSize,
+		loadMoreRows,
+		debounceDelay,
+		onRowsRendered: parentOnRowsRendered,
+		...rest
+	} = props;
 	const { collection } = useListContext();
 
 	const isRowLoaded = ({ index }) => collection && collection[index];
@@ -43,7 +50,8 @@ function LazyLoadingList(props) {
 						onRowsRendered={combinedOnRowsRendered}
 						rowCount={rowCount}
 						{...rest}
-					/>);
+					/>
+				);
 			}}
 		</InfiniteLoader>
 	);
