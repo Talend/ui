@@ -268,3 +268,92 @@ export const DefaultTemplate = () => {
 		</form>
 	);
 };
+
+export const ItemValidation = () => {
+	const { handleSubmit, ...rhf } = useForm({
+		mode: 'onBlur',
+		defaultValues: { users: [defaultValues.users[1], ...defaultValues.users] },
+	});
+
+	const uniqueLastname = value => {
+		const duplicatedValues = new Set();
+		const errorId = 'uniqueLastname';
+		const errorMessage = 'Lastname must be unique';
+		const users = rhf.getValues({ nest: true }).users;
+		debugger;
+		const hasDuplicate = ({ lastname }, index) => {
+			if (!lastname) {
+				return false;
+			}
+			if (duplicatedValues.has(lastname)) {
+				return true;
+			}
+			const duplicate = users.slice(index + 1).some(u => u.lastname === lastname);
+			if (duplicate) {
+				duplicatedValues.add(lastname);
+				return true;
+			}
+
+			return false;
+		};
+
+		users.forEach((user, index) => {
+			if (hasDuplicate(user, index)) {
+				rhf.setError(`users[${index}].lastname`, errorId, errorMessage);
+			} else {
+				rhf.clearError(`users[${index}].lastname`);
+			}
+		});
+
+		return duplicatedValues.has(value) ? errorMessage : null;
+	};
+	return (
+		<form onSubmit={handleSubmit(action('submit'))} noValidate>
+			<Array legend="My awesome users" name="users" rhf={rhf}>
+				<div>
+					<Array.AddButton />
+				</div>
+				<Array.Items>
+					{index => (
+						<div style={demoStyle}>
+							<div>
+								<Array.DeleteButton
+									index={index}
+									id={`delete-user-${index}`}
+									label={`Delete user ${index}`}
+									hideLabel
+								/>
+							</div>
+							<Input
+								id={`user-${index}-firstname`}
+								type="text"
+								name={`users[${index}].firstname`}
+								label="First name"
+								rhf={rhf}
+							/>
+							<Input
+								id={`user-${index}-lastname`}
+								type="text"
+								name={`users[${index}].lastname`}
+								label="Last name"
+								rhf={rhf}
+								registerOptions={{ validate: { uniqueLastname } }}
+							/>
+							<Input
+								id={`user-${index}-age`}
+								type="number"
+								name={`users[${index}].age`}
+								label="Age"
+								rhf={rhf}
+							/>
+						</div>
+					)}
+				</Array.Items>
+			</Array>
+
+			<button type="submit" className="btn btn-primary">
+				Submit
+			</button>
+		</form>
+	);
+};

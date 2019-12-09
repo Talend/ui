@@ -13,7 +13,7 @@ import ArrayContext from './context';
 
 export default function ArrayFieldset(props) {
 	const { children, initialNbItems = 0, name, rhf, ...restProps } = props;
-	const { getValues, setValue } = rhf;
+	const { getValues, setValue, triggerValidation } = rhf;
 
 	const [nbItems, setNbItems] = useState(() => {
 		const values = getValues({ nest: true })[name];
@@ -26,8 +26,10 @@ export default function ArrayFieldset(props) {
 
 	function refreshItems(arrayValues, fromIndex, toIndex /* excluded */) {
 		const values = getValues();
-		const copyValue = key => setValue(key, get(arrayValues, key.substr(name.length)));
-
+		const copyValue = key => {
+			setValue(key, get(arrayValues, key.substr(name.length)));
+			triggerValidation({ name: key });
+		};
 		// eslint-disable-next-line no-plusplus
 		for (let i = fromIndex; i < toIndex; i++) {
 			const itemKey = `${name}[${i}]`;
@@ -40,7 +42,7 @@ export default function ArrayFieldset(props) {
 	function deleteItem(index) {
 		const arrayValues = getValues({ nest: true })[name];
 		arrayValues.splice(index, 1);
-		refreshItems(arrayValues, index, nbItems - 1);
+		refreshItems(arrayValues, index, nbItems);
 		setNbItems(nbItems - 1);
 	}
 

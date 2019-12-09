@@ -21,7 +21,9 @@ if (process.env.NODE_ENV !== 'production') {
 		className: PropTypes.string,
 		description: PropTypes.string,
 		descriptionId: PropTypes.string.isRequired,
-		error: PropTypes.string,
+		error: PropTypes.shape({
+			message: PropTypes.string,
+		}),
 		errorId: PropTypes.string.isRequired,
 	};
 }
