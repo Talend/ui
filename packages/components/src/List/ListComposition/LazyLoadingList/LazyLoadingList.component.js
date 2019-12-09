@@ -31,11 +31,11 @@ function LazyLoadingList(props) {
 			threshold={threshold}
 		>
 			{({ onRowsRendered, registerChild }) => {
-				function combinedOnRowsRendered(args) {
+				function combinedOnRowsRendered(...args) {
 					if (parentOnRowsRendered) {
-						parentOnRowsRendered(args);
+						parentOnRowsRendered(...args);
 					}
-					onRowsRendered(args);
+					onRowsRendered(...args);
 				}
 				return (
 					<VList
