@@ -38,6 +38,7 @@ function VirtualizedList(props) {
 		rowHeight,
 		rowRenderers,
 		scrollToIndex,
+		scrollToAlignment,
 		selectionToggle,
 		selectionMode,
 		sort,
@@ -114,6 +115,7 @@ function VirtualizedList(props) {
 						onRowsRendered={onRowsRendered}
 						registerChild={registerChild}
 						scrollToIndex={scrollToIndex}
+						scrollToAlignment={scrollToAlignment}
 					>
 						{columnDefinitions}
 					</RendererSelector>
