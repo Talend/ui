@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function FieldTemplate(props) {
-	const groupsClassNames = classNames('form-group', theme.template, {
+	const groupsClassNames = classNames('form-group', {
 		'has-error': props.error,
 		[theme.inProgress]: props.inProgress,
 	});

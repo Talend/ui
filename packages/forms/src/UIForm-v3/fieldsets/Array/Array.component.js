@@ -8,52 +8,69 @@ import DeleteButton from './buttons/DeleteButton.component';
 import MoveUpButton from './buttons/MoveUpButton.component';
 import MoveDownButton from './buttons/MoveDownButton.component';
 
-import Fieldset from '../Fieldset';
+import FieldsetTemplate from '../../templates/FieldsetTemplate';
+
 import ArrayContext from './context';
 
 export default function ArrayFieldset(props) {
-	const { children, initialNbItems = 0, name, rhf, ...restProps } = props;
-	const { getValues, setValue, triggerValidation } = rhf;
+	const { children, initialNbItems = 0, name, registerOptions, rhf, ...restProps } = props;
+	const { errors, getValues, setValue, register, unregister } = rhf;
 
 	const [nbItems, setNbItems] = useState(() => {
-		const values = getValues({ nest: true })[name];
-		return values ? values.length : initialNbItems;
+		const items = getValues({ nest: true })[name];
+		return items ? items.length : initialNbItems;
 	});
 
-	function addItem() {
-		setNbItems(nbItems + 1);
-	}
+	React.useEffect(() => {
+		register({ name }, registerOptions);
+		return () => unregister(name);
+	}, [register, unregister, name]);
 
-	function refreshItems(arrayValues, fromIndex, toIndex /* excluded */) {
-		const values = getValues();
-		const copyValue = key => {
-			setValue(key, get(arrayValues, key.substr(name.length)));
-			triggerValidation({ name: key });
-		};
-		// eslint-disable-next-line no-plusplus
-		for (let i = fromIndex; i < toIndex; i++) {
-			const itemKey = `${name}[${i}]`;
-			Object.keys(values)
-				.filter(key => key.startsWith(itemKey))
-				.forEach(copyValue);
+	React.useEffect(() => {
+		console.log('getValues changed', getValues(), getValues({ nest: true }));
+	}, [getValues]);
+
+	const getItems = () => {
+		const items = getValues({ nest: true })[name];
+		return items ? [...items] : [];
+	};
+
+	function refreshItems(newItems, fromIndex, toIndex /* excluded */) {
+		setValue(name, newItems, true);
+
+		if (fromIndex !== undefined && toIndex !== undefined) {
+			const values = getValues();
+			const copyValue = key => {
+				setValue(key, get(newItems, key.substr(name.length)), true);
+			};
+			// eslint-disable-next-line no-plusplus
+			for (let i = fromIndex; i < toIndex; i++) {
+				const itemKey = `${name}[${i}]`;
+				Object.keys(values)
+					.filter(key => key.startsWith(itemKey))
+					.forEach(copyValue);
+			}
 		}
 	}
 
+	function addItem() {
+		const newItems = getItems().concat(null);
+		refreshItems(newItems);
+		setNbItems(nbItems + 1);
+	}
+
 	function deleteItem(index) {
-		const arrayValues = getValues({ nest: true })[name];
-		arrayValues.splice(index, 1);
-		refreshItems(arrayValues, index, nbItems);
-		setNbItems(nbItems - 1);
+		const newItems = getItems();
+		newItems.splice(index, 1);
+		refreshItems(newItems, index, newItems.length);
+		setNbItems(newItems.length);
 	}
 
 	function swapItems(lowIndex, highIndex) {
-		const arrayValues = getValues({ nest: true })[name];
-		[arrayValues[lowIndex], arrayValues[highIndex]] = [
-			arrayValues[highIndex],
-			arrayValues[lowIndex],
-		];
+		const newItems = getItems();
+		[newItems[lowIndex], newItems[highIndex]] = [newItems[highIndex], newItems[lowIndex]];
 
-		refreshItems(arrayValues, lowIndex, highIndex + 1);
+		refreshItems(newItems, lowIndex, highIndex + 1);
 	}
 
 	function moveItemDown(index) {
@@ -72,7 +89,9 @@ export default function ArrayFieldset(props) {
 
 	return (
 		<ArrayContext.Provider value={{ nbItems, addItem, deleteItem, moveItemDown, moveItemUp }}>
-			<Fieldset {...restProps}>{children}</Fieldset>
+			<FieldsetTemplate {...restProps} error={errors[name]}>
+				{children}
+			</FieldsetTemplate>
 		</ArrayContext.Provider>
 	);
 }
@@ -85,9 +104,12 @@ ArrayFieldset.MoveDownButton = MoveDownButton;
 
 if (process.env.NODE_ENV !== 'production') {
 	ArrayFieldset.propTypes = {
+		...FieldsetTemplate.propTypes,
 		children: PropTypes.node,
+		id: PropTypes.string.isRequired,
 		initialNbItems: PropTypes.number,
 		name: PropTypes.string.isRequired,
+		registerOptions: PropTypes.object,
 		rhf: PropTypes.object.isRequired,
 	};
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import FieldTemplate from '../../templates/FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../utils';
+import { generateDescriptionId, generateErrorId } from '../../templates/utils';
 import useControlledInput from '../useControlledInput';
 
 function Datalist(props) {

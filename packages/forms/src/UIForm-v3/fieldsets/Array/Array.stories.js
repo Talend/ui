@@ -308,7 +308,86 @@ export const ItemValidation = () => {
 	};
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Array legend="My awesome users" name="users" rhf={rhf}>
+			<Array id="users" legend="My awesome users" name="users" rhf={rhf}>
+				<Array.Items>
+					{index => (
+						<div style={demoStyle}>
+							<div>
+								<Array.DeleteButton
+									index={index}
+									id={`delete-user-${index}`}
+									label={`Delete user ${index}`}
+									hideLabel
+								/>
+								<Array.MoveUpButton
+									index={index}
+									id={`move-user-${index}-up`}
+									label={`Move user ${index} up`}
+									hideLabel
+								/>
+								<Array.MoveDownButton
+									index={index}
+									id={`move-user-${index}-down`}
+									label={`Move user ${index} down`}
+									hideLabel
+								/>
+							</div>
+							<Input
+								id={`user-${index}-firstname`}
+								type="text"
+								name={`users[${index}].firstname`}
+								label="First name"
+								rhf={rhf}
+							/>
+							<Input
+								id={`user-${index}-lastname`}
+								type="text"
+								name={`users[${index}].lastname`}
+								label="Last name"
+								rhf={rhf}
+								registerOptions={{ validate: { uniqueLastname } }}
+							/>
+							<Input
+								id={`user-${index}-age`}
+								type="number"
+								name={`users[${index}].age`}
+								label="Age"
+								rhf={rhf}
+							/>
+						</div>
+					)}
+				</Array.Items>
+			</Array>
+
+			<button type="submit" className="btn btn-primary">
+				Submit
+			</button>
+		</form>
+	);
+};
+
+export const ArrayValidation = () => {
+	const { handleSubmit, ...rhf } = useForm({
+		mode: 'onBlur',
+		defaultValues: { users: [defaultValues.users[0]] },
+	});
+
+	const min3Items = value => {
+		if (value && value.length >= 3) {
+			return null;
+		}
+		return 'There is not enough elements, you should add at least 3 users. You can use the Add button located on top';
+	};
+
+	return (
+		<form onSubmit={handleSubmit(action('submit'))} noValidate>
+			<Array
+				id="users"
+				legend="My awesome users"
+				name="users"
+				rhf={rhf}
+				registerOptions={{ validate: min3Items }}
+			>
 				<div>
 					<Array.AddButton />
 				</div>
@@ -348,7 +427,6 @@ export const ItemValidation = () => {
 								name={`users[${index}].lastname`}
 								label="Last name"
 								rhf={rhf}
-								registerOptions={{ validate: { uniqueLastname } }}
 							/>
 							<Input
 								id={`user-${index}-age`}

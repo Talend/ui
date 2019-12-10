@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import FieldTemplate from '../../templates/FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../utils';
+import { generateDescriptionId, generateErrorId } from '../../templates/utils';
 
 function Input(props) {
 	const { className, description, inProgress, label, registerOptions = {}, rhf, ...rest } = props;

@@ -1,3 +1,3 @@
-import Fieldset from './Fieldset.component';
+import FieldsetTemplate from '../../templates/FieldsetTemplate';
 
-export default Fieldset;
+export default FieldsetTemplate;

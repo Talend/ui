@@ -2,7 +2,7 @@
 import React from 'react';
 import useForm from 'react-hook-form';
 import { action } from '@storybook/addon-actions';
-import Fieldset from './Fieldset.component';
+import Fieldset from './index';
 import Input from '../../fields/Input';
 
 export default {
