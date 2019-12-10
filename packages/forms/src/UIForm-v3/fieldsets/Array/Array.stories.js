@@ -280,7 +280,6 @@ export const ItemValidation = () => {
 		const errorId = 'uniqueLastname';
 		const errorMessage = 'Lastname must be unique';
 		const users = rhf.getValues({ nest: true }).users;
-		debugger;
 		const hasDuplicate = ({ lastname }, index) => {
 			if (!lastname) {
 				return false;
@@ -321,6 +320,18 @@ export const ItemValidation = () => {
 									index={index}
 									id={`delete-user-${index}`}
 									label={`Delete user ${index}`}
+									hideLabel
+								/>
+								<Array.MoveUpButton
+									index={index}
+									id={`move-user-${index}-up`}
+									label={`Move user ${index} up`}
+									hideLabel
+								/>
+								<Array.MoveDownButton
+									index={index}
+									id={`move-user-${index}-down`}
+									label={`Move user ${index} down`}
 									hideLabel
 								/>
 							</div>
