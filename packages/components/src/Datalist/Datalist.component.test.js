@@ -628,4 +628,20 @@ describe('Datalist component', () => {
 		// then
 		expect(onLiveChange).toBeCalledWith(expect.anything(), 'fo');
 	});
+
+	it('should call onBlur when focusing out', () => {
+		// given
+		const onBlur = jest.fn();
+		const wrapper = mount(
+			<Datalist id="my-datalist" isValid onBlur={onBlur} {...props} />,
+		);
+		const event = { target: { value: 'fo' } };
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('blur', event);
+
+		// then
+		expect(onBlur).toBeCalled();
+	});
 });
