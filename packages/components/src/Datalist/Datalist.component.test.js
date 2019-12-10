@@ -93,7 +93,10 @@ describe('Datalist component', () => {
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				{...props}
-				titleMap={[{ name: 'A', value: 'a' }, { name: 'B', value: 'b' }]}
+				titleMap={[
+					{ name: 'A', value: 'a' },
+					{ name: 'B', value: 'b' },
+				]}
 				value={'a'}
 			/>,
 		);
@@ -632,9 +635,7 @@ describe('Datalist component', () => {
 	it('should call onBlur when focusing out', () => {
 		// given
 		const onBlur = jest.fn();
-		const wrapper = mount(
-			<Datalist id="my-datalist" isValid onBlur={onBlur} {...props} />,
-		);
+		const wrapper = mount(<Datalist id="my-datalist" isValid onBlur={onBlur} {...props} />);
 		const event = { target: { value: 'fo' } };
 
 		// when
