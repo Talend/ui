@@ -12,9 +12,10 @@ export function DateTimeRangePickerException(code, message) {
 }
 
 function DateTimeRangeManager(props) {
+	const { onChange, startDateTime, endDateTime } = props;
 	const initialState = {
-		startDateTime: props.startDateTime,
-		endDateTime: props.endDateTime,
+		startDateTime,
+		endDateTime,
 	};
 	const [state, setState] = useState(initialState);
 
@@ -25,14 +26,13 @@ function DateTimeRangeManager(props) {
 		) {
 			setState({ startDateTime: props.startDateTime, endDateTime: props.endDateTime });
 		}
-	}, [props.startDateTime, props.endDateTime]);
+	}, [startDateTime, endDateTime]);
 
-	function onChange(event, nextState, origin) {
+	function onRangeChange(event, nextState, origin) {
 		const errors = [...(nextState.errors || [])];
-		const { startDateTime, endDateTime } = nextState;
 
-		if (startDateTime && endDateTime) {
-			if (!isBefore(startDateTime, endDateTime)) {
+		if (nextState.startDateTime && nextState.endDateTime) {
+			if (!isBefore(nextState.startDateTime, nextState.endDateTime)) {
 				errors.push(
 					new DateTimeRangePickerException(
 						'INVALID_RANGE_START_AFTER_END',
@@ -47,19 +47,19 @@ function DateTimeRangeManager(props) {
 			errors,
 			errorMessage: errors[0] ? errors[0].message : null,
 		};
-		props.onChange(event, payload);
+		onChange(event, payload);
 	}
 
-	function onStartChange(event, payload) {
-		const nextState = { ...state, startDateTime: payload.datetime, errors: payload.errors };
+	function onStartChange(event, { datetime, errors }) {
+		const nextState = { ...state, startDateTime: datetime, errors };
 		setState(nextState);
-		onChange(event, nextState, 'RANGE_START');
+		onRangeChange(event, nextState, 'RANGE_START');
 	}
 
-	function onEndChange(event, payload) {
-		const nextState = { ...state, endDateTime: payload.datetime, errors: payload.errors };
+	function onEndChange(event, { datetime, errors }) {
+		const nextState = { ...state, endDateTime: datetime, errors };
 		setState(nextState);
-		onChange(event, nextState, 'RANGE_END');
+		onRangeChange(event, nextState, 'RANGE_END');
 	}
 
 	return (
