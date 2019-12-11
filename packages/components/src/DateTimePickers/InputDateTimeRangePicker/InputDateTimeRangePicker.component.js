@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Icon from '../../Icon';
+
 import InputDateTimePicker from '../InputDateTimePicker';
 import DateTimeRange from '../DateTimeRange';
 import { DateTimeRangeContext } from '../DateTimeRange/Context';
+
+import theme from './InputDateTimeRangePicker.scss';
 
 function InputDateTimeRangePicker(props) {
 	const { onChange } = props;
@@ -14,12 +19,15 @@ function InputDateTimeRangePicker(props) {
 		>
 			<DateTimeRangeContext.Consumer>
 				{({ startDateTime, endDateTime, onStartChange, onEndChange }) => (
-					<div>
+					<div className={theme['range-picker']}>
 						<InputDateTimePicker
 							selectedDateTime={startDateTime}
 							endDate={endDateTime}
 							onChange={onStartChange}
 						/>
+						<span className={theme.arrow}>
+							<Icon name="talend-arrow-right" className={theme.icon} />
+						</span>
 						<InputDateTimePicker
 							selectedDateTime={endDateTime}
 							startDate={startDateTime}

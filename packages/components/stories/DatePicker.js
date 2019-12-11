@@ -443,6 +443,7 @@ storiesOf('DatePicker', module)
 	))
 	.add('DateTime Range picker', () => (
 		<div>
+			<IconsProvider />
 			<h1>DateTime Range picker</h1>
 			<form>
 				<InputDateTimeRangePicker

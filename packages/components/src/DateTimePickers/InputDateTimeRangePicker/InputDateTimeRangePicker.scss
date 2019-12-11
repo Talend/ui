@@ -1,0 +1,8 @@
+@import '../shared/styles/mixins';
+
+.range-picker {
+	@include range-picker;
+}
+.arrow {
+	@include arrow;
+}
