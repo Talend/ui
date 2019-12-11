@@ -8,13 +8,23 @@ function DateTimeRangeManager(props) {
 		endDateTime: props.endDateTime,
 	};
 	const [state, setState] = useState(initialState);
+	function onStartChange(event, payload) {
+		const nextState = { ...state, startDateTime: payload.datetime };
+		setState(nextState);
+		props.onChange(nextState);
+	}
+	function onEndChange(event, payload) {
+		const nextState = { ...state, endDateTime: payload.datetime };
+		setState(nextState);
+		props.onChange(nextState);
+	}
 	return (
 		<DateTimeRangeContext.Provider
 			value={{
 				startDateTime: state.startDateTime,
 				endDateTime: state.endDateTime,
-				onStartChange: () => {},
-				onEndChange: () => {},
+				onStartChange,
+				onEndChange,
 			}}
 		>
 			{props.children}
@@ -36,7 +46,7 @@ DateTimeRangeManager.propTypes = {
 		PropTypes.string,
 	]),
 	// dateFormat: PropTypes.string,
-	// onChange: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default DateTimeRangeManager;

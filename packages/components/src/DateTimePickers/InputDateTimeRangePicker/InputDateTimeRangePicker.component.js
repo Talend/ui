@@ -23,7 +23,7 @@ function InputDateTimeRangePicker(props) {
 						<InputDateTimePicker
 							selectedDateTime={endDateTime}
 							startDate={startDateTime}
-							onEndChange={onEndChange}
+							onChange={onEndChange}
 						/>
 					</div>
 				)}

@@ -446,6 +446,7 @@ storiesOf('DatePicker', module)
 			<h1>DateTime Range picker</h1>
 			<form>
 				<InputDateTimeRangePicker
+					onChange={action('onChange')}
 					startDateTime={new Date(2019, 11, 1, 0, 0, 0)}
 					endDateTime={new Date(2019, 11, 12, 0, 0, 0)}
 				/>
