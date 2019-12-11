@@ -12,8 +12,8 @@ describe('InputDateTimeRangePicker', () => {
 		const wrapper = mount(
 			<InputDateTimeRangePicker
 				id="my-picker"
-				startDateTime={new Date(2019, 11, 1, 0, 0, 0)}
-				endDateTime={new Date(2019, 11, 12, 23, 59, 59)}
+				startDateTime="2019-12-01 00:00:00"
+				endDateTime="2019-12-11 23:59:59"
 				useSeconds
 			/>,
 		);

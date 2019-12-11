@@ -3,15 +3,15 @@
 exports[`InputDateTimeRangePicker should render 1`] = `
 <InputDateTimeRangePicker
   dateFormat="YYYY-MM-DD"
-  endDateTime={2019-12-12T22:59:59.000Z}
+  endDateTime="2019-12-11 23:59:59"
   id="my-picker"
-  startDateTime={2019-11-30T23:00:00.000Z}
+  startDateTime="2019-12-01 00:00:00"
   t={[Function]}
   useSeconds={true}
 >
   <DateTimeRange.Manager
-    endDateTime={2019-12-12T22:59:59.000Z}
-    startDateTime={2019-11-30T23:00:00.000Z}
+    endDateTime="2019-12-11 23:59:59"
+    startDateTime="2019-12-01 00:00:00"
   >
     <div
       className="theme-range-picker range-picker"
@@ -25,19 +25,19 @@ exports[`InputDateTimeRangePicker should render 1`] = `
         </label>
         <InputDateTimePickerSwitch
           dateFormat="YYYY-MM-DD"
-          endDate={2019-12-12T22:59:59.000Z}
+          endDate="2019-12-11 23:59:59"
           id="my-picker-start"
           onChange={[Function]}
-          selectedDateTime={2019-11-30T23:00:00.000Z}
+          selectedDateTime="2019-12-01 00:00:00"
           useSeconds={true}
         >
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
-            endDate={2019-12-12T22:59:59.000Z}
+            endDate="2019-12-11 23:59:59"
             id="my-picker-start"
             onChange={[Function]}
             required={true}
-            selectedDateTime={2019-11-30T23:00:00.000Z}
+            selectedDateTime="2019-12-01 00:00:00"
             useSeconds={true}
             useUTC={false}
           >
@@ -47,25 +47,25 @@ exports[`InputDateTimeRangePicker should render 1`] = `
               onChange={[Function]}
               useSeconds={true}
               useUTC={false}
-              value={2019-11-30T23:00:00.000Z}
+              value="2019-12-01 00:00:00"
             >
               <div
                 className="theme-date-time-picker"
               >
                 <InputDatePicker
                   dateFormat="YYYY-MM-DD"
-                  endDate={2019-12-12T22:59:59.000Z}
+                  endDate="2019-12-11 23:59:59"
                   id="my-picker-start-date-picker"
                   onChange={[Function]}
                   required={true}
                   useUTC={false}
-                  value={2019-11-30T23:00:00.000Z}
+                  value="2019-12-01"
                 >
                   <Date.Manager
                     dateFormat="YYYY-MM-DD"
                     onChange={[Function]}
                     useUTC={false}
-                    value={2019-11-30T23:00:00.000Z}
+                    value="2019-12-01"
                   >
                     <FocusManager
                       className="theme-date-picker date-picker"
@@ -78,7 +78,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <input
                               autocomplete="off"
                               class="form-control"
-                              enddate="Thu Dec 12 2019 23:59:59 GMT+0100 (GMT+01:00)"
+                              enddate="2019-12-11 23:59:59"
                               id="my-picker-start-date-picker-input"
                               placeholder="YYYY-MM-DD"
                               style="width: 47px;"
@@ -107,14 +107,14 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                         tabIndex={-1}
                       >
                         <Date.Input
-                          endDate={2019-12-12T22:59:59.000Z}
+                          endDate="2019-12-11 23:59:59"
                           id="my-picker-start-date-picker-input"
                           inputRef={
                             Object {
                               "current": <input
                                 autocomplete="off"
                                 class="form-control"
-                                enddate="Thu Dec 12 2019 23:59:59 GMT+0100 (GMT+01:00)"
+                                enddate="2019-12-11 23:59:59"
                                 id="my-picker-start-date-picker-input"
                                 placeholder="YYYY-MM-DD"
                                 style="width: 47px;"
@@ -133,7 +133,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               className="form-control"
                               debounceTimeout={300}
                               element="input"
-                              endDate={2019-12-12T22:59:59.000Z}
+                              endDate="2019-12-11 23:59:59"
                               forceNotifyByEnter={true}
                               forceNotifyOnBlur={true}
                               id="my-picker-start-date-picker-input"
@@ -142,7 +142,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                   "current": <input
                                     autocomplete="off"
                                     class="form-control"
-                                    enddate="Thu Dec 12 2019 23:59:59 GMT+0100 (GMT+01:00)"
+                                    enddate="2019-12-11 23:59:59"
                                     id="my-picker-start-date-picker-input"
                                     placeholder="YYYY-MM-DD"
                                     style="width: 47px;"
@@ -165,7 +165,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               <input
                                 autoComplete="off"
                                 className="form-control"
-                                endDate={2019-12-12T22:59:59.000Z}
+                                endDate="2019-12-11 23:59:59"
                                 id="my-picker-start-date-picker-input"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -202,24 +202,12 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                   id="my-picker-start-time-picker"
                   onChange={[Function]}
                   useSeconds={true}
-                  value={
-                    Object {
-                      "hours": "00",
-                      "minutes": "00",
-                      "seconds": "00",
-                    }
-                  }
+                  value="00:00:00"
                 >
                   <Time.Manager
                     onChange={[Function]}
                     useSeconds={true}
-                    value={
-                      Object {
-                        "hours": "00",
-                        "minutes": "00",
-                        "seconds": "00",
-                      }
-                    }
+                    value="00:00:00"
                   >
                     <FocusManager
                       className="theme-time-picker"
@@ -388,8 +376,8 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           dateFormat="YYYY-MM-DD"
           id="my-picker-end"
           onChange={[Function]}
-          selectedDateTime={2019-12-12T22:59:59.000Z}
-          startDate={2019-11-30T23:00:00.000Z}
+          selectedDateTime="2019-12-11 23:59:59"
+          startDate="2019-12-01 00:00:00"
           useSeconds={true}
         >
           <InputDateTimePicker
@@ -397,8 +385,8 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             id="my-picker-end"
             onChange={[Function]}
             required={true}
-            selectedDateTime={2019-12-12T22:59:59.000Z}
-            startDate={2019-11-30T23:00:00.000Z}
+            selectedDateTime="2019-12-11 23:59:59"
+            startDate="2019-12-01 00:00:00"
             useSeconds={true}
             useUTC={false}
           >
@@ -408,7 +396,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
               onChange={[Function]}
               useSeconds={true}
               useUTC={false}
-              value={2019-12-12T22:59:59.000Z}
+              value="2019-12-11 23:59:59"
             >
               <div
                 className="theme-date-time-picker"
@@ -418,15 +406,15 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                   id="my-picker-end-date-picker"
                   onChange={[Function]}
                   required={true}
-                  startDate={2019-11-30T23:00:00.000Z}
+                  startDate="2019-12-01 00:00:00"
                   useUTC={false}
-                  value={2019-12-11T23:00:00.000Z}
+                  value="2019-12-11"
                 >
                   <Date.Manager
                     dateFormat="YYYY-MM-DD"
                     onChange={[Function]}
                     useUTC={false}
-                    value={2019-12-11T23:00:00.000Z}
+                    value="2019-12-11"
                   >
                     <FocusManager
                       className="theme-date-picker date-picker"
@@ -441,10 +429,10 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               class="form-control"
                               id="my-picker-end-date-picker-input"
                               placeholder="YYYY-MM-DD"
-                              startdate="Sun Dec 01 2019 00:00:00 GMT+0100 (GMT+01:00)"
+                              startdate="2019-12-01 00:00:00"
                               style="width: 47px;"
                               type="text"
-                              value="2019-12-12"
+                              value="2019-12-11"
                             />
                             <span
                               style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
@@ -476,15 +464,15 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 class="form-control"
                                 id="my-picker-end-date-picker-input"
                                 placeholder="YYYY-MM-DD"
-                                startdate="Sun Dec 01 2019 00:00:00 GMT+0100 (GMT+01:00)"
+                                startdate="2019-12-01 00:00:00"
                                 style="width: 47px;"
                                 type="text"
-                                value="2019-12-12"
+                                value="2019-12-11"
                               />,
                             }
                           }
                           key="input"
-                          startDate={2019-11-30T23:00:00.000Z}
+                          startDate="2019-12-01 00:00:00"
                         >
                           <InputSizer
                             inputText="YYYY-MM-DD"
@@ -504,24 +492,24 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                     class="form-control"
                                     id="my-picker-end-date-picker-input"
                                     placeholder="YYYY-MM-DD"
-                                    startdate="Sun Dec 01 2019 00:00:00 GMT+0100 (GMT+01:00)"
+                                    startdate="2019-12-01 00:00:00"
                                     style="width: 47px;"
                                     type="text"
-                                    value="2019-12-12"
+                                    value="2019-12-11"
                                   />,
                                 }
                               }
                               minLength={0}
                               onChange={[Function]}
                               placeholder="YYYY-MM-DD"
-                              startDate={2019-11-30T23:00:00.000Z}
+                              startDate="2019-12-01 00:00:00"
                               style={
                                 Object {
                                   "width": 47,
                                 }
                               }
                               type="text"
-                              value="2019-12-12"
+                              value="2019-12-11"
                             >
                               <input
                                 autoComplete="off"
@@ -531,14 +519,14 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 onChange={[Function]}
                                 onKeyDown={[Function]}
                                 placeholder="YYYY-MM-DD"
-                                startDate={2019-11-30T23:00:00.000Z}
+                                startDate="2019-12-01 00:00:00"
                                 style={
                                   Object {
                                     "width": 47,
                                   }
                                 }
                                 type="text"
-                                value="2019-12-12"
+                                value="2019-12-11"
                               />
                             </DebounceInput>
                             <span
@@ -563,24 +551,12 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                   id="my-picker-end-time-picker"
                   onChange={[Function]}
                   useSeconds={true}
-                  value={
-                    Object {
-                      "hours": "23",
-                      "minutes": "59",
-                      "seconds": "59",
-                    }
-                  }
+                  value="23:59:59"
                 >
                   <Time.Manager
                     onChange={[Function]}
                     useSeconds={true}
-                    value={
-                      Object {
-                        "hours": "23",
-                        "minutes": "59",
-                        "seconds": "59",
-                      }
-                    }
+                    value="23:59:59"
                   >
                     <FocusManager
                       className="theme-time-picker"
