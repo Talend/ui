@@ -88,7 +88,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <span
                               style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                             >
-                              2019-12-01
+                              YYYY-MM-DD
                             </span>
                           </div>,
                         }
@@ -126,8 +126,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                           key="input"
                         >
                           <InputSizer
-                            inputText="2019-12-01"
-                            placeholder="YYYY-MM-DD"
+                            inputText="YYYY-MM-DD"
                           >
                             <DebounceInput
                               autoComplete="off"
@@ -191,7 +190,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 }
                               }
                             >
-                              2019-12-01
+                              YYYY-MM-DD
                             </span>
                           </InputSizer>
                         </Date.Input>
@@ -450,7 +449,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <span
                               style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                             >
-                              2019-12-12
+                              YYYY-MM-DD
                             </span>
                           </div>,
                         }
@@ -488,8 +487,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                           startDate={2019-11-30T23:00:00.000Z}
                         >
                           <InputSizer
-                            inputText="2019-12-12"
-                            placeholder="YYYY-MM-DD"
+                            inputText="YYYY-MM-DD"
                           >
                             <DebounceInput
                               autoComplete="off"
@@ -553,7 +551,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 }
                               }
                             >
-                              2019-12-12
+                              YYYY-MM-DD
                             </span>
                           </InputSizer>
                         </Date.Input>
