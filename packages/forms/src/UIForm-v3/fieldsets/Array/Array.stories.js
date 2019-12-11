@@ -4,7 +4,7 @@ import useForm from 'react-hook-form';
 import { addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
-import Array from './Array.component';
+import ArrayFieldset from './Array.component';
 import Input from '../../fields/Input';
 
 export default {
@@ -33,8 +33,8 @@ export const InitialItemsNumber = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Array legend="My awesome users" name="users" initialNbItems={3} rhf={rhf}>
-				<Array.Items>
+			<ArrayFieldset id="users" legend="My awesome users" name="users" initialNbItems={3} rhf={rhf}>
+				<ArrayFieldset.Items>
 					{index => (
 						<div style={demoStyle}>
 							<Input
@@ -60,8 +60,8 @@ export const InitialItemsNumber = () => {
 							/>
 						</div>
 					)}
-				</Array.Items>
-			</Array>
+				</ArrayFieldset.Items>
+			</ArrayFieldset>
 
 			<button type="submit" className="btn btn-primary">
 				Submit
@@ -74,11 +74,11 @@ export const AddItem = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Array legend="My awesome users" name="users" rhf={rhf}>
+			<ArrayFieldset id="users" legend="My awesome users" name="users" rhf={rhf}>
 				<div>
-					<Array.AddButton />
+					<ArrayFieldset.AddButton />
 				</div>
-				<Array.Items>
+				<ArrayFieldset.Items>
 					{index => (
 						<div style={demoStyle}>
 							<Input
@@ -104,8 +104,8 @@ export const AddItem = () => {
 							/>
 						</div>
 					)}
-				</Array.Items>
-			</Array>
+				</ArrayFieldset.Items>
+			</ArrayFieldset>
 
 			<button type="submit" className="btn btn-primary">
 				Submit
@@ -125,18 +125,18 @@ export const MoveItem = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur', defaultValues });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Array legend="My awesome users" name="users" rhf={rhf}>
-				<Array.Items>
+			<ArrayFieldset id="user" legend="My awesome users" name="users" rhf={rhf}>
+				<ArrayFieldset.Items>
 					{index => (
 						<div style={demoStyle}>
 							<div>
-								<Array.MoveUpButton
+								<ArrayFieldset.MoveUpButton
 									index={index}
 									id={`move-user-${index}-up`}
 									label={`Move user ${index} up`}
 									hideLabel
 								/>
-								<Array.MoveDownButton
+								<ArrayFieldset.MoveDownButton
 									index={index}
 									id={`move-user-${index}-down`}
 									label={`Move user ${index} down`}
@@ -166,8 +166,8 @@ export const MoveItem = () => {
 							/>
 						</div>
 					)}
-				</Array.Items>
-			</Array>
+				</ArrayFieldset.Items>
+			</ArrayFieldset>
 
 			<button type="submit" className="btn btn-primary">
 				Submit
@@ -180,15 +180,15 @@ export const DeleteItem = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur', defaultValues });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Array legend="My awesome users" name="users" rhf={rhf}>
+			<ArrayFieldset id="user" legend="My awesome users" name="users" rhf={rhf}>
 				<div>
-					<Array.AddButton />
+					<ArrayFieldset.AddButton />
 				</div>
-				<Array.Items>
+				<ArrayFieldset.Items>
 					{index => (
 						<div style={demoStyle}>
 							<div>
-								<Array.DeleteButton
+								<ArrayFieldset.DeleteButton
 									index={index}
 									id={`delete-user-${index}`}
 									label={`Delete user ${index}`}
@@ -218,8 +218,8 @@ export const DeleteItem = () => {
 							/>
 						</div>
 					)}
-				</Array.Items>
-			</Array>
+				</ArrayFieldset.Items>
+			</ArrayFieldset>
 
 			<button type="submit" className="btn btn-primary">
 				Submit
@@ -232,8 +232,8 @@ export const DefaultTemplate = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Array legend="My awesome users" name="users" rhf={rhf}>
-				<Array.ItemsTemplate id="users">
+			<ArrayFieldset id="user" legend="My awesome users" name="users" rhf={rhf}>
+				<ArrayFieldset.ItemsTemplate id="users">
 					{index => (
 						<React.Fragment>
 							<Input
@@ -259,8 +259,8 @@ export const DefaultTemplate = () => {
 							/>
 						</React.Fragment>
 					)}
-				</Array.ItemsTemplate>
-			</Array>
+				</ArrayFieldset.ItemsTemplate>
+			</ArrayFieldset>
 
 			<button type="submit" className="btn btn-primary">
 				Submit
@@ -308,24 +308,30 @@ export const ItemValidation = () => {
 	};
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Array id="users" legend="My awesome users" name="users" rhf={rhf}>
-				<Array.Items>
+			<ArrayFieldset
+				id="users"
+				legend="My awesome users"
+				description="Users can't have the same lastname"
+				name="users"
+				rhf={rhf}
+			>
+				<ArrayFieldset.Items>
 					{index => (
 						<div style={demoStyle}>
 							<div>
-								<Array.DeleteButton
+								<ArrayFieldset.DeleteButton
 									index={index}
 									id={`delete-user-${index}`}
 									label={`Delete user ${index}`}
 									hideLabel
 								/>
-								<Array.MoveUpButton
+								<ArrayFieldset.MoveUpButton
 									index={index}
 									id={`move-user-${index}-up`}
 									label={`Move user ${index} up`}
 									hideLabel
 								/>
-								<Array.MoveDownButton
+								<ArrayFieldset.MoveDownButton
 									index={index}
 									id={`move-user-${index}-down`}
 									label={`Move user ${index} down`}
@@ -356,8 +362,8 @@ export const ItemValidation = () => {
 							/>
 						</div>
 					)}
-				</Array.Items>
-			</Array>
+				</ArrayFieldset.Items>
+			</ArrayFieldset>
 
 			<button type="submit" className="btn btn-primary">
 				Submit
@@ -372,8 +378,8 @@ export const ArrayValidation = () => {
 		defaultValues: { users: [defaultValues.users[0]] },
 	});
 
-	const min3Items = value => {
-		if (value && value.length >= 3) {
+	const min3Items = nbItems => {
+		if (nbItems >= 3) {
 			return null;
 		}
 		return 'There is not enough elements, you should add at least 3 users. You can use the Add button located on top';
@@ -381,7 +387,7 @@ export const ArrayValidation = () => {
 
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Array
+			<ArrayFieldset
 				id="users"
 				legend="My awesome users"
 				name="users"
@@ -389,25 +395,25 @@ export const ArrayValidation = () => {
 				registerOptions={{ validate: min3Items }}
 			>
 				<div>
-					<Array.AddButton />
+					<ArrayFieldset.AddButton />
 				</div>
-				<Array.Items>
+				<ArrayFieldset.Items>
 					{index => (
 						<div style={demoStyle}>
 							<div>
-								<Array.DeleteButton
+								<ArrayFieldset.DeleteButton
 									index={index}
 									id={`delete-user-${index}`}
 									label={`Delete user ${index}`}
 									hideLabel
 								/>
-								<Array.MoveUpButton
+								<ArrayFieldset.MoveUpButton
 									index={index}
 									id={`move-user-${index}-up`}
 									label={`Move user ${index} up`}
 									hideLabel
 								/>
-								<Array.MoveDownButton
+								<ArrayFieldset.MoveDownButton
 									index={index}
 									id={`move-user-${index}-down`}
 									label={`Move user ${index} down`}
@@ -437,8 +443,8 @@ export const ArrayValidation = () => {
 							/>
 						</div>
 					)}
-				</Array.Items>
-			</Array>
+				</ArrayFieldset.Items>
+			</ArrayFieldset>
 
 			<button type="submit" className="btn btn-primary">
 				Submit

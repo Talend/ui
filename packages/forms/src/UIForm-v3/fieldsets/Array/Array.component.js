@@ -14,7 +14,8 @@ import ArrayContext from './context';
 
 export default function ArrayFieldset(props) {
 	const { children, initialNbItems = 0, name, registerOptions, rhf, ...restProps } = props;
-	const { errors, getValues, setValue, register, unregister } = rhf;
+	const { errors, getValues, setValue, register, unregister, triggerValidation } = rhf;
+	const lengthName = `${name}.length`;
 
 	const [nbItems, setNbItems] = useState(() => {
 		const items = getValues({ nest: true })[name];
@@ -22,13 +23,25 @@ export default function ArrayFieldset(props) {
 	});
 
 	React.useEffect(() => {
-		register({ name }, registerOptions);
-		return () => unregister(name);
-	}, [register, unregister, name]);
+		// when there is no element in the array, RHF builds an object instead of an empty array
+		// to avoid that, when there is no item, we register the array, with [] as value
+		// when we add an object, we deregister it to let RHF take over the array management again
+		if (!nbItems) {
+			register({ name, value: [] });
+		}
+
+		// we register the array length, so any change on it will trigger the array validation
+		register({ name: lengthName }, registerOptions);
+
+		return () => {
+			unregister(name);
+			unregister(lengthName);
+		};
+	}, [register, unregister, name, lengthName, nbItems]);
 
 	React.useEffect(() => {
-		console.log('getValues changed', getValues(), getValues({ nest: true }));
-	}, [getValues]);
+		triggerValidation({ name: lengthName, value: nbItems });
+	}, [lengthName, nbItems]);
 
 	const getItems = () => {
 		const items = getValues({ nest: true })[name];
@@ -36,8 +49,6 @@ export default function ArrayFieldset(props) {
 	};
 
 	function refreshItems(newItems, fromIndex, toIndex /* excluded */) {
-		setValue(name, newItems, true);
-
 		if (fromIndex !== undefined && toIndex !== undefined) {
 			const values = getValues();
 			const copyValue = key => {
@@ -54,8 +65,6 @@ export default function ArrayFieldset(props) {
 	}
 
 	function addItem() {
-		const newItems = getItems().concat(null);
-		refreshItems(newItems);
 		setNbItems(nbItems + 1);
 	}
 
@@ -89,7 +98,7 @@ export default function ArrayFieldset(props) {
 
 	return (
 		<ArrayContext.Provider value={{ nbItems, addItem, deleteItem, moveItemDown, moveItemUp }}>
-			<FieldsetTemplate {...restProps} error={errors[name]}>
+			<FieldsetTemplate {...restProps} defaultValue={[]} error={errors[lengthName]}>
 				{children}
 			</FieldsetTemplate>
 		</ArrayContext.Provider>

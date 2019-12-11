@@ -16,7 +16,6 @@ function FieldsetTemplate(props) {
 	return (
 		<fieldset {...restProps} className={groupsClassNames} aria-describedby={ariaDescribedBy}>
 			<legend className={classnames({ 'sr-only': hideLegend })}>{legend}</legend>
-			{children}
 			{restProps.id && (
 				<Message
 					description={description}
@@ -25,6 +24,7 @@ function FieldsetTemplate(props) {
 					errorId={errorId}
 				/>
 			)}
+			{children}
 		</fieldset>
 	);
 }
