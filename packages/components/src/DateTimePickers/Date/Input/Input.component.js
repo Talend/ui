@@ -9,8 +9,7 @@ export default function Input(props) {
 
 	return (
 		<InputSizer
-			placeholder={inputManagement.placeholder}
-			inputText={value.date ? value.textInput : ''}
+			inputText={inputManagement.placeholder}
 		>
 			{width => (
 				<DebounceInput
