@@ -13,7 +13,7 @@ import getDefaultT from '../../translate';
 import theme from './InputDateTimeRangePicker.scss';
 
 function InputDateTimeRangePicker(props) {
-	const { id, onChange } = props;
+	const { id, dateFormat, onChange } = props;
 	return (
 		<DateTimeRange.Manager
 			startDateTime={props.startDateTime}
@@ -29,6 +29,7 @@ function InputDateTimeRangePicker(props) {
 							</label>
 							<InputDateTimePicker
 								id={`${id}-start`}
+								dateFormat={dateFormat}
 								selectedDateTime={startDateTime}
 								endDate={endDateTime}
 								onChange={onStartChange}
@@ -43,6 +44,7 @@ function InputDateTimeRangePicker(props) {
 							</label>
 							<InputDateTimePicker
 								id={`${id}-end`}
+								dateFormat={dateFormat}
 								selectedDateTime={endDateTime}
 								startDate={startDateTime}
 								onChange={onEndChange}
@@ -61,7 +63,7 @@ InputDateTimeRangePicker.defaultProps = {
 
 InputDateTimeRangePicker.propTypes = {
 	id: PropTypes.string.isRequired,
-	// dateFormat: PropTypes.string,
+	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
 	// onBlur: PropTypes.func,
 	startDateTime: PropTypes.oneOfType([
