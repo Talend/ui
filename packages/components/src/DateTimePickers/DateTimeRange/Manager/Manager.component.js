@@ -79,7 +79,6 @@ DateTimeRangeManager.propTypes = {
 		PropTypes.number,
 		PropTypes.string,
 	]),
-	// dateFormat: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
 };
 
