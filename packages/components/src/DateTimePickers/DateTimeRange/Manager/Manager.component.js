@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import isBefore from 'date-fns/is_before';
+import isEqual from 'date-fns/is_equal';
 
 import { DateTimeRangeContext } from '../Context';
 import getErrorMessage from '../../shared/error-messages';
@@ -17,6 +18,15 @@ function DateTimeRangeManager(props) {
 	};
 	const [state, setState] = useState(initialState);
 
+	useEffect(() => {
+		if (
+			!isEqual(state.startDateTime, props.startDateTime) ||
+			!isEqual(state.endDateTime, props.endDateTime)
+		) {
+			setState({ startDateTime: props.startDateTime, endDateTime: props.endDateTime });
+		}
+	}, [props.startDateTime, props.endDateTime]);
+
 	function onChange(event, nextState, origin) {
 		const errors = [...(nextState.errors || [])];
 		const { startDateTime, endDateTime } = nextState;
@@ -32,7 +42,7 @@ function DateTimeRangeManager(props) {
 			}
 		}
 		const payload = {
-			nextState,
+			...nextState,
 			origin,
 			errors,
 			errorMessage: errors[0] ? errors[0].message : null,
