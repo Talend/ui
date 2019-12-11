@@ -449,8 +449,7 @@ storiesOf('DatePicker', module)
 				<InputDateTimeRangePicker
 					onChange={action('onChange')}
 					onBlur={action('onBlur')}
-					startDateTime={new Date(2019, 11, 1, 0, 0, 0)}
-					endDateTime={new Date(2019, 11, 12, 0, 0, 0)}
+					useSeconds
 				/>
 			</form>
 		</div>
