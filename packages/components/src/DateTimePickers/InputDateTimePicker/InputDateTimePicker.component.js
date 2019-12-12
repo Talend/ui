@@ -69,16 +69,8 @@ InputDateTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
 	timezone: PropTypes.string,
-	startDate: PropTypes.oneOfType([
-		PropTypes.instanceOf(Date),
-		PropTypes.number,
-		PropTypes.string,
-	]),
-	endDate: PropTypes.oneOfType([
-		PropTypes.instanceOf(Date),
-		PropTypes.number,
-		PropTypes.string,
-	]),
+	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 };
 
 InputDateTimePicker.defaultProps = {
