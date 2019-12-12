@@ -454,15 +454,17 @@ storiesOf('DatePicker', module)
 			</form>
 		</div>
 	))
-	.add('DateTime Range picker - vertical', () => (
+	.add('DateTime Range picker - responsive', () => (
 		<div>
 			<IconsProvider />
 			<h1>DateTime Range picker</h1>
+			<p>Resize windown to trigger responsive layout</p>
 			<form>
 				<InputDateTimeRangePicker
+					id="my-picker"
 					onChange={action('onChange')}
 					onBlur={action('onBlur')}
-					vertical
+					responsive
 				/>
 			</form>
 		</div>

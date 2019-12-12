@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect, } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import debounce from 'lodash/debounce';
 import omit from 'lodash/omit';
 
 import Icon from '../../Icon';
@@ -23,12 +24,55 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 ];
 
 function InputDateTimeRangePicker(props) {
-	const { id, dateFormat, useSeconds, onChange, onBlur } = props;
+	const { id, dateFormat, useSeconds, onChange, onBlur, responsive } = props;
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 
-	const className = props.vertical
-		? classnames(theme['range-picker-vertical'], 'range-picker-vertical')
-		: classnames(theme['range-picker'], 'range-picker');
+	const [vertical, setVertical] = useState(false);
+	const containerRef = useRef();
+
+	const className =
+		props.vertical || vertical
+			? classnames(theme['range-picker-vertical'], 'range-picker-vertical')
+			: classnames(theme['range-picker'], 'range-picker');
+
+	function tryHorizontal() {
+		const rangeContainer = containerRef.current;
+		if (rangeContainer) {
+			const nodes = rangeContainer.querySelectorAll('input');
+			const lastChild = nodes[nodes.length - 1];
+			if (lastChild) {
+				if (
+					rangeContainer.getBoundingClientRect().right < lastChild.getBoundingClientRect().right
+				) {
+					setVertical(true);
+				}
+			}
+		} else {
+			setVertical(false);
+		}
+	}
+
+	function showHorizontalAndTest() {
+		setVertical(false);
+		tryHorizontal();
+	}
+
+	useEffect(() => {
+		if (responsive) {
+			const resizeListener = window.addEventListener(
+				'resize',
+				debounce(showHorizontalAndTest, 200),
+			);
+			return () => window.removeEventListener('resize', resizeListener);
+		}
+		return undefined;
+	}, []);
+
+	useEffect(() => {
+		if (responsive) {
+			setTimeout(() => tryHorizontal());
+		}
+	}, []);
 
 	return (
 		<DateTimeRange.Manager
@@ -38,7 +82,7 @@ function InputDateTimeRangePicker(props) {
 		>
 			<DateTimeRangeContext.Consumer>
 				{({ startDateTime, endDateTime, onStartChange, onEndChange }) => (
-					<div className={className}>
+					<div className={className} ref={containerRef}>
 						<div>
 							<label htmlFor={props.id} className="control-label">
 								{props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
@@ -80,6 +124,7 @@ function InputDateTimeRangePicker(props) {
 }
 InputDateTimeRangePicker.defaultProps = {
 	vertical: false,
+	responsive: false,
 	dateFormat: 'YYYY-MM-DD',
 	t: getDefaultT(),
 };
@@ -101,6 +146,7 @@ InputDateTimeRangePicker.propTypes = {
 		PropTypes.string,
 	]),
 	vertical: PropTypes.bool,
+	responsive: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 
