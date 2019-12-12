@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import omit from 'lodash/omit';
 
 import Icon from '../../Icon';
 
@@ -12,8 +13,12 @@ import getDefaultT from '../../translate';
 
 import theme from './InputDateTimeRangePicker.scss';
 
+const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange'];
+
 function InputDateTimeRangePicker(props) {
 	const { id, dateFormat, useSeconds, onChange, onBlur } = props;
+	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
+
 	return (
 		<DateTimeRange.Manager
 			startDateTime={props.startDateTime}
@@ -28,10 +33,11 @@ function InputDateTimeRangePicker(props) {
 								{props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 							</label>
 							<InputDateTimePicker
+								{...inputProps}
 								id={`${id}-start`}
 								dateFormat={dateFormat}
 								useSeconds={useSeconds}
-								selectedDateTime={startDateTime}
+								value={startDateTime}
 								endDate={endDateTime}
 								onChange={onStartChange}
 								onBlur={onBlur}
@@ -45,10 +51,11 @@ function InputDateTimeRangePicker(props) {
 								{props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
 							</label>
 							<InputDateTimePicker
+								{...inputProps}
 								id={`${id}-end`}
 								dateFormat={dateFormat}
 								useSeconds={useSeconds}
-								selectedDateTime={endDateTime}
+								value={endDateTime}
 								startDate={startDateTime}
 								onChange={onEndChange}
 								onBlur={onBlur}
