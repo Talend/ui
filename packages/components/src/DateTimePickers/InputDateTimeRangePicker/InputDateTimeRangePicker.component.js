@@ -13,7 +13,14 @@ import getDefaultT from '../../translate';
 
 import theme from './InputDateTimeRangePicker.scss';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange'];
+const PROPS_TO_OMIT_FOR_INPUT = [
+	'id',
+	'dateFormat',
+	'onBlur',
+	'onChange',
+	'startDateTime',
+	'endDateTime',
+];
 
 function InputDateTimeRangePicker(props) {
 	const { id, dateFormat, useSeconds, onChange, onBlur } = props;

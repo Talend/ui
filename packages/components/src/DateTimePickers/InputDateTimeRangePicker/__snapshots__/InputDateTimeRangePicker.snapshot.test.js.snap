@@ -28,8 +28,9 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           endDate="2019-12-11 23:59:59"
           id="my-picker-start"
           onChange={[Function]}
-          selectedDateTime="2019-12-01 00:00:00"
+          t={[Function]}
           useSeconds={true}
+          value="2019-12-01 00:00:00"
         >
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
@@ -37,9 +38,10 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             id="my-picker-start"
             onChange={[Function]}
             required={true}
-            selectedDateTime="2019-12-01 00:00:00"
+            t={[Function]}
             useSeconds={true}
             useUTC={false}
+            value="2019-12-01 00:00:00"
           >
             <DateTime.Manager
               dateFormat="YYYY-MM-DD"
@@ -376,19 +378,21 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           dateFormat="YYYY-MM-DD"
           id="my-picker-end"
           onChange={[Function]}
-          selectedDateTime="2019-12-11 23:59:59"
           startDate="2019-12-01 00:00:00"
+          t={[Function]}
           useSeconds={true}
+          value="2019-12-11 23:59:59"
         >
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
             id="my-picker-end"
             onChange={[Function]}
             required={true}
-            selectedDateTime="2019-12-11 23:59:59"
             startDate="2019-12-01 00:00:00"
+            t={[Function]}
             useSeconds={true}
             useUTC={false}
+            value="2019-12-11 23:59:59"
           >
             <DateTime.Manager
               dateFormat="YYYY-MM-DD"
