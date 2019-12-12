@@ -2,7 +2,30 @@
 
 .range-picker {
 	@include range-picker;
+
+	:global(.arrow) {
+		@include arrow;
+		display: flex;
+		align-items: flex-end;
+
+		:global(.icon) {
+			@include icon;
+		}
+	}
 }
-.arrow {
-	@include arrow;
+.range-picker-vertical {
+	@include range-picker;
+	flex-direction: column;
+	align-items: flex-start;
+
+	:global(.arrow) {
+		@include arrow;
+		display: flex;
+		align-items: center;
+
+		:global(.icon) {
+			@include icon;
+			transform: rotate(90deg);
+		}
+	}
 }

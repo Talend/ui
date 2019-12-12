@@ -454,6 +454,19 @@ storiesOf('DatePicker', module)
 			</form>
 		</div>
 	))
+	.add('DateTime Range picker - vertical', () => (
+		<div>
+			<IconsProvider />
+			<h1>DateTime Range picker</h1>
+			<form>
+				<InputDateTimeRangePicker
+					onChange={action('onChange')}
+					onBlur={action('onBlur')}
+					vertical
+				/>
+			</form>
+		</div>
+	))
 	.add('Legacy - form mode', () => (
 		<div>
 			<IconsProvider />

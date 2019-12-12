@@ -26,6 +26,10 @@ function InputDateTimeRangePicker(props) {
 	const { id, dateFormat, useSeconds, onChange, onBlur } = props;
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 
+	const className = props.vertical
+		? classnames(theme['range-picker-vertical'], 'range-picker-vertical')
+		: classnames(theme['range-picker'], 'range-picker');
+
 	return (
 		<DateTimeRange.Manager
 			startDateTime={props.startDateTime}
@@ -34,7 +38,7 @@ function InputDateTimeRangePicker(props) {
 		>
 			<DateTimeRangeContext.Consumer>
 				{({ startDateTime, endDateTime, onStartChange, onEndChange }) => (
-					<div className={classnames(theme['range-picker'], 'range-picker')}>
+					<div className={className}>
 						<div>
 							<label htmlFor={props.id} className="control-label">
 								{props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
@@ -50,8 +54,8 @@ function InputDateTimeRangePicker(props) {
 								onBlur={onBlur}
 							/>
 						</div>
-						<span className={theme.arrow}>
-							<Icon name="talend-arrow-right" className={theme.icon} />
+						<span className="arrow">
+							<Icon name="talend-arrow-right" className="icon" />
 						</span>
 						<div>
 							<label htmlFor={props.id} className="control-label">
@@ -75,6 +79,7 @@ function InputDateTimeRangePicker(props) {
 	);
 }
 InputDateTimeRangePicker.defaultProps = {
+	vertical: false,
 	dateFormat: 'YYYY-MM-DD',
 	t: getDefaultT(),
 };
@@ -95,6 +100,7 @@ InputDateTimeRangePicker.propTypes = {
 		PropTypes.number,
 		PropTypes.string,
 	]),
+	vertical: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 
