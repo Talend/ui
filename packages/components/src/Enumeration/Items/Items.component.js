@@ -104,31 +104,43 @@ class Items extends React.PureComponent {
 	}
 
 	render() {
+		const { calculateListHeight } = this.props.itemsProp;
 		const actions = this.props.itemsProp && this.props.itemsProp.actionsDefault;
-		return (
+		const ListItems = (
+			<AutoSizer>
+				{({ height, width }) => (
+					<List
+						/**
+						 * The props 'items' and 'actions' does not exist in <List>
+						 * but only way to refresh component when items or actions change
+						 * See https://github.com/bvaughn/react-virtualized/#pure-components
+						 */
+						items={this.props.items}
+						actions={actions}
+						className={theme['tc-list-items']}
+						rowRenderer={this.rowRenderer}
+						width={width}
+						height={height}
+						rowCount={this.props.items.length}
+						rowHeight={this.getRowHeight}
+					/>
+				)}
+			</AutoSizer>
+		);
+		return calculateListHeight ? (
+			<div
+				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
+				onScroll={this.scrollEnumeration}
+				style={{ height: `${calculateListHeight(this.props.items)}px` }}
+			>
+				{ListItems}
+			</div>
+		) : (
 			<div
 				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
 				onScroll={this.scrollEnumeration}
 			>
-				<AutoSizer>
-					{({ height, width }) => (
-						<List
-							/**
-							 * The props 'items' and 'actions' does not exist in <List>
-							 * but only way to refresh component when items or actions change
-							 * See https://github.com/bvaughn/react-virtualized/#pure-components
-							 */
-							items={this.props.items}
-							actions={actions}
-							className={theme['tc-list-items']}
-							rowRenderer={this.rowRenderer}
-							width={width}
-							height={height}
-							rowCount={this.props.items.length}
-							rowHeight={this.getRowHeight}
-						/>
-					)}
-				</AutoSizer>
+				{ListItems}
 			</div>
 		);
 	}
