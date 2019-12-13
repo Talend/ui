@@ -402,7 +402,7 @@ describe('Enumeration', () => {
 		const ROW_HEIGHT = 42;
 		const items = Array(3)
 			.fill('')
-			.map((item, index) => ({
+			.map((_, index) => ({
 				values: [`Lorem ipsum dolor sit amet ${index}`],
 			}));
 		const props = {
@@ -418,7 +418,7 @@ describe('Enumeration', () => {
 			items,
 			itemsProp: {
 				key: 'values',
-				calculateHeight: listItems => {
+				calculateListHeight: listItems => {
 					if (listItems.length) {
 						return listItems.length * ROW_HEIGHT;
 					}

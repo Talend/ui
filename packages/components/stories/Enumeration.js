@@ -448,7 +448,7 @@ const EnumerationDynamicHeight = () => {
 		onAddChange: () => {},
 		onAddKeyDown: () => {},
 		itemsProp: {
-			calculateHeight: listItems => (listItems.length ? listItems.length * ROW_HEIGHT : 0),
+			calculateListHeight: listItems => (listItems.length ? listItems.length * ROW_HEIGHT : 0),
 			getItemHeight: () => ROW_HEIGHT,
 			actionsDefault: [],
 			key: 'values',
