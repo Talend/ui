@@ -81,7 +81,7 @@ export const Validation = () => {
 				label="Required"
 				rhf={rhf}
 				titleMap={titleMap}
-				registerOptions={{ required: 'This is required' }}
+				rules={{ required: 'This is required' }}
 				required
 			/>
 			<Datalist
@@ -89,7 +89,7 @@ export const Validation = () => {
 				label="Not lol"
 				rhf={rhf}
 				titleMap={titleMap}
-				registerOptions={{
+				rules={{
 					validate(value) {
 						return value === 'lol' ? 'This must not be lol' : null;
 					},

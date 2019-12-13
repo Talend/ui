@@ -16,9 +16,25 @@ export const States = () => {
 	const { handleSubmit, ...rhf } = useForm();
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Input id="name" type="text" name="default" label="Default" rhf={rhf} />
-			<Input id="disabled" type="text" name="disabled" label="Disabled" rhf={rhf} disabled />
-			<Input id="readonly" type="text" name="readonly" label="Readonly" rhf={rhf} readOnly />
+			<Input id="name" type="text" name="default" label="Default" defaultValue="Jimmy" rhf={rhf} />
+			<Input
+				id="disabled"
+				type="text"
+				name="disabled"
+				label="Disabled"
+				defaultValue="Jimmy"
+				rhf={rhf}
+				disabled
+			/>
+			<Input
+				id="readonly"
+				type="text"
+				name="readonly"
+				label="Readonly"
+				defaultValue="Jimmy"
+				rhf={rhf}
+				readOnly
+			/>
 			<button type="submit" className="btn btn-primary">
 				Submit
 			</button>
@@ -49,9 +65,9 @@ export const DefaultValue = () => {
 			<Input
 				id="defaultValue"
 				type="text"
-				name="defaultValue"
-				label="Default value"
-				defaultValue="lol"
+				name="name"
+				label="Name"
+				defaultValue="Jimmy"
 				rhf={rhf}
 			/>
 			<button type="submit" className="btn btn-primary">
@@ -69,8 +85,8 @@ export const Description = () => {
 			<Input
 				id="description"
 				type="text"
-				name="description"
-				label="Description"
+				name="name"
+				label="Name"
 				description="This field has a description"
 				rhf={rhf}
 			/>
@@ -91,7 +107,7 @@ export const Validation = () => {
 				name="required"
 				label="Required"
 				rhf={rhf}
-				registerOptions={{ required: 'This is required' }}
+				rules={{ required: 'This is required' }}
 				required
 			/>
 			<Input
@@ -100,7 +116,7 @@ export const Validation = () => {
 				name="notLol"
 				label="Not lol"
 				rhf={rhf}
-				registerOptions={{
+				rules={{
 					validate(value) {
 						return value === 'lol' ? 'This should not be lol' : null;
 					},

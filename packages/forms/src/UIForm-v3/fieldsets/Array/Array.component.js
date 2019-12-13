@@ -13,7 +13,7 @@ import FieldsetTemplate from '../../templates/FieldsetTemplate';
 import ArrayContext from './context';
 
 export default function ArrayFieldset(props) {
-	const { children, initialNbItems = 0, name, registerOptions, rhf, ...restProps } = props;
+	const { children, initialNbItems = 0, name, rhf, rules, ...restProps } = props;
 	const { errors, getValues, setValue, register, unregister, triggerValidation } = rhf;
 	const lengthName = `${name}.length`;
 
@@ -31,7 +31,7 @@ export default function ArrayFieldset(props) {
 		}
 
 		// we register the array length, so any change on it will trigger the array validation
-		register({ name: lengthName }, registerOptions);
+		register({ name: lengthName }, rules);
 
 		return () => {
 			unregister(name);
@@ -118,7 +118,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string.isRequired,
 		initialNbItems: PropTypes.number,
 		name: PropTypes.string.isRequired,
-		registerOptions: PropTypes.object,
+		rules: PropTypes.object,
 		rhf: PropTypes.object.isRequired,
 	};
 }

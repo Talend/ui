@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
-export default function useControlledInput({ defaultValue, name, registerOptions, rhf }) {
+export default function useControlledInput({ defaultValue, name, rhf, rules }) {
 	const { register, setValue, unregister, watch } = rhf;
 	useEffect(() => {
-		register({ name }, registerOptions);
+		register({ name }, rules);
 		if (defaultValue !== undefined) {
 			setValue(name, defaultValue);
 		}

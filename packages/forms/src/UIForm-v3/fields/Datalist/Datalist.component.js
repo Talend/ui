@@ -6,11 +6,11 @@ import { generateDescriptionId, generateErrorId } from '../../templates/utils';
 import useControlledInput from '../useControlledInput';
 
 function Datalist(props) {
-	const { defaultValue, description, inProgress, label, registerOptions, rhf, ...rest } = props;
+	const { defaultValue, description, inProgress, label, rhf, rules, ...rest } = props;
 	const { id, name, required } = rest;
 	const { errors, setValue } = rhf;
 
-	const value = useControlledInput({ defaultValue, name, registerOptions, rhf });
+	const value = useControlledInput({ defaultValue, name, rules, rhf });
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const error = errors[name];
@@ -49,8 +49,8 @@ if (process.env.NODE_ENV !== 'production') {
 		description: PropTypes.string,
 		inProgress: PropTypes.bool,
 		label: PropTypes.string.isRequired,
-		registerOptions: PropTypes.object,
 		rhf: PropTypes.object.isRequired,
+		rules: PropTypes.object,
 	};
 }
 

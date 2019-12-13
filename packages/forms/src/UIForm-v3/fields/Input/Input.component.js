@@ -5,7 +5,7 @@ import FieldTemplate from '../../templates/FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../templates/utils';
 
 function Input(props) {
-	const { className, description, inProgress, label, registerOptions = {}, rhf, ...rest } = props;
+	const { className, description, inProgress, label, rules = {}, rhf, ...rest } = props;
 	const { id, name, required } = rest;
 	const { errors, register } = rhf;
 
@@ -25,7 +25,7 @@ function Input(props) {
 		>
 			<input
 				{...rest}
-				ref={register(registerOptions)}
+				ref={register(rules)}
 				className={classnames('form-control', className)}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!!error}
@@ -43,7 +43,7 @@ if (process.env.NODE_ENV !== 'production') {
 		description: PropTypes.string,
 		inProgress: PropTypes.bool,
 		label: PropTypes.string.isRequired,
-		registerOptions: PropTypes.object,
+		rules: PropTypes.object,
 		rhf: PropTypes.object.isRequired,
 	};
 }

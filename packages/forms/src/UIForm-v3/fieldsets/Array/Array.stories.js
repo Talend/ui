@@ -351,7 +351,7 @@ export const ItemValidation = () => {
 								name={`users[${index}].lastname`}
 								label="Last name"
 								rhf={rhf}
-								registerOptions={{ validate: { uniqueLastname } }}
+								rules={{ validate: { uniqueLastname } }}
 							/>
 							<Input
 								id={`user-${index}-age`}
@@ -392,7 +392,7 @@ export const ArrayValidation = () => {
 				legend="My awesome users"
 				name="users"
 				rhf={rhf}
-				registerOptions={{ validate: min3Items }}
+				rules={{ validate: min3Items }}
 			>
 				<div>
 					<ArrayFieldset.AddButton />
