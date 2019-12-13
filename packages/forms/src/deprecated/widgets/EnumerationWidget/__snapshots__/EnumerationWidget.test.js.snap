@@ -3616,6 +3616,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -6252,6 +6254,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -7360,6 +7364,8 @@ exports[`EnumerationWidget should select an item 1`] = `
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -8770,6 +8776,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -12369,6 +12377,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -14626,6 +14636,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
