@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
-
+import get from 'lodash/get';
 import Action from '../../Actions/Action/Action.component';
 import Item from './Item/Item.component';
 import ItemEdit from './Item/ItemEdit.component';
@@ -104,13 +104,13 @@ class Items extends React.PureComponent {
 	}
 
 	render() {
-		const { calculateListHeight } = this.props.itemsProp;
+		const calculateListHeight = get(this.props, 'itemsProp.calculateHeight');
 		const actions = this.props.itemsProp && this.props.itemsProp.actionsDefault;
 		return (
 			<div
 				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
 				onScroll={this.scrollEnumeration}
-				style={{ height: calculateListHeight ? `${calculateListHeight(this.props.items)}px` : {} }}
+				style={{ height: get(this.props, 'itemsProp.calculateHeight') ? `${calculateListHeight(this.props.items)}px` : {} }}
 			>
 				<AutoSizer>
 					{({ height, width }) => (
