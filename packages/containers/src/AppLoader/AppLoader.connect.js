@@ -13,15 +13,19 @@ const CustomInject = cmfConnect({
 	withDispatchActionCreator: true,
 	withComponentId: true,
 })(Inject);
+
+const appLoaderRenderer = appLoaderElement => appLoaderElement;
+
 /**
  * This container show the application's loader & bootstrap the app
  * @param {object} props the component props
  * @param {boolean} props.loading tell if the app loader should show the loader or the content
+ * @param {function} props.renderer lets you customise the way we display the loader in the app
  * @param {object} props.children react element to show
  */
-export function AppLoaderContainer({ loading, children, ...rest }) {
+export function AppLoaderContainer({ loading, renderer = appLoaderRenderer, children, ...rest }) {
 	if (loading) {
-		return <AppLoader {...rest} />;
+		return renderer(<AppLoader {...rest} />);
 	}
 
 	const injected = Inject.all(rest.getComponent, rest.components, CustomInject);
@@ -38,6 +42,7 @@ AppLoaderContainer.displayName = 'AppLoader';
 AppLoaderContainer.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 	loading: PropTypes.bool,
+	renderer: PropTypes.func,
 };
 
 /**
