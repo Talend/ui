@@ -111,9 +111,7 @@ class Items extends React.PureComponent {
 				test-id={'enumeration-items-list'}
 				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
 				onScroll={this.scrollEnumeration}
-				style={{
-					height: calculateListHeight ? `${calculateListHeight(this.props.items)}px` : {},
-				}}
+				style={calculateListHeight ? { height: `${calculateListHeight(this.props.items)}px` } : {}}
 			>
 				<AutoSizer>
 					{({ height, width }) => (
