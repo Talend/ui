@@ -24,6 +24,8 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 	'timezone',
 	'hideTimezone',
+	'startDate',
+	'endDate',
 ];
 
 function onMouseDown(event) {
