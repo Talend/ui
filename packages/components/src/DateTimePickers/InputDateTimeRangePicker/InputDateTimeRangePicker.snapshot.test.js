@@ -3,16 +3,17 @@ import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import InputDateTimePicker from './InputDateTimePicker.component';
+import InputDateTimeRangePicker from './InputDateTimeRangePicker.component';
 
-describe('InputDateTimePicker', () => {
+describe('InputDateTimeRangePicker', () => {
 	it('should render', () => {
 		// when
 		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
 		const wrapper = mount(
-			<InputDateTimePicker
+			<InputDateTimeRangePicker
 				id="my-picker"
-				selectedDateTime={new Date(2017, 3, 4, 15, 27)}
+				startDateTime="2019-12-01 00:00:00"
+				endDateTime="2019-12-11 23:59:59"
 				useSeconds
 			/>,
 		);

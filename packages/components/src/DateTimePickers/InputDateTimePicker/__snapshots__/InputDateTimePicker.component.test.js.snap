@@ -58,7 +58,7 @@ exports[`InputDateTimePicker should render 1`] = `
                     <span
                       style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                     >
-                      2017-04-04
+                      YYYY-MM-DD
                     </span>
                   </div>,
                 }
@@ -94,8 +94,7 @@ exports[`InputDateTimePicker should render 1`] = `
                   key="input"
                 >
                   <InputSizer
-                    inputText="2017-04-04"
-                    placeholder="YYYY-MM-DD"
+                    inputText="YYYY-MM-DD"
                   >
                     <DebounceInput
                       autoComplete="off"
@@ -156,7 +155,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         }
                       }
                     >
-                      2017-04-04
+                      YYYY-MM-DD
                     </span>
                   </InputSizer>
                 </Date.Input>

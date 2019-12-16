@@ -5,8 +5,7 @@ exports[`Date.Input should render 1`] = `
   aria-labelledby="labelId"
 >
   <InputSizer
-    inputText=""
-    placeholder="YYYY-MM-DD"
+    inputText="YYYY-MM-DD"
   >
     <DebounceInput
       aria-labelledby="labelId"
@@ -47,7 +46,6 @@ exports[`Date.Input should render 1`] = `
       style={
         Object {
           "fontSize": "1.6rem",
-          "fontStyle": "oblique",
           "fontWeight": 400,
           "position": "absolute",
           "visibility": "hidden",

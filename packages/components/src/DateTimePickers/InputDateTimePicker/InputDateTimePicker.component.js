@@ -36,6 +36,8 @@ function InputDateTimePicker(props) {
 							onChange={onDateChange}
 							value={date}
 							dateFormat={props.dateFormat}
+							startDate={props.startDate}
+							endDate={props.endDate}
 						/>
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
@@ -67,6 +69,8 @@ InputDateTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
 	timezone: PropTypes.string,
+	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 };
 
 InputDateTimePicker.defaultProps = {
