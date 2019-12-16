@@ -34,26 +34,16 @@ function InputDateTimeRangePicker(props) {
 		? classnames(theme['range-picker-vertical'], 'range-picker-vertical')
 		: classnames(theme['range-picker'], 'range-picker');
 
-	function tryHorizontal() {
+	function showHorizontalAndTest() {
+		if (vertical) {
+			setVertical(false);
+		}
 		const rangeContainer = containerRef.current;
-		if (rangeContainer) {
-			const nodes = rangeContainer.querySelectorAll('input');
-			const lastChild = nodes[nodes.length - 1];
-			if (lastChild) {
-				if (
-					rangeContainer.getBoundingClientRect().right < lastChild.getBoundingClientRect().right
-				) {
-					setVertical(true);
-				}
-			}
+		if (rangeContainer && rangeContainer.scrollWidth > rangeContainer.offsetWidth) {
+			setVertical(true);
 		} else {
 			setVertical(false);
 		}
-	}
-
-	function showHorizontalAndTest() {
-		setVertical(false);
-		tryHorizontal();
 	}
 
 	useEffect(() => {
@@ -62,7 +52,7 @@ function InputDateTimeRangePicker(props) {
 	}, []);
 
 	useEffect(() => {
-		setTimeout(() => tryHorizontal());
+		setTimeout(() => showHorizontalAndTest());
 	}, []);
 
 	return (
