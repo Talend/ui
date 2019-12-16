@@ -458,13 +458,38 @@ storiesOf('DatePicker', module)
 		<div>
 			<IconsProvider />
 			<h1>DateTime Range picker</h1>
-			<p>Resize windown to trigger responsive layout</p>
+			<p>Resize window to trigger responsive layout</p>
+			<pre>{`
+<InputDateTimeRangePicker
+	id="my-picker"
+	onChange={action('onChange')}
+	onBlur={action('onBlur')}
+	responsive
+/>
+			`}</pre>
 			<form>
 				<InputDateTimeRangePicker
 					id="my-picker"
 					onChange={action('onChange')}
 					onBlur={action('onBlur')}
 					responsive
+				/>
+			</form>
+			<p style={{ paddingTop: 20 }}>Set props.vertical to apply vertical layout always</p>
+			<pre>{`
+<InputDateTimeRangePicker
+	id="my-picker"
+	onChange={action('onChange')}
+	onBlur={action('onBlur')}
+	vertical
+/>
+			`}</pre>
+			<form>
+				<InputDateTimeRangePicker
+					id="my-picker"
+					onChange={action('onChange')}
+					onBlur={action('onBlur')}
+					vertical
 				/>
 			</form>
 		</div>
