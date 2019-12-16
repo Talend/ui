@@ -5,11 +5,9 @@ exports[`InputDateTimeRangePicker should render 1`] = `
   dateFormat="YYYY-MM-DD"
   endDateTime="2019-12-11 23:59:59"
   id="my-picker"
-  responsive={false}
   startDateTime="2019-12-01 00:00:00"
   t={[Function]}
   useSeconds={true}
-  vertical={false}
 >
   <DateTimeRange.Manager
     endDateTime="2019-12-11 23:59:59"
@@ -30,11 +28,9 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           endDate="2019-12-11 23:59:59"
           id="my-picker-start"
           onChange={[Function]}
-          responsive={false}
           t={[Function]}
           useSeconds={true}
           value="2019-12-01 00:00:00"
-          vertical={false}
         >
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
@@ -42,12 +38,10 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             id="my-picker-start"
             onChange={[Function]}
             required={true}
-            responsive={false}
             t={[Function]}
             useSeconds={true}
             useUTC={false}
             value="2019-12-01 00:00:00"
-            vertical={false}
           >
             <DateTime.Manager
               dateFormat="YYYY-MM-DD"
@@ -86,7 +80,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <input
                               autocomplete="off"
                               class="form-control"
-                              enddate="2019-12-11 23:59:59"
                               id="my-picker-start-date-picker-input"
                               placeholder="YYYY-MM-DD"
                               style="width: 47px;"
@@ -115,14 +108,12 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                         tabIndex={-1}
                       >
                         <Date.Input
-                          endDate="2019-12-11 23:59:59"
                           id="my-picker-start-date-picker-input"
                           inputRef={
                             Object {
                               "current": <input
                                 autocomplete="off"
                                 class="form-control"
-                                enddate="2019-12-11 23:59:59"
                                 id="my-picker-start-date-picker-input"
                                 placeholder="YYYY-MM-DD"
                                 style="width: 47px;"
@@ -141,7 +132,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               className="form-control"
                               debounceTimeout={300}
                               element="input"
-                              endDate="2019-12-11 23:59:59"
                               forceNotifyByEnter={true}
                               forceNotifyOnBlur={true}
                               id="my-picker-start-date-picker-input"
@@ -150,7 +140,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                   "current": <input
                                     autocomplete="off"
                                     class="form-control"
-                                    enddate="2019-12-11 23:59:59"
                                     id="my-picker-start-date-picker-input"
                                     placeholder="YYYY-MM-DD"
                                     style="width: 47px;"
@@ -173,7 +162,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               <input
                                 autoComplete="off"
                                 className="form-control"
-                                endDate="2019-12-11 23:59:59"
                                 id="my-picker-start-date-picker-input"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -354,15 +342,15 @@ exports[`InputDateTimeRangePicker should render 1`] = `
         </InputDateTimePickerSwitch>
       </div>
       <span
-        className="arrow"
+        className="theme-arrow arrow"
       >
         <Icon
-          className="icon"
+          className="theme-icon icon"
           name="talend-arrow-right"
         >
           <svg
             aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon icon"
+            className="theme-tc-svg-icon tc-svg-icon theme-icon icon"
             focusable="false"
             name="talend-arrow-right"
             title={null}
@@ -384,25 +372,21 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           dateFormat="YYYY-MM-DD"
           id="my-picker-end"
           onChange={[Function]}
-          responsive={false}
           startDate="2019-12-01 00:00:00"
           t={[Function]}
           useSeconds={true}
           value="2019-12-11 23:59:59"
-          vertical={false}
         >
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
             id="my-picker-end"
             onChange={[Function]}
             required={true}
-            responsive={false}
             startDate="2019-12-01 00:00:00"
             t={[Function]}
             useSeconds={true}
             useUTC={false}
             value="2019-12-11 23:59:59"
-            vertical={false}
           >
             <DateTime.Manager
               dateFormat="YYYY-MM-DD"
@@ -443,7 +427,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               class="form-control"
                               id="my-picker-end-date-picker-input"
                               placeholder="YYYY-MM-DD"
-                              startdate="2019-12-01 00:00:00"
                               style="width: 47px;"
                               type="text"
                               value="2019-12-11"
@@ -478,7 +461,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 class="form-control"
                                 id="my-picker-end-date-picker-input"
                                 placeholder="YYYY-MM-DD"
-                                startdate="2019-12-01 00:00:00"
                                 style="width: 47px;"
                                 type="text"
                                 value="2019-12-11"
@@ -486,7 +468,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             }
                           }
                           key="input"
-                          startDate="2019-12-01 00:00:00"
                         >
                           <InputSizer
                             inputText="YYYY-MM-DD"
@@ -506,7 +487,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                     class="form-control"
                                     id="my-picker-end-date-picker-input"
                                     placeholder="YYYY-MM-DD"
-                                    startdate="2019-12-01 00:00:00"
                                     style="width: 47px;"
                                     type="text"
                                     value="2019-12-11"
@@ -516,7 +496,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               minLength={0}
                               onChange={[Function]}
                               placeholder="YYYY-MM-DD"
-                              startDate="2019-12-01 00:00:00"
                               style={
                                 Object {
                                   "width": 47,
@@ -533,7 +512,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 onChange={[Function]}
                                 onKeyDown={[Function]}
                                 placeholder="YYYY-MM-DD"
-                                startDate="2019-12-01 00:00:00"
                                 style={
                                   Object {
                                     "width": 47,
