@@ -114,8 +114,6 @@ function InputDateTimeRangePicker(props) {
 	);
 }
 InputDateTimeRangePicker.defaultProps = {
-	vertical: false,
-	responsive: false,
 	dateFormat: 'YYYY-MM-DD',
 	t: getDefaultT(),
 };
