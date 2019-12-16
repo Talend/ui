@@ -32,7 +32,7 @@ describe('DateRange.Picker', () => {
 				.find('CalendarPicker')
 				.at(0)
 				.props(),
-		).toEqual({
+		).toMatchObject({
 			manageFocus: true,
 			onSubmit: managerValue.pickerManagement.onStartChange,
 			other: 'custom props',

@@ -25,7 +25,7 @@ describe('Date.Picker', () => {
 		);
 
 		// then
-		expect(wrapper.find('CalendarPicker').props()).toEqual({
+		expect(wrapper.find('CalendarPicker').props()).toMatchObject({
 			manageFocus: true,
 			onSubmit: managerValue.pickerManagement.onSubmit,
 			other: 'custom props',

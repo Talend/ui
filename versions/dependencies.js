@@ -71,12 +71,12 @@ module.exports = {
 	deepmerge: '^1.5.1',
 
 	// dev deps
-	'@storybook/react': '^5.2.6',
-	'@storybook/addon-a11y': '^5.2.6',
-	'@storybook/addon-actions': '^5.2.6',
-	'@storybook/addon-info': '^5.2.6',
-	'@storybook/addon-knobs': '^5.2.6',
-	'@storybook/addons': '^5.2.6',
+	'@storybook/react': '^5.2.8',
+	'@storybook/addon-a11y': '^5.2.8',
+	'@storybook/addon-actions': '^5.2.8',
+	'@storybook/addon-info': '^5.2.8',
+	'@storybook/addon-knobs': '^5.2.8',
+	'@storybook/addons': '^5.2.8',
 	autoprefixer: '^7.1.4',
 	'babel-eslint': '^10.0.1',
 	'babel-jest': JEST_VERSION,
