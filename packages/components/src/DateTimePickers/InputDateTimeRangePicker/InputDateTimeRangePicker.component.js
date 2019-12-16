@@ -79,8 +79,8 @@ function InputDateTimeRangePicker(props) {
 								onBlur={onBlur}
 							/>
 						</div>
-						<span className="arrow">
-							<Icon name="talend-arrow-right" className="icon" />
+						<span className={classnames(theme.arrow, 'arrow')}>
+							<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
 						</span>
 						<div>
 							<label htmlFor={props.id} className="control-label">

@@ -3,12 +3,12 @@
 .range-picker {
 	@include range-picker;
 
-	:global(.arrow) {
+	.arrow {
 		@include arrow;
 		display: flex;
 		align-items: flex-end;
 
-		:global(.icon) {
+		.icon {
 			@include icon;
 		}
 	}

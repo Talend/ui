@@ -7,12 +7,12 @@
 	@include date-picker;
 	align-items: flex-end;
 
-	:global(.arrow) {
+	.arrow {
 		@include arrow;
 		display: flex;
 		align-items: flex-end;
 
-		:global(.icon) {
+		.icon {
 			@include icon;
 		}
 	}
