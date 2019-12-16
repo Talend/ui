@@ -19,7 +19,7 @@ export default function SchemaForm({ customValidation, data, onSubmit, widgets, 
 				mergedSchema.map((widgetSchema, index) => (
 					<Widget
 						customValidation={customValidation}
-						index={index}
+						key={index}
 						id={restProps.id}
 						rhf={rhf}
 						schema={widgetSchema}
@@ -43,7 +43,6 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 		id: PropTypes.string.isRequired,
 		onSubmit: PropTypes.func.isRequired,
-		rhf: PropTypes.object.isRequired,
 		widgets: PropTypes.object,
 	};
 }

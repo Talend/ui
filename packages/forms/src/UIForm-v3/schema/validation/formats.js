@@ -96,5 +96,5 @@ const getFormats = t => ({
 });
 
 export default function formatsRules(schema, t) {
-	return schema.schema.format ? getFormats(t)[schema.schema.format] : undefined;
+	return schema.schema.format ? getFormats(t)[schema.schema.format] : null;
 }

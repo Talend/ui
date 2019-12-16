@@ -1,13 +1,15 @@
+import get from 'lodash/get';
+
 export default function patternRule(schema, t) {
-	if (!schema.schema.pattern) {
-		return null;
+	const pattern = get(schema, 'schema.pattern');
+	if (pattern) {
+		return {
+			value: new RegExp(pattern),
+			message: t('ERROR_STRING_PATTERN', {
+				defaultValue: 'String does not match pattern: {{pattern}}',
+				pattern,
+			}),
+		};
 	}
-	return function validatePattern(value) {
-		if (!schema.schema.pattern.match(value)) {
-			return null;
-		}
-		return t('ERROR_STRING_PATTERN', {
-			defaultValue: 'String does not match pattern: {pattern}',
-		});
-	};
+	return null;
 }
