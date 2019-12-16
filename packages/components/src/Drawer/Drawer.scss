@@ -2,6 +2,7 @@
 
 $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: #fff !default;
+$tc-drawer-header-color: $st-tropaz !default;
 $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
 $tc-action-bar-background-color: $concrete !default;
@@ -77,7 +78,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			color: $white;
 		}
 	}
-	background-color: $brand-primary-lighter;
 
 	&-title {
 		padding: $padding-normal;
@@ -88,8 +88,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		h1 {
 			font-size: $font-size-large;
 			margin: 0;
-			color: white;
-			text-transform: uppercase;
+			color: $tc-drawer-header-color;
 			text-overflow: ellipsis;
 			width: 90%;
 			white-space: nowrap;
