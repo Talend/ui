@@ -5,9 +5,11 @@ exports[`InputDateTimeRangePicker should render 1`] = `
   dateFormat="YYYY-MM-DD"
   endDateTime="2019-12-11 23:59:59"
   id="my-picker"
+  responsive={false}
   startDateTime="2019-12-01 00:00:00"
   t={[Function]}
   useSeconds={true}
+  vertical={false}
 >
   <DateTimeRange.Manager
     endDateTime="2019-12-11 23:59:59"
@@ -28,9 +30,11 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           endDate="2019-12-11 23:59:59"
           id="my-picker-start"
           onChange={[Function]}
+          responsive={false}
           t={[Function]}
           useSeconds={true}
           value="2019-12-01 00:00:00"
+          vertical={false}
         >
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
@@ -38,10 +42,12 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             id="my-picker-start"
             onChange={[Function]}
             required={true}
+            responsive={false}
             t={[Function]}
             useSeconds={true}
             useUTC={false}
             value="2019-12-01 00:00:00"
+            vertical={false}
           >
             <DateTime.Manager
               dateFormat="YYYY-MM-DD"
@@ -212,11 +218,11 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                     value="00:00:00"
                   >
                     <FocusManager
-                      className="theme-time-picker"
+                      className="theme-time-picker time-picker"
                       divRef={
                         Object {
                           "current": <div
-                            class="theme-time-picker"
+                            class="theme-time-picker time-picker"
                             tabindex="-1"
                           >
                             <input
@@ -243,7 +249,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                       onKeyDown={[Function]}
                     >
                       <div
-                        className="theme-time-picker"
+                        className="theme-time-picker time-picker"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
@@ -348,15 +354,15 @@ exports[`InputDateTimeRangePicker should render 1`] = `
         </InputDateTimePickerSwitch>
       </div>
       <span
-        className="theme-arrow"
+        className="arrow"
       >
         <Icon
-          className="theme-icon"
+          className="icon"
           name="talend-arrow-right"
         >
           <svg
             aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon theme-icon"
+            className="theme-tc-svg-icon tc-svg-icon icon"
             focusable="false"
             name="talend-arrow-right"
             title={null}
@@ -378,21 +384,25 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           dateFormat="YYYY-MM-DD"
           id="my-picker-end"
           onChange={[Function]}
+          responsive={false}
           startDate="2019-12-01 00:00:00"
           t={[Function]}
           useSeconds={true}
           value="2019-12-11 23:59:59"
+          vertical={false}
         >
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
             id="my-picker-end"
             onChange={[Function]}
             required={true}
+            responsive={false}
             startDate="2019-12-01 00:00:00"
             t={[Function]}
             useSeconds={true}
             useUTC={false}
             value="2019-12-11 23:59:59"
+            vertical={false}
           >
             <DateTime.Manager
               dateFormat="YYYY-MM-DD"
@@ -563,11 +573,11 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                     value="23:59:59"
                   >
                     <FocusManager
-                      className="theme-time-picker"
+                      className="theme-time-picker time-picker"
                       divRef={
                         Object {
                           "current": <div
-                            class="theme-time-picker"
+                            class="theme-time-picker time-picker"
                             tabindex="-1"
                           >
                             <input
@@ -594,7 +604,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                       onKeyDown={[Function]}
                     >
                       <div
-                        className="theme-time-picker"
+                        className="theme-time-picker time-picker"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}

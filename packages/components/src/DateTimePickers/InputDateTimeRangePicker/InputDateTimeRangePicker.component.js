@@ -24,16 +24,15 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 ];
 
 function InputDateTimeRangePicker(props) {
-	const { id, dateFormat, useSeconds, onChange, onBlur, responsive } = props;
+	const { id, dateFormat, useSeconds, onChange, onBlur } = props;
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 
 	const [vertical, setVertical] = useState(false);
 	const containerRef = useRef();
 
-	const className =
-		props.vertical || vertical
-			? classnames(theme['range-picker-vertical'], 'range-picker-vertical')
-			: classnames(theme['range-picker'], 'range-picker');
+	const className = vertical
+		? classnames(theme['range-picker-vertical'], 'range-picker-vertical')
+		: classnames(theme['range-picker'], 'range-picker');
 
 	function tryHorizontal() {
 		const rangeContainer = containerRef.current;
@@ -58,20 +57,12 @@ function InputDateTimeRangePicker(props) {
 	}
 
 	useEffect(() => {
-		if (responsive) {
-			const resizeListener = window.addEventListener(
-				'resize',
-				debounce(showHorizontalAndTest, 200),
-			);
-			return () => window.removeEventListener('resize', resizeListener);
-		}
-		return undefined;
+		const resizeListener = window.addEventListener('resize', debounce(showHorizontalAndTest, 200));
+		return () => window.removeEventListener('resize', resizeListener);
 	}, []);
 
 	useEffect(() => {
-		if (responsive) {
-			setTimeout(() => tryHorizontal());
-		}
+		setTimeout(() => tryHorizontal());
 	}, []);
 
 	return (
@@ -145,8 +136,6 @@ InputDateTimeRangePicker.propTypes = {
 		PropTypes.number,
 		PropTypes.string,
 	]),
-	vertical: PropTypes.bool,
-	responsive: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 
