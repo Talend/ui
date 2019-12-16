@@ -1,4 +1,5 @@
-import SchemaInput from './fields/Input/SchemaInput.component';
+import SchemaInput from './fields/Input';
+import SchemaFieldset from './fieldsets/Fieldset';
 
 export default {
 	text: SchemaInput,
@@ -6,4 +7,6 @@ export default {
 	password: SchemaInput,
 	email: SchemaInput,
 	hidden: SchemaInput,
+
+	fieldset: SchemaFieldset,
 };

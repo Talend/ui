@@ -121,8 +121,14 @@ const validationSchema = {
 			pattern: { type: 'string', pattern: '^\\S+@\\S+$' },
 			format: { type: 'string', format: 'email' },
 			minmax: { type: 'number', minimum: 2, maximum: 6 },
+
+			requiredWithMessage: { type: 'string' },
+			customWithMessage: { type: 'string' },
+			patternWithMessage: { type: 'string', pattern: '^\\S+@\\S+$' },
+			formatWithMessage: { type: 'string', format: 'email' },
+			minmaxWithMessage: { type: 'number', minimum: 2, maximum: 6 },
 		},
-		required: ['required'],
+		required: ['required', 'requiredWithMessage'],
 	},
 	uiSchema: [
 		{
@@ -140,25 +146,29 @@ const validationSchema = {
 			widget: 'fieldset',
 			title: 'Custom message',
 			items: [
-				{ key: 'required', title: 'Required', validationMessage: 'This field is very important !' },
 				{
-					key: 'custom',
+					key: 'requiredWithMessage',
+					title: 'Required',
+					validationMessage: 'This field is very important !',
+				},
+				{
+					key: 'customWithMessage',
 					title: 'Custom (not lol)',
 					customValidation: true,
 					validationMessage: 'This is not a joke, "lol" is not serious !',
 				},
 				{
-					key: 'pattern',
+					key: 'patternWithMessage',
 					title: 'Pattern (email)',
 					validationMessage: 'Please enter a valid email address, e.g. user@email.com',
 				},
 				{
-					key: 'format',
+					key: 'formatWithMessage',
 					title: 'Format (email)',
 					validationMessage: 'Please enter a valid email address, e.g. user@email.com',
 				},
 				{
-					key: 'minmax',
+					key: 'minmaxWithMessage',
 					title: 'Min/Max (2 <= x <= 6)',
 					validationMessage: 'This is not in the range',
 				},
@@ -168,7 +178,8 @@ const validationSchema = {
 	properties: {},
 };
 const customValidation = (schema, value) => {
-	if (schema.key.join('.') === 'custom' && value === 'lol') {
+	const keyAsString = schema.key.join('.');
+	if (['custom', 'customWithMessage'].includes(keyAsString) && value === 'lol') {
 		return 'This should not be lol';
 	}
 	return null;

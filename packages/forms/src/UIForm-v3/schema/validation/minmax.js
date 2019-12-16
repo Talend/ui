@@ -6,25 +6,12 @@ export function minRules(schema, t) {
 		return null;
 	}
 
-	return function validateMin(value) {
-		if (!value) {
-			return null;
-		}
-
-		const numValue = parseFloat(value);
-		if (isNaN(numValue)) {
-			return null;
-		}
-
-		if (value < minimum) {
-			return t('ERROR_NUMBER_MINIMUM', {
-				defaultValue: 'Value {value} is less than minimum {minimum}',
-				minimum,
-				value,
-			});
-		}
-
-		return null;
+	return {
+		value: minimum,
+		message: t('ERROR_NUMBER_MINIMUM', {
+			defaultValue: 'Value is less than minimum {minimum}',
+			minimum,
+		}),
 	};
 }
 
@@ -34,24 +21,11 @@ export function maxRules(schema, t) {
 		return null;
 	}
 
-	return function validateMin(value) {
-		if (!value) {
-			return null;
-		}
-
-		const numValue = parseFloat(value);
-		if (isNaN(numValue)) {
-			return null;
-		}
-
-		if (value > maximum) {
-			return t('ERROR_NUMBER_MAXIMUM', {
-				defaultValue: 'Value {value} is greater than maximum {maximum}',
-				maximum,
-				value,
-			});
-		}
-
-		return null;
+	return {
+		value: maximum,
+		message: t('ERROR_NUMBER_MAXIMUM', {
+			defaultValue: 'Value is greater than maximum {maximum}',
+			maximum,
+		}),
 	};
 }

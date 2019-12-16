@@ -1,3 +1,5 @@
+import get from 'lodash/get';
+
 const emailRegExp = /^[a-zA-Z][a-zA-Z0-9-.]+@[a-zA-Z-]+\.[a-zA-Z-]+$/;
 const urlHttpOrHttpsRegExp = /^(http(s)?:\/\/)([a-zA-Z0-9.\-_]+)(:[0-9]+)?(\/[a-zA-Z0-9/.\-_%]+)?$/;
 /* eslint-disable max-len */
@@ -96,5 +98,6 @@ const getFormats = t => ({
 });
 
 export default function formatsRules(schema, t) {
-	return schema.schema.format ? getFormats(t)[schema.schema.format] : null;
+	const format = get(schema, 'schema.format');
+	return format ? getFormats(t)[format] : () => {};
 }

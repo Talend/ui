@@ -42,7 +42,12 @@ export default function Widget(props) {
 	const rules = schemaRules({ schema, customValidation, values, t });
 
 	const instance = (
-		<WidgetImpl {...props} id={sfPath.name(key, '_', id)} name={key.join('.')} rules={rules} />
+		<WidgetImpl
+			{...props}
+			id={sfPath.name(key, '_', id)}
+			name={key && key.join('.')}
+			rules={rules}
+		/>
 	);
 
 	if (tooltip) {
