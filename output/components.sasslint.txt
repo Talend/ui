@@ -8,7 +8,7 @@ src/DateTimePickers/LegacyDateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Drawer/Drawer.scss
-  15:4  warning  Statement must begin on a new line  brace-style
+  16:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
   53:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
