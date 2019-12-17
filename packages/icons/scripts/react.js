@@ -81,7 +81,7 @@ function createGetIconHref() {
 	buff.unshift('export const info = {');
 	buff.push('};');
 	buff.push('export function getIconHref(name) {');
-	buff.push('  return info[name] ? `${info[name]}.svg#${name}` : `#${name}`;');
+	buff.push('  return info[name] ? `/${info[name]}.svg#${name}` : `#${name}`;');
 	buff.push('}');
 	const code = babel.transformSync(buff.join('\n'), options);
 	fs.writeFileSync(path.join(dist, 'info.js'), code.code);
