@@ -23,6 +23,7 @@ $tc-drawer-content-max-width: 60rem !default;
 }
 
 .form-actions {
+	padding: $padding-larger 0 $padding-small;
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
@@ -30,11 +31,11 @@ $tc-drawer-content-max-width: 60rem !default;
 
 :global(.tc-drawer-container) {
 	.form-content {
-		padding: 0 $padding-larger;
+		padding: $padding-normal $padding-larger;
 	}
 
 	.form-actions {
-		padding: $padding-larger $padding-larger;
+		padding: $padding-larger;
 		box-shadow: tint($black, 90) 0px -1px 5px 0px;
 	}
 }
