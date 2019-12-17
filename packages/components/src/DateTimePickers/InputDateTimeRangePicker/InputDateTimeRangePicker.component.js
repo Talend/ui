@@ -38,21 +38,22 @@ function InputDateTimeRangePicker(props) {
 		if (vertical) {
 			setVertical(false);
 		}
-		const rangeContainer = containerRef.current;
-		if (rangeContainer && rangeContainer.scrollWidth > rangeContainer.offsetWidth) {
-			setVertical(true);
-		} else {
-			setVertical(false);
-		}
+		// delay for the display to update
+		setTimeout(() => {
+			const rangeContainer = containerRef.current;
+			if (rangeContainer && rangeContainer.scrollWidth > rangeContainer.offsetWidth) {
+				setVertical(true);
+			}
+		});
 	}
 
 	useEffect(() => {
 		const resizeListener = window.addEventListener('resize', debounce(showHorizontalAndTest, 200));
 		return () => window.removeEventListener('resize', resizeListener);
-	}, []);
+	}, [showHorizontalAndTest]);
 
 	useEffect(() => {
-		setTimeout(() => showHorizontalAndTest());
+		showHorizontalAndTest();
 	}, []);
 
 	return (
