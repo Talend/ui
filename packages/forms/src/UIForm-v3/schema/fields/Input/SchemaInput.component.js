@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import omit from 'lodash/omit';
+import { PROPS_TO_REMOVE_FROM_INPUTS } from '../../Widget.component';
 import Input from '../../../fields/Input';
 
 export default function SchemaInput(props) {
-	const { schema, customValidation, ...restProps } = props;
+	const { schema } = props;
 
 	return (
 		<Input
-			{...restProps}
+			{...omit(props, PROPS_TO_REMOVE_FROM_INPUTS)}
 			autoFocus={schema.autoFocus}
 			description={schema.description}
 			disabled={schema.disabled}

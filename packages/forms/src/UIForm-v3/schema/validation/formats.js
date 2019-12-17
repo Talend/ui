@@ -33,7 +33,7 @@ function isValidDate(rawString) {
 
 const getFormats = t => ({
 	email: fieldData => {
-		if (typeof fieldData === 'string' && !emailRegExp.test(fieldData)) {
+		if (fieldData && typeof fieldData === 'string' && !emailRegExp.test(fieldData)) {
 			return t('FORMAT_EMAIL', {
 				defaultValue: 'must be a valid email (e.g.: user@company.com)',
 			});
@@ -41,7 +41,7 @@ const getFormats = t => ({
 		return null;
 	},
 	'url-http-https': fieldData => {
-		if (typeof fieldData === 'string' && !urlHttpOrHttpsRegExp.test(fieldData)) {
+		if (fieldData && typeof fieldData === 'string' && !urlHttpOrHttpsRegExp.test(fieldData)) {
 			return t('FORMAT_URL_HTTP_HTTPS', {
 				defaultValue: 'must be a valid url (e.g.: http://my.domain.com or https://my.domain.com)',
 			});
@@ -49,7 +49,7 @@ const getFormats = t => ({
 		return null;
 	},
 	'url-git': fieldData => {
-		if (typeof fieldData === 'string' && !urlGit.test(fieldData)) {
+		if (fieldData && typeof fieldData === 'string' && !urlGit.test(fieldData)) {
 			return t('FORMAT_URL_GIT', {
 				defaultValue:
 					'must be a valid HTTP URL (e.g.: http(s)://host[:port]/my-repo[.git]), SSH URL (e.g.: [ssh://][user@]host:[port/]my-repo[.git]) or GIT URL (e.g.: git://host[:port]/my-repo[.git])',
@@ -58,7 +58,7 @@ const getFormats = t => ({
 		return null;
 	},
 	'no-leading-trailing-space': fieldData => {
-		if (typeof fieldData === 'string' && leadingTralingSpaceRegExp.test(fieldData)) {
+		if (fieldData && typeof fieldData === 'string' && leadingTralingSpaceRegExp.test(fieldData)) {
 			return t('FORMAT_NO_LEADING_TRAILING_SPACE', {
 				defaultValue: 'must be a string without leading or trailing space',
 			});
@@ -66,7 +66,7 @@ const getFormats = t => ({
 		return null;
 	},
 	'string-without-space': fieldData => {
-		if (typeof fieldData === 'string' && !stringWithoutSpaceRegExp.test(fieldData)) {
+		if (fieldData && typeof fieldData === 'string' && !stringWithoutSpaceRegExp.test(fieldData)) {
 			return t('FORMAT_STRING_WITHOUT_SPACE', {
 				defaultValue: 'must be a string without space',
 			});
@@ -74,7 +74,7 @@ const getFormats = t => ({
 		return null;
 	},
 	timestamp: fieldData => {
-		if (typeof fieldData === 'number' && Math.abs(fieldData) > MAX_TIMESTAMP) {
+		if (fieldData && typeof fieldData === 'number' && Math.abs(fieldData) > MAX_TIMESTAMP) {
 			return t('FORMAT_TIMESTAMP_OUT_OF_RANGE', {
 				defaultValue: 'must be a valid timestamp',
 			});
@@ -82,7 +82,7 @@ const getFormats = t => ({
 		return null;
 	},
 	'iso-datetime': fieldData => {
-		if (typeof fieldData !== 'string') {
+		if (!fieldData || typeof fieldData !== 'string') {
 			return null;
 		}
 

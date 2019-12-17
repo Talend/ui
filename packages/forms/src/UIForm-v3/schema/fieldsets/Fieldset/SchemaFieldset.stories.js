@@ -5,7 +5,7 @@ import SchemaFieldset from './SchemaFieldset.component';
 import SchemaForm from '../../SchemaForm';
 
 export default {
-	title: 'Schema Fields|Fieldset',
+	title: 'Schema Fieldsets|Fieldset',
 
 	parameters: {
 		component: SchemaFieldset,
@@ -37,7 +37,9 @@ const defaultSchema = {
 	],
 	properties: {},
 };
-export const Default = () => <SchemaForm data={defaultSchema} onSubmit={action('onSubmit')} />;
+export const Default = () => (
+	<SchemaForm id="schema-form" data={defaultSchema} onSubmit={action('onSubmit')} />
+);
 
 const hideTitleSchema = {
 	jsonSchema: {
@@ -61,6 +63,6 @@ const hideTitleSchema = {
 export const HideTitle = () => (
 	<React.Fragment>
 		<div>(Legend is set to "My awesome user" but not displayed)</div>
-		<SchemaForm data={hideTitleSchema} onSubmit={action('onSubmit')} />
+		<SchemaForm id="schema-form" data={hideTitleSchema} onSubmit={action('onSubmit')} />
 	</React.Fragment>
 );

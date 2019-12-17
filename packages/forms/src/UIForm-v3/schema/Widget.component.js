@@ -22,6 +22,8 @@ function getWidget(displayMode, widgetId, customWidgets) {
 	return widget;
 }
 
+export const PROPS_TO_REMOVE_FROM_INPUTS = ['customValidation', 'displayMode', 'schema', 'widgets'];
+
 export default function Widget(props) {
 	const { customValidation, displayMode, id, rhf, schema, widgets = [] } = props;
 	const { condition, key, type, widget, tooltip, tooltipPlacement } = schema;
