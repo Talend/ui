@@ -215,6 +215,15 @@ const primitiveArray = [1, 2, 3];
 const selectedJsonpath = "$[0]['attributes']";
 const showType = true;
 
+const longFieldData = [
+	{
+		lorem:
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+		Ipsum:
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+	},
+];
+
 const moreComplexDataShape = [
 	{
 		date: '2017-05-05T11:57:09 -02:00',
@@ -537,14 +546,12 @@ stories
 			/>
 		</div>
 	))
-	.add('tree with injected elements', () => {
-		return (
-			<div>
-				<IconsProvider defaultIcons={icons} />
-				<ObjectViewer id={'my-viewer'} data={data} {...handlerTags} />
-			</div>
-		);
-	})
+	.add('tree with injected elements', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer id={'my-viewer'} data={data} {...handlerTags} />
+		</div>
+	))
 	.add('tree with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
@@ -609,5 +616,11 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={moreComplexDataShape} {...handler} displayMode="flat" />
+		</div>
+	))
+	.add('tree test', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer id={'my-viewer'} data={longFieldData} {...handlerHighlight} />
 		</div>
 	));
