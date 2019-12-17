@@ -23,7 +23,8 @@ $tc-drawer-content-max-width: 60rem !default;
 }
 
 .form-actions {
-	padding: $padding-larger 0 $padding-small;
+	padding-top: $padding-larger;
+	padding-bottom: $padding-large;
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
