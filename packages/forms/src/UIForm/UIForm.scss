@@ -1,50 +1,52 @@
+$tc-drawer-content-max-width: 60rem !default;
+
 .uiform {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	min-height: 0;
 	font-size: 1.6rem;
+	overflow: hidden; /* IE11 fix to show scrollbars properly */
 
 	:global(.tf-title-text-mode) {
 		font-size: 1.7rem;
 		font-weight: 700;
 		text-transform: uppercase;
-		color: #555;
+		color: $dove-gray;
 	}
 }
 
-:global(.tc-drawer-container),
-:global(.modal-body) {
-	.uiform {
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-		min-height: 0;
-		overflow: hidden; /* IE11 fix to show scrollbars properly */
-	}
-
-	.form-content {
-		flex-grow: 1;
-		min-height: 0;
-		overflow-y: auto;
-	}
+.form-content {
+	flex-grow: 1;
+	min-height: 0;
+	overflow-y: auto;
 }
+
+.form-actions {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
 :global(.tc-drawer-container) {
 	.form-content {
-		padding: 10px;
+		padding: 0 $padding-larger;
 	}
+
 	.form-actions {
-		background-color: $wild-sand;
-		padding: $padding-small;
-		width: 100%;
+		padding: $padding-larger $padding-larger;
+		box-shadow: tint($black, 90) 0px -1px 5px 0px;
 	}
 }
 
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
-		.form-content {
-			width: 600px;
+		.form-content,
+		.form-actions {
 			margin: 0 auto;
-		}
-		:global(.form-actions) {
-			max-width: 650px;
-			margin: auto;
+			width: $tc-drawer-content-max-width;
+			background: none;
+			box-shadow: none;
 		}
 	}
 }
