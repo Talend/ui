@@ -21,9 +21,24 @@
 				margin: 0 auto;
 				margin-top: 3rem;
 				text-align: justify;
+				table-layout: fixed;
 
-				th {
-					text-transform: uppercase;
+				th,
+				td {
+					padding: 5px;
+					text-align: left;
+				}
+
+				tbody {
+					display: block;
+					overflow: auto;
+				}
+
+				thead {
+					tr {
+						display: block;
+						position: relative;
+					}
 				}
 
 				td + td,
