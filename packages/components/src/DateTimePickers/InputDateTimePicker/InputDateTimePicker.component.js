@@ -11,7 +11,7 @@ import { DateTimeContext } from '../DateTime/Context';
 import theme from './InputDateTimePicker.scss';
 
 function InputDateTimePicker(props) {
-	if (!props.selectedDateTime) {
+	if (props.selectedDateTime) {
 		// eslint-disable-next-line no-console
 		console.warn(
 			'Warning: "selectedDateTime" is deprecated and will be removed in the next major version. Use "value" instead please.',

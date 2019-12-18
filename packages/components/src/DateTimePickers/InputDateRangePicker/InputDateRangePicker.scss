@@ -6,8 +6,14 @@
 .date-picker {
 	@include date-picker;
 	align-items: flex-end;
-}
 
-.arrow {
-	@include arrow;
+	.arrow {
+		@include arrow;
+		display: flex;
+		align-items: flex-end;
+
+		.icon {
+			@include icon;
+		}
+	}
 }
