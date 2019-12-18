@@ -185,11 +185,13 @@ function DrawerTitle({
 				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
-			{children && (<div
-				className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
-			>
-				{children}
-			</div>)}
+			{children && (
+				<div
+					className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
+				>
+					{children}
+				</div>
+			)}
 		</div>
 	);
 }
