@@ -13,6 +13,7 @@ import { AboutDialogTable, Text } from './AboutDialogTable.component';
 function AboutDialog({
 	services,
 	expanded,
+	definition,
 	show,
 	product,
 	version,
@@ -70,7 +71,9 @@ function AboutDialog({
 						loading={loading}
 					/>
 				</div>
-				{expanded && <AboutDialogTable t={t} loading={loading} services={services} />}
+				{expanded && (
+					<AboutDialogTable t={t} loading={loading} services={services} definition={definition} />
+				)}
 			</div>
 		</Dialog>
 	);
