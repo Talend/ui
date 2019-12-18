@@ -1,5 +1,6 @@
 import SchemaInput from './fields/Input';
 import SchemaFieldset from './fieldsets/Fieldset';
+import SchemaArrayFieldset from './fieldsets/Array';
 
 export default {
 	text: SchemaInput,
@@ -8,5 +9,6 @@ export default {
 	email: SchemaInput,
 	hidden: SchemaInput,
 
+	array: SchemaArrayFieldset,
 	fieldset: SchemaFieldset,
 };

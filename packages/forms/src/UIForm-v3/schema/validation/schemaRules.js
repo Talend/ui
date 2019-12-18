@@ -3,6 +3,7 @@ import customFormatRules from './formats';
 import patternRules from './pattern';
 import customRules from './custom';
 import { minRules, maxRules } from './minmax';
+import { arrayMinRules, arrayMaxRules } from './array';
 
 function useCustomMessage(schema, rule) {
 	const { validationMessage } = schema;
@@ -37,6 +38,8 @@ export default function schemaRules({ schema, customValidation, values, t }) {
 		validate: {
 			custom: useCustomMessage(schema, customRules(schema, customValidation, values)),
 			format: useCustomMessage(schema, customFormatRules(schema, t)),
+			arrayMinItems: arrayMinRules(schema, t),
+			arrayMaxItems: arrayMaxRules(schema, t),
 		},
 	};
 }

@@ -29,6 +29,31 @@ const demoStyle = {
 	borderRadius: '5px',
 };
 
+export const Simple = () => {
+	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
+	return (
+		<form onSubmit={handleSubmit(action('submit'))} noValidate>
+			<ArrayFieldset id="users" legend="My awesome users" name="users" initialNbItems={3} rhf={rhf}>
+				<ArrayFieldset.Items>
+					{index => (
+						<Input
+							id={`user-${index}`}
+							type="text"
+							name={`users[${index}]`}
+							label="Name"
+							rhf={rhf}
+						/>
+					)}
+				</ArrayFieldset.Items>
+			</ArrayFieldset>
+
+			<button type="submit" className="btn btn-primary">
+				Submit
+			</button>
+		</form>
+	);
+};
+
 export const InitialItemsNumber = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (

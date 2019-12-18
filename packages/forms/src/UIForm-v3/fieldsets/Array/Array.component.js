@@ -49,18 +49,24 @@ export default function ArrayFieldset(props) {
 	};
 
 	function refreshItems(newItems, fromIndex, toIndex /* excluded */) {
-		if (fromIndex !== undefined && toIndex !== undefined) {
-			const values = getValues();
-			const copyValue = key => {
-				setValue(key, get(newItems, key.substr(name.length)), true);
-			};
-			// eslint-disable-next-line no-plusplus
-			for (let i = fromIndex; i < toIndex; i++) {
-				const itemKey = `${name}[${i}]`;
-				Object.keys(values)
-					.filter(key => key.startsWith(itemKey))
-					.forEach(copyValue);
-			}
+		if (fromIndex === undefined || toIndex === undefined || fromIndex >= toIndex) {
+			return;
+		}
+		const values = getValues();
+		// eslint-disable-next-line no-plusplus
+		for (let i = fromIndex; i < toIndex; i++) {
+			// support dot-notation (users.0) and bracket-notation (users[0])
+			const indexBracket = `\\[${i}\\]`;
+			const indexDot = `\\.${i}`;
+			const itemKeyPattern = `^${name}(${indexBracket}|${indexDot})(\\.(.+))?$`;
+
+			Object.keys(values)
+				.map(key => key.match(itemKeyPattern))
+				.filter(Boolean)
+				.forEach(matchGroup => {
+					const path = `[${i}]${matchGroup[2] || ''}`;
+					setValue(matchGroup.input, get(newItems, path), true);
+				});
 		}
 	}
 
