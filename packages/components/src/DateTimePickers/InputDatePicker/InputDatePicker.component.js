@@ -15,6 +15,7 @@ import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import theme from './InputDatePicker.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
+	't',
 	'id',
 	'dateFormat',
 	'required',
@@ -24,6 +25,8 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 	'timezone',
 	'hideTimezone',
+	'startDate',
+	'endDate',
 ];
 
 function onMouseDown(event) {

@@ -11,7 +11,7 @@ import InputDateTimePicker from '../src/DateTimePickers/InputDateTimePicker';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
 import InputDateRangePicker from '../src/DateTimePickers/InputDateRangePicker';
-import InputDateTimeRangePicker from '../src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component';
+import InputDateTimeRangePicker from '../src/DateTimePickers/InputDateTimeRangePicker';
 
 const icons = {
 	'talend-info-circle': talendIcons['talend-info-circle'],
@@ -445,8 +445,10 @@ storiesOf('DatePicker', module)
 		<div>
 			<IconsProvider />
 			<h1>DateTime Range picker</h1>
+			<p>Resize window to trigger responsive layout</p>
 			<form>
 				<InputDateTimeRangePicker
+					id="my-datetime-range-picker"
 					onChange={action('onChange')}
 					onBlur={action('onBlur')}
 					useSeconds
