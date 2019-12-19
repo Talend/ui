@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { sfPath } from '@talend/json-schema-form-core';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
@@ -41,7 +41,10 @@ export default function Widget(props) {
 		return <p className="text-danger">Widget not found {widgetName}</p>;
 	}
 
-	const rules = schemaRules({ schema, customValidation, values, t });
+	const rules = useMemo(
+		() => schemaRules({ schema, customValidation, getValues: rhf.getValues, t }),
+		[schema, customValidation, rhf.getValues, t],
+	);
 
 	const instance = (
 		<WidgetImpl

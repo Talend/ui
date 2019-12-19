@@ -23,9 +23,32 @@ export const States = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<Datalist name="datalist" label="Simple datalist" rhf={rhf} titleMap={titleMap} />
-			<Datalist name="disabled" label="Disabled" rhf={rhf} titleMap={titleMap} disabled />
-			<Datalist name="readonly" label="Readonly" rhf={rhf} titleMap={titleMap} readOnly />
+			<Datalist
+				id="datalist"
+				name="datalist"
+				label="Simple datalist"
+				rhf={rhf}
+				titleMap={titleMap}
+				defaultValue="foo"
+			/>
+			<Datalist
+				id="disabled"
+				name="disabled"
+				label="Disabled"
+				rhf={rhf}
+				titleMap={titleMap}
+				defaultValue="foo"
+				disabled
+			/>
+			<Datalist
+				id="readonly"
+				name="readonly"
+				label="Readonly"
+				rhf={rhf}
+				titleMap={titleMap}
+				defaultValue="foo"
+				readOnly
+			/>
 			<button type="submit" className="btn btn-primary">
 				Submit
 			</button>
@@ -39,6 +62,7 @@ export const DefaultValue = () => {
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
 			<Datalist
+				id="defaultValue"
 				name="defaultValue"
 				label="Default value"
 				rhf={rhf}
@@ -58,11 +82,41 @@ export const Description = () => {
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
 			<Datalist
+				id="description"
 				name="description"
 				label="Description"
 				rhf={rhf}
 				titleMap={titleMap}
 				description="This field has a description"
+			/>
+			<button type="submit" className="btn btn-primary">
+				Submit
+			</button>
+		</form>
+	);
+};
+
+export const Restricted = () => {
+	const { handleSubmit, ...rhf } = useForm();
+	const rules = {
+		validate: selectedValue => {
+			if (titleMap.find(({ value }) => value === selectedValue)) {
+				return null;
+			}
+			return "This value doesn't seem right in this restricted datalist. Let's select one the defined values";
+		},
+	};
+
+	return (
+		<form onSubmit={handleSubmit(action('submit'))} noValidate>
+			<Datalist
+				id="restricted"
+				name="restricted"
+				label="Restricted"
+				rhf={rhf}
+				titleMap={titleMap}
+				restricted
+				rules={rules}
 			/>
 			<button type="submit" className="btn btn-primary">
 				Submit
@@ -77,6 +131,7 @@ export const Validation = () => {
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
 			<Datalist
+				id="required"
 				name="required"
 				label="Required"
 				rhf={rhf}
@@ -85,6 +140,7 @@ export const Validation = () => {
 				required
 			/>
 			<Datalist
+				id="notLol"
 				name="notLol"
 				label="Not lol"
 				rhf={rhf}

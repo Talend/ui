@@ -2,12 +2,12 @@ export function arrayMinRules(schema, t) {
 	const minimum = schema.minItems;
 	// const minimum = get(schema, 'schema.minItems');
 	if (minimum === undefined) {
-		return null;
+		return () => {};
 	}
 
 	return nbItems => {
 		if (nbItems >= minimum) {
-			return null;
+			return () => {};
 		}
 		return t('ERROR_ARRAY_LENGTH_SHORT', {
 			defaultValue: 'Minimum number of items: {{minimum}}',
@@ -20,12 +20,12 @@ export function arrayMaxRules(schema, t) {
 	const maximum = schema.maxItems;
 	// const maximum = get(schema, 'schema.maxItems');
 	if (maximum === undefined) {
-		return null;
+		return () => {};
 	}
 
 	return nbItems => {
 		if (nbItems <= maximum) {
-			return null;
+			return () => {};
 		}
 		return t('ERROR_ARRAY_LENGTH_LONG', {
 			defaultValue: 'Maximum number of items: {{maximum}}',

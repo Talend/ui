@@ -43,7 +43,9 @@ const statesSchema = {
 		readonly: 'Jimmy',
 	},
 };
-export const States = () => <SchemaForm data={statesSchema} onSubmit={action('onSubmit')} />;
+export const States = () => (
+	<SchemaForm id="schema-form" data={statesSchema} onSubmit={action('onSubmit')} />
+);
 
 const typesSchema = {
 	jsonSchema: {
@@ -75,7 +77,9 @@ const typesSchema = {
 		readonly: 'Jimmy',
 	},
 };
-export const Types = () => <SchemaForm data={typesSchema} onSubmit={action('onSubmit')} />;
+export const Types = () => (
+	<SchemaForm id="schema-form" data={typesSchema} onSubmit={action('onSubmit')} />
+);
 
 const defaultValueSchema = {
 	jsonSchema: {
@@ -91,7 +95,7 @@ const defaultValueSchema = {
 	properties: { name: 'Jimmy' },
 };
 export const DefaultValue = () => (
-	<SchemaForm data={defaultValueSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm id="schema-form" data={defaultValueSchema} onSubmit={action('onSubmit')} />
 );
 
 const descriptionSchema = {
@@ -109,7 +113,7 @@ const descriptionSchema = {
 	properties: {},
 };
 export const Description = () => (
-	<SchemaForm data={descriptionSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm id="schema-form" data={descriptionSchema} onSubmit={action('onSubmit')} />
 );
 
 const validationSchema = {

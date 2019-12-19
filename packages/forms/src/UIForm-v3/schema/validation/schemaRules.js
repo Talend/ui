@@ -4,6 +4,7 @@ import patternRules from './pattern';
 import customRules from './custom';
 import { minRules, maxRules } from './minmax';
 import { arrayMinRules, arrayMaxRules } from './array';
+import enumRules from './enum';
 
 function useCustomMessage(schema, rule) {
 	const { validationMessage } = schema;
@@ -29,17 +30,18 @@ function useCustomMessage(schema, rule) {
 	return rule;
 }
 
-export default function schemaRules({ schema, customValidation, values, t }) {
+export default function schemaRules({ schema, customValidation, getValues, t }) {
 	return {
 		required: useCustomMessage(schema, requiredRules(schema, t)),
 		pattern: useCustomMessage(schema, patternRules(schema, t)),
 		min: useCustomMessage(schema, minRules(schema, t)),
 		max: useCustomMessage(schema, maxRules(schema, t)),
 		validate: {
-			custom: useCustomMessage(schema, customRules(schema, customValidation, values)),
+			custom: useCustomMessage(schema, customRules(schema, customValidation, getValues)),
 			format: useCustomMessage(schema, customFormatRules(schema, t)),
 			arrayMinItems: arrayMinRules(schema, t),
 			arrayMaxItems: arrayMaxRules(schema, t),
+			enum: useCustomMessage(schema, enumRules(schema, t)),
 		},
 	};
 }

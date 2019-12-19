@@ -8,7 +8,7 @@ export default function useControlledInput({ defaultValue, name, rhf, rules }) {
 			setValue(name, defaultValue);
 		}
 		return () => unregister(name);
-	}, [defaultValue, name, register, unregister]);
+	}, [defaultValue, name, register, rules, unregister]);
 
 	return watch(name);
 }

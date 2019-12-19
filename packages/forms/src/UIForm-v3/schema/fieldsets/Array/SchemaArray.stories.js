@@ -120,6 +120,22 @@ export const MoveItem = () => (
 	<SchemaForm id="schema-form" data={moveItemSchema} onSubmit={action('onSubmit')} />
 );
 
+const deleteItemSchema = getExample(undefined, {
+	users: [
+		{
+			firstname: 'Jimmy',
+			lastname: 'Somsanith',
+		},
+		{
+			firstname: 'Fabien',
+			lastname: 'Rassinier',
+		},
+	],
+});
+export const DeleteItem = () => (
+	<SchemaForm id="schema-form" data={deleteItemSchema} onSubmit={action('onSubmit')} />
+);
+
 const arrayValidationSchema = getExample({
 	minItems: 3,
 	maxItems: 5,
