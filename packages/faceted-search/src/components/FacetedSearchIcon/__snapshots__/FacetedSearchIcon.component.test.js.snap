@@ -17,3 +17,10 @@ exports[`FacetedSearchIcon should render by default 1`] = `
   </svg>
 </button>
 `;
+
+exports[`FacetedSearchIcon should render the button in loading mode 1`] = `
+<span class="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-large theme-tc-skeleton-circle-large tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      aria-label="circle (loading)"
+>
+</span>
+`;

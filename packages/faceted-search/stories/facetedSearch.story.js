@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import FacetedSearch from '../src';
+import { FacetedSearchIcon } from '../src/components/FacetedSearchIcon';
 
 const badgeName = {
 	properties: {
@@ -72,12 +73,29 @@ const badgePrice = {
 
 const badgesDefinitions = [badgeName, badgeConnectionType, badgePrice];
 
+const paddingLeft = { paddingLeft: '10px' };
+
 storiesOf('FacetedSearch', module)
 	.addDecorator(story => (
-		<div>
+		<div style={{ ...paddingLeft }}>
 			<IconsProvider />
 			<h1>Faceted Search</h1>
 			{story()}
+		</div>
+	))
+	.add('icon default, active and loading', () => (
+		<div>
+			<div style={{ display: 'flex' }}>
+				<span style={{ ...paddingLeft }}>
+					<FacetedSearchIcon loading onClick={action('onClick')} />
+				</span>
+				<span style={{ ...paddingLeft }}>
+					<FacetedSearchIcon active onClick={action('onClick')} />
+				</span>
+				<span style={{ ...paddingLeft }}>
+					<FacetedSearchIcon onClick={action('onClick')} />
+				</span>
+			</div>
 		</div>
 	))
 	.add('default', () => (
