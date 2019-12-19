@@ -8,13 +8,7 @@ src/DateTimePickers/LegacyDateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Drawer/Drawer.scss
-   59:6   error    Nesting depth 4 greater than max of 3                                                                               nesting-depth
-   69:6   error    Nesting depth 4 greater than max of 3                                                                               nesting-depth
-  107:7   error    Nesting depth 4 greater than max of 3                                                                               nesting-depth
-  118:7   error    Nesting depth 4 greater than max of 3                                                                               nesting-depth
-  135:12  warning  Property `padding` should be written more concisely as `$padding-large` instead of `$padding-large $padding-large`  shorthand-values
-  136:32  warning  No unit allowed for values of 0                                                                                     zero-unit
-  136:45  warning  No unit allowed for values of 0                                                                                     zero-unit
+  215:4  error  Duplicate properties are not allowed within a block  no-duplicate-properties
 
 src/FilterBar/FilterBar.scss
   53:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -32,5 +26,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 17 problems (13 errors, 4 warnings)
+✖ 11 problems (10 errors, 1 warning)
 
