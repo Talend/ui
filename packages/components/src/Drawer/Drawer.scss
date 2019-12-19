@@ -37,6 +37,9 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	flex-grow: 1;
+	min-height: 0;
+	overflow-y: auto;
 
 	.tc-drawer-header {
 		&-title {
@@ -49,35 +52,34 @@ $tc-drawer-z-index: $drawer-z-index !default;
 				margin: 0;
 				color: $tc-drawer-header-color;
 			}
+		}
+		:global {
+			.tc-editable-text {
+				flex: 1;
+				min-width: 0;
+				width: unset;
 
-			:global {
-				.tc-editable-text {
-					flex: 1;
-					min-width: 0;
-					width: unset;
+				&-wording {
+					margin: 0;
+					width: 90%;
+					font-size: $font-size-large;
+					color: $tc-drawer-header-color;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+				}
 
-					&-wording {
-						margin: 0;
-						width: 90%;
-						font-size: $font-size-large;
-						color: $tc-drawer-header-color;
-						text-overflow: ellipsis;
-						white-space: nowrap;
-						overflow: hidden;
-					}
-
-					&-pencil {
-						left: -99999px;
-						color: $tc-drawer-header-color;
-					}
+				&-pencil {
+					left: -99999px;
+					color: $tc-drawer-header-color;
 				}
 			}
+		}
 
-			.tc-drawer-close-action {
-				color: $st-tropaz;
-				min-height: inherit;
-				line-height: inherit;
-			}
+		.tc-drawer-close-action {
+			color: $st-tropaz;
+			min-height: inherit;
+			line-height: inherit;
 		}
 	}
 
@@ -91,49 +93,43 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	:global(.tc-drawer-header-with-tabs),
 	.tc-drawer-tabs-container {
 		border-bottom: 1px solid $silver;
+	}
 
-		:global {
-			.nav-tabs > li {
+	:global {
+		.nav-tabs > li {
+			> a,
+			> button {
+				margin-bottom: 0;
+			}
+
+			&:first-child {
 				> a,
 				> button {
-					margin-bottom: 0;
-				}
+					padding-left: 0;
 
-				&:first-child {
-					> a,
-					> button {
-						padding-left: 0;
-
-						&:after {
-							left: 0;
-						}
+					&:after {
+						left: 0;
 					}
 				}
+			}
 
-				&:last-child {
-					> a,
-					> button {
-						padding-right: 0;
+			&:last-child {
+				> a,
+				> button {
+					padding-right: 0;
 
-						&:after {
-							right: 0;
-						}
+					&:after {
+						right: 0;
 					}
 				}
 			}
 		}
 	}
 
-	.tc-drawer-content {
-		flex-grow: 1;
-		min-height: 0;
-		overflow-y: auto;
-	}
-
 	.tc-drawer-actionbar-container,
 	.tc-drawer-footer {
-		padding: $padding-large $padding-large;
-		box-shadow: tint($black, 90) 0px -1px 5px 0px;
+		padding: $padding-large;
+		box-shadow: tint($black, 90) 0 -1px 5px 0;
 
 		:global {
 			.tc-actionbar-container {
@@ -190,11 +186,13 @@ $tc-drawer-z-index: $drawer-z-index !default;
 .drawer-stacked {
 	@media screen and (min-width: $screen-xs-max) {
 		width: 100%;
+
 		.tc-drawer-container {
 			padding: {
 				left: 0;
 				right: 0;
 			}
+			overflow: auto;
 		}
 
 		.tc-drawer-header-title,
@@ -210,8 +208,22 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			width: $tc-drawer-content-max-width;
 		}
 
+		.tc-drawer-header,
 		.tc-drawer-actionbar-container,
 		.tc-drawer-footer {
+			position: fixed; // IE
+			position: sticky;
+			background: $white;
+			z-index: 1;
+		}
+
+		.tc-drawer-header {
+			top: 0;
+		}
+
+		.tc-drawer-actionbar-container,
+		.tc-drawer-footer {
+			bottom: 0;
 			box-shadow: none;
 		}
 	}

@@ -57,9 +57,21 @@ $tc-drawer-content-max-width: 60rem !default;
 		.form-content,
 		.form-actions {
 			margin: 0 auto;
+			padding: {
+				left: 0;
+				right: 0;
+			}
 			width: $tc-drawer-content-max-width;
 			background: none;
 			box-shadow: none;
+			overflow: hidden;
+		}
+
+		.form-actions {
+			position: fixed; // IE
+			position: sticky;
+			bottom: 0;
+			background: $white;
 		}
 	}
 }
