@@ -76,7 +76,9 @@ const BadgeOverlay = ({
 			onClick={changeOpened}
 			className={theme({ 'tc-badge-link-plus': hasAddButton })}
 		>
-			{iconName && <Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />}
+			{iconName && (
+				<Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />
+			)}
 			{hasAddButton && <span>{t('BASIC_SEARCH_ADD_FILTER', { defaultValue: 'Add filter' })}</span>}
 			{!iconName && getLabel(label)}
 		</Button>
