@@ -24,7 +24,8 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
-## [Unreleased]
+## [0.2.4]
+- [feat](https://github.com/Talend/ui/pull/2587): Add skeleton to FacetedSearchIcon if loading props true
 - [Fixed](https://github.com/Talend/ui/pull/2554): Fix TQL creation with badges number
 
 ## [0.2.3]
