@@ -24,31 +24,42 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## [unreleased]
+
 ## [0.2.4]
 
 ### Fixed
+
 - [Fixed](https://github.com/Talend/ui/pull/2554): Fix TQL creation with badges number
 
 ### Added
+
 - [feat](https://github.com/Talend/ui/pull/2587): Add skeleton to FacetedSearchIcon if loading props true
 
 ## [0.2.3]
+
 ### Breaking changes
+
 - As we change the equal operator name, you need to rename it's usage in your app from `=` to `equal`.
 
 ### Added
-- [Added](https://github.com/Talend/ui/pull/2548): Add number type badge 
+
+- [Added](https://github.com/Talend/ui/pull/2548): Add number type badge
 
 ### Fixed
+
 - [Fixed](https://github.com/Talend/ui/pull/2545): Fix support of notEqual operator
 - [Fixed](https://github.com/Talend/ui/pull/2544): Get back Tooltip trigger for button icon in BadgeOverlay
 - [Fixed](https://github.com/Talend/ui/pull/2535): Fix onSubmit execution on BasicSearch
 
 ### Changed
+
 - [Changed](https://github.com/Talend/ui/pull/2530): Update remove / add tooltip labels
 
 ## [0.2.2]
+
 ### Fixed
+
 - [Fixed](https://github.com/Talend/ui/pull/2520): Tql error on empty value array
 - [Fixed](https://github.com/Talend/ui/pull/2513): Invert action basic <> advanced
 - [Fixed](https://github.com/Talend/ui/pull/2510): Disable resize on textarea
@@ -56,11 +67,13 @@ Types of changes
 - [Fixed](https://github.com/Talend/ui/pull/2501): Tql error on checkboxes badge
 
 ## [0.2.1]
+
 ### Added
-- [Added](https://github.com/Talend/ui/pull/2487): Add connection type badge 
+
+- [Added](https://github.com/Talend/ui/pull/2487): Add connection type badge
 
 ## [0.2.0]
+
 ### Added
-- [Added](https://github.com/Talend/ui/pull/2441): Faceted search to ui  
 
-
+- [Added](https://github.com/Talend/ui/pull/2441): Faceted search to ui
