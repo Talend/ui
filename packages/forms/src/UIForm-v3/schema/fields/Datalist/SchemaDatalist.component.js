@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import { PROPS_TO_REMOVE_FROM_INPUTS } from '../../Widget.component';
+import { PROPS_TO_REMOVE_FROM_INPUTS } from '../../Widget';
 import Datalist from '../../../fields/Datalist';
 
 export default function SchemaDatalist(props) {

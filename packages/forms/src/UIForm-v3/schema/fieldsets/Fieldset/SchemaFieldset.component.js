@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Widget from '../../Widget.component';
+import Widget from '../../Widget';
 import Fieldset from '../../../fieldsets/Fieldset';
 
 export default function SchemaFieldset({ schema, ...restProps }) {

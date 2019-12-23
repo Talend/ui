@@ -4,7 +4,7 @@ import { sfPath } from '@talend/json-schema-form-core';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
 import shouldRender from './condition';
-import defaultWidgets from './widgets';
+import defaultWidgets from '../widgets';
 import useSchemaWidget from './useSchemaWidget';
 
 function getWidget(displayMode, widgetId, customWidgets) {
@@ -19,8 +19,6 @@ function getWidget(displayMode, widgetId, customWidgets) {
 
 	return widget;
 }
-
-export const PROPS_TO_REMOVE_FROM_INPUTS = ['schema'];
 
 export default function Widget(props) {
 	const { id, schema } = props;

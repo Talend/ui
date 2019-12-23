@@ -1,10 +1,10 @@
 import { useContext, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import get from 'lodash/get';
-import SchemaFormContext from './context';
-import schemaRules from './validation/schemaRules';
+import SchemaFormContext from '../context';
+import schemaRules from '../internal/validation/schemaRules';
 
-import { I18N_DOMAIN_FORMS } from '../constants';
+import { I18N_DOMAIN_FORMS } from '../../constants';
 
 function replicateNewlyCreatedValues(key, value, values, rhf) {
 	if (key && key in values) {
