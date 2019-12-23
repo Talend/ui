@@ -1,7 +1,7 @@
-export default function customRules(schema, customValidation, getValues) {
+export default function customRules(schema, customValidation, rhf) {
 	if (!schema.customValidation || !customValidation) {
 		return () => {};
 	}
 
-	return value => customValidation(schema, value, getValues({ nest: true }));
+	return value => customValidation(schema, value, rhf.getValues({ nest: true }));
 }
