@@ -3,33 +3,55 @@ import PropTypes from 'prop-types';
 import useForm from 'react-hook-form';
 import useSchemaForm from './useSchemaForm';
 import Widget from '../Widget.component';
+import SchemaFormContext from '../context';
 
-export default function SchemaForm({ customValidation, data, onSubmit, widgets, ...restProps }) {
+export default function SchemaForm({
+	customValidation,
+	data,
+	displayMode,
+	onSubmit,
+	onTrigger,
+	widgets,
+	...restProps
+}) {
 	const { properties } = data;
 	const { mergedSchema } = useSchemaForm(data);
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur', defaultValues: properties });
 
+	const handleTrigger =
+		onTrigger &&
+		(({ schema, trigger }) =>
+			onTrigger({
+				errors: rhf.errors,
+				properties: rhf.getValues({ nest: true }),
+				schema,
+				trigger,
+			}));
+
+	const contextValue = {
+		customValidation,
+		displayMode,
+		onTrigger: handleTrigger,
+		rhf,
+		widgets,
+	};
+
 	return (
-		<form
-			onSubmit={handleSubmit((payload, event) => onSubmit(event, payload))}
-			noValidate
-			{...restProps}
-		>
-			{mergedSchema &&
-				mergedSchema.map((widgetSchema, index) => (
-					<Widget
-						customValidation={customValidation}
-						key={index}
-						id={restProps.id}
-						rhf={rhf}
-						schema={widgetSchema}
-						widgets={widgets}
-					/>
-				))}
-			<button type="submit" className="btn btn-primary">
-				Submit
-			</button>
-		</form>
+		<SchemaFormContext.Provider value={contextValue}>
+			<form
+				onSubmit={handleSubmit((payload, event) => onSubmit(event, payload))}
+				noValidate
+				{...restProps}
+			>
+				{mergedSchema &&
+					mergedSchema.map((widgetSchema, index) => (
+						<Widget key={index} id={restProps.id} schema={widgetSchema} />
+					))}
+				<button type="submit" className="btn btn-primary">
+					Submit
+				</button>
+			</form>
+		</SchemaFormContext.Provider>
 	);
 }
 
@@ -41,8 +63,10 @@ if (process.env.NODE_ENV !== 'production') {
 			uiSchema: PropTypes.array,
 			properties: PropTypes.object,
 		}),
+		displayMode: PropTypes.string,
 		id: PropTypes.string.isRequired,
 		onSubmit: PropTypes.func.isRequired,
+		onTrigger: PropTypes.func,
 		widgets: PropTypes.object,
 	};
 }

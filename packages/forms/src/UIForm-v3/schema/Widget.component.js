@@ -1,13 +1,11 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { sfPath } from '@talend/json-schema-form-core';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
-import { useTranslation } from 'react-i18next';
 
-import { I18N_DOMAIN_FORMS } from '../constants';
 import shouldRender from './condition';
 import defaultWidgets from './widgets';
-import schemaRules from './validation/schemaRules';
+import useSchemaWidget from './useSchemaWidget';
 
 function getWidget(displayMode, widgetId, customWidgets) {
 	// resolve the widget id depending on the display mode
@@ -22,13 +20,12 @@ function getWidget(displayMode, widgetId, customWidgets) {
 	return widget;
 }
 
-export const PROPS_TO_REMOVE_FROM_INPUTS = ['customValidation', 'displayMode', 'schema', 'widgets'];
+export const PROPS_TO_REMOVE_FROM_INPUTS = ['schema'];
 
 export default function Widget(props) {
-	const { customValidation, displayMode, id, rhf, schema, widgets = [] } = props;
+	const { id, schema } = props;
 	const { condition, key, type, widget, tooltip, tooltipPlacement } = schema;
-
-	const { t } = useTranslation(I18N_DOMAIN_FORMS);
+	const { eventsProps, displayMode, rhf, rules, widgets = [] } = useSchemaWidget(schema);
 
 	const values = rhf.getValues({ nest: true });
 	if (!shouldRender(condition, values, key)) {
@@ -41,16 +38,13 @@ export default function Widget(props) {
 		return <p className="text-danger">Widget not found {widgetName}</p>;
 	}
 
-	const rules = useMemo(
-		() => schemaRules({ schema, customValidation, getValues: rhf.getValues, t }),
-		[schema, customValidation, rhf.getValues, t],
-	);
-
 	const instance = (
 		<WidgetImpl
 			{...props}
+			{...eventsProps}
 			id={sfPath.name(key, '_', id)}
 			name={key && key.join('.')}
+			rhf={rhf}
 			rules={rules}
 		/>
 	);
@@ -72,11 +66,7 @@ export default function Widget(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
-		customValidation: PropTypes.func,
-		displayMode: PropTypes.string,
 		id: PropTypes.string,
-		rhf: PropTypes.object,
 		schema: PropTypes.object,
-		widgets: PropTypes.object,
 	};
 }

@@ -7,7 +7,7 @@ export default function enumRules(schema, t) {
 	}
 
 	return value => {
-		if (enumValues.includes(value)) {
+		if (!value || enumValues.includes(value)) {
 			return null;
 		}
 		return t('ERROR_ENUM_MISMATCH', { defaultValue: 'No enum match for: {{value}}', value });

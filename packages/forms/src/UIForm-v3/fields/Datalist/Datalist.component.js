@@ -60,7 +60,7 @@ function Datalist(props) {
 				return acc;
 			}, []);
 		return titleMapFormProps.concat(additionalOptions);
-	}, [restricted, titleMapFormProps, value, multiSection, restricted, type, t]);
+	}, [restricted, titleMapFormProps, value, multiSection, type, t]);
 
 	return (
 		<FieldTemplate

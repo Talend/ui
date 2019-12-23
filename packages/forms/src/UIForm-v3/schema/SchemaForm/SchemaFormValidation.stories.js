@@ -5,10 +5,7 @@ import SchemaForm from './SchemaForm.component';
 
 export default {
 	title: 'Schema Concepts|Validation',
-
-	parameters: {
-		component: SchemaForm,
-	},
+	parameters: { component: SchemaForm },
 };
 
 const validationSchema = {

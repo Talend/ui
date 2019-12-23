@@ -100,7 +100,7 @@ export const Restricted = () => {
 	const { handleSubmit, ...rhf } = useForm();
 	const rules = {
 		validate: selectedValue => {
-			if (titleMap.find(({ value }) => value === selectedValue)) {
+			if (!selectedValue || titleMap.find(({ value }) => value === selectedValue)) {
 				return null;
 			}
 			return "This value doesn't seem right in this restricted datalist. Let's select one the defined values";
@@ -115,7 +115,6 @@ export const Restricted = () => {
 				label="Restricted"
 				rhf={rhf}
 				titleMap={titleMap}
-				restricted
 				rules={rules}
 			/>
 			<button type="submit" className="btn btn-primary">
