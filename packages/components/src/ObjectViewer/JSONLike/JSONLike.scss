@@ -40,6 +40,13 @@
 				background: rgba($black, 0.05);
 				color: $scooter;
 			}
+
+			.value {
+				white-space: normal;
+				word-break: break-all;
+				overflow: visible;
+				vertical-align: top;
+			}
 		}
 
 		&[aria-selected='true'] > .line {
@@ -49,11 +56,19 @@
 
 		.line {
 			display: flex;
-			width: 100%;
 
 			.toggle {
 				min-height: auto;
 				line-height: unset;
+
+				&:focus {
+					~ .line-main .value {
+						white-space: normal;
+						word-break: break-all;
+						overflow: visible;
+						vertical-align: top;
+					}
+				}
 
 				> svg {
 					width: 0.9rem;
@@ -66,16 +81,6 @@
 				max-width: 100%;
 				display: flex;
 				align-items: center;
-
-				&:focus,
-				&:hover {
-					.value {
-						white-space: normal;
-						word-break: break-all;
-						overflow: visible;
-						vertical-align: top;
-					}
-				}
 			}
 		}
 

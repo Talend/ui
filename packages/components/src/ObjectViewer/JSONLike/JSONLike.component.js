@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -403,6 +403,8 @@ export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedC
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
 
+	const [iconRotation, seticonRotation] = useState('rotate-270');
+
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
 	}
@@ -432,6 +434,24 @@ export function Item(props) {
 				}
 				type={props.showType ? info.type : null}
 				tag={tag}
+				icon={
+					<Action
+						key="toggle"
+						className={classNames(theme.toggle, 'tc-object-viewer-toggle')}
+						icon={'talend-chevron-left'}
+						iconTransform={iconRotation}
+						onClick={e => {
+							e.stopPropagation();
+							iconRotation === 'rotate-0'
+								? seticonRotation('rotate-270')
+								: seticonRotation('rotate-0');
+						}}
+						label=""
+						aria-hidden
+						tabIndex="-1"
+						link
+					/>
+				}
 			/>
 		);
 	}
