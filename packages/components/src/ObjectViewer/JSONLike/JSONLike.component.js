@@ -28,7 +28,7 @@ const dateRegexp = new RegExp(
 );
 const timeRegexp = new RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/);
 
-export function NativeValue({ data, edit, className, onChange, jsonpath }) {
+export function NativeValue({ data, edit, className, onChange, jsonpath, wrap }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -42,7 +42,7 @@ export function NativeValue({ data, edit, className, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(className, theme.native, theme[type]);
+	const lineValueClasses = classNames(className, theme.native, theme[type], theme[wrap]);
 
 	return <span className={lineValueClasses}>{display}</span>;
 }
@@ -53,6 +53,7 @@ NativeValue.propTypes = {
 	className: PropTypes.string,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
+	wrap: PropTypes.string,
 };
 NativeValue.defaultProps = {
 	className: theme.value,
@@ -406,6 +407,7 @@ export function Item(props) {
 
 	const [width, setWidth] = useState(null);
 	const [icon, setIcon] = useState(null);
+	const [wrap, setWrap] = useState(null);
 
 	const dataWidth = useCallback(node => {
 		if (node !== null) {
@@ -420,6 +422,7 @@ export function Item(props) {
 						icon={'talend-chevron-left'}
 						onClick={e => {
 							e.stopPropagation();
+							setWrap('wrap-string');
 						}}
 						label=""
 						aria-hidden
@@ -457,6 +460,7 @@ export function Item(props) {
 						onEdit={props.onEdit}
 						onChange={props.onChange}
 						className={props.nativeValueClassName}
+						wrap={wrap}
 					/>
 				}
 				type={props.showType ? info.type : null}
