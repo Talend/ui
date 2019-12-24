@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -119,6 +119,7 @@ export class LineItem extends React.Component {
 			icon,
 			type,
 			value,
+			widthOneHundred,
 		} = this.props;
 		const isSelectedLine = this.isSelected();
 
@@ -133,7 +134,6 @@ export class LineItem extends React.Component {
 			badge,
 			tag,
 		];
-
 		return (
 			<li // eslint-disable-line jsx-a11y/no-static-element-interactions
 				id={id}
@@ -155,7 +155,7 @@ export class LineItem extends React.Component {
 					this.ref = ref;
 				}}
 			>
-				<div key="line" className={theme.line}>
+				<div key="line" className={`${theme.line} ${theme[widthOneHundred]}`}>
 					{icon}
 					<div key="line-main" className={theme['line-main']}>
 						{lineChildren}
@@ -186,6 +186,7 @@ LineItem.propTypes = {
 	tag: PropTypes.node,
 	type: PropTypes.string,
 	value: PropTypes.node,
+	widthOneHundred: PropTypes.string,
 };
 
 /**
@@ -403,6 +404,33 @@ export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedC
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
 
+	const [width, setWidth] = useState(null);
+	const [icon, setIcon] = useState(null);
+
+	const dataWidth = useCallback(node => {
+		if (node !== null) {
+			const ref = node.ref;
+
+			if (ref.offsetParent.offsetWidth < ref.scrollWidth) {
+				setWidth('full-width');
+				setIcon(
+					<Action
+						key="toggle"
+						className={classNames(theme.toggle, 'tc-object-viewer-toggle')}
+						icon={'talend-chevron-left'}
+						onClick={e => {
+							e.stopPropagation();
+						}}
+						label=""
+						aria-hidden
+						tabIndex="-1"
+						link
+					/>,
+				);
+			}
+		}
+	});
+
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
 	}
@@ -419,6 +447,7 @@ export function Item(props) {
 	if (isNativeType) {
 		return (
 			<LineItem
+				ref={dataWidth}
 				{...props}
 				value={
 					<NativeValue
@@ -432,6 +461,8 @@ export function Item(props) {
 				}
 				type={props.showType ? info.type : null}
 				tag={tag}
+				widthOneHundred={width}
+				icon={icon}
 			/>
 		);
 	}

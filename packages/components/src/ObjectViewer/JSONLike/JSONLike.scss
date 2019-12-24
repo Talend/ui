@@ -50,6 +50,10 @@
 		.line {
 			display: flex;
 
+			&.full-width {
+				width: 100%;
+			}
+
 			.toggle {
 				min-height: auto;
 				line-height: unset;
