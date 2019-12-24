@@ -66,8 +66,7 @@
 				display: flex;
 				align-items: center;
 
-				&:focus,
-				&:hover {
+				&:focus {
 					.value {
 						white-space: normal;
 						word-break: break-all;
