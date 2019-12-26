@@ -621,7 +621,7 @@ stories
 			<ObjectViewer id={'my-viewer'} data={moreComplexDataShape} {...handler} displayMode="flat" />
 		</div>
 	))
-	.add('tree test', () => (
+	.add('tree with a long field', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={longFieldData} {...handlerHighlight} />

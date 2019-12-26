@@ -426,9 +426,10 @@ export function Item(props) {
 						key="toggle"
 						className={classNames(theme.toggle, 'tc-object-viewer-toggle')}
 						icon={'talend-chevron-left'}
+						// iconTransform={props.opened ? 'rotate-180' : 'rotate-270'}
 						onClick={e => {
 							e.stopPropagation();
-							setWrap(true);
+							setWrap(val => !val);
 						}}
 						label=""
 						aria-hidden
