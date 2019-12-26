@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -42,7 +42,9 @@ export function NativeValue({ data, edit, className, onChange, jsonpath, wrap })
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(className, theme.native, theme[type], theme[wrap]);
+	const lineValueClasses = classNames(className, theme.native, theme[type], {
+		[`${theme['wrap-string']}`]: wrap,
+	});
 
 	return <span className={lineValueClasses}>{display}</span>;
 }
@@ -120,10 +122,14 @@ export class LineItem extends React.Component {
 			icon,
 			type,
 			value,
-			widthOneHundred,
+			setWidth,
 		} = this.props;
 		const isSelectedLine = this.isSelected();
 
+		let classStyleName = `${theme.line}`;
+		if (setWidth) {
+			classStyleName = `${theme.line} ${theme[setWidth]}`;
+		}
 		const lineChildren = [
 			getName(name),
 			value,
@@ -156,7 +162,7 @@ export class LineItem extends React.Component {
 					this.ref = ref;
 				}}
 			>
-				<div key="line" className={`${theme.line} ${theme[widthOneHundred]}`}>
+				<div key="line" className={classStyleName}>
 					{icon}
 					<div key="line-main" className={theme['line-main']}>
 						{lineChildren}
@@ -187,7 +193,7 @@ LineItem.propTypes = {
 	tag: PropTypes.node,
 	type: PropTypes.string,
 	value: PropTypes.node,
-	widthOneHundred: PropTypes.string,
+	setWidth: PropTypes.string,
 };
 
 /**
@@ -407,9 +413,9 @@ export function Item(props) {
 
 	const [width, setWidth] = useState(null);
 	const [icon, setIcon] = useState(null);
-	const [wrap, setWrap] = useState(null);
+	const [wrap, setWrap] = useState(false);
 
-	const dataWidth = useCallback(node => {
+	const dataWidth = node => {
 		if (node !== null) {
 			const ref = node.ref;
 
@@ -422,7 +428,7 @@ export function Item(props) {
 						icon={'talend-chevron-left'}
 						onClick={e => {
 							e.stopPropagation();
-							setWrap('wrap-string');
+							setWrap(true);
 						}}
 						label=""
 						aria-hidden
@@ -432,7 +438,7 @@ export function Item(props) {
 				);
 			}
 		}
-	});
+	};
 
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
@@ -465,7 +471,7 @@ export function Item(props) {
 				}
 				type={props.showType ? info.type : null}
 				tag={tag}
-				widthOneHundred={width}
+				setWidth={width}
 				icon={icon}
 			/>
 		);
