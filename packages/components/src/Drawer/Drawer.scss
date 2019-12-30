@@ -98,6 +98,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	:global(.tc-drawer-header-with-tabs),
 	.tc-drawer-tabs-container {
 		border-bottom: 1px solid $silver;
+		margin-bottom: $padding-large;
 	}
 
 	:global {
