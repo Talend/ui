@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -126,10 +126,8 @@ export class LineItem extends React.Component {
 		} = this.props;
 		const isSelectedLine = this.isSelected();
 
-		let classStyleName = `${theme.line}`;
-		if (setWidth) {
-			classStyleName = `${theme.line} ${theme[setWidth]}`;
-		}
+		const lineClass = classNames(theme.line, { [theme['full-width']]: setWidth });
+
 		const lineChildren = [
 			getName(name),
 			value,
@@ -162,7 +160,7 @@ export class LineItem extends React.Component {
 					this.ref = ref;
 				}}
 			>
-				<div key="line" className={classStyleName}>
+				<div key="line" className={lineClass}>
 					{icon}
 					<div key="line-main" className={theme['line-main']}>
 						{lineChildren}
@@ -411,17 +409,18 @@ export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedC
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
 
-	const [width, setWidth] = useState(null);
-	const [icon, setIcon] = useState(null);
-	const [wrap, setWrap] = useState(false);
+	const [lineItemWidth, setLineItemWidth] = useState(false);
+	const [lineItemIcon, setLineItemIcon] = useState(null);
+	const [nativeValueWrap, setNativeValueWrap] = useState(false);
+	const lineItemRef = useRef();
 
-	const dataWidth = node => {
-		if (node !== null) {
-			const ref = node.ref;
-
+	useLayoutEffect(() => {
+		const { current } = lineItemRef;
+		if (current) {
+			const ref = current.ref;
 			if (ref.offsetParent.offsetWidth < ref.scrollWidth) {
-				setWidth('full-width');
-				setIcon(
+				setLineItemWidth(true);
+				setLineItemIcon(
 					<Action
 						key="toggle"
 						className={classNames(theme.toggle, 'tc-object-viewer-toggle')}
@@ -429,7 +428,7 @@ export function Item(props) {
 						// iconTransform={props.opened ? 'rotate-180' : 'rotate-270'}
 						onClick={e => {
 							e.stopPropagation();
-							setWrap(val => !val);
+							setNativeValueWrap(val => !val);
 						}}
 						label=""
 						aria-hidden
@@ -439,7 +438,7 @@ export function Item(props) {
 				);
 			}
 		}
-	};
+	}, []);
 
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
@@ -457,7 +456,7 @@ export function Item(props) {
 	if (isNativeType) {
 		return (
 			<LineItem
-				ref={dataWidth}
+				ref={lineItemRef}
 				{...props}
 				value={
 					<NativeValue
@@ -467,13 +466,13 @@ export function Item(props) {
 						onEdit={props.onEdit}
 						onChange={props.onChange}
 						className={props.nativeValueClassName}
-						wrap={wrap}
+						wrap={nativeValueWrap}
 					/>
 				}
 				type={props.showType ? info.type : null}
 				tag={tag}
-				setWidth={width}
-				icon={icon}
+				setWidth={lineItemWidth}
+				icon={lineItemIcon}
 			/>
 		);
 	}
