@@ -51,6 +51,9 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			> * {
 				margin: 0;
 				color: $tc-drawer-header-color;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
 			}
 		}
 		:global {
@@ -77,8 +80,10 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		}
 
 		.tc-drawer-close-action {
+			padding: 0;
 			color: $st-tropaz;
 			min-height: inherit;
+			width: $svg-xlg-size;
 			line-height: inherit;
 		}
 	}
@@ -126,10 +131,17 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		}
 	}
 
+	.tc-drawer-content {
+		flex-grow: 1;
+		min-height: 0;
+		overflow: auto;
+	}
+
 	.tc-drawer-actionbar-container,
 	.tc-drawer-footer {
 		padding: $padding-large;
 		box-shadow: tint($black, 90) 0 -1px 5px 0;
+		background: $white;
 
 		:global {
 			.tc-actionbar-container {
@@ -156,19 +168,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 				}
 			}
 		}
-
-		.tc-with-drawer-wrapper .tc-drawer.stacked::after {
-			position: absolute;
-			top: 0;
-			height: 100%;
-			width: 100%;
-			content: ' ';
-			background: rgba(0, 0, 0, 0.4);
-		}
-
-		.tc-with-drawer-wrapper:last-child .tc-drawer.stacked::after {
-			content: none;
-		}
 	}
 
 	.tc-drawer-header-title,
@@ -183,6 +182,27 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	}
 }
 
+:global(.tc-with-drawer-wrapper) :global(.tc-drawer.stacked)::after {
+	background: rgba(0, 0, 0, 0.4);
+	content: ' ';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+}
+
+:global(.tc-with-drawer-wrapper) :global(.tc-drawer.stacked) {
+	.tc-drawer-header,
+	.tc-drawer-actionbar-container,
+	.tc-drawer-footer {
+		z-index: 0;
+	}
+}
+
+:global(.tc-with-drawer-wrapper:last-child) :global(.tc-drawer.stacked):after {
+	content: none;
+}
+
 .drawer-stacked {
 	@media screen and (min-width: $screen-xs-max) {
 		width: 100%;
@@ -192,7 +212,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 				left: 0;
 				right: 0;
 			}
-			overflow: auto;
 		}
 
 		.tc-drawer-header-title,
@@ -200,6 +219,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		.tc-drawer-content,
 		.tc-drawer-actionbar,
 		.tc-drawer-footer {
+			flex-shrink: 0;
 			margin: 0 auto;
 			padding: {
 				left: 0;
@@ -211,8 +231,8 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		.tc-drawer-header,
 		.tc-drawer-actionbar-container,
 		.tc-drawer-footer {
-			position: fixed; // IE
-			position: sticky;
+			position: relative; // Internet Explorer only
+			position: sticky; // sass-lint:disable-line no-duplicate-properties
 			background: $white;
 			z-index: 1;
 		}

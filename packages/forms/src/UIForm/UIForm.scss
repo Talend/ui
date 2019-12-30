@@ -15,6 +15,12 @@ $tc-drawer-content-max-width: 60rem !default;
 	}
 }
 
+.form-content {
+	flex-grow: 1;
+	min-height: 10rem;
+	overflow: auto;
+}
+
 .form-actions {
 	padding-top: $padding-larger;
 	padding-bottom: $padding-large;
@@ -38,6 +44,7 @@ $tc-drawer-content-max-width: 60rem !default;
 	:global(.stacked) :global(.tc-drawer-container) {
 		.form-content,
 		.form-actions {
+			flex-shrink: 0;
 			margin: 0 auto;
 			padding: {
 				left: 0;
@@ -55,8 +62,8 @@ $tc-drawer-content-max-width: 60rem !default;
 		}
 
 		.form-actions {
-			position: fixed; // IE
-			position: sticky;
+			position: relative; // Internet Explorer only
+			position: sticky; // sass-lint:disable-line no-duplicate-properties
 			bottom: 0;
 			background-color: $white;
 			z-index: 1;
