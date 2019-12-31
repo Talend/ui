@@ -6,8 +6,8 @@ const badgeDefinitionRawDataPropTypes = PropTypes.shape({
 	operators: PropTypes.arrayOf(PropTypes.string),
 	type: PropTypes.string.isRequired,
 	metadata: PropTypes.shape({
-		badges_per_facet: PropTypes.string,
-		entities_per_badge: PropTypes.string,
+		badgePerFacet: PropTypes.string,
+		entitiesPerBadge: PropTypes.string,
 	}),
 });
 
@@ -33,9 +33,9 @@ const badgeFacetedPropTypes = PropTypes.shape({
 	}),
 	metadata: PropTypes.shape({
 		badgeId: PropTypes.string,
-		badges_per_facet: PropTypes.string,
+		badgePerFacet: PropTypes.string,
 		isInCreation: PropTypes.bool,
-		entities_per_badge: PropTypes.string,
+		entitiesPerBadge: PropTypes.string,
 		operators: PropTypes.arrayOf(PropTypes.string),
 	}),
 });
