@@ -21,27 +21,6 @@ const components = Object.keys(allComponents).reduce((acc, key) => {
 export * from './containers';
 export { default as actionAPI } from './actionAPI';
 
-export const Layout = cmfConnect({
-	omitCMFProps: true,
-	withComponentRegistry: true,
-})(allComponents.Layout);
-export const CircularProgress = cmfConnect({
-	omitCMFProps: true,
-})(allComponents.CircularProgress);
-export const Drawer = cmfConnect({
-	omitCMFProps: true,
-	withComponentRegistry: true,
-})(allComponents.Drawer);
-export const Icon = cmfConnect({
-	omitCMFProps: true,
-})(allComponents.Icon);
-export const IconsProvider = cmfConnect({
-	omitCMFProps: true,
-})(allComponents.IconsProvider);
-export const TooltipTrigger = cmfConnect({
-	omitCMFProps: true,
-})(allComponents.TooltipTrigger);
-
 // cmfModule
 export default {
 	id: 'containers',

@@ -1,5 +1,5 @@
 import Toggle from './Toggle.component';
 
-export default Toggle;
+export { Checkbox } from './Checkbox.component';
 
-export function Checkbox(params) { return new Toggle({ className: 'checkbox', ...params }); }
+export default Toggle;

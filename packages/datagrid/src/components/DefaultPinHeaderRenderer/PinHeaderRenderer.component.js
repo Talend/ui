@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Icon } from '@talend/react-components';
+import Icon from '@talend/react-components/lib/Icon';
 
 import theme from './PinHeaderRenderer.scss';
 

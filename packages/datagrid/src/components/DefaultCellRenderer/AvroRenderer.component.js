@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Inject } from '@talend/react-components';
+import Inject from '@talend/react-components/lib/Inject';
 
 import { AVRO_TYPES, LOGICAL_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
