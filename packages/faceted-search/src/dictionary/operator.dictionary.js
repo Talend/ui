@@ -14,14 +14,14 @@ const standardOperators = t => ({
 		label: t('OPERATOR_NOT_EQUALS_LABEL', {
 			defaultValue: 'Not equals',
 		}),
-		name: 'notEqual',
+		name: 'notEquals',
 		iconName: 'not-equal',
 	},
 	[operatorNames.equal]: {
 		label: t('OPERATOR_EQUALS_LABEL', {
 			defaultValue: 'Equals',
 		}),
-		name: 'equal',
+		name: 'equals',
 		iconName: 'equal',
 	},
 	[operatorNames.contains]: {
