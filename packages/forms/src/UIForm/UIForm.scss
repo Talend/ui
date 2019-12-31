@@ -22,11 +22,13 @@ $tc-drawer-content-max-width: 60rem !default;
 }
 
 .form-actions {
-	padding-top: $padding-larger;
-	padding-bottom: $padding-large;
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
+	padding: {
+		top: $padding-larger;
+		bottom: $padding-larger;
+	}
 }
 
 :global(.tc-drawer-container) {

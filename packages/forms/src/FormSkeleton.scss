@@ -39,15 +39,15 @@ $tc-drawer-content-max-width: 60rem !default;
 		min-height: 0;
 	}
 
-	.form-content {
-		padding: 0 $padding-larger;
-	}
-
+	.form-content,
 	.form-actions {
 		padding: {
 			left: $padding-larger;
 			right: $padding-larger;
 		}
+	}
+
+	.form-actions {
 		box-shadow: 0px -1px 5px 0px;
 	}
 }
@@ -56,6 +56,7 @@ $tc-drawer-content-max-width: 60rem !default;
 	:global(.stacked) :global(.tc-drawer-container) {
 		.form-content,
 		.form-actions {
+			flex-shrink: 0;
 			margin: 0 auto;
 			padding: {
 				left: 0;
@@ -64,14 +65,20 @@ $tc-drawer-content-max-width: 60rem !default;
 			width: $tc-drawer-content-max-width;
 			background: none;
 			box-shadow: none;
-			overflow: hidden;
+		}
+
+		.form-content {
+			padding: {
+				bottom: 10rem;
+			}
 		}
 
 		.form-actions {
-			position: fixed; // IE
-			position: sticky;
+			position: relative; // Internet Explorer only
+			position: sticky; // sass-lint:disable-line no-duplicate-properties
 			bottom: 0;
-			background: $white;
+			background-color: $white;
+			z-index: 1;
 		}
 	}
 }
