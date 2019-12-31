@@ -45,7 +45,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		&-title {
 			position: relative;
 			display: flex;
-			align-items: flex-start;
+			align-items: center;
 			padding: $padding-larger $padding-large;
 
 			> * {
@@ -60,7 +60,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			.tc-editable-text {
 				flex: 1;
 				min-width: 0;
-				width: unset;
 
 				&-wording {
 					margin: 0;
