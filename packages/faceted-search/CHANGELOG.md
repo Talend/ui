@@ -26,9 +26,9 @@ Types of changes
 
 ## [0.2.5]
 
-### Fixed
+### Breaking
 
-- [fixed]: Change equal key operator to equals
+- [Breaking]: Change equal key operator to equals
 
 ### Chore
 
