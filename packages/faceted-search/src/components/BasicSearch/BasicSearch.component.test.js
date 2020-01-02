@@ -22,9 +22,9 @@ describe('BasicSearch', () => {
 		},
 		metadata: {
 			badgeId: 'name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b',
-			badges_per_facet: 'N',
+			badgePerFacet: 'N',
 			isInCreation: true,
-			entities_per_badge: '1',
+			entitiesPerBadge: '1',
 			operators: ['contains', '='],
 		},
 	};
@@ -42,8 +42,8 @@ describe('BasicSearch', () => {
 			type: 'text',
 		},
 		metadata: {
-			badges_per_facet: 'N',
-			entities_per_badge: '1',
+			badgePerFacet: 'N',
+			entitiesPerBadge: '1',
 			operators: ['contains', '='],
 		},
 	};
