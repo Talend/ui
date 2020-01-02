@@ -9,12 +9,12 @@ import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propT
 const createDefaultOperators = t => [
 	{
 		label: t('FACETED_SEARCH_DOES_NOT_CONTAINS', { defaultValue: 'Does not contains' }),
-		name: 'notEqual',
+		name: 'notEquals',
 		iconName: 'not-equal',
 	},
 	{
 		label: t('FACETED_SEARCH_EQUAL', { defaultValue: 'Equal' }),
-		name: 'equal',
+		name: 'equals',
 		iconName: 'equal',
 	},
 	{
@@ -24,7 +24,7 @@ const createDefaultOperators = t => [
 	},
 	{
 		label: t('FACETED_SEARCH_GREATHER_THAN_OR_EQUAL', { defaultValue: 'Greater than or equal' }),
-		name: 'GreaterThanOrEqual',
+		name: 'GreaterThanOrEquals',
 		iconName: 'greater-than-equal',
 	},
 	{
@@ -34,7 +34,7 @@ const createDefaultOperators = t => [
 	},
 	{
 		label: t('FACETED_SEARCH_LESS_THAN_OR_EQUAL', { defaultValue: 'Less than or equal' }),
-		name: 'LessThanOrEqual',
+		name: 'LessThanOrEquals',
 		iconName: 'less-than-equal',
 	},
 ];

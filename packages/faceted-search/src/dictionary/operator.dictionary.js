@@ -1,23 +1,23 @@
 const operatorNames = {
 	contains: 'contains',
-	equals: 'equal',
-	notEquals: 'notEqual',
+	equals: 'equals',
+	notEquals: 'notEquals',
 	in: 'in',
 	greaterThan: 'greaterThan',
-	greaterThanOrEquals: 'greaterThanOrEqual',
+	greaterThanOrEquals: 'greaterThanOrEquals',
 	lessThan: 'lessThan',
-	lessThanOrEquals: 'lessThanOrEqual',
+	lessThanOrEquals: 'lessThanOrEquals',
 };
 
 const standardOperators = t => ({
-	[operatorNames.notEqual]: {
+	[operatorNames.notEquals]: {
 		label: t('OPERATOR_NOT_EQUALS_LABEL', {
 			defaultValue: 'Not equals',
 		}),
 		name: 'notEquals',
 		iconName: 'not-equal',
 	},
-	[operatorNames.equal]: {
+	[operatorNames.equals]: {
 		label: t('OPERATOR_EQUALS_LABEL', {
 			defaultValue: 'Equals',
 		}),
@@ -44,7 +44,7 @@ const standardOperators = t => ({
 		name: 'greaterThan',
 		iconName: 'greater-than',
 	},
-	[operatorNames.greaterThanOrEqual]: {
+	[operatorNames.greaterThanOrEquals]: {
 		label: t('OPERATOR_GREATER_THAN_OR_EQUAL_LABEL', {
 			defaultValue: 'Greater than or equal',
 		}),
@@ -58,7 +58,7 @@ const standardOperators = t => ({
 		name: 'lessThan',
 		iconName: 'less-than',
 	},
-	[operatorNames.lessThanOrEqual]: {
+	[operatorNames.lessThanOrEquals]: {
 		label: t('OPERATOR_LESS_THAN_OR_EQUAL_LABEL', {
 			defaultValue: 'Less than or equal',
 		}),
