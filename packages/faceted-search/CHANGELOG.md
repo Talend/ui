@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [0.2.5]
+
+### Breaking
+
+- [breaking](https://github.com/Talend/ui/pull/2599): Change equal key operator to equals
+
 ### Added
 
 - [feat](https://github.com/Talend/ui/pull/2590/): Add label in add facet button
@@ -36,7 +42,7 @@ Types of changes
 
 ### Fixed
 
-- [fixed]: Change equal key operator to equals
+- [chore](https://github.com/Talend/ui/pull/2600): change some field, snake case to camel case
 
 ## [0.2.4]
 
