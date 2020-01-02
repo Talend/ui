@@ -48,7 +48,7 @@ const standardOperators = t => ({
 		label: t('OPERATOR_GREATER_THAN_OR_EQUAL_LABEL', {
 			defaultValue: 'Greater than or equal',
 		}),
-		name: 'greaterThanOrEqual',
+		name: 'greaterThanOrEquals',
 		iconName: 'greater-than-equal',
 	},
 	[operatorNames.lessThan]: {
@@ -62,7 +62,7 @@ const standardOperators = t => ({
 		label: t('OPERATOR_LESS_THAN_OR_EQUAL_LABEL', {
 			defaultValue: 'Less than or equal',
 		}),
-		name: 'lessThanOrEqual',
+		name: 'lessThanOrEquals',
 		iconName: 'less-than-equal',
 	},
 });
