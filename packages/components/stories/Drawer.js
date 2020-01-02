@@ -450,14 +450,12 @@ storiesOf('Drawer', module)
 	})
 	.add('Custom stacked', () => {
 		// Use same cancel action props with className for Title and Footer
-		const sameCancelAction = panelActions.left[0];
 		const customDrawers = [
 			<Drawer.Container stacked>
 				<Tab.Container defaultActiveKey="info">
 					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
 						<Drawer.Title
 							title="Custom drawer with tabs and a super long name that breaks the drawer title"
-							onCancelAction={sameCancelAction}
 						/>
 						<Tab.Content>
 							<Drawer.Content>

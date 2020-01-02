@@ -185,11 +185,13 @@ function DrawerTitle({
 				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
-			<div
-				className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
-			>
-				{children}
-			</div>
+			{children && (
+				<div
+					className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
+				>
+					{children}
+				</div>
+			)}
 		</div>
 	);
 }
@@ -304,19 +306,17 @@ function Drawer({
 					/>
 				</div>
 			)}
-			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
-				<DrawerContent>{children}</DrawerContent>
-				<div
-					className={classnames(
-						'tc-drawer-actionbar-container',
-						theme['tc-drawer-actionbar-container'],
-					)}
-				>
-					<ActionBar
-						{...combinedFooterActions(onCancelAction, footerActions, activeTabItem)}
-						className={classnames('tc-drawer-actionbar', theme['tc-drawer-actionbar'])}
-					/>
-				</div>
+			<DrawerContent>{children}</DrawerContent>
+			<div
+				className={classnames(
+					'tc-drawer-actionbar-container',
+					theme['tc-drawer-actionbar-container'],
+				)}
+			>
+				<ActionBar
+					{...combinedFooterActions(onCancelAction, footerActions, activeTabItem)}
+					className={classnames('tc-drawer-actionbar', theme['tc-drawer-actionbar'])}
+				/>
 			</div>
 		</DrawerContainer>
 	);
