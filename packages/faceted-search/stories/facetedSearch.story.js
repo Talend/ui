@@ -18,7 +18,7 @@ const badgeName = {
 	metadata: {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['contains', 'equal', 'notEqual'],
+		operators: ['contains', 'equals', 'notEquals'],
 	},
 };
 
@@ -61,12 +61,12 @@ const badgePrice = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: [
-			'equal',
-			'notEqual',
+			'equals',
+			'notEquals',
 			'greaterThan',
-			'greaterThanOrEqual',
+			'greaterThanOrEquals',
 			'lessThan',
-			'lessThanOrEqual',
+			'lessThanOrEquals',
 		],
 	},
 };
