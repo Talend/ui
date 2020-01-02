@@ -24,11 +24,15 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
-## [unreleased]
+## [0.2.5]
 
 ### Fixed
 
 - [fixed]: Change equal key operator to equals
+
+### Chore
+
+- [chore]: change some field, snake case to camel case
 
 ## [0.2.4]
 
