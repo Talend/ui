@@ -1,12 +1,12 @@
 const operatorNames = {
 	contains: 'contains',
-	equal: 'equal',
-	notEqual: 'notEqual',
+	equals: 'equal',
+	notEquals: 'notEqual',
 	in: 'in',
 	greaterThan: 'greaterThan',
-	greaterThanOrEqual: 'greaterThanOrEqual',
+	greaterThanOrEquals: 'greaterThanOrEqual',
 	lessThan: 'lessThan',
-	lessThanOrEqual: 'lessThanOrEqual',
+	lessThanOrEquals: 'lessThanOrEqual',
 };
 
 const standardOperators = t => ({
