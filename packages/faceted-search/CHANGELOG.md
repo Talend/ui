@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+- [fixed]: Change equal key operator to equals
+
 ## [0.2.4]
 
 ### Fixed
