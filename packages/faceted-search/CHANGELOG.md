@@ -30,6 +30,10 @@ Types of changes
 
 - [feat](https://github.com/Talend/ui/pull/2590/): Add label in add facet button
 
+### Changed
+
+- [Changed](https://github.com/Talend/ui/pull/2591): Remove Header in AddFacetPopover
+
 ### Fixed
 
 - [fixed]: Change equal key operator to equals
