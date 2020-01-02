@@ -28,7 +28,7 @@ Types of changes
 
 ### Breaking
 
-- [Breaking]: Change equal key operator to equals
+- [Breaking](https://github.com/Talend/ui/pull/2599): Change equal key operator to equals
 
 ### Chore
 
