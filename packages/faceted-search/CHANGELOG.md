@@ -34,7 +34,7 @@ Types of changes
 
 ### Chore
 
-- [chore]: change some field, snake case to camel case
+- [chore](https://github.com/Talend/ui/pull/2600): change some field, snake case to camel case
 
 ## [0.2.4]
 
