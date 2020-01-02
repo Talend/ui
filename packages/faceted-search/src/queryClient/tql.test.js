@@ -256,7 +256,7 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual('(price > 2298.23)');
 	});
-	it('should return an unequal tql query when value is using the greaterThanOrEqual operator', () => {
+	it('should return an unequal tql query when value is using the greaterThanOrEquals operator', () => {
 		// Given
 		const badgeNotEqual = [
 			{
@@ -296,7 +296,7 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual('(price < 20938.20938)');
 	});
-	it('should return an unequal tql query when value is using the lessThanOrEqual operator', () => {
+	it('should return an unequal tql query when value is using the lessThanOrEquals operator', () => {
 		// Given
 		const badgeNotEqual = [
 			{
