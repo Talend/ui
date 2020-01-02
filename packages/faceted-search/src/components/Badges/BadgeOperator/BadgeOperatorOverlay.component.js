@@ -22,6 +22,7 @@ const BadgeOperatorOverlay = ({
 	operatorLabel,
 	operators,
 	size,
+	t,
 }) => {
 	/**
 	 * Trigger the callback passed in props
@@ -55,6 +56,7 @@ const BadgeOperatorOverlay = ({
 				onChange={onChangeOverlay}
 				onHide={onHide}
 				opened={opened}
+				t={t}
 			>
 				{setOverlayOpened => (
 					<BadgeOperatorPopover
@@ -78,6 +80,7 @@ BadgeOperatorOverlay.propTypes = {
 	operatorLabel: PropTypes.string,
 	operators: operatorsPropTypes.isRequired,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
+	t: PropTypes.func.isRequired,
 };
 
 // eslint-disable-next-line import/prefer-default-export

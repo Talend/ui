@@ -9,16 +9,19 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
             aria-label="Add filter"
             type="button"
             aria-describedby="42"
-            class="btn btn-link"
+            class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
     >
       <svg name="talend-plus-circle"
-           class="theme-tc-svg-icon tc-svg-icon"
+           class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
            focusable="false"
            aria-hidden="true"
       >
         <use xlink:href="#talend-plus-circle">
         </use>
       </svg>
+      <span>
+        Add filter
+      </span>
     </button>
   </div>
 </div>
@@ -47,7 +50,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                   class="btn btn-link"
           >
             <svg name="talend-equal"
-                 class="theme-tc-svg-icon tc-svg-icon"
+                 class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
                  focusable="false"
                  aria-hidden="true"
             >
@@ -91,16 +94,19 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
             aria-label="Add filter"
             type="button"
             aria-describedby="42"
-            class="btn btn-link"
+            class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
     >
       <svg name="talend-plus-circle"
-           class="theme-tc-svg-icon tc-svg-icon"
+           class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
            focusable="false"
            aria-hidden="true"
       >
         <use xlink:href="#talend-plus-circle">
         </use>
       </svg>
+      <span>
+        Add filter
+      </span>
     </button>
   </div>
 </div>

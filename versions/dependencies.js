@@ -55,6 +55,7 @@ module.exports = {
 	slugify: '^1.1.0',
 	uuid: '^3.0.1', // prefer bson-objectid
 	tv4: '^1.3.0',
+	'timezone-support': '^1.5.5',
 
 	// deps: libs that interact with the DOM
 	'd3-shape': '1.2.0',

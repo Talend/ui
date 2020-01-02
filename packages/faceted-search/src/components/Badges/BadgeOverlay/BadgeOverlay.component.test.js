@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
 import { BadgeOverlay } from './BadgeOverlay.component';
+import getDefaultT from '../../../translate';
 
 describe('BadgeOverlay', () => {
 	it('should render the html output in the default state', () => {
@@ -11,6 +12,7 @@ describe('BadgeOverlay', () => {
 		const props = {
 			id: 'my-id',
 			label: 'my label',
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
@@ -29,6 +31,7 @@ describe('BadgeOverlay', () => {
 		const props = {
 			id: 'my-id',
 			label: 'my label',
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>{() => childrenAsFunc()}</BadgeOverlay>);
@@ -40,6 +43,7 @@ describe('BadgeOverlay', () => {
 		const props = {
 			id: 'my-id',
 			label: 'my label',
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
@@ -67,6 +71,7 @@ describe('BadgeOverlay', () => {
 		const props = {
 			label: 'my label',
 			id: 'my-id',
+			t: getDefaultT(),
 			onChange,
 		};
 		// When
@@ -88,6 +93,7 @@ describe('BadgeOverlay', () => {
 			label: 'my label',
 			id: 'my-id',
 			initialOpened: true,
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);

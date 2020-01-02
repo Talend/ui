@@ -66,7 +66,9 @@ const BasicSearch = ({
 				id={basicSearchId}
 				iconName="plus-circle"
 				label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
+				t={t}
 				hideLabel
+				hasAddButton
 			>
 				{setOverlayOpened => (
 					<AddFacetPopover

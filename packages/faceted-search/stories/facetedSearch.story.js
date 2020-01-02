@@ -16,9 +16,9 @@ const badgeName = {
 		type: 'text',
 	},
 	metadata: {
-		badges_per_facet: 'N',
-		entities_per_badge: '1',
-		operators: ['contains', 'equal', 'notEqual'],
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: ['contains', 'equals', 'notEquals'],
 	},
 };
 
@@ -33,8 +33,8 @@ const badgeConnectionType = {
 		type: 'checkbox',
 	},
 	metadata: {
-		badges_per_facet: '1',
-		entities_per_badge: 'N',
+		badgePerFacet: '1',
+		entitiesPerBadge: 'N',
 		values: [
 			{ id: 'amazon_s3', label: 'Amazon S3' },
 			{ id: 'hdfs', label: 'HDFS' },
@@ -58,15 +58,15 @@ const badgePrice = {
 		type: 'number',
 	},
 	metadata: {
-		badges_per_facet: 'N',
-		entities_per_badge: '1',
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
 		operators: [
-			'equal',
-			'notEqual',
+			'equals',
+			'notEquals',
 			'greaterThan',
-			'greaterThanOrEqual',
+			'greaterThanOrEquals',
 			'lessThan',
-			'lessThanOrEqual',
+			'lessThanOrEquals',
 		],
 	},
 };
