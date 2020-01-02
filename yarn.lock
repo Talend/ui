@@ -2,6 +2,25 @@
 # yarn lockfile v1
 
 
+"@ag-grid-community/client-side-row-model@^22.1.1":
+  version "22.1.1"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/client-side-row-model/-/client-side-row-model-22.1.1.tgz#9ac111319559b19dfaf20ea158020cddc6848365"
+  integrity sha512-lLqYuYHngb8pC5wSnBRYzszBDeTxRkz6TmxpVP8CHYM3QSqe2xUTp8KFkzO+RrlySB7uCCx1ym0bOR4vRkkaAw==
+  dependencies:
+    "@ag-grid-community/core" "~22.1.1"
+
+"@ag-grid-community/core@^22.1.1", "@ag-grid-community/core@~22.1.1":
+  version "22.1.1"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/core/-/core-22.1.1.tgz#5b30fe9de4e309c92540dfb218ddb97db319d88a"
+  integrity sha512-x9dLUnsIsa+3bsweYKM8UWN42b7i5FDMvGpabAlOS0jAcJRs6krZUBK8XyZwzCc2vELuoBQ6VrKG5RWCN2phjg==
+
+"@ag-grid-community/react@^22.1.2":
+  version "22.1.2"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/react/-/react-22.1.2.tgz#1bf188177f5c8d12371aa20539d66d66a29960dd"
+  integrity sha512-rouYVp1NFq4hwBMmazMQ5sxcmwImcBOQC2YVn5/39uoP8+3UHTNcimMbKviAN+jMQgIHDlBTTBgjDAH9mMKmQg==
+  dependencies:
+    prop-types "^15.6.2"
+
 "@babel/cli@^7.2.0":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.4.4.tgz#5454bb7112f29026a4069d8e6f0e1794e651966c"
@@ -2953,16 +2972,6 @@ address@1.0.3:
 address@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/address/-/address-1.1.0.tgz#ef8e047847fcd2c5b6f50c16965f924fd99fe709"
-
-ag-grid-community@^21.2.1:
-  version "21.2.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-21.2.1.tgz#0d8ab868f2fe8da302e19d14ef99669ef00d3b28"
-
-ag-grid-react@^21.2.1:
-  version "21.2.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-21.2.1.tgz#f1c97cb673ef8c30ae39b4774772a5a7b83593c1"
-  dependencies:
-    prop-types "^15.6.2"
 
 agent-base@^4.1.0:
   version "4.2.1"
