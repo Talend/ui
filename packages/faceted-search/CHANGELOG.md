@@ -30,9 +30,17 @@ Types of changes
 
 ### Breaking
 
-- [Breaking](https://github.com/Talend/ui/pull/2599): Change equal key operator to equals
+- [breaking](https://github.com/Talend/ui/pull/2599): Change equal key operator to equals
 
-### Chore
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2590/): Add label in add facet button
+
+### Changed
+
+- [Changed](https://github.com/Talend/ui/pull/2591): Remove Header in AddFacetPopover
+
+### Fixed
 
 - [chore](https://github.com/Talend/ui/pull/2600): change some field, snake case to camel case
 

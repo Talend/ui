@@ -218,6 +218,7 @@ export function ActionButton(props) {
 						className={classNames(
 							theme['tc-action-disabled-btn-container'],
 							'tc-action-disabled-btn-container',
+							buttonProps.className,
 						)}
 					>
 						{btn}

@@ -93,6 +93,7 @@ const BadgeFaceted = ({
 				onClick={onChangeOperator}
 				operators={operators}
 				size={size}
+				t={t}
 			/>
 			<BadgeOverlay
 				id={id}
@@ -102,6 +103,7 @@ const BadgeFaceted = ({
 				onHide={onSubmitBadge}
 				opened={overlayState.valueOpened}
 				onChange={onChangeValueOverlay}
+				t={t}
 			>
 				{children({ onSubmitBadge, onChangeValue, badgeValue })}
 			</BadgeOverlay>
