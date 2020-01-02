@@ -20,7 +20,7 @@ exports[`BadgeText should mount a default badge 1`] = `
                 class="btn btn-link"
         >
           <svg name="talend-not-equal"
-               class="theme-tc-svg-icon tc-svg-icon"
+               class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
                focusable="false"
                aria-hidden="true"
           >
