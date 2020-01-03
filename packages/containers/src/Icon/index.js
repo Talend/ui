@@ -1,4 +1,3 @@
-
 import { cmfConnect } from '@talend/react-cmf';
 import Icon from '@talend/react-components/lib/Icon';
 

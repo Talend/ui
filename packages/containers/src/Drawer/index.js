@@ -1,4 +1,3 @@
-
 import { cmfConnect } from '@talend/react-cmf';
 import Layout from '@talend/react-components/lib/Layout';
 
