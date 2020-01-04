@@ -410,8 +410,9 @@ export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
 
 	const [lineItemWidth, setLineItemWidth] = useState(false);
-	const [lineItemIcon, setLineItemIcon] = useState(null);
+	const [showIcon, setShowIcon] = useState(false);
 	const [nativeValueWrap, setNativeValueWrap] = useState(false);
+
 	const lineItemRef = useRef();
 
 	useLayoutEffect(() => {
@@ -420,25 +421,10 @@ export function Item(props) {
 			const ref = current.ref;
 			if (ref.offsetParent.offsetWidth < ref.scrollWidth) {
 				setLineItemWidth(true);
-				setLineItemIcon(
-					<Action
-						key="toggle"
-						className={classNames(theme.toggle, 'tc-object-viewer-toggle')}
-						icon={'talend-chevron-left'}
-						// iconTransform={props.opened ? 'rotate-180' : 'rotate-270'}
-						onClick={e => {
-							e.stopPropagation();
-							setNativeValueWrap(val => !val);
-						}}
-						label=""
-						aria-hidden
-						tabIndex="-1"
-						link
-					/>,
-				);
+				setShowIcon(true);
 			}
 		}
-	}, []);
+	});
 
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
@@ -454,6 +440,7 @@ export function Item(props) {
 	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 
 	if (isNativeType) {
+		const [rotation, setRotation] = useState(false);
 		return (
 			<LineItem
 				ref={lineItemRef}
@@ -472,7 +459,26 @@ export function Item(props) {
 				type={props.showType ? info.type : null}
 				tag={tag}
 				setWidth={lineItemWidth}
-				icon={lineItemIcon}
+				// icon is shown when LineItem value is a long field and needs to be wrapped
+				icon={
+					showIcon && (
+						<Action
+							key="toggle"
+							className={classNames(theme.chevron, { [theme['chevron-filled']]: rotation })}
+							icon={'talend-chevron-left'}
+							iconTransform={rotation ? 'rotate-90' : 'rotate-270'}
+							onClick={e => {
+								e.stopPropagation();
+								setNativeValueWrap(val => !val);
+								setRotation(val => !val);
+							}}
+							label=""
+							aria-hidden
+							tabIndex="-1"
+							link
+						/>
+					)
+				}
 			/>
 		);
 	}

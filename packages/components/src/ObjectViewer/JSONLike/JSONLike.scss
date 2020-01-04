@@ -127,3 +127,20 @@
 		}
 	}
 }
+
+.chevron {
+	svg {
+		border: 1px solid gray;
+		padding: 2px;
+		border-radius: 10px;
+	}
+}
+
+.chevron-filled {
+	svg {
+		border: 1px solid gray;
+		background-color: green;
+		padding: 2px;
+		border-radius: 10px;
+	}
+}
