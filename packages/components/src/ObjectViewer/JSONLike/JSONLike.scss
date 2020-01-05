@@ -1,3 +1,10 @@
+@mixin chevron($color) {
+	border: 1px solid $scooter;
+	padding: 3px;
+	border-radius: 10px;
+	color: $color;
+}
+
 .container {
 	display: block;
 	font-size: 1.4rem;
@@ -130,17 +137,13 @@
 
 .chevron {
 	svg {
-		border: 1px solid gray;
-		padding: 2px;
-		border-radius: 10px;
+		@include chevron($scooter);
 	}
 }
 
 .chevron-filled {
 	svg {
-		border: 1px solid gray;
-		background-color: green;
-		padding: 2px;
-		border-radius: 10px;
+		@include chevron($white);
+		background-color: $scooter;
 	}
 }
