@@ -1,23 +1,31 @@
 // Drawer styles
 
-$tc-drawer-initial-offset: 100rem !default;
-$tc-drawer-bgcolor: $white !default;
-$tc-drawer-header-color: $st-tropaz !default;
+$tc-drawer-initial-offset: 1000px !default;
+$tc-drawer-bgcolor: #fff !default;
 $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
-$tc-drawer-content-max-width: 60rem !default;
+$tc-action-bar-background-color: $concrete !default;
+$tc-drawer-content-max-width: 650px !default;
 $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 $tc-drawer-z-index: $drawer-z-index !default;
 
+@function set-text-color($color) {
+	@if (lightness($color) > 60) {
+		@return #000; // Lighter backgorund, return dark color
+	} @else {
+		@return #fff; // Darker background, return light color
+	}
+}
+
 .tc-drawer {
+	pointer-events: all;
+	background-color: $tc-drawer-bgcolor;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 	position: absolute;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	width: 50vw;
-	pointer-events: all;
-	background-color: $tc-drawer-bgcolor;
-	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 	z-index: $tc-drawer-z-index;
 }
 
@@ -37,148 +45,109 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	flex-grow: 1;
-	min-height: 0;
-	overflow-y: auto;
+}
 
-	.tc-drawer-header {
-		&-title {
-			position: relative;
-			display: flex;
-			align-items: center;
-			padding: $padding-larger $padding-large;
+.tc-drawer-tabs-container {
+	background-color: $tc-drawer-tabs-background;
+}
 
-			> * {
-				margin: 0;
-				color: $tc-drawer-header-color;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				overflow: hidden;
-			}
-		}
-		:global {
-			.tc-editable-text {
-				flex: 1;
-				min-width: 0;
+.drawer-stacked {
+	width: 100%;
+}
 
-				&-wording {
-					margin: 0;
-					width: 90%;
-					font-size: $font-size-large;
-					color: $tc-drawer-header-color;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					overflow: hidden;
-				}
-
-				&-pencil {
-					left: -99999px;
-					color: $tc-drawer-header-color;
-				}
-			}
-		}
-
-		.tc-drawer-close-action {
-			padding: 0;
-			color: $st-tropaz;
-			min-height: inherit;
-			width: $svg-xlg-size;
-			line-height: inherit;
+@media screen and (min-width: $screen-xs-max) {
+	.drawer-stacked {
+		.tc-drawer-header-title,
+		.tc-drawer-tabs,
+		.tc-drawer-content,
+		.tc-drawer-actionbar,
+		.tc-drawer-footer > nav {
+			width: $tc-drawer-content-max-width;
+			margin: 0 auto;
 		}
 	}
+}
 
-	:global(.tc-drawer-header-with-tabs) {
-		padding: {
-			left: $padding-large;
-			right: $padding-large;
-		}
-	}
-
-	:global(.tc-drawer-header-with-tabs),
-	.tc-drawer-tabs-container {
-		border-bottom: 1px solid $silver;
-		margin-bottom: $padding-large;
-	}
-
+.tc-drawer-header {
 	:global {
-		.nav-tabs > li {
-			> a,
-			> button {
-				margin-bottom: 0;
-			}
+		.tc-editable-text {
+			min-width: 0;
+		}
+		.tc-editable-text-pencil {
+			color: $white;
+		}
+	}
+	background-color: $brand-primary-lighter;
 
-			&:first-child {
-				> a,
-				> button {
-					padding-left: 0;
+	&-title {
+		padding: $padding-normal;
+		position: relative;
+		display: flex;
+		align-items: center;
 
-					&:after {
-						left: 0;
-					}
-				}
-			}
+		h1 {
+			font-size: $font-size-large;
+			margin: 0;
+			color: white;
+			text-transform: uppercase;
+			text-overflow: ellipsis;
+			width: 90%;
+			white-space: nowrap;
+			overflow: hidden;
+		}
 
-			&:last-child {
-				> a,
-				> button {
-					padding-right: 0;
+		:global(.tc-editable-text) {
+			flex: 1;
+		}
 
-					&:after {
-						right: 0;
-					}
-				}
-			}
+		.drawer-close-action-tooltip {
+			position: absolute;
+			right: 0;
+			bottom: $padding-normal / 2;
+		}
+
+		& > .tc-editable-text {
+			width: unset;
 		}
 	}
 
-	.tc-drawer-content {
-		flex-grow: 1;
-		min-height: 0;
-		overflow: auto;
+	.tc-drawer-close-action {
+		color: white;
 	}
+}
 
-	.tc-drawer-actionbar-container,
-	.tc-drawer-footer {
-		padding: $padding-large;
-		box-shadow: tint($black, 90) 0 -1px 5px 0;
-		background: $white;
+.tc-drawer-header-with-tabs {
+	padding: 0;
+	background-color: $gray-lighter;
+}
 
-		:global {
-			.tc-actionbar-container {
-				padding: 0;
-				background: none;
+.tc-drawer-content {
+	padding: $padding-large $padding-normal;
+	flex-grow: 1;
+	overflow-y: auto;
+}
 
-				.btn {
-					margin: {
-						top: 0;
-						bottom: 0;
-					}
-				}
-			}
+.tc-drawer-actionbar-container {
+	background: $tc-action-bar-background-color;
+}
 
-			.navbar-left {
-				.btn + .btn {
-					margin-right: $padding-large;
-				}
-			}
+.tc-drawer-footer {
+	padding: $padding-small;
+	background: $tc-action-bar-background-color;
 
-			.navbar-right {
-				.btn + .btn {
-					margin-left: $padding-large;
-				}
-			}
+	.navbar-left,
+	.navbar-right {
+		> * {
+			margin: $padding-small $padding-larger $padding-small 0;
+		}
+
+		> :last-child {
+			margin-right: 0;
 		}
 	}
 
-	.tc-drawer-header-title,
-	.tc-drawer-tabs,
-	.tc-drawer-content,
-	.tc-drawer-actionbar,
-	.tc-drawer-footer {
-		padding: {
-			left: $padding-large;
-			right: $padding-large;
-		}
+	.navbar-right {
+		margin-right: 0;
 	}
 }
 
@@ -191,60 +160,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	top: 0;
 }
 
-:global(.tc-with-drawer-wrapper) :global(.tc-drawer.stacked) {
-	.tc-drawer-header,
-	.tc-drawer-actionbar-container,
-	.tc-drawer-footer {
-		z-index: 0;
-	}
-}
-
-:global(.tc-with-drawer-wrapper:last-child) :global(.tc-drawer.stacked):after {
+:global(.tc-with-drawer-wrapper:last-child) :global(.tc-drawer.stacked)::after {
 	content: none;
-}
-
-.drawer-stacked {
-	@media screen and (min-width: $screen-xs-max) {
-		width: 100%;
-
-		.tc-drawer-container {
-			padding: {
-				left: 0;
-				right: 0;
-			}
-		}
-
-		.tc-drawer-header-title,
-		.tc-drawer-tabs,
-		.tc-drawer-content,
-		.tc-drawer-actionbar,
-		.tc-drawer-footer {
-			flex-shrink: 0;
-			margin: 0 auto;
-			padding: {
-				left: 0;
-				right: 0;
-			}
-			width: $tc-drawer-content-max-width;
-		}
-
-		.tc-drawer-header,
-		.tc-drawer-actionbar-container,
-		.tc-drawer-footer {
-			position: relative; // Internet Explorer only
-			position: sticky; // sass-lint:disable-line no-duplicate-properties
-			background: $white;
-			z-index: 1;
-		}
-
-		.tc-drawer-header {
-			top: 0;
-		}
-
-		.tc-drawer-actionbar-container,
-		.tc-drawer-footer {
-			bottom: 0;
-			box-shadow: none;
-		}
-	}
 }
