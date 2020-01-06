@@ -6581,7 +6581,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           >
                                             <span
                                               aria-describedby={42}
-                                              className="theme-tc-action-disabled-btn-container tc-action-disabled-btn-container btn-icon-only theme-btn-disabled"
+                                              className="theme-tc-action-disabled-btn-container tc-action-disabled-btn-container"
                                               key=".0"
                                               onBlur={[Function]}
                                               onClick={[Function]}
@@ -12113,7 +12113,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         >
                           <span
                             aria-describedby={42}
-                            className="theme-tc-action-disabled-btn-container tc-action-disabled-btn-container btn-icon-only theme-btn-disabled"
+                            className="theme-tc-action-disabled-btn-container tc-action-disabled-btn-container"
                             key=".0"
                             onBlur={[Function]}
                             onClick={[Function]}
