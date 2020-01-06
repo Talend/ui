@@ -17,21 +17,12 @@ export default function SchemaForm({
 	const { properties } = data;
 	const { mergedSchema } = useSchemaForm(data);
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur', defaultValues: properties });
-
-	const handleTrigger =
-		onTrigger &&
-		(({ schema, trigger }) =>
-			onTrigger({
-				errors: rhf.errors,
-				properties: rhf.getValues({ nest: true }),
-				schema,
-				trigger,
-			}));
-
+	console.log('values', rhf.getValues());
+	console.log('errors', rhf.errors);
 	const contextValue = {
 		customValidation,
 		displayMode,
-		onTrigger: handleTrigger,
+		onTrigger,
 		rhf,
 		widgets,
 	};
