@@ -410,7 +410,6 @@ export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
 
 	const [lineItemWidth, setLineItemWidth] = useState(false);
-	const [showIcon, setShowIcon] = useState(false);
 	const [nativeValueWrap, setNativeValueWrap] = useState(false);
 
 	const lineItemRef = useRef();
@@ -421,7 +420,6 @@ export function Item(props) {
 			const ref = current.ref;
 			if (ref.offsetParent.offsetWidth < ref.scrollWidth) {
 				setLineItemWidth(true);
-				setShowIcon(true);
 			}
 		}
 	});
@@ -461,7 +459,7 @@ export function Item(props) {
 				setWidth={lineItemWidth}
 				// icon is shown when LineItem value is a long field and needs to be wrapped
 				icon={
-					showIcon && (
+					lineItemWidth && (
 						<Action
 							key="toggle"
 							className={classNames(theme.chevron, { [theme['chevron-filled']]: rotation })}
