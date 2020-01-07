@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import SchemaFormContext from '../context';
 import schemaRules from '../internal/validation/schemaRules';
 import updateValues from '../internal/data';
+import { updateErrors, getError } from '../internal/error';
 
 import { I18N_DOMAIN_FORMS } from '../../constants';
 

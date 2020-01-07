@@ -1,5 +1,3 @@
-import { serializeKey } from './key';
-
 export function updateErrors(rhf, newErrors) {
 	Object.keys(rhf.errors)
 		.filter(key => !newErrors[key])
@@ -18,6 +16,6 @@ export function getError(errors, schema) {
 	if (!errors) {
 		return null;
 	}
-	const serializedKey = serializeKey(schema);
+	const serializedKey = schema.key.join('.');
 	return errors[serializedKey];
 }

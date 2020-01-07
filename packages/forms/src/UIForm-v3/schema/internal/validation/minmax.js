@@ -9,7 +9,7 @@ export function minRules(schema, t) {
 	return {
 		value: minimum,
 		message: t('ERROR_NUMBER_MINIMUM', {
-			defaultValue: 'Value is less than minimum {minimum}',
+			defaultValue: 'Value is less than minimum ({{minimum}})',
 			minimum,
 		}),
 	};
@@ -24,7 +24,7 @@ export function maxRules(schema, t) {
 	return {
 		value: maximum,
 		message: t('ERROR_NUMBER_MAXIMUM', {
-			defaultValue: 'Value is greater than maximum {maximum}',
+			defaultValue: 'Value is greater than maximum ({{maximum}})',
 			maximum,
 		}),
 	};
