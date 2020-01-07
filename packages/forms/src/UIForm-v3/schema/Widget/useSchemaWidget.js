@@ -6,22 +6,6 @@ import updateValues from '../internal/data';
 
 import { I18N_DOMAIN_FORMS } from '../../constants';
 
-function updateErrors(rhf, errorsModifier) {
-	const newErrors =
-		typeof errorsModifier === 'function' ? errorsModifier(rhf.errors) : errorsModifier;
-	Object.keys(rhf.errors)
-		.filter(key => !newErrors[key])
-		.forEach(key => {
-			rhf.clearError(key);
-		});
-
-	Object.entries(newErrors)
-		.filter(([key]) => !rhf.errors[key])
-		.forEach(([key, value]) => {
-			rhf.setError(key, 'trigger', value);
-		});
-}
-
 function getTriggerHandlers(schema, onTrigger, rhf) {
 	const { triggers = [] } = schema;
 	if (!onTrigger && triggers.length) {
@@ -33,42 +17,34 @@ function getTriggerHandlers(schema, onTrigger, rhf) {
 
 	const eventsProps = {};
 	triggers.forEach(trigger => {
-		const executeTrigger = () => {
-			console.log('ecevute trigger');
-			// return rhf
-			// 	.triggerValidation(schema.key.join('.'), true)
-			// 	.then(() => onTrigger({ schema, trigger }))
-			// 	.then(result => {
-			// 		const { properties, errors } = result || {};
-			// 		if (properties) {
-			// 			updateValues(rhf, properties);
-			// 		}
-			// 		if (errors) {
-			// 			updateErrors(rhf, errors);
-			// 		}
-			// 		return result;
-			// 	});
-
-			const maybePromise = onTrigger({
-				schema,
-				trigger,
-				errors: rhf.errors,
-				properties: rhf.getValues({ nest: true }),
-			});
-			if (maybePromise && maybePromise.then) {
-				return maybePromise.then(result => {
+		function executeTrigger() {
+			const triggerPromise = Promise.resolve()
+				.then(() =>
+					onTrigger({
+						schema,
+						trigger,
+						errors: rhf.errors,
+						properties: rhf.getValues({ nest: true }),
+					}),
+				)
+				.then((result = {}) => {
 					const { properties, errors } = result;
+					const newErrors = typeof errors === 'function' ? errors(rhf.errors) : errors;
+
 					if (properties) {
 						updateValues(rhf, properties);
 					}
-					// if (errors) {
-					// 	updateErrors(rhf, errors);
-					// }
-					return result;
+					if (newErrors) {
+						updateErrors(rhf, newErrors);
+					}
+					return { ...result, errors: newErrors };
 				});
-			}
-			return maybePromise;
-		};
+
+			executeTrigger.validationPromise = triggerPromise.then(({ errors }) =>
+				getError(errors, schema),
+			);
+			return triggerPromise;
+		}
 		switch (trigger.onEvent) {
 			case 'focus': {
 				eventsProps.onFocus = executeTrigger;
@@ -97,12 +73,11 @@ export default function useSchemaWidget(schema) {
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const contextValue = useContext(SchemaFormContext);
 	const { onTrigger, customValidation, rhf } = contextValue;
-	const { onBlur: triggerBlur, ...eventsProps } = useMemo(
-		() => getTriggerHandlers(schema, onTrigger, rhf),
-		[schema, onTrigger],
-	);
-	// const { onBlur: triggerBlur, ...eventsProps } = getTriggerHandlers(schema, onTrigger, rhf);
-	const rules = useMemo(() => schemaRules({ schema, customValidation, rhf, t, triggerBlur }), [
+	const eventsProps = useMemo(() => getTriggerHandlers(schema, onTrigger, rhf), [
+		schema,
+		onTrigger,
+	]);
+	const rules = useMemo(() => schemaRules({ customValidation, eventsProps, rhf, schema, t }), [
 		schema,
 		customValidation,
 		rhf.getValues,

@@ -5,6 +5,7 @@ import customRules from './custom';
 import { minRules, maxRules } from './minmax';
 import { arrayMinRules, arrayMaxRules } from './array';
 import enumRules from './enum';
+import triggerRules from './trigger';
 
 function useCustomMessage(schema, rule) {
 	const { validationMessage } = schema;
@@ -30,44 +31,7 @@ function useCustomMessage(schema, rule) {
 	return rule;
 }
 
-function updateErrors(rhf, newErrors) {
-	console.log('updateErrors');
-	Object.keys(rhf.errors)
-		.filter(key => !newErrors[key])
-		.forEach(key => {
-			console.log('clear');
-			rhf.clearError(key);
-		});
-
-	Object.entries(newErrors)
-		.filter(([key]) => !rhf.errors[key])
-		.forEach(([key, value]) => {
-			console.log('set', value);
-			rhf.setError(key, 'trigger', value);
-		});
-}
-function useTriggerValidation(schema, triggerBlur, rhf) {
-	if (!triggerBlur) {
-		return () => {};
-	}
-	return () => {
-		const maybePromise = triggerBlur();
-		if (maybePromise && maybePromise.then) {
-			return maybePromise.then(result => {
-				const { errors } = result;
-				const newErrors = typeof errors === 'function' ? errors(rhf.errors) : errors;
-				if (newErrors) {
-					updateErrors(rhf, newErrors);
-					return newErrors[schema.key.join('.')];
-				}
-				return null;
-			});
-		}
-		return null;
-	};
-}
-
-export default function schemaRules({ schema, customValidation, rhf, t, triggerBlur }) {
+export default function schemaRules({ customValidation, eventsProps, rhf, schema, t }) {
 	return {
 		required: useCustomMessage(schema, requiredRules(schema, t)),
 		pattern: useCustomMessage(schema, patternRules(schema, t)),
@@ -79,7 +43,7 @@ export default function schemaRules({ schema, customValidation, rhf, t, triggerB
 			arrayMinItems: arrayMinRules(schema, t),
 			arrayMaxItems: arrayMaxRules(schema, t),
 			enum: useCustomMessage(schema, enumRules(schema, t)),
-			trigger: useTriggerValidation(schema, triggerBlur, rhf),
+			trigger: triggerRules(eventsProps, schema, rhf),
 		},
 	};
 }

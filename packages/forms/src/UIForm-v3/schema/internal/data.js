@@ -1,18 +1,19 @@
 import get from 'lodash/get';
+import { generateKey } from './key';
 
 function replicateNewlyCreatedValues(key, value, values, rhf) {
 	if (key && key in values) {
 		return;
 	}
 
-	if (Array.isArray(value)) {
-		value.forEach((item, index) =>
-			replicateNewlyCreatedValues(`${key}[${index}]`, item, values, rhf),
-		);
-	} else if (typeof value === 'object') {
-		const keyPrefix = key ? `${key}.` : '';
+	if (typeof value === 'object') {
 		Object.entries(value).forEach(([itemKey, item]) => {
-			replicateNewlyCreatedValues(`${keyPrefix}${itemKey}`, item, values, rhf);
+			replicateNewlyCreatedValues(
+				generateKey(key, itemKey, Array.isArray(value)),
+				item,
+				values,
+				rhf,
+			);
 		});
 	} else {
 		console.log(`New value attached to key ${key}`, value);
