@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-grid-layout/css/styles.css';
 import { Responsive, WidthProvider } from 'react-grid-layout';
+import classNames from 'classnames';
+
 import Tile from './Tile';
 import { SKELETON_TILE_CONF } from './Tile/Skeleton/SkeletonTile.component';
-import './Grid.scss';
+import css from './Grid.scss';
 
 // eslint-disable-next-line new-cap
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -29,6 +31,7 @@ const noOp = () => {};
 function Grid({
 	children,
 	isResizable = false,
+	isDraggable = true,
 	onLayoutChange = noOp,
 	onBreakpointChange = noOp,
 	onDragStop = noOp,
@@ -40,7 +43,9 @@ function Grid({
 }) {
 	return (
 		<ResponsiveGridLayout
-			className="layout"
+			className={classNames(css.layout, 'layout', {
+				[css.draggable]: isDraggable,
+			})}
 			onLayoutChange={onLayoutChange}
 			onDragStop={onDragStop}
 			onResizeStop={onResizeStop}
@@ -53,13 +58,14 @@ function Grid({
 			isResizable={isResizable}
 			useCSSTransforms={false}
 			verticalCompact={verticalCompact}
+			isDraggable={isDraggable}
 		>
 			{isLoading
 				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
-						<div className={'skeleton-tile'} key={tile.key} data-grid={tile['data-grid']}>
-							<Tile.Skeleton />
-						</div>
-				  ))
+					<div className={'skeleton-tile'} key={tile.key} data-grid={tile['data-grid']}>
+						<Tile.Skeleton />
+					</div>
+				))
 				: children}
 		</ResponsiveGridLayout>
 	);
@@ -69,6 +75,7 @@ Grid.propTypes = {
 	children: PropTypes.node,
 	compactType: PropTypes.string,
 	isResizable: PropTypes.bool,
+	isDraggable: PropTypes.bool,
 	onLayoutChange: PropTypes.func,
 	onBreakpointChange: PropTypes.func,
 	onDragStop: PropTypes.func,
