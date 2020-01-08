@@ -110,4 +110,9 @@ describe('Dialog', () => {
 		const wrapper = shallow(<Dialog {...flexProps}>{children}</Dialog>);
 		expect(wrapper.hasClass('modal-flex')).toBe(true);
 	});
+	it('render HTML tags if allowHTML is true', () => {
+		const html = 'hey <h1>lol</h1>';
+		const wrapper = shallow(<Dialog {...defaultProps} allowHTML>{html}</Dialog>);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 });

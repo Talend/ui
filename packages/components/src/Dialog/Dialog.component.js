@@ -34,6 +34,7 @@ function Dialog({
 	subtitle,
 	error,
 	progress,
+	allowHTML,
 	size,
 	type,
 	...props
@@ -83,7 +84,11 @@ function Dialog({
 			{injected('before-modal-body')}
 			<Modal.Body>
 				{injected('before-children')}
-				{children}
+				{ allowHTML ? (<p
+					dangerouslySetInnerHTML={{
+						__html: children,
+					}}
+				/>) : children }
 				{injected('after-children')}
 			</Modal.Body>
 			{injected('before-modal-body')}
@@ -117,6 +122,7 @@ Dialog.defaultProps = {
 	keyboard: true,
 	restoreFocus: true,
 	type: Dialog.TYPES.DEFAULT,
+	allowHTML: false,
 };
 
 Dialog.propTypes = {
@@ -127,6 +133,7 @@ Dialog.propTypes = {
 	size: PropTypes.oneOf(['sm', 'small', 'lg', 'large']),
 	children: PropTypes.element,
 	show: PropTypes.bool,
+	allowHTML: PropTypes.bool,
 	action: PropTypes.shape(Action.propTypes),
 	footer: PropTypes.object,
 	actionbar: PropTypes.object,

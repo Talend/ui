@@ -15,6 +15,7 @@ exports[`AboutDialog should render 1`] = `
       },
     }
   }
+  allowHTML={false}
   autoFocus={true}
   backdrop={true}
   className="theme-about-dialog about-dialog"
@@ -64,6 +65,7 @@ exports[`AboutDialog should render in loading mode 1`] = `
       },
     }
   }
+  allowHTML={false}
   autoFocus={true}
   backdrop={true}
   className="theme-about-dialog about-dialog"
@@ -113,6 +115,7 @@ exports[`AboutDialog should render services 1`] = `
       },
     }
   }
+  allowHTML={false}
   autoFocus={true}
   backdrop={true}
   className="theme-about-dialog about-dialog"
@@ -190,6 +193,7 @@ exports[`AboutDialog should render with custom copyright 1`] = `
       },
     }
   }
+  allowHTML={false}
   autoFocus={true}
   backdrop={true}
   className="theme-about-dialog about-dialog"

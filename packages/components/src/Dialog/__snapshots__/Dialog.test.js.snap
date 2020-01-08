@@ -1,5 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Dialog render HTML tags if allowHTML is true 1`] = `
+<Modal
+  animation={true}
+  aria-labelledby={null}
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  className=""
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
+  >
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "hey <h1>lol</h1>",
+        }
+      }
+    />
+  </ModalBody>
+</Modal>
+`;
+
 exports[`Dialog should render 1`] = `
 <Modal
   animation={true}
