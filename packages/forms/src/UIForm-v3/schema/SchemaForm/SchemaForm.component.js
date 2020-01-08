@@ -6,6 +6,7 @@ import Widget from '../Widget';
 import SchemaFormContext from '../context';
 
 export default function SchemaForm({
+	customFormats,
 	customValidation,
 	data,
 	displayMode,
@@ -18,6 +19,7 @@ export default function SchemaForm({
 	const { mergedSchema } = useSchemaForm(data);
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur', defaultValues: properties });
 	const contextValue = {
+		customFormats,
 		customValidation,
 		displayMode,
 		onTrigger,
@@ -46,6 +48,7 @@ export default function SchemaForm({
 
 if (process.env.NODE_ENV !== 'production') {
 	SchemaForm.propTypes = {
+		customFormats: PropTypes.object,
 		customValidation: PropTypes.func,
 		data: PropTypes.shape({
 			jsonSchema: PropTypes.object,

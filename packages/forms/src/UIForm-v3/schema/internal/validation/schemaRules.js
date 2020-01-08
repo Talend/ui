@@ -31,7 +31,14 @@ function useCustomMessage(schema, rule) {
 	return rule;
 }
 
-export default function schemaRules({ customValidation, eventsProps, rhf, schema, t }) {
+export default function schemaRules({
+	customFormats,
+	customValidation,
+	eventsProps,
+	rhf,
+	schema,
+	t,
+}) {
 	return {
 		required: useCustomMessage(schema, requiredRules(schema, t)),
 		pattern: useCustomMessage(schema, patternRules(schema, t)),
@@ -39,7 +46,7 @@ export default function schemaRules({ customValidation, eventsProps, rhf, schema
 		max: useCustomMessage(schema, maxRules(schema, t)),
 		validate: {
 			custom: useCustomMessage(schema, customRules(schema, customValidation, rhf)),
-			format: useCustomMessage(schema, customFormatRules(schema, t)),
+			format: useCustomMessage(schema, customFormatRules(customFormats, schema, t)),
 			arrayMinItems: arrayMinRules(schema, t),
 			arrayMaxItems: arrayMaxRules(schema, t),
 			enum: useCustomMessage(schema, enumRules(schema, t)),

@@ -73,17 +73,15 @@ function getTriggerHandlers(schema, onTrigger, rhf) {
 export default function useSchemaWidget(schema) {
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const contextValue = useContext(SchemaFormContext);
-	const { onTrigger, customValidation, rhf } = contextValue;
+	const { customFormats, onTrigger, customValidation, rhf } = contextValue;
 	const eventsProps = useMemo(() => getTriggerHandlers(schema, onTrigger, rhf), [
 		schema,
 		onTrigger,
 	]);
-	const rules = useMemo(() => schemaRules({ customValidation, eventsProps, rhf, schema, t }), [
-		schema,
-		customValidation,
-		rhf.getValues,
-		t,
-	]);
+	const rules = useMemo(
+		() => schemaRules({ customFormats, customValidation, eventsProps, rhf, schema, t }),
+		[customFormats, customValidation, rhf.getValues, schema, t],
+	);
 
 	const values = useMemo(
 		() => ({

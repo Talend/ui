@@ -95,37 +95,3 @@ export const CustomErrorMessage = () => (
 		onSubmit={action('onSubmit')}
 	/>
 );
-
-const patternValidationSchema = {
-	jsonSchema: {
-		type: 'object',
-		properties: {
-			email: { type: 'string', format: 'email' },
-			httpUrl: { type: 'string', format: 'url-http-https' },
-			gitUrl: { type: 'string', format: 'url-git' },
-			noLeadTrailSpace: { type: 'string', format: 'no-leading-trailing-space' },
-			noSpace: { type: 'string', format: 'string-without-space' },
-			timestamp: { type: 'number', format: 'timestamp' },
-			isoDatetime: { type: 'string', format: 'iso-datetime' },
-		},
-		required: ['required'],
-	},
-	uiSchema: [
-		{ key: 'email', title: 'Email' },
-		{ key: 'httpUrl', title: 'URL http(s)', customValidation: true },
-		{ key: 'gitUrl', title: 'URL git' },
-		{ key: 'noLeadTrailSpace', title: 'No leading/trailing space' },
-		{ key: 'noSpace', title: 'No space' },
-		{ key: 'timestamp', title: 'Timestamp' },
-		{ key: 'isoDatetime', title: 'ISO datetime' },
-	],
-	properties: {},
-};
-export const PatternValidation = () => (
-	<SchemaForm
-		id="schema-form"
-		customValidation={customValidation}
-		data={patternValidationSchema}
-		onSubmit={action('onSubmit')}
-	/>
-);
