@@ -1,33 +1,62 @@
 # Faceted search components
 
 ### Table of Contents
-1. [Main components](#Main components)
-	a. [FacetedSearchIcon](#FacetedSearchIcon)
-	b. [FacetedSearch](#FacetedSearch)
-	c. [FacetedManager](#FacetedManager)
-	d. [FacetedToolbar](#FacetedToolbar)
-	e. [BasicSearch](#BasicSearch)
-	f. [AdvancedSearch](#AdvancedSearch)
-	g. [AddFacetPopover](#AddFacetPopover)
-2. [Badges components](#Badges components)
-	a. [BadgeOperatorOverlay](#BadgeOperatorOverlay)
-	b. [BadgeText](#BadgeText)
-3. [Badges toolbox](#Badges toolbox)
-	a. [BadgesGenerator](#BadgesGenerator)
-	b. [BadgeFaceted](#BadgeFaceted)
-	c. [BadgeOverlay](#BadgeOverlay)
-3. [Hooks](#Hooks)
-	a. [BadgeFactory](#BadgeFactory)
-	b. [FacetedBadgesManager](#FacetedBadgesManager)
-	c. [BadgeOpenedOverlayFlow](#BadgeOpenedOverlayFlow)
-4. [Context](#Context)
-	a. [FacetedSearchContext](#FacetedSearchContext)
-	b. [BadgeFacetedContext](#BadgeFacetedContext)
-5. [Structure and PropTypes](##Structure and PropTypes)
-
-Faceted search module allows you to add a feature to filter a collection through a backend query.
+1. [Main components](#Main components)  
+	a. [AddFacetPopover](#AddFacetPopover)  
+	b. [AdvancedSearch](#AdvancedSearch)  
+	c. [BasicSearch](#BasicSearch)  
+	d. [FacetedManager](#FacetedManager)  
+	e. [FacetedSearch](#FacetedSearch)  
+	f. [FacetedSearchIcon](#FacetedSearchIcon)  
+	g. [FacetedToolbar](#FacetedToolbar)  
+2. [Badges components](#Badges components)  
+	a. [BadgeOperatorOverlay](#BadgeOperatorOverlay)  
+	b. [BadgeText](#BadgeText)  
+3. [Badges toolbox](#Badges toolbox)  
+	a. [BadgesGenerator](#BadgesGenerator)  
+	b. [BadgeFaceted](#BadgeFaceted)  
+	c. [BadgeOverlay](#BadgeOverlay)  
+3. [Hooks](#Hooks)  
+	a. [BadgeFactory](#BadgeFactory)  
+	b. [FacetedBadgesManager](#FacetedBadgesManager)  
+	c. [BadgeOpenedOverlayFlow](#BadgeOpenedOverlayFlow)  
+4. [Context](#Context)  
+	a. [FacetedSearchContext](#FacetedSearchContext)  
+	b. [BadgeFacetedContext](#BadgeFacetedContext)  
+5. [Structure and PropTypes](##Structure and PropTypes)  
 
 ## Main components
+
+### AddFacetPopover
+
+Popover used in the BasicSearch.
+It displayed all the **available badges**, on click, a **badge is created** and the badge operator popover is opened.
+You can apply a **filter** on the badges.
+
+| Props  | Type  | Info
+|---|---|---|
+| badgesDefinitions | badgesFacetedPropTypes | badges available in the popover |
+| id | string | id |
+| initialFilterValue | string | the initial value in the input text filter
+| onClick | func | callback trigger when a row is clicked
+| t | func | i18n translate function
+
+### AdvancedSearch
+The advanced search enable a **text input** field where the user can directly enter a query.
+It holds internally the state of the query but you can pass a bunch of **handler to take control**.
+And it consumes the **facetedSearch context** (see [FacetedSearchContext](#FacetedSearchContext)). 
+
+ | Props  | Type  | Info
+|---|---|---|
+| initialQuery | string | the query use in state at mount |
+| onCancel | func | callback trigger when the user click on the red cross icon
+| onChange | func | callback trigger when the value change, useful only in controlled mode
+| onKeyDown | func  | callback trigger during each user input
+| placeholder | string | placeholder in the text input ('Enter your query")
+| onSubmit | func | callback trigger when user hit the enter keyboard or click on the green cross
+
+---
+
 
 ### FacetedSearchIcon
 
@@ -101,7 +130,7 @@ In a standard use, the FacetedSearch component handles the logic behind the disp
 
 ---
 
-###BasicSearch
+### BasicSearch
 
 This the **search with badges**. 
 All the **logical behavior** of badges are **embedded** in this component. 
@@ -124,40 +153,9 @@ And it consumes the **facetedSearch context** (see [FacetedSearchContext](#Facet
 
 ---
 
-###AdvancedSearch
-The advanced search enable a **text input** field where the user can directly enter a query.
-It holds internally the state of the query but you can pass a bunch of **handler to take control**.
-And it consumes the **facetedSearch context** (see [FacetedSearchContext](#FacetedSearchContext)). 
+## Badges components
 
- | Props  | Type  | Info
-|---|---|---|
-| initialQuery | string | the query use in state at mount |
-| onCancel | func | callback trigger when the user click on the red cross icon
-| onChange | func | callback trigger when the value change, useful only in controlled mode
-| onKeyDown | func  | callback trigger during each user input
-| placeholder | string | placeholder in the text input ('Enter your query")
-| onSubmit | func | callback trigger when user hit the enter keyboard or click on the green cross
-
----
-
-###AddFacetPopover
-
-Popover used in the BasicSearch.
-It displayed all the **available badges**, on click, a **badge is created** and the badge operator popover is opened.
-You can apply a **filter** on the badges.
-
-| Props  | Type  | Info
-|---|---|---|
-| badgesDefinitionsRawData | badgesDefinitionsRawDataPropTypes | raw definition of badges (backend api), will be transform in proper badge definition (front end api) |
-| id | string | id |
-| initialFilterValue | string | the initial value in the input text of the filter
-| onClick | func | callback trigger when a badge row is clicked
-| t | func | i18n translate function
-
-
-##Badges components
-
-###BadgeOperatorOverlay
+### BadgeOperatorOverlay
 This badge is a **specialization of BadgeOverlay**.
 It display a button operator icon, on click a popover is shown with a list of operator button rows. 
 If a row is triggered the popover closed and the button icon is update with the new operator.
@@ -176,7 +174,7 @@ If a row is triggered the popover closed and the button icon is update with the 
 
 ---
 
-###BadgeText
+### BadgeText
 
 A faceted badge with a **text area** as input.
 
@@ -203,9 +201,9 @@ A faceted badge with a **text area** as input.
 | t | func | i18n translate function
 
 
-##Badges toolbox
+## Badges toolbox
 
-###BadgesGenerator
+### BadgesGenerator
 
 You have to provide him with an **array of badges** and a a function to get the correct badge (normally the one given by the **badgeFactory** hooks).
 From the badge definition it will **instantiate** a proper component with some new props.
@@ -218,7 +216,7 @@ From the badge definition it will **instantiate** a proper component with some n
 
 ---
 
-###BadgeFaceted
+### BadgeFaceted
 This is the component **backbone** of every faceted **badges**. 
 It always **create a badge** (base on ui/badges) with a **category**, an **operator**, a **value overlay button** with a custom **popover**,
 and finally a **delete action** represents by a cross.
@@ -244,7 +242,7 @@ and the **useBadgeOpenedOverlayFlow** (see [BadgeOpenedOverlayFlow](#BadgeOpened
 
 ---
 
-###BadgeOverlay
+### BadgeOverlay
 
 It creates a **button icon** which on trigger render a **popover**.
 It can work in a **uncontrolled mode**, where the opening of the popover is none of your concert or in a complete **controlled mode**.
