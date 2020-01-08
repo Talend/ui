@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import InputDatePicker from '../InputDatePicker';
 import InputTimePicker from '../InputTimePicker';
+import LegacyInputDateTimePicker from '../LegacyDateTimePickers';
 
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
@@ -10,7 +11,7 @@ import { DateTimeContext } from '../DateTime/Context';
 import theme from './InputDateTimePicker.scss';
 
 function InputDateTimePicker(props) {
-	if (!props.selectedDateTime) {
+	if (props.selectedDateTime) {
 		// eslint-disable-next-line no-console
 		console.warn(
 			'Warning: "selectedDateTime" is deprecated and will be removed in the next major version. Use "value" instead please.',
@@ -35,6 +36,8 @@ function InputDateTimePicker(props) {
 							onChange={onDateChange}
 							value={date}
 							dateFormat={props.dateFormat}
+							startDate={props.startDate}
+							endDate={props.endDate}
 						/>
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
@@ -66,6 +69,8 @@ InputDateTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
 	timezone: PropTypes.string,
+	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 };
 
 InputDateTimePicker.defaultProps = {
@@ -76,4 +81,15 @@ InputDateTimePicker.defaultProps = {
 	required: true,
 };
 
-export default InputDateTimePicker;
+function InputDateTimePickerSwitch(props) {
+	if (props.formMode) {
+		return <LegacyInputDateTimePicker {...props} />;
+	}
+
+	return <InputDateTimePicker {...props} />;
+}
+InputDateTimePickerSwitch.propTypes = {
+	formMode: PropTypes.bool,
+};
+
+export default InputDateTimePickerSwitch;

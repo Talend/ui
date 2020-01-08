@@ -67,7 +67,7 @@ const BadgeFaceted = ({
 					value: badgeValue,
 					operator: badgeOperator,
 				},
-				{ dirty: false },
+				{ isInCreation: false },
 			),
 		);
 	};
@@ -93,6 +93,7 @@ const BadgeFaceted = ({
 				onClick={onChangeOperator}
 				operators={operators}
 				size={size}
+				t={t}
 			/>
 			<BadgeOverlay
 				id={id}
@@ -102,12 +103,13 @@ const BadgeFaceted = ({
 				onHide={onSubmitBadge}
 				opened={overlayState.valueOpened}
 				onChange={onChangeValueOverlay}
+				t={t}
 			>
 				{children({ onSubmitBadge, onChangeValue, badgeValue })}
 			</BadgeOverlay>
 			<BadgeComposition.DeleteAction
 				id={id}
-				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Delete badge' })}
+				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
 				onClick={onDeleteBadge}
 				t={t}
 			/>

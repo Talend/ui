@@ -1,6 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Skeleton, Icon, Action, EditableText } from '../../';
+import Skeleton from '../../Skeleton';
+import Icon from '../../Icon';
+import Action from '../../Actions/Action';
+import EditableText from '../../EditableText';
 import TitleSubHeader, { SubTitle } from './TitleSubHeader.component';
 
 describe('TitleSubHeader', () => {

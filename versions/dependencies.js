@@ -55,6 +55,7 @@ module.exports = {
 	slugify: '^1.1.0',
 	uuid: '^3.0.1', // prefer bson-objectid
 	tv4: '^1.3.0',
+	'timezone-support': '^1.5.5',
 
 	// deps: libs that interact with the DOM
 	'd3-shape': '1.2.0',
@@ -71,12 +72,12 @@ module.exports = {
 	deepmerge: '^1.5.1',
 
 	// dev deps
-	'@storybook/react': '^5.1.0',
-	'@storybook/addon-a11y': '^5.1.0',
-	'@storybook/addon-actions': '^5.1.0',
-	'@storybook/addon-info': '^5.1.0',
-	'@storybook/addon-knobs': '^5.1.0',
-	'@storybook/addons': '^5.1.0',
+	'@storybook/react': '^5.2.8',
+	'@storybook/addon-a11y': '^5.2.8',
+	'@storybook/addon-actions': '^5.2.8',
+	'@storybook/addon-info': '^5.2.8',
+	'@storybook/addon-knobs': '^5.2.8',
+	'@storybook/addons': '^5.2.8',
 	autoprefixer: '^7.1.4',
 	'babel-eslint': '^10.0.1',
 	'babel-jest': JEST_VERSION,

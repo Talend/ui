@@ -10,6 +10,8 @@ import DatePicker from '../src/DateTimePickers/Date/Picker';
 import InputDateTimePicker from '../src/DateTimePickers/InputDateTimePicker';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
+import InputDateRangePicker from '../src/DateTimePickers/InputDateRangePicker';
+import InputDateTimeRangePicker from '../src/DateTimePickers/InputDateTimeRangePicker';
 
 const icons = {
 	'talend-info-circle': talendIcons['talend-info-circle'],
@@ -411,17 +413,63 @@ storiesOf('DatePicker', module)
 				<p>DatePicker can display range of date</p>
 				<pre>{`
 <DatePicker
-	startDate={new Date(2019, 9, 24)}
+	selectedDate={new Date(2019, 9, 24)}
 	endDate={new Date(2019, 9, 30)}
 />
 			`}</pre>
 				<div style={{ display: 'flex', alignItems: 'flex-start' }}>
 					<div style={blockStyle}>
 						<DateManager id="simple" onChange={action('onChange')}>
-							<DatePicker startDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} />
+							<DatePicker selectedDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} />
 						</DateManager>
 					</div>
 				</div>
 			</div>
 		);
-	});
+	})
+	.add('Date Range picker - with inputs', () => (
+		<div>
+			<IconsProvider />
+			<h1>Date Range picker</h1>
+			<form style={{ width: 320 }}>
+				<InputDateRangePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+				/>
+			</form>
+		</div>
+	))
+	.add('DateTime Range picker', () => (
+		<div>
+			<IconsProvider />
+			<h1>DateTime Range picker</h1>
+			<p>Resize window to trigger responsive layout</p>
+			<form>
+				<InputDateTimeRangePicker
+					id="my-datetime-range-picker"
+					onChange={action('onChange')}
+					onBlur={action('onBlur')}
+					useSeconds
+				/>
+			</form>
+		</div>
+	))
+	.add('Legacy - form mode', () => (
+		<div>
+			<IconsProvider />
+			<div style={{ width: 150 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					useTime
+					formMode
+					required={false}
+					useSeconds
+				/>
+			</div>
+		</div>
+	));

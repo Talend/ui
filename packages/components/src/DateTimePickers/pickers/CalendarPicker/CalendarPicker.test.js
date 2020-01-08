@@ -211,10 +211,9 @@ describe('CalendarPicker', () => {
 			// when
 			const wrapper = shallow(
 				<CalendarPicker
-					startDate={new Date(2013, 0, 15)}
+					selectedDate={new Date(2013, 0, 15)}
 					endDate={new Date(2013, 1, 2)}
 					onSubmit={() => {}}
-					from
 				/>,
 			);
 
@@ -229,9 +228,8 @@ describe('CalendarPicker', () => {
 			const wrapper = shallow(
 				<CalendarPicker
 					startDate={new Date(2012, 11, 29)}
-					endDate={new Date(2013, 0, 15)}
+					selectedDate={new Date(2013, 0, 15)}
 					onSubmit={() => {}}
-					to
 				/>,
 			);
 

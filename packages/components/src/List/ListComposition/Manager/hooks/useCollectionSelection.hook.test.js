@@ -62,6 +62,20 @@ describe('useCollectionSelection', () => {
 		expect(selectedIds).toEqual([1, 4]);
 	});
 
+	it('should filter selected items according to the existing collection', () => {
+		// given
+		const initialSelectedIds = [1, 4];
+
+		// when
+		const wrapper = mount(
+			<SelectionComponent collection={[]} initialSelectedIds={initialSelectedIds} idKey="number" />,
+		);
+
+		// then
+		const selectedIds = wrapper.find('#mainChild').prop('selectedIds');
+		expect(selectedIds).toEqual([]);
+	});
+
 	it('should provide a function to check an item selection', () => {
 		// given
 		const initialSelectedIds = [1, 4];

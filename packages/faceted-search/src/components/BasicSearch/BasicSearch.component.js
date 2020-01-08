@@ -19,7 +19,7 @@ import theme from './BasicSearch.scss';
 
 const css = getTheme(theme);
 
-const isDirty = badge => badge.metadata.dirty;
+const isInCreation = badge => get(badge, 'metadata.isInCreation', true);
 
 const BasicSearch = ({
 	badgesDefinitions,
@@ -36,7 +36,7 @@ const BasicSearch = ({
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 
 	useEffect(() => {
-		if (!state.badges.some(isDirty)) {
+		if (!state.badges.some(isInCreation)) {
 			onSubmit({}, state.badges);
 		}
 	}, [state.badges, onSubmit]);
@@ -65,8 +65,10 @@ const BasicSearch = ({
 			<BadgeOverlay
 				id={basicSearchId}
 				iconName="plus-circle"
-				label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add facets' })}
+				label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
+				t={t}
 				hideLabel
+				hasAddButton
 			>
 				{setOverlayOpened => (
 					<AddFacetPopover
@@ -84,7 +86,9 @@ const BasicSearch = ({
 
 BasicSearch.propTypes = {
 	badgesDefinitions: badgesFacetedPropTypes,
-	badgesFaceted: badgesFacetedPropTypes,
+	badgesFaceted: PropTypes.shape({
+		badges: badgesFacetedPropTypes,
+	}),
 	customBadgesDictionary: PropTypes.object,
 	customOperatorsDictionary: operatorsPropTypes,
 	initialFilterValue: PropTypes.string,

@@ -49,9 +49,6 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	const addFacetId = `${id}-add-facet-popover`;
 	return (
 		<div id={addFacetId} className={theme('tc-add-facet-popover')}>
-			<RichLayout.Header id={addFacetId}>
-				{t('TITLE_HEADER_FACETED_SEARCH', { defaultValue: 'Faceted Search' })}
-			</RichLayout.Header>
 			<RichLayout.Body id={addFacetId}>
 				<FilterBar
 					autoFocus={false}

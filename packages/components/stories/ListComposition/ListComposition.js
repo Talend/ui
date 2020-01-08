@@ -5,6 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { simpleCollection } from './collection';
 import { ActionBar, IconsProvider } from '../../src/index';
 import List from '../../src/List/ListComposition';
+import useCollectionSelection from '../../src/List/ListComposition/Manager/hooks/useCollectionSelection.hook';
 import { headerDictionary } from '../../src/VirtualizedList/utils/dictionary';
 import { headerType as headerResizableType } from '../../src/VirtualizedList/HeaderResizable';
 
@@ -24,6 +25,7 @@ function CustomList(props) {
 		<List.VList id="my-vlist" {...props}>
 			<List.VList.Text label="Id" dataKey="id" />
 			<List.VList.Title label="Name" dataKey="name" columnData={titleProps} />
+			<List.VList.Boolean label="Valid" dataKey="isValid" />
 			<List.VList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} disableSort />
 			<List.VList.Text label="Description" dataKey="description" disableSort />
 			<List.VList.Text label="Author" dataKey="author" />
@@ -517,6 +519,7 @@ storiesOf('List Composition', module)
 						type="TABLE"
 						loadMoreRows={action('onLoadMoreRows')}
 						rowCount={simpleCollection.length}
+						onRowsRendered={action('onRowsRendered')}
 					/>
 				</List.Manager>
 			</section>
@@ -571,4 +574,25 @@ storiesOf('List Composition', module)
 				</List.Manager>
 			</section>
 		</div>
-	));
+	))
+	.add('Selectable items', () => {
+		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(simpleCollection, [], 'id');
+
+		return (
+			<div className="virtualized-list">
+				<IconsProvider />
+				<h1>List with selectable items</h1>
+				<p>The list also supports items selection, when using the proper hook.</p>
+
+				<section style={{ height: '50vh' }}>
+					<List.Manager id="my-list" collection={simpleCollection}>
+						<CustomList
+							isSelected={isSelected}
+							onToggleAll={onToggleAll}
+							selectionToggle={(e, group) => onToggleItem(group)}
+						/>
+					</List.Manager>
+				</section>
+			</div>
+		);
+	});

@@ -44,7 +44,7 @@ function DefaultArrayTemplate(props) {
 					bsStyle={'info'}
 					onClick={onAdd}
 					disabled={valueIsUpdating || schema.disabled}
-					label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
+					label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'Add' })}
 				/>
 			)}
 			<Message

@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin nav-action {
 	padding: 0;
 	background: none;
@@ -23,4 +25,32 @@
 @mixin picker-underline {
 	content: '';
 	border-bottom: $border-default;
+}
+
+@mixin popper {
+	width: $tc-datepicker-width;
+	background: $tc-datepicker-background;
+	box-shadow: $tc-datepicker-box-shadow;
+	z-index: $tc-datepicker-z-index;
+}
+
+@mixin date-picker {
+	display: flex;
+}
+
+@mixin range-picker {
+	@include date-picker;
+	align-items: flex-end;
+}
+
+@mixin arrow {
+	height: $tc-range-picker-arrow-height;
+	padding: 0 $padding-smaller;
+	margin-bottom: 0.6rem;
+	color: $dove-gray;
+}
+
+@mixin icon {
+	width: $svg-sm-size;
+	height: $svg-sm-size;
 }

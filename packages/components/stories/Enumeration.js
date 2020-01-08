@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -406,4 +406,53 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration {...withClassProps} />
 		</div>
+	))
+	.add('with dynamic height', () => (
+		<div>
+			<p>With dynamic height: </p>
+			<IconsProvider />
+			<EnumerationDynamicHeight />
+		</div>
 	));
+
+const EnumerationDynamicHeight = () => {
+	const [list, setList] = useState([]);
+	const ROW_HEIGHT = 30;
+	const enumerationProps = {
+		displayMode: 'DISPLAY_MODE_ADD',
+		inputPlaceholder: 'New entry',
+		headerDefault: [],
+		headerInput: [
+			{
+				label: 'Validate',
+				icon: 'talend-check',
+				id: 'validate',
+				onClick: (_, input) => {
+					const tmp = [...list];
+					tmp.push({ values: [input.value] });
+					setList(tmp);
+				},
+			},
+			{
+				label: 'Abort',
+				icon: 'talend-cross',
+				id: 'abort',
+				onClick: () => {
+					const tmp = [...list];
+					tmp.pop();
+					setList(tmp);
+				},
+			},
+		],
+		items: list,
+		onAddChange: () => {},
+		onAddKeyDown: () => {},
+		itemsProp: {
+			calculateListHeight: listItems => (listItems.length ? listItems.length * ROW_HEIGHT : 0),
+			getItemHeight: () => ROW_HEIGHT,
+			actionsDefault: [],
+			key: 'values',
+		},
+	};
+	return <Enumeration {...enumerationProps} />;
+};

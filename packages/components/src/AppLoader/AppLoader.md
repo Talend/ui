@@ -7,7 +7,6 @@ This is a set of tools and component to build your application loader
 ```javascript
 const Loader = require('@talend/react-components/lib/AppLoader/constant').default;
 const ICON = `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR......')`;
-`;
 ```
 
 2. Expose through the HtmlWebpackPlugin the following variables:

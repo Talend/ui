@@ -4,11 +4,6 @@ exports[`AddFacetPopover should render the html output 1`] = `
 <div id="my id-add-facet-popover"
      class="tc-add-facet-popover theme-tc-add-facet-popover"
 >
-  <header id="my id-add-facet-popover"
-          class="theme-header tc-tooltip-header"
-  >
-    Faceted Search
-  </header>
   <div id="my id-add-facet-popover"
        class="theme-body tc-tooltip-body"
   >

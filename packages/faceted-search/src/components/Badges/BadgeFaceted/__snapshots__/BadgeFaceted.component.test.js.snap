@@ -16,10 +16,11 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
         <button id="my-id-operator-action-overlay"
                 aria-label="My icon operator equal"
                 type="button"
+                aria-describedby="42"
                 class="btn btn-link"
         >
           <svg name="talend-talend-my-icon-equal"
-               class="theme-tc-svg-icon tc-svg-icon"
+               class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
                focusable="false"
                aria-hidden="true"
           >
@@ -41,7 +42,7 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
       </button>
     </div>
     <button role="button"
-            aria-label="Delete badge"
+            aria-label="Remove filter"
             id="tc-badge-delete-my-id"
             aria-describedby="42"
             type="button"

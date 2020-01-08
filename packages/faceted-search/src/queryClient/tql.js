@@ -1,4 +1,5 @@
 import { Query } from '@talend/daikon-tql-client';
+import isEmpty from 'lodash/isEmpty';
 import flow from 'lodash/flow';
 
 const getBadgeQueryValues = ({ properties }) => [
@@ -9,17 +10,21 @@ const getBadgeQueryValues = ({ properties }) => [
 
 const getBadgesQueryValues = badges => badges.map(getBadgeQueryValues);
 
-const isNotEmptyOrNull = value => value && value.length;
-const isObjectIdNotEmptyOrNull = value => isNotEmptyOrNull(value.id);
-
-const filterBadgeWithNoValue = ({ properties }) => {
-	if (Array.isArray(properties.value)) {
-		return properties.value.every(isObjectIdNotEmptyOrNull);
+const isValidValue = value => {
+	if (typeof value === 'string') {
+		return !isEmpty(value);
 	}
-	return isNotEmptyOrNull(properties.value);
+	return !Number.isNaN(value);
 };
 
-const removeBadgesWithEmptyValue = badges => badges.filter(filterBadgeWithNoValue);
+const keepValidValues = ({ properties }) => {
+	if (Array.isArray(properties.value)) {
+		return properties.value.length && properties.value.every(({ id }) => isValidValue(id));
+	}
+	return isValidValue(properties.value);
+};
+
+const removeBadgesWithEmptyValue = badges => badges.filter(keepValidValues);
 
 const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
 
@@ -30,8 +35,13 @@ const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
  */
 const getTqlClassOperatorsDictionary = query => ({
 	contains: query.contains,
-	'=': query.equal,
+	equals: query.equal,
 	in: query.in,
+	notEquals: query.unequal,
+	greaterThan: query.greaterThan,
+	greaterThanOrEquals: query.greaterThanOrEqual,
+	lessThan: query.lessThan,
+	lessThanOrEquals: query.lessThanOrEqual,
 });
 
 const formatValue = value => {

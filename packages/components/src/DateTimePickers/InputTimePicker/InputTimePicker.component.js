@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
 import { Popper } from 'react-popper';
@@ -69,7 +70,7 @@ export default function InputTimePicker(props) {
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 		>
 			<FocusManager
-				className={theme['time-picker']}
+				className={classnames(theme['time-picker'], 'time-picker')}
 				divRef={containerRef}
 				onClick={handlers.onClick}
 				onFocusIn={handlers.onFocus}
