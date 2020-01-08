@@ -163,14 +163,10 @@ const validateArrayDataSchema = {
 				{
 					key: 'users[].lastname',
 					title: 'Last name',
+					description: 'Don\'t type "lol" please',
 					triggers: [
 						{
 							onEvent: 'change',
-							action: 'validateLastname',
-						},
-
-						{
-							onEvent: 'input',
 							action: 'validateLastname',
 						},
 					],
@@ -182,7 +178,7 @@ const validateArrayDataSchema = {
 			],
 		},
 	],
-	properties: {},
+	properties: { users: [{}, {}] },
 };
 function validateArrayDataOnTrigger({ schema, trigger, properties, errors }) {
 	if (trigger.action === 'validateLastname') {
