@@ -1,3 +1,5 @@
+$tc-drawer-content-max-width: 65rem !default;
+
 .uiform {
 	font-size: 1.6rem;
 
@@ -26,12 +28,12 @@
 	}
 }
 :global(.tc-drawer-container) {
-	.form-content {
-		padding: 10px;
+	.form-content,
+	.form-actions {
+		padding: $padding-normal;
 	}
 	.form-actions {
 		background-color: $wild-sand;
-		padding: $padding-small;
 		width: 100%;
 	}
 }
@@ -39,11 +41,11 @@
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
 		.form-content {
-			width: 600px;
+			width: $tc-drawer-content-max-width;
 			margin: 0 auto;
 		}
 		:global(.form-actions) {
-			max-width: 650px;
+			max-width: $tc-drawer-content-max-width;
 			margin: auto;
 		}
 	}
