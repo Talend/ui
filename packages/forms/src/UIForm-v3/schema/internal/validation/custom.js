@@ -1,4 +1,4 @@
-export default function customRules(schema, customValidation, rhf) {
+export default function customRules({ schema, customValidation, rhf }) {
 	if (!schema.customValidation || !customValidation) {
 		return () => {};
 	}

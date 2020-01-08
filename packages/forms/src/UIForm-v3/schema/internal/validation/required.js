@@ -1,5 +1,6 @@
-export default function requiredRule(schema, t) {
+export default function requiredRule({ language = {}, schema, t }) {
 	return schema.required
-		? t('ERROR_OBJECT_REQUIRED', { defaultValue: 'Missing required field' })
+		? language.OBJECT_REQUIRED ||
+				t('ERROR_OBJECT_REQUIRED', { defaultValue: 'Missing required field' })
 		: false;
 }

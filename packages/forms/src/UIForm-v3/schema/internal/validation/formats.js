@@ -97,7 +97,7 @@ const getFormats = t => ({
 	},
 });
 
-export default function formatsRules(customFormats = {}, schema, t) {
+export default function formatsRules({ customFormats = {}, schema, t }) {
 	const format = get(schema, 'schema.format');
 	return format ? customFormats[format] || getFormats(t)[format] : () => {};
 }

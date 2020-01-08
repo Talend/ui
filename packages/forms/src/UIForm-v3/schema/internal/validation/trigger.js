@@ -1,4 +1,4 @@
-export default function triggerRules(eventsProps, schema, rhf) {
+export default function triggerRules({ eventsProps, schema, rhf }) {
 	const key = schema.key.join('.');
 	return () => {
 		const { errors } = rhf;

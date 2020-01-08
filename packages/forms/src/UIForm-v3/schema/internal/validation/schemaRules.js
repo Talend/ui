@@ -31,26 +31,20 @@ function useCustomMessage(schema, rule) {
 	return rule;
 }
 
-export default function schemaRules({
-	customFormats,
-	customValidation,
-	eventsProps,
-	rhf,
-	schema,
-	t,
-}) {
+export default function schemaRules(configuration) {
+	const { schema } = configuration;
 	return {
-		required: useCustomMessage(schema, requiredRules(schema, t)),
-		pattern: useCustomMessage(schema, patternRules(schema, t)),
-		min: useCustomMessage(schema, minRules(schema, t)),
-		max: useCustomMessage(schema, maxRules(schema, t)),
+		required: useCustomMessage(schema, requiredRules(configuration)),
+		pattern: useCustomMessage(schema, patternRules(configuration)),
+		min: useCustomMessage(schema, minRules(configuration)),
+		max: useCustomMessage(schema, maxRules(configuration)),
 		validate: {
-			custom: useCustomMessage(schema, customRules(schema, customValidation, rhf)),
-			format: useCustomMessage(schema, customFormatRules(customFormats, schema, t)),
-			arrayMinItems: arrayMinRules(schema, t),
-			arrayMaxItems: arrayMaxRules(schema, t),
-			enum: useCustomMessage(schema, enumRules(schema, t)),
-			trigger: triggerRules(eventsProps, schema, rhf),
+			custom: useCustomMessage(schema, customRules(configuration)),
+			format: useCustomMessage(schema, customFormatRules(configuration)),
+			arrayMinItems: arrayMinRules(configuration),
+			arrayMaxItems: arrayMaxRules(configuration),
+			enum: useCustomMessage(schema, enumRules(configuration)),
+			trigger: triggerRules(configuration),
 		},
 	};
 }

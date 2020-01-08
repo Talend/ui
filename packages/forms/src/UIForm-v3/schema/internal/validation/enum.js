@@ -1,4 +1,4 @@
-export default function enumRules(schema, t) {
+export default function enumRules({ language = {}, schema, t }) {
 	const { restricted, schema: innerSchema = {} } = schema;
 	const { enum: enumValues } = innerSchema;
 
@@ -10,6 +10,9 @@ export default function enumRules(schema, t) {
 		if (!value || enumValues.includes(value)) {
 			return null;
 		}
-		return t('ERROR_ENUM_MISMATCH', { defaultValue: 'No enum match for: {{value}}', value });
+		return (
+			language.ENUM_MISMATCH ||
+			t('ERROR_ENUM_MISMATCH', { defaultValue: 'No enum match for: {{value}}', value })
+		);
 	};
 }
