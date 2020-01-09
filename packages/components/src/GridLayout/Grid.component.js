@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-grid-layout/css/styles.css';
 import { Responsive, WidthProvider } from 'react-grid-layout';
-import classNames from 'classnames';
 
 import Tile from './Tile';
 import { SKELETON_TILE_CONF } from './Tile/Skeleton/SkeletonTile.component';
@@ -11,7 +10,6 @@ import css from './Grid.scss';
 import { getTheme } from '../theme';
 
 const theme = getTheme(css);
-
 
 // eslint-disable-next-line new-cap
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -67,10 +65,10 @@ function Grid({
 		>
 			{isLoading
 				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
-					<div className={'skeleton-tile'} key={tile.key} data-grid={tile['data-grid']}>
-						<Tile.Skeleton />
-					</div>
-				))
+						<div className={'skeleton-tile'} key={tile.key} data-grid={tile['data-grid']}>
+							<Tile.Skeleton />
+						</div>
+				  ))
 				: children}
 		</ResponsiveGridLayout>
 	);
