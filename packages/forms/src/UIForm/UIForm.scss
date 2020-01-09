@@ -45,6 +45,7 @@ $tc-drawer-content-max-width: 65rem !default;
 			margin: 0 auto;
 		}
 		:global(.form-actions) {
+			padding: 0 $padding-normal;
 			max-width: $tc-drawer-content-max-width;
 			margin: auto;
 		}

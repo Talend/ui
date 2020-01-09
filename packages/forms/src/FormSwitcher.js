@@ -18,7 +18,7 @@ if (process.env.FORM_MOZ) {
 
 export default function FormSwitcher(props) {
 	if (props.loading) {
-		return <FormSkeleton />;
+		return <FormSkeleton {...props} />;
 	}
 	if (props.data && !Array.isArray(props.data.uiSchema)) {
 		return <Form {...props} />;

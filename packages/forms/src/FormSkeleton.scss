@@ -34,18 +34,20 @@ $tc-drawer-content-max-width: 650px !default;
 		margin: 0;
 	}
 
+	.form-content,
+	.submit-wrapper {
+		padding: $padding-normal;
+	}
+
 	.form-content {
 		flex-grow: 1;
 		min-height: 0;
-		padding: $padding-small;
 		overflow-y: auto;
 		margin: 0 $padding-small;
 	}
 
 	.submit {
-		padding: 0;
 		width: 100%;
-		padding: $padding-small;
 		background-color: $wild-sand;
 	}
 }
@@ -60,6 +62,7 @@ $tc-drawer-content-max-width: 650px !default;
 			max-width: $tc-drawer-content-max-width;
 		}
 		:global(.form-actions) {
+			padding: 0 $padding-normal;
 			max-width: $tc-drawer-content-max-width;
 			margin: auto;
 		}
