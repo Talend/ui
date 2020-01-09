@@ -3,6 +3,7 @@ import React from 'react';
 import useForm from 'react-hook-form';
 import { action } from '@storybook/addon-actions';
 import Input from './Input.component';
+import InputTextMode from './TextMode.component';
 
 export default {
 	title: 'Fields|Input',
@@ -127,5 +128,22 @@ export const Validation = () => {
 				Submit
 			</button>
 		</form>
+	);
+};
+
+export const TextMode = () => {
+	const rhf = useForm({
+		defaultValues: {
+			name: 'Jimmy',
+			age: 34,
+			password: 'secret',
+		},
+	});
+	return (
+		<dl>
+			<InputTextMode id="name" type="text" name="name" label="Name" rhf={rhf} />
+			<InputTextMode id="age" type="number" name="age" label="Age" rhf={rhf} />
+			<InputTextMode id="password" type="password" name="password" label="Password" rhf={rhf} />
+		</dl>
 	);
 };

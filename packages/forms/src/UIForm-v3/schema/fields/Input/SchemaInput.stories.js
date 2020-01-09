@@ -146,3 +146,27 @@ export const Validation = () => (
 		onSubmit={action('onSubmit')}
 	/>
 );
+
+const textModeSchema = {
+	jsonSchema: {
+		type: 'object',
+		properties: {
+			name: { type: 'string' },
+			age: { type: 'number' },
+			password: { type: 'string' },
+		},
+	},
+	uiSchema: [
+		{ key: 'name', title: 'Name' },
+		{ key: 'age', title: 'Age' },
+		{ key: 'password', title: 'Password', type: 'password' },
+	],
+	properties: {
+		name: 'Jimmy',
+		age: 34,
+		password: 'secret',
+	},
+};
+export const TextMode = () => (
+	<SchemaForm id="schema-form" data={textModeSchema} displayMode="text" />
+);

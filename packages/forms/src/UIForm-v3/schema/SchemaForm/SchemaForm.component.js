@@ -4,6 +4,8 @@ import useForm from 'react-hook-form';
 import useSchemaForm from './useSchemaForm';
 import Widget from '../Widget';
 import SchemaFormContext from '../context';
+import TemplateForm from './TemplateForm.component';
+import TemplateDefinition from './TemplateDefinition.component';
 
 export default function SchemaForm({
 	customFormats,
@@ -31,21 +33,16 @@ export default function SchemaForm({
 		widgets,
 	};
 
+	const SchemaFormTemplate = displayMode ? TemplateDefinition : TemplateForm;
+
 	return (
 		<SchemaFormContext.Provider value={contextValue}>
-			<form
-				onSubmit={handleSubmit((payload, event) => onSubmit(event, payload))}
-				noValidate
-				{...restProps}
-			>
+			<SchemaFormTemplate {...restProps} handleSubmit={handleSubmit} onSubmit={onSubmit}>
 				{mergedSchema &&
 					mergedSchema.map((widgetSchema, index) => (
 						<Widget key={index} id={restProps.id} schema={widgetSchema} />
 					))}
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+			</SchemaFormTemplate>
 		</SchemaFormContext.Provider>
 	);
 }
