@@ -11,7 +11,6 @@ import { getTheme } from '../theme';
 
 const theme = getTheme(css);
 
-
 // eslint-disable-next-line new-cap
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
@@ -66,10 +65,10 @@ function Grid({
 		>
 			{isLoading
 				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
-					<div className={'skeleton-tile'} key={tile.key} data-grid={tile['data-grid']}>
-						<Tile.Skeleton />
-					</div>
-				))
+						<div className={'skeleton-tile'} key={tile.key} data-grid={tile['data-grid']}>
+							<Tile.Skeleton />
+						</div>
+				  ))
 				: children}
 		</ResponsiveGridLayout>
 	);
