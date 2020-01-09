@@ -2,7 +2,7 @@
 
 ### Table of Contents
 
-1. [Main components](#Main components)  
+1. Main components  
    a. [AddFacetPopover](#AddFacetPopover)  
    b. [AdvancedSearch](#AdvancedSearch)  
    c. [BasicSearch](#BasicSearch)  
@@ -10,20 +10,20 @@
    e. [FacetedSearch](#FacetedSearch)  
    f. [FacetedSearchIcon](#FacetedSearchIcon)  
    g. [FacetedToolbar](#FacetedToolbar)
-2. [Badges](#Badges components)  
+2. Badges
+   a. [BadgeText](#BadgeText)
+   b. [BadgeNumber](#BadgeNumber)
+   c. [BadgeCheckboxes](#BadgeCheckboxes)
+3. Badges api
    a. [BadgeOperatorOverlay](#BadgeOperatorOverlay)  
-   b. [BadgeText](#BadgeText)
-   c. [BadgesGenerator](#BadgesGenerator)  
-   d. [BadgeFaceted](#BadgeFaceted)  
-   e. [BadgeOverlay](#BadgeOverlay)
-3. [Hooks](#Hooks)  
-   a. [BadgeFactory](#BadgeFactory)  
-   b. [FacetedBadgesManager](#FacetedBadgesManager)  
-   c. [BadgeOpenedOverlayFlow](#BadgeOpenedOverlayFlow)
-4. [Context](#Context)  
+   b. [BadgesGenerator](#BadgesGenerator)  
+   c. [BadgeFaceted](#BadgeFaceted)  
+   d. [BadgeOverlay](#BadgeOverlay)
+4. Context
    a. [FacetedSearchContext](#FacetedSearchContext)  
    b. [BadgeFacetedContext](#BadgeFacetedContext)
 5. [Structure and PropTypes](##Structure and PropTypes)
+   a. [BadgeDefinition](#BadgeDefinition)
 
 ## Main components
 
@@ -184,6 +184,8 @@ A badges with **checkboxes**
 | ----------------- |
 | in                |
 
+## Badges API
+
 ### BadgeOperatorOverlay
 
 This badge is a **specialization of BadgeOverlay**.
@@ -269,7 +271,8 @@ Render the **children** you pass as a React.element or as a function if you need
 
 ##Context
 
-###FacetedSearchContext
+### FacetedSearchContext
+
 The **provider** is mount by the **FacetedSearch** component and **consumer** in **BasicSearch** and **AdvancedSearch**.
 It helps **share** info between the **basic** and the **advanced** search component.
 
@@ -282,7 +285,8 @@ It helps **share** info between the **basic** and the **advanced** search compon
 
 ---
 
-###BadgeFacetedContext
+### adgeFacetedContext
+
 Since there is some abstraction to instantiate the BadgeGenerator and some component layers, this context has been created to **avoid too much props drilling**.
 This context helps **shared** some **event handler** to the **faceted badge**.
 So the **provider** is set in the **BasicSearch** and **consumer** in **BadgeFaceted**.
@@ -293,5 +297,31 @@ So the **provider** is set in the **BasicSearch** and **consumer** in **BadgeFac
 | onHideOperator | func | callback triggered when the overlay operator is hiding |
 | onSubmitBadge  | func | callback triggered when a badge is submit              |
 
-##Structure and PropTypes
-**UNDER CONSTRUCTION**
+## Structure and PropTypes
+
+### BadgeDefinition
+
+Properties must be filled.
+Metadata can store custom values.
+
+```
+{
+	properties: {
+		attribute: PropTypes.string.isRequired,
+		label: PropTypes.string.isRequired,
+		initialOperatorOpened: PropTypes.bool,
+		initialValueOpened: PropTypes.bool,
+		operator: operatorPropTypes,
+		operators: operatorsPropTypes,
+		type: PropTypes.string.isRequired,
+	},
+	metadata: {
+		badgeId: PropTypes.string, // filled at creation
+		badgePerFacet: PropTypes.string,
+		entitiesPerBadge: PropTypes.string,
+		isInCreation: PropTypes.bool,
+		operators: PropTypes.arrayOf(PropTypes.string),
+        ...
+	},
+}
+```
