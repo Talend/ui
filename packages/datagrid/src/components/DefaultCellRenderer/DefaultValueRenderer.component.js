@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import has from 'lodash/has';
-import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
+import { TooltipTrigger } from '@talend/react-components';
 import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
 
 import theme from './DefaultValueRenderer.scss';

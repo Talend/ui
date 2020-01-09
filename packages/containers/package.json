@@ -57,6 +57,7 @@
     "@storybook/react": "^5.2.8",
     "@talend/bootstrap-theme": "^4.23.0",
     "@talend/icons": "^4.23.0",
+    "@talend/plugin-transform-ui-imports": "^0.0.0",
     "@talend/react-cmf": "^4.23.0",
     "@talend/react-cmf-router": "^3.2.1",
     "@talend/react-components": "^4.23.0",

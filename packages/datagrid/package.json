@@ -51,6 +51,7 @@
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "@talend/icons": "^4.23.0",
+    "@talend/plugin-transform-ui-imports": "^0.0.0",
     "@talend/react-components": "^4.23.0",
     "@talend/react-storybook-cmf": "^4.23.0",
     "babel-eslint": "^10.0.1",
