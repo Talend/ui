@@ -22,9 +22,12 @@ function injectItemIndex(itemIndex, genericSchema) {
 	return schema;
 }
 
-export default function SchemaArray({ id, schema, rhf, ...restProps }) {
+export default function SchemaArray({ id, displayMode, schema, rhf, templates, ...restProps }) {
 	const { title, items, options = {} } = schema;
 	const { hideTitle, ...restOptions } = options;
+
+	const templateName = displayMode ? `array_${displayMode}` : 'array';
+	const ItemsTemplate = templates[templateName] || ArrayFieldset.ItemsTemplate;
 
 	return (
 		<ArrayFieldset
@@ -35,7 +38,7 @@ export default function SchemaArray({ id, schema, rhf, ...restProps }) {
 			{...restOptions}
 			{...omit(restProps, PROPS_TO_REMOVE_FROM_INPUTS)}
 		>
-			<ArrayFieldset.ItemsTemplate id={id}>
+			<ItemsTemplate id={id} rhf={rhf}>
 				{itemIndex => (
 					<React.Fragment>
 						{items.map((itemSchema, index) => {
@@ -52,7 +55,7 @@ export default function SchemaArray({ id, schema, rhf, ...restProps }) {
 						})}
 					</React.Fragment>
 				)}
-			</ArrayFieldset.ItemsTemplate>
+			</ItemsTemplate>
 		</ArrayFieldset>
 	);
 }
@@ -60,11 +63,13 @@ export default function SchemaArray({ id, schema, rhf, ...restProps }) {
 if (process.env.NODE_ENV !== 'production') {
 	SchemaArray.propTypes = {
 		id: PropTypes.string.isRequired,
+		displayMode: PropTypes.string,
 		rhf: PropTypes.object.isRequired,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
 			items: PropTypes.array,
 			options: PropTypes.shape({ hideTitle: PropTypes.bool }),
 		}),
+		templates: PropTypes.object,
 	};
 }

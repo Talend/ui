@@ -1,4 +1,5 @@
 /* eslint-disable no-use-before-define */
+import { useMemo, useState, useEffect } from 'react';
 import jsonLogic from 'json-logic-js';
 
 function lowercase(a) {
@@ -89,7 +90,7 @@ function resolveArrayNotation(condition, key) {
  * @param key the widget schema key.
  * @returns true if the conditions are met, false otherwise.
  */
-function shouldRender(condition, properties, key) {
+function evalCondition(condition, properties, key) {
 	if (condition === undefined) {
 		return true;
 	}
@@ -97,4 +98,32 @@ function shouldRender(condition, properties, key) {
 	return jsonLogic.apply(runtimeCondition, properties);
 }
 
-export default shouldRender;
+function getConditionVars(condition) {
+	if (!condition) {
+		return [];
+	}
+
+	if (Array.isArray(condition)) {
+		return condition.reduce((accu, item) => accu.concat(getConditionVars(item)), []);
+	} else if (typeof condition === 'object') {
+		return Object.entries(condition).reduce((accu, [key, value]) => {
+			if (key === 'var') {
+				return accu.concat(value);
+			}
+			return accu.concat(getConditionVars(value));
+		}, []);
+	}
+	return [];
+}
+export default function useCondition({ condition, rhf, schema }) {
+	const [shouldRender, setShouldRender] = useState(true);
+	const conditionVars = useMemo(() => getConditionVars(condition), [condition]);
+	conditionVars.forEach(conditionVar => rhf.watch(conditionVar));
+
+	useEffect(() => {
+		const values = rhf.getValues({ nest: true });
+		setShouldRender(evalCondition(condition, values, schema));
+	}, [condition, rhf]);
+
+	return shouldRender;
+}

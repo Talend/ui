@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { sfPath } from '@talend/json-schema-form-core';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
-import shouldRender from './condition';
+import useCondition from './useCondition';
 import defaultWidgets from '../widgets';
 import useSchemaWidget from './useSchemaWidget';
 
@@ -23,13 +23,17 @@ function getWidget(displayMode, widgetId, customWidgets) {
 export default function Widget(props) {
 	const { id, schema } = props;
 	const { condition, key, type, widget, tooltip, tooltipPlacement } = schema;
-	const { eventsProps, displayMode, rhf, rules, widgets = [] } = useSchemaWidget(schema);
+	const { eventsProps, displayMode, rhf, rules, templates = {}, widgets = [] } = useSchemaWidget(
+		schema,
+	);
 
-	const values = rhf.getValues({ nest: true });
-	if (!shouldRender(condition, values, key)) {
+	// conditional rendering
+	const shouldRender = useCondition({ condition, rhf, schema });
+	if (!shouldRender) {
 		return null;
 	}
 
+	// widget extension
 	const widgetName = widget || type;
 	const WidgetImpl = getWidget(displayMode || schema.displayMode, widgetName, widgets);
 	if (!WidgetImpl) {
@@ -38,10 +42,17 @@ export default function Widget(props) {
 
 	const instance = (
 		<WidgetImpl
+			// contains schema
 			{...props}
+			// trigger callbacks
 			{...eventsProps}
+			// template extensions
+			displayMode={displayMode}
+			templates={templates}
+			// input props
 			id={sfPath.name(key, '_', id)}
 			name={key && key.join('.')}
+			// react-hook-forms and validation rules
 			rhf={rhf}
 			rules={rules}
 		/>

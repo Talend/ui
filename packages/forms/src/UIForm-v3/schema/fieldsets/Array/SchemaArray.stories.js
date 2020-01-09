@@ -1,8 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
-import SchemaArray from './SchemaArray.component';
 import SchemaForm from '../../SchemaForm';
+import SchemaArray from './SchemaArray.component';
+import ArrayFieldset from '../../../fieldsets/Array';
 
 export default {
 	title: 'Schema Fieldsets|Array',
@@ -142,4 +144,26 @@ const arrayValidationSchema = getExample({
 });
 export const ArrayValidation = () => (
 	<SchemaForm id="schema-form" data={arrayValidationSchema} onSubmit={action('onSubmit')} />
+);
+
+function ArrayWithAdvice(props) {
+	const { rhf } = props;
+	const length = rhf.getValues()['users.length'];
+	return (
+		<React.Fragment>
+			<div id="advice" style={{ textAlign: 'center' }}>
+				{!length ? 'There is no user yet, please add some' : null}
+			</div>
+			<ArrayFieldset.ItemsTemplate {...props} aria-describedby="advice" />
+		</React.Fragment>
+	);
+}
+ArrayWithAdvice.propTypes = { rhf: PropTypes.object };
+export const CustomTemplate = () => (
+	<SchemaForm
+		id="schema-form"
+		data={simpleSchema}
+		onSubmit={action('onSubmit')}
+		templates={{ array: ArrayWithAdvice }}
+	/>
 );

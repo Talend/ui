@@ -13,6 +13,7 @@ export default function SchemaForm({
 	language,
 	onSubmit,
 	onTrigger,
+	templates,
 	widgets,
 	...restProps
 }) {
@@ -26,6 +27,7 @@ export default function SchemaForm({
 		language,
 		onTrigger,
 		rhf,
+		templates,
 		widgets,
 	};
 
@@ -62,6 +64,7 @@ if (process.env.NODE_ENV !== 'production') {
 		language: PropTypes.object,
 		onSubmit: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
+		templates: PropTypes.object,
 		widgets: PropTypes.object,
 	};
 }
