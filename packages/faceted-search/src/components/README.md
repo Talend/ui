@@ -222,51 +222,50 @@ You have to provide the badges dictionary and the function to access it.
 
 ### BadgeFaceted
 
-This is the component **backbone** of every faceted **badges**.
-It always **create a badge** (base on ui/badges) with a **category**, an **operator**, a **value overlay button** with a custom **popover**,
-and finally a **delete action** represents by a cross.
-The custom popover is a render props passing the handlers as parameters.
-**All** the event **handlers** of a badge are defined **here**.
-It consumes the **useFacetedBadges** hook (see [BadgeFacetedContext](#BadgeFacetedContext)),
-and the **useBadgeOpenedOverlayFlow** (see [BadgeOpenedOverlayFlow](#BadgeOpenedOverlayFlow)).
+The generic component at the based of **all badges**.  
+Create a badge (base on ui/badges) with a **category**, an **operator**, a **value** button which open a custom **popover**,
+and a **delete action** represents by a cross.  
+Popover flow mechanics is handle by [BadgeOpenedOverlayFlow](#BadgeOpenedOverlayFlow).
 
-| Props                 | Type               | Info                                                     |
-| --------------------- | ------------------ | -------------------------------------------------------- |
-| badgeId               | string             | unique id for each badge                                 |
-| category              | string             | label displayed on the left of the badge                 |
-| children              | func               | render props passing onSubmit, onChangeValue, badgeValue |
-| id                    | string             | an id                                                    |
-| label                 | string             | label displayed on the right of the badge, the value.    |
-| initialOpenedOperator | bool               | hide / show at mounting the popover operator             |
-| initialOpenedValue    | bool               | hide / show at mounting the popover value                |
-| operator              | operatorPropTypes  | the current operator of the badge                        |
-| operators             | operatorsPropTypes | the list of all possible operators for this bade         |
-| value                 | any                | the input value (popover form)                           |
-| size                  | string             | size of the badge either large or small                  |
-| t                     | func               | i18n translate function                                  |
+| Props                 | Type               | Info                                         |
+| --------------------- | ------------------ | -------------------------------------------- |
+| badgeId               | string             | unique id for each badge                     |
+| children              | func               | popover render props                         |
+| labelCategory         | string             | left badge label                             |
+| labelValue            | string             | right badge label                            |
+| id                    | string             | id                                           |
+| initialOpenedOperator | bool               | hide / show popover operator at first render |
+| initialOpenedValue    | bool               | hide / show popover value at first render    |
+| operator              | operatorPropTypes  | current operator                             |
+| operators             | operatorsPropTypes | all operators                                |
+| value                 | any                | from value                                   |
+| size                  | string             | button icon size "small large"               |
+| t                     | func               | i18n translate function                      |
 
 ---
 
 ### BadgeOverlay
 
-It creates a **button icon** which on trigger render a **popover**.
-It can work in a **uncontrolled mode**, where the opening of the popover is none of your concert or in a complete **controlled mode**.
-The popover is fully **customizable**. It will render the **children** you pass as a React.element or as a function if you need to access the opened value outside.
+Create a **button icon** with a **popover**.
+Depending on props the button will be a icon, a label or "+ Add Filter".  
+Worked in **uncontrolled mode**.
+Render the **children** you pass as a React.element or as a function if you need to access the opened value outside.
 
-| Props         | Type                      | Info                                                          |
-| ------------- | ------------------------- | ------------------------------------------------------------- |
-| children      | function or React.element | unique id for each badge                                      |
-| className     | string                    | class passed to the wrapper div                               |
-| hideLabel     | bool                      | hiding the label of the button                                |
-| iconName      | string                    | the name of the icon to display                               |
-| label         | string                    | label of the button (used for aria-label).                    |
-| initialOpened | bool                      | at mount set the popover show / hide                          |
-| id            | string                    | the id passed to the subComponents                            |
-| onChange      | func                      | callback trigger when the button is clicked (controlled mode) |
-| onHide        | func                      | callback trigger when the popover is hiding (controlled mode) |
-| opened        | bool                      | value show / hide (controlled mode)                           |
-| placement     | string                    | placement of the tooltip "top, bottom, right, left"           |
-| rootClose     | bool                      | if true any click outside the popover will close it           |
+| Props         | Type                      | Info                                                 |
+| ------------- | ------------------------- | ---------------------------------------------------- |
+| children      | function or React.element | popover content                                      |
+| className     | string                    | style the wrapper div                                |
+| hasAddButton  | string                    | render the button "+ Add Filrer"                     |
+| hideLabel     | bool                      | hiding button label                                  |
+| iconName      | string                    | icon to display                                      |
+| label         | string                    | button label (used for aria-label).                  |
+| initialOpened | bool                      | show / hide popover at first render                  |
+| id            | string                    | id                                                   |
+| onChange      | func                      | trigger when the button is clicked (controlled mode) |
+| onHide        | func                      | trigger when the popover is hiding (controlled mode) |
+| opened        | bool                      | value show / hide (controlled mode)                  |
+| placement     | string                    | tooltip placement "top, bottom, right, left"         |
+| rootClose     | bool                      | close popover when outside click                     |
 
 ##Hooks
 
