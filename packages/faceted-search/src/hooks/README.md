@@ -2,9 +2,9 @@
 
 ### Table of Contents
 
-1. Hooks
-   b. [badgeOpenedOverlayFlow](#badgeOpenedOverlayFlow)  
-   a. [facetedBadges](#facetedBadges)
+1. Hooks  
+   a. [badgeOpenedOverlayFlow](#badgeOpenedOverlayFlow)  
+   b. [facetedBadges](#facetedBadges)
 
 ### badgeOpenedOverlayFlow
 
