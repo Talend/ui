@@ -255,7 +255,7 @@ Render the **children** you pass as a React.element or as a function if you need
 | ------------- | ------------------------- | ---------------------------------------------------- |
 | children      | function or React.element | popover content                                      |
 | className     | string                    | style the wrapper div                                |
-| hasAddButton  | string                    | render the button "+ Add Filrer"                     |
+| hasAddButton  | string                    | render the button "+ Add Filter"                     |
 | hideLabel     | bool                      | hiding button label                                  |
 | iconName      | string                    | icon to display                                      |
 | label         | string                    | button label (used for aria-label).                  |
@@ -266,31 +266,6 @@ Render the **children** you pass as a React.element or as a function if you need
 | opened        | bool                      | value show / hide (controlled mode)                  |
 | placement     | string                    | tooltip placement "top, bottom, right, left"         |
 | rootClose     | bool                      | close popover when outside click                     |
-
-##Hooks
-
-###BadgeFactory
-
-This hook helps you to **generate** new **badges** and **operators**.
-It returns a **tuple** of **two functions**, one to get the badges, **getBadgeFacetedComponent** and the other one to get the operators, **getMatchingOperators**.
-You can pass your own **custom** badges and operators, they will be added to the **default** ones.
-
----
-
-###FacetedBadgesManager
-
-It helps you handling the **management** of **badges**.
-It **provides** a real **CRUD** operations around a **collection** of **badges**.
-You can pass an **initial collection** of badges
-It **returns** an **object** with a set of **CRUD** function and the badges **collection**.
-
----
-
-###BadgeOpenedOverlayFlow
-
-It provides some function to help you **manage** the **flow** of the **operator** and **value overlay** of each faceted **badge**.
-You can **initialize** the value hide (false) / show (true) of each overlay with **initialOperator** and **initialValue**.
-It **returns** a object full of functions **hideOperator, hideValue ...** and the values **operatorOpened** and **valueOpened**
 
 ##Context
 
