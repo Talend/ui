@@ -48,12 +48,12 @@ And it consumes the **facetedSearch context** (see [FacetedSearchContext](#Facet
 
  | Props  | Type  | Info
 |---|---|---|
-| initialQuery | string | the query use in state at mount |
-| onCancel | func | callback trigger when the user click on the red cross icon
-| onChange | func | callback trigger when the value change, useful only in controlled mode
-| onKeyDown | func  | callback trigger during each user input
+| initialQuery | string | the query use in state first render |
+| onCancel | func | callback on the red cross icon
+| onChange | func | callback when value change, useful only in controlled mode
+| onKeyDown | func  | callback at each user input
 | placeholder | string | placeholder in the text input ('Enter your query")
-| onSubmit | func | callback trigger when user hit the enter keyboard or click on the green cross
+| onSubmit | func | callback when user hit the enter keyboard or click on the green cross
 
 ---
 
