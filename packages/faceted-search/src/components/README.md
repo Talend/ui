@@ -10,21 +10,20 @@
    e. [FacetedSearch](#FacetedSearch)  
    f. [FacetedSearchIcon](#FacetedSearchIcon)  
    g. [FacetedToolbar](#FacetedToolbar)
-2. [Badges components](#Badges components)  
+2. [Badges](#Badges components)  
    a. [BadgeOperatorOverlay](#BadgeOperatorOverlay)  
    b. [BadgeText](#BadgeText)
-3. [Badges toolbox](#Badges toolbox)  
-   a. [BadgesGenerator](#BadgesGenerator)  
-   b. [BadgeFaceted](#BadgeFaceted)  
-   c. [BadgeOverlay](#BadgeOverlay)
-4. [Hooks](#Hooks)  
+   c. [BadgesGenerator](#BadgesGenerator)  
+   d. [BadgeFaceted](#BadgeFaceted)  
+   e. [BadgeOverlay](#BadgeOverlay)
+3. [Hooks](#Hooks)  
    a. [BadgeFactory](#BadgeFactory)  
    b. [FacetedBadgesManager](#FacetedBadgesManager)  
    c. [BadgeOpenedOverlayFlow](#BadgeOpenedOverlayFlow)
-5. [Context](#Context)  
+4. [Context](#Context)  
    a. [FacetedSearchContext](#FacetedSearchContext)  
    b. [BadgeFacetedContext](#BadgeFacetedContext)
-6. [Structure and PropTypes](##Structure and PropTypes)
+5. [Structure and PropTypes](##Structure and PropTypes)
 
 ## Main components
 
@@ -134,66 +133,90 @@ The toolbar show the chosen **display mode** and the **switch buttons**.
 
 ---
 
-## Badges components
+## Badges
+
+Most badges will have props like this
+
+| Props                 | Type               | Info                                  |
+| --------------------- | ------------------ | ------------------------------------- |
+| id                    | string             | id                                    |
+| label                 | string             | label displayed on the left side      |
+| initialOpenedOperator | bool               | show / hide operator popover at mount |
+| initialOpenedValue    | bool               | show / hide value popover at mount    |
+| operator              | operatorPropTypes  | current operator                      |
+| operators             | operatorsPropTypes | list of operators                     |
+| size                  | string             | button icon size "small large"        |
+| value                 | string             | value displayed in the textarea       |
+| t                     | func               | i18n translate function               |
+
+### BadgeText
+
+A badge with a **text area**.
+
+| Default Operators |
+| ----------------- |
+| contains          |
+| endWidth          |
+| equals            |
+| notContains       |
+| notEquals         |
+| regExp            |
+| startWidth        |
+
+### BadgeNumber
+
+A badge with a **input** number.
+
+| Default Operators   |
+| ------------------- |
+| equals              |
+| GreaterThan         |
+| GreaterThanOrEquals |
+| LessThan            |
+| LessThanOrEquals    |
+| notEquals           |
+
+### BadgeCheckBoxes
+
+A badges with **checkboxes**
+
+| Default Operators |
+| ----------------- |
+| in                |
 
 ### BadgeOperatorOverlay
 
 This badge is a **specialization of BadgeOverlay**.
-It display a button operator icon, on click a popover is shown with a list of operator button rows.
-If a row is triggered the popover closed and the button icon is update with the new operator.
+The operator button display a popover, you can select a new operator by clicking on the corresponding row.
 
-| Props            | Type               | Info                                                                                                                       |
-| ---------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| id               | string             | id propagate to subComponent                                                                                               |
-| onClick          | func               | callback trigger when an operator row is clicked, return the name of the operator and a function used to close the popover |
-| onChangeOverlay  | func               | callback trigger when to hide / hide the overlay                                                                           |
-| onHideOverlay    | func               | callback trigger when the popover is hiding                                                                                |
-| opened           | bool               | hide / show the popover                                                                                                    |
-| operatorIconName | string             | the operator icon used for the button                                                                                      |
-| operatorLabel    | string             | the operator label used as label for the button                                                                            |
-| operators        | operatorsPropTypes | operators shown in the popover                                                                                             |
-| size             | string             | change the size of the icon button "small large"                                                                           |
+| Props            | Type               | Info                                                                                 |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------ |
+| id               | string             | id                                                                                   |
+| onClick          | func               | triggers on operator click, return operator name and a callback to close the popover |
+| onChangeOverlay  | func               | triggers on show / hide overlay                                                      |
+| onHideOverlay    | func               | triggers when popover is hiding                                                      |
+| opened           | bool               | hide / show popover                                                                  |
+| operatorIconName | string             | operator icon displayed in the button                                                |
+| operatorLabel    | string             | operator label used as label for the button                                          |
+| operators        | operatorsPropTypes | operators shown in the popover                                                       |
+| size             | string             | button icon size "small large"                                                       |
+| t                | func               | i18n translate function                                                              |
+
+                                                             |
 
 ---
 
-### BadgeText
-
-A faceted badge with a **text area** as input.
-
-| Default Operators |
-| ----------------- |
-| equals            |
-| notEquals         |
-| contains          |
-| notContains       |
-| startWidth        |
-| endWidth          |
-| regExp            |
-
-| Props                 | Type               | Info                                                |
-| --------------------- | ------------------ | --------------------------------------------------- |
-| category              | string             | label displayed on the left side                    |
-| id                    | string             | id                                                  |
-| initialOpenedOperator | bool               | show / hide value of the operator popover at mount  |
-| initialOpenedValue    | bool               | show / hide value of the value popover at mount     |
-| operator              | operatorPropTypes  | the current chosen operator                         |
-| operators             | operatorsPropTypes | list of operators displayed in the operator popover |
-| size                  | string             | change the size of the icon button "small large"    |
-| value                 | string             | value displayed in the textarea                     |
-| t                     | func               | i18n translate function                             |
-
-## Badges toolbox
-
 ### BadgesGenerator
 
-You have to provide him with an **array of badges** and a a function to get the correct badge (normally the one given by the **badgeFactory** hooks).
-From the badge definition it will **instantiate** a proper component with some new props.
+From an array of badges definition, the component generates badges.
+You have to provide the badges dictionary and the function to access it.
 
-| Props    | Type                   | Info                                         |
-| -------- | ---------------------- | -------------------------------------------- |
-| badges   | facetedBadgesPropTypes | faceted badges definition object             |
-| getBadge | func                   | get the component function from a id or name |
-| t        | func                   | i18n translate function                      |
+| Props            | Type                   | Info                                                 |
+| ---------------- | ---------------------- | ---------------------------------------------------- |
+| badges           | facetedBadgesPropTypes | faceted badges definition                            |
+| badgesDictionary | object                 | dictionary full of badges                            |
+| getBadgeFromDict | func                   | take a badges dictionary and a key, return the badge |
+| t                | func                   | i18n translate function                              |
 
 ---
 
