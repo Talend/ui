@@ -15,13 +15,12 @@ Handle the popover / overlay flow.
 | initialOperatorOpened | bool | show / hide operator popover at first render |
 | initialValueOpened    | bool | show / hide value popover at first render    |
 
-Return
-| Tuple | Type | Info |
-| --------------------- | ---- | -------------------------------------------- |
-| state | obj | current state of reducer |
-| dispatch | func | dispatch an action |
+| Return                  | Type | Info                                                |
+| ----------------------- | ---- | --------------------------------------------------- |
+| state                   | obj  | current state of reducer                            |
+| dispatch                | func | dispatch an action                                  |
 | onChangeOperatorOverlay | func | show / hide the operator overlay depending on state |
-| onChangeValueOverlay | func | show / hide the value overlay depending on state |
+| onChangeValueOverlay    | func | show / hide the value overlay depending on state    |
 
 ### facetedBadges
 
@@ -32,10 +31,9 @@ Handle the **management** of **badges**.
 | externalState    | obj  | with key "badges" displayed at first render                                 |
 | setExternalState | func | callback trigger every time the badges state change, passing state as param |
 
-Return
-| Tuple | Type | Info |
-| --------------------- | ---- | -------------------------------------------- |
-| state | obj | current state of reducer |
+| Return   | Type | Info                           |
+| -------- | ---- | ------------------------------ |
+| state    | obj  | current state of reducer       |
 | dispatch | func | dispatch CRUD action on badges |
 
 ---
