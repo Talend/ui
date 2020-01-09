@@ -16,12 +16,14 @@ export default function FormSkeleton({ displayMode }) {
 				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
 				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
 			</div>
-			{displayMode !== 'text' && <div className={theme.submit}>
-				<div className={theme['submit-wrapper']}>
-					<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
-					<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
+			{displayMode !== 'text' && (
+				<div className={theme.submit}>
+					<div className={theme['submit-wrapper']}>
+						<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
+						<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
+					</div>
 				</div>
-			</div>}
+			)}
 		</div>
 	);
 }
