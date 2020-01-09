@@ -10,14 +10,14 @@ import DeleteButton from '../buttons/DeleteButton.component';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './ItemsTemplate.scss';
 
-export default function ItemsTemplate({ id, children }) {
+export default function ItemsTemplate({ id, children, ...rest }) {
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	return (
 		<React.Fragment>
 			<div className={theme.toolbar}>
 				<AddButton />
 			</div>
-			<Items>
+			<Items {...rest}>
 				{index => (
 					<div className={theme.item}>
 						<div className={theme['item-toolbar']}>

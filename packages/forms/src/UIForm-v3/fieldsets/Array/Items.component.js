@@ -4,11 +4,11 @@ import ArrayContext from './context';
 
 import theme from './Array.scss';
 
-export default function Items({ children }) {
+export default function Items({ children, ...rest }) {
 	const { nbItems } = useContext(ArrayContext);
 
 	return (
-		<ol className={theme.list}>
+		<ol className={theme.list} {...rest}>
 			{Array.from({ length: nbItems }).map((_, index) => (
 				<li key={index} className={theme.item}>
 					{children(index)}
