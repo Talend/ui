@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-grid-layout/css/styles.css';
 import { Responsive, WidthProvider } from 'react-grid-layout';
-import classNames from 'classnames';
 
 import Tile from './Tile';
 import { SKELETON_TILE_CONF } from './Tile/Skeleton/SkeletonTile.component';
