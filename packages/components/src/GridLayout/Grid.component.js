@@ -6,7 +6,12 @@ import classNames from 'classnames';
 
 import Tile from './Tile';
 import { SKELETON_TILE_CONF } from './Tile/Skeleton/SkeletonTile.component';
+
 import css from './Grid.scss';
+import { getTheme } from '../theme';
+
+const theme = getTheme(css);
+
 
 // eslint-disable-next-line new-cap
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -43,8 +48,8 @@ function Grid({
 }) {
 	return (
 		<ResponsiveGridLayout
-			className={classNames(css.layout, 'layout', {
-				[css.draggable]: isDraggable,
+			className={theme('layout', {
+				draggable: isDraggable,
 			})}
 			onLayoutChange={onLayoutChange}
 			onDragStop={onDragStop}
