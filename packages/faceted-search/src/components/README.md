@@ -273,29 +273,26 @@ Render the **children** you pass as a React.element or as a function if you need
 
 ### FacetedSearchContext
 
-The **provider** is mount by the **FacetedSearch** component and **consumer** in **BasicSearch** and **AdvancedSearch**.
-It helps **share** info between the **basic** and the **advanced** search component.
-
-| Values     | Type   | Info                                        |
+The **provider** is mount by the **FacetedSearch** component and **consume** in **BasicSearch** and **AdvancedSearch**.
+| Values | Type | Info |
 | ---------- | ------ | ------------------------------------------- |
-| error      | string | if the query returns an error               |
-| id         | string | shared the id between the components        |
-| inProgress | bool   | indicates if the query is still in progress |
-| t          | func   | i18n translate func                         |
+| error | string | if the query returns an error |
+| id | string | shared the id between the components |
+| inProgress | bool | indicates if the query is still in progress |
+| t | func | i18n translate func |
 
 ---
 
-### adgeFacetedContext
+### BadgeFacetedContext
 
-Since there is some abstraction to instantiate the BadgeGenerator and some component layers, this context has been created to **avoid too much props drilling**.
-This context helps **shared** some **event handler** to the **faceted badge**.
-So the **provider** is set in the **BasicSearch** and **consumer** in **BadgeFaceted**.
+The **provider** is mount by the **BasicSearch** component and **consume** in **BadgeFaceted**.
+It shares the badges state and CRUD actions.
 
-| Values         | Type | Info                                                   |
-| -------------- | ---- | ------------------------------------------------------ |
-| onDeleteBadge  | func | callback triggered when a badge is deleted             |
-| onHideOperator | func | callback triggered when the overlay operator is hiding |
-| onSubmitBadge  | func | callback triggered when a badge is submit              |
+| Values   | Type | Info                                          |
+| -------- | ---- | --------------------------------------------- |
+| state    | obj  | state of useFacetedBadges hook                |
+| dispatch | func | dispatch CRUD action to useFacetedBadges hook |
+| onSubmit | func | callback triggered when a badge is submit     |
 
 ## Structure and PropTypes
 
