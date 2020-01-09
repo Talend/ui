@@ -118,16 +118,16 @@
 
 		[role='presentation'] {
 			// Sorry, Bootstrap customization sucks
-			:global(.btn),
-			:global(.btn.open),
-			:global(.dropdown.open .btn) {
+			.btn,
+			.btn.open,
+			.dropdown.open .btn {
 				&,
 				&:hover {
 					background: none;
 				}
 			}
 
-			:global(.btn) {
+			.btn {
 				&:hover,
 				&:focus {
 					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
