@@ -17,6 +17,7 @@ import matchPath from './matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
 import localStorage from './localStorage';
+import * as lazy from './lazy';
 
 // DEPRECATED APIs
 import action from './action';
@@ -44,6 +45,7 @@ export {
 	Dispatcher,
 	ErrorBoundary,
 	Inject,
+	lazy,
 	sagas,
 	selectors,
 	// DEPRECATED
@@ -80,6 +82,7 @@ export default {
 	expressions,
 	registerInternals,
 	registry,
+	lazy,
 	router: {
 		matchPath,
 	},
