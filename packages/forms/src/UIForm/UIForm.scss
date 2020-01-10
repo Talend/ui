@@ -41,8 +41,12 @@ $tc-drawer-content-max-width: 65rem !default;
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
 		.form-content {
-			width: $tc-drawer-content-max-width;
-			margin: 0 auto;
+			width: 100%;
+
+			:global(.form-group) {
+				margin: 0 auto;
+				width: calc(#{$tc-drawer-content-max-width} - 2 * #{$padding-normal});
+			}
 		}
 		:global(.form-actions) {
 			padding: 0 $padding-normal;

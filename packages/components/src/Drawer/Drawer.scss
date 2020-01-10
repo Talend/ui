@@ -54,7 +54,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	.drawer-stacked {
 		.tc-drawer-header-title,
 		.tc-drawer-tabs,
-		.tc-drawer-content,
+		.tc-drawer-content-wrapper,
 		.tc-drawer-actionbar,
 		.tc-drawer-footer > nav {
 			width: $tc-drawer-content-max-width;
@@ -120,17 +120,25 @@ $tc-drawer-z-index: $drawer-z-index !default;
 }
 
 .tc-drawer-content {
-	padding: $padding-large $padding-normal;
 	flex-grow: 1;
 	overflow-y: auto;
+
+	&-wrapper {
+		padding: $padding-large $padding-normal;
+	}
 }
 
 .tc-drawer-actionbar-container {
 	background: $tc-action-bar-background-color;
+
+	:global(.tc-drawer-actionbar) {
+		padding-left: $padding-normal;
+		padding-right: $padding-normal;
+	}
 }
 
 .tc-drawer-footer {
-	padding: $padding-small;
+	padding: $padding-normal;
 	background: $tc-action-bar-background-color;
 
 	.navbar-left,

@@ -1,17 +1,21 @@
-$tc-drawer-content-max-width: 650px !default;
+$tc-drawer-content-max-width: 65rem !default;
 
 .container {
-	display: flex;
-	flex-direction: column;
 	margin: $padding-normal;
 }
 
-.form-content {
+.container,
+.form-content,
+.form-content-wrapper {
 	display: flex;
 	flex-direction: column;
+}
+
+.form-content {
 	:global {
 		.tc-skeleton {
 			margin: $padding-normal 0;
+
 			&.skeleton-fit-content {
 				width: auto;
 			}
@@ -55,8 +59,11 @@ $tc-drawer-content-max-width: 650px !default;
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
 		.form-content {
-			width: $tc-drawer-content-max-width;
-			margin: 0 auto;
+			.form-content-wrapper {
+				padding: 0 $padding-normal;
+				width: $tc-drawer-content-max-width;
+				margin: 0 auto;
+			}
 		}
 		.submit-wrapper {
 			max-width: $tc-drawer-content-max-width;
