@@ -65,14 +65,15 @@ You have to feed him with some **badges definitions** to allow the creation and 
 It triggers a submit every time the badges change.  
 Init the **badgeFaceted context** (see [BadgeFacetedContext](#BadgeFacetedContext)).
 
-| Props                  | Type                              | Info                                                                    |
-| ---------------------- | --------------------------------- | ----------------------------------------------------------------------- |
-| badgesDefinitions      | badgesFacetedPropTypes            | payload of badges definition                                            |
-| badgesFaceted          | { badges: badgesFacetedPropTypes} | available badges                                                        |
-| customBadgesDictionary | object                            | a dictionary of new badges                                              |
-| initialFilterValue     | string                            | filter value at first render of the [AddFacetPopover](#AddFacetPopover) |
-| onSubmit               | func                              | callback trigger when badges change                                     |
-| setFacetedBadges       | func                              | callback trigger to sync the badges at every state change               |
+| Props                     | Type                              | Info                                                                    |
+| ------------------------- | --------------------------------- | ----------------------------------------------------------------------- |
+| badgesDefinitions         | badgesFacetedPropTypes            | payload of badges definition                                            |
+| badgesFaceted             | { badges: badgesFacetedPropTypes} | available badges                                                        |
+| customBadgesDictionary    | object                            | a dictionary of new badges                                              |
+| customOperatorsDictionary | operatorsPropTypes                | a dictionary of custom operators                                        |
+| initialFilterValue        | string                            | filter value at first render of the [AddFacetPopover](#AddFacetPopover) |
+| onSubmit                  | func                              | callback trigger when badges change                                     |
+| setFacetedBadges          | func                              | callback trigger to sync the badges at every state change               |
 
 ---
 
@@ -97,13 +98,14 @@ The **main component** of the feature.
 It will directly instantiate the **manager** and the **toolbar**.
 Use childrenAsProps pattern to pass the current display mode.
 
-| Props       | Type   | Info                                                |
-| ----------- | ------ | --------------------------------------------------- |
-| children    | func   | render props with current faceted mode as parameter |
-| error       | string | error returns by query call                         |
-| id          | string | id shared to all children                           |
-| facetedMode | string | mode display at first render                        |
-| inProgress  | bool   | indicates query progress                            |
+| Props          | Type   | Info                                                            |
+| -------------- | ------ | --------------------------------------------------------------- |
+| children       | func   | render props with current faceted mode as parameter             |
+| error          | string | error returns by query call                                     |
+| id             | string | id shared to all children                                       |
+| facetedMode    | string | mode display at first render                                    |
+| inProgress     | bool   | indicates query progress                                        |
+| setFacetedMode | func   | function to set the faceted mode if it's a controlled component |
 
 ---
 
@@ -114,7 +116,7 @@ Simple **button icon** switch.
 | Props   | Type     | Info                            |
 | ------- | -------- | ------------------------------- |
 | active  | boolean  | icon is activated or not        |
-| loading | string   | display skeleton if true        |
+| loading | boolean  | display skeleton if true        |
 | onClick | function | Callback when button is clicked |
 
 ---
@@ -153,36 +155,36 @@ Most badges will have props like this
 
 A badge with a **text area**.
 
-| Default Operators |
-| ----------------- |
-| contains          |
-| endWidth          |
-| equals            |
-| notContains       |
-| notEquals         |
-| regExp            |
-| startWidth        |
+| Default Operators | implemented |
+| ----------------- | ----------- |
+| contains          | DONE        |
+| endWidth          | TO DO       |
+| equals            | DONE        |
+| notContains       | TO DO       |
+| notEquals         | TO DO       |
+| regExp            | TO DO       |
+| startWidth        | DONE        |
 
 ### BadgeNumber
 
 A badge with a **input** number.
 
-| Default Operators   |
-| ------------------- |
-| equals              |
-| GreaterThan         |
-| GreaterThanOrEquals |
-| LessThan            |
-| LessThanOrEquals    |
-| notEquals           |
+| Default Operators   | implemented |
+| ------------------- | ----------- |
+| equals              | DONE        |
+| GreaterThan         | DONE        |
+| GreaterThanOrEquals | DONE        |
+| LessThan            | DONE        |
+| LessThanOrEquals    | DONE        |
+| notEquals           | DONE        |
 
 ### BadgeCheckBoxes
 
 A badges with **checkboxes**
 
-| Default Operators |
-| ----------------- |
-| in                |
+| Default Operators | implemented |
+| ----------------- | ----------- |
+| in                | DONE        |
 
 ## Badges API
 
