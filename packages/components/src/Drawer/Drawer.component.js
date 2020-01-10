@@ -213,9 +213,7 @@ function DrawerContent({ children, className, ...rest }) {
 			className={classnames('tc-drawer-content', theme['tc-drawer-content'], className)}
 			{...rest}
 		>
-			<div
-				className={classnames('tc-drawer-content-wrapper', theme['tc-drawer-content-wrapper'])}
-			>
+			<div className={classnames('tc-drawer-content-wrapper', theme['tc-drawer-content-wrapper'])}>
 				{children}
 			</div>
 		</div>
