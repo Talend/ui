@@ -43,7 +43,7 @@ $tc-drawer-content-max-width: 65rem !default;
 		.form-content {
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
+			align-items: center;
 			width: 100%;
 
 			> * {
