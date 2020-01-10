@@ -118,7 +118,7 @@ function ChartTile({ tile }) {
 	);
 }
 
-function GridContainer({ isLoading = false, skeletonConfiguration }) {
+function GridContainer({ isLoading = false, skeletonConfiguration, isResizable = true, ...rest}) {
 	const [tiles, setTiles] = useState([
 		{
 			header: {
@@ -164,9 +164,11 @@ function GridContainer({ isLoading = false, skeletonConfiguration }) {
 	return (
 		<div className="App">
 			<GridLayout
-				isResizable
 				isLoading={isLoading}
-				skeletonConfiguration={skeletonConfiguration}>
+				isResizable={isResizable}
+				skeletonConfiguration={skeletonConfiguration}
+				{...rest}
+			>
 				{ tiles.map(tile => (
 					<div key={tile.key} data-grid={tile['data-grid']}>
 						<ChartTile tile={tile} />
@@ -186,6 +188,9 @@ storiesOf('GridLayout', module)
 		</div>
 	))
 	.add('default', () => <GridContainer />)
+	.add('not draggable', () => <GridContainer isDraggable={false} />)
+	.add('not resizable', () => <GridContainer isResizable={false} />)
+	.add('neither draggable nor resizable', () => <GridContainer isDraggable={false} isResizable={false} />)
 	.add('isLoading', () => <GridContainer isLoading />)
 	.add('isLoading with custom grid', () => <GridContainer isLoading skeletonConfiguration={customSkeletonConf} />);
 ;
