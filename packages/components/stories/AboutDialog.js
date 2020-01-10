@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { AboutDialog, IconsProvider } from '../src/index';
+import { LanguageSwitcher } from './config/i18n';
 
 const props = {
 	show: true,
@@ -47,6 +48,7 @@ const services = [
 storiesOf('AboutDialog', module)
 	.addDecorator(story => (
 		<div>
+			<LanguageSwitcher />
 			<IconsProvider />
 			<h1>AboutDialog</h1>
 			{story()}

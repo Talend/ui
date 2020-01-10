@@ -2,12 +2,22 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import { Skeleton } from '../';
+import { getI18nInstance } from '../translate';
+import Skeleton from '../Skeleton';
+
 import theme from './AboutDialog.scss';
 
 const maxHeight = 300;
-const modalWidth = 586;
+const modalWidth = 571;
 const serviceHeight = 30;
+
+const i18n = getI18nInstance();
+
+const getColumnHeaders = () => ({
+	NAME: { key: 'name', label: i18n.t('tui-components:SERVICE', { defaultValue: 'Service' }) },
+	BUILD: { key: 'build', label: i18n.t('tui-components:BUILD_ID', { defaultValue: 'Build ID' }) },
+	VERSION: { key: 'version', label: i18n.t('tui-components:VERSION', { defaultValue: 'Version' }) },
+});
 
 export function Text({ text, loading, size = Skeleton.SIZES.medium }) {
 	return <div>{loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text}</div>;
@@ -33,12 +43,7 @@ function getTbodyStyle(services) {
 }
 
 export function AboutDialogTable({
-	t,
-	definition = [
-		{ key: 'name', label: t('SERVICE', { defaultValue: 'Service' }) },
-		{ key: 'build', label: t('BUILD_ID', { defaultValue: 'Build ID' }) },
-		{ key: 'version', label: t('VERSION', { defaultValue: 'Version' }) },
-	],
+	definition = Object.values(getColumnHeaders()),
 	services = [],
 	loading = false,
 }) {

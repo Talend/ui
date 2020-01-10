@@ -7,6 +7,7 @@ i18n.use(initReactI18next).init({
 	resources: {
 		fr: {
 			[I18N_DOMAIN_COMPONENTS]: {
+				BUILD_ID: 'Identifiant',
 				LIST_TOOLBAR_DISPLAY: 'Affichage :',
 				LIST_TOOLBAR_SORT_BY: 'Trier par :',
 				LIST_TOOLBAR_PAGINATION_SHOW: 'Nombre :',
@@ -72,7 +73,7 @@ export const LanguageSwitcher = () => {
 		bottom: 0,
 		width: '100vw',
 		textAlign: 'center',
-		zIndex: 1,
+		zIndex: 1051,
 	};
 
 	function renderBtn(locale, isDefault) {
