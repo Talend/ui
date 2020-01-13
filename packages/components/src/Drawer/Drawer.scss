@@ -121,10 +121,13 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 .tc-drawer-content {
 	flex-grow: 1;
+	min-height: 0;
 	overflow-y: auto;
 
 	&-wrapper {
 		padding: $padding-large $padding-normal;
+		flex-grow: 1;
+		min-height: 0;
 	}
 }
 
