@@ -7,10 +7,6 @@ import Skeleton from '../Skeleton';
 
 import theme from './AboutDialog.scss';
 
-const maxHeight = 300;
-const modalWidth = 571;
-const serviceHeight = 30;
-
 const i18n = getI18nInstance();
 
 const getColumnHeaders = () => ({
@@ -21,25 +17,6 @@ const getColumnHeaders = () => ({
 
 export function Text({ text, loading, size = Skeleton.SIZES.medium }) {
 	return <div>{loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text}</div>;
-}
-
-/**
- * This function set the column width that rely on the number of column displayed
- * @param {array} definition
- */
-function getColumnWidth(definition) {
-	return { minWidth: modalWidth / definition.length };
-}
-
-/**
- * This function set the max height of the table in order to not have a blank space when
- * the list of services is short
- * @param {array} services
- */
-function getTbodyStyle(services) {
-	return {
-		height: Math.min(maxHeight, services.length * serviceHeight),
-	};
 }
 
 export function AboutDialogTable({
@@ -56,18 +33,18 @@ export function AboutDialogTable({
 			<thead>
 				<tr>
 					{definition.map(attribute => (
-						<th style={getColumnWidth(definition)}>{attribute.label}</th>
+						<th>{attribute.label}</th>
 					))}
 				</tr>
 			</thead>
-			<tbody style={getTbodyStyle(services)}>
+			<tbody>
 				{(loading
 					? [{ name: 'loading-first' }, { name: 'loading-second' }, { name: 'loading-third' }]
 					: services
 				).map(service => (
 					<tr key={service.name}>
 						{definition.map(attribute => (
-							<td style={getColumnWidth(definition)}>
+							<td>
 								<Text loading={loading} text={service[attribute.key]} />
 							</td>
 						))}
