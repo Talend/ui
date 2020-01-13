@@ -76,5 +76,4 @@ AboutDialogTable.propTypes = {
 		}),
 	),
 	loading: PropTypes.bool,
-	t: PropTypes.func.isRequired,
 };
