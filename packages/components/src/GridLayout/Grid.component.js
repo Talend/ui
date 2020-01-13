@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-grid-layout/css/styles.css';
 import { Responsive, WidthProvider } from 'react-grid-layout';
+
 import Tile from './Tile';
 import { SKELETON_TILE_CONF } from './Tile/Skeleton/SkeletonTile.component';
-import './Grid.scss';
+
+import css from './Grid.scss';
+import { getTheme } from '../theme';
+
+const theme = getTheme(css);
 
 // eslint-disable-next-line new-cap
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -29,6 +34,7 @@ const noOp = () => {};
 function Grid({
 	children,
 	isResizable = false,
+	isDraggable = true,
 	onLayoutChange = noOp,
 	onBreakpointChange = noOp,
 	onDragStop = noOp,
@@ -40,7 +46,9 @@ function Grid({
 }) {
 	return (
 		<ResponsiveGridLayout
-			className="layout"
+			className={theme('layout', {
+				draggable: isDraggable,
+			})}
 			onLayoutChange={onLayoutChange}
 			onDragStop={onDragStop}
 			onResizeStop={onResizeStop}
@@ -53,6 +61,7 @@ function Grid({
 			isResizable={isResizable}
 			useCSSTransforms={false}
 			verticalCompact={verticalCompact}
+			isDraggable={isDraggable}
 		>
 			{isLoading
 				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
@@ -69,6 +78,7 @@ Grid.propTypes = {
 	children: PropTypes.node,
 	compactType: PropTypes.string,
 	isResizable: PropTypes.bool,
+	isDraggable: PropTypes.bool,
 	onLayoutChange: PropTypes.func,
 	onBreakpointChange: PropTypes.func,
 	onDragStop: PropTypes.func,

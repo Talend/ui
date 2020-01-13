@@ -11,6 +11,7 @@ export default function CheckBox(props) {
 
 	return (
 		<FieldTemplate
+			className={schema.className}
 			description={schema.description}
 			descriptionId={descriptionId}
 			errorId={errorId}

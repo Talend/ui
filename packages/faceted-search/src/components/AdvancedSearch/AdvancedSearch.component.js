@@ -19,8 +19,6 @@ const AdvancedSearchError = ({ id, label }) => (
 	</p>
 );
 
-const DATA_FEATURE = 'faceted-advanced-search';
-
 AdvancedSearchError.propTypes = {
 	label: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
@@ -28,7 +26,7 @@ AdvancedSearchError.propTypes = {
 
 // eslint-disable-next-line import/prefer-default-export
 export function AdvancedSearch({
-	dataFeature = DATA_FEATURE,
+	dataFeature = 'faceted-advanced-search',
 	initialQuery = '',
 	onCancel,
 	onChange,

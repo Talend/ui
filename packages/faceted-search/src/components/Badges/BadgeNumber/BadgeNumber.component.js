@@ -9,12 +9,12 @@ import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propT
 const createDefaultOperators = t => [
 	{
 		label: t('FACETED_SEARCH_DOES_NOT_CONTAINS', { defaultValue: 'Does not contains' }),
-		name: 'notEqual',
+		name: 'notEquals',
 		iconName: 'not-equal',
 	},
 	{
 		label: t('FACETED_SEARCH_EQUAL', { defaultValue: 'Equal' }),
-		name: 'equal',
+		name: 'equals',
 		iconName: 'equal',
 	},
 	{
@@ -24,7 +24,7 @@ const createDefaultOperators = t => [
 	},
 	{
 		label: t('FACETED_SEARCH_GREATHER_THAN_OR_EQUAL', { defaultValue: 'Greater than or equal' }),
-		name: 'GreaterThanOrEqual',
+		name: 'GreaterThanOrEquals',
 		iconName: 'greater-than-equal',
 	},
 	{
@@ -34,21 +34,21 @@ const createDefaultOperators = t => [
 	},
 	{
 		label: t('FACETED_SEARCH_LESS_THAN_OR_EQUAL', { defaultValue: 'Less than or equal' }),
-		name: 'LessThanOrEqual',
+		name: 'LessThanOrEquals',
 		iconName: 'less-than-equal',
 	},
 ];
 
 const BadgeNumber = ({
 	id,
-	label,
 	initialOperatorOpened,
 	initialValueOpened,
+	label,
 	operator,
 	operators,
 	size,
-	value,
 	t,
+	value,
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
@@ -81,15 +81,15 @@ const BadgeNumber = ({
 };
 
 BadgeNumber.propTypes = {
-	label: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
 	initialOperatorOpened: PropTypes.bool,
 	initialValueOpened: PropTypes.bool,
+	label: PropTypes.string.isRequired,
 	operator: operatorPropTypes,
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
-	value: PropTypes.string,
 	t: PropTypes.func.isRequired,
+	value: PropTypes.string,
 };
 
 // eslint-disable-next-line import/prefer-default-export
