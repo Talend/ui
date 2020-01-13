@@ -19,7 +19,7 @@ function getTriggerHandlers(schema, onTrigger, rhf) {
 	const eventsProps = {};
 	triggers.forEach(trigger => {
 		function executeTrigger() {
-			const triggerPromise = Promise.resolve()
+			return Promise.resolve()
 				.then(() =>
 					onTrigger({
 						schema,
@@ -40,11 +40,12 @@ function getTriggerHandlers(schema, onTrigger, rhf) {
 					}
 					return { ...result, errors: newErrors };
 				});
+		}
 
-			executeTrigger.validationPromise = triggerPromise.then(({ errors }) =>
-				getError(errors, schema),
-			);
-			return triggerPromise;
+		if (trigger.validation) {
+			eventsProps.validation = () =>
+				executeTrigger().then(({ errors }) => getError(errors, schema));
+			return;
 		}
 		switch (trigger.onEvent) {
 			case 'focus': {
@@ -74,13 +75,14 @@ export default function useSchemaWidget(schema) {
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const contextValue = useContext(SchemaFormContext);
 	const { customFormats, customValidation, language, onTrigger, rhf } = contextValue;
-	const eventsProps = useMemo(() => getTriggerHandlers(schema, onTrigger, rhf), [
-		schema,
-		onTrigger,
-	]);
+	const { validation: validationTrigger, ...eventsProps } = useMemo(
+		() => getTriggerHandlers(schema, onTrigger, rhf),
+		[schema, onTrigger],
+	);
 	const rules = useMemo(
-		() => schemaRules({ customFormats, customValidation, eventsProps, language, rhf, schema, t }),
-		[customFormats, customValidation, language, rhf.getValues, schema, t],
+		() =>
+			schemaRules({ customFormats, customValidation, validationTrigger, language, rhf, schema, t }),
+		[customFormats, customValidation, validationTrigger, language, rhf, schema, t],
 	);
 
 	const values = useMemo(

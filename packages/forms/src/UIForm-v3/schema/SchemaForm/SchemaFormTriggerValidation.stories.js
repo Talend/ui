@@ -24,7 +24,7 @@ const validateDataSchema = {
 			triggers: [
 				{
 					action: 'validateFirstname',
-					onEvent: 'blur',
+					validation: true,
 				},
 			],
 		},
@@ -35,7 +35,7 @@ const validateDataSchema = {
 			triggers: [
 				{
 					action: 'validateLastname',
-					onEvent: 'blur',
+					validation: true,
 				},
 			],
 		},
@@ -105,7 +105,7 @@ const validateNestedDataSchema = {
 			triggers: [
 				{
 					action: 'validateAddress',
-					onEvent: 'blur',
+					validation: true,
 				},
 			],
 		},
@@ -166,8 +166,8 @@ const validateArrayDataSchema = {
 					description: 'Don\'t type "lol" please',
 					triggers: [
 						{
-							onEvent: 'change',
 							action: 'validateLastname',
+							validation: true,
 						},
 					],
 				},
