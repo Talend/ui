@@ -9,10 +9,10 @@ import theme from './AboutDialog.scss';
 
 const i18n = getI18nInstance();
 
-const getColumnHeaders = () => ({
-	NAME: { key: 'name', label: i18n.t('tui-components:SERVICE', { defaultValue: 'Service' }) },
-	BUILD: { key: 'build', label: i18n.t('tui-components:BUILD_ID', { defaultValue: 'Build ID' }) },
-	VERSION: { key: 'version', label: i18n.t('tui-components:VERSION', { defaultValue: 'Version' }) },
+export const getColumnHeaders = () => ({
+	name: { key: 'name', label: i18n.t('tui-components:SERVICE', { defaultValue: 'Service' }) },
+	build: { key: 'build', label: i18n.t('tui-components:BUILD_ID', { defaultValue: 'Build ID' }) },
+	version: { key: 'version', label: i18n.t('tui-components:VERSION', { defaultValue: 'Version' }) },
 });
 
 export function Text({ text, loading, size = Skeleton.SIZES.medium }) {
