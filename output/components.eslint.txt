@@ -49,7 +49,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   43:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
-  5:8  error  'classNames' is defined but never used  no-unused-vars
+  68:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
+  71:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   129:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
