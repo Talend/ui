@@ -2,7 +2,7 @@
 
 ## Installation
 
-Add npm package to app
+Add npm package
 
 `yarn add @talend/react-faceted-search`
 
