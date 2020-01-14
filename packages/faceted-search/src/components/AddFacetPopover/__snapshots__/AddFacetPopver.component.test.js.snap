@@ -34,6 +34,8 @@ exports[`AddFacetPopover should render the html output 1`] = `
           >
         </div>
       </form>
+      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+      </div>
     </div>
   </div>
 </div>
