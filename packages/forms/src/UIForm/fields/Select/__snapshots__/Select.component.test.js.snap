@@ -227,9 +227,6 @@ exports[`Select field should render simple select without placeholder 1`] = `
     value="lol"
   >
     <option
-      disabled={true}
-    />
-    <option
       value="foo"
     >
       My foo title

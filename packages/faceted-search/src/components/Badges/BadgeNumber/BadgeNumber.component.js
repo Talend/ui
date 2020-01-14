@@ -41,14 +41,14 @@ const createDefaultOperators = t => [
 
 const BadgeNumber = ({
 	id,
-	label,
 	initialOperatorOpened,
 	initialValueOpened,
+	label,
 	operator,
 	operators,
 	size,
-	value,
 	t,
+	value,
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
@@ -81,15 +81,15 @@ const BadgeNumber = ({
 };
 
 BadgeNumber.propTypes = {
-	label: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
 	initialOperatorOpened: PropTypes.bool,
 	initialValueOpened: PropTypes.bool,
+	label: PropTypes.string.isRequired,
 	operator: operatorPropTypes,
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
-	value: PropTypes.string,
 	t: PropTypes.func.isRequired,
+	value: PropTypes.string,
 };
 
 // eslint-disable-next-line import/prefer-default-export
