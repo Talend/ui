@@ -63,23 +63,35 @@ class FileWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
+		this.onTrigger = this.onTrigger.bind(this);
 		// Extract file name from form properties
 		this.state = { fileName: getFileName(props.value) };
 	}
 
 	onChange(event) {
-		const fileList = event.target.files;
-		if (fileList.length > 0) {
-			const file = fileList[0];
-			const reader = new FileReader();
-			reader.onload = () => {
-				const data = getBase64(reader.result, file.name);
-				this.updateFileData(event, data, file.name);
-			};
-			reader.readAsDataURL(file);
+		if (this.props.onTrigger) {
+			this.props.onTrigger(event);
 		} else {
-			this.updateFileData(event, '', '');
+			const fileList = event.target.files;
+			if (fileList.length > 0) {
+				const file = fileList[0];
+				const reader = new FileReader();
+				reader.onload = () => {
+					const data = getBase64(reader.result, file.name);
+					this.updateFileData(event, data, file.name);
+				};
+				reader.readAsDataURL(file);
+			} else {
+				this.updateFileData(event, '', '');
+			}
 		}
+	}
+
+	onTrigger(event, trigger) {
+		return this.props.onTrigger(event, {
+			trigger,
+			schema: this.props.schema,
+		});
 	}
 
 	/**
@@ -160,6 +172,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
+		onTrigger: PropTypes.func,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
