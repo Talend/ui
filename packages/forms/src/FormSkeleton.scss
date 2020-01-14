@@ -1,8 +1,5 @@
 $tc-drawer-content-max-width: 65rem !default;
-
-.container {
-	margin: $padding-normal;
-}
+$tc-drawer-padding: $padding-large !default;
 
 .container,
 .form-content,
@@ -26,52 +23,43 @@ $tc-drawer-content-max-width: 65rem !default;
 .submit-wrapper {
 	display: flex;
 	justify-content: space-between;
-	margin: auto;
+	margin: $padding-normal auto;
 }
 
 :global(.tc-drawer-container) {
 	> .container {
-		display: flex;
-		flex-direction: column;
 		flex-grow: 1;
 		min-height: 0;
-		margin: 0;
-	}
-
-	.form-content,
-	.submit-wrapper {
-		padding: $padding-normal;
 	}
 
 	.form-content {
 		flex-grow: 1;
 		min-height: 0;
 		overflow-y: auto;
-		margin: 0 $padding-small;
+	}
+
+	.form-content-wrapper,
+	.submit-wrapper {
+		margin: 0;
+		padding: $tc-drawer-padding;
 	}
 
 	.submit {
-		width: 100%;
 		background-color: $wild-sand;
 	}
 }
 
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
-		.form-content {
-			.form-content-wrapper {
-				padding: 0 $padding-normal;
-				width: $tc-drawer-content-max-width;
-				margin: 0 auto;
-			}
-		}
+		.form-content-wrapper,
 		.submit-wrapper {
-			max-width: $tc-drawer-content-max-width;
+			margin: 0 auto;
+			padding: $tc-drawer-padding;
+			width: $tc-drawer-content-max-width;
 		}
 		:global(.form-actions) {
-			padding: 0 $padding-normal;
-			max-width: $tc-drawer-content-max-width;
 			margin: auto;
+			max-width: $tc-drawer-content-max-width;
 		}
 	}
 }

@@ -1,4 +1,5 @@
 $tc-drawer-content-max-width: 65rem !default;
+$tc-drawer-padding: $padding-large !default;
 
 .uiform {
 	font-size: 1.6rem;
@@ -27,14 +28,14 @@ $tc-drawer-content-max-width: 65rem !default;
 		overflow-y: auto;
 	}
 }
+
 :global(.tc-drawer-container) {
 	.form-content,
 	.form-actions {
-		padding: $padding-normal;
+		padding: $tc-drawer-padding;
 	}
 	.form-actions {
 		background-color: $wild-sand;
-		width: 100%;
 	}
 }
 
@@ -44,16 +45,15 @@ $tc-drawer-content-max-width: 65rem !default;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			width: 100%;
 
 			> * {
-				width: calc(#{$tc-drawer-content-max-width} - 2 * #{$padding-normal});
+				width: calc(#{$tc-drawer-content-max-width} - 2 * #{$tc-drawer-padding});
 			}
 		}
 		:global(.form-actions) {
-			padding: 0 $padding-normal;
-			max-width: $tc-drawer-content-max-width;
 			margin: auto;
+			padding: 0 $tc-drawer-padding;
+			max-width: $tc-drawer-content-max-width;
 		}
 	}
 }

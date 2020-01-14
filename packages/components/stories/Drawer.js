@@ -186,8 +186,8 @@ const tabsActionFooter = {
 
 function scrollableContent() {
 	const content = [];
-	for (let i = 0; i < 42; i += 1) {
-		content.push(<p>The content dictate the scroll {i}</p>);
+	for (let i = 1; i <= 42; i += 1) {
+		content.push(<p>The scroll is defined by the content {i}</p>);
 	}
 	return content;
 }
@@ -203,7 +203,7 @@ const drawers = [
 	</Drawer>,
 	<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 		<h1>Hello drawer 2</h1>
-		<p>The content dictate the scroll</p>
+		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
 		{scrollableContent()}
 	</Drawer>,
@@ -224,7 +224,7 @@ const editableDrawers = [
 		footerActions={Object.assign({}, basicProps, { selected: 0 })}
 	>
 		<h1>Hello drawer 2</h1>
-		<p>The content dictate the scroll</p>
+		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
 		{scrollableContent()}
 	</Drawer>,
@@ -246,7 +246,7 @@ const longEditableDrawers = [
 		onCancelAction={onCancelAction}
 	>
 		<h1>Hello drawer 2</h1>
-		<p>The content dictate the scroll</p>
+		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
 		{scrollableContent()}
 	</Drawer>,
@@ -268,7 +268,7 @@ const drawersNoTransition = [
 		footerActions={Object.assign({}, basicProps, { selected: 0 })}
 	>
 		<h1>Hello drawer 2</h1>
-		<p>The content dictate the scroll</p>
+		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
 		{scrollableContent()}
 	</Drawer>,
@@ -324,7 +324,7 @@ storiesOf('Drawer', module)
 				footerActions={Object.assign({}, basicProps, { selected: 0 })}
 			>
 				<h1>Hello drawer 2</h1>
-				<p>The content dictate the scroll</p>
+				<p>The scroll is defined by the content</p>
 				{scrollableContent()}
 			</Drawer>,
 			<Drawer
@@ -333,7 +333,7 @@ storiesOf('Drawer', module)
 				footerActions={Object.assign({}, basicProps, { selected: 0 })}
 			>
 				<h1>Hello drawer 3</h1>
-				<p>The content dictate the scroll</p>
+				<p>The scroll is defined by the content</p>
 				{scrollableContent()}
 			</Drawer>,
 		];
@@ -398,7 +398,7 @@ storiesOf('Drawer', module)
 		const customDrawers = [
 			<Drawer.Container>
 				<Tab.Container defaultActiveKey="info">
-					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+					<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
 						<Drawer.Title
 							title="Custom drawer with tabs and a super long name that breaks the drawer title"
 							onCancelAction={onCancelAction}
@@ -420,21 +420,19 @@ storiesOf('Drawer', module)
 						</Drawer.Title>
 						<Tab.Content animation>
 							<Tab.Pane eventKey="info">
-								<Drawer.Content>
-									<p>content</p>
-								</Drawer.Content>
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
 								<Drawer.Footer>Test</Drawer.Footer>
 							</Tab.Pane>
 							<Tab.Pane eventKey="navigator">
-								<Drawer.Content>content</Drawer.Content>
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
 								<Drawer.Footer />
 							</Tab.Pane>
 							<Tab.Pane eventKey="profile">
-								<Drawer.Content>content</Drawer.Content>
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
 								<Drawer.Footer />
 							</Tab.Pane>
 							<Tab.Pane eventKey="metrics">
-								<Drawer.Content>content</Drawer.Content>
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
 								<Drawer.Footer />
 							</Tab.Pane>
 						</Tab.Content>
@@ -455,15 +453,13 @@ storiesOf('Drawer', module)
 		const customDrawers = [
 			<Drawer.Container stacked>
 				<Tab.Container defaultActiveKey="info">
-					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+					<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
 						<Drawer.Title
 							title="Custom drawer with tabs and a super long name that breaks the drawer title"
 							onCancelAction={sameCancelAction}
 						/>
 						<Tab.Content>
-							<Drawer.Content>
-								<p>content</p>
-							</Drawer.Content>
+							<Drawer.Content>{scrollableContent()}</Drawer.Content>
 							<Drawer.Footer>
 								<ActionBar actions={panelActions} />
 							</Drawer.Footer>
