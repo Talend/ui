@@ -30,11 +30,11 @@ $tc-drawer-padding: $padding-large !default;
 }
 
 :global(.tc-drawer-container) {
-	.form-content,
-	.form-actions {
+	.form-content {
 		padding: $tc-drawer-padding;
 	}
 	.form-actions {
+		padding: $padding-small $tc-drawer-padding;
 		background-color: $wild-sand;
 	}
 }

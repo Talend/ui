@@ -44,6 +44,10 @@ $tc-drawer-padding: $padding-large !default;
 		padding: $tc-drawer-padding;
 	}
 
+	.submit-wrapper {
+		padding: $padding-small $tc-drawer-padding;
+	}
+
 	.submit {
 		background-color: $wild-sand;
 	}
@@ -56,6 +60,9 @@ $tc-drawer-padding: $padding-large !default;
 			margin: 0 auto;
 			padding: $tc-drawer-padding;
 			width: $tc-drawer-content-max-width;
+		}
+		.submit-wrapper {
+			padding: $padding-small $tc-drawer-padding;
 		}
 		:global(.form-actions) {
 			margin: auto;

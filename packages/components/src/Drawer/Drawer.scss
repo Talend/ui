@@ -147,7 +147,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 .tc-drawer-footer,
 .tc-drawer-actionbar-container {
-	padding: $tc-drawer-padding;
+	padding: $padding-small $tc-drawer-padding;
 	background: $tc-action-bar-background-color;
 
 	:global {
