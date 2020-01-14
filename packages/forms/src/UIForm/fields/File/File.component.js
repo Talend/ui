@@ -24,7 +24,7 @@ function getFileName(value) {
 			value.indexOf(BASE64_PREFIX),
 		);
 	}
-	return '';
+	return null;
 }
 
 /**
@@ -65,31 +65,35 @@ class FileWidget extends React.Component {
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		// Extract file name from form properties
-		this.state = { fileName: getFileName(props.value) };
+		this.state = { fileName: getFileName(props.value), loading: false };
 	}
 
 	onChange(event) {
-		if (this.props.onTrigger) {
-			const { onTrigger, schema } = this.props;
-			event.persist();
-			schema.triggers.forEach(trigger => {
-				if (trigger.onEvent === 'change') {
-					onTrigger(event, { trigger, schema });
-				}
-			});
-		} else {
-			const fileList = event.target.files;
-			if (fileList.length > 0) {
-				const file = fileList[0];
+		event.persist();
+		const fileList = event.target.files;
+		if (fileList.length > 0) {
+			const file = fileList[0];
+			if (this.props.onTrigger) {
+				this.updateFileData(event, null, file.name);
+				const { onTrigger, schema } = this.props;
+				Promise.all(
+					schema.triggers.map(trigger => {
+						if (trigger.onEvent === 'change') {
+							return onTrigger(event, { trigger, schema });
+						}
+						return Promise.resolve();
+					}),
+				);
+			} else {
 				const reader = new FileReader();
 				reader.onload = () => {
 					const data = getBase64(reader.result, file.name);
 					this.updateFileData(event, data, file.name);
 				};
 				reader.readAsDataURL(file);
-			} else {
-				this.updateFileData(event, '', '');
 			}
+		} else {
+			this.updateFileData(event, '', '');
 		}
 	}
 
@@ -158,7 +162,7 @@ class FileWidget extends React.Component {
 					<input
 						name={`input-filename-${id}`}
 						className={`form-control ${theme['file-replace']}`}
-						value={this.state.fileName || this.props.value}
+						value={this.state.fileName}
 						onChange={noop}
 						type="text"
 						placeholder={placeholder}

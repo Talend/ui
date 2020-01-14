@@ -9,6 +9,9 @@
       },
       "file2": {
         "type": "text"
+      },
+      "file3": {
+        "type": "text"
       }
     }
   },
