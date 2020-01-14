@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2617): Fix overflow x and y in AddFacetPopover
+
 ## [0.2.5]
 
 ### Breaking
