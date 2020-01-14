@@ -5,7 +5,12 @@ import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import FacetedSearch from '../src';
 import { FacetedSearchIcon } from '../src/components/FacetedSearchIcon';
 
-import { badgeName, badgeConnectionType, badgePrice } from './badgesDefinitions.story';
+import {
+	badgeConnectionType,
+	badgeName,
+	badgePrice,
+	badgeWithVeryLongName,
+} from './badgesDefinitions.story';
 
 const badgesDefinitions = [badgeName, badgeConnectionType, badgePrice];
 const lotsOfBadgesDefinitions = [];
@@ -58,12 +63,23 @@ storiesOf('FacetedSearch', module)
 			</FacetedSearch.Faceted>
 		</div>
 	))
-	.add('lots of badges definitions', () => (
+	.add('basic search with lots of badges definitions', () => (
 		<div style={{ height: '5.5rem' }}>
 			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={lotsOfBadgesDefinitions}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('basic search with badge with very long name', () => (
+		<div style={{ height: '5.5rem' }}>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={[badgeWithVeryLongName, badgeConnectionType, badgeName, badgePrice]}
 					onSubmit={action('onSubmit')}
 				/>
 			</FacetedSearch.Faceted>

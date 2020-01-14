@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
 import { getTheme } from '@talend/react-components/lib/theme';
 import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
-import Action from '@talend/react-components/lib/Actions/Action';
 import FilterBar from '@talend/react-components/lib/FilterBar';
+import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
 import cssModule from './AddFacetPopover.scss';
 import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.propTypes';
@@ -15,14 +16,19 @@ const AddFacetRow = ({ badgeDefinition, id, label, onClick }) => {
 		onClick(event, badgeDefinition);
 	};
 	return (
-		<Action
-			className={theme('tc-add-facet-popover-row')}
-			id={`${id}-row-button-${label}`}
-			onClick={onClickRow}
-			label={label}
-			link
-			role="button"
-		/>
+		<TooltipTrigger label={label} tooltipPlacement="top">
+			<Button
+				aria-label={label}
+				bsStyle="link"
+				className={theme('tc-add-facet-popover-row')}
+				id={`${id}-row-button-${label}`}
+				label={label}
+				onClick={onClickRow}
+				role="button"
+			>
+				<div className={theme('tc-add-facet-popover-row-text')}>{label}</div>
+			</Button>
+		</TooltipTrigger>
 	);
 };
 

@@ -63,3 +63,27 @@ export const badgePrice = {
 		],
 	},
 };
+
+export const badgeWithVeryLongName = {
+	properties: {
+		attribute: 'price',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'helloverybeautifullworldhowareyouinthislovelydaythesunishiningandtheskyisbright?',
+		operator: {},
+		operators: [],
+		type: 'number',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: [
+			'equals',
+			'notEquals',
+			'greaterThan',
+			'greaterThanOrEquals',
+			'lessThan',
+			'lessThanOrEquals',
+		],
+	},
+};
