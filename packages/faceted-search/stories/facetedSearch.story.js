@@ -59,7 +59,7 @@ storiesOf('FacetedSearch', module)
 		</div>
 	))
 	.add('lots of badges definitions', () => (
-		<div>
+		<div style={{ height: '5.5rem' }}>
 			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
