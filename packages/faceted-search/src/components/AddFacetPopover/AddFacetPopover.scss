@@ -18,6 +18,10 @@
 		margin: 0 $padding-small 0 $padding-small;
 	}
 
+	&-row-container {
+		overflow: auto;
+	}
+
 	&-row {
 		font-weight: 500;
 		display: flex;

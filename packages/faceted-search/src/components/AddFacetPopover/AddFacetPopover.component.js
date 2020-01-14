@@ -64,15 +64,17 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 					onFilter={onFilter}
 					value={filterValue}
 				/>
-				{badgesDefinitionsFaceted.map(badgeDefinition => (
-					<AddFacetRow
-						badgeDefinition={badgeDefinition}
-						id={addFacetId}
-						key={badgeDefinition.properties.label}
-						label={badgeDefinition.properties.label}
-						onClick={onClick}
-					/>
-				))}
+				<div className={theme('tc-add-facet-popover-row-container')}>
+					{badgesDefinitionsFaceted.map(badgeDefinition => (
+						<AddFacetRow
+							badgeDefinition={badgeDefinition}
+							id={addFacetId}
+							key={badgeDefinition.properties.label}
+							label={badgeDefinition.properties.label}
+							onClick={onClick}
+						/>
+					))}
+				</div>
 			</RichLayout.Body>
 		</div>
 	);
