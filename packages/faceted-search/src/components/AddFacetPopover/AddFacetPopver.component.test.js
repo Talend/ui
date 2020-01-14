@@ -20,8 +20,8 @@ describe('AddFacetPopover', () => {
 				type: 'text',
 			},
 			metadata: {
-				badges_per_facet: 'N',
-				entities_per_badge: '1',
+				badgePerFacet: 'N',
+				entitiesPerBadge: '1',
 				operators: ['contains', '='],
 			},
 		},
@@ -36,8 +36,8 @@ describe('AddFacetPopover', () => {
 				type: 'text',
 			},
 			metadata: {
-				badges_per_facet: 'N',
-				entities_per_badge: '1',
+				badgePerFacet: 'N',
+				entitiesPerBadge: '1',
 				operators: ['contains', '='],
 			},
 		},

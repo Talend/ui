@@ -81,8 +81,8 @@ export default function InputDateRangePicker(props) {
 									label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 									ref={startDateInputRef}
 								/>,
-								<span className={theme.arrow}>
-									<Icon name="talend-arrow-right" className={theme.icon} />
+								<span className={classnames(theme.arrow, 'arrow')}>
+									<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
 								</span>,
 								<DateRange.Input
 									{...inputProps}

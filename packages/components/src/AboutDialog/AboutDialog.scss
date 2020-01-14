@@ -21,6 +21,13 @@
 				margin: 0 auto;
 				margin-top: 3rem;
 				text-align: justify;
+				table-layout: fixed;
+
+				th,
+				td {
+					padding: $padding-smaller;
+					text-align: left;
+				}
 
 				td + td,
 				th + th {

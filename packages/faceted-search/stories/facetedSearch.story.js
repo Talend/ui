@@ -3,81 +3,46 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import FacetedSearch from '../src';
+import { FacetedSearchIcon } from '../src/components/FacetedSearchIcon';
 
-const badgeName = {
-	properties: {
-		attribute: 'name',
-		initialOperatorOpened: true,
-		initialValueOpened: false,
-		label: 'Name',
-		operator: {},
-		operators: [],
-		type: 'text',
-	},
-	metadata: {
-		badges_per_facet: 'N',
-		entities_per_badge: '1',
-		operators: ['contains', 'equal', 'notEqual'],
-	},
-};
-
-const badgeConnectionType = {
-	properties: {
-		attribute: 'connection.type',
-		initialOperatorOpened: true,
-		initialValueOpened: false,
-		label: 'Connection type',
-		operator: {},
-		operators: [],
-		type: 'checkbox',
-	},
-	metadata: {
-		badges_per_facet: '1',
-		entities_per_badge: 'N',
-		values: [
-			{ id: 'amazon_s3', label: 'Amazon S3' },
-			{ id: 'hdfs', label: 'HDFS' },
-			{ id: 'kafka', label: 'Kafka' },
-			{ id: 'localcon', label: 'Local connection' },
-			{ id: 'salesforce', label: 'Salesforce' },
-			{ id: 'aws_kinesis', label: 'AWS kinesis' },
-		],
-		operators: ['in'],
-	},
-};
-
-const badgePrice = {
-	properties: {
-		attribute: 'price',
-		initialOperatorOpened: true,
-		initialValueOpened: false,
-		label: 'Price',
-		operator: {},
-		operators: [],
-		type: 'number',
-	},
-	metadata: {
-		badges_per_facet: 'N',
-		entities_per_badge: '1',
-		operators: [
-			'equal',
-			'notEqual',
-			'greaterThan',
-			'greaterThanOrEqual',
-			'lessThan',
-			'lessThanOrEqual',
-		],
-	},
-};
+import {
+	badgeConnectionType,
+	badgeName,
+	badgePrice,
+	badgeWithVeryLongName,
+} from './badgesDefinitions.story';
 
 const badgesDefinitions = [badgeName, badgeConnectionType, badgePrice];
+const lotsOfBadgesDefinitions = [];
+let i = 0;
+while (i < 50) {
+	lotsOfBadgesDefinitions.push(badgeName);
+	i += 1;
+}
+
+const paddingLeft = { paddingLeft: '10px' };
 
 storiesOf('FacetedSearch', module)
 	.addDecorator(story => (
-		<div>
+		<div style={{ ...paddingLeft }}>
 			<IconsProvider />
 			<h1>Faceted Search</h1>
 			{story()}
+		</div>
+	))
+	.add('icon default, active and loading', () => (
+		<div>
+			<div style={{ display: 'flex' }}>
+				<span style={{ ...paddingLeft }}>
+					<FacetedSearchIcon loading onClick={action('onClick')} />
+				</span>
+				<span style={{ ...paddingLeft }}>
+					<FacetedSearchIcon active onClick={action('onClick')} />
+				</span>
+				<span style={{ ...paddingLeft }}>
+					<FacetedSearchIcon onClick={action('onClick')} />
+				</span>
+			</div>
 		</div>
 	))
 	.add('default', () => (
@@ -95,6 +60,28 @@ storiesOf('FacetedSearch', module)
 						/>
 					))
 				}
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('basic search with lots of badges definitions', () => (
+		<div style={{ height: '5.5rem' }}>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={lotsOfBadgesDefinitions}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('basic search with badge with very long name', () => (
+		<div style={{ height: '5.5rem' }}>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={[badgeWithVeryLongName, badgeConnectionType, badgeName, badgePrice]}
+					onSubmit={action('onSubmit')}
+				/>
 			</FacetedSearch.Faceted>
 		</div>
 	));

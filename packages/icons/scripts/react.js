@@ -54,7 +54,7 @@ function createSvgBundles() {
 		const buff = Object.keys(lib).map(key => `<symbol id="talend-${key}">${lib[key]}</symbol>`);
 		buff.unshift('');
 		buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
-		buff.push('<svg>');
+		buff.push('</svg>');
 		fs.writeFileSync(path.join(dist, `../dist/svg-bundle/${bundle}.svg`), buff.join(''));
 	};
 	bundles.forEach(save);
@@ -66,7 +66,7 @@ function createGetIconHref() {
 	buff.unshift('export const info = {');
 	buff.push('};');
 	buff.push('export function getIconHref(name) {');
-	buff.push('  return info[name] ? `${info[name]}.svg#${name}` : `#${name}`;');
+	buff.push('  return info[name] ? `/${info[name]}.svg#${name}` : `#${name}`;');
 	buff.push('}');
 	const code = babel.transformSync(buff.join('\n'), options);
 	fs.writeFileSync(path.join(dist, 'info.js'), code.code);
