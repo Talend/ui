@@ -72,7 +72,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 		.tc-header-bar-brand:global(.btn):global(.btn-link) {
 			font-size: $font-size-base;
-			text-transform: uppercase;
 		}
 
 		.tc-header-bar-call-to-action {
