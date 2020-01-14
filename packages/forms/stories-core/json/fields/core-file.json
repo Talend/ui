@@ -18,11 +18,19 @@
       "title": "Upload file",
       "placeholder": "Select a file to upload",
       "widget": "file"
-    }, {
+    },
+    {
       "key": "file2",
       "title": "Upload another file",
       "placeholder": "Select a file to upload",
       "widget": "file"
+    },
+    {
+      "key": "file3",
+      "title": "Upload another file using trigger",
+      "placeholder": "Select a file to upload",
+      "widget": "file",
+      "triggers": [{ "action": "uploadAction", "onEvent": "change" }]
     }
   ],
   "properties": {

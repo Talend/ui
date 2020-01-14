@@ -70,7 +70,13 @@ class FileWidget extends React.Component {
 
 	onChange(event) {
 		if (this.props.onTrigger) {
-			this.props.onTrigger(event);
+			const { onTrigger, schema } = this.props;
+			event.persist();
+			schema.triggers.forEach(trigger => {
+				if (trigger.onEvent === 'change') {
+					onTrigger(event, { trigger, schema });
+				}
+			});
 		} else {
 			const fileList = event.target.files;
 			if (fileList.length > 0) {
@@ -152,7 +158,7 @@ class FileWidget extends React.Component {
 					<input
 						name={`input-filename-${id}`}
 						className={`form-control ${theme['file-replace']}`}
-						value={this.state.fileName}
+						value={this.state.fileName || this.props.value}
 						onChange={noop}
 						type="text"
 						placeholder={placeholder}
@@ -181,6 +187,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
 			type: PropTypes.string,
+			triggers: PropTypes.arrayOf(PropTypes.object),
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		valueIsUpdating: PropTypes.bool,

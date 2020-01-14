@@ -29,6 +29,7 @@ This widget allows you to render a file input.
 | disabled | Disable the input | `false` |
 | placeholder | Text to display as placeholder |  |
 | readOnly | Set the input as non modifiable | `false` |
+| triggers | List of trigger types |
 
 ```json
 [
@@ -39,7 +40,10 @@ This widget allows you to render a file input.
     "autoFocus": false,
     "disabled": false,
     "placeholder": "Select a file to upload",
-    "readOnly": false
+    "readOnly": false,
+    "triggers": [
+      { "action": "customUploadAction", "onEvent": "change" }
+    ]
   }
 ]
 ```
