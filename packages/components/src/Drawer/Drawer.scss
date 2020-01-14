@@ -108,6 +108,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 		.tc-drawer-close-action {
 			flex: 0;
+			margin: -$tc-drawer-padding;
 			color: $tc-drawer-header-color;
 		}
 
