@@ -8,6 +8,7 @@ import CellBadgeRenderer, { cellType as cellBadgeType } from '../CellBadge';
 import CellDatetimeRenderer, { cellType as cellDatetimeType } from '../CellDatetime';
 import CellTextIconRenderer, { cellType as cellTextType } from '../CellTextIcon';
 import HeaderIconRenderer, { headerType as headerIconType } from '../HeaderIcon';
+import HeaderResizable, { headerType as headerResizableType } from '../HeaderResizable';
 
 /** Cell renderers dictionary */
 export const cellDictionary = {
@@ -27,4 +28,5 @@ export const rowDictionary = {
 
 export const headerDictionary = {
 	[headerIconType]: HeaderIconRenderer,
+	[headerResizableType]: HeaderResizable,
 };

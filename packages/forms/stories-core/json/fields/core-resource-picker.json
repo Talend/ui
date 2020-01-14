@@ -27,7 +27,11 @@
         { "action": "resourcePickerSelected", "onEvent": "change" },
         { "action": "resourcePickerFiltered", "onEvent": "filter" }
       ],
-      "multi": false
+      "multi": false,
+      "options": {
+        "filters": ["selection"],
+        "sort": ["name"]
+      }
     }
   ],
   "properties": {}

@@ -118,16 +118,16 @@
 
 		[role='presentation'] {
 			// Sorry, Bootstrap customization sucks
-			:global(.btn),
-			:global(.btn.open),
-			:global(.dropdown.open .btn) {
+			.btn,
+			.btn.open,
+			.dropdown.open .btn {
 				&,
 				&:hover {
 					background: none;
 				}
 			}
 
-			:global(.btn) {
+			.btn {
 				&:hover,
 				&:focus {
 					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
@@ -173,6 +173,27 @@
 					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
 				}
 			}
+		}
+	}
+}
+
+@mixin btn-tertiary-colors($color: $btn-default-bg) {
+	&.btn-tertiary {
+		background-color: transparent;
+		box-shadow: none;
+		font-weight: $btn-tertiary-font-weight;
+		line-height: $btn-tertiary-line-height;
+		min-height: $btn-tertiary-line-height;
+		padding: 0 $padding-small;
+		transition: background 0.2s ease-in;
+		color: $color;
+		&:hover,
+		&:focus {
+			color: $color;
+			background: tint($color, 90%);
+		}
+		&:active {
+			background: tint($color, 80%);
 		}
 	}
 }

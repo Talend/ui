@@ -19,6 +19,12 @@
 			background: $tc-list-row-active-hover-bg;
 		}
 	}
+
+	.row-selection.disabled {
+		> div > div {
+			opacity: 0.54;
+		}
+	}
 }
 
 :global(.tc-list-list) {
@@ -40,5 +46,10 @@
 			background: $tc-list-row-active-hover-bg;
 		}
 	}
-}
 
+	.row-selection.disabled :global(.tc-list-large-inner-box) {
+		> div > div {
+			opacity: 0.54;
+		}
+	}
+}

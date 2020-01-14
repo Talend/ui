@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import uuid from 'uuid';
 import cases from 'jest-in-case';
 import mock from '@talend/react-cmf/lib/mock';
 import SidePanel from './SidePanel.container';
@@ -73,7 +72,7 @@ describe('SidePanel.mapStateToProps', () => {
 		it('should construct the actions based on the props given in "actions" elements', () => {
 			state.routing.locationBeforeTransitions.pathname = '/whatever/current/path';
 			const ownProps = {
-				componentId: uuid.v4(),
+				componentId: 'compId',
 				actions: [
 					{
 						whateverAction: 'prop',
@@ -93,7 +92,7 @@ describe('SidePanel.mapStateToProps', () => {
 		it('should define the routing onClick for each "actions" item if "path" is specified', () => {
 			state.routing.locationBeforeTransitions.pathname = '/whatever/current/path';
 			const props = mapStateToProps(state, {
-				componentId: uuid.v4(),
+				componentId: 'compId',
 				actions: [
 					{
 						whateverAction: 'prop',
@@ -127,7 +126,7 @@ describe('SidePanel.mapStateToProps', () => {
 				};
 
 				const props = mapStateToProps(state, {
-					componentId: uuid.v4(),
+					componentId: 'compId',
 					actions: [
 						{
 							anotherRandomSpecificActionProp: 'other prop',
@@ -202,7 +201,7 @@ describe('SidePanel.mapStateToProps', () => {
 			];
 
 			state.routing.locationBeforeTransitions.pathname = 'whatever/path/to/route/somewhere';
-			const componentId = uuid.v4();
+			const componentId = 'compId';
 			const propsStep1 = mapStateToProps(state, {
 				componentId,
 				actions,

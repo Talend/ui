@@ -5,6 +5,7 @@
  */
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import cmf from '@talend/react-cmf';
+import getRouter from '@talend/react-cmf-router';
 import { registerAllContainers } from '@talend/react-containers/lib/register';
 import actionCreators from './actions';
 import components from './components';
@@ -19,6 +20,11 @@ import saga from './saga';
  * to update to cmfConfig
  */
 registerAllContainers();
+
+/**
+ * Init the router module
+ */
+const router = getRouter();
 
 /**
  * Initialize CMF
@@ -39,4 +45,6 @@ cmf.bootstrap({
 	sagas,
 	settingsURL: '/settings.json',
 	AppLoader: 'AppLoader',
+	modules: [router.cmfModule],
+	RootComponent: router.RootComponent,
 });

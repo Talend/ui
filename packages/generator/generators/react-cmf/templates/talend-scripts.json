@@ -1,4 +1,3 @@
 {
-  "preset": "talend",
-  "cmf": false
+  "cmf": true
 }

@@ -1,0 +1,200 @@
+{
+  "doc": "ComparatorInput/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comparator Input",
+    "properties": {
+      "default": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": [
+              "equals",
+              "not_equals",
+              "contains",
+              "not_contains",
+              "starts_with",
+              "ends_with",
+              "between",
+              "greater_than",
+              "greater_equals_to",
+              "less_than",
+              "less_equals_to",
+              "regex",
+              "😊"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "withLabels": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": [
+              "equals",
+              "not_equals",
+              "contains",
+              "not_contains",
+              "starts_with",
+              "ends_with",
+              "between",
+              "greater_than",
+              "greater_equals_to",
+              "less_than",
+              "less_equals_to",
+              "regex",
+              "😊"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "numeric": {
+        "title": "Not value",
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": ["orng", "pr"]
+          },
+          "value": {
+            "type": "number",
+            "minimum": -100,
+            "maximum": 100
+          }
+        }
+      },
+      "disabled": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": [">", "<", "="]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "required": []
+  },
+  "uiSchema": [
+    {
+      "key": "default",
+      "widget": "comparator",
+      "title": "Default comparator"
+    },
+    {
+      "key": "withLabels",
+      "widget": "comparator",
+      "title": "Comparator with labels",
+      "titleMap": [
+        {
+          "name": "Equals to",
+          "value": "equals"
+        },
+        {
+          "name": "Not equals to",
+          "value": "not_equals"
+        },
+        {
+          "name": "Contains",
+          "value": "contains"
+        },
+        {
+          "name": "Not contains",
+          "value": "not_contains"
+        },
+        {
+          "name": "Starts with",
+          "value": "starts_with"
+        },
+        {
+          "name": "Ends with",
+          "value": "ends_with"
+        },
+        {
+          "name": "Between",
+          "value": "between"
+        },
+        {
+          "name": "Less or equal to",
+          "value": "less_equals_to"
+        },
+        {
+          "name": "Less than",
+          "value": "less_than"
+        },
+        {
+          "name": "Greater than",
+          "value": "greater_than"
+        },
+        {
+          "name": "Greater or equal to",
+          "value": "greater_equals_to"
+        },
+        {
+          "name": "RegEx",
+          "value": "regex"
+        },
+        {
+          "name": "Something",
+          "value": "😊"
+        }
+      ],
+      "tooltip": "👋"
+    },
+    {
+      "key": "numeric",
+      "widget": "comparator",
+      "title": "Customs numeric comparator",
+      "titleMap": [
+        {
+          "name": "Orange",
+          "value": "orng"
+        },
+
+        {
+          "name": "Pear",
+          "value": "pr"
+        }
+      ],
+      "options": {
+        "symbols": {
+          "orng": ">=",
+          "pr": "<="
+        }
+      }
+    },
+    {
+      "key": "disabled",
+      "widget": "comparator",
+      "title": "Disabled comparator",
+      "disabled": true
+    }
+  ],
+  "properties": {
+    "default": {
+      "operator": "greater_than"
+    },
+    "numeric": {
+      "operator": "orng"
+    },
+    "disabled": {
+      "operator": ">",
+      "value": "hihihi"
+    }
+  }
+}

@@ -15,19 +15,34 @@ export default function SimpleCheckBox({
 	value,
 }) {
 	const { autoFocus } = schema;
+
+	function getDataFeature() {
+		const dataFeature = schema['data-feature'];
+		return dataFeature ? `${dataFeature}.${value ? 'uncheck' : 'check'}` : undefined;
+	}
+
+	function getDataChecked() {
+		if (value) {
+			return 2;
+		}
+		return 0;
+	}
+
 	return (
 		<div className={classnames('checkbox', { disabled })}>
-			<label>
+			<label data-feature={getDataFeature()}>
 				<input
 					id={id}
 					autoFocus={autoFocus}
 					disabled={disabled}
 					onChange={event => {
-						onChange(event, { schema, value: event.target.checked });
-						onFinish(event, { schema, value: event.target.checked });
+						const isChecked = event.target.checked;
+						onChange(event, { schema, value: isChecked });
+						onFinish(event, { schema, value: isChecked });
 					}}
 					type="checkbox"
 					checked={value}
+					data-checked={getDataChecked()}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-describedby={describedby}
@@ -50,6 +65,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			'data-feature': PropTypes.string,
 			autoFocus: PropTypes.bool,
 			disabled: PropTypes.bool,
 		}),

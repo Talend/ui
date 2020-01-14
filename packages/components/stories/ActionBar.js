@@ -213,6 +213,43 @@ const basicProps = {
 	actions,
 	multiSelectActions,
 };
+const multiDelete = {
+	label: 'Delete',
+	icon: 'talend-trash',
+	onClick: action('multiple delete'),
+	className: 'btn-icon-text',
+};
+const multiDuplicate = {
+	label: 'Duplicate',
+	icon: 'talend-files-o',
+	onClick: action('multiple duplicate'),
+	className: 'btn-icon-text',
+};
+const multiUpdate = {
+	label: 'Update',
+	icon: 'talend-file-move',
+	onClick: action('multiple update'),
+	className: 'btn-icon-text',
+};
+const multiFavorite = {
+	label: 'Favorite',
+	icon: 'talend-star',
+	onClick: action('multiple favorite'),
+	className: 'btn-icon-text',
+};
+const multiCertify = {
+	label: 'Certify',
+	icon: 'talend-badge',
+	onClick: action('multiple certify'),
+	className: 'btn-icon-text',
+};
+const massActions = {
+	left: [multiDelete, multiDuplicate, multiUpdate],
+};
+
+const appMassActions = {
+	left:  [multiFavorite, multiCertify],
+}
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -228,6 +265,8 @@ const icons = {
 	'talend-dataprep': talendIcons['talend-dataprep'],
 	'talend-elastic': talendIcons['talend-elastic'],
 	'talend-cloud-engine': talendIcons['talend-cloud-engine'],
+	'talend-files-o': talendIcons['talend-files-o'],
+	'talend-file-move': talendIcons['talend-file-move'],
 };
 
 storiesOf('ActionBar', module)
@@ -254,6 +293,14 @@ storiesOf('ActionBar', module)
 			<p>Toolbar with btn-group and only icons/ Layout: left, center, right</p>
 			<div id="btn-group">
 				<ActionBar actions={btnGroupActions} />
+			</div>
+			<p>3 items selected, with mass/bulk Actions</p>
+			<div id="mass-actions">
+				<ActionBar
+					selected={3}
+					multiSelectActions={massActions}
+					appMultiSelectActions={appMassActions}
+				/>
 			</div>
 		</nav>
 	))

@@ -1,0 +1,55 @@
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/variables';
+
+.container {
+	width: 100%;
+	position: relative;
+}
+
+.calendar-header {
+	&:after {
+		@include picker-underline;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 2.3rem;
+	}
+
+	th {
+		text-align: center;
+		padding-bottom: $padding-small;
+	}
+
+	abbr {
+		border: none;
+		font-weight: normal;
+		text-decoration: none;
+	}
+}
+
+.calendar-row {
+	height: 3.6rem;
+	text-align: center;
+
+	.calendar-day {
+		&.today {
+			background-color: tint($lochmara, 90%);
+			color: $lochmara;
+			border: solid 1px $lochmara;
+		}
+
+		@include picker-action;
+
+		height: 2.4rem;
+		width: 2.4rem;
+		background: transparent;
+		border: none;
+		border-radius: 50%;
+		line-height: 2.4rem;
+		padding: 0;
+
+		&.not-current-month {
+			opacity: 0.54;
+		}
+	}
+}

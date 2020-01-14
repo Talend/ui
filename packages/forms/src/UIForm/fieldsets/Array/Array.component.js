@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { head, get } from 'lodash';
 import Widget from '../../Widget';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
 import defaultTemplates from '../../utils/templates';
@@ -32,17 +33,22 @@ export default class ArrayWidget extends React.Component {
 
 	onAdd(event) {
 		const arrayMergedSchema = this.props.schema;
-		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
+		const { items, schema } = arrayMergedSchema;
+		const getDefaultValue = schema.items.type === 'object' ? {} : '';
+		const hasOneItem = items.length === 1;
+		const itemsEnum = get(schema, 'items.enum');
+		const isSingleSelectItem = hasOneItem && head(items).type === 'select' && head(itemsEnum);
+
+		const defaultValue = isSingleSelectItem ? head(itemsEnum) : getDefaultValue;
 
 		let currentValue = this.props.value;
-		const widgetId = this.props.schema.itemWidget;
-		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
-		if (itemWidget && itemWidget.isCloseable) {
+		if (this.isCloseable()) {
 			currentValue = currentValue.map(item => ({ ...item, isClosed: true }));
 		}
 		const value = currentValue.concat(defaultValue);
 
 		const payload = { schema: arrayMergedSchema, value };
+
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
 	}
@@ -105,10 +111,20 @@ export default class ArrayWidget extends React.Component {
 		return ArrayTemplate;
 	}
 
-	renderItem(index) {
+	isCloseable() {
+		const widgetId = this.props.schema.itemWidget;
+		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
+		if (!itemWidget) {
+			return false;
+		}
+		return itemWidget.isCloseable === true;
+	}
+
+	renderItem(index, extraProps) {
 		return (
 			<Widget
 				{...this.props}
+				{...extraProps}
 				disabled={this.props.schema.disabled}
 				id={this.props.id && `${this.props.id}-${index}`}
 				schema={getArrayElementSchema(this.props.schema, index)}
@@ -118,18 +134,17 @@ export default class ArrayWidget extends React.Component {
 	}
 
 	render() {
-		const { schema } = this.props;
-		const canReorder = schema.reorder !== false;
 		const ArrayTemplate = this.getArrayTemplate();
 
 		return (
 			<ArrayTemplate
 				{...this.props}
-				canReorder={canReorder}
+				canReorder={this.props.schema.reorder !== false}
 				onAdd={this.onAdd}
 				onReorder={this.onReorder}
 				onRemove={this.onRemove}
 				renderItem={this.renderItem}
+				isCloseable={this.isCloseable()}
 			/>
 		);
 	}

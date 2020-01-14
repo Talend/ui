@@ -8,13 +8,20 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.config.WebDriverTest;
 import org.talend.config.WebDriverTestFactory;
+
+import java.util.function.Function;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class StorybookTest {
     private static final Logger LOGGER = LogManager.getLogger(StorybookTest.class);
 
-    private static final String ACTION_LOGGER_CONSOLE_SELECTOR = ".horizontal.Pane2 > div > div > div:last-child";
+    private static final String ACTION_LOGGER_CONSOLE_SELECTOR = "#storybook-panel-root > div:last-child .simplebar-content";
 
     private static final String DEFAULT_STORY_NAME = "default";
 
@@ -64,10 +71,18 @@ public class StorybookTest {
             if (StringUtils.isNotBlank(storybookContext)) {
                 builder.setPath(storybookContext);
             }
-            builder.addParameter("selectedKind", categoryName);
-            builder.addParameter("selectedStory", storyName);
+            builder.addParameter("path", String.format(
+                    "/story/%s--%s",
+                    categoryName.replaceAll("[\\W]+", "-").toLowerCase(),
+                    storyName.replaceAll("[\\W]+", "-").toLowerCase()
+            ));
 
             driver.get(builder.build().toURL().toString());
+            final WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until((webDriver) -> {
+                final WebElement item = webDriver.findElement(By.cssSelector(".sidebar-container .sidebar-item"));
+                return !"loading story".equals(item.getText());
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,7 +91,9 @@ public class StorybookTest {
     }
 
     private void goToStoryFrame() {
-        driver.switchTo().frame(driver.findElement(By.id("storybook-preview-iframe")));
+        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        final WebElement element = wait.until(visibilityOfElementLocated(By.id("storybook-preview-iframe")));
+        driver.switchTo().frame(element);
     }
 
     private void goToMainElement() {
@@ -88,5 +105,9 @@ public class StorybookTest {
         final String log = driver.findElement(By.cssSelector(ACTION_LOGGER_CONSOLE_SELECTOR)).getText();
         this.goToStoryFrame();
         return log;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("List > Large : activation".replaceAll("[\\W]+", "-"));
     }
 }

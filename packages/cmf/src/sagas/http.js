@@ -10,6 +10,7 @@ import {
 	HTTP_STATUS,
 	testHTTPCode,
 } from '../middlewares/http/constants';
+import interceptors from '../httpInterceptors';
 
 /**
  * Storage point for the doc setup using `setDefaultConfig`
@@ -169,7 +170,15 @@ export function httpFetch(url, config, method, payload) {
  * @return {object}                           the response of the request
  */
 export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
-	const answer = yield call(httpFetch, url, config, method, payload);
+	const newConfig = yield call(interceptors.onRequest, { url, method, payload, ...config });
+	const answer = yield call(
+		httpFetch,
+		newConfig.url,
+		newConfig,
+		newConfig.method,
+		newConfig.payload,
+	);
+	yield call(interceptors.onResponse, answer);
 	const silent = get(options, 'silent');
 	if (silent !== true && answer instanceof Error) {
 		yield put({

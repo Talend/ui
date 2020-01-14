@@ -37,7 +37,6 @@ export function handleOpenProduct(action) {
 		const opened = window.open(action.payload.url, '_blank');
 		// security fix:
 		opened.opener = null;
-		opened.location = action.payload.url;
 	}
 }
 

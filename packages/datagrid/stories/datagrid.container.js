@@ -1,7 +1,7 @@
 import React from 'react';
+import get from 'lodash/get';
 import { storiesOf } from '@storybook/react';
 import withCMF from '@talend/react-storybook-cmf';
-import { I18nextProvider } from 'react-i18next';
 import mock from '@talend/react-cmf/lib/mock';
 import { IconsProvider } from '@talend/react-components';
 import api from '@talend/react-cmf';
@@ -9,8 +9,9 @@ import api from '@talend/react-cmf';
 import DataGrid from '../src/';
 import register from '../src/register';
 import theme from '../src/components/DataGrid/DataGrid.scss';
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 import sample from './sample.json';
+import sampleRenderer from './sampleRenderer.json';
 
 Object.keys(api.expressions).forEach(id => api.expression.register(id, api.expressions[id]));
 
@@ -86,6 +87,7 @@ sample.data = [
 
 const cmfState = mock.state();
 cmfState.cmf.collections = cmfState.cmf.collections.set('sample', sample);
+cmfState.cmf.collections = cmfState.cmf.collections.set('sampleRenderer', sampleRenderer);
 if (!cmfState.cmf.settings.props) {
 	cmfState.cmf.settings.props = cmfState.cmf.settings.views;
 }
@@ -154,26 +156,51 @@ cmfState.cmf.settings.props['Container(DataGrid)#HightLightRows'] = {
 	rowSelection: 'multiple',
 };
 
+cmfState.cmf.settings.props['Container(DataGrid)#TypeRenderer'] = {
+	dataExpression: {
+		id: 'cmf.collections.get',
+		args: ['sampleRenderer', []],
+	},
+	onFocusedCellActionCreator: 'datagrid:focus-cell',
+	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onScrollActionCreator: 'datagrid:vertical-scroll',
+	cellRenderer: 'DefaultCellRenderer',
+};
+
 const reducer = (state = {}, a) => {
 	console.log(a);
 	return state;
 };
 
 function registerCustomizedComponents() {
-	api.component.register('CustomCellRenderer', props => <span>{props.value.value}</span>);
+	api.component.register('CustomCellRenderer', props => (
+		<span>{get(props, 'value.value.bytes', '') || get(props, 'value.value', '')}</span>
+	));
 	api.component.register('CustomHeaderRenderer', props => <span>{props.displayName}</span>);
 	api.component.register('CustomPinHeaderRenderer', () => <span />);
 	api.component.register('CustomStringCellRenderer', props => (
-		<span>I'm a string({props.data.value})</span>
+		<span>
+			I'm a string(
+			{props.data.value})
+		</span>
 	));
 	api.component.register('CustomIntCellRenderer', props => (
-		<span>I'm an int({props.data.value})</span>
+		<span>
+			I'm an int(
+			{props.data.value})
+		</span>
 	));
 	api.component.register('CustomBooleanCellRenderer', props => (
-		<span>I'm a boolean({props.data.value})</span>
+		<span>
+			I'm a boolean(
+			{props.data.value})
+		</span>
 	));
 	api.component.register('CustomDateCellRenderer', props => (
-		<span>I'm a date({props.data.value})</span>
+		<span>
+			I'm a date(
+			{props.data.value})
+		</span>
 	));
 }
 
@@ -188,11 +215,10 @@ const options = {
 };
 
 storiesOf('Container Datagrid', module)
-
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			{story()}
 		</div>
 	))
 	.addDecorator(withCMF)
@@ -204,7 +230,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'loading',
@@ -214,7 +240,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="ProgressDatagrid" />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'with custom renderers',
@@ -224,7 +250,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="CustomizedDatagrid" />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'with custom avro renderers',
@@ -234,7 +260,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="CustomizedAvroDatagrid" />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'with selected rows',
@@ -244,7 +270,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="HightLightRows" className={theme['td-grid-focus-row']} />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'multiple grid',
@@ -259,5 +285,15 @@ storiesOf('Container Datagrid', module)
 				</div>
 			</div>
 		),
-		{ ...options }
+		{ ...options },
+	)
+	.add(
+		'type renderer',
+		() => (
+			<div style={{ height: '100vh' }}>
+				<IconsProvider />
+				<DataGrid componentId="TypeRenderer" data={sampleRenderer} />
+			</div>
+		),
+		{ ...options },
 	);

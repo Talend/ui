@@ -208,6 +208,6 @@ describe('CheckBoxes field', () => {
 			.simulate('change', event);
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: true });
+		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });
 	});
 });

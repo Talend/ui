@@ -277,7 +277,7 @@ To use the eslint configuration in your IDE
 
 ```json
 {
-  "extends": "@talend/scritps/preset/config/.eslintrc"
+  "extends": "./node_modules/@talend/scripts/webapp/preset/config/.eslintrc"
 }
 ```
 

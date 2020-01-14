@@ -14,7 +14,7 @@ exports[`Default Array Template component should render default array template 1
     bsStyle="info"
     className="theme-tf-array-add tf-array-add"
     id="my-template-btn"
-    label="New Element"
+    label="Add"
     onClick={[MockFunction]}
   />
   <Message
@@ -38,14 +38,11 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={false}
         id="my-template-control-0"
         index={0}
+        isCloseable={false}
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
-      >
-        <div>
-          Render item 
-          0
-        </div>
-      </ArrayItem>
+        renderItem={[Function]}
+      />
     </li>
     <li
       className="theme-item item item-1"
@@ -55,14 +52,11 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={true}
         id="my-template-control-1"
         index={1}
+        isCloseable={false}
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
-      >
-        <div>
-          Render item 
-          1
-        </div>
-      </ArrayItem>
+        renderItem={[Function]}
+      />
     </li>
     <li
       className="theme-item item item-2"
@@ -72,14 +66,11 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={true}
         id="my-template-control-2"
         index={2}
+        isCloseable={false}
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
-      >
-        <div>
-          Render item 
-          2
-        </div>
-      </ArrayItem>
+        renderItem={[Function]}
+      />
     </li>
   </ol>
 </fieldset>

@@ -56,19 +56,17 @@
         },
         {
           "widget": "fieldset",
-          "conditions": [{
-            "path": "entity.kind",
-            "values": ["human", "animal"]
-          }],
+          "condition": {
+            "in": [{ "var": "entity.kind"}, ["human", "animal"]]
+          },
           "items": [
             {
               "key": "entity.civility",
               "title": "Civility",
               "description": "This should be visible only for humans",
-              "conditions": [{
-                "path": "entity.kind",
-                "values": ["human"]
-              }]
+              "condition": {
+                "===": [{ "var": "entity.kind"}, "human"]
+              }
             },
             {
               "key": "entity.lastname",
@@ -86,10 +84,9 @@
           "key": "entity.objectName",
           "title": "Object name",
           "description": "This should be visible only for objects",
-          "conditions": [{
-            "path": "entity.kind",
-            "values": ["thing"]
-          }]
+          "condition": {
+            "===": [{ "var": "entity.kind"}, "thing"]
+          }
         }
       ]
     },

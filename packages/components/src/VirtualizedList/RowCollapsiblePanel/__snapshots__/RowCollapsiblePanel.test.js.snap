@@ -1,5 +1,175 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
+<div
+  aria-posinset={2}
+  className="tc-collapsible-row"
+  id="my-list-1"
+  onKeyDown={[Function]}
+  role="listitem"
+  tabIndex="0"
+>
+  <LoadingCollapsiblePanel>
+    <div
+      className="theme-loading-collapsible-panel"
+    >
+      <span>
+        <withI18nextTranslation(Skeleton)
+          size="small"
+          type="circle"
+        >
+          <Skeleton
+            heartbeat={true}
+            i18n={Object {}}
+            size="small"
+            t={[Function]}
+            tReady={true}
+            type="circle"
+          >
+            <span
+              aria-label="circle (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
+        <withI18nextTranslation(Skeleton)
+          size="xlarge"
+          type="text"
+        >
+          <Skeleton
+            heartbeat={true}
+            i18n={Object {}}
+            size="xlarge"
+            t={[Function]}
+            tReady={true}
+            type="text"
+          >
+            <span
+              aria-label="text (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
+      </span>
+      <span>
+        <withI18nextTranslation(Skeleton)
+          size="small"
+          type="circle"
+        >
+          <Skeleton
+            heartbeat={true}
+            i18n={Object {}}
+            size="small"
+            t={[Function]}
+            tReady={true}
+            type="circle"
+          >
+            <span
+              aria-label="circle (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
+        <withI18nextTranslation(Skeleton)
+          size="medium"
+          type="text"
+        >
+          <Skeleton
+            heartbeat={true}
+            i18n={Object {}}
+            size="medium"
+            t={[Function]}
+            tReady={true}
+            type="text"
+          >
+            <span
+              aria-label="text (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
+      </span>
+      <span>
+        <withI18nextTranslation(Skeleton)
+          size="small"
+          type="text"
+        >
+          <Skeleton
+            heartbeat={true}
+            i18n={Object {}}
+            size="small"
+            t={[Function]}
+            tReady={true}
+            type="text"
+          >
+            <span
+              aria-label="text (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
+      </span>
+      <span>
+        <withI18nextTranslation(Skeleton)
+          size="medium"
+          type="text"
+        >
+          <Skeleton
+            heartbeat={true}
+            i18n={Object {}}
+            size="medium"
+            t={[Function]}
+            tReady={true}
+            type="text"
+          >
+            <span
+              aria-label="text (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
+      </span>
+    </div>
+  </LoadingCollapsiblePanel>
+</div>
+`;
+
 exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
 <div
   aria-label="Canceled"
@@ -15,7 +185,7 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
   }
   tabIndex="0"
 >
-  <Translate(CollapsiblePanel)
+  <withI18nextTranslation(CollapsiblePanel)
     content={
       Array [
         Object {

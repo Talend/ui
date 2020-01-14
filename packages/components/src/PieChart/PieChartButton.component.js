@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
-import classnames from 'classnames';
 import PieChartIcon, { pieChartIconPropTypes } from './PieChartIcon.component';
-import theme from './PieChart.scss';
+import pieChartCssModule from './PieChart.scss';
+import { getTheme } from '../theme';
+
+const theme = getTheme(pieChartCssModule);
 
 /**
  * This function add an OverlayTrigger wrapping the button if defined
@@ -84,7 +86,7 @@ export default function PieChartButtonComponent({
 	const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
 	const btn = (
 		<Button
-			className={classnames(theme['tc-pie-chart-button'], 'tc-pie-chart-button', className)}
+			className={theme('tc-pie-chart-button', className)}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
 			ref={buttonRef}

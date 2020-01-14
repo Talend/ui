@@ -1,4 +1,3 @@
-import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
 
 import bootstrap, * as internals from '../src/bootstrap';
@@ -9,6 +8,7 @@ import expression from '../src/expression';
 import registry from '../src/registry';
 import storeAPI from '../src/store';
 import sagas from '../src/sagas';
+import onError from '../src/onError';
 
 jest.mock('react-dom', () => ({
 	render: jest.fn(),
@@ -20,8 +20,10 @@ jest.mock('redux-saga', () => {
 	middleware.clearRun = () => run.mockClear();
 	return middleware;
 });
-
-// we mock all internal dependencies
+jest.mock('../src/onError', () => ({
+	report: jest.fn(),
+	bootstrap: jest.fn(),
+}));
 jest.mock('../src/registry', () => ({
 	registerMany: jest.fn(),
 }));
@@ -48,13 +50,30 @@ jest.mock('../src/store', () => ({
 }));
 
 describe('bootstrap', () => {
+	beforeEach(() => {
+		onError.bootstrap.mockClear();
+	});
+	describe('error management', () => {
+
+		it('should bootstrap onError', () => {
+			const options = {
+				onError: {
+					reportURL: '/api/v1/report',
+					sensibleKeys: [],
+				},
+			};
+			bootstrap(options);
+			expect(onError.bootstrap).toHaveBeenCalled();
+			const call = onError.bootstrap.mock.calls[0];
+			expect(call[0]).toMatchObject(options);
+		});
+	});
 	describe('registry', () => {
 		it('should check options', () => {
 			const toThrow = () => bootstrap({ appId: {} });
 			expect(toThrow).toThrow('appId must be a string but got object');
 		});
 		it('should call registerInternals', () => {
-			registerInternals.mockClear();
 			bootstrap({});
 			expect(registerInternals).toHaveBeenCalled();
 		});
@@ -157,6 +176,14 @@ describe('bootstrap', () => {
 				storeCallback: store => {
 					expect(store.dispatch).toHaveBeenCalled();
 					expect(store.dispatch.mock.calls[0][0].url).toBe('/foo/settings.json');
+				},
+			};
+			bootstrap(options);
+		});
+		it('should work without settings', () => {
+			const options = {
+				storeCallback: store => {
+					expect(store.dispatch).not.toBeCalled();
 				},
 			};
 			bootstrap(options);

@@ -310,3 +310,42 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
   </div>
 </div>
 `;
+
+exports[`Status should render a label with a skeleton 1`] = `
+<div
+  className="theme-tc-status tc-status"
+  role="status"
+>
+  <span
+    className="theme-tc-status-icon tc-status-icon theme-skeleton"
+  >
+    <span
+      aria-label="circle (loading)"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small theme-tc-status-skeleton-item tc-status-skeleton-item theme-theme-tc-status-skeleton-item tc-status-skeleton-item tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      style={
+        Object {
+          "height": undefined,
+          "width": undefined,
+        }
+      }
+    />
+  </span>
+  <span
+    className="theme-tc-status-label tc-status-label"
+  >
+    <span
+      aria-label="text (loading)"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-large theme-tc-skeleton-text-large theme-tc-status-skeleton-item tc-status-skeleton-item theme-theme-tc-status-skeleton-item tc-status-skeleton-item tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      style={
+        Object {
+          "height": undefined,
+          "width": undefined,
+        }
+      }
+    />
+  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  />
+</div>
+`;

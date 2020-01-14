@@ -1,4 +1,5 @@
 import i18next from 'i18next';
+
 import { getCurrentLanguage } from './translate';
 
 describe('getCurrentLanguage', () => {

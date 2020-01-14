@@ -13,7 +13,7 @@ export function adaptAdditionalRules(mergedSchema) {
 	// skip enum validation if explicitly not restricted
 	const { schema } = mergedSchema;
 	if (mergedSchema.restricted === false) {
-		if (schema.type === 'array' && (schema.items && schema.items.enum)) {
+		if (schema.type === 'array' && schema.items && schema.items.enum) {
 			return {
 				...mergedSchema,
 				schema: {
@@ -161,7 +161,7 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	mergedSchema.forEach(schema => {
 		const value = getValue(properties, schema);
-		const subResults = !shouldValidate(schema.condition, properties)
+		const subResults = !shouldValidate(schema.condition, properties, schema.key)
 			? true
 			: validateSingle(schema, value, properties, customValidationFn, true); // deep validation
 		Object.assign(results, subResults);

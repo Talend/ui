@@ -11,11 +11,12 @@
 
 :global(.tc-drawer-container),
 :global(.modal-body) {
-	> .uiform {
+	.uiform {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 		min-height: 0;
+		overflow: hidden; /* IE11 fix to show scrollbars properly */
 	}
 
 	.form-content {

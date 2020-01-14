@@ -1,11 +1,13 @@
 import React from 'react';
 import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../src/constants';
 
-i18n.init({
+i18n.use(initReactI18next).init({
 	resources: {
 		fr: {
 			[I18N_DOMAIN_COMPONENTS]: {
+				BUILD_ID: 'Identifiant',
 				LIST_TOOLBAR_DISPLAY: 'Affichage :',
 				LIST_TOOLBAR_SORT_BY: 'Trier par :',
 				LIST_TOOLBAR_PAGINATION_SHOW: 'Nombre :',
@@ -29,6 +31,7 @@ i18n.init({
 				SIDEPANEL_COLLAPSE: 'Réduire',
 				VIRTUALIZEDLIST_NO_RESULT: 'Aucun résultat',
 				DATE_FNS_ABOUT_MINUTE: '{{count}} minutes',
+				GUIDEDTOUR_HELLO_WORD_HTML: 'Bonjour le monde<br>Vous pouvez changer de langue',
 			},
 		},
 		it: {
@@ -56,6 +59,7 @@ i18n.init({
 				SIDEPANEL_COLLAPSE: 'Collassare',
 				VIRTUALIZEDLIST_NO_RESULT: 'Nessun risultato',
 				DATE_FNS_ABOUT_MINUTE: '{{count}} minuti',
+				GUIDEDTOUR_HELLO_WORD_HTML: 'Ciao mondo<br>Puoi cambiare lingua',
 			},
 		},
 	},
@@ -69,7 +73,7 @@ export const LanguageSwitcher = () => {
 		bottom: 0,
 		width: '100vw',
 		textAlign: 'center',
-		zIndex: 1,
+		zIndex: 1051,
 	};
 
 	function renderBtn(locale, isDefault) {
@@ -82,7 +86,7 @@ export const LanguageSwitcher = () => {
 
 	return (
 		<nav style={style}>
-			<div className="btn-group">
+			<div className="btn-group" data-tour="language-switcher">
 				{renderBtn('en', true)}
 				{renderBtn('fr')}
 				{renderBtn('it')}

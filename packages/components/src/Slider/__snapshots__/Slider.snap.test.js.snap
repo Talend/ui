@@ -343,3 +343,52 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
   </div>
 </div>
 `;
+
+exports[`Slider component snaps renderers should render a range 1`] = `
+<div>
+  <div
+    className="theme-tc-slider tc-slider"
+  >
+    <ComponentEnhancer(Range)
+      activeDotStyle={Object {}}
+      allowCross={true}
+      className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      count={1}
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      pushable={false}
+      railStyle={Object {}}
+      step={1}
+      tabIndex={Array []}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={
+        Array [
+          10,
+          25,
+        ]
+      }
+      vertical={false}
+    />
+  </div>
+</div>
+`;

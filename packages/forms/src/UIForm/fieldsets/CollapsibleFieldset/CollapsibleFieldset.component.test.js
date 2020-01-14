@@ -1,6 +1,7 @@
 import React from 'react';
 import cases from 'jest-in-case';
 import { shallow } from 'enzyme';
+import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
 import createCollapsibleFieldset from './CollapsibleFieldset.component';
 
 function customTitle(value, schema) {
@@ -56,41 +57,65 @@ describe('CollapsibleFieldset', () => {
 		},
 	);
 
-	cases(
-		'should toggle',
-		opts => {
-			// given
-			const CollapsibleFieldset = createCollapsibleFieldset();
-			const onChange = jest.fn();
-			const event = {
-				stopPropagation: jest.fn(),
-				preventDefault: jest.fn(),
-			};
+	it('should toggle', () => {
+		// given
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		const onChange = jest.fn();
+		const event = {
+			stopPropagation: jest.fn(),
+			preventDefault: jest.fn(),
+		};
 
-			const wrapper = shallow(
-				<CollapsibleFieldset
-					id={'my-fieldset'}
-					onChange={onChange}
-					schema={schema}
-					value={{ ...value, isClosed: true }}
-				/>,
-			);
+		const wrapper = shallow(
+			<CollapsibleFieldset
+				id={'my-fieldset'}
+				onChange={onChange}
+				schema={schema}
+				value={{ ...value, isClosed: true }}
+			/>,
+		);
+		// when
+		wrapper.find(CollapsiblePanel).getElement().props.onToggle(event);
 
-			// when
-			wrapper.find(opts.selector).simulate(opts.actionType, event);
+		// then
+		expect(event.stopPropagation).toBeCalled();
+		expect(event.preventDefault).toBeCalled();
+		expect(onChange).toBeCalledWith(event, {
+			schema,
+			value: { ...value, isClosed: false },
+		});
+	});
 
-			// then
-			expect(event.stopPropagation).toBeCalled();
-			expect(event.preventDefault).toBeCalled();
-			expect(onChange).toBeCalledWith(event, {
-				schema,
-				value: { ...value, isClosed: false },
-			});
-		},
-		{
-			'on title click': { selector: '#my-fieldset__title_wrapper', actionType: 'click' },
-			'on header double click': { selector: '#my-fieldset__title_bar', actionType: 'dblclick' },
-			'on icon click': { selector: '#my-fieldset__collapse', actionType: 'click' },
-		},
-	);
+	it('should render Actions component if actions are provided', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		const onChange = jest.fn();
+		const actions = [{ id: 'action1' }, { id: 'action2' }];
+
+		const wrapper = shallow(
+			<CollapsibleFieldset
+				id={'my-fieldset'}
+				onChange={onChange}
+				schema={schema}
+				value={value}
+				actions={actions}
+			/>,
+		);
+		const header = wrapper.find(CollapsiblePanel).dive().getElement().props.header;
+		expect(header.length).toBe(2);
+		expect(header[1].length).toBe(2);
+		expect(header[1][0].id).toBe('action1');
+		expect(header[1][0].displayMode).toBe(TYPE_ACTION);
+		expect(header[1][1].id).toBe('action2');
+		expect(header[1][1].displayMode).toBe(TYPE_ACTION);	});
+
+	it('should not render Actions component if actions are not provided', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		const onChange = jest.fn();
+
+		const wrapper = shallow(
+			<CollapsibleFieldset id={'my-fieldset'} onChange={onChange} schema={schema} value={value} />,
+		);
+
+		expect(wrapper.exists('Actions')).toEqual(false);
+	});
 });

@@ -16,10 +16,22 @@ describe('#DefaultValueRenderer', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render a bytes', () => {
+		const wrapper = shallow(<DefaultValueRenderer value={{ bytes: 'ejfiejifje' }} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render empty when the value is null', () => {
 		const wrapper = shallow(<DefaultValueRenderer value={null} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render empty when the value is undefined', () => {
+		const wrapper = shallow(<DefaultValueRenderer value={undefined} />);
+
+		expect(wrapper.find('div').text()).toBe('');
 	});
 
 	it('should render the leading/trailing special character', () => {

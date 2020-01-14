@@ -1,0 +1,3 @@
+> eslint --config ../../.eslintrc src
+
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.

@@ -42,7 +42,6 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 		display: block;
 
 		padding: 0 $padding-normal;
-		height: 100%;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
@@ -67,15 +66,17 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 }
 
 .tc-list-title-filter {
-	&:hover,
-	&:global(.ally-focus-within) {
-		.icon {
-			color: $brand-primary;
-			filter: none;
-		}
+	&:not(.tc-list-title-disabled) {
+		&:hover,
+		&:global(.ally-focus-within) {
+			.icon {
+				color: $brand-primary;
+				filter: none;
+			}
 
-		.main-title {
-			color: $scooter;
+			.main-title {
+				color: $scooter;
+			}
 		}
 	}
 }
@@ -88,8 +89,8 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
 			opacity: 1;
+			width: 100%;
 			transition: opacity 0.15s ease-in;
-			visibility: visible;
 		}
 	}
 }

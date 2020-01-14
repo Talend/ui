@@ -4,7 +4,7 @@ module.exports = {
 	cssTemplate: './talendicons.template.css',
 	types: ['eot', 'woff', 'woff2', 'ttf', 'svg'],
 	fileName: '[fontname].[ext]',
-	files: ['svg/*.svg'],
+	files: ['svg/**/*.svg'],
 	fixedWidth: true,
 	fontName: 'talendicons',
 };

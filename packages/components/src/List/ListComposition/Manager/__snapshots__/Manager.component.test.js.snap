@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`List Manager should display children 1`] = `
-<Translate(List.Manager)>
-  <ContextTestConsumer />
-</Translate(List.Manager)>
-`;

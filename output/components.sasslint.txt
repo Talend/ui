@@ -1,27 +1,30 @@
 > sass-lint -v -q
 
 
-src/DateTimePickers/pickers/TimePicker/TimePicker.scss
+src/CollapsiblePanel/CollapsiblePanel.scss
+  142:5  error  Mixins should come before declarations  mixins-before-declarations
+
+src/DateTimePickers/LegacyDateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
-  48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  53:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/List/Toolbar/SelectSortBy/SelectSortBy.scss
-  16:10  error  Strings must use single quotes  quotes
+src/GuidedTour/GuidedTour.scss
+  71:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
+  80:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
 
 src/List/Toolbar/Toolbar.scss
-  31:10  error  Strings must use single quotes  quotes
+  70:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  74:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  79:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  92:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Typeahead/Typeahead.scss
-  34:5  error  Mixins should come before declarations  mixins-before-declarations
-  91:5  error  Nesting depth 4 greater than max of 3   nesting-depth
+  32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
-  2:24  error  Strings must use single quotes  quotes
-
-✖ 8 problems (6 errors, 2 warnings)
+✖ 11 problems (9 errors, 2 warnings)
 

@@ -3,27 +3,28 @@
 /// @group Custom widgets
 ////
 
+$list-item-height: 55px !default;
 $list-item-hover-color: rgba($white, 0.12) !default;
 $list-item-reverse-hover-color: rgba($white, 0.5) !default;
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
+$toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-minwidth: 200px !default;
 $tc-side-panel-large-minwidth: 250px !default;
-$tc-side-panel-docked-width: 50px !default;
+$tc-side-panel-docked-width: 60px !default;
 $tc-side-panel-labels-width: 135px !default;
 $tc-side-panel-large-docked-width: 70px !default;
-$tc-side-panel-icons-size: 20px !default;
-$tc-side-panel-border-size: 2px !default;
-$tc-side-panel-large-toggle-padding: 4px !default;
-$toggle-button-padding: $padding-small - 1;
+$tc-side-panel-icons-size: $svg-lg-size;
+$toggle-button-padding: $padding-small;
 
 .tc-side-panel {
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
 	background: $list-item-reverse-color;
+	overflow: hidden;
 
 	&,
 	> ul {
@@ -31,23 +32,41 @@ $toggle-button-padding: $padding-small - 1;
 		transition: 0.2s min-width ease-out;
 	}
 
-	:global(.tc-svg-icon) {
-		width: $tc-side-panel-icons-size;
-		height: $tc-side-panel-icons-size;
-		margin: 0;
+	.action-list-container {
+		flex: 1;
+		height: calc(100vh - 12rem); // specific to Safari
+
+		:global .tc-action-list-item {
+			.btn.btn-link {
+				height: $list-item-height;
+				padding-left: $padding-large;
+				> span {
+					margin-left: $padding-small;
+				}
+			}
+			.tc-svg-icon {
+				width: $tc-side-panel-icons-size;
+				height: $tc-side-panel-icons-size;
+				margin: 0;
+			}
+		}
 	}
 
 	.toggle-btn {
-		padding-top: $padding-small;
-		padding-bottom: $padding-smaller + $padding-large;
+		height: $toggle-height;
+		vertical-align: center;
+		padding-top: 0;
+		padding-bottom: 0;
 		padding-left: $toggle-button-padding;
 		text-align: left;
+		flex: 0 0 7rem;
 
 		:global {
 			.btn.btn-link {
 				color: $white;
 				line-height: 1;
-				padding: $padding-small;
+				height: $toggle-height;
+				padding: 0 $padding-small;
 				display: inline-block;
 				width: auto;
 				opacity: $toggle-button-opacity;
@@ -114,7 +133,7 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		.toggle-btn {
-			padding-left: $tc-side-panel-large-toggle-padding;
+			padding-left: 0;
 
 			:global(.btn.btn-link) {
 				padding: $padding-small $tc-side-panel-large-padding;
@@ -122,16 +141,27 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		:global {
-			.btn.btn-link {
-				padding: $padding-normal $tc-side-panel-large-padding;
+			.tc-action-list-item {
+				.btn.btn-link {
+					padding: $padding-normal $tc-side-panel-large-padding;
 
-				.tc-svg-icon + span {
-					margin-left: $tc-side-panel-large-padding;
+					.tc-svg-icon + span {
+						margin-left: $tc-side-panel-large-padding;
+					}
 				}
 			}
 		}
 
 		&.docked {
+			.toggle-btn {
+				height: $toggle-height;
+				vertical-align: center;
+				padding: 0;
+				.btn.btn-link {
+					height: $toggle-height;
+					padding: 0;
+				}
+			}
 			&,
 			> ul,
 			:global(.tc-action-list-item) {
@@ -141,9 +171,8 @@ $toggle-button-padding: $padding-small - 1;
 		}
 	}
 
-	&.reverse {
+	&.reverse[role='navigation'][aria-expanded] {
 		background: $wild-sand;
-		border-right: $tc-side-panel-border-size solid $alto;
 
 		&:before {
 			background-image: none;
@@ -176,7 +205,7 @@ $toggle-button-padding: $padding-small - 1;
 				}
 
 				&.active {
-					background-color: $list-item-color;
+					background: $list-item-color;
 
 					.btn.btn-link,
 					.tc-svg-icon {

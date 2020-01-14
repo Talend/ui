@@ -1,3 +1,3 @@
-import Manager from './Manager.component';
+import ListManager from './ListManager.component';
 
-export default Manager;
+export default ListManager;

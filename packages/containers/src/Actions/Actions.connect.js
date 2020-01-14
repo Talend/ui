@@ -1,5 +1,5 @@
 import { cmfConnect } from '@talend/react-cmf';
-import { Actions } from '@talend/react-components';
+import { Actions } from '@talend/react-components/lib/Actions';
 
 import Action from '../Action';
 import getRenderers from '../renderers';

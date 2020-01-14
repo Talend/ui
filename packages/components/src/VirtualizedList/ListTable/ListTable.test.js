@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import VirtualizedList from '../VirtualizedList.component';
+import VirtualizedList from '..';
 import ListTable from './ListTable.component';
 import collection from '../collection';
 

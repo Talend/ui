@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import keycode from 'keycode';
 import memoizeOne from 'memoize-one';
 
@@ -83,7 +83,7 @@ class MultiSelect extends React.Component {
 
 	closeOnOutsideClick(event) {
 		if (this.containerRef !== null && !isIn(event.target, this.containerRef)) {
-			this.setState({ showDropdown: false });
+			this.setState({ showDropdown: false, searchTerm: '' });
 		}
 	}
 
@@ -290,7 +290,7 @@ class MultiSelect extends React.Component {
 					autoFocus={this.props.autoFocus}
 					placeholder={this.props.placeholder}
 					readOnly={this.props.readOnly}
-					value={this.state.value}
+					value={this.state.searchTerm}
 					ref={ref => {
 						this.inputRef = ref;
 					}}
@@ -320,4 +320,4 @@ class MultiSelect extends React.Component {
 	}
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(MultiSelect);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(MultiSelect);

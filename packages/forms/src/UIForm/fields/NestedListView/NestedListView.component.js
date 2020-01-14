@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -208,7 +208,7 @@ class NestedListViewWidget extends React.Component {
 				>
 					<ListView
 						{...this.state}
-						getItemHeight={getItemHeight}
+						getItemHeight={schema.autosize ? null : getItemHeight}
 						id={this.props.id}
 						items={this.state.displayedItems}
 						headerDefault={this.defaultHeaderActions}
@@ -244,6 +244,7 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			autosize: PropTypes.bool,
 		}),
 		value: PropTypes.object,
 		valueIsUpdating: PropTypes.bool,
@@ -253,4 +254,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 export { NestedListViewWidget };
 
-export default translate(I18N_DOMAIN_FORMS)(NestedListViewWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(NestedListViewWidget);

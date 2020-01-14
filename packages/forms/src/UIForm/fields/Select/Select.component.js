@@ -34,6 +34,8 @@ export default function Select({
 		<FieldTemplate
 			description={description}
 			errorMessage={errorMessage}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			id={id}
 			isValid={isValid}
 			label={title}
@@ -59,7 +61,11 @@ export default function Select({
 				aria-required={schema.required}
 				aria-describedby={`${descriptionId} ${errorId}`}
 			>
-				<option disabled>{placeholder}</option>
+				{placeholder ? (
+					<option disabled value="">
+						{placeholder}
+					</option>
+				) : null}
 				{schema.titleMap &&
 					schema.titleMap.map((option, index) => {
 						const optionProps = {

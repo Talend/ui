@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Map } from 'immutable';
 import omit from 'lodash/omit';
-import { ConfirmDialog as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/ConfirmDialog';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';

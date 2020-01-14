@@ -7,7 +7,6 @@ exports[`#DataGrid should render DataGrid 1`] = `
   <AgGridReact
     columnDefs={Array []}
     deltaRowDataMode={true}
-    enableColResize={true}
     frameworkComponents={
       Object {
         "cellRenderer": [Function],
@@ -84,6 +83,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "headerName": "Nom de la gare",
           "lockPinned": true,
           "minWidth": 30,
+          "resizable": true,
           "type": "FR Commune",
           "valueGetter": [Function],
           "width": 150,
@@ -124,6 +124,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "headerName": "Code UIC",
           "lockPinned": true,
           "minWidth": 30,
+          "resizable": true,
           "type": "int*",
           "valueGetter": [Function],
           "width": 150,
@@ -131,7 +132,6 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
       ]
     }
     deltaRowDataMode={true}
-    enableColResize={true}
     frameworkComponents={
       Object {
         "cellRenderer": [Function],
@@ -291,7 +291,7 @@ exports[`#DataGrid should render one Skeleton is InProgress 1`] = `
 <div
   className="theme-td-grid-loading theme-td-grid td-grid"
 >
-  <Translate(Skeleton)
+  <withI18nextTranslation(Skeleton)
     name="talend-table"
     type="icon"
   />

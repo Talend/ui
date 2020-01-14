@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container HeaderBar should render HeaderBar container 1`] = `<Translate(HeaderBar) />`;
+exports[`Container HeaderBar should render HeaderBar container 1`] = `<withI18nextTranslation(HeaderBar) />`;

@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header "Select All" checkbox should render a "Select All" checkbox on header when onToggleAll callback provided 1`] = `
+<VirtualizedList(HeaderCheckbox)
+  columnData={
+    Object {
+      "collection": Array [
+        Object {
+          "id": 1,
+          "label": "item 1",
+        },
+        Object {
+          "id": 2,
+          "label": "item 2",
+        },
+      ],
+      "id": "myList",
+      "isSelected": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "id": 1,
+              "label": "item 1",
+            },
+            0,
+            Array [
+              Object {
+                "id": 1,
+                "label": "item 1",
+              },
+              Object {
+                "id": 2,
+                "label": "item 2",
+              },
+            ],
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "label": "Select item",
+      "onToggleAll": [MockFunction],
+    }
+  }
+  t={[Function]}
+>
+  <form
+    className="tc-list-checkbox theme-tc-list-checkbox"
+  >
+    <div
+      className="checkbox"
+      title="Select All"
+    >
+      <label
+        htmlFor="myList-header-check"
+      >
+        <input
+          checked={false}
+          disabled={false}
+          id="myList-header-check"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <span
+          className="sr-only"
+        >
+          Select All
+        </span>
+      </label>
+    </div>
+  </form>
+</VirtualizedList(HeaderCheckbox)>
+`;

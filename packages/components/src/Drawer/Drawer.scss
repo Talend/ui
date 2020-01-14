@@ -69,28 +69,48 @@ $tc-drawer-z-index: $drawer-z-index !default;
 }
 
 .tc-drawer-header {
+	:global {
+		.tc-editable-text {
+			min-width: 0;
+		}
+		.tc-editable-text-pencil {
+			color: $white;
+		}
+	}
 	background-color: $brand-primary-lighter;
 
 	&-title {
 		padding: $padding-normal;
 		position: relative;
+		display: flex;
+		align-items: center;
 
 		h1 {
 			font-size: $font-size-large;
 			margin: 0;
 			color: white;
-			text-transform: uppercase;
 			text-overflow: ellipsis;
 			width: 90%;
 			white-space: nowrap;
 			overflow: hidden;
 		}
+
+		:global(.tc-editable-text) {
+			flex: 1;
+		}
+
+		.drawer-close-action-tooltip {
+			position: absolute;
+			right: 0;
+			bottom: $padding-normal / 2;
+		}
+
+		& > .tc-editable-text {
+			width: unset;
+		}
 	}
 
 	.tc-drawer-close-action {
-		top: $padding-normal / 2;
-		right: 0;
-		position: absolute;
 		color: white;
 	}
 }

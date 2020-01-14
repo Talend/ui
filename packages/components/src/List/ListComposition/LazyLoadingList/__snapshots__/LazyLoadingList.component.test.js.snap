@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LazyLoadingList should render lazy loading list component 1`] = `
+<LazyLoadingList
+  debounceDelay={0}
+  id="myLazyLoadingList"
+  minimumBatchSize={20}
+  threshold={5}
+>
+  <InfiniteLoader
+    isRowLoaded={[Function]}
+    minimumBatchSize={20}
+    rowCount={0}
+    threshold={5}
+  >
+    <VList
+      defaultHeight={250}
+      id="myLazyLoadingList"
+      onRowsRendered={[Function]}
+      registerChild={[Function]}
+      selectionMode="MULTI"
+    >
+      <div
+        className="theme-vlist"
+      >
+        <VirtualizedList
+          collection={Array []}
+          defaultHeight={250}
+          id="myLazyLoadingList"
+          onRowsRendered={[Function]}
+          registerChild={[Function]}
+          selectionMode="MULTI"
+          sort={[Function]}
+          sortDirection="ASC"
+          type="TABLE"
+        >
+          <AutoSizer
+            disableHeight={false}
+            disableWidth={false}
+            onResize={[Function]}
+            style={Object {}}
+          >
+            <div
+              style={
+                Object {
+                  "height": 0,
+                  "overflow": "visible",
+                  "width": 0,
+                }
+              }
+            >
+              <VirtualizedList(RendererSelector)
+                collection={Array []}
+                height={250}
+                id="myLazyLoadingList"
+                noRowsRenderer={[Function]}
+                onRowsRendered={[Function]}
+                registerChild={[Function]}
+                sort={[Function]}
+                sortDirection="ASC"
+                type="TABLE"
+                width={0}
+              >
+                <VirtualizedList(ListTable)
+                  collection={Array []}
+                  disableHeader={false}
+                  height={250}
+                  id="myLazyLoadingList"
+                  noRowsRenderer={[Function]}
+                  onRowsRendered={[Function]}
+                  registerChild={[Function]}
+                  rowHeight={50}
+                  sort={[Function]}
+                  sortDirection="ASC"
+                  width={0}
+                >
+                  <Table
+                    className="tc-list-table theme-tc-list-table"
+                    disableHeader={false}
+                    estimatedRowSize={30}
+                    gridClassName="theme-grid tc-dropdown-container"
+                    headerHeight={40}
+                    headerRowRenderer={[Function]}
+                    headerStyle={Object {}}
+                    height={250}
+                    id="myLazyLoadingList"
+                    noRowsRenderer={[Function]}
+                    onRowsRendered={[Function]}
+                    onScroll={[Function]}
+                    overscanIndicesGetter={[Function]}
+                    overscanRowCount={10}
+                    registerChild={[Function]}
+                    rowClassName={[Function]}
+                    rowCount={0}
+                    rowGetter={[Function]}
+                    rowHeight={50}
+                    rowRenderer={[Function]}
+                    rowStyle={Object {}}
+                    scrollToAlignment="auto"
+                    scrollToIndex={-1}
+                    sort={[Function]}
+                    sortDirection="ASC"
+                    style={Object {}}
+                    width={0}
+                  >
+                    <div
+                      aria-colcount={0}
+                      aria-rowcount={0}
+                      className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
+                      id="myLazyLoadingList"
+                      role="grid"
+                      style={Object {}}
+                    >
+                      <div
+                        className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
+                        role="row"
+                        style={
+                          Object {
+                            "height": 40,
+                            "overflow": "hidden",
+                            "paddingRight": 0,
+                            "width": 0,
+                          }
+                        }
+                      />
+                      <Grid
+                        aria-label="grid"
+                        aria-readonly={true}
+                        autoContainerWidth={true}
+                        autoHeight={false}
+                        autoWidth={false}
+                        cellRangeRenderer={[Function]}
+                        cellRenderer={[Function]}
+                        className="ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+                        columnCount={1}
+                        columnWidth={0}
+                        containerRole="rowgroup"
+                        containerStyle={Object {}}
+                        disableHeader={false}
+                        estimatedColumnSize={100}
+                        estimatedRowSize={30}
+                        getScrollbarSize={[Function]}
+                        gridClassName="theme-grid tc-dropdown-container"
+                        headerHeight={40}
+                        headerRowRenderer={[Function]}
+                        headerStyle={Object {}}
+                        height={210}
+                        isScrollingOptOut={false}
+                        noContentRenderer={[Function]}
+                        noRowsRenderer={[Function]}
+                        onRowsRendered={[Function]}
+                        onScroll={[Function]}
+                        onScrollbarPresenceChange={[Function]}
+                        onSectionRendered={[Function]}
+                        overscanColumnCount={0}
+                        overscanIndicesGetter={[Function]}
+                        overscanRowCount={10}
+                        registerChild={[Function]}
+                        role="rowgroup"
+                        rowClassName={[Function]}
+                        rowCount={0}
+                        rowGetter={[Function]}
+                        rowHeight={50}
+                        rowRenderer={[Function]}
+                        rowStyle={Object {}}
+                        scrollToAlignment="auto"
+                        scrollToColumn={-1}
+                        scrollToIndex={-1}
+                        scrollToRow={-1}
+                        scrollbarWidth={0}
+                        scrollingResetTimeInterval={150}
+                        sort={[Function]}
+                        sortDirection="ASC"
+                        style={
+                          Object {
+                            "overflowX": "hidden",
+                          }
+                        }
+                        tabIndex={0}
+                        width={0}
+                      >
+                        <div
+                          aria-label="grid"
+                          aria-readonly={true}
+                          className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+                          onScroll={[Function]}
+                          role="rowgroup"
+                          style={
+                            Object {
+                              "WebkitOverflowScrolling": "touch",
+                              "boxSizing": "border-box",
+                              "direction": "ltr",
+                              "height": 210,
+                              "overflowX": "hidden",
+                              "overflowY": "hidden",
+                              "position": "relative",
+                              "width": 0,
+                              "willChange": "transform",
+                            }
+                          }
+                          tabIndex={0}
+                        />
+                      </Grid>
+                    </div>
+                  </Table>
+                </VirtualizedList(ListTable)>
+              </VirtualizedList(RendererSelector)>
+            </div>
+          </AutoSizer>
+        </VirtualizedList>
+      </div>
+    </VList>
+  </InfiniteLoader>
+</LazyLoadingList>
+`;

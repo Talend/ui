@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { ActionButton } from '../../index';
+import ActionButton from '../../Actions/ActionButton';
 
 function getIcon(sorter) {
 	return sorter.icons && sorter.icons[sorter.direction];

@@ -1,0 +1,25 @@
+.layout	{
+	:global(.react-grid-item) {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid $gallery;
+		border-radius: 4px;
+	}
+
+	:global(.skeleton-tile .tc-tile-container .tc-tile-body) {
+		padding: 0;
+	}
+
+	&.draggable {
+		:global(.react-grid-item) {
+			&:global(.react-grid-placeholder) {
+				background: $scooter;
+			}
+
+			&:hover {
+				box-shadow: 0 2px 2px rgba(0, 0, 0, 0.175);
+				cursor: move;
+			}
+		}
+	}
+}

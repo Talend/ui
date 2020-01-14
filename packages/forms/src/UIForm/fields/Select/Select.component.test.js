@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import omit from 'lodash/omit';
 
 import Select from './Select.component';
 
@@ -32,6 +33,27 @@ describe('Select field', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
+				value={'lol'}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render simple select without placeholder', () => {
+		// given
+		const localSchema = omit(schema, 'placeholder');
+
+		// when
+		const wrapper = shallow(
+			<Select
+				id={'mySelect'}
+				isValid
+				errorMessage={'My Error Message'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={localSchema}
 				value={'lol'}
 			/>,
 		);

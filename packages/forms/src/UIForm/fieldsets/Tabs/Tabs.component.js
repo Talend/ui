@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import TabBar from '@talend/react-components/lib/TabBar';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Widget from '../../Widget';
 import { isValid } from '../../utils/validation';
@@ -72,4 +72,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(Tabs);
+export default withTranslation(I18N_DOMAIN_FORMS)(Tabs);

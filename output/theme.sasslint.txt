@@ -7,23 +7,19 @@ src/theme/_buttons.scss
 src/theme/_dropdowns.scss
   41:28  warning  Space expected around operator  space-around-operator
 
-src/theme/_forms.checkbox.scss
-  14:2  warning  Vendor prefixes should not be used      no-vendor-prefixes
-  15:2  warning  Vendor prefixes should not be used      no-vendor-prefixes
-  66:4  error    Mixins should come before declarations  mixins-before-declarations
-
 src/theme/_forms.scss
     6:24  error    Parenthesis should be removed                            empty-args
-   33:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   68:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  120:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  135:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  197:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  198:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  336:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  349:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  416:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  441:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  121:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  136:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  285:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  298:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  365:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  406:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+
+src/theme/_labels.scss
+  42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/theme/_navbar.scss
   18:6  warning  Expected indentation of 4 tabs but found 5  indentation
@@ -37,5 +33,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 22 problems (12 errors, 10 warnings)
+✖ 18 problems (12 errors, 6 warnings)
 

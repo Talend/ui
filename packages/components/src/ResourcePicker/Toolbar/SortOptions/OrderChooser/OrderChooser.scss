@@ -2,8 +2,8 @@ $tc-resource-picker-order-chooser-icon-size: 0.6rem !default;
 
 .tc-resource-picker-order-chooser {
 	display: flex;
-
 	padding: 0;
+	background: $white;
 
 	&:hover,
 	&:focus,

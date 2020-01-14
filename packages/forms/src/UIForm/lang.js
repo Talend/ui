@@ -64,10 +64,10 @@ export default function getLanguage(t = defaultTranslate) {
 		}),
 		// Array errors
 		ARRAY_LENGTH_SHORT: t('ERROR_ARRAY_LENGTH_SHORT', {
-			defaultValue: 'Array is too short ({length}), minimum {minimum}',
+			defaultValue: 'Minimum number of items: {minimum}',
 		}),
 		ARRAY_LENGTH_LONG: t('ERROR_ARRAY_LENGTH_LONG', {
-			defaultValue: 'Array is too long ({length}), maximum {maximum}',
+			defaultValue: 'Maximum number of items: {maximum}',
 		}),
 		ARRAY_UNIQUE: t('ERROR_ARRAY_UNIQUE', {
 			defaultValue: 'Array items are not unique (indices {match1} and {match2})',

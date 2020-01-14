@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import get from 'lodash/get';
 import { Actions, ActionDropdown } from '../../Actions';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
@@ -20,12 +20,8 @@ function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
 }
 
-function getLargeDisplayActions(actions, getComponent) {
-	if (!actions || !actions.length) {
-		return null;
-	}
-
-	return (
+function renderActionsGroup(getComponent) {
+	return actions => (
 		<Actions
 			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
@@ -35,6 +31,18 @@ function getLargeDisplayActions(actions, getComponent) {
 			link
 		/>
 	);
+}
+
+function getLargeDisplayActions(actions, getComponent) {
+	if (!actions || !actions.length) {
+		return null;
+	}
+
+	if (Array.isArray(actions) && actions.every(item => Array.isArray(item))) {
+		return actions.map(renderActionsGroup(getComponent));
+	}
+
+	return renderActionsGroup(getComponent)(actions);
 }
 
 function getDefaultDisplayActions(actions, getComponent, t, id) {
@@ -146,7 +154,7 @@ export function CellTitleActionsComponent({
 	t,
 	type,
 }) {
-	const dataActions = get(rowData, actionsKey, []).filter(isAvailable);
+	let dataActions = get(rowData, actionsKey, []).filter(isAvailable);
 	const persistentActions = get(rowData, persistentActionsKey, []);
 	const hasActions = dataActions.length || persistentActions.length;
 	if (displayMode !== TITLE_MODE_TEXT || !hasActions) {
@@ -157,6 +165,10 @@ export function CellTitleActionsComponent({
 	if (type === LARGE) {
 		actions.push(getLargeDisplayActions(dataActions, getComponent));
 	} else {
+		// flatening in tab case
+		if (Array.isArray(dataActions) && dataActions.every(item => Array.isArray(item))) {
+			dataActions = dataActions.flatMap(item => item);
+		}
 		actions.push(getDefaultDisplayActions(dataActions, getComponent, t, id));
 	}
 
@@ -194,4 +206,4 @@ CellTitleActionsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);

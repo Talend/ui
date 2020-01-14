@@ -1,57 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
-import { Dialog, Skeleton, Icon } from '../';
+import Dialog from '../Dialog';
+import Skeleton from '../Skeleton';
+import Icon from '../Icon';
 import getDefaultT from '../translate';
 import theme from './AboutDialog.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-
-function Text({ text, loading, size = Skeleton.SIZES.medium }) {
-	return <div>{loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text}</div>;
-}
-
-function Table({ services, loading, t }) {
-	if (!services || !services.length) {
-		return null;
-	}
-
-	return (
-		<table className={classNames(theme['about-versions'], 'about-versions')}>
-			<thead>
-				<tr>
-					<th>{t('SERVICE', { defaultValue: 'Service' })}</th>
-					<th>{t('BUILD_ID', { defaultValue: 'Build ID' })}</th>
-					<th>{t('VERSION', { defaultValue: 'Version' })}</th>
-				</tr>
-			</thead>
-			<tbody>
-				{(loading
-					? [{ name: 'loading-first' }, { name: 'loading-second' }, { name: 'loading-third' }]
-					: services
-				).map(service => (
-					<tr key={service.name}>
-						<td>
-							<Text loading={loading} text={service.name} />
-						</td>
-						<td>
-							<Text loading={loading} text={service.build} />
-						</td>
-						<td>
-							<Text loading={loading} text={service.version} />
-						</td>
-					</tr>
-				))}
-			</tbody>
-		</table>
-	);
-}
+import { AboutDialogTable, Text } from './AboutDialogTable.component';
 
 function AboutDialog({
 	services,
 	expanded,
+	definition,
 	show,
 	product,
 	version,
@@ -100,13 +64,18 @@ function AboutDialog({
 					<Text
 						text={
 							copyrights ||
-							t('ABOUT_COPYRIGHTS', { defaultValue: '© 2018 Talend. All Rights Reserved' })
+							t('ABOUT_COPYRIGHTS', {
+								defaultValue: '© {{year}} Talend. All Rights Reserved',
+								year: new Date().getFullYear(),
+							})
 						}
 						size={Skeleton.SIZES.large}
 						loading={loading}
 					/>
 				</div>
-				{expanded && <Table t={t} loading={loading} services={services} />}
+				{expanded && (
+					<AboutDialogTable t={t} loading={loading} services={services} definition={definition} />
+				)}
 			</div>
 		</Dialog>
 	);
@@ -118,23 +87,6 @@ AboutDialog.defaultProps = {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-	Text.propTypes = {
-		text: PropTypes.string,
-		loading: PropTypes.bool,
-		size: PropTypes.string,
-	};
-
-	Table.propTypes = {
-		services: PropTypes.arrayOf(
-			PropTypes.shape({
-				name: PropTypes.string,
-				version: PropTypes.string,
-				build: PropTypes.string,
-			}),
-		),
-		t: PropTypes.func.isRequired,
-	};
-
 	AboutDialog.propTypes = {
 		expanded: PropTypes.bool,
 		show: PropTypes.bool,
@@ -146,7 +98,7 @@ if (process.env.NODE_ENV !== 'production') {
 		version: PropTypes.string,
 		icon: PropTypes.string,
 		t: PropTypes.func.isRequired,
-		...Table.propTypes,
+		...AboutDialogTable.propTypes,
 	};
 
 	AboutDialog.defaultProps = {
@@ -161,4 +113,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(AboutDialog);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(AboutDialog);

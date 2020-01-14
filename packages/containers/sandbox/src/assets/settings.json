@@ -1,34 +1,12 @@
 {
   "actions": {
-    "menu:HeaderBar": {
-      "id": "menu:HeaderBar",
-      "label": "HeaderBar",
-      "icon": "talend-arrow-right",
-      "iconTransform": "rotate-270",
-      "payload": {
-        "type": "MENU_LINK",
-        "cmf": {
-          "routerReplace": "/HeaderBar"
-        }
-      }
-    },
-    "menu:tacokitTitleMap": {
+    "menu:ComponentForm": {
       "icon": "talend-burger",
-      "label": "TCK async",
+      "label": "ComponentForm",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
         "cmf": {
-          "routerPush": "/tacokit/titleMap"
-        }
-      }
-    },
-    "menu:tacokitValidation": {
-      "icon": "talend-burger",
-      "label": "TCK validation",
-      "onClickDispatch": {
-        "type": "MENU_COMPONENT_FORM_CLICKED",
-        "cmf": {
-          "routerPush": "/tacokit/validation"
+          "routerPush": "/ComponentForm"
         }
       }
     }
@@ -47,7 +25,7 @@
       }
     },
     "Redirect#default": {
-      "path": "/HeaderBar"
+      "path": "/ComponentForm"
     },
     "HeaderBar#default": {
       "keepComponentState": true,
@@ -79,9 +57,7 @@
     },
     "SidePanel#default": {
       "actionIds": [
-        "menu:HeaderBar",
-        "menu:tacokitTitleMap",
-        "menu:tacokitValidation"
+        "menu:ComponentForm"
       ]
     },
     "Layout#default": {
@@ -90,20 +66,8 @@
       "one": { "component": "SidePanel" },
       "content": {}
     },
-    "Layout#HeaderBar": {
-      "mode": "TwoColumns",
-      "header": { "component": "HeaderBar" },
-      "one": { "component": "SidePanel" },
-      "content": {}
-    },
-    "ComponentForm#titleMap": {
-      "definitionURL": "/api/v1/forms/titleMap",
-      "uiSpecPath": "ui",
-      "triggerURL": "/api/v1/application/action",
-      "className": "full-form"
-    },
-    "ComponentForm#validation": {
-      "definitionURL": "/api/v1/forms/validation",
+    "ComponentForm#default": {
+      "definitionURL": "/api/v1/forms/example",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
       "className": "full-form"
@@ -117,25 +81,8 @@
     },
     "childRoutes": [
       {
-        "path": "HeaderBar",
-        "component": "Layout",
-        "componentId": "HeaderBar"
-      },
-      {
-        "path": "tacokit",
-        "component": "Layout",
-        "childRoutes": [
-          {
-            "path": "validation",
-            "component": "ComponentForm",
-            "componentId": "validation"
-          },
-          {
-            "path": "titleMap",
-            "component": "ComponentForm",
-            "componentId": "titleMap"
-          }
-        ]
+        "path": "ComponentForm",
+        "component": "ComponentFormSandbox"
       },
       {
         "path": "*",

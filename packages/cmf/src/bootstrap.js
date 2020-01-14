@@ -11,11 +11,13 @@ import actions from './actions';
 import { assertTypeOf } from './assert';
 import component from './component';
 import expression from './expression';
+import onError from './onError';
 import storeAPI from './store';
 import registry from './registry';
 import sagas from './sagas';
 import { registerInternals } from './register';
 import cmfModule from './cmfModule';
+import interceptors from './httpInterceptors';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);
@@ -56,7 +58,7 @@ export function bootstrapSaga(options) {
 	// https://chrome.google.com/webstore/detail/redux-saga-dev-tools/kclmpmjofefcpjlommdpokoccidafnbi
 	// eslint-disable-next-line no-underscore-dangle
 	const sagaMonitor = window.__SAGA_MONITOR_EXTENSION__;
-	const middleware = createSagaMiddleware({ sagaMonitor });
+	const middleware = createSagaMiddleware({ onError: onError.report, sagaMonitor });
 	return {
 		middleware,
 		run: () => middleware.run(cmfSaga),
@@ -93,13 +95,21 @@ export function bootstrapRedux(options, sagaMiddleware) {
 	]);
 	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
-	} else {
-		store.dispatch(actions.settings.fetchSettings('/settings.json'));
 	}
 	if (typeof options.storeCallback === 'function') {
 		options.storeCallback(store);
 	}
 	return store;
+}
+
+function bootstrapInterceptors(options) {
+	if (options.httpInterceptors) {
+		options.httpInterceptors.forEach(interceptors.push);
+	}
+}
+
+function DefaultRootComponent() {
+	return 'RootComponent is required';
 }
 
 /**
@@ -112,20 +122,22 @@ export function bootstrapRedux(options, sagaMiddleware) {
  * @returns {object} app object with render function
  */
 export default function bootstrap(appOptions = {}) {
+	// setup asap
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'RootComponent', 'function');
 
 	bootstrapRegistry(options);
+	bootstrapInterceptors(options);
 	const appId = options.appId || 'app';
 	const saga = bootstrapSaga(options);
 
 	const store = bootstrapRedux(options, saga.middleware);
-
+	onError.bootstrap(options, store);
 	saga.run();
-	const RootComponent = options.RootComponent;
+	const RootComponent = options.RootComponent || DefaultRootComponent;
 	render(
-		<App store={store} loading={options.AppLoader}>
+		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
 			<RootComponent />
 		</App>,
 		document.getElementById(appId),

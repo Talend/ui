@@ -31,7 +31,12 @@ const addInfo = {
 	onClick: action('header.add.onClick'),
 };
 
-const header = [<HeaderTitle title="Pipelines" />, <Action {...addInfo} />];
+const header = (
+	<React.Fragment>
+		<HeaderTitle title="Pipelines" />
+		<Action {...addInfo} />
+	</React.Fragment>
+);
 const headerWithActions = [
 	<HeaderTitle title="Pipelines" />,
 	<Actions
@@ -94,7 +99,9 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="default"
-				overlayComponent={<RichLayout Header={header} text={shortLoreum} Footer={footer} />}
+				overlayComponent={
+					<RichLayout id="richlayout" Header={header} text={shortLoreum} Footer={footer} />
+				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -106,7 +113,12 @@ storiesOf('RichTooltip', module)
 			<Action
 				id="default"
 				overlayComponent={
-					<RichLayout Header={headerWithActions} text={shortLoreum} Footer={footer} />
+					<RichLayout
+						id="richlayout"
+						Header={headerWithActions}
+						text={shortLoreum}
+						Footer={footer}
+					/>
 				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
@@ -118,7 +130,7 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="default"
-				overlayComponent={<RichLayout Header={header} />}
+				overlayComponent={<RichLayout id="richlayout" Header={header} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -129,7 +141,7 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="loading"
-				overlayComponent={<RichLayout Content={<CircularProgress />} />}
+				overlayComponent={<RichLayout id="richlayout" Content={<CircularProgress />} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -140,7 +152,9 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="error"
-				overlayComponent={<RichLayout Content={<RichError title="Whoops!" error="One error." />} />}
+				overlayComponent={
+					<RichLayout id="richlayout" Content={<RichError title="Whoops!" error="One error." />} />
+				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -152,7 +166,7 @@ storiesOf('RichTooltip', module)
 			<p>with a short text</p>
 			<Action
 				id="short-text"
-				overlayComponent={<RichLayout text={shortLoreum} />}
+				overlayComponent={<RichLayout id="richlayout" text={shortLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -160,7 +174,7 @@ storiesOf('RichTooltip', module)
 			<p>with a long text</p>
 			<Action
 				id="body-long-text"
-				overlayComponent={<RichLayout text={LongLoreum} />}
+				overlayComponent={<RichLayout id="richlayout" text={LongLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -171,7 +185,9 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="custom-body"
-				overlayComponent={<RichLayout Header={header} Content={customBody} Footer={footer} />}
+				overlayComponent={
+					<RichLayout id="richlayout" Header={header} Content={customBody} Footer={footer} />
+				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}

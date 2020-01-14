@@ -74,7 +74,12 @@ class ResourcePicker extends Component {
 		}
 
 		if (index > -1) {
-			selected.splice(index, 1);
+			if (multi || !this.props.schema.required) {
+				selected.splice(index, 1);
+			} else {
+				// in single selection if the resource is already selected do nothing
+				return;
+			}
 		} else {
 			selected.push(id);
 		}
@@ -136,26 +141,39 @@ class ResourcePicker extends Component {
 	}
 
 	render() {
-		const { certified, favorites, selection, orders } = this.state.filters;
+		const { orders } = this.state.filters;
 		const { id, schema, isValid, errorMessage } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const toolbar = {
 			name: {
 				label: schema.placeholder,
+				value: this.state.filters.name,
 				onChange: this.nameFilterChanged,
 			},
 			state: {
 				onChange: this.stateFilterChanged,
-				certified,
-				favorites,
-				selection,
 			},
 			sort: {
 				onChange: this.sortOptionChanged,
 				orders,
 			},
 		};
+
+		if (schema.options) {
+			const { filters, sort } = schema.options;
+			if (filters) {
+				filters.forEach(filter => {
+					toolbar.state[filter] = this.state.filters[filter];
+				});
+				// only display the filter which are defined in the schema
+				toolbar.state.types = [...filters];
+			}
+			if (sort) {
+				// only display the filter which are defined in the schema
+				toolbar.sort.types = [...sort];
+			}
+		}
 
 		return (
 			<FieldTemplate

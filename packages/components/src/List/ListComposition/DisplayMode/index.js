@@ -1,3 +1,3 @@
-import DisplayMode from './DisplayMode.component';
+import ListDisplayMode from './ListDisplayMode.component';
 
-export default DisplayMode;
+export default ListDisplayMode;

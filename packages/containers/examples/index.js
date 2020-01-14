@@ -10,6 +10,7 @@ import Breadcrumbs from './ExampleBreadcrumbs';
 import DeleteResource from './ExampleDeleteResource';
 import ConfirmDialogExample from './ExampleConfirmDialog';
 import FormExample from './ExampleForm';
+import GuidedTourExample from './ExampleGuidedTour';
 import HomeListViewExample from './ExampleHomeListView';
 import LayoutExample from './ExampleLayout';
 import ListExample from './ExampleList';
@@ -40,6 +41,7 @@ export default {
 	DeleteResource,
 	FilterBarExample,
 	FormExample,
+	GuidedTourExample,
 	HomeListViewExample,
 	LayoutExample,
 	ListExample,

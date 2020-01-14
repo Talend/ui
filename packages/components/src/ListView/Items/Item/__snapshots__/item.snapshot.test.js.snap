@@ -7,21 +7,24 @@ exports[`Item should display a selected item 1`] = `
   id="0-item"
   role="option"
 >
-  <label
-    htmlFor="checkbox-0-item"
+  <div
+    className="checkbox tc-toggle theme-tc-toggle checkbox"
   >
-    <input
-      aria-label="Deselect toto"
-      checked={true}
-      id="checkbox-0-item"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <span
-      className="theme-tc-listview-item-label tc-listview-item-label"
+    <label
+      htmlFor="checkbox-0-item"
     >
-      toto
-    </span>
-  </label>
+      <input
+        aria-label="Deselect toto"
+        checked={true}
+        data-checked={2}
+        id="checkbox-0-item"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span>
+        toto
+      </span>
+    </label>
+  </div>
 </div>
 `;

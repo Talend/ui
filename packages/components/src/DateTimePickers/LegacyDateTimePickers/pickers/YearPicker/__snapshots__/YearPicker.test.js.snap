@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YearPicker should default render with current year in middle when "selectedYear" prop is not provided 1`] = `
+<div
+  className="theme-year-picker"
+>
+  <Action
+    className="theme-scroll theme-scroll-up tc-date-picker-scroll-up"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-90"
+    label="Go to previous year"
+    link={true}
+    onClick={[Function]}
+    tabIndex="-1"
+  />
+  <ol
+    onWheel={[Function]}
+  >
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2022
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2023
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2024
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        2025
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2026
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2027
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2028
+      </button>
+    </li>
+  </ol>
+  <Action
+    className="theme-scroll theme-scroll-down tc-date-picker-scroll-down"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-270"
+    label="Go to next year"
+    link={true}
+    onClick={[Function]}
+    tabIndex="-1"
+  />
+</div>
+`;
+
+exports[`YearPicker should render 1`] = `
+<div
+  className="theme-year-picker"
+>
+  <Action
+    className="theme-scroll theme-scroll-up tc-date-picker-scroll-up"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-90"
+    label="Go to previous year"
+    link={true}
+    onClick={[Function]}
+    tabIndex="-1"
+  />
+  <ol
+    onWheel={[Function]}
+  >
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2009
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2010
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2011
+      </button>
+    </li>
+    <li
+      aria-current={true}
+    >
+      <button
+        aria-label="2012, selected"
+        className="theme-year theme-selected tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        2012
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2013
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2014
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2015
+      </button>
+    </li>
+  </ol>
+  <Action
+    className="theme-scroll theme-scroll-down tc-date-picker-scroll-down"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-270"
+    label="Go to next year"
+    link={true}
+    onClick={[Function]}
+    tabIndex="-1"
+  />
+</div>
+`;

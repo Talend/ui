@@ -39,6 +39,7 @@
 			"key": "food",
 			"title": "Food",
 			"widget": "nestedListView",
+			"autosize": true,
 			"items": [
 				{
 					"key": "food.fruits",

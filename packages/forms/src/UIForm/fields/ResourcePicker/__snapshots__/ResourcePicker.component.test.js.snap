@@ -1,126 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ResourcePicker field should render simple select 1`] = `
-<FieldTemplate
-  description="ResourcePicker me"
-  descriptionId="mySelect-description"
-  errorId="mySelect-error"
+<ResourcePicker field
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}
-  label="My ResourcePicker title"
-  required={true}
->
-  <ResourcePicker
-    aria-describedby="mySelect-description mySelect-error"
-    aria-invalid={false}
-    aria-required={true}
-    collection={Array []}
-    errorMessage="My Error Message"
-    filters={
-      Object {
-        "certified": false,
-        "favorites": false,
-        "name": "",
-        "selected": Array [],
-        "selection": false,
-      }
-    }
-    id="mySelect"
-    isLoading={true}
-    isSelected={[Function]}
-    isValid={true}
-    onChange={[MockFunction]}
-    onFinish={[MockFunction]}
-    onRowClick={[Function]}
-    onTrigger={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-            Object {
-              "errors": undefined,
-              "filters": Object {
-                "certified": false,
-                "favorites": false,
-                "name": "",
-                "selected": Array [],
-                "selection": false,
-              },
-              "properties": undefined,
-              "schema": Object {
-                "description": "ResourcePicker me",
-                "placeholder": "Please select a value",
-                "required": true,
-                "schema": Object {
-                  "type": "object",
-                },
-                "title": "My ResourcePicker title",
-                "triggers": Array [
-                  Object {
-                    "action": "resourcePickerSelected",
-                    "onEvent": "change",
-                  },
-                  Object {
-                    "action": "resourcePickerFiltered",
-                    "onEvent": "filter",
-                  },
-                ],
-              },
-              "trigger": Object {
-                "action": "resourcePickerFiltered",
-                "onEvent": "filter",
-              },
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  onTrigger={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          undefined,
+          Object {
+            "errors": undefined,
+            "filters": Object {
+              "certified": false,
+              "favorites": false,
+              "name": "",
+              "selected": Array [],
+              "selection": false,
             },
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": Promise {},
+            "properties": undefined,
+            "schema": Object {
+              "description": "ResourcePicker me",
+              "placeholder": "Please select a value",
+              "required": true,
+              "schema": Object {
+                "type": "object",
+              },
+              "title": "My ResourcePicker title",
+              "triggers": Array [
+                Object {
+                  "action": "resourcePickerSelected",
+                  "onEvent": "change",
+                },
+                Object {
+                  "action": "resourcePickerFiltered",
+                  "onEvent": "filter",
+                },
+              ],
+            },
+            "trigger": Object {
+              "action": "resourcePickerFiltered",
+              "onEvent": "filter",
+            },
           },
         ],
-      }
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": Promise {},
+        },
+      ],
     }
-    schema={
-      Object {
-        "description": "ResourcePicker me",
-        "placeholder": "Please select a value",
-        "required": true,
-        "schema": Object {
-          "type": "object",
+  }
+  schema={
+    Object {
+      "description": "ResourcePicker me",
+      "placeholder": "Please select a value",
+      "required": true,
+      "schema": Object {
+        "type": "object",
+      },
+      "title": "My ResourcePicker title",
+      "triggers": Array [
+        Object {
+          "action": "resourcePickerSelected",
+          "onEvent": "change",
         },
-        "title": "My ResourcePicker title",
-        "triggers": Array [
-          Object {
-            "action": "resourcePickerSelected",
-            "onEvent": "change",
-          },
-          Object {
-            "action": "resourcePickerFiltered",
-            "onEvent": "filter",
-          },
-        ],
-      }
+        Object {
+          "action": "resourcePickerFiltered",
+          "onEvent": "filter",
+        },
+      ],
     }
-    toolbar={
-      Object {
-        "name": Object {
-          "label": "Please select a value",
-          "onChange": [Function],
-        },
-        "sort": Object {
-          "onChange": [Function],
-          "orders": undefined,
-        },
-        "state": Object {
-          "certified": false,
-          "favorites": false,
-          "onChange": [Function],
-          "selection": false,
-        },
-      }
-    }
-  />
-</FieldTemplate>
+  }
+/>
 `;

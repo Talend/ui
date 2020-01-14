@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
-import { ConfirmDialog } from '@talend/react-components';
-import { Trans, translate } from 'react-i18next';
+import ConfirmDialog from '@talend/react-components/lib/ConfirmDialog';
+import { Trans, withTranslation } from 'react-i18next';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
 import CONSTANTS from './constants';
@@ -38,12 +38,16 @@ export class DeleteResource extends React.Component {
 		collectionId: PropTypes.string,
 		female: PropTypes.string,
 		onCancelRedirectUrl: PropTypes.string,
+		validateActionProps: PropTypes.object,
+		cancelActionProps: PropTypes.object,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
 		store: PropTypes.object.isRequired,
 	};
 	static defaultProps = {
+		validateActionProps: {},
+		cancelActionProps: {},
 		t: getDefaultT(),
 	};
 
@@ -101,6 +105,7 @@ export class DeleteResource extends React.Component {
 			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'REMOVE' }),
 			bsStyle: 'danger',
 			onClickActionCreator: 'DeleteResource#validate',
+			...this.props.validateActionProps,
 		};
 		const cancelAction = {
 			componentId: this.props[CONSTANTS.CANCEL_ACTION],
@@ -108,6 +113,7 @@ export class DeleteResource extends React.Component {
 			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'CANCEL' }),
 			className: 'btn-inverse',
 			onClickActionCreator: 'DeleteResource#cancel',
+			...this.props.cancelAction,
 		};
 
 		// Sorry for this duplication, but we need it because of the i18n scanner to create 2 keys
@@ -116,13 +122,13 @@ export class DeleteResource extends React.Component {
 		const { resourceTypeLabel, label } = resourceInfo;
 		if (this.props.female) {
 			question = (
-				<Trans i18nKey="DELETE_RESOURCE_MESSAGE" context="female">
+				<Trans i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE" tOptions={{ context: 'female' }}>
 					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
 				</Trans>
 			);
 		} else {
 			question = (
-				<Trans i18nKey="DELETE_RESOURCE_MESSAGE">
+				<Trans i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE">
 					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
 				</Trans>
 			);
@@ -143,4 +149,4 @@ export class DeleteResource extends React.Component {
 	}
 }
 
-export default translate(I18N_DOMAIN_CONTAINERS)(DeleteResource);
+export default withTranslation(I18N_DOMAIN_CONTAINERS)(DeleteResource);

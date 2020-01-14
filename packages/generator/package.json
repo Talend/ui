@@ -15,7 +15,6 @@
   "files": [
     "generators/app",
     "generators/create-cell",
-    "generators/dotfiles",
     "generators/react-cmf",
     "generators/react-component"
   ],
@@ -38,7 +37,6 @@
     "recast": "^0.15.5",
     "slugg": "^1.0.0",
     "yeoman-generator": "^3.1.1",
-    "yeoman-remote": "^1.0.1",
     "yosay": "^1.0.0"
   },
   "devDependencies": {
@@ -53,5 +51,5 @@
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   },
-  "version": "2.10.0"
+  "version": "4.24.0"
 }

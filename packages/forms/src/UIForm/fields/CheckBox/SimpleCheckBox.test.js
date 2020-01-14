@@ -103,4 +103,43 @@ describe('SimpleCheckBox field', () => {
 		// then
 		expect(onFinish).toBeCalledWith(event, { schema, value: false });
 	});
+
+	describe('data-feature', () => {
+		const dataFeature = 'my.custom.feature';
+
+		it('should render checkbox with check data-feature when checkbox is unchecked', () => {
+			const wrapper = shallow(
+				<SimpleCheckBox
+					describedby={'myForm-description myForm-error'}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
+					id={'myForm'}
+					label={'My checkbox custom label'}
+					schema={{
+						...schema,
+						'data-feature': dataFeature,
+					}}
+				/>,
+			);
+			expect(wrapper.find(`label[data-feature="${dataFeature}.check"]`).exists()).toBeTruthy();
+		});
+
+		it('should render checkbox with uncheck data-feature when checkbox is checked', () => {
+			const wrapper = shallow(
+				<SimpleCheckBox
+					describedby={'myForm-description myForm-error'}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
+					id={'myForm'}
+					label={'My checkbox custom label'}
+					schema={{
+						...schema,
+						'data-feature': dataFeature,
+					}}
+					value
+				/>,
+			);
+			expect(wrapper.find(`label[data-feature="${dataFeature}.uncheck"]`).exists()).toBeTruthy();
+		});
+	});
 });

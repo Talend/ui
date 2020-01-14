@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { I18nextProvider } from 'react-i18next';
 
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 import { ListView, IconsProvider } from '../src/index';
 
 const filterAction = {
@@ -21,7 +20,6 @@ const props = {
 		onChange: action('onChange'),
 	})),
 	headerDefault: [filterAction],
-	getItemHeight: () => 33,
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
 	headerLabel: 'Choose wisely',
@@ -107,7 +105,6 @@ const withNestedItems = {
 		},
 	],
 	headerDefault: [filterAction],
-	getItemHeight: () => 33,
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
 	headerLabel: 'Choose wisely',
@@ -118,14 +115,12 @@ const withNestedItems = {
 
 storiesOf('ListView', module)
 	.addDecorator(story => (
-		<I18nextProvider i18n={i18n}>
-			<div>
-				<LanguageSwitcher />
-				<IconsProvider />
-				<h1>ListView</h1>
-				<form>{story()}</form>
-			</div>
-		</I18nextProvider>
+		<div>
+			<LanguageSwitcher />
+			<IconsProvider />
+			<h1>ListView</h1>
+			<form>{story()}</form>
+		</div>
 	))
 	.add('empty', () => {
 		const emptyProps = { ...props };

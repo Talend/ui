@@ -9,8 +9,13 @@ $tc-drawer-content-max-width: 650px !default;
 .form-content {
 	display: flex;
 	flex-direction: column;
-	:global(.tc-skeleton) {
-		margin: $padding-normal 0;
+	:global {
+		.tc-skeleton {
+			margin: $padding-normal 0;
+			&.skeleton-fit-content {
+				width: auto;
+			}
+		}
 	}
 }
 

@@ -4,37 +4,66 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <div
-    className="theme-title-bar"
-    id="my-fieldset__title_bar"
-    onDoubleClick={[Function]}
-    role="button"
+  <withI18nextTranslation(CollapsiblePanel)
+    expanded={false}
+    header={
+      Array [
+        Object {
+          "label": "Basic",
+        },
+        Array [],
+      ]
+    }
+    id="my-fieldset"
+    onToggle={[Function]}
   >
-    <div
-      className="theme-title"
-      id="my-fieldset__title_wrapper"
-      onClick={[Function]}
-      role="button"
-    >
-      <legend
-        id="my-fieldset__title"
-      >
-        Basic
-      </legend>
-    </div>
-    <button
-      className="theme-toggle"
-      id="my-fieldset__collapse"
-      onClick={[Function]}
-      title="Collapse"
-      type="button"
-    >
-      <Icon
-        name="talend-caret-down"
-        transform={null}
-      />
-    </button>
-  </div>
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "age",
+          ],
+          "schema": Object {
+            "type": "number",
+          },
+          "title": "Age",
+          "type": "number",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": true,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "address",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "Adress",
+          "type": "text",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": true,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+  </withI18nextTranslation(CollapsiblePanel)>
 </fieldset>
 `;
 
@@ -42,39 +71,18 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <div
-    className="theme-title-bar"
-    id="my-fieldset__title_bar"
-    onDoubleClick={[Function]}
-    role="button"
-  >
-    <div
-      className="theme-title"
-      id="my-fieldset__title_wrapper"
-      onClick={[Function]}
-      role="button"
-    >
-      <legend
-        id="my-fieldset__title"
-      >
-        Basic: Jimmy Somsanith
-      </legend>
-    </div>
-    <button
-      className="theme-toggle"
-      id="my-fieldset__collapse"
-      onClick={[Function]}
-      title="Collapse"
-      type="button"
-    >
-      <Icon
-        name="talend-caret-down"
-        transform="flip-vertical"
-      />
-    </button>
-  </div>
-  <div
-    className="theme-body"
+  <withI18nextTranslation(CollapsiblePanel)
+    expanded={true}
+    header={
+      Array [
+        Object {
+          "label": "Basic: Jimmy Somsanith",
+        },
+        Array [],
+      ]
+    }
+    id="my-fieldset"
+    onToggle={[Function]}
   >
     <Widget
       id="my-fieldset"
@@ -122,7 +130,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       }
       widgets={Object {}}
     />
-  </div>
+  </withI18nextTranslation(CollapsiblePanel)>
 </fieldset>
 `;
 
@@ -130,39 +138,18 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <div
-    className="theme-title-bar"
-    id="my-fieldset__title_bar"
-    onDoubleClick={[Function]}
-    role="button"
-  >
-    <div
-      className="theme-title"
-      id="my-fieldset__title_wrapper"
-      onClick={[Function]}
-      role="button"
-    >
-      <legend
-        id="my-fieldset__title"
-      >
-        Basic
-      </legend>
-    </div>
-    <button
-      className="theme-toggle"
-      id="my-fieldset__collapse"
-      onClick={[Function]}
-      title="Collapse"
-      type="button"
-    >
-      <Icon
-        name="talend-caret-down"
-        transform="flip-vertical"
-      />
-    </button>
-  </div>
-  <div
-    className="theme-body"
+  <withI18nextTranslation(CollapsiblePanel)
+    expanded={true}
+    header={
+      Array [
+        Object {
+          "label": "Basic",
+        },
+        Array [],
+      ]
+    }
+    id="my-fieldset"
+    onToggle={[Function]}
   >
     <Widget
       id="my-fieldset"
@@ -210,6 +197,6 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       }
       widgets={Object {}}
     />
-  </div>
+  </withI18nextTranslation(CollapsiblePanel)>
 </fieldset>
 `;

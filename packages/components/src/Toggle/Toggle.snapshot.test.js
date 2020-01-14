@@ -19,6 +19,21 @@ describe('Toggle', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render an intermediate Toggle', () => {
+		// given
+		const props = {
+			...defaultProps,
+			intermediate: true,
+			'data-feature': 'toggle',
+		};
+
+		// when
+		const wrapper = shallow(<Toggle {...props} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render a checked Toggle', () => {
 		// given
 		const props = {

@@ -1,3 +1,3 @@
-import Toolbar from './Toolbar.component';
+import ListToolbar from './ListToolbar.component';
 
-export default Toolbar;
+export default ListToolbar;

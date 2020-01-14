@@ -80,11 +80,12 @@ exports[`Array component #renderItem should render item at given index 1`] = `
 `;
 
 exports[`Array component should render array 1`] = `
-<Translate(DefaultArrayTemplate)
+<withI18nextTranslation(DefaultArrayTemplate)
   canReorder={true}
   description="My array description"
   errorMessage="This array is not correct"
   id="talend-array"
+  isCloseable={false}
   isValid={true}
   items={Array []}
   onAdd={[Function]}
@@ -207,11 +208,12 @@ exports[`Array component should render array 1`] = `
 `;
 
 exports[`Array component should render array that can't be reordered 1`] = `
-<Translate(DefaultArrayTemplate)
+<withI18nextTranslation(DefaultArrayTemplate)
   canReorder={false}
   description="My array description"
   errorMessage="This array is not correct"
   id="talend-array"
+  isCloseable={false}
   isValid={true}
   items={Array []}
   onAdd={[Function]}
