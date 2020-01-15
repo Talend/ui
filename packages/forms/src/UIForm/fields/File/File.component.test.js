@@ -55,6 +55,7 @@ describe('File field', () => {
 			name: 'test.json',
 		});
 		const event = {
+			persist: jest.fn(),
 			preventDefault: jest.fn(),
 			target: {
 				files: [blob],
@@ -77,6 +78,7 @@ describe('File field', () => {
 		// given
 		const wrapper = shallow(<File.WrappedComponent {...props} />);
 		const event = {
+			persist: jest.fn(),
 			preventDefault: jest.fn(),
 			target: {
 				files: [],

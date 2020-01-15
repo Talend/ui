@@ -24,7 +24,7 @@ function getFileName(value) {
 			value.indexOf(BASE64_PREFIX),
 		);
 	}
-	return null;
+	return '';
 }
 
 /**
@@ -76,6 +76,7 @@ class FileWidget extends React.Component {
 			if (this.props.onTrigger) {
 				this.updateFileData(event, null, file.name);
 				const { onTrigger, schema } = this.props;
+				this.setState({ loading: true });
 				Promise.all(
 					schema.triggers.map(trigger => {
 						if (trigger.onEvent === 'change') {
@@ -83,7 +84,7 @@ class FileWidget extends React.Component {
 						}
 						return Promise.resolve();
 					}),
-				);
+				).finally(() => this.setState({ loading: false }));
 			} else {
 				const reader = new FileReader();
 				reader.onload = () => {
