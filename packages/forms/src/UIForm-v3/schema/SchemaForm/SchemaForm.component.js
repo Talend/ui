@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import useForm from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import useSchemaForm from './useSchemaForm';
 import Widget from '../Widget';
 import SchemaFormContext from '../context';

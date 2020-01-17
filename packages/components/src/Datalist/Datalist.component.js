@@ -63,7 +63,7 @@ class Datalist extends Component {
 	 */
 	onBlur(event) {
 		if (this.props.onBlur) {
-			this.props.onBlur();
+			this.props.onBlur(event, { value: this.state.value });
 		}
 		const { value, previousValue } = this.state;
 

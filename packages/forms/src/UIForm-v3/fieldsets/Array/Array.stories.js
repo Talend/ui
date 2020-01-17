@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import useForm from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';

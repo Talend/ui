@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { Controller } from 'react-hook-form';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import FieldTemplate from '../../templates/FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../templates/utils';
-import useControlledInput from '../useControlledInput';
 import { I18N_DOMAIN_FORMS } from '../../constants';
 
 function Datalist(props) {
@@ -21,10 +21,10 @@ function Datalist(props) {
 		...rest
 	} = props;
 	const { id, name, required } = rest;
-	const { errors, setValue } = rhf;
+	const { errors, watch } = rhf;
 
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
-	const value = useControlledInput({ defaultValue, name, rules, rhf });
+	const value = watch(name);
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const error = errors[name];
@@ -61,7 +61,6 @@ function Datalist(props) {
 			}, []);
 		return titleMapFormProps.concat(additionalOptions);
 	}, [restricted, titleMapFormProps, value, multiSection, type, t]);
-
 	return (
 		<FieldTemplate
 			description={description}
@@ -72,21 +71,19 @@ function Datalist(props) {
 			label={label}
 			inProgress={inProgress}
 		>
-			<DataListComponent
+			<Controller
+				as={DataListComponent}
+				control={rhf.control}
+				rules={rules}
+				onChange={([_, payload]) => payload.value}
+				onBlur={([_, payload]) => payload.value}
+				name={name}
+				defaultValue={defaultValue}
 				{...rest}
-				onChange={(event, payload) => {
-					setValue(name, payload.value, true);
-					if (rest.onChange) {
-						rest.onChange(event, payload);
-					}
-				}}
 				titleMap={titleMap}
-				value={value}
-				inputProps={{
-					'aria-invalid': !!error,
-					'aria-required': required,
-					'aria-describedby': `${descriptionId} ${errorId}`,
-				}}
+				aria-invalid={!!error}
+				aria-required={required}
+				aria-describedby={`${descriptionId} ${errorId}`}
 			/>
 		</FieldTemplate>
 	);
