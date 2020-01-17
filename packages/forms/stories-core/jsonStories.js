@@ -149,16 +149,35 @@ function createCommonProps(tab) {
 				return Promise.resolve({
 					properties: properties => {
 						const { datasetId, name } = properties;
-						return (name && name.length) ? properties : {
-							...properties,
-							name: datasetId && `Resource ${datasetId} preparation`,
-						};
+						return name && name.length
+							? properties
+							: {
+									...properties,
+									name: datasetId && `Resource ${datasetId} preparation`,
+							  };
 					},
 					errors: errors => {
 						const e = { ...errors };
 						delete e.name;
 						return e;
 					},
+				});
+			}
+			if (
+				key &&
+				key.startsWith('file') &&
+				payload.trigger &&
+				payload.trigger.onEvent === 'change'
+			) {
+				const { name } = event.target.files[0];
+				return new Promise(resolve => {
+					setTimeout(
+						() =>
+							resolve({
+								properties: properties => ({ ...properties, [key]: name }),
+							}),
+						3000,
+					);
 				});
 			}
 
@@ -191,9 +210,7 @@ class DisplayModeForm extends React.Component {
 				<IconsProvider />
 				{this.props.doc && (
 					<a
-						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${
-							this.props.category
-						}/${this.props.doc}`}
+						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${this.props.category}/${this.props.doc}`}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -220,7 +237,7 @@ class DisplayModeForm extends React.Component {
 				<UIForm
 					{...this.props}
 					displayMode={this.state.displayMode}
-					widgets={{enumeration: Enumeration}}
+					widgets={{ enumeration: Enumeration }}
 				/>
 			</section>
 		);

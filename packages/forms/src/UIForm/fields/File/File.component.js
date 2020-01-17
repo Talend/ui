@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import noop from 'lodash/noop';
+import Skeleton from '@talend/react-components/lib/Skeleton';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
@@ -24,7 +25,7 @@ function getFileName(value) {
 			value.indexOf(BASE64_PREFIX),
 		);
 	}
-	return '';
+	return value;
 }
 
 /**
@@ -73,7 +74,7 @@ class FileWidget extends React.Component {
 		const fileList = event.target.files;
 		if (fileList.length > 0) {
 			const file = fileList[0];
-			if (this.props.onTrigger) {
+			if (this.props.schema.triggers) {
 				this.updateFileData(event, null, file.name);
 				const { onTrigger, schema } = this.props;
 				this.setState({ loading: true });
@@ -145,31 +146,41 @@ class FileWidget extends React.Component {
 				valueIsUpdating={valueIsUpdating}
 			>
 				<div className={theme.file}>
-					<input
-						id={`input-${id}`}
-						autoFocus={autoFocus}
-						className={`form-control ${theme['file-input']}`}
-						disabled={disabled || valueIsUpdating}
-						onBlur={event => onFinish(event, { schema })}
-						onChange={this.onChange}
-						placeholder={placeholder}
-						readOnly={readOnly}
-						type="file"
-						// eslint-disable-next-line jsx-a11y/aria-proptypes
-						aria-invalid={!isValid}
-						aria-required={schema.required}
-						aria-describedby={`${descriptionId} ${errorId}`}
-					/>
-					<input
-						name={`input-filename-${id}`}
-						className={`form-control ${theme['file-replace']}`}
-						value={this.state.fileName}
-						onChange={noop}
-						type="text"
-						placeholder={placeholder}
-						tabIndex="-1"
-						autoComplete="off"
-					/>
+					{this.state.loading && (
+						<Skeleton
+							type={Skeleton.TYPES.text}
+							size={Skeleton.SIZES.xlarge}
+						/>
+					)}
+					{!this.state.loading && (
+						<React.Fragment>
+							<input
+								id={`input-${id}`}
+								autoFocus={autoFocus}
+								className={`form-control ${theme['file-input']}`}
+								disabled={disabled || valueIsUpdating}
+								onBlur={event => onFinish(event, { schema })}
+								onChange={this.onChange}
+								placeholder={placeholder}
+								readOnly={readOnly}
+								type="file"
+								// eslint-disable-next-line jsx-a11y/aria-proptypes
+								aria-invalid={!isValid}
+								aria-required={schema.required}
+								aria-describedby={`${descriptionId} ${errorId}`}
+							/>
+							<input
+								name={`input-filename-${id}`}
+								className={`form-control ${theme['file-replace']}`}
+								value={this.state.fileName}
+								onChange={noop}
+								type="text"
+								placeholder={placeholder}
+								tabIndex="-1"
+								autoComplete="off"
+							/>
+						</React.Fragment>
+					)}
 				</div>
 			</FieldTemplate>
 		);
