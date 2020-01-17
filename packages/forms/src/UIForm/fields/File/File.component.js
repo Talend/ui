@@ -147,10 +147,7 @@ class FileWidget extends React.Component {
 			>
 				<div className={theme.file}>
 					{this.state.loading && (
-						<Skeleton
-							type={Skeleton.TYPES.text}
-							size={Skeleton.SIZES.xlarge}
-						/>
+						<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.xlarge} />
 					)}
 					{!this.state.loading && (
 						<React.Fragment>
