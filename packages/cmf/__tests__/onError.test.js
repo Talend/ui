@@ -1,20 +1,20 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { captureException, withScope, init } from '@sentry/browser';
+import { captureException, getCurrentHub, init, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
 
-
 jest.mock('@sentry/browser', () => {
 	return {
 		captureException: jest.fn(),
-		withScope: jest.fn(),
 		init: jest.fn(config => {
 			if (config.dsn === 'fail') {
 				throw new Error('mock fail');
 			}
 		}),
+		getCurrentHub: jest.fn(() => ({ getClient: () => undefined })),
+		withScope: jest.fn(),
 	};
 });
 
@@ -125,7 +125,7 @@ describe('onError', () => {
 			const next = jest.fn();
 			const action = {
 				type: 'FOO',
-				'sensitive': true,
+				sensitive: true,
 			};
 			mid(next)(action);
 			const info = onError.getReportInfo(new Error('my'));
@@ -212,6 +212,15 @@ describe('onError', () => {
 			onError.report(error);
 			expect(captureException).toHaveBeenCalledWith(error);
 		});
+
+		it('report should call captureException if an sentry is initialized', () => {
+			getCurrentHub.mockImplementation(() => ({ getClient: () => true }));
+			onError.bootstrap(config, store);
+			const error = new Error('foo');
+			onError.report(error);
+			expect(captureException).toHaveBeenCalledWith(error);
+		});
+
 		it('report should call withScope with options.tags', () => {
 			config = {
 				onError: {
@@ -219,7 +228,7 @@ describe('onError', () => {
 				},
 			};
 			onError.bootstrap(config, store);
-			const options = { tags: [{ key: 'tag', value: 'value' }]};
+			const options = { tags: [{ key: 'tag', value: 'value' }] };
 			const error = new Error('foo');
 			const setTag = jest.fn();
 			onError.report(error, options);

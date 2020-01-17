@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { captureException, withScope, init } from '@sentry/browser';
+import { captureException, getCurrentHub, init, withScope } from '@sentry/browser';
 import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
@@ -71,7 +71,7 @@ function hasReportFeature() {
  * @param {Error} error instance of Error
  */
 function report(error, options = {}) {
-	if (ref.SENTRY_DSN) {
+	if (ref.SENTRY_DSN || getCurrentHub().getClient() !== undefined) {
 		if (options.tags) {
 			withScope(scope => {
 				options.tags.forEach(tag => scope.setTag(tag.key, tag.value));
@@ -209,7 +209,9 @@ function middleware() {
 		try {
 			return next(action);
 		} catch (error) {
-			report(error, { tags: [{ key: 'redux-action-type', value: get(action, 'type', 'UNKNOWN') }] });
+			report(error, {
+				tags: [{ key: 'redux-action-type', value: get(action, 'type', 'UNKNOWN') }],
+			});
 			// eslint-disable-next-line no-console
 			console.error(error);
 			return undefined;
