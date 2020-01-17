@@ -55,7 +55,7 @@ NativeValue.propTypes = {
 	className: PropTypes.string,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
-	wrap: PropTypes.string,
+	wrap: PropTypes.bool,
 };
 NativeValue.defaultProps = {
 	className: theme.value,
@@ -122,11 +122,11 @@ export class LineItem extends React.Component {
 			icon,
 			type,
 			value,
-			setWidth,
+			isValueOverflown,
 		} = this.props;
 		const isSelectedLine = this.isSelected();
 
-		const lineClass = classNames(theme.line, { [theme['full-width']]: setWidth });
+		const lineClass = classNames(theme.line, { [theme['full-width']]: isValueOverflown });
 
 		const lineChildren = [
 			getName(name),
@@ -191,7 +191,7 @@ LineItem.propTypes = {
 	tag: PropTypes.node,
 	type: PropTypes.string,
 	value: PropTypes.node,
-	setWidth: PropTypes.string,
+	isValueOverflown: PropTypes.bool,
 };
 
 /**
@@ -438,7 +438,6 @@ export function Item(props) {
 	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 
 	if (isNativeType) {
-		const [rotation, setRotation] = useState(false);
 		return (
 			<LineItem
 				ref={lineItemRef}
@@ -456,19 +455,18 @@ export function Item(props) {
 				}
 				type={props.showType ? info.type : null}
 				tag={tag}
-				setWidth={lineItemWidth}
+				isValueOverflown={lineItemWidth}
 				// icon is shown when LineItem value is a long field and needs to be wrapped
 				icon={
 					lineItemWidth && (
 						<Action
 							key="toggle"
-							className={classNames(theme.chevron, { [theme['chevron-filled']]: rotation })}
+							className={classNames(theme.chevron, { [theme['chevron-filled']]: nativeValueWrap })}
 							icon={'talend-chevron-left'}
-							iconTransform={rotation ? 'rotate-90' : 'rotate-270'}
+							iconTransform={nativeValueWrap ? 'rotate-90' : 'rotate-270'}
 							onClick={e => {
 								e.stopPropagation();
 								setNativeValueWrap(val => !val);
-								setRotation(val => !val);
 							}}
 							label=""
 							aria-hidden
