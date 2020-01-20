@@ -97,7 +97,7 @@ fetch('/api/webapp-config').then(config => {
 		...
 		onError: {
       SENTRY_DSN: config.SENTRY_DSN,
-      release: '1.9.0' // optional
+      // other sentry parameters: https://docs.sentry.io/error-reporting/configuration?platform=browser
 		}
 	});
 })
