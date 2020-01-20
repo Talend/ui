@@ -1,9 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ZoomHandler renders correctly <ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`] = `
 <g
   height="100%"
   width="100%"
   x="0"
-  y="0">
+  y="0"
+>
   <rect
     height="100%"
     style={
@@ -14,7 +17,8 @@ exports[`ZoomHandler renders correctly <ZoomHandler /> renders correctly <ZoomHa
     }
     width="100%"
     x="0"
-    y="0" />
+    y="0"
+  />
   <rect
     transform="translate(0, 0) scale(1)"
     transformData={
@@ -23,7 +27,8 @@ exports[`ZoomHandler renders correctly <ZoomHandler /> renders correctly <ZoomHa
         "x": 0,
         "y": 0,
       }
-    } />
+    }
+  />
   <rect
     transform="translate(0, 0) scale(1)"
     transformData={
@@ -32,6 +37,7 @@ exports[`ZoomHandler renders correctly <ZoomHandler /> renders correctly <ZoomHa
         "x": 0,
         "y": 0,
       }
-    } />
+    }
+  />
 </g>
 `;

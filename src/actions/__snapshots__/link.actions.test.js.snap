@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Check that link action creators generate proper action objects and perform checking addLink 1`] = `
 Array [
   Object {

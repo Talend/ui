@@ -1,288 +1,290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS should batch many elements creation 1`] = `
-Object {
-  "childrens": Object {
-    "node2": Object {},
-    "nodeId": Object {},
+Immutable.Map {
+  "in": Immutable.Map {
+    "nodeId": Immutable.Map {},
+    "node2": Immutable.Map {},
   },
-  "in": Object {
-    "node2": Object {},
-    "nodeId": Object {},
-  },
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "node2": Object {
-      "data": Object {
-        "properties": Object {},
-      },
-      "getNodeType": [Function],
-      "getPosition": [Function],
-      "getSize": [Function],
-      "graphicalAttributes": Object {
-        "description": "",
-        "label": "",
-        "nodeSize": Object {
-          "height": 10,
-          "width": 10,
-        },
-        "nodeType": undefined,
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "properties": Object {},
-      },
-      "id": "node2",
-      "type": undefined,
-    },
-    "nodeId": Object {
-      "data": Object {
-        "properties": Object {},
-      },
-      "getNodeType": [Function],
-      "getPosition": [Function],
-      "getSize": [Function],
-      "graphicalAttributes": Object {
-        "description": "",
-        "label": "",
-        "nodeSize": Object {
-          "height": 10,
-          "width": 10,
-        },
-        "nodeType": undefined,
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "properties": Object {},
-      },
-      "id": "nodeId",
-      "type": undefined,
-    },
-  },
-  "out": Object {
-    "node2": Object {},
-    "nodeId": Object {
-      "portId": Object {},
-    },
-  },
-  "parents": Object {
-    "node2": Object {},
-    "nodeId": Object {},
-  },
-  "ports": Object {
-    "portId": Object {
-      "data": Object {
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": undefined,
-          "y": undefined,
-        },
-        "properties": Object {
-          "index": 0,
-          "type": "OUTGOING",
-        },
-      },
-      "id": "portId",
-      "nodeId": "nodeId",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
+  "transformToApply": undefined,
+  "parents": Immutable.Map {
+    "nodeId": Immutable.Map {},
+    "node2": Immutable.Map {},
   },
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {
+    "nodeId": Immutable.Map {
+      "portId": Immutable.Map {},
+    },
+    "node2": Immutable.Map {},
+  },
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Record {
+      "id": "nodeId",
+      "type": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Record {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+        "nodeSize": Immutable.Record {
+          "width": 10,
+          "height": 10,
+        },
+        "nodeType": undefined,
+        "label": "",
+        "description": "",
+        "properties": Immutable.Map {},
+      },
+      "getPosition": [Function],
+      "getSize": [Function],
+      "getNodeType": [Function],
+    },
+    "node2": Immutable.Record {
+      "id": "node2",
+      "type": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Record {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+        "nodeSize": Immutable.Record {
+          "width": 10,
+          "height": 10,
+        },
+        "nodeType": undefined,
+        "label": "",
+        "description": "",
+        "properties": Immutable.Map {},
+      },
+      "getPosition": [Function],
+      "getSize": [Function],
+      "getNodeType": [Function],
+    },
+  },
+  "ports": Immutable.Map {
+    "portId": Immutable.Record {
+      "id": "portId",
+      "nodeId": "nodeId",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Map {
+        "properties": Immutable.Map {
+          "index": 0,
+          "type": "OUTGOING",
+        },
+        "position": Immutable.Record {
+          "x": undefined,
+          "y": undefined,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {
+    "nodeId": Immutable.Map {},
+    "node2": Immutable.Map {},
+  },
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS should batch one element creation 1`] = `
-Object {
-  "childrens": Object {
-    "nodeId": Object {},
+Immutable.Map {
+  "in": Immutable.Map {
+    "nodeId": Immutable.Map {},
   },
-  "in": Object {
-    "nodeId": Object {},
+  "transformToApply": undefined,
+  "parents": Immutable.Map {
+    "nodeId": Immutable.Map {},
   },
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {
-      "data": Object {
-        "properties": Object {},
-      },
-      "getNodeType": [Function],
-      "getPosition": [Function],
-      "getSize": [Function],
-      "graphicalAttributes": Object {
-        "description": "",
-        "label": "",
-        "nodeSize": Object {
-          "height": 10,
-          "width": 10,
-        },
-        "nodeType": undefined,
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "properties": Object {},
-      },
-      "id": "nodeId",
-      "type": undefined,
-    },
-  },
-  "out": Object {
-    "nodeId": Object {},
-  },
-  "parents": Object {
-    "nodeId": Object {},
-  },
-  "ports": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Record {
+      "id": "nodeId",
+      "type": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Record {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+        "nodeSize": Immutable.Record {
+          "width": 10,
+          "height": 10,
+        },
+        "nodeType": undefined,
+        "label": "",
+        "description": "",
+        "properties": Immutable.Map {},
+      },
+      "getPosition": [Function],
+      "getSize": [Function],
+      "getNodeType": [Function],
+    },
+  },
+  "ports": Immutable.Map {},
+  "childrens": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not touching flow config should load elements 1`] = `
-Object {
-  "childrens": Object {
-    "node2": Object {},
-    "nodeId": Object {},
+Immutable.Map {
+  "in": Immutable.Map {
+    "nodeId": Immutable.Map {},
+    "node2": Immutable.Map {},
   },
-  "in": Object {
-    "node2": Object {},
-    "nodeId": Object {},
-  },
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "node2": Object {
-      "data": Object {
-        "properties": Object {},
-      },
-      "getNodeType": [Function],
-      "getPosition": [Function],
-      "getSize": [Function],
-      "graphicalAttributes": Object {
-        "description": "",
-        "label": "",
-        "nodeSize": Object {
-          "height": 10,
-          "width": 10,
-        },
-        "nodeType": undefined,
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "properties": Object {},
-      },
-      "id": "node2",
-      "type": undefined,
-    },
-    "nodeId": Object {
-      "data": Object {
-        "properties": Object {},
-      },
-      "getNodeType": [Function],
-      "getPosition": [Function],
-      "getSize": [Function],
-      "graphicalAttributes": Object {
-        "description": "",
-        "label": "",
-        "nodeSize": Object {
-          "height": 10,
-          "width": 10,
-        },
-        "nodeType": undefined,
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "properties": Object {},
-      },
-      "id": "nodeId",
-      "type": undefined,
-    },
-  },
-  "out": Object {
-    "node2": Object {},
-    "nodeId": Object {
-      "portId": Object {},
-    },
-  },
-  "parents": Object {
-    "node2": Object {},
-    "nodeId": Object {},
-  },
-  "ports": Object {
-    "portId": Object {
-      "data": Object {
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": undefined,
-          "y": undefined,
-        },
-        "properties": Object {
-          "index": 0,
-          "type": "OUTGOING",
-        },
-      },
-      "id": "portId",
-      "nodeId": "nodeId",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
+  "transformToApply": undefined,
+  "parents": Immutable.Map {
+    "nodeId": Immutable.Map {},
+    "node2": Immutable.Map {},
   },
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {
+    "nodeId": Immutable.Map {
+      "portId": Immutable.Map {},
+    },
+    "node2": Immutable.Map {},
+  },
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Record {
+      "id": "nodeId",
+      "type": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Record {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+        "nodeSize": Immutable.Record {
+          "width": 10,
+          "height": 10,
+        },
+        "nodeType": undefined,
+        "label": "",
+        "description": "",
+        "properties": Immutable.Map {},
+      },
+      "getPosition": [Function],
+      "getSize": [Function],
+      "getNodeType": [Function],
+    },
+    "node2": Immutable.Record {
+      "id": "node2",
+      "type": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Record {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+        "nodeSize": Immutable.Record {
+          "width": 10,
+          "height": 10,
+        },
+        "nodeType": undefined,
+        "label": "",
+        "description": "",
+        "properties": Immutable.Map {},
+      },
+      "getPosition": [Function],
+      "getSize": [Function],
+      "getNodeType": [Function],
+    },
+  },
+  "ports": Immutable.Map {
+    "portId": Immutable.Record {
+      "id": "portId",
+      "nodeId": "nodeId",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Map {
+        "properties": Immutable.Map {
+          "index": 0,
+          "type": "OUTGOING",
+        },
+        "position": Immutable.Record {
+          "x": undefined,
+          "y": undefined,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {
+    "nodeId": Immutable.Map {},
+    "node2": Immutable.Map {},
+  },
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`FLOWDESIGNER_PAN_TO set a calculated transformation into transformToApply  1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {},
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {},
-  "transform": Object {
-    "k": 1,
-    "x": 0,
-    "y": 0,
-  },
+Immutable.Map {
+  "in": Immutable.Map {},
   "transformToApply": Transform {
     "k": 1,
     "x": -400,
     "y": -400,
   },
+  "parents": Immutable.Map {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+  "out": Immutable.Map {},
+  "nodes": Immutable.Map {},
+  "ports": Immutable.Map {},
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;

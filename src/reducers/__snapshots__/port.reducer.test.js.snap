@@ -1,758 +1,760 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Check port reducer FLOWDESIGNER_PORT_ADD properly add the port to the port Map 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {},
-  },
-  "out": Object {
-    "nodeId": Object {
-      "portId": Object {},
-    },
-  },
-  "parents": Object {},
-  "ports": Object {
-    "id1": Object {
-      "data": Object {
-        "type": "test",
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "type": "test",
-      },
-      "id": "id1",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id2": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id2",
-      "nodeId": "test",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id3": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id3",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "portId": Object {
-      "data": Object {
-        "flowType": "string",
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "portType": "portType",
-        "position": Object {
-          "x": undefined,
-          "y": undefined,
-        },
-        "properties": Object {
-          "index": 1,
-          "type": "OUTGOING",
-        },
-      },
-      "id": "portId",
-      "nodeId": "nodeId",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-  },
+Immutable.Map {
+  "in": Immutable.Map {},
+  "transformToApply": undefined,
+  "parents": Immutable.Map {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {
+    "nodeId": Immutable.Map {
+      "portId": Immutable.Map {},
+    },
+  },
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "ports": Immutable.OrderedMap {
+    "id1": Immutable.Record {
+      "id": "id1",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "type": "test",
+      },
+      "graphicalAttributes": Immutable.Map {
+        "type": "test",
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id2": Immutable.Record {
+      "id": "id2",
+      "nodeId": "test",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id3": Immutable.Record {
+      "id": "id3",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "portId": Immutable.Record {
+      "id": "portId",
+      "nodeId": "nodeId",
+      "data": Immutable.Map {
+        "flowType": "string",
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Map {
+        "portType": "portType",
+        "properties": Immutable.Map {
+          "index": 1,
+          "type": "OUTGOING",
+        },
+        "position": Immutable.Record {
+          "x": undefined,
+          "y": undefined,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`Check port reducer FLOWDESIGNER_PORT_ADDS to add multiple ports (portId1, portId2) to port collection 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {
-    "nodeId": Object {
-      "portId2": Object {},
-      "portId3": Object {},
+Immutable.Map {
+  "in": Immutable.Map {
+    "nodeId": Immutable.Map {
+      "portId2": Immutable.Map {},
+      "portId3": Immutable.Map {},
     },
   },
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {},
-  },
-  "out": Object {
-    "nodeId": Object {
-      "portId1": Object {},
-    },
-  },
-  "parents": Object {},
-  "ports": Object {
-    "id1": Object {
-      "data": Object {
-        "type": "test",
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "type": "test",
-      },
-      "id": "id1",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id2": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id2",
-      "nodeId": "test",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id3": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id3",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "portId1": Object {
-      "data": Object {
-        "flowType": "string",
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "portType": "portType",
-        "position": Object {
-          "x": undefined,
-          "y": undefined,
-        },
-        "properties": Object {
-          "index": 0,
-          "type": "OUTGOING",
-        },
-      },
-      "id": "portId1",
-      "nodeId": "nodeId",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "portId2": Object {
-      "data": Object {
-        "flowType": "string",
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "portType": "portType",
-        "position": Object {
-          "x": undefined,
-          "y": undefined,
-        },
-        "properties": Object {
-          "index": 0,
-          "type": "INCOMING",
-        },
-      },
-      "id": "portId2",
-      "nodeId": "nodeId",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "portId3": Object {
-      "data": Object {
-        "flowType": "string",
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "portType": "portType",
-        "position": Object {
-          "x": undefined,
-          "y": undefined,
-        },
-        "properties": Object {
-          "index": 1,
-          "type": "INCOMING",
-        },
-      },
-      "id": "portId3",
-      "nodeId": "nodeId",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-  },
+  "transformToApply": undefined,
+  "parents": Immutable.Map {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {
+    "nodeId": Immutable.Map {
+      "portId1": Immutable.Map {},
+    },
+  },
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "ports": Immutable.OrderedMap {
+    "id1": Immutable.Record {
+      "id": "id1",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "type": "test",
+      },
+      "graphicalAttributes": Immutable.Map {
+        "type": "test",
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id2": Immutable.Record {
+      "id": "id2",
+      "nodeId": "test",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id3": Immutable.Record {
+      "id": "id3",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "portId1": Immutable.Record {
+      "id": "portId1",
+      "nodeId": "nodeId",
+      "data": Immutable.Map {
+        "flowType": "string",
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Map {
+        "portType": "portType",
+        "properties": Immutable.Map {
+          "index": 0,
+          "type": "OUTGOING",
+        },
+        "position": Immutable.Record {
+          "x": undefined,
+          "y": undefined,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "portId2": Immutable.Record {
+      "id": "portId2",
+      "nodeId": "nodeId",
+      "data": Immutable.Map {
+        "flowType": "string",
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Map {
+        "portType": "portType",
+        "properties": Immutable.Map {
+          "index": 0,
+          "type": "INCOMING",
+        },
+        "position": Immutable.Record {
+          "x": undefined,
+          "y": undefined,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "portId3": Immutable.Record {
+      "id": "portId3",
+      "nodeId": "nodeId",
+      "data": Immutable.Map {
+        "flowType": "string",
+        "properties": Immutable.Map {},
+      },
+      "graphicalAttributes": Immutable.Map {
+        "portType": "portType",
+        "properties": Immutable.Map {
+          "index": 1,
+          "type": "INCOMING",
+        },
+        "position": Immutable.Record {
+          "x": undefined,
+          "y": undefined,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE should only remove port id1 from ports collection 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {},
-  },
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {
-    "id2": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id2",
-      "nodeId": "test",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id3": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "properties": Object {
-          "index": 0,
-        },
-      },
-      "id": "id3",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-  },
+Immutable.Map {
+  "in": Immutable.Map {},
+  "transformToApply": undefined,
+  "parents": Immutable.Map {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {},
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "ports": Immutable.OrderedMap {
+    "id2": Immutable.Record {
+      "id": "id2",
+      "nodeId": "test",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id3": Immutable.Record {
+      "id": "id3",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Immutable.Map {
+          "index": 0,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE should only remove port id2 from ports collection if its parent node does not exist 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {},
-  },
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {
-    "id1": Object {
-      "data": Object {
-        "type": "test",
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "type": "test",
-      },
-      "id": "id1",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id3": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id3",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-  },
+Immutable.Map {
+  "in": Immutable.Map {},
+  "transformToApply": undefined,
+  "parents": Immutable.Map {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {},
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "ports": Immutable.OrderedMap {
+    "id1": Immutable.Record {
+      "id": "id1",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "type": "test",
+      },
+      "graphicalAttributes": Immutable.Map {
+        "type": "test",
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id3": Immutable.Record {
+      "id": "id3",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE_DATA remove type on port id1 on port data map 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {},
-  },
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {
-    "id1": Object {
-      "data": Object {
-        "type": "test",
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "type": "test",
-      },
-      "id": "id1",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id2": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id2",
-      "nodeId": "test",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id3": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id3",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-  },
+Immutable.Map {
+  "in": Immutable.Map {},
+  "transformToApply": undefined,
+  "parents": Immutable.Map {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {},
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "ports": Immutable.OrderedMap {
+    "id1": Immutable.Record {
+      "id": "id1",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "type": "test",
+      },
+      "graphicalAttributes": Immutable.Map {
+        "type": "test",
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id2": Immutable.Record {
+      "id": "id2",
+      "nodeId": "test",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id3": Immutable.Record {
+      "id": "id3",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES to remove attr on port id1 graphicalAttribute map 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {},
-  },
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {
-    "id1": Object {
-      "data": Object {
-        "type": "test",
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "type": "test",
-      },
-      "id": "id1",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id2": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id2",
-      "nodeId": "test",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id3": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id3",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-  },
+Immutable.Map {
+  "in": Immutable.Map {},
+  "transformToApply": undefined,
+  "parents": Immutable.Map {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {},
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "ports": Immutable.OrderedMap {
+    "id1": Immutable.Record {
+      "id": "id1",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "type": "test",
+      },
+      "graphicalAttributes": Immutable.Map {
+        "type": "test",
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id2": Immutable.Record {
+      "id": "id2",
+      "nodeId": "test",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id3": Immutable.Record {
+      "id": "id3",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`Check port reducer FLOWDESIGNER_PORT_SET_DATA to merge { type: 'string' } on port id1 data map 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {},
-  },
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {
-    "id1": Object {
-      "data": Object {
-        "type": "string",
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "type": "test",
-      },
-      "id": "id1",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id2": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id2",
-      "nodeId": "test",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id3": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id3",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-  },
+Immutable.Map {
+  "in": Immutable.Map {},
+  "transformToApply": undefined,
+  "parents": Immutable.Map {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {},
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "ports": Immutable.OrderedMap {
+    "id1": Immutable.Record {
+      "id": "id1",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "type": "string",
+      },
+      "graphicalAttributes": Immutable.Map {
+        "type": "test",
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id2": Immutable.Record {
+      "id": "id2",
+      "nodeId": "test",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id3": Immutable.Record {
+      "id": "id3",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;
 
 exports[`Check port reducer FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES to merge { selected: true } on port id1 graphicalAttribute map 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {
-    "nodeId": Object {},
-  },
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {
-    "id1": Object {
-      "data": Object {
-        "type": "test",
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-        "selected": true,
-        "type": "test",
-      },
-      "id": "id1",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id2": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id2",
-      "nodeId": "test",
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-    "id3": Object {
-      "data": Object {
-        "flowType": undefined,
-        "properties": Object {},
-      },
-      "getIndex": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getPortType": [Function],
-      "getPosition": [Function],
-      "graphicalAttributes": Object {
-        "position": Object {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "id": "id3",
-      "nodeId": undefined,
-      "setIndex": [Function],
-      "setPosition": [Function],
-    },
-  },
+Immutable.Map {
+  "in": Immutable.Map {},
+  "transformToApply": undefined,
+  "parents": Immutable.Map {},
   "transform": Object {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "transformToApply": undefined,
+  "out": Immutable.Map {},
+  "nodes": Immutable.Map {
+    "nodeId": Immutable.Map {},
+  },
+  "ports": Immutable.OrderedMap {
+    "id1": Immutable.Record {
+      "id": "id1",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "type": "test",
+      },
+      "graphicalAttributes": Immutable.Map {
+        "type": "test",
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+        "selected": true,
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id2": Immutable.Record {
+      "id": "id2",
+      "nodeId": "test",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id3": Immutable.Record {
+      "id": "id3",
+      "nodeId": undefined,
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+  },
+  "childrens": Immutable.Map {},
+  "nodeTypes": Immutable.Map {},
+  "links": Immutable.Map {},
 }
 `;

@@ -1,4 +1,4 @@
 {
-  "presets": ['es2015', 'react'],
-  "plugins": ["transform-object-rest-spread", "transform-class-properties"]
+	"extends": "@talend/scripts-config-babel/.babelrc.json",
+	"presets": ["@babel/preset-flow"]
 }
