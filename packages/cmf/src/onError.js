@@ -21,7 +21,7 @@ const ref = {
 	},
 };
 
-export function configureSentryScope(options) {
+function configureSentryScope(options) {
 	configureScope(scope => {
 		scope.setUser(options);
 	});
@@ -246,6 +246,7 @@ function revokeObjectURL(url) {
 
 export default {
 	bootstrap,
+	configureSentryScope,
 	hasReportURL,
 	hasReportFeature,
 	getReportInfo,

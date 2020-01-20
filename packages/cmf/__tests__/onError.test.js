@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { captureException, init, withScope } from '@sentry/browser';
+import { captureException, init, withScope, configureScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
@@ -13,6 +13,7 @@ jest.mock('@sentry/browser', () => {
 				throw new Error('mock fail');
 			}
 		}),
+		configureScope: jest.fn(),
 		withScope: jest.fn(),
 	};
 });
@@ -246,6 +247,19 @@ describe('onError', () => {
 			const onScope = withScope.mock.calls[0][0];
 			onScope({ setTag });
 			expect(setTag).toHaveBeenCalledWith('tag', 'value');
+		});
+	});
+	describe('configureSentryScope', () => {
+		it('should call configureSentryScope with the parameters', () => {
+			const setUser = jest.fn();
+			const parameters = {
+				id: 'user-42',
+			};
+			configureScope.mockImplementation(cb => cb({ setUser }));
+
+			onError.configureSentryScope(parameters);
+
+			expect(setUser).toHaveBeenCalledWith(parameters);
 		});
 	});
 });
