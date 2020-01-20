@@ -86,10 +86,13 @@ class FileWidget extends React.Component {
 		if (fileList.length > 0) {
 			const file = fileList[0];
 			const { onTrigger, schema } = this.props;
-			if (schema.triggers) {
-				this.updateFileData(event, null, file.name);
+			if (
+				schema.triggers &&
+				schema.triggers.some(trigger => trigger.action === PRESIGNED_URL_TRIGGER_ACTION)
+			) {
 				this.setState({ loading: true });
-				return Promise.all(
+				this.updateFileData(event, null, file.name);
+				Promise.all(
 					schema.triggers.map(trigger => {
 						if (trigger.action === PRESIGNED_URL_TRIGGER_ACTION && trigger.onEvent === 'change') {
 							return onTrigger(event, { trigger, schema });
