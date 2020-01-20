@@ -33,6 +33,7 @@
       "title": "Upload another file using trigger",
       "placeholder": "Select a file to upload",
       "widget": "file",
+      "accept": ".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, application/*+avro",
       "triggers": [
         {
           "action": "generatePresignedURL",
