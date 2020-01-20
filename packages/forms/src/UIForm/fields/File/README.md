@@ -37,12 +37,13 @@ This widget allows you to render a file input.
     "key": "file",
     "widget": "file",
     "title": "Upload file",
+    "accept": ".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel",
     "autoFocus": false,
     "disabled": false,
     "placeholder": "Select a file to upload",
     "readOnly": false,
     "triggers": [
-      { "action": "customUploadAction", "onEvent": "change" }
+      { "action": "generatePresignedURL", "onEvent": "change" }
     ]
   }
 ]

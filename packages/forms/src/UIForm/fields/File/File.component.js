@@ -9,21 +9,32 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './File.scss';
 
+export const PRESIGNED_URL_TRIGGER_ACTION = 'generatePresignedURL';
+
 const BASE64_NAME = ';name=';
 const BASE64_PREFIX = ';base64,';
 
 /**
- * Extract the file name from the data url
+ * Extract the file name from the value
  * @param {string} value The base64 value of the file.
  * Looks like `data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2l...`
- * @returns {string} The file name, for exemple: `test.xml`.
+ * @param {Object} schema The widget schema to get triggers.
+ * @returns {string} The file name, for example: `test.xml`.
  */
-function getFileName(value) {
+function getFileName(value, schema) {
 	if (value && value.indexOf(BASE64_NAME) !== -1) {
 		return value.slice(
 			value.indexOf(BASE64_NAME) + BASE64_NAME.length,
 			value.indexOf(BASE64_PREFIX),
 		);
+	}
+	if (value && schema && schema.triggers) {
+		const uploadTrigger = schema.triggers.find(
+			trigger => trigger.action === PRESIGNED_URL_TRIGGER_ACTION,
+		);
+		if (uploadTrigger) {
+			return atob(value.split('.')[1]);
+		}
 	}
 	return value;
 }
@@ -51,7 +62,8 @@ function getBase64(value, fileName) {
 
 class FileWidget extends React.Component {
 	static getDerivedStateFromProps(nextProps, prevState) {
-		const fileName = getFileName(nextProps.value);
+		const { schema, value } = nextProps;
+		const fileName = getFileName(value, schema);
 		if (prevState.fileName !== fileName) {
 			// Update file name if file is changed
 			return {
@@ -64,7 +76,6 @@ class FileWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
-		this.onTrigger = this.onTrigger.bind(this);
 		// Extract file name from form properties
 		this.state = { fileName: getFileName(props.value), loading: false };
 	}
@@ -74,13 +85,13 @@ class FileWidget extends React.Component {
 		const fileList = event.target.files;
 		if (fileList.length > 0) {
 			const file = fileList[0];
-			if (this.props.schema.triggers) {
+			const { onTrigger, schema } = this.props;
+			if (schema.triggers) {
 				this.updateFileData(event, null, file.name);
-				const { onTrigger, schema } = this.props;
 				this.setState({ loading: true });
-				Promise.all(
+				return Promise.all(
 					schema.triggers.map(trigger => {
-						if (trigger.onEvent === 'change') {
+						if (trigger.action === PRESIGNED_URL_TRIGGER_ACTION && trigger.onEvent === 'change') {
 							return onTrigger(event, { trigger, schema });
 						}
 						return Promise.resolve();
@@ -99,13 +110,6 @@ class FileWidget extends React.Component {
 		}
 	}
 
-	onTrigger(event, trigger) {
-		return this.props.onTrigger(event, {
-			trigger,
-			schema: this.props.schema,
-		});
-	}
-
 	/**
 	 * call onChange and update value
 	 * @param {Event} event The event
@@ -121,6 +125,7 @@ class FileWidget extends React.Component {
 	render() {
 		const { id, isValid, errorMessage, onFinish, schema, valueIsUpdating } = this.props;
 		const {
+			accept,
 			autoFocus,
 			description,
 			disabled = false,
@@ -148,6 +153,7 @@ class FileWidget extends React.Component {
 				<div className={theme.file}>
 					{this.state.loading && (
 						<Skeleton
+							className={theme['file-skeleton']}
 							type={Skeleton.TYPES.text}
 							size={Skeleton.SIZES.xlarge}
 						/>
@@ -156,6 +162,7 @@ class FileWidget extends React.Component {
 						<React.Fragment>
 							<input
 								id={`input-${id}`}
+								accept={accept}
 								autoFocus={autoFocus}
 								className={`form-control ${theme['file-input']}`}
 								disabled={disabled || valueIsUpdating}
@@ -196,6 +203,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
 		schema: PropTypes.shape({
+			accept: PropTypes.string,
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,

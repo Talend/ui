@@ -2,6 +2,10 @@
 
 .file {
 	display: flex;
+
+	&-skeleton {
+		margin: $padding-small 0;
+	}
 }
 .file-input {
 	position: absolute;
