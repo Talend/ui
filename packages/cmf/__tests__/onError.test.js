@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { captureException, configureScope, init, withScope } from '@sentry/browser';
+import { captureException, configureScope, init, getCurrentHub, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
@@ -13,6 +13,7 @@ jest.mock('@sentry/browser', () => ({
 			throw new Error('mock fail');
 		}
 	}),
+	getCurrentHub: jest.fn(() => ({ getClient: () => true })),
 	withScope: jest.fn(),
 }));
 
@@ -250,7 +251,7 @@ describe('onError', () => {
 		});
 	});
 	describe('configureSentryScope', () => {
-		it('should call configureSentryScope with the parameters', () => {
+		it('should call setUser with the parameters if Sentry is initialized', () => {
 			const setUser = jest.fn();
 			const parameters = {
 				id: 'user-42',
@@ -260,6 +261,19 @@ describe('onError', () => {
 			onError.configureSentryScope(parameters);
 
 			expect(setUser).toHaveBeenCalledWith(parameters);
+		});
+
+		it('should no call setUser if Sentry is not initialized', () => {
+			getCurrentHub.mockImplementation(() => ({ getClient: () => false }));
+			const setUser = jest.fn();
+			const parameters = {
+				id: 'user-42',
+			};
+			configureScope.mockImplementation(cb => cb({ setUser }));
+
+			onError.configureSentryScope(parameters);
+
+			expect(setUser).not.toHaveBeenCalled();
 		});
 	});
 });

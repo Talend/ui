@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { captureException, configureScope, init, withScope } from '@sentry/browser';
+import { captureException, configureScope, init, getCurrentHub, withScope } from '@sentry/browser';
 import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
@@ -22,6 +22,9 @@ const ref = {
 };
 
 function configureSentryScope(options) {
+	if (!getCurrentHub().getClient()) {
+		return;
+	}
 	configureScope(scope => {
 		scope.setUser(options);
 	});
