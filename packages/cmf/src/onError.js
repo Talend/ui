@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { captureException, getCurrentHub, init, withScope } from '@sentry/browser';
+import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
@@ -20,6 +20,12 @@ const ref = {
 		getState: () => ({}),
 	},
 };
+
+export function configureSentryScope(options) {
+	configureScope(scope => {
+		scope.setUser(options);
+	});
+}
 
 function serialize(error) {
 	const std = {
@@ -71,7 +77,7 @@ function hasReportFeature() {
  * @param {Error} error instance of Error
  */
 function report(error, options = {}) {
-	if (ref.SENTRY_DSN || getCurrentHub().getClient() !== undefined) {
+	if (ref.SENTRY_DSN) {
 		if (options.tags) {
 			withScope(scope => {
 				options.tags.forEach(tag => scope.setTag(tag.key, tag.value));
@@ -139,13 +145,17 @@ function onJSError(event) {
  * init Sentry lib
  * @return {[type]} [description]
  */
-function setupSentry() {
+function setupSentry(option) {
 	if (!ref.SENTRY_DSN) {
 		return;
 	}
 	window.removeEventListener('error', onJSError);
 	try {
-		init({ dsn: ref.SENTRY_DSN });
+		const sentryOptions = { dsn: ref.SENTRY_DSN };
+		if (option.release) {
+			sentryOptions.release = option.release;
+		}
+		init(sentryOptions);
 	} catch (error) {
 		// eslint-disable-next-line no-console
 		console.error(error);
@@ -170,7 +180,7 @@ function bootstrap(options, store) {
 	ref.serverURL = opt.reportURL;
 	if (opt.SENTRY_DSN) {
 		ref.SENTRY_DSN = opt.SENTRY_DSN;
-		setupSentry();
+		setupSentry(opt);
 	}
 }
 
@@ -185,7 +195,7 @@ function setupFromSettings(settings) {
 	const dsn = get(settings, 'env.SENTRY_DSN');
 	if (!ref.SENTRY_DSN && ref.SENTRY_DSN !== dsn) {
 		ref.SENTRY_DSN = dsn;
-		setupSentry();
+		setupSentry({});
 	}
 }
 

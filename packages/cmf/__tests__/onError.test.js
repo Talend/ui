@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { captureException, getCurrentHub, init, withScope } from '@sentry/browser';
+import { captureException, init, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
@@ -13,7 +13,6 @@ jest.mock('@sentry/browser', () => {
 				throw new Error('mock fail');
 			}
 		}),
-		getCurrentHub: jest.fn(() => ({ getClient: () => undefined })),
 		withScope: jest.fn(),
 	};
 });
@@ -179,6 +178,25 @@ describe('onError', () => {
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
 		});
+
+		it('bootstrap should support release key', () => {
+			expect(init).not.toHaveBeenCalled();
+			expect(window.removeEventListener).not.toHaveBeenCalled();
+			config = {
+				onError: {
+					SENTRY_DSN: 'http://app@sentry.io/project',
+					release: '42',
+				},
+			};
+			onError.bootstrap(config, store);
+			expect(init).toHaveBeenCalledWith({
+				dsn: config.onError.SENTRY_DSN,
+				release: config.onError.release,
+			});
+			const onJSError = window.addEventListener.mock.calls[0][1];
+			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
+		});
+
 		it('should support init throw', () => {
 			config = {
 				onError: {
@@ -207,14 +225,6 @@ describe('onError', () => {
 					SENTRY_DSN: 'http://app@sentry.io/project',
 				},
 			};
-			onError.bootstrap(config, store);
-			const error = new Error('foo');
-			onError.report(error);
-			expect(captureException).toHaveBeenCalledWith(error);
-		});
-
-		it('report should call captureException if an sentry is initialized', () => {
-			getCurrentHub.mockImplementation(() => ({ getClient: () => true }));
 			onError.bootstrap(config, store);
 			const error = new Error('foo');
 			onError.report(error);
