@@ -5,10 +5,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/File/File.component.js
-   83:2   error  Expected to return a value at the end of method 'onChange'  consistent-return
-  100:11  error  Unnecessary 'else' after 'return'                           no-else-return
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
    4:10  error  'Actions' is defined but never used                                                                                        no-unused-vars
   34:9   error  'iconTransform' is assigned a value but never used                                                                         no-unused-vars
@@ -26,6 +22,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.test.js
   109:55  error  Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
 
-✖ 16 problems (16 errors, 0 warnings)
-  7 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 14 problems (14 errors, 0 warnings)
+  6 errors, 0 warnings potentially fixable with the `--fix` option.
 
