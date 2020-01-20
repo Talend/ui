@@ -5,18 +5,15 @@ import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
 
-jest.mock('@sentry/browser', () => {
-	return {
-		captureException: jest.fn(),
-		init: jest.fn(config => {
-			if (config.dsn === 'fail') {
-				throw new Error('mock fail');
-			}
-		}),
-		configureScope: jest.fn(),
-		withScope: jest.fn(),
-	};
-});
+jest.mock('@sentry/browser', () => ({
+	captureException: jest.fn(),
+	init: jest.fn(config => {
+		if (config.dsn === 'fail') {
+			throw new Error('mock fail');
+		}
+	}),
+	configureScope: jest.fn(),
+}));
 
 window.addEventListener = jest.fn();
 window.removeEventListener = jest.fn();
