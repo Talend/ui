@@ -7,12 +7,13 @@ import { store as mock } from '../src/mock';
 
 jest.mock('@sentry/browser', () => ({
 	captureException: jest.fn(),
+	configureScope: jest.fn(),
 	init: jest.fn(config => {
 		if (config.dsn === 'fail') {
 			throw new Error('mock fail');
 		}
 	}),
-	configureScope: jest.fn(),
+	withScope: jest.fn(),
 }));
 
 window.addEventListener = jest.fn();
