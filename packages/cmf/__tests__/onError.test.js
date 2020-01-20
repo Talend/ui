@@ -178,19 +178,21 @@ describe('onError', () => {
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
 		});
 
-		it('bootstrap should support release key', () => {
+		it('bootstrap should extend the Sentry option', () => {
 			expect(init).not.toHaveBeenCalled();
 			expect(window.removeEventListener).not.toHaveBeenCalled();
 			config = {
 				onError: {
 					SENTRY_DSN: 'http://app@sentry.io/project',
 					release: '42',
+					environnement: 'production',
 				},
 			};
 			onError.bootstrap(config, store);
 			expect(init).toHaveBeenCalledWith({
 				dsn: config.onError.SENTRY_DSN,
 				release: config.onError.release,
+				environnement: config.onError.environnement,
 			});
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);

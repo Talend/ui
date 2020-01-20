@@ -151,11 +151,7 @@ function setupSentry(option) {
 	}
 	window.removeEventListener('error', onJSError);
 	try {
-		const sentryOptions = { dsn: ref.SENTRY_DSN };
-		if (option.release) {
-			sentryOptions.release = option.release;
-		}
-		init(sentryOptions);
+		init({ dsn: ref.SENTRY_DSN, ...option, SENTRY_DSN: undefined });
 	} catch (error) {
 		// eslint-disable-next-line no-console
 		console.error(error);
