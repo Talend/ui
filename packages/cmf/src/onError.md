@@ -96,7 +96,7 @@ fetch('/api/webapp-config').then(config => {
 	cmf.bootstrap({
 		...
 		onError: {
-			SENTRY_DSN: config.SENTRY_DSN,
+      SENTRY_DSN: config.SENTRY_DSN,
       release: '1.9.0' // optional
 		}
 	});
