@@ -25,6 +25,7 @@ This widget allows you to render a file input.
 |---|---|---|
 | widget | `file` | `file` |
 | title | The title to display above field |  |
+| accept | File type specifier list to allow | |
 | autoFocus | Focus on input on render | `false` |
 | disabled | Disable the input | `false` |
 | placeholder | Text to display as placeholder |  |
