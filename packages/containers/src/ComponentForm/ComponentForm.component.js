@@ -88,6 +88,7 @@ export class TCompForm extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		const nextProperties = nextProps.state.get('properties', Map());
+
 		if (this.props.state.get('properties') !== nextProperties) {
 			this.setState({ properties: nextProperties.toJS() });
 		}
