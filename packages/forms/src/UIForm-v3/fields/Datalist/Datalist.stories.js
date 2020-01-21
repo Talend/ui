@@ -57,7 +57,7 @@ export const States = () => {
 };
 
 export const DefaultValue = () => {
-	const { handleSubmit, ...rhf } = useForm();
+	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
@@ -77,7 +77,7 @@ export const DefaultValue = () => {
 };
 
 export const Description = () => {
-	const { handleSubmit, ...rhf } = useForm();
+	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
@@ -97,7 +97,7 @@ export const Description = () => {
 };
 
 export const Restricted = () => {
-	const { handleSubmit, ...rhf } = useForm();
+	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	const rules = {
 		validate: selectedValue => {
 			if (!selectedValue || titleMap.find(({ value }) => value === selectedValue)) {
@@ -125,7 +125,7 @@ export const Restricted = () => {
 };
 
 export const Validation = () => {
-	const { handleSubmit, ...rhf } = useForm();
+	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>

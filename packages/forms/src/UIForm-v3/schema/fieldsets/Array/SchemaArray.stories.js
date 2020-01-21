@@ -148,7 +148,8 @@ export const ArrayValidation = () => (
 
 function ArrayWithAdvice(props) {
 	const { rhf } = props;
-	const length = rhf.getValues()['users.length'];
+	const length = rhf.watch('users.length'); //rhf.getValues({ nest: true }).users;
+
 	return (
 		<React.Fragment>
 			<div id="advice" style={{ textAlign: 'center' }}>

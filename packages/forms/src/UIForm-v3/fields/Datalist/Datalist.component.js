@@ -2,10 +2,13 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
+import get from 'lodash/get';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import FieldTemplate from '../../templates/FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../templates/utils';
 import { I18N_DOMAIN_FORMS } from '../../constants';
+
+const onEventGetValue = ([, payload]) => payload.value;
 
 function Datalist(props) {
 	const {
@@ -27,7 +30,7 @@ function Datalist(props) {
 	const value = watch(name);
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const error = errors[name];
+	const error = get(errors, name);
 
 	const { multiSection, type } = rest;
 	const titleMap = useMemo(() => {
@@ -61,6 +64,7 @@ function Datalist(props) {
 			}, []);
 		return titleMapFormProps.concat(additionalOptions);
 	}, [restricted, titleMapFormProps, value, multiSection, type, t]);
+
 	return (
 		<FieldTemplate
 			description={description}
@@ -75,12 +79,13 @@ function Datalist(props) {
 				as={DataListComponent}
 				control={rhf.control}
 				rules={rules}
-				onChange={([_, payload]) => payload.value}
-				onBlur={([_, payload]) => payload.value}
+				onChange={onEventGetValue}
+				onBlur={onEventGetValue}
 				name={name}
 				defaultValue={defaultValue}
 				{...rest}
 				titleMap={titleMap}
+				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!!error}
 				aria-required={required}
 				aria-describedby={`${descriptionId} ${errorId}`}

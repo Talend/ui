@@ -16,7 +16,6 @@ function replicateNewlyCreatedValues(key, value, values, rhf) {
 			);
 		});
 	} else {
-		console.log(`New value attached to key ${key}`, value);
 		rhf.setValue(key, value);
 	}
 }
@@ -25,7 +24,6 @@ function replicateExistingValues(oldValues, newValues, rhf) {
 	Object.entries(oldValues).forEach(([key, oldValue]) => {
 		const newValue = get(newValues, key);
 		if (newValue !== oldValue) {
-			console.log(`"${key}" value has changed`, { oldValue, newValue });
 			rhf.setValue(key, newValue);
 		}
 	});

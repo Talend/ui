@@ -58,7 +58,14 @@ export const InitialItemsNumber = () => {
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur' });
 	return (
 		<form onSubmit={handleSubmit(action('submit'))} noValidate>
-			<ArrayFieldset id="users" legend="My awesome users" name="users" initialNbItems={3} rhf={rhf}>
+			<ArrayFieldset
+				id="users"
+				legend="My awesome users"
+				name="users"
+				initialNbItems={3}
+				rhf={rhf}
+				description="This array has 3 items as initial number of items"
+			>
 				<ArrayFieldset.Items>
 					{index => (
 						<div style={demoStyle}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import get from 'lodash/get';
 import FieldTemplate from '../../templates/FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../templates/utils';
 
@@ -11,7 +12,7 @@ function Input(props) {
 
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const error = errors[name];
+	const error = get(errors, name);
 
 	return (
 		<FieldTemplate

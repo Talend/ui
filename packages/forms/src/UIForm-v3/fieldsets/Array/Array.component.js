@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -14,7 +15,7 @@ import ArrayContext from './context';
 
 export default function ArrayFieldset(props) {
 	const { children, initialNbItems = 0, name, rhf, rules, ...restProps } = props;
-	const { errors, getValues, setValue, register, unregister, triggerValidation } = rhf;
+	const { errors, getValues, setValue, register, unregister } = rhf;
 	const lengthName = `${name}.length`;
 
 	const [nbItems, setNbItems] = useState(() => {
@@ -22,26 +23,52 @@ export default function ArrayFieldset(props) {
 		return items ? items.length : initialNbItems;
 	});
 
+	const hasRules = !!rules;
+
+	// when we have rules, we register the array length to be able to
+	// trigger validation on array length change
+	// but when there is no element in the array, RHF builds an object instead of an empty array
+	// because of array.length
+	// to avoid that, when there are rules and no item in the array,
+	// we register the array, with [] as value
+	//
+	// when we add an element, we deregister it to let RHF take over the array management again
+	// when there is no rule, we don't register anything, we let RHF manage the array elements
 	React.useEffect(() => {
-		// when there is no element in the array, RHF builds an object instead of an empty array
-		// to avoid that, when there is no item, we register the array, with [] as value
-		// when we add an object, we deregister it to let RHF take over the array management again
-		if (!nbItems) {
-			register({ name, value: [] });
+		if (!hasRules || nbItems) {
+			return;
 		}
-
-		// we register the array length, so any change on it will trigger the array validation
-		register({ name: lengthName }, rules);
-
+		console.log(`register({ name: ${name}, value: [] });`);
+		register({ name, value: [] });
 		return () => {
+			console.log(`unregister(${name})`);
 			unregister(name);
+		};
+	}, [hasRules, nbItems, name]);
+
+	// when there are rules, we register the array to enable the array validation based on its length
+	React.useEffect(() => {
+		if (!hasRules) {
+			return;
+		}
+		console.log(`register({ name: ${lengthName}, type: 'custom', value: ${nbItems} }, rules);`);
+		register({ name: lengthName, type: 'custom', value: nbItems }, rules);
+		setValue(lengthName, nbItems, true);
+		return () => {
+			console.log(`unregister(${lengthName})`);
 			unregister(lengthName);
 		};
-	}, [register, unregister, name, lengthName, nbItems]);
+	}, [hasRules]);
 
+	// if we registered the array in RHF, on element add/remove,
+	// we update the length to trigger validation
 	React.useEffect(() => {
-		triggerValidation({ name: lengthName, value: nbItems });
-	}, [lengthName, nbItems]);
+		if (!hasRules) {
+			return;
+		}
+		console.log(`setValue(${lengthName}, ${nbItems}, true);`);
+		setValue(lengthName, nbItems, true);
+	}, [hasRules, lengthName, nbItems]);
 
 	const getItems = () => {
 		const items = getValues({ nest: true })[name];
@@ -77,8 +104,8 @@ export default function ArrayFieldset(props) {
 	function deleteItem(index) {
 		const newItems = getItems();
 		newItems.splice(index, 1);
-		refreshItems(newItems, index, newItems.length);
-		setNbItems(newItems.length);
+		refreshItems(newItems, index, nbItems);
+		setNbItems(nbItems - 1);
 	}
 
 	function swapItems(lowIndex, highIndex) {
@@ -104,7 +131,7 @@ export default function ArrayFieldset(props) {
 
 	return (
 		<ArrayContext.Provider value={{ nbItems, addItem, deleteItem, moveItemDown, moveItemUp }}>
-			<FieldsetTemplate {...restProps} defaultValue={[]} error={errors[lengthName]}>
+			<FieldsetTemplate {...restProps} defaultValue={[]} error={get(errors, lengthName)}>
 				{children}
 			</FieldsetTemplate>
 		</ArrayContext.Provider>
