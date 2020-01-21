@@ -53,6 +53,28 @@ describe('onError', () => {
 			expect(action.type).toBe('POST');
 			expect(action.body).toContain('My error listener');
 		});
+		it('should call onSentryScope within configureScope', () => {
+			const fakeScope = {
+				setUser: jest.fn(),
+				setTag: jest.fn(),
+			};
+			configureScope.mockImplementation(cb => cb(fakeScope));
+			const parameters = {
+				id: 'user-42',
+			};
+			config = {
+				onError: {
+					SENTRY_DSN: '123',
+					onSentryScope: scope => {
+						scope.setUser(parameters);
+						scope.setTag('tenant', 'tenant-id');
+					},
+				},
+			};
+			onError.bootstrap(config, store);
+			expect(fakeScope.setUser).toHaveBeenCalledWith(parameters);
+			expect(fakeScope.setTag).toHaveBeenCalledWith('tenant', 'tenant-id');
+		});
 	});
 	describe('getReportInfo', () => {
 		it('should fill internal values', () => {
@@ -250,32 +272,6 @@ describe('onError', () => {
 			const onScope = withScope.mock.calls[0][0];
 			onScope({ setTag });
 			expect(setTag).toHaveBeenCalledWith('tag', 'value');
-		});
-	});
-	describe('configureSentryScope', () => {
-		it('should call setUser with the parameters if Sentry is initialized', () => {
-			const setUser = jest.fn();
-			const parameters = {
-				id: 'user-42',
-			};
-			configureScope.mockImplementation(cb => cb({ setUser }));
-
-			onError.configureSentryScope(parameters);
-
-			expect(setUser).toHaveBeenCalledWith(parameters);
-		});
-
-		it('should no call setUser if Sentry is not initialized', () => {
-			getCurrentHub.mockImplementation(() => ({ getClient: () => false }));
-			const setUser = jest.fn();
-			const parameters = {
-				id: 'user-42',
-			};
-			configureScope.mockImplementation(cb => cb({ setUser }));
-
-			onError.configureSentryScope(parameters);
-
-			expect(setUser).not.toHaveBeenCalled();
 		});
 	});
 });

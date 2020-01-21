@@ -99,7 +99,14 @@ fetch('/api/webapp-config').then(config => {
 			SENTRY_DSN: config.SENTRY_DSN,
 			sentry: {
 				// options object for sentry: https://docs.sentry.io/error-reporting/configuration?platform=browser
-			}
+			},
+			/**
+			 * Here you can configure global scope
+			 */
+			onSentryScope: (scope) => {
+				scope.setUser({ id: 'user-42', email: 'foo@mycustomer.com' });
+				scope.setTag('tenantId': identity.tenantId);
+			},
 		}
 	});
 })

@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { captureException, configureScope, init, getCurrentHub, withScope } from '@sentry/browser';
+import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
@@ -20,15 +20,6 @@ const ref = {
 		getState: () => ({}),
 	},
 };
-
-function configureSentryScope(options) {
-	if (!getCurrentHub().getClient()) {
-		return;
-	}
-	configureScope(scope => {
-		scope.setUser(options);
-	});
-}
 
 function serialize(error) {
 	const std = {
@@ -180,6 +171,11 @@ function bootstrap(options, store) {
 	if (opt.SENTRY_DSN) {
 		ref.SENTRY_DSN = opt.SENTRY_DSN;
 		setupSentry(opt.sentry);
+		if (opt.onSentryScope) {
+			configureScope(scope => {
+				opt.onSentryScope(scope);
+			});
+		}
 	}
 }
 
@@ -245,7 +241,6 @@ function revokeObjectURL(url) {
 
 export default {
 	bootstrap,
-	configureSentryScope,
 	hasReportURL,
 	hasReportFeature,
 	getReportInfo,
