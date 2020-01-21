@@ -33,7 +33,7 @@
     "cmf-settings": "./scripts/cmf-settings.js"
   },
   "dependencies": {
-    "@sentry/browser": "^5.7.1",
+    "@sentry/browser": "^5.11.1",
     "bson-objectid": "^1.1.5",
     "deepmerge": "^1.5.1",
     "hoist-non-react-statics": "2.5.5",
