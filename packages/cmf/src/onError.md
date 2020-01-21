@@ -84,20 +84,22 @@ If you have Sentry in your infrastructure you can add the following settings.
 ```json
 {
 	"env": {
-		"SENTRY_DSN": "$SENTRY_DSN"
+		"SENTRY_DSN": "$SENTRY_DSN",
 	}
 }
 ```
 
-If you have an other way to get the DSN you can use it in the bootstrap onError using the same key `SENTRY_DSN`.
+If you have an other way to get the DSN you can use it in the bootstrap onError using the same key `SENTRY_DSN`. Bonus you can pass all options to sentry with this method like `release`, `environnement`.
 
 ```javascript
 fetch('/api/webapp-config').then(config => {
 	cmf.bootstrap({
 		...
 		onError: {
-      SENTRY_DSN: config.SENTRY_DSN,
-      // other sentry parameters: https://docs.sentry.io/error-reporting/configuration?platform=browser
+			SENTRY_DSN: config.SENTRY_DSN,
+			sentry: {
+				// options object for sentry: https://docs.sentry.io/error-reporting/configuration?platform=browser
+			}
 		}
 	});
 })

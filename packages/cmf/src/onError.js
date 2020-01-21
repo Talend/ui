@@ -148,13 +148,13 @@ function onJSError(event) {
  * init Sentry lib
  * @return {[type]} [description]
  */
-function setupSentry(option) {
+function setupSentry(option = {}) {
 	if (!ref.SENTRY_DSN) {
 		return;
 	}
 	window.removeEventListener('error', onJSError);
 	try {
-		init({ dsn: ref.SENTRY_DSN, ...option, SENTRY_DSN: undefined });
+		init({ dsn: ref.SENTRY_DSN, ...option });
 	} catch (error) {
 		// eslint-disable-next-line no-console
 		console.error(error);
@@ -179,7 +179,7 @@ function bootstrap(options, store) {
 	ref.serverURL = opt.reportURL;
 	if (opt.SENTRY_DSN) {
 		ref.SENTRY_DSN = opt.SENTRY_DSN;
-		setupSentry(opt);
+		setupSentry(opt.sentry);
 	}
 }
 

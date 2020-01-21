@@ -185,15 +185,17 @@ describe('onError', () => {
 			config = {
 				onError: {
 					SENTRY_DSN: 'http://app@sentry.io/project',
-					release: '42',
-					environnement: 'production',
+					sentry: {
+						release: '42',
+						environnement: 'production',
+					},
 				},
 			};
 			onError.bootstrap(config, store);
 			expect(init).toHaveBeenCalledWith({
 				dsn: config.onError.SENTRY_DSN,
-				release: config.onError.release,
-				environnement: config.onError.environnement,
+				release: config.onError.sentry.release,
+				environnement: config.onError.sentry.environnement,
 			});
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
