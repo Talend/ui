@@ -145,7 +145,7 @@ function setupSentry(options = {}) {
 	}
 	window.removeEventListener('error', onJSError);
 	try {
-		init({ dsn: ref.SENTRY_DSN, ...option });
+		init({ dsn: ref.SENTRY_DSN, ...options });
 	} catch (error) {
 		// eslint-disable-next-line no-console
 		console.error(error);
