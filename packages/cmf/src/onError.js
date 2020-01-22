@@ -139,7 +139,7 @@ function onJSError(event) {
  * init Sentry lib
  * @return {[type]} [description]
  */
-function setupSentry(option = {}) {
+function setupSentry(options = {}) {
 	if (!ref.SENTRY_DSN) {
 		return;
 	}
