@@ -23,9 +23,15 @@ function getWidget(displayMode, widgetId, customWidgets) {
 export default function Widget(props) {
 	const { id, schema } = props;
 	const { condition, key, type, widget, tooltip, tooltipPlacement } = schema;
-	const { eventsProps, displayMode, rhf, rules, templates = {}, widgets = [] } = useSchemaWidget(
-		schema,
-	);
+	const {
+		eventsProps,
+		displayMode,
+		name,
+		rhf,
+		rules,
+		templates = {},
+		widgets = [],
+	} = useSchemaWidget(schema);
 
 	// conditional rendering
 	const shouldRender = useCondition({ condition, rhf, schema });
@@ -51,7 +57,7 @@ export default function Widget(props) {
 			templates={templates}
 			// input props
 			id={sfPath.name(key, '_', id)}
-			name={key && key.join('.')}
+			name={name}
 			// react-hook-forms and validation rules
 			rhf={rhf}
 			rules={rules}

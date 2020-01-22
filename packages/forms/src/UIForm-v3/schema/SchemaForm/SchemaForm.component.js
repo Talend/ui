@@ -22,6 +22,7 @@ export default function SchemaForm({
 	const { properties } = data;
 	const { mergedSchema } = useSchemaForm(data);
 	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur', defaultValues: properties });
+
 	const contextValue = {
 		customFormats,
 		customValidation,

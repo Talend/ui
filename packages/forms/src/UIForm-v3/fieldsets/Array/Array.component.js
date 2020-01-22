@@ -16,7 +16,6 @@ import ArrayContext from './context';
 export default function ArrayFieldset(props) {
 	const { children, initialNbItems = 0, name, rhf, rules, ...restProps } = props;
 	const { errors, getValues, setValue, register, unregister } = rhf;
-	const lengthName = `${name}.length`;
 
 	const [nbItems, setNbItems] = useState(() => {
 		const items = getValues({ nest: true })[name];
@@ -24,49 +23,26 @@ export default function ArrayFieldset(props) {
 	});
 
 	const hasRules = !!rules;
+	const lengthName = `${name}[].length`;
 
-	// when we have rules, we register the array length to be able to
-	// trigger validation on array length change
-	// but when there is no element in the array, RHF builds an object instead of an empty array
-	// because of array.length
-	// to avoid that, when there are rules and no item in the array,
-	// we register the array, with [] as value
-	//
-	// when we add an element, we deregister it to let RHF take over the array management again
-	// when there is no rule, we don't register anything, we let RHF manage the array elements
-	React.useEffect(() => {
-		if (!hasRules || nbItems) {
-			return;
-		}
-		console.log(`register({ name: ${name}, value: [] });`);
-		register({ name, value: [] });
-		return () => {
-			console.log(`unregister(${name})`);
-			unregister(name);
-		};
-	}, [hasRules, nbItems, name]);
-
-	// when there are rules, we register the array to enable the array validation based on its length
+	// when there are rules, we register the array length
+	// to enable the array validation based on its length
 	React.useEffect(() => {
 		if (!hasRules) {
 			return;
 		}
-		console.log(`register({ name: ${lengthName}, type: 'custom', value: ${nbItems} }, rules);`);
-		register({ name: lengthName, type: 'custom', value: nbItems }, rules);
-		setValue(lengthName, nbItems, true);
-		return () => {
-			console.log(`unregister(${lengthName})`);
-			unregister(lengthName);
-		};
-	}, [hasRules]);
 
-	// if we registered the array in RHF, on element add/remove,
+		register({ name: lengthName, type: 'custom', value: nbItems }, rules);
+		return () => unregister(lengthName);
+	}, [hasRules, lengthName, register, unregister]);
+
+	// if we registered the array length in RHF, on element add/remove,
 	// we update the length to trigger validation
 	React.useEffect(() => {
 		if (!hasRules) {
 			return;
 		}
-		console.log(`setValue(${lengthName}, ${nbItems}, true);`);
+
 		setValue(lengthName, nbItems, true);
 	}, [hasRules, lengthName, nbItems]);
 
@@ -82,10 +58,7 @@ export default function ArrayFieldset(props) {
 		const values = getValues();
 		// eslint-disable-next-line no-plusplus
 		for (let i = fromIndex; i < toIndex; i++) {
-			// support dot-notation (users.0) and bracket-notation (users[0])
-			const indexBracket = `\\[${i}\\]`;
-			const indexDot = `\\.${i}`;
-			const itemKeyPattern = `^${name}(${indexBracket}|${indexDot})(\\.(.+))?$`;
+			const itemKeyPattern = `^${name}(\\[${i}\\])(\\.(.+))?$`;
 
 			Object.keys(values)
 				.map(key => key.match(itemKeyPattern))

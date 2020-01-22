@@ -148,10 +148,11 @@ export const ArrayValidation = () => (
 
 function ArrayWithAdvice(props) {
 	const { rhf } = props;
-	const length = rhf.watch('users.length'); //rhf.getValues({ nest: true }).users;
+	const length = rhf.watch('users.length');
 
 	return (
 		<React.Fragment>
+			<p>This custom template shows a message when there is no user yet, bringing some advice</p>
 			<div id="advice" style={{ textAlign: 'center' }}>
 				{!length ? 'There is no user yet, please add some' : null}
 			</div>
