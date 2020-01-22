@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -28,7 +28,7 @@ const dateRegexp = new RegExp(
 );
 const timeRegexp = new RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/);
 
-export function NativeValue({ data, edit, className, onChange, jsonpath }) {
+export function NativeValue({ data, edit, className, onChange, jsonpath, wrap }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -42,7 +42,9 @@ export function NativeValue({ data, edit, className, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(className, theme.native, theme[type]);
+	const lineValueClasses = classNames(className, theme.native, theme[type], {
+		[`${theme['wrap-string']}`]: wrap,
+	});
 
 	return <span className={lineValueClasses}>{display}</span>;
 }
@@ -53,6 +55,7 @@ NativeValue.propTypes = {
 	className: PropTypes.string,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
+	wrap: PropTypes.bool,
 };
 NativeValue.defaultProps = {
 	className: theme.value,
@@ -119,8 +122,11 @@ export class LineItem extends React.Component {
 			icon,
 			type,
 			value,
+			isValueOverflown,
 		} = this.props;
 		const isSelectedLine = this.isSelected();
+
+		const lineClass = classNames(theme.line, { [theme['full-width']]: isValueOverflown });
 
 		const lineChildren = [
 			getName(name),
@@ -133,7 +139,6 @@ export class LineItem extends React.Component {
 			badge,
 			tag,
 		];
-
 		return (
 			<li // eslint-disable-line jsx-a11y/no-static-element-interactions
 				id={id}
@@ -155,7 +160,7 @@ export class LineItem extends React.Component {
 					this.ref = ref;
 				}}
 			>
-				<div key="line" className={theme.line}>
+				<div key="line" className={lineClass}>
 					{icon}
 					<div key="line-main" className={theme['line-main']}>
 						{lineChildren}
@@ -186,6 +191,7 @@ LineItem.propTypes = {
 	tag: PropTypes.node,
 	type: PropTypes.string,
 	value: PropTypes.node,
+	isValueOverflown: PropTypes.bool,
 };
 
 /**
@@ -403,6 +409,21 @@ export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedC
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
 
+	const [lineItemWidth, setLineItemWidth] = useState(false);
+	const [nativeValueWrap, setNativeValueWrap] = useState(false);
+
+	const lineItemRef = useRef();
+
+	useLayoutEffect(() => {
+		const { current } = lineItemRef;
+		if (current) {
+			const ref = current.ref;
+			if (ref.offsetParent.offsetWidth < ref.scrollWidth) {
+				setLineItemWidth(true);
+			}
+		}
+	});
+
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
 	}
@@ -419,6 +440,7 @@ export function Item(props) {
 	if (isNativeType) {
 		return (
 			<LineItem
+				ref={lineItemRef}
 				{...props}
 				value={
 					<NativeValue
@@ -428,10 +450,31 @@ export function Item(props) {
 						onEdit={props.onEdit}
 						onChange={props.onChange}
 						className={props.nativeValueClassName}
+						wrap={nativeValueWrap}
 					/>
 				}
 				type={props.showType ? info.type : null}
 				tag={tag}
+				isValueOverflown={lineItemWidth}
+				// icon is shown when LineItem value is a long field and needs to be wrapped
+				icon={
+					lineItemWidth && (
+						<Action
+							key="toggle"
+							className={classNames(theme.chevron, { [theme['chevron-filled']]: nativeValueWrap })}
+							icon={'talend-chevron-left'}
+							iconTransform={nativeValueWrap ? 'rotate-90' : 'rotate-270'}
+							onClick={e => {
+								e.stopPropagation();
+								setNativeValueWrap(val => !val);
+							}}
+							label=""
+							aria-hidden
+							tabIndex="-1"
+							link
+						/>
+					)
+				}
 			/>
 		);
 	}

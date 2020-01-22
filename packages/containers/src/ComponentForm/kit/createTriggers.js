@@ -162,6 +162,7 @@ export default function createTriggers({
 			const result = (services[trigger.type] || passthroughTrigger)({
 				body,
 				errors,
+				event,
 				properties,
 				schema,
 				trigger,
