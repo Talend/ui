@@ -1,6 +1,4 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import { captureException, configureScope, init, getCurrentHub, withScope } from '@sentry/browser';
+import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
@@ -13,7 +11,6 @@ jest.mock('@sentry/browser', () => ({
 			throw new Error('mock fail');
 		}
 	}),
-	getCurrentHub: jest.fn(() => ({ getClient: () => true })),
 	withScope: jest.fn(),
 }));
 
