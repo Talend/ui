@@ -52,6 +52,7 @@ module.exports = {
 	'redux-thunk': '^2.2.0',
 	'redux-undo': 'beta',
 	reselect: '^2.5.4',
+	'@sentry/browser': '^5.11.1',
 	slugify: '^1.1.0',
 	uuid: '^3.0.1', // prefer bson-objectid
 	tv4: '^1.3.0',
