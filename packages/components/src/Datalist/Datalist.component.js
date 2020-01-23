@@ -316,7 +316,7 @@ class Datalist extends Component {
 			}
 			const selectedEnumValue = get(enumValue, 'value');
 
-			if ((selectedEnumValue || this.props.allowEmpty) || !this.props.restricted) {
+			if (selectedEnumValue || this.props.allowEmpty || !this.props.restricted) {
 				this.props.onChange(event, { value: selectedEnumValue || value });
 				this.setState({
 					previousValue: previousValue.name,
