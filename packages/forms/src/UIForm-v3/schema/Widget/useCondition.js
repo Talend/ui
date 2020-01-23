@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import { useMemo, useState, useEffect } from 'react';
+import { useFormContext } from 'react-hook-form';
 import jsonLogic from 'json-logic-js';
 
 function lowercase(a) {
@@ -115,15 +116,14 @@ function getConditionVars(condition) {
 	}
 	return [];
 }
-export default function useCondition({ condition, rhf, schema }) {
-	const [shouldRender, setShouldRender] = useState(true);
-	const conditionVars = useMemo(() => getConditionVars(condition), [condition]);
-	conditionVars.forEach(conditionVar => rhf.watch(conditionVar));
+export default function useCondition(schema) {
+	const { condition, key } = schema;
+	const { getValues, watch } = useFormContext();
 
 	useEffect(() => {
-		const values = rhf.getValues({ nest: true });
-		setShouldRender(evalCondition(condition, values, schema));
-	}, [condition, rhf]);
+		getConditionVars(condition).forEach(conditionVar => watch(conditionVar));
+	}, [condition, watch]);
 
-	return shouldRender;
+	const values = getValues({ nest: true });
+	return evalCondition(condition, values, key);
 }

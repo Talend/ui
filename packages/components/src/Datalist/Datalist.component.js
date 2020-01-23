@@ -62,9 +62,6 @@ class Datalist extends Component {
 	 * @param event The blur event
 	 */
 	onBlur(event) {
-		if (this.props.onBlur) {
-			this.props.onBlur(event, { value: this.state.value });
-		}
 		const { value, previousValue } = this.state;
 
 		if (value !== previousValue) {
@@ -80,6 +77,10 @@ class Datalist extends Component {
 			}
 
 			this.updateValue(event, newValue, true);
+		}
+
+		if (this.props.onBlur) {
+			this.props.onBlur(event, { value: this.state.value });
 		}
 	}
 

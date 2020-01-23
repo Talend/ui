@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useFormContext } from 'react-hook-form';
 import get from 'lodash/get';
 import Items from './Items.component';
 import ItemsTemplate from './templates/ItemsTemplate.component';
@@ -14,8 +15,8 @@ import FieldsetTemplate from '../../templates/FieldsetTemplate';
 import ArrayContext from './context';
 
 export default function ArrayFieldset(props) {
-	const { children, initialNbItems = 0, name, rhf, rules, ...restProps } = props;
-	const { errors, getValues, setValue, register, unregister } = rhf;
+	const { children, initialNbItems = 0, name, rules, ...restProps } = props;
+	const { errors, getValues, setValue, register, unregister } = useFormContext();
 
 	const [nbItems, setNbItems] = useState(() => {
 		const items = getValues({ nest: true })[name];
@@ -125,6 +126,5 @@ if (process.env.NODE_ENV !== 'production') {
 		initialNbItems: PropTypes.number,
 		name: PropTypes.string.isRequired,
 		rules: PropTypes.object,
-		rhf: PropTypes.object.isRequired,
 	};
 }

@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
+import { useFormContext } from 'react-hook-form';
 import SchemaForm from '../../SchemaForm';
 import SchemaArray from './SchemaArray.component';
 import ArrayFieldset from '../../../fieldsets/Array';
@@ -147,8 +148,8 @@ export const ArrayValidation = () => (
 );
 
 function ArrayWithAdvice(props) {
-	const { rhf } = props;
-	const length = rhf.watch('users.length');
+	const { watch } = useFormContext();
+	const length = watch('users.length');
 
 	return (
 		<React.Fragment>
@@ -160,7 +161,6 @@ function ArrayWithAdvice(props) {
 		</React.Fragment>
 	);
 }
-ArrayWithAdvice.propTypes = { rhf: PropTypes.object };
 export const CustomTemplate = () => (
 	<SchemaForm
 		id="schema-form"

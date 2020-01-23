@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useForm } from 'react-hook-form';
+import { useForm, FormContext } from 'react-hook-form';
 import useSchemaForm from './useSchemaForm';
 import Widget from '../Widget';
-import SchemaFormContext from '../context';
 import TemplateForm from './TemplateForm.component';
 import TemplateDefinition from './TemplateDefinition.component';
 
@@ -21,7 +20,7 @@ export default function SchemaForm({
 }) {
 	const { properties } = data;
 	const { mergedSchema } = useSchemaForm(data);
-	const { handleSubmit, ...rhf } = useForm({ mode: 'onBlur', defaultValues: properties });
+	const rhf = useForm({ mode: 'onBlur', defaultValues: properties });
 
 	const contextValue = {
 		customFormats,
@@ -29,22 +28,23 @@ export default function SchemaForm({
 		displayMode,
 		language,
 		onTrigger,
-		rhf,
 		templates,
 		widgets,
 	};
 
 	const SchemaFormTemplate = displayMode ? TemplateDefinition : TemplateForm;
-
 	return (
-		<SchemaFormContext.Provider value={contextValue}>
-			<SchemaFormTemplate {...restProps} handleSubmit={handleSubmit} onSubmit={onSubmit}>
+		<FormContext {...contextValue} {...rhf}>
+			<SchemaFormTemplate
+				{...restProps}
+				onSubmit={rhf.handleSubmit((payload, event) => onSubmit(event, payload))}
+			>
 				{mergedSchema &&
 					mergedSchema.map((widgetSchema, index) => (
 						<Widget key={index} id={restProps.id} schema={widgetSchema} />
 					))}
 			</SchemaFormTemplate>
-		</SchemaFormContext.Provider>
+		</FormContext>
 	);
 }
 
@@ -60,7 +60,7 @@ if (process.env.NODE_ENV !== 'production') {
 		displayMode: PropTypes.string,
 		id: PropTypes.string.isRequired,
 		language: PropTypes.object,
-		onSubmit: PropTypes.func.isRequired,
+		onSubmit: PropTypes.func,
 		onTrigger: PropTypes.func,
 		templates: PropTypes.object,
 		widgets: PropTypes.object,

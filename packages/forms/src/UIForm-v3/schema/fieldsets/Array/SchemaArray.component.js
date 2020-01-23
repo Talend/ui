@@ -22,7 +22,7 @@ function injectItemIndex(itemIndex, genericSchema) {
 	return schema;
 }
 
-export default function SchemaArray({ id, displayMode, schema, rhf, templates, ...restProps }) {
+export default function SchemaArray({ id, displayMode, schema, templates, ...restProps }) {
 	const { title, items, options = {} } = schema;
 	const { hideTitle, ...restOptions } = options;
 
@@ -34,25 +34,15 @@ export default function SchemaArray({ id, displayMode, schema, rhf, templates, .
 			legend={title}
 			hideLegend={hideTitle}
 			id={id}
-			rhf={rhf}
 			{...restOptions}
 			{...omit(restProps, PROPS_TO_REMOVE_FROM_INPUTS)}
 		>
-			<ItemsTemplate id={id} rhf={rhf}>
+			<ItemsTemplate id={id}>
 				{itemIndex => (
 					<React.Fragment>
-						{items.map((itemSchema, index) => {
-							const adaptedItemSchema = injectItemIndex(itemIndex, itemSchema);
-							return (
-								<Widget
-									key={index}
-									id={id}
-									rhf={rhf}
-									schema={adaptedItemSchema}
-									{...pick(restProps, PROPS_TO_REMOVE_FROM_INPUTS)}
-								/>
-							);
-						})}
+						{items.map((itemSchema, index) => (
+							<Widget key={index} id={id} schema={injectItemIndex(itemIndex, itemSchema)} />
+						))}
 					</React.Fragment>
 				)}
 			</ItemsTemplate>
@@ -64,7 +54,6 @@ if (process.env.NODE_ENV !== 'production') {
 	SchemaArray.propTypes = {
 		id: PropTypes.string.isRequired,
 		displayMode: PropTypes.string,
-		rhf: PropTypes.object.isRequired,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
 			items: PropTypes.array,

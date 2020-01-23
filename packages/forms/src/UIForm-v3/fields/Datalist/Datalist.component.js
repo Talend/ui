@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { Controller } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import get from 'lodash/get';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import FieldTemplate from '../../templates/FieldTemplate';
@@ -18,13 +18,12 @@ function Datalist(props) {
 		label,
 		resolveName = val => val,
 		restricted,
-		rhf,
 		rules,
 		titleMap: titleMapFormProps,
 		...rest
 	} = props;
 	const { id, name, required } = rest;
-	const { errors, watch } = rhf;
+	const { control, errors, watch } = useFormContext();
 
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const value = watch(name);
@@ -77,10 +76,10 @@ function Datalist(props) {
 		>
 			<Controller
 				as={DataListComponent}
-				control={rhf.control}
+				control={control}
 				rules={rules}
 				onChange={onEventGetValue}
-				onBlur={onEventGetValue}
+				//onBlur={onEventGetValue}
 				name={name}
 				defaultValue={defaultValue}
 				{...rest}
@@ -104,7 +103,6 @@ if (process.env.NODE_ENV !== 'production') {
 		label: PropTypes.string.isRequired,
 		resolveName: PropTypes.func,
 		restricted: PropTypes.bool,
-		rhf: PropTypes.object.isRequired,
 		rules: PropTypes.object,
 		titleMap: PropTypes.array,
 	};

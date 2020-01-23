@@ -4,11 +4,10 @@ import classNames from 'classnames';
 
 import theme from './SchemaForm.scss';
 
-export default function TemplateForm({ children, handleSubmit, onSubmit, ...restProps }) {
+export default function TemplateForm({ children, ...restProps }) {
 	return (
 		<form
 			{...restProps}
-			onSubmit={handleSubmit((payload, event) => onSubmit(event, payload))}
 			noValidate
 			className={classNames('tf-uiform', theme.uiform, restProps.className)}
 		>

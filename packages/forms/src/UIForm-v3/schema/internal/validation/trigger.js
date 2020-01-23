@@ -1,4 +1,8 @@
 export default function triggerRules({ validationTrigger, schema, rhf }) {
+	if (!schema.key) {
+		return () => {};
+	}
+
 	const key = schema.key.join('.');
 	return () => {
 		if (validationTrigger) {

@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { sfPath } from '@talend/json-schema-form-core';
+import { useFormContext } from 'react-hook-form';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
-import useCondition from './useCondition';
 import defaultWidgets from '../widgets';
-import useSchemaWidget from './useSchemaWidget';
+import useIdentifiers from './useIdentifiers';
+import useCondition from './useCondition';
+import useRules from './useRules';
+import { useEventTriggers } from './useTriggers';
 
 function getWidget(displayMode, widgetId, customWidgets) {
 	// resolve the widget id depending on the display mode
@@ -22,19 +24,15 @@ function getWidget(displayMode, widgetId, customWidgets) {
 
 export default function Widget(props) {
 	const { id, schema } = props;
-	const { condition, key, type, widget, tooltip, tooltipPlacement } = schema;
-	const {
-		eventsProps,
-		displayMode,
-		name,
-		rhf,
-		rules,
-		templates = {},
-		widgets = [],
-	} = useSchemaWidget(schema);
+	const { type, widget, tooltip, tooltipPlacement } = schema;
+
+	const { displayMode, templates = {}, widgets = [] } = useFormContext();
+	const eventsProps = useEventTriggers(schema);
+	const { id: schemaId, name } = useIdentifiers({ schema, id });
+	const rules = useRules(schema);
+	const shouldRender = useCondition(schema);
 
 	// conditional rendering
-	const shouldRender = useCondition({ condition, rhf, schema });
 	if (!shouldRender) {
 		return null;
 	}
@@ -56,10 +54,9 @@ export default function Widget(props) {
 			displayMode={displayMode}
 			templates={templates}
 			// input props
-			id={sfPath.name(key, '_', id)}
+			id={schemaId}
 			name={name}
 			// react-hook-forms and validation rules
-			rhf={rhf}
 			rules={rules}
 		/>
 	);
