@@ -316,7 +316,7 @@ class Datalist extends Component {
 			}
 			const selectedEnumValue = get(enumValue, 'value');
 
-			if (selectedEnumValue || !this.props.restricted) {
+			if ((selectedEnumValue || this.props.allowEmpty) || !this.props.restricted) {
 				this.props.onChange(event, { value: selectedEnumValue || value });
 				this.setState({
 					previousValue: previousValue.name,
@@ -440,6 +440,7 @@ if (process.env.NODE_ENV !== 'production') {
 		multiSection: PropTypes.bool.isRequired,
 		readOnly: PropTypes.bool,
 		restricted: PropTypes.bool,
+		allowEmpty: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(
 			PropTypes.oneOfType([
 				PropTypes.shape({

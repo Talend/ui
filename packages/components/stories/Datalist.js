@@ -58,12 +58,10 @@ storiesOf('Datalist', module)
 			...propsMultiSection,
 			titleMap: propsMultiSection.titleMap.map(titleMap => ({
 				...titleMap,
-				suggestions: titleMap.suggestions.map(
-					suggestion => ({
-						...suggestion,
-						icon: { name: 'talend-clock' },
-					}),
-				),
+				suggestions: titleMap.suggestions.map(suggestion => ({
+					...suggestion,
+					icon: { name: 'talend-clock' },
+				})),
 			})),
 		};
 		return (
@@ -169,4 +167,17 @@ storiesOf('Datalist', module)
 				<Datalist {...combinationSectionProps} />
 			</form>
 		);
-	});
+	})
+
+	.add('restricted but with empty values allowed', () => (
+		<form className="form">
+			<IconsProvider />
+			<h3>With empty value</h3>
+			<Datalist
+				{...singleSectionProps}
+				restricted
+				allowEmpty
+				titleMap={[{ name: '', value: '' }, ...defaultProps.titleMap]}
+			/>
+		</form>
+	));

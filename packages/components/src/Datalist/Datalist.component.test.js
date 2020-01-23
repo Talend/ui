@@ -194,6 +194,30 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
+	it('should allow to change with empty value in restricted mode when allowEmpty is set', () => {
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				restricted
+				allowEmpty
+				{...props}
+				value={'foo'}
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: '' } });
+
+		input.simulate('blur');
+
+		const payload = { value: '' };
+		expect(onChange).toBeCalledWith(expect.anything(), payload);
+	});
+
 	it('should not reset to old value when clearing input, in restricted mode, and then onBlur', () => {
 		// given
 		const onChange = jest.fn();
