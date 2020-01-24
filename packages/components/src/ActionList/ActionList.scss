@@ -19,6 +19,7 @@ $tc-action-list-item-border-size: 2px !default;
 			.btn.btn-link {
 				padding: $padding-normal;
 				text-overflow: inherit;
+				text-transform: unset;
 
 				> span {
 					margin-left: $padding-normal;
