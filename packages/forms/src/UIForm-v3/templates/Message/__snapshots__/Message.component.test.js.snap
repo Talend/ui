@@ -9,9 +9,7 @@ exports[`Message component should render nothing when field is valid and no desc
     aria-live="assertive"
     className="help-block"
     role="status"
-  >
-    
-  </p>
+  />
 </div>
 `;
 
@@ -26,9 +24,7 @@ exports[`Message component should render provided description and no error if th
     aria-live="assertive"
     className="help-block"
     role="status"
-  >
-    
-  </p>
+  />
 </div>
 `;
 
@@ -39,14 +35,12 @@ exports[`Message component should render provided error message and no descripti
   <p
     className="help-block"
   >
-    
+    My description
   </p>
   <p
     aria-live="assertive"
     className="help-block"
     role="status"
-  >
-    My error message
-  </p>
+  />
 </div>
 `;

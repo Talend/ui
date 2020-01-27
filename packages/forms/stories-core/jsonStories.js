@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm } from '../src/UIForm-v2/UIForm';
 import Enumeration from '../src/UIForm-v2/UIForm/fields/Enumeration';
-import { PRESIGNED_URL_TRIGGER_ACTION } from '../src/UIForm/fields/File/File.component';
+import { PRESIGNED_URL_TRIGGER_ACTION } from '../src/UIForm-v2/UIForm/fields/File/File.component';
 
 const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);
 const fieldsetsFilenames = require.context('./json/fieldsets', true, /.(js|json)$/);

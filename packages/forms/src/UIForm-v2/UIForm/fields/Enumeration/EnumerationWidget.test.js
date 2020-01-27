@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Button } from 'react-bootstrap';
-import toJsonWithoutI18n from '../../../../__mocks__/props-without-i18n';
+import toJsonWithoutI18n from '../../../../../__mocks__/props-without-i18n';
 import TranslatedEnumeration, {
 	EnumerationForm as EnumerationWidget,
 	enumerationStates,

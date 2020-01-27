@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { data, mergedSchema, initProps } from '../../__mocks__/data';
+import { data, mergedSchema, initProps } from '../../../__mocks__/data';
 import UIForm from './UIForm.container';
 
 describe('UIForm container', () => {

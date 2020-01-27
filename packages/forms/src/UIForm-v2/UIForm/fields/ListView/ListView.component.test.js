@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { mount, shallow } from 'enzyme';
 import keycode from 'keycode';
 import ListView, { ListViewWidget } from './ListView.component';
-import toJsonWithoutI18n from '../../../../__mocks__/props-without-i18n';
+import toJsonWithoutI18n from '../../../../../__mocks__/props-without-i18n';
 
 jest.useFakeTimers();
 
