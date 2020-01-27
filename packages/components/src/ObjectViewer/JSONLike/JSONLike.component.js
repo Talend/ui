@@ -458,22 +458,22 @@ export function Item(props) {
 				isValueOverflown={lineItemWidth}
 				// icon is shown when LineItem value is a long field and needs to be wrapped
 				icon={
-					lineItemWidth && (
-						<Action
-							key="toggle"
-							className={classNames(theme.chevron, { [theme['chevron-filled']]: nativeValueWrap })}
-							icon={'talend-chevron-left'}
-							iconTransform={nativeValueWrap ? 'rotate-90' : 'rotate-270'}
-							onClick={e => {
-								e.stopPropagation();
-								setNativeValueWrap(val => !val);
-							}}
-							label=""
-							aria-hidden
-							tabIndex="-1"
-							link
-						/>
-					)
+					// lineItemWidth && (
+					<Action
+						key="toggle"
+						className={classNames(theme.chevron, { [theme['chevron-filled']]: nativeValueWrap })}
+						icon={'talend-chevron-left'}
+						iconTransform={nativeValueWrap ? 'rotate-90' : 'rotate-270'}
+						onClick={e => {
+							e.stopPropagation();
+							setNativeValueWrap(val => !val);
+						}}
+						label=""
+						aria-hidden
+						tabIndex="-1"
+						link
+					/>
+					// )
 				}
 			/>
 		);
