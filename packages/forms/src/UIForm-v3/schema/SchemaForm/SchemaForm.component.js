@@ -12,6 +12,7 @@ export default function SchemaForm({
 	data,
 	displayMode,
 	language,
+	onChange,
 	onSubmit,
 	onTrigger,
 	templates,
@@ -21,12 +22,27 @@ export default function SchemaForm({
 	const { properties } = data;
 	const { mergedSchema } = useSchemaForm(data);
 	const rhf = useForm({ mode: 'onBlur', defaultValues: properties });
-
+	/*
+	const allValue = rhf.watch();
+	console.log(allValue);
+	const onValueChange =
+		onChange &&
+		((event, payload) => {
+			const currentProperties = rhf.getValues({ nest: true });
+			return onChange(event, {
+				...payload,
+				properties: currentProperties,
+				// for code compatibility. Should be removed in the future
+				formData: currentProperties,
+			});
+		});
+*/
 	const contextValue = {
 		customFormats,
 		customValidation,
 		displayMode,
 		language,
+		//onChange: onValueChange,
 		onTrigger,
 		templates,
 		widgets,
@@ -60,6 +76,7 @@ if (process.env.NODE_ENV !== 'production') {
 		displayMode: PropTypes.string,
 		id: PropTypes.string.isRequired,
 		language: PropTypes.object,
+		onChange: PropTypes.func,
 		onSubmit: PropTypes.func,
 		onTrigger: PropTypes.func,
 		templates: PropTypes.object,

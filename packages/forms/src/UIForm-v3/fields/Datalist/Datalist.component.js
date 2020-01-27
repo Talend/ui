@@ -16,6 +16,7 @@ function Datalist(props) {
 		description,
 		inProgress,
 		label,
+		onChange,
 		resolveName = val => val,
 		restricted,
 		rules,
@@ -64,6 +65,18 @@ function Datalist(props) {
 		return titleMapFormProps.concat(additionalOptions);
 	}, [restricted, titleMapFormProps, value, multiSection, type, t]);
 
+	const onValueChange = useMemo(() => {
+		if (onChange) {
+			return (...args) => {
+				const [event, payload] = args[0];
+				onChange(event, payload);
+				return onEventGetValue(...args);
+			};
+		}
+
+		return onEventGetValue;
+	}, [onChange]);
+
 	return (
 		<FieldTemplate
 			description={description}
@@ -78,8 +91,7 @@ function Datalist(props) {
 				as={DataListComponent}
 				control={control}
 				rules={rules}
-				onChange={onEventGetValue}
-				//onBlur={onEventGetValue}
+				onChange={onValueChange}
 				name={name}
 				defaultValue={defaultValue}
 				{...rest}
@@ -101,6 +113,7 @@ if (process.env.NODE_ENV !== 'production') {
 		description: PropTypes.string,
 		inProgress: PropTypes.bool,
 		label: PropTypes.string.isRequired,
+		onChange: PropTypes.func,
 		resolveName: PropTypes.func,
 		restricted: PropTypes.bool,
 		rules: PropTypes.object,
