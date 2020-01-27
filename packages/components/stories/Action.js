@@ -100,7 +100,7 @@ storiesOf('Action', module)
 			<h3>Loading Icon button</h3>
 			<Action id="icon" link label="Click me" loading />
 			<h3>Disabled</h3>
-			<Action id="disabled" {...myAction} disabled />
+			<Action id="disabled" {...myAction} disabled tooltip />
 			<h3>Reverse display</h3>
 			<Action id="reverseDisplay" {...myAction} iconPosition="right" />
 			<h3>With hover handlers</h3>
