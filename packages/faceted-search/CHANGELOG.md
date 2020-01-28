@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/): Remove "Selected values only" for checkbox facet
+
 ## [0.2.6]
 
 ### Fixed
