@@ -77,7 +77,6 @@
 				max-width: 100%;
 				display: flex;
 				align-items: center;
-				overflow: hidden;
 
 				&:focus {
 					.value {
@@ -86,6 +85,10 @@
 						overflow: visible;
 						vertical-align: top;
 					}
+				}
+
+				&.shrink-value {
+					overflow: hidden;
 				}
 			}
 		}
@@ -105,13 +108,16 @@
 		.value {
 			color: $brand-primary;
 			margin-left: $padding-smaller;
-			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 
 			&.wrap-string {
 				white-space: normal;
 				word-break: break-all;
+			}
+
+			&.shrink-value {
+				overflow: hidden;
 			}
 		}
 

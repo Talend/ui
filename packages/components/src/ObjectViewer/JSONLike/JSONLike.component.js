@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -28,7 +28,7 @@ const dateRegexp = new RegExp(
 );
 const timeRegexp = new RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/);
 
-export function NativeValue({ data, edit, className, onChange, jsonpath, wrap }) {
+export function NativeValue({ data, edit, className, onChange, jsonpath, wrap, isValueOverflown }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -44,6 +44,7 @@ export function NativeValue({ data, edit, className, onChange, jsonpath, wrap })
 
 	const lineValueClasses = classNames(className, theme.native, theme[type], {
 		[`${theme['wrap-string']}`]: wrap,
+		[theme['shrink-value']]: isValueOverflown,
 	});
 
 	return <span className={lineValueClasses}>{display}</span>;
@@ -56,6 +57,7 @@ NativeValue.propTypes = {
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
 	wrap: PropTypes.bool,
+	isValueOverflown: PropTypes.bool,
 };
 NativeValue.defaultProps = {
 	className: theme.value,
@@ -162,7 +164,12 @@ export class LineItem extends React.Component {
 			>
 				<div key="line" className={lineClass}>
 					{icon}
-					<div key="line-main" className={theme['line-main']}>
+					<div
+						key="line-main"
+						className={classNames(theme['line-main'], {
+							[theme['shrink-value']]: isValueOverflown,
+						})}
+					>
 						{lineChildren}
 					</div>
 				</div>
@@ -412,17 +419,13 @@ export function Item(props) {
 	const [lineItemWidth, setLineItemWidth] = useState(false);
 	const [nativeValueWrap, setNativeValueWrap] = useState(false);
 
-	const lineItemRef = useRef();
-
-	useLayoutEffect(() => {
-		const { current } = lineItemRef;
-		if (current) {
-			const ref = current.ref;
-			if (ref.offsetParent.offsetWidth < ref.scrollWidth) {
+	const lineItemRef = useCallback(node => {
+		if (node) {
+			if (node.ref.offsetParent.offsetWidth < node.ref.scrollWidth) {
 				setLineItemWidth(true);
 			}
 		}
-	});
+	}, []);
 
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
@@ -451,6 +454,7 @@ export function Item(props) {
 						onChange={props.onChange}
 						className={props.nativeValueClassName}
 						wrap={nativeValueWrap}
+						isValueOverflown={lineItemWidth}
 					/>
 				}
 				type={props.showType ? info.type : null}
@@ -458,22 +462,22 @@ export function Item(props) {
 				isValueOverflown={lineItemWidth}
 				// icon is shown when LineItem value is a long field and needs to be wrapped
 				icon={
-					// lineItemWidth && (
-					<Action
-						key="toggle"
-						className={classNames(theme.chevron, { [theme['chevron-filled']]: nativeValueWrap })}
-						icon={'talend-chevron-left'}
-						iconTransform={nativeValueWrap ? 'rotate-90' : 'rotate-270'}
-						onClick={e => {
-							e.stopPropagation();
-							setNativeValueWrap(val => !val);
-						}}
-						label=""
-						aria-hidden
-						tabIndex="-1"
-						link
-					/>
-					// )
+					lineItemWidth && (
+						<Action
+							key="toggle"
+							className={classNames(theme.chevron, { [theme['chevron-filled']]: nativeValueWrap })}
+							icon={'talend-chevron-left'}
+							iconTransform={nativeValueWrap ? 'rotate-90' : 'rotate-270'}
+							onClick={e => {
+								e.stopPropagation();
+								setNativeValueWrap(val => !val);
+							}}
+							label=""
+							aria-hidden
+							tabIndex="-1"
+							link
+						/>
+					)
 				}
 			/>
 		);
