@@ -58,12 +58,7 @@ const statesSchema = {
 	},
 };
 export const States = () => (
-	<SchemaForm
-		id="schema-form"
-		data={statesSchema}
-		// onChange={action('onChange')}
-		onSubmit={action('onSubmit')}
-	/>
+	<SchemaForm id="schema-form" data={statesSchema} onSubmit={action('onSubmit')} />
 );
 
 const defaultValueSchema = {

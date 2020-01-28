@@ -22,27 +22,13 @@ export default function SchemaForm({
 	const { properties } = data;
 	const { mergedSchema } = useSchemaForm(data);
 	const rhf = useForm({ mode: 'onBlur', defaultValues: properties });
-	/*
-	const allValue = rhf.watch();
-	console.log(allValue);
-	const onValueChange =
-		onChange &&
-		((event, payload) => {
-			const currentProperties = rhf.getValues({ nest: true });
-			return onChange(event, {
-				...payload,
-				properties: currentProperties,
-				// for code compatibility. Should be removed in the future
-				formData: currentProperties,
-			});
-		});
-*/
+
 	const contextValue = {
 		customFormats,
 		customValidation,
 		displayMode,
 		language,
-		//onChange: onValueChange,
+		onChange,
 		onTrigger,
 		templates,
 		widgets,
