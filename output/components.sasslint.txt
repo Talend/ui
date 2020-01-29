@@ -20,8 +20,12 @@ src/List/Toolbar/Toolbar.scss
   79:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
   92:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
+src/Toggle/LabelToggle/LabelToggle.scss
+  12:14  warning  No unit allowed for values of 0  zero-unit
+  12:26  warning  No unit allowed for values of 0  zero-unit
+
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 10 problems (9 errors, 1 warning)
+✖ 12 problems (9 errors, 3 warnings)
 
