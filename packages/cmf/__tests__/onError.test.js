@@ -191,13 +191,6 @@ describe('onError', () => {
 		});
 	});
 	describe('sentry', () => {
-		beforeEach(() => {
-			process.env.NODE_ENV = 'production';
-		});
-		afterEach(() => {
-			delete process.env.NODE_ENV;
-		});
-
 		it('should ignore sentry in developpement environnement', () => {
 			process.env.NODE_ENV = 'developpement';
 			expect(init).not.toHaveBeenCalled();
