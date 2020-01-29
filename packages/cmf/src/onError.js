@@ -140,9 +140,14 @@ function onJSError(event) {
  * @return {[type]} [description]
  */
 function setupSentry(options = {}) {
+	if (process.env.NODE_ENV !== 'production') {
+		delete ref.SENTRY_DSN;
+	}
+
 	if (!ref.SENTRY_DSN) {
 		return;
 	}
+
 	window.removeEventListener('error', onJSError);
 	try {
 		init({ dsn: ref.SENTRY_DSN, ...options });
