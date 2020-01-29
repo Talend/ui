@@ -176,7 +176,7 @@ function bootstrap(options, store) {
 	if (opt.SENTRY_DSN) {
 		ref.SENTRY_DSN = opt.SENTRY_DSN;
 		setupSentry(opt.sentry);
-		if (opt.onSentryScope) {
+		if (ref.SENTRY_DSN && opt.onSentryScope) {
 			configureScope(scope => {
 				opt.onSentryScope(scope);
 			});
