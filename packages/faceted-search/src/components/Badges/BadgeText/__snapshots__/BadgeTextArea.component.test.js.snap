@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BadgeTextArea should mount a default badge 1`] = `
+exports[`BadgeTextForm should mount a default badge 1`] = `
 <form class="tc-badge-text-form theme-tc-badge-text-form"
       id="myId-text-area"
 >

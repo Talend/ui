@@ -9,7 +9,7 @@ import cssModule from './BadgeText.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeTextArea = ({ id, onChange, onSubmit, value, t }) => {
+const BadgeTextForm = ({ id, onChange, onSubmit, value, t }) => {
 	const onChangeTextArea = (event, entity) => {
 		onChange(event, entity.value);
 	};
@@ -38,7 +38,7 @@ const BadgeTextArea = ({ id, onChange, onSubmit, value, t }) => {
 	);
 };
 
-BadgeTextArea.propTypes = {
+BadgeTextForm.propTypes = {
 	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
@@ -47,4 +47,4 @@ BadgeTextArea.propTypes = {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export { BadgeTextArea };
+export { BadgeTextForm };
