@@ -44,12 +44,14 @@ describe('BadgeTextForm', () => {
 				<BadgeTextForm {...props} />
 			</BadgeFacetedProvider>,
 		);
+
 		// Then
 		expect(
 			wrapper
-				.find('textarea')
+				.find('input[type="text"]')
 				.first()
-				.text(),
+				.props()
+				.value,
 		).toEqual('init value');
 
 		const submitButton = wrapper.find('button[type="submit"]').first();
