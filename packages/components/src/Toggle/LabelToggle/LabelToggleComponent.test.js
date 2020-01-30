@@ -6,13 +6,13 @@ import LabelToggle from './LabelToggle.component';
 describe('LabelToggle', () => {
 	it('should render three radio buttons', () => {
 		const props = {
-			buttons: [
+			values: [
 				{ label: 'A', value: 'A' },
 				{ label: 'B', value: 'B' },
 				{ label: 'C', value: 'C' },
 			],
 			name: 'name',
-			checked: 'A',
+			value: 'A',
 			handlePreviewToggleState: jest.fn(),
 			onChange: jest.fn(),
 		};
@@ -22,13 +22,13 @@ describe('LabelToggle', () => {
 	});
 	it('should be checked the "checked" value', () => {
 		const props = {
-			buttons: [
+			values: [
 				{ label: 'A', value: 'A' },
 				{ label: 'B', value: 'B' },
 				{ label: 'C', value: 'C' },
 			],
 			name: 'name',
-			checked: 'A',
+			value: 'A',
 			onChange: jest.fn(),
 		};
 
@@ -39,13 +39,13 @@ describe('LabelToggle', () => {
 	});
 	it('should change the default value', () => {
 		const props = {
-			buttons: [
+			values: [
 				{ label: 'A', value: 'A' },
 				{ label: 'B', value: 'B' },
 				{ label: 'C', value: 'C' },
 			],
 			name: 'name',
-			checked: 'A',
+			value: 'A',
 			onChange: jest.fn(),
 		};
 		const wrapper = mount(<LabelToggle {...props} />);

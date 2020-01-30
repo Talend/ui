@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Toggle, LabelToggle } from '../src/index';
+import { Toggle } from '../src/index';
 
 const onChange = action('onChange');
 const onBlur = action('onBlur');
@@ -32,13 +33,21 @@ const withLabel = {
 };
 
 const labelToggleProps = {
-	buttons: [
+	values: [
 		{ value: 'val1', label: 'Value 1' },
 		{ value: 'val2', label: 'Value 2' },
 		{ value: 'val3', label: 'Value 3' },
 	],
 	name: 'val',
-	onChange,
+};
+
+const InteractiveLabelToggle = ({ defaultValue = '' }) => {
+	const [value, setValue] = useState(defaultValue);
+
+	return <Toggle.Label {...labelToggleProps} value={value} onChange={setValue} />;
+};
+InteractiveLabelToggle.propTypes = {
+	defaultValue: PropTypes.string,
 };
 
 storiesOf('Toggle', module)
@@ -73,11 +82,20 @@ storiesOf('Toggle', module)
 		<div>
 			<h1>Label Toggle</h1>
 			<form>
-				<h3>Default Toggle</h3>
-				<LabelToggle {...labelToggleProps} />
-
-				<h3>Default value to val2</h3>
-				<LabelToggle {...labelToggleProps} checked={'val2'} />
+				<h3>Non interactive 2 state</h3>
+				<Toggle.Label
+					values={[
+						{ value: 'basic', label: 'Basic' },
+						{ value: 'advanced', label: 'Advanced' },
+					]}
+					value={'advanced'}
+				/>
+				<h3>Interactive</h3>
+				<InteractiveLabelToggle />
+				<h3>Interactive with default value to Value 3</h3>
+				<InteractiveLabelToggle defaultValue={'val3'} />
+				<h3>Disabled with value to Value 2</h3>
+				<Toggle.Label {...labelToggleProps} value={'val2'} disabled />
 			</form>
 		</div>
 	));

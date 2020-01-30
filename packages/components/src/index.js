@@ -50,7 +50,7 @@ import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
-import Toggle, { Checkbox, LabelToggle } from './Toggle';
+import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import getTranslated from './TranslateWrapper';
 import Typeahead from './Typeahead';
@@ -164,7 +164,6 @@ export {
 	IconsProvider,
 	Inject,
 	JSONSchemaRenderer,
-	LabelToggle,
 	Layout,
 	List,
 	ListView,
