@@ -31,7 +31,7 @@ function getAuthorLabel(t, author, date) {
 	});
 }
 
-function Resource({ parent, index, style, className, t }) {
+function Resource({ parent, index, style, className, as, t }) {
 	const rowData = getRowData(parent, index);
 	if (!rowData) {
 		return null;
@@ -56,33 +56,39 @@ function Resource({ parent, index, style, className, t }) {
 			aria-label={name}
 			onClick={onRowClick}
 		>
-			{icon && <Icon name={icon} />}
-			<div className={classNames('data-container', theme['data-container'])}>
-				<span className={classNames('title', theme.title)}>{name}</span>
-				{author && subtitle === undefined && (
-					<small className={classNames('author', theme.author)}>
-						{getAuthorLabel(t, author, modified)}
-					</small>
-				)}
+			{as ? (
+				as(rowData)
+			) : (
+				<>
+					{icon && <Icon name={icon} />}
+					<div className={classNames('data-container', theme['data-container'])}>
+						<span className={classNames('title', theme.title)}>{name}</span>
+						{author && subtitle === undefined && (
+							<small className={classNames('author', theme.author)}>
+								{getAuthorLabel(t, author, modified)}
+							</small>
+						)}
 
-				{subtitle !== undefined && !author && (
-					<small className={classNames('subtitle', theme.subtitle)} title={subtitle}>
-						{subtitle}
-					</small>
-				)}
-			</div>
+						{subtitle !== undefined && !author && (
+							<small className={classNames('subtitle', theme.subtitle)} title={subtitle}>
+								{subtitle}
+							</small>
+						)}
+					</div>
 
-			<div className={classNames('flags-container', theme['flags-container'])}>
-				{Object.keys(FLAGS).map((flag, flagIndex) => (
-					<Icon
-						className={classNames(theme.flag, {
-							[theme.visible]: flags.includes(flag),
-						})}
-						key={flagIndex}
-						name={FLAGS[flag]}
-					/>
-				))}
-			</div>
+					<div className={classNames('flags-container', theme['flags-container'])}>
+						{Object.keys(FLAGS).map((flag, flagIndex) => (
+							<Icon
+								className={classNames(theme.flag, {
+									[theme.visible]: flags.includes(flag),
+								})}
+								key={flagIndex}
+								name={FLAGS[flag]}
+							/>
+						))}
+					</div>
+				</>
+			)}
 		</div>
 	);
 }

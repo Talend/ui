@@ -6,7 +6,7 @@ import talendIcons from '@talend/icons/dist/react';
 import ResourcePicker, { TOOLBAR_OPTIONS } from '../src/ResourcePicker';
 import IconsProvider from '../src/IconsProvider';
 
-const icons = {
+export const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 	'talend-check-circle': talendIcons['talend-check-circle'],
 	'talend-star': talendIcons['talend-star'],
@@ -17,7 +17,7 @@ const icons = {
 	'talend-cross': talendIcons['talend-cross'],
 };
 
-const collection = [
+export const collection = [
 	{
 		id: 0,
 		name: 'Title with few actions',
@@ -72,7 +72,7 @@ const collection = [
 	},
 ];
 
-const simpleCollection = [
+export const simpleCollection = [
 	{
 		icon: 'talend-file-xls-o',
 		id: 0,
