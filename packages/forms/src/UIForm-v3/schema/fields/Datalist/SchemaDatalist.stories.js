@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { withKnobs, object } from '@storybook/addon-knobs';
 import SchemaDatalist from './SchemaDatalist.component';
 import SchemaForm from '../../SchemaForm';
 
@@ -10,6 +11,7 @@ export default {
 	parameters: {
 		component: SchemaDatalist,
 	},
+	decorators: [withKnobs],
 };
 
 const enumValues = ['foo', 'bar', 'foobar', 'lol'];
@@ -58,7 +60,11 @@ const statesSchema = {
 	},
 };
 export const States = () => (
-	<SchemaForm id="schema-form" data={statesSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', statesSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const defaultValueSchema = {
@@ -81,7 +87,11 @@ const defaultValueSchema = {
 	},
 };
 export const DefaultValue = () => (
-	<SchemaForm id="schema-form" data={defaultValueSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', defaultValueSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const descriptionSchema = {
@@ -103,7 +113,11 @@ const descriptionSchema = {
 	properties: {},
 };
 export const Description = () => (
-	<SchemaForm id="schema-form" data={descriptionSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', descriptionSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const restrictedSchema = {
@@ -124,7 +138,11 @@ const restrictedSchema = {
 	properties: {},
 };
 export const Restricted = () => (
-	<SchemaForm id="schema-form" data={restrictedSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', restrictedSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const validationSchema = {
@@ -153,7 +171,7 @@ export const Validation = () => (
 	<SchemaForm
 		id="schema-form"
 		customValidation={customValidation}
-		data={validationSchema}
+		data={object('schema', validationSchema)}
 		onSubmit={action('onSubmit')}
 	/>
 );

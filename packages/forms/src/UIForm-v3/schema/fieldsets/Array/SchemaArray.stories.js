@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
+import { withKnobs, object } from '@storybook/addon-knobs';
 import { useFormContext } from 'react-hook-form';
 import SchemaForm from '../../SchemaForm';
 import SchemaArray from './SchemaArray.component';
@@ -13,6 +13,7 @@ export default {
 	parameters: {
 		component: SchemaArray,
 	},
+	decorators: [withKnobs],
 };
 
 function getExample(uiSchemaOptions = {}, properties = {}) {
@@ -91,7 +92,11 @@ const simpleSchema = {
 	properties: {},
 };
 export const Simple = () => (
-	<SchemaForm id="schema-form" data={simpleSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', simpleSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const initialItemNumberSchema = getExample({
@@ -99,12 +104,20 @@ const initialItemNumberSchema = getExample({
 	options: { initialNbItems: 3 },
 });
 export const InitialItemsNumber = () => (
-	<SchemaForm id="schema-form" data={initialItemNumberSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', initialItemNumberSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const addItemSchema = getExample();
 export const AddItem = () => (
-	<SchemaForm id="schema-form" data={addItemSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', addItemSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const moveItemSchema = getExample(undefined, {
@@ -120,7 +133,11 @@ const moveItemSchema = getExample(undefined, {
 	],
 });
 export const MoveItem = () => (
-	<SchemaForm id="schema-form" data={moveItemSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', moveItemSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const deleteItemSchema = getExample(undefined, {
@@ -136,7 +153,11 @@ const deleteItemSchema = getExample(undefined, {
 	],
 });
 export const DeleteItem = () => (
-	<SchemaForm id="schema-form" data={deleteItemSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', deleteItemSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const arrayValidationSchema = getExample({
@@ -144,7 +165,11 @@ const arrayValidationSchema = getExample({
 	maxItems: 5,
 });
 export const ArrayValidation = () => (
-	<SchemaForm id="schema-form" data={arrayValidationSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', arrayValidationSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 function ArrayWithAdvice(props) {
@@ -164,7 +189,7 @@ function ArrayWithAdvice(props) {
 export const CustomTemplate = () => (
 	<SchemaForm
 		id="schema-form"
-		data={simpleSchema}
+		data={object('schema', simpleSchema)}
 		onSubmit={action('onSubmit')}
 		templates={{ array: ArrayWithAdvice }}
 	/>

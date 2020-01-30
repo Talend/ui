@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { withKnobs, object } from '@storybook/addon-knobs';
 import SchemaInput from './SchemaInput.component';
 import SchemaForm from '../../SchemaForm';
 
@@ -9,6 +10,7 @@ export default {
 
 	parameters: {
 		component: SchemaInput,
+		decorators: [withKnobs],
 	},
 };
 
@@ -44,7 +46,11 @@ const statesSchema = {
 	},
 };
 export const States = () => (
-	<SchemaForm id="schema-form" data={statesSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', statesSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const typesSchema = {
@@ -78,7 +84,7 @@ const typesSchema = {
 	},
 };
 export const Types = () => (
-	<SchemaForm id="schema-form" data={typesSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm id="schema-form" data={object('schema', typesSchema)} onSubmit={action('onSubmit')} />
 );
 
 const defaultValueSchema = {
@@ -95,7 +101,11 @@ const defaultValueSchema = {
 	properties: { name: 'Jimmy' },
 };
 export const DefaultValue = () => (
-	<SchemaForm id="schema-form" data={defaultValueSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', defaultValueSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const descriptionSchema = {
@@ -113,7 +123,11 @@ const descriptionSchema = {
 	properties: {},
 };
 export const Description = () => (
-	<SchemaForm id="schema-form" data={descriptionSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', descriptionSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const validationSchema = {
@@ -142,7 +156,7 @@ export const Validation = () => (
 	<SchemaForm
 		id="schema-form"
 		customValidation={customValidation}
-		data={validationSchema}
+		data={object('schema', validationSchema)}
 		onSubmit={action('onSubmit')}
 	/>
 );
@@ -168,5 +182,5 @@ const textModeSchema = {
 	},
 };
 export const TextMode = () => (
-	<SchemaForm id="schema-form" data={textModeSchema} displayMode="text" />
+	<SchemaForm id="schema-form" data={object('schema', textModeSchema)} displayMode="text" />
 );

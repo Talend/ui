@@ -76,7 +76,7 @@ function Datalist(props) {
 
 		return onEventGetValue;
 	}, [onChange]);
-
+	console.log(control);
 	return (
 		<FieldTemplate
 			description={description}

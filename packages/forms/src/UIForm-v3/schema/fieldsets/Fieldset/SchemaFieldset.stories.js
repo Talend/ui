@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { withKnobs, object } from '@storybook/addon-knobs';
 import SchemaFieldset from './SchemaFieldset.component';
 import SchemaForm from '../../SchemaForm';
 
@@ -10,6 +11,7 @@ export default {
 	parameters: {
 		component: SchemaFieldset,
 	},
+	decorators: [withKnobs],
 };
 
 const defaultSchema = {
@@ -38,7 +40,11 @@ const defaultSchema = {
 	properties: {},
 };
 export const Default = () => (
-	<SchemaForm id="schema-form" data={defaultSchema} onSubmit={action('onSubmit')} />
+	<SchemaForm
+		id="schema-form"
+		data={object('schema', defaultSchema)}
+		onSubmit={action('onSubmit')}
+	/>
 );
 
 const hideTitleSchema = {
@@ -63,6 +69,10 @@ const hideTitleSchema = {
 export const HideTitle = () => (
 	<React.Fragment>
 		<div>(Legend is set to "My awesome user" but not displayed)</div>
-		<SchemaForm id="schema-form" data={hideTitleSchema} onSubmit={action('onSubmit')} />
+		<SchemaForm
+			id="schema-form"
+			data={object('schema', hideTitleSchema)}
+			onSubmit={action('onSubmit')}
+		/>
 	</React.Fragment>
 );
