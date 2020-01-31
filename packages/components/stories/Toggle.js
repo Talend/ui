@@ -91,7 +91,7 @@ storiesOf('Toggle', module)
 		<div>
 			<h1>Label Toggle</h1>
 			<form>
-				<h3>Non interactive 2 state</h3>
+				<h3>Non interactive two states</h3>
 				<Toggle.Label
 					name="toggle1"
 					values={[
