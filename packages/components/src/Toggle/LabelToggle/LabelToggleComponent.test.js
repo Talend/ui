@@ -22,34 +22,36 @@ describe('LabelToggle', () => {
 	});
 	it('should be checked the "checked" value', () => {
 		const props = {
+			id: 'test',
 			values: [
-				{ label: 'A', value: 'A' },
-				{ label: 'B', value: 'B' },
-				{ label: 'C', value: 'C' },
+				{ label: 'A', value: 'a' },
+				{ label: 'B', value: 'b' },
+				{ label: 'C', value: 'c' },
 			],
 			name: 'name',
-			value: 'A',
+			value: 'a',
 			onChange: jest.fn(),
 		};
 
 		const wrapper = mount(<LabelToggle {...props} />);
-		expect(wrapper.find('#radioA').props().checked).toEqual(true);
+		expect(wrapper.find('#test-radio-a').props().checked).toEqual(true);
 		expect(wrapper.find('label')).toHaveLength(3);
 		expect(props.onChange).toHaveBeenCalledTimes(0);
 	});
 	it('should change the default value', () => {
 		const props = {
+			id: 'test',
 			values: [
-				{ label: 'A', value: 'A' },
-				{ label: 'B', value: 'B' },
-				{ label: 'C', value: 'C' },
+				{ label: 'A', value: 'a' },
+				{ label: 'B', value: 'b' },
+				{ label: 'C', value: 'c' },
 			],
 			name: 'name',
-			value: 'A',
+			value: 'a',
 			onChange: jest.fn(),
 		};
 		const wrapper = mount(<LabelToggle {...props} />);
-		wrapper.find('#radioB').simulate('change', { target: { checked: true } });
+		wrapper.find('#test-radio-b').simulate('change', { target: { checked: true } });
 		expect(props.onChange).toHaveBeenCalledTimes(1);
 		expect(wrapper.find('label')).toHaveLength(3);
 	});
