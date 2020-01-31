@@ -38,16 +38,16 @@ const labelToggleProps = {
 		{ value: 'val2', label: 'Value 2' },
 		{ value: 'val3', label: 'Value 3' },
 	],
-	name: 'val',
 };
 
-const InteractiveLabelToggle = ({ defaultValue = '' }) => {
+const InteractiveLabelToggle = ({ defaultValue = '', name }) => {
 	const [value, setValue] = useState(defaultValue);
 
-	return <Toggle.Label {...labelToggleProps} value={value} onChange={setValue} />;
+	return <Toggle.Label {...labelToggleProps} value={value} onChange={setValue} name={name} />;
 };
 InteractiveLabelToggle.propTypes = {
 	defaultValue: PropTypes.string,
+	name: PropTypes.string.isRequired,
 };
 
 storiesOf('Toggle', module)
@@ -84,6 +84,7 @@ storiesOf('Toggle', module)
 			<form>
 				<h3>Non interactive 2 state</h3>
 				<Toggle.Label
+					name="toggle1"
 					values={[
 						{ value: 'basic', label: 'Basic' },
 						{ value: 'advanced', label: 'Advanced' },
@@ -91,11 +92,11 @@ storiesOf('Toggle', module)
 					value={'advanced'}
 				/>
 				<h3>Interactive</h3>
-				<InteractiveLabelToggle />
+				<InteractiveLabelToggle name="toggle2" />
 				<h3>Interactive with default value to Value 3</h3>
-				<InteractiveLabelToggle defaultValue={'val3'} />
+				<InteractiveLabelToggle defaultValue={'val3'} name="toggle3" />
 				<h3>Disabled with value to Value 2</h3>
-				<Toggle.Label {...labelToggleProps} value={'val2'} disabled />
+				<Toggle.Label {...labelToggleProps} value={'val2'} disabled name="toggle4" />
 			</form>
 		</div>
 	));
