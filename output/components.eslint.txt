@@ -65,6 +65,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemView.component.js
   41:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/ResourcePicker/Resource/Resource.component.js
+  34:54  error  'as' is missing in props validation  react/prop-types
+  62:7   error  Strings must use singlequote         quotes
+  63:36  error  Strings must use singlequote         quotes
+  77:12  error  Strings must use singlequote         quotes
+  89:12  error  Strings must use singlequote         quotes
+
 /home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
   17:2  warning  Unexpected console statement  no-console
 
@@ -84,6 +91,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 48 problems (45 errors, 3 warnings)
-  1 error, 0 warnings potentially fixable with the `--fix` option.
+✖ 53 problems (50 errors, 3 warnings)
+  5 errors, 0 warnings potentially fixable with the `--fix` option.
 
