@@ -20,7 +20,7 @@ const getAutoFocusValue = (autoFocus, values, value) => {
 
 /**
  *
- * @param {Array.<Object>} buttons - buttons that should be rendered
+ * @param {Array.<Object>} values - buttons that should be rendered
  * @param {string} name - the name attribute for all inputs
  * @param {string} checked - the checked value
  * @param {function} onChange - callback that handle the state change
