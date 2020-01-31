@@ -22,9 +22,6 @@ export default function SchemaDatalist(props) {
 			required={schema.required}
 			titleMap={get(schema, 'options.titleMap') || schema.titleMap || []}
 			type={schema.type}
-			min={get(schema, 'schema.minimum')}
-			max={get(schema, 'schema.maximum')}
-			step={get(schema, 'schema.step')}
 		/>
 	);
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import pick from 'lodash/pick';
 import Widget, { PROPS_TO_REMOVE_FROM_INPUTS } from '../../Widget';
 import ArrayFieldset from '../../../fieldsets/Array';
 
