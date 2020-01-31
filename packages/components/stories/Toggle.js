@@ -40,13 +40,22 @@ const labelToggleProps = {
 	],
 };
 
-const InteractiveLabelToggle = ({ defaultValue = '', name }) => {
+const InteractiveLabelToggle = ({ defaultValue = '', name, autoFocus }) => {
 	const [value, setValue] = useState(defaultValue);
 
-	return <Toggle.Label {...labelToggleProps} value={value} onChange={setValue} name={name} />;
+	return (
+		<Toggle.Label
+			{...labelToggleProps}
+			value={value}
+			onChange={setValue}
+			name={name}
+			autoFocus={autoFocus}
+		/>
+	);
 };
 InteractiveLabelToggle.propTypes = {
 	defaultValue: PropTypes.string,
+	autoFocus: PropTypes.bool,
 	name: PropTypes.string.isRequired,
 };
 
@@ -93,6 +102,8 @@ storiesOf('Toggle', module)
 				/>
 				<h3>Interactive</h3>
 				<InteractiveLabelToggle name="toggle2" />
+				<h3>Interactive autofocused</h3>
+				<InteractiveLabelToggle name="toggle2" autoFocus />
 				<h3>Interactive with default value to Value 3</h3>
 				<InteractiveLabelToggle defaultValue={'val3'} name="toggle3" />
 				<h3>Disabled with value to Value 2</h3>
