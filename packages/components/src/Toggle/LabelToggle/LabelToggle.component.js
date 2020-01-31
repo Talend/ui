@@ -22,7 +22,7 @@ const getAutoFocusValue = (autoFocus, values, value) => {
  *
  * @param {Array.<Object>} values - buttons that should be rendered
  * @param {string} name - the name attribute for all inputs
- * @param {string} checked - the checked value
+ * @param {string} value - the checked value
  * @param {function} onChange - callback that handle the state change
  */
 function LabelToggle({ id, values, name, value, onChange, disabled, autoFocus = false }) {
