@@ -74,7 +74,7 @@ LabelToggle.propTypes = {
 			value: PropTypes.string.isRequired,
 			label: PropTypes.string.isRequired,
 			dataFeature: PropTypes.string,
-		}),
+		}).isRequired,
 	),
 };
 
