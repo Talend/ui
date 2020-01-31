@@ -104,15 +104,15 @@ storiesOf('Toggle', module)
 				<h3>Interactive</h3>
 				<InteractiveLabelToggle name="toggle2" />
 				<h3>Interactive autofocused</h3>
-				<InteractiveLabelToggle name="toggle2" autoFocus />
+				<InteractiveLabelToggle name="toggle3" autoFocus />
 				<h3>Interactive with default selected value</h3>
-				<InteractiveLabelToggle defaultValue={'val3'} name="toggle3" />
+				<InteractiveLabelToggle defaultValue={'val3'} name="toggle4" />
 				<h3>Disabled with selected value</h3>
 				<Toggle.Label
 					{...labelToggleProps}
 					value={'val2'}
 					disabled
-					name="toggle4"
+					name="toggle5"
 					onChange={onChange}
 				/>
 			</form>
