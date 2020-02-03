@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2641): Unknown operators facet return by the api throw javascript error
+
 ## [0.2.6]
 
 ### Fixed
