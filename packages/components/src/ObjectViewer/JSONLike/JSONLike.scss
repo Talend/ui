@@ -40,7 +40,6 @@
 		flex-direction: column;
 		flex-wrap: wrap;
 		max-width: 100%;
-		overflow: hidden;
 
 		&:focus {
 			outline: none;
@@ -87,6 +86,10 @@
 						vertical-align: top;
 					}
 				}
+
+				&.shrink-value {
+					overflow: hidden;
+				}
 			}
 		}
 
@@ -105,12 +108,16 @@
 		.value {
 			color: $brand-primary;
 			margin-left: $padding-smaller;
-			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 
 			&.wrap-string {
 				white-space: normal;
+				word-break: break-all;
+			}
+
+			&.shrink-value {
+				overflow: hidden;
 			}
 		}
 
