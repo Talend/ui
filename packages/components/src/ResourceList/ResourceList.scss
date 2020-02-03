@@ -1,11 +1,7 @@
 $tc-resource-list-height: 25rem !default;
 
 .tc-resource-list {
-	&-toolbar {
-		background-color: $gray;
-	}
-
-	&-container {
+	&-items {
 		height: $tc-resource-list-height;
 
 		&.filtered {

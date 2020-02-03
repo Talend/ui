@@ -8,7 +8,7 @@ $tc-resource-picker-toolbar-height: 3.5rem !default;
 		margin: 0 $padding-normal;
 	}
 
-	.tc-resource-list-filter {
+	:global(.tc-resource-list-filter) {
 		width: 100%;
 	}
 }

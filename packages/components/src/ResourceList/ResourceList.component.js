@@ -34,7 +34,7 @@ function ResourceList({
 	return (
 		<div className={theme('tc-resource-list')}>
 			{toolbar && <Toolbar {...toolbar} />}
-			<div className={classNames(className, theme('tc-resource-list-container'), { [theme.filtered]: isFiltered(toolbar) })}>
+			<div className={classNames(className, theme('tc-resource-list-items'), { [theme.filtered]: isFiltered(toolbar) })}>
 				<VirtualizedList
 					{...rest}
 					collection={collection}
