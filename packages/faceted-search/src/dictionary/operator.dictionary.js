@@ -77,7 +77,9 @@ const createOperatorsDict = (t, operators) => {
 	return standardOperators(t);
 };
 const getOperatorsFromDict = (operatorsDictionary, operatorsKeys) =>
-	operatorsKeys.map(operatorKey => operatorsDictionary[operatorKey]);
+	operatorsKeys
+		.map(operatorKey => operatorsDictionary[operatorKey])
+		.filter(element => element !== undefined);
 
 // eslint-disable-next-line import/prefer-default-export
 export { createOperatorsDict, getOperatorsFromDict };

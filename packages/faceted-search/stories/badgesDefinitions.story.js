@@ -11,7 +11,7 @@ export const badgeName = {
 	metadata: {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['contains', 'equals', 'notEquals'],
+		operators: ['contains', 'equals', 'notEquals', 'match a regexp'],
 	},
 };
 
