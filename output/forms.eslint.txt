@@ -26,9 +26,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   46:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
   79:2  warning  Unexpected console statement  no-console
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm-v3/schema/fieldsets/Array/SchemaArray.component.js
-  4:8  error  'pick' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm-v3/schema/Widget/useCondition.js
   2:10  error  'useMemo' is defined but never used   no-unused-vars
   2:19  error  'useState' is defined but never used  no-unused-vars
@@ -39,6 +36,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm-v3/schema/Widget/Widget.component.js
   61:1  error  Line 61 exceeds the maximum line length of 100  max-len
 
-✖ 21 problems (20 errors, 1 warning)
+✖ 20 problems (19 errors, 1 warning)
   6 errors, 0 warnings potentially fixable with the `--fix` option.
 
