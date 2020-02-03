@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2636/): Use Input text for Badge text instead of Textarea
+
 ## [0.2.6]
 
 ### Fixed
