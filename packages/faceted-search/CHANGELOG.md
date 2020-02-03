@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2640/): Select automatically operator if only one
+
 ## [0.2.6]
 
 ### Fixed
