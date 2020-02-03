@@ -5,6 +5,10 @@ $tc-resource-picker-toolbar-height: 3.5rem !default;
 	height: $tc-resource-picker-toolbar-height;
 
 	> * {
-		margin-right: $padding-normal;
+		margin: 0 $padding-normal;
+	}
+
+	.tc-resource-list-filter {
+		width: 100%;
 	}
 }

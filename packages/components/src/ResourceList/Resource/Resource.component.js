@@ -56,10 +56,10 @@ function Resource({ parent, index, style, className, as, t }) {
 			aria-label={name}
 			onClick={onRowClick}
 		>
-			{as ? (
+			{typeof as === 'function' ? (
 				as(rowData)
 			) : (
-				<>
+				<React.Fragment>
 					{icon && <Icon name={icon} />}
 					<div className={classNames('data-container', theme['data-container'])}>
 						<span className={classNames('title', theme.title)}>{name}</span>
@@ -75,7 +75,6 @@ function Resource({ parent, index, style, className, as, t }) {
 							</small>
 						)}
 					</div>
-
 					<div className={classNames('flags-container', theme['flags-container'])}>
 						{Object.keys(FLAGS).map((flag, flagIndex) => (
 							<Icon
@@ -87,7 +86,7 @@ function Resource({ parent, index, style, className, as, t }) {
 							/>
 						))}
 					</div>
-				</>
+				</React.Fragment>
 			)}
 		</div>
 	);
@@ -117,6 +116,7 @@ Resource.propTypes = {
 			),
 		}),
 	}),
+	as: PropTypes.func,
 };
 
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(Resource);

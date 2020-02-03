@@ -4,60 +4,49 @@ exports[`ResourcePicker component snaps should render ResourcePicker in filtered
 <div
   className="tc-resource-picker theme-tc-resource-picker"
 >
-  <Toolbar
-    state={
+  <ResourceList
+    className="tc-resource-picker-list-container theme-tc-resource-picker-list-container"
+    collection={
+      Array [
+        Object {
+          "author": "Jean-Pierre DUPONT",
+          "display": "text",
+          "flags": Array [
+            "CERTIFIED",
+            "FAVORITE",
+          ],
+          "icon": "talend-file-xls-o",
+          "id": 0,
+          "modified": "2016-09-22",
+          "name": "Title with few actions",
+        },
+        Object {
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 1,
+          "modified": "2016-09-22",
+          "name": "Title with lot of actions",
+        },
+        Object {
+          "author": "Jean-Pierre DUPONT",
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 2,
+          "modified": "2016-09-22",
+          "name": "Title with persistant actions",
+        },
+      ]
+    }
+    toolbar={
       Object {
-        "certified": true,
-        "favorites": true,
+        "nameFilerAsInput": true,
+        "state": Object {
+          "certified": true,
+          "favorites": true,
+        },
       }
     }
   />
-  <div
-    className="theme-tc-resource-picker-list-container theme-filtered"
-  >
-    <VirtualizedList
-      collection={
-        Array [
-          Object {
-            "author": "Jean-Pierre DUPONT",
-            "display": "text",
-            "flags": Array [
-              "CERTIFIED",
-              "FAVORITE",
-            ],
-            "icon": "talend-file-xls-o",
-            "id": 0,
-            "modified": "2016-09-22",
-            "name": "Title with few actions",
-          },
-          Object {
-            "display": "text",
-            "icon": "talend-file-xls-o",
-            "id": 1,
-            "modified": "2016-09-22",
-            "name": "Title with lot of actions",
-          },
-          Object {
-            "author": "Jean-Pierre DUPONT",
-            "display": "text",
-            "icon": "talend-file-xls-o",
-            "id": 2,
-            "modified": "2016-09-22",
-            "name": "Title with persistant actions",
-          },
-        ]
-      }
-      defaultHeight={250}
-      rowHeight={60}
-      rowRenderers={
-        Object {
-          "resource": [Function],
-        }
-      }
-      selectionMode="MULTI"
-      type="resource"
-    />
-  </div>
 </div>
 `;
 
@@ -65,54 +54,46 @@ exports[`ResourcePicker component snaps should render ResourcePicker with some R
 <div
   className="tc-resource-picker theme-tc-resource-picker"
 >
-  <Toolbar />
-  <div
-    className="theme-tc-resource-picker-list-container"
-  >
-    <VirtualizedList
-      collection={
-        Array [
-          Object {
-            "author": "Jean-Pierre DUPONT",
-            "display": "text",
-            "flags": Array [
-              "CERTIFIED",
-              "FAVORITE",
-            ],
-            "icon": "talend-file-xls-o",
-            "id": 0,
-            "modified": "2016-09-22",
-            "name": "Title with few actions",
-          },
-          Object {
-            "display": "text",
-            "icon": "talend-file-xls-o",
-            "id": 1,
-            "modified": "2016-09-22",
-            "name": "Title with lot of actions",
-          },
-          Object {
-            "author": "Jean-Pierre DUPONT",
-            "display": "text",
-            "icon": "talend-file-xls-o",
-            "id": 2,
-            "modified": "2016-09-22",
-            "name": "Title with persistant actions",
-          },
-        ]
-      }
-      defaultHeight={250}
-      inProgress={true}
-      rowHeight={60}
-      rowRenderers={
+  <ResourceList
+    className="tc-resource-picker-list-container theme-tc-resource-picker-list-container"
+    collection={
+      Array [
         Object {
-          "resource": [Function],
-        }
+          "author": "Jean-Pierre DUPONT",
+          "display": "text",
+          "flags": Array [
+            "CERTIFIED",
+            "FAVORITE",
+          ],
+          "icon": "talend-file-xls-o",
+          "id": 0,
+          "modified": "2016-09-22",
+          "name": "Title with few actions",
+        },
+        Object {
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 1,
+          "modified": "2016-09-22",
+          "name": "Title with lot of actions",
+        },
+        Object {
+          "author": "Jean-Pierre DUPONT",
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 2,
+          "modified": "2016-09-22",
+          "name": "Title with persistant actions",
+        },
+      ]
+    }
+    isLoading={true}
+    toolbar={
+      Object {
+        "nameFilerAsInput": true,
       }
-      selectionMode="MULTI"
-      type="resource"
-    />
-  </div>
+    }
+  />
 </div>
 `;
 
@@ -120,23 +101,15 @@ exports[`ResourcePicker component snaps should render ResourcePicker without any
 <div
   className="tc-resource-picker theme-tc-resource-picker"
 >
-  <Toolbar />
-  <div
-    className="theme-tc-resource-picker-list-container"
-  >
-    <VirtualizedList
-      collection={Array []}
-      defaultHeight={250}
-      rowHeight={60}
-      rowRenderers={
-        Object {
-          "resource": [Function],
-        }
+  <ResourceList
+    className="tc-resource-picker-list-container theme-tc-resource-picker-list-container"
+    collection={Array []}
+    toolbar={
+      Object {
+        "nameFilerAsInput": true,
       }
-      selectionMode="MULTI"
-      type="resource"
-    />
-  </div>
+    }
+  />
 </div>
 `;
 
@@ -144,51 +117,44 @@ exports[`ResourcePicker component snaps should render ResourcePicker without too
 <div
   className="tc-resource-picker theme-tc-resource-picker"
 >
-  <div
-    className="theme-tc-resource-picker-list-container"
-  >
-    <VirtualizedList
-      collection={
-        Array [
-          Object {
-            "author": "Jean-Pierre DUPONT",
-            "display": "text",
-            "flags": Array [
-              "CERTIFIED",
-              "FAVORITE",
-            ],
-            "icon": "talend-file-xls-o",
-            "id": 0,
-            "modified": "2016-09-22",
-            "name": "Title with few actions",
-          },
-          Object {
-            "display": "text",
-            "icon": "talend-file-xls-o",
-            "id": 1,
-            "modified": "2016-09-22",
-            "name": "Title with lot of actions",
-          },
-          Object {
-            "author": "Jean-Pierre DUPONT",
-            "display": "text",
-            "icon": "talend-file-xls-o",
-            "id": 2,
-            "modified": "2016-09-22",
-            "name": "Title with persistant actions",
-          },
-        ]
-      }
-      defaultHeight={250}
-      rowHeight={60}
-      rowRenderers={
+  <ResourceList
+    className="tc-resource-picker-list-container theme-tc-resource-picker-list-container"
+    collection={
+      Array [
         Object {
-          "resource": [Function],
-        }
+          "author": "Jean-Pierre DUPONT",
+          "display": "text",
+          "flags": Array [
+            "CERTIFIED",
+            "FAVORITE",
+          ],
+          "icon": "talend-file-xls-o",
+          "id": 0,
+          "modified": "2016-09-22",
+          "name": "Title with few actions",
+        },
+        Object {
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 1,
+          "modified": "2016-09-22",
+          "name": "Title with lot of actions",
+        },
+        Object {
+          "author": "Jean-Pierre DUPONT",
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 2,
+          "modified": "2016-09-22",
+          "name": "Title with persistant actions",
+        },
+      ]
+    }
+    toolbar={
+      Object {
+        "nameFilerAsInput": true,
       }
-      selectionMode="MULTI"
-      type="resource"
-    />
-  </div>
+    }
+  />
 </div>
 `;

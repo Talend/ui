@@ -2,11 +2,12 @@
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	border-bottom: 0.1rem solid $gallery;
 
 	> * {
-		margin-left: $padding-normal;
+		margin-left: $padding-small;
+		max-width: 100%;
 	}
+
 	:global(.tc-svg-icon) {
 		color: $dove-gray;
 	}

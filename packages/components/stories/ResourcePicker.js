@@ -1,21 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import ResourcePicker, { TOOLBAR_OPTIONS } from '../src/ResourcePicker';
 import IconsProvider from '../src/IconsProvider';
-
-export const icons = {
-	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
-	'talend-check-circle': talendIcons['talend-check-circle'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-badge': talendIcons['talend-badge'],
-	'talend-sort-az': talendIcons['talend-sort-az'],
-	'talend-sort-desc': talendIcons['talend-sort-desc'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-cross': talendIcons['talend-cross'],
-};
 
 export const collection = [
 	{
@@ -148,7 +136,7 @@ const props = {
 storiesOf('ResourcePicker', module)
 	.addDecorator(story => (
 		<section>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			{story()}
 		</section>
 	))

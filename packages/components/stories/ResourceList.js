@@ -2,22 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
-import talendIcons from '@talend/icons/dist/react';
 
 import { Icon, ResourceList } from '../src/index';
 import IconsProvider from '../src/IconsProvider';
 
-import { icons as resourcePickerIcons, collection, simpleCollection } from './ResourcePicker';
+import { collection, simpleCollection } from './ResourcePicker';
 
-const icons = {
-	...resourcePickerIcons,
-	'talend-flow-source-o': talendIcons['talend-flow-source-o'],
-	'talend-flow-source-target': talendIcons['talend-flow-source-target'],
-	'talend-folder-closed': talendIcons['talend-folder-closed'],
-	'talend-user-circle': talendIcons['talend-user-circle'],
-};
-
-const preparationCollection = [
+export const preparations = [
 	{
 		id: 0,
 		name: 'Chief Marketing Officer',
@@ -44,11 +35,11 @@ const preparationCollection = [
 	},
 ];
 
-const pipelineCollection = [
+export const pipelines = [
 	{
 		id: 0,
 		name: 'Central Factors Facilitator',
-		createdBy: 'Darlene Koch',
+		createdBy: 'Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch',
 		usedAs: ['source', 'destination'],
 	},
 	{
@@ -77,22 +68,26 @@ const pipelineCollection = [
 	},
 ];
 
-function Preparation({ name, createdBy, path }) {
+export function Preparation({ name, createdBy, path }) {
 	const { t } = useTranslation();
 	return (
 		<div className={'preparation'}>
 			<h2>{name}</h2>
 			<dl>
-				<dt>
-					<Icon name={'talend-user-circle'} />
-					{t('CREATED_BY', { defaultValue: 'Created by' })}
-				</dt>
-				<dd>{createdBy}</dd>
-				<dt>
-					<Icon name={'talend-folder-closed'} />
-					<span className={'sr-only'}>{t('Path', { defaultValue: 'Path' })}</span>
-				</dt>
-				<dd>{path}</dd>
+				<div>
+					<dt>
+						<Icon name={'talend-user-circle'} />
+						{t('CREATED_BY', { defaultValue: 'Created by' })}
+					</dt>
+					<dd>{createdBy}</dd>
+				</div>
+				<div>
+					<dt>
+						<Icon name={'talend-folder-closed'} />
+						<span className={'sr-only'}>{t('Path', { defaultValue: 'Path' })}</span>
+					</dt>
+					<dd>{path}</dd>
+				</div>
 			</dl>
 		</div>
 	);
@@ -104,30 +99,31 @@ Preparation.propTypes = {
 	path: PropTypes.string,
 };
 
-function Pipeline({ name, createdBy, usedAs }) {
+export function Pipeline({ name, createdBy, usedAs }) {
 	const { t } = useTranslation();
+	const joinedItemsMessage = t('JOIN_ITEMS', {
+		defaultValue: '{{item1}} and {{item2}}',
+		item1: usedAs[0],
+		item2: usedAs[1],
+	});
 	return (
 		<div className={'pipeline'}>
 			<h2>{name}</h2>
 			<dl>
-				<dt>
-					<Icon name={'talend-user-circle'} />
-					{t('CREATED_BY', { defaultValue: 'Created by' })}
-				</dt>
-				<dd>{createdBy}</dd>
-				<dt>
-					<Icon name={usedAs.length > 1 ? 'talend-flow-source-o' : 'talend-flow-source-target'} />
-					{t('USED_AS', { defaultValue: 'Used as' })}
-				</dt>
-				<dd>
-					{usedAs.length === 2
-						? t('JOIN_ITEMS', {
-								defaultValue: '{{item1}} and {{item2}}',
-								item1: usedAs[0],
-								item2: usedAs[1],
-						  })
-						: usedAs[0]}
-				</dd>
+				<div>
+					<dt>
+						<Icon name={'talend-user-circle'} />
+						{t('CREATED_BY', { defaultValue: 'Created by' })}
+					</dt>
+					<dd>{createdBy}</dd>
+				</div>
+				<div>
+					<dt>
+						<Icon name={usedAs.length > 1 ? 'talend-flow-source-target' : 'talend-flow-source-o'} />
+						{t('USED_AS', { defaultValue: 'Used as' })}
+					</dt>
+					<dd>{usedAs.length === 2 ? joinedItemsMessage : usedAs[0]}</dd>
+				</div>
 			</dl>
 		</div>
 	);
@@ -139,23 +135,30 @@ Pipeline.propTypes = {
 	usedAs: PropTypes.array,
 };
 
-function FilteredResourceList(props) {
+export function FilteredResourceList(props) {
+	const { t } = useTranslation();
 	const [filter, setFilter] = React.useState();
 	const filteredCollection = React.useMemo(
 		() =>
-			filter
+			(filter
 				? props.collection.filter(item => item.name.toLowerCase().includes(filter.toLowerCase()))
-				: props.collection,
+				: props.collection),
 		[filter],
 	);
 	return (
 		<ResourceList
+			toolbar={{
+				name: {
+					label: t('FILTER', {
+						defaultValue: 'Find a {{type, lowercase}}',
+						type: props?.renderAs.name,
+					}),
+					value: filter,
+					onChange: event => setFilter(event.target.value),
+				},
+			}}
 			{...props}
 			collection={filteredCollection}
-			filter={{
-				value: filter,
-				onChange: event => setFilter(event.target.value),
-			}}
 		/>
 	);
 }
@@ -163,13 +166,13 @@ function FilteredResourceList(props) {
 storiesOf('ResourceList', module)
 	.addDecorator(story => (
 		<section>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			{story()}
 		</section>
 	))
 	.add('default', () => <ResourceList collection={collection} />)
 	.add('simple', () => <ResourceList collection={simpleCollection} />)
-	.add('preparations', () => <ResourceList collection={preparationCollection} as={Preparation} />)
+	.add('preparations', () => <ResourceList collection={preparations} renderAs={Preparation} />)
 	.add('filtered pipelines', () => (
-		<FilteredResourceList collection={pipelineCollection} as={Pipeline} />
+		<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
 	));

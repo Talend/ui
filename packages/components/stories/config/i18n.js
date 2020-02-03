@@ -65,6 +65,12 @@ i18n.use(initReactI18next).init({
 	},
 	debug: false,
 	wait: true, // globally set to wait for loaded translations in translate hoc
+	interpolation: {
+		format: (value, format) => {
+			if (format === 'lowercase') return value.toLocaleLowerCase();
+			return value;
+		},
+	},
 });
 
 export const LanguageSwitcher = () => {

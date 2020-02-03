@@ -1,0 +1,48 @@
+$tc-resource-list-height: 25rem !default;
+
+.tc-resource-list {
+	&-toolbar {
+		background-color: $gray;
+	}
+
+	&-container {
+		height: $tc-resource-list-height;
+
+		&.filtered {
+			:global(.flags-container) {
+				opacity: 1;
+			}
+		}
+
+		dl {
+			padding: 0 $padding-small;
+
+			div {
+				display: flex;
+			}
+
+			dt, dd {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			dt {
+				display: flex;
+				align-items: center;
+				font-weight: initial;
+				flex-shrink: 0;
+
+				svg {
+					margin-right: $padding-smaller;
+				}
+			}
+
+			dd {
+				padding-left: $padding-smaller;
+				flex-grow: 1;
+				min-width: 0;
+			}
+		}
+	}
+}
