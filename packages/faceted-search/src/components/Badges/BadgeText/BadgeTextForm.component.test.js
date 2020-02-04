@@ -1,7 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from 'enzyme';
-import { BadgeTextArea } from './BadgeTextArea.component';
+import { BadgeTextForm } from './BadgeTextForm.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 
 const badgeFacetedContextValue = {
@@ -10,7 +10,7 @@ const badgeFacetedContextValue = {
 	onSubmitBadge: jest.fn(),
 };
 
-describe('BadgeTextArea', () => {
+describe('BadgeTextForm', () => {
 	it('should mount a default badge', () => {
 		// Given
 		const props = {
@@ -21,7 +21,7 @@ describe('BadgeTextArea', () => {
 		// When
 		const wrapper = mount(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
-				<BadgeTextArea {...props} />
+				<BadgeTextForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
@@ -41,15 +41,17 @@ describe('BadgeTextArea', () => {
 		// When
 		const wrapper = mount(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
-				<BadgeTextArea {...props} />
+				<BadgeTextForm {...props} />
 			</BadgeFacetedProvider>,
 		);
+
 		// Then
 		expect(
 			wrapper
-				.find('textarea')
+				.find('input[type="text"]')
 				.first()
-				.text(),
+				.props()
+				.value,
 		).toEqual('init value');
 
 		const submitButton = wrapper.find('button[type="submit"]').first();
