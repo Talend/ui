@@ -19,6 +19,14 @@ const theme = getTheme(cssModule);
 
 const findOperatorByName = name => operator => name === operator.name;
 
+const getOverlays = (initialOperatorOpened, initialValueOpened, operators) => {
+	if (operators.length < 2) {
+		// To open the value just after the selection of the type
+		return useBadgeOverlayFlow(false, true);
+	}
+	return useBadgeOverlayFlow(initialOperatorOpened, initialValueOpened);
+};
+
 const BadgeFaceted = ({
 	badgeId,
 	children,
@@ -38,7 +46,7 @@ const BadgeFaceted = ({
 		overlayDispatch,
 		onChangeOperatorOverlay,
 		onChangeValueOverlay,
-	] = useBadgeOverlayFlow(initialOperatorOpened, initialValueOpened);
+	] = getOverlays(initialOperatorOpened, initialValueOpened, operators);
 
 	const { dispatch } = useBadgeFacetedContext();
 	const [badgeOperator, setBadgeOperator] = useState(operator);
