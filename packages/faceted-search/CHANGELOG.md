@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+## [0.3.0]
+
 ### Breaking change
 
 - ⤴️ @talend/ui: >= 4.27.0
