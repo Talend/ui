@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Action from '@talend/react-components/lib/Actions/Action';
+import Toggle from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { FACETED_MODE } from '../../constants';
@@ -8,30 +8,21 @@ import cssModule from './FacetedToolbar.scss';
 
 const theme = getTheme(cssModule);
 
-const SwitchFacetedMode = ({ facetedMode, id, onChange, t }) => (
-	<div className={theme('tc-faceted-toolbar-buttons')}>
-		<Action
-			onClick={() => {
-				onChange(FACETED_MODE.BASIC);
-			}}
-			label={t('FACETED_SEARCH_BASIC', { defaultValue: 'Basic' })}
-			id={`${id}-basic-action`}
-			className={theme('tc-faceted-toolbar-buttons-basic', {
-				'tc-button-selected': facetedMode === FACETED_MODE.BASIC,
-			})}
-		/>
-		<Action
-			onClick={() => {
-				onChange(FACETED_MODE.ADVANCED);
-			}}
-			label={t('FACETED_SEARCH_ADVANCED', { defaultValue: 'Advanced' })}
-			id={`${id}-avd-action`}
-			className={theme('tc-faceted-toolbar-buttons-advanced', {
-				'tc-button-selected': facetedMode === FACETED_MODE.ADVANCED,
-			})}
-		/>
-	</div>
-);
+const SwitchFacetedMode = ({ facetedMode, id, onChange, t }) => {
+	const values = [
+		{ value: FACETED_MODE.BASIC, label: t('FACETED_SEARCH_BASIC', { defaultValue: 'Basic' }) },
+		{
+			value: FACETED_MODE.ADVANCED,
+			label: t('FACETED_SEARCH_ADVANCED', { defaultValue: 'Advanced' }),
+		},
+	];
+
+	return (
+		<form>
+			<Toggle.Label values={values} value={facetedMode} onChange={onChange} />
+		</form>
+	);
+};
 
 SwitchFacetedMode.propTypes = {
 	facetedMode: PropTypes.string.isRequired,
