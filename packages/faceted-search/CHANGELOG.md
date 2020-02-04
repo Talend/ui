@@ -26,6 +26,14 @@ Types of changes
 
 ## [unreleased]
 
+### Breaking change
+
+- ⤴️ @talend/ui: >= 4.27.0
+
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2638): use toggle for basic/advance button
+
 ## [0.2.6]
 
 ### Fixed
