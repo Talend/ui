@@ -49,7 +49,7 @@ const descriptionId = `${rest.id}-desc`;
 const errorId = `${rest.id}-error`;
 
 <FieldTemplate
-	label="Name"
+	label={name}
 	description={description}
 	descriptionId={descriptionId}
 	error={error}
