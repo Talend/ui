@@ -10,7 +10,7 @@
 
 	&-footer {
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-end;
 	}
 
 	:global(.tc-tooltip-content) {
