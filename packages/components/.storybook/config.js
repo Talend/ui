@@ -8,9 +8,5 @@ import { withA11y } from '@storybook/addon-a11y';
 import 'focus-outline-manager';
 import '../stories/config/i18n';
 
-function loadStories() {
-	require('../stories');
-}
-
 addDecorator(withA11y);
-configure(loadStories, module);
+configure([require.context('../src', true, /\.stories\.js$/)], module);

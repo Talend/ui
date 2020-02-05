@@ -101,7 +101,7 @@ function noOp() {}
 };
  <Action {...props} />
  */
-export function ActionButton(props) {
+function ActionButton(props) {
 	const {
 		bsStyle,
 		buttonRef,

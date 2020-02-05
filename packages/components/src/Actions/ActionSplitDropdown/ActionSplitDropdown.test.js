@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import { ActionSplitDropdown } from './ActionSplitDropdown.component';
+import ActionSplitDropdown from './ActionSplitDropdown.component';
 
 const items = [
 	{
@@ -27,7 +27,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+		const wrapper = shallow(<ActionSplitDropdown.WrappedComponent {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+		const wrapper = shallow(<ActionSplitDropdown.WrappedComponent {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -72,7 +72,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+		const wrapper = shallow(<ActionSplitDropdown.WrappedComponent {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -90,7 +90,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+		const wrapper = shallow(<ActionSplitDropdown.WrappedComponent {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -119,7 +119,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const actionSplitDropdownInstance = mount(<ActionSplitDropdown {...props} />);
+		const actionSplitDropdownInstance = mount(<ActionSplitDropdown.WrappedComponent {...props} />);
 		const menuItems = actionSplitDropdownInstance.find('MenuItem');
 
 		menuItems
