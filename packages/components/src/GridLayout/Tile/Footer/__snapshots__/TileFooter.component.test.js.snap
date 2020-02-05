@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tile Footer should render footer with action on the right 1`] = `
+<div
+  className="theme-tc-tile-footer tc-tile-footer"
+>
+  <span>
+    Test
+  </span>
+</div>
+`;
