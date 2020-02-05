@@ -248,8 +248,8 @@ const massActions = {
 };
 
 const appMassActions = {
-	left:  [multiFavorite, multiCertify],
-}
+	left: [multiFavorite, multiCertify],
+};
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -269,7 +269,7 @@ const icons = {
 	'talend-file-move': talendIcons['talend-file-move'],
 };
 
-storiesOf('ActionBar', module)
+storiesOf('Components/Navigation & Layout/ActionBar', module)
 	.add('default', () => (
 		<nav>
 			<IconsProvider defaultIcons={icons} />

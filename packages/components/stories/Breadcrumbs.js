@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Breadcrumbs from '../src/Breadcrumbs/Breadcrumbs.component';
 
-storiesOf('Breadcrumbs', module)
+storiesOf('Components/Navigation & Layout/Breadcrumbs', module)
 	.add('default', () => {
 		const items = [
 			{ text: 'Text A', title: 'Text title A', onClick: action('Text A clicked') },

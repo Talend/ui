@@ -42,7 +42,6 @@ const defaultProps = {
 	},
 };
 
-
 const propsWithoutHeader = {
 	show: true,
 	validateAction: {
@@ -105,10 +104,9 @@ const withProgressBarProps = {
 	progressValue: 66,
 };
 
-const children = (<div>BODY content. You can put what ever you want here</div>);
+const children = <div>BODY content. You can put what ever you want here</div>;
 
-
-storiesOf('ConfirmDialog', module)
+storiesOf('Components/Modals/ConfirmDialog', module)
 	.add('default', () => (
 		<div>
 			<h1>Dialog</h1>
@@ -147,9 +145,7 @@ storiesOf('ConfirmDialog', module)
 		return (
 			<div>
 				<h1>Dialog</h1>
-				<ConfirmDialog {...withProgressBarProps}>
-					{rows}
-				</ConfirmDialog>
+				<ConfirmDialog {...withProgressBarProps}>{rows}</ConfirmDialog>
 			</div>
 		);
 	})

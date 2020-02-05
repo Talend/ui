@@ -24,7 +24,7 @@ const columns = [
 	{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
 ];
 
-storiesOf('Column Chooser', module)
+storiesOf('Components/Specific Features/Column Chooser', module)
 	.add('Default', () => (
 		<div>
 			<h1>Column chooser tooltip</h1>
@@ -43,7 +43,11 @@ storiesOf('Column Chooser', module)
 			<h1>Column chooser tooltip</h1>
 			<p>You can provide and compose some of the column chooser part.</p>
 			<IconsProvider defaultIcons={icons} />
-			<ColumnChooser columnsFromList={columns} id="default-column-chooser" onSubmit={action('submit')}>
+			<ColumnChooser
+				columnsFromList={columns}
+				id="default-column-chooser"
+				onSubmit={action('submit')}
+			>
 				<ColumnChooser.Header>
 					<span>Hello world</span>
 					<button style={{ marginLeft: '200px' }}>My Button</button>

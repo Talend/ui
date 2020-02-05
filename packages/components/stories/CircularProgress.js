@@ -3,14 +3,11 @@ import { storiesOf } from '@storybook/react';
 
 import { CircularProgress } from '../src';
 
-storiesOf('CircularProgress', module)
-	.add('default', () => (
+storiesOf('Components/Messaging & Communication/Loading Feedback/Spinner', module).add(
+	'default',
+	() => (
 		<div>
-			<h1>CircularProgress</h1>
-			<h2>Definition</h2>
-			<p>Show a spinning progress indicator</p>
-			<h2>Examples</h2>
-			<p>By default :</p>
+			<h3>Default</h3>
 			<CircularProgress />
 			<h3>Small</h3>
 			<CircularProgress size="small" />
@@ -33,4 +30,5 @@ storiesOf('CircularProgress', module)
 			<h3>Large with percent</h3>
 			<CircularProgress size="large" percent="70" />
 		</div>
-	));
+	),
+);

@@ -20,47 +20,47 @@ export const customSkeletonConf = [
 ];
 
 function TdsTileContent() {
-	const { displayMode= 'chart', setDisplayMode } = Tile.useTileContext();
+	const { displayMode = 'chart', setDisplayMode } = Tile.useTileContext();
 
 	const submitAction = {
 		label: 'Click me',
 		onClick: () => {
 			setDisplayMode('chart');
-		}
+		},
 	};
 
 	switch (displayMode) {
-	case 'chart':
-		return (
-			<React.Fragment>
-				<div>
-					'my chart'
-					<InputDateTimePicker
-						id="my-date-picker"
-						name="Datetime"
-						onBlur={action('onBlur')}
-						onChange={action('onChange')}
-					/>
-				</div>
-			</React.Fragment>
-		);
-	case 'filter':
-		return (
-			<React.Fragment>
-				<div>my filter</div>
-				<Action {...submitAction} />
-			</React.Fragment>
-		);
-	case 'filterUser': {
-		return (
-			<React.Fragment>
-				<div>'user list'</div>
-				<Action {...submitAction} />
-			</React.Fragment>
-		);
-	}
-	default:
-		return null;
+		case 'chart':
+			return (
+				<React.Fragment>
+					<div>
+						'my chart'
+						<InputDateTimePicker
+							id="my-date-picker"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+						/>
+					</div>
+				</React.Fragment>
+			);
+		case 'filter':
+			return (
+				<React.Fragment>
+					<div>my filter</div>
+					<Action {...submitAction} />
+				</React.Fragment>
+			);
+		case 'filterUser': {
+			return (
+				<React.Fragment>
+					<div>'user list'</div>
+					<Action {...submitAction} />
+				</React.Fragment>
+			);
+		}
+		default:
+			return null;
 	}
 }
 
@@ -89,11 +89,9 @@ function ViewSelector() {
 
 	return (
 		<div style={{ display: 'flex' }}>
-			{
-				[addItemAction, filterAction].map(action => (
-					<ActionIconToggle {...action} />
-				))
-			}
+			{[addItemAction, filterAction].map(action => (
+				<ActionIconToggle {...action} />
+			))}
 		</div>
 	);
 }
@@ -103,14 +101,12 @@ function ChartTile({ tile }) {
 
 	return (
 		<Tile.Container>
-			{
-				tile.header ? (
-						<Tile.Header>
-							{ tile.header.label }
-							<ViewSelector></ViewSelector>
-						</Tile.Header> )
-					: null
-			}
+			{tile.header ? (
+				<Tile.Header>
+					{tile.header.label}
+					<ViewSelector></ViewSelector>
+				</Tile.Header>
+			) : null}
 			<Tile.Body>
 				<TdsTileContent />
 			</Tile.Body>
@@ -118,46 +114,46 @@ function ChartTile({ tile }) {
 	);
 }
 
-function GridContainer({ isLoading = false, skeletonConfiguration, isResizable = true, ...rest}) {
+function GridContainer({ isLoading = false, skeletonConfiguration, isResizable = true, ...rest }) {
 	const [tiles, setTiles] = useState([
 		{
 			header: {
-				label: 'My tile\'s title',
+				label: "My tile's title",
 			},
 			key: 'firstTile',
-			'data-grid': {w: 2, h: 2, x: 0, y: 0, i: 'firstTile'},
+			'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'firstTile' },
 		},
 		{
 			header: {
-				label: 'My second tile\'s title',
+				label: "My second tile's title",
 			},
 			key: 'secondTile',
-			'data-grid': {w: 2, h: 2, x: 2, y: 0, i: 'secondTile'},
+			'data-grid': { w: 2, h: 2, x: 2, y: 0, i: 'secondTile' },
 		},
 		{
 			key: 'thirdTile',
-			'data-grid': {w: 12, h: 2, x: 0, y: 2, i: 'thirdTile'},
+			'data-grid': { w: 12, h: 2, x: 0, y: 2, i: 'thirdTile' },
 		},
 		{
 			header: {
-				label: 'My fourth tile\'s title',
+				label: "My fourth tile's title",
 			},
 			key: 'fourthTile',
-			'data-grid': {w: 2, h: 2, x: 4, y: 2, i: 'fourthTile'},
+			'data-grid': { w: 2, h: 2, x: 4, y: 2, i: 'fourthTile' },
 		},
 		{
 			header: {
-				label: 'My Fifth tile\'s title',
+				label: "My Fifth tile's title",
 			},
 			key: 'fifthTile',
-			'data-grid': {w: 4, h: 2, x: 4, y: 2, i: 'fifthTile'},
+			'data-grid': { w: 4, h: 2, x: 4, y: 2, i: 'fifthTile' },
 		},
 		{
 			header: {
-				label: 'My Sixth tile\'s title',
+				label: "My Sixth tile's title",
 			},
 			key: 'sixthTile',
-			'data-grid': {w: 4, h: 2, x: 4, y: 2, i: 'sixthTile'},
+			'data-grid': { w: 4, h: 2, x: 4, y: 2, i: 'sixthTile' },
 		},
 	]);
 
@@ -169,18 +165,17 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 				skeletonConfiguration={skeletonConfiguration}
 				{...rest}
 			>
-				{ tiles.map(tile => (
+				{tiles.map(tile => (
 					<div key={tile.key} data-grid={tile['data-grid']}>
 						<ChartTile tile={tile} />
-					</div>)
-				)}
+					</div>
+				))}
 			</GridLayout>
 		</div>
 	);
 }
 
-
-storiesOf('GridLayout', module)
+storiesOf('Components/Specific Features/Dashboard', module)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
@@ -190,7 +185,10 @@ storiesOf('GridLayout', module)
 	.add('default', () => <GridContainer />)
 	.add('not draggable', () => <GridContainer isDraggable={false} />)
 	.add('not resizable', () => <GridContainer isResizable={false} />)
-	.add('neither draggable nor resizable', () => <GridContainer isDraggable={false} isResizable={false} />)
+	.add('neither draggable nor resizable', () => (
+		<GridContainer isDraggable={false} isResizable={false} />
+	))
 	.add('isLoading', () => <GridContainer isLoading />)
-	.add('isLoading with custom grid', () => <GridContainer isLoading skeletonConfiguration={customSkeletonConf} />);
-;
+	.add('isLoading with custom grid', () => (
+		<GridContainer isLoading skeletonConfiguration={customSkeletonConf} />
+	));

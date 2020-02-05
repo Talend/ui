@@ -290,7 +290,7 @@ const withClassProps = {
 	],
 };
 
-storiesOf('Enumeration', module)
+storiesOf('Components/Controls/Enumeration', module)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>

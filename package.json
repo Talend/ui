@@ -7,6 +7,7 @@
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.2",
     "puppeteer": "^1.2.0",
+    "storybook-chroma": "^3.5.0",
     "surge": "^0.20.3",
     "tmp-promise": "^1.0.4"
   },

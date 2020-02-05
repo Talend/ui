@@ -17,7 +17,7 @@ const myAction = {
 	displayMode: 'file',
 };
 
-storiesOf('ActionFile', module)
+storiesOf('Components/Controls/File', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
@@ -42,6 +42,11 @@ storiesOf('ActionFile', module)
 			<Action id="default" {...myAction} tooltipLabel="Custom label here" />
 			<p>Bootstrap style</p>
 			<Action id="default" {...myAction} bsStyle="primary" tooltipLabel="Custom label here" />
-			<Action id="default" {...myAction} className="btn-default btn-inverse" tooltipLabel="Custom label here" />
+			<Action
+				id="default"
+				{...myAction}
+				className="btn-default btn-inverse"
+				tooltipLabel="Custom label here"
+			/>
 		</div>
 	));

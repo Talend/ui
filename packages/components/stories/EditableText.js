@@ -11,7 +11,7 @@ const props = {
 	onCancel: action('onCancel'),
 };
 
-storiesOf('EditableText', module)
+storiesOf('Components/Controls/EditableText', module)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider />

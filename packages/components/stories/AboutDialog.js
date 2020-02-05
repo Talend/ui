@@ -48,7 +48,7 @@ const services = [
 
 const { name, version } = getColumnHeaders();
 
-storiesOf('AboutDialog', module)
+storiesOf('Components/Modals/AboutDialog', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

@@ -38,7 +38,7 @@ function onSelect(name) {
 
 const longStr = 'Very, very, very, very, very, very, very, very long tag';
 
-storiesOf('Badge', module).add('default', () => (
+storiesOf('Components/Information/Badge', module).add('default', () => (
 	<React.Fragment>
 		<section>
 			<h1>New visual</h1>
@@ -213,8 +213,18 @@ storiesOf('Badge', module).add('default', () => (
 					<span>Read only</span>
 					<Badge label={longStr} display={Badge.SIZES.large} category={longStr} />
 					<Badge label={longStr} display={Badge.SIZES.small} category={longStr} />
-					<Badge label={longStr} display={Badge.SIZES.large} category={longStr} icon="talend-clock" />
-					<Badge label={longStr} display={Badge.SIZES.small} category={longStr} icon="talend-clock" />
+					<Badge
+						label={longStr}
+						display={Badge.SIZES.large}
+						category={longStr}
+						icon="talend-clock"
+					/>
+					<Badge
+						label={longStr}
+						display={Badge.SIZES.small}
+						category={longStr}
+						icon="talend-clock"
+					/>
 					<span>Edit Mode</span>
 					<Badge
 						label={longStr}
@@ -326,18 +336,42 @@ storiesOf('Badge', module).add('default', () => (
 					<br />
 					<Badge label="Label" display={Badge.SIZES.small} icon="talend-clock" disabled />
 					<br />
-					<Badge label="Label" display={Badge.SIZES.large} category="Cat" icon="talend-clock" disabled />
+					<Badge
+						label="Label"
+						display={Badge.SIZES.large}
+						category="Cat"
+						icon="talend-clock"
+						disabled
+					/>
 					<br />
-					<Badge label="Label" display={Badge.SIZES.small} category="Cat" icon="talend-clock" disabled />
+					<Badge
+						label="Label"
+						display={Badge.SIZES.small}
+						category="Cat"
+						icon="talend-clock"
+						disabled
+					/>
 				</div>
 				<div style={columnStyle}>
 					<Badge label="Label" display={Badge.SIZES.large} {...onDelete('A')} disabled />
 					<br />
 					<Badge label="Label" display={Badge.SIZES.small} {...onDelete('A')} disabled />
 					<br />
-					<Badge label="Label" display={Badge.SIZES.large} category="Cat" {...onDelete('A')} disabled />
+					<Badge
+						label="Label"
+						display={Badge.SIZES.large}
+						category="Cat"
+						{...onDelete('A')}
+						disabled
+					/>
 					<br />
-					<Badge label="Label" display={Badge.SIZES.small} category="Cat" {...onDelete('A')} disabled />
+					<Badge
+						label="Label"
+						display={Badge.SIZES.small}
+						category="Cat"
+						{...onDelete('A')}
+						disabled
+					/>
 					<br />
 					<Badge
 						label="Label"
@@ -534,7 +568,13 @@ storiesOf('Badge', module).add('default', () => (
 					<Badge label="Label" display={Badge.SIZES.small} white {...onSelect('B')} />
 				</div>
 				<div style={columnStyle}>
-					<Badge label="Label" display={Badge.SIZES.small} white {...onSelect('B')} {...onDelete('A')} />
+					<Badge
+						label="Label"
+						display={Badge.SIZES.small}
+						white
+						{...onSelect('B')}
+						{...onDelete('A')}
+					/>
 				</div>
 				<div style={columnStyle}>
 					<Badge
@@ -551,7 +591,14 @@ storiesOf('Badge', module).add('default', () => (
 			<div style={defaultStyle} id="newVisualWhiteDisabled">
 				<div style={columnStyle}>disabled</div>
 				<div style={columnStyle}>
-					<Badge label="Label" display={Badge.SIZES.small} white aslink {...onSelect('B')} disabled />
+					<Badge
+						label="Label"
+						display={Badge.SIZES.small}
+						white
+						aslink
+						{...onSelect('B')}
+						disabled
+					/>
 				</div>
 				<div style={columnStyle}>
 					<Badge label="Label" display={Badge.SIZES.small} white {...onSelect('B')} disabled />

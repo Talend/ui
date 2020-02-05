@@ -49,7 +49,7 @@ const titleMapWithDisabledItems = [
 	{ name: 'My foobar', value: 'foobar', description: 'foobar description' },
 ];
 
-storiesOf('Datalist', module)
+storiesOf('Components/Controls/Datalist', module)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('default multiSection', () => {
 		const restrictedValues = { ...propsMultiSection, restricted: true };
@@ -58,12 +58,10 @@ storiesOf('Datalist', module)
 			...propsMultiSection,
 			titleMap: propsMultiSection.titleMap.map(titleMap => ({
 				...titleMap,
-				suggestions: titleMap.suggestions.map(
-					suggestion => ({
-						...suggestion,
-						icon: { name: 'talend-clock' },
-					}),
-				),
+				suggestions: titleMap.suggestions.map(suggestion => ({
+					...suggestion,
+					icon: { name: 'talend-clock' },
+				})),
 			})),
 		};
 		return (

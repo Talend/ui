@@ -279,7 +279,7 @@ const twentyRows = [];
 for (let index = 0; index < 20; index++) {
 	twentyRows.push(<p key={index}>The content dictate the width</p>);
 }
-storiesOf('Drawer', module)
+storiesOf('Components/Navigation & Layout/Drawer', module)
 	.add('Default', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 			<span>zone with drawer</span>
