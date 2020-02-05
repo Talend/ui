@@ -2,9 +2,6 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/components/src/Badge/index.js
-  1:8  error  Using exported name 'Badge' as identifier for default export  import/no-named-as-default
-
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
@@ -48,9 +45,34 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   41:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   43:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
+/home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
+  276:33  error  Unary operator '++' used  no-plusplus
+  338:35  error  Unary operator '++' used  no-plusplus
+
+/home/travis/build/Talend/ui/packages/components/src/GridLayout/Dashboard.stories.js
+   19:1   error  Prefer default export                                   import/prefer-default-export
+   93:39  error  'action' is already declared in the upper scope         no-shadow
+  100:22  error  'tile' is missing in props validation                   react/prop-types
+  108:6   error  Empty components are self-closing                       react/self-closing-comp
+  118:26  error  'isLoading' is missing in props validation              react/prop-types
+  118:45  error  'skeletonConfiguration' is missing in props validation  react/prop-types
+  118:68  error  'isResizable' is missing in props validation            react/prop-types
+  119:16  error  'setTiles' is assigned a value but never used           no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
   68:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
   71:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
+
+/home/travis/build/Talend/ui/packages/components/src/GuidedTour/GuidedTour.stories.js
+   18:14  error    'beforeLoading' is missing in props validation      react/prop-types
+   22:17  error    'afterLoading' is missing in props validation       react/prop-types
+   24:18  error    'afterFinish' is missing in props validation        react/prop-types
+   51:1   error    Declare only one React component per file           react/no-multi-comp
+   74:23  error    'getSteps' is missing in props validation           react/prop-types
+   77:20  error    't' is missing in props validation                  react/prop-types
+  101:7   warning  Dangerous property 'dangerouslySetInnerHTML' found  react/no-danger
+  116:14  error    'goTo' is missing in props validation               react/prop-types
+  116:20  error    'step' is missing in props validation               react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   129:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
@@ -58,6 +80,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/IconsProvider/IconsProvider.component.js
    9:2   warning  Unexpected console statement  no-console
   10:16  error    Unexpected require()          global-require
+
+/home/travis/build/Talend/ui/packages/components/src/List/List.stories.js
+  858:7  error  'authorColumn' is never reassigned. Use 'const' instead  prefer-const
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/collection.js
+  1:1  error  '@storybook/addon-actions' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/home/travis/build/Talend/ui/packages/components/src/ListView/ListView.stories.js
+  170:32  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  177:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -68,8 +100,20 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
   17:2  warning  Unexpected console statement  no-console
 
+/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.stories.js
+  188:11  error  'panelItems' is assigned a value but never used  no-unused-vars
+  219:3   error  Declare only one React component per file        react/no-multi-comp
+
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
   4:8  error  'Container' is defined but never used  no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Table.stories.js
+  279:2   error  Assignment to property of function parameter 'column'      no-param-reassign
+  315:2   error  Assignment to property of function parameter 'column'      no-param-reassign
+  316:2   error  Assignment to property of function parameter 'column'      no-param-reassign
+  388:16  error  'initialState' PropType is defined but prop is never used  react/no-unused-prop-types
+  393:13  error  'draggable' PropType is defined but prop is never used     react/no-unused-prop-types
+  572:1   error  Declare only one React component per file                  react/no-multi-comp
 
 /home/travis/build/Talend/ui/packages/components/src/Toggle/Checkbox.js
   3:1  error  Prefer default export  import/prefer-default-export
@@ -84,6 +128,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 48 problems (45 errors, 3 warnings)
-  1 error, 0 warnings potentially fixable with the `--fix` option.
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.stories.js
+  406:9  error  'collection' is already declared in the upper scope  no-shadow
+
+✖ 79 problems (75 errors, 4 warnings)
+  5 errors, 0 warnings potentially fixable with the `--fix` option.
 
