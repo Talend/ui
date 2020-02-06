@@ -21,7 +21,7 @@ src/List/Toolbar/Toolbar.scss
   92:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/RichTooltip/RichLayout/RichLayout.scss
-  96:14  warning  Space expected around operator  space-around-operator
+  95:13  warning  Space expected around operator  space-around-operator
 
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
