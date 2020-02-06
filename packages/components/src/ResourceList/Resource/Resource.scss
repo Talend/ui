@@ -8,10 +8,6 @@
 		max-width: 100%;
 	}
 
-	:global(.tc-svg-icon) {
-		color: $dove-gray;
-	}
-
 	.data-container {
 		flex: 1;
 		min-width: 0;
@@ -84,6 +80,45 @@
 			> .author,
 			> .subtitle {
 				color: $dove-gray;
+			}
+		}
+	}
+
+	:global {
+		dl {
+			padding: 0 $padding-smaller;
+
+			div {
+				display: flex;
+			}
+
+			dt,
+			dd {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			dt {
+				display: flex;
+				align-items: center;
+				font-weight: initial;
+				flex-shrink: 0;
+
+				&.icon-only {
+					margin-right: -1 * $padding-smaller;
+				}
+
+				.tc-svg-icon {
+					margin: 0 $padding-smaller;
+					color: $brand-primary;
+				}
+			}
+
+			dd {
+				padding: 0 $padding-smaller;
+				flex-grow: 1;
+				min-width: 0;
 			}
 		}
 	}

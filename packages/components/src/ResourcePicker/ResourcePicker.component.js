@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { getTheme } from '../theme';
 
 import ResourceList from '../ResourceList/ResourceList.component';
 
 import cssModule from './ResourcePicker.scss';
-import Toolbar from '../ResourceList/Toolbar';
+import ResourceListPropTypes from '../ResourceList/ResourceList.propTypes';
 
 const theme = getTheme(cssModule);
 
@@ -15,6 +14,7 @@ export default function ResourcePicker(props) {
 		<div className={theme('tc-resource-picker')}>
 			<ResourceList
 				{...props}
+				rowHeight={60}
 				className={theme('tc-resource-picker-list')}
 				toolbar={{ ...props.toolbar, nameFilerAsInput: true }}
 			/>
@@ -22,15 +22,6 @@ export default function ResourcePicker(props) {
 	);
 }
 
-ResourcePicker.defaultProps = {
-	collection: [],
-};
-
 ResourcePicker.propTypes = {
-	className: PropTypes.string,
-	collection: PropTypes.arrayOf(PropTypes.object),
-	isLoading: PropTypes.bool,
-	onRowClick: PropTypes.func,
-	renderAs: PropTypes.func,
-	toolbar: PropTypes.shape(Toolbar.propTypes),
+	...ResourceListPropTypes,
 };

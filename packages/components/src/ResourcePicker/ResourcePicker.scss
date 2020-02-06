@@ -2,16 +2,28 @@ $tc-resource-picker-toolbar-height: 3.5rem !default;
 
 .tc-resource-picker {
 	:global {
+		.tc-resource-list-toolbar {
+			height: $tc-resource-picker-toolbar-height;
+
+			> * {
+				margin-left: 0;
+			}
+		}
+
 		.tc-list-list {
 			padding: 0;
 		}
 
-		.tc-resource-list-toolbar {
-			height: $tc-resource-picker-toolbar-height;
-		}
-
 		.resource-item {
 			border-bottom: 0.1rem solid $gallery;
+
+			> * {
+				margin-left: $padding-normal;
+			}
+
+			.tc-svg-icon {
+				color: $dove-gray;
+			}
 		}
 	}
 }

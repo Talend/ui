@@ -70,11 +70,16 @@ export const pipelines = [
 	},
 ];
 
+const commonProps = {
+	rowHeight: 85,
+	onRowClick: action('onRowClick'),
+};
+
 export function Preparation({ name, createdBy, path }) {
 	const { t } = useTranslation();
 	return (
 		<div className={'preparation'}>
-			<h2>{name}</h2>
+			<h3>{name}</h3>
 			<dl>
 				<div>
 					<dt>
@@ -84,7 +89,7 @@ export function Preparation({ name, createdBy, path }) {
 					<dd>{createdBy}</dd>
 				</div>
 				<div>
-					<dt>
+					<dt className={'icon-only'}>
 						<Icon name={'talend-folder-closed'} />
 						<span className={'sr-only'}>{t('Path', { defaultValue: 'Path' })}</span>
 					</dt>
@@ -110,7 +115,7 @@ export function Pipeline({ name, createdBy, usedAs }) {
 	});
 	return (
 		<div className={'pipeline'}>
-			<h2>{name}</h2>
+			<h3>{name}</h3>
 			<dl>
 				<div>
 					<dt>
@@ -149,11 +154,12 @@ export function FilteredResourceList(props) {
 	);
 	return (
 		<ResourceList
+			{...commonProps}
 			toolbar={{
 				name: {
 					label: t('FILTER', {
 						defaultValue: 'Find a {{type, lowercase}}',
-						type: props?.renderAs.name,
+						type: props?.renderAs?.name,
 					}),
 					value: filter,
 					onChange: event => setFilter(event.target.value),
@@ -164,10 +170,6 @@ export function FilteredResourceList(props) {
 		/>
 	);
 }
-
-const commonProps = {
-	onRowClick: action('onRowClick'),
-};
 
 storiesOf('ResourceList', module)
 	.addDecorator(story => (
@@ -182,5 +184,5 @@ storiesOf('ResourceList', module)
 		<ResourceList {...commonProps} collection={preparations} renderAs={Preparation} />
 	))
 	.add('filtered pipelines', () => (
-		<FilteredResourceList {...commonProps} collection={pipelines} renderAs={Pipeline} />
+		<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
 	));

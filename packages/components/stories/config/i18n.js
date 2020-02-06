@@ -67,7 +67,7 @@ i18n.use(initReactI18next).init({
 	wait: true, // globally set to wait for loaded translations in translate hoc
 	interpolation: {
 		format: (value, format) => {
-			if (format === 'lowercase') return value.toLocaleLowerCase();
+			if (value && format === 'lowercase') return value.toLocaleLowerCase();
 			return value;
 		},
 	},

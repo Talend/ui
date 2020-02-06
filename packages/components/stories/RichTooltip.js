@@ -195,6 +195,27 @@ storiesOf('RichTooltip', module)
 			/>
 		</div>
 	))
+	.add('loading resource list', () => (
+		<div>
+			<Action
+				id="custom-body"
+				overlayComponent={
+					<RichLayout
+						id="richlayout"
+						Header={header}
+						Content={
+							<div style={{ width: '100%', height: '30rem' }}>
+								<FilteredResourceList isLoading />
+							</div>
+						}
+					/>
+				}
+				overlayPlacement="bottom"
+				tooltipPlacement="right"
+				{...myAction}
+			/>
+		</div>
+	))
 	.add('resource list', () => (
 		<div>
 			<Action

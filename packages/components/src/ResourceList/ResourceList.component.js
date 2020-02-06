@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import { getTheme } from '../theme';
 
 import Resource from './Resource';
+import ResourceListPropTypes from './ResourceList.propTypes';
 import Toolbar from './Toolbar';
 import VirtualizedList from '../VirtualizedList';
 import getRowSelectionRenderer from '../VirtualizedList/RowSelection';
@@ -33,23 +33,30 @@ function ResourceList({
 		as: renderAs,
 		getRowData: ({ index }) => collection[index],
 	});
-	const noRowsRenderer = () => (
-		<div className={theme('tc-resource-list--no-results')}>
-			<span className={theme('tc-resource-list--no-results-text')} role="status" aria-live="polite">
-				<Icon className={theme('tc-resource-list--no-results-icon')} name={'talend-fieldglass'} />{' '}
-				{t('RESOURCELIST_NO_ITEMS', {
-					defaultValue: 'No existing {{type, lowercase}}s',
-					type: renderAs?.name,
-				})}
-			</span>
-		</div>
+	const noRowsRenderer = React.memo(
+		() => (
+			<div className={theme('tc-resource-list--no-results')}>
+				<span
+					className={theme('tc-resource-list--no-results-text')}
+					role="status"
+					aria-live="polite"
+				>
+					<Icon className={theme('tc-resource-list--no-results-icon')} name={'talend-fieldglass'} />{' '}
+					{t('RESOURCELIST_NO_ITEMS', {
+						defaultValue: 'No existing {{type, lowercase}}s',
+						type: renderAs?.name,
+					})}
+				</span>
+			</div>
+		),
+		[renderAs],
 	);
 	return (
 		<div className={theme('tc-resource-list')}>
-			{toolbar && <Toolbar {...toolbar} />}
+			{!isLoading && toolbar && <Toolbar {...toolbar} />}
 			<div
 				className={classNames(className, theme('tc-resource-list-items'), {
-					[theme.filtered]: isFiltered(toolbar),
+					[theme('filtered')]: isFiltered(toolbar),
 				})}
 			>
 				<VirtualizedList
@@ -72,12 +79,7 @@ ResourceList.defaultProps = {
 };
 
 ResourceList.propTypes = {
-	className: PropTypes.string,
-	collection: PropTypes.arrayOf(PropTypes.object),
-	isLoading: PropTypes.bool,
-	onRowClick: PropTypes.func,
-	renderAs: PropTypes.func,
-	toolbar: PropTypes.shape(Toolbar.propTypes),
+	...ResourceListPropTypes,
 };
 
 export default ResourceList;

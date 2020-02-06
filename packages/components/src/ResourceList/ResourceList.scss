@@ -9,38 +9,6 @@ $tc-resource-list-height: 25rem !default;
 				opacity: 1;
 			}
 		}
-
-		dl {
-			padding: 0 $padding-small;
-
-			div {
-				display: flex;
-			}
-
-			dt,
-			dd {
-				white-space: nowrap;
-				text-overflow: ellipsis;
-				overflow: hidden;
-			}
-
-			dt {
-				display: flex;
-				align-items: center;
-				font-weight: initial;
-				flex-shrink: 0;
-
-				svg {
-					margin: 0 $padding-smaller;
-				}
-			}
-
-			dd {
-				padding: 0 $padding-smaller;
-				flex-grow: 1;
-				min-width: 0;
-			}
-		}
 	}
 
 	&--no-results {

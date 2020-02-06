@@ -5,8 +5,9 @@ exports[`ResourcePicker component should render ResourceList 1`] = `
   className="tc-resource-picker theme-tc-resource-picker"
 >
   <ResourceList
-    className="tc-resource-picker-list-container theme-tc-resource-picker-list-container"
+    className="tc-resource-picker-list theme-tc-resource-picker-list"
     collection={Array []}
+    rowHeight={60}
     toolbar={
       Object {
         "nameFilerAsInput": true,
