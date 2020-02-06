@@ -17,7 +17,8 @@ $tc-resource-list-height: 25rem !default;
 				display: flex;
 			}
 
-			dt, dd {
+			dt,
+			dd {
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				overflow: hidden;
@@ -30,15 +31,33 @@ $tc-resource-list-height: 25rem !default;
 				flex-shrink: 0;
 
 				svg {
-					margin-right: $padding-smaller;
+					margin: 0 $padding-smaller;
 				}
 			}
 
 			dd {
-				padding-left: $padding-smaller;
+				padding: 0 $padding-smaller;
 				flex-grow: 1;
 				min-width: 0;
 			}
+		}
+	}
+
+	&--no-results {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+
+		&-text {
+			display: inline-flex;
+			align-items: center;
+			font-style: italic;
+			color: $gray;
+		}
+
+		&-icon {
+			margin: 0 $padding-small;
 		}
 	}
 }

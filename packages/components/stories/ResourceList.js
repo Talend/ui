@@ -39,7 +39,8 @@ export const pipelines = [
 	{
 		id: 0,
 		name: 'Central Factors Facilitator',
-		createdBy: 'Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch',
+		createdBy:
+			'Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch Darlene Koch',
 		usedAs: ['source', 'destination'],
 	},
 	{
