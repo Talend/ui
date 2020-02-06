@@ -102,6 +102,7 @@ const basicProps = {
 };
 
 const tabs = {
+	id: 'tabs',
 	items: [
 		{
 			id: '1',
@@ -129,6 +130,7 @@ const tabs = {
 };
 
 const tabsActionFooter = {
+	id: 'tabs',
 	items: [
 		{
 			id: '1',
@@ -184,7 +186,7 @@ const tabsActionFooter = {
 function scrollableContent() {
 	const content = [];
 	for (let i = 1; i <= 42; i += 1) {
-		content.push(<p>The scroll is defined by the content {i}</p>);
+		content.push(<p key={i}>The scroll is defined by the content {i}</p>);
 	}
 	return content;
 }

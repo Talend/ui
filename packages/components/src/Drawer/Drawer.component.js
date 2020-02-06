@@ -334,7 +334,7 @@ Drawer.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
-	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
+	footerActions: PropTypes.shape(ActionBar.propTypes),
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,

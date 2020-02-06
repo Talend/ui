@@ -43,8 +43,8 @@ const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
 		<ul>
-			{[...new Array(138)].map(() => (
-				<li>one</li>
+			{[...new Array(138)].map((_, index) => (
+				<li key={index}>one</li>
 			))}
 		</ul>
 	</div>
@@ -90,14 +90,12 @@ const tabs = {
 	selectedKey: '2',
 };
 
-const stories = storiesOf('Navigation & Layout/AppLayout', module).addDecorator(
-	story => (
-		<div>
-			<IconsProvider />
-			{story()}
-		</div>
-	),
-);
+const stories = storiesOf('Navigation & Layout/AppLayout', module).addDecorator(story => (
+	<div>
+		<IconsProvider />
+		{story()}
+	</div>
+));
 
 const appStyle = require('../../stories/config/themes.scss');
 
