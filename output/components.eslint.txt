@@ -46,8 +46,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   43:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
-  276:33  error  Unary operator '++' used  no-plusplus
-  338:35  error  Unary operator '++' used  no-plusplus
+  278:33  error  Unary operator '++' used  no-plusplus
+  340:35  error  Unary operator '++' used  no-plusplus
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Dashboard.stories.js
    19:1   error  Prefer default export                                   import/prefer-default-export
