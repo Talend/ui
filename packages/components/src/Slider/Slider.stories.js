@@ -68,7 +68,7 @@ const actions = [
 const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => `${Math.floor(value)}`;
 
-storiesOf('Components/Controls/Slider', module).add('default', () => (
+storiesOf('Controls/Slider', module).add('default', () => (
 	<section>
 		<IconsProvider />
 		<div style={style}>

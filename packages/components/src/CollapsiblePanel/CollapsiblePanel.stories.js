@@ -127,7 +127,7 @@ const descriptiveDetail = {
 	className: 'detail',
 };
 
-storiesOf('Components/Navigation & Layout/CollapsiblePanel', module)
+storiesOf('Navigation & Layout/CollapsiblePanel', module)
 	.add('Default', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />

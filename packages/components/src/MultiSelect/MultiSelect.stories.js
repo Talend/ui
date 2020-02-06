@@ -50,4 +50,4 @@ class Photos extends React.Component {
 	}
 }
 
-storiesOf('Components/Legacy/MultiSelect', module).add('default', () => <Photos />);
+storiesOf('Legacy/MultiSelect', module).add('default', () => <Photos />);

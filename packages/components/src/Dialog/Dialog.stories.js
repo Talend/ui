@@ -98,7 +98,7 @@ const bsProps = {
 
 const children = <div>BODY content. You can put what ever you want here</div>;
 
-storiesOf('Components/Modals/Modal', module)
+storiesOf('Modals/Modal', module)
 	.add('default', () => (
 		<div>
 			<h1>Dialog</h1>

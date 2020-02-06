@@ -54,7 +54,7 @@ const actions = [
 	},
 ];
 
-const stories = storiesOf('Components/Navigation & Layout/ActionList', module);
+const stories = storiesOf('Navigation & Layout/ActionList', module);
 
 stories
 	.addDecorator(story => (

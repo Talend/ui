@@ -85,7 +85,7 @@ const footer = (
 
 const customBody = <div>my custom body rich tolltip</div>;
 
-storiesOf('Components/Navigation & Layout/RichLayout', module)
+storiesOf('Navigation & Layout/RichLayout', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider />

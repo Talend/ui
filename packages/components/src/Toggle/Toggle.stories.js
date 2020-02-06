@@ -59,7 +59,7 @@ InteractiveLabelToggle.propTypes = {
 	name: PropTypes.string.isRequired,
 };
 
-storiesOf('Components/Controls/Toggle', module)
+storiesOf('Controls/Toggle', module)
 	.add('default', () => (
 		<div>
 			<h1>Toggle</h1>

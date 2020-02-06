@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import Emphasis from './Emphasis.component';
 
-storiesOf('Components/Font/Emphasis', module).add('with value', () => (
+storiesOf('Font/Emphasis', module).add('with value', () => (
 	<div>
 		<h1>With value</h1>
 		<p>The emphasised text is returned (value = BroWn) :</p>

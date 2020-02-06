@@ -49,7 +49,7 @@ const services = [
 
 const { name, version } = getColumnHeaders();
 
-storiesOf('Components/Modals/AboutModal', module)
+storiesOf('Modals/AboutModal', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

@@ -145,7 +145,7 @@ const props = {
 	onRowClick: action('Row clicked'),
 };
 
-storiesOf('Components/Controls/ResourcePicker', module)
+storiesOf('Controls/ResourcePicker', module)
 	.addDecorator(story => (
 		<section>
 			<IconsProvider defaultIcons={icons} />

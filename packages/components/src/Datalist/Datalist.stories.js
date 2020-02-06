@@ -50,7 +50,7 @@ const titleMapWithDisabledItems = [
 	{ name: 'My foobar', value: 'foobar', description: 'foobar description' },
 ];
 
-storiesOf('Components/Controls/Datalist', module)
+storiesOf('Controls/Datalist', module)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('default multiSection', () => {
 		const restrictedValues = { ...propsMultiSection, restricted: true };

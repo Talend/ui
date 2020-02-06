@@ -9,7 +9,7 @@ const containerStyle = {
 	height: '200px',
 };
 
-storiesOf('Components/Messaging & Communication/ProgressBar', module)
+storiesOf('Messaging & Communication/ProgressBar', module)
 	.add('Percent', () => (
 		<div>
 			<h1>Action</h1>

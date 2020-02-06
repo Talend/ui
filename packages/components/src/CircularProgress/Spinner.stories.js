@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import CircularProgress from './CircularProgress.component';
 
-storiesOf('Components/Messaging & Communication/Loading Feedback/Spinner', module).add(
+storiesOf('Messaging & Communication/Loading Feedback/Spinner', module).add(
 	'default',
 	() => (
 		<div>

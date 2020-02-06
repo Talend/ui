@@ -114,7 +114,7 @@ const withNestedItems = {
 	showToggleAll: false,
 };
 
-storiesOf('Components/Controls/ListView', module)
+storiesOf('Controls/ListView', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

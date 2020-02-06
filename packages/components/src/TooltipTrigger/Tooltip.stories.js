@@ -20,7 +20,7 @@ function generateButtonWithTooltip(label, tooltipPlacement) {
 	);
 }
 
-storiesOf('Components/Messaging & Communication/Tooltip', module).add('default', () => {
+storiesOf('Messaging & Communication/Tooltip', module).add('default', () => {
 	const style = {
 		flex: '0 0 auto',
 		display: 'flex',

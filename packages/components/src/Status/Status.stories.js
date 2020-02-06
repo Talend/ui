@@ -26,7 +26,7 @@ const myStatus = {
 	actions: [deleteAction],
 };
 
-storiesOf('Components/Messaging & Communication/Status', module).add('default', () => (
+storiesOf('Messaging & Communication/Status', module).add('default', () => (
 	<div>
 		<IconsProvider />
 		<h1>Status</h1>

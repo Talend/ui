@@ -591,7 +591,7 @@ const itemsForListWithIcons = [
 	},
 ];
 
-storiesOf('Components/Specific Features/List', module)
+storiesOf('Specific Features/List', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

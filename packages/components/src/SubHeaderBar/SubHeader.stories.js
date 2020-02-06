@@ -67,7 +67,7 @@ const center = (
 	</SubHeaderBar.Content>
 );
 
-const stories = storiesOf('Components/Navigation & Layout/SubHeader', module);
+const stories = storiesOf('Navigation & Layout/SubHeader', module);
 
 stories
 	.add('with default', () => (

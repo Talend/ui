@@ -80,7 +80,7 @@ function CustomListLazyLoading(props) {
 	);
 }
 
-storiesOf('Components/Specific Features/List Composition', module)
+storiesOf('Specific Features/List Composition', module)
 	.add('Default', () => (
 		<div className="virtualized-list">
 			<IconsProvider />

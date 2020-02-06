@@ -176,7 +176,7 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 	);
 }
 
-storiesOf('Components/Specific Features/Dashboard', module)
+storiesOf('Specific Features/Dashboard', module)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider defaultIcons={icons} />

@@ -31,7 +31,7 @@ const withLabel = {
 	label: 'Some label',
 };
 
-storiesOf('Components/Controls/Checkbox', module).add('default', () => (
+storiesOf('Controls/Checkbox', module).add('default', () => (
 	<div style={{ padding: 30 }}>
 		<h1>Checkbox</h1>
 		<h2>Definition</h2>

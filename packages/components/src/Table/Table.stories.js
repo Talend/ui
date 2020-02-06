@@ -642,7 +642,7 @@ SortedFilteredTable.propTypes = {
 
 const SortedFilteredTableWithDND = dndContext(HTML5Backend)(SortedFilteredTable);
 
-const stories = storiesOf('Components/Legacy/Table', module);
+const stories = storiesOf('Legacy/Table', module);
 
 stories
 	.addDecorator(story => (

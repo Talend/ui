@@ -90,7 +90,7 @@ const tabs = {
 	selectedKey: '2',
 };
 
-const stories = storiesOf('Components/Navigation & Layout/AppLayout', module).addDecorator(
+const stories = storiesOf('Navigation & Layout/AppLayout', module).addDecorator(
 	story => (
 		<div>
 			<IconsProvider />

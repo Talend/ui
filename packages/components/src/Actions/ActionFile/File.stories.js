@@ -18,7 +18,7 @@ const myAction = {
 	displayMode: 'file',
 };
 
-storiesOf('Components/Controls/File', module)
+storiesOf('Controls/File', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />

@@ -186,7 +186,7 @@ const withIcons = makeDecorator({
 	},
 });
 
-const decoratedStories = storiesOf('Components/Navigation & Layout/HeaderBar', module);
+const decoratedStories = storiesOf('Navigation & Layout/HeaderBar', module);
 
 decoratedStories
 	.addDecorator(withIcons)

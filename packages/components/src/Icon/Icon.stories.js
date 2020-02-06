@@ -18,7 +18,7 @@ const defaultIcons = {
 	'talend-add': testIcon,
 };
 
-storiesOf('Components/Messaging & Communication/Icon', module)
+storiesOf('Messaging & Communication/Icon', module)
 	.add('default use svg', () => (
 		<div>
 			<h1>Icon</h1>

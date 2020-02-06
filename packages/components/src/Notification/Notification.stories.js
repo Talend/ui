@@ -92,7 +92,7 @@ class NotificationWrapper extends React.Component {
 	}
 }
 
-storiesOf('Components/Messaging & Communication/Notification', module).add('default', () => (
+storiesOf('Messaging & Communication/Notification', module).add('default', () => (
 	<nav>
 		<h1>Notification</h1>
 		<IconsProvider defaultIcons={icons} />

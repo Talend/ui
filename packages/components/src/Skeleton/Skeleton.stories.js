@@ -9,7 +9,7 @@ const icons = {
 	'talend-table': talendIcons['talend-table'],
 };
 
-storiesOf('Components/Messaging & Communication/Loading Feedback/Skeleton', module)
+storiesOf('Messaging & Communication/Loading Feedback/Skeleton', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />

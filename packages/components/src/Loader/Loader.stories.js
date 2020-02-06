@@ -13,7 +13,7 @@ const containerStyle = {
 };
 
 const decoratedStories = storiesOf(
-	'Components/Messaging & Communication/Loading Feedback/Loader',
+	'Messaging & Communication/Loading Feedback/Loader',
 	module,
 ).addDecorator(story => <div style={containerStyle}>{story()}</div>);
 

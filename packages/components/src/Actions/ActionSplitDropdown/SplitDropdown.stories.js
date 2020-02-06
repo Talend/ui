@@ -45,7 +45,7 @@ const myAction = {
 	emptyDropdownLabel: 'No option',
 };
 
-storiesOf('Components/Legacy/SplitDropdown', module)
+storiesOf('Legacy/SplitDropdown', module)
 	.addDecorator(story => (
 		<div>
 			{story()}
