@@ -65,6 +65,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemView.component.js
   41:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/ObjectViewer.component.js
+  40:3  error  Assignment to property of function parameter 'props'  no-param-reassign
+
 /home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
   17:2  warning  Unexpected console statement  no-console
 
@@ -84,6 +87,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 48 problems (45 errors, 3 warnings)
+✖ 49 problems (46 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
