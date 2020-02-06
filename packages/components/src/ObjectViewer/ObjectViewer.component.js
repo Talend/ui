@@ -13,6 +13,29 @@ export const DISPLAY_MODES = {
 	LIST: 'list',
 };
 
+const dataSchemaTypes = [
+	{
+		type: 'long',
+		logicalType: 'time-micros',
+	},
+	{
+		type: 'int',
+		logicalType: 'time-millis',
+	},
+	{
+		type: 'long',
+		logicalType: 'timestamp-micros',
+	},
+	{
+		type: 'long',
+		logicalType: 'timestamp-millis',
+	},
+	{
+		type: 'int',
+		logicalType: 'date',
+	},
+];
+
 /**
  * Convert timestamp to ISO Date
  * @param {Object} dataSchema
@@ -21,36 +44,43 @@ export const DISPLAY_MODES = {
  */
 function convertDate(dataSchema, data) {
 	const schemaType = _.get(dataSchema, ['fields', '1', 'type'], null);
-	if (schemaType && schemaType.type === 'long' && schemaType.logicalType === 'timestamp-millis') {
-		return data.map(d => ({
-			id: d.id,
-			LastModifiedDate: new Date(d.LastModifiedDate).toISOString(),
-		}));
+	for (const dataSchemaType of dataSchemaTypes) {
+		if (
+			schemaType &&
+			schemaType.type === dataSchemaType.type &&
+			schemaType.logicalType === dataSchemaType.logicalType
+		) {
+			return data.map(d => ({
+				id: d.id,
+				LastModifiedDate: new Date(d.LastModifiedDate).toISOString(),
+			}));
+		}
 	}
 	return null;
 }
 
-export default function ObjectViewer({ displayMode, dataSchema, ...props }) {
-	if (!props.data) {
+export default function ObjectViewer({ displayMode, dataSchema, data, ...props }) {
+	if (!data) {
 		return null;
 	}
-
-	const convertedDataElements = convertDate(dataSchema, props.data);
-	if (convertedDataElements) {
-		props.data = convertedDataElements;
-	}
+	const convertedDataElements = convertDate(dataSchema, data);
+	console.log(convertedDataElements);
+	const newProps = {
+		...props,
+		data: convertedDataElements || data,
+	};
 
 	switch (displayMode) {
 		case DISPLAY_MODES.TABLE:
-			return <Table {...props} />;
+			return <Table {...newProps} />;
 		case DISPLAY_MODES.FLAT:
-			return <Table {...props} flat />;
+			return <Table {...newProps} flat />;
 		case DISPLAY_MODES.TREE:
-			return <JSONLike {...props} />;
+			return <JSONLike {...newProps} />;
 		case DISPLAY_MODES.LIST:
-			return <List {...props} />;
+			return <List {...newProps} />;
 		default:
-			return <JSONLike {...props} />;
+			return <JSONLike {...newProps} />;
 	}
 }
 
