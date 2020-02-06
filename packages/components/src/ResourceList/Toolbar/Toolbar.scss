@@ -1,14 +1,12 @@
-$tc-resource-picker-toolbar-height: 3.5rem !default;
-
-.tc-resource-picker-toolbar-container {
+.tc-resource-list-toolbar {
 	display: flex;
-	height: $tc-resource-picker-toolbar-height;
+	background: $white;
 
 	> * {
 		margin: 0 $padding-normal;
 	}
 
-	:global(.tc-resource-list-filter) {
+	&-filter {
 		width: 100%;
 	}
 }

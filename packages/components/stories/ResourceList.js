@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { Icon, ResourceList } from '../src/index';
 import IconsProvider from '../src/IconsProvider';
@@ -164,6 +165,10 @@ export function FilteredResourceList(props) {
 	);
 }
 
+const commonProps = {
+	onRowClick: action('onRowClick'),
+};
+
 storiesOf('ResourceList', module)
 	.addDecorator(story => (
 		<section>
@@ -171,9 +176,11 @@ storiesOf('ResourceList', module)
 			{story()}
 		</section>
 	))
-	.add('default', () => <ResourceList collection={collection} />)
-	.add('simple', () => <ResourceList collection={simpleCollection} />)
-	.add('preparations', () => <ResourceList collection={preparations} renderAs={Preparation} />)
+	.add('default', () => <ResourceList {...commonProps} collection={collection} />)
+	.add('simple', () => <ResourceList {...commonProps} collection={simpleCollection} />)
+	.add('preparations', () => (
+		<ResourceList {...commonProps} collection={preparations} renderAs={Preparation} />
+	))
 	.add('filtered pipelines', () => (
-		<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
+		<FilteredResourceList {...commonProps} collection={pipelines} renderAs={Pipeline} />
 	));

@@ -1,7 +1,13 @@
+$tc-resource-picker-toolbar-height: 3.5rem !default;
+
 .tc-resource-picker {
 	:global {
 		.tc-list-list {
 			padding: 0;
+		}
+
+		.tc-resource-list-toolbar {
+			height: $tc-resource-picker-toolbar-height;
 		}
 
 		.resource-item {

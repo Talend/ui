@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import FilterBar from '../../FilterBar';
@@ -7,7 +6,10 @@ import NameFilter from './NameFilter';
 import SortOptions from './SortOptions';
 import StateFilter from './StateFilter';
 
-import theme from './Toolbar.scss';
+import { getTheme } from '../../theme';
+import cssModule from './Toolbar.scss';
+
+const theme = getTheme(cssModule);
 
 function Toolbar({ name, nameFilerAsInput, sort, state }) {
 	if (!name && !sort && !state) {
@@ -15,17 +17,18 @@ function Toolbar({ name, nameFilerAsInput, sort, state }) {
 	}
 
 	return (
-		<div
-			className={classNames(
-				'tc-resource-picker-toolbar-container',
-				theme['tc-resource-picker-toolbar-container'],
-			)}
-		>
+		<div className={theme('tc-resource-list-toolbar')}>
 			{name &&
 				(nameFilerAsInput ? (
 					<NameFilter {...name} />
 				) : (
-					<FilterBar className={'tc-resource-list-filter'} placeholder={name.label} onFilter={name.onChange} dockable={false} {...name} />
+					<FilterBar
+						className={theme('tc-resource-list-toolbar-filter')}
+						placeholder={name.label}
+						onFilter={name.onChange}
+						dockable={false}
+						{...name}
+					/>
 				))}
 			{sort && <SortOptions {...sort} />}
 			{state && <StateFilter {...state} />}
