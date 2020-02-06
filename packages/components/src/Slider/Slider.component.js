@@ -205,7 +205,7 @@ class Slider extends React.Component {
 
 	static propTypes = {
 		id: PropTypes.string,
-		value: PropTypes.oneOf([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+		value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 		onChange: PropTypes.func.isRequired,
 		onAfterChange: PropTypes.func,
 		captionActions: PropTypes.array,

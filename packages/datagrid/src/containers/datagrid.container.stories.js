@@ -6,12 +6,12 @@ import mock from '@talend/react-cmf/lib/mock';
 import { IconsProvider } from '@talend/react-components';
 import api from '@talend/react-cmf';
 
-import DataGrid from '../src/';
-import register from '../src/register';
-import theme from '../src/components/DataGrid/DataGrid.scss';
-import { LanguageSwitcher } from './config/i18n';
-import sample from './sample.json';
-import sampleRenderer from './sampleRenderer.json';
+import DataGrid from './';
+import register from '../register';
+import theme from '../components/DataGrid/DataGrid.scss';
+import { LanguageSwitcher } from '../../stories/i18n';
+import sample from '../../stories/sample.json';
+import sampleRenderer from '../../stories/sampleRenderer.json';
 
 Object.keys(api.expressions).forEach(id => api.expression.register(id, api.expressions[id]));
 
@@ -214,7 +214,7 @@ const options = {
 	},
 };
 
-storiesOf('Container Datagrid', module)
+storiesOf('Specific Features/Datagrid/Containers', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

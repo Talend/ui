@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import Slider from './Slider.component';
 import IconsProvider from '../IconsProvider';
@@ -74,31 +75,47 @@ storiesOf('Controls/Slider', module).add('default', () => (
 		<div style={style}>
 			<div style={delimiterStyle}>
 				<p>By default</p>
-				<Slider />
+				<Slider onChange={action('onChange')} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>With disabled</p>
-				<Slider disabled />
+				<Slider onChange={action('onChange')} disabled />
 			</div>
 			<div style={delimiterStyle}>
 				<p>With value & format</p>
-				<Slider id="selectable" captionsFormat={functionToFormat} value={10} />
+				<Slider
+					id="selectable"
+					onChange={action('onChange')}
+					captionsFormat={functionToFormat}
+					value={10}
+				/>
 			</div>
 			<div style={delimiterStyle}>
 				<p>With icons</p>
-				<Slider captionIcons={icons} />
+				<Slider onChange={action('onChange')} captionIcons={icons} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>with icon buttons</p>
-				<Slider captionActions={actions} value={50} />
+				<Slider onChange={action('onChange')} captionActions={actions} value={50} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>with step number</p>
-				<Slider value={25} captionTextStepNumber={5} captionsFormat={functionFormatFloor} />
+				<Slider
+					onChange={action('onChange')}
+					value={25}
+					captionTextStepNumber={5}
+					captionsFormat={functionFormatFloor}
+				/>
 			</div>
 			<div style={delimiterStyle}>
 				<p>with range</p>
-				<Slider min={0} max={100} value={[25, 75]} allowCross={false} />
+				<Slider
+					onChange={action('onChange')}
+					min={0}
+					max={100}
+					value={[25, 75]}
+					allowCross={false}
+				/>
 			</div>
 		</div>
 	</section>

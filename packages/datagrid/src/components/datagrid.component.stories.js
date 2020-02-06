@@ -1,39 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '@talend/react-components';
 
-import './config/i18n';
-import DataGrid from '../src/components/';
-import DefaultRenderer from '../src/components/DefaultCellRenderer/DefaultRenderer.component';
-import DefaultIntCellRenderer from '../src/components/DefaultIntCellRenderer';
-import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer';
-import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
-import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
-import DynamicDataGrid from './DynamicDataGrid.component';
-import FasterDatagrid from './FasterDatagrid.component';
-import ImmutableDataGrid from './ImmutableDatagrid.component';
-import sample from './sample.json';
-import sample2 from './sample2.json';
-import sample3 from './sample3.json';
-import sampleWithoutQuality from './sampleWithoutQuality.json';
-
-// eslint-disable-next-line import/prefer-default-export
-export function getComponent(component) {
-	switch (component) {
-		case 'DefaultIntCellRenderer':
-			return DefaultIntCellRenderer;
-		case 'DefaultHeaderRenderer':
-			return DefaultHeaderRenderer;
-		case 'DefaultPinHeaderRenderer':
-			return DefaultPinHeaderRenderer;
-		case 'DefaultCellRenderer':
-			return DefaultCellRenderer;
-		case 'DefaultStringCellRenderer':
-			return DefaultRenderer;
-		default:
-			return DefaultRenderer;
-	}
-}
+import DataGrid from './';
+import DynamicDataGrid from '../../stories/DynamicDataGrid.component';
+import FasterDatagrid from '../../stories/FasterDatagrid.component';
+import ImmutableDataGrid from '../../stories/ImmutableDatagrid.component';
+import sample from '../../stories/sample.json';
+import sample2 from '../../stories/sample2.json';
+import sample3 from '../../stories/sample3.json';
+import sampleWithoutQuality from '../../stories/sampleWithoutQuality.json';
+import getComponent from '../../stories/getComponent';
 
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 psum	 	 `;
@@ -44,15 +22,15 @@ very loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
-storiesOf('Component Datagrid', module)
+storiesOf('Specific Features/Datagrid', module)
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid
 				data={sample}
 				getComponent={getComponent}
-				onFocusedCell={event => console.log(event)}
-				onFocusedColumn={event => console.log(event)}
+				onFocusedCell={action('onFocusedCell')}
+				onFocusedColumn={action('onFocusedColumn')}
 				onVerticalScroll={event => console.log(event)}
 				rowSelection="multiple"
 				enableColResize={false}
@@ -66,8 +44,8 @@ storiesOf('Component Datagrid', module)
 				columnsConf={{ hideSubType: true }}
 				data={sample}
 				getComponent={getComponent}
-				onFocusedCell={event => console.log(event)}
-				onFocusedColumn={event => console.log(event)}
+				onFocusedCell={action('onFocusedCell')}
+				onFocusedColumn={action('onFocusedColumn')}
 				onVerticalScroll={event => console.log(event)}
 				rowSelection="multiple"
 				enableColResize={false}
@@ -80,8 +58,8 @@ storiesOf('Component Datagrid', module)
 			<DataGrid
 				data={sampleWithoutQuality}
 				getComponent={getComponent}
-				onFocusedCell={event => console.log(event)}
-				onFocusedColumn={event => console.log(event)}
+				onFocusedCell={action('onFocusedCell')}
+				onFocusedColumn={action('onFocusedColumn')}
 				onVerticalScroll={event => console.log(event)}
 				rowSelection="multiple"
 				enableColResize={false}
@@ -94,8 +72,8 @@ storiesOf('Component Datagrid', module)
 			<DataGrid
 				data={sample}
 				getComponent={getComponent}
-				onFocusedCell={event => console.log(event)}
-				onFocusedColumn={event => console.log(event)}
+				onFocusedCell={action('onFocusedCell')}
+				onFocusedColumn={action('onFocusedColumn')}
 				onVerticalScroll={event => console.log(event)}
 				rowSelection="multiple"
 			/>
@@ -108,8 +86,8 @@ storiesOf('Component Datagrid', module)
 				data={sample}
 				getComponent={getComponent}
 				startIndex={1}
-				onFocusedCell={event => console.log(event)}
-				onFocusedColumn={event => console.log(event)}
+				onFocusedCell={action('onFocusedCell')}
+				onFocusedColumn={action('onFocusedColumn')}
 				onVerticalScroll={event => console.log(event)}
 				rowSelection="multiple"
 			/>
@@ -122,8 +100,8 @@ storiesOf('Component Datagrid', module)
 				data={[]}
 				getComponent={getComponent}
 				overlayNoRowsTemplate="Custom message"
-				onFocusedCell={event => console.log(event)}
-				onFocusedColumn={event => console.log(event)}
+				onFocusedCell={action('onFocusedCell')}
+				onFocusedColumn={action('onFocusedColumn')}
 				onVerticalScroll={event => console.log(event)}
 				rowSelection="multiple"
 			/>
@@ -166,8 +144,8 @@ storiesOf('Component Datagrid', module)
 							<DataGrid
 								data={currentSample}
 								getComponent={getComponent}
-								onFocusedCell={event => console.log(event)}
-								onFocusedColumn={event => console.log(event)}
+								onFocusedCell={action('onFocusedCell')}
+								onFocusedColumn={action('onFocusedColumn')}
 								onVerticalScroll={event => console.log(event)}
 								rowSelection="multiple"
 							/>
