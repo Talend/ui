@@ -21,6 +21,10 @@ export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
 const dateTimeRegexp = new RegExp(
+	/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.*)?(Z)?$/, // eslint-disable-line max-len
+);
+
+const dateTimeISOStringRegexp = new RegExp(
 	/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z)?$/, // eslint-disable-line max-len
 );
 const dateRegexp = new RegExp(
@@ -234,6 +238,8 @@ export function getDataInfo(data, tupleLabel) {
 			info.type = 'date';
 		} else if (timeRegexp.test(data)) {
 			info.type = 'time';
+		} else if (dateTimeISOStringRegexp.test(data)) {
+			info.type = 'datetime';
 		}
 	}
 

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import _ from 'lodash';
 
 import Table from './Table';
 import JSONLike from './JSONLike';
@@ -13,26 +12,26 @@ export const DISPLAY_MODES = {
 	LIST: 'list',
 };
 
-const dataSchemaTypes = [
+const DATASCHEMATYPES = [
 	{
-		type: 'long',
-		logicalType: 'time-micros',
+		TYPE: 'long',
+		LOGICALTYPE: 'time-micros',
 	},
 	{
-		type: 'int',
-		logicalType: 'time-millis',
+		TYPE: 'int',
+		LOGICALTYPE: 'time-millis',
 	},
 	{
-		type: 'long',
-		logicalType: 'timestamp-micros',
+		TYPE: 'long',
+		LOGICALTYPE: 'timestamp-micros',
 	},
 	{
-		type: 'long',
-		logicalType: 'timestamp-millis',
+		TYPE: 'long',
+		LOGICALTYPE: 'timestamp-millis',
 	},
 	{
-		type: 'int',
-		logicalType: 'date',
+		TYPE: 'int',
+		LOGICALTYPE: 'date',
 	},
 ];
 
@@ -42,18 +41,20 @@ const dataSchemaTypes = [
  * @param {Array<Object>} data - the sample data fetched form BE
  * @return {Array<Object> | null}
  */
-function convertDate(dataSchema, data) {
-	const schemaType = _.get(dataSchema, ['fields', '1', 'type'], null);
-	for (const dataSchemaType of dataSchemaTypes) {
-		if (
-			schemaType &&
-			schemaType.type === dataSchemaType.type &&
-			schemaType.logicalType === dataSchemaType.logicalType
-		) {
-			return data.map(d => ({
-				id: d.id,
-				LastModifiedDate: new Date(d.LastModifiedDate).toISOString(),
-			}));
+export function convertDate(dataSchema, data) {
+	if (dataSchema && dataSchema.fields) {
+		const dataSchemaType = dataSchema.fields.reduce((acc, val) => val.type, {});
+		for (const DATASCHEMATYPE of DATASCHEMATYPES) {
+			if (
+				dataSchemaType &&
+				dataSchemaType.type === DATASCHEMATYPE.TYPE &&
+				dataSchemaType.logicalType === DATASCHEMATYPE.LOGICALTYPE
+			) {
+				return data.map(d => ({
+					id: d.id,
+					LastModifiedDate: new Date(d.LastModifiedDate).toISOString(),
+				}));
+			}
 		}
 	}
 	return null;
@@ -64,7 +65,6 @@ export default function ObjectViewer({ displayMode, dataSchema, data, ...props }
 		return null;
 	}
 	const convertedDataElements = convertDate(dataSchema, data);
-	console.log(convertedDataElements);
 	const newProps = {
 		...props,
 		data: convertedDataElements || data,
