@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import memoizeOne from 'memoize-one';
 
 import Table from './Table';
 import JSONLike from './JSONLike';
@@ -38,7 +39,7 @@ const DATASCHEMATYPES = [
 /**
  * Convert timestamp to ISO Date
  * @param {Object} dataSchema
- * @param {Array<Object>} data - the sample data fetched form BE
+ * @param {Array<Object>} data - the sample data fetched from BE
  * @return {Array<Object> | null}
  */
 export function convertDate(dataSchema, data) {
@@ -64,7 +65,8 @@ export default function ObjectViewer({ displayMode, dataSchema, data, ...props }
 	if (!data) {
 		return null;
 	}
-	const convertedDataElements = convertDate(dataSchema, data);
+	const memoizedconvertDate = memoizeOne(convertDate);
+	const convertedDataElements = memoizedconvertDate(dataSchema, data);
 	const newProps = {
 		...props,
 		data: convertedDataElements || data,
