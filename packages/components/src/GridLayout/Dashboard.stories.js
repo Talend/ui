@@ -115,6 +115,25 @@ function ChartTile({ tile }) {
 	);
 }
 
+function TileWithAction({ tile }) {
+	// tile.header.actions construct the action depending of the tile header props
+
+	return (
+		<Tile.Container>
+			<Tile.Header>{tile.header.label}</Tile.Header>
+			<Tile.Body>
+				Quisque a gravida velit. Aenean molestie quam sed arcu fermentum semper. Curabitur et ligula
+				viverra, hendrerit urna ac, hendrerit urna. Sed ornare urna justo, nec tincidunt ipsum
+				ultrices vitae. Morbi vel ligula orci. Suspendisse condimentum porttitor tempor. Sed eu leo
+				nunc.
+			</Tile.Body>
+			<Tile.Footer>
+				<Action label="Submit" />
+			</Tile.Footer>
+		</Tile.Container>
+	);
+}
+
 function GridContainer({ isLoading = false, skeletonConfiguration, isResizable = true, ...rest }) {
 	const [tiles, setTiles] = useState([
 		{
@@ -171,6 +190,17 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 						<ChartTile tile={tile} />
 					</div>
 				))}
+
+				<div key="tile-with-footer" data-grid={{ w: 4, h: 2, x: 4, y: 2, i: 'sixthTile' }}>
+					<TileWithAction
+						tile={{
+							header: {
+								label: 'This is a tile with a submit action',
+							},
+							key: 'actionTile',
+						}}
+					/>
+				</div>
 			</GridLayout>
 		</div>
 	);
