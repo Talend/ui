@@ -114,7 +114,7 @@ function ChartTile({ tile }) {
 	);
 }
 
-function TileWithAciton({ tile }) {
+function TileWithAction({ tile }) {
 	// tile.header.actions construct the action depending of the tile header props
 
 	return (
