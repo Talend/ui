@@ -318,6 +318,39 @@ describe('DateTime.Manager', () => {
 				expect(args[1].errorMessage).toBe('Time is required');
 			});
 
+			it('should trigger props.onChange when date change with default time', () => {
+				// given
+				const onChange = jest.fn();
+				const event = { target: { value: '2015-01-15' } };
+				const wrapper = mount(
+					<Manager id={DEFAULT_ID} onChange={onChange} defaultTimeValue={{ hours: '01', minutes: '02'}}>
+						<DateTimeConsumer />
+					</Manager>,
+				);
+				expect(onChange).not.toBeCalled();
+
+				// when
+				act(() => {
+					wrapper
+						.find('DateTimeConsumerDiv')
+						.props()
+						.onDateChange(event, {
+							date: new Date(2015, 0, 15),
+							textInput: '2015-01-15',
+							errors: [],
+						});
+				});
+				wrapper.update();
+
+				// then
+				expect(onChange).toBeCalled();
+				const args = onChange.mock.calls[0];
+				expect(args[0]).toBe(event);
+				expect(isNaN(args[1].datetime.getTime())).toBe(true);
+				expect(args[1].textInput).toBe('2015-01-15 01:02');
+			});
+
+
 			it('should trigger props.onChange with invalid date', () => {
 				// given
 				const onChange = jest.fn();
