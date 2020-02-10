@@ -33,7 +33,7 @@ function ResourceList({
 		as: renderAs,
 		getRowData: ({ index }) => collection[index],
 	});
-	const noRowsRenderer = React.memo(
+	const noRowsRenderer = React.useMemo(
 		() => (
 			<div className={theme('tc-resource-list--no-results')}>
 				<span
