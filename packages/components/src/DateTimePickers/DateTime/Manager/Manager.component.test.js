@@ -340,7 +340,7 @@ describe('DateTime.Manager', () => {
 						.props()
 						.onDateChange(event, {
 							date: new Date(2015, 0, 15),
-							textInput: '2015-01-15',
+							textInput: '2015-01-15', // date without time
 							errors: [],
 						});
 				});
@@ -351,7 +351,7 @@ describe('DateTime.Manager', () => {
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toBe(event);
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
-				expect(args[1].textInput).toBe('2015-01-15 01:02');
+				expect(args[1].textInput).toBe('2015-01-15 01:02'); // default time included
 			});
 
 			it('should trigger props.onChange with invalid date', () => {
