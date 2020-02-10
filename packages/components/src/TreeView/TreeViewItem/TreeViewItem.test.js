@@ -18,7 +18,10 @@ const item = {
 			id: 11,
 			name: 'mami',
 			toggled: true,
-			children: [{ id: 111, name: 'me' }, { id: 112, name: 'bro' }],
+			children: [
+				{ id: 111, name: 'me' },
+				{ id: 112, name: 'bro' },
+			],
 		},
 		{
 			id: 12,
@@ -126,7 +129,12 @@ describe('TreeView item', () => {
 
 		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);
 
-		expect(wrapper.find('TreeViewIcon').dive().getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find('TreeViewIcon')
+				.dive()
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should toggle item on toggle button click', () => {

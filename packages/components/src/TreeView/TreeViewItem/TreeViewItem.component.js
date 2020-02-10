@@ -34,10 +34,7 @@ export function getItemIcon(iconName = 'talend-folder', isOpened) {
 function TreeViewIcon({ icon, isOpened }) {
 	if (typeof icon === 'object') {
 		return icon.tooltipLabel ? (
-			<TooltipTrigger
-				label={icon.tooltipLabel}
-				tooltipPlacement={icon.tooltipPlacement || 'top'}
-			>
+			<TooltipTrigger label={icon.tooltipLabel} tooltipPlacement={icon.tooltipPlacement || 'top'}>
 				<span>
 					<Icon name={icon.name} className={classNames(css['tc-treeview-img'], icon.className)} />
 				</span>
