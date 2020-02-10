@@ -109,7 +109,7 @@ const withProgressBarProps = {
 
 const children = <div>BODY content. You can put what ever you want here</div>;
 
-storiesOf('Modals/ConfirmDialog', module)
+storiesOf('Layout/Modals/ConfirmDialog', module)
 	.add('default', () => (
 		<div>
 			<h1>Dialog</h1>

@@ -214,7 +214,7 @@ const options = {
 	},
 };
 
-storiesOf('Specific Features/Datagrid/Containers', module)
+storiesOf('Data/Grid/Containers', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

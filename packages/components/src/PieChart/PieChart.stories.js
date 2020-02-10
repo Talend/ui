@@ -60,7 +60,7 @@ const onClick = action('You clicked me');
 const onMouseDown = action('You mousedown me');
 const overlayComponent = <div>I am an overlay</div>;
 
-const stories = storiesOf('Dataviz/PieChart', module);
+const stories = storiesOf('Data/Dataviz/PieChart', module);
 stories
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('PieChartIcon default', () => (

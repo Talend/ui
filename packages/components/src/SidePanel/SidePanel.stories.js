@@ -115,7 +115,7 @@ const other = [
 	},
 ];
 
-const stories = storiesOf('Navigation & Layout/SidePanel', module);
+const stories = storiesOf('Navigation/SidePanel', module);
 
 stories
 	.addDecorator(story => (

@@ -273,7 +273,7 @@ const getLayoutWithLoremIpsum = () => (
 	</div>
 );
 
-storiesOf('Specific Features/GuidedTour', module)
+storiesOf('Messaging & Communication/GuidedTour', module)
 	.addDecorator(story => (
 		<React.Fragment>
 			<LanguageSwitcher />

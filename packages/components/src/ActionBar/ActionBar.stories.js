@@ -271,7 +271,7 @@ const icons = {
 	'talend-file-move': talendIcons['talend-file-move'],
 };
 
-storiesOf('Navigation & Layout/ActionBar', module)
+storiesOf('Controls/ActionBar', module)
 	.add('default', () => (
 		<nav>
 			<IconsProvider defaultIcons={icons} />

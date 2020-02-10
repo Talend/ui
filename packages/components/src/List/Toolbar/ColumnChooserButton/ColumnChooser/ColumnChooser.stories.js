@@ -24,7 +24,7 @@ const columns = [
 	{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
 ];
 
-storiesOf('Specific Features/Column Chooser', module)
+storiesOf('Data/List/Column Chooser', module)
 	.add('Default', () => (
 		<div>
 			<h1>Column chooser tooltip</h1>

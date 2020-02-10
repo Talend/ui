@@ -7,8 +7,10 @@ import { withA11y } from '@storybook/addon-a11y';
 
 import 'focus-outline-manager';
 import '../packages/components/stories/config/i18n';
+import './sortStories';
 
 addDecorator(withA11y);
+
 configure(
 	[
 		require.context('../packages/components/src', true, /\.stories\.js$/),

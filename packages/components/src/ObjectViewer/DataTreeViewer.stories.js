@@ -474,7 +474,7 @@ const handlerTags = {
 	...callbacks,
 };
 
-const stories = storiesOf('Specific Features/DataTreeViewer', module);
+const stories = storiesOf('Data/Tree/DataTreeViewer', module);
 
 stories
 	.add('tree default', () => (

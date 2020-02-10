@@ -106,7 +106,7 @@ const schema = {
 	},
 };
 
-storiesOf('Legacy/JSONSchemaRenderer').add('default', () => (
+storiesOf('Deprecated/JSONSchemaRenderer').add('default', () => (
 	<div>
 		<h1>Basic</h1>
 		<JSONSchemaRenderer schema={schema} />
