@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
-import memoizeOne from 'memoize-one';
+import React, { useMemo } from 'react';
 
 import Table from './Table';
 import JSONLike from './JSONLike';
@@ -65,11 +64,10 @@ export default function ObjectViewer({ displayMode, dataSchema, data, ...props }
 	if (!data) {
 		return null;
 	}
-	const memoizedconvertDate = memoizeOne(convertDate);
-	const convertedDataElements = memoizedconvertDate(dataSchema, data);
+	const memoizedConvertDate = useMemo(() => convertDate(dataSchema, data), [dataSchema, data]);
 	const newProps = {
 		...props,
-		data: convertedDataElements || data,
+		data: memoizedConvertDate || data,
 	};
 
 	switch (displayMode) {
