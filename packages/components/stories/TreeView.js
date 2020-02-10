@@ -32,7 +32,8 @@ const structureWithIcons = [
 		children: [{ name: 'Hitmonchan' }],
 		isOpened: false,
 		icon: {
-			name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png',
+			name: 'talend-versioning',
+			tooltipLabel: 'New version of the Pokemon is available',
 		},
 	},
 	{
