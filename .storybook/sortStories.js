@@ -13,8 +13,8 @@ const categories = [
 addParameters({
 	options: {
 		storySort: (a, b) => {
-			const aCat = a[1].kind?.split('/')[0] || '';
-			const bCat = b[1].kind?.split('/')[0] || '';
+			const aCat = a[1].kind ? a[1].kind.split('/')[0] : '';
+			const bCat = b[1].kind ? b[1].kind.split('/')[0] : '';
 			const aLevel = categories.indexOf(aCat);
 			const bLevel = categories.indexOf(bCat);
 
