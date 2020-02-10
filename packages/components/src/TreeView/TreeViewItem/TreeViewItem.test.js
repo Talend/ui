@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
 
@@ -48,6 +48,15 @@ const itemWithIcon = {
 	counter: 101,
 	showCounter: true,
 };
+
+const itemWithIconAndTooltip = {
+	...itemWithIcon,
+	icon: {
+		name: 'talend-versioning',
+		tooltipLabel: 'New version of the Pokemon is available',
+	},
+};
+
 const items = [item, { id: 2, name: 'grandma' }, { id: 3, name: 'granduncle' }, itemWithIcon];
 
 const defaultProps = {
@@ -106,6 +115,18 @@ describe('TreeView item', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render items with icon and tooltip', () => {
+		// when
+		const propsWithIconAndTooltip = {
+			...propsWithIcons,
+			item: itemWithIconAndTooltip,
+		};
+
+		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);
+
+		expect(wrapper.find('TreeViewIcon').dive().getElement()).toMatchSnapshot();
 	});
 
 	it('should toggle item on toggle button click', () => {
