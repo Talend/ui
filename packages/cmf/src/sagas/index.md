@@ -1,6 +1,6 @@
 # Sagas
 
-This modules contains a set of saga ready to use in CMF to write your business code
+This module contains a set of saga ready to use in CMF to write your business code
 
 # HTTP Saga
 
@@ -39,6 +39,7 @@ Calling http.get will return an object containing two element, the `data` which 
 Here we can see that we check if the server answered with a `response.ok` evaluated at `true` and then put a slice of the data inside the `cmf store` trought the `dispatch` of an `action`
 
 ## configuration
+
 ### setDefaultConfig
 
 `setDefaultConfig` also allow you to provide a default config object which will be use at each http call.
@@ -72,17 +73,18 @@ const { data, response } = yield call(http.get, `${API['dataset-sample']}/${data
 #### Config
 
 The config object allow you to customize your http request
- + ```headers```, ```credentials```, ```method```, ```body``` will be merged recursively against other provided arguments and override those values.
- + ```security``` will be resolved and then merged
+
+- `headers`, `credentials`, `method`, `body` will be merged recursively against other provided arguments and override those values.
+- `security` will be resolved and then merged
 
 #### Options
 
 The options object allow you to configure cmf behavior.
 
-  + The ```silent``` property to ```true``` avoid that cmf dispatch an action of type ```@@HTTP/ERRORS```.<br/>
+- The `silent` property to `true` avoid that cmf dispatch an action of type `@@HTTP/ERRORS`.<br/>
   It could be usefull if you want to treat the request error on a specific way only and deal with it within your own saga.
 
-  + The other properties are passed in the dispatched error action. You can pass whatever option you want, to pass them to you app error handler.
+- The other properties are passed in the dispatched error action. You can pass whatever option you want, to pass them to you app error handler.
 
 Example
 
@@ -94,8 +96,8 @@ const options = {
 
 const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`, config, options);
 ```
-On error, cmf will dispatch an action of type `@@HTTP/ERRORS`. Your onHttpErrorNotification saga will get the options object, and perform any action accordingly.
 
+On error, cmf will dispatch an action of type `@@HTTP/ERRORS`. Your onHttpErrorNotification saga will get the options object, and perform any action accordingly.
 
 ### http.create
 
@@ -113,7 +115,6 @@ const http = cmf.sagas.http.create({
 http.get('/foo'); // call with the header 'content-type': 'application/json',
 ```
 
-
 ### Priority for the config
 
 1. config passed by the http.{get|put|post|patch|delete}
@@ -121,6 +122,7 @@ http.get('/foo'); // call with the header 'content-type': 'application/json',
 3. setDefaultConfig
 
 ## CSRF token handling
+
 You can configure the `http saga` with a security configuration, which will help you to manage CSRF TOKEN provided on a cookie.
 
 ```javascript
@@ -138,13 +140,14 @@ cmf.sagas.http.setDefaultConfig(httpDefaultConfig);
 const { data, response } = yield call(cmf.sagas.http.get, `${API['dataset-sample']}/${datasetId}`);
 ```
 
-The above configuration allow  `http saga` to automatically inject into http call a CSRF token under `headerKey` header, which was retrieved from `cookieKey` cookie.
+The above configuration allow `http saga` to automatically inject into http call a CSRF token under `headerKey` header, which was retrieved from `cookieKey` cookie.
 
 ## Changing the http defaultConfig `Accept-Language` headers
 
 To change dynamically this setting during the lifecycle of the application the `setDefaultLanguage` api is provided by the http module.
 
 If the defaultConfig is not already set this will create an error.
+
 ```javascript
 import cmf from '@talend/react-cmf';
 
@@ -159,17 +162,17 @@ let s add settings for a component :
 
 ```json
 {
-    "MyComponent#default": {
-      "saga": "MyComponent#mySaga",
-      "coolProps": "coolData"
-    }
+	"MyComponent#default": {
+		"saga": "MyComponent#mySaga",
+		"coolProps": "coolData"
+	}
 }
 ```
 
 Then, in your app, if you do that ( with a cmfConnected component ) :
 
 ```jsx
-<MyComponent otherProps="otherData"/>
+<MyComponent otherProps="otherData" />
 ```
 
 When the component mount, an action creator will be dispatched to start a saga, here : mySaga
@@ -177,7 +180,7 @@ When the component mount, an action creator will be dispatched to start a saga, 
 ```javascript
 import MyComponent from './MyComponent';
 
-function* mySaga(info){
+function* mySaga(info) {
 	console.log(info.componentId);
 	// so you can read/write in the state of MyComponent
 	MyComponent.setStateAction({ status: 'loading' }, componentId);
@@ -194,20 +197,20 @@ To do so you can use this syntax:
 
 ```json
 {
-    "MyComponent#default": {
-      "saga": {
-		  "id": "MyComponent#mySaga",
-		  "args": ["datasets"],
-	  }
-    }
+	"MyComponent#default": {
+		"saga": {
+			"id": "MyComponent#mySaga",
+			"args": ["datasets"]
+		}
+	}
 }
 ```
 
 So the saga will receive that in arguments:
 
 ```javascript
-function* mySaga(info, type){
-	console.log(type);  // will be dataset
+function* mySaga(info, type) {
+	console.log(type); // will be dataset
 	// ...
 }
 ```
