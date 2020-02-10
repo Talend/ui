@@ -26,7 +26,8 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 function convertToString(time = {}, useSeconds) {
 	return [time.hours, time.minutes]
 		.concat(useSeconds ? time.seconds : [])
-		.filter(Boolean).join(':');
+		.filter(Boolean)
+		.join(':');
 }
 
 function getTime(time, useSeconds) {
@@ -54,7 +55,8 @@ export default function InputTimePicker(props) {
 			{...inputProps}
 			id={`${props.id}-input`}
 			value={getTime(props.value, props.useSeconds)}
-			key="input" inputRef={inputRef}
+			key="input"
+			inputRef={inputRef}
 		/>,
 		handlers.showPicker && (
 			<Popper

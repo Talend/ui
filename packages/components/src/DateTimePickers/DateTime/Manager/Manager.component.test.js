@@ -323,7 +323,11 @@ describe('DateTime.Manager', () => {
 				const onChange = jest.fn();
 				const event = { target: { value: '2015-01-15' } };
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange} defaultTimeValue={{ hours: '01', minutes: '02'}}>
+					<Manager
+						id={DEFAULT_ID}
+						onChange={onChange}
+						defaultTimeValue={{ hours: '01', minutes: '02' }}
+					>
 						<DateTimeConsumer />
 					</Manager>,
 				);
@@ -349,7 +353,6 @@ describe('DateTime.Manager', () => {
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].textInput).toBe('2015-01-15 01:02');
 			});
-
 
 			it('should trigger props.onChange with invalid date', () => {
 				// given
