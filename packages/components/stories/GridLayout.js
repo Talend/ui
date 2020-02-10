@@ -193,7 +193,7 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 				))}
 
 				<div key="tile-with-footer" data-grid={{ w: 4, h: 2, x: 4, y: 2, i: 'sixthTile' }}>
-					<TileWithAciton
+					<TileWithAction
 						tile={{
 							header: {
 								label: 'This is a tile with a submit action',
