@@ -460,8 +460,6 @@ storiesOf('VirtualizedList', module)
 		</div>
 	))
 
-
-
 	.add('List > Table with radio button title', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List with radio button title</h1>
@@ -473,7 +471,6 @@ storiesOf('VirtualizedList', module)
 					isSelected={item => item.id === 2}
 					selectionToggle={action('selectionToggle')}
 					selectionMode="SINGLE"
-
 				>
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Author" dataKey="author" />
@@ -483,6 +480,19 @@ storiesOf('VirtualizedList', module)
 		</div>
 	))
 
+	.add('List > Table with label author', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List with radio button title</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collection} id={'my-list'}>
+					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+					<VirtualizedList.Label label="Author" dataKey="author" />
+					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
 
 	.add('List > Table : sort', () => (
 		<div className="virtualized-list">
@@ -574,10 +584,13 @@ storiesOf('VirtualizedList', module)
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
-				Row can be disabled by passing <b>getRowState</b> function
-				that returns a disabled flag and a message to show into the tooltip.
+				Row can be disabled by passing <b>getRowState</b> function that returns a disabled flag and
+				a message to show into the tooltip.
 				<br />
-				Here example <pre>{'getRowState={row => (row.id === 2 ? { disabled: true, tooltip: "Houlala" } : null)'}</pre>
+				Here example{' '}
+				<pre>
+					{'getRowState={row => (row.id === 2 ? { disabled: true, tooltip: "Houlala" } : null)'}
+				</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
