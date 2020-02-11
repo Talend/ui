@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubTitle should render 1`] = `
-<small
-  className="theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
->
-  mySubTitle
-</small>
+<div>
+  <small
+    className="theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
+  >
+    mySubTitle
+  </small>
+</div>
 `;
 
 exports[`SubTitle should render in loading mode 1`] = `

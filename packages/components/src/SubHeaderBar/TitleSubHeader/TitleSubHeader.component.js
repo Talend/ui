@@ -115,7 +115,10 @@ function SubTitle({ subTitleLoading, subTitle, asLabel, labelType }) {
 				'label-info': labelType === 'INFO',
 			});
 		} else {
-			classNames(theme['tc-subheader-details-text-subtitle'], 'tc-subheader-details-text-subtitle');
+			subtitleClassnames = classNames(
+				theme['tc-subheader-details-text-subtitle'],
+				'tc-subheader-details-text-subtitle',
+			);
 		}
 
 		return (
