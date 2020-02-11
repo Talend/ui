@@ -24,6 +24,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm-v2/stories-core/customTemplateStory.js
+  83:10  error  'schema' PropType is defined but prop is never used  react/no-unused-prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm-v2/stories-core/index.js
+  40:4  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm-v2/stories-core/jsonStories.js
+  159:2  error  Mixed spaces and tabs                                                                                            no-mixed-spaces-and-tabs
+  229:8  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm-v2/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
    4:10  error  'Actions' is defined but never used                                                                                        no-unused-vars
   34:9   error  'iconTransform' is assigned a value but never used                                                                         no-unused-vars
@@ -41,20 +51,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm-v2/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.test.js
   109:55  error  Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm-v3/fields/Datalist/Datalist.component.js
-  46:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
-  79:2  warning  Unexpected console statement  no-console
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm-v3/schema/Widget/useCondition.js
   2:10  error  'useMemo' is defined but never used   no-unused-vars
   2:19  error  'useState' is defined but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm-v3/schema/Widget/useRules.js
-  1:10  error  'useContext' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm-v3/schema/Widget/Widget.component.js
   61:1  error  Line 61 exceeds the maximum line length of 100  max-len
 
-✖ 31 problems (30 errors, 1 warning)
+/home/travis/build/Talend/ui/packages/forms/src/widgets/fields/Datalist/Datalist.component.js
+  37:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+
+✖ 33 problems (32 errors, 1 warning)
   7 errors, 0 warnings potentially fixable with the `--fix` option.
 
