@@ -247,7 +247,7 @@ describe('Validation utils', () => {
 			const properties = { columns: [{ key: '', value: 'value' }] };
 
 			// when
-			const errors = validateSimple(schema, value, properties, undefined,true);
+			const errors = validateSimple(schema, value, properties, undefined, true);
 
 			// then
 			expect(errors).toEqual({
