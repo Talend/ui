@@ -4,7 +4,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import i18n from '../stories/config/i18n';
+import i18n from './i18n';
 
 const withFormLayout = (story, options) => {
 	if (options.kind === 'Layout') {
@@ -41,8 +41,8 @@ addDecorator(withFormLayout);
 
 configure(
 	[
-		require.context('../stories-core', true, /index.js$/),
-		require.context('../src', true, /\.stories\.js$/),
+		require.context('../src/UIForm-v2/stories-core', true, /index.js$/),
+		require.context('../src/UIForm-v3', true, /\.stories\.js$/),
 	],
 	module,
 );

@@ -5,10 +5,10 @@ import { withKnobs, object } from '@storybook/addon-knobs';
 import { useFormContext } from 'react-hook-form';
 import SchemaForm from '../../SchemaForm';
 import SchemaArray from './SchemaArray.component';
-import ArrayFieldset from '../../../fieldsets/Array';
+import ArrayFieldset from '../../../../widgets/fieldsets/Array';
 
 export default {
-	title: 'Schema Fieldsets|Array',
+	title: 'Fieldsets|Schema/Array',
 
 	parameters: {
 		component: SchemaArray,

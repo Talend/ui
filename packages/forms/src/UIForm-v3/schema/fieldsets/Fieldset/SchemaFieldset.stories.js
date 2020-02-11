@@ -6,7 +6,7 @@ import SchemaFieldset from './SchemaFieldset.component';
 import SchemaForm from '../../SchemaForm';
 
 export default {
-	title: 'Schema Fieldsets|Fieldset',
+	title: 'Fieldsets|Schema/Fieldset',
 
 	parameters: {
 		component: SchemaFieldset,

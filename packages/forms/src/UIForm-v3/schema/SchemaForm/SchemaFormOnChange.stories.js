@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import SchemaForm from './SchemaForm.component';
 
 export default {
-	title: 'Schema Concepts|On Change',
+	title: 'UIForm V3|On Change',
 	parameters: { component: SchemaForm },
 };
 

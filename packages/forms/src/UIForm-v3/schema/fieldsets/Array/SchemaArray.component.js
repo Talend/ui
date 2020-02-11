@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import Widget, { PROPS_TO_REMOVE_FROM_INPUTS } from '../../Widget';
-import ArrayFieldset from '../../../fieldsets/Array';
+import ArrayFieldset from '../../../rhf/fieldsets/Array';
 
 function injectItemIndex(itemIndex, genericSchema) {
 	// insert index in first empty key part

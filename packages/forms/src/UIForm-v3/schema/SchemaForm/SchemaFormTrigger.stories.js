@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import SchemaForm from './SchemaForm.component';
 
 export default {
-	title: 'Schema Concepts|Trigger',
+	title: 'UIForm V3|Trigger',
 	parameters: { component: SchemaForm },
 };
 

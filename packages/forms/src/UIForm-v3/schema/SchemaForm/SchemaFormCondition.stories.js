@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import SchemaForm from './SchemaForm.component';
 
 export default {
-	title: 'Schema Concepts|Condition',
+	title: 'UIForm V3|Condition',
 	parameters: { component: SchemaForm },
 };
 

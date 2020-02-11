@@ -6,7 +6,7 @@ import SchemaDatalist from './SchemaDatalist.component';
 import SchemaForm from '../../SchemaForm';
 
 export default {
-	title: 'Schema Fields|Datalist',
+	title: 'Fields|Schema/Datalist',
 
 	parameters: {
 		component: SchemaDatalist,

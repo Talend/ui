@@ -6,7 +6,7 @@ import SchemaInput from './SchemaInput.component';
 import SchemaForm from '../../SchemaForm';
 
 export default {
-	title: 'Schema Fields|Input',
+	title: 'Fields|Schema/Input',
 
 	parameters: {
 		component: SchemaInput,

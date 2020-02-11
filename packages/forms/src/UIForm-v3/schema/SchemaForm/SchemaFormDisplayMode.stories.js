@@ -4,7 +4,7 @@ import SchemaForm from './SchemaForm.component';
 import InputTextMode from '../fields/Input/TextMode.component';
 
 export default {
-	title: 'Schema Concepts|Display Mode',
+	title: 'UIForm V3|Display Mode',
 	parameters: { component: SchemaForm },
 };
 

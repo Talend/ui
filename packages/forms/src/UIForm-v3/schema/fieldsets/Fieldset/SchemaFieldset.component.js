@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Widget from '../../Widget';
-import Fieldset from '../../../fieldsets/Fieldset';
+import Fieldset from '../../../rhf/fieldsets/Fieldset';
 
 export default function SchemaFieldset({ schema, ...restProps }) {
 	const { title, items, options = {} } = schema;

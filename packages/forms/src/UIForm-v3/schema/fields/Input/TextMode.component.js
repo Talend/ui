@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputTextMode from '../../../fields/Input/TextMode.component';
+import InputTextMode from '../../../../widgets/fields/Input/TextMode.component';
 
 export default function SchemaInput(props) {
 	const { schema } = props;

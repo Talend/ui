@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import { PROPS_TO_REMOVE_FROM_INPUTS } from '../../Widget';
-import Input from '../../../fields/Input';
+import Input from '../../../rhf/fields/Input';
 
 export default function SchemaInput(props) {
 	const { schema } = props;
