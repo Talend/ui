@@ -12,20 +12,22 @@ import { getTheme } from '../theme';
 const theme = getTheme(pieChartCssModule);
 export const PIECHART_CONSTANTS = {
 	MIN_SIZE: 20,
-	MAX_SIZE: 50,
+	MAX_SIZE: 100,
 	MAX_PERCENT: 100,
 	BASE_INNER_RADIUS: 6,
 	BASE_OUTER_RADIUS: 9,
 	BASE_PAD_ANGLE: 0.2,
 	INNER_RADIUS_PER_PIXEL: 0.4,
 	OUTER_RADIUS_PER_PIXEL: 0.45,
-	PAD_ANGLE_PER_PIXEL: 0.0033,
+	PAD_ANGLE_PER_PIXEL: 0.0013,
 };
 
 const displaySizes = {
 	small: 20,
 	medium: 35,
 	large: 50,
+	xlarge: 80,
+	xxlarge: 100,
 };
 
 // we need just one instance of this, it's just a generator
@@ -333,7 +335,7 @@ export function PieChartIconComponent({
 }
 
 export const pieChartIconPropTypes = {
-	display: PropTypes.oneOf(['small', 'medium', 'large']),
+	display: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'xxlarge']),
 	hideLabel: PropTypes.bool,
 	labelIndex: PropTypes.number,
 	loading: PropTypes.bool,

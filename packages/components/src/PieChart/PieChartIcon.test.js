@@ -258,7 +258,7 @@ describe('PieChart', () => {
 			expect(result).toEqual({
 				innerRadius: 18,
 				outerRadius: 22,
-				padAngle: 0.101,
+				padAngle: 0.161,
 				svgSize: 50,
 			});
 		});
@@ -272,7 +272,7 @@ describe('PieChart', () => {
 			expect(result).toEqual({
 				innerRadius: 9,
 				outerRadius: 12,
-				padAngle: 0.1736,
+				padAngle: 0.18960000000000002,
 				svgSize: 28,
 			});
 		});
