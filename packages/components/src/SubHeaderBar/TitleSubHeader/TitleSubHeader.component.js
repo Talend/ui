@@ -94,7 +94,7 @@ function TitleSubHeader({
 	);
 }
 
-function SubTitle({ subTitleLoading, subTitle }) {
+function SubTitle({ subTitleLoading, subTitle, asLabel, labelType }) {
 	if (subTitleLoading) {
 		return (
 			<Skeleton
@@ -109,15 +109,19 @@ function SubTitle({ subTitleLoading, subTitle }) {
 	}
 
 	if (subTitle) {
+		let subtitleClassnames;
+		if (asLabel) {
+			subtitleClassnames = classNames('label', 'tc-subheader-details-text-subtitle-label', {
+				'label-info': labelType === 'INFO',
+			});
+		} else {
+			classNames(theme['tc-subheader-details-text-subtitle'], 'tc-subheader-details-text-subtitle');
+		}
+
 		return (
-			<small
-				className={classNames(
-					theme['tc-subheader-details-text-subtitle'],
-					'tc-subheader-details-text-subtitle',
-				)}
-			>
-				{subTitle}
-			</small>
+			<div>
+				<small className={subtitleClassnames}>{subTitle}</small>
+			</div>
 		);
 	}
 
@@ -127,6 +131,8 @@ function SubTitle({ subTitleLoading, subTitle }) {
 SubTitle.propTypes = {
 	subTitle: PropTypes.node,
 	subTitleLoading: PropTypes.bool,
+	asLabel: PropTypes.bool,
+	labelType: PropTypes.string,
 };
 
 TitleSubHeader.propTypes = {

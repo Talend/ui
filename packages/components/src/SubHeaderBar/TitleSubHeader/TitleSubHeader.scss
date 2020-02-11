@@ -86,6 +86,10 @@ $tc-input-subheader-size-medium: 1.4rem !default;
 			color: $black;
 			font-size: $tc-input-subheader-size-medium;
 		}
+
+		&-label {
+			width: 100%;
+		}
 	}
 
 	& &-loading-subtitle {
