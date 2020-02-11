@@ -51,13 +51,13 @@ function adaptArrayItemKey(arraySchema, item, itemIndex) {
 	if (itemKey && !arrayStartsWith(arrayKey, itemKey)) {
 		return item;
 	}
-
-	const schema = {
-		...(childSchemaItems && { schema: childSchemaItems }),
-		...(childTitleMap && { titleMap: childTitleMap }),
-		...item,
-	};
-
+	const schema = { ...item };
+	if (childSchemaItems && !schema.schema) {
+		schema.schema = childSchemaItems;
+	}
+	if (childTitleMap && !schema.titleMap) {
+		schema.titleMap = childTitleMap;
+	}
 	if (itemKey) {
 		const indexedKey = [...itemKey];
 		indexedKey[arrayKey.length] = itemIndex;
