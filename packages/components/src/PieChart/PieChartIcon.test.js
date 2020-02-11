@@ -10,6 +10,7 @@ import {
 	getPercentageToIndex,
 	PieChartIconComponent,
 	setMinimumPercentage,
+	PIECHART_SIZES,
 } from './PieChartIcon.component';
 
 describe('PieChart', () => {
@@ -42,7 +43,9 @@ describe('PieChart', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 		it('should render a PieChart', () => {
-			const wrapper = shallow(<PieChartIconComponent display="small" model={pieChartData} />);
+			const wrapper = shallow(
+				<PieChartIconComponent display={PIECHART_SIZES.SMALL} model={pieChartData} />,
+			);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 		it('should spread extra props on svg', () => {
