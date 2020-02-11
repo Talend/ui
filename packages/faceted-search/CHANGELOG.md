@@ -26,6 +26,27 @@ Types of changes
 
 ## [unreleased]
 
+## [0.3.0]
+
+### Breaking change
+
+- ⤴️ @talend/ui: >= 4.27.0
+
+### Changed
+
+- [Changed](https://github.com/Talend/ui/pull/2639): Update some operators labels
+
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2641): Unknown operators facet return by the api throw javascript error
+- [fixed](https://github.com/Talend/ui/pull/2631): Remove "Selected values only" for checkbox facet
+
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2640/): Select automatically operator if only one
+- [feat](https://github.com/Talend/ui/pull/2636): Use Input text for Badge text instead of Textarea
+- [feat](https://github.com/Talend/ui/pull/2638): use toggle for basic/advance button
+
 ## [0.2.6]
 
 ### Fixed

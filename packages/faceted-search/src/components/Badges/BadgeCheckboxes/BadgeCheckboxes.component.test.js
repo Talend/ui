@@ -32,7 +32,7 @@ describe('BadgeCheckboxes', () => {
 			id: 'myId',
 			label: 'My Label',
 			operator,
-			operators: [],
+			operators: ['contains', 'equals'],
 			t,
 		};
 		// When
@@ -51,7 +51,7 @@ describe('BadgeCheckboxes', () => {
 			id: 'myId',
 			label: 'My Label',
 			operator,
-			operators: [],
+			operators: ['contains', 'equals'],
 			t,
 			value: [],
 		};
@@ -71,7 +71,7 @@ describe('BadgeCheckboxes', () => {
 			id: 'myId',
 			label: 'My Label',
 			operator,
-			operators: [],
+			operators: ['contains', 'equals'],
 			t,
 			value: [
 				{ label: 'one', checked: true },
@@ -97,7 +97,7 @@ describe('BadgeCheckboxes', () => {
 			id: 'myId',
 			label: 'My Label',
 			operator,
-			operators: [],
+			operators: ['contains', 'equals'],
 			t,
 			value: [
 				{ label: 'one', checked: true },

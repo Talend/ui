@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 
 import { BadgeFaceted } from '../BadgeFaceted';
-import { BadgeTextArea } from './BadgeTextArea.component';
+import { BadgeTextForm } from './BadgeTextForm.component';
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 
 const createDefaultOperators = t => [
@@ -53,7 +53,7 @@ const BadgeText = ({
 			value={value || ''}
 		>
 			{({ onSubmitBadge, onChangeValue, badgeValue }) => (
-				<BadgeTextArea
+				<BadgeTextForm
 					id={badgeTextId}
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}

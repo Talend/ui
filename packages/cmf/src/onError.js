@@ -140,9 +140,14 @@ function onJSError(event) {
  * @return {[type]} [description]
  */
 function setupSentry(options = {}) {
+	if (process.env.NODE_ENV !== 'production') {
+		delete ref.SENTRY_DSN;
+	}
+
 	if (!ref.SENTRY_DSN) {
 		return;
 	}
+
 	window.removeEventListener('error', onJSError);
 	try {
 		init({ dsn: ref.SENTRY_DSN, ...options });
@@ -171,7 +176,7 @@ function bootstrap(options, store) {
 	if (opt.SENTRY_DSN) {
 		ref.SENTRY_DSN = opt.SENTRY_DSN;
 		setupSentry(opt.sentry);
-		if (opt.onSentryScope) {
+		if (ref.SENTRY_DSN && opt.onSentryScope) {
 			configureScope(scope => {
 				opt.onSentryScope(scope);
 			});

@@ -119,3 +119,17 @@ exports[`TreeView item should render items with icon 1`] = `
   </div>
 </li>
 `;
+
+exports[`TreeView item should render items with icon and tooltip 1`] = `
+<TooltipTrigger
+  label="New version of the Pokemon is available"
+  tooltipPlacement="top"
+>
+  <span>
+    <Icon
+      className="theme-tc-treeview-img"
+      name="talend-versioning"
+    />
+  </span>
+</TooltipTrigger>
+`;
