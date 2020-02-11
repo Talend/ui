@@ -161,14 +161,14 @@ export function validateSingle(
  */
 export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
-	mergedSchema.filter(schema => shouldValidate(
-		schema.condition, properties, schema.key
-	)).forEach(schema => {
-		const value = getValue(properties, schema);
-		// deep validation
-		const subResults = validateSingle(schema, value, properties, customValidationFn, true);
-		Object.assign(results, subResults);
-	});
+	mergedSchema
+		.filter(schema => shouldValidate(schema.condition, properties, schema.key))
+		.forEach(schema => {
+			const value = getValue(properties, schema);
+			// deep validation
+			const subResults = validateSingle(schema, value, properties, customValidationFn, true);
+			Object.assign(results, subResults);
+		});
 	return results;
 }
 
