@@ -110,7 +110,7 @@
       "array": {
         "strings": ["red"],
         "keyvalue": [
-          { "value": "", "key": "" }
+          { "value": "value", "key": "key" }
         ]
       }
     },
