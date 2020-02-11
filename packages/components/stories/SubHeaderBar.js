@@ -98,6 +98,18 @@ stories
 			<SubHeaderBar {...viewProps} subTitleLoading onGoBack={backAction} />
 		</div>
 	))
+	.add('with label subtitle', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...viewProps}
+				subTitle="mySubTitle"
+				onGoBack={backAction}
+				asLabel
+				labelType="INFO"
+			/>
+		</div>
+	))
 	.add('with right components', () => (
 		<div>
 			<IconsProvider />
