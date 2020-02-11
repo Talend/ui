@@ -22,7 +22,6 @@ export const PIECHART_CONSTANTS = {
 	PAD_ANGLE_PER_PIXEL: 0.0013,
 };
 
-
 export const PIECHART_SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
