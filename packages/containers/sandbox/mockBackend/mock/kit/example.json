@@ -308,23 +308,30 @@
               },
               {
                 "placeholder": "key value",
-                "key": "array.keyvalue[]",
+                "key": "array.keyvalue",
+                "itemWidget": "collapsibleFieldset",
+                "itemTitle": "Column",
                 "items": [
                   {
-                    "widget": "columns",
+                    "key": "array.keyvalue[]",
                     "items": [
                       {
-                        "placeholder": "key",
-                        "widget": "text",
-                        "title": "Key",
-                        "key": "array.keyvalue[].key",
-                        "required": true
-                      },
-                      {
-                        "placeholder": "value",
-                        "widget": "text",
-                        "title": "Value",
-                        "key": "array.keyvalue[].value"
+                        "widget": "columns",
+                        "items": [
+                          {
+                            "placeholder": "key",
+                            "widget": "text",
+                            "title": "Key",
+                            "key": "array.keyvalue[].key",
+                            "required": true
+                          },
+                          {
+                            "placeholder": "value",
+                            "widget": "text",
+                            "title": "Value",
+                            "key": "array.keyvalue[].value"
+                          }
+                        ]
                       }
                     ]
                   }

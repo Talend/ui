@@ -114,7 +114,7 @@ export function validateSimple(
 	const results = {};
 	const { key, items } = mergedSchema;
 	// do not break in case we do not have the key
-	// may be there are items
+	// we need to keep deepValidation
 	if (key) {
 		results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
 	}
