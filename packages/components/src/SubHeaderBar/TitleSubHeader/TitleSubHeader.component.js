@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Label } from 'react-bootstrap';
 import Skeleton from '../../Skeleton';
 import EditableText from '../../EditableText';
 import titleSubHeaderCssModule from './TitleSubHeader.scss';
@@ -90,19 +91,18 @@ function SubTitle({ subTitleLoading, subTitle, asLabel, labelType }) {
 	}
 
 	if (subTitle) {
-		let subtitleClassnames;
-		if (asLabel) {
-			subtitleClassnames = theme('label', 'tc-subheader-details-text-subtitle-label', {
-				[`label-${labelType}`]: labelType,
-			});
-		} else {
-			subtitleClassnames = theme('tc-subheader-details-text-subtitle');
-		}
-
-		return (
+		return asLabel ? (
 			<div>
-				<small className={subtitleClassnames}>{subTitle}</small>
+				<Label
+					className={theme('tc-subheader-details-text-subtitle-label', {
+						[`label-${labelType}`]: labelType,
+					})}
+				>
+					{subTitle}
+				</Label>
 			</div>
+		) : (
+			<small className={theme('tc-subheader-details-text-subtitle')}>{subTitle}</small>
 		);
 	}
 
