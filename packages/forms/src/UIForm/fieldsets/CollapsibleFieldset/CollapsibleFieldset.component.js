@@ -1,15 +1,36 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Actions } from '@talend/react-components/lib/Actions';
-import { useTranslation } from 'react-i18next';
 import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
 import Widget from '../../Widget';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 import theme from './CollapsibleFieldset.scss';
 
-function defaultTitle(_, schema) {
+function defaultTitle(formData, schema) {
+	const title = (schema.items || []).reduce((acc, item) => {
+		let value;
+		if (item.key) {
+			const lastKey = item.key[item.key.length - 1];
+			value = formData[lastKey];
+		}
+		if (item.items) {
+			const sub = defaultTitle(value || formData, item);
+			if (sub) {
+				acc.push(sub);
+			}
+		} else if (item.titleMap) {
+			const mappedValue = item.titleMap.find(map => map.value === value);
+			if (mappedValue) {
+				acc.push(`${mappedValue.name}`);
+			}
+		} else if (value) {
+			acc.push(`${value}`);
+		}
+		return acc;
+	}, []);
+	if (title.length > 0) {
+		return title.join(', ');
+	}
 	return schema.title;
 }
 
@@ -29,21 +50,18 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		}
 
 		const { id, schema, value, actions, ...restProps } = props;
-		const { t } = useTranslation(I18N_DOMAIN_FORMS);
 		const { items } = schema;
-		const iconTransform = !props.value.isClosed ? 'flip-vertical' : null;
-		const expandLabel = t('FIELDSET_EXPAND', { defaultValue: 'Expand' });
-		const collapseLabel = t('FIELDSET_COLLAPSE', { defaultValue: 'Collapse' });
-		const displayAction = actions.map(action => {
-			return { ...action, displayMode: TYPE_ACTION };
-		});
+		const displayAction = actions.map(action => ({
+			...action, displayMode: TYPE_ACTION,
+		}));
 
 		return (
 			<fieldset className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}>
-				<CollapsiblePanel id={`${id}`}
-				                  header={[{ label: title(value, schema) }, displayAction]}
-				                  onToggle={toggle}
-				                  expanded={!value.isClosed}
+				<CollapsiblePanel
+					id={`${id}`}
+					header={[{ label: title(value, schema, props.t) }, displayAction]}
+					onToggle={toggle}
+					expanded={!value.isClosed}
 				>
 					{items.map((itemSchema, index) => (
 						<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
