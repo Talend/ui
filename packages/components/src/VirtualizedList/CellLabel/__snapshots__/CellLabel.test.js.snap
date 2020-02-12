@@ -16,12 +16,3 @@ exports[`CellLabel should render a label info 1`] = `
   my label
 </small>
 `;
-
-exports[`CellLabel should render label 1`] = `
-<small
-  className="label label-info"
-  id="25"
->
-  label
-</small>
-`;
