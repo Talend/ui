@@ -106,7 +106,7 @@ stories
 				subTitle="mySubTitle"
 				onGoBack={backAction}
 				asLabel
-				labelType="INFO"
+				labelType="info"
 			/>
 		</div>
 	))
