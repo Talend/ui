@@ -200,3 +200,66 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
   </withI18nextTranslation(CollapsiblePanel)>
 </fieldset>
 `;
+
+exports[`CollapsibleFieldset should render without value 1`] = `
+<fieldset
+  className="form-group theme-collapsible-panel collapsible-panel"
+>
+  <withI18nextTranslation(CollapsiblePanel)
+    expanded={true}
+    header={
+      Array [
+        Object {
+          "label": "Basic",
+        },
+        Array [],
+      ]
+    }
+    id="my-fieldset"
+    onToggle={[Function]}
+  >
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "firstname",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "FirstName",
+          "type": "string",
+        }
+      }
+      value={
+        Object {
+          "isClosed": undefined,
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "lastname",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "FirstName",
+          "type": "string",
+        }
+      }
+      value={
+        Object {
+          "isClosed": undefined,
+        }
+      }
+      widgets={Object {}}
+    />
+  </withI18nextTranslation(CollapsiblePanel)>
+</fieldset>
+`;

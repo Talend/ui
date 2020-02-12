@@ -43,7 +43,7 @@ describe('CollapsibleFieldset', () => {
 				<CollapsibleFieldset
 					id={'my-fieldset'}
 					schema={schema}
-					value={{ ...value, isClosed: opts.isClosed }}
+					value={{ ...(opts.empty ? {} : value), isClosed: opts.isClosed }}
 				/>,
 			);
 
@@ -54,6 +54,7 @@ describe('CollapsibleFieldset', () => {
 			'a full fieldset (header and body)': { isClosed: false },
 			'a collapsed fieldset (header only)': { isClosed: true },
 			'a custom title': { isClosed: false, titleFn: customTitle },
+			'without value': { empty: true },
 		},
 	);
 
