@@ -12,16 +12,16 @@ const schema = {
 	title: 'Basic',
 	items: [
 		{
-			key: ['age'],
-			title: 'Age',
-			schema: { type: 'number' },
-			type: 'number',
+			key: ['firstname'],
+			title: 'FirstName',
+			schema: { type: 'string' },
+			type: 'string',
 		},
 		{
-			key: ['address'],
-			title: 'Adress',
+			key: ['lastname'],
+			title: 'FirstName',
 			schema: { type: 'string' },
-			type: 'text',
+			type: 'string',
 		},
 	],
 };
@@ -106,7 +106,8 @@ describe('CollapsibleFieldset', () => {
 		expect(header[1][0].id).toBe('action1');
 		expect(header[1][0].displayMode).toBe(TYPE_ACTION);
 		expect(header[1][1].id).toBe('action2');
-		expect(header[1][1].displayMode).toBe(TYPE_ACTION);	});
+		expect(header[1][1].displayMode).toBe(TYPE_ACTION);
+	});
 
 	it('should not render Actions component if actions are not provided', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();

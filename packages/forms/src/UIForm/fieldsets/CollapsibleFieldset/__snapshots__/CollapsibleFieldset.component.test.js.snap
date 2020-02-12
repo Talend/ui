@@ -9,7 +9,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
     header={
       Array [
         Object {
-          "label": "Basic",
+          "label": "Jimmy, Somsanith",
         },
         Array [],
       ]
@@ -22,13 +22,13 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
       schema={
         Object {
           "key": Array [
-            "age",
+            "firstname",
           ],
           "schema": Object {
-            "type": "number",
+            "type": "string",
           },
-          "title": "Age",
-          "type": "number",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={
@@ -45,13 +45,13 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
       schema={
         Object {
           "key": Array [
-            "address",
+            "lastname",
           ],
           "schema": Object {
             "type": "string",
           },
-          "title": "Adress",
-          "type": "text",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={
@@ -89,13 +89,13 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       schema={
         Object {
           "key": Array [
-            "age",
+            "firstname",
           ],
           "schema": Object {
-            "type": "number",
+            "type": "string",
           },
-          "title": "Age",
-          "type": "number",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={
@@ -112,13 +112,13 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       schema={
         Object {
           "key": Array [
-            "address",
+            "lastname",
           ],
           "schema": Object {
             "type": "string",
           },
-          "title": "Adress",
-          "type": "text",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={
@@ -143,7 +143,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
     header={
       Array [
         Object {
-          "label": "Basic",
+          "label": "Jimmy, Somsanith",
         },
         Array [],
       ]
@@ -156,13 +156,13 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       schema={
         Object {
           "key": Array [
-            "age",
+            "firstname",
           ],
           "schema": Object {
-            "type": "number",
+            "type": "string",
           },
-          "title": "Age",
-          "type": "number",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={
@@ -179,13 +179,13 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       schema={
         Object {
           "key": Array [
-            "address",
+            "lastname",
           ],
           "schema": Object {
             "type": "string",
           },
-          "title": "Adress",
-          "type": "text",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={

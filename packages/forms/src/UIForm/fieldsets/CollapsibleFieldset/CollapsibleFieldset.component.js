@@ -34,6 +34,11 @@ function defaultTitle(formData, schema) {
 	return schema.title;
 }
 
+/**
+ * createCollapsibleFieldset create a widget with a title function
+ * @param {function} title the function called by the component to compute the title
+ * @return {function} CollapsibleFieldset react component
+ */
 export default function createCollapsibleFieldset(title = defaultTitle) {
 	function CollapsibleFieldset(props) {
 		function toggle(event) {
@@ -59,7 +64,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			<fieldset className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}>
 				<CollapsiblePanel
 					id={`${id}`}
-					header={[{ label: title(value, schema, props.t) }, displayAction]}
+					header={[{ label: title(value, schema) }, displayAction]}
 					onToggle={toggle}
 					expanded={!value.isClosed}
 				>
