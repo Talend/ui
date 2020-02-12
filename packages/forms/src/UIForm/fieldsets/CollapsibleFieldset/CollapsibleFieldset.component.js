@@ -52,11 +52,14 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		const { id, schema, value, actions, ...restProps } = props;
 		const { items } = schema;
 		const displayAction = actions.map(action => ({
-			...action, displayMode: TYPE_ACTION,
+			...action,
+			displayMode: TYPE_ACTION,
 		}));
 
 		return (
-			<fieldset className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}>
+			<fieldset
+				className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}
+			>
 				<CollapsiblePanel
 					id={`${id}`}
 					header={[{ label: title(value, schema, props.t) }, displayAction]}
