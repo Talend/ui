@@ -21,7 +21,7 @@ function defaultTitle(formData, schema) {
 		} else if (item.titleMap) {
 			const mappedValue = item.titleMap.find(map => map.value === value);
 			if (mappedValue) {
-				acc.push(`${mappedValue.name}`);
+				acc.push(mappedValue.name);
 			}
 		} else if (value) {
 			acc.push(`${value}`);
