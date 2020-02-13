@@ -3,7 +3,7 @@ import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import cmf from '@talend/react-cmf';
 import { getReduceConfig, mergeObjects, getUnique } from '@talend/react-cmf/lib/cmfModule.merge';
-import { fork } from 'redux-saga/effects';
+import { fork, takeLatest } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
 import expressions from './expressions';
 import sagaRouter from './sagaRouter';
@@ -16,6 +16,7 @@ const mergeConfig = {
 	history: getUnique,
 	sagaRouterConfig: mergeObjects,
 	routerFunctions: mergeObjects,
+	actionToWaitBeforeStartRouter: getUnique,
 };
 
 function mergeRouterConfig(...configs) {
@@ -33,10 +34,19 @@ function getModule(...args) {
 			return acc;
 		}, registry);
 	}
+
+	function* startSagaRouter() {
+		yield fork(sagaRouter, history, options.sagaRouterConfig);
+	}
+
 	function* saga() {
 		yield fork(documentTitle);
 		if (options.sagaRouterConfig) {
-			yield fork(sagaRouter, history, options.sagaRouterConfig);
+			if (options.actionToWaitBeforeStartRouter) {
+				yield takeLatest(options.actionToWaitBeforeStartRouter, startSagaRouter);
+			} else {
+				yield fork(sagaRouter, history, options.sagaRouterConfig);
+			}
 		}
 	}
 	const middlewares = [routerMiddleware(history), cmfRouterMiddleware];
