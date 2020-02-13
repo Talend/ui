@@ -47,7 +47,7 @@ describe('TitleSubHeader', () => {
 	it('should render inProgress', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} inProgress />);
 		expect(wrapper.props().className).toEqual(
-			'theme-tc-subheader-details tc-subheader-details theme-tc-subheader-details-blink tc-subheader-details-blink',
+			'tc-subheader-details theme-tc-subheader-details tc-subheader-details-blink theme-tc-subheader-details-blink',
 		);
 	});
 });
@@ -88,6 +88,13 @@ describe('SubTitle', () => {
 
 	it('should render in loading mode', () => {
 		const wrapper = shallow(<SubTitle subTitleLoading />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render with a label', () => {
+		const wrapper = shallow(<SubTitle {...defaultProps} asLabel labelType="info" />);
+
+		expect(wrapper.find('.label-info')).toHaveLength(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

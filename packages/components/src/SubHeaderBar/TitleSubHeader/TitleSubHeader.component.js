@@ -92,13 +92,7 @@ function SubTitle({ subTitleLoading, subTitle, asLabel, labelType }) {
 
 	if (subTitle) {
 		return asLabel ? (
-			<Label
-				className={theme('tc-subheader-details-text-subtitle-label', {
-					[`label-${labelType}`]: labelType,
-				})}
-			>
-				{subTitle}
-			</Label>
+			<Label className={theme({ [`label-${labelType}`]: labelType })}>{subTitle}</Label>
 		) : (
 			<small className={theme('tc-subheader-details-text-subtitle')}>{subTitle}</small>
 		);
