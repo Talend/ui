@@ -70,7 +70,6 @@ describe('HeaderBar sagas', () => {
 	});
 
 	describe('handleOpenProduct', () => {
-
 		beforeEach(() => {
 			global.location = {};
 			global.location.assign = jest.fn();
