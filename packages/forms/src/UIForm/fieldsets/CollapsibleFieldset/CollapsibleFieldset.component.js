@@ -24,7 +24,7 @@ function defaultTitle(formData, schema) {
 				acc.push(mappedValue.name);
 			}
 		} else if (value) {
-			acc.push(`${value}`);
+			acc.push(value);
 		}
 		return acc;
 	}, []);
