@@ -34,6 +34,7 @@ $tc-input-subheader-size-medium: 1.4rem !default;
 		flex: 1 auto;
 		margin-right: 110px;
 		max-width: 90rem;
+		align-items: flex-start;
 
 		&-title {
 			display: inline-flex;
@@ -85,10 +86,6 @@ $tc-input-subheader-size-medium: 1.4rem !default;
 			@include ellipsis;
 			color: $black;
 			font-size: $tc-input-subheader-size-medium;
-		}
-
-		&-label {
-			width: 100%;
 		}
 	}
 
