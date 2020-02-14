@@ -6,7 +6,7 @@ import Widget from '../../Widget';
 
 import theme from './CollapsibleFieldset.scss';
 
-function defaultTitle(formData, schema) {
+export function defaultTitle(formData, schema, options) {
 	const title = (schema.items || []).reduce((acc, item) => {
 		let value;
 		if (item.key) {
@@ -29,7 +29,7 @@ function defaultTitle(formData, schema) {
 		return acc;
 	}, []);
 	if (title.length > 0) {
-		return title.join(', ');
+		return title.join(options?.separator || schema.options?.separator || ', ');
 	}
 	return schema.title;
 }

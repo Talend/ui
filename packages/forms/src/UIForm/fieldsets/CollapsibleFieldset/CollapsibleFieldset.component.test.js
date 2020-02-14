@@ -2,7 +2,7 @@ import React from 'react';
 import cases from 'jest-in-case';
 import { shallow, mount } from 'enzyme';
 import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
-import createCollapsibleFieldset from './CollapsibleFieldset.component';
+import createCollapsibleFieldset, { defaultTitle } from './CollapsibleFieldset.component';
 
 function customTitle(value, schema) {
 	return `${schema.title}: ${value.firstname} ${value.lastname}`;
@@ -136,5 +136,21 @@ describe('CollapsibleFieldset', () => {
 		const panel = wrapper.find('CollapsiblePanel');
 
 		expect(panel.props().header[0].label).toEqual(`${value.firstname}, ${value.lastname}`);
+	});
+});
+
+describe('defaultTitle', () => {
+	it('should return schema.title by default', () => {
+		// given not used in an array you have the schema.title
+		expect(defaultTitle({}, { title: 'Comment' })).toBe('Comment');
+		// given no value, you have the schema.title
+		expect(defaultTitle({}, schema)).toBe(schema.title);
+	});
+	it('should return concat values if used in an array', () => {
+		expect(defaultTitle(value, schema)).toBe(`${value.firstname}, ${value.lastname}`);
+	});
+	it('should support option in an array', () => {
+		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(`${value.firstname} -- || -- ${value.lastname}`);
+		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(`${value.firstname} || ${value.lastname}`);
 	});
 });
