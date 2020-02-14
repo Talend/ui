@@ -79,7 +79,15 @@ function TitleSubHeader({
 	);
 }
 
-function SubTitle({ subTitleLoading, subTitle, asLabel, labelType }) {
+function DefaultSubTitle({ subTitle }) {
+	return <small className={theme('tc-subheader-details-text-subtitle')}>{subTitle}</small>;
+}
+
+DefaultSubTitle.propTypes = {
+	subTitle: PropTypes.element,
+};
+
+function SubTitle({ subTitleLoading, subTitle, subTitleAs: SubTitleAs = DefaultSubTitle }) {
 	if (subTitleLoading) {
 		return (
 			<Skeleton
@@ -91,11 +99,7 @@ function SubTitle({ subTitleLoading, subTitle, asLabel, labelType }) {
 	}
 
 	if (subTitle) {
-		return asLabel ? (
-			<Label className={theme({ [`label-${labelType}`]: labelType })}>{subTitle}</Label>
-		) : (
-			<small className={theme('tc-subheader-details-text-subtitle')}>{subTitle}</small>
-		);
+		return <SubTitleAs subTitle={subTitle} />;
 	}
 
 	return null;
@@ -104,8 +108,7 @@ function SubTitle({ subTitleLoading, subTitle, asLabel, labelType }) {
 SubTitle.propTypes = {
 	subTitle: PropTypes.node,
 	subTitleLoading: PropTypes.bool,
-	asLabel: PropTypes.bool,
-	labelType: PropTypes.string,
+	subTitleAs: PropTypes.element,
 };
 
 TitleSubHeader.propTypes = {
