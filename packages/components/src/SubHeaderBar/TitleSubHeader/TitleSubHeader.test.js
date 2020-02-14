@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Label } from 'react-bootstrap';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import Action from '../../Actions/Action';
@@ -83,7 +84,7 @@ describe('SubTitle', () => {
 
 	it('should render', () => {
 		const wrapper = shallow(<SubTitle {...defaultProps} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should render in loading mode', () => {
@@ -91,10 +92,14 @@ describe('SubTitle', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render with a label', () => {
-		const wrapper = shallow(<SubTitle {...defaultProps} asLabel labelType="info" />);
-
-		expect(wrapper.find('.label-info')).toHaveLength(1);
+	it('should render with a custom subtitle', () => {
+		const wrapper = shallow(
+			<SubTitle
+				{...defaultProps}
+				subTitleAs={({ subTitle }) => <Label className="label-info">{subTitle}</Label>}
+			/>,
+		);
+		expect(wrapper.find(Label)).not.toBe(null);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

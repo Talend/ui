@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { Label } from 'react-bootstrap';
 import { IconsProvider, SubHeaderBar, FilterBar } from '../src/index';
 
 const viewProps = {
@@ -98,15 +99,14 @@ stories
 			<SubHeaderBar {...viewProps} subTitleLoading onGoBack={backAction} />
 		</div>
 	))
-	.add('with label subtitle', () => (
+	.add('with custom subtitle', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
 				subTitle="mySubTitle"
 				onGoBack={backAction}
-				asLabel
-				labelType="info"
+				subTitleAs={({ subTitle }) => <Label className="label-info">{subTitle}</Label>}
 			/>
 		</div>
 	))
