@@ -5,12 +5,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
-  65:51  error  't' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.test.js
-  109:55  error  Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
-
-✖ 3 problems (3 errors, 0 warnings)
-  1 error, 0 warnings potentially fixable with the `--fix` option.
+✖ 1 problem (1 error, 0 warnings)
 
