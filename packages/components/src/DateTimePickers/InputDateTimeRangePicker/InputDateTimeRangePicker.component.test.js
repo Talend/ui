@@ -22,6 +22,26 @@ describe('InputDateTimeRangePicker', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
+	it('should render with default time', () => {
+		// when
+		const wrapper = mount(
+			<InputDateTimeRangePicker
+				id="my-picker"
+				defaultTimeStart={{
+					hours: '00',
+					minutes: '00',
+				}}
+				defaultTimeEnd={{
+					hours: '12',
+					minutes: '24',
+				}}
+			/>,
+		);
+
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
 	describe('onChange', () => {
 		it('should trigger props.onChange', () => {
 			// given

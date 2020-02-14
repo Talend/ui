@@ -491,7 +491,19 @@ storiesOf('Data/List/VirtualizedList', module)
 			</section>
 		</div>
 	))
-
+	.add('List > Table with label author', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List with radio button title</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collection} id={'my-list'}>
+					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+					<VirtualizedList.Label label="Author" dataKey="author" />
+					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
 	.add('List > Table : sort', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>

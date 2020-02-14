@@ -213,19 +213,7 @@ function ActionButton(props) {
 				tooltipPlacement={tooltipPlacement}
 				className={tooltipClassName}
 			>
-				{btnIsDisabled ? (
-					<span
-						className={classNames(
-							theme['tc-action-disabled-btn-container'],
-							'tc-action-disabled-btn-container',
-							buttonProps.className,
-						)}
-					>
-						{btn}
-					</span>
-				) : (
-					btn
-				)}
+				{btn}
 			</TooltipTrigger>
 		);
 	}

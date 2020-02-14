@@ -338,6 +338,26 @@ storiesOf('Controls/DatePicker', module)
 			</form>
 		</div>
 	))
+	.add('DateTime picker default time ', () => (
+		<div>
+			<IconsProvider />
+			<h1>DateTimePicker</h1>
+			<p>If time doesn't selected - it will be set from default value</p>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					defaultTimeValue={{
+						hours: '03',
+						minutes: '04',
+						seconds: '00',
+					}}
+				/>
+			</form>
+		</div>
+	))
 	.add('DateTime picker - UTC', () => (
 		<div>
 			<IconsProvider />
@@ -454,6 +474,32 @@ storiesOf('Controls/DatePicker', module)
 					useSeconds
 				/>
 			</form>
+		</div>
+	))
+	.add('DateTime Range picker default time values', () => (
+		<div>
+			<IconsProvider />
+			<h1>DateTime Range picker</h1>
+			<form>
+				<InputDateTimeRangePicker
+					id="my-datetime-range-picker"
+					onChange={action('onChange')}
+					onBlur={action('onBlur')}
+					defaultTimeStart={{
+						hours: '00',
+						minutes: '00',
+						seconds: '00',
+					}}
+					defaultTimeEnd={{
+						hours: '23',
+						minutes: '59',
+						seconds: '59',
+					}}
+					useSeconds
+				/>
+			</form>
+			<p>The start time will be automatically set to 00:00, and the end time is 23:59</p>
+			<p>You still can change time value to other value</p>
 		</div>
 	))
 	.add('Legacy - form mode', () => (
