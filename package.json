@@ -51,7 +51,8 @@
     "extract-i18n-stepper": "i18next-scanner --config packages/stepper/i18next-scanner.config.js 'packages/stepper/src/**/*.js'",
     "audit-router": "cd packages/router && yarn audit --json && cd ../../",
     "audit-scripts": "cd packages/scripts && yarn audit -s --json && cd ../../",
-    "audit-html": "cd packages/html-webpack-plugin && yarn audit --json && cd ../../"
+    "audit-html": "cd packages/html-webpack-plugin && yarn audit --json && cd ../../",
+    "chroma": "CHROMA_APP_CODE=x8p2jxrsvbq chroma"
   },
   "repository": {
     "type": "git",
