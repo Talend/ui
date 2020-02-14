@@ -19,6 +19,7 @@ export default function ObjectViewer({ displayMode, dataSchema, data, ...props }
 		return null;
 	}
 
+	// check if we need to convert timestamp to ISO String Date
 	const toConvert = useMemo(() => checkDataSchemaToConvert(dataSchema), [dataSchema]);
 	const newData = useMemo(() => convertDate(data, toConvert), [data, toConvert]);
 

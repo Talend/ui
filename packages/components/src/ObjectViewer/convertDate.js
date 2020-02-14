@@ -34,13 +34,9 @@ function convertDate(data, toConvert) {
 	}
 	const newData = data;
 	for (const elem of newData) {
-		// eslint-disable-next-line no-restricted-syntax
-		for (const el in elem) {
-			// eslint-disable-next-line no-prototype-builtins
-			if (elem.hasOwnProperty(el)) {
-				if (toConvert.includes(el)) {
-					elem[el] = new Date(elem[el]).toISOString();
-				}
+		for (const [key, value] of Object.entries(elem)) {
+			if (toConvert.includes(key)) {
+				elem[key] = new Date(value).toISOString();
 			}
 		}
 	}
