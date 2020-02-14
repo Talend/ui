@@ -5,6 +5,8 @@ import Table from './Table';
 import JSONLike from './JSONLike';
 import List from './List';
 
+import { checkDataSchemaToConvert, convertDate } from './convertDate';
+
 export const DISPLAY_MODES = {
 	FLAT: 'flat',
 	TABLE: 'table',
@@ -12,62 +14,18 @@ export const DISPLAY_MODES = {
 	LIST: 'list',
 };
 
-const DATASCHEMATYPES = [
-	{
-		TYPE: 'long',
-		LOGICALTYPE: 'time-micros',
-	},
-	{
-		TYPE: 'int',
-		LOGICALTYPE: 'time-millis',
-	},
-	{
-		TYPE: 'long',
-		LOGICALTYPE: 'timestamp-micros',
-	},
-	{
-		TYPE: 'long',
-		LOGICALTYPE: 'timestamp-millis',
-	},
-	{
-		TYPE: 'int',
-		LOGICALTYPE: 'date',
-	},
-];
-
-/**
- * Convert timestamp to ISO Date
- * @param {Object} dataSchema
- * @param {Array<Object>} data - the sample data fetched from BE
- * @return {Array<Object> | null}
- */
-export function convertDate(dataSchema, data) {
-	if (dataSchema && dataSchema.fields) {
-		const dataSchemaType = dataSchema.fields.reduce((acc, val) => val.type, {});
-		for (const DATASCHEMATYPE of DATASCHEMATYPES) {
-			if (
-				dataSchemaType &&
-				dataSchemaType.type === DATASCHEMATYPE.TYPE &&
-				dataSchemaType.logicalType === DATASCHEMATYPE.LOGICALTYPE
-			) {
-				return data.map(d => ({
-					id: d.id,
-					LastModifiedDate: new Date(d.LastModifiedDate).toISOString(),
-				}));
-			}
-		}
-	}
-	return null;
-}
-
 export default function ObjectViewer({ displayMode, dataSchema, data, ...props }) {
 	if (!data) {
 		return null;
 	}
-	const memoizedConvertDate = useMemo(() => convertDate(dataSchema, data), [dataSchema, data]);
+
+	// check if we need to convert timestamp to ISO String Date
+	const toConvert = useMemo(() => checkDataSchemaToConvert(dataSchema), [dataSchema]);
+	const newData = useMemo(() => convertDate(data, toConvert), [data, toConvert]);
+
 	const newProps = {
 		...props,
-		data: memoizedConvertDate || data,
+		data: newData || data,
 	};
 
 	switch (displayMode) {
