@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellLabel should default render 1`] = `
+<small id="25"
+       class="label label-info"
+>
+  my label
+</small>
+`;
+
+exports[`CellLabel should render a label info 1`] = `
+<small
+  className="label label-info"
+  id="25"
+>
+  my label
+</small>
+`;
