@@ -1,6 +1,6 @@
 import React from 'react';
 import cases from 'jest-in-case';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
 import createCollapsibleFieldset from './CollapsibleFieldset.component';
 
@@ -119,5 +119,16 @@ describe('CollapsibleFieldset', () => {
 		);
 
 		expect(wrapper.exists('Actions')).toEqual(false);
+	});
+	it('should concat values in case it is used in array', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		const onChange = jest.fn();
+
+		const wrapper = mount(
+			<CollapsibleFieldset id={'my-fieldset'} onChange={onChange} schema={schema} value={value} />,
+		);
+		const panel = wrapper.find('CollapsiblePanel');
+
+		expect(panel.props().header[0].label).toEqual(`${value.firstname}, ${value.lastname}`);
 	});
 });
