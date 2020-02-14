@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Label } from 'react-bootstrap';
 import Skeleton from '../../Skeleton';
 import EditableText from '../../EditableText';
 import titleSubHeaderCssModule from './TitleSubHeader.scss';
