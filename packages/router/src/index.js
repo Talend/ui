@@ -16,7 +16,7 @@ const mergeConfig = {
 	history: getUnique,
 	sagaRouterConfig: mergeObjects,
 	routerFunctions: mergeObjects,
-	actionToWaitBeforeStartRouter: getUnique,
+	startOnAction: getUnique,
 };
 
 function mergeRouterConfig(...configs) {
@@ -35,15 +35,17 @@ function getModule(...args) {
 		}, registry);
 	}
 
-	function* startSagaRouter() {
-		yield fork(sagaRouter, history, options.sagaRouterConfig);
-	}
-
 	function* saga() {
+		let started = false;
 		yield fork(documentTitle);
 		if (options.sagaRouterConfig) {
-			if (options.actionToWaitBeforeStartRouter) {
-				yield takeLatest(options.actionToWaitBeforeStartRouter, startSagaRouter);
+			if (options.startOnAction) {
+				yield takeLatest(options.startOnAction, function* () {
+					if (!started) {
+						yield fork(sagaRouter, history, options.sagaRouterConfig);
+						started = true;
+					}
+				});
 			} else {
 				yield fork(sagaRouter, history, options.sagaRouterConfig);
 			}
