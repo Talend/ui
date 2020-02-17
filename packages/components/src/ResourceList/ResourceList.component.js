@@ -53,7 +53,7 @@ function ResourceList({
 	);
 	return (
 		<div className={theme('tc-resource-list')}>
-			{!isLoading && toolbar && <Toolbar {...toolbar} />}
+			{toolbar && <Toolbar {...toolbar} />}
 			<div
 				className={classNames(className, theme('tc-resource-list-items'), {
 					[theme('filtered')]: isFiltered(toolbar),
