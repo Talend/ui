@@ -40,7 +40,7 @@ function getModule(...args) {
 		yield fork(documentTitle);
 		if (options.sagaRouterConfig) {
 			if (options.startOnAction) {
-				yield takeLatest(options.startOnAction, function* () {
+				yield takeLatest(options.startOnAction, function* startRouter() {
 					if (!routerStarted) {
 						yield fork(sagaRouter, history, options.sagaRouterConfig);
 						routerStarted = true;
