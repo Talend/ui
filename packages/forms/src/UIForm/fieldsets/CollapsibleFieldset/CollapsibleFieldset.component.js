@@ -2,23 +2,46 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
+import get from 'lodash/get';
 import Widget from '../../Widget';
 
 import theme from './CollapsibleFieldset.scss';
+
+/**
+ * @return {Arary<string>} itemkey
+ * @param {Array<string>} key within an array
+ */
+function getDrillKey(key) {
+	let stopped = false;
+
+	return key.reduceRight((acc, value) => {
+		if (stopped) {
+			return acc;
+		}
+		if (typeof value === 'number') {
+			// finished
+			stopped = true;
+			return acc;
+		}
+		acc.splice(0, 0, value);
+		return acc;
+	}, []);
+}
 
 export function defaultTitle(formData, schema, options) {
 	const title = (schema.items || []).reduce((acc, item) => {
 		let value;
 		if (item.key) {
-			const lastKey = item.key[item.key.length - 1];
-			value = formData[lastKey];
+			const lastKey = getDrillKey(item.key);
+			value = get(formData, lastKey.join('.'));
 		}
 		if (item.items) {
-			const sub = defaultTitle(value || formData, item);
+			const sub = defaultTitle(formData, item, options);
 			if (sub) {
 				acc.push(sub);
 			}
-		} else if (item.titleMap) {
+		}
+		if (item.titleMap) {
 			const mappedValue = item.titleMap.find(map => map.value === value);
 			if (mappedValue) {
 				acc.push(mappedValue.name);

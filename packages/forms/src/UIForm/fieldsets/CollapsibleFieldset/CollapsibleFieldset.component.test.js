@@ -153,4 +153,34 @@ describe('defaultTitle', () => {
 		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(`${value.firstname} -- || -- ${value.lastname}`);
 		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(`${value.firstname} || ${value.lastname}`);
 	});
+	it('should support recursive call', () => {
+		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(`${value.firstname} -- || -- ${value.lastname}`);
+		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(`${value.firstname} || ${value.lastname}`);
+	});
+	it('should support recursive call on deeper objects', () => {
+		const complexSchema = {
+			title: 'Basic',
+			items: [
+				{
+					key: ['type'],
+					title: 'Type',
+					schema: { type: 'string' },
+					type: 'string',
+				},
+				{
+					key: ['type1', 'subvalue'],
+					title: 'Sub value',
+					schema: { type: 'string' },
+					type: 'string',
+				},
+			],
+		};
+		const complexValue = {
+			type: 'type1',
+			type1: {
+				subvalue: 'item',
+			},
+		};
+		expect(defaultTitle(complexValue, complexSchema)).toBe('type1, item');
+	});
 });
