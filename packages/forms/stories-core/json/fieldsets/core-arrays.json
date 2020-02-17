@@ -76,6 +76,24 @@
             "comment"
           ]
         }
+      },
+      "columns": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "title": "Value",
+              "type": "string",
+              "default": ""
+            },
+            "key": {
+              "title": "Key",
+              "type": "string",
+              "default": ""
+            }
+          }
+        }
       }
     }
   },
@@ -126,6 +144,36 @@
           "type": "textarea",
           "rows": 3,
           "validationMessage": "Don't be greedy!"
+        }
+      ]
+    },
+    {
+      "key": "columns",
+      "itemWidget": "collapsibleFieldset",
+      "itemTitle": "Column",
+      "items": [
+        {
+          "key": "columns[]",
+          "items": [
+            {
+              "widget": "columns",
+              "items": [
+                {
+                  "placeholder": "key",
+                  "widget": "text",
+                  "title": "Key",
+                  "key": "columns[].key",
+                  "required": true
+                },
+                {
+                  "placeholder": "value",
+                  "widget": "text",
+                  "title": "Value",
+                  "key": "columns[].value"
+                }
+              ]
+            }
+          ]
         }
       ]
     }

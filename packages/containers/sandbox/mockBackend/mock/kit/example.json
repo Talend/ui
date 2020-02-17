@@ -9,20 +9,59 @@
   "ui": {
     "jsonSchema": {
       "properties": {
+        "array": {
+          "type": "object",
+          "properties": {
+            "strings": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["red", "green", "blue"]
+              }
+            },
+            "keyvalue": {
+              "default": [
+                {
+                  "value": "value",
+                  "key": "key"
+                }
+              ],
+              "title": "key value",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "title": "Value",
+                    "type": "string",
+                    "default": ""
+                  },
+                  "key": {
+                    "title": "Key",
+                    "type": "string",
+                    "default": ""
+                  }
+                }
+              }
+            }
+          }
+        },
+        "triggers": {
+          "login": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "url": {
+            "pattern": "^(http://|https://).*",
+            "title": "URL",
+            "type": "string"
+          }
+        },
         "example": {
           "properties": {
             "code": {
-              "type": "string"
-            },
-            "login": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            },
-            "url": {
-              "pattern": "^(http://|https://).*",
-              "title": "URL",
               "type": "string"
             },
             "string": {
@@ -62,6 +101,17 @@
         "$tags_name": ["Clafoutis aux poires et aux fruits"],
         "multiSelect": ["1"],
         "$multiSelect_name": ["accusamus beatae ad facilis cum similique qui sunt"]
+      },
+      "triggers": {
+        "login": "login",
+        "password": "login",
+        "url": "http://www.example.com"
+      },
+      "array": {
+        "strings": ["red"],
+        "keyvalue": [
+          { "value": "value", "key": "key" }
+        ]
       }
     },
     "uiSchema": [
@@ -190,17 +240,17 @@
                 ]
               },
               {
-                "key": "example.url",
+                "key": "triggers.url",
                 "placeholder": "url",
                 "widget": "text"
               },
               {
-                "key": "example.login",
+                "key": "triggers.login",
                 "placeholder": "login",
                 "widget": "text"
               },
               {
-                "key": "example.password",
+                "key": "triggers.password",
                 "placeholder": "password",
                 "type": "password",
                 "widget": "text"
@@ -227,14 +277,65 @@
                       }
                     ],
                     "options": [
-                      "example.url",
-                      "example.password",
-                      "example.login"
+                      "triggers.url",
+                      "triggers.password",
+                      "triggers.login"
                     ],
                     "type": "healthcheck"
                   }
                 ],
                 "widget": "button"
+              }
+            ]
+          },
+          {
+            "title": "Arrays",
+            "widget": "fieldset",
+            "items": [
+              {
+                "key": "array.strings",
+                "title": "Strings",
+                "widget": "array",
+                "items": [{
+                  "key": "array.strings[]",
+                  "widget": "select",
+                  "titleMap": [
+                    { "name": "red", "value": "red" },
+                    { "name": "green", "value": "green" },
+                    { "name": "blue", "value": "blue" }
+                  ]
+                }]
+              },
+              {
+                "placeholder": "key value",
+                "key": "array.keyvalue",
+                "itemWidget": "collapsibleFieldset",
+                "itemTitle": "Column",
+                "items": [
+                  {
+                    "key": "array.keyvalue[]",
+                    "items": [
+                      {
+                        "widget": "columns",
+                        "items": [
+                          {
+                            "placeholder": "key",
+                            "widget": "text",
+                            "title": "Key",
+                            "key": "array.keyvalue[].key",
+                            "required": true
+                          },
+                          {
+                            "placeholder": "value",
+                            "widget": "text",
+                            "title": "Value",
+                            "key": "array.keyvalue[].value"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
