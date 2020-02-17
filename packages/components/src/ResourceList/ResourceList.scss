@@ -1,0 +1,31 @@
+$tc-resource-list-height: 25rem !default;
+
+.tc-resource-list {
+	&-items {
+		height: $tc-resource-list-height;
+
+		&.filtered {
+			:global(.flags-container) {
+				opacity: 1;
+			}
+		}
+	}
+
+	&--no-results {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+
+		&-text {
+			display: inline-flex;
+			align-items: center;
+			font-style: italic;
+			color: $gray;
+		}
+
+		&-icon {
+			margin: 0 $padding-small;
+		}
+	}
+}

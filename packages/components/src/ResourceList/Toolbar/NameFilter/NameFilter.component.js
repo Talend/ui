@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import { useTranslation } from 'react-i18next';
+import { useKey } from 'react-use';
 
 import { Action } from '../../../Actions';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
@@ -12,6 +13,7 @@ import theme from './NameFilter.scss';
 function NameFilter({ label, value, onChange }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const removeFilter = () => onChange({ target: { value: '' } });
+	useKey('Escape', removeFilter);
 	return (
 		<form
 			className={classNames(

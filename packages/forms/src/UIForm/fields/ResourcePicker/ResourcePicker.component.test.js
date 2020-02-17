@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Button } from 'react-bootstrap';
-import ResourceComponent from '@talend/react-components/lib/ResourcePicker/Resource';
-import StateFilter from '@talend/react-components/lib/ResourcePicker/Toolbar/StateFilter';
-import SortOptions from '@talend/react-components/lib/ResourcePicker/Toolbar/SortOptions';
+import ResourceComponent from '@talend/react-components/lib/ResourceList/Resource';
+import StateFilter from '@talend/react-components/lib/ResourceList/Toolbar/StateFilter';
+import SortOptions from '@talend/react-components/lib/ResourceList/Toolbar/SortOptions';
 
 import ResourcePicker from './ResourcePicker.component';
 
