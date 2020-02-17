@@ -9,7 +9,7 @@ import ResourceListPropTypes from '../ResourceList/ResourceList.propTypes';
 
 const theme = getTheme(cssModule);
 
-export default function ResourcePicker(props) {
+function ResourcePicker(props) {
 	return (
 		<div className={theme('tc-resource-picker')}>
 			<ResourceList
@@ -25,3 +25,5 @@ export default function ResourcePicker(props) {
 ResourcePicker.propTypes = {
 	...ResourceListPropTypes,
 };
+
+export default ResourcePicker;

@@ -48,24 +48,7 @@ exports[`ResourceList component should render ResourceList in filtered mode 1`] 
         ]
       }
       defaultHeight={250}
-      noRowsRenderer={
-        <div
-          className="tc-resource-list--no-results theme-tc-resource-list--no-results"
-        >
-          <span
-            aria-live="polite"
-            className="tc-resource-list--no-results-text theme-tc-resource-list--no-results-text"
-            role="status"
-          >
-            <Icon
-              className="tc-resource-list--no-results-icon theme-tc-resource-list--no-results-icon"
-              name="talend-fieldglass"
-            />
-             
-            No existing s
-          </span>
-        </div>
-      }
+      noRowsRenderer={[Function]}
       rowHeight={100}
       rowRenderers={
         Object {
@@ -119,24 +102,7 @@ exports[`ResourceList component should render ResourceList with render as Custom
         ]
       }
       defaultHeight={250}
-      noRowsRenderer={
-        <div
-          className="tc-resource-list--no-results theme-tc-resource-list--no-results"
-        >
-          <span
-            aria-live="polite"
-            className="tc-resource-list--no-results-text theme-tc-resource-list--no-results-text"
-            role="status"
-          >
-            <Icon
-              className="tc-resource-list--no-results-icon theme-tc-resource-list--no-results-icon"
-              name="talend-fieldglass"
-            />
-             
-            No existing s
-          </span>
-        </div>
-      }
+      noRowsRenderer={[Function]}
       rowHeight={100}
       rowRenderers={
         Object {
@@ -192,24 +158,7 @@ exports[`ResourceList component should render ResourceList with some Resources 1
       }
       defaultHeight={250}
       inProgress={true}
-      noRowsRenderer={
-        <div
-          className="tc-resource-list--no-results theme-tc-resource-list--no-results"
-        >
-          <span
-            aria-live="polite"
-            className="tc-resource-list--no-results-text theme-tc-resource-list--no-results-text"
-            role="status"
-          >
-            <Icon
-              className="tc-resource-list--no-results-icon theme-tc-resource-list--no-results-icon"
-              name="talend-fieldglass"
-            />
-             
-            No existing s
-          </span>
-        </div>
-      }
+      noRowsRenderer={[Function]}
       rowHeight={100}
       rowRenderers={
         Object {
@@ -234,24 +183,7 @@ exports[`ResourceList component should render ResourceList without any Resource 
     <VirtualizedList
       collection={Array []}
       defaultHeight={250}
-      noRowsRenderer={
-        <div
-          className="tc-resource-list--no-results theme-tc-resource-list--no-results"
-        >
-          <span
-            aria-live="polite"
-            className="tc-resource-list--no-results-text theme-tc-resource-list--no-results-text"
-            role="status"
-          >
-            <Icon
-              className="tc-resource-list--no-results-icon theme-tc-resource-list--no-results-icon"
-              name="talend-fieldglass"
-            />
-             
-            No existing s
-          </span>
-        </div>
-      }
+      noRowsRenderer={[Function]}
       rowHeight={100}
       rowRenderers={
         Object {
@@ -305,24 +237,7 @@ exports[`ResourceList component should render ResourceList without toolbar 1`] =
         ]
       }
       defaultHeight={250}
-      noRowsRenderer={
-        <div
-          className="tc-resource-list--no-results theme-tc-resource-list--no-results"
-        >
-          <span
-            aria-live="polite"
-            className="tc-resource-list--no-results-text theme-tc-resource-list--no-results-text"
-            role="status"
-          >
-            <Icon
-              className="tc-resource-list--no-results-icon theme-tc-resource-list--no-results-icon"
-              name="talend-fieldglass"
-            />
-             
-            No existing s
-          </span>
-        </div>
-      }
+      noRowsRenderer={[Function]}
       rowHeight={100}
       rowRenderers={
         Object {

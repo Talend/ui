@@ -33,7 +33,7 @@ function ResourceList({
 		as: renderAs,
 		getRowData: ({ index }) => collection[index],
 	});
-	const noRowsRenderer = React.useMemo(
+	const noRowsRenderer = React.useCallback(
 		() => (
 			<div className={theme('tc-resource-list--no-results')}>
 				<span
@@ -44,7 +44,11 @@ function ResourceList({
 					<Icon className={theme('tc-resource-list--no-results-icon')} name={'talend-fieldglass'} />{' '}
 					{t('RESOURCELIST_NO_ITEMS', {
 						defaultValue: 'No existing {{type, lowercase}}s',
-						type: renderAs?.name,
+						type:
+							renderAs?.name ||
+							t('RESOURCELIST_ITEM', {
+								defaultValue: 'Item',
+							}),
 					})}
 				</span>
 			</div>
