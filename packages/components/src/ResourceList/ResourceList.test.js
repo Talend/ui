@@ -50,7 +50,6 @@ describe('ResourceList component', () => {
 		};
 
 		const wrapper = shallow(<ResourceList {...props} />);
-
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
