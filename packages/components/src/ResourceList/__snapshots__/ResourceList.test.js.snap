@@ -154,6 +154,7 @@ exports[`ResourceList component should render ResourceList with some Resources 1
 <div
   className="tc-resource-list theme-tc-resource-list"
 >
+  <Toolbar />
   <div
     className="tc-resource-list-items theme-tc-resource-list-items"
   >
