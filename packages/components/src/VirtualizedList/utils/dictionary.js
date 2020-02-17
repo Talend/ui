@@ -5,6 +5,7 @@ import CellActionsRenderer, { cellType as cellActionsType } from '../CellActions
 import CellCheckboxRenderer, { cellType as cellCheckboxType } from '../CellCheckbox';
 import CellTitleRenderer, { cellType as cellTitleType } from '../CellTitle';
 import CellBadgeRenderer, { cellType as cellBadgeType } from '../CellBadge';
+import CellLabelRenderer, { cellType as cellLabelType } from '../CellLabel';
 import CellDatetimeRenderer, { cellType as cellDatetimeType } from '../CellDatetime';
 import CellTextIconRenderer, { cellType as cellTextType } from '../CellTextIcon';
 import HeaderIconRenderer, { headerType as headerIconType } from '../HeaderIcon';
@@ -16,6 +17,7 @@ export const cellDictionary = {
 	[cellCheckboxType]: CellCheckboxRenderer,
 	[cellTitleType]: CellTitleRenderer,
 	[cellBadgeType]: CellBadgeRenderer,
+	[cellLabelType]: CellLabelRenderer,
 	[cellTextType]: CellTextIconRenderer,
 	[cellDatetimeType]: CellDatetimeRenderer,
 };

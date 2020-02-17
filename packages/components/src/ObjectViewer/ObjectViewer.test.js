@@ -46,6 +46,7 @@ describe('ObjectViewer', () => {
 		const dataSchema = {
 			fields: [
 				{
+					name: 'LastModifiedDate',
 					type: {
 						type: 'some-type',
 						logicalType: 'time-micros',
@@ -72,6 +73,7 @@ describe('ObjectViewer', () => {
 		const dataSchema = {
 			fields: [
 				{
+					name: 'LastModifiedDate',
 					type: {
 						type: 'long',
 						logicalType: 'time-micros',
