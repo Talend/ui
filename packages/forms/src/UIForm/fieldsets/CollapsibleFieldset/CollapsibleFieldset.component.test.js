@@ -158,8 +158,12 @@ describe('defaultTitle', () => {
 		);
 	});
 	it('should support recursive call', () => {
-		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(`${value.firstname} -- || -- ${value.lastname}`);
-		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(`${value.firstname} || ${value.lastname}`);
+		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(
+			`${value.firstname} -- || -- ${value.lastname}`,
+		);
+		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(
+			`${value.firstname} || ${value.lastname}`,
+		);
 	});
 	it('should support recursive call on deeper objects', () => {
 		const complexSchema = {
