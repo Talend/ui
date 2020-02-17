@@ -36,14 +36,14 @@ function getModule(...args) {
 	}
 
 	function* saga() {
-		let started = false;
+		let routerStarted = false;
 		yield fork(documentTitle);
 		if (options.sagaRouterConfig) {
 			if (options.startOnAction) {
 				yield takeLatest(options.startOnAction, function* () {
-					if (!started) {
+					if (!routerStarted) {
 						yield fork(sagaRouter, history, options.sagaRouterConfig);
-						started = true;
+						routerStarted = true;
 					}
 				});
 			} else {
