@@ -1,0 +1,839 @@
+{
+  "jsonSchema": {
+    "properties": {
+      "$componentMetadata": {
+        "properties": {
+          "name": { "title": "Name", "type": "string" },
+          "description": { "title": "Description", "type": "string" }
+        },
+        "title": "",
+        "type": "object"
+      },
+      "configuration": {
+        "properties": {
+          "selectors": {
+            "default": [
+              {
+                "dummytype": "DUMMY1",
+                "dummy1Configuration": { "field1": "", "int1": -1 },
+                "dummy2Configuration": { "field2": "", "float2": -2.1 },
+                "dummy3Configuration": { "field3": "", "int3": -3 },
+                "dummy4Configuration": { "field4": "", "float4": -4.1 }
+              }
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "dummytype": {
+                  "default": "DUMMY1",
+                  "enum": [
+                    "DUMMY1",
+                    "DUMMY2",
+                    "DUMMY3",
+                    "DUMMY4",
+                    "DUMMY5",
+                    "DUMMY5",
+                    "DUMMY6",
+                    "DUMMY7",
+                    "DUMMY8",
+                    "DUMMY9",
+                    "DUMMY10",
+                    "DUMMY11",
+                    "DUMMY12",
+                    "DUMMY12",
+                    "DUMMY13",
+                    "DUMMY14",
+                    "DUMMY15"
+                  ],
+                  "title": "type",
+                  "type": "string"
+                },
+                "dummy1Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field1": { "default": "", "title": "field1", "type": "string" },
+                    "int1": { "default": -1, "title": "int1", "type": "number" },
+                    "field1b": { "default": "", "title": "field1b", "type": "string" },
+                    "int1b": { "default": -1, "title": "int1b", "type": "number" }
+                  }
+                },
+                "dummy2Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field2": { "default": "", "title": "field2", "type": "string" },
+                    "float2": { "default": -1, "title": "float2", "type": "number" },
+                    "field2b": { "default": "", "title": "field2b", "type": "string" },
+                    "float2b": { "default": -1, "title": "float2b", "type": "number" }
+                  }
+                },
+                "dummy3Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field3": { "default": "", "title": "field3", "type": "string" },
+                    "int3": { "default": -1, "title": "int3", "type": "number" },
+                    "field3b": { "default": "", "title": "field3b", "type": "string" },
+                    "int3b": { "default": -1, "title": "int3b", "type": "number" }
+                  }
+                },
+                "dummy4Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field4": { "default": "", "title": "field4", "type": "string" },
+                    "float4": { "default": -1, "title": "float4", "type": "number" },
+                    "field4b": { "default": "", "title": "field4b", "type": "string" },
+                    "float4b": { "default": -1, "title": "float4b", "type": "number" }
+                  }
+                },
+                "dummy5Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field5": { "default": "", "title": "field5", "type": "string" },
+                    "float5": { "default": -1, "title": "float5", "type": "number" },
+                    "field5b": { "default": "", "title": "field5b", "type": "string" },
+                    "float5b": { "default": -1, "title": "float5b", "type": "number" }
+                  }
+                },
+
+                "dummy6Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field6": { "default": "", "title": "field6", "type": "string" },
+                    "float6": { "default": -1, "title": "float6", "type": "number" },
+                    "field6b": { "default": "", "title": "field6b", "type": "string" },
+                    "float6b": { "default": -1, "title": "float6b", "type": "number" }
+                  }
+                },
+
+                "dummy7Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field7": { "default": "", "title": "field7", "type": "string" },
+                    "float7": { "default": -1, "title": "float7", "type": "number" },
+                    "field7b": { "default": "", "title": "field7b", "type": "string" },
+                    "float7b": { "default": -1, "title": "float7b", "type": "number" }
+                  }
+                },
+
+                "dummy8Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field8": { "default": "", "title": "field8", "type": "string" },
+                    "float8": { "default": -1, "title": "float8", "type": "number" },
+                    "field8b": { "default": "", "title": "field8b", "type": "string" },
+                    "float8b": { "default": -1, "title": "float8b", "type": "number" }
+                  }
+                },
+
+                "dummy9Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field9": { "default": "", "title": "field9", "type": "string" },
+                    "float9": { "default": -1, "title": "float9", "type": "number" },
+                    "field9b": { "default": "", "title": "field9b", "type": "string" },
+                    "float9b": { "default": -1, "title": "float9b", "type": "number" }
+                  }
+                },
+                "dummy10Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field10": { "default": "", "title": "field10", "type": "string" },
+                    "float10": { "default": -1, "title": "float10", "type": "number" },
+                    "field10b": { "default": "", "title": "field10b", "type": "string" },
+                    "float10b": { "default": -1, "title": "float10b", "type": "number" }
+                  }
+                },
+
+                "dummy11Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field11": { "default": "", "title": "field11", "type": "string" },
+                    "float11": { "default": -1, "title": "float11", "type": "number" },
+                    "field11b": { "default": "", "title": "field11b", "type": "string" },
+                    "float11b": { "default": -1, "title": "float11b", "type": "number" }
+                  }
+                },
+
+                "dummy12Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field12": { "default": "", "title": "field12", "type": "string" },
+                    "float12": { "default": -1, "title": "float12", "type": "number" },
+                    "field12b": { "default": "", "title": "field12b", "type": "string" },
+                    "float12b": { "default": -1, "title": "float12b", "type": "number" }
+                  }
+                },
+
+                "dummy13Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field13": { "default": "", "title": "field13", "type": "string" },
+                    "float13": { "default": -1, "title": "float13", "type": "number" },
+                    "field13b": { "default": "", "title": "field13b", "type": "string" },
+                    "float13b": { "default": -1, "title": "float13b", "type": "number" }
+                  }
+                },
+
+                "dummy14Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field14": { "default": "", "title": "field14", "type": "string" },
+                    "float14": { "default": -1, "title": "float14", "type": "number" },
+                    "field14b": { "default": "", "title": "field14b", "type": "string" },
+                    "float14b": { "default": -1, "title": "float14b", "type": "number" }
+                  }
+                },
+
+                "dummy15Configuration": {
+                  "type": "object",
+                  "properties": {
+                    "field15": { "default": "", "title": "field15", "type": "string" },
+                    "float15": { "default": -1, "title": "float15", "type": "number" },
+                    "field15b": { "default": "", "title": "field15b", "type": "string" },
+                    "float15b": { "default": -1, "title": "float15b", "type": "number" }
+                  }
+                }
+              }
+            },
+            "title": "<selectors>",
+            "type": "array"
+          }
+        },
+        "title": "configuration",
+        "type": "object"
+      }
+    },
+    "required": [],
+    "title": "Dummy",
+    "type": "object"
+  },
+  "uiSchema": [
+    {
+      "widget": "tabs",
+      "items": [
+        {
+          "key": "tab-settings-tab-main",
+          "title": "CONFIGURATION",
+          "widget": "fieldset",
+          "items": [
+            {
+              "placeholder": "configuration",
+              "widget": "fieldset",
+              "items": [
+                {
+                  "key": "configuration.selectors",
+                  "placeholder": "selectors",
+                  "title": "<selectors>",
+                  "itemWidget": "collapsibleFieldset",
+                  "items": [
+                    {
+                      "key": "configuration.selectors[].dummytype",
+                      "placeholder": "type",
+                      "restricted": true,
+                      "title": "type",
+                      "titleMap": [
+                        { "name": "Dummy1", "value": "DUMMY1" },
+                        { "name": "Dummy2", "value": "DUMMY2" },
+                        { "name": "Dummy3", "value": "DUMMY3" },
+                        { "name": "Dummy4", "value": "DUMMY4" },
+                        { "name": "Dummy5", "value": "DUMMY5" },
+                        { "name": "Dummy6", "value": "DUMMY6" },
+                        { "name": "Dummy7", "value": "DUMMY7" },
+                        { "name": "Dummy8", "value": "DUMMY8" },
+                        { "name": "Dummy9", "value": "DUMMY9" },
+                        { "name": "Dummy10", "value": "DUMMY10" },
+                        { "name": "Dummy11", "value": "DUMMY11" },
+                        { "name": "Dummy12", "value": "DUMMY12" },
+                        { "name": "Dummy13", "value": "DUMMY13" },
+                        { "name": "Dummy14", "value": "DUMMY14" },
+                        { "name": "Dummy15", "value": "DUMMY15" }
+                      ],
+                      "widget": "datalist"
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy1Configuration.field1",
+                      "placeholder": "field1",
+                      "title": "field1",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY1"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy1Configuration.int1b",
+                      "placeholder": "int1b",
+                      "title": "int1b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY1"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy1Configuration.field1b",
+                      "placeholder": "field1b",
+                      "title": "field1b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY1"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy1Configuration.int1",
+                      "placeholder": "int1",
+                      "title": "int1",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY1"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy2Configuration.field2",
+                      "placeholder": "field2",
+                      "title": "field2",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY2"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy2Configuration.float2",
+                      "placeholder": "float2",
+                      "title": "float2",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY2"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy2Configuration.field2b",
+                      "placeholder": "field2b",
+                      "title": "field2b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY2"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy2Configuration.float2b",
+                      "placeholder": "float2b",
+                      "title": "float2b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY2"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy3Configuration.field3",
+                      "placeholder": "field3",
+                      "title": "field3",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY3"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy3Configuration.int3",
+                      "placeholder": "int3",
+                      "title": "int3",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY3"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy3Configuration.field3b",
+                      "placeholder": "field3b",
+                      "required": true,
+                      "title": "field3b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY3"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy3Configuration.int3b",
+                      "placeholder": "int3b",
+                      "required": true,
+                      "title": "int3b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY3"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy4Configuration.field4",
+                      "placeholder": "field4",
+                      "title": "field4",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY4"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy4Configuration.float4",
+                      "placeholder": "float4",
+                      "title": "float4",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY4"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy4Configuration.field4b",
+                      "placeholder": "field4b",
+                      "title": "field4b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY4"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy4Configuration.float4b",
+                      "placeholder": "float4b",
+                      "title": "float4b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY4"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy5Configuration.field5",
+                      "placeholder": "field5",
+                      "title": "field5",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY5"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy5Configuration.float5",
+                      "placeholder": "float5",
+                      "title": "float5",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY5"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy5Configuration.field5b",
+                      "placeholder": "field5b",
+                      "title": "field5b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY5"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy5Configuration.float5b",
+                      "placeholder": "float5b",
+                      "title": "float5b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY5"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy6Configuration.field6",
+                      "placeholder": "field6",
+                      "title": "field6",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY6"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy6Configuration.float6",
+                      "placeholder": "float6",
+                      "title": "float6",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY6"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy6Configuration.field6b",
+                      "placeholder": "field6b",
+                      "title": "field6b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY6"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy6Configuration.float6b",
+                      "placeholder": "float6b",
+                      "title": "float6b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY6"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy7Configuration.field7",
+                      "placeholder": "field7",
+                      "title": "field7",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY7"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy7Configuration.float7",
+                      "placeholder": "float7",
+                      "title": "float7",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY7"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy7Configuration.field7b",
+                      "placeholder": "field7b",
+                      "title": "field7b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY7"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy7Configuration.float7b",
+                      "placeholder": "float7b",
+                      "title": "float7b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY7"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy8Configuration.field8",
+                      "placeholder": "field8",
+                      "title": "field8",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY8"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy8Configuration.float8",
+                      "placeholder": "float8",
+                      "title": "float8",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY8"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy8Configuration.field8b",
+                      "placeholder": "field8b",
+                      "title": "field8b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY8"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy8Configuration.float8b",
+                      "placeholder": "float8b",
+                      "title": "float8b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY8"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy9Configuration.field9",
+                      "placeholder": "field9",
+                      "title": "field9",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY9"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy9Configuration.float9",
+                      "placeholder": "float9",
+                      "title": "float9",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY9"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy9Configuration.field9b",
+                      "placeholder": "field9b",
+                      "title": "field9b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY9"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy9Configuration.float9b",
+                      "placeholder": "float9b",
+                      "title": "float9b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY9"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy10Configuration.field10",
+                      "placeholder": "field10",
+                      "title": "field10",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY10"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy10Configuration.float10",
+                      "placeholder": "float10",
+                      "title": "float10",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY10"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy10Configuration.field10b",
+                      "placeholder": "field10b",
+                      "title": "field10b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY10"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy10Configuration.float10b",
+                      "placeholder": "float10b",
+                      "title": "float10b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY10"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy11Configuration.field11",
+                      "placeholder": "field11",
+                      "title": "field11",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY11"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy11Configuration.float11",
+                      "placeholder": "float11",
+                      "title": "float11",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY11"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy11Configuration.field11b",
+                      "placeholder": "field11b",
+                      "title": "field11b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY11"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy11Configuration.float11b",
+                      "placeholder": "float11b",
+                      "title": "float11b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY11"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy12Configuration.field12",
+                      "placeholder": "field12",
+                      "title": "field12",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY12"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy12Configuration.float12",
+                      "placeholder": "float12",
+                      "title": "float12",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY12"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy12Configuration.field12b",
+                      "placeholder": "field12b",
+                      "title": "field12b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY12"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy12Configuration.float12b",
+                      "placeholder": "float12b",
+                      "title": "float12b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY12"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy13Configuration.field13",
+                      "placeholder": "field13",
+                      "title": "field13",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY13"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy13Configuration.float13",
+                      "placeholder": "float13",
+                      "title": "float13",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY13"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy13Configuration.field13b",
+                      "placeholder": "field13b",
+                      "title": "field13b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY13"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy13Configuration.float13b",
+                      "placeholder": "float13b",
+                      "title": "float13b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY13"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy14Configuration.field14",
+                      "placeholder": "field14",
+                      "title": "field14",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY14"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy14Configuration.float14",
+                      "placeholder": "float14",
+                      "title": "float14",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY14"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy14Configuration.field14b",
+                      "placeholder": "field14b",
+                      "title": "field14b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY14"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy14Configuration.float14b",
+                      "placeholder": "float14b",
+                      "title": "float14b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY14"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy15Configuration.field15",
+                      "placeholder": "field15",
+                      "title": "field15",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY15"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy15Configuration.float15",
+                      "placeholder": "float15",
+                      "required": true,
+                      "title": "float15",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY15"]
+                      }
+                    },
+
+                    {
+                      "key": "configuration.selectors[].dummy15Configuration.field15b",
+                      "placeholder": "field15b",
+                      "title": "field15b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY15"]
+                      }
+                    },
+                    {
+                      "key": "configuration.selectors[].dummy15Configuration.float15b",
+                      "placeholder": "float15b",
+                      "title": "float15b",
+                      "widget": "text",
+                      "condition": {
+                        "===": [{ "var": "configuration.selectors[].dummytype" }, "DUMMY15"]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "tab-info",
+          "title": "INFO",
+          "widget": "fieldset",
+          "items": [
+            {
+              "key": "$componentMetadata.description",
+              "title": "Description",
+              "widget": "textarea"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "properties": {
+    "configuration": {
+      "selectors": [
+        {
+          "dummytype": "DUMMY1"
+        }
+      ]
+    }
+  }
+}

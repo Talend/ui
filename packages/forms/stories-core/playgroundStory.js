@@ -3,7 +3,7 @@ import isEqual from 'lodash/isEqual';
 
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
-
+import wip from './wip.json';
 import Form from '../src/FormSwitcher';
 
 const DEFAULT_DATA = { jsonSchema: {}, uiSchema: [], properties: {} };
@@ -24,7 +24,8 @@ const actions = [
 ];
 
 function story() {
-	const data = object('data', DEFAULT_DATA);
+	//const data = object('data', DEFAULT_DATA);
+	const data = object('data', wip);
 
 	if (!data || !data.jsonSchema || isEqual(data, DEFAULT_DATA)) {
 		return (
