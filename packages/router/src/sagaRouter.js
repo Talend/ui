@@ -158,7 +158,7 @@ export default function* sagaRouter(history, routes) {
 	while (true) {
 		const shouldStart = [];
 		const currentLocation = history.getCurrentLocation();
-		for (let index = 0; index < routeFragments.length;) {
+		for (let index = 0; index < routeFragments.length; ) {
 			const routeFragment = routeFragments[index];
 			const routeSaga = routes[routeFragment];
 			const { match, maybeSaga } = parseSagaState(routeFragment, sagas, currentLocation);
@@ -172,7 +172,7 @@ export default function* sagaRouter(history, routes) {
 			}
 			index += 1;
 		}
-		for (let index = 0; index < shouldStart.length;) {
+		for (let index = 0; index < shouldStart.length; ) {
 			const { routeFragment, match } = shouldStart[index];
 			let routeSaga = routes[routeFragment];
 			if (typeof routes[routeFragment] === 'object') {
