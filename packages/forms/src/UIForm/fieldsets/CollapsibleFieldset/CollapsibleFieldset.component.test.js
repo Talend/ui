@@ -150,8 +150,12 @@ describe('defaultTitle', () => {
 		expect(defaultTitle(value, schema)).toBe(`${value.firstname}, ${value.lastname}`);
 	});
 	it('should support option in an array', () => {
-		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(`${value.firstname} -- || -- ${value.lastname}`);
-		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(`${value.firstname} || ${value.lastname}`);
+		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(
+			`${value.firstname} -- || -- ${value.lastname}`,
+		);
+		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(
+			`${value.firstname} || ${value.lastname}`,
+		);
 	});
 	it('should support recursive call', () => {
 		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(`${value.firstname} -- || -- ${value.lastname}`);
