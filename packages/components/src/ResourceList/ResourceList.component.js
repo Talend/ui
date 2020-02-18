@@ -43,11 +43,11 @@ function ResourceList({
 				>
 					<Icon className={theme('tc-resource-list--no-results-icon')} name={'talend-fieldglass'} />{' '}
 					{t('RESOURCELIST_NO_ITEMS', {
-						defaultValue: 'No existing {{type, lowercase}}s',
+						defaultValue: 'No existing {{type, lowercase}}',
 						type:
-							renderAs?.name ||
-							t('RESOURCELIST_ITEM', {
-								defaultValue: 'Item',
+							(renderAs && renderAs.name) ||
+							t('RESOURCELIST_ITEMS', {
+								defaultValue: 'items',
 							}),
 					})}
 				</span>
