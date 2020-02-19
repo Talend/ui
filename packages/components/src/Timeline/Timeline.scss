@@ -1,0 +1,11 @@
+.layout {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.toolbar {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+}

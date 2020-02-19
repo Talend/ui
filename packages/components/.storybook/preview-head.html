@@ -1,17 +1,21 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+/>
 <!-- Storybook should have visible overflow since we have Action Logger -->
 <style>
 	html.focus-outline-hidden *:focus {
 		outline: none !important;
 	}
 
-    body {
-        min-height: 70vh;
+	body {
+		min-height: 70vh;
 
-        /* Layout set style on body that disable the scroll. This restore the default so we can scroll in the story */
-        overflow: visible !important;
-        width: auto !important;
-    }
+		/* Layout set style on body that disable the scroll. This restore the default so we can scroll in the story */
+		overflow: visible !important;
+		width: auto !important;
+		font-family: ;
+	}
 
 	.tc-drawer.drawer-custom {
 		background-color: #000;
@@ -28,11 +32,11 @@
 
 	.tabFullHeight,
 	.tab-content,
-	.tab-content>.tab-pane.active {
+	.tab-content > .tab-pane.active {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
-        min-height: 0;
+		min-height: 0;
 	}
 
 	.virtualized-list div.tc-list-cell-id {
@@ -80,12 +84,14 @@
 		height: 700px;
 	}
 
-	.filtered-table,.sorted-table .tc-table {
+	.filtered-table,
+	.sorted-table .tc-table {
 		width: 700px;
 		height: 350px;
 	}
 
-	.story-table,.table-with-dnd .tc-table {
+	.story-table,
+	.table-with-dnd .tc-table {
 		width: 700px;
 		height: 300px;
 	}

@@ -16,7 +16,15 @@ import getDefaultT from '../../translate';
 
 import theme from './InputDateRangePicker.scss';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange', 't'];
+const PROPS_TO_OMIT_FOR_INPUT = [
+	'id',
+	'dateFormat',
+	'onBlur',
+	'onChange',
+	'startDate',
+	'endDate',
+	't',
+];
 
 export default function InputDateRangePicker(props) {
 	const popoverId = `date-range-picker-${props.id}`;

@@ -1,0 +1,81 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+.data {
+	animation: $fadein;
+	position: absolute;
+	background: green;
+	border-radius: 2px;
+	border: 0;
+	padding: 0;
+}
+
+.popper {
+	z-index: $zindex-dropdown;
+
+	.popover-wrapper {
+		box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+		background: $white;
+		border-radius: 2px;
+	}
+
+	.popper-arrow {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		position: absolute;
+		margin: 5rem;
+	}
+
+	&[data-placement^='top'] {
+		margin-bottom: 0.5rem;
+		margin-top: 0.5rem;
+
+		.popper-arrow {
+			border-width: 0.5rem 0.5rem 0 0.5rem;
+			border-color: $white transparent transparent transparent;
+			bottom: -0.5rem;
+			left: calc(50% - 0.5rem);
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	&[data-placement^='bottom'] {
+		margin-top: 0.5rem;
+
+		.popper-arrow {
+			border-width: 0 0.5rem 0.5rem 0.5rem;
+			border-color: transparent transparent $white transparent;
+			top: -0.5rem;
+			left: calc(50% - 0.5rem);
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	&[data-placement^='right'] {
+		margin-left: 0.5rem;
+
+		.popper-arrow {
+			border-width: 0.5rem 0.5rem 0.5rem 0;
+			border-color: transparent $white transparent transparent;
+			left: -0.5rem;
+			top: calc(50% - 0.5rem);
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	&[data-placement^='left'] {
+		margin-right: 0.5rem;
+
+		.popper-arrow {
+			border-width: 0.5rem 0 0.5rem 0.5rem;
+			border-color: transparent transparent transparent $white;
+			right: -0.5rem;
+			top: calc(50% - 0.5rem);
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
