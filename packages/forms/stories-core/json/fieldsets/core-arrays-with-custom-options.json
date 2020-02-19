@@ -3,9 +3,7 @@
   "jsonSchema": {
     "type": "object",
     "title": "Comment",
-    "required": [
-      "names"
-    ],
+    "required": ["names"],
     "properties": {
       "names": {
         "type": "array",
@@ -18,6 +16,7 @@
   "uiSchema": [
     {
       "key": "names",
+      "title": "Names",
       "options": {
         "btnLabel": "Your custom title"
       }

@@ -55,7 +55,6 @@ $tc-action-bar-margin: $padding-small $padding-large $padding-small 0 !default;
 
 	:global(.btn-icon-text) {
 		margin: $padding-small $padding-normal $padding-small 0;
-		text-transform: capitalize;
 
 		&:global(.separated):after {
 			content: '|';
