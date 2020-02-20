@@ -41,7 +41,7 @@ export function defaultTitle(formData, schema, options) {
 				acc.push(sub);
 			}
 		}
-		if (item.titleMap) {
+		if (item.titleMap && item.titleMap.length > 0) {
 			const mappedValue = item.titleMap.find(map => map.value === value);
 			if (mappedValue) {
 				acc.push(mappedValue.name);

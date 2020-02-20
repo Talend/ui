@@ -1,5 +1,6 @@
 import React from 'react';
 import cases from 'jest-in-case';
+import set from 'lodash/set';
 import { shallow, mount } from 'enzyme';
 import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
 import createCollapsibleFieldset, { defaultTitle } from './CollapsibleFieldset.component';
@@ -29,6 +30,35 @@ const schema = {
 const value = {
 	firstname: 'Jimmy',
 	lastname: 'Somsanith',
+};
+
+const defaultTitleMockData = {
+	formData: {
+		columnName: 'age',
+		operator: '==',
+		value: '50',
+	},
+	uiSchema: {
+		items: [
+			{
+				key: ['configuration', 'filters', 0, 'columnName'],
+				title: 'Column name',
+			},
+			{
+				key: ['configuration', 'filters', 0, 'operator'],
+				titleMap: [
+					{ name: 'EQUAL', value: '==' },
+					{ name: 'INFERIOR', value: '<' },
+					{ name: 'SUPERIOR', value: '>' },
+				],
+				title: 'operator',
+			},
+			{
+				key: ['configuration', 'filters', 0, 'value'],
+				title: 'Column name',
+			},
+		],
+	},
 };
 
 describe('CollapsibleFieldset', () => {
@@ -190,5 +220,22 @@ describe('defaultTitle', () => {
 			},
 		};
 		expect(defaultTitle(complexValue, complexSchema)).toBe('type1, item');
+	});
+	it('should build title and replace value by their name in the relevant titleMap', () => {
+		expect(defaultTitle(defaultTitleMockData.formData, defaultTitleMockData.uiSchema)).toEqual(
+			'age, EQUAL, 50',
+		);
+	});
+	it('should build title and fallback on the value if titleMap is empty', () => {
+		const emptyTitleMapMock = { ...defaultTitleMockData };
+		set(emptyTitleMapMock, ['uiSchema', 'items', 1, 'titleMap'], []);
+		expect(
+			defaultTitle(emptyTitleMapMock.formData, emptyTitleMapMock.uiSchema, { separator: ' ' }),
+		).toEqual('age == 50');
+	});
+	it('should build title and use the separator define in the schema', () => {
+		const separatorInSchemaMock = { ...defaultTitleMockData };
+		set(separatorInSchemaMock, ['uiSchema', 'options', 'separator'], ' # ');
+		expect(defaultTitle(separatorInSchemaMock.formData, separatorInSchemaMock.uiSchema)).toEqual('age # EQUAL # 50');
 	});
 });
