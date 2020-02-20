@@ -1,6 +1,7 @@
 import React from 'react';
 import cases from 'jest-in-case';
 import set from 'lodash/set';
+import cloneDeep from 'lodash/cloneDeep';
 import { shallow, mount } from 'enzyme';
 import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
 import createCollapsibleFieldset, { defaultTitle } from './CollapsibleFieldset.component';
@@ -227,14 +228,14 @@ describe('defaultTitle', () => {
 		);
 	});
 	it('should build title and fallback on the value if titleMap is empty', () => {
-		const emptyTitleMapMock = { ...defaultTitleMockData };
+		const emptyTitleMapMock = cloneDeep(defaultTitleMockData);
 		set(emptyTitleMapMock, ['uiSchema', 'items', 1, 'titleMap'], []);
 		expect(
 			defaultTitle(emptyTitleMapMock.formData, emptyTitleMapMock.uiSchema, { separator: ' ' }),
 		).toEqual('age == 50');
 	});
 	it('should build title and use the separator define in the schema', () => {
-		const separatorInSchemaMock = { ...defaultTitleMockData };
+		const separatorInSchemaMock = cloneDeep(defaultTitleMockData);
 		set(separatorInSchemaMock, ['uiSchema', 'options', 'separator'], ' # ');
 		expect(defaultTitle(separatorInSchemaMock.formData, separatorInSchemaMock.uiSchema)).toEqual(
 			'age # EQUAL # 50',
