@@ -427,11 +427,11 @@ export function Item(props) {
 
 	const lineItemRef = useCallback(node => {
 		if (node) {
-			if (node.ref.offsetParent.offsetWidth < node.ref.scrollWidth) {
+			if (node.ref.offsetWidth < node.ref.scrollWidth) {
 				setLineItemWidth(true);
 			}
 		}
-	}, []);
+	});
 
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
