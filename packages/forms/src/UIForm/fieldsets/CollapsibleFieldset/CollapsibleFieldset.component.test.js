@@ -236,6 +236,8 @@ describe('defaultTitle', () => {
 	it('should build title and use the separator define in the schema', () => {
 		const separatorInSchemaMock = { ...defaultTitleMockData };
 		set(separatorInSchemaMock, ['uiSchema', 'options', 'separator'], ' # ');
-		expect(defaultTitle(separatorInSchemaMock.formData, separatorInSchemaMock.uiSchema)).toEqual('age # EQUAL # 50');
+		expect(defaultTitle(separatorInSchemaMock.formData, separatorInSchemaMock.uiSchema)).toEqual(
+			'age # EQUAL # 50',
+		);
 	});
 });
