@@ -34,7 +34,7 @@ const Footer = ({ id, children, className }) => (
 Footer.propTypes = TooltipPropTypes;
 
 const RichLayout = React.forwardRef((props, ref) => (
-	<div id={props.id} ref={ref} tabIndex="-1">
+	<div id={props.id} className={theme['rich-layout']} ref={ref} tabIndex="-1">
 		<Header id={`${props.id}-header`}>
 			{Inject.getReactElement(props.getComponent, props.Header)}
 		</Header>

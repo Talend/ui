@@ -132,7 +132,7 @@ export class FilterBarComponent extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
-		if (!this.state.value) {
+		if (!this.state.value && this.props.onToggle) {
 			this.props.onToggle(event);
 		}
 	}

@@ -1,5 +1,5 @@
 import ResourcePicker from './ResourcePicker.component';
-import { SORT_OPTIONS, ORDERS, STATE_FILTERS } from './Toolbar';
+import { SORT_OPTIONS, ORDERS, STATE_FILTERS } from '../ResourceList/Toolbar';
 
 const TOOLBAR_OPTIONS = {
 	ORDERS,

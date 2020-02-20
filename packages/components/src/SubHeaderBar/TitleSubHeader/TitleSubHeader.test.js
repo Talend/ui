@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Label } from 'react-bootstrap';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import Action from '../../Actions/Action';
@@ -47,7 +48,7 @@ describe('TitleSubHeader', () => {
 	it('should render inProgress', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} inProgress />);
 		expect(wrapper.props().className).toEqual(
-			'theme-tc-subheader-details tc-subheader-details theme-tc-subheader-details-blink tc-subheader-details-blink',
+			'tc-subheader-details theme-tc-subheader-details tc-subheader-details-blink theme-tc-subheader-details-blink',
 		);
 	});
 });
@@ -83,11 +84,22 @@ describe('SubTitle', () => {
 
 	it('should render', () => {
 		const wrapper = shallow(<SubTitle {...defaultProps} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should render in loading mode', () => {
 		const wrapper = shallow(<SubTitle subTitleLoading />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render with a custom subtitle', () => {
+		const wrapper = shallow(
+			<SubTitle
+				{...defaultProps}
+				subTitleAs={({ subTitle }) => <Label className="label-info">{subTitle}</Label>}
+			/>,
+		);
+		expect(wrapper.find(Label)).not.toBe(null);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
