@@ -3,9 +3,7 @@
   "jsonSchema": {
     "type": "object",
     "title": "Comment",
-    "required": [
-      "comments"
-    ],
+    "required": ["comments"],
     "properties": {
       "names": {
         "type": "array",
@@ -47,10 +45,7 @@
               "maxLength": 20
             }
           },
-          "required": [
-            "name",
-            "comment"
-          ]
+          "required": ["name", "comment"]
         }
       },
       "collapsibleComments": {
@@ -71,10 +66,7 @@
               "maxLength": 20
             }
           },
-          "required": [
-            "name",
-            "comment"
-          ]
+          "required": ["name", "comment"]
         }
       },
       "columns": {
@@ -98,11 +90,12 @@
     }
   },
   "uiSchema": [
-    { "key": "names" },
-    { "key": "readOnlyArray", "readOnly": true },
-    { "key": "disabledArray", "disabled": true },
+    { "key": "names", "title": "Names" },
+    { "key": "readOnlyArray", "title": "Read only array", "readOnly": true },
+    { "key": "disabledArray", "title": "Disabled array", "disabled": true },
     {
       "key": "comments",
+      "title": "Comments",
       "triggers": ["validation"],
       "itemTitle": "Comment",
       "items": [
@@ -126,6 +119,7 @@
     },
     {
       "key": "collapsibleComments",
+      "title": "Collapsible comments",
       "itemWidget": "collapsibleFieldset",
       "itemTitle": "Comment",
       "items": [
@@ -149,6 +143,7 @@
     },
     {
       "key": "columns",
+      "title": "Columns",
       "itemWidget": "collapsibleFieldset",
       "itemTitle": "Column",
       "items": [
