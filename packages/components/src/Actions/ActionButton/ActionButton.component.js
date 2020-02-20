@@ -229,7 +229,7 @@ ActionButton.propTypes = {
 	download: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
-	label: PropTypes.string.isRequired,
+	label: PropTypes.string,
 	loading: PropTypes.bool,
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
