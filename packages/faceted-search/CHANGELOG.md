@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2665): sort alphabetically facets
+
 ## [0.3.0]
 
 ### Breaking change
