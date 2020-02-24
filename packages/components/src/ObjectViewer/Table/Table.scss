@@ -10,6 +10,7 @@
 		font-size: $font-size-small;
 		color: $dove-gray;
 		padding: 0;
+		word-break: break-all;
 	}
 
 	&:global(.table-hover) > tbody > tr:hover {
