@@ -182,7 +182,6 @@ const getLayoutWithLoremIpsum = () => (
 			style={{
 				flexBasis: '19vw',
 				paddingTop: '3rem',
-				textTransform: 'uppercase',
 			}}
 		>
 			<ul>

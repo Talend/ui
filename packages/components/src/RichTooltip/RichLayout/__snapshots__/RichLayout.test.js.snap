@@ -2,6 +2,7 @@
 
 exports[`RichLayout should render RichLayout with header, content and footer 1`] = `
 <div
+  className="theme-rich-layout"
   id="richlayout"
   tabIndex="-1"
 >
@@ -31,6 +32,7 @@ exports[`RichLayout should render RichLayout with header, content and footer 1`]
 
 exports[`RichLayout should render with a text in the body 1`] = `
 <div
+  className="theme-rich-layout"
   id="richlayout"
   tabIndex="-1"
 >

@@ -57,6 +57,7 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
+import ResourceList from './ResourceList';
 import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
 
@@ -171,6 +172,7 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	ResourceList,
 	ResourcePicker,
 	RichError,
 	RichLayout,

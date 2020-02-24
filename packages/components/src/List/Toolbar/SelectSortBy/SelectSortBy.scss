@@ -14,17 +14,6 @@ $tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
 		letter-spacing: 0;
 	}
 
-	&:global(.navbar-nav) li {
-		a[role='menuitem'],
-		a:global(.dropdown-toggle) {
-			text-transform: lowercase;
-			display: inline-block;
-			&::first-letter {
-				text-transform: uppercase;
-			}
-		}
-	}
-
 	:global(.tc-list-toolbar-order-chooser) {
 		background-color: $wild-sand;
 		color: $black;

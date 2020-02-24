@@ -9,6 +9,7 @@ import CircularProgress from '../../CircularProgress';
 import HeaderTitle from '../../HeaderTitle';
 import RichError from '../RichError';
 import RichLayout from './RichLayout.component';
+import { Pipeline, pipelines, FilteredResourceList } from './ResourceList';
 
 const myAction = {
 	label: 'Click me to show the tooltip',
@@ -184,6 +185,48 @@ storiesOf('Layout/RichLayout', module)
 				id="custom-body"
 				overlayComponent={
 					<RichLayout id="richlayout" Header={header} Content={customBody} Footer={footer} />
+				}
+				overlayPlacement="bottom"
+				tooltipPlacement="right"
+				{...myAction}
+			/>
+		</div>
+	))
+	.add('loading resource list', () => (
+		<div>
+			<Action
+				id="custom-body"
+				overlayComponent={
+					<RichLayout
+						id="richlayout"
+						Header={header}
+						Content={
+							<div style={{ width: '100%', height: '30rem' }}>
+								<FilteredResourceList isLoading />
+							</div>
+						}
+					/>
+				}
+				overlayPlacement="bottom"
+				tooltipPlacement="right"
+				{...myAction}
+			/>
+		</div>
+	))
+	.add('resource list', () => (
+		<div>
+			<Action
+				id="custom-body"
+				overlayComponent={
+					<RichLayout
+						id="richlayout"
+						Header={header}
+						Content={
+							<div style={{ width: '100%', height: '30rem' }}>
+								<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
+							</div>
+						}
+					/>
 				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"

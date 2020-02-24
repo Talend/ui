@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { Label } from 'react-bootstrap';
 import IconsProvider from '../IconsProvider';
 import FilterBar from '../FilterBar';
 import { SubHeaderBar } from './SubHeaderBar.component';
@@ -98,6 +99,17 @@ stories
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} subTitleLoading onGoBack={backAction} />
+		</div>
+	))
+	.add('with custom subtitle', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...viewProps}
+				subTitle="mySubTitle"
+				onGoBack={backAction}
+				subTitleAs={({ subTitle }) => <Label className="label-info">{subTitle}</Label>}
+			/>
 		</div>
 	))
 	.add('with right components', () => (
