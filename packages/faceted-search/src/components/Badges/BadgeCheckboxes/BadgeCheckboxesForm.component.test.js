@@ -54,8 +54,7 @@ describe('BadgeCheckboxesForm', () => {
 				.at(2)
 				.text(),
 		).toBe('Checkbox Three');
-		expect(wrapper.find('input[test-id="checkbox-selected-values-only"]')).toHaveLength(1);
-		expect(wrapper.find('input[type="checkbox"]')).toHaveLength(4);
+		expect(wrapper.find('input[type="checkbox"]')).toHaveLength(3);
 	});
 	it('should trigger on change callback when checkbox generated from checkbox values are clicked', () => {
 		// Given
@@ -131,41 +130,7 @@ describe('BadgeCheckboxesForm', () => {
 		expect(wrapper.find('input[id="checkbox-two-checkbox"]')).toHaveLength(0);
 		expect(wrapper.find('input[id="checkbox-three-checkbox"]')).toHaveLength(0);
 	});
-	it('should filter only the checked checkboxes', () => {
-		// Given
-		const props = {
-			checkboxValues,
-			id: 'myId',
-			onChange: jest.fn(),
-			onSubmit: jest.fn(),
-			value: [
-				{
-					checked: true,
-					id: 'checkbox-one',
-					label: 'Checkbox One',
-				},
-				{
-					checked: true,
-					id: 'checkbox-two',
-					label: 'Checkbox Two',
-				},
-			],
-			t,
-		};
-		// When
-		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
-		expect(wrapper.find('input[id="checkbox-one-checkbox"]')).toHaveLength(1);
-		expect(wrapper.find('input[id="checkbox-two-checkbox"]')).toHaveLength(1);
-		expect(wrapper.find('input[id="checkbox-three-checkbox"]')).toHaveLength(1);
-		act(() => {
-			wrapper.find('input[test-id="checkbox-selected-values-only"]').simulate('change');
-		});
-		wrapper.update();
-		// Then
-		expect(wrapper.find('input[id="checkbox-one-checkbox"]')).toHaveLength(1);
-		expect(wrapper.find('input[id="checkbox-two-checkbox"]')).toHaveLength(1);
-		expect(wrapper.find('input[id="checkbox-three-checkbox"]')).toHaveLength(0);
-	});
+
 	it('should call the submit callback', () => {
 		const onSubmit = jest.fn();
 		// Give
@@ -197,25 +162,5 @@ describe('BadgeCheckboxesForm', () => {
 		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
 		// Then
 		expect(wrapper.find('button[type="submit"]').text()).toBe('Apply');
-	});
-	it('should display a toggle "Selected values only"', () => {
-		// Give
-		const props = {
-			checkboxValues,
-			id: 'myId',
-			onChange: jest.fn(),
-			onSubmit: jest.fn(),
-			value: [],
-			t,
-		};
-		// When
-		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
-		// Then
-		expect(
-			wrapper
-				.find('span')
-				.at(3)
-				.text(),
-		).toBe('Selected values only');
 	});
 });

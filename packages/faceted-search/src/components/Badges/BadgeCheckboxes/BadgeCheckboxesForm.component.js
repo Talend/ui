@@ -62,22 +62,21 @@ const getCheckboxes = (checkboxes, value, filterValue) =>
 
 const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t }) => {
 	const [filter, onFilter, resetFilter] = useFilter();
-	const [showSelected, setToggleShowSelected] = useState(false);
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
 	const checkboxes = useMemo(() => getCheckboxes(checkboxValues, value, filter), [
 		checkboxValues,
 		value,
 		filter,
 	]);
-	const displayedCheckboxes = showSelected
-		? checkboxes.filter(checkbox => checkbox.checked)
-		: checkboxes;
 	const onChangeCheckBoxes = (event, checkboxId) => {
 		const entity = checkboxes.find(checkboxValue => checkboxValue.id === checkboxId);
 		if (entity) {
 			entity.checked = event.target.checked;
 		}
-		onChange(event, checkboxes.filter(c => c.checked));
+		onChange(
+			event,
+			checkboxes.filter(c => c.checked),
+		);
 	};
 	return (
 		<React.Fragment>
@@ -103,7 +102,7 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 					id={badgeCheckBoxesFormId}
 					className={theme('fs-badge-checkbox-form-body')}
 				>
-					{displayedCheckboxes.map(checkbox => (
+					{checkboxes.map(checkbox => (
 						<BadgeCheckbox
 							key={checkbox.id}
 							id={checkbox.id}
@@ -114,13 +113,6 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 					))}
 				</RichLayout.Body>
 				<RichLayout.Footer id={id} className={theme('fs-badge-checkbox-form-footer')}>
-					<Toggle
-						checked={showSelected}
-						id={`${badgeCheckBoxesFormId}-show-checked`}
-						label={t('TOGGLE_SELECTED_VALUES_ONLY', { defaultValue: 'Selected values only' })}
-						onChange={() => setToggleShowSelected(!showSelected)}
-						test-id="checkbox-selected-values-only"
-					/>
 					<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
 				</RichLayout.Footer>
 			</form>

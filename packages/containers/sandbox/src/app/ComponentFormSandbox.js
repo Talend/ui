@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import Layout from '@talend/react-components/lib/Layout';
-import Action from '@talend/react-components/lib/Actions/Action';
 import SubHeaderBar from '@talend/react-components/lib/SubHeaderBar';
 import UIForm from '@talend/react-forms';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
@@ -21,8 +20,8 @@ const jsonSchema = {
 			type: 'string',
 			enum: [
 				'/api/v1/forms/example',
-				'/api/v1/forms/validation'
-			]
+				'/api/v1/forms/validation',
+			],
 		},
 		uiSpecPath: {
 			type: 'string',
@@ -36,15 +35,15 @@ const jsonSchema = {
 const uiSchema = [
 	{
 		key: 'definitionURL',
-		title: 'definitionURL'
+		title: 'definitionURL',
 	},
 	{
 		key: 'uiSpecPath',
-		title: 'uiSpecPath'
+		title: 'uiSpecPath',
 	},
 	{
 		key: 'triggerURL',
-		title: 'triggerURL'
+		title: 'triggerURL',
 	}
 ];
 
@@ -54,6 +53,7 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 		definitionURL: '/api/v1/forms/example',
 		uiSpecPath: 'ui',
 		triggerURL: '/api/v1/application/action',
+		submitURL: '/api/v1/forms',
 	});
 	const uispec = {
 		jsonSchema,

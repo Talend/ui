@@ -40,6 +40,7 @@ import './Notification';
 import './ObjectViewer';
 import './PieChart';
 import './Progress';
+import './ResourceList';
 import './ResourcePicker';
 import './RichTooltip';
 import './SidePanel';

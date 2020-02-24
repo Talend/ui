@@ -73,6 +73,10 @@ stories
 			<PieChart display="medium" model={pieChartData1} />
 			<p>Large : </p>
 			<PieChart display="large" model={pieChartData1} />
+			<p>X-Large : </p>
+			<PieChart display="xlarge" model={pieChartData1} />
+			<p>XX-Large : </p>
+			<PieChart display="xxlarge" model={pieChartData1} />
 			<p>with other data :</p>
 			<PieChart display="medium" model={pieChartData2} />
 			<p>without label :</p>

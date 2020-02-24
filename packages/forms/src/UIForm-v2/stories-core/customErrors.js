@@ -91,7 +91,8 @@ const schema = {
 	uiSchema: [
 		{
 			key: 'arrayOfObjects',
-			itemTitle: 'arrayOfObjects',
+			title: 'Array of objects',
+			itemTitle: 'Array element',
 			items: [
 				{
 					key: 'arrayOfObjects[].string',

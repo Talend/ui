@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
+import TooltipTrigger from '../../TooltipTrigger';
 import { Action } from '../../Actions';
 import Icon from '../../Icon';
 import Badge from '../../Badge';
@@ -32,7 +33,15 @@ export function getItemIcon(iconName = 'talend-folder', isOpened) {
  */
 function TreeViewIcon({ icon, isOpened }) {
 	if (typeof icon === 'object') {
-		return <Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />;
+		return icon.tooltipLabel ? (
+			<TooltipTrigger label={icon.tooltipLabel} tooltipPlacement={icon.tooltipPlacement || 'top'}>
+				<span>
+					<Icon name={icon.name} className={classNames(css['tc-treeview-img'], icon.className)} />
+				</span>
+			</TooltipTrigger>
+		) : (
+			<Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />
+		);
 	}
 
 	return (

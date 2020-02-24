@@ -35,6 +35,13 @@ describe('onError', () => {
 		onError.bootstrap(config, store);
 		jest.clearAllMocks();
 	});
+
+	beforeEach(() => {
+		process.env.NODE_ENV = 'production';
+	});
+	afterEach(() => {
+		delete process.env.NODE_ENV;
+	});
 	describe('bootstrap', () => {
 		it('should call add event listener on window', () => {
 			// because of the reset after bootstrap we recall bootstrap
@@ -184,6 +191,23 @@ describe('onError', () => {
 		});
 	});
 	describe('sentry', () => {
+		it('should ignore sentry in developpement environnement', () => {
+			process.env.NODE_ENV = 'developpement';
+			expect(init).not.toHaveBeenCalled();
+			expect(window.removeEventListener).not.toHaveBeenCalled();
+			config = {
+				onError: {
+					SENTRY_DSN: 'http://app@sentry.io/project',
+					onSentryScope: jest.fn(),
+				},
+			};
+			onError.bootstrap(config, store);
+			expect(init).not.toHaveBeenCalled();
+			expect(window.removeEventListener).not.toHaveBeenCalled();
+			expect(onError.hasReportFeature()).toBe(false);
+			expect(config.onError.onSentryScope).not.toHaveBeenCalled();
+		});
+
 		it('bootstrap should support SENTRY_DSN key', () => {
 			expect(init).not.toHaveBeenCalled();
 			expect(window.removeEventListener).not.toHaveBeenCalled();
@@ -196,6 +220,7 @@ describe('onError', () => {
 			expect(init).toHaveBeenCalledWith({ dsn: config.onError.SENTRY_DSN });
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
+			expect(onError.hasReportFeature()).toBe(true);
 		});
 
 		it('bootstrap should extend the Sentry option', () => {

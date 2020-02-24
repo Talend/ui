@@ -78,6 +78,7 @@ function InputDateTimeRangePicker(props) {
 								endDate={endDateTime}
 								onChange={onStartChange}
 								onBlur={onBlur}
+								defaultTimeValue={props.defaultTimeStart}
 							/>
 						</div>
 						<span className={classnames(theme.arrow, 'arrow')}>
@@ -96,6 +97,7 @@ function InputDateTimeRangePicker(props) {
 								startDate={startDateTime}
 								onChange={onEndChange}
 								onBlur={onBlur}
+								defaultTimeValue={props.defaultTimeEnd}
 							/>
 						</div>
 					</div>
@@ -115,6 +117,8 @@ InputDateTimeRangePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
+	defaultTimeStart: InputDateTimePicker.propTypes.defaultTimeValue,
+	defaultTimeEnd: InputDateTimePicker.propTypes.defaultTimeValue,
 	startDateTime: PropTypes.oneOfType([
 		PropTypes.instanceOf(Date),
 		PropTypes.number,
