@@ -12,7 +12,7 @@ const props = {
 	onCancel: action('onCancel'),
 };
 
-storiesOf('Controls/EditableText', module)
+storiesOf('Form/Inline form/EditableText', module)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider />

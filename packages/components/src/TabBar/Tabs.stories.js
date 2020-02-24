@@ -120,7 +120,7 @@ function renderContent() {
 	);
 }
 
-const stories = storiesOf('Navigation/TabBar', module);
+const stories = storiesOf('Navigation/Tabs', module);
 stories
 	.add('default', () => (
 		<nav>

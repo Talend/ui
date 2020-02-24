@@ -197,7 +197,7 @@ const oneEventAction = {
 	onSelect: action('onItemSelect'),
 };
 
-storiesOf('Controls/Dropdown', module).add('default', () => (
+storiesOf('Buttons/Dropdown', module).add('default', () => (
 	<div>
 		<h3>By default :</h3>
 		<div id="default">

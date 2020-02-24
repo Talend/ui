@@ -9,7 +9,7 @@ import CircularProgress from '../../CircularProgress';
 import HeaderTitle from '../../HeaderTitle';
 import RichError from '../RichError';
 import RichLayout from './RichLayout.component';
-import { Pipeline, pipelines, FilteredResourceList } from './ResourceList';
+import { Pipeline, pipelines, FilteredResourceList } from '../../ResourceList/ResourceList.stories';
 
 const myAction = {
 	label: 'Click me to show the tooltip',

@@ -68,7 +68,7 @@ class DisableActionIconToggle extends React.Component {
 	}
 }
 
-storiesOf('Controls/IconToggle', module)
+storiesOf('Buttons/IconToggle', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />

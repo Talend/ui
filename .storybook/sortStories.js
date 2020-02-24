@@ -1,11 +1,13 @@
 import { addParameters } from '@storybook/react';
 
 const categories = [
-	'Typographie',
+	'Design Principles',
+	'Writing Principles',
 	'Navigation',
 	'Layout',
+	'Buttons',
 	'Messaging & Communication',
-	'Controls',
+	'Form',
 	'Data',
 	'Deprecated',
 ];

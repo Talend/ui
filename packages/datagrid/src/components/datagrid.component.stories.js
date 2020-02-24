@@ -22,7 +22,7 @@ very loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
-storiesOf('Data/Grid/Datagrid', module)
+storiesOf('Data/Datagrid/Datagrid', module)
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />

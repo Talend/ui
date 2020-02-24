@@ -43,7 +43,7 @@ const divStyle = {
 	width: '30rem',
 };
 
-storiesOf('Controls/Filter', module)
+storiesOf('Form/Inline form/FilterBar', module)
 	.add('default-dock and dockable', () => (
 		<div style={divStyle}>
 			<IconsProvider />

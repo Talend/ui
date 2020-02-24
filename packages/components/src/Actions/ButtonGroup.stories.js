@@ -63,7 +63,7 @@ const actions = [
 	},
 ];
 
-storiesOf('Controls/ButtonGroup', module).add('default', () => (
+storiesOf('Buttons/ButtonGroup', module).add('default', () => (
 	<div>
 		<p>By default :</p>
 		<div id="default">

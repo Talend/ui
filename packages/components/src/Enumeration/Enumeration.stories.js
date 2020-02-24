@@ -291,7 +291,7 @@ const withClassProps = {
 	],
 };
 
-storiesOf('Controls/Enumeration', module)
+storiesOf('Form/Controls/Enumeration', module)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>

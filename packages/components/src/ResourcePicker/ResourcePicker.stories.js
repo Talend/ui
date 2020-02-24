@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import ResourcePicker, { TOOLBAR_OPTIONS } from './';
 import IconsProvider from '../IconsProvider';
 
-export const collection = [
+const collection = [
 	{
 		id: 0,
 		name: 'Title with few actions',
@@ -60,7 +60,7 @@ export const collection = [
 	},
 ];
 
-export const simpleCollection = [
+const simpleCollection = [
 	{
 		icon: 'talend-file-xls-o',
 		id: 0,
@@ -133,7 +133,7 @@ const props = {
 	onRowClick: action('Row clicked'),
 };
 
-storiesOf('Controls/ResourcePicker', module)
+storiesOf('Form/Controls/ResourcePicker', module)
 	.addDecorator(story => (
 		<section>
 			<IconsProvider />

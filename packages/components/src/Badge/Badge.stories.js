@@ -39,7 +39,7 @@ function onSelect(name) {
 
 const longStr = 'Very, very, very, very, very, very, very, very long tag';
 
-storiesOf('Messaging & Communication/Badge', module).add('default', () => (
+storiesOf('Navigation/Badge', module).add('default', () => (
 	<React.Fragment>
 		<section>
 			<h1>New visual</h1>

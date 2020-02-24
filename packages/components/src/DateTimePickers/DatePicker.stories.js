@@ -82,7 +82,7 @@ class TestPickerWrapper extends React.Component {
 	}
 }
 
-storiesOf('Controls/DatePicker', module)
+storiesOf('Form/Controls/DatePicker', module)
 	.add('Date picker', () => (
 		<div>
 			<IconsProvider />
