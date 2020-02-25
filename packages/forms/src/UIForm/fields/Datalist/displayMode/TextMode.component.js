@@ -34,9 +34,16 @@ class TextMode extends React.Component {
 
 	render() {
 		const { id, schema, value, t } = this.props;
-		const { title } = schema;
+		const { title, options } = schema;
 		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
-		const titleEntry = titleMap.find(entry => entry.value === value);
+		let titleEntry = titleMap.find(entry => entry.value === value);
+
+		if (options && options.isMultiSection) {
+			options.titleMap.find(section => {
+				titleEntry = section.suggestions.find(entry => entry.value === value);
+				return !!titleEntry;
+			});
+		}
 
 		let displayValue = (titleEntry && titleEntry.name) || value;
 		if (value && this.state.isLoading) {
