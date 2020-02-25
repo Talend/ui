@@ -1,4 +1,5 @@
 import React from 'react';
+import { times } from 'lodash';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
@@ -11,6 +12,9 @@ import {
 	badgePrice,
 	badgeEnumWithLotOfValues,
 	badgeWithVeryLongName,
+	badgeTextAsCustomAttribute,
+	badgeEnumsAsCustomAttribute,
+	badgeTextAsCategory,
 } from './badgesDefinitions.story';
 
 const badgesDefinitions = [badgeName, badgeConnectionType, badgePrice];
@@ -157,6 +161,24 @@ storiesOf('FacetedSearch', module)
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeEnumWithLotOfValues]}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('basic search with badges categories', () => (
+		<div style={{ height: '5.5rem' }}>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={[
+						badgeConnectionType,
+						badgeName,
+						badgePrice,
+						badgeTextAsCustomAttribute,
+						badgeEnumsAsCustomAttribute,
+						...times(2, () => badgeTextAsCategory),
+					]}
 					onSubmit={action('onSubmit')}
 				/>
 			</FacetedSearch.Faceted>

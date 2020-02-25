@@ -130,3 +130,61 @@ export const badgeEnumWithLotOfValues = {
 		operators: ['in'],
 	},
 };
+
+export const badgeTextAsCustomAttribute = {
+	properties: {
+		attribute: 'target',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Target',
+		operator: {},
+		operators: [],
+		type: 'text',
+	},
+	metadata: {
+		category: 'Custom attributes',
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: ['contains', 'equals', 'notEquals', 'match a regexp'],
+	},
+};
+
+export const badgeEnumsAsCustomAttribute = {
+	properties: {
+		attribute: 'visibility',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Visibility',
+		operator: {},
+		operators: [],
+		type: 'checkbox',
+	},
+	metadata: {
+		badgePerFacet: '1',
+		entitiesPerBadge: 'N',
+		category: 'Custom attributes',
+		values: [
+			{ id: 'internal', label: 'Internal' },
+			{ id: 'public', label: 'Public' },
+		],
+		operators: ['in'],
+	},
+};
+
+export const badgeTextAsCategory = {
+	properties: {
+		attribute: 'owner',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Owner',
+		operator: {},
+		operators: [],
+		type: 'text',
+	},
+	metadata: {
+		category: 'Very long long long long long long category',
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: ['contains', 'equals'],
+	},
+};
