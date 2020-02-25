@@ -9,7 +9,6 @@ import api from '@talend/react-cmf';
 import DataGrid from '../src/';
 import register from '../src/register';
 import theme from '../src/components/DataGrid/DataGrid.scss';
-import { LanguageSwitcher } from './config/i18n';
 import sample from './sample.json';
 import sampleRenderer from './sampleRenderer.json';
 
@@ -217,7 +216,6 @@ const options = {
 storiesOf('Container Datagrid', module)
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
 			{story()}
 		</div>
 	))
