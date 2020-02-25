@@ -1,12 +1,13 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { I18N_DOMAIN_FACETED_SEARCH } from '../../src/constants';
 
 import { namespaces as tuiNamespaces } from '@talend/locales-tui/namespaces';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 
 i18n.use(initReactI18next).init({
 	debug: true,
-	defaultNS: 'tui-datagrid',
+	defaultNS: I18N_DOMAIN_FACETED_SEARCH,
 	interpolation: {
 		format: (value, format) => {
 			if (value && format === 'lowercase') return value.toLocaleLowerCase();
