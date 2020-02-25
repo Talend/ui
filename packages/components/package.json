@@ -85,6 +85,7 @@
     "@storybook/react": "^5.3.1",
     "@talend/bootstrap-theme": "^4.30.0",
     "@talend/icons": "^4.30.0",
+    "@talend/locales-tui": "^4.30.1",
     "autoprefixer": "^7.1.4",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
@@ -100,7 +101,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "i18next": "^15.1.3",
+    "i18next": "^19.3.2",
     "jest": "^24.7.1",
     "jest-in-case": "^1.0.2",
     "jest-serializer-html": "^7.0.0",
@@ -112,23 +113,24 @@
     "react-a11y": "^0.3.3",
     "react-dnd-test-backend": "^2.5.4",
     "react-dom": "^16.8.6",
-    "react-i18next": "^10.11.4",
+    "react-i18next": "^11.3.3",
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^2.6.2",
     "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0",
     "slimerjs": "^0.10.2",
+    "storybook-addon-i18next": "^1.2.1",
     "style-loader": "^0.23.0"
   },
   "peerDependencies": {
     "@talend/bootstrap-theme": "^4.30.0",
     "@talend/icons": "^4.30.0",
-    "i18next": "^15.1.3",
+    "i18next": "^19.3.2",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-i18next": "^10.10.0"
+    "react-i18next": "^11.3.3"
   },
   "jest": {
     "collectCoverageFrom": [

@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { AboutDialog, IconsProvider } from '../src/index';
 import { getColumnHeaders } from '../src/AboutDialog/AboutDialogTable.component';
-import { LanguageSwitcher } from './config/i18n';
 
 const props = {
 	show: true,
@@ -51,7 +50,6 @@ const { name, version } = getColumnHeaders();
 storiesOf('AboutDialog', module)
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
 			<IconsProvider />
 			<h1>AboutDialog</h1>
 			{story()}
