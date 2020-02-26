@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { withTranslation } from 'react-i18next';
 import callTrigger from '../../../trigger';
 import { DID_MOUNT, FOCUS } from '../constants';
@@ -43,7 +44,7 @@ class TextMode extends React.Component {
 				return !!titleEntry;
 			});
 		} else {
-			const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
+			const titleMap = get(this.state, 'titleMap') || get(this.props, 'schema.titleMap') || [];
 			titleEntry = titleMap.find(entry => entry.value === value);
 		}
 
