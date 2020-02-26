@@ -29,6 +29,7 @@ Types of changes
 ### Fixed
 
 - [fixed](https://github.com/Talend/ui/pull/2665): sort alphabetically facets
+- [fixed](https://github.com/Talend/ui/pull/2662): values open up at start
 
 ## [0.3.0]
 

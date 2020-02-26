@@ -20,7 +20,7 @@ const theme = getTheme(cssModule);
 const findOperatorByName = name => operator => name === operator.name;
 
 const getOverlays = (initialOperatorOpened, initialValueOpened, operators) => {
-	if (operators.length < 2) {
+	if (operators.length < 2 && initialOperatorOpened) {
 		// To open the value just after the selection of the type
 		return useBadgeOverlayFlow(false, true);
 	}
