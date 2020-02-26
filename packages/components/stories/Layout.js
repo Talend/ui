@@ -44,12 +44,8 @@ const content = (
 		</ul>
 	</div>
 );
-const sidePanel = (
-	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked={false} />
-);
-const dockedSidePanel = (
-	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked />
-);
+const sidePanel = <SidePanel actions={actions} />;
+const dockedSidePanel = <SidePanel actions={actions} docked />;
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')} />;
 const footer = 'Footer content';

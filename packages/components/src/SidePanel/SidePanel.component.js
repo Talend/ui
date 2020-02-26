@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
@@ -12,6 +12,10 @@ import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
 import theme from './SidePanel.scss';
+
+const DOCKED_MIN_WIDTH = '6rem';
+const LARGE_DOCKED_MIN_WIDTH = '7rem';
+const DEFAULT_MIN_WIDTH = '20rem';
 
 /**
  * This component aims to display links as a menu.
@@ -39,7 +43,7 @@ function SidePanel({
 	actions,
 	getComponent,
 	components,
-	docked,
+	docked: dockedProp,
 	reverse,
 	minimised,
 	large,
@@ -47,6 +51,28 @@ function SidePanel({
 	onToggleDock,
 	t,
 }) {
+	const [dockState, setDockState] = useState(dockedProp);
+	const docked = onToggleDock ? dockedProp : dockState;
+	const [width, setWidth] = useState(DEFAULT_MIN_WIDTH);
+	const ref = React.createRef();
+
+	useEffect(() => {
+		if (docked || minimised) {
+			setWidth(large ? LARGE_DOCKED_MIN_WIDTH : DOCKED_MIN_WIDTH);
+		} else if (ref) {
+			const actionList = ref.current.querySelector('.tc-action-list');
+			setWidth(actionList.offsetWidth);
+		}
+	}, [ref, docked]);
+
+	const onToggle = (...args) => {
+		if (onToggleDock) {
+			onToggleDock(...args);
+		} else {
+			setDockState(!dockState);
+		}
+	};
+
 	const injected = Inject.all(getComponent, components);
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
 		docked,
@@ -70,13 +96,15 @@ function SidePanel({
 			className={navCSS}
 			role="navigation"
 			aria-expanded={!((dockable && docked) || minimised)}
+			ref={ref}
+			style={{ width }}
 		>
 			{dockable && !minimised && (
 				<div className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}>
 					<Components.Action
 						id={id && `${id}-toggle-dock`}
 						bsStyle="link"
-						onClick={onToggleDock}
+						onClick={onToggle}
 						icon="talend-opener"
 						aria-controls={id}
 						label={toggleButtonTitle}

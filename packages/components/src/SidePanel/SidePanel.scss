@@ -11,11 +11,6 @@ $list-item-reverse-color: $brand-primary !default;
 $toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-minwidth: 200px !default;
-$tc-side-panel-large-minwidth: 250px !default;
-$tc-side-panel-docked-width: 60px !default;
-$tc-side-panel-labels-width: 135px !default;
-$tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: $svg-lg-size;
 $toggle-button-padding: $padding-small;
 
@@ -28,8 +23,7 @@ $toggle-button-padding: $padding-small;
 
 	&,
 	> ul {
-		min-width: $tc-side-panel-minwidth;
-		transition: 0.2s min-width ease-out;
+		transition: 0.2s width ease-out;
 	}
 
 	.action-list-container {
@@ -99,12 +93,6 @@ $toggle-button-padding: $padding-small;
 	}
 
 	&.docked {
-		&,
-		> ul {
-			min-width: $tc-side-panel-docked-width;
-			width: $tc-side-panel-docked-width;
-		}
-
 		:global(.btn.btn-link) {
 			padding: $padding-normal;
 
@@ -127,11 +115,6 @@ $toggle-button-padding: $padding-small;
 	}
 
 	&.large {
-		&,
-		> ul {
-			min-width: $tc-side-panel-large-minwidth;
-		}
-
 		.toggle-btn {
 			padding-left: 0;
 
@@ -161,12 +144,6 @@ $toggle-button-padding: $padding-small;
 					height: $toggle-height;
 					padding: 0;
 				}
-			}
-			&,
-			> ul,
-			:global(.tc-action-list-item) {
-				min-width: $tc-side-panel-large-docked-width;
-				width: $tc-side-panel-large-docked-width;
 			}
 		}
 	}
