@@ -35,7 +35,6 @@ class TextMode extends React.Component {
 	render() {
 		const { id, schema, value, t } = this.props;
 		const { title, options } = schema;
-		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
 		let titleEntry;
 
 		if (options && options.isMultiSection) {
@@ -44,6 +43,7 @@ class TextMode extends React.Component {
 				return !!titleEntry;
 			});
 		} else {
+			const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
 			titleEntry = titleMap.find(entry => entry.value === value);
 		}
 
