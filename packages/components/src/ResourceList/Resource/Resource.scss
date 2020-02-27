@@ -1,10 +1,12 @@
+:global(.tc-resource-picker-list) .resource-item {
+	align-items: center;
+}
+
 .resource-item {
 	cursor: pointer;
 	display: flex;
-	align-items: center;
 
 	> * {
-		margin-left: $padding-small;
 		max-width: 100%;
 		overflow: hidden;
 	}
@@ -86,8 +88,19 @@
 	}
 
 	:global {
+		h3 {
+			margin-top: 0;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
 		dl {
-			padding: 0 $padding-smaller;
+			padding-left: $padding-small;
+			margin-bottom: 0;
+
+			div:first-child {
+				margin-bottom: $padding-small;
+			}
 
 			div {
 				display: flex;
