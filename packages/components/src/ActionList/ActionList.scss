@@ -8,7 +8,7 @@ $tc-action-list-item-icons-size: 2rem !default;
 $tc-action-list-item-border-size: 0.2rem !default;
 
 .tc-action-list {
-	width: fit-content;
+	display: inline-block;
 	min-width: $tc-action-list-item-width;
 
 	.tc-action-list-item {

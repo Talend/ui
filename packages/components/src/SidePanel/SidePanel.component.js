@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
@@ -15,7 +15,6 @@ import theme from './SidePanel.scss';
 
 const DOCKED_MIN_WIDTH = '6rem';
 const LARGE_DOCKED_MIN_WIDTH = '7rem';
-const DEFAULT_MIN_WIDTH = '20rem';
 
 /**
  * This component aims to display links as a menu.
@@ -53,10 +52,11 @@ function SidePanel({
 }) {
 	const [dockState, setDockState] = useState(dockedProp);
 	const docked = onToggleDock ? dockedProp : dockState;
-	const [width, setWidth] = useState(DEFAULT_MIN_WIDTH);
+	const [width, setWidth] = useState();
+	const [animation, setAnimation] = useState(false);
 	const ref = React.createRef();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (docked || minimised) {
 			setWidth(large ? LARGE_DOCKED_MIN_WIDTH : DOCKED_MIN_WIDTH);
 		} else if (ref) {
@@ -64,6 +64,14 @@ function SidePanel({
 			setWidth(actionList.offsetWidth);
 		}
 	}, [ref, docked]);
+
+	useEffect(() => {
+		// animation is disabled at first to avoid the panel to be animated at first render
+		// when the width is initialized, then we enable animation
+		if (!animation && width) {
+			setAnimation(true);
+		}
+	}, [width]);
 
 	const onToggle = (...args) => {
 		if (onToggleDock) {
@@ -81,6 +89,7 @@ function SidePanel({
 		[theme.large]: large,
 		reverse,
 		[theme.reverse]: reverse,
+		[theme.animate]: animation,
 	});
 	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
 		'nav-inverse': !reverse,

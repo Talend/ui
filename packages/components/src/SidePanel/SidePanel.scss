@@ -21,8 +21,7 @@ $toggle-button-padding: $padding-small;
 	background: $list-item-reverse-color;
 	overflow: hidden;
 
-	&,
-	> ul {
+	&.animate {
 		transition: 0.2s width ease-out;
 	}
 
