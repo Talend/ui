@@ -274,10 +274,8 @@ const getLayoutWithLoremIpsum = () => (
 storiesOf('GuidedTour', module)
 	.addDecorator(story => (
 		<React.Fragment>
-			<React.Fragment>
-				{story()}
-				{getLayoutWithLoremIpsum()}
-			</React.Fragment>
+			{story()}
+			{getLayoutWithLoremIpsum()}
 		</React.Fragment>
 	))
 	.add('default', () => <TranslatedGuidedTourContainer getSteps={getSteps} />);

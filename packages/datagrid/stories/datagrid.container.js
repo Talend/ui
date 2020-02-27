@@ -214,11 +214,6 @@ const options = {
 };
 
 storiesOf('Container Datagrid', module)
-	.addDecorator(story => (
-		<div>
-			{story()}
-		</div>
-	))
 	.addDecorator(withCMF)
 	.add(
 		'default',
