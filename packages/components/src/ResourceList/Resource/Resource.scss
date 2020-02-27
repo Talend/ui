@@ -1,5 +1,8 @@
 :global(.tc-resource-picker-list) .resource-item {
 	align-items: center;
+	> * {
+		margin-left: $padding-small;
+	}
 }
 
 .resource-item {
