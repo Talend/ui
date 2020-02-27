@@ -9,6 +9,7 @@ import {
 	badgeConnectionType,
 	badgeName,
 	badgePrice,
+	badgeEnumWithLotOfValues,
 	badgeWithVeryLongName,
 } from './badgesDefinitions.story';
 
@@ -145,6 +146,17 @@ storiesOf('FacetedSearch', module)
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeWithVeryLongName, badgeConnectionType, badgeName, badgePrice]}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('basic search in a badge with a lot of values', () => (
+		<div style={{ height: '5.5rem' }}>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={[badgeEnumWithLotOfValues]}
 					onSubmit={action('onSubmit')}
 				/>
 			</FacetedSearch.Faceted>
