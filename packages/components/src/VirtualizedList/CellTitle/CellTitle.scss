@@ -89,10 +89,8 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
 			opacity: 1;
-			button {
-				width: auto;
-			}
 			transition: opacity 0.15s ease-in;
+			overflow: visible;
 		}
 	}
 }
