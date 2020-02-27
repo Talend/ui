@@ -6,7 +6,7 @@ import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import i18n from '../stories/config/i18n';
+import i18n from '../../../.storybook/i18n';
 
 const languages = {};
 Object.keys(tuiLocales).forEach(key => languages[key] = key);
