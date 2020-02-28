@@ -32,7 +32,6 @@ exports[`Filter should render filter input with default placeholder and remove c
       onClear={[Function]}
       onFilter={[Function]}
       onFocus={[Function]}
-      placeholder="Filter"
       t={[Function]}
       value="search string"
     />
