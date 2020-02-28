@@ -1,3 +1,9 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/stepper/src/translate.js
+  11:10  error  Caution: `i18next` also has a named export `createInstance`. Check if you meant to write `import {createInstance} from 'i18next'` instead  import/no-named-as-default-member
+
+✖ 1 problem (1 error, 0 warnings)
+
