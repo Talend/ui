@@ -34,6 +34,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemView.component.js
   41:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.test.js
+  2:10  error  'act' is defined but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
   4:8  error  'Container' is defined but never used  no-unused-vars
 
