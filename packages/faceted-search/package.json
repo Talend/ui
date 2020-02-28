@@ -68,14 +68,14 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "i18next": "^19.3.2",
+    "i18next": "^15.1.3",
     "jest": "^24.7.1",
     "jsdom": "^11.11.0",
     "node-sass": "^4.7.2",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-i18next": "^11.3.3",
+    "react-i18next": "^10.11.4",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0"
@@ -85,10 +85,10 @@
     "@talend/react-cmf": ">= 4.27.0",
     "@talend/react-components": ">= 4.27.0",
     "@talend/react-forms": ">= 4.27.0",
-    "i18next": "^11.3.3",
+    "i18next": "^15.1.3",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
-    "react-i18next": "^11.3.3"
+    "react-i18next": "^10.10.0"
   },
   "jest": {
     "collectCoverageFrom": [
