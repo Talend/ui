@@ -7,7 +7,6 @@ import talendIcons from '@talend/icons/dist/react';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
-import { LanguageSwitcher } from './config/i18n';
 import MyCustomRow from './List/MyCustomRow.component';
 import { columnChooserService } from '../src/List/Toolbar/ColumnChooserButton';
 
@@ -577,7 +576,6 @@ const itemsForListWithIcons = [
 storiesOf('List', module)
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>

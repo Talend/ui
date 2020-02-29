@@ -25,7 +25,6 @@ exports[`TextFilter should render text filter component 1`] = `
       navbar={true}
       onFilter={[Function]}
       onToggle={[Function]}
-      placeholder="Filter"
       t={[Function]}
       tReady={true}
       value=""
@@ -161,7 +160,6 @@ exports[`TextFilter should render text filter component with defined docked stat
       navbar={true}
       onFilter={[Function]}
       onToggle={[Function]}
-      placeholder="Filter"
       t={[Function]}
       tReady={true}
       value=""

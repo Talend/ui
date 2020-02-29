@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { LanguageSwitcher } from './config/i18n';
 import { ListView, IconsProvider } from '../src/index';
 
 const filterAction = {
@@ -116,7 +115,6 @@ const withNestedItems = {
 storiesOf('ListView', module)
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
 			<IconsProvider />
 			<h1>ListView</h1>
 			<form>{story()}</form>

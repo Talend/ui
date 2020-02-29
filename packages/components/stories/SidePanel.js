@@ -3,7 +3,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
-import { LanguageSwitcher } from './config/i18n';
 import { IconsProvider, Layout, SidePanel } from '../src/index';
 
 import { TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
@@ -119,7 +118,6 @@ const stories = storiesOf('SidePanel', module);
 stories
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>

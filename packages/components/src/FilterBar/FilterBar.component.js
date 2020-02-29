@@ -48,16 +48,18 @@ function FilterInput(props) {
 		...rest
 	} = props;
 
+	const placeholderLabel = placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' });
+
 	const inputProps = {
 		'data-test': rest['data-test'],
 		id,
 		name: 'search',
 		type: 'search',
 		value,
-		placeholder,
+		placeholder: placeholderLabel,
 		autoComplete: 'off',
 		className: classNames(theme.search),
-		'aria-label': placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' }),
+		'aria-label': placeholderLabel,
 		onBlur:
 			onBlur &&
 			(event => {
@@ -256,7 +258,6 @@ FilterBarComponent.defaultProps = {
 	docked: true,
 	navbar: true,
 	focus: false,
-	placeholder: 'Filter',
 	t: getDefaultT(),
 	className: '',
 };

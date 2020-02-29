@@ -1,5 +1,4 @@
 import React from 'react';
-import { LanguageSwitcher } from './config/i18n';
 import { DeleteResource } from '../src';
 
 /*
@@ -58,7 +57,6 @@ export default {
 	),
 	translated: () => (
 		<div>
-			<LanguageSwitcher />
 			<DeleteResource {...props} />
 		</div>
 	),
