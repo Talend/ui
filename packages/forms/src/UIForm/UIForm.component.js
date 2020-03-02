@@ -41,7 +41,7 @@ export class UIFormComponent extends React.Component {
 		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
-		const languageId = props.languageId || props.id || uuid.v4();
+		const languageId = props.id || uuid.v4();
 		if (props.language != null) {
 			Object.assign(language, props.language);
 			// Force update of language by id even if already set
