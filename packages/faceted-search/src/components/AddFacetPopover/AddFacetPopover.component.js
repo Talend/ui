@@ -126,8 +126,12 @@ AddFacetPopoverHeader.propTypes = {
 const filterByLabel = label => badgeDefinition =>
 	badgeDefinition.properties.label.toLowerCase().includes(label);
 
-const sortByLabel = (badgeDefinitionA, badgeDefinitionB) =>
-	badgeDefinitionA.properties.label.localeCompare(badgeDefinitionB.properties.label);
+const sortByLabel = (rowA, rowB) => {
+	const labelA = isString(rowA) ? rowA : rowA.properties.label;
+	const labelB = isString(rowB) ? rowB : rowB.properties.label;
+
+	return labelA.localeCompare(labelB);
+};
 
 const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onClick, t }) => {
 	const addFacetId = `${id}-add-facet-popover`;
@@ -137,7 +141,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 
 	const badgesDefinitionsFaceted = useMemo(
 		() =>
-			badgesDefinitions.filter(filterByLabel(filterValue.toLowerCase().trim())).sort(sortByLabel),
+			badgesDefinitions.filter(filterByLabel(filterValue.toLowerCase().trim())),
 		[badgesDefinitions, filterValue],
 	);
 
@@ -162,7 +166,6 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	};
 	const resetFilter = () => setFilterValue('');
 
-
 	const badgesWithoutCategory = badgesDefinitionsFaceted
 		.filter(badgeDefinition => !badgeDefinition.metadata.category);
 
@@ -172,12 +175,13 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 			rows: [
 				...categories,
 				...badgesWithoutCategory,
-			],
+			].sort(sortByLabel),
 		},
 		...categories.map(categoryName => ({
 			category: categoryName,
 			rows: badgesDefinitionsFaceted
-				.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName),
+				.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName)
+				.sort(sortByLabel),
 		})),
 	];
 
