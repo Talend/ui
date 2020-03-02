@@ -1,14 +1,14 @@
-.center {
-	align-items: center;
-}
-
-.icon {
-	margin-right: $padding-small;
-}
-
 .resource-item {
 	cursor: pointer;
 	display: flex;
+
+	.center {
+		align-items: center;
+	}
+
+	.icon {
+		margin-right: $padding-small;
+	}
 
 	> * {
 		max-width: 100%;
