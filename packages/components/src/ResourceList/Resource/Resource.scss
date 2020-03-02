@@ -95,7 +95,7 @@
 
 	:global {
 		h3 {
-			margin-top: 0;
+			margin-top: $padding-small;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
