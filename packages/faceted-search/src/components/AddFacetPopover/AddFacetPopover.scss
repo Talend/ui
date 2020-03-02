@@ -19,6 +19,14 @@
 		margin: 0 $padding-small 0 $padding-small;
 	}
 
+	&-filter-empty {
+		font-size: $font-size-base;
+		padding: $padding-large $padding-small;
+		display: block;
+		text-align: center;
+		font-style: italic;
+	}
+
 	&-row-container {
 		overflow-y: auto;
 	}
