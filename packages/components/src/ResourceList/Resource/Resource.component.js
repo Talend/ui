@@ -44,10 +44,19 @@ function Resource({ parent, index, style, className, as, t }) {
 		onRowClick = event => parent.props.onRowClick({ event, rowData });
 	}
 
+	function hasPropRender() {
+		return typeof as === 'function';
+	}
+
 	return (
 		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<div
-			className={classNames('resource-item', theme['resource-item'], className)}
+			className={classNames(
+				'resource-item',
+				theme['resource-item'],
+				{ [theme.center]: !hasPropRender() },
+				className,
+			)}
 			style={style}
 			role="listitem"
 			tabIndex="0"
@@ -56,11 +65,11 @@ function Resource({ parent, index, style, className, as, t }) {
 			aria-label={name}
 			onClick={onRowClick}
 		>
-			{typeof as === 'function' ? (
+			{hasPropRender() ? (
 				as(rowData)
 			) : (
 				<React.Fragment>
-					{icon && <Icon name={icon} />}
+					{icon && <Icon className={theme.icon} name={icon} />}
 					<div className={classNames('data-container', theme['data-container'])}>
 						<span className={classNames('title', theme.title)}>{name}</span>
 						{author && subtitle === undefined && (

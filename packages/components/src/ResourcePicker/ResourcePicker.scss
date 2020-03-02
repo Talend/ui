@@ -17,10 +17,6 @@ $tc-resource-picker-toolbar-height: 3.5rem !default;
 		.resource-item {
 			border-bottom: 0.1rem solid $gallery;
 
-			> * {
-				margin-left: $padding-normal;
-			}
-
 			.tc-svg-icon {
 				color: $dove-gray;
 			}

@@ -71,7 +71,6 @@ export const pipelines = [
 ];
 
 const commonProps = {
-	rowHeight: 85,
 	onRowClick: action('onRowClick'),
 };
 
@@ -147,9 +146,9 @@ export function FilteredResourceList(props) {
 	const [filter, setFilter] = React.useState();
 	const filteredCollection = React.useMemo(
 		() =>
-			(filter
+			filter
 				? props.collection.filter(item => item.name.toLowerCase().includes(filter.toLowerCase()))
-				: props.collection),
+				: props.collection,
 		[filter],
 	);
 	return (
