@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
 import { withTranslation } from 'react-i18next';
-import uuid from 'uuid';
 
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
@@ -41,7 +40,7 @@ export class UIFormComponent extends React.Component {
 		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
-		const languageId = props.id || uuid.v4();
+		const languageId = props.id || '@talend';
 		if (props.language != null) {
 			Object.assign(language, props.language);
 			// Force update of language by id even if already set
