@@ -124,6 +124,36 @@ describe('AddFacetPopover', () => {
 		// Then
 		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[0]);
 	});
+	it('should render the category row', () => {
+		// Given
+		const props = {
+			badgesDefinitions,
+			id: 'my-id',
+			onClick: jest.fn(),
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+		// Then
+		expect(wrapper.find('button[aria-label="Custom attributes"]')).toHaveLength(1);
+		expect(wrapper.find('.tc-add-facet-popover-screen')).toHaveLength(2);
+		expect(wrapper.find('.screen-category')).toHaveLength(1);
+		expect(wrapper.find('.screen-move')).toHaveLength(0);
+	});
+	it('should display the hidding category screen when click on a category row', () => {
+		// Given
+		const props = {
+			badgesDefinitions,
+			id: 'my-id',
+			onClick: jest.fn(),
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+		wrapper.find('button[aria-label="Custom attributes"]').simulate('click');
+		// Then
+		expect(wrapper.find('.screen-move')).toHaveLength(2);
+	});
 	it('should render an empty state when filter return no result', () => {
 		// Given
 		const props = {
