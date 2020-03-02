@@ -1,6 +1,11 @@
 $tc-resource-list-height: 25rem !default;
 
 .tc-resource-list {
+	:global(.tc-list-list) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
 	&-items {
 		height: $tc-resource-list-height;
 

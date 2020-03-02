@@ -1,8 +1,10 @@
 .resource-item {
+	padding-left: $padding-normal;
+	padding-right: $padding-normal;
 	cursor: pointer;
 	display: flex;
 
-	.center {
+	&.center {
 		align-items: center;
 	}
 
