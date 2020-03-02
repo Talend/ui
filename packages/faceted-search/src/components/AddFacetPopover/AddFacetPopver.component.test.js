@@ -41,6 +41,23 @@ describe('AddFacetPopover', () => {
 				operators: ['contains', '='],
 			},
 		},
+		{
+			properties: {
+				attribute: 'target',
+				initialOperatorOpened: true,
+				initialValueOpened: false,
+				label: 'Target',
+				operator: {},
+				operators: [],
+				type: 'text',
+			},
+			metadata: {
+				category: 'Custom attributes',
+				badgePerFacet: 'N',
+				entitiesPerBadge: '1',
+				operators: ['contains', 'equals', 'notEquals', 'match a regexp'],
+			},
+		}
 	];
 	it('should render the html output', () => {
 		// Given
@@ -66,10 +83,10 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('input').simulate('change', { target: { value: 'connection' } });
+			wrapper.find('input').first().simulate('change', { target: { value: 'connection' } });
 		});
 		wrapper.update();
-		expect(wrapper.find('input').prop('value')).toBe('connection');
+		expect(wrapper.find('input').first().prop('value')).toBe('connection');
 		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
 	});
 	it('should reset the badge rows when the filter is reset', () => {
@@ -88,7 +105,7 @@ describe('AddFacetPopover', () => {
 			wrapper.find('button[aria-label="Remove filter"]').simulate('mouseDown');
 		});
 		wrapper.update();
-		expect(wrapper.find('input').prop('value')).toBe('');
+		expect(wrapper.find('input').first().prop('value')).toBe('');
 		expect(wrapper.find('button[aria-label="Name"]')).toHaveLength(1);
 		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
 	});
