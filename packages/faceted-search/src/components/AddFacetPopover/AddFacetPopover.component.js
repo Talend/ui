@@ -71,11 +71,16 @@ AddFacetRow.propTypes = {
 	onClick: PropTypes.func.isRequired,
 };
 
-const AddFacetPopoverHeader = ({ category, setCategory, id, resetFilter, onFilter, filterValue, t }) => (
-	<RichLayout.Header
-		className={theme('tc-add-facet-popover-header')}
-		id={`${id}-header`}
-	>
+const AddFacetPopoverHeader = ({
+	category,
+	setCategory,
+	id,
+	resetFilter,
+	onFilter,
+	filterValue,
+	t,
+}) => (
+	<RichLayout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
 		{!isNull(category) && (
 			<div className={theme('tc-add-facet-popover-category')}>
 				<Button
@@ -191,13 +196,12 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 				{screens.map((screen, index) => (
 					<div
 						ref={screensRef.current[index]}
-						className={classNames(
-							theme('tc-add-facet-popover-screen'),
-							{
-								[theme('screen-category')]: !isNull(screen.category),
-								[theme('screen-move')]: !!category && isNull(screen.category) || category && screen.category === category,
-							},
-						)}
+						className={classNames(theme('tc-add-facet-popover-screen'), {
+							[theme('screen-category')]: !isNull(screen.category),
+							[theme('screen-move')]:
+								(!!category && isNull(screen.category)) ||
+								(category && screen.category === category),
+						})}
 					>
 						<AddFacetPopoverHeader
 							id={`${addFacetId}-${category}`}
