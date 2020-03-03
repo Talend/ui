@@ -44,6 +44,7 @@ function FilterInput(props) {
 		autoFocus,
 		placeholder,
 		value,
+		disabled,
 		t,
 		...rest
 	} = props;
@@ -58,6 +59,7 @@ function FilterInput(props) {
 		value,
 		placeholder: placeholderLabel,
 		autoComplete: 'off',
+		disabled,
 		className: classNames(theme.search),
 		'aria-label': placeholderLabel,
 		onBlur:
@@ -97,6 +99,7 @@ FilterInput.propTypes = {
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	'data-test': PropTypes.string,
+	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 
@@ -195,6 +198,7 @@ export class FilterBarComponent extends React.Component {
 						})}
 					/>
 					<FilterInput
+						disabled={this.props.disabled}
 						data-test={this.props['data-test']}
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
@@ -249,6 +253,7 @@ FilterBarComponent.propTypes = {
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	tooltipPlacement: PropTypes.string,
+	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 
@@ -258,6 +263,7 @@ FilterBarComponent.defaultProps = {
 	docked: true,
 	navbar: true,
 	focus: false,
+	disabled: false,
 	t: getDefaultT(),
 	className: '',
 };
