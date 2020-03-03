@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2675): Empty screen text for search on badges list
+
 ### Fixed
 
 - [fixed](https://github.com/Talend/ui/pull/2665): sort alphabetically facets

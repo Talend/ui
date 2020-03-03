@@ -75,6 +75,13 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 					value={filterValue}
 				/>
 				<div className={theme('tc-add-facet-popover-row-container')}>
+					{filterValue !== '' && !badgesDefinitionsFaceted.length && (
+						<span className={theme('tc-add-facet-popover-filter-empty')}>
+							{t('ADD_FACET_FILTER_NO_RESULT', {
+								defaultValue: 'No result found',
+							})}
+						</span>
+					)}
 					{badgesDefinitionsFaceted.map(badgeDefinition => (
 						<AddFacetRow
 							badgeDefinition={badgeDefinition}
