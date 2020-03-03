@@ -1,13 +1,19 @@
-$tc-resource-list-height: 25rem !default;
-
+$tc-resource-list-margin-top: 2rem !default;
+$tc-resource-list-height: calc(25rem - #{$tc-resource-list-margin-top}) !default;
 .tc-resource-list {
 	:global(.tc-list-list) {
+		padding: 0;
 		padding-left: 0;
 		padding-right: 0;
 	}
 
+	:global(.tc-resource-list-toolbar) form {
+		margin-top: $padding-small;
+	}
+
 	&-items {
 		height: $tc-resource-list-height;
+		margin-top: $tc-resource-list-margin-top;
 
 		&.filtered {
 			:global(.flags-container) {
