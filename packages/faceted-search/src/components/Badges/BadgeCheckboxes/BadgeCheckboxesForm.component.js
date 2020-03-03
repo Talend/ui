@@ -51,7 +51,11 @@ const getCheckboxes = (checkboxes, value, filterValue) => {
 	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
 
 	return checkboxes
-		.filter(checkbox => get(checkbox, 'label', '').toLocaleLowerCase().includes(formatFilterValue))
+		.filter(checkbox =>
+			get(checkbox, 'label', '')
+				.toLocaleLowerCase()
+				.includes(formatFilterValue),
+		)
 		.map(createCheckboxEntity(value));
 };
 
@@ -59,10 +63,11 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 	const [filter, setFilter] = useState('');
 
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
-	const checkboxes = useCallback(
-		getCheckboxes(checkboxValues, value, filter),
-		[checkboxValues, value, filter]
-	);
+	const checkboxes = useCallback(getCheckboxes(checkboxValues, value, filter), [
+		checkboxValues,
+		value,
+		filter,
+	]);
 	const onChangeCheckBoxes = (event, checkboxId) => {
 		const entity = checkboxes.find(checkboxValue => checkboxValue.id === checkboxId);
 		if (entity) {
