@@ -71,21 +71,13 @@ AddFacetRow.propTypes = {
 	onClick: PropTypes.func.isRequired,
 };
 
-const AddFacetPopoverHeader = ({
-	category,
-	setCategory,
-	id,
-	resetFilter,
-	onFilter,
-	filterValue,
-	t,
-}) => (
+const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, onFilter, filterValue, t }) => (
 	<RichLayout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
 		{!isNull(category) && (
 			<div className={theme('tc-add-facet-popover-category')}>
 				<Button
 					bsStyle="link"
-					onClick={() => setCategory(null)}
+					onClick={() => onCategoryChange(null)}
 					role="button"
 					className={theme('tc-add-facet-popover-category-btn')}
 				>
@@ -115,7 +107,7 @@ const AddFacetPopoverHeader = ({
 
 AddFacetPopoverHeader.propTypes = {
 	category: PropTypes.string,
-	setCategory: PropTypes.func.isRequired,
+	onCategoryChange: PropTypes.func.isRequired,
 	id: PropTypes.string.isRequired,
 	resetFilter: PropTypes.func.isRequired,
 	onFilter: PropTypes.func.isRequired,
@@ -123,8 +115,11 @@ AddFacetPopoverHeader.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-const filterByLabel = label => badgeDefinition =>
-	badgeDefinition.properties.label.toLowerCase().includes(label);
+const filterByLabel = label => row => {
+	const rowLabel = isString(row) ? row : row.properties.label;
+
+	return rowLabel.toLowerCase().includes(label);
+};
 
 const sortByLabel = (rowA, rowB) => {
 	const labelA = isString(rowA) ? rowA : rowA.properties.label;
@@ -137,20 +132,15 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	const addFacetId = `${id}-add-facet-popover`;
 
 	const [category, setCategory] = useState(null);
-	const [filterValue, setFilterValue] = useState(initialFilterValue || '');
-
-	const badgesDefinitionsFaceted = useMemo(
-		() =>
-			badgesDefinitions.filter(filterByLabel(filterValue.toLowerCase().trim())),
-		[badgesDefinitions, filterValue],
-	);
+	const [filterValue, setFilterValue] = useState(initialFilterValue || '')
 
 	const categories = useMemo(
-		() => badgesDefinitionsFaceted
-			.filter(badgeDefinition => !!badgeDefinition.metadata.category)
-			.map(badgeDefinition => badgeDefinition.metadata.category)
-			.filter((categoryName, index, arr) => arr.indexOf(categoryName) === index),
-		[badgesDefinitionsFaceted]
+		() =>
+			badgesDefinitions
+				.filter(badgeDefinition => !!badgeDefinition.metadata.category)
+				.map(badgeDefinition => badgeDefinition.metadata.category)
+				.filter((categoryName, index, arr) => arr.indexOf(categoryName) === index),
+		[badgesDefinitions],
 	);
 
 	const screensCount = categories.length + 1;
@@ -166,22 +156,37 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	};
 	const resetFilter = () => setFilterValue('');
 
-	const badgesWithoutCategory = badgesDefinitionsFaceted
-		.filter(badgeDefinition => !badgeDefinition.metadata.category);
+	const onCategoryChange = newCategory => {
+		setCategory(newCategory);
+		resetFilter();
+	};
+
+	const badgesWithoutCategory = useMemo(
+		() =>
+			badgesDefinitions.filter(badgeDefinition => !badgeDefinition.metadata.category),
+		[badgesDefinitions],
+	);
 
 	const screens = [
 		{
 			category: null,
-			rows: [
-				...categories,
-				...badgesWithoutCategory,
-			].sort(sortByLabel),
+			rows: useMemo(
+				() =>
+					[...categories, ...badgesWithoutCategory]
+						.sort(sortByLabel)
+						.filter(filterByLabel(filterValue.toLowerCase().trim())),
+				[badgesDefinitions, filterValue]
+			),
 		},
 		...categories.map(categoryName => ({
 			category: categoryName,
-			rows: badgesDefinitionsFaceted
-				.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName)
-				.sort(sortByLabel),
+			rows: useMemo(
+				() => badgesDefinitions
+					.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName)
+					.filter(filterByLabel(filterValue.toLowerCase().trim()))
+					.sort(sortByLabel),
+				[filterValue]
+			),
 		})),
 	];
 
@@ -195,7 +200,10 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 			<div
 				id={addFacetId}
 				className={theme('tc-add-facet-popover-container')}
-				style={{ maxHeight: screensHeight[categoryScreenIndex] }}
+				style={{
+					height: screensHeight[categoryScreenIndex],
+					maxHeight: screensHeight[categoryScreenIndex],
+				}}
 			>
 				{screens.map((screen, index) => (
 					<div
@@ -210,7 +218,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 						<AddFacetPopoverHeader
 							id={`${addFacetId}-${category}`}
 							category={screen.category}
-							setCategory={setCategory}
+							onCategoryChange={onCategoryChange}
 							resetFilter={resetFilter}
 							onFilter={onFilter}
 							filterValue={filterValue}
@@ -219,20 +227,20 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 
 						<RichLayout.Body id={`${addFacetId}-${category}-body`}>
 							<div className={theme('tc-add-facet-popover-row-container')}>
-								{filterValue !== '' && !badgesDefinitionsFaceted.length && (
+								{filterValue !== '' && !screen.rows.length && (
 									<span className={theme('tc-add-facet-popover-filter-empty')}>
 										{t('ADD_FACET_FILTER_NO_RESULT', {
 											defaultValue: 'No result found',
 										})}
 									</span>
 								)}
-								{screen.rows.map(rowItem => (isString(rowItem) ?
-									(
+								{screen.rows.map(rowItem =>
+									(isString(rowItem) ? (
 										<OpenCategoryRow
 											id={'open-category-row'}
 											key={rowItem}
 											label={rowItem}
-											onClick={setCategory}
+											onClick={onCategoryChange}
 										/>
 									) : (
 										<AddFacetRow
@@ -242,7 +250,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 											label={rowItem.properties.label}
 											onClick={onClick}
 										/>
-									))
+									)),
 								)}
 							</div>
 						</RichLayout.Body>

@@ -110,7 +110,7 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('button[aria-label="Remove filter"]').simulate('mouseDown');
+			wrapper.find('button[aria-label="Remove filter"]').first().simulate('mouseDown');
 		});
 		wrapper.update();
 		expect(
