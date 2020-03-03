@@ -3,20 +3,13 @@ import PropTypes from 'prop-types';
 import Action from '@talend/react-components/lib/Actions/Action';
 import FilterBar from '@talend/react-components/lib/FilterBar';
 import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
-import Toggle, { Checkbox } from '@talend/react-components/lib/Toggle';
+import { Checkbox } from '@talend/react-components/lib/Toggle';
 
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import cssModule from './BadgeCheckboxes.scss';
 
 const theme = getTheme(cssModule);
-
-const useFilter = () => {
-	const [filter, setFilter] = useState('');
-	const onFilter = (_, filterValue) => setFilter(filterValue.trim().toLowerCase());
-	const resetFilter = () => setFilter('');
-	return [filter, onFilter, resetFilter];
-};
 
 const BadgeCheckbox = ({ checked, id, label, onChange }) => {
 	const describedby = `${id}-${label}`;
@@ -55,13 +48,17 @@ const createCheckboxEntity = value => checkbox => {
 	};
 };
 
-const getCheckboxes = (checkboxes, value, filterValue) =>
-	checkboxes
-		.filter(checkbox => checkbox.label.toLowerCase().includes(filterValue))
+const getCheckboxes = (checkboxes, value, filterValue) => {
+	const formatFilterValue = filterValue.trim().toLowerCase();
+
+	return checkboxes
+		.filter(checkbox => checkbox.label.toLowerCase().includes(formatFilterValue))
 		.map(createCheckboxEntity(value));
+};
 
 const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t }) => {
-	const [filter, onFilter, resetFilter] = useFilter();
+	const [filter, setFilter] = useState('');
+
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
 	const checkboxes = useMemo(() => getCheckboxes(checkboxValues, value, filter), [
 		checkboxValues,
@@ -89,8 +86,8 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 				placeholder={t('FIND_COLUMN_FILTER_PLACEHOLDER', {
 					defaultValue: 'Find an entity',
 				})}
-				onToggle={resetFilter}
-				onFilter={onFilter}
+				onToggle={() => setFilter('')}
+				onFilter={(_, filterValue) => setFilter(filterValue)}
 				value={filter}
 			/>
 			<form
