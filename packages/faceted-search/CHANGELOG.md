@@ -28,7 +28,7 @@ Types of changes
 
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/----/): Empty screen text for search on badges list
+- [feat](https://github.com/Talend/ui/pull/2675): Empty screen text for search on badges list
 
 ### Fixed
 
