@@ -16,7 +16,9 @@ import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.
 
 const theme = getTheme(cssModule);
 
-const OpenCategoryRow = ({ label, onClick }) => (
+const getTabIndex = isFocusable => (isFocusable ? 0 : -1);
+
+const OpenCategoryRow = ({ label, onClick, isFocusable }) => (
 	<TooltipTrigger label={label} tooltipPlacement="top">
 		<Button
 			aria-label={label}
@@ -26,6 +28,7 @@ const OpenCategoryRow = ({ label, onClick }) => (
 			label={label}
 			onClick={() => onClick(label)}
 			role="button"
+			tabIndex={getTabIndex(isFocusable)}
 		>
 			<div className={theme('tc-add-facet-popover-row-text')}>
 				{label}
@@ -41,9 +44,10 @@ const OpenCategoryRow = ({ label, onClick }) => (
 OpenCategoryRow.propTypes = {
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
+	isFocusable: PropTypes.bool.isRequired,
 };
 
-const AddFacetRow = ({ badgeDefinition, id, label, onClick }) => {
+const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable }) => {
 	const onClickRow = event => {
 		onClick(event, badgeDefinition);
 	};
@@ -57,6 +61,7 @@ const AddFacetRow = ({ badgeDefinition, id, label, onClick }) => {
 				label={label}
 				onClick={onClickRow}
 				role="button"
+				tabIndex={getTabIndex(isFocusable)}
 			>
 				<div className={theme('tc-add-facet-popover-row-text')}>{label}</div>
 			</Button>
@@ -69,9 +74,10 @@ AddFacetRow.propTypes = {
 	badgeDefinition: badgeFacetedPropTypes.isRequired,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
+	isFocusable: PropTypes.bool.isRequired,
 };
 
-const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, onFilter, filterValue, t }) => (
+const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, onFilter, filterValue, t, isFocusable }) => (
 	<RichLayout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
 		{!isNull(category) && (
 			<div className={theme('tc-add-facet-popover-category')}>
@@ -80,6 +86,7 @@ const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, on
 					onClick={() => onCategoryChange(null)}
 					role="button"
 					className={theme('tc-add-facet-popover-category-btn')}
+					tabIndex={getTabIndex(isFocusable)}
 				>
 					<Icon name="talend-arrow-left" />
 				</Button>
@@ -101,6 +108,7 @@ const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, on
 			onToggle={resetFilter}
 			onFilter={onFilter}
 			value={filterValue}
+			tabIndex={getTabIndex(isFocusable)}
 		/>
 	</RichLayout.Header>
 );
@@ -112,6 +120,7 @@ AddFacetPopoverHeader.propTypes = {
 	resetFilter: PropTypes.func.isRequired,
 	onFilter: PropTypes.func.isRequired,
 	filterValue: PropTypes.string.isRequired,
+	isFocusable: PropTypes.bool.isRequired,
 	t: PropTypes.func.isRequired,
 };
 
@@ -222,6 +231,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 							resetFilter={resetFilter}
 							onFilter={onFilter}
 							filterValue={filterValue}
+							isFocusable={screen.category === category}
 							t={t}
 						/>
 
@@ -241,6 +251,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 											key={rowItem}
 											label={rowItem}
 											onClick={onCategoryChange}
+											isFocusable={screen.category === category}
 										/>
 									) : (
 										<AddFacetRow
@@ -249,6 +260,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 											key={rowItem.properties.label}
 											label={rowItem.properties.label}
 											onClick={onClick}
+											isFocusable={screen.category === category}
 										/>
 									)),
 								)}
