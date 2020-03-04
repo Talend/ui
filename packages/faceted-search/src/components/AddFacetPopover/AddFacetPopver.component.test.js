@@ -179,11 +179,11 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('input').simulate('change', { target: { value: 'aaaaaaaaaa' } });
+			wrapper.find('input').first().simulate('change', { target: { value: 'aaaaaaaaaa' } });
 		});
 		wrapper.update();
 		expect(wrapper.find('button.tc-add-facet-popover-row')).toHaveLength(0);
-		expect(wrapper.find('span')).toHaveLength(1);
-		expect(wrapper.find('span').text()).toBe('No result found');
+		expect(wrapper.find('span').first()).toHaveLength(1);
+		expect(wrapper.find('span').first().text()).toBe('No result found');
 	});
 });
