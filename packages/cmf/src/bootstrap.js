@@ -124,6 +124,7 @@ function DefaultRootComponent() {
 export default function bootstrap(appOptions = {}) {
 	// setup asap
 	const options = cmfModule(appOptions);
+	assertTypeOf(options, 'root', 'object');
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'RootComponent', 'function');
 
@@ -136,10 +137,11 @@ export default function bootstrap(appOptions = {}) {
 	onError.bootstrap(options, store);
 	saga.run();
 	const RootComponent = options.RootComponent || DefaultRootComponent;
+	const element = options.root || document.getElementById(appId);
 	render(
 		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
 			<RootComponent />
 		</App>,
-		document.getElementById(appId),
+		element,
 	);
 }
