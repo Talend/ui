@@ -10,6 +10,7 @@ import Icon from '@talend/react-components/lib/Icon';
 import isString from 'lodash/isString';
 import isNull from 'lodash/isNull';
 import times from 'lodash/times';
+import constant from 'lodash/constant';
 
 import cssModule from './AddFacetPopover.scss';
 import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.propTypes';
@@ -108,7 +109,7 @@ const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, on
 			onToggle={resetFilter}
 			onFilter={onFilter}
 			value={filterValue}
-			disabled={getTabIndex(isFocusable)}
+			disabled={!isFocusable}
 		/>
 	</RichLayout.Header>
 );
@@ -153,7 +154,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	);
 
 	const screensCount = categories.length + 1;
-	const [screensHeight, setScreensHeight] = useState(times(screensCount, () => 0));
+	const [screensHeight, setScreensHeight] = useState(times(screensCount, constant(0)));
 	const screensRef = useRef(times(screensCount, createRef));
 
 	useEffect(() => {
@@ -216,6 +217,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 			>
 				{screens.map((screen, index) => (
 					<div
+						key={`screen-${screen.category}`}
 						ref={screensRef.current[index]}
 						className={classNames(theme('tc-add-facet-popover-screen'), {
 							[theme('screen-category')]: !isNull(screen.category),
