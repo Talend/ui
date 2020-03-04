@@ -108,7 +108,7 @@ const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, on
 			onToggle={resetFilter}
 			onFilter={onFilter}
 			value={filterValue}
-			tabIndex={getTabIndex(isFocusable)}
+			disabled={getTabIndex(isFocusable)}
 		/>
 	</RichLayout.Header>
 );
