@@ -110,7 +110,10 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('button[aria-label="Remove filter"]').first().simulate('mouseDown');
+			wrapper
+				.find('button[aria-label="Remove filter"]')
+				.first()
+				.simulate('mouseDown');
 		});
 		wrapper.update();
 		expect(
@@ -179,11 +182,19 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('input').first().simulate('change', { target: { value: 'aaaaaaaaaa' } });
+			wrapper
+				.find('input')
+				.first()
+				.simulate('change', { target: { value: 'aaaaaaaaaa' } });
 		});
 		wrapper.update();
 		expect(wrapper.find('button.tc-add-facet-popover-row')).toHaveLength(0);
 		expect(wrapper.find('span').first()).toHaveLength(1);
-		expect(wrapper.find('span').first().text()).toBe('No result found');
+		expect(
+			wrapper
+				.find('span')
+				.first()
+				.text(),
+		).toBe('No result found');
 	});
 });

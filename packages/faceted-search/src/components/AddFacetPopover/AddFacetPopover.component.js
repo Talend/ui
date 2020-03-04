@@ -14,10 +14,7 @@ import constant from 'lodash/constant';
 import uniq from 'lodash/uniq';
 
 import cssModule from './AddFacetPopover.scss';
-import {
-	badgesFacetedPropTypes,
-	badgeFacetedPropTypes,
-} from '../facetedSearch.propTypes';
+import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.propTypes';
 
 const theme = getTheme(cssModule);
 
@@ -35,13 +32,8 @@ const OpenCategoryRow = ({ label, onClick, isFocusable }) => (
 			role="button"
 			tabIndex={getTabIndex(isFocusable)}
 		>
-			<div className={theme('tc-add-facet-popover-row-text')}>
-				{label}
-			</div>
-			<Icon
-				className={theme('tc-add-facet-popover-row-icon')}
-				name="talend-chevron-left"
-			/>
+			<div className={theme('tc-add-facet-popover-row-text')}>{label}</div>
+			<Icon className={theme('tc-add-facet-popover-row-icon')} name="talend-chevron-left" />
 		</Button>
 	</TooltipTrigger>
 );
@@ -82,7 +74,16 @@ AddFacetRow.propTypes = {
 	isFocusable: PropTypes.bool.isRequired,
 };
 
-const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, onFilter, filterValue, t, isFocusable }) => (
+const AddFacetPopoverHeader = ({
+	category,
+	onCategoryChange,
+	id,
+	resetFilter,
+	onFilter,
+	filterValue,
+	t,
+	isFocusable,
+}) => (
 	<RichLayout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
 		{!isNull(category) && (
 			<div className={theme('tc-add-facet-popover-category')}>
@@ -95,9 +96,7 @@ const AddFacetPopoverHeader = ({ category, onCategoryChange, id, resetFilter, on
 				>
 					<Icon name="talend-arrow-left" />
 				</Button>
-				<span className={theme('tc-add-facet-popover-category-title')}>
-					{category}
-				</span>
+				<span className={theme('tc-add-facet-popover-category-title')}>{category}</span>
 			</div>
 		)}
 		<FilterBar
@@ -153,8 +152,9 @@ const getCategories = badgesDefinitions => {
 const getScreens = (badgesDefinitions, filterValue) => {
 	const categories = getCategories(badgesDefinitions);
 
-	const badgesWithoutCategory = badgesDefinitions
-		.filter(badgeDefinition => !badgeDefinition.metadata.category);
+	const badgesWithoutCategory = badgesDefinitions.filter(
+		badgeDefinition => !badgeDefinition.metadata.category,
+	);
 
 	return [
 		{
@@ -178,10 +178,10 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 
 	const [category, setCategory] = useState(null);
 	const [filterValue, setFilterValue] = useState(initialFilterValue || '');
-	const getScreensMemo = useCallback(
-		() => getScreens(badgesDefinitions, filterValue),
-		[badgesDefinitions, filterValue],
-	);
+	const getScreensMemo = useCallback(() => getScreens(badgesDefinitions, filterValue), [
+		badgesDefinitions,
+		filterValue,
+	]);
 	const screens = getScreensMemo();
 	const currentCategoryScreenIndex = screens.findIndex(screen => screen.category === category);
 
@@ -189,10 +189,9 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	const screensRef = useRef(times(screens.length, createRef));
 
 	useEffect(() => {
-		setScreensHeight(times(
-			screens.length,
-			index => screensRef.current[index].current.clientHeight,
-		));
+		setScreensHeight(
+			times(screens.length, index => screensRef.current[index].current.clientHeight),
+		);
 	}, []);
 
 	const onFilter = (_, value) => {
@@ -206,10 +205,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	};
 
 	return (
-		<div
-			id={addFacetId}
-			className={theme('tc-add-facet-popover')}
-		>
+		<div id={addFacetId} className={theme('tc-add-facet-popover')}>
 			<div
 				id={addFacetId}
 				className={theme('tc-add-facet-popover-container')}
@@ -249,7 +245,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 									</span>
 								)}
 								{screen.rows.map(rowItem =>
-									(isString(rowItem) ? (
+									isString(rowItem) ? (
 										<OpenCategoryRow
 											id={'open-category-row'}
 											key={rowItem}
@@ -266,7 +262,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 											onClick={onClick}
 											isFocusable={screen.category === category}
 										/>
-									)),
+									),
 								)}
 							</div>
 						</RichLayout.Body>
