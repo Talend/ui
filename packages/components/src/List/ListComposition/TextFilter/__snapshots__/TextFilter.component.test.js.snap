@@ -17,6 +17,7 @@ exports[`TextFilter should render text filter component 1`] = `
       autoFocus={true}
       className=""
       debounceTimeout={300}
+      disabled={false}
       dockable={true}
       docked={true}
       focus={false}
@@ -152,6 +153,7 @@ exports[`TextFilter should render text filter component with defined docked stat
       autoFocus={true}
       className=""
       debounceTimeout={300}
+      disabled={false}
       dockable={true}
       docked={true}
       focus={false}
