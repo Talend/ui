@@ -127,7 +127,7 @@ AddFacetPopoverHeader.propTypes = {
 const filterByLabel = label => row => {
 	const rowLabel = isString(row) ? row : row.properties.label;
 
-	return rowLabel.toLowerCase().includes(label);
+	return rowLabel.toLocaleLowerCase().includes(label.toLocaleLowerCase().trim());
 };
 
 const sortByLabel = (rowA, rowB) => {
@@ -183,7 +183,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 				() =>
 					[...categories, ...badgesWithoutCategory]
 						.sort(sortByLabel)
-						.filter(filterByLabel(filterValue.toLowerCase().trim())),
+						.filter(filterByLabel(filterValue)),
 				[badgesDefinitions, filterValue]
 			),
 		},
@@ -192,7 +192,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 			rows: useMemo(
 				() => badgesDefinitions
 					.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName)
-					.filter(filterByLabel(filterValue.toLowerCase().trim()))
+					.filter(filterByLabel(filterValue))
 					.sort(sortByLabel),
 				[filterValue]
 			),
