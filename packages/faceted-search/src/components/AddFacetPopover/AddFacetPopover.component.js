@@ -212,7 +212,6 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 				className={theme('tc-add-facet-popover-container')}
 				style={{
 					height: screensHeight[categoryScreenIndex],
-					maxHeight: screensHeight[categoryScreenIndex],
 				}}
 			>
 				{screens.map((screen, index) => (
