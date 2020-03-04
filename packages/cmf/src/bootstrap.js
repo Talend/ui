@@ -83,10 +83,7 @@ export function bootstrapRedux(options, sagaMiddleware) {
 	}
 	let enhancer = bactchedSubscribe;
 	if (typeof options.enhancer === 'function') {
-		enhancer = compose(
-			options.enhancer,
-			bactchedSubscribe,
-		);
+		enhancer = compose(options.enhancer, bactchedSubscribe);
 	}
 	const middlewares = options.middlewares || [];
 	const store = storeAPI.initialize(options.reducer, options.preloadedState, enhancer, [
