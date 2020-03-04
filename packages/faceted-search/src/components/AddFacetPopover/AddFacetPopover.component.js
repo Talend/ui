@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, createRef, useEffect } from 'react';
+import React, { useState, useRef, createRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
@@ -11,9 +11,13 @@ import isString from 'lodash/isString';
 import isNull from 'lodash/isNull';
 import times from 'lodash/times';
 import constant from 'lodash/constant';
+import uniq from 'lodash/uniq';
 
 import cssModule from './AddFacetPopover.scss';
-import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.propTypes';
+import {
+	badgesFacetedPropTypes,
+	badgeFacetedPropTypes,
+} from '../facetedSearch.propTypes';
 
 const theme = getTheme(cssModule);
 
@@ -138,27 +142,57 @@ const sortByLabel = (rowA, rowB) => {
 	return labelA.localeCompare(labelB);
 };
 
+const getCategories = badgesDefinitions => {
+	const categories = badgesDefinitions
+		.filter(badgeDefinition => !!badgeDefinition.metadata.category)
+		.map(badgeDefinition => badgeDefinition.metadata.category);
+
+	return uniq(categories);
+};
+
+const getScreens = (badgesDefinitions, filterValue) => {
+	const categories = getCategories(badgesDefinitions);
+
+	const badgesWithoutCategory = badgesDefinitions
+		.filter(badgeDefinition => !badgeDefinition.metadata.category);
+
+	return [
+		{
+			category: null,
+			rows: [...categories, ...badgesWithoutCategory]
+				.sort(sortByLabel)
+				.filter(filterByLabel(filterValue)),
+		},
+		...categories.map(categoryName => ({
+			category: categoryName,
+			rows: badgesDefinitions
+				.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName)
+				.filter(filterByLabel(filterValue))
+				.sort(sortByLabel),
+		})),
+	];
+};
+
 const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onClick, t }) => {
 	const addFacetId = `${id}-add-facet-popover`;
 
 	const [category, setCategory] = useState(null);
-	const [filterValue, setFilterValue] = useState(initialFilterValue || '')
-
-	const categories = useMemo(
-		() =>
-			badgesDefinitions
-				.filter(badgeDefinition => !!badgeDefinition.metadata.category)
-				.map(badgeDefinition => badgeDefinition.metadata.category)
-				.filter((categoryName, index, arr) => arr.indexOf(categoryName) === index),
-		[badgesDefinitions],
+	const [filterValue, setFilterValue] = useState(initialFilterValue || '');
+	const getScreensMemo = useCallback(
+		() => getScreens(badgesDefinitions, filterValue),
+		[badgesDefinitions, filterValue],
 	);
+	const screens = getScreensMemo();
+	const currentCategoryScreenIndex = screens.findIndex(screen => screen.category === category);
 
-	const screensCount = categories.length + 1;
-	const [screensHeight, setScreensHeight] = useState(times(screensCount, constant(0)));
-	const screensRef = useRef(times(screensCount, createRef));
+	const [screensHeight, setScreensHeight] = useState(times(screens.length, constant(0)));
+	const screensRef = useRef(times(screens.length, createRef));
 
 	useEffect(() => {
-		setScreensHeight(times(screensCount, index => screensRef.current[index].current.clientHeight));
+		setScreensHeight(times(
+			screens.length,
+			index => screensRef.current[index].current.clientHeight,
+		));
 	}, []);
 
 	const onFilter = (_, value) => {
@@ -171,37 +205,6 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 		resetFilter();
 	};
 
-	const badgesWithoutCategory = useMemo(
-		() =>
-			badgesDefinitions.filter(badgeDefinition => !badgeDefinition.metadata.category),
-		[badgesDefinitions],
-	);
-
-	const screens = [
-		{
-			category: null,
-			rows: useMemo(
-				() =>
-					[...categories, ...badgesWithoutCategory]
-						.sort(sortByLabel)
-						.filter(filterByLabel(filterValue)),
-				[badgesDefinitions, filterValue]
-			),
-		},
-		...categories.map(categoryName => ({
-			category: categoryName,
-			rows: useMemo(
-				() => badgesDefinitions
-					.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName)
-					.filter(filterByLabel(filterValue))
-					.sort(sortByLabel),
-				[filterValue]
-			),
-		})),
-	];
-
-	const categoryScreenIndex = screens.findIndex(screen => screen.category === category);
-
 	return (
 		<div
 			id={addFacetId}
@@ -211,7 +214,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 				id={addFacetId}
 				className={theme('tc-add-facet-popover-container')}
 				style={{
-					height: screensHeight[categoryScreenIndex],
+					height: screensHeight[currentCategoryScreenIndex],
 				}}
 			>
 				{screens.map((screen, index) => (
