@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
 
 import bootstrap, * as internals from '../src/bootstrap';
@@ -52,6 +54,7 @@ jest.mock('../src/store', () => ({
 describe('bootstrap', () => {
 	beforeEach(() => {
 		onError.bootstrap.mockClear();
+		ReactDOM.render.mockClear();
 	});
 	describe('error management', () => {
 
@@ -187,6 +190,17 @@ describe('bootstrap', () => {
 				},
 			};
 			bootstrap(options);
+		});
+		it('should bootstrap in element', () => {
+			const div = document.createElement('div');
+			const options = {
+				root: div,
+			};
+			expect(ReactDOM.render).not.toHaveBeenCalled();
+			bootstrap(options);
+			expect(ReactDOM.render).toHaveBeenCalled();
+			const args = ReactDOM.render.mock.calls[0];
+			expect(args[1]).toBe(div);
 		});
 	});
 });
