@@ -9,6 +9,7 @@ import {
 	badgeConnectionType,
 	badgeName,
 	badgePrice,
+	badgeEnumWithLotOfValues,
 	badgeWithVeryLongName,
 } from './badgesDefinitions.story';
 
@@ -19,6 +20,52 @@ while (i < 50) {
 	lotsOfBadgesDefinitions.push(badgeName);
 	i += 1;
 }
+
+const badgesFaceted = {
+	badges: [
+		{
+			properties: {
+				attribute: 'connection.type',
+				initialOperatorOpened: false,
+				initialValueOpened: false,
+				label: 'Connection Type',
+				operator: {
+					label: 'In',
+					name: 'in',
+				},
+				operators: [
+					{
+						label: 'In',
+						name: 'in',
+					},
+				],
+				type: 'checkbox',
+				value: [
+					{
+						id: 'amazon_s3',
+						label: 'Amazon S3',
+						checked: true,
+					},
+				],
+			},
+			metadata: {
+				badgePerFacet: '1',
+				entitiesPerBadge: 'N',
+				values: [
+					{ id: 'amazon_s3', label: 'Amazon S3' },
+					{ id: 'hdfs', label: 'HDFS' },
+					{ id: 'kafka', label: 'Kafka' },
+					{ id: 'localcon', label: 'Local connection' },
+					{ id: 'salesforce', label: 'Salesforce' },
+					{ id: 'aws_kinesis', label: 'AWS kinesis' },
+				],
+				operators: ['in'],
+				badgeId: 'connection.type-9f0e5bc7-c687-4198-9635-d0fc7724dfd1',
+				isInCreation: false,
+			},
+		},
+	],
+};
 
 const paddingLeft = { paddingLeft: '10px' };
 
@@ -63,6 +110,25 @@ storiesOf('FacetedSearch', module)
 			</FacetedSearch.Faceted>
 		</div>
 	))
+	.add('initialized', () => (
+		<div>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				{currentFacetedMode =>
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+						<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+					)) ||
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+						<FacetedSearch.BasicSearch
+							badgesDefinitions={badgesDefinitions}
+							badgesFaceted={badgesFaceted}
+							onSubmit={action('onSubmit')}
+						/>
+					))
+				}
+			</FacetedSearch.Faceted>
+		</div>
+	))
 	.add('basic search with lots of badges definitions', () => (
 		<div style={{ height: '5.5rem' }}>
 			<IconsProvider />
@@ -80,6 +146,17 @@ storiesOf('FacetedSearch', module)
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeWithVeryLongName, badgeConnectionType, badgeName, badgePrice]}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('basic search in a badge with a lot of values', () => (
+		<div style={{ height: '5.5rem' }}>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={[badgeEnumWithLotOfValues]}
 					onSubmit={action('onSubmit')}
 				/>
 			</FacetedSearch.Faceted>

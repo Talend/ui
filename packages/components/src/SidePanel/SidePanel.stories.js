@@ -1,8 +1,8 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
-import { LanguageSwitcher } from '../../stories/config/i18n';
 import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
@@ -120,12 +120,19 @@ const stories = storiesOf('Navigation/SidePanel', module);
 stories
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))
-	.add('default', () => (
+	.add('uncontrolled', () => (
+		<SidePanel
+			id="context"
+			actions={actions}
+			onSelect={action('onItemSelect')}
+			tooltipPlacement="top"
+		/>
+	))
+	.add('controlled', () => (
 		<SidePanel
 			id="context"
 			actions={actions}
@@ -134,22 +141,8 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
-	.add('links', () => (
-		<SidePanel
-			id="context"
-			actions={actionsLinks}
-			onToggleDock={action('onToggleDock')}
-			tooltipPlacement="top"
-		/>
-	))
-	.add('docked', () => (
-		<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-			tooltipPlacement="top"
-		/>
-	))
+	.add('links', () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />)
+	.add('docked', () => <SidePanel actions={actions} docked tooltipPlacement="top" />)
 	.add('minimised', () => (
 		<SidePanel
 			actions={actions}
@@ -162,7 +155,6 @@ stories
 		<SidePanel
 			actions={[...items, ...other, ...other, ...other]}
 			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
 			selected={items[1]}
 			tooltipPlacement="top"
 		/>
@@ -171,13 +163,12 @@ stories
 		<SidePanel
 			actions={items}
 			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
 			selected={items[1]}
 			reverse
 			tooltipPlacement="top"
 		/>
 	))
-	.add('with layout (toggle interactive)', () => {
+	.add('with layout', () => {
 		class WithLayout extends React.Component {
 			constructor() {
 				super();
@@ -185,18 +176,10 @@ stories
 			}
 
 			render() {
-				const panelItems = items.concat([
-					{
-						key: 'longname',
-						label: 'Some super super super long name',
-						icon: 'talend-world',
-					},
-				]);
 				const panel = (
 					<SidePanel
 						actions={[...items, ...other, ...other, ...other]}
 						onSelect={action('onItemSelect')}
-						onToggleDock={() => this.setState({ docked: !this.state.docked })}
 						docked={this.state.docked}
 						tooltipPlacement="top"
 					/>
@@ -215,44 +198,31 @@ stories
 
 		return <WithLayout />;
 	})
-	.add('reverse with layout (toggle interactive)', () => {
-		class WithLayout extends React.Component {
-			constructor() {
-				super();
-				this.state = { docked: false };
-			}
-
-			render() {
-				const panelItems = items.concat([
-					{
-						key: 'longname',
-						label: 'Some super super super long name',
-						icon: 'talend-world',
-					},
-				]);
-				const panel = (
-					<SidePanel
-						actions={panelItems}
-						onSelect={action('onItemSelect')}
-						onToggleDock={() => this.setState({ docked: !this.state.docked })}
-						reverse
-						docked={this.state.docked}
-						tooltipPlacement="top"
-					/>
-				);
-				return (
-					<Layout mode="TwoColumns" one={panel}>
-						<ol>
-							{new Array(100).fill('This is some random content').map((item, num) => (
-								<li key={num}>{item}</li>
-							))}
-						</ol>
-					</Layout>
-				);
-			}
-		}
-
-		return <WithLayout />;
+	.add('reverse with layout', () => {
+		const panelItems = items.concat([
+			{
+				key: 'longname',
+				label: 'Some super super super long name',
+				icon: 'talend-world',
+			},
+		]);
+		const panel = (
+			<SidePanel
+				actions={panelItems}
+				onSelect={action('onItemSelect')}
+				reverse
+				tooltipPlacement="top"
+			/>
+		);
+		return (
+			<Layout mode="TwoColumns" one={panel}>
+				<ol>
+					{new Array(100).fill('This is some random content').map((item, num) => (
+						<li key={num}>{item}</li>
+					))}
+				</ol>
+			</Layout>
+		);
 	});
 
 const appStyle = require('../../stories/config/themes.scss');
@@ -261,13 +231,7 @@ APPS_WITH_SIDEPANEL.forEach(app => {
 	stories.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
 		<div className={appStyle[app]}>
 			<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
-				<SidePanel
-					id="context"
-					actions={actions}
-					onToggleDock={action('Toggle dock clicked')}
-					docked={false}
-					tooltipPlacement="top"
-				/>
+				<SidePanel id="context" actions={actions} tooltipPlacement="top" />
 			</div>
 		</div>
 	));
@@ -280,14 +244,7 @@ stories.add('🎨 [Portal] reverse', () => (
 			Keep sidePanel reverse style even if <em>t7</em> styles are applied.
 		</p>
 		<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
-			<SidePanel
-				id="context"
-				actions={actions}
-				onToggleDock={action('Toggle dock clicked')}
-				docked={false}
-				tooltipPlacement="top"
-				reverse
-			/>
+			<SidePanel id="context" actions={actions} tooltipPlacement="top" reverse />
 		</div>
 	</div>
 ));

@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { withTranslation } from 'react-i18next';
-import { LanguageSwitcher } from '../../stories/config/i18n';
 
 import GuidedTour from './GuidedTour.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -275,11 +274,8 @@ const getLayoutWithLoremIpsum = () => (
 storiesOf('Messaging & Communication/GuidedTour', module)
 	.addDecorator(story => (
 		<React.Fragment>
-			<LanguageSwitcher />
-			<React.Fragment>
-				{story()}
-				{getLayoutWithLoremIpsum()}
-			</React.Fragment>
+			{story()}
+			{getLayoutWithLoremIpsum()}
 		</React.Fragment>
 	))
 	.add('default', () => <TranslatedGuidedTourContainer getSteps={getSteps} />);

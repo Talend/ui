@@ -4,12 +4,13 @@ exports[`Resource component snaps renderers should render a Resource with CERTIF
 <div
   aria-label="Title with few actions"
   aria-posinset={1}
-  className="resource-item theme-resource-item"
+  className="resource-item theme-resource-item theme-center"
   role="listitem"
   tabIndex="0"
 >
   <React.Fragment>
     <Icon
+      className="theme-icon"
       name="talend-file-xls-o"
     />
     <div
@@ -46,12 +47,13 @@ exports[`Resource component snaps renderers should render a Resource with FAVORI
 <div
   aria-label="Title with few actions"
   aria-posinset={1}
-  className="resource-item theme-resource-item"
+  className="resource-item theme-resource-item theme-center"
   role="listitem"
   tabIndex="0"
 >
   <React.Fragment>
     <Icon
+      className="theme-icon"
       name="talend-file-xls-o"
     />
     <div
@@ -88,12 +90,13 @@ exports[`Resource component snaps renderers should render a Resource with both C
 <div
   aria-label="Title with few actions"
   aria-posinset={1}
-  className="resource-item theme-resource-item"
+  className="resource-item theme-resource-item theme-center"
   role="listitem"
   tabIndex="0"
 >
   <React.Fragment>
     <Icon
+      className="theme-icon"
       name="talend-file-xls-o"
     />
     <div
@@ -130,12 +133,13 @@ exports[`Resource component snaps renderers should render a Resource with just a
 <div
   aria-label="Title with few actions"
   aria-posinset={1}
-  className="resource-item theme-resource-item"
+  className="resource-item theme-resource-item theme-center"
   role="listitem"
   tabIndex="0"
 >
   <React.Fragment>
     <Icon
+      className="theme-icon"
       name="talend-file-xls-o"
     />
     <div
@@ -173,7 +177,7 @@ exports[`Resource component snaps renderers should render a Resource without ico
 <div
   aria-label="Title with few actions"
   aria-posinset={1}
-  className="resource-item theme-resource-item"
+  className="resource-item theme-resource-item theme-center"
   role="listitem"
   tabIndex="0"
 >
@@ -212,12 +216,13 @@ exports[`Resource component snaps renderers should render a regular Resource 1`]
 <div
   aria-label="Title with few actions"
   aria-posinset={1}
-  className="resource-item theme-resource-item"
+  className="resource-item theme-resource-item theme-center"
   role="listitem"
   tabIndex="0"
 >
   <React.Fragment>
     <Icon
+      className="theme-icon"
       name="talend-file-xls-o"
     />
     <div

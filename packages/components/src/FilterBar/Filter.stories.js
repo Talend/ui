@@ -39,6 +39,10 @@ const propsNoDockToggle = {
 	highlight: false,
 };
 
+const propsDisabled = Object.assign({}, propsDockToggle, {
+	disabled: true,
+});
+
 const divStyle = {
 	width: '30rem',
 };
@@ -67,5 +71,14 @@ storiesOf('Form/Inline form/FilterBar', module)
 			<IconsProvider />
 			<p>When not docked and no dockable take full width</p>
 			<FilterBar {...propsNoDockToggle} />
+		</div>
+	))
+	.add('disabled input', () => (
+		<div style={divStyle}>
+			<IconsProvider />
+			<p>With the input filter disable</p>
+			<ActionBar>
+				<FilterBar {...propsDisabled} />
+			</ActionBar>
 		</div>
 	));

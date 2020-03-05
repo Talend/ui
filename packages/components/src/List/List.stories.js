@@ -9,7 +9,6 @@ import cloneDeep from 'lodash/cloneDeep';
 
 import List from './List.component';
 import IconsProvider from '../IconsProvider';
-import { LanguageSwitcher } from '../../stories/config/i18n';
 import { columnChooserService } from '../List/Toolbar/ColumnChooserButton';
 
 function MyCustomRow(props) {
@@ -594,7 +593,6 @@ const itemsForListWithIcons = [
 storiesOf('Data/List/List', module)
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>

@@ -42,6 +42,9 @@ AddFacetRow.propTypes = {
 const filterByLabel = label => badgeDefinition =>
 	badgeDefinition.properties.label.toLowerCase().includes(label);
 
+const sortByLabel = (badgeDefinitionA, badgeDefinitionB) =>
+	badgeDefinitionA.properties.label.localeCompare(badgeDefinitionB.properties.label);
+
 const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onClick, t }) => {
 	const [filterValue, setFilterValue] = useState(initialFilterValue || '');
 	const onFilter = (_, value) => {
@@ -49,7 +52,8 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	};
 	const resetFilter = () => setFilterValue('');
 	const badgesDefinitionsFaceted = useMemo(
-		() => badgesDefinitions.filter(filterByLabel(filterValue.toLowerCase().trim())),
+		() =>
+			badgesDefinitions.filter(filterByLabel(filterValue.toLowerCase().trim())).sort(sortByLabel),
 		[badgesDefinitions, filterValue],
 	);
 	const addFacetId = `${id}-add-facet-popover`;
@@ -71,6 +75,13 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 					value={filterValue}
 				/>
 				<div className={theme('tc-add-facet-popover-row-container')}>
+					{filterValue !== '' && !badgesDefinitionsFaceted.length && (
+						<span className={theme('tc-add-facet-popover-filter-empty')}>
+							{t('ADD_FACET_FILTER_NO_RESULT', {
+								defaultValue: 'No result found',
+							})}
+						</span>
+					)}
 					{badgesDefinitionsFaceted.map(badgeDefinition => (
 						<AddFacetRow
 							badgeDefinition={badgeDefinition}

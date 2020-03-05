@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 import AboutDialog from './AboutDialog.component';
 import IconsProvider from '../IconsProvider';
 import { getColumnHeaders } from './AboutDialogTable.component';
-import { LanguageSwitcher } from '../../stories/config/i18n';
 
 const props = {
 	show: true,
@@ -52,7 +51,6 @@ const { name, version } = getColumnHeaders();
 storiesOf('Layout/Modals/AboutModal', module)
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
 			<IconsProvider />
 			<h1>AboutDialog</h1>
 			{story()}

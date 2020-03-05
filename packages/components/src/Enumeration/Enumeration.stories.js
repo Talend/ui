@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 
 import IconsProvider from '../IconsProvider';
 import Enumeration from './Enumeration.component';
-import i18n from '../../stories/config/i18n';
 
 import theme from './Enumeration.stories.scss';
 
@@ -304,15 +303,6 @@ storiesOf('Form/Controls/Enumeration', module)
 			<p>By default :</p>
 			<IconsProvider />
 			<Enumeration {...headerDisabled} />
-		</div>
-	))
-	.add('default - empty list with i18n', () => (
-		<div>
-			<p>Empty list by default:</p>
-			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-			<button onClick={() => i18n.changeLanguage('it')}>it</button>
-			<IconsProvider />
-			<Enumeration {...defaultEmptyListProps} />
 		</div>
 	))
 	.add('default - empty list', () => (

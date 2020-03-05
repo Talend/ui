@@ -26,6 +26,17 @@ Types of changes
 
 ## [unreleased]
 
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2675): Empty screen text for search on badges list
+
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2665): sort alphabetically facets
+- [fixed](https://github.com/Talend/ui/pull/2662): values open up at start
+- [fixed](https://github.com/Talend/ui/pull/2666): Put a scrollbar for enum badge with a lot of values
+- [fixed](https://github.com/Talend/ui/pull/2676): Do not alter the filter input in checkboxes badge
+
 ## [0.3.0]
 
 ### Breaking change

@@ -175,7 +175,6 @@ export const pipelines = [
 ];
 
 const commonProps = {
-	rowHeight: 85,
 	onRowClick: action('onRowClick'),
 };
 

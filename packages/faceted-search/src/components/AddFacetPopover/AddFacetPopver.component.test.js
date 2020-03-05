@@ -107,4 +107,23 @@ describe('AddFacetPopover', () => {
 		// Then
 		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[0]);
 	});
+	it('should render an empty state when filter return no result', () => {
+		// Given
+		const props = {
+			badgesDefinitions,
+			id: 'my-id',
+			onClick: jest.fn(),
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+		// Then
+		act(() => {
+			wrapper.find('input').simulate('change', { target: { value: 'aaaaaaaaaa' } });
+		});
+		wrapper.update();
+		expect(wrapper.find('button.tc-add-facet-popover-row')).toHaveLength(0);
+		expect(wrapper.find('span')).toHaveLength(1);
+		expect(wrapper.find('span').text()).toBe('No result found');
+	});
 });

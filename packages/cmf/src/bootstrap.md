@@ -22,6 +22,7 @@ cmf.bootstrap({
 | name | type | default | description |
 | -- | -- | -- | -- |
 | settingsURL | string | '/settings.json' | REQUIRED This URL to fetch the cmf settings.json file |
+| root | HTMLElement | document.getElementById(appId) | DOM element where to render the React application |
 | appId | string | 'app' | DOM element id, where to render the React application |
 | components | Object | undefined | A components dictionary where each key/value are registered in cmf registry so you can refer them in settings |
 | actionCreators | Object | undefined | Same as `components` |

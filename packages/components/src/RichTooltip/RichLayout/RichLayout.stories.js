@@ -200,11 +200,7 @@ storiesOf('Layout/RichLayout', module)
 					<RichLayout
 						id="richlayout"
 						Header={header}
-						Content={
-							<div style={{ width: '100%', height: '30rem' }}>
-								<FilteredResourceList isLoading />
-							</div>
-						}
+						Content={<FilteredResourceList isLoading />}
 					/>
 				}
 				overlayPlacement="bottom"
@@ -221,11 +217,7 @@ storiesOf('Layout/RichLayout', module)
 					<RichLayout
 						id="richlayout"
 						Header={header}
-						Content={
-							<div style={{ width: '100%', height: '30rem' }}>
-								<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
-							</div>
-						}
+						Content={<FilteredResourceList collection={pipelines} renderAs={Pipeline} />}
 					/>
 				}
 				overlayPlacement="bottom"
