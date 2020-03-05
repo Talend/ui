@@ -92,7 +92,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     role="button"
     title={
       Array [
-        null,
         <span
           className="tc-dropdown-button-title-label"
         >
@@ -185,6 +184,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                   </span>
                   <Icon
                     className="theme-tc-dropdown-caret"
+                    key="caret"
                     name="talend-caret-down"
                   >
                     <svg
@@ -267,6 +267,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                           title="document 1"
                         >
                           <Icon
+                            key="icon"
                             name="talend-icon"
                           >
                             <svg
@@ -356,7 +357,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
   role="button"
   title={
     Array [
-      null,
       <span
         className="tc-dropdown-button-title-label"
       >
@@ -449,6 +449,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
                 </span>
                 <Icon
                   className="theme-tc-dropdown-caret"
+                  key="caret"
                   name="talend-caret-down"
                 >
                   <svg
@@ -531,6 +532,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
                         title="document 1"
                       >
                         <Icon
+                          key="icon"
                           name="talend-icon"
                         >
                           <svg
@@ -725,6 +727,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
                 </span>
                 <Icon
                   className="theme-tc-dropdown-caret"
+                  key="caret"
                   name="talend-caret-down"
                 >
                   <svg
@@ -807,6 +810,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
                         title="document 1"
                       >
                         <Icon
+                          key="icon"
                           name="talend-icon"
                         >
                           <svg
@@ -906,7 +910,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
       <Icon
         name="fa fa-file-excel-o"
       />,
-      null,
       <Icon
         className="theme-tc-dropdown-caret"
         name="talend-caret-down"
@@ -1017,6 +1020,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
                 </Icon>
                 <Icon
                   className="theme-tc-dropdown-caret"
+                  key="caret"
                   name="talend-caret-down"
                 >
                   <svg
@@ -1099,6 +1103,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
                         title="document 1"
                       >
                         <Icon
+                          key="icon"
                           name="talend-icon"
                         >
                           <svg
@@ -1244,6 +1249,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
               title="document 1"
             >
               <Icon
+                key="icon"
                 name="talend-icon"
               >
                 <svg
@@ -1350,7 +1356,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
     role="button"
     title={
       Array [
-        null,
         <span
           className="tc-dropdown-button-title-label"
         >
@@ -1443,6 +1448,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                   </span>
                   <Icon
                     className="theme-tc-dropdown-caret"
+                    key="caret"
                     name="talend-caret-down"
                   >
                     <svg
@@ -1525,6 +1531,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                           title="document 1"
                         >
                           <Icon
+                            key="icon"
                             name="talend-icon"
                           >
                             <svg
@@ -1739,6 +1746,7 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
               title="document 1"
             >
               <Icon
+                key="icon"
                 name="talend-icon"
               >
                 <svg

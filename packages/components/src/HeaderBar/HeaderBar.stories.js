@@ -365,7 +365,6 @@ decoratedStories
 				pullRight: true,
 				noCaret: true,
 				tooltipPlacement: 'bottom',
-				displayMode: 'dropdown',
 				items: [
 					{
 						label: 'Guided tour',
@@ -397,7 +396,7 @@ decoratedStories
 				logo={props.logo}
 				brand={props.brand}
 				{...props}
-				intercom={{ id: 'intercom', config: { app_id: 'j9pqsz4w' } }}
+				intercom={{ id: 'intercom', config: { app_id: 'j9pqsz4w', email: 'toto@gmail.com' } }}
 			/>
 		),
 		{ info: { styles: infoStyle } },

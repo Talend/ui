@@ -26,6 +26,7 @@ const actions = [
 		inProgress: true,
 	},
 	{
+		id: 'dropdown',
 		displayMode: 'dropdown',
 		label: 'related items',
 		icon: 'fa fa-file-excel-o',
@@ -69,17 +70,9 @@ storiesOf('Buttons/ButtonGroup', module).add('default', () => (
 		<div id="default">
 			<Actions actions={actions} />
 		</div>
-		<p>With hideLabel option</p>
-		<div id="hidelabel">
-			<Actions actions={actions} hideLabel />
-		</div>
 		<p>Vertical</p>
 		<div id="vertical">
 			<Actions actions={actions} vertical />
-		</div>
-		<p>Vertical with hideLabel</p>
-		<div id="vhidelabel">
-			<Actions actions={actions} placement="right" hideLabel vertical />
 		</div>
 	</div>
 ));

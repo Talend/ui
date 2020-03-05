@@ -18,6 +18,6 @@ const decoratedStories = storiesOf(
 ).addDecorator(story => <div style={containerStyle}>{story()}</div>);
 
 decoratedStories
-	.add('default', () => <Loader />)
 	.add('small', () => <Loader size={SIZE.small} />)
+	.add('default', () => <Loader />)
 	.add('large', () => <Loader size={SIZE.large} />);

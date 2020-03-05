@@ -62,6 +62,7 @@ const statusSkeletonHeader = [
 	{
 		displayMode: 'status',
 		status: 'skeleton',
+		label: 'Loading',
 	},
 	{
 		displayMode: 'badge',

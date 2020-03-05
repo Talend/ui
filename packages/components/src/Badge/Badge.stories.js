@@ -11,7 +11,7 @@ const defaultStyle = {
 };
 
 const greyBackgroundStyle = {
-	'background-color': 'rgba(246, 246, 246, 0.5)',
+	backgroundColor: 'rgba(246, 246, 246, 0.5)',
 };
 
 const columnStyle = {

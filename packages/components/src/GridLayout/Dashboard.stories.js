@@ -20,7 +20,7 @@ export const customSkeletonConf = [
 	{ key: 'skel1', 'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'skel1' } },
 ];
 
-function TdsTileContent() {
+function TdsTileContent({ id }) {
 	const { displayMode = 'chart', setDisplayMode } = Tile.useTileContext();
 
 	const submitAction = {
@@ -37,7 +37,7 @@ function TdsTileContent() {
 					<div>
 						'my chart'
 						<InputDateTimePicker
-							id="my-date-picker"
+							id={id}
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
@@ -90,14 +90,13 @@ function ViewSelector() {
 
 	return (
 		<div style={{ display: 'flex' }}>
-			{[addItemAction, filterAction].map(action => (
-				<ActionIconToggle {...action} />
-			))}
+			<ActionIconToggle {...addItemAction} />
+			<ActionIconToggle {...filterAction} />
 		</div>
 	);
 }
 
-function ChartTile({ tile }) {
+function ChartTile({ tile, id }) {
 	// tile.header.actions construct the action depending of the tile header props
 
 	return (
@@ -109,7 +108,7 @@ function ChartTile({ tile }) {
 				</Tile.Header>
 			) : null}
 			<Tile.Body>
-				<TdsTileContent />
+				<TdsTileContent id={id} />
 			</Tile.Body>
 		</Tile.Container>
 	);
@@ -187,7 +186,7 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 			>
 				{tiles.map(tile => (
 					<div key={tile.key} data-grid={tile['data-grid']}>
-						<ChartTile tile={tile} />
+						<ChartTile tile={tile} id={tile.key} />
 					</div>
 				))}
 

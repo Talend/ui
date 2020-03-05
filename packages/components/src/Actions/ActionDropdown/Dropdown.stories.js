@@ -108,6 +108,7 @@ const withComponents = {
 				component: 'FilterBar',
 				label: 'Second item',
 				'data-feature': 'actiondropdown.items',
+				onFilter: action('onFilter'),
 			},
 		],
 	},

@@ -22,10 +22,10 @@ storiesOf('Design Principles/Loading Feedback/Spinner', module).add('default', (
 			<CircularProgress light size="large" />
 		</div>
 		<h3>Small with percent</h3>
-		<CircularProgress size="small" percent="30" />
+		<CircularProgress size="small" percent={30} />
 		<h3>Normal with percent</h3>
-		<CircularProgress size="default" percent="50" />
+		<CircularProgress size="default" percent={50} />
 		<h3>Large with percent</h3>
-		<CircularProgress size="large" percent="70" />
+		<CircularProgress size="large" percent={70} />
 	</div>
 ));

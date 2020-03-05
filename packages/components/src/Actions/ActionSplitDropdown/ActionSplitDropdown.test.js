@@ -27,7 +27,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -72,7 +72,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -90,7 +90,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -119,7 +119,7 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const actionSplitDropdownInstance = mount(<ActionSplitDropdown.WrappedComponent {...props} />);
+		const actionSplitDropdownInstance = mount(<ActionSplitDropdown {...props} />);
 		const menuItems = actionSplitDropdownInstance.find('MenuItem');
 
 		menuItems

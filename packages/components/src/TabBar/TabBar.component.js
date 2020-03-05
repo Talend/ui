@@ -84,7 +84,10 @@ function TabBar(props) {
 			if (event) {
 				event.preventDefault();
 			}
-			onSelect(event, props.items.find(({ key }) => selectedKey === key));
+			onSelect(
+				event,
+				props.items.find(({ key }) => selectedKey === key),
+			);
 		}
 	}
 
@@ -122,6 +125,7 @@ function TabBar(props) {
 		return (
 			<React.Fragment>
 				<ActionDropdown
+					id={id}
 					className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
 					label={selectedItem.label}
 					icon={selectedItem.icon && selectedItem.icon.name}
@@ -195,7 +199,7 @@ TabBar.propTypes = {
 			id: PropTypes.string,
 			key: PropTypes.any.isRequired,
 			label: PropTypes.string.isRequired,
-			icon: PropTypes.string,
+			icon: PropTypes.object,
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,

@@ -44,6 +44,7 @@ const actions = {
 			emptyDropdownLabel: 'No option',
 		},
 		{
+			id: 'dropdown',
 			displayMode: ActionBar.DISPLAY_MODES.DROPDOWN,
 			label: 'Dropdown',
 			icon: 'talend-cog',
@@ -57,7 +58,6 @@ const actions = {
 					onClick: action('From Remote click'),
 				},
 			],
-			emptyDropdownLabel: 'No option',
 		},
 	],
 	right: [

@@ -100,13 +100,8 @@ const InteractiveTabs = props => {
 
 const InteractiveResponsiveTabs = props => {
 	const [selectedKey, setSelectedKey] = useState('2');
-
 	return (
-		<TabBar
-			{...props}
-			selectedKey={selectedKey}
-			onSelect={(event, item) => setSelectedKey(item.key)}
-		>
+		<TabBar {...props} selectedKey={selectedKey} onSelect={(_, item) => setSelectedKey(item.key)}>
 			I'm the child of responsive tab {selectedKey}
 		</TabBar>
 	);
@@ -153,7 +148,9 @@ stories
 				But you can customize the ids.
 				<br />
 				The generated id will be passed to the panel as aria-describedby.
-				<pre>{`
+			</p>
+
+			<pre>{`
 function generateChildId(key, kind) {
 	if (kind === 'tab') {
 		return \`my-custom-id-\${key}\`;
@@ -167,7 +164,6 @@ function generateChildId(key, kind) {
 	I'm the child
 </TabBar>
 				`}</pre>
-			</p>
 			<div id="customId">
 				<TabBar {...tabProps} generateChildId={generateChildId}>
 					I'm the child

@@ -105,22 +105,18 @@ const tabs = {
 	id: 'tabs',
 	items: [
 		{
-			id: '1',
 			key: 'info',
 			label: 'Info',
 		},
 		{
-			id: '2',
 			key: 'navigator',
 			label: 'Navigator',
 		},
 		{
-			id: '3',
 			key: 'profile',
 			label: 'Profile',
 		},
 		{
-			id: '4',
 			key: 'metrics',
 			label: 'Metrics',
 		},
@@ -133,7 +129,6 @@ const tabsActionFooter = {
 	id: 'tabs',
 	items: [
 		{
-			id: '1',
 			key: 'info',
 			label: 'Info',
 			footerActions: {
@@ -163,7 +158,6 @@ const tabsActionFooter = {
 			},
 		},
 		{
-			id: '2',
 			key: 'navigator',
 			label: 'Navigator',
 			footerActions: {
@@ -273,7 +267,7 @@ const drawersNoTransition = [
 	</Drawer>,
 ];
 
-const sidePanel = <SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} />;
+const sidePanel = <SidePanel actions={actions} />;
 const twentyRows = [];
 for (let index = 0; index < 20; index++) {
 	twentyRows.push(<p key={index}>The content dictate the width</p>);
@@ -394,53 +388,55 @@ storiesOf('Layout/Drawer', module)
 		);
 	})
 	.add('Custom', () => {
-		const customDrawers = [
-			<Drawer.Container>
-				<Tab.Container defaultActiveKey="info">
-					<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-						<Drawer.Title
-							title="Custom drawer with tabs and a super long name that breaks the drawer title"
-							onCancelAction={onCancelAction}
-						>
-							<Nav bsClass="nav nav-tabs">
-								<NavItem componentClass="button" eventKey="info">
-									Info
-								</NavItem>
-								<NavItem componentClass="button" eventKey="navigator">
-									Navigator
-								</NavItem>
-								<NavItem componentClass="button" eventKey="profile">
-									Profile
-								</NavItem>
-								<NavItem componentClass="button" eventKey="metrics">
-									Metrics
-								</NavItem>
-							</Nav>
-						</Drawer.Title>
-						<Tab.Content animation>
-							<Tab.Pane eventKey="info">
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer>Test</Drawer.Footer>
-							</Tab.Pane>
-							<Tab.Pane eventKey="navigator">
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer />
-							</Tab.Pane>
-							<Tab.Pane eventKey="profile">
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer />
-							</Tab.Pane>
-							<Tab.Pane eventKey="metrics">
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer />
-							</Tab.Pane>
-						</Tab.Content>
-					</div>
-				</Tab.Container>
-			</Drawer.Container>,
-		];
+		function CustomDrawer() {
+			return (
+				<Drawer.Container>
+					<Tab.Container defaultActiveKey="info" id="custom">
+						<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+							<Drawer.Title
+								title="Custom drawer with tabs and a super long name that breaks the drawer title"
+								onCancelAction={onCancelAction}
+							>
+								<Nav bsClass="nav nav-tabs">
+									<NavItem componentClass="button" eventKey="info">
+										Info
+									</NavItem>
+									<NavItem componentClass="button" eventKey="navigator">
+										Navigator
+									</NavItem>
+									<NavItem componentClass="button" eventKey="profile">
+										Profile
+									</NavItem>
+									<NavItem componentClass="button" eventKey="metrics">
+										Metrics
+									</NavItem>
+								</Nav>
+							</Drawer.Title>
+							<Tab.Content animation>
+								<Tab.Pane eventKey="info">
+									<Drawer.Content>{scrollableContent()}</Drawer.Content>
+									<Drawer.Footer>Test</Drawer.Footer>
+								</Tab.Pane>
+								<Tab.Pane eventKey="navigator">
+									<Drawer.Content>{scrollableContent()}</Drawer.Content>
+									<Drawer.Footer />
+								</Tab.Pane>
+								<Tab.Pane eventKey="profile">
+									<Drawer.Content>{scrollableContent()}</Drawer.Content>
+									<Drawer.Footer />
+								</Tab.Pane>
+								<Tab.Pane eventKey="metrics">
+									<Drawer.Content>{scrollableContent()}</Drawer.Content>
+									<Drawer.Footer />
+								</Tab.Pane>
+							</Tab.Content>
+						</div>
+					</Tab.Container>
+				</Drawer.Container>
+			);
+		}
 		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={customDrawers}>
+			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
@@ -449,26 +445,28 @@ storiesOf('Layout/Drawer', module)
 	.add('Custom stacked', () => {
 		// Use same cancel action props with className for Title and Footer
 		const sameCancelAction = panelActions.left[0];
-		const customDrawers = [
-			<Drawer.Container stacked>
-				<Tab.Container defaultActiveKey="info">
-					<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-						<Drawer.Title
-							title="Custom drawer with tabs and a super long name that breaks the drawer title"
-							onCancelAction={sameCancelAction}
-						/>
-						<Tab.Content>
-							<Drawer.Content>{scrollableContent()}</Drawer.Content>
-							<Drawer.Footer>
-								<ActionBar actions={panelActions} />
-							</Drawer.Footer>
-						</Tab.Content>
-					</div>
-				</Tab.Container>
-			</Drawer.Container>,
-		];
+		function CustomDrawer() {
+			return (
+				<Drawer.Container stacked>
+					<Tab.Container defaultActiveKey="info" id="info">
+						<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+							<Drawer.Title
+								title="Custom drawer with tabs and a super long name that breaks the drawer title"
+								onCancelAction={sameCancelAction}
+							/>
+							<Tab.Content>
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
+								<Drawer.Footer>
+									<ActionBar actions={panelActions} />
+								</Drawer.Footer>
+							</Tab.Content>
+						</div>
+					</Tab.Container>
+				</Drawer.Container>
+			);
+		}
 		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={customDrawers}>
+			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
 				<IconsProvider defaultIcons={icons} />
 			</Layout>

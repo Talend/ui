@@ -97,6 +97,7 @@ storiesOf('Layout/RichLayout', module)
 		<div>
 			<Action
 				id="default"
+				overlayId="default-overlay"
 				overlayComponent={
 					<RichLayout id="richlayout" Header={header} text={shortLoreum} Footer={footer} />
 				}
@@ -110,6 +111,7 @@ storiesOf('Layout/RichLayout', module)
 		<div>
 			<Action
 				id="default"
+				overlayId="default-overlay"
 				overlayComponent={
 					<RichLayout
 						id="richlayout"
@@ -128,6 +130,7 @@ storiesOf('Layout/RichLayout', module)
 		<div>
 			<Action
 				id="default"
+				overlayId="default-overlay"
 				overlayComponent={<RichLayout id="richlayout" Header={header} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
@@ -139,6 +142,7 @@ storiesOf('Layout/RichLayout', module)
 		<div>
 			<Action
 				id="loading"
+				overlayId="loading-overlay"
 				overlayComponent={<RichLayout id="richlayout" Content={<CircularProgress />} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
@@ -150,6 +154,7 @@ storiesOf('Layout/RichLayout', module)
 		<div>
 			<Action
 				id="error"
+				overlayId="error-overlay"
 				overlayComponent={
 					<RichLayout id="richlayout" Content={<RichError title="Whoops!" error="One error." />} />
 				}
@@ -164,6 +169,7 @@ storiesOf('Layout/RichLayout', module)
 			<p>with a short text</p>
 			<Action
 				id="short-text"
+				overlayId="short-text-overlay"
 				overlayComponent={<RichLayout id="richlayout" text={shortLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
@@ -172,6 +178,7 @@ storiesOf('Layout/RichLayout', module)
 			<p>with a long text</p>
 			<Action
 				id="body-long-text"
+				overlayId="body-long-text-overlay"
 				overlayComponent={<RichLayout id="richlayout" text={LongLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
@@ -183,6 +190,7 @@ storiesOf('Layout/RichLayout', module)
 		<div>
 			<Action
 				id="custom-body"
+				overlayId="custom-body-overlay"
 				overlayComponent={
 					<RichLayout id="richlayout" Header={header} Content={customBody} Footer={footer} />
 				}
@@ -196,6 +204,7 @@ storiesOf('Layout/RichLayout', module)
 		<div>
 			<Action
 				id="custom-body"
+				overlayId="custom-body-overlay"
 				overlayComponent={
 					<RichLayout
 						id="richlayout"
@@ -213,6 +222,7 @@ storiesOf('Layout/RichLayout', module)
 		<div>
 			<Action
 				id="custom-body"
+				overlayId="custom-body-overlay"
 				overlayComponent={
 					<RichLayout
 						id="richlayout"
