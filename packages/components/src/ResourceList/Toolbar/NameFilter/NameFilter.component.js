@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import { useTranslation } from 'react-i18next';
-import { useKey } from 'react-use';
+import useKey from 'react-use/lib/useKey';
 
 import { Action } from '../../../Actions';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
