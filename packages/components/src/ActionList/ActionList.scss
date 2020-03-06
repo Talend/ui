@@ -27,8 +27,6 @@ $tc-action-list-item-border-size: 0.2rem !default;
 				> span {
 					margin-left: $padding-normal;
 					vertical-align: middle;
-					text-overflow: ellipsis;
-					overflow: hidden;
 					transition: 0.1s opacity ease-out;
 				}
 			}
