@@ -30,7 +30,7 @@
     "test:extra": "yarn test:html-webpack-plugin && yarn test:logging",
     "test:html-webpack-plugin": "cd packages/html-webpack-plugin && yarn && yarn test",
     "test:logging": "cd packages/logging && yarn && yarn test",
-    "start": "start-storybook -p 6006",
+    "start": "yarn storybook",
     "start-components": "cd packages/components && yarn start",
     "start-containers": "cd packages/containers && yarn start",
     "start-datagrid": "cd packages/datagrid && yarn start",
