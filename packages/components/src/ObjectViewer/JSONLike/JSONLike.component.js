@@ -133,18 +133,6 @@ export class LineItem extends React.Component {
 		const isSelectedLine = this.isSelected();
 
 		const lineClass = classNames(theme.line, { [theme['full-width']]: isValueOverflown });
-
-		const lineChildren = [
-			getName(name),
-			value,
-			type && (
-				<div key="type" className={`tc-object-viewer-line-type ${theme.type}`}>
-					({type})
-				</div>
-			),
-			badge,
-			tag,
-		];
 		return (
 			<li // eslint-disable-line jsx-a11y/no-static-element-interactions
 				id={id}
@@ -174,7 +162,15 @@ export class LineItem extends React.Component {
 							[theme['shrink-value']]: isValueOverflown,
 						})}
 					>
-						{lineChildren}
+						{getName(name)}
+						{value}
+						{type && (
+							<div key="type" className={`tc-object-viewer-line-type ${theme.type}`}>
+								({type})
+							</div>
+						)}
+						{badge}
+						{tag}
 					</div>
 				</div>
 				{children}

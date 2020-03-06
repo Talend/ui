@@ -581,13 +581,19 @@ stories
 	.add('table default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="table" />
+			<ObjectViewer id={'my-viewer'} data={data} displayMode="table" title="Table data" />
 		</div>
 	))
 	.add('table with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handler} displayMode="table" />
+			<ObjectViewer
+				id={'my-viewer'}
+				data={data}
+				{...handler}
+				displayMode="table"
+				title="Table data"
+			/>
 		</div>
 	))
 	.add('table with long text', () => {
@@ -598,32 +604,55 @@ stories
 		return (
 			<div>
 				<IconsProvider defaultIcons={icons} />
-				<ObjectViewer id={'my-viewer'} data={enhancedData} {...handler} displayMode="table" />
+				<ObjectViewer
+					id={'my-viewer'}
+					data={enhancedData}
+					{...handler}
+					displayMode="table"
+					title="Table data"
+				/>
 			</div>
 		);
 	})
 	.add('flat default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="flat" />
+			<ObjectViewer id={'my-viewer'} data={data} displayMode="flat" title="Table data" />
 		</div>
 	))
 	.add('flat default with schema', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={{ dataset: data, schema }} displayMode="flat" />
+			<ObjectViewer
+				id={'my-viewer'}
+				data={{ dataset: data, schema }}
+				displayMode="flat"
+				title="Table data"
+			/>
 		</div>
 	))
 	.add('flat with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handler} displayMode="flat" />
+			<ObjectViewer
+				id={'my-viewer'}
+				data={data}
+				{...handler}
+				displayMode="flat"
+				title="Table data"
+			/>
 		</div>
 	))
 	.add('flat with complex nested data', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={moreComplexDataShape} {...handler} displayMode="flat" />
+			<ObjectViewer
+				id={'my-viewer'}
+				data={moreComplexDataShape}
+				{...handler}
+				displayMode="flat"
+				title="Table data"
+			/>
 		</div>
 	))
 	.add('tree with a long field', () => (

@@ -167,8 +167,8 @@ storiesOf('Form/Inline form/Typeahead', module)
 			icon: {
 				name: 'talend-search',
 				title: 'Toggle search input',
-				bsStyle: 'link',
 				role: 'search',
+				bsStyle: 'link',
 			},
 			onToggle: action('onToggle'),
 			docked: true,
@@ -180,7 +180,6 @@ storiesOf('Form/Inline form/Typeahead', module)
 			icon: {
 				name: 'talend-search',
 				title: 'Toggle search input',
-				bsStyle: 'link',
 			},
 			onKeyDown: action('onKeyDown'),
 			items,

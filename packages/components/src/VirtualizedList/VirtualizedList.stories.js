@@ -330,6 +330,7 @@ const collectionWithTooltupLabel = collection.map(item => {
 
 const collapsibleListCollection = [
 	{
+		id: 'success',
 		header: [
 			{
 				displayMode: 'status',
@@ -353,6 +354,7 @@ const collapsibleListCollection = [
 		children: <div>HELLO WORLD</div>,
 	},
 	{
+		id: 'canceled',
 		header: [
 			{
 				displayMode: 'status',
@@ -375,6 +377,7 @@ const collapsibleListCollection = [
 		expanded: false,
 	},
 	{
+		id: 'failed',
 		header: [
 			{
 				displayMode: 'status',
@@ -399,7 +402,7 @@ const collapsibleListCollection = [
 ];
 
 const sourceItems = [...new Array(50)].map(
-	(item, index) => collapsibleListCollection[index % collapsibleListCollection.length],
+	(_, index) => collapsibleListCollection[index % collapsibleListCollection.length],
 );
 
 function CollapsiblePanels(props) {
@@ -411,7 +414,7 @@ function CollapsiblePanels(props) {
 			<section style={{ height: '90vh' }}>
 				<VirtualizedList
 					collection={collection}
-					onRowClick={(event, rowItem) => {
+					onRowClick={(_, rowItem) => {
 						action('onRowClick');
 						collection[rowItem.index] = {
 							...rowItem,
@@ -444,10 +447,8 @@ storiesOf('Data/List/VirtualizedList', module)
 				By default each columns have the same size. The cells are placed using flexbox. You can
 				customize the flex properties of the cells using the generated classnames.
 			</p>
-			<p>
-				Example here
-				<pre>
-					{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
+			<pre>
+				{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
 .virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
 .virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
 .virtualized-list div.tc-list-cell-tag { flex: 0 0 120px; }
@@ -455,8 +456,7 @@ storiesOf('Data/List/VirtualizedList', module)
 .virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
 .virtualized-list div.tc-list-cell-created,
 .virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
-				</pre>
-			</p>
+			</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id={'my-list'}>
@@ -465,8 +465,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
 					<VirtualizedList.Text label="Description" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -483,10 +491,15 @@ storiesOf('Data/List/VirtualizedList', module)
 					isSelected={item => item.id === 2}
 					selectionToggle={action('selectionToggle')}
 					selectionMode="SINGLE"
+					onToggleAll={action('onToggleAll')}
 				>
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -499,7 +512,11 @@ storiesOf('Data/List/VirtualizedList', module)
 				<VirtualizedList collection={collection} id={'my-list'}>
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Label label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -528,8 +545,16 @@ storiesOf('Data/List/VirtualizedList', module)
 						disableSort
 					/>
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -540,9 +565,8 @@ storiesOf('Data/List/VirtualizedList', module)
 			<p>
 				Selection can be enabled by passing <b>selectionToggle</b> callback and <b>isSelected</b>{' '}
 				function that returns if a row is selected.
-				<br />
-				Here <pre>{'isSelected={item => item.id === 6}'}</pre>
 			</p>
+			<pre>{'isSelected={item => item.id === 6}'}</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
@@ -557,8 +581,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -569,9 +601,8 @@ storiesOf('Data/List/VirtualizedList', module)
 			<p>
 				Row click can be enabled by passing <b>onRowClick</b> callback and <b>isActive</b> function
 				that returns if a row is active.
-				<br />
-				Here example <pre>{'isActive={item => item.id === 6}'}</pre>
 			</p>
+			<pre>{'isActive={item => item.id === 6}'}</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
@@ -584,8 +615,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -596,12 +635,10 @@ storiesOf('Data/List/VirtualizedList', module)
 			<p>
 				Row can be disabled by passing <b>getRowState</b> function that returns a disabled flag and
 				a message to show into the tooltip.
-				<br />
-				Here example{' '}
-				<pre>
-					{'getRowState={row => (row.id === 2 ? { disabled: true, tooltip: "Houlala" } : null)'}
-				</pre>
 			</p>
+			<pre>
+				{'getRowState={row => (row.id === 2 ? { disabled: true, tooltip: "Houlala" } : null)'}
+			</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
@@ -614,8 +651,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -663,8 +708,15 @@ storiesOf('Data/List/VirtualizedList', module)
 						label="Created"
 						resizable
 						width={100}
+						columnData={{ mode: 'format' }}
 					/>
-					<VirtualizedList.Datetime dataKey="modified" label="Modified" resizable width={100} />
+					<VirtualizedList.Datetime
+						dataKey="modified"
+						label="Modified"
+						resizable
+						width={100}
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -693,8 +745,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -705,9 +765,8 @@ storiesOf('Data/List/VirtualizedList', module)
 			<p>
 				Selection can be enabled by passing <b>selectionToggle</b> callback and <b>isSelected</b>{' '}
 				function that returns if a row is selected.
-				<br />
-				Here <pre>{'isSelected={item => item.id === 6}'}</pre>
 			</p>
+			<pre>{'isSelected={item => item.id === 6}'}</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
@@ -723,8 +782,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -735,9 +802,8 @@ storiesOf('Data/List/VirtualizedList', module)
 			<p>
 				Row click can be enabled by passing <b>onRowClick</b> callback and <b>isActive</b> function
 				that returns if a row is active.
-				<br />
-				Here example <pre>{'isActive={item => item.id === 6}'}</pre>
 			</p>
+			<pre>{'isActive={item => item.id === 6}'}</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
@@ -752,8 +818,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -766,18 +840,15 @@ storiesOf('Data/List/VirtualizedList', module)
 				By default each columns have the same size. The cells are placed using flexbox. You can
 				customize the flex properties of the cells using the generated classnames.
 			</p>
-			<p>
-				Example here
-				<pre>
-					{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
+			<pre>
+				{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
 .virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
 .virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
 .virtualized-list div.tc-list-cell-description { flex: 1 0 120px; }
 .virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
 .virtualized-list div.tc-list-cell-created,
 .virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
-				</pre>
-			</p>
+			</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id={'my-list'} disableHeader>
@@ -785,8 +856,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -813,8 +892,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -828,8 +915,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>
@@ -849,8 +944,16 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime label="Created" dataKey="created" />
-					<VirtualizedList.Datetime label="Modified" dataKey="modified" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>

@@ -41,7 +41,7 @@ const Input = forwardRef((props, ref) => {
 
 Input.displayName = 'DateRange.Input';
 Input.propTypes = {
-	id: PropTypes.string.required,
+	id: PropTypes.string.isRequired,
 	date: PropTypes.shape({
 		textInput: PropTypes.string,
 	}),

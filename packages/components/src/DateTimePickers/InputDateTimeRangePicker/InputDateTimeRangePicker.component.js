@@ -117,8 +117,16 @@ InputDateTimeRangePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
-	defaultTimeStart: InputDateTimePicker.propTypes.defaultTimeValue,
-	defaultTimeEnd: InputDateTimePicker.propTypes.defaultTimeValue,
+	defaultTimeStart: PropTypes.shape({
+		hours: PropTypes.string.isRequired,
+		minutes: PropTypes.string.isRequired,
+		seconds: PropTypes.string,
+	}),
+	defaultTimeEnd: PropTypes.shape({
+		hours: PropTypes.string.isRequired,
+		minutes: PropTypes.string.isRequired,
+		seconds: PropTypes.string,
+	}),
 	startDateTime: PropTypes.oneOfType([
 		PropTypes.instanceOf(Date),
 		PropTypes.number,

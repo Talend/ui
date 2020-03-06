@@ -100,7 +100,8 @@ const selected = [
 ];
 
 const overlayAction = {
-	id: 'overlay',
+	id: 'overlay-button',
+	overlayId: 'overlay',
 	label: 'overlay',
 	icon: 'talend-pencil',
 	onClick: action('overlay.open'),
@@ -503,7 +504,7 @@ const itemPropsForItems = {
 	onSelect: action('onItemSelect'),
 	onToggle: action('onItemToggle'),
 	onToggleAll: action('onToggleAll'),
-	isSelected: item => selected.find(next => next.id === item.id),
+	isSelected: item => !!selected.find(next => next.id === item.id),
 	onCancel: action('onTitleEditCancel'),
 	onChange: action('onTitleChange'),
 	onSubmit: action('onTitleEditSubmit'),
