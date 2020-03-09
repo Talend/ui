@@ -30,7 +30,7 @@ Types of changes
 
 ### Breaking change
 
-- ⤴️ @talend/ui: >= 4.32.0-0
+- ⤴️ @talend/ui: >= 4.32.0
 
 ### Changed
 
