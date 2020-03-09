@@ -72,6 +72,7 @@ const BasicSearch = ({
 			>
 				{setOverlayOpened => (
 					<AddFacetPopover
+						badges={state.badges}
 						badgesDefinitions={badgesDefinitions}
 						id={basicSearchId}
 						initialFilterValue={initialFilterValue}

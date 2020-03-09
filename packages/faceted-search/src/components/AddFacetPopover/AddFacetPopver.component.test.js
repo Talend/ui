@@ -8,6 +8,7 @@ import getDefaultT from '../../translate';
 const t = getDefaultT();
 
 describe('AddFacetPopover', () => {
+	const badges = [];
 	const badgesDefinitions = [
 		{
 			properties: {
@@ -33,12 +34,17 @@ describe('AddFacetPopover', () => {
 				label: 'Connection name',
 				operator: {},
 				operators: [],
-				type: 'text',
+				type: 'checkbox',
 			},
 			metadata: {
-				badgePerFacet: 'N',
+				badgePerFacet: '1',
 				entitiesPerBadge: '1',
-				operators: ['contains', '='],
+				operators: ['in'],
+				values: [
+					{ id: 'amazon_s3', label: 'Amazon S3' },
+					{ id: 'hdfs', label: 'HDFS' },
+					{ id: 'kafka', label: 'Kafka' },
+				],
 			},
 		},
 		{
@@ -62,6 +68,7 @@ describe('AddFacetPopover', () => {
 	it('should render the html output', () => {
 		// Given
 		const props = {
+			badges,
 			id: 'my id',
 			onClick: jest.fn(),
 			t,
@@ -74,6 +81,7 @@ describe('AddFacetPopover', () => {
 	it('should render the some badge row, with connection in their attribute', () => {
 		// Given
 		const props = {
+			badges,
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
@@ -101,6 +109,7 @@ describe('AddFacetPopover', () => {
 		// Given
 		const props = {
 			initialFilterValue: 'name',
+			badges,
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
@@ -129,6 +138,7 @@ describe('AddFacetPopover', () => {
 		// Given
 		const onClick = jest.fn();
 		const props = {
+			badges,
 			badgesDefinitions,
 			id: 'my-id',
 			onClick,
@@ -173,6 +183,7 @@ describe('AddFacetPopover', () => {
 	it('should render an empty state when filter return no result', () => {
 		// Given
 		const props = {
+			badges,
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
@@ -196,5 +207,39 @@ describe('AddFacetPopover', () => {
 				.first()
 				.text(),
 		).toBe('No result found');
+	});
+	it('should render an disabled row if badgePerFacet is exceeded', () => {
+		// Given
+		const props = {
+			badges: [
+				{
+					properties: {
+						initialOpenedOperator: true,
+						initialOpenedValue: false,
+						attribute: 'connection.name',
+						label: 'Connection name',
+						operator: {},
+						operators: [],
+						type: 'checkbox',
+						values: [
+							{ id: 'amazon_s3', label: 'Amazon S3' },
+						],
+					},
+					metadata: {
+						badgePerFacet: '1',
+						entitiesPerBadge: '1',
+						operators: ['in'],
+					},
+				},
+			],
+			badgesDefinitions,
+			id: 'my-id',
+			onClick: jest.fn(),
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+		// Then
+		expect(wrapper.find('button[aria-label="Connection name"]').prop('disabled')).toBe(true);
 	});
 });
