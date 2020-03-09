@@ -32,6 +32,9 @@ export function getItemIcon(iconName = 'talend-folder', isOpened) {
  * @param isOpened if the treeview is opened
  */
 function TreeViewIcon({ icon, isOpened }) {
+	if (icon === 'none') {
+		return null;
+	}
 	if (typeof icon === 'object') {
 		return icon.tooltipLabel ? (
 			<TooltipTrigger label={icon.tooltipLabel} tooltipPlacement={icon.tooltipPlacement || 'top'}>
