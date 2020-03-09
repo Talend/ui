@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 echo "CHROMA"
+echo "TRAVIS_EVENT_TYPE : $TRAVIS_EVENT_TYPE"
+echo "TRAVIS_PULL_REQUEST_SLUG : $TRAVIS_PULL_REQUEST_SLUG"
+echo "TRAVIS_REPO_SLUG : $TRAVIS_REPO_SLUG"
 if [[ $TRAVIS_EVENT_TYPE != 'pull_request' ||  $TRAVIS_PULL_REQUEST_SLUG != $TRAVIS_REPO_SLUG ]];
 then
     yarn chroma
