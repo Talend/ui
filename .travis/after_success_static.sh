@@ -10,7 +10,6 @@ mkdir .static/components
 mkdir .static/containers
 mkdir .static/forms
 mkdir .static/icons
-mkdir .static/logging
 mkdir .static/theme
 mkdir .static/datagrid
 mkdir .static/stepper
