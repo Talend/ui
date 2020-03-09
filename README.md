@@ -23,7 +23,6 @@ front-end stack.
 - [react-talend-forms](https://github.com/Talend/ui/tree/master/packages/forms)
 - [generator-talend](https://github.com/Talend/ui/tree/master/packages/generator)
 - [talend-icons](https://github.com/Talend/ui/tree/master/packages/icons)
-- [talend-log](https://github.com/Talend/ui/tree/master/packages/logging)
 - [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/packages/theme)
 
 ## Tools (dev environment)
