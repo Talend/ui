@@ -187,9 +187,8 @@ export function Preparation({ name, createdBy, path }) {
 				<div>
 					<dt>
 						<Icon name={'talend-user-circle'} />
-						{t('CREATED_BY', { defaultValue: 'Created by' })}
 					</dt>
-					<dd>{createdBy}</dd>
+					<dd>{t('CREATED_BY', { defaultValue: 'Created by {{createdBy}}', createdBy })}</dd>
 				</div>
 				<div>
 					<dt className={'icon-only'}>
@@ -223,16 +222,19 @@ export function Pipeline({ name, createdBy, usedAs }) {
 				<div>
 					<dt>
 						<Icon name={'talend-user-circle'} />
-						{t('CREATED_BY', { defaultValue: 'Created by' })}
 					</dt>
-					<dd>{createdBy}</dd>
+					<dd>{t('CREATED_BY', { defaultValue: 'Created by {{createdBy}}', createdBy })}</dd>
 				</div>
 				<div>
 					<dt>
 						<Icon name={usedAs.length > 1 ? 'talend-flow-source-target' : 'talend-flow-source-o'} />
-						{t('USED_AS', { defaultValue: 'Used as' })}
 					</dt>
-					<dd>{usedAs.length === 2 ? joinedItemsMessage : usedAs[0]}</dd>
+					<dd>
+						{t('USED_AS', {
+							defaultValue: 'Used as {{message}}',
+							message: usedAs.length === 2 ? joinedItemsMessage : usedAs[0],
+						})}
+					</dd>
 				</div>
 			</dl>
 		</div>
