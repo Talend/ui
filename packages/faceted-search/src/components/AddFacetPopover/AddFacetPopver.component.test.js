@@ -41,6 +41,23 @@ describe('AddFacetPopover', () => {
 				operators: ['contains', '='],
 			},
 		},
+		{
+			properties: {
+				attribute: 'target',
+				initialOperatorOpened: true,
+				initialValueOpened: false,
+				label: 'Target',
+				operator: {},
+				operators: [],
+				type: 'text',
+			},
+			metadata: {
+				category: 'Custom attributes',
+				badgePerFacet: 'N',
+				entitiesPerBadge: '1',
+				operators: ['contains', 'equals', 'notEquals', 'match a regexp'],
+			},
+		},
 	];
 	it('should render the html output', () => {
 		// Given
@@ -66,10 +83,18 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('input').simulate('change', { target: { value: 'connection' } });
+			wrapper
+				.find('input')
+				.first()
+				.simulate('change', { target: { value: 'connection' } });
 		});
 		wrapper.update();
-		expect(wrapper.find('input').prop('value')).toBe('connection');
+		expect(
+			wrapper
+				.find('input')
+				.first()
+				.prop('value'),
+		).toBe('connection');
 		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
 	});
 	it('should reset the badge rows when the filter is reset', () => {
@@ -85,10 +110,18 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('button[aria-label="Remove filter"]').simulate('mouseDown');
+			wrapper
+				.find('button[aria-label="Remove filter"]')
+				.first()
+				.simulate('mouseDown');
 		});
 		wrapper.update();
-		expect(wrapper.find('input').prop('value')).toBe('');
+		expect(
+			wrapper
+				.find('input')
+				.first()
+				.prop('value'),
+		).toBe('');
 		expect(wrapper.find('button[aria-label="Name"]')).toHaveLength(1);
 		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
 	});
@@ -107,6 +140,36 @@ describe('AddFacetPopover', () => {
 		// Then
 		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[0]);
 	});
+	it('should render the category row', () => {
+		// Given
+		const props = {
+			badgesDefinitions,
+			id: 'my-id',
+			onClick: jest.fn(),
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+		// Then
+		expect(wrapper.find('button[aria-label="Custom attributes"]')).toHaveLength(1);
+		expect(wrapper.find('.tc-add-facet-popover-screen')).toHaveLength(2);
+		expect(wrapper.find('.screen-category')).toHaveLength(1);
+		expect(wrapper.find('.screen-move')).toHaveLength(0);
+	});
+	it('should display the hidding category screen when click on a category row', () => {
+		// Given
+		const props = {
+			badgesDefinitions,
+			id: 'my-id',
+			onClick: jest.fn(),
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+		wrapper.find('button[aria-label="Custom attributes"]').simulate('click');
+		// Then
+		expect(wrapper.find('.screen-move')).toHaveLength(2);
+	});
 	it('should render an empty state when filter return no result', () => {
 		// Given
 		const props = {
@@ -119,11 +182,19 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('input').simulate('change', { target: { value: 'aaaaaaaaaa' } });
+			wrapper
+				.find('input')
+				.first()
+				.simulate('change', { target: { value: 'aaaaaaaaaa' } });
 		});
 		wrapper.update();
 		expect(wrapper.find('button.tc-add-facet-popover-row')).toHaveLength(0);
-		expect(wrapper.find('span')).toHaveLength(1);
-		expect(wrapper.find('span').text()).toBe('No result found');
+		expect(wrapper.find('span').first()).toHaveLength(1);
+		expect(
+			wrapper
+				.find('span')
+				.first()
+				.text(),
+		).toBe('No result found');
 	});
 });

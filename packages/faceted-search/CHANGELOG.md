@@ -26,6 +26,14 @@ Types of changes
 
 ## [unreleased]
 
+### Breaking change
+
+- ⤴️ @talend/ui: >= 4.32.0-0
+
+### Changed
+
+- [Added](https://github.com/Talend/ui/pull/2673): Handle categories in badge definitions
+
 ### Added
 
 - [feat](https://github.com/Talend/ui/pull/2675): Empty screen text for search on badges list

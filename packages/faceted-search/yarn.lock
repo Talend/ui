@@ -1632,10 +1632,10 @@
     hoist-non-react-statics "^1.2.0"
     mock-socket "^7.0.0"
 
-"@talend/icons@4.27.0":
-  version "4.27.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-4.27.0.tgz#2c16b5f98466eea88954968fe14912d51df7aa5a"
-  integrity sha512-/hEB+pBm7zyvx1OH6ZzjLEcoxSD6cQig0VJ4+19+1GMnQwtOsbZjIjEpSVe5Mj9/0cdzYNk42b6fwfMUOA9q5Q==
+"@talend/icons@4.32.0-0":
+  version "4.32.0-0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-4.32.0-0.tgz#584100b7d256adbf6400357b50ed71569aa79e0b"
+  integrity sha512-zmIoW1MC2U6hY2POIQy177LxEcFg3lGhHtawKlGLKWNQ8QwHHDHqVWQSH8yrCDrvPib8R+fOimJoAui0SZ6DBg==
 
 "@talend/json-schema-form-core@1.0.0-alpha.4":
   version "1.0.0-alpha.4"
@@ -1645,10 +1645,10 @@
     objectpath "^1.2.1"
     tv4 "^1.3.0"
 
-"@talend/react-components@4.27.0":
-  version "4.27.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-4.27.0.tgz#a1e2631482e2fb037f48c79097f84e2a37843c2f"
-  integrity sha512-+TfbivIcOWrhA6etTZFHnYXGsDc1GxvplgVWlCV5dSNlafYbEvxIiekINJQSLC1r+Uchs9JrdiQBbUQOxi5bqQ==
+"@talend/react-components@4.32.0-0":
+  version "4.32.0-0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-4.32.0-0.tgz#94e4f952dbfc0c9cade939ca0d3422edb0d9e42c"
+  integrity sha512-ZTVoiUxEzqHzCEW2FztAAzJrkwsfsqBjDClVX3Yn0ge8MOnaA6WYsp3DDGLHNEZ1oPzhF3Y/0XCm/FfILETtNQ==
   dependencies:
     ally.js "^1.4.1"
     classnames "^2.2.5"
@@ -1684,10 +1684,10 @@
     timezone-support "^1.5.5"
     uuid "^3.0.1"
 
-"@talend/react-forms@4.27.0":
-  version "4.27.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-4.27.0.tgz#f46ede170c4373e7c09b0f4b1c9aebb0eca168f6"
-  integrity sha512-ijK+uhP/v6NuvM/UrrUuCVH6HaK8hjlPuMd4iN2Rl1nJdkVqANdIGwUGMLJX1MjXoyyCC8r2XiUTD1ICOJsEHQ==
+"@talend/react-forms@4.32.0-0":
+  version "4.32.0-0"
+  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-4.32.0-0.tgz#152c3fed26e8080d261c355ee1643d6d98b3d608"
+  integrity sha512-NR4hYnnzkuiOini98J7eROI1JnGYhUPa+TH8SnbxzLL/2bRqZfGGPApYJFCHK8UN6aLmizUTvKSzPr8QyrvEzg==
   dependencies:
     "@talend/json-schema-form-core" "1.0.0-alpha.4"
     ajv "^6.2.1"
