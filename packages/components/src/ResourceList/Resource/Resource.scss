@@ -125,10 +125,6 @@
 				font-weight: initial;
 				flex-shrink: 0;
 
-				&.icon-only {
-					margin-right: -1 * $padding-smaller;
-				}
-
 				.tc-svg-icon {
 					margin: 0 $padding-smaller;
 					color: $brand-primary;
