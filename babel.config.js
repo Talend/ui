@@ -24,5 +24,6 @@ module.exports = function babel(api) {
 		presets,
 		ignore,
 		plugins,
+		sourceType: 'unambiguous',
 	};
 };

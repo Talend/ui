@@ -128,11 +128,12 @@ Status.propTypes = {
 		STATUS.FAILED,
 		STATUS.CANCELED,
 		STATUS.WARNING,
+		STATUS.SKELETON,
 	]),
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 	icon: PropTypes.string,
 	actions: Actions.propTypes.actions,
-	progress: PropTypes.number,
+	progress: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 Status.defaultProps = {

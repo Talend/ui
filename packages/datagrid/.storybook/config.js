@@ -9,11 +9,6 @@ import i18n from './../../../.storybook/i18n';
 
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));
-
-function loadStories() {
-	require('../stories');
-}
-
 addDecorator(
 	withI18next({
 		i18n,
@@ -21,4 +16,5 @@ addDecorator(
 	}),
 );
 addDecorator(withA11y);
-configure(loadStories, module);
+
+configure([require.context('../src', true, /\.stories\.js$/)], module);

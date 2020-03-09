@@ -11103,7 +11103,6 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               <Icon
                                 name="talend-download"
                               />,
-                              null,
                               <Icon
                                 className="theme-tc-dropdown-caret"
                                 name="talend-caret-down"
@@ -11230,6 +11229,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         </Icon>
                                         <Icon
                                           className="theme-tc-dropdown-caret"
+                                          key="caret"
                                           name="talend-caret-down"
                                         >
                                           <svg
@@ -14043,7 +14043,6 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               <Icon
                                 name="talend-download"
                               />,
-                              null,
                               <Icon
                                 className="theme-tc-dropdown-caret"
                                 name="talend-caret-down"
@@ -14167,6 +14166,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         </Icon>
                                         <Icon
                                           className="theme-tc-dropdown-caret"
+                                          key="caret"
                                           name="talend-caret-down"
                                         >
                                           <svg

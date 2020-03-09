@@ -80,7 +80,7 @@ export default function InputTimePicker(props) {
 				)}
 			</Popper>
 		),
-		props.timezone && <TimeZone timezone={props.timezone} />,
+		props.timezone && <TimeZone key="timezone" timezone={props.timezone} />,
 	].filter(Boolean);
 	return (
 		<Time.Manager

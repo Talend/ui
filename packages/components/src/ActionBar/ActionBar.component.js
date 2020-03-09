@@ -104,7 +104,11 @@ function getActionsFromRenderers(actions, getComponent) {
 		const { displayMode, ...rest } = action;
 		switch (displayMode) {
 			case DISPLAY_MODES.DIVIDER:
-				return <span className="divider">|</span>;
+				return (
+					<span className="divider" key={index}>
+						|
+					</span>
+				);
 			case DISPLAY_MODES.DROPDOWN:
 				return <Renderers.ActionDropdown key={index} {...rest} />;
 			case DISPLAY_MODES.SPLIT_DROPDOWN:

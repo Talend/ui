@@ -59,7 +59,7 @@ export function renderActions(actions, value, min, max, onChange, disabled) {
 	const captions = getCaptionsValue(actions.length, min, max);
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
-		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
+		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="actions">
 			{actions.map((action, index) => (
 				<Action
 					{...action}
@@ -89,13 +89,14 @@ function renderIcons(icons, value, min, max) {
 	if (isIconsAvailables(icons)) {
 		const position = getSelectedIconPosition(icons, value, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="icons">
 				{icons.map((icon, index) => (
 					<div
 						className={classnames(
 							theme['tc-slider-captions-element'],
 							'tc-slider-captions-element',
 						)}
+						key={index}
 					>
 						<Icon
 							name={icon}
@@ -124,7 +125,7 @@ function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 	if (captionTextStepNumber > 1) {
 		const captions = getCaptionsValue(captionTextStepNumber, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="captions">
 				{captions.map((caption, index) => (
 					<div
 						className={classnames(
@@ -205,7 +206,7 @@ class Slider extends React.Component {
 
 	static propTypes = {
 		id: PropTypes.string,
-		value: PropTypes.oneOf([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+		value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 		onChange: PropTypes.func.isRequired,
 		onAfterChange: PropTypes.func,
 		captionActions: PropTypes.array,
@@ -242,7 +243,7 @@ class Slider extends React.Component {
 		const Component = Array.isArray(value) ? Range : RcSlider;
 		return (
 			<div>
-				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
+				<div className={classnames(theme['tc-slider'], 'tc-slider')} key="slider">
 					<Component
 						id={id}
 						value={value}

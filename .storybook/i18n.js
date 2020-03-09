@@ -13,7 +13,9 @@ i18n.use(initReactI18next).init({
 			return value;
 		},
 	},
-	ns: [...tuiNamespaces],
+	ns: tuiNamespaces,
+	fallbackLng: 'en',
+	lng: 'en',
 	resources: tuiLocales,
 	wait: true, // globally set to wait for loaded translations in translate hoc
 });

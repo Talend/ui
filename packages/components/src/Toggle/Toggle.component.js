@@ -17,7 +17,7 @@ import theme from './Toggle.scss';
  *
  * @return XML(JSX) React pure component
  * **/
-function Toggle({ id, label, className, ...props }) {
+function Toggle({ id, label, className, intermediate, ...props }) {
 	let dataFeature;
 	let dataChecked = 0;
 
@@ -26,7 +26,7 @@ function Toggle({ id, label, className, ...props }) {
 		dataFeature += props.checked ? '.disable' : '.enable';
 	}
 
-	if (props.intermediate) {
+	if (intermediate) {
 		dataChecked = 1;
 	} else if (props.checked) {
 		dataChecked = 2;
