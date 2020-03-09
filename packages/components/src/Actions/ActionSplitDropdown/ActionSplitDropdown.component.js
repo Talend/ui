@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { SplitButton, MenuItem } from 'react-bootstrap';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import uuid from 'uuid';
 import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.scss';
 import { wrapOnClick } from '../Action/Action.component';
-import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 /**
@@ -32,8 +31,9 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
  <ActionSplitDropdown {...props} />
  */
 
-export function ActionSplitDropdown(props) {
-	const { icon, items, label, emptyDropdownLabel, className, t, ...rest } = props;
+export default function ActionSplitDropdown(props) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const { icon, items, label, emptyDropdownLabel, className, ...rest } = props;
 
 	const Title = (
 		<span>
@@ -87,7 +87,4 @@ ActionSplitDropdown.propTypes = {
 
 ActionSplitDropdown.defaultProps = {
 	items: [],
-	t: getDefaultT(),
 };
-
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionSplitDropdown);

@@ -3,7 +3,7 @@ import React from 'react';
 import DataGrid from '../src/components/';
 import { COLUMN_INDEX, NAMESPACE_DATA, NAMESPACE_INDEX } from '../src/constants';
 import sample from './sample.json';
-import { getComponent } from './datagrid.component';
+import getComponent from './getComponent';
 
 const CHANGE_QUALITY_COLUMN_ID = 'field3';
 

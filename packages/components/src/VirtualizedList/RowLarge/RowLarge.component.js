@@ -38,11 +38,17 @@ function RandomSizeSkeleton() {
 function LargeInnerRowLoading({ columns, rows }) {
 	return (
 		<div className={theme['loading-large-column-wrapper']}>
-			{Array(columns).fill(
-				<div className={theme['loading-inner-column']}>
-					{Array(rows).fill(<RandomSizeSkeleton />)}
-				</div>,
-			)}
+			{Array(columns)
+				.fill(0)
+				.map((_, index) => (
+					<div key={index} className={theme['loading-inner-column']}>
+						{Array(rows)
+							.fill(0)
+							.map((_, innerIndex) => (
+								<RandomSizeSkeleton key={innerIndex} />
+							))}
+					</div>
+				))}
 		</div>
 	);
 }

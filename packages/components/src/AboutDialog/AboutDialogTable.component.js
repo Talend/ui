@@ -33,7 +33,7 @@ export function AboutDialogTable({
 			<thead>
 				<tr>
 					{definition.map(attribute => (
-						<th>{attribute.label}</th>
+						<th key={attribute.key}>{attribute.label}</th>
 					))}
 				</tr>
 			</thead>
@@ -44,7 +44,7 @@ export function AboutDialogTable({
 				).map(service => (
 					<tr key={service.name}>
 						{definition.map(attribute => (
-							<td>
+							<td key={attribute.key}>
 								<Text loading={loading} text={service[attribute.key]} />
 							</td>
 						))}

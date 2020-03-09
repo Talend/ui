@@ -70,17 +70,11 @@ InputDateTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
 	timezone: PropTypes.string,
-	defaultTimeValue: PropTypes.oneOfType([
-		PropTypes.shape({
-			hours: PropTypes.string,
-			minutes: PropTypes.string,
-			seconds: PropTypes.string,
-		}),
-		PropTypes.shape({
-			hours: PropTypes.string,
-			minutes: PropTypes.string,
-		}),
-	]),
+	defaultTimeValue: PropTypes.shape({
+		hours: PropTypes.string.isRequired,
+		minutes: PropTypes.string.isRequired,
+		seconds: PropTypes.string,
+	}),
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 };

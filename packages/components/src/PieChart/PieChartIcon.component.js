@@ -356,6 +356,7 @@ export const pieChartIconPropTypes = {
 				'lightning-yellow',
 				'dove-gray',
 				'silver-chalice',
+				'jaffa',
 			]),
 			percentage: PropTypes.number.isRequired,
 		}).isRequired,

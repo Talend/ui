@@ -7,6 +7,9 @@ src/CollapsiblePanel/CollapsiblePanel.scss
 src/DateTimePickers/LegacyDateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
+src/Enumeration/Enumeration.stories.scss
+  3:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+
 src/FilterBar/FilterBar.scss
   53:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
@@ -23,5 +26,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 10 problems (9 errors, 1 warning)
+✖ 11 problems (10 errors, 1 warning)
 

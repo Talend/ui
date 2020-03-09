@@ -10,7 +10,7 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in as
     aria-label="Sort by date"
     block={false}
     bsClass="btn"
-    bsStyle=""
+    bsStyle="link"
     className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser"
     disabled={false}
   >
@@ -35,7 +35,7 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in de
     aria-label="Sort by date"
     block={false}
     bsClass="btn"
-    bsStyle=""
+    bsStyle="link"
     className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser"
     disabled={false}
   >

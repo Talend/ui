@@ -63,7 +63,7 @@ export class CellDatetimeComponent extends React.Component {
 CellDatetimeComponent.displayName = 'VirtualizedList(CellDatetime)';
 CellDatetimeComponent.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
-	cellData: PropTypes.number,
+	cellData: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	// Column data
 	columnData: PropTypes.shape({
 		mode: PropTypes.string.isRequired,

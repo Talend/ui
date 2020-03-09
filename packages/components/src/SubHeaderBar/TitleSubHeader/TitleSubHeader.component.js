@@ -83,7 +83,7 @@ function DefaultSubTitle({ subTitle }) {
 }
 
 DefaultSubTitle.propTypes = {
-	subTitle: PropTypes.element,
+	subTitle: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
 function SubTitle({ subTitleLoading, subTitle, subTitleAs: SubTitleAs = DefaultSubTitle }) {
@@ -107,7 +107,7 @@ function SubTitle({ subTitleLoading, subTitle, subTitleAs: SubTitleAs = DefaultS
 SubTitle.propTypes = {
 	subTitle: PropTypes.node,
 	subTitleLoading: PropTypes.bool,
-	subTitleAs: PropTypes.element,
+	subTitleAs: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 TitleSubHeader.propTypes = {

@@ -20,7 +20,7 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 					'tc-resource-picker-order-chooser',
 					theme['tc-resource-picker-order-chooser'],
 				)}
-				bsStyle=""
+				bsStyle="link"
 			>
 				<Icon name={icon} />
 				<Icon
