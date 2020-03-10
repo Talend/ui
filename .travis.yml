@@ -18,13 +18,12 @@ before_install:
 matrix:
   fast_finish: true
   include:
-    - language: node_js
-      node_js:
-        - '11.10'
-      env: NAME=chroma
-      script:
-        - .travis/chroma.sh
-
+    # - language: node_js
+    #   node_js:
+    #     - '11.10'
+    #   env: NAME=chroma
+    #   script:
+    #     - .travis/chroma.sh
     # - language: node_js
     #   env: NAME=test_react_16 REACT_VERSION="^16.0.0"
     #   node_js:
