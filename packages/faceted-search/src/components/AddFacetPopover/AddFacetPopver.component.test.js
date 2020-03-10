@@ -223,9 +223,7 @@ describe('AddFacetPopover', () => {
 						operator: {},
 						operators: [],
 						type: 'checkbox',
-						values: [
-							{ id: 'amazon_s3', label: 'Amazon S3' },
-						],
+						values: [{ id: 'amazon_s3', label: 'Amazon S3' }],
 					},
 					metadata: {
 						badgePerFacet: '1',

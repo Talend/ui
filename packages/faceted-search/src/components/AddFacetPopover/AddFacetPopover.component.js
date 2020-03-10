@@ -59,14 +59,14 @@ OpenCategoryRow.propTypes = {
 };
 
 const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges, t }) => {
-	const occurences = useMemo(
-		() => badges.filter(filterByAttribute(badgeDefinition)).length,
-		[badges, badgeDefinition],
-	);
-	const isDisabled = useMemo(
-		() => isButtonDisabled(badges, badgeDefinition, occurences),
-		[badges, badgeDefinition],
-	);
+	const occurences = useMemo(() => badges.filter(filterByAttribute(badgeDefinition)).length, [
+		badges,
+		badgeDefinition,
+	]);
+	const isDisabled = useMemo(() => isButtonDisabled(badges, badgeDefinition, occurences), [
+		badges,
+		badgeDefinition,
+	]);
 	const onClickRow = event => {
 		onClick(event, badgeDefinition);
 	};
@@ -79,10 +79,7 @@ const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges,
 	});
 
 	return (
-		<TooltipTrigger
-			label={isDisabled ? disabledLabel : label}
-			tooltipPlacement="top"
-		>
+		<TooltipTrigger label={isDisabled ? disabledLabel : label} tooltipPlacement="top">
 			<Button
 				aria-label={label}
 				bsStyle="link"
@@ -209,7 +206,14 @@ const getScreens = (badgesDefinitions, filterValue) => {
 	];
 };
 
-const AddFacetPopover = ({ badgesDefinitions = [], badges, id, initialFilterValue, onClick, t }) => {
+const AddFacetPopover = ({
+	badgesDefinitions = [],
+	badges,
+	id,
+	initialFilterValue,
+	onClick,
+	t,
+}) => {
 	const addFacetId = `${id}-add-facet-popover`;
 
 	const [category, setCategory] = useState(null);
