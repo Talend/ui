@@ -49,7 +49,7 @@ ObjectViewer.propTypes = {
 	tupleLabel: PropTypes.string,
 	rootLabel: PropTypes.string,
 	showTypes: PropTypes.bool,
-	data: PropTypes.arrayOf(PropTypes.object),
+	data: PropTypes.array,
 	dataSchema: PropTypes.arrayOf(PropTypes.object),
 };
 

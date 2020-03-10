@@ -59,7 +59,7 @@
     "react-immutable-proptypes": "^2.1.0",
     "react-popper": "^1.3.3",
     "react-transition-group": "^2.3.1",
-    "react-use": "^11.3.2",
+    "react-use": "^13.27.0",
     "react-virtualized": "9.21.0",
     "reactour": "^1.13.4",
     "simplebar": "^4.2.2",
@@ -83,8 +83,9 @@
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/bootstrap-theme": "^4.29.0",
-    "@talend/icons": "^4.29.0",
+    "@talend/bootstrap-theme": "^4.32.0",
+    "@talend/icons": "^4.32.0",
+    "@talend/locales-tui": "^4.30.1",
     "autoprefixer": "^7.1.4",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
@@ -119,11 +120,12 @@
     "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0",
     "slimerjs": "^0.10.2",
+    "storybook-addon-i18next": "^1.2.1",
     "style-loader": "^0.23.0"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^4.29.0",
-    "@talend/icons": "^4.29.0",
+    "@talend/bootstrap-theme": "^4.32.0",
+    "@talend/icons": "^4.32.0",
     "i18next": "^15.1.3",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
@@ -154,5 +156,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.29.0"
+  "version": "4.32.0"
 }

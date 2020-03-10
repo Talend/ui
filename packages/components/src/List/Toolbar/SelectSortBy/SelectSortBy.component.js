@@ -85,7 +85,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 							sortOrder: currentSortOrderLabel,
 						})}
 						onClick={onChangeOrder}
-						bsStyle=""
+						bsStyle="link"
 						className={classNames(
 							theme['tc-list-toolbar-order-chooser'],
 							'tc-list-toolbar-order-chooser',

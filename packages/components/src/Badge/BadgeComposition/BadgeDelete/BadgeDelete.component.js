@@ -23,7 +23,7 @@ const BadgeDelete = ({ disabled, id, label, onClick, t }) => (
 
 BadgeDelete.propTypes = {
 	disabled: PropTypes.bool,
-	id: PropTypes.string.isRequired,
+	id: PropTypes.string,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
 	t: PropTypes.func,

@@ -42,7 +42,6 @@ exports[`two-filters 1`] = `
         data-checked={0}
         disabled={false}
         id="mandatory-field-filter"
-        intermediate={false}
         onChange={[Function]}
         type="checkbox"
       />

@@ -6,7 +6,6 @@ import Immutable from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List } from '../src';
-import i18n from './config/i18n';
 
 /**
  * Cell renderer that displays hello + text
@@ -355,17 +354,6 @@ const ExampleList = {
 			<IconsProvider />
 			<div className="list-container">
 				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} />
-			</div>
-		</div>
-	),
-	i18n: () => (
-		<div>
-			<p>Change language on the toolbar</p>
-			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-			<button onClick={() => i18n.changeLanguage('it')}>it</button>
-			<IconsProvider />
-			<div className="list-container">
-				<List {...props} items={items} />
 			</div>
 		</div>
 	),

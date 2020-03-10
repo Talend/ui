@@ -135,7 +135,6 @@ $tc-skeleton-background-color: #dfdfdf !default;
 			padding-right: $padding-smaller;
 			> * {
 				padding: 0;
-				letter-spacing: 0;
 				text-decoration: none;
 				@include col-style;
 				display: flex;

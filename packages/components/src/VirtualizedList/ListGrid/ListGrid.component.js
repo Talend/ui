@@ -65,7 +65,6 @@ ListGrid.propTypes = {
 	onRowClick: PropTypes.func,
 	onRowDoubleClick: PropTypes.func,
 	rowCount: PropTypes.number,
-	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
 	width: PropTypes.number,
 };

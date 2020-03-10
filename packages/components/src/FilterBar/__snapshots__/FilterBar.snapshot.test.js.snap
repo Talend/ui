@@ -27,12 +27,12 @@ exports[`Filter should render filter input with default placeholder and remove c
     />
     <FilterInput
       autoFocus={true}
+      disabled={false}
       dockable={true}
       onBlur={[Function]}
       onClear={[Function]}
       onFilter={[Function]}
       onFocus={[Function]}
-      placeholder="Filter"
       t={[Function]}
       value="search string"
     />
@@ -63,6 +63,7 @@ exports[`Filter should render filter input with given placeholder without remove
     />
     <FilterInput
       autoFocus={true}
+      disabled={false}
       dockable={true}
       onBlur={[Function]}
       onClear={[Function]}

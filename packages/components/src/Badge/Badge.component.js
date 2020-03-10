@@ -60,7 +60,7 @@ BadgeType.propTypes = {
 	onSelect: PropTypes.func,
 };
 
-export function Badge({
+function Badge({
 	aslink,
 	category,
 	className,

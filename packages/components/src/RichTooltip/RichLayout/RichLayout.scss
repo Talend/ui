@@ -93,5 +93,6 @@ $tc-popover-header-footer-height: 7rem !default;
 .rich-layout {
 	:global(.tc-resource-list) {
 		margin: 0 (-1 * $padding-large);
+		flex-grow: 1;
 	}
 }

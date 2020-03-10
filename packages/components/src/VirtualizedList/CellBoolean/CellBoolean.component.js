@@ -22,8 +22,8 @@ class CellBoolean extends React.Component {
 
 		return (
 			<div className={classnames('cell-boolean-container', styles['cell-boolean-container'])}>
-				{ cellData === true && t('BOOLEAN_VALUE_TRUE', { defaultValue: 'Yes' }) }
-				{ cellData === false && t('BOOLEAN_VALUE_FALSE', { defaultValue: 'No' }) }
+				{cellData === true && t('BOOLEAN_VALUE_TRUE', { defaultValue: 'Yes' })}
+				{cellData === false && t('BOOLEAN_VALUE_FALSE', { defaultValue: 'No' })}
 			</div>
 		);
 	}
@@ -32,7 +32,7 @@ class CellBoolean extends React.Component {
 CellBoolean.displayName = 'VirtualizedList(CellBoolean)';
 CellBoolean.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
-	cellData: PropTypes.string,
+	cellData: PropTypes.bool,
 	t: PropTypes.func,
 };
 
