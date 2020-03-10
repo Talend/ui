@@ -153,6 +153,7 @@ describe('AddFacetPopover', () => {
 	it('should render the category row', () => {
 		// Given
 		const props = {
+			badges,
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
@@ -169,6 +170,7 @@ describe('AddFacetPopover', () => {
 	it('should display the hidding category screen when click on a category row', () => {
 		// Given
 		const props = {
+			badges,
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
