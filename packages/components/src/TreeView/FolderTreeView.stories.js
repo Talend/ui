@@ -85,33 +85,33 @@ const structureWithoutIcons = [
 		name: 'hitmonlee',
 		children: [{ name: 'Hitmonchan' }],
 		isOpened: false,
-		icon: 'none',
+		icon: 'false',
 	},
 	{
 		name: 'pikachu',
 		children: [
 			{
 				name: 'raichu',
-				icon: 'none',
+				icon: 'false',
 			},
 		],
 		isOpened: true,
-		icon: 'none',
+		icon: 'false',
 	},
 	{
 		id: 'selected',
 		name: 'Abra',
-		icon: 'none',
+		icon: 'false',
 		isOpened: true,
 		children: [
 			{
 				name: 'Kadabra',
-				icon: 'none',
+				icon: 'false',
 				isOpened: true,
 				children: [
 					{
 						name: 'Alakazam',
-						icon: 'none',
+						icon: 'false',
 					},
 				],
 			},
