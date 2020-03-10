@@ -80,6 +80,45 @@ const structureWithIcons = [
 	},
 ];
 
+const structureWithoutIcons = [
+	{
+		name: 'hitmonlee',
+		children: [{ name: 'Hitmonchan' }],
+		isOpened: false,
+		icon: false,
+	},
+	{
+		name: 'pikachu',
+		children: [
+			{
+				name: 'raichu',
+				icon: false,
+			},
+		],
+		isOpened: true,
+		icon: false,
+	},
+	{
+		id: 'selected',
+		name: 'Abra',
+		icon: false,
+		isOpened: true,
+		children: [
+			{
+				name: 'Kadabra',
+				icon: false,
+				isOpened: true,
+				children: [
+					{
+						name: 'Alakazam',
+						icon: false,
+					},
+				],
+			},
+		],
+	},
+];
+
 const removeAction = [
 	{
 		action: action('itemRemoveCallback'),
@@ -387,6 +426,18 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<div style={style}>
 				<IconsProvider />
 				<TreeView {...cornerCaseLongName} />
+			</div>
+		</div>
+	))
+	.add('without icons', () => (
+		<div>
+			<h1>TreeView</h1>
+			<h3>Definition</h3>
+			<p>A view component to display any tree structure, like folders or categories.</p>
+			<h3>Default property-set without icons: </h3>
+			<div style={style}>
+				<IconsProvider />
+				<TreeView {...withAddAction} structure={structureWithoutIcons} />
 			</div>
 		</div>
 	));
