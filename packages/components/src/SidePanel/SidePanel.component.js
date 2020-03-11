@@ -16,6 +16,15 @@ import theme from './SidePanel.scss';
 const DOCKED_MIN_WIDTH = '6rem';
 const LARGE_DOCKED_MIN_WIDTH = '7rem';
 
+function getInitialWidth(docked, large) {
+	if (docked && large) {
+		return LARGE_DOCKED_MIN_WIDTH;
+	} else if (docked) {
+		return DOCKED_MIN_WIDTH;
+	}
+	return undefined;
+}
+
 /**
  * This component aims to display links as a menu.
  * @param {object} props react props
@@ -52,7 +61,7 @@ function SidePanel({
 }) {
 	const [dockState, setDockState] = useState(dockedProp);
 	const docked = onToggleDock ? dockedProp : dockState;
-	const [width, setWidth] = useState();
+	const [width, setWidth] = useState(getInitialWidth(docked, large));
 	const [animation, setAnimation] = useState(false);
 	const ref = React.createRef();
 
