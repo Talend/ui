@@ -61,7 +61,7 @@ function SidePanel({
 }) {
 	const [dockState, setDockState] = useState(dockedProp);
 	const docked = onToggleDock ? dockedProp : dockState;
-	const [width, setWidth] = useState(getInitialWidth(docked, large));
+	const [width, setWidth] = useState(() => getInitialWidth(docked, large));
 	const [animation, setAnimation] = useState(false);
 	const ref = React.createRef();
 
