@@ -1,0 +1,41 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design Tokens|Colors" />
+
+import { ColorPalette, ColorItem } from '@storybook/components';
+
+import { greyscale, backgrounds, palette } from './colors.tokens';
+
+# Design Tokens
+
+## Colors
+
+### Monochrome
+
+<ColorPalette>
+	<ColorItem
+		title="theme.color.greyscale"
+		subtitle="Some of the greys"
+		colors={greyscale}
+	/>
+</ColorPalette>
+
+### Layout
+
+<ColorPalette>
+	<ColorItem
+		title="theme.color.backgrounds"
+		subtitle="All possible backgrounds"
+		colors={backgrounds}
+	/>
+</ColorPalette>
+
+### Informative
+
+<ColorPalette>
+	<ColorItem
+		title="theme.color.palette"
+		subtitle="Some informative colors"
+		colors={palette}
+	/>
+</ColorPalette>
