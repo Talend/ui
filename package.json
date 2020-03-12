@@ -20,16 +20,25 @@
   },
   "homepage": "https://github.com/Talend/design-system#readme",
   "dependencies": {
+    "i18next": "^19.3.2",
     "polished": "^3.4.4",
+    "prop-types": "^15.7.2",
+    "react-i18next": "^11.3.3",
+    "react-inlinesvg": "^1.2.0",
     "reakit": "^1.0.0-beta.16",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
-    "@storybook/addon-actions": "^5.3.14",
-    "@storybook/addon-links": "^5.3.14",
-    "@storybook/addons": "^5.3.14",
-    "@storybook/react": "^5.3.14",
-    "babel-loader": "^8.0.6"
+    "@storybook/addon-actions": "next",
+    "@storybook/addon-docs": "next",
+    "@storybook/addon-knobs": "next",
+    "@storybook/addon-links": "next",
+    "@storybook/addon-storysource": "next",
+    "@storybook/addons": "next",
+    "@storybook/react": "next",
+    "@storybook/theming": "next",
+    "babel-loader": "^8.0.6",
+    "storybook-addon-styled-component-theme": "^1.3.0"
   }
 }
