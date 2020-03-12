@@ -1,0 +1,109 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import dropdownZoning from './images/zoning-dropdown.jpg';
+
+<Meta title="Guidelines|Components/Dropdown" />
+
+# Dropdown
+
+A dropdown menu displays a list of actions to take.
+
+## Style
+
+## Zoning
+
+<img src={dropdownZoning} alt="zoning image for dropdown" className="full" class="full" />
+
+## Sizes <a id="sizes" />
+
+### Menu items
+
+| Attribute                    | Variable                        |
+| ---------------------------- | ------------------------------- |
+| height                       | 3.5rem                          |
+| padding-left & padding-right | \$normal                        |
+| _ (if icon) _ icon-size      | \$svg-md-size                   |
+| _ (if icon) _ margin-right   | \$normal                        |
+| _ (if separator) _           | border: solid, 0.1rem \$gallery |
+
+### Menu
+
+| Attribute     | Variable                       |
+| ------------- | ------------------------------ |
+| max-height    | 32rem                          |
+| min-width     | 15rem                          |
+| border        | solid, 0.1rem \$gallery        |
+| border-radius | rectRadius                     |
+| box-shadow    | 0 -1px 3px 0px rgba(0,0,0,0.2) |
+
+## Colors
+
+| Attribute        | Variable |
+| ---------------- | -------- |
+| background-color | \$white  |
+
+## Fonts
+
+| Attribute      | Variable         |
+| -------------- | ---------------- |
+| font-size      | 1.4rem           |
+| font-weight    | regular          |
+| color          | \$dove-gray      |
+| text-align     | left             |
+| label position | vertical aligned |
+
+## States
+
+|                    | Attribute        | Variable              |
+| ------------------ | ---------------- | --------------------- |
+| **Default**        | background-color | \$white               |
+| **Hover**          | background-color | tint (\$scooter, 10%) |
+| **Selected**       | background-color | \$concrete            |
+| **Hover selected** | background-color | #CCDCE8               |
+
+## Content
+
+**Keep menu items to a single line of text as much as possible**
+
+If not, when the label is too long for the available horizontal space, they wrap to form another line.
+
+## Interaction
+
+- **Dropdown menu items should all have a tooltip on hover displaying the description**
+
+// To Do Add story
+
+## Skeleton
+
+| Attribute        | Variable             |
+| ---------------- | -------------------- |
+| height           | 3.4rem               |
+| width            | 8rem                 |
+| border-radius    | rectRadius           |
+| background-color | shade (\$black, 25%) |
+
+// TODO add demo
+
+## Accessibility
+
+Classic behaviors expected:
+
+- Press <kbd>TABS</kbd> to focus on the dropdown
+
+- Press <kbd>TABS</kbd> to navigate in the dropdown menu
+
+- Press <kbd>SPACE</kbd> or <kbd>ENTER</kbd> to activate the dropdown menu item
+
+For more information, please go to accessibility page
+
+## Usage
+
+**Max height**
+
+The max-height of a dropdown is 32rem. A scroll-bar has to be added after exceeding 32rem longer items.
+This rule is not applicable for the header-bar dropdowns.
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 01/07/2020 | Monia  | Init page   |

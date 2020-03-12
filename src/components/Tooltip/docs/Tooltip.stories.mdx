@@ -1,0 +1,67 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Col from '../../../docs/Col.component';
+import Row from '../../../docs/Row.component';
+
+<Meta title="Guidelines|Components/Tooltip" />
+
+# Tooltip
+
+Tooltip appears on mouse hover in order to identify or define relevant information about elements.
+
+<Row>
+	<Col>
+		<Story id="components-tooltip--basic" />
+	</Col>
+</Row>
+
+## Style
+
+## Sizes <a id="sizes" />
+
+### Default
+
+| Attribute                   | Variable     |
+| --------------------------- | ------------ |
+| height                      | 2rem         |
+| max-height                  | 5rem         |
+| max-width                   | 25rem        |
+| padding-left; padding-right | \$smaller    |
+| border-radius               | rectRadius   |
+| **Pointer details**         |
+| width                       | 0.6rem       |
+| height                      | 0.4rem       |
+| position                    | left-aligned |
+
+## Colors
+
+| Attribute        | Variable    |
+| ---------------- | ----------- |
+| background-color | \$dove-gray |
+| color            | \$white     |
+
+## Fonts
+
+| Attribute | Variable |
+| --------- | -------- |
+| font-size | 1.2rem   |
+
+## Content
+
+- Tooltip should not include clickable content.
+- The tooltip content shouldn't be longer than 3 or 4 lines to make it easy to read. If you need more space to display the message please use a popover.
+- Tooltip should not display icons or images, only text.
+
+## Accessibility
+
+Classic behaviors expected:
+
+- Press <kbd>TABS</kbd> to focus element and tooltip will be visible
+
+For more information, please go to accessibility page
+
+## Changelog
+
+| Date       | Author | Description    |
+| ---------- | ------ | -------------- |
+| 12/19/2019 | Monia  | Init page      |
+| 12/31/2019 | Fabien | Add basic demo |
