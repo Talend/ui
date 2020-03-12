@@ -6,10 +6,10 @@ import plus from './plus.svg';
 import warning from './warning.svg';
 
 export default {
-    caret,
-    checkCircle,
-    cross,
-    information,
-    plus,
-    warning,
+	caret,
+	checkCircle,
+	cross,
+	information,
+	plus,
+	warning,
 };

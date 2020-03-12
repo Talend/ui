@@ -1,3 +1,3 @@
 export default {
-    disabled: '.54',
+	disabled: '.54',
 };

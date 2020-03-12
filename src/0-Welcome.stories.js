@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 export default {
-  title: "Welcome"
+	title: 'Welcome',
 };
 
 export const ToDesignSystem = () => (
-  <article>
-    <h1>Talend Design System</h1>
-  </article>
+	<article>
+		<h1>Talend Design System</h1>
+	</article>
 );

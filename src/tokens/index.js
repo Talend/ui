@@ -6,10 +6,10 @@ import spacings from './spacings.tokens';
 import typography from './typography.tokens';
 
 export default {
-    borders,
-    colors,
-    opacity,
-    sizes,
-    spacings,
-    typography,
-}
+	borders,
+	colors,
+	opacity,
+	sizes,
+	spacings,
+	typography,
+};
