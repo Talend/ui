@@ -6,10 +6,11 @@ import Button from '../Button';
 import Icon from '../../Icon';
 import tokens from '../../../tokens';
 
-const StyledComponent = styled(Button)`
+const StyledButton = styled(Button)`
 	padding: 0;
-	height: 2.4rem;
-	width: 2.4rem;
+	min-height: unset;
+	height: ${tokens.sizes.small};
+	width: ${tokens.sizes.small};
 	align-items: center;
 	justify-content: center;
 	color: ${tokens.colors.primaryColor};
@@ -40,13 +41,13 @@ const StyledComponent = styled(Button)`
 
 const ButtonIcon = React.forwardRef(({ icon, children, ...props }, ref) => {
 	return (
-		<StyledComponent {...props} ref={ref}>
+		<StyledButton {...props} ref={ref}>
 			{icon && <Icon name={icon} />}
 			{children && <VisuallyHidden>{children}</VisuallyHidden>}
-		</StyledComponent>
+		</StyledButton>
 	);
 });
 
 ButtonIcon.propTypes = Button.propTypes;
 
-export default React.memo(ButtonIcon);
+export default ButtonIcon;

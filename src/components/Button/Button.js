@@ -1,19 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'reakit';
-import styled, { createGlobalStyle, css, ThemeContext } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { tint } from 'polished';
 import tokens from '../../tokens';
 
-export const StyledComponent = styled(Button)`
+export const BaseButton = styled(Button)`
 	display: inline-flex;
-	align-items: baseline;
-	margin: ${tokens.spacings.smaller} ${tokens.spacings.small};
+	align-items: center;
 	border: ${tokens.borders.normal};
 	border-radius: ${tokens.borders.rectRadius};
-	padding: ${tokens.spacings.none} ${tokens.spacings.normal};
-	height: ${tokens.sizes.large};
-	font: ${tokens.typography.normal};
+	padding: ${tokens.spacings.none} ${tokens.spacings.large};
+	min-height: ${tokens.sizes.large};
+	font: ${tokens.typography.normal} ${tokens.typography.fontFamilies.sansSerif};
 	background: ${tokens.colors.transparent};
 	cursor: pointer;
 
@@ -28,31 +27,18 @@ export const StyledComponent = styled(Button)`
 		outline: ${tokens.colors.scooter} 0.3rem solid;
 	}
 
-	${props =>
-		props.disabled &&
-		css`
-			color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)} !important;
-			cursor: not-allowed !important;
-		`}
+	&[disabled],
+	&[aria-disabled='true'] {
+		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)};
+		cursor: not-allowed;
+	}
 
 	svg {
 		margin-left: 1rem;
-		height: 1rem;
-		max-width: 100%;
 		fill: currentColor;
+		flex: 0 0 1rem;
 	}
 `;
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${props => props.theme?.mainBackgroundColor};
-  }
-`;
-
-const BaseButton = React.forwardRef((props, ref) => {
-	// const themeContext = useContext(ThemeContext);
-	return <StyledComponent {...props} ref={ref} />;
-});
 
 BaseButton.propTypes = {
 	small: PropTypes.bool,

@@ -1,10 +1,9 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { tint } from 'polished';
 import colors from '../../../tokens/colors.tokens';
 import Button from '../Button';
 
-const StyledComponent = styled(Button)`
+const ButtonSecondary = styled(Button)`
 	color: ${colors.primaryColor};
 	background: ${colors.white};
 
@@ -16,18 +15,11 @@ const StyledComponent = styled(Button)`
 		background: ${tint(0.7, colors.primaryColor)};
 	}
 
-	${props =>
-		props.disabled &&
-		css`
-			border-color: ${colors.alto};
-			background-color: ${colors.white} !important;
-		`}
+	&[disabled],
+	&[aria-disabled='true'] {
+		border-color: ${colors.alto};
+		background-color: ${colors.white};
+	}
 `;
 
-const ButtonSecondary = React.forwardRef((props, ref) => {
-	return <StyledComponent {...props} ref={ref} />;
-});
-
-ButtonSecondary.propTypes = Button.propTypes;
-
-export default React.memo(ButtonSecondary);
+export default ButtonSecondary;

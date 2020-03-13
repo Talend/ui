@@ -8,6 +8,6 @@ const borderRadii = {
 };
 
 export default {
-	borders,
-	borderRadii,
+	...borders,
+	...borderRadii,
 };

@@ -7,5 +7,5 @@ const fontFamilies = {
 // @see https://developer.mozilla.org/fr/docs/Web/CSS/font
 export default {
 	fontFamilies,
-	normal: '1.4rem 600',
+	normal: '600 1.4rem',
 };

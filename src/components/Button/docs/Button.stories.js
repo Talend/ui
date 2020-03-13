@@ -1,10 +1,28 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import styled from 'styled-components';
 
 import Button from '../Button';
 import Dropdown from '../../Dropdown';
 import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  html {
+	background-color: ${props => props.theme?.mainBackgroundColor};
+	font-size: 10px;
+  }
+`;
+
+const RowDiv = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	> * {
+		margin: 0 2rem;
+	}
+`;
 
 export default {
 	title: 'Components|Button',
@@ -12,17 +30,18 @@ export default {
 	parameters: {
 		component: Button,
 	},
+	decorators: [
+		storyFn => (
+			<RowDiv>
+				<GlobalStyle />
+				{storyFn()}
+			</RowDiv>
+		),
+	],
 };
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${props => props.theme?.mainBackgroundColor};
-  }
-`;
 
 export const basic = () => (
 	<>
-		<GlobalStyle />
 		<Button onClick={action('clicked')}>Basic Button</Button>
 		<Dropdown
 			as={Button}
@@ -44,7 +63,6 @@ export const basic = () => (
 
 export const primary = () => (
 	<>
-		<GlobalStyle />
 		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
 		<Dropdown
 			as={Button.Primary}
@@ -65,7 +83,6 @@ export const primary = () => (
 );
 export const destructive = () => (
 	<>
-		<GlobalStyle />
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
 		<Dropdown
 			as={Button.Destructive}
@@ -86,7 +103,6 @@ export const destructive = () => (
 );
 export const secondary = () => (
 	<>
-		<GlobalStyle />
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
 		<Dropdown
 			as={Button.Secondary}
@@ -105,9 +121,9 @@ export const secondary = () => (
 		</Button.Secondary>
 	</>
 );
+
 export const ghost = () => (
 	<>
-		<GlobalStyle />
 		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
 		<Dropdown
 			as={Button.Ghost}
@@ -128,7 +144,6 @@ export const ghost = () => (
 );
 export const icon = () => (
 	<>
-		<GlobalStyle />
 		<Button.Icon onClick={action('clicked')} icon={'plus'}>
 			Basic Button
 		</Button.Icon>
