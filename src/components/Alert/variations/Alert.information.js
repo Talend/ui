@@ -10,7 +10,13 @@ const StyledComponent = styled(Alert)`
 `;
 
 const AlertInformation = React.forwardRef((props, ref) => {
-	return <StyledComponent icon={<Icon name={'information'} />} {...props} ref={ref} />;
+	return (
+		<StyledComponent
+			icon={<Icon className={'text-blue-900'} name={'information'} />}
+			{...props}
+			ref={ref}
+		/>
+	);
 });
 
 AlertInformation.propTypes = Alert.propTypes;

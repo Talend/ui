@@ -10,7 +10,13 @@ const StyledComponent = styled(Alert)`
 `;
 
 const AlertDestructive = React.forwardRef((props, ref) => {
-	return <StyledComponent icon={<Icon name={'cross'} />} {...props} ref={ref} />;
+	return (
+		<StyledComponent
+			icon={<Icon className={'text-red-900'} name={'cross'} />}
+			{...props}
+			ref={ref}
+		/>
+	);
 });
 
 AlertDestructive.propTypes = Alert.propTypes;
