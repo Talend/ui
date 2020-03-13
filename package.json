@@ -34,7 +34,7 @@
     "@babel/core": "^7.8.7",
     "@storybook/addon-actions": "next",
     "@storybook/addon-docs": "next",
-    "@storybook/addon-knobs": "next",
+    "@storybook/addon-knobs": "^5.3.14",
     "@storybook/addon-links": "next",
     "@storybook/addon-storysource": "next",
     "@storybook/addons": "next",
