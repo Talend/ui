@@ -1,0 +1,16 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { IconItem, IconGallery } from '@storybook/components';
+import Icon from '../Icon';
+import icons from '../../../icons';
+
+<Meta title="Guidelines|Components/Icon" />
+
+# Icon
+
+<IconGallery>
+    {Object.keys(icons).map((iconName, index) => (
+        <IconItem key={index} name={iconName}>
+            <Icon name={iconName} />
+        </IconItem>
+    ))}
+</IconGallery>
