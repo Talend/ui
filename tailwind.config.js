@@ -1,3 +1,4 @@
+// https://github.com/aniftyco/awesome-tailwindcss
 module.exports = {
 	prefix: '',
 	important: false,
