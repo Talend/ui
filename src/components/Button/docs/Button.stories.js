@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import styled from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import Button from '../Button';
 import Dropdown from '../../Dropdown';
-import { createGlobalStyle } from 'styled-components';
+
+import tokens from '../../../tokens';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -40,7 +41,7 @@ export default {
 	],
 };
 
-export const basic = () => (
+export const Base = () => (
 	<>
 		<Button onClick={action('clicked')}>Basic Button</Button>
 		<Dropdown
@@ -61,7 +62,7 @@ export const basic = () => (
 	</>
 );
 
-export const primary = () => (
+export const Primary = () => (
 	<>
 		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
 		<Dropdown
@@ -81,7 +82,7 @@ export const primary = () => (
 		</Button.Primary>
 	</>
 );
-export const destructive = () => (
+export const Destructive = () => (
 	<>
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
 		<Dropdown
@@ -101,7 +102,7 @@ export const destructive = () => (
 		</Button.Destructive>
 	</>
 );
-export const secondary = () => (
+export const Secondary = () => (
 	<>
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
 		<Dropdown
@@ -122,7 +123,7 @@ export const secondary = () => (
 	</>
 );
 
-export const ghost = () => (
+export const Ghost = () => (
 	<>
 		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
 		<Dropdown
@@ -142,7 +143,7 @@ export const ghost = () => (
 		</Button.Ghost>
 	</>
 );
-export const icon = () => (
+export const Icon = () => (
 	<>
 		<Button.Icon onClick={action('clicked')} icon={'plus'}>
 			Basic Button
@@ -164,4 +165,10 @@ export const icon = () => (
 			Disabled Focusable Button
 		</Button.Icon>
 	</>
+);
+
+export const WithTheme = () => (
+	<ThemeProvider theme={{ ...tokens, colors: { ...tokens.colors, primaryColor: 'deeppink' } }}>
+		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
+	</ThemeProvider>
 );

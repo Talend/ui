@@ -1,23 +1,26 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { tint } from 'polished';
-import colors from '../../../tokens/colors.tokens';
-import Button from '../Button';
+import tokens from '../../../tokens';
+import ButtonBase from '../Button';
 
-export default styled(Button)`
+const ButtonGhost = styled(ButtonBase)`
 	border: none;
-	color: ${colors.primaryColor};
+	color: ${props => props.theme.colors.primaryColor};
 
-	&:not([disabled]):hover,
-	&:not([disabled]):focus {
-		background: ${tint(0.9, colors.primaryColor)};
+	&:not([aria-disabled='true']):hover,
+	&:not([aria-disabled='true']):focus {
+		background: ${props => tint(0.9, props.theme.colors.primaryColor)};
 	}
 
-	&:not([disabled]):active {
-		background: ${tint(0.7, colors.primaryColor)};
+	&:not([aria-disabled='true']):active {
+		background: ${props => tint(0.7, props.theme.colors.primaryColor)};
 	}
 
-	&[disabled],
 	&[aria-disabled='true'] {
-		background-color: ${colors.transparent};
+		background-color: ${props => props.theme.colors.transparent};
 	}
 `;
+
+ButtonGhost.defaultProps = { theme: tokens };
+
+export default ButtonGhost;

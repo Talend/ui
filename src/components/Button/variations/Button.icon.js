@@ -1,30 +1,31 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { shade, tint } from 'polished';
 import { VisuallyHidden } from 'reakit';
-import Button from '../Button';
+import ButtonBase from '../Button';
 import Icon from '../../Icon';
 import tokens from '../../../tokens';
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(ButtonBase)`
 	padding: 0;
 	min-height: unset;
-	height: ${tokens.sizes.small};
-	width: ${tokens.sizes.small};
+	height: ${props => props.theme.sizes.small};
+	width: ${props => props.theme.sizes.small};
 	align-items: center;
 	justify-content: center;
-	color: ${tokens.colors.primaryColor};
-	border: 2px solid ${tokens.colors.primaryColor};
-	border-radius: ${tokens.borders.circleRadius};
+	color: ${props => props.theme.colors.primaryColor};
+	border: 2px solid ${props => props.theme.colors.primaryColor};
+	border-radius: ${props => props.theme.borders.circleRadius};
 
-	&:not([disabled]):hover {
-		color: ${shade(0.2, tokens.colors.primaryColor)};
-		border-color: ${shade(0.2, tokens.colors.primaryColor)};
+	&:not([aria-disabled='true']):hover {
+		color: ${props => shade(0.2, props.theme.colors.primaryColor)};
+		border-color: ${props => shade(0.2, props.theme.colors.primaryColor)};
 	}
 
-	&:not([disabled]):active {
-		color: ${shade(0.4, tokens.colors.primaryColor)};
-		border-color: ${shade(0.4, tokens.colors.primaryColor)};
+	&:not([aria-disabled='true']):active {
+		color: ${props => shade(0.4, props.theme.colors.primaryColor)};
+		border-color: ${props => shade(0.4, props.theme.colors.primaryColor)};
 	}
 
 	svg {
@@ -32,11 +33,10 @@ const StyledButton = styled(Button)`
 		height: 1.2rem;
 	}
 
-	${props =>
-		props.disabled &&
-		css`
-			border-color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)} !important;
-		`}
+	&[aria-disabled='true'] {
+		border-color: ${props =>
+			tint(1 - props.theme.opacity.disabled, props.theme.colors.black)} !important;
+	}
 `;
 
 const ButtonIcon = React.forwardRef(({ icon, children, ...props }, ref) => {
@@ -48,6 +48,10 @@ const ButtonIcon = React.forwardRef(({ icon, children, ...props }, ref) => {
 	);
 });
 
-ButtonIcon.propTypes = Button.propTypes;
+ButtonIcon.propTypes = {
+	...ButtonBase.propTypes,
+	icon: PropTypes.string.isRequired,
+};
+ButtonIcon.defaultProps = { theme: tokens };
 
 export default ButtonIcon;

@@ -2,34 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'reakit';
 import styled, { css } from 'styled-components';
-import { tint } from 'polished';
 import tokens from '../../tokens';
 
-export const BaseButton = styled(Button)`
+const BaseButton = styled(
+	React.forwardRef(({ theme, small, ...props }, ref) => <Button ref={ref} {...props} />),
+)`
 	display: inline-flex;
 	align-items: center;
-	border: ${tokens.borders.normal};
-	border-radius: ${tokens.borders.rectRadius};
-	padding: ${tokens.spacings.none} ${tokens.spacings.large};
-	min-height: ${tokens.sizes.large};
-	font: ${tokens.typography.normal} ${tokens.typography.fontFamilies.sansSerif};
-	background: ${tokens.colors.transparent};
+	border: ${props => props.theme.borders.normal};
+	border-radius: ${props => props.theme.borders.rectRadius};
+	padding: ${props => `${props.theme.spacings.none} ${props.theme.spacings.large}`};
+	min-height: ${props => props.theme.sizes.large};
+	font: ${props =>
+		`${props.theme.typography.normal} ${props.theme.typography.fontFamilies.sansSerif}`};
+	background: ${props => props.theme.colors.transparent};
 	cursor: pointer;
 
 	${props =>
 		props.small &&
 		css`
-			padding: ${tokens.spacings.none} ${tokens.spacings.small};
-			height: ${tokens.sizes.small};
+			padding: ${props.theme.spacings.none} ${props.theme.spacings.small};
+			height: ${props.theme.sizes.small};
 		`}
 
 	&:focus {
-		outline: ${tokens.colors.scooter} 0.3rem solid;
+		outline: ${props => props.theme.colors.scooter} 0.3rem solid;
 	}
 
-	&[disabled],
 	&[aria-disabled='true'] {
-		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)};
 		cursor: not-allowed;
 	}
 
@@ -40,10 +40,12 @@ export const BaseButton = styled(Button)`
 	}
 `;
 
+BaseButton.defaultProps = { theme: tokens };
+
 BaseButton.propTypes = {
 	small: PropTypes.bool,
 	disabled: PropTypes.bool,
 	focusable: PropTypes.bool,
 };
 
-export default React.memo(BaseButton);
+export default BaseButton;
