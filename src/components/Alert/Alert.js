@@ -1,35 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import tw from 'tailwind.macro';
 
-export const StyledComponent = styled.div`
+import './Alert.css';
+
+export const StyledAlert = styled.div`
+	${props => props.background && tw`flex items-center p-2 rounded-md`}
+`;
+export const StyledParagraph = styled.p`
+	${props => props.icon && props.background && tw`pl-8`}
+`;
+export const StyledStrong = styled.strong`
+	${tw`inline-flex items-baseline`}
+`;
+export const StyledIconSpan = styled.span`
+	${tw`inline-flex self-center w-6`}
+	${props => props.background && tw`-ml-6`}
+
 	svg {
-		height: 1rem;
-		max-width: 100%;
-		fill: currentColor;
+		${tw`h-4 max-w-full fill-current`}
 	}
+`;
+export const StyledSpan = styled.span`
+	${tw`mr-1`}
 `;
 
 // @link https://inclusive-components.design/notifications
-function Alert({ icon, title, description, link, ...rest }) {
+function Alert({ icon, title, description, link, background = false, ...rest }) {
 	return (
-		<StyledComponent
-			{...rest}
-			className={`${rest.className} flex items-center p-2 rounded-md`}
-			role="status"
-			aria-live="polite"
-		>
-			<p className={'inline-flex'}>
+		<StyledAlert background={background} {...rest} role="status" aria-live="polite">
+			<StyledParagraph icon={icon} background={background}>
 				{(icon || title) && (
-					<strong className={`inline-flex items-center`}>
-						{icon && <span className={'px-1'}>{icon}</span>}
-						{title && <span className={'pl-1 font-semibold'}>{title}</span>}
-					</strong>
+					<StyledStrong>
+						{icon && <StyledIconSpan background={background}>{icon}</StyledIconSpan>}
+						{title && <StyledSpan>{title}</StyledSpan>}
+					</StyledStrong>
 				)}
-				{description && <span className={'pl-1'}>{description}</span>}
-				{link && <span className={'pl-1'}>{link}</span>}
-			</p>
-		</StyledComponent>
+				{description && <StyledSpan>{description}</StyledSpan>}
+				{link && <StyledSpan>{link}</StyledSpan>}
+			</StyledParagraph>
+		</StyledAlert>
 	);
 }
 
@@ -38,6 +49,7 @@ Alert.propTypes = {
 	title: PropTypes.string,
 	description: PropTypes.string.isRequired,
 	link: PropTypes.node,
+	background: PropTypes.bool,
 };
 
 export default Alert;

@@ -6,13 +6,13 @@ import tokens from '../../../tokens';
 import Icon from '../../Icon';
 
 const StyledComponent = styled(Alert)`
-	background: ${tint(0.9, tokens.colors.informationColor)};
+	background: ${props => props.background && tint(0.9, tokens.colors.informationColor)};
 `;
 
 const AlertInformation = React.forwardRef((props, ref) => {
 	return (
 		<StyledComponent
-			icon={<Icon className={'text-blue-900'} name={'information'} />}
+			icon={<Icon className={'text-blue-500'} name={'information'} />}
 			{...props}
 			ref={ref}
 		/>
