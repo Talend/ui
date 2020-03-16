@@ -40,7 +40,7 @@ export const informationWithBg = () => (
 			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
 		)}
 		link={<a href={'#'}>{text('link', 'See more')}</a>}
-		background
+		withBackground
 	/>
 );
 export const success = () => (
@@ -61,7 +61,7 @@ export const successWithBg = () => (
 			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
 		)}
 		link={<a href={'#'}>{text('link', 'See more')}</a>}
-		background
+		withBackground
 	/>
 );
 export const warning = () => (
@@ -82,7 +82,7 @@ export const warningWithBg = () => (
 			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
 		)}
 		link={<a href={'#'}>{text('link', 'See more')}</a>}
-		background
+		withBackground
 	/>
 );
 export const destructive = () => (
@@ -103,6 +103,6 @@ export const destructiveWithBg = () => (
 			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
 		)}
 		link={<a href={'#'}>{text('link', 'See more')}</a>}
-		background
+		withBackground
 	/>
 );

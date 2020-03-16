@@ -6,17 +6,17 @@ import tw from 'tailwind.macro';
 import './Alert.css';
 
 export const StyledAlert = styled.div`
-	${props => props.background && tw`flex items-center p-2 rounded-md`}
+	${props => props.withBackground && tw`flex items-center p-2 rounded-md`}
 `;
 export const StyledParagraph = styled.p`
-	${props => props.icon && props.background && tw`pl-8`}
+	${props => props.icon && props.withBackground && tw`pl-8`}
 `;
 export const StyledStrong = styled.strong`
 	${tw`inline-flex items-baseline`}
 `;
 export const StyledIconSpan = styled.span`
 	${tw`inline-flex self-center w-6`}
-	${props => props.background && tw`-ml-6`}
+	${props => props.withBackground && tw`-ml-6`}
 
 	svg {
 		${tw`h-4 max-w-full fill-current`}
@@ -27,13 +27,13 @@ export const StyledSpan = styled.span`
 `;
 
 // @link https://inclusive-components.design/notifications
-function Alert({ icon, title, description, link, background = false, ...rest }) {
+function Alert({ icon, title, description, link, withBackground = false, ...rest }) {
 	return (
-		<StyledAlert background={background} {...rest} role="status" aria-live="polite">
-			<StyledParagraph icon={icon} background={background}>
+		<StyledAlert withBackground={withBackground} {...rest} role="status" aria-live="polite">
+			<StyledParagraph icon={icon} withBackground={withBackground}>
 				{(icon || title) && (
 					<StyledStrong>
-						{icon && <StyledIconSpan background={background}>{icon}</StyledIconSpan>}
+						{icon && <StyledIconSpan withBackground={withBackground}>{icon}</StyledIconSpan>}
 						{title && <StyledSpan>{title}</StyledSpan>}
 					</StyledStrong>
 				)}
@@ -49,7 +49,7 @@ Alert.propTypes = {
 	title: PropTypes.string,
 	description: PropTypes.string.isRequired,
 	link: PropTypes.node,
-	background: PropTypes.bool,
+	withBackground: PropTypes.bool,
 };
 
 export default Alert;
