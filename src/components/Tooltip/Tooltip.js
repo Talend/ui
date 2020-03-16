@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import {
 	Tooltip as ReakitTooltip,
 	TooltipArrow,
@@ -15,18 +15,18 @@ const StyledTooltipReference = styled(TooltipReference)`
 
 const StyledTooltipArrow = styled(TooltipArrow)`
 	svg {
-		fill: ${tokens.doveGray};
+		fill: ${tokens.colors.doveGray};
 	}
 `;
 
 const StyledTooltip = styled(ReakitTooltip)`
 	max-width: 25rem;
-	padding-left: ${tokens.smaller};
-	padding-right: ${tokens.smaller};
+	padding-left: ${tokens.spacings.smaller};
+	padding-right: ${tokens.spacings.smaller};
 	font-size: 1.2rem;
-	color: ${tokens.white};
-	background: ${tokens.doveGray};
-	border-radius: ${tokens.rectRadius};
+	color: ${tokens.colors.white};
+	background: ${tokens.colors.doveGray};
+	border-radius: ${tokens.borders.rectRadius};
 	z-index: 99999;
 `;
 

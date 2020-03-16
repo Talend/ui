@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Talend/design-system#readme",
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "i18next": "^19.3.2",
     "polished": "^3.4.4",
     "prop-types": "^15.7.2",
@@ -43,10 +45,12 @@
     "@storybook/theming": "next",
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
+    "postcss-import": "^12.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "storybook-addon-styled-component-theme": "^1.3.0",
-    "tailwind.macro": "^1.0.0-alpha.10",
+    "stylelint": "^13.2.1",
+    "tailwind.macro": "next",
     "tailwindcss": "^1.2.0",
     "webpack": "^4.42.0"
   },
