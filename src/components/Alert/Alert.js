@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
 
 import './Alert.css';
@@ -24,6 +24,10 @@ export const StyledIconSpan = styled.span`
 `;
 export const StyledSpan = styled.span`
 	${tw`mr-1`}
+	
+	a {
+		${tw`text-blue-500`}
+	}
 `;
 
 // @link https://inclusive-components.design/notifications
