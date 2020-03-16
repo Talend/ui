@@ -6,7 +6,7 @@ import tokens from '../../../tokens';
 import Icon from '../../Icon';
 
 const StyledComponent = styled(Alert)`
-	background: ${props => props.background && tint(0.9, tokens.colors.destructiveColor)};
+	background: ${props => props.withBackground && tint(0.9, tokens.colors.destructiveColor)};
 `;
 
 const AlertDestructive = React.forwardRef((props, ref) => {

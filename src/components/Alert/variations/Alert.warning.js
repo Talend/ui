@@ -6,7 +6,7 @@ import tokens from '../../../tokens';
 import Icon from '../../Icon';
 
 const StyledComponent = styled(Alert)`
-	background: ${props => props.background && tint(0.9, tokens.colors.warningColor)};
+	background: ${props => props.withBackground && tint(0.9, tokens.colors.warningColor)};
 `;
 
 const AlertWarning = React.forwardRef((props, ref) => {
