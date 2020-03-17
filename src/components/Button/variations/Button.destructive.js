@@ -4,7 +4,7 @@ import ButtonPrimary from './Button.primary';
 import tokens from '../../../tokens';
 
 const ButtonDestructive = styled(ButtonPrimary)`
-	background: ${props => props.theme.colors.destructiveColor};
+	background: ${props => console.log(props.theme.colors.destructiveColor) || props.theme.colors.destructiveColor};
 
 	&:not([aria-disabled='true']):hover {
 		background: ${props => shade(0.2, props.theme.colors.destructiveColor)};

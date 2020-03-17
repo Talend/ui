@@ -1182,6 +1182,36 @@
     regenerator-runtime "^0.13.3"
     uuid "^3.3.2"
 
+"@storybook/addon-backgrounds@^6.0.0-alpha.27":
+  version "6.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-6.0.0-alpha.27.tgz#e7ebbe3331113286a65498f590ad8b59ce9be8e1"
+  integrity sha512-l5977c5fWFzveyFeLljHAT1T4odpGiv8UdzXAZlOJK5iaAz5tpT/eRoQ/xS2DciY+EtExO7EK9hGyvQyk9USjA==
+  dependencies:
+    "@storybook/addons" "6.0.0-alpha.27"
+    "@storybook/api" "6.0.0-alpha.27"
+    "@storybook/client-logger" "6.0.0-alpha.27"
+    "@storybook/components" "6.0.0-alpha.27"
+    "@storybook/core-events" "6.0.0-alpha.27"
+    "@storybook/theming" "6.0.0-alpha.27"
+    core-js "^3.0.1"
+    memoizerific "^1.11.3"
+    react "^16.8.3"
+    regenerator-runtime "^0.13.3"
+
+"@storybook/addon-contexts@^6.0.0-alpha.27":
+  version "6.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-contexts/-/addon-contexts-6.0.0-alpha.27.tgz#bfa2c7c14364f61826e871f415f1717a1f751f97"
+  integrity sha512-CaY/wmEI4EvygQgJ/wJp5PKTYmFEO4orv1EEFSlgwn5YhUJ7LN8v1dq9j1tVSwKqqAJfA0L46vIY8YF6PWRjTA==
+  dependencies:
+    "@storybook/addons" "6.0.0-alpha.27"
+    "@storybook/api" "6.0.0-alpha.27"
+    "@storybook/components" "6.0.0-alpha.27"
+    "@storybook/core-events" "6.0.0-alpha.27"
+    core-js "^3.0.1"
+    global "^4.3.2"
+    qs "^6.6.0"
+    regenerator-runtime "^0.13.3"
+
 "@storybook/addon-docs@next":
   version "6.0.0-alpha.26"
   resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-6.0.0-alpha.26.tgz#ff672c908f27c1974a22fb5a9ea1be2118069e91"

@@ -4,9 +4,9 @@ import { Button } from 'reakit';
 import styled, { css } from 'styled-components';
 import tokens from '../../tokens';
 
-const BaseButton = styled(
-	React.forwardRef(({ theme, small, ...props }, ref) => <Button ref={ref} {...props} />),
-)`
+	const BaseButton = styled(
+		React.forwardRef(({ theme, small, ...props }, ref) => <Button ref={ref} {...props} />),
+	)`
 	display: inline-flex;
 	align-items: center;
 	border: ${props => props.theme.borders.normal};

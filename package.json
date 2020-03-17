@@ -35,6 +35,8 @@
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@storybook/addon-actions": "next",
+    "@storybook/addon-backgrounds": "^6.0.0-alpha.27",
+    "@storybook/addon-contexts": "^6.0.0-alpha.27",
     "@storybook/addon-docs": "next",
     "@storybook/addon-knobs": "next",
     "@storybook/addon-links": "next",

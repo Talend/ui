@@ -1,29 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import Button from '../Button';
 import Dropdown from '../../Dropdown';
-
-import tokens from '../../../tokens';
-
-const GlobalStyle = createGlobalStyle`
-  html {
-	background-color: ${props => props.theme?.mainBackgroundColor};
-	font-size: 10px;
-  }
-`;
-
-const RowDiv = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	> * {
-		margin: 0 2rem;
-	}
-`;
 
 export default {
 	title: 'Components|Button',
@@ -31,17 +11,9 @@ export default {
 	parameters: {
 		component: Button,
 	},
-	decorators: [
-		storyFn => (
-			<RowDiv>
-				<GlobalStyle />
-				{storyFn()}
-			</RowDiv>
-		),
-	],
 };
 
-export const Base = () => (
+export const Basic = () => (
 	<>
 		<Button onClick={action('clicked')}>Basic Button</Button>
 		<Dropdown
@@ -165,10 +137,4 @@ export const Icon = () => (
 			Disabled Focusable Button
 		</Button.Icon>
 	</>
-);
-
-export const WithTheme = () => (
-	<ThemeProvider theme={{ ...tokens, colors: { ...tokens.colors, primaryColor: 'deeppink' } }}>
-		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
-	</ThemeProvider>
 );

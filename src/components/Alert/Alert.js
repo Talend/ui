@@ -5,7 +5,11 @@ import tw from 'tailwind.macro';
 
 import './Alert.css';
 
-export const StyledAlert = styled.div`
+import tokens from '../../tokens';
+
+export const StyledAlert = styled(
+	React.forwardRef(({ theme, ...props }, ref) => <div ref={ref} {...props} />),
+)`
 	${props => props.withBackground && tw`flex items-center p-2 rounded-md`}
 `;
 export const StyledParagraph = styled.p`
@@ -23,8 +27,8 @@ export const StyledIconSpan = styled.span`
 	}
 `;
 export const StyledSpan = styled.span`
-	${tw`mr-1`}
-	
+	${tw`mr-2`}
+
 	a {
 		${tw`text-blue-500`}
 	}
@@ -47,6 +51,8 @@ function Alert({ icon, title, description, link, withBackground = false, ...rest
 		</StyledAlert>
 	);
 }
+
+Alert.defaultProps = { theme: tokens };
 
 Alert.propTypes = {
 	icon: PropTypes.node,
