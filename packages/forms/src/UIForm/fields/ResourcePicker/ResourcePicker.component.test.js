@@ -448,10 +448,13 @@ describe('ResourcePicker field', () => {
 
 	describe('sort', () => {
 		it('should sort by name', async () => {
-			const wrapper = mount(<ResourcePicker {...props} />);
+			const sortNameProps = {...props};
+			sortNameProps.schema.options = {
+				sort: ['name'],
+			};
+			const wrapper = mount(<ResourcePicker {...sortNameProps} />);
 			await wrapper.instance().busy;
 			wrapper.update();
-
 			wrapper
 				.find(SortOptions)
 				.find(Button)
@@ -473,17 +476,20 @@ describe('ResourcePicker field', () => {
 					selected: [],
 					selection: false,
 					orders: {
-						name: 'asc',
+						name: 'desc',
 					},
 				},
 			});
 		});
 
 		it('should sort by date', async () => {
-			const wrapper = mount(<ResourcePicker {...props} />);
+			const sortDateProps = {...props};
+			sortDateProps.schema.options = {
+				sort: ['name', 'date'],
+			};
+			const wrapper = mount(<ResourcePicker {...sortDateProps} />);
 			await wrapper.instance().busy;
 			wrapper.update();
-
 			wrapper
 				.find(SortOptions)
 				.find(Button)
@@ -506,6 +512,7 @@ describe('ResourcePicker field', () => {
 					selection: false,
 					orders: {
 						date: 'asc',
+						name: 'asc',
 					},
 				},
 			});

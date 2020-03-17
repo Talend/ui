@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
+import { ORDERS } from '@talend/react-components/lib/ResourceList/Toolbar';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { CHANGE, FILTER } from './constants';
@@ -18,6 +19,7 @@ class ResourcePicker extends Component {
 		this.isItemSelected = this.isItemSelected.bind(this);
 		this.onRowClick = this.onRowClick.bind(this);
 
+		const sort = props.schema?.options?.sort;
 		this.state = {
 			filters: {
 				name: '',
@@ -27,6 +29,13 @@ class ResourcePicker extends Component {
 				selected: [],
 			},
 		};
+		if (sort) {
+			this.state.filters.orders = sort.reduce((acc, current) => {
+				// in the case of name the default sort is ASC, in date case it's DESC
+				acc[current] = current === 'date' ? ORDERS.DESC : ORDERS.ASC;
+				return acc;
+			}, {});
+		}
 	}
 
 	componentDidMount() {
@@ -131,7 +140,7 @@ class ResourcePicker extends Component {
 				filters: {
 					...state.filters,
 					orders: {
-						...state.orders,
+						...state.filters.orders,
 						[option]: value,
 					},
 				},

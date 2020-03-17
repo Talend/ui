@@ -30,7 +30,7 @@
       "multi": false,
       "options": {
         "filters": ["selection"],
-        "sort": ["name"]
+        "sort": ["name", "date"]
       }
     }
   ],

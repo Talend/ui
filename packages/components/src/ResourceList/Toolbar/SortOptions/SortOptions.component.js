@@ -25,6 +25,25 @@ function inverse(order) {
 	return ORDERS.ASC;
 }
 
+function getSortIcon(type, orders) {
+	if (type === TYPES.NAME) {
+		switch (orders[TYPES.NAME]) {
+		case ORDERS.ASC:
+			return 'talend-sort-az';
+		default:
+			return 'talend-sort-za';
+		}
+	}
+	if (type === TYPES.DATE) {
+		switch (orders[TYPES.DATE]) {
+		case ORDERS.ASC:
+			return 'talend-sort-asc';
+		default:
+			return 'talend-sort-desc';
+		}
+	}
+}
+
 function SortOptions({ t, types, onChange, orders }) {
 	return (
 		!!types.length && (
@@ -39,23 +58,21 @@ function SortOptions({ t, types, onChange, orders }) {
 				</span>
 				{types.includes(TYPES.NAME) && (
 					<OrderChooser
-						icon={'talend-sort-az'}
+						icon={getSortIcon(TYPES.NAME, orders)}
 						label={t('SORT_BY_NAME', {
 							defaultValue: 'Sort by name (current order: {{order}})',
 							order: orders[TYPES.NAME],
 						})}
-						asc={orders[TYPES.NAME] === ORDERS.ASC}
 						onClick={() => onChange(TYPES.NAME, inverse(orders[TYPES.NAME]))}
 					/>
 				)}
 				{types.includes(TYPES.DATE) && (
 					<OrderChooser
-						icon={'talend-sort-desc'}
+						icon={getSortIcon(TYPES.DATE, orders)}
 						label={t('SORT_BY_DATE', {
 							defaultValue: 'Sort by date (current order: {{order}})',
 							order: orders[TYPES.DATE],
 						})}
-						asc={orders[TYPES.DATE] === ORDERS.ASC}
 						onClick={() => onChange(TYPES.DATE, inverse(orders[TYPES.DATE]))}
 					/>
 				)}

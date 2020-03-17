@@ -9,7 +9,7 @@ import getPropsFrom from '../../../../utils/getPropsFrom';
 
 import theme from './OrderChooser.scss';
 
-function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) {
+function OrderChooser({ icon, label, tooltipPlacement, onClick, ...rest }) {
 	return (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<Button
@@ -23,16 +23,6 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 				bsStyle="link"
 			>
 				<Icon name={icon} />
-				<Icon
-					name={'talend-caret-down'}
-					className={classNames(
-						'tc-resource-picker-order-indicator',
-						theme['tc-resource-picker-order-indicator'],
-						{
-							[theme.asc]: asc,
-						},
-					)}
-				/>
 			</Button>
 		</TooltipTrigger>
 	);
@@ -41,7 +31,6 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 OrderChooser.propTypes = {
 	t: PropTypes.func,
 	icon: PropTypes.string,
-	asc: PropTypes.bool,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.overlayPlacement,
