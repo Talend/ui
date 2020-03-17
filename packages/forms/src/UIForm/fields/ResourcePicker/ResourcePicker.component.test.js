@@ -448,7 +448,7 @@ describe('ResourcePicker field', () => {
 
 	describe('sort', () => {
 		it('should sort by name', async () => {
-			const sortNameProps = {...props};
+			const sortNameProps = { ...props };
 			sortNameProps.schema.options = {
 				sort: ['name'],
 			};
@@ -483,7 +483,7 @@ describe('ResourcePicker field', () => {
 		});
 
 		it('should sort by date', async () => {
-			const sortDateProps = {...props};
+			const sortDateProps = { ...props };
 			sortDateProps.schema.options = {
 				sort: ['name', 'date'],
 			};

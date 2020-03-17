@@ -28,18 +28,18 @@ function inverse(order) {
 function getSortIcon(type, orders) {
 	if (type === TYPES.NAME) {
 		switch (orders[TYPES.NAME]) {
-		case ORDERS.ASC:
-			return 'talend-sort-az';
-		default:
-			return 'talend-sort-za';
+			case ORDERS.ASC:
+				return 'talend-sort-az';
+			default:
+				return 'talend-sort-za';
 		}
 	}
 	if (type === TYPES.DATE) {
 		switch (orders[TYPES.DATE]) {
-		case ORDERS.ASC:
-			return 'talend-sort-asc';
-		default:
-			return 'talend-sort-desc';
+			case ORDERS.ASC:
+				return 'talend-sort-asc';
+			default:
+				return 'talend-sort-desc';
 		}
 	}
 }
