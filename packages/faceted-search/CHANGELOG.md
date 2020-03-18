@@ -31,7 +31,7 @@ Types of changes
 
 ### Fixed
 
-- [fixed](https://github.com/Talend/ui/pull/XXXX): Do not display empty label badge
+- [fixed](https://github.com/Talend/ui/pull/2696): Do not display empty label badge
 
 ## [0.4.0]
 
