@@ -11,7 +11,7 @@
     "test:slimerjs": "slimerjs stories/slimer.js",
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",
-    "lint:es": "eslint --config ../../.eslintrc src",
+    "lint:es": "eslint --config ../../.eslintrc --ignore-path ../../.eslintignore src",
     "lint": "npm run lint:es && npm run lint:style",
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" lib",
     "start": "start-storybook -p 6006",
