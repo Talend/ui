@@ -1,11 +1,6 @@
-> eslint --config ../../.eslintrc src
+> eslint --config ../../.eslintrc --ignore-path ../../.eslintignore src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/components/src/ConfirmDialog/ConfirmDialog.stories.js
-   7:8  error  'List' is defined but never used            no-unused-vars
-   9:8  error  'IconsProvider' is defined but never used   no-unused-vars
-  11:7  error  'icons' is assigned a value but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -18,31 +13,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   75:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
   77:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
   78:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDatePicker/DatePicker.stories.js
-  18:5   error  Strings must use singlequote  quotes
-  19:42  error  Strings must use singlequote  quotes
-  28:11  error  Strings must use singlequote  quotes
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateRangePicker/DateRangePicker.stories.js
-  19:5   error  Strings must use singlequote  quotes
-  20:42  error  Strings must use singlequote  quotes
-  29:11  error  Strings must use singlequote  quotes
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/DateTimePicker.stories.js
-  15:5   error  Strings must use singlequote  quotes
-  16:42  error  Strings must use singlequote  quotes
-  25:11  error  Strings must use singlequote  quotes
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/DateTimeRangePicker.stories.js
-  16:5   error  Strings must use singlequote  quotes
-  17:42  error  Strings must use singlequote  quotes
-  26:11  error  Strings must use singlequote  quotes
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputTimePicker/TimePicker.stories.js
-  16:5   error  Strings must use singlequote  quotes
-  17:42  error  Strings must use singlequote  quotes
-  26:11  error  Strings must use singlequote  quotes
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/error-messages.js
    7:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
@@ -79,36 +49,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   279:53  error  'footerActions' is already declared in the upper scope  no-shadow
   279:53  error  'footerActions' is defined but never used               no-unused-vars
 
-/home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
-  272:33  error  Unary operator '++' used  no-plusplus
-  334:35  error  Unary operator '++' used  no-plusplus
-
-/home/travis/build/Talend/ui/packages/components/src/GridLayout/Dashboard.stories.js
-   19:1   error  Prefer default export                                   import/prefer-default-export
-   23:27  error  'id' is missing in props validation                     react/prop-types
-   99:22  error  'tile' is missing in props validation                   react/prop-types
-   99:28  error  'id' is missing in props validation                     react/prop-types
-  107:6   error  Empty components are self-closing                       react/self-closing-comp
-  117:27  error  'tile' is missing in props validation                   react/prop-types
-  136:26  error  'isLoading' is missing in props validation              react/prop-types
-  136:45  error  'skeletonConfiguration' is missing in props validation  react/prop-types
-  136:68  error  'isResizable' is missing in props validation            react/prop-types
-  137:16  error  'setTiles' is assigned a value but never used           no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
   68:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
   71:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-
-/home/travis/build/Talend/ui/packages/components/src/GuidedTour/GuidedTour.stories.js
-   17:14  error    'beforeLoading' is missing in props validation      react/prop-types
-   21:17  error    'afterLoading' is missing in props validation       react/prop-types
-   23:18  error    'afterFinish' is missing in props validation        react/prop-types
-   50:1   error    Declare only one React component per file           react/no-multi-comp
-   73:23  error    'getSteps' is missing in props validation           react/prop-types
-   76:20  error    't' is missing in props validation                  react/prop-types
-  100:7   warning  Dangerous property 'dangerouslySetInnerHTML' found  react/no-danger
-  115:14  error    'goTo' is missing in props validation               react/prop-types
-  115:20  error    'step' is missing in props validation               react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   129:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
@@ -117,15 +60,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
    9:2   warning  Unexpected console statement  no-console
   10:16  error    Unexpected require()          global-require
 
-/home/travis/build/Talend/ui/packages/components/src/List/List.stories.js
-  857:7  error  'authorColumn' is never reassigned. Use 'const' instead  prefer-const
-
 /home/travis/build/Talend/ui/packages/components/src/List/ListComposition/collection.js
   1:1  error  '@storybook/addon-actions' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/ListView.stories.js
-  168:32  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  175:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -133,19 +69,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemView.component.js
   41:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/ResourceList/ResourceList.stories.js
-  252:3  error  Arrow function used ambiguously with a conditional expression  no-confusing-arrow
-
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
   4:8  error  'Container' is defined but never used  no-unused-vars
-
-/home/travis/build/Talend/ui/packages/components/src/Table/Table.stories.js
-  279:2   error  Assignment to property of function parameter 'column'      no-param-reassign
-  315:2   error  Assignment to property of function parameter 'column'      no-param-reassign
-  316:2   error  Assignment to property of function parameter 'column'      no-param-reassign
-  388:16  error  'initialState' PropType is defined but prop is never used  react/no-unused-prop-types
-  393:13  error  'draggable' PropType is defined but prop is never used     react/no-unused-prop-types
-  572:1   error  Declare only one React component per file                  react/no-multi-comp
 
 /home/travis/build/Talend/ui/packages/components/src/Toggle/Checkbox.js
   3:1  error  Prefer default export  import/prefer-default-export
@@ -163,9 +88,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   73:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.stories.js
-  409:9  error  'collection' is already declared in the upper scope  no-shadow
-
-✖ 100 problems (97 errors, 3 warnings)
-  21 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 50 problems (48 errors, 2 warnings)
+  1 error, 0 warnings potentially fixable with the `--fix` option.
 
