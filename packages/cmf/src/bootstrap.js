@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { withLDProvider } from 'launchdarkly-react-client-sdk';
 import createSagaMiddleware from 'redux-saga';
 import { batchedSubscribe } from 'redux-batched-subscribe';
 import { spawn } from 'redux-saga/effects';
 import compose from 'redux';
+import get from 'lodash/get';
 
 import App from './App';
 import actionCreator from './actionCreator';

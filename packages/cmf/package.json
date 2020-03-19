@@ -40,6 +40,7 @@
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "jsonpath": "^1.0.0",
+    "launchdarkly-react-client-sdk": "^2.18.0",
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "path-to-regexp": "^2.0.0",
