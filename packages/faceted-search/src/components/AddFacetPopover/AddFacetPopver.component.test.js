@@ -242,4 +242,36 @@ describe('AddFacetPopover', () => {
 		// Then
 		expect(wrapper.find('button[aria-label="Connection name"]').prop('disabled')).toBe(true);
 	});
+	it('should not render an empty label badge', () => {
+		// Given
+		const props = {
+			badges: [
+				{
+					properties: {
+						initialOpenedOperator: true,
+						initialOpenedValue: false,
+						attribute: 'connection.name',
+						label: '',
+						operator: {},
+						operators: [],
+						type: 'checkbox',
+						values: [{ id: 'amazon_s3', label: 'Amazon S3' }],
+					},
+					metadata: {
+						badgePerFacet: '1',
+						entitiesPerBadge: '1',
+						operators: ['in'],
+					},
+				},
+			],
+			badgesDefinitions,
+			id: 'my-id',
+			onClick: jest.fn(),
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+		// Then
+		expect(wrapper.find('button[aria-label=""]')).toHaveLength(0);
+	});
 });

@@ -188,3 +188,20 @@ export const badgeTextAsCategory = {
 		operators: ['contains', 'equals'],
 	},
 };
+
+export const badgeEmptyLabel = {
+	properties: {
+		attribute: 'title',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: '',
+		operator: {},
+		operators: [],
+		type: 'text',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: ['contains', 'equals'],
+	},
+};
