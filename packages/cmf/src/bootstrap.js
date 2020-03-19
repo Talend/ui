@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { withLDProvider } from 'launchdarkly-react-client-sdk';
+import { asyncWithLDProvider } from 'launchdarkly-react-client-sdk';
 import createSagaMiddleware from 'redux-saga';
 import { batchedSubscribe } from 'redux-batched-subscribe';
 import { spawn } from 'redux-saga/effects';
@@ -111,16 +111,7 @@ function DefaultRootComponent() {
 	return 'RootComponent is required';
 }
 
-/**
- * Bootstrap your cmf app
- * It takes your configuration and provides a very good default one.
- * By default it starts react with the following addons:
- * - redux
- * - redux-saga
- * @param {object} options the set of supported options
- * @returns {object} app object with render function
- */
-export default function bootstrap(appOptions = {}) {
+function commonInit(appOptions) {
 	// setup asap
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'root', 'object');
@@ -137,10 +128,44 @@ export default function bootstrap(appOptions = {}) {
 	saga.run();
 	const RootComponent = options.RootComponent || DefaultRootComponent;
 	const element = options.root || document.getElementById(appId);
+	return [store, options, element, RootComponent];
+}
+
+/**
+ * Bootstrap your cmf app
+ * It takes your configuration and provides a very good default one.
+ * By default it starts react with the following addons:
+ * - redux
+ * - redux-saga
+ * @param {object} options the set of supported options
+ * @returns {object} app object with render function
+ */
+export default function bootstrap(appOptions = {}) {
+	const [store, options, element, RootComponent] = commonInit(appOptions);
 	render(
 		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
 			<RootComponent />
 		</App>,
+		element,
+	);
+}
+
+export async function asyncBootstrap(appOptions = {}) {
+	if (!appOptions.LDClientSideID) {
+		return bootstrap(appOptions);
+	}
+
+	const [store, options, element, RootComponent] = commonInit(appOptions);
+	const LDProvider = await asyncWithLDProvider({
+		clientSideID: appOptions.LDClientSideID,
+	});
+
+	return render(
+		<LDProvider>
+			<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
+				<RootComponent />
+			</App>
+		</LDProvider>,
 		element,
 	);
 }

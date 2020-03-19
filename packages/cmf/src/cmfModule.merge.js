@@ -84,6 +84,7 @@ const MERGE_FNS = {
 	onError: getUnique,
 	root: getUnique,
 	appId: getUnique,
+	LDClientSideID: getUnique,
 	RootComponent: getUnique,
 	AppLoader: getUnique,
 	saga: mergeSaga,
