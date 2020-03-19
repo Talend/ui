@@ -1,0 +1,48 @@
+.uiform {
+	:global(.tf-title-text-mode) {
+		font-size: 1.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #555;
+	}
+}
+
+:global(.tc-drawer-container),
+:global(.modal-body) {
+	.uiform {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		min-height: 0;
+		overflow: hidden; /* IE11 fix to show scrollbars properly */
+	}
+
+	.form-content {
+		flex-grow: 1;
+		min-height: 0;
+		overflow-y: auto;
+	}
+}
+:global(.tc-drawer-container) {
+	.form-content {
+		padding: 10px;
+	}
+	.form-actions {
+		background-color: $wild-sand;
+		padding: $padding-small;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: $screen-xs-max) {
+	:global(.stacked) :global(.tc-drawer-container) {
+		.form-content {
+			width: 600px;
+			margin: 0 auto;
+		}
+		:global(.form-actions) {
+			max-width: 650px;
+			margin: auto;
+		}
+	}
+}

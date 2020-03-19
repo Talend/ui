@@ -1,0 +1,27 @@
+.list {
+	padding: 0;
+}
+
+.item {
+	list-style: none;
+
+	.delete,
+	.moveUp,
+	.moveDown {
+		opacity: 0;
+		transition: opacity 0.3s;
+
+		&:disabled {
+			color: $silver;
+		}
+	}
+
+	&:hover,
+	&:focus-within {
+		.delete,
+		.moveUp,
+		.moveDown {
+			opacity: 1;
+		}
+	}
+}

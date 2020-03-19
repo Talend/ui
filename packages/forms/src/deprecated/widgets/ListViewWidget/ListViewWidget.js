@@ -3,8 +3,8 @@ import React from 'react';
 import ListView from '@talend/react-components/lib/ListView';
 import { withTranslation } from 'react-i18next';
 
-import { I18N_DOMAIN_FORMS } from '../../../constants';
-import getDefaultT from '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../UIForm-v2/constants';
+import getDefaultT from '../../../UIForm-v2/translate';
 import { abort, search } from './ListViewWidget.actions';
 
 import {

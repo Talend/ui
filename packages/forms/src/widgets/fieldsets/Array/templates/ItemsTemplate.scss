@@ -1,0 +1,31 @@
+.toolbar {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-bottom: $padding-normal;
+}
+
+.item {
+	display: flex;
+	padding: $padding-smaller 0;
+	background-color: $wild-sand;
+	transition: background-color 0.3s;
+
+	&:hover,
+	&:focus-within {
+		background-color: $white;
+	}
+
+	.main {
+		padding: 0;
+		flex: 1 1 0px;
+	}
+
+	.item-toolbar {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		flex: 0 0 3rem;
+	}
+}

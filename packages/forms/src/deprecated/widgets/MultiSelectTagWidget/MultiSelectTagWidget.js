@@ -6,8 +6,8 @@ import Typeahead from '@talend/react-components/lib/Typeahead';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import theme from './MultiSelectTagWidget.scss';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
-import '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../UIForm-v2/constants';
+import '../../../UIForm-v2/translate';
 
 const DROP_DOWN_ITEM_HEIGHT = 49;
 

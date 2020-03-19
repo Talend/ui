@@ -9,11 +9,7 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 import i18n from '../../../.storybook/i18n';
 
 const languages = {};
-Object.keys(tuiLocales).forEach(key => languages[key] = key);
-
-function loadStories() {
-	require('../stories-core');
-}
+Object.keys(tuiLocales).forEach(key => (languages[key] = key));
 
 const withFormLayout = (story, options) => {
 	if (options.kind === 'Layout') {
@@ -40,4 +36,11 @@ addDecorator(
 );
 addDecorator(withA11y);
 addDecorator(withFormLayout);
-configure(loadStories, module);
+
+configure(
+	[
+		require.context('../src/UIForm-v2/stories-core', true, /index.js$/),
+		require.context('../src/UIForm-v3', true, /\.stories\.js$/),
+	],
+	module,
+);
