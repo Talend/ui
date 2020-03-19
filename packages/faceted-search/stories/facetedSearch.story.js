@@ -15,6 +15,7 @@ import {
 	badgeTextAsCustomAttribute,
 	badgeEnumsAsCustomAttribute,
 	badgeTextAsCategory,
+	badgeEmptyLabel,
 } from './badgesDefinitions.story';
 
 const badgesDefinitions = [badgeName, badgeConnectionType, badgePrice];
@@ -178,6 +179,20 @@ storiesOf('FacetedSearch', module)
 						badgeTextAsCustomAttribute,
 						badgeEnumsAsCustomAttribute,
 						...times(2, () => badgeTextAsCategory),
+					]}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('basic search with a empty label badge', () => (
+		<div style={{ height: '5.5rem' }}>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={[
+						badgeName,
+						badgeEmptyLabel,
 					]}
 					onSubmit={action('onSubmit')}
 				/>

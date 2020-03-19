@@ -29,6 +29,10 @@ Types of changes
 
 - [feat](https://github.com/Talend/ui/pull/2692): Handle the badgePerFacet metadata
 
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2696): Do not display empty label badge
+
 ## [0.4.0]
 
 ### Breaking change

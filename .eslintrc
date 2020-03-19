@@ -1,7 +1,6 @@
 {
 	"extends": "airbnb",
 	"parser": "babel-eslint",
-	"ignorePatterns": ["**/*.stories.js"],
 	"rules": {
 		"arrow-parens": [2, "as-needed"],
 		"import/no-extraneous-dependencies": [

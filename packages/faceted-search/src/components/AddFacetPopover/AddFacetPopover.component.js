@@ -167,6 +167,12 @@ const filterByLabel = label => row => {
 	return rowLabel.toLocaleLowerCase().includes(label.toLocaleLowerCase().trim());
 };
 
+const filterByNotEmpty = row => {
+	const label = isString(row) ? row : row.properties.label;
+
+	return label.trim() !== '';
+};
+
 const sortByLabel = (rowA, rowB) => {
 	const labelA = isString(rowA) ? rowA : rowA.properties.label;
 	const labelB = isString(rowB) ? rowB : rowB.properties.label;
@@ -194,12 +200,14 @@ const getScreens = (badgesDefinitions, filterValue) => {
 			category: null,
 			rows: [...categories, ...badgesWithoutCategory]
 				.sort(sortByLabel)
+				.filter(filterByNotEmpty)
 				.filter(filterByLabel(filterValue)),
 		},
 		...categories.map(categoryName => ({
 			category: categoryName,
 			rows: badgesDefinitions
 				.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName)
+				.filter(filterByNotEmpty)
 				.filter(filterByLabel(filterValue))
 				.sort(sortByLabel),
 		})),

@@ -12,7 +12,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:demo": "build-storybook",
-    "lint:es": "eslint --config ../../.eslintrc src",
+    "lint:es": "eslint --config ../../.eslintrc --ignore-path ../../.eslintignore src",
     "lint": "npm run lint:es",
     "storybook": "start-storybook -p 6010",
     "build-storybook": "build-storybook"
