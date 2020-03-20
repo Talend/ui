@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
 import { ColorPalette, ColorItem } from '@storybook/components';
-import { greyscale, backgrounds, palette, informationColor, warningColor, successColor, destructiveColor } from '../../../tokens/colors.tokens';
+import colors,{ greyscale, backgrounds, palette } from '../../../tokens/colors.tokens';
 
 import MessageZoning from './images/inlinemessage-zoning.jpg';
 
@@ -60,7 +60,10 @@ Inline message highlights information necessary to display for the user in many 
 ## Colors <a id="colors" />
 
 <ColorPalette>
-	<ColorItem title="theme.color.palette" subtitle="Some informative colors" colors={{informationColor, warningColor, successColor, destructiveColor}} />
+	<ColorItem title="theme.color.palette" subtitle="Some informative colors" colors={{Error: colors.destructiveColor,
+		Warning: colors.warningColor,
+		Success: colors.successColor,
+		Information: colors.informationColor}} />
 </ColorPalette>
 
 
