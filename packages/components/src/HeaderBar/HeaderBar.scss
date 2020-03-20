@@ -100,10 +100,9 @@ $background-color-on-hover: shade($brand-primary, 30);
 		width: $svg-lg-size;
 	}
 
-	.tc-header-bar-brand + :global(.dropdown-menu .tc-svg-icon) {
-		fill: $st-tropaz;
-		height: $svg-md-size;
-		width: $svg-md-size;
+	.tc-header-bar-brand :global(.tc-svg-icon:first-child) {
+		height: $svg-lg-size;
+		width: $svg-lg-size;
 	}
 
 	.tc-header-bar-brand + :global(.dropdown-menu) {
