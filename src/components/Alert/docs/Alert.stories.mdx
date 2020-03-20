@@ -1,0 +1,111 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Col from './Col.component';
+import Row from './Row.component';
+import { ColorPalette, ColorItem } from '@storybook/components';
+import { greyscale, backgrounds, palette, informationColor, warningColor, successColor, destructiveColor } from '../../../tokens/colors.tokens';
+
+import MessageZoning from './images/inlinemessage-zoning.jpg';
+
+
+<Meta title="Guidelines|Components/Inline message" />
+
+# Inline message
+
+Inline message highlights information necessary to display for the user in many different contexts. It can be additional information related to system status, it can be a required action to complete the current task. 
+
+<Row>
+	<Col centered="all">
+		<a href="#sizes">Sizes</a>
+	</Col>
+	<Col centered="all">
+		<a href="#colors">Colors</a>
+	</Col>
+	<Col centered="all">
+		<a href="#fonts">Fonts</a>
+	</Col>
+	<Col centered="all">
+		<a href="#states">States</a>
+	</Col>
+	<Col centered="all">
+		<a href="#content">Content</a>
+	</Col>
+	<Col centered="all">
+		<a href="#interaction">Interaction</a>
+	</Col>
+	<Col centered="all">
+		<a href="#accessibility">Accessibility</a>
+	</Col>
+</Row>
+
+## Style
+
+## Zoning
+
+<img src={MessageZoning} alt="zoning image for inline messages" className="full" class="full" />
+
+## Variations
+
+
+## Sizes <a id="sizes" />
+
+| Attribute                      | Variable       |
+| ------------------------------ | -------------- |
+| icon                           | $svg-md-size   |
+| height    			    	 | 2.5rem         |
+| padding-left and right         | $smaller       |
+| border-radius                  | rectRadius     |
+| _ (if link) _ margin-left      | $small         |
+
+
+## Colors <a id="colors" />
+
+<ColorPalette>
+	<ColorItem title="theme.color.palette" subtitle="Some informative colors" colors={{informationColor, warningColor, successColor, destructiveColor}} />
+</ColorPalette>
+
+
+
+| Usage           | Variable     |
+|-----------------|--------------|
+| **error**       | $chestnut-red|
+| **warning**     | $jaffa       |
+| **success**     | $rio-grande  |
+| **information** | $lochmara    |
+
+
+| Attribute                      | Variable                            |
+| ------------------------------ | ----------------------------------- |
+| background-color               | tint($color, 95)                    |
+| box-shadow    		    	 | tint($color, 75) 0 1px 2px 0px      |
+| icon                           | $color depending on the context     |
+| font                           | $black                              |
+
+
+## Fonts <a id="fonts" />
+
+| Property    | font-size | font-weight | color |
+|-------------|-----------|-------------|-------|
+| **title**   | 1.4rem    |semi-bold    |$black |
+| **description**|1.4rem  |regular      |$black |
+| **link **   | 1.4rem    |semi-bold    |$lochmara |
+
+## States <a id="states" />
+
+_Non applicable_
+
+## Content <a id="content" />
+
+## Interaction <a id="interaction" />
+
+Inline messages are non clickable, except if there is a link. In that case, only the link will be clickable. 
+Please refer to the hyperlink guidelines for more information.
+
+## Accessibility <a id="accessibility" />
+
+## Usage <a id="usage" />
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 03/18/2020 | Monia Huet  | Init page   |
