@@ -26,7 +26,6 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		}
 		:global(.cell-title-actions) {
 			background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-large-hover-bg 20px);
-			overflow: hidden;
 		}
 	}
 
