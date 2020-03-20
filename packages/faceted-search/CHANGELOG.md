@@ -25,6 +25,9 @@ Types of changes
 - `Security` in case of vulnerabilities.
 
 ## [unreleased]
+
+## [0.5.0]
+
 ### Added
 
 - [feat](https://github.com/Talend/ui/pull/2692): Handle the badgePerFacet metadata
