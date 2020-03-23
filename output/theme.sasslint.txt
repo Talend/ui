@@ -7,6 +7,10 @@ src/theme/_buttons.scss
 src/theme/_dropdowns.scss
   41:28  warning  Space expected around operator  space-around-operator
 
+src/theme/_fonts.scss
+  2:2  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  3:2  warning  Vendor prefixes should not be used  no-vendor-prefixes
+
 src/theme/_forms.scss
     6:24  error    Parenthesis should be removed                            empty-args
    34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
@@ -33,5 +37,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 18 problems (12 errors, 6 warnings)
+✖ 20 problems (12 errors, 8 warnings)
 
