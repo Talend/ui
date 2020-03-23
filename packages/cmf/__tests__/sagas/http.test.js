@@ -177,7 +177,10 @@ describe('handleBody', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/zip');
 
-		handleBody({ blob: () => Promise.resolve(), headers }).then(() => {
+		const blob = jest.fn(() => Promise.resolve());
+
+		handleBody({ blob, headers }).then(() => {
+			expect(blob).toHaveBeenCalled();
 			done();
 		});
 	});
