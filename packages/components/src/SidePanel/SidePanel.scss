@@ -31,6 +31,7 @@ $toggle-button-padding: $padding-small;
 
 		:global .tc-action-list-item {
 			.btn.btn-link {
+				font-size: 1.6rem;
 				height: $list-item-height;
 				padding-left: $padding-large;
 				> span {
