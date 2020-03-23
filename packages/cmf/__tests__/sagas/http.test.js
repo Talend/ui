@@ -173,6 +173,15 @@ describe('handleBody', () => {
 		});
 	});
 
+	it('should manage the body of the response like a blob', done => {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/zip');
+
+		handleBody({ blob: () => Promise.resolve(), headers }).then(() => {
+			done();
+		});
+	});
+
 	it('should manage the body of the response like a text', done => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'text/plain');
