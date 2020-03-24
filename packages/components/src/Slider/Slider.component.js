@@ -177,12 +177,13 @@ function getCaption(
  * Function to set the tooltip
  * @param {function} captionsFormat the function to format the caption
  */
-function getHandle(captionsFormat) {
+function getHandle(captionsFormat, getTooltipContainer) {
 	function Handle(props) {
 		return (
 			<Tooltip
 				prefixCls="rc-slider-tooltip"
 				overlay={captionsFormat(props.value)}
+				getTooltipContainer={getTooltipContainer}
 				visible
 				placement="top"
 				key={props.index}
@@ -208,6 +209,7 @@ class Slider extends React.Component {
 		id: PropTypes.string,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 		onChange: PropTypes.func.isRequired,
+		getTooltipContainer: PropTypes.func,
 		onAfterChange: PropTypes.func,
 		captionActions: PropTypes.array,
 		captionIcons: PropTypes.array,
@@ -221,7 +223,7 @@ class Slider extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			handle: getHandle(props.captionsFormat),
+			handle: getHandle(props.captionsFormat, props.getTooltipContainer),
 		};
 	}
 
