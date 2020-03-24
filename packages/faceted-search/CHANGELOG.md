@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2709): Set initialOperatorOpened to false on hiding the value overlay
+
 ## [0.5.0]
 
 ### Added
