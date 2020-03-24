@@ -209,6 +209,7 @@ class Slider extends React.Component {
 		id: PropTypes.string,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 		onChange: PropTypes.func.isRequired,
+		getTooltipContainer: PropTypes.func,
 		onAfterChange: PropTypes.func,
 		captionActions: PropTypes.array,
 		captionIcons: PropTypes.array,
@@ -217,7 +218,6 @@ class Slider extends React.Component {
 		max: PropTypes.number.isRequired,
 		captionsFormat: PropTypes.func,
 		disabled: PropTypes.bool,
-		getTooltipContainer: PropTypes.func,
 	};
 
 	constructor(props) {
