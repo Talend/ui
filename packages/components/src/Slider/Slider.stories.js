@@ -23,6 +23,7 @@ const delimiterStyle = {
 	borderBottom: '1px dashed grey',
 };
 
+
 const actions = [
 	{
 		id: 'icon1',
