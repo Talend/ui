@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
-// import { Popper } from 'react-popper';
+import React, { useState } from 'react';
 import { Manager, Reference, Popper } from 'react-popper';
 import FocusTrap from 'focus-trap-react';
 
@@ -18,22 +17,18 @@ const talendModifier = {
 
 		const offsets = data.offsets.popper;
 		if (offsets.right > windowWidth - POPOVER_DELTA) {
-			console.log('overflow right');
 			const overflow = offsets.right - (windowWidth - POPOVER_DELTA);
 			offsets.left -= overflow;
 			offsets.right = POPOVER_DELTA;
 		} else if (offsets.left < POPOVER_DELTA) {
-			console.log('overflow left');
 			const overflow = POPOVER_DELTA - offsets.left;
 			offsets.left = POPOVER_DELTA;
 			offsets.right += overflow;
 		}
 
 		if (data.placement === 'top' && offsets.top < POPOVER_DELTA) {
-			console.log('overflow top');
 			data.placement = 'bottom';
 		} else if (data.placement === 'bottom' && offsets.bottom > windowHeight - POPOVER_DELTA) {
-			console.log('overflow bottom');
 			data.placement = 'top';
 		}
 		return data;
@@ -68,8 +63,8 @@ const GridDataDetails = React.forwardRef(
 	},
 );
 
-const GridDataBloc = React.forwardRef(({ className, ...restProps }, ref) => {
-	return <button {...restProps} ref={ref} className={`${theme.data} ${className}`} />;
+const GridDataBloc = React.forwardRef(({ className, content, ...restProps }, ref) => {
+	return <button {...restProps} ref={ref} className={`${theme.timelineItem} ${className}`} type={'button'}><span className={'sr-only'}>{content}</span></button>;
 });
 
 export default function GridData({

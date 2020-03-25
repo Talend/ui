@@ -5,8 +5,12 @@ import { action } from '@storybook/addon-actions';
 
 import IconsProvider from '../IconsProvider';
 import Timeline from './Timeline.component';
-import activity from './story/activity';
 import getLocale from '../DateFnsLocale/locale';
+import { getCurrentLanguage } from '../translate';
+import engine0 from './executions(1)/engine-0.json';
+import engine1 from './executions(1)/engine-1.json';
+import engine2 from './executions(1)/engine-2.json';
+import engines from './executions(1)/engines-all.json';
 
 export default {
 	title: 'Data/Timeline',
@@ -16,18 +20,23 @@ export default {
 	},
 };
 
-const getItemProps = ({ flowStatus, flowName, startTimestamp, finishTimestamp }) => {
+const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => {
 	const background =
-		flowStatus === 'EXECUTION_REJECTED'
+		status.execution === 'abort'
 			? '#f3c446'
-			: flowStatus === 'DEPLOY_FAILED' || flowStatus === 'EXECUTION_FAILED'
+			: status.execution === 'failure'
 			? '#e96065'
-			: flowStatus === 'EXECUTION_SUCCESS' || flowStatus === 'EXECUTION_TERMINATED'
+			: status.execution === 'successful'
 			? '#82bd41'
 			: '#236192';
 	const className = background === '#236192' ? 'running' : '';
-	const ariaLabel = `Status: ${flowStatus}`;
-	return { style: { background }, className, 'aria-label': ariaLabel };
+	const locale = getCurrentLanguage();
+	const options = {
+		year: 'numeric', month: 'numeric', day: 'numeric',
+		hour: 'numeric', minute: 'numeric', second: 'numeric'};
+	const dateFormat = Intl.DateTimeFormat(locale, options);
+	const content = `exection ${flowName} started at ${dateFormat.format(startTimestamp)} finished at ${dateFormat.format(finishTimestamp)} with status ${status.execution}`;
+	return { style: { background }, className, content };
 };
 
 export function Default() {
@@ -35,12 +44,13 @@ export function Default() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={engine0}
+				idName="context.executionId"
+				caption={engine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 				onClick={action('onClick')}
 			>
@@ -55,12 +65,13 @@ export function Zoom() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={engine0}
+				idName="context.executionId"
+				caption={engine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 			>
 				<Timeline.Toolbar>
@@ -77,12 +88,13 @@ export function DateFilter() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={engine0}
+				idName="context.executionId"
+				caption={engine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 			>
 				<Timeline.Toolbar>
@@ -101,12 +113,13 @@ export function Tooltip() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={engine0}
+				idName="context.executionId"
+				caption={engine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 				dataItemTooltip={item => (
 					<dl>
@@ -138,39 +151,123 @@ export function Popover() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={engine0}
+				idName="context.executionId"
+				caption={engine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 				dataItemPopover={item => (
 					<dl>
 						<dt>Flow name:</dt>
 						<dd>
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
+							{item.context.task.name}
 						</dd>
 						<dt>Start time:</dt>
-						<dd>{format(new Date(item.startTimestamp), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 						<dt>End time:</dt>
 						<dd>
-							{item.finishTimestamp
-								? format(new Date(item.finishTimestamp), 'DD MMM YYYY HH:mm:ss', locale)
+							{item.time.start
+								? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
 								: '-'}
 						</dd>
 						<dt>Status:</dt>
-						<dd>{item.flowStatus}</dd>
+						<dd>{item.status.execution}</dd>
+					</dl>
+				)}
+			>
+				<Timeline.Grid />
+			</Timeline>
+			<hr />
+			<Timeline
+				data={engine1}
+				idName="context.executionId"
+				caption={engine1[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
+				dataItemProps={getItemProps}
+				dataItemPopover={item => (
+					<dl>
+						<dt>Flow name:</dt>
+						<dd>
+							{item.context.task.name}
+						</dd>
+						<dt>Start time:</dt>
+						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+						<dt>End time:</dt>
+						<dd>
+							{item.time.start
+								? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
+								: '-'}
+						</dd>
+						<dt>Status:</dt>
+						<dd>{item.status.execution}</dd>
+					</dl>
+				)}
+			>
+				<Timeline.Grid />
+			</Timeline>
+			<hr />
+			<Timeline
+				data={engine2}
+				idName="context.executionId"
+				caption={engine2[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
+				dataItemProps={getItemProps}
+				dataItemPopover={item => (
+					<dl>
+						<dt>Flow name:</dt>
+						<dd>
+							{item.context.task.name}
+						</dd>
+						<dt>Start time:</dt>
+						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+						<dt>End time:</dt>
+						<dd>
+							{item.time.start
+								? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
+								: '-'}
+						</dd>
+						<dt>Status:</dt>
+						<dd>{item.status.execution}</dd>
+					</dl>
+				)}
+			>
+				<Timeline.Grid />
+			</Timeline>
+			<hr />
+			<Timeline
+				data={engines}
+				idName="context.executionId"
+				caption={engine2[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
+				dataItemProps={getItemProps}
+				dataItemPopover={item => (
+					<dl>
+						<dt>Flow name:</dt>
+						<dd>
+							{item.context.task.name}
+						</dd>
+						<dt>Start time:</dt>
+						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+						<dt>End time:</dt>
+						<dd>
+							{item.time.start
+								? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
+								: '-'}
+						</dd>
+						<dt>Status:</dt>
+						<dd>{item.status.execution}</dd>
 					</dl>
 				)}
 			>

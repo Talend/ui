@@ -1,86 +1,74 @@
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 $sticky-width: 30rem;
-$border: 1px solid $silver;
 $border-light: 1px solid $alto;
 
-.grid {
-	border: $border;
-	display: flex;
+.timelineCaption {
+	text-align: center;
+	color: #333;
 }
 
-.header {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	display: flex;
+.timelineInterval {
+	border-top: 1px solid #333;
 
-	.day {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-right: $border;
-		border-bottom: $border;
-		font-weight: bold;
+	&:last-of-type {
+		border-right: none;
+		position: relative;
 	}
 
-	.hour {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-right: $border;
-		border-bottom: $border;
-
-		&:last-of-type {
-			border-right: none;
-		}
+	&:last-of-type:after {
+		position: absolute;
+		top: -.5rem;
+		content: "";
+		border-top: .5rem solid transparent;
+		border-bottom: .5rem solid transparent;
+		border-left: 1rem solid #333;
 	}
 }
 
-.titles {
-	position: sticky;
-	flex-grow: 0;
-	flex-shrink: 0;
-	border-right: $border;
+.timelineTitle {
+	padding: 0 $padding-normal;
+	border-top: $border-light;
 
-	.title {
-		display: flex;
-		align-items: center;
-		padding: 0 $padding-normal;
-		border-top: $border-light;
-	}
 }
 
-.rows {
-	flex: 1 1 0;
+.timelineRows {
 	position: relative;
 	overflow-x: auto;
 	padding: 2px 0;
+}
 
-	.row {
-		position: absolute;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		border-top: $border-light;
+.timelineRow {
+	margin: 0;
+	padding: 0;
+	border-top: $border-light;
 
-		&:first-of-type {
-			border-top: none;
-		}
-
-		&.ally-focus-within,
-		&:focus-within,
-		&:hover {
-			background: $wild-sand;
-		}
+	&:first-of-type {
+		border-top: none;
 	}
 
-	.data {
-		animation: $fadein;
-		position: absolute;
-		background: green;
-		border-radius: 2px;
-		border: 0;
-		padding: 0;
+	&.ally-focus-within,
+	&:focus-within,
+	&:hover {
+		background-color: $wild-sand;
+	}
+}
+
+.timelineCell {
+	position: relative;
+}
+
+.timelineItem {
+	animation: $fadein;
+	position: absolute;
+	background: green;
+	border-radius: .2rem;
+	border: 0;
+	padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.timelineItem {
+		animation: none;
 	}
 }

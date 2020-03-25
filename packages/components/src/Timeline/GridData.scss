@@ -1,12 +1,13 @@
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
-.data {
+.timelineItem {
 	animation: $fadein;
-	position: absolute;
 	background: green;
 	border-radius: 2px;
 	border: 0;
 	padding: 0;
+	position: absolute;
+	z-index: 1;
 }
 
 .popper {
