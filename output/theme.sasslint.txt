@@ -33,5 +33,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 20 problems (12 errors, 8 warnings)
+✖ 18 problems (12 errors, 6 warnings)
 
