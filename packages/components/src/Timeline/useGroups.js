@@ -27,7 +27,9 @@ export default function useGroups(data, { groupIdName, groupLabelName, startName
 			return accu;
 		}, {});
 
-		const groups = Object.values(groupsDict);
+		const groups = Object.values(groupsDict).sort((group1, group2) =>
+			group1.label.localeCompare(group2.label),
+		);
 		groups.forEach(group => {
 			group.items.sort((item1, item2) => get(item1, startName) - get(item2, startName));
 
