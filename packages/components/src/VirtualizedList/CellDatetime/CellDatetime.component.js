@@ -13,11 +13,8 @@ import TooltipTrigger from '../../TooltipTrigger';
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
 export function computeValue(cellData, columnData, t) {
-	if (!cellData) {
-		return t('NOT_AVAILABLE', { defaultValue: 'Not available' });
-	}
 	try {
-		if (columnData.mode === 'ago') {
+		if (cellData && columnData.mode === 'ago') {
 			return distanceInWordsToNow(cellData, {
 				addSuffix: true,
 				locale: getLocale(t),

@@ -44,7 +44,7 @@ describe('CellDatetime', () => {
 		const wrapper = shallow(<CellDatetimeComponent columnData={columnData} />);
 		// then
 		const cellValue = wrapper.find('.cell-datetime-container').text();
-		expect(cellValue).toEqual('Not available');
+		expect(cellValue).toEqual('');
 	});
 
 	it('should format with "ago"', () => {
@@ -70,9 +70,8 @@ describe('CellDatetime', () => {
 		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
 		const hours = 11 + timezoneOffset / 60;
 		const isOneDigitHours = hours.toString().length === 1;
-		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${
-			11 + timezoneOffset / 60
-		}:00:00`;
+		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${11 +
+			timezoneOffset / 60}:00:00`;
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData);
 		// then
 		expect(computedStrOffset).toEqual(expectedStrDate);
