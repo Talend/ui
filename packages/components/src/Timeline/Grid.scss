@@ -29,7 +29,10 @@ $border-light: 1px solid $alto;
 }
 
 .timelineFooter {
-	border-top: 1px solid #333;
+	th {
+		border: $border-light;
+		padding: 0 $padding-smaller;
+	}
 }
 
 .timelineTitle {
@@ -43,4 +46,8 @@ $border-light: 1px solid $alto;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.newDate {
+	border-left: $border-light;
 }
