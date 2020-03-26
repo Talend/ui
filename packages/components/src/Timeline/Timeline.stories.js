@@ -11,6 +11,7 @@ import engine0 from './executions/engine-0.json';
 import engine1 from './executions/engine-1.json';
 import engine2 from './executions/engine-2.json';
 import engines from './executions/engines-all.json';
+import jsoEngine0 from './executions-jso/engine-0.json';
 
 export default {
 	title: 'Data/Timeline',
@@ -22,20 +23,29 @@ export default {
 
 const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => {
 	const background =
-		status.execution === 'abort'
+		status.management === 'abort' || status.execution === 'abort'
 			? '#f3c446'
-			: status.execution === 'failure'
+			: status.management === 'deploy_failure' ||
+			  status.management === 'undeploy_failure' ||
+			  status.execution === 'failure'
 			? '#e96065'
-			: status.execution === 'successful'
+			: status.management === 'successful' && status.execution === 'successful'
 			? '#82bd41'
 			: '#236192';
 	const className = background === '#236192' ? 'running' : '';
 	const locale = getCurrentLanguage();
 	const options = {
-		year: 'numeric', month: 'numeric', day: 'numeric',
-		hour: 'numeric', minute: 'numeric', second: 'numeric'};
+		year: 'numeric',
+		month: 'numeric',
+		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+		second: 'numeric',
+	};
 	const dateFormat = Intl.DateTimeFormat(locale, options);
-	const content = `exection ${flowName} started at ${dateFormat.format(startTimestamp)} finished at ${dateFormat.format(finishTimestamp)} with status ${status.execution}`;
+	const content = `exection ${flowName} started at ${dateFormat.format(
+		startTimestamp,
+	)} finished at ${dateFormat.format(finishTimestamp)} with status ${status.execution}`;
 	return { style: { background }, className, content };
 };
 
@@ -162,9 +172,7 @@ export function Popover() {
 				dataItemPopover={item => (
 					<dl>
 						<dt>Flow name:</dt>
-						<dd>
-							{item.context.task.name}
-						</dd>
+						<dd>{item.context.task.name}</dd>
 						<dt>Start time:</dt>
 						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 						<dt>End time:</dt>
@@ -193,9 +201,7 @@ export function Popover() {
 				dataItemPopover={item => (
 					<dl>
 						<dt>Flow name:</dt>
-						<dd>
-							{item.context.task.name}
-						</dd>
+						<dd>{item.context.task.name}</dd>
 						<dt>Start time:</dt>
 						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 						<dt>End time:</dt>
@@ -224,9 +230,7 @@ export function Popover() {
 				dataItemPopover={item => (
 					<dl>
 						<dt>Flow name:</dt>
-						<dd>
-							{item.context.task.name}
-						</dd>
+						<dd>{item.context.task.name}</dd>
 						<dt>Start time:</dt>
 						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 						<dt>End time:</dt>
@@ -255,9 +259,7 @@ export function Popover() {
 				dataItemPopover={item => (
 					<dl>
 						<dt>Flow name:</dt>
-						<dd>
-							{item.context.task.name}
-						</dd>
+						<dd>{item.context.task.name}</dd>
 						<dt>Start time:</dt>
 						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 						<dt>End time:</dt>
@@ -273,6 +275,50 @@ export function Popover() {
 			>
 				<Timeline.Grid />
 			</Timeline>
+		</>
+	);
+}
+
+const TMCTimeline = ({ data, locale }) => (
+	<Timeline
+		data={data}
+		idName="context.executionId"
+		caption={data[0].context.engine.name}
+		startName="time.start"
+		endName="time.end"
+		groupIdName="context.task.id"
+		groupLabelName="context.task.name"
+		dataItemProps={getItemProps}
+		dataItemTooltip={item => (
+			<dl>
+				<dt>Flow name:</dt>
+				<dd>{item.context.task.name}</dd>
+				<dt>Start time:</dt>
+				<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+				<dt>End time:</dt>
+				<dd>
+					{item.time.start
+						? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
+						: '-'}
+				</dd>
+				<dt>Status:</dt>
+				<dd>{item.status.execution}</dd>
+			</dl>
+		)}
+	>
+		<Timeline.Toolbar>
+			<Timeline.Zoom />
+		</Timeline.Toolbar>
+		<Timeline.Grid />
+	</Timeline>
+);
+export function TasksByEngines() {
+	const { t } = useTranslation();
+	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
+	return (
+		<>
+			<IconsProvider />
+			<TMCTimeline data={jsoEngine0} locale={locale} />
 		</>
 	);
 }

@@ -1,5 +1,3 @@
-@import '~@talend/bootstrap-theme/src/theme/animation';
-
 $sticky-width: 30rem;
 $border-light: 1px solid $alto;
 
@@ -8,67 +6,41 @@ $border-light: 1px solid $alto;
 	color: #333;
 }
 
-.timelineInterval {
-	border-top: 1px solid #333;
-
-	&:last-of-type {
-		border-right: none;
-		position: relative;
-	}
-
-	&:last-of-type:after {
-		position: absolute;
-		top: -.5rem;
-		content: "";
-		border-top: .5rem solid transparent;
-		border-bottom: .5rem solid transparent;
-		border-left: 1rem solid #333;
-	}
-}
-
-.timelineTitle {
-	padding: 0 $padding-normal;
-	border-top: $border-light;
-
-}
-
 .timelineRows {
 	position: relative;
 	overflow-x: auto;
 	padding: 2px 0;
-}
 
-.timelineRow {
-	margin: 0;
-	padding: 0;
-	border-top: $border-light;
+	.timelineRow {
+		margin: 0;
+		padding: 0;
+		border-top: $border-light;
 
-	&:first-of-type {
-		border-top: none;
+		&.ally-focus-within,
+		&:focus-within,
+		&:hover {
+			background-color: $wild-sand;
+		}
+
+		.timelineCell {
+			position: relative;
+		}
 	}
-
-	&.ally-focus-within,
-	&:focus-within,
-	&:hover {
-		background-color: $wild-sand;
-	}
 }
 
-.timelineCell {
-	position: relative;
+.timelineFooter {
+	border-top: 1px solid #333;
 }
 
-.timelineItem {
-	animation: $fadein;
-	position: absolute;
-	background: green;
-	border-radius: .2rem;
-	border: 0;
-	padding: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.timelineItem {
-		animation: none;
-	}
+.timelineTitle {
+	background-color: white;
+	vertical-align: top;
+	padding: $padding-small $padding-normal;
+	position: sticky;
+	left: 0;
+	z-index: 2;
+	max-width: 30rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

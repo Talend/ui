@@ -10,6 +10,12 @@
 	z-index: 1;
 }
 
+@media (prefers-reduced-motion: reduce) {
+	.timelineItem {
+		animation: none;
+	}
+}
+
 .popper {
 	z-index: $zindex-dropdown;
 

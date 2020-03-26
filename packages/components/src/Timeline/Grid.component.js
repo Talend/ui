@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import get from 'lodash/get';
+import format from 'date-fns/format';
+import { useTranslation } from 'react-i18next';
 
+import getLocale from '../DateFnsLocale/locale';
 import GridData from './GridData.component';
 
 import { useTimelineContext } from './context';
@@ -30,8 +33,9 @@ function updateItems(items, currentIntervals, startName) {
 	currentIntervals.forEach(time => {
 		itemPerInterval.push({
 			time,
-			items: items.filter(item =>
-				get(item, startName) > time && get(item, startName) < time + MILLISECONDS_IN_HOUR),
+			items: items.filter(
+				item => get(item, startName) > time && get(item, startName) < time + MILLISECONDS_IN_HOUR,
+			),
 		});
 	});
 	return itemPerInterval;
@@ -60,10 +64,14 @@ export default function Grid() {
 		zoom,
 	} = useTimelineContext();
 
+	const { t } = useTranslation();
+	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
+	const timeFormat = zoom < 0.7 ? 'HH' : 'HH:mm';
+
 	const [startTimestamp, endTimestamp] = timeRange;
 	const dayWidth = DEFAULT_DAY_LENGTH * zoom;
 	const intervalWidthUnit = `${dayWidth / 24}rem`;
-	const remPerMs = (dayWidth / 24) / MILLISECONDS_IN_HOUR;
+	const remPerMs = dayWidth / 24 / MILLISECONDS_IN_HOUR;
 
 	const totalDataLevels = data.reduce((accu, group) => accu + 1 + group.maxLevel, 0);
 	const totalHeightUnit = `${totalDataLevels * DEFAULT_HEIGHT + headerHeight}rem`;
@@ -74,7 +82,11 @@ export default function Grid() {
 			<caption className={theme.timelineCaption}>{caption}</caption>
 			<tbody className={theme.timelineRows} style={{ height: totalHeightUnit }} ref={scrollerRef}>
 				{data.map(({ id, label, items, maxLevel = 0 }, groupIndex) => {
-					const itemsPerInterval = updateItems(items, intervals(startTimestamp, endTimestamp), startName);
+					const itemsPerInterval = updateItems(
+						items,
+						intervals(startTimestamp, endTimestamp),
+						startName,
+					);
 					const height = `${(maxLevel + 1) * rowHeight}rem`;
 					return (
 						<tr
@@ -84,7 +96,7 @@ export default function Grid() {
 							data-group-index={groupIndex}
 						>
 							<th
-								scope={'row'}
+								scope="row"
 								key={id}
 								className={theme.timelineTitle}
 								style={{ height: `${rowHeight}rem` }}
@@ -93,7 +105,7 @@ export default function Grid() {
 							</th>
 							{itemsPerInterval.map(itemPerInterval => {
 								return (
-									<td key={itemPerInterval.time} className={theme.timelineCell} >
+									<td key={itemPerInterval.time} className={theme.timelineCell}>
 										{itemPerInterval.items.map(item => {
 											const level = item._timelineLevel || 0;
 											const idValue = get(item, idName);
@@ -115,7 +127,7 @@ export default function Grid() {
 													style={{
 														...itemProps.style,
 														left: `${left}rem`,
-														bottom: `${dataBottom + level * (DEFAULT_DATA_HEIGHT + dataBottom)}rem`,
+														top: `${dataBottom + level * (DEFAULT_DATA_HEIGHT + dataBottom)}rem`,
 														height: dataHeightUnit,
 														width: `${width}rem`,
 													}}
@@ -135,15 +147,17 @@ export default function Grid() {
 			</tbody>
 			<tfoot className={theme.timelineFooter} ref={scrollerRef}>
 				<tr style={{ height: rowHeightUnit }}>
-					<td />
+					<th scope="row" className={theme.timelineTitle}>
+						<span className="sr-only">Time</span>
+					</th>
 					{intervals(startTimestamp, endTimestamp).map(interval => (
 						<th
-							scope={'col'}
+							scope="col"
 							key={interval}
 							className={theme.timelineInterval}
 							style={{ width: intervalWidthUnit }}
 						>
-							{new Date(interval).toLocaleTimeString()}
+							{format(new Date(interval), timeFormat, locale)}
 						</th>
 					))}
 				</tr>
