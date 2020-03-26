@@ -7,10 +7,10 @@ import IconsProvider from '../IconsProvider';
 import Timeline from './Timeline.component';
 import getLocale from '../DateFnsLocale/locale';
 import { getCurrentLanguage } from '../translate';
-import engine0 from './executions(1)/engine-0.json';
-import engine1 from './executions(1)/engine-1.json';
-import engine2 from './executions(1)/engine-2.json';
-import engines from './executions(1)/engines-all.json';
+import engine0 from './executions/engine-0.json';
+import engine1 from './executions/engine-1.json';
+import engine2 from './executions/engine-2.json';
+import engines from './executions/engines-all.json';
 
 export default {
 	title: 'Data/Timeline',
