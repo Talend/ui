@@ -7,19 +7,12 @@ import LineChart from './LineChart.component';
 import useGroups from './useGroups';
 import useTimeRange from './useTimeRange';
 import useFilters from './useFilters';
+import useGridMeasures from './useGridMeasures';
 import { TimelineContext } from './context';
 import theme from './Timeline.scss';
 
 function Toolbar({ children }) {
 	return <div className={theme.toolbar}>{children}</div>;
-}
-
-function Body({ children }) {
-	return (
-		<div className={theme.body} style={{ width: '100%', overflowX: 'auto' }}>
-			<div>{children}</div>
-		</div>
-	);
 }
 
 export default function Timeline({
@@ -52,6 +45,7 @@ export default function Timeline({
 			})),
 		[groups, filters],
 	);
+	const measures = useGridMeasures({ data: filteredData, timeRange, zoom });
 
 	return (
 		<TimelineContext.Provider
@@ -73,6 +67,7 @@ export default function Timeline({
 				setZoom,
 				timeRange,
 				setTimeRange,
+				measures,
 			}}
 		>
 			<div className={theme.layout}>{children}</div>
@@ -91,7 +86,6 @@ Timeline.propTypes = {
 	dataItemTooltip: PropTypes.func,
 };
 Timeline.Toolbar = Toolbar;
-Timeline.Body = Body;
 Timeline.DateFilter = DateFilter;
 Timeline.Zoom = Zoom;
 Timeline.Grid = Grid;

@@ -9,6 +9,11 @@ $border-light: 1px solid $alto;
 	display: flex;
 }
 
+.scrollable {
+	overflow-x: auto;
+	width: 100%;
+}
+
 .header {
 	position: absolute;
 	top: 0;
@@ -54,7 +59,6 @@ $border-light: 1px solid $alto;
 .rows {
 	flex: 1 1 0;
 	position: relative;
-	overflow-x: auto;
 	padding: 2px 0;
 
 	.row {
