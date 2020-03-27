@@ -21,6 +21,19 @@ export default {
 	},
 };
 
+const locale = getCurrentLanguage();
+const options = {
+	year: 'numeric',
+	month: 'numeric',
+	day: 'numeric',
+	hour: 'numeric',
+	minute: 'numeric',
+	second: 'numeric',
+};
+const dateFormat = Intl.DateTimeFormat(locale, options);
+function gridDataContent (data) {
+
+}
 const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => {
 	const background =
 		status.management === 'abort' || status.execution === 'abort'
@@ -33,16 +46,7 @@ const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => 
 			? '#82bd41'
 			: '#236192';
 	const className = background === '#236192' ? 'running' : '';
-	const locale = getCurrentLanguage();
-	const options = {
-		year: 'numeric',
-		month: 'numeric',
-		day: 'numeric',
-		hour: 'numeric',
-		minute: 'numeric',
-		second: 'numeric',
-	};
-	const dateFormat = Intl.DateTimeFormat(locale, options);
+
 	const content = `exection ${flowName} started at ${dateFormat.format(
 		startTimestamp,
 	)} finished at ${dateFormat.format(finishTimestamp)} with status ${status.execution}`;
@@ -289,6 +293,7 @@ const TMCTimeline = ({ data, locale }) => (
 		groupIdName="context.task.id"
 		groupLabelName="context.task.name"
 		dataItemProps={getItemProps}
+		gridDataContent={getGridDataContent}
 		dataItemTooltip={item => (
 			<dl>
 				<dt>Flow name:</dt>
