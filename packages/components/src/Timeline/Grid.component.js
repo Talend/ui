@@ -2,6 +2,7 @@ import React, { useMemo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import format from 'date-fns/format';
 import keycode from 'keycode';
+import get from 'lodash/get';
 import getLocale from '../DateFnsLocale/locale';
 import GridData from './GridData.component';
 
@@ -25,7 +26,7 @@ const dataHeight = DEFAULT_DATA_HEIGHT;
 const dataHeightUnit = `${dataHeight}rem`;
 const dataTop = (rowHeight - dataHeight) / 2;
 
-export default function Grid() {
+export default function Grid(props) {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 	const scrollerRef = React.createRef();
@@ -153,14 +154,14 @@ export default function Grid() {
 						>
 							{items.map((item, itemIndex) => {
 								const level = item._timelineLevel || 0;
-								const id = item[idName];
-								const start = item[startName];
-								let end = item[endName] || endTimestamp;
+								const id = get(item, idName);
+								const start = get(item, startName);
+								let end = get(item, endName) || endTimestamp;
 								// if the task finished after the last displayed time, we create a block that stops at the last displayed time
 								if (end > endTimestamp) {
 									end = endTimestamp;
 								}
-								const left = (start - timeRange[0]) * remPerMs;
+								const left = (start - startTimestamp) * remPerMs;
 								const width = Math.max((end - start) * remPerMs, MIN_DATA_WIDTH);
 								const itemProps = dataItemProps(item);
 

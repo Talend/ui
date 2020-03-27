@@ -5,8 +5,9 @@ import { action } from '@storybook/addon-actions';
 
 import IconsProvider from '../IconsProvider';
 import Timeline from './Timeline.component';
-import activity from './story/activity';
 import getLocale from '../DateFnsLocale/locale';
+import { getCurrentLanguage } from '../translate';
+import jsoEngine0 from './executions-jso/engine-0.json';
 
 export default {
 	title: 'Data/Timeline',
@@ -16,18 +17,19 @@ export default {
 	},
 };
 
-const getItemProps = ({ flowStatus, flowName, startTimestamp, finishTimestamp }) => {
+const getItemProps = ({ status }) => {
 	const background =
-		flowStatus === 'EXECUTION_REJECTED'
+		status.management === 'abort' || status.execution === 'abort'
 			? '#f3c446'
-			: flowStatus === 'DEPLOY_FAILED' || flowStatus === 'EXECUTION_FAILED'
+			: status.management === 'deploy_failure' ||
+			  status.management === 'undeploy_failure' ||
+			  status.execution === 'failure'
 			? '#e96065'
-			: flowStatus === 'EXECUTION_SUCCESS' || flowStatus === 'EXECUTION_TERMINATED'
+			: status.management === 'successful' && status.execution === 'successful'
 			? '#82bd41'
 			: '#236192';
 	const className = background === '#236192' ? 'running' : '';
-	const ariaLabel = `Status: ${flowStatus}`;
-	return { style: { background }, className, 'aria-label': ariaLabel };
+	return { style: { background }, className };
 };
 
 export function Default() {
@@ -35,12 +37,13 @@ export function Default() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={jsoEngine0}
+				idName="context.executionId"
+				caption={jsoEngine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 				onClick={action('onClick')}
 			>
@@ -55,12 +58,13 @@ export function Zoom() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={jsoEngine0}
+				idName="context.executionId"
+				caption={jsoEngine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 			>
 				<Timeline.Toolbar>
@@ -77,12 +81,13 @@ export function DateFilter() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={jsoEngine0}
+				idName="context.executionId"
+				caption={jsoEngine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 			>
 				<Timeline.Toolbar>
@@ -101,27 +106,30 @@ export function Tooltip() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={jsoEngine0}
+				idName="context.executionId"
+				caption={jsoEngine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 				dataItemTooltip={item => (
 					<dl>
 						<dt>Flow name:</dt>
-						<dd>{item.flowName}</dd>
+						<dd>{item.context.task.name}</dd>
 						<dt>Start time:</dt>
-						<dd>{format(new Date(item.startTimestamp), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 						<dt>End time:</dt>
 						<dd>
-							{item.finishTimestamp
-								? format(new Date(item.finishTimestamp), 'DD MMM YYYY HH:mm:ss', locale)
+							{item.time.end
+								? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale)
 								: '-'}
 						</dd>
 						<dt>Status:</dt>
-						<dd>{item.flowStatus}</dd>
+						<dd>
+							(M) {item.status.management} - (E) {item.status.execution}
+						</dd>
 					</dl>
 				)}
 			>
@@ -138,44 +146,76 @@ export function Popover() {
 		<>
 			<IconsProvider />
 			<Timeline
-				data={activity}
-				idName="flowExecutionId"
-				startName="startTimestamp"
-				endName="finishTimestamp"
-				groupIdName="flowId"
-				groupLabelName="flowName"
+				data={jsoEngine0}
+				idName="context.executionId"
+				caption={jsoEngine0[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
 				dataItemPopover={item => (
 					<dl>
 						<dt>Flow name:</dt>
-						<dd>
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-							{item.flowName}
-						</dd>
+						<dd>{item.context.task.name}</dd>
 						<dt>Start time:</dt>
-						<dd>{format(new Date(item.startTimestamp), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 						<dt>End time:</dt>
 						<dd>
-							{item.finishTimestamp
-								? format(new Date(item.finishTimestamp), 'DD MMM YYYY HH:mm:ss', locale)
+							{item.time.start
+								? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale)
 								: '-'}
 						</dd>
 						<dt>Status:</dt>
-						<dd>{item.flowStatus}</dd>
+						<dd>{item.status.execution}</dd>
 					</dl>
 				)}
 			>
 				<Timeline.Grid />
 			</Timeline>
+		</>
+	);
+}
+
+const TMCTimeline = ({ data, locale }) => (
+	<Timeline
+		data={data}
+		idName="context.executionId"
+		caption={data[0].context.engine.name}
+		startName="time.start"
+		endName="time.end"
+		groupIdName="context.task.id"
+		groupLabelName="context.task.name"
+		dataItemProps={getItemProps}
+		dataItemTooltip={item => (
+			<dl>
+				<dt>Flow name:</dt>
+				<dd>{item.context.task.name}</dd>
+				<dt>Start time:</dt>
+				<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+				<dt>End time:</dt>
+				<dd>
+					{item.time.end ? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale) : '-'}
+				</dd>
+				<dt>Status:</dt>
+				<dd>{item.status.execution}</dd>
+			</dl>
+		)}
+	>
+		<Timeline.Toolbar>
+			<Timeline.Zoom />
+		</Timeline.Toolbar>
+		<Timeline.Grid />>
+		<Timeline.LineChart />
+	</Timeline>
+);
+export function TasksByEngines() {
+	const { t } = useTranslation();
+	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
+	return (
+		<>
+			<IconsProvider />
+			<TMCTimeline data={jsoEngine0} locale={locale} />
 		</>
 	);
 }

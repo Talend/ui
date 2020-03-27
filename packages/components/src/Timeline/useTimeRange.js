@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import get from 'lodash/get';
 
 const DATE_FILTER_ID = 'date-range';
 
@@ -8,8 +9,8 @@ export default function useTimeRange(groups, { addFilters, removeFilters, startN
 		let globalEnd;
 		groups.forEach(group => {
 			const { items } = group;
-			const itemStart = items[0][startName];
-			const itemEnd = items[items.length - 1][endName];
+			const itemStart = get(items[0], startName);
+			const itemEnd = get(items[items.length - 1], endName);
 			if (!globalStart || globalStart > itemStart) {
 				globalStart = itemStart;
 			}
@@ -19,17 +20,15 @@ export default function useTimeRange(groups, { addFilters, removeFilters, startN
 		});
 
 		const globalStartDate = new Date(globalStart);
-		globalStartDate.setHours(0);
 		globalStartDate.setMinutes(0);
 		globalStartDate.setSeconds(0);
 		globalStartDate.setMilliseconds(0);
 
 		const globalEndDate = new Date(globalEnd);
-		globalEndDate.setHours(0);
 		globalEndDate.setMinutes(0);
 		globalEndDate.setSeconds(0);
 		globalEndDate.setMilliseconds(0);
-		globalEndDate.setDate(globalEndDate.getDate() + 1);
+		globalEndDate.setHours(globalEndDate.getHours() + 1);
 
 		return [globalStartDate.getTime(), globalEndDate.getTime()];
 	};
@@ -42,8 +41,8 @@ export default function useTimeRange(groups, { addFilters, removeFilters, startN
 			const filter = {
 				id: DATE_FILTER_ID,
 				predicate: item =>
-					(!startTimestamp || item[startName] >= startTimestamp) &&
-					(!endTimestamp || item[startName] <= endTimestamp),
+					(!startTimestamp || get(item, startName) >= startTimestamp) &&
+					(!endTimestamp || get(item, startName) <= endTimestamp),
 			};
 			removeFilters(DATE_FILTER_ID);
 			addFilters(filter);
