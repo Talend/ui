@@ -21,7 +21,7 @@ function isDropdown(actionDef) {
 }
 
 function renderActionsGroup(getComponent) {
-	return actions => (
+	return (actions) => (
 		<Actions
 			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
@@ -38,7 +38,7 @@ function getLargeDisplayActions(actions, getComponent) {
 		return null;
 	}
 
-	if (Array.isArray(actions) && actions.every(item => Array.isArray(item))) {
+	if (Array.isArray(actions) && actions.every((item) => Array.isArray(item))) {
 		return actions.map(renderActionsGroup(getComponent));
 	}
 
@@ -69,7 +69,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 		// the rest is in an ellipsis dropdown
 		// always extract dropdowns
 		const extractedDropdownActions = actions.filter(isDropdown);
-		const simpleActions = actions.filter(action => !isDropdown(action));
+		const simpleActions = actions.filter((action) => !isDropdown(action));
 
 		// 1 slot taken by the ellipsis menu
 		const nbOfSimpleToExtract = Math.max(
@@ -165,8 +165,8 @@ export function CellTitleActionsComponent({
 		actions.push(getLargeDisplayActions(dataActions, getComponent));
 	} else {
 		// flatening in tab case
-		if (Array.isArray(dataActions) && dataActions.every(item => Array.isArray(item))) {
-			dataActions = dataActions.flatMap(item => item);
+		if (Array.isArray(dataActions) && dataActions.every((item) => Array.isArray(item))) {
+			dataActions = dataActions.flatMap((item) => item);
 		}
 		actions.push(getDefaultDisplayActions(dataActions, getComponent, t, id));
 	}
@@ -177,7 +177,7 @@ export function CellTitleActionsComponent({
 		<div
 			id={id}
 			className={classNames('main-title-actions-group', theme['main-title-actions-group'])}
-			onKeyDown={e => {
+			onKeyDown={(e) => {
 				e.stopPropagation();
 			}}
 		>
