@@ -77,7 +77,7 @@ describe('Time component', () => {
 			// then
 			expect(onChange).toBeCalledWith(event, { schema, value: '12:34' });
 		});
-		it('should call onChange with null value when there is error', () => {
+		it('should call onChange with previous value when there is error', () => {
 			// given
 			const onChange = jest.fn();
 			const wrapper = shallow(
@@ -101,7 +101,12 @@ describe('Time component', () => {
 			wrapper.find('InputTimePicker').simulate('change', event, payload);
 
 			// then
-			expect(onChange).toBeCalledWith(event, { schema, value: null });
+			expect(onChange).toBeCalledWith(event, { schema, value: 'ddd' });
+
+			// check that component highlighted as invalid
+			const fieldTemplateProps = wrapper.find('FieldTemplate').props();
+			expect(fieldTemplateProps.isValid).toBeFalsy();
+			expect(fieldTemplateProps.errorMessage).toEqual('Time is invalid');
 		});
 		it('should not throw any error message', () => {
 			// given
