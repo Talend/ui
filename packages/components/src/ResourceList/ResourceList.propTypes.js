@@ -8,4 +8,5 @@ export default {
 	onRowClick: PropTypes.func,
 	renderAs: PropTypes.func,
 	toolbar: PropTypes.shape(Toolbar.propTypes),
+	options: PropTypes.object,
 };

@@ -31,7 +31,7 @@ function getAuthorLabel(t, author, date) {
 	});
 }
 
-function Resource({ parent, index, style, className, as, t }) {
+function Resource({ parent, index, style, className, as, t, ...rest }) {
 	const rowData = getRowData(parent, index);
 	if (!rowData) {
 		return null;
@@ -39,7 +39,6 @@ function Resource({ parent, index, style, className, as, t }) {
 
 	let onRowClick;
 	const { icon, name, author, modified, flags = [], subtitle } = rowData;
-
 	if (parent.props.onRowClick) {
 		onRowClick = event => parent.props.onRowClick({ event, rowData });
 	}
@@ -64,6 +63,7 @@ function Resource({ parent, index, style, className, as, t }) {
 			aria-setsize={parent.props.rowCount}
 			aria-label={name}
 			onClick={onRowClick}
+			{...rest}
 		>
 			{hasPropRender() ? (
 				as(rowData)
