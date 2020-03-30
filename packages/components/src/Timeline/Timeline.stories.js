@@ -31,9 +31,7 @@ const options = {
 	second: 'numeric',
 };
 const dateFormat = Intl.DateTimeFormat(locale, options);
-function gridDataContent (data) {
-
-}
+function gridDataContent(data) {}
 const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => {
 	const background =
 		status.management === 'abort' || status.execution === 'abort'
@@ -293,7 +291,6 @@ const TMCTimeline = ({ data, locale }) => (
 		groupIdName="context.task.id"
 		groupLabelName="context.task.name"
 		dataItemProps={getItemProps}
-		gridDataContent={getGridDataContent}
 		dataItemTooltip={item => (
 			<dl>
 				<dt>Flow name:</dt>
@@ -302,9 +299,7 @@ const TMCTimeline = ({ data, locale }) => (
 				<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 				<dt>End time:</dt>
 				<dd>
-					{item.time.start
-						? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
-						: '-'}
+					{item.time.start ? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale) : '-'}
 				</dd>
 				<dt>Status:</dt>
 				<dd>{item.status.execution}</dd>
@@ -314,10 +309,14 @@ const TMCTimeline = ({ data, locale }) => (
 		<Timeline.Toolbar>
 			<Timeline.Zoom />
 		</Timeline.Toolbar>
-		<Timeline.Grid />
+		<Timeline.Body>
+			<Timeline.Grid />
+			<Timeline.LineChart caption="CPU usage" itemKey="fingerprint.cpu" />
+			<Timeline.LineChart caption="Memory usage" itemKey="fingerprint.memory" />
+		</Timeline.Body>
 	</Timeline>
 );
-export function TasksByEngines() {
+export function Chart() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 	return (

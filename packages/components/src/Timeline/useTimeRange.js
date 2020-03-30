@@ -49,11 +49,5 @@ export default function useTimeRange(groups, { addFilters, removeFilters, startN
 		}
 	}, [timeRange]);
 
-	// function setTimestampRange([startDate, endDate]) {
-	// 	const startTimestamp = startDate instanceof Date ? startDate.getTime() : startDate;
-	// 	const endTimestamp = endDate instanceof Date ? endDate.getTime() : endDate;
-	// 	setTimeRange([startTimestamp, endTimestamp]);
-	// }
-
 	return [timeRange, setTimeRange];
 }

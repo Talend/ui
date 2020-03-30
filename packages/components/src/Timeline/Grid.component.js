@@ -12,16 +12,6 @@ import { useTimelineContext } from './context';
 import theme from './Grid.scss';
 
 const MILLISECONDS_IN_HOUR = 60 * 60 * 1000;
-const DEFAULT_DAY_LENGTH = 150; // rem
-const DEFAULT_HEIGHT = 4; // rem
-const DEFAULT_DATA_HEIGHT = 3; // rem
-const MIN_DATA_WIDTH = 0.3; // rem
-
-const headerHeight = DEFAULT_HEIGHT * 2;
-const rowHeight = DEFAULT_HEIGHT;
-const rowHeightUnit = `${rowHeight}rem`;
-const dataHeightUnit = `${DEFAULT_DATA_HEIGHT}rem`;
-const dataBottom = (rowHeight - DEFAULT_DATA_HEIGHT) / 2;
 
 function getIntervals(startTimestamp, endTimestamp) {
 	const hours = new Array((endTimestamp - startTimestamp) / MILLISECONDS_IN_HOUR)
@@ -80,6 +70,7 @@ export default function Grid() {
 		dataItemPopover,
 		dataItemTooltip,
 		zoom,
+		measures,
 	} = useTimelineContext();
 
 	const { t } = useTranslation();
@@ -92,116 +83,102 @@ export default function Grid() {
 		startTimestamp,
 		endTimestamp,
 	]);
-	const dayWidth = DEFAULT_DAY_LENGTH * zoom;
-	const intervalWidthUnit = `${dayWidth / 24}rem`;
-	const remPerMs = dayWidth / 24 / MILLISECONDS_IN_HOUR;
-
-	const totalDataLevels = data.reduce((accu, group) => accu + 1 + group.maxLevel, 0);
-	const totalHeightUnit = `${totalDataLevels * DEFAULT_HEIGHT + headerHeight}rem`;
-	const totalWidthUnit = `${(endTimestamp - startTimestamp) * remPerMs}rem`;
 
 	return (
-		<div style={{ width: '100%', overflowX: 'auto' }}>
-			<table className={theme.grid} style={{ position: 'relative', width: totalWidthUnit }}>
-				<caption className={theme.timelineCaption}>{caption}</caption>
-				<tbody className={theme.timelineRows} style={{ height: totalHeightUnit }} ref={scrollerRef}>
-					{data.map(({ id, label, items, maxLevel = 0 }, groupIndex) => {
-						const itemsPerInterval = getItemsPerInterval(items, intervals, startName);
-						const height = `${(maxLevel + 1) * rowHeight}rem`;
+		<table className={theme.grid} style={{ position: 'relative', width: measures.total.widthUnit }}>
+			<caption className={theme.timelineCaption}>{caption}</caption>
+			<tbody className={theme.timelineRows} ref={scrollerRef}>
+				{data.map(({ id, label, items, maxLevel = 0 }, groupIndex) => {
+					const itemsPerInterval = getItemsPerInterval(items, intervals, startName);
+					const height = `${(maxLevel + 1) * measures.row.height}rem`;
+					return (
+						<tr
+							key={id}
+							className={theme.timelineRow}
+							style={{ height }}
+							data-group-index={groupIndex}
+						>
+							<th scope="row" key={id} className={`${theme.timelineSticky} ${theme.timelineTitle}`}>
+								{label}
+							</th>
+							{itemsPerInterval.map(({ start, isNewDate, items }) => {
+								return (
+									<td
+										key={start}
+										className={`${theme.timelineCell} ${isNewDate ? theme.newDate : ''}`}
+										style={{ width: measures.hour.widthUnit }}
+									>
+										{items.map(item => {
+											const level = item._timelineLevel || 0;
+											const idValue = get(item, idName);
+											const itemStart = get(item, startName);
+											let end = get(item, endName) || endTimestamp;
+											// if the task finished after the last displayed time,
+											// we create a block that stops at the last displayed time
+											if (end > endTimestamp) {
+												end = endTimestamp;
+											}
+											const itemProps = dataItemProps(item);
+											return (
+												<GridData
+													{...itemProps}
+													id={idValue}
+													key={idValue}
+													style={{
+														...itemProps.style,
+														left: measures.data.getLeftUnit(itemStart - start),
+														width: measures.data.getWidthUnit(end - itemStart),
+														top: measures.data.getTopUnit(level),
+														height: measures.data.heightUnit,
+													}}
+													onClick={onClick}
+													item={item}
+													dataItemPopover={dataItemPopover}
+													dataItemTooltip={dataItemTooltip}
+												/>
+											);
+										})}
+									</td>
+								);
+							})}
+						</tr>
+					);
+				})}
+			</tbody>
+			<tfoot className={theme.timelineFooter} ref={scrollerRef}>
+				<tr style={{ height: measures.row.heightUnit }}>
+					<th scope="row" rowSpan="2" className={theme.timelineSticky}>
+						<span className="sr-only">Groups</span>
+					</th>
+					{intervals.hours.map(({ start }) => (
+						<th
+							scope="col"
+							key={start.getTime()}
+							className={theme.timelineHour}
+							style={{ width: measures.hour.widthUnit }}
+						>
+							{format(start, timeFormat, locale)}
+						</th>
+					))}
+				</tr>
+				<tr className={theme.timelineDates} style={{ height: measures.row.heightUnit }}>
+					{intervals.days.map(({ start, count }) => {
+						const dateAsString = format(start, dayFormat, locale);
 						return (
-							<tr
-								key={id}
-								className={theme.timelineRow}
-								style={{ height }}
-								data-group-index={groupIndex}
+							<th
+								scope="colgroup"
+								colSpan={count}
+								key={start.getTime()}
+								className={`${theme.timelineDate} ${theme.newDate}`}
+								style={{ width: `${measures.hour.width * count}rem` }}
 							>
-								<th
-									scope="row"
-									key={id}
-									className={theme.timelineTitle}
-									style={{ height: `${rowHeight}rem` }}
-								>
-									{label}
-								</th>
-								{itemsPerInterval.map(({ start, isNewDate, items }) => {
-									return (
-										<td
-											key={start}
-											className={`${theme.timelineCell} ${isNewDate ? theme.newDate : ''}`}
-										>
-											{items.map(item => {
-												const level = item._timelineLevel || 0;
-												const idValue = get(item, idName);
-												const itemStart = get(item, startName);
-												let end = get(item, endName) || endTimestamp;
-												// if the task finished after the last displayed time,
-												// we create a block that stops at the last displayed time
-												if (end > endTimestamp) {
-													end = endTimestamp;
-												}
-												const left = (itemStart - start) * remPerMs;
-												const width = Math.max((end - itemStart) * remPerMs, MIN_DATA_WIDTH);
-												const itemProps = dataItemProps(item);
-												return (
-													<GridData
-														{...itemProps}
-														id={idValue}
-														key={idValue}
-														style={{
-															...itemProps.style,
-															left: `${left}rem`,
-															top: `${dataBottom + level * (DEFAULT_DATA_HEIGHT + dataBottom)}rem`,
-															height: dataHeightUnit,
-															width: `${width}rem`,
-														}}
-														onClick={onClick}
-														item={item}
-														dataItemPopover={dataItemPopover}
-														dataItemTooltip={dataItemTooltip}
-													/>
-												);
-											})}
-										</td>
-									);
-								})}
-							</tr>
+								{dateAsString}
+								{(zoom > 1 || count > 8) && <span>{dateAsString}</span>}
+							</th>
 						);
 					})}
-				</tbody>
-				<tfoot className={theme.timelineFooter} ref={scrollerRef}>
-					<tr style={{ height: rowHeightUnit }}>
-						<th scope="row" rowSpan="2" className={theme.timelineTitle}>
-							<span className="sr-only">Groups</span>
-						</th>
-						{intervals.days.map(({ start, count }) => {
-							const dateAsString = format(start, dayFormat, locale);
-							return (
-								<th
-									scope="colgroup"
-									colspan={count}
-									key={start.getTime()}
-									className={`${theme.timelineDate} ${theme.newDate}`}
-								>
-									{dateAsString}
-									<span style={{ float: 'right' }}>{dateAsString}</span>
-								</th>
-							);
-						})}
-					</tr>
-					<tr style={{ height: rowHeightUnit }}>
-						{intervals.hours.map(({ start, isNewDate }) => (
-							<th
-								scope="col"
-								key={start.getTime()}
-								style={{ width: intervalWidthUnit }}
-								className={isNewDate ? theme.newDate : undefined}
-							>
-								{format(start, timeFormat, locale)}
-							</th>
-						))}
-					</tr>
-				</tfoot>
-			</table>
-		</div>
+				</tr>
+			</tfoot>
+		</table>
 	);
 }

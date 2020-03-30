@@ -1,6 +1,21 @@
 $sticky-width: 30rem;
 $border-light: 1px solid $alto;
 
+.grid {
+	border: $border-light;
+	tr {
+		display: flex;
+		align-items: stretch;
+		border-top: $border-light;
+		border-top: $border-light;
+	}
+	th,
+	td {
+		display: flex;
+		align-items: center;
+	}
+}
+
 .timelineCaption {
 	text-align: center;
 	color: #333;
@@ -10,42 +25,60 @@ $border-light: 1px solid $alto;
 	position: relative;
 	overflow-x: auto;
 	padding: 2px 0;
-
-	.timelineRow {
-		margin: 0;
-		padding: 0;
-		border-top: $border-light;
-
-		&.ally-focus-within,
-		&:focus-within,
-		&:hover {
-			background-color: $wild-sand;
-		}
-
-		.timelineCell {
-			position: relative;
-		}
-	}
 }
 
-.timelineFooter {
-	th {
-		border: $border-light;
-		padding: 0 $padding-smaller;
+.timelineRow {
+	margin: 0;
+	padding: 0;
+
+	&.ally-focus-within,
+	&:focus-within,
+	&:hover {
+		background-color: $wild-sand;
+	}
+
+	.timelineCell {
+		position: relative;
 	}
 }
 
 .timelineTitle {
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.9);
+	height: 100%;
 	vertical-align: top;
 	padding: $padding-small $padding-normal;
-	position: sticky;
-	left: 0;
-	z-index: 2;
-	max-width: 30rem;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.timelineSticky {
+	position: sticky;
+	z-index: 2;
+	left: 0;
+	width: 30rem;
+}
+
+.timelineDates {
+	padding-left: $sticky-width;
+}
+
+.timelineDate {
+	padding: 0 $padding-smaller;
+	justify-content: space-between;
+}
+
+.timelineHour {
+	justify-content: center;
+	transform: translateX(-50%);
+
+	&:before {
+		content: '';
+		height: 1rem;
+		border-left: $border-light;
+		position: absolute;
+		top: 0;
+	}
 }
 
 .newDate {
