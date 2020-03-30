@@ -23,7 +23,7 @@ const getDays = ([startTimestamp, endTimestamp]) => {
 	return days;
 };
 
-export default function GridRows(props) {
+export default function GridRows() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 	const rowsRef = React.createRef();
@@ -44,7 +44,6 @@ export default function GridRows(props) {
 		onClick,
 		dataItemPopover,
 		dataItemTooltip,
-		zoom,
 		measures,
 	} = useTimelineContext();
 

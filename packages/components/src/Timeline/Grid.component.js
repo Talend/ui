@@ -1,6 +1,7 @@
 import React from 'react';
 import Titles from './GridTitles.component';
 import Rows from './GridRows.component';
+import { useTimelineContext } from './context';
 
 import theme from './Grid.scss';
 
@@ -9,7 +10,13 @@ function Layout({ children }) {
 }
 
 function ScrollableLayout({ children }) {
-	return <div className={theme.scrollable}>{children}</div>;
+	const { measures } = useTimelineContext();
+
+	return (
+		<div className={theme.scrollable}>
+			<div style={{ width: measures.total.widthUnit }}>{children}</div>
+		</div>
+	);
 }
 
 export default function Grid(props) {

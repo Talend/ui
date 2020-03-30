@@ -58,7 +58,7 @@ export default function useGroups(data, { groupIdName, groupLabelName, startName
 			group.maxLevel = maxLevel;
 		});
 
-		// return groups.slice(0, 1);
-		return groups;
+		return groups.slice(0, 1);
+		// return groups;
 	}, [data, groupIdName, groupLabelName]);
 }

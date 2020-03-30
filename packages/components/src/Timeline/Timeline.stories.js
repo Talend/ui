@@ -205,8 +205,13 @@ const TMCTimeline = ({ data, locale }) => (
 		<Timeline.Toolbar>
 			<Timeline.Zoom />
 		</Timeline.Toolbar>
-		<Timeline.Grid />>
-		<Timeline.LineChart />
+		<Timeline.Grid.Layout>
+			<Timeline.Grid.Titles />
+			<Timeline.Grid.ScrollableLayout>
+				<Timeline.Grid.Rows />
+				<Timeline.LineChart />
+			</Timeline.Grid.ScrollableLayout>
+		</Timeline.Grid.Layout>
 	</Timeline>
 );
 export function TasksByEngines() {
