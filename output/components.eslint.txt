@@ -79,7 +79,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   9:8  error  'Action' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
-  178:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  177:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   47:14  error  '_' is already declared in the upper scope  no-shadow
