@@ -26,12 +26,14 @@ function ResourceList({
 	onRowClick,
 	renderAs,
 	toolbar,
+	rowProps,
 	...rest
 }) {
 	const { t } = useTranslation();
 	const Renderer = getRowSelectionRenderer(Resource, {
 		as: renderAs,
 		getRowData: ({ index }) => collection[index],
+		rowProps,
 	});
 	const noRowsRenderer = React.useCallback(
 		() => (
