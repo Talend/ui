@@ -33,7 +33,7 @@ function ResourceList({
 	const Renderer = getRowSelectionRenderer(Resource, {
 		as: renderAs,
 		getRowData: ({ index }) => collection[index],
-		options,
+		rowProps,
 	});
 	const noRowsRenderer = React.useCallback(
 		() => (
