@@ -27,7 +27,7 @@ function getRowSelectionRenderer(
 			{ selected },
 		);
 
-		return <WrappedComponent {...props} {...options} as={as} className={enhancedClassNames} />;
+		return <WrappedComponent {...props} {... rowProps} as={as} className={enhancedClassNames} />;
 	}
 
 	RowSelection.propTypes = WrappedComponent.propTypes;
