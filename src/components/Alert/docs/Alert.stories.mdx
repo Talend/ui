@@ -3,8 +3,12 @@ import Col from './Col.component';
 import Row from './Row.component';
 import { ColorPalette, ColorItem } from '@storybook/components';
 import colors,{ greyscale, backgrounds, palette } from '../../../tokens/colors.tokens';
+import { IconItem, IconGallery } from '@storybook/components';
+import Icon from '../../Icon';
+import icons from '../../../icons';
 
 import MessageZoning from './images/inlinemessage-zoning.jpg';
+import MessageLine from './images/inlinemessage-multipleline.jpg';
 
 
 <Meta title="Guidelines|Components/Inline message" />
@@ -60,20 +64,12 @@ Inline message highlights information necessary to display for the user in many 
 ## Colors <a id="colors" />
 
 <ColorPalette>
-	<ColorItem title="theme.color.palette" subtitle="Some informative colors" colors={{Error: colors.destructiveColor,
+	<ColorItem title="theme.color.palette" subtitle="Inline message colors" colors={{Error: colors.destructiveColor,
 		Warning: colors.warningColor,
 		Success: colors.successColor,
 		Information: colors.informationColor}} />
 </ColorPalette>
 
-
-
-| Usage           | Variable     |
-|-----------------|--------------|
-| **error**       | $chestnut-red|
-| **warning**     | $jaffa       |
-| **success**     | $rio-grande  |
-| **information** | $lochmara    |
 
 
 | Attribute                      | Variable                            |
@@ -90,13 +86,17 @@ Inline message highlights information necessary to display for the user in many 
 |-------------|-----------|-------------|-------|
 | **title**   | 1.4rem    |semi-bold    |$black |
 | **description**|1.4rem  |regular      |$black |
-| **link **   | 1.4rem    |semi-bold    |$lochmara |
+| **link**   | 1.4rem    |semi-bold    |$lochmara |
 
 ## States <a id="states" />
 
 _Non applicable_
 
 ## Content <a id="content" />
+
+- Be clear and conversational
+- Use direct language
+- Get right to the point
 
 ## Interaction <a id="interaction" />
 
@@ -106,6 +106,22 @@ Please refer to the hyperlink guidelines for more information.
 ## Accessibility <a id="accessibility" />
 
 ## Usage <a id="usage" />
+
+### **Icon usage**
+
+<IconGallery>
+    {['cross', 'warning', 'check', 'information'].map((iconName, index) => (
+        <IconItem key={index} name={iconName}>
+            <Icon name={iconName} />
+        </IconItem>
+    ))}
+</IconGallery>
+
+### **Multiple line**
+
+The text should adapt the surrounding layout. Depending on the context, if the text is too long it should automatically wraps the line.
+
+<img src={MessageLine} alt="multiple line case for inline messages" className="full" class="full" />
 
 ## Changelog
 
