@@ -286,6 +286,14 @@ storiesOf('Data/List/ResourceList', module)
 	.add('preparations', () => (
 		<ResourceList {...commonProps} collection={preparations} renderAs={Preparation} />
 	))
+	.add('with rowProps', () => (
+		<ResourceList
+			{...commonProps}
+			collection={preparations}
+			renderAs={Preparation}
+			rowProps={{ style: { color: 'red' }, 'data-feature': 'my.data.feature' }}
+		/>
+	))
 	.add('filtered pipelines', () => (
 		<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
 	));
