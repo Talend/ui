@@ -13,8 +13,4 @@
 .body {
 	width: 100%;
 	overflow-x: auto;
-
-	> * {
-		float: left; // trick to make the size fit its content (even on IE). So every child can exploit it
-	}
 }

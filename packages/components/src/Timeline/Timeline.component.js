@@ -8,7 +8,7 @@ import useGridMeasures from './useGridMeasures';
 import useGroups from './useGroups';
 import useTimeRange from './useTimeRange';
 import useFilters from './useFilters';
-import { TimelineContext } from './context';
+import { TimelineContext, useTimelineContext } from './context';
 import theme from './Timeline.scss';
 
 function Toolbar({ children }) {
@@ -16,9 +16,10 @@ function Toolbar({ children }) {
 }
 
 function Body({ children }) {
+	const { measures } = useTimelineContext();
 	return (
 		<div className={theme.body} style={{ width: '100%', overflowX: 'auto' }}>
-			<div>{children}</div>
+			<div style={{ width: measures.total.widthUnit }}>{children}</div>
 		</div>
 	);
 }
