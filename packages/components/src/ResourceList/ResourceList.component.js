@@ -26,7 +26,7 @@ function ResourceList({
 	onRowClick,
 	renderAs,
 	toolbar,
-	options,
+	rowProps,
 	...rest
 }) {
 	const { t } = useTranslation();
