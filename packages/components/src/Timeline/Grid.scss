@@ -7,7 +7,6 @@ $border-light: 1px solid $alto;
 		display: flex;
 		align-items: stretch;
 		border-top: $border-light;
-		border-top: $border-light;
 	}
 	th,
 	td {
@@ -50,6 +49,8 @@ $border-light: 1px solid $alto;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	border-right: 1px solid grey;
+	border-left: $border-light;
 }
 
 .timelineSticky {

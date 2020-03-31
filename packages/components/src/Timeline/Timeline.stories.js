@@ -311,8 +311,26 @@ const TMCTimeline = ({ data, locale }) => (
 		</Timeline.Toolbar>
 		<Timeline.Body>
 			<Timeline.Grid />
-			<Timeline.LineChart caption="CPU usage" itemKey="fingerprint.cpu" />
-			<Timeline.LineChart caption="Memory usage" itemKey="fingerprint.memory" />
+			<Timeline.Chart
+				caption="CPU usage"
+				itemKey="fingerprint.cpu"
+				labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
+				valueFormatter={(value, _, props) =>
+					`${value}%. Max usage: ${props.payload.max.label} (${props.payload.max.value}%)`
+				}
+				color="#272288"
+				fillColor="#d7d5ff"
+			/>
+			<Timeline.Chart
+				caption="Memory usage"
+				itemKey="fingerprint.memory"
+				labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
+				valueFormatter={(value, _, props) =>
+					`${value}Mo. Max usage: ${props.payload.max.label} (${props.payload.max.value}Mo)`
+				}
+				color="#5d882f"
+				fillColor="#c1e09e"
+			/>
 		</Timeline.Body>
 	</Timeline>
 );

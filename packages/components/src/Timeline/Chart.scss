@@ -1,0 +1,21 @@
+@import './Grid.scss';
+
+.timelineChart {
+	display: flex;
+	align-items: stretch;
+	height: 7rem;
+	border-bottom: $border-light;
+}
+
+.timelineChartCaption {
+	@extend .timelineSticky;
+	@extend .timelineTitle;
+	flex-grow: 0;
+	flex-shrink: 0;
+	font-weight: 700;
+}
+
+.timelineChartContainer {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
