@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LengthBadge should render 1`] = `
+<sup
+  className="theme-tc-length-badge tc-length-badge badge myCLass"
+>
+  10
+</sup>
+`;

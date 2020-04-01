@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecordsViewer should render a tree (not virtualized)  1`] = `
+<div
+  className="theme-tc-records-viewer tc-records-viewer"
+>
+  <withI18nextTranslation(TreeHeader)
+    onClickCollapseAll={[MockFunction]}
+    t={[Function]}
+    title="Records"
+  />
+  <Tree
+    jsonpath="$"
+    level={0}
+    withNodeBorder={true}
+  />
+</div>
+`;
+
+exports[`RecordsViewer should render a tree virtualized with a header 1`] = `
+<div
+  className="theme-tc-records-viewer tc-records-viewer"
+>
+  <withI18nextTranslation(TreeHeader)
+    onClickCollapseAll={[MockFunction]}
+    t={[Function]}
+    title="Records"
+  />
+  <VirtualizedTree
+    cellMeasurerClassName="theme-tc-records-viewer-tree-border tc-records-viewer-tree-border"
+    cellRenderer={[Function]}
+    className="theme-tc-records-viewer-tree tc-records-viewer-tree"
+    rowCount={0}
+  />
+</div>
+`;

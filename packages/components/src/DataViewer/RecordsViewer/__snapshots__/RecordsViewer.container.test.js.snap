@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecordsViewer should render recordsViewer 1`] = `
+<Connect(CMF(Container(TreeManager)))
+  componentId="RecordsViewer"
+  wrappedComponent={[Function]}
+/>
+`;

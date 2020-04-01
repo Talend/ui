@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component should render the leaf 1`] = `
+<div
+  className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
+>
+  <TooltipTrigger
+    label="Invalid value"
+    tooltipPlacement="left"
+  >
+    <span
+      className="theme-tc-records-viewer-leaf-quality tc-records-viewer-leaf-quality"
+    >
+      <QualityBar
+        quality={-1}
+      />
+    </span>
+  </TooltipTrigger>
+  <SimpleTextKeyValue
+    formattedKey="myDataKey:"
+    schema={
+      Object {
+        "type": "int",
+      }
+    }
+    separator=" "
+    value={
+      Object {
+        "value": "myValue",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Component should render the leaf highlighted 1`] = `
+<div
+  className="theme-tc-records-viewer-leaf tc-records-viewer-leaf theme-tc-records-viewer-leaf-highlighted tc-records-viewer-leaf-highlighted"
+>
+  <TooltipTrigger
+    label="Invalid value"
+    tooltipPlacement="left"
+  >
+    <span
+      className="theme-tc-records-viewer-leaf-quality tc-records-viewer-leaf-quality"
+    >
+      <QualityBar
+        quality={-1}
+      />
+    </span>
+  </TooltipTrigger>
+  <SimpleTextKeyValue
+    formattedKey="myDataKey:"
+    schema={
+      Object {
+        "type": "int",
+      }
+    }
+    separator=" "
+    value={
+      Object {
+        "value": "myValue",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Component should render the leaf with padding offset 1`] = `
+<div
+  className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
+>
+  <TooltipTrigger
+    label="Invalid value"
+    tooltipPlacement="left"
+  >
+    <span
+      className="theme-tc-records-viewer-leaf-quality tc-records-viewer-leaf-quality"
+    >
+      <QualityBar
+        quality={-1}
+      />
+    </span>
+  </TooltipTrigger>
+  <SimpleTextKeyValue
+    formattedKey="myDataKey:"
+    schema={
+      Object {
+        "type": "int",
+      }
+    }
+    separator=" "
+    value={
+      Object {
+        "value": "myValue",
+      }
+    }
+  />
+</div>
+`;

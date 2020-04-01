@@ -1,0 +1,34 @@
+.tc-simple-text {
+	display: flex;
+	min-width: 0;
+	margin-right: $padding-small;
+
+	&-key,
+	:global(.td-default-cell) {
+		overflow: hidden;
+		font-weight: 400;
+	}
+	&-key {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		flex-shrink: 1;
+		color: $dove-gray;
+		vertical-align: top;
+	}
+
+	&-value {
+		&::first-letter {
+			text-transform: uppercase;
+		}
+		text-transform: lowercase;
+		white-space: nowrap;
+	}
+
+	:global(.td-default-cell) {
+		white-space: nowrap;
+		display: inline-block;
+		color: $brand-primary;
+		font-family: 'Inconsolata';
+	}
+}

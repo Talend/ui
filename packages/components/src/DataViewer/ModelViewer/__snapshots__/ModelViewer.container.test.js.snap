@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`I18n should render 1`] = `
+<Connect(CMF(Container(TreeManager)))
+  componentId="ModelViewer"
+  wrappedComponent={[Function]}
+/>
+`;

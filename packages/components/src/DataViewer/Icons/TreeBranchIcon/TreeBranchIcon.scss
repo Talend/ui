@@ -1,0 +1,16 @@
+.tc-tree-branch-icon {
+	&-caret {
+		height: $svg-sm-size;
+		width: $svg-sm-size;
+	}
+	:global(.tc-svg-anchor) {
+		background: transparent;
+		border: none;
+		color: $brand-primary;
+		display: flex;
+		&:focus,
+		&:hover {
+			color: $scooter;
+		}
+	}
+}

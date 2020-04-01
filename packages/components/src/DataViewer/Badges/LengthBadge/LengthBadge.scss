@@ -1,0 +1,11 @@
+$badge-height: 2px !default;
+$badge-width: 10px !default;
+$font: 10px !default;
+
+.tc-length-badge {
+	background-color: $gallery;
+	color: $dark-silver;
+	font-size: $font;
+	padding: $badge-height $badge-width;
+	top: 0;
+}

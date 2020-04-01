@@ -1,0 +1,23 @@
+$border-size: 0.1rem;
+
+:global(.tc-model .tc-tree) {
+	overflow: auto;
+}
+
+.tc-tree {
+	list-style: none;
+	flex-grow: 1;
+	margin-bottom: 0;
+
+	&-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	&-node-border {
+		border-left: $border-size solid $alto;
+		&:hover {
+			border-left: $border-size solid $silver-chalice;
+		}
+	}
+}
