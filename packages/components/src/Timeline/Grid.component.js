@@ -86,7 +86,7 @@ export default function Grid() {
 
 	return (
 		<table className={theme.grid} style={{ position: 'relative', width: measures.total.widthUnit }}>
-			<caption className={theme.timelineCaption}>{caption}</caption>
+			<caption className={`${theme.timelineSticky} ${theme.timelineCaption}`}>{caption}</caption>
 			<tbody className={theme.timelineRows} ref={scrollerRef}>
 				{data.map(({ id, label, items, maxLevel = 0 }, groupIndex) => {
 					const itemsPerInterval = getItemsPerInterval(items, intervals, startName);

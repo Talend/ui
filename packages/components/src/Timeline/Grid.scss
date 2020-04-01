@@ -1,4 +1,4 @@
-$sticky-width: 30rem;
+$sticky-width: 25rem;
 $border-light: 1px solid $alto;
 
 .grid {
@@ -15,8 +15,9 @@ $border-light: 1px solid $alto;
 }
 
 .timelineCaption {
-	text-align: center;
 	color: #333;
+	padding: 1rem 1.6rem;
+	font-weight: normal;
 }
 
 .timelineRows {
@@ -33,11 +34,15 @@ $border-light: 1px solid $alto;
 	&:focus-within,
 	&:hover {
 		background-color: $wild-sand;
-	}
 
-	.timelineCell {
-		position: relative;
+		.timelineTitle {
+			font-weight: normal;
+		}
 	}
+}
+
+.timelineCell {
+	position: relative;
 }
 
 .timelineTitle {
@@ -50,13 +55,14 @@ $border-light: 1px solid $alto;
 	text-overflow: ellipsis;
 	border-right: 1px solid grey;
 	border-left: $border-light;
+	font-weight: lighter;
 }
 
 .timelineSticky {
 	position: sticky;
 	z-index: 2;
 	left: 0;
-	width: 30rem;
+	width: $sticky-width;
 }
 
 .timelineDates {

@@ -12,6 +12,9 @@ import engine1 from './executions/engine-1.json';
 import engine2 from './executions/engine-2.json';
 import engines from './executions/engines-all.json';
 import jsoEngine0 from './executions-jso/engine-0.json';
+import jsoEngine1 from './executions-jso/engine-1.json';
+import jsoEngine2 from './executions-jso/engine-2.json';
+import jsoEngine3 from './executions-jso/engine-3.json';
 
 export default {
 	title: 'Data/Timeline',
@@ -31,7 +34,7 @@ const options = {
 	second: 'numeric',
 };
 const dateFormat = Intl.DateTimeFormat(locale, options);
-function gridDataContent(data) {}
+
 const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => {
 	const background =
 		status.management === 'abort' || status.execution === 'abort'
@@ -309,7 +312,7 @@ const TMCTimeline = ({ data, locale }) => (
 		)}
 	>
 		<Timeline.Toolbar>
-			<Timeline.Zoom />
+			<Timeline.Zoom initialZoom={0.8} />
 		</Timeline.Toolbar>
 		<Timeline.Body>
 			<Timeline.Grid />
@@ -344,7 +347,20 @@ export function Chart() {
 	return (
 		<>
 			<IconsProvider />
-			<TMCTimeline data={jsoEngine0} locale={locale} />
+			<div style={{ display: 'flex', flexWrap: 'wrap' }}>
+				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
+					<TMCTimeline data={jsoEngine0} locale={locale} />
+				</div>
+				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
+					<TMCTimeline data={jsoEngine1} locale={locale} />
+				</div>
+				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
+					<TMCTimeline data={jsoEngine2} locale={locale} />
+				</div>
+				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
+					<TMCTimeline data={jsoEngine3} locale={locale} />
+				</div>
+			</div>
 		</>
 	);
 }
