@@ -45,7 +45,7 @@ const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => 
 			: '#236192';
 	const className = background === '#236192' ? 'running' : '';
 
-	const content = `exection ${flowName} started at ${dateFormat.format(
+	const content = `Execution ${flowName} started at ${dateFormat.format(
 		startTimestamp,
 	)} finished at ${dateFormat.format(finishTimestamp)} with status ${status.execution}`;
 	return { style: { background }, className, content };
@@ -302,7 +302,9 @@ const TMCTimeline = ({ data, locale }) => (
 					{item.time.start ? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale) : '-'}
 				</dd>
 				<dt>Status:</dt>
-				<dd>{item.status.execution}</dd>
+				<dd>
+					(M) {item.status.management} - (E) {item.status.execution}
+				</dd>
 			</dl>
 		)}
 	>
@@ -313,23 +315,25 @@ const TMCTimeline = ({ data, locale }) => (
 			<Timeline.Grid />
 			<Timeline.Chart
 				caption="CPU usage"
-				itemKey="fingerprint.cpu"
+				getItemValues={item =>
+					item.fingerprint.logs?.map(({ timestamp, cpu }) => ({ key: timestamp, value: cpu }))
+				}
 				labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
 				valueFormatter={(value, _, props) =>
 					`${value}%. Max usage: ${props.payload.max.label} (${props.payload.max.value}%)`
 				}
 				color="#272288"
-				fillColor="#d7d5ff"
 			/>
 			<Timeline.Chart
 				caption="Memory usage"
-				itemKey="fingerprint.memory"
+				getItemValues={item =>
+					item.fingerprint.logs?.map(({ timestamp, memory }) => ({ key: timestamp, value: memory }))
+				}
 				labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
 				valueFormatter={(value, _, props) =>
 					`${value}Mo. Max usage: ${props.payload.max.label} (${props.payload.max.value}Mo)`
 				}
 				color="#5d882f"
-				fillColor="#c1e09e"
 			/>
 		</Timeline.Body>
 	</Timeline>
