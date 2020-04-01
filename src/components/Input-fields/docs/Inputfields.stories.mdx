@@ -1,0 +1,121 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Col from './Col.component';
+import Row from './Row.component';
+import InputBehaviors from './images/inputfields-behaviors.jpg';
+import InputZoning from './images/inputfields-zoning.jpg';
+
+
+<Meta title="Guidelines|Components/Input fields" />
+
+# Input fields
+
+Text fields can display user input in the following ways:
+- Single line text fields display only one line of text
+- Text areas are fixed-width fields
+Use text fields in forms to help people enter, select, and search for text. 
+Text fields are usually found within a form but can also be part of a modal, search, or widget… 
+Common text input types include: usernames, descriptions, URLs, emails, addresses, and plain text searches.
+
+<Row>
+	<Col centered="all">
+		<a href="#sizes">Sizes</a>
+	</Col>
+	<Col centered="all">
+		<a href="#colors">Colors</a>
+	</Col>
+	<Col centered="all">
+		<a href="#fonts">Fonts</a>
+	</Col>
+	<Col centered="all">
+		<a href="#states">States</a>
+	</Col>
+	<Col centered="all">
+		<a href="#content">Content</a>
+	</Col>
+	<Col centered="all">
+		<a href="#interaction">Interaction</a>
+	</Col>
+	<Col centered="all">
+		<a href="#accessibility">Accessibility</a>
+	</Col>
+</Row>
+
+## Style
+
+## Zoning
+
+<img src={InputZoning} alt="zoning image for classic input fields" className="full" class="full" />
+
+## Variations
+
+// TO DO = Add variations
+
+## Sizes <a id="sizes" />
+
+| Attribute                      | Variable          |
+| ------------------------------ | ----------------- |
+| width                          | based on content  |
+| height    			    	 | 3.2rem            |
+| padding-left and right         | $small            |
+| border-radius                  | 0.2rem            |
+| border                         | 0.1rem            |
+| margin-top                     | $smaller          |
+
+
+## Colors <a id="colors" />
+
+| Attribute                      | Variable                            |
+| ------------------------------ | ----------------------------------- |
+| background-color               | $white                              |
+| border (default)               | $silver chalice                     |
+| label                          | $black                              |
+| placeholder                    | $dark-silver                        |
+
+
+## Fonts <a id="fonts" />
+
+| Property       | font-size | font-weight | color |
+|----------------|-----------|-------------|-------|
+| **Label**      | 1.2rem    |semi-bold    |$black |
+| **Placeholder**| 1.4rem    |regular      |$dark-silver |
+| **Input**      | 1.4rem    |regular      |$black |
+
+
+## States <a id="states" />
+
+<img src={InputBehaviors} alt="Behaviors image for classic Input fields" className="full" class="full" />
+
+|                      | **Hover**           | **Focused**       | **Disabled**     |
+| -------------------- | ------------------- | ----------------- | ---------------- |
+| border               | 0.1rem $dove-gray   | 0.2rem $lochmara  | opacity 0.54     |
+| text                 | -                   | -                 | opacity 0.54     |
+
+
+
+## Content <a id="content" />
+
+## Interaction <a id="interaction" />
+
+* Focus on the field allows user to type in.
+- Validation of the field will be done either by a click outside of the field, or pressing ENTER on the keyboard, or clicking on the validation button (depends on the use case)
+
+
+## Accessibility <a id="accessibility" />
+
+Press <kbd>TABS</kbd> to focus on an input element
+
+Press the <kbd>ENTER</kbd> to submit your value
+
+Press the <kbd>ESC</kbd> to leave the input without saving the value (need to discuss)
+
+Press <kbd>CTRL + A</kbd> to select the whole value + DEL to delete it
+
+## Usage <a id="usage" />
+
+
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 04/01/2020 | Monia Huet  | Init page   |
