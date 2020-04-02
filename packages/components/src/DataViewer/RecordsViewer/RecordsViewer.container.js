@@ -39,6 +39,8 @@ export function getIcon(opened) {
 }
 
 export class RecordsViewer extends React.Component {
+	static displayName = 'RecordsViewerContainer';
+
 	static propTypes = {
 		componentId: PropTypes.string,
 		getChilds: PropTypes.func,
@@ -46,13 +48,12 @@ export class RecordsViewer extends React.Component {
 		getIcon: PropTypes.func,
 		getObjectBranchDatakey: PropTypes.func.isRequired,
 		getJSONPath: PropTypes.func,
-		getQuality: PropTypes.func,
 		getItemType: PropTypes.func,
 		highlighted: PropTypes.array,
 		sample: PropTypes.object,
 		t: PropTypes.func,
-		renderBranchQuality: PropTypes.func,
-		renderLeafQuality: PropTypes.func,
+		renderBranchAdditionalValue: PropTypes.func,
+		renderLeafAdditionalValue: PropTypes.func,
 	};
 
 	static defaultProps = {
@@ -61,18 +62,12 @@ export class RecordsViewer extends React.Component {
 		getIcon,
 		getObjectBranchDatakey,
 		getJSONPath,
-		getQuality,
 		getItemType,
 		t: getDefaultT(),
 	};
 
 	renderLeaf = args => (
-		<Leaf
-			{...args}
-			getQuality={this.props.getQuality}
-			t={this.props.t}
-			renderLeafQuality={this.props.renderLeafQuality}
-		/>
+		<Leaf {...args} renderLeafAdditionalValue={this.props.renderLeafAdditionalValue} />
 	);
 
 	renderBranch = args => (
@@ -81,10 +76,9 @@ export class RecordsViewer extends React.Component {
 			getChilds={this.props.getChilds}
 			getChildsCount={this.props.getChildsCount}
 			getIcon={this.props.getIcon}
-			getQuality={this.props.getQuality}
 			getObjectBranchDatakey={this.props.getObjectBranchDatakey}
 			t={this.props.t}
-			renderBranchQuality={this.props.renderBranchQuality}
+			renderBranchAdditionalValue={this.props.renderBranchAdditionalValue}
 		/>
 	);
 

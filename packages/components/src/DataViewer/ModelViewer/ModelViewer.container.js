@@ -1,35 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import has from 'lodash/has';
 import get from 'lodash/get';
 import head from 'lodash/head';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { withTranslation } from 'react-i18next';
-import Component from './ModelViewer.component';
-import Branch from './Branch';
-import Leaf from './Leaf';
-import { TreeManager } from '../Managers';
-import formatJSONPath from '../jsonPath';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-
-const QUALITY_KEY = '@talend-quality@';
-
-/**
- * If quality is present we assume that it is an union.
- * WARNING this is not a relevant way to do it.
- * @param {object} item
- */
-export function isUnion(item) {
-	return Array.isArray(item.type) || has(item, QUALITY_KEY);
-}
-
-/**
- * Extract the type and quality from the item.
- * @param {object} item
- */
-export function getQuality(item) {
-	return get(item, 'type.@talend-quality@', item['@talend-quality@']);
-}
+import formatJSONPath from '../jsonPath';
+import { TreeManager } from '../Managers';
+import Branch from './Branch';
+import Leaf from './Leaf';
+import Component from './ModelViewer.component';
 
 /**
  * Return the attribute to display from the item.
@@ -149,10 +129,9 @@ export function getItemType(item) {
 }
 
 export class ModelViewer extends React.Component {
-	static displayName = 'Container(ModelViewer)';
+	static displayName = 'ModelViewerContainer';
 
 	static propTypes = {
-		getQuality: PropTypes.func,
 		componentId: PropTypes.string,
 		getChilds: PropTypes.func,
 		getDisplayKey: PropTypes.func,
@@ -165,8 +144,7 @@ export class ModelViewer extends React.Component {
 		onSelect: PropTypes.func,
 		sample: PropTypes.shape({ schema: PropTypes.any, data: PropTypes.any }),
 		t: PropTypes.func,
-		renderSemanticChooser: PropTypes.func,
-		renderQualities: PropTypes.func,
+		renderLeafOptions: PropTypes.func,
 	};
 
 	static defaultProps = {
@@ -174,10 +152,8 @@ export class ModelViewer extends React.Component {
 		getDisplayKey: defaultGetDisplayKey,
 		getDisplayValue: defaultGetDisplayValue,
 		getJSONPath,
-		getQuality,
 		getItemType,
 		hasSemanticAwareness: true,
-		quality: { qualityKey: QUALITY_KEY },
 		t: getDefaultT(),
 		withTreeBorder: false,
 	};
@@ -190,11 +166,8 @@ export class ModelViewer extends React.Component {
 			hasSemanticAwareness={this.props.hasSemanticAwareness}
 			menu={this.props.menuActions}
 			onSelect={this.props.onSelect}
-			getQuality={this.props.getQuality}
-			isUnion={isUnion}
 			t={this.props.t}
-			renderSemanticChooser={this.props.renderSemanticChooser}
-			renderQualities={this.props.renderQualities}
+			renderLeafOptions={this.props.renderLeafOptions}
 		/>
 	);
 
@@ -205,7 +178,6 @@ export class ModelViewer extends React.Component {
 			getDisplayKey={this.props.getDisplayKey}
 			getDisplayValue={this.props.getDisplayValue}
 			hasSemanticAwareness={this.props.hasSemanticAwareness}
-			isUnion={isUnion}
 			t={this.props.t}
 		/>
 	);

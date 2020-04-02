@@ -78,7 +78,7 @@ export default class TreeNode extends React.Component {
 			get(this.props, 'highlighted', []),
 			this.props.jsonpath,
 		);
-		console.log(type, nodeHighlighted);
+
 		if (isBranch(type)) {
 			return this.props.branch({
 				...this.props,

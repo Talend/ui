@@ -27,7 +27,6 @@ export class RecordsViewerBranch extends React.Component {
 		getChildsCount: PropTypes.func,
 		getIcon: PropTypes.func,
 		getObjectBranchDatakey: PropTypes.func.isRequired,
-		getQuality: PropTypes.func.isRequired,
 		index: PropTypes.number,
 		jsonpath: PropTypes.string,
 		level: PropTypes.number.isRequired,
@@ -35,7 +34,7 @@ export class RecordsViewerBranch extends React.Component {
 		onToggle: PropTypes.func.isRequired,
 		opened: PropTypes.bool,
 		recursive: PropTypes.func,
-		renderBranchQuality: PropTypes.func,
+		renderBranchAdditionalValue: PropTypes.func,
 		sample: PropTypes.object,
 		type: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 		value: PropTypes.object,
@@ -126,9 +125,8 @@ export class RecordsViewerBranch extends React.Component {
 						{this.props.getObjectBranchDatakey(dataKey, value)}
 					</span>
 					{level !== 0 && <LengthBadge lengthValue={this.props.getChildsCount(value)} />}
-					{!opened &&
-						this.props.renderBranchQuality &&
-						this.props.renderBranchQuality({ quality: this.props.getQuality(value) })}
+					{this.props.renderBranchAdditionalValue &&
+						this.props.renderBranchAdditionalValue({ value, opened })}
 				</span>
 				{opened &&
 					this.props.recursive({

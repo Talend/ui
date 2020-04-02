@@ -30,12 +30,10 @@ export function ModelViewerLeaf({
 	jsonpath,
 	jsonPathSelection,
 	level,
-	getQuality,
 	onSelect,
 	t,
 	value,
-	renderSemanticChooser,
-	renderQualities,
+	renderLeafOptions,
 }) {
 	const onClickLeaf = event => {
 		if (onSelect) {
@@ -49,15 +47,6 @@ export function ModelViewerLeaf({
 	const formattedKey = getDisplayValue(value);
 	const formattedValue = hasSemanticAwareness ? `${getDisplayKey(value)}${isOptional(value)}` : '';
 	const separator = ' ';
-
-	const SemanticChooserButtonProps = {
-		classAction: classNames(theme['tc-model-leaf-options-burger'], 'tc-model-leaf-options-burger'),
-		dqType: get(value, 'type.dqType', value.type.type),
-		id: getDisplayValue(value),
-		matchings: value.matchings,
-		path: value.path,
-		placement: 'right',
-	};
 
 	return (
 		<span
@@ -87,8 +76,7 @@ export function ModelViewerLeaf({
 			/>
 
 			<span className={classNames(theme['tc-model-leaf-options'], 'tc-model-leaf-options')}>
-				{renderSemanticChooser && renderSemanticChooser(...SemanticChooserButtonProps)}
-				{renderQualities && renderQualities({ qualities: getQuality(value) })}
+				{renderLeafOptions && renderLeafOptions(value)}
 			</span>
 		</span>
 	);
@@ -97,10 +85,8 @@ export function ModelViewerLeaf({
 ModelViewerLeaf.propTypes = {
 	className: PropTypes.string,
 	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	datasetId: PropTypes.string,
 	getDisplayKey: PropTypes.func,
 	getDisplayValue: PropTypes.func.isRequired,
-	getQuality: PropTypes.func.isRequired,
 	hasSemanticAwareness: PropTypes.bool,
 	jsonpath: PropTypes.string.isRequired,
 	jsonPathSelection: PropTypes.string,
@@ -108,8 +94,7 @@ ModelViewerLeaf.propTypes = {
 	onSelect: PropTypes.func,
 	t: PropTypes.func.isRequired,
 	value: PropTypes.object,
-	renderSemanticChooser: PropTypes.func,
-	renderQualities: PropTypes.func,
+	renderLeafOptions: PropTypes.func,
 };
 
 export default ModelViewerLeaf;
