@@ -51,7 +51,7 @@ export default function Chart(props) {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 
-	const { caption, getItemValues, labelFormatter, valueFormatter, color, fillColor } = props;
+	const { caption, getItemValues, labelFormatter, valueFormatter, color } = props;
 
 	const data = getData(groups, locale, getItemValues);
 
@@ -69,7 +69,12 @@ export default function Chart(props) {
 							hide
 						/>
 						<YAxis type="number" hide />
-						<Tooltip filterNull labelFormatter={labelFormatter} formatter={valueFormatter} />
+						<Tooltip
+							filterNull
+							labelFormatter={labelFormatter}
+							formatter={valueFormatter}
+							wrapperStyle={{ zIndex: 10 }}
+						/>
 						<Area
 							type="monotone"
 							dataKey="value"
@@ -94,6 +99,7 @@ export default function Chart(props) {
 							)}
 							aria-label={caption}
 							tabIndex="0"
+							isAnimationActive={false}
 						/>
 					</AreaChart>
 				</ResponsiveContainer>
