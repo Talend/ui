@@ -14,6 +14,9 @@ $tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-icons-size: $svg-lg-size;
 $toggle-button-padding: $padding-small;
 
+$docked-width: 6rem;
+$large-docked-width: 7rem;
+
 .tc-side-panel {
 	display: flex;
 	flex-direction: column;
@@ -93,11 +96,17 @@ $toggle-button-padding: $padding-small;
 	}
 
 	&.docked {
-		:global(.btn.btn-link) {
-			padding: $padding-normal;
+		:global {
+			.btn.btn-link {
+				padding: $padding-normal;
 
-			> span {
-				opacity: 0;
+				> span {
+					opacity: 0;
+				}
+			}
+			.tc-action-list {
+				width: $docked-width;
+				min-width: auto;
 			}
 		}
 
@@ -136,6 +145,12 @@ $toggle-button-padding: $padding-small;
 		}
 
 		&.docked {
+			:global {
+				.tc-action-list {
+					width: $docked-width;
+					min-width: auto;
+				}
+			}
 			.toggle-btn {
 				height: $toggle-height;
 				vertical-align: center;
