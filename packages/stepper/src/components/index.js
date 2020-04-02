@@ -1,3 +1,3 @@
-import { default as Stepper } from './Stepper.component';
+import Stepper from '@talend/react-components/lib/Stepper';
 
 export default Stepper;

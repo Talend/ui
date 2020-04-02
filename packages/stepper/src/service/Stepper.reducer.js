@@ -1,6 +1,7 @@
 import omit from 'lodash/omit';
 import get from 'lodash/get';
 import invariant from 'invariant';
+import { isStepsLoading } from '@talend/react-components/lib/Stepper';
 import {
 	LOADING_STEP_STATUSES,
 	initialState,
@@ -8,7 +9,7 @@ import {
 	LOADING_STEPS_REMOVE,
 	LOADING_STEPS_PROCEED_EVENT,
 } from '../Stepper.constants';
-import { getStepperKey, isStepsLoading } from './Stepper.utils';
+import { getStepperKey } from './Stepper.utils';
 
 const isInStepAttribute = (stepAttribute, value) =>
 	(typeof stepAttribute === 'string' && stepAttribute === value) ||

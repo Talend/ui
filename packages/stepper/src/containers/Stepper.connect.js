@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { default as Stepper } from '../components/Stepper.component';
+import Stepper from '@talend/react-components/lib/Stepper';
 import { getStepsForResource } from '../service/Stepper.selectors';
 
 export const mapStateToProps = (state, ownProps) => ({
