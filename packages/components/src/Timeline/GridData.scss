@@ -9,11 +9,37 @@
 	position: absolute;
 	z-index: 1;
 }
-
 @media (prefers-reduced-motion: reduce) {
 	.timelineItem {
 		animation: none;
 	}
+}
+.timelineRuntype {
+	background: unset;
+	padding: 0;
+	border: none;
+}
+.timelineRetries {
+	display: inline-flex;
+	position: absolute;
+	top: -.4rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-bottom: 2px solid #222;
+}
+
+.timelineRetry {
+	line-height: 0
+}
+.timelineRetryAction {
+	width: .5rem;
+  height: .5rem;
+	padding: 0;
+  border: none;
+  border-radius: 50%;
+	z-index: 10;
+	background: #222;
 }
 
 .popper {

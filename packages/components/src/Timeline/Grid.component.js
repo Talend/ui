@@ -124,6 +124,7 @@ export default function Grid() {
 													{...itemProps}
 													id={idValue}
 													key={idValue}
+													measures={measures}
 													style={{
 														...itemProps.style,
 														left: measures.data.getLeftUnit(itemStart - start),
@@ -133,6 +134,7 @@ export default function Grid() {
 													}}
 													onClick={onClick}
 													item={item}
+													start={start}
 													dataItemPopover={dataItemPopover}
 													dataItemTooltip={dataItemTooltip}
 												/>
