@@ -36,7 +36,7 @@ $border-light: 1px solid $alto;
 		background-color: $wild-sand;
 
 		.timelineTitle {
-			font-weight: normal;
+			font-weight: bold;
 		}
 	}
 }
@@ -55,7 +55,7 @@ $border-light: 1px solid $alto;
 	text-overflow: ellipsis;
 	border-right: 1px solid grey;
 	border-left: $border-light;
-	font-weight: lighter;
+	font-weight: normal;
 }
 
 .timelineSticky {
