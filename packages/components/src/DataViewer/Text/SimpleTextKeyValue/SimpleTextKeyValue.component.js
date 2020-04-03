@@ -1,11 +1,89 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import DefaultValueRenderer from './DefaultValueRenderer.component';
 import theme from './SimpleTextKeyValue.scss';
 
-const AvroRenderer = ({ data }) => <div>{data.value}</div>;
+const DATE_TYPE_FORMATER = 'date';
+const LONG_TYPE = 'long';
+const AVRO_TYPES = [
+	'boolean',
+	'int',
+	LONG_TYPE,
+	'float',
+	'double',
+	'bytes',
+	'string',
+	'unknown',
+	'date',
+];
+const TIMESTAMP_MILLIS_LOGICAL_TYPES = 'timestamp-millis';
+const LOGICAL_TYPES = [TIMESTAMP_MILLIS_LOGICAL_TYPES];
+const PRIMITIVES_MAPPING = {
+	double: 'int',
+	float: 'int',
+	int: 'int',
+	long: 'int',
+};
+
+function getTypeRenderer(schemaType) {
+	if (schemaType.type === LONG_TYPE && schemaType.logicalType === TIMESTAMP_MILLIS_LOGICAL_TYPES) {
+		return DATE_TYPE_FORMATER;
+	}
+
+	if (PRIMITIVES_MAPPING[schemaType.type]) {
+		return PRIMITIVES_MAPPING[schemaType.type];
+	}
+
+	return schemaType.type;
+}
+
+function AvroRenderer({ colDef, data }) {
+	const typeRenderer = getTypeRenderer(colDef.avro.type);
+	const dateToString = value => {
+		if (value === null) {
+			return value;
+		}
+
+		try {
+			return new Date(value).toISOString();
+		} catch (e) {
+			return value;
+		}
+	};
+
+	switch (typeRenderer) {
+		case 'DefaultInt':
+			return (
+				<DefaultValueRenderer
+					value={data.value}
+					className={classNames(theme['td-cell-int'], 'td-cell-int')}
+				/>
+			);
+
+		case 'DefaultDate':
+			return (
+				<DefaultValueRenderer
+					value={dateToString(data.value)}
+					className={classNames('td-cell-date')}
+				/>
+			);
+
+		default:
+			return <DefaultValueRenderer value={data.value} />;
+	}
+}
+
 AvroRenderer.propTypes = {
-	data: PropTypes.any,
+	colDef: PropTypes.shape({
+		avro: PropTypes.shape({
+			type: PropTypes.shape({
+				type: PropTypes.oneOf(AVRO_TYPES),
+				logicalType: PropTypes.oneOf(LOGICAL_TYPES),
+			}),
+		}),
+	}),
+	data: PropTypes.object,
 };
 
 export default function SimpleTextKeyValue({

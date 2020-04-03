@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import get from 'lodash/get';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { SimpleTextKeyValue } from '../../Text';
 import theme from '../ModelViewer.scss';
 
