@@ -7,14 +7,10 @@ import IconsProvider from '../IconsProvider';
 import Timeline from './Timeline.component';
 import getLocale from '../DateFnsLocale/locale';
 import { getCurrentLanguage } from '../translate';
-import engine0 from './executions/engine-0.json';
-import engine1 from './executions/engine-1.json';
-import engine2 from './executions/engine-2.json';
-import engines from './executions/engines-all.json';
-import jsoEngine0 from './executions-jso/engine-0.json';
-import jsoEngine1 from './executions-jso/engine-1.json';
-import jsoEngine2 from './executions-jso/engine-2.json';
-import jsoEngine3 from './executions-jso/engine-3.json';
+
+import jsoExecutionsByWeek from './executions/week';
+import jsoExecutionsByDay from './executions/day';
+import jsoExecutionsByHour from './executions/hour';
 
 export default {
 	title: 'Data/Timeline',
@@ -55,13 +51,14 @@ const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => 
 };
 
 export function Default() {
+	const data = jsoExecutionsByDay[0][0][0];
 	return (
 		<>
 			<IconsProvider />
 			<Timeline
-				data={engine0}
+				data={data}
 				idName="context.executionId"
-				caption={engine0[0].context.engine.name}
+				caption={data[0].context.engine.name}
 				startName="time.start"
 				endName="time.end"
 				groupIdName="context.task.id"
@@ -76,13 +73,14 @@ export function Default() {
 }
 
 export function Zoom() {
+	const data = jsoExecutionsByDay[0][0][0];
 	return (
 		<>
 			<IconsProvider />
 			<Timeline
-				data={engine0}
+				data={data}
 				idName="context.executionId"
-				caption={engine0[0].context.engine.name}
+				caption={data[0].context.engine.name}
 				startName="time.start"
 				endName="time.end"
 				groupIdName="context.task.id"
@@ -99,13 +97,14 @@ export function Zoom() {
 }
 
 export function DateFilter() {
+	const data = jsoExecutionsByDay[0][0][0];
 	return (
 		<>
 			<IconsProvider />
 			<Timeline
-				data={engine0}
+				data={data}
 				idName="context.executionId"
-				caption={engine0[0].context.engine.name}
+				caption={data[0].context.engine.name}
 				startName="time.start"
 				endName="time.end"
 				groupIdName="context.task.id"
@@ -124,13 +123,14 @@ export function DateFilter() {
 export function Tooltip() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
+	const data = jsoExecutionsByDay[0][0][0];
 	return (
 		<>
 			<IconsProvider />
 			<Timeline
-				data={engine0}
+				data={data}
 				idName="context.executionId"
-				caption={engine0[0].context.engine.name}
+				caption={data[0].context.engine.name}
 				startName="time.start"
 				endName="time.end"
 				groupIdName="context.task.id"
@@ -141,15 +141,17 @@ export function Tooltip() {
 						<dt>Flow name:</dt>
 						<dd>{item.flowName}</dd>
 						<dt>Start time:</dt>
-						<dd>{format(new Date(item.startTimestamp), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
 						<dt>End time:</dt>
 						<dd>
-							{item.finishTimestamp
-								? format(new Date(item.finishTimestamp), 'DD MMM YYYY HH:mm:ss', locale)
+							{item.time.end
+								? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale)
 								: '-'}
 						</dd>
 						<dt>Status:</dt>
-						<dd>{item.flowStatus}</dd>
+						<dd>
+							(M) {item.status.management} - (E) {item.status.execution}
+						</dd>
 					</dl>
 				)}
 			>
@@ -162,13 +164,14 @@ export function Tooltip() {
 export function Popover() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
+	const data = jsoExecutionsByDay[0][0][0];
 	return (
 		<>
 			<IconsProvider />
 			<Timeline
-				data={engine0}
+				data={data}
 				idName="context.executionId"
-				caption={engine0[0].context.engine.name}
+				caption={data[0].context.engine.name}
 				startName="time.start"
 				endName="time.end"
 				groupIdName="context.task.id"
@@ -187,94 +190,9 @@ export function Popover() {
 								: '-'}
 						</dd>
 						<dt>Status:</dt>
-						<dd>{item.status.execution}</dd>
-					</dl>
-				)}
-			>
-				<Timeline.Grid />
-			</Timeline>
-			<hr />
-			<Timeline
-				data={engine1}
-				idName="context.executionId"
-				caption={engine1[0].context.engine.name}
-				startName="time.start"
-				endName="time.end"
-				groupIdName="context.task.id"
-				groupLabelName="context.task.name"
-				dataItemProps={getItemProps}
-				dataItemPopover={item => (
-					<dl>
-						<dt>Flow name:</dt>
-						<dd>{item.context.task.name}</dd>
-						<dt>Start time:</dt>
-						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
-						<dt>End time:</dt>
 						<dd>
-							{item.time.start
-								? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
-								: '-'}
+							(M) {item.status.management} - (E) {item.status.execution}
 						</dd>
-						<dt>Status:</dt>
-						<dd>{item.status.execution}</dd>
-					</dl>
-				)}
-			>
-				<Timeline.Grid />
-			</Timeline>
-			<hr />
-			<Timeline
-				data={engine2}
-				idName="context.executionId"
-				caption={engine2[0].context.engine.name}
-				startName="time.start"
-				endName="time.end"
-				groupIdName="context.task.id"
-				groupLabelName="context.task.name"
-				dataItemProps={getItemProps}
-				dataItemPopover={item => (
-					<dl>
-						<dt>Flow name:</dt>
-						<dd>{item.context.task.name}</dd>
-						<dt>Start time:</dt>
-						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
-						<dt>End time:</dt>
-						<dd>
-							{item.time.start
-								? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
-								: '-'}
-						</dd>
-						<dt>Status:</dt>
-						<dd>{item.status.execution}</dd>
-					</dl>
-				)}
-			>
-				<Timeline.Grid />
-			</Timeline>
-			<hr />
-			<Timeline
-				data={engines}
-				idName="context.executionId"
-				caption={engine2[0].context.engine.name}
-				startName="time.start"
-				endName="time.end"
-				groupIdName="context.task.id"
-				groupLabelName="context.task.name"
-				dataItemProps={getItemProps}
-				dataItemPopover={item => (
-					<dl>
-						<dt>Flow name:</dt>
-						<dd>{item.context.task.name}</dd>
-						<dt>Start time:</dt>
-						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
-						<dt>End time:</dt>
-						<dd>
-							{item.time.start
-								? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
-								: '-'}
-						</dd>
-						<dt>Status:</dt>
-						<dd>{item.status.execution}</dd>
 					</dl>
 				)}
 			>
@@ -312,7 +230,7 @@ const TMCTimeline = ({ data, locale }) => (
 		)}
 	>
 		<Timeline.Toolbar>
-			<Timeline.Zoom initialZoom={0.8} />
+			<Timeline.Zoom />
 		</Timeline.Toolbar>
 		<Timeline.Body>
 			<Timeline.Grid />
@@ -344,21 +262,33 @@ const TMCTimeline = ({ data, locale }) => (
 export function Chart() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
+	const data = jsoExecutionsByDay[0][0][0];
+	return (
+		<>
+			<IconsProvider />
+			<TMCTimeline data={data} locale={locale} />
+		</>
+	);
+}
+
+export function Mozaic() {
+	const { t } = useTranslation();
+	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 	return (
 		<>
 			<IconsProvider />
 			<div style={{ display: 'flex', flexWrap: 'wrap' }}>
 				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
-					<TMCTimeline data={jsoEngine0} locale={locale} />
+					<TMCTimeline data={jsoExecutionsByDay[0][0][0]} locale={locale} />
 				</div>
 				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
-					<TMCTimeline data={jsoEngine1} locale={locale} />
+					<TMCTimeline data={jsoExecutionsByDay[1][0][0]} locale={locale} />
 				</div>
 				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
-					<TMCTimeline data={jsoEngine2} locale={locale} />
+					<TMCTimeline data={jsoExecutionsByDay[2][0][0]} locale={locale} />
 				</div>
 				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
-					<TMCTimeline data={jsoEngine3} locale={locale} />
+					<TMCTimeline data={jsoExecutionsByDay[3][0][0]} locale={locale} />
 				</div>
 			</div>
 		</>
