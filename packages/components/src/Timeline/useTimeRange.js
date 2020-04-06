@@ -49,5 +49,9 @@ export default function useTimeRange(groups, { addFilters, removeFilters, startN
 		}
 	}, [timeRange]);
 
+	useEffect(() => {
+		setTimeRange(getGroupTimeRange());
+	}, [groups]);
+
 	return [timeRange, setTimeRange];
 }

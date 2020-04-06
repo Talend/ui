@@ -14,6 +14,10 @@ import theme from './Grid.scss';
 const MILLISECONDS_IN_HOUR = 60 * 60 * 1000;
 
 function getIntervals(startTimestamp, endTimestamp) {
+	if (!startTimestamp || !endTimestamp) {
+		return { days: [], hours: [] };
+	}
+
 	const hours = new Array((endTimestamp - startTimestamp) / MILLISECONDS_IN_HOUR)
 		.fill(0)
 		.map((_, index) => {

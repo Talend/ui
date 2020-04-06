@@ -66,20 +66,41 @@ const GridDataDetails = React.forwardRef(
 
 function RunType({ runtype }) {
 	if (runtype === 'manual' || runtype === 'plan') {
-		return <button type="button" className={`${theme.timelineRuntype}`}>{runtype[0].toUpperCase()}</button>;
+		return (
+			<button type="button" className={`${theme.timelineRuntype}`}>
+				{runtype[0].toUpperCase()}
+			</button>
+		);
 	}
 	return '';
 }
 
 function Retries({ retries, measures, start }) {
 	if (retries && retries.length > 0) {
-		return <ol className={`${theme.timelineRetries}`} style={{ left: measures.data.getLeftUnit(retries[0].time - start) }}>
-			{retries.map((retry, index, current) => <li className={`${theme.timelineRetry}`}>
-				<button className={`${theme.timelineRetryAction}`} style={{ marginLeft: `calc(${measures.data.getLeftUnit(retry.time - current[index && index - 1].time)} - ${index === 0 ? '0.25rem' : '0.5rem'}` }} type="button">
-					<span className="sr-only">{index} retry at {retry.time} </span>
-				</button>
-			</li>)}
-		</ol>;
+		return (
+			<ol
+				className={`${theme.timelineRetries}`}
+				style={{ left: measures.data.getLeftUnit(retries[0].time - start) }}
+			>
+				{retries.map((retry, index, current) => (
+					<li className={`${theme.timelineRetry}`}>
+						<button
+							className={`${theme.timelineRetryAction}`}
+							style={{
+								marginLeft: `calc(${measures.data.getLeftUnit(
+									retry.time - current[index && index - 1].time,
+								)} - ${index === 0 ? '0.25rem' : '0.5rem'}`,
+							}}
+							type="button"
+						>
+							<span className="sr-only">
+								{index} retry at {retry.time}{' '}
+							</span>
+						</button>
+					</li>
+				))}
+			</ol>
+		);
 	}
 	return '';
 }
@@ -89,7 +110,9 @@ const GridDataBloc = React.forwardRef(({ content, item, start, measures, ...rest
 			{/* <RunType runtype={item.context.runType} />*/}
 			<Retries retries={item.retries} start={start} measures={measures} />
 			{/* <Icon name={item.status.management === 'deploy_failure' ? 'talend-warning' : 'talend-check'} />*/}
-			<button {...restProps} ref={ref} className={`${theme.timelineItem}`} type={'button'}><span className={'sr-only'}>{content}</span></button>
+			<button {...restProps} ref={ref} className={`${theme.timelineItem}`} type={'button'}>
+				<span className={'sr-only'}>{content}</span>
+			</button>
 		</>
 	);
 });
@@ -114,7 +137,13 @@ export default function GridData({
 	if (dataItemTooltip) {
 		return (
 			<TooltipTrigger label={dataItemTooltip(item)} tooltipPlacement="bottom">
-				<GridDataBloc {...props} item={item} start={start} measures={measures} onClick={onBlocClick} />
+				<GridDataBloc
+					{...props}
+					item={item}
+					start={start}
+					measures={measures}
+					onClick={onBlocClick}
+				/>
 			</TooltipTrigger>
 		);
 	}
@@ -123,7 +152,16 @@ export default function GridData({
 		return (
 			<Manager>
 				<Reference>
-					{({ ref }) => <GridDataBloc {...props} item={item} start={start} measures={measures} ref={ref} onClick={onBlocClick} />}
+					{({ ref }) => (
+						<GridDataBloc
+							{...props}
+							item={item}
+							start={start}
+							measures={measures}
+							ref={ref}
+							onClick={onBlocClick}
+						/>
+					)}
 				</Reference>
 				{visible && (
 					<Popper
@@ -157,5 +195,7 @@ export default function GridData({
 		);
 	}
 
-	return <GridDataBloc {...props} item={item} start={start} measures={measures} onClick={onBlocClick} />;
+	return (
+		<GridDataBloc {...props} item={item} start={start} measures={measures} onClick={onBlocClick} />
+	);
 }

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import format from 'date-fns/format';
 import { action } from '@storybook/addon-actions';
@@ -49,6 +49,21 @@ const getItemProps = ({ status, flowName, startTimestamp, finishTimestamp }) => 
 	)} finished at ${dateFormat.format(finishTimestamp)} with status ${status.execution}`;
 	return { style: { background }, className, content };
 };
+
+const getItemDetails = (item, locale) => (
+	<dl>
+		<dt>Flow name:</dt>
+		<dd>{item.flowName}</dd>
+		<dt>Start time:</dt>
+		<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
+		<dt>End time:</dt>
+		<dd>{item.time.end ? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale) : '-'}</dd>
+		<dt>Status:</dt>
+		<dd>
+			(M) {item.status.management} - (E) {item.status.execution}
+		</dd>
+	</dl>
+);
 
 export function Default() {
 	const data = jsoExecutionsByDay[0][0][0];
@@ -136,24 +151,7 @@ export function Tooltip() {
 				groupIdName="context.task.id"
 				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
-				dataItemTooltip={item => (
-					<dl>
-						<dt>Flow name:</dt>
-						<dd>{item.flowName}</dd>
-						<dt>Start time:</dt>
-						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
-						<dt>End time:</dt>
-						<dd>
-							{item.time.end
-								? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale)
-								: '-'}
-						</dd>
-						<dt>Status:</dt>
-						<dd>
-							(M) {item.status.management} - (E) {item.status.execution}
-						</dd>
-					</dl>
-				)}
+				dataItemTooltip={item => getItemDetails(item, locale)}
 			>
 				<Timeline.Grid />
 			</Timeline>
@@ -177,30 +175,61 @@ export function Popover() {
 				groupIdName="context.task.id"
 				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
-				dataItemPopover={item => (
-					<dl>
-						<dt>Flow name:</dt>
-						<dd>{item.context.task.name}</dd>
-						<dt>Start time:</dt>
-						<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
-						<dt>End time:</dt>
-						<dd>
-							{item.time.start
-								? format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)
-								: '-'}
-						</dd>
-						<dt>Status:</dt>
-						<dd>
-							(M) {item.status.management} - (E) {item.status.execution}
-						</dd>
-					</dl>
-				)}
+				dataItemPopover={item => getItemDetails(item, locale)}
 			>
 				<Timeline.Grid />
 			</Timeline>
 		</>
 	);
 }
+
+function ScaleTimeline({ dataArray, initialIndex }) {
+	const { t } = useTranslation();
+	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
+	const [index, setIndex] = useState(initialIndex);
+	const data = dataArray[index];
+	return (
+		<>
+			<IconsProvider />
+			<Timeline
+				data={data}
+				idName="context.executionId"
+				caption={dataArray[0][0].context.engine.name || 'Engine'}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
+				dataItemProps={getItemProps}
+				dataItemPopover={item => getItemDetails(item, locale)}
+			>
+				<Timeline.Toolbar>
+					<button onClick={() => setIndex(index - 1)} disabled={index <= 0}>
+						Previous
+					</button>
+					<button
+						style={{ marginLeft: 'auto' }}
+						onClick={() => setIndex(index + 1)}
+						disabled={index >= dataArray.length - 1}
+					>
+						Next
+					</button>
+				</Timeline.Toolbar>
+				<Timeline.Body>
+					<Timeline.Grid />
+				</Timeline.Body>
+			</Timeline>
+		</>
+	);
+}
+export const ScaleWeek = () => (
+	<ScaleTimeline dataArray={jsoExecutionsByWeek[0]} initialIndex={0} />
+);
+export const ScaleDay = () => (
+	<ScaleTimeline dataArray={jsoExecutionsByDay[0][0]} initialIndex={0} />
+);
+export const ScaleHour = () => (
+	<ScaleTimeline dataArray={jsoExecutionsByHour[0][0][0]} initialIndex={0} />
+);
 
 const TMCTimeline = ({ data, locale }) => (
 	<Timeline
@@ -212,22 +241,7 @@ const TMCTimeline = ({ data, locale }) => (
 		groupIdName="context.task.id"
 		groupLabelName="context.task.name"
 		dataItemProps={getItemProps}
-		dataItemTooltip={item => (
-			<dl>
-				<dt>Flow name:</dt>
-				<dd>{item.context.task.name}</dd>
-				<dt>Start time:</dt>
-				<dd>{format(new Date(item.time.start), 'DD MMM YYYY HH:mm:ss', locale)}</dd>
-				<dt>End time:</dt>
-				<dd>
-					{item.time.start ? format(new Date(item.time.end), 'DD MMM YYYY HH:mm:ss', locale) : '-'}
-				</dd>
-				<dt>Status:</dt>
-				<dd>
-					(M) {item.status.management} - (E) {item.status.execution}
-				</dd>
-			</dl>
-		)}
+		dataItemTooltip={item => getItemDetails(item, locale)}
 	>
 		<Timeline.Toolbar>
 			<Timeline.Zoom />
