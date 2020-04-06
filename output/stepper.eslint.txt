@@ -1,10 +1,3 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/stepper/src/service/Stepper.utils.js
-  1:10  error  'LOADING_STEP_STATUSES' is defined but never used  no-unused-vars
-  9:1   error  Prefer default export                              import/prefer-default-export
-
-✖ 2 problems (2 errors, 0 warnings)
-
