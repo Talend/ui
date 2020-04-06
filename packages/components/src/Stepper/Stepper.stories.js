@@ -23,11 +23,11 @@ function renderActions(isInError) {
 stories
 	.addDecorator(fn => (
 		<>
-			<IconsProvider/>
+			<IconsProvider />
 			{fn()}
 		</>
 	))
-	.add("Stepper default", () => {
+	.add('Stepper default', () => {
 		const steps = [
 			{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS },
 			{
