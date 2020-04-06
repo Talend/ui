@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Action from '../Actions/Action';
+import IconsProvider from '../IconsProvider';
 import Stepper, { LOADING_STEP_STATUSES } from './Stepper.component';
 const stories = storiesOf('Messaging & Communication/Stepper', module);
 const title = 'Sample processing...';
@@ -20,7 +21,13 @@ function renderActions(isInError) {
 }
 
 stories
-	.add('Stepper default', () => {
+	.addDecorator(fn => (
+		<>
+			<IconsProvider/>
+			{fn()}
+		</>
+	))
+	.add("Stepper default", () => {
 		const steps = [
 			{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS },
 			{
