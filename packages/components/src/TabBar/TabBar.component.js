@@ -125,6 +125,7 @@ function TabBar(props) {
 		return (
 			<React.Fragment>
 				<ActionDropdown
+					activeKey={selectedKey}
 					id={id}
 					className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
 					label={selectedItem.label}

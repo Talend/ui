@@ -59,11 +59,12 @@ InjectDropdownMenuItem.propTypes = {
 };
 InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
-function renderMutableMenuItem(item, index, getComponent) {
+function renderMutableMenuItem(item, index, getComponent, activeKey) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (item.divider) {
 		return <Renderers.MenuItem key={index} divider />;
 	}
+	const activeListElement = index === activeKey;
 	return (
 		<Renderers.MenuItem
 			{...item}
@@ -71,7 +72,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 			eventKey={item}
 			onClick={wrapOnClick(item)}
 			title={item.title || item.label}
-			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item')}
+			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item', {activeListElement})}
 		>
 			{item.icon && <Icon key="icon" name={item.icon} />}
 			{!item.hideLabel && item.label}
@@ -79,12 +80,12 @@ function renderMutableMenuItem(item, index, getComponent) {
 	);
 }
 
-function getMenuItem(item, index, getComponent) {
+function getMenuItem(item, index, getComponent, activeKey) {
 	if (Iterable.isIterable(item)) {
-		return renderMutableMenuItem(item.toJS(), index, getComponent);
+		return renderMutableMenuItem(item.toJS(), index, getComponent, activeKey);
 	}
 
-	return renderMutableMenuItem(item, index, getComponent);
+	return renderMutableMenuItem(item, index, getComponent, activeKey);
 }
 
 function getDropdownContainer(dropdownElement) {
@@ -189,9 +190,9 @@ class ActionDropdown extends React.Component {
 			loading,
 			children,
 			t,
+			activeKey,
 			...rest
 		} = this.props;
-
 		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 		const title = [
@@ -227,7 +228,7 @@ class ActionDropdown extends React.Component {
 				aria-label={tooltipLabel || label}
 				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
-				ref={ref => (this.ref = ref)}
+				ref={(ref) => (this.ref = ref)}
 				noCaret
 			>
 				{!children && !items.length && !items.size && !loading && !components && (
@@ -236,7 +237,7 @@ class ActionDropdown extends React.Component {
 					</Renderers.MenuItem>
 				)}
 				{injected('beforeItemsDropdown')}
-				{items.map((item, key) => getMenuItem(item, key, getComponent))}
+				{items.map((item, key) => getMenuItem(item, key, getComponent, activeKey))}
 				{loading && (
 					<Renderers.MenuItem
 						key={items ? items.length + 1 : 0}
