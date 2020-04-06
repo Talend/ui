@@ -35,6 +35,9 @@ class GuidedTourContainer extends React.Component {
 
 	closeTour = () => {
 		this.showControls();
+		if (this.props.onClose) {
+			this.props.onClose();
+		}
 
 		this.props.setState({ show: false });
 	};
