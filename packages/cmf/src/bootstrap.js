@@ -110,16 +110,16 @@ function DefaultRootComponent() {
 }
 
 /**
- * Bootstrap your cmf app
- * It takes your configuration and provides a very good default one.
- * By default it starts react with the following addons:
- * - redux
- * - redux-saga
+ * This function bootstrap the cmf module and return
+ *  properties to init the application
  * @param {object} options the set of supported options
- * @returns {object} app object with render function
+ * @returns {array} that contains:
+ * - The root component to display your app
+ * - The dom element to attach for react
+ * - The initialized redux store
+ * - Options retrieved from cmf
  */
-export default function bootstrap(appOptions = {}) {
-	// setup asap
+export function bootstrapCmf(appOptions) {
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'root', 'object');
 	assertTypeOf(options, 'appId', 'string');
@@ -135,6 +135,23 @@ export default function bootstrap(appOptions = {}) {
 	saga.run();
 	const RootComponent = options.RootComponent || DefaultRootComponent;
 	const element = options.root || document.getElementById(appId);
+
+	return [RootComponent, element, store, options];
+}
+
+/**
+ * Bootstrap your cmf app
+ * It takes your configuration and provides a very good default one.
+ * By default it starts react with the following addons:
+ * - redux
+ * - redux-saga
+ * @param {object} options the set of supported options
+ * @returns {object} app object with render function
+ */
+export default function bootstrap(appOptions = {}) {
+	// setup asap
+	const [RootComponent, element, store, options] = bootstrapCmf(appOptions);
+
 	render(
 		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
 			<RootComponent />
