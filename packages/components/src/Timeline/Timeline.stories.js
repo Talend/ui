@@ -4,6 +4,7 @@ import format from 'date-fns/format';
 import { action } from '@storybook/addon-actions';
 
 import IconsProvider from '../IconsProvider';
+import Icon from '../Icon';
 import Timeline from './Timeline.component';
 import getLocale from '../DateFnsLocale/locale';
 import { getCurrentLanguage } from '../translate';
@@ -67,7 +68,6 @@ const getItemDetails = (item, locale) => (
 
 export function Default() {
 	const data = jsoExecutionsByDay[0][0][0].executions;
-	console.log(data);
 	return (
 		<>
 			<IconsProvider />
@@ -201,18 +201,26 @@ function ScaleTimeline({ dataArray, initialIndex }) {
 				groupIdName="context.task.id"
 				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
-				dataItemPopover={item => getItemDetails(item, locale)}
+				dataItemTooltip={item => getItemDetails(item, locale)}
+				timeRange={timeRange}
 			>
 				<Timeline.Toolbar>
-					<button onClick={() => setIndex(index - 1)} disabled={index <= 0}>
-						Previous
+					<button
+						onClick={() => setIndex(index - 1)}
+						disabled={index <= 0}
+						arial-label="Previous time range"
+						className="btn btn-link btn-icon-only"
+					>
+						<Icon name="talend-chevron-left" />
 					</button>
 					<button
 						style={{ marginLeft: 'auto' }}
 						onClick={() => setIndex(index + 1)}
 						disabled={index >= dataArray.length - 1}
+						arial-label="Next time range"
+						className="btn btn-link btn-icon-only"
 					>
-						Next
+						<Icon name="talend-chevron-left" transform="rotate-180" />
 					</button>
 				</Timeline.Toolbar>
 				<Timeline.Body>

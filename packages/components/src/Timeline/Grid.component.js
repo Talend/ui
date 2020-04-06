@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import get from 'lodash/get';
 import format from 'date-fns/format';
-import isSameDay from 'date-fns/is_same_day';
 import { useTranslation } from 'react-i18next';
 
 import getLocale from '../DateFnsLocale/locale';
@@ -119,7 +118,8 @@ export default function Grid() {
 											let end = get(item, endName) || endTimestamp;
 											// if the task finished after the last displayed time,
 											// we create a block that stops at the last displayed time
-											if (end > endTimestamp) {
+											const endsOverFlow = end > endTimestamp;
+											if (endsOverFlow) {
 												end = endTimestamp;
 											}
 											const itemProps = dataItemProps(item);
@@ -141,6 +141,7 @@ export default function Grid() {
 													start={start}
 													dataItemPopover={dataItemPopover}
 													dataItemTooltip={dataItemTooltip}
+													endsOverFlow={endsOverFlow}
 												/>
 											);
 										})}

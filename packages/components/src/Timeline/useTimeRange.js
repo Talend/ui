@@ -3,8 +3,15 @@ import get from 'lodash/get';
 
 const DATE_FILTER_ID = 'date-range';
 
-export default function useTimeRange(groups, { addFilters, removeFilters, startName, endName }) {
+export default function useTimeRange(
+	{ timeRangeFromProps, groups },
+	{ addFilters, removeFilters, startName, endName },
+) {
 	const getGroupTimeRange = () => {
+		if (timeRangeFromProps) {
+			return timeRangeFromProps;
+		}
+
 		let globalStart;
 		let globalEnd;
 		groups.forEach(group => {
@@ -51,7 +58,7 @@ export default function useTimeRange(groups, { addFilters, removeFilters, startN
 
 	useEffect(() => {
 		setTimeRange(getGroupTimeRange());
-	}, [groups]);
+	}, [timeRangeFromProps, groups]);
 
 	return [timeRange, setTimeRange];
 }

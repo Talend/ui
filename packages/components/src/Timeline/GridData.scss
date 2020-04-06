@@ -8,6 +8,10 @@
 	padding: 0;
 	position: absolute;
 	z-index: 1;
+
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
 @media (prefers-reduced-motion: reduce) {
 	.timelineItem {
@@ -22,7 +26,7 @@
 .timelineRetries {
 	display: inline-flex;
 	position: absolute;
-	top: -.4rem;
+	top: -0.4rem;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -30,16 +34,21 @@
 }
 
 .timelineRetry {
-	line-height: 0
+	line-height: 0;
 }
 .timelineRetryAction {
-	width: .5rem;
-  height: .5rem;
+	width: 0.5rem;
+	height: 0.5rem;
 	padding: 0;
-  border: none;
-  border-radius: 50%;
+	border: none;
+	border-radius: 50%;
 	z-index: 10;
 	background: #222;
+}
+
+.timelineOverflow {
+	margin-right: 0.2rem;
+	width: $svg-xs-size;
 }
 
 .popper {

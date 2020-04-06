@@ -3,9 +3,9 @@ import { Manager, Reference, Popper } from 'react-popper';
 import FocusTrap from 'focus-trap-react';
 
 import TooltipTrigger from '../TooltipTrigger';
+import Icon from '../Icon';
 
 import theme from './GridData.scss';
-import Icon from '../Icon';
 
 const POPOVER_DELTA = 10;
 
@@ -83,7 +83,7 @@ function Retries({ retries, measures, start }) {
 				style={{ left: measures.data.getLeftUnit(retries[0].time - start) }}
 			>
 				{retries.map((retry, index, current) => (
-					<li className={`${theme.timelineRetry}`}>
+					<li key={index} className={`${theme.timelineRetry}`}>
 						<button
 							className={`${theme.timelineRetryAction}`}
 							style={{
@@ -104,18 +104,27 @@ function Retries({ retries, measures, start }) {
 	}
 	return '';
 }
-const GridDataBloc = React.forwardRef(({ content, item, start, measures, ...restProps }, ref) => {
-	return (
-		<>
-			{/* <RunType runtype={item.context.runType} />*/}
-			<Retries retries={item.retries} start={start} measures={measures} />
-			{/* <Icon name={item.status.management === 'deploy_failure' ? 'talend-warning' : 'talend-check'} />*/}
-			<button {...restProps} ref={ref} className={`${theme.timelineItem}`} type={'button'}>
-				<span className={'sr-only'}>{content}</span>
-			</button>
-		</>
-	);
-});
+const GridDataBloc = React.forwardRef(
+	({ content, item, start, measures, endsOverFlow, ...restProps }, ref) => {
+		return (
+			<>
+				{/* <RunType runtype={item.context.runType} />*/}
+				<Retries retries={item.retries} start={start} measures={measures} />
+				{/* <Icon name={item.status.management === 'deploy_failure' ? 'talend-warning' : 'talend-check'} />*/}
+				<button {...restProps} ref={ref} className={theme.timelineItem} type="button">
+					<span className={'sr-only'}>{content}</span>
+					{endsOverFlow && (
+						<Icon
+							className={theme.timelineOverflow}
+							name="talend-chevron-left"
+							transform="rotate-180"
+						/>
+					)}
+				</button>
+			</>
+		);
+	},
+);
 
 export default function GridData({
 	id,

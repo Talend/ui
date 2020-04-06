@@ -37,16 +37,20 @@ export default function Timeline({
 	dataItemPopover,
 	dataItemTooltip,
 	onClick,
+	timeRange: timeRangeFromProps,
 }) {
 	const [zoom, setZoom] = useState(1);
 	const groups = useGroups(data, { groupIdName, groupLabelName, startName, endName });
 	const { filters, addFilters, removeFilters } = useFilters();
-	const [timeRange, setTimeRange] = useTimeRange(groups, {
-		addFilters,
-		removeFilters,
-		startName,
-		endName,
-	});
+	const [timeRange, setTimeRange] = useTimeRange(
+		{ timeRangeFromProps, groups },
+		{
+			addFilters,
+			removeFilters,
+			startName,
+			endName,
+		},
+	);
 	const filteredData = useMemo(
 		() =>
 			groups.map(group => ({
@@ -95,6 +99,7 @@ Timeline.propTypes = {
 	groupLabelName: PropTypes.string,
 	dataItemProps: PropTypes.func,
 	dataItemTooltip: PropTypes.func,
+	timeRange: PropTypes.arrayOf(PropTypes.number),
 };
 Timeline.Toolbar = Toolbar;
 Timeline.Body = Body;
