@@ -291,7 +291,7 @@ const TMCTimeline = ({ data, locale }) => {
 export function Chart() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
-	const data = jsoExecutionsByDay[0][0][0].executions;
+	const data = jsoExecutionsByDay[0][0][0];
 	return (
 		<>
 			<IconsProvider />
