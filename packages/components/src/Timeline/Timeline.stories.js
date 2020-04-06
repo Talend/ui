@@ -66,7 +66,8 @@ const getItemDetails = (item, locale) => (
 );
 
 export function Default() {
-	const data = jsoExecutionsByDay[0][0][0];
+	const data = jsoExecutionsByDay[0][0][0].executions;
+	console.log(data);
 	return (
 		<>
 			<IconsProvider />
@@ -88,7 +89,7 @@ export function Default() {
 }
 
 export function Zoom() {
-	const data = jsoExecutionsByDay[0][0][0];
+	const data = jsoExecutionsByDay[0][0][0].executions;
 	return (
 		<>
 			<IconsProvider />
@@ -112,7 +113,7 @@ export function Zoom() {
 }
 
 export function DateFilter() {
-	const data = jsoExecutionsByDay[0][0][0];
+	const data = jsoExecutionsByDay[0][0][0].executions;
 	return (
 		<>
 			<IconsProvider />
@@ -138,7 +139,7 @@ export function DateFilter() {
 export function Tooltip() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
-	const data = jsoExecutionsByDay[0][0][0];
+	const data = jsoExecutionsByDay[0][0][0].executions;
 	return (
 		<>
 			<IconsProvider />
@@ -162,7 +163,7 @@ export function Tooltip() {
 export function Popover() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
-	const data = jsoExecutionsByDay[0][0][0];
+	const data = jsoExecutionsByDay[0][0][0].executions;
 	return (
 		<>
 			<IconsProvider />
@@ -187,14 +188,14 @@ function ScaleTimeline({ dataArray, initialIndex }) {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 	const [index, setIndex] = useState(initialIndex);
-	const data = dataArray[index];
+	const { timeRange, engine = 'Missing engine name', executions } = dataArray[index];
 	return (
 		<>
 			<IconsProvider />
 			<Timeline
-				data={data}
+				data={executions}
 				idName="context.executionId"
-				caption={dataArray[0][0].context.engine.name || 'Engine'}
+				caption={engine}
 				startName="time.start"
 				endName="time.end"
 				groupIdName="context.task.id"
@@ -231,52 +232,58 @@ export const ScaleHour = () => (
 	<ScaleTimeline dataArray={jsoExecutionsByHour[0][0][0]} initialIndex={0} />
 );
 
-const TMCTimeline = ({ data, locale }) => (
-	<Timeline
-		data={data}
-		idName="context.executionId"
-		caption={data[0].context.engine.name}
-		startName="time.start"
-		endName="time.end"
-		groupIdName="context.task.id"
-		groupLabelName="context.task.name"
-		dataItemProps={getItemProps}
-		dataItemTooltip={item => getItemDetails(item, locale)}
-	>
-		<Timeline.Toolbar>
-			<Timeline.Zoom />
-		</Timeline.Toolbar>
-		<Timeline.Body>
-			<Timeline.Grid />
-			<Timeline.Chart
-				caption="CPU usage"
-				getItemValues={item =>
-					item.fingerprint.logs?.map(({ timestamp, cpu }) => ({ key: timestamp, value: cpu }))
-				}
-				labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
-				valueFormatter={(value, _, props) =>
-					`${value}%. Max usage: ${props.payload.max.label} (${props.payload.max.value}%)`
-				}
-				color="#272288"
-			/>
-			<Timeline.Chart
-				caption="Memory usage"
-				getItemValues={item =>
-					item.fingerprint.logs?.map(({ timestamp, memory }) => ({ key: timestamp, value: memory }))
-				}
-				labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
-				valueFormatter={(value, _, props) =>
-					`${value}Mo. Max usage: ${props.payload.max.label} (${props.payload.max.value}Mo)`
-				}
-				color="#5d882f"
-			/>
-		</Timeline.Body>
-	</Timeline>
-);
+const TMCTimeline = ({ data, locale }) => {
+	const { executions, engine, timeRange } = data;
+	return (
+		<Timeline
+			data={executions}
+			idName="context.executionId"
+			caption={engine}
+			startName="time.start"
+			endName="time.end"
+			groupIdName="context.task.id"
+			groupLabelName="context.task.name"
+			dataItemProps={getItemProps}
+			dataItemTooltip={item => getItemDetails(item, locale)}
+		>
+			<Timeline.Toolbar>
+				<Timeline.Zoom />
+			</Timeline.Toolbar>
+			<Timeline.Body>
+				<Timeline.Grid />
+				<Timeline.Chart
+					caption="CPU usage"
+					getItemValues={item =>
+						item.fingerprint.logs?.map(({ timestamp, cpu }) => ({ key: timestamp, value: cpu }))
+					}
+					labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
+					valueFormatter={(value, _, props) =>
+						`${value}%. Max usage: ${props.payload.max.label} (${props.payload.max.value}%)`
+					}
+					color="#272288"
+				/>
+				<Timeline.Chart
+					caption="Memory usage"
+					getItemValues={item =>
+						item.fingerprint.logs?.map(({ timestamp, memory }) => ({
+							key: timestamp,
+							value: memory,
+						}))
+					}
+					labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
+					valueFormatter={(value, _, props) =>
+						`${value}Mo. Max usage: ${props.payload.max.label} (${props.payload.max.value}Mo)`
+					}
+					color="#5d882f"
+				/>
+			</Timeline.Body>
+		</Timeline>
+	);
+};
 export function Chart() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
-	const data = jsoExecutionsByDay[0][0][0];
+	const data = jsoExecutionsByDay[0][0][0].executions;
 	return (
 		<>
 			<IconsProvider />
