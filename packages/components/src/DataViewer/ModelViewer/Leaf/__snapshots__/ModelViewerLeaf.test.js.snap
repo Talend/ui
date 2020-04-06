@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ModelViewerLeaf should render ModelViewerLeaf 1`] = `
+<span
+  className="theme-tc-model-leaf tc-model-leaf"
+>
+  <button
+    aria-label="Select myDataKey ($)"
+    className="theme-tc-model-leaf-button tc-model-leaf-button"
+    onClick={[Function]}
+    title="toto"
+  />
+  <SimpleTextKeyValue
+    formattedKey="toto"
+    separator=" "
+    value=""
+  />
+  <span
+    className="theme-tc-model-leaf-options tc-model-leaf-options"
+  />
+</span>
+`;
+
 exports[`ModelViewerLeaf should render ModelViewerLeaf highlighted 1`] = `
 <span
   className="theme-tc-model-leaf tc-model-leaf"
@@ -16,100 +37,17 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf highlighted 1`] = `
   />
   <span
     className="theme-tc-model-leaf-options tc-model-leaf-options"
-  >
-    <SemanticChooserButton
-      categories={
-        Array [
-          Object {
-            "id": "typeCat",
-            "name": "typeCat",
-          },
-        ]
-      }
-      classAction="theme-tc-model-leaf-options-burger tc-model-leaf-options-burger"
-      disabled={false}
-      dqType="typeSem"
-      matchings={
-        Array [
-          Object {
-            "id": "typeSem",
-            "name": "typeSem",
-            "value": 10,
-          },
-        ]
-      }
-      placement="right"
-      primitives={
-        Array [
-          Object {
-            "id": "typePrim",
-            "name": "typePrim",
-          },
-        ]
-      }
-    />
-    <ModelQualities
-      qualities={
-        Object {
-          "-1": 10,
-          "0": 10,
-          "1": 100,
-          "total": 120,
-        }
-      }
-    />
-  </span>
+  />
 </span>
 `;
 
-exports[`ModelViewerLeaf should render ModelViewerLeaf with qualities in loading state 1`] = `
+exports[`ModelViewerLeaf should render ModelViewerLeaf with additional data 1`] = `
 <span
   className="theme-tc-model-leaf tc-model-leaf"
 >
   <button
     aria-label="Select myDataKey ($)"
-    className="theme-tc-model-leaf-button tc-model-leaf-button"
-    onClick={[Function]}
-    title="toto"
-  />
-  <SimpleTextKeyValue
-    formattedKey="toto"
-    separator=" "
-    value=""
-  />
-  <span
-    className="theme-tc-model-leaf-options tc-model-leaf-options"
-  >
-    <SemanticChooserButton
-      classAction="theme-tc-model-leaf-options-burger tc-model-leaf-options-burger"
-      disabled={true}
-      dqType="typeSem"
-      id="toto"
-      path="myPath"
-      placement="right"
-    />
-    <ModelQualities
-      loading={true}
-      qualities={
-        Object {
-          "-1": 10,
-          "0": 10,
-          "1": 100,
-          "total": 120,
-        }
-      }
-    />
-  </span>
-</span>
-`;
-
-exports[`ModelViewerLeaf should render ModelViewerLeaf with semantic awareness 1`] = `
-<span
-  className="theme-tc-model-leaf tc-model-leaf"
->
-  <button
-    aria-label="Select myDataKey ($)"
-    className="theme-tc-model-leaf-button tc-model-leaf-button"
+    className="theme-tc-model-leaf-button-highlighted tc-model-leaf-button-highlighted theme-tc-model-leaf-button tc-model-leaf-button"
     onClick={[Function]}
     title=" (typeSem)*"
   />
@@ -120,164 +58,12 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf with semantic awareness 1
   <span
     className="theme-tc-model-leaf-options tc-model-leaf-options"
   >
-    <SemanticChooserButton
-      categories={
-        Array [
-          Object {
-            "id": "typeCat",
-            "name": "typeCat",
-          },
-        ]
+    <div>
+      Render some data, can use value 
+      Object {
+        "dqType": "typeSem",
       }
-      classAction="theme-tc-model-leaf-options-burger tc-model-leaf-options-burger"
-      disabled={false}
-      dqType="typeSem"
-      matchings={
-        Array [
-          Object {
-            "id": "typeSem",
-            "name": "typeSem",
-            "value": 10,
-          },
-        ]
-      }
-      placement="right"
-      primitives={
-        Array [
-          Object {
-            "id": "typePrim",
-            "name": "typePrim",
-          },
-        ]
-      }
-    />
-    <ModelQualities
-      qualities={
-        Object {
-          "-1": 10,
-          "0": 10,
-          "1": 100,
-          "total": 120,
-        }
-      }
-    />
-  </span>
-</span>
-`;
-
-exports[`ModelViewerLeaf should render ModelViewerLeaf with the semantic chooser 1`] = `
-<span
-  className="theme-tc-model-leaf tc-model-leaf"
->
-  <button
-    aria-label="Select myDataKey ($)"
-    className="theme-tc-model-leaf-button tc-model-leaf-button"
-    onClick={[Function]}
-    title="toto"
-  />
-  <SimpleTextKeyValue
-    formattedKey="toto"
-    separator=" "
-    value=""
-  />
-  <span
-    className="theme-tc-model-leaf-options tc-model-leaf-options"
-  >
-    <SemanticChooserButton
-      categories={
-        Array [
-          Object {
-            "id": "typeCat",
-            "name": "typeCat",
-          },
-        ]
-      }
-      classAction="theme-tc-model-leaf-options-burger tc-model-leaf-options-burger"
-      disabled={false}
-      dqType="typeSem"
-      id="toto"
-      placement="right"
-      primitives={
-        Array [
-          Object {
-            "id": "typePrim",
-            "name": "typePrim",
-          },
-        ]
-      }
-    />
-    <ModelQualities
-      qualities={
-        Object {
-          "-1": 10,
-          "0": 10,
-          "1": 100,
-          "total": 120,
-        }
-      }
-    />
-  </span>
-</span>
-`;
-
-exports[`ModelViewerLeaf should render ModelViewerLeaf with union 1`] = `
-<span
-  className="theme-tc-model-leaf tc-model-leaf"
->
-  <button
-    aria-label="Select myDataKey ($)"
-    className="theme-tc-model-leaf-button tc-model-leaf-button"
-    onClick={[Function]}
-    title=" (typeSem)*"
-  />
-  <SimpleTextKeyValue
-    separator=" "
-    value="(typeSem)*"
-  />
-  <span
-    className="theme-tc-model-leaf-options tc-model-leaf-options"
-  >
-    <SemanticChooserButton
-      categories={
-        Array [
-          Object {
-            "id": "typeCat",
-            "name": "typeCat",
-          },
-        ]
-      }
-      classAction="theme-tc-model-leaf-options-burger tc-model-leaf-options-burger"
-      disabled={false}
-      dqType="typeSem"
-      matchings={
-        Array [
-          Object {
-            "id": "typeSem",
-            "name": "typeSem",
-            "value": 10,
-          },
-        ]
-      }
-      placement="right"
-      primitives={
-        Array [
-          Object {
-            "id": "typePrim",
-            "name": "typePrim",
-          },
-        ]
-      }
-    />
-    <ModelQualities
-      qualities={
-        Object {
-          "-1": 10,
-          "0": 10,
-          "1": 100,
-          "total": 120,
-        }
-      }
-    />
+    </div>
   </span>
 </span>
 `;

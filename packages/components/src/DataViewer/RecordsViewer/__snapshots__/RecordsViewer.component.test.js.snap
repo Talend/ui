@@ -6,7 +6,6 @@ exports[`RecordsViewer should render a tree (not virtualized)  1`] = `
 >
   <withI18nextTranslation(TreeHeader)
     onClickCollapseAll={[MockFunction]}
-    t={[Function]}
     title="Records"
   />
   <Tree
@@ -23,7 +22,6 @@ exports[`RecordsViewer should render a tree virtualized with a header 1`] = `
 >
   <withI18nextTranslation(TreeHeader)
     onClickCollapseAll={[MockFunction]}
-    t={[Function]}
     title="Records"
   />
   <VirtualizedTree

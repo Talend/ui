@@ -2,6 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Component, { getDefaultIcon } from './TreeBranchIcon.component';
 
+jest.mock('react-i18next', () => {
+	// eslint-disable-next-line global-require
+	const mockTranslations = require('../../../../test/i18nMock').default;
+
+	return mockTranslations();
+});
+
 describe('getDefaultIcon', () => {
 	it('should return a custom object icon', () => {
 		const myIcon = getDefaultIcon({

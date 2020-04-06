@@ -22,24 +22,6 @@ describe('ModelViewerBranch', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('render ModelViewerBranch without semantic awareness (null)', () => {
-		// given
-		const props = {
-			dataKey: 'myDataKey',
-			getDisplayValue: jest.fn(() => 'myValueValue'),
-			hasSemanticAwareness: false,
-			index: 0,
-			isUnion: jest.fn(),
-			jsonpath: '$',
-			onToggle: jest.fn(),
-			opened: false,
-			value: {},
-		};
-		// when
-		const wrapper = shallow(<Component {...props} />);
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
 	it('render ModelViewerBranch as a union', () => {
 		// given
 		const props = {

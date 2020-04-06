@@ -145,6 +145,7 @@ export class ModelViewer extends React.Component {
 		sample: PropTypes.shape({ schema: PropTypes.any, data: PropTypes.any }),
 		t: PropTypes.func,
 		renderLeafOptions: PropTypes.func,
+		isUnion: PropTypes.func,
 	};
 
 	static defaultProps = {
@@ -178,6 +179,7 @@ export class ModelViewer extends React.Component {
 			getDisplayKey={this.props.getDisplayKey}
 			getDisplayValue={this.props.getDisplayValue}
 			hasSemanticAwareness={this.props.hasSemanticAwareness}
+			isUnion={this.props.isUnion}
 			t={this.props.t}
 		/>
 	);

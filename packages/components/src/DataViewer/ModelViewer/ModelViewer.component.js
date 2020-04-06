@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { TreeHeader } from '../Headers';
 import { Tree } from '../Core';
+import getDefaultT from '../../translate';
 import theme from './ModelViewer.scss';
 
 export function ModelViewer({ t, ...props }) {
@@ -16,6 +17,10 @@ export function ModelViewer({ t, ...props }) {
 
 ModelViewer.propTypes = {
 	t: PropTypes.func,
+};
+
+ModelViewer.defaultProps = {
+	t: getDefaultT(),
 };
 
 export default ModelViewer;

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormatValue should replace the leading/trainling white space and the line feeding 1`] = `
+<span>
+  <UNDEFINED
+    aria-label="white space character"
+    className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
+    name="talend-empty-char"
+  />
+  <UNDEFINED
+    aria-label="space character"
+    className="theme-td-white-space-character td-white-space-character"
+    name="talend-empty-space"
+  />
+  <UNDEFINED
+    aria-label="space character"
+    className="theme-td-white-space-character td-white-space-character"
+    name="talend-empty-space"
+  />
+  <span>
+    loreum lo
+  </span>
+  <span>
+    <UNDEFINED
+      aria-label="line feeding character"
+      className="theme-td-white-space-character td-white-space-character"
+      name="talend-carriage-return"
+    />
+    
+
+  </span>
+  <UNDEFINED
+    aria-label="white space character"
+    className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
+    name="talend-empty-char"
+  />
+  <UNDEFINED
+    aria-label="tab character"
+    className="theme-td-white-space-character theme-td-tab-character td-white-space-character"
+    name="talend-empty-cell"
+  />
+  <UNDEFINED
+    aria-label="space character"
+    className="theme-td-white-space-character td-white-space-character"
+    name="talend-empty-space"
+  />
+  <UNDEFINED
+    aria-label="tab character"
+    className="theme-td-white-space-character theme-td-tab-character td-white-space-character"
+    name="talend-empty-cell"
+  />
+  <UNDEFINED
+    aria-label="space character"
+    className="theme-td-white-space-character td-white-space-character"
+    name="talend-empty-space"
+  />
+</span>
+`;

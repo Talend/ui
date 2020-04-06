@@ -36,9 +36,11 @@ describe('TreeManager#onToggle', () => {
 			firstClickUnion: true,
 		};
 		// when
+		const setStateSpy = jest.spyOn(TreeManager.prototype, 'setState');
 		const wrapper = shallow(<TreeManager {...props} />);
 		wrapper.instance().onToggle(event, options, 0);
 		// then nothing
+		expect(setStateSpy).not.toHaveBeenCalled();
 	});
 	it('default', () => {
 		// when
@@ -46,9 +48,11 @@ describe('TreeManager#onToggle', () => {
 			firstClickUnion: false,
 		};
 		// given
+		const setStateSpy = jest.spyOn(TreeManager.prototype, 'setState');
 		const wrapper = shallow(<TreeManager {...props} />);
 		wrapper.instance().onToggle(event, options, 0);
 		// then
-		expect(props.setState).toHaveBeenCalled();
+		expect(setStateSpy).toHaveBeenCalled();
+		// expect(wrapper.state('expandedNodes'));
 	});
 });

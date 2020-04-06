@@ -194,11 +194,3 @@ export function getItemType(item) {
 	}
 	return typeof value;
 }
-
-/**
- * Return the quality from the item.
- * @param {object} item
- */
-export function getQuality(item) {
-	return get(item, 'data.quality', item.quality);
-}

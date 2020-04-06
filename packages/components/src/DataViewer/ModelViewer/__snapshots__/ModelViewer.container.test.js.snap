@@ -1,8 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`I18n should render 1`] = `
-<Connect(CMF(Container(TreeManager)))
-  componentId="ModelViewer"
-  wrappedComponent={[Function]}
+<ModelViewerContainer
+  getChilds={[Function]}
+  getDisplayKey={[Function]}
+  getDisplayValue={[Function]}
+  getItemType={[Function]}
+  getJSONPath={[Function]}
+  hasSemanticAwareness={true}
+  i18n={
+    Object {
+      "changeLanguage": [Function],
+      "getFixedT": [Function],
+      "hasResourceBundle": [Function],
+      "init": [Function],
+      "isInitialized": true,
+      "isMock": true,
+      "language": "en",
+      "languages": Array [
+        "en",
+      ],
+      "loadNamespaces": [Function],
+      "off": [Function],
+      "on": [Function],
+      "options": Object {},
+      "reportNamespaces": ReportNamespaces {
+        "usedNamespaces": Object {
+          "tui-components": true,
+        },
+      },
+      "services": Object {
+        "backendConnector": Object {},
+        "resourceStore": Object {
+          "data": Object {},
+        },
+      },
+      "store": Object {
+        "data": Object {},
+        "off": [Function],
+        "on": [Function],
+      },
+      "t": [Function],
+    }
+  }
+  t={[Function]}
+  tReady={true}
+  withTreeBorder={false}
 />
 `;

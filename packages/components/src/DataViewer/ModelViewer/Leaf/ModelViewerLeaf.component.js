@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import getDefaultT from '../../../translate';
 import { SimpleTextKeyValue } from '../../Text';
 import theme from '../ModelViewer.scss';
 
@@ -94,6 +95,10 @@ ModelViewerLeaf.propTypes = {
 	t: PropTypes.func.isRequired,
 	value: PropTypes.object,
 	renderLeafOptions: PropTypes.func,
+};
+
+ModelViewerLeaf.defaultProps = {
+	t: getDefaultT(),
 };
 
 export default ModelViewerLeaf;

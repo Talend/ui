@@ -7,6 +7,7 @@ import { Tree } from '../Core';
 import { VirtualizedTree } from '../Virtualized';
 import { TreeHeader } from '../Headers';
 import RecordsCellRenderer from './CellRenderer';
+import getDefaultT from '../../translate';
 
 export class RecordsViewer extends React.Component {
 	static propTypes = {
@@ -19,6 +20,7 @@ export class RecordsViewer extends React.Component {
 
 	static defaultProps = {
 		virtualized: true,
+		t: getDefaultT(),
 	};
 
 	renderCellRenderer = args => <RecordsCellRenderer {...this.props} {...args} />;

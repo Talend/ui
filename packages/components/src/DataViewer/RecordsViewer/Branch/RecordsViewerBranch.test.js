@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import keycode from 'keycode';
 import Component, { isLoaded } from './RecordsViewerBranch.component';
-import i18next from '../../../../i18n';
 
 describe('isLoading', () => {
 	it('should return false on the initial state', () => {
@@ -22,7 +21,6 @@ describe('isLoading', () => {
 	});
 });
 
-const t = i18next.t.bind(i18next);
 const schema = {
 	name: 'id',
 	doc: 'Id',
@@ -58,7 +56,6 @@ describe('RecordsViewerBranch', () => {
 			opened: true,
 			recursive: jest.fn(),
 			sample: { schema },
-			t,
 			value: { schema },
 		};
 		const wrapper = shallow(<Component {...props} />);
@@ -98,13 +95,12 @@ describe('RecordsViewerBranch', () => {
 			jsonpath: '$',
 			level: 1,
 			onToggle: jest.fn(),
-			t,
 			value: { schema },
 		};
 		const wrapper = shallow(<Component {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should render the branch with quality dot', () => {
+	it('should render the branch with additional value', () => {
 		const props = {
 			dataKey,
 			getChildsCount: jest.fn(),
@@ -116,8 +112,10 @@ describe('RecordsViewerBranch', () => {
 			level: 0,
 			onToggle: jest.fn(),
 			opened: false,
-			t,
 			value: { schema },
+			renderBranchAdditionalValue: value => (
+				<div>Additional render for what you want, you can use the value : {value}</div>
+			),
 		};
 		const wrapper = shallow(<Component {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();

@@ -1,22 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { withTranslation } from 'react-i18next';
-import Component from './RecordsViewer.component';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import getDefaultT from '../../translate';
+import { TreeManager } from '../Managers';
 import Branch from './Branch';
 import Leaf from './Leaf';
-import { TreeManager } from '../Managers';
-import theme from './RecordsViewer.scss';
+import Component from './RecordsViewer.component';
 import {
 	getChilds,
 	getChildsCount,
 	getItemType,
 	getJSONPath,
 	getObjectBranchDatakey,
-	getQuality,
 } from './RecordsViewer.parser';
-import I18N_DOMAIN_COMPONENTS from '../../constants';
-import getDefaultT from '../../translate';
+import theme from './RecordsViewer.scss';
 
 /**
  * Used in the branch to get the icon.

@@ -38,13 +38,12 @@ export default class TreeManager extends React.Component {
 	static displayName = 'Container(TreeManager)';
 
 	static propTypes = {
-		setState: PropTypes.func,
-		state: PropTypes.shape({
-			get: PropTypes.func,
-		}),
 		highlighted: PropTypes.array,
 		onToggle: PropTypes.func,
 		wrappedComponent: PropTypes.func,
+		isAllExpanded: PropTypes.bool,
+		collapsedNodes: PropTypes.object,
+		expandedNodes: PropTypes.object,
 	};
 
 	constructor(props) {

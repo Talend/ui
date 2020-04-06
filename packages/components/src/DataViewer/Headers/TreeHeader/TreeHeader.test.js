@@ -2,6 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Component from './TreeHeader.component';
 
+jest.mock('react-i18next', () => {
+	// eslint-disable-next-line global-require
+	const mockTranslations = require('../../../../test/i18nMock').default;
+
+	return mockTranslations();
+});
+
 describe('TreeHeader', () => {
 	it('should render a simple tree header', () => {
 		const wrapper = shallow(<Component title="myTitle" />);

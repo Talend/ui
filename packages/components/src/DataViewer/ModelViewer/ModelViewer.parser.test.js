@@ -1,14 +1,12 @@
 import {
 	defaultGetDisplayKey,
 	defaultGetDisplayValue,
-	getJSONPath,
-	getItemType,
 	defaultTransformChilds,
 	filterNullUnion,
 	getChilds,
 	getDqType,
-	getQuality,
-	isUnion,
+	getItemType,
+	getJSONPath,
 } from './ModelViewer.container';
 
 describe('#defaultGetDisplayValue', () => {
@@ -148,70 +146,6 @@ describe('#filterOptionalUnion', () => {
 				{ type: 'Tata', name: union.name, path: union.path },
 			],
 		});
-	});
-});
-
-describe('#isUnion', () => {
-	it('should return true, quality key is present', () => {
-		const item = {
-			'@talend-quality@': { 0: 250, 1: 251, '-1': 0, total: 501 },
-			dqType: 'myUnionItem',
-			dqTypeKey: 'myUnionItem',
-			type: 'myUnionItem',
-		};
-		expect(isUnion(item)).toEqual(true);
-	});
-	it('should return true, type is an union', () => {
-		const item = {
-			name: 'myUnion',
-			type: [
-				{
-					type: 'string',
-					dqType: 'First Name',
-					dqTypeKey: 'FIRST_NAME',
-				},
-				{
-					type: 'null',
-					dqType: 'First Name',
-					dqTypeKey: 'FIRST_NAME',
-				},
-			],
-		};
-		expect(isUnion(item)).toEqual(true);
-	});
-});
-
-describe('#getQuality', () => {
-	it('should extract the quality from the value when quality in type', () => {
-		const item = {
-			name: 'firstName',
-			type: {
-				type: 'string',
-				dqType: 'First Name',
-				dqTypeKey: 'FIRST_NAME',
-				'@talend-quality@': {
-					'-1': 0,
-					1: 1000,
-					0: 0,
-					total: 1000,
-				},
-			},
-		};
-		expect(getQuality(item)).toEqual(item.type['@talend-quality@']);
-	});
-	it('should extract the quality from the value when quality is root', () => {
-		const item = {
-			type: 'string',
-			dqType: 'First Name',
-			dqTypeKey: 'FIRST_NAME',
-			'@talend-quality@': {
-				'-1': 0,
-				1: 1000,
-				0: 0,
-				total: 1000,
-			},
-		};
-		expect(getQuality(item)).toEqual(item['@talend-quality@']);
 	});
 });
 
