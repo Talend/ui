@@ -7,4 +7,3 @@ import { LOADING_STEP_STATUSES } from '../Stepper.constants';
  * @param {object} action redux action
  */
 export const getStepperKey = action => `${action.resourceType}-${action.resourceId}`;
-
