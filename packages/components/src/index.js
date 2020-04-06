@@ -49,6 +49,7 @@ import SidePanel from './SidePanel';
 import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
+import Stepper from './Stepper';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -248,6 +249,7 @@ export {
 	SafeAnchor,
 	Skeleton,
 	SplitButton,
+	Stepper,
 	Tab,
 	TabContainer,
 	TabContent,

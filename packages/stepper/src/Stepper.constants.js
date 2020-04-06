@@ -1,10 +1,4 @@
-export const LOADING_STEP_STATUSES = {
-	ABORTED: 'aborted',
-	PENDING: 'pending',
-	LOADING: 'loading',
-	SUCCESS: 'success',
-	FAILURE: 'failure',
-};
+export { LOADING_STEP_STATUSES } from '@talend/react-components/lib/Stepper';
 
 export const initialState = {};
 export const STATE_KEY = 'stepper';

@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Stepper } from './Stepper.component';
-import { LOADING_STEP_STATUSES } from '../Stepper.constants';
+import Stepper, { LOADING_STEP_STATUSES } from './Stepper.component';
 
 describe('Stepper Component', () => {
 	describe('render', () => {

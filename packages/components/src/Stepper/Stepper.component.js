@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '@talend/react-components/lib/Icon';
-import CircularProgress from '@talend/react-components/lib/CircularProgress';
-import { withTranslation } from 'react-i18next';
-import { getTheme } from '@talend/react-components/lib/theme';
-
-import I18N_NAMESPACE from './constant';
+import { useTranslation } from 'react-i18next';
+import Icon from '../Icon';
+import CircularProgress from '../CircularProgress';
+import { getTheme } from '../theme';
 import theme from './Stepper.component.scss';
-import { LOADING_STEP_STATUSES } from '../Stepper.constants';
 import { DEFAULT_TRANSITION_DURATION, StepperTransition } from './StepperTransition.component';
-import { isErrorInSteps, isStepsLoading, isAllSuccessful } from '../service/Stepper.utils';
-import getDefaultT from '../translate';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const getClass = getTheme(theme);
 
@@ -20,6 +16,35 @@ export const TRANSITION_STATE = {
 	TRANSITION: 'TRANSITION',
 	CHILD: 'CHILD',
 };
+
+export const LOADING_STEP_STATUSES = {
+	ABORTED: 'aborted',
+	PENDING: 'pending',
+	LOADING: 'loading',
+	SUCCESS: 'success',
+	FAILURE: 'failure',
+};
+
+/**
+ * This function tells if there is an error in the steps
+ * @param {array} steps array of steps
+ */
+export const isErrorInSteps = steps =>
+	steps.some(step => step.status === LOADING_STEP_STATUSES.FAILURE);
+
+/**
+ * This function tells if all the steps are successful
+ * @param {array} steps array of steps
+ */
+export const isAllSuccessful = steps =>
+	steps.every(step => step.status === LOADING_STEP_STATUSES.SUCCESS);
+
+/**
+ * This function tells if the loading is done, by an error, a success ot not started
+ * @param {array} steps array of steps
+ */
+export const isStepsLoading = steps =>
+	steps.length !== 0 && !isAllSuccessful(steps) && !isErrorInSteps(steps);
 
 /**
  * This function returns a label for some status
@@ -122,7 +147,8 @@ const transitionEmptyToChildren = transition(
 const transitionChildrenToEmpty = transition(TRANSITION_STATE.TRANSITION);
 const transitionEmptyToLoading = transition(TRANSITION_STATE.STEPS, DEFAULT_TRANSITION_DURATION);
 
-export function Stepper({ steps, title, renderActions, children, t }) {
+function Stepper({ steps, title, renderActions, children }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const isInError = isErrorInSteps(steps);
 	const [transitionState, setTransitionState] = useState(
 		isStepsLoading(steps) ? TRANSITION_STATE.STEPS : TRANSITION_STATE.CHILD,
@@ -173,11 +199,9 @@ Stepper.displayName = 'Stepper';
 
 Stepper.defaultProps = {
 	steps: [],
-	t: getDefaultT(),
 };
 
 Stepper.propTypes = {
-	t: PropTypes.func,
 	title: PropTypes.string,
 	renderActions: PropTypes.func,
 	children: PropTypes.element.isRequired,
@@ -193,4 +217,4 @@ Stepper.propTypes = {
 	),
 };
 
-export default withTranslation(I18N_NAMESPACE)(Stepper);
+export default Stepper;
