@@ -43,6 +43,8 @@ export default function getErrorMessage(key) {
 			return i18next.t('INVALID_RANGE_START_AFTER_END', {
 				defaultValue: 'Start date should comes before end date',
 			});
+		case 'INVALID_DATETIME_EMPTY':
+			return i18next.t('INVALID_DATETIME_EMPTY', { defaultValue: 'Date and time are required' });
 		default:
 			return '';
 	}

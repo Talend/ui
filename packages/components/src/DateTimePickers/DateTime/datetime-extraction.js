@@ -85,10 +85,11 @@ function timeToSeconds(hours, minutes, seconds) {
  * @throws DateTimePickerException
  */
 function dateAndTimeToDateTime(date, time, options) {
-	if (isEmpty(date)) {
+	if (isEmpty(date) && isEmpty(time)) {
+		throw new DateTimePickerException('INVALID_DATETIME_EMPTY', 'INVALID_DATETIME_EMPTY');
+	} else if (isEmpty(date)) {
 		throw new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
-	}
-	if (isEmpty(time)) {
+	} else if (isEmpty(time)) {
 		throw new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
 	}
 	let timeObject = time;
