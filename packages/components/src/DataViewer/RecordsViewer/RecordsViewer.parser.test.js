@@ -949,36 +949,6 @@ describe('#defaultGetValueType', () => {
 	});
 });
 
-describe('#defaultGetQuality', () => {
-	describe('should return the quality value', () => {
-		it('when item.data.quality', () => {
-			const item = {
-				data: {
-					value: 'Japan',
-					quality: 1,
-				},
-			};
-			expect(getQuality(item)).toEqual(1);
-		});
-		it('when item.quality', () => {
-			const item = {
-				value: {
-					field0: {
-						value: 'Blesme-Haussignemont',
-						quality: -1,
-					},
-					field1: {
-						value: '174326',
-						quality: 1,
-					},
-				},
-				quality: -1,
-			};
-			expect(getQuality(item)).toEqual(-1);
-		});
-	});
-});
-
 describe('#getSchemaUnion', () => {
 	it('should return the schema from the type', () => {
 		const schema = {
