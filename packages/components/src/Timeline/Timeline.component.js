@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DateFilter from './DateFilter.component';
 import Zoom from './Zoom.component';
 import Grid from './Grid.component';
 import Chart from './Chart.component';
 import useGridMeasures from './useGridMeasures';
+import useScale from './useScale';
 import useGroups from './useGroups';
 import useTimeRange from './useTimeRange';
 import useFilters from './useFilters';
@@ -17,8 +18,18 @@ function Toolbar({ children }) {
 
 function Body({ children }) {
 	const { measures } = useTimelineContext();
+	const scrollerRef = React.createRef();
+
+	useEffect(() => {
+		// scroll to the end
+		if (scrollerRef.current) {
+			scrollerRef.current.scrollLeft =
+				scrollerRef.current.scrollWidth - scrollerRef.current.offsetWidth;
+		}
+	}, [scrollerRef.current]);
+
 	return (
-		<div className={theme.body} style={{ width: '100%', overflowX: 'auto' }}>
+		<div className={theme.body} style={{ width: '100%', overflowX: 'auto' }} ref={scrollerRef}>
 			<div style={{ width: measures.total.widthUnit }}>{children}</div>
 		</div>
 	);
@@ -53,13 +64,14 @@ export default function Timeline({
 	);
 	const filteredData = useMemo(
 		() =>
-			groups.map(group => ({
+			groups.map((group) => ({
 				...group,
-				items: group.items.filter(item => filters.every(({ predicate }) => predicate(item))),
+				items: group.items.filter((item) => filters.every(({ predicate }) => predicate(item))),
 			})),
 		[groups, filters],
 	);
-	const measures = useGridMeasures({ data: filteredData, timeRange, zoom });
+	const scale = useScale(timeRange);
+	const measures = useGridMeasures({ data: filteredData, timeRange, zoom, scale });
 
 	return (
 		<TimelineContext.Provider
@@ -83,6 +95,7 @@ export default function Timeline({
 				timeRange,
 				setTimeRange,
 				measures,
+				scale,
 			}}
 		>
 			<div className={theme.layout}>{children}</div>

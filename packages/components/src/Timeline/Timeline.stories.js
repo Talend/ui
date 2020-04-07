@@ -152,7 +152,7 @@ export function Tooltip() {
 				groupIdName="context.task.id"
 				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
-				dataItemTooltip={item => getItemDetails(item, locale)}
+				dataItemTooltip={(item) => getItemDetails(item, locale)}
 			>
 				<Timeline.Grid />
 			</Timeline>
@@ -176,7 +176,7 @@ export function Popover() {
 				groupIdName="context.task.id"
 				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
-				dataItemPopover={item => getItemDetails(item, locale)}
+				dataItemPopover={(item) => getItemDetails(item, locale)}
 			>
 				<Timeline.Grid />
 			</Timeline>
@@ -201,7 +201,7 @@ function ScaleTimeline({ dataArray, initialIndex }) {
 				groupIdName="context.task.id"
 				groupLabelName="context.task.name"
 				dataItemProps={getItemProps}
-				dataItemTooltip={item => getItemDetails(item, locale)}
+				dataItemTooltip={(item) => getItemDetails(item, locale)}
 				timeRange={timeRange}
 			>
 				<Timeline.Toolbar>
@@ -252,7 +252,8 @@ const TMCTimeline = ({ data, locale }) => {
 			groupIdName="context.task.id"
 			groupLabelName="context.task.name"
 			dataItemProps={getItemProps}
-			dataItemTooltip={item => getItemDetails(item, locale)}
+			dataItemTooltip={(item) => getItemDetails(item, locale)}
+			timeRange={timeRange}
 		>
 			<Timeline.Toolbar>
 				<Timeline.Zoom />
@@ -261,10 +262,10 @@ const TMCTimeline = ({ data, locale }) => {
 				<Timeline.Grid />
 				<Timeline.Chart
 					caption="CPU usage"
-					getItemValues={item =>
+					getItemValues={(item) =>
 						item.fingerprint.logs?.map(({ timestamp, cpu }) => ({ key: timestamp, value: cpu }))
 					}
-					labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
+					labelFormatter={(timestamp) => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
 					valueFormatter={(value, _, props) =>
 						`${value}%. Max usage: ${props.payload.max.label} (${props.payload.max.value}%)`
 					}
@@ -272,13 +273,13 @@ const TMCTimeline = ({ data, locale }) => {
 				/>
 				<Timeline.Chart
 					caption="Memory usage"
-					getItemValues={item =>
+					getItemValues={(item) =>
 						item.fingerprint.logs?.map(({ timestamp, memory }) => ({
 							key: timestamp,
 							value: memory,
 						}))
 					}
-					labelFormatter={timestamp => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
+					labelFormatter={(timestamp) => format(timestamp, 'DD MMM YYYY HH:mm:ss', locale)}
 					valueFormatter={(value, _, props) =>
 						`${value}Mo. Max usage: ${props.payload.max.label} (${props.payload.max.value}Mo)`
 					}
