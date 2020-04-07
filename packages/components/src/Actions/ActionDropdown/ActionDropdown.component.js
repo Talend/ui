@@ -72,7 +72,7 @@ function renderMutableMenuItem(item, index, getComponent, activeKey) {
 			eventKey={item}
 			onClick={wrapOnClick(item)}
 			title={item.title || item.label}
-			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item', {activeListElement})}
+			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item', { activeListElement })}
 		>
 			{item.icon && <Icon key="icon" name={item.icon} />}
 			{!item.hideLabel && item.label}
@@ -228,7 +228,7 @@ class ActionDropdown extends React.Component {
 				aria-label={tooltipLabel || label}
 				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
-				ref={(ref) => (this.ref = ref)}
+				ref={ref => (this.ref = ref)}
 				noCaret
 			>
 				{!children && !items.length && !items.size && !loading && !components && (
