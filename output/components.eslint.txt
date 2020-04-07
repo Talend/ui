@@ -2,6 +2,9 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.component.js
+  193:4  error  'activeKey' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
@@ -88,6 +91,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   73:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 50 problems (48 errors, 2 warnings)
+✖ 51 problems (49 errors, 2 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
