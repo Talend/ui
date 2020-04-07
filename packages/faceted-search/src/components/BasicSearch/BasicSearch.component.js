@@ -10,7 +10,11 @@ import { generateBadge } from '../types/badgeDefinition.type';
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 import { BadgeFacetedProvider } from '../context/badgeFaceted.context';
 
-import { createBadgesDict, getBadgesFromDict } from '../../dictionary/badge.dictionary';
+import {
+	createBadgesDict,
+	getBadgesFromDict,
+	filterBadgeDefinitionsWithDictionary,
+} from '../../dictionary/badge.dictionary';
 import { createOperatorsDict, getOperatorsFromDict } from '../../dictionary/operator.dictionary';
 import { useFacetedBadges, BADGES_ACTIONS } from '../../hooks/facetedBadges.hook';
 import { badgesFacetedPropTypes, operatorsPropTypes } from '../facetedSearch.propTypes';
@@ -22,7 +26,7 @@ const css = getTheme(theme);
 const isInCreation = badge => get(badge, 'metadata.isInCreation', true);
 
 const BasicSearch = ({
-	badgesDefinitions,
+	badgesDefinitions = [],
 	badgesFaceted,
 	customBadgesDictionary,
 	customOperatorsDictionary,
@@ -33,6 +37,9 @@ const BasicSearch = ({
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary));
 	const badgesDictionary = useMemo(() => createBadgesDict(customBadgesDictionary));
+	const badges = useMemo(() =>
+		filterBadgeDefinitionsWithDictionary(badgesDictionary, badgesDefinitions),
+	);
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 
 	useEffect(() => {
@@ -73,7 +80,7 @@ const BasicSearch = ({
 				{setOverlayOpened => (
 					<AddFacetPopover
 						badges={state.badges}
-						badgesDefinitions={badgesDefinitions}
+						badgesDefinitions={badges}
 						id={basicSearchId}
 						initialFilterValue={initialFilterValue}
 						onClick={onClickOverlayRow(setOverlayOpened)}

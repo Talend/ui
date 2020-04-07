@@ -11,6 +11,7 @@ import {
 	badgeName,
 	badgePrice,
 	badgeEnumWithLotOfValues,
+	badgeTags,
 	badgeWithVeryLongName,
 	badgeTextAsCustomAttribute,
 	badgeEnumsAsCustomAttribute,
@@ -176,6 +177,7 @@ storiesOf('FacetedSearch', module)
 						badgeConnectionType,
 						badgeName,
 						badgePrice,
+						badgeTags,
 						badgeTextAsCustomAttribute,
 						badgeEnumsAsCustomAttribute,
 						...times(2, () => badgeTextAsCategory),
@@ -190,10 +192,7 @@ storiesOf('FacetedSearch', module)
 			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
-					badgesDefinitions={[
-						badgeName,
-						badgeEmptyLabel,
-					]}
+					badgesDefinitions={[badgeName, badgeEmptyLabel]}
 					onSubmit={action('onSubmit')}
 				/>
 			</FacetedSearch.Faceted>
