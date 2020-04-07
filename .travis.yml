@@ -31,7 +31,7 @@ matrix:
         - '11.10'
       env: NAME=analysis
       before_script:
-        - yarn global add prettier@1.19.1
+        - yarn global add prettier
         - .travis/before_script_icons.sh
       script:
         - yarn install
