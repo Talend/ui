@@ -26,7 +26,7 @@ const css = getTheme(theme);
 const isInCreation = badge => get(badge, 'metadata.isInCreation', true);
 
 const BasicSearch = ({
-	badgesDefinitions,
+	badgesDefinitions = [],
 	badgesFaceted,
 	customBadgesDictionary,
 	customOperatorsDictionary,
