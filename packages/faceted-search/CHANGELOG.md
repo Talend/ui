@@ -26,21 +26,25 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+- [Link to PR](https://github.com/Talend/ui/pull/2724): use sentence case for attributes
+
 ## [0.5.1]
 
 ### Fixed
 
-- [fixed](https://github.com/Talend/ui/pull/2709): Set initialOperatorOpened to false on hiding the value overlay
+- [Link to PR](https://github.com/Talend/ui/pull/2709): Set initialOperatorOpened to false on hiding the value overlay
 
 ## [0.5.0]
 
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/2692): Handle the badgePerFacet metadata
+- [Link to PR](https://github.com/Talend/ui/pull/2692): Handle the badgePerFacet metadata
 
 ### Fixed
 
-- [fixed](https://github.com/Talend/ui/pull/2696): Do not display empty label badge
+- [Link to PR](https://github.com/Talend/ui/pull/2696): Do not display empty label badge
 
 ## [0.4.0]
 
@@ -50,18 +54,18 @@ Types of changes
 
 ### Changed
 
-- [Added](https://github.com/Talend/ui/pull/2673): Handle categories in badge definitions
+- [Link to PR](https://github.com/Talend/ui/pull/2673): Handle categories in badge definitions
 
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/2675): Empty screen text for search on badges list
+- [Link to PR](https://github.com/Talend/ui/pull/2675): Empty screen text for search on badges list
 
 ### Fixed
 
-- [fixed](https://github.com/Talend/ui/pull/2665): sort alphabetically facets
-- [fixed](https://github.com/Talend/ui/pull/2662): values open up at start
-- [fixed](https://github.com/Talend/ui/pull/2666): Put a scrollbar for enum badge with a lot of values
-- [fixed](https://github.com/Talend/ui/pull/2676): Do not alter the filter input in checkboxes badge
+- [Link to PR](https://github.com/Talend/ui/pull/2665): sort alphabetically facets
+- [Link to PR](https://github.com/Talend/ui/pull/2662): values open up at start
+- [Link to PR](https://github.com/Talend/ui/pull/2666): Put a scrollbar for enum badge with a lot of values
+- [Link to PR](https://github.com/Talend/ui/pull/2676): Do not alter the filter input in checkboxes badge
 
 ## [0.3.0]
 
@@ -71,24 +75,24 @@ Types of changes
 
 ### Changed
 
-- [Changed](https://github.com/Talend/ui/pull/2639): Update some operators labels
+- [Link to PR](https://github.com/Talend/ui/pull/2639): Update some operators labels
 
 ### Fixed
 
-- [fixed](https://github.com/Talend/ui/pull/2641): Unknown operators facet return by the api throw javascript error
-- [fixed](https://github.com/Talend/ui/pull/2631): Remove "Selected values only" for checkbox facet
+- [Link to PR](https://github.com/Talend/ui/pull/2641): Unknown operators facet return by the api throw javascript error
+- [Link to PR](https://github.com/Talend/ui/pull/2631): Remove "Selected values only" for checkbox facet
 
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/2640/): Select automatically operator if only one
-- [feat](https://github.com/Talend/ui/pull/2636): Use Input text for Badge text instead of Textarea
-- [feat](https://github.com/Talend/ui/pull/2638): use toggle for basic/advance button
+- [Link to PR](https://github.com/Talend/ui/pull/2640/): Select automatically operator if only one
+- [Link to PR](https://github.com/Talend/ui/pull/2636): Use Input text for Badge text instead of Textarea
+- [Link to PR](https://github.com/Talend/ui/pull/2638): use toggle for basic/advance button
 
 ## [0.2.6]
 
 ### Fixed
 
-- [fixed](https://github.com/Talend/ui/pull/2617): Fix overflow x and y in AddFacetPopover
+- [Link to PR](https://github.com/Talend/ui/pull/2617): Fix overflow x and y in AddFacetPopover
 
 ## [0.2.5]
 
@@ -98,11 +102,11 @@ Types of changes
 
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/2590/): Add label in add facet button
+- [Link to PR](https://github.com/Talend/ui/pull/2590/): Add label in add facet button
 
 ### Changed
 
-- [Changed](https://github.com/Talend/ui/pull/2591): Remove Header in AddFacetPopover
+- [Link to PR](https://github.com/Talend/ui/pull/2591): Remove Header in AddFacetPopover
 
 ### Fixed
 
@@ -112,11 +116,11 @@ Types of changes
 
 ### Fixed
 
-- [Fixed](https://github.com/Talend/ui/pull/2554): Fix TQL creation with badges number
+- [Link to PR](https://github.com/Talend/ui/pull/2554): Fix TQL creation with badges number
 
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/2587): Add skeleton to FacetedSearchIcon if loading props true
+- [Link to PR](https://github.com/Talend/ui/pull/2587): Add skeleton to FacetedSearchIcon if loading props true
 
 ## [0.2.3]
 
@@ -126,36 +130,36 @@ Types of changes
 
 ### Added
 
-- [Added](https://github.com/Talend/ui/pull/2548): Add number type badge
+- [Link to PR](https://github.com/Talend/ui/pull/2548): Add number type badge
 
 ### Fixed
 
-- [Fixed](https://github.com/Talend/ui/pull/2545): Fix support of notEqual operator
-- [Fixed](https://github.com/Talend/ui/pull/2544): Get back Tooltip trigger for button icon in BadgeOverlay
-- [Fixed](https://github.com/Talend/ui/pull/2535): Fix onSubmit execution on BasicSearch
+- [Link to PR](https://github.com/Talend/ui/pull/2545): Fix support of notEqual operator
+- [Link to PR](https://github.com/Talend/ui/pull/2544): Get back Tooltip trigger for button icon in BadgeOverlay
+- [Link to PR](https://github.com/Talend/ui/pull/2535): Fix onSubmit execution on BasicSearch
 
 ### Changed
 
-- [Changed](https://github.com/Talend/ui/pull/2530): Update remove / add tooltip labels
+- [Link to PR](https://github.com/Talend/ui/pull/2530): Update remove / add tooltip labels
 
 ## [0.2.2]
 
 ### Fixed
 
-- [Fixed](https://github.com/Talend/ui/pull/2520): Tql error on empty value array
-- [Fixed](https://github.com/Talend/ui/pull/2513): Invert action basic <> advanced
-- [Fixed](https://github.com/Talend/ui/pull/2510): Disable resize on textarea
-- [Fixed](https://github.com/Talend/ui/pull/2509): Filter badge by label, not attribute
-- [Fixed](https://github.com/Talend/ui/pull/2501): Tql error on checkboxes badge
+- [Link to PR](https://github.com/Talend/ui/pull/2520): Tql error on empty value array
+- [Link to PR](https://github.com/Talend/ui/pull/2513): Invert action basic <> advanced
+- [Link to PR](https://github.com/Talend/ui/pull/2510): Disable resize on textarea
+- [Link to PR](https://github.com/Talend/ui/pull/2509): Filter badge by label, not attribute
+- [Link to PR](https://github.com/Talend/ui/pull/2501): Tql error on checkboxes badge
 
 ## [0.2.1]
 
 ### Added
 
-- [Added](https://github.com/Talend/ui/pull/2487): Add connection type badge
+- [Link to PR](https://github.com/Talend/ui/pull/2487): Add connection type badge
 
 ## [0.2.0]
 
 ### Added
 
-- [Added](https://github.com/Talend/ui/pull/2441): Faceted search to ui
+- [Link to PR](https://github.com/Talend/ui/pull/2441): Faceted search to ui
