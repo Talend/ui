@@ -64,6 +64,23 @@ export const badgePrice = {
 	},
 };
 
+export const badgeTags = {
+	properties: {
+		attribute: 'tags',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Tags',
+		operator: {},
+		operators: [],
+		type: 'tags',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: 'N',
+		operators: ['in'],
+	},
+};
+
 export const badgeWithVeryLongName = {
 	properties: {
 		attribute: 'price',
