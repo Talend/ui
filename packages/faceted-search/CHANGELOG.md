@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+## [0.5.2]
+
 ### Fixed
 
 - [fixed](https://github.com/Talend/ui/pull/2725): ignore unknown badges types
