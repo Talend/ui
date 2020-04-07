@@ -44,6 +44,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   39:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   41:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   43:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
+  47:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
   279:53  error  'footerActions' is already declared in the upper scope  no-shadow
@@ -88,6 +89,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   73:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 50 problems (48 errors, 2 warnings)
+✖ 51 problems (49 errors, 2 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
