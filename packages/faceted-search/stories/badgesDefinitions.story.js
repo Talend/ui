@@ -93,7 +93,7 @@ export const badgeEnumWithLotOfValues = {
 		attribute: 'connection.type',
 		initialOperatorOpened: true,
 		initialValueOpened: false,
-		label: 'Connection type',
+		label: 'Connection Type',
 		operator: {},
 		operators: [],
 		type: 'checkbox',
@@ -142,7 +142,7 @@ export const badgeTextAsCustomAttribute = {
 		type: 'text',
 	},
 	metadata: {
-		category: 'Custom attributes',
+		category: 'Custom Attributes',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['contains', 'equals', 'notEquals', 'match a regexp'],
@@ -162,7 +162,7 @@ export const badgeEnumsAsCustomAttribute = {
 	metadata: {
 		badgePerFacet: '1',
 		entitiesPerBadge: 'N',
-		category: 'Custom attributes',
+		category: 'Custom Attributes',
 		values: [
 			{ id: 'internal', label: 'Internal' },
 			{ id: 'public', label: 'Public' },

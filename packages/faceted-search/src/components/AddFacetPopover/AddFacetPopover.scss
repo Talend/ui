@@ -119,10 +119,14 @@ $animation-duration: 400ms;
 		}
 		&-text {
 			max-width: 25rem;
+			text-transform: lowercase;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			flex-grow: 1;
+			&::first-letter {
+				text-transform: uppercase;
+			}
 		}
 		&-icon {
 			width: 1.2rem !important;
