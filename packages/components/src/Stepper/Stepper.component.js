@@ -151,12 +151,13 @@ function Stepper({ steps, title, renderActions, children }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const isInError = isErrorInSteps(steps);
 	const [transitionState, setTransitionState] = useState(
-		isStepsLoading(steps) ? TRANSITION_STATE.STEPS : TRANSITION_STATE.CHILD,
+		isStepsLoading(steps) || !children ? TRANSITION_STATE.STEPS : TRANSITION_STATE.CHILD,
 	);
 
 	useEffect(() => {
 		const allSuccessful = isAllSuccessful(steps);
 		if (
+			children &&
 			allSuccessful &&
 			(transitionState === TRANSITION_STATE.STEPS ||
 				transitionState === TRANSITION_STATE.TRANSITION)
@@ -204,7 +205,7 @@ Stepper.defaultProps = {
 Stepper.propTypes = {
 	title: PropTypes.string,
 	renderActions: PropTypes.func,
-	children: PropTypes.element.isRequired,
+	children: PropTypes.element,
 	steps: PropTypes.arrayOf(
 		PropTypes.shape({
 			label: PropTypes.string,

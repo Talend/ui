@@ -67,7 +67,13 @@ stories
 			<p>No step to display here, it means content is already loaded.</p>
 		</Stepper>
 	))
-	.add('Stepper successful', () => {
+	.add('Stepper successful without transition', () => (
+		<Stepper
+			title={title}
+			steps={[{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS }]}
+		></Stepper>
+	))
+	.add('Stepper successful with transition', () => {
 		const defaultSteps = [
 			{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS },
 			{
