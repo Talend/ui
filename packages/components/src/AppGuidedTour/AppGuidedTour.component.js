@@ -59,14 +59,14 @@ function AppGuidedTour({
 						header: appName,
 						body: () => (
 							<div>
-								{t('GUIDE_TOUR_WELCOME_STEP_BODY', {
+								{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
 									defaultValue:
 										"If you're new, you may want to take a quick tour of the tool now. " +
 										'If not, you can replay the tour from the user menu.',
 								})}
 								<form>
 									<Toggle
-										label={t('GUIDE_TOUR_IMPORT_DEMO_CONTENT', {
+										label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
 											defaultValue: 'Import demo content',
 										})}
 										onChange={event => {
@@ -81,7 +81,7 @@ function AppGuidedTour({
 				},
 				importDemoContent && {
 					content: {
-						header: t('GUIDE_TOUR_WELCOME_STEP_HEADER', {
+						header: t('GUIDED_TOUR_WELCOME_STEP_HEADER', {
 							defaultValue: 'Importing demo content',
 						}),
 						body: () => (demoContentSteps.length ? <Stepper steps={demoContentSteps} /> : null),
