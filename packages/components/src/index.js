@@ -12,6 +12,7 @@ import {
 } from './Actions';
 import ActionBar from './ActionBar';
 import ActionList from './ActionList';
+import AppGuidedTour from './AppGuidedTour';
 import AppLoader from './AppLoader';
 import Notification from './Notification';
 import HeaderBar from './HeaderBar';
@@ -141,6 +142,7 @@ export {
 	ActionFile,
 	ActionIconToggle,
 	ActionSplitDropdown,
+	AppGuidedTour,
 	AppLoader,
 	Badge,
 	Breadcrumbs,
