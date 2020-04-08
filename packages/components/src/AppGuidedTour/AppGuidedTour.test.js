@@ -58,4 +58,16 @@ describe('AppGuidedTour', () => {
 
 		expect(wrapper.find('Tour').prop('goToStep')).toBe(1);
 	});
+	it('should reset state on close', () => {
+		const onRequestCloseMock = jest.fn();
+		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} onRequestClose={onRequestCloseMock} />);
+
+		wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
+		act(() => {
+			wrapper.find('Tour').prop('onRequestClose')();
+		});
+
+		expect(onRequestCloseMock).toHaveBeenCalled();
+		expect(wrapper.find('Tour').prop('goToStep')).toBe(0);
+	});
 });

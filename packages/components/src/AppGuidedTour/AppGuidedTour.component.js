@@ -23,7 +23,7 @@ function AppGuidedTour({
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isNavigationDisabled =
-		currentStep === DEMO_CONTENT_STEP_ID && isStepsLoading(demoContentSteps);
+		importDemoContent && currentStep === DEMO_CONTENT_STEP_ID && isStepsLoading(demoContentSteps);
 	const isImportSuccessFul = demoContentSteps.length && isAllSuccessful(demoContentSteps);
 
 	useEffect(() => {
@@ -60,12 +60,12 @@ function AppGuidedTour({
 						body: () => (
 							<div>
 								{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
-									defaultValue:
-										"If you're new, you may want to take a quick tour of the tool now. " +
-										'If not, you can replay the tour from the user menu.',
+									defaultValue: `If you're new, you may want to take a quick tour of the tool now.
+										 If not, you can replay the tour from the user menu.`,
 								})}
 								<form>
 									<Toggle
+										id="app-guided-tour__import-demo-content-toggle"
 										label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
 											defaultValue: 'Import demo content',
 										})}
@@ -97,7 +97,7 @@ function AppGuidedTour({
 AppGuidedTour.propTypes = {
 	isOpen: PropTypes.bool.isRequired,
 	appName: PropTypes.string.isRequired,
-	steps: GuidedTour.propTypes.steps.isRequired,
+	steps: GuidedTour.propTypes.steps,
 	demoContentSteps: Stepper.propTypes.steps.isRequired,
 	onImportDemoContent: PropTypes.func.isRequired,
 	onRequestClose: PropTypes.func.isRequired,
