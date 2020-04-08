@@ -304,6 +304,7 @@ ActionDropdown.propTypes = {
 	}),
 	t: PropTypes.func,
 	children: PropTypes.node,
+	activeKey: PropTypes.string,
 };
 
 ActionDropdown.defaultProps = {
