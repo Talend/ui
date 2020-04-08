@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Stepper } from './Stepper.component';
-import { LOADING_STEP_STATUSES } from '../Stepper.constants';
+import Stepper, { LOADING_STEP_STATUSES } from './Stepper.component';
 
 describe('Stepper Component', () => {
 	describe('render', () => {
@@ -43,7 +42,9 @@ describe('Stepper Component', () => {
 			const renderActions = jest.fn();
 			// when
 			const wrapper = shallow(
-				<Stepper steps={steps} title={title} renderActions={renderActions} />,
+				<Stepper steps={steps} title={title} renderActions={renderActions}>
+					Import successfull
+				</Stepper>,
 			);
 			// then
 			expect(renderActions).toHaveBeenCalledWith(true);

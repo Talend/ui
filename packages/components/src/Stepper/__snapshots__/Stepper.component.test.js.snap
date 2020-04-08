@@ -4,7 +4,9 @@ exports[`Stepper Component render should render when there is an errors in the s
 <React.Fragment>
   <StepperTransition
     active={true}
-  />
+  >
+    Import successfull
+  </StepperTransition>
   <StepperTransition
     active={false}
   >
