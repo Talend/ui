@@ -70,7 +70,7 @@ export default function Timeline({
 			})),
 		[groups, filters],
 	);
-	const scale = useScale(timeRange);
+	const scale = useScale(timeRange, zoom);
 	const measures = useGridMeasures({ data: filteredData, timeRange, zoom, scale });
 
 	return (

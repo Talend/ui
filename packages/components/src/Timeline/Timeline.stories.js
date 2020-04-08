@@ -213,6 +213,7 @@ function ScaleTimeline({ dataArray, initialIndex }) {
 					>
 						<Icon name="talend-chevron-left" />
 					</button>
+					<Timeline.Zoom />
 					<button
 						style={{ marginLeft: 'auto' }}
 						onClick={() => setIndex(index + 1)}

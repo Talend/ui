@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { SCALE_MODES } from './useScale';
 
 const DEFAULT_UNIT_WIDTH = 5; // rem
 
@@ -14,9 +15,27 @@ const dataHeight = DEFAULT_DATA_HEIGHT;
 const dataHeightUnit = `${dataHeight}rem`;
 const dataTop = (rowHeight - dataHeight) / 2;
 
+function getUnitWidth(scaleMode, zoom) {
+	// width for hour and 5minutes scale
+	let unitWidth = DEFAULT_UNIT_WIDTH * zoom;
+
+	// Less-than-a-day Mode
+	// the defaut mode is 5-min steps
+	// if the zoom switch the scale to 2-min or 1-min, to avoid jump between 5min to the new unit, we divide the 5-min width
+	// result is that in 5min scale, we zoom, we display the new scale in a smooth way
+	if (scaleMode === SCALE_MODES.TWO_MINUTES) {
+		unitWidth /= 2.5;
+	}
+	if (scaleMode === SCALE_MODES.MINUTES) {
+		unitWidth /= 5;
+	}
+
+	return unitWidth;
+}
+
 export default function useGridMeasures({ data, zoom, scale }) {
 	return useMemo(() => {
-		const unitWidth = DEFAULT_UNIT_WIDTH * zoom;
+		const unitWidth = getUnitWidth(scale.scaleMode, zoom);
 
 		const timeUnitWidth = unitWidth;
 		const timeUnitWidthUnit = `${unitWidth}rem`;

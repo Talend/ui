@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useTimelineContext } from './context';
 import Icon from '../Icon';
 
-export default function Zoom({ initialZoom, min = 0.5, max = 2, ...restProps }) {
+export default function Zoom({ initialZoom, min = 0.5, max = 3, step = 0.2, ...restProps }) {
 	const { setZoom, zoom } = useTimelineContext();
 
 	useEffect(() => {
@@ -14,13 +14,13 @@ export default function Zoom({ initialZoom, min = 0.5, max = 2, ...restProps }) 
 
 	const zoomOut = () => {
 		if (zoom >= min) {
-			setZoom(zoom - 0.1);
+			setZoom(zoom - step);
 		}
 	};
 
 	const zoomIn = () => {
 		if (zoom <= max) {
-			setZoom(zoom + 0.1);
+			setZoom(zoom + step);
 		}
 	};
 
