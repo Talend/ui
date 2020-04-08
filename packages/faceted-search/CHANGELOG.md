@@ -26,6 +26,11 @@ Types of changes
 
 ## [unreleased]
 
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2732):  Implement containsIgnoreCase operator
+
+
 ## [0.5.2]
 
 ### Fixed

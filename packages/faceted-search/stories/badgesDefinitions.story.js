@@ -11,7 +11,7 @@ export const badgeName = {
 	metadata: {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['contains', 'equals', 'notEquals', 'match a regexp'],
+		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
 	},
 };
 
@@ -162,7 +162,7 @@ export const badgeTextAsCustomAttribute = {
 		category: 'Custom attributes',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['contains', 'equals', 'notEquals', 'match a regexp'],
+		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
 	},
 };
 
@@ -202,7 +202,7 @@ export const badgeTextAsCategory = {
 		category: 'Very long long long long long long category',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['contains', 'equals'],
+		operators: ['containsIgnoreCase', 'equals'],
 	},
 };
 
@@ -219,6 +219,6 @@ export const badgeEmptyLabel = {
 	metadata: {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['contains', 'equals'],
+		operators: ['containsIgnoreCase', 'equals'],
 	},
 };
