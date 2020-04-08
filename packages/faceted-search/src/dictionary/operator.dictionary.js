@@ -1,5 +1,6 @@
 const operatorNames = {
 	contains: 'contains',
+	containsIgnoreCase: 'containsIgnoreCase',
 	equals: 'equals',
 	notEquals: 'notEquals',
 	in: 'in',
@@ -29,6 +30,13 @@ const standardOperators = t => ({
 			defaultValue: 'Contains',
 		}),
 		name: 'contains',
+		iconName: 'contains',
+	},
+	[operatorNames.containsIgnoreCase]: {
+		label: t('OPERATOR_CONTAINS_LABEL', {
+			defaultValue: 'Contains',
+		}),
+		name: 'containsIgnoreCase',
 		iconName: 'contains',
 	},
 	[operatorNames.in]: {

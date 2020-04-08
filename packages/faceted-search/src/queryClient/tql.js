@@ -35,6 +35,7 @@ const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
  */
 const getTqlClassOperatorsDictionary = query => ({
 	contains: query.contains,
+	containsIgnoreCase: query.containsIgnoreCase,
 	equals: query.equal,
 	in: query.in,
 	notEquals: query.unequal,

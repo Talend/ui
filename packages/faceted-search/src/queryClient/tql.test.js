@@ -396,4 +396,24 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual('(price = 293820983098.23)');
 	});
+	it('should return an containsIgnoreCase tql query when value is using the containsIgnoreCase operator', () => {
+		// Given
+		const badgeContainsIgnoreCase = [
+			{
+				properties: {
+					attribute: 'Title',
+					operator: {
+						label: 'Contains',
+						name: 'containsIgnoreCase',
+						iconName: 'contains',
+					},
+					value: 'Dataset Title',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgeContainsIgnoreCase);
+		// Then
+		expect(result).toEqual("(Title containsIgnoreCase 'Dataset Title')");
+	});
 });
