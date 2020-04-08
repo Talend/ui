@@ -6,6 +6,9 @@ $tc-guidedtour-nav-button-size: $svg-md-size !default;
 $tc-guidedtour-controls-color: $dove-gray !default;
 
 :global(#___reactour) {
+	> div {
+		z-index: $zindex-guidedtour;
+	}
 	.tc-guided-tour {
 		--reactour-accent: #{$tc-guidedtour-accent-color};
 		padding: $tc-guidedtour-tooltip-padding (2 * $tc-guidedtour-tooltip-padding) $tc-guidedtour-tooltip-padding $tc-guidedtour-tooltip-padding;
