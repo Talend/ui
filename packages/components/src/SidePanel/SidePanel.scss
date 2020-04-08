@@ -147,7 +147,7 @@ $large-docked-width: 7rem;
 		&.docked {
 			:global {
 				.tc-action-list {
-					width: $docked-width;
+					width: $large-docked-width;
 					min-width: auto;
 				}
 			}
