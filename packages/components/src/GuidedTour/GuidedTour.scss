@@ -7,7 +7,7 @@ $tc-guidedtour-controls-color: $dove-gray !default;
 
 :global(#___reactour) {
 	> div {
-		z-index: $zindex-modal;
+		z-index: $zindex-guidedtour;
 	}
 	.tc-guided-tour {
 		--reactour-accent: #{$tc-guidedtour-accent-color};
