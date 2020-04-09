@@ -19,7 +19,7 @@ function AppGuidedTour({
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const [importDemoContent, setImportDemoContent] = useState(false);
+	const [importDemoContent, setImportDemoContent] = useState(true);
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isNavigationDisabled =
@@ -37,6 +37,7 @@ function AppGuidedTour({
 			isOpen={isOpen}
 			showButtons={!isNavigationDisabled}
 			showCloseButton={!isNavigationDisabled}
+			disableKeyboardNavigation={isNavigationDisabled}
 			disableAllInteractions={isNavigationDisabled}
 			getCurrentStep={step => {
 				if (
@@ -56,7 +57,10 @@ function AppGuidedTour({
 			steps={[
 				{
 					content: {
-						header: appName,
+						header: t('GUIDED_TOUR_WELCOME_STEP_BODY', {
+							appName,
+							defaultValue: 'Welcome to {{appName}}',
+						}),
 						body: () => (
 							<div>
 								{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
