@@ -6,7 +6,6 @@ import {
 	getJSONPath,
 	getNextSchemaItems,
 	getObjectBranchDatakey,
-	getQuality,
 	getSchemaUnion,
 	transformArrayBranch,
 	transformObjectBranch,
