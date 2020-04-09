@@ -10,7 +10,7 @@ class GuidedTourContainer extends React.Component {
 	static propTypes = {
 		...cmfConnect.propTypes,
 		show: PropTypes.bool,
-		steps: PropTypes.oneOf([PropTypes.array, PropTypes.func]),
+		steps: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
 		onClose: PropTypes.func,
 	};
 
