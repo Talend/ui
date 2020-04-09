@@ -37,6 +37,7 @@ function AppGuidedTour({
 			isOpen={isOpen}
 			showButtons={!isNavigationDisabled}
 			showCloseButton={!isNavigationDisabled}
+			disableKeyboardNavigation={isNavigationDisabled}
 			disableAllInteractions={isNavigationDisabled}
 			getCurrentStep={step => {
 				if (
