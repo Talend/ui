@@ -18,7 +18,6 @@ const dataTop = (rowHeight - dataHeight) / 2;
 export default function useGridMeasures({ data, zoom, scale }) {
 	return useMemo(() => {
 		const unitWidth = DEFAULT_UNIT_WIDTH * zoom * SCALE_BASE_MULTIPLIERS[scale.scaleMode];
-		console.log(DEFAULT_UNIT_WIDTH, zoom, SCALE_BASE_MULTIPLIERS[scale.scaleMode], scale.scaleMode);
 		const timeUnitWidth = unitWidth;
 		const timeUnitWidthUnit = `${unitWidth}rem`;
 		const remPerMs = unitWidth / scale.stepMs;

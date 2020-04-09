@@ -117,27 +117,37 @@ function getIntervals(timeRange, step, locale, localFormats) {
 		return { days: [], hours: [] };
 	}
 
-	const timeUnits = new Array((endTimestamp - startTimestamp) / step).fill(0).map((_, index) => {
-		const unitStartTimestamp = startTimestamp + index * step;
-		const unitEndTimestamp = unitStartTimestamp + step;
+	const timeUnits = new Array(Math.ceil((endTimestamp - startTimestamp) / step))
+		.fill(0)
+		.map((_, index) => {
+			const unitStartTimestamp = startTimestamp + index * step;
+			const unitEndTimestamp = unitStartTimestamp + step;
 
-		const startDate = new Date(unitStartTimestamp);
-		const endDate = new Date(unitEndTimestamp);
-		const isNewDate =
-			index === 0 ||
-			(startDate.getHours() === 0 && startDate.getMinutes() === 0 && startDate.getMinutes() === 0);
+			const startDate = new Date(unitStartTimestamp);
+			const endDate = new Date(unitEndTimestamp);
+			const isNewDate =
+				index === 0 ||
+				(startDate.getHours() === 0 &&
+					startDate.getMinutes() === 0 &&
+					startDate.getMinutes() === 0);
 
-		const startLabels = {
-			long: format(startDate, localFormats.long, locale),
-			short: format(startDate, localFormats.short, locale),
-		};
-		const endLabels = {
-			long: format(endDate, localFormats.long, locale),
-			short: format(endDate, localFormats.short, locale),
-		};
+			const startLabels = {
+				long: format(startDate, localFormats.long, locale),
+				short: format(startDate, localFormats.short, locale),
+			};
+			const endLabels = {
+				long: format(endDate, localFormats.long, locale),
+				short: format(endDate, localFormats.short, locale),
+			};
 
-		return { start: unitStartTimestamp, end: unitEndTimestamp, startLabels, endLabels, isNewDate };
-	});
+			return {
+				start: unitStartTimestamp,
+				end: unitEndTimestamp,
+				startLabels,
+				endLabels,
+				isNewDate,
+			};
+		});
 
 	const days = timeUnits.reduce((accu, unitDefinition) => {
 		const { start, isNewDate } = unitDefinition;

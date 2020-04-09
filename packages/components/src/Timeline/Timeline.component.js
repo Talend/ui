@@ -18,18 +18,9 @@ function Toolbar({ children }) {
 
 function Body({ children }) {
 	const { measures } = useTimelineContext();
-	const scrollerRef = React.createRef();
-
-	useEffect(() => {
-		// scroll to the end
-		if (scrollerRef.current) {
-			scrollerRef.current.scrollLeft =
-				scrollerRef.current.scrollWidth - scrollerRef.current.offsetWidth;
-		}
-	}, [scrollerRef.current]);
 
 	return (
-		<div className={theme.body} style={{ width: '100%', overflowX: 'auto' }} ref={scrollerRef}>
+		<div className={theme.body} style={{ width: '100%', overflowX: 'auto' }}>
 			<div style={{ width: measures.total.widthUnit }}>{children}</div>
 		</div>
 	);
