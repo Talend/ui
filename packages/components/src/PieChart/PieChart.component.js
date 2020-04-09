@@ -18,7 +18,9 @@ export function decorateWithTooltip(tooltip, label, tooltipPlacement, Component,
 	}
 	return (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-			<Component {...props} />
+			<span>
+				<Component {...props} />
+			</span>
 		</TooltipTrigger>
 	);
 }
