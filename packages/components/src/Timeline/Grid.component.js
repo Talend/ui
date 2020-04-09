@@ -109,7 +109,8 @@ export default function Grid() {
 							className={theme.timelineUnit}
 							style={{ width: measures.timeUnit.widthUnit }}
 						>
-							{measures.timeUnit.width >= 5 || index === 0 ? startLabels.long : startLabels.short}
+							{/* {measures.timeUnit.width >= 5 || index === 0 ? startLabels.long : startLabels.short} */}
+							{scale.getTimeLabel(start, measures.timeUnit.width)}
 						</th>
 					))}
 				</tr>
@@ -124,7 +125,7 @@ export default function Grid() {
 								style={{ width: `${measures.timeUnit.width * count}rem` }}
 							>
 								{label}
-								{(zoom > 1 || count > 8) && <span>{label}</span>}
+								{(zoom > 1 || count >= 8) && <span>{label}</span>}
 							</th>
 						);
 					})}
