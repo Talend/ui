@@ -56,7 +56,10 @@ function AppGuidedTour({
 			steps={[
 				{
 					content: {
-						header: appName,
+						header: t('GUIDED_TOUR_WELCOME_STEP_BODY', {
+							appName,
+							defaultValue: 'Welcome to {{appName}}',
+						}),
 						body: () => (
 							<div>
 								{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
