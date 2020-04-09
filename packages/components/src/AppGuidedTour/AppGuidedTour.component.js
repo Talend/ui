@@ -19,7 +19,7 @@ function AppGuidedTour({
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const [importDemoContent, setImportDemoContent] = useState(false);
+	const [importDemoContent, setImportDemoContent] = useState(true);
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isNavigationDisabled =

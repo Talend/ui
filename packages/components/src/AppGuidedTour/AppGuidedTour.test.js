@@ -21,7 +21,10 @@ describe('AppGuidedTour', () => {
 			<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />,
 		);
 		act(() => {
-			wrapper.find('Tour').prop('getCurrentStep')(1);
+			wrapper.find('Toggle').prop('onChange')({ target: { checked: false } });
+		});
+		act(() => {
+			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
 		});
 		expect(onImportDemoContentMock).not.toHaveBeenCalled();
 	});
@@ -32,10 +35,7 @@ describe('AppGuidedTour', () => {
 			<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />,
 		);
 		act(() => {
-			wrapper.find('Toggle').prop('onChange')({ target: { checked: true } });
-		});
-		act(() => {
-			wrapper.find('Tour').prop('getCurrentStep')(1);
+			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
 		});
 
 		expect(onImportDemoContentMock).toHaveBeenCalled();
@@ -50,7 +50,7 @@ describe('AppGuidedTour', () => {
 			wrapper.find('Toggle').prop('onChange')({ target: { checked: true } });
 		});
 		act(() => {
-			wrapper.find('Tour').prop('getCurrentStep')(1);
+			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
 		});
 		wrapper.setProps({
 			demoContentSteps: [{ label: 'Importing dataset', status: LOADING_STEP_STATUSES.FAILURE }],
@@ -62,7 +62,9 @@ describe('AppGuidedTour', () => {
 		const onRequestCloseMock = jest.fn();
 		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} onRequestClose={onRequestCloseMock} />);
 
-		wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
+		act(() => {
+			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
+		});
 		act(() => {
 			wrapper.find('Tour').prop('onRequestClose')();
 		});
