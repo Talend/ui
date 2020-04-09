@@ -90,4 +90,4 @@ const getOperatorsFromDict = (operatorsDictionary, operatorsKeys) =>
 		.filter(element => element !== undefined);
 
 // eslint-disable-next-line import/prefer-default-export
-export { createOperatorsDict, getOperatorsFromDict };
+export { operatorNames, createOperatorsDict, getOperatorsFromDict };
