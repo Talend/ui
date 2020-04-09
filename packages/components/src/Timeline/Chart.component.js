@@ -8,15 +8,19 @@ import { useTimelineContext } from './context';
 
 import theme from './Chart.scss';
 
-function createDataDictModifier(dataDict, locale) {
-	return function addValue(groupLabel, key, value) {
-		const chartData = dataDict[key] || {
-			timestamp: key,
-			name: format(key, 'DD MMM YYYY HH:mm:ss', locale),
+function createDataDictModifier(dataDict, timeRange, locale) {
+	const [start, end] = timeRange;
+	return function addValue(groupLabel, timestamp, value) {
+		if (timestamp < start || timestamp > end) {
+			return;
+		}
+		const chartData = dataDict[timestamp] || {
+			timestamp: timestamp,
+			name: format(timestamp, 'DD MMM YYYY HH:mm:ss', locale),
 			max: { label: groupLabel, value },
 			value: 0,
 		};
-		dataDict[key] = chartData;
+		dataDict[timestamp] = chartData;
 		chartData.value += value;
 
 		if (value > chartData.max.value) {
@@ -25,9 +29,9 @@ function createDataDictModifier(dataDict, locale) {
 	};
 }
 
-function getData(groups, locale, getItemValues) {
+function getData(timeRange, groups, locale, getItemValues) {
 	const dataDict = {};
-	const addValue = createDataDictModifier(dataDict, locale);
+	const addValue = createDataDictModifier(dataDict, timeRange, locale);
 
 	groups.forEach(({ label: groupLabel, items }) => {
 		items
@@ -53,7 +57,7 @@ export default function Chart(props) {
 
 	const { caption, getItemValues, labelFormatter, valueFormatter, color } = props;
 
-	const data = getData(groups, locale, getItemValues);
+	const data = getData(timeRange, groups, locale, getItemValues);
 
 	return (
 		<div className={theme.timelineChart}>
@@ -81,7 +85,7 @@ export default function Chart(props) {
 							stroke="none"
 							fill={color}
 							fillOpacity={0.4}
-							dot={props => (
+							dot={(props) => (
 								<Dot
 									{...props}
 									stroke="transparent"
