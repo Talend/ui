@@ -1,20 +1,27 @@
-import React from 'react';
-import classNames from 'classnames';
 // eslint-disable-next-line
 import { storiesOf } from '@storybook/react';
+import talendIcons from '@talend/icons/dist/react';
 import mock, { Provider } from '@talend/react-cmf/lib/mock';
+import classNames from 'classnames';
+import get from 'lodash/get';
 import words from 'lodash/words';
-// eslint-disable-next-line
-import theme from './theme.scss';
-import hierarchicSample from './sample.raw.json';
+import React from 'react';
+import IconsProvider from '../IconsProvider';
 import ModelViewer from './ModelViewer';
 import RecordsViewer from './RecordsViewer';
+import hierarchicSample from './sample.raw.json';
+import theme from './theme.scss';
+
+const icons = {
+	'talend-chevron-left': talendIcons['talend-chevron-left'],
+};
 
 const stories = storiesOf('DataViewer', module);
 
 stories
 	.addDecorator(story => (
 		<div style={{ backgroundColor: 'white', height: '400px' }} className="col-lg-offset-2 col-lg-8">
+			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))
@@ -26,6 +33,16 @@ stories
 		const onSelect = (event, jsonpath, value) => {
 			highlighted[0] = buildRegExpJsonpath(jsonpath);
 			jsonPathSelection = jsonpath;
+		};
+
+		const isUnion = item => {
+			return Array.isArray(item.type);
+		};
+		const getDisplayValue = item => {
+			if (typeof item === 'string') {
+				return item;
+			}
+			return get(item, 'doc', item.name);
 		};
 
 		return (
@@ -42,10 +59,15 @@ stories
 						className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}
 					>
 						<ModelViewer
+							componentId="ModelViewer"
 							highlighted={highlighted}
 							jsonPathSelection={jsonPathSelection}
 							onSelect={onSelect}
 							sample={hierarchicSample}
+							renderLeafOptions={() => {}}
+							getDisplayValue={getDisplayValue}
+							isUnion={isUnion}
+							hasSemanticAwareness
 						/>
 					</div>
 					<div
@@ -55,9 +77,12 @@ stories
 						)}
 					>
 						<RecordsViewer
+							componentId="RecordsViewer"
 							highlighted={highlighted}
 							onVerticalScroll={() => {}}
 							sample={hierarchicSample}
+							renderLeafAdditionalValue={() => {}}
+							renderBranchAdditionalValue={() => {}}
 						/>
 					</div>
 				</div>

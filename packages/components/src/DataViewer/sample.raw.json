@@ -665,7 +665,11 @@
     {
       "value": {
         "business_id": { "value": 0, "quality": 1, "unionKey": "int" },
-        "name": { "value": "Betty's Cafe", "quality": 1, "unionKey": "string" },
+        "name": {
+          "value": "Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe",
+          "quality": 1,
+          "unionKey": "string"
+        },
         "category": { "value": "Club", "quality": 1, "unionKey": "string" },
         "rating": { "value": 4.0, "quality": 1, "unionKey": "float" },
         "num_of_reviews": { "value": 2647, "quality": 1, "unionKey": "int" },
