@@ -49,10 +49,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 
@@ -65,10 +62,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 		// should remove the tooltip
@@ -84,10 +78,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 
@@ -100,10 +91,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 		// should remove the tooltip
@@ -119,10 +107,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 
@@ -135,10 +120,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 		// should remove the tooltip
