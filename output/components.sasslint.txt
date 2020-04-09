@@ -14,8 +14,8 @@ src/FilterBar/FilterBar.scss
   53:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/GuidedTour/GuidedTour.scss
-  71:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
-  80:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
+  74:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
+  83:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
 
 src/List/Toolbar/Toolbar.scss
   70:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
