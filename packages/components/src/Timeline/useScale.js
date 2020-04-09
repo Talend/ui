@@ -10,15 +10,23 @@ const MILLISECONDS_IN_DAY = 24 * MILLISECONDS_IN_HOUR;
 const MILLISECONDS_IN_3_DAYS = 3 * MILLISECONDS_IN_DAY;
 
 export const SCALE_MODES = {
+	// base 5min
 	MINUTES: 'MINUTES',
 	TWO_MINUTES: '2MINUTES',
 	FIVE_MINUTES: '5MINUTES',
 	TEN_MINUTES: '10MINUTES',
+
+	// base hour
 	QUARTER_HOUR: 'QUARTER_HOUR',
 	HALF_HOUR: 'HALF_HOUR',
 	HOURS: 'HOURS',
 	TWO_HOURS: '2HOURS',
 	THREE_HOURS: '3HOURS',
+
+	// base 6h
+	FOUR_HOURS: '4HOURS',
+	SIX_HOURS: '6HOURS',
+	TWELVE_HOURS: '12HOURS',
 };
 
 const BASE_MODES = [SCALE_MODES.FIVE_MINUTES, SCALE_MODES.HOURS];
@@ -30,25 +38,77 @@ const STEPS = {
 	[SCALE_MODES.FIVE_MINUTES]: 5 * MILLISECONDS_IN_MINUTE,
 	[SCALE_MODES.TEN_MINUTES]: 10 * MILLISECONDS_IN_MINUTE,
 
-	// base hour
+	// base 1h
 	[SCALE_MODES.QUARTER_HOUR]: 15 * MILLISECONDS_IN_MINUTE,
 	[SCALE_MODES.HALF_HOUR]: 30 * MILLISECONDS_IN_MINUTE,
 	[SCALE_MODES.HOURS]: MILLISECONDS_IN_HOUR,
 	[SCALE_MODES.TWO_HOURS]: 2 * MILLISECONDS_IN_HOUR,
 	[SCALE_MODES.THREE_HOURS]: 3 * MILLISECONDS_IN_HOUR,
+
+	// base 6h
+	[SCALE_MODES.FOUR_HOURS]: 4 * MILLISECONDS_IN_HOUR,
+	[SCALE_MODES.SIX_HOURS]: 6 * MILLISECONDS_IN_HOUR,
+	[SCALE_MODES.TWELVE_HOURS]: 12 * MILLISECONDS_IN_HOUR,
 };
 
+const FIVE_MINS_BASE_STEPS = [
+	SCALE_MODES.MINUTES,
+	SCALE_MODES.TWO_MINUTES,
+	SCALE_MODES.FIVE_MINUTES,
+	SCALE_MODES.TEN_MINUTES,
+];
+const HOUR_BASE_STEPS = [
+	SCALE_MODES.QUARTER_HOUR,
+	SCALE_MODES.HALF_HOUR,
+	SCALE_MODES.HOURS,
+	SCALE_MODES.TWO_HOURS,
+	SCALE_MODES.THREE_HOURS,
+];
+
+const SIX_HOURS_BASE_STEPS = [
+	SCALE_MODES.FOUR_HOURS,
+	SCALE_MODES.SIX_HOURS,
+	SCALE_MODES.TWELVE_HOURS,
+];
+
 const UNIT_FORMATS = {
+	// base 5min
 	[SCALE_MODES.MINUTES]: { long: 'HH:mm', short: 'mm' },
 	[SCALE_MODES.TWO_MINUTES]: { long: 'HH:mm', short: 'mm' },
 	[SCALE_MODES.FIVE_MINUTES]: { long: 'HH:mm', short: 'mm' },
 	[SCALE_MODES.TEN_MINUTES]: { long: 'HH:mm', short: 'mm' },
 
+	// base hour
 	[SCALE_MODES.QUARTER_HOUR]: { long: 'HH:mm', short: 'mm' },
 	[SCALE_MODES.HALF_HOUR]: { long: 'HH:mm', short: 'mm' },
 	[SCALE_MODES.HOURS]: { long: 'HH:mm', short: 'HH' },
 	[SCALE_MODES.TWO_HOURS]: { long: 'HH:mm', short: 'HH' },
 	[SCALE_MODES.THREE_HOURS]: { long: 'HH:mm', short: 'HH' },
+
+	// base 6h
+	[SCALE_MODES.FOUR_HOURS]: { long: 'DD MMM', short: 'HH' },
+	[SCALE_MODES.SIX_HOURS]: { long: 'DD MMM', short: 'HH' },
+	[SCALE_MODES.TWELVE_HOURS]: { long: 'DD MMM', short: 'HH' },
+};
+
+export const SCALE_BASE_MULTIPLIERS = {
+	// base 5min
+	[SCALE_MODES.MINUTES]: 1 / 5,
+	[SCALE_MODES.TWO_MINUTES]: 2 / 5,
+	[SCALE_MODES.FIVE_MINUTES]: 1,
+	[SCALE_MODES.TEN_MINUTES]: 2,
+
+	// base 1h
+	[SCALE_MODES.QUARTER_HOUR]: 1 / 4,
+	[SCALE_MODES.HALF_HOUR]: 1 / 2,
+	[SCALE_MODES.HOURS]: 1,
+	[SCALE_MODES.TWO_HOURS]: 2,
+	[SCALE_MODES.THREE_HOURS]: 3,
+
+	// base 6h
+	[SCALE_MODES.FOUR_HOURS]: 4 / 6,
+	[SCALE_MODES.SIX_HOURS]: 1,
+	[SCALE_MODES.TWELVE_HOURS]: 2,
 };
 
 function getIntervals(timeRange, step, locale, localFormats) {
@@ -96,7 +156,19 @@ function getScaleMode(timeRange, zoom) {
 	const [startTimestamp, endTimestamp] = timeRange;
 	const isAtLeast3Days = endTimestamp - startTimestamp >= MILLISECONDS_IN_3_DAYS;
 	const isAtLeastADay = endTimestamp - startTimestamp >= MILLISECONDS_IN_DAY;
-	console.log(zoom);
+
+	// more than 3 days
+	// base scale is 6hour
+	if (isAtLeast3Days) {
+		if (zoom < 0.7) {
+			return SCALE_MODES.TWELVE_HOURS;
+		}
+		if (zoom < 1.5) {
+			return SCALE_MODES.SIX_HOURS;
+		}
+
+		return SCALE_MODES.FOUR_HOURS;
+	}
 
 	// between 1 et 3 days
 	// base scale is hour
@@ -134,7 +206,12 @@ function getTimeLabelFn(scaleMode, locale) {
 	return function (timestamp) {
 		const longLabel = format(timestamp, 'HH:mm', locale);
 
-		if (BASE_MODES.includes(scaleMode) || new Date(timestamp).getMinutes() === 0) {
+		const date = new Date(timestamp);
+		if (
+			(SIX_HOURS_BASE_STEPS.includes(scaleMode) && date.getHours() === 0) ||
+			(HOUR_BASE_STEPS.includes(scaleMode) && date.getMinutes() === 0) ||
+			(FIVE_MINS_BASE_STEPS.includes(scaleMode) && date.getMinutes() === 0)
+		) {
 			return longLabel;
 		}
 
