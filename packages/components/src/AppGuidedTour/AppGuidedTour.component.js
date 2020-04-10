@@ -7,6 +7,7 @@ import Stepper from '../Stepper';
 import { isAllSuccessful, isStepsLoading } from '../Stepper/Stepper.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
+const DEMO_CONTENT_SUCCESSFUL_TRANSITION_DELAY = 1000;
 const DEMO_CONTENT_STEP_ID = 1;
 
 function AppGuidedTour({
@@ -31,7 +32,7 @@ function AppGuidedTour({
 		if (isImportSuccessFul) {
 			timeoutId = setTimeout(() => {
 				setCurrentStep(prev => (prev === DEMO_CONTENT_STEP_ID ? DEMO_CONTENT_STEP_ID + 1 : prev));
-			}, 1000);
+			}, DEMO_CONTENT_SUCCESSFUL_TRANSITION_DELAY);
 		}
 		return () => clearTimeout(timeoutId);
 	}, [isImportSuccessFul]);
