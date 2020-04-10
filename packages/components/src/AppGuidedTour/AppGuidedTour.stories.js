@@ -25,6 +25,8 @@ function AppGuidedTourContainer() {
 					},
 				},
 			]}
+			onRequestOpen={() => {}}
+			onRequestClose={() => {}}
 			onImportDemoContent={() => {
 				setStepStatus(LOADING_STEP_STATUSES.LOADING);
 				setTimeout(() => {
