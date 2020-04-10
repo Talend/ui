@@ -50,6 +50,7 @@
     "postcss-import": "^12.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "storybook-addon-deps": "^2.0.0",
     "storybook-addon-styled-component-theme": "^1.3.0",
     "stylelint": "^13.2.1",
     "tailwind.macro": "next",

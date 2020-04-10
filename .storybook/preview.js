@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { addParameters, addDecorator } from '@storybook/react';
 import { withContexts } from '@storybook/addon-contexts/react';
 import { normalize } from 'polished';
-
+import { DocsPage } from 'storybook-addon-deps/blocks';
 import { contexts } from './contexts';
 
 addParameters({
@@ -11,6 +11,11 @@ addParameters({
 		{ name: 'Default background', value: '#ffffff', default: true },
 		{ name: 'Dark background', value: '#222222' },
 	],
+});
+
+addParameters({
+	docs: { page: DocsPage },
+	dependencies: { withStoriesOnly: true, hideEmpty: false },
 });
 
 addDecorator(withContexts(contexts));
