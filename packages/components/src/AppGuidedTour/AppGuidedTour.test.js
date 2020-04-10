@@ -1,19 +1,24 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import AppGuidedTour from './AppGuidedTour.component';
+import AppGuidedTour, { DEFAULT_LOCAL_STORAGE_KEY } from './AppGuidedTour.component';
 import { LOADING_STEP_STATUSES } from '../Stepper';
 
 const DEFAULT_PROPS = {
 	appName: 'app name',
 	isOpen: true,
+	localStorageKey: DEFAULT_LOCAL_STORAGE_KEY,
 	steps: [],
 	demoContentSteps: [],
 	onImportDemoContent: () => {},
 	onRequestClose: () => {},
+	onRequestOpen: () => {},
 };
 
 describe('AppGuidedTour', () => {
+	beforeEach(() => {
+		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, null);
+	});
 	it('should not trigger import function if "load demo content" is not selected', () => {
 		const onImportDemoContentMock = jest.fn();
 
@@ -40,6 +45,15 @@ describe('AppGuidedTour', () => {
 
 		expect(onImportDemoContentMock).toHaveBeenCalled();
 	});
+	it('should import content by default on first time use', () => {
+		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} />);
+		expect(wrapper.find('Toggle').prop('checked')).toBe(true);
+	});
+	it('should not import content by default when opening from menu', () => {
+		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, 'true');
+		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} />);
+		expect(wrapper.find('Toggle').prop('checked')).toBe(false);
+	});
 	it('should stay on import step if import is not successful', () => {
 		const onImportDemoContentMock = jest.fn();
 
@@ -60,6 +74,8 @@ describe('AppGuidedTour', () => {
 	});
 	it('should reset state on close', () => {
 		const onRequestCloseMock = jest.fn();
+		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, 'true');
+
 		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} onRequestClose={onRequestCloseMock} />);
 
 		act(() => {
@@ -71,5 +87,25 @@ describe('AppGuidedTour', () => {
 
 		expect(onRequestCloseMock).toHaveBeenCalled();
 		expect(wrapper.find('Tour').prop('goToStep')).toBe(0);
+		expect(wrapper.find('Toggle').prop('checked')).toBe(false);
+	});
+	it('Should open if local storage flag is not set', () => {
+		const onRequestOpenMock = jest.fn();
+		mount(<AppGuidedTour {...DEFAULT_PROPS} isOpen={false} onRequestOpen={onRequestOpenMock} />);
+		expect(onRequestOpenMock).toHaveBeenCalled();
+	});
+	it('Should not open if local storage flag is set', () => {
+		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, 'true');
+		const onRequestOpenMock = jest.fn();
+		mount(<AppGuidedTour {...DEFAULT_PROPS} isOpen={false} onRequestOpen={onRequestOpenMock} />);
+		expect(onRequestOpenMock).not.toHaveBeenCalled();
+	});
+	it('Should set a local storage flag when closed', () => {
+		const onCloseMock = jest.fn();
+		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} onClose={onCloseMock} />);
+		act(() => {
+			wrapper.find('Tour').prop('onRequestClose')();
+		});
+		expect(localStorage.getItem(DEFAULT_LOCAL_STORAGE_KEY)).toBe('true');
 	});
 });

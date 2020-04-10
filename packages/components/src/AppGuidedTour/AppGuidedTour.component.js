@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import useLocalStorage from 'react-use/lib/useLocalStorage';
 import { useTranslation } from 'react-i18next';
 import GuidedTour from '../GuidedTour';
 import Toggle from '../Toggle';
@@ -9,23 +10,33 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const DEMO_CONTENT_SUCCESSFUL_TRANSITION_DELAY = 1000;
 const DEMO_CONTENT_STEP_ID = 1;
+export const DEFAULT_LOCAL_STORAGE_KEY = 'app-guided-tour-viewed';
 
 function AppGuidedTour({
 	isOpen,
 	appName,
 	steps,
+	localStorageKey = DEFAULT_LOCAL_STORAGE_KEY,
 	demoContentSteps,
+	onRequestOpen,
 	onImportDemoContent,
 	onRequestClose,
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const [importDemoContent, setImportDemoContent] = useState(true);
+	const [isAlreadyViewed, setIsAlreadyViewed] = useLocalStorage(localStorageKey, false);
+	const [importDemoContent, setImportDemoContent] = useState(!isAlreadyViewed);
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isNavigationDisabled =
 		importDemoContent && currentStep === DEMO_CONTENT_STEP_ID && isStepsLoading(demoContentSteps);
 	const isImportSuccessFul = demoContentSteps.length && isAllSuccessful(demoContentSteps);
+
+	useEffect(() => {
+		if (!isAlreadyViewed) {
+			onRequestOpen();
+		}
+	}, [setIsAlreadyViewed, onRequestOpen]);
 
 	useEffect(() => {
 		let timeoutId = null;
@@ -57,7 +68,9 @@ function AppGuidedTour({
 			goToStep={currentStep}
 			onRequestClose={() => {
 				onRequestClose();
+				setIsAlreadyViewed(true);
 				setCurrentStep(0);
+				setImportDemoContent(false);
 			}}
 			steps={[
 				{
@@ -106,8 +119,10 @@ function AppGuidedTour({
 AppGuidedTour.propTypes = {
 	isOpen: PropTypes.bool.isRequired,
 	appName: PropTypes.string.isRequired,
+	localStorageKey: PropTypes.string,
 	steps: GuidedTour.propTypes.steps,
 	demoContentSteps: Stepper.propTypes.steps.isRequired,
+	onRequestOpen: PropTypes.func.isRequired,
 	onImportDemoContent: PropTypes.func.isRequired,
 	onRequestClose: PropTypes.func.isRequired,
 };
