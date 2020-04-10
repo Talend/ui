@@ -36,5 +36,4 @@ export default {
 	successColor: palette.rioGrande,
 	destructiveColor: palette.chesnutRose,
 	transparent: 'rgba(0,0,0,0)',
-	mainColor: greyscale.black,
 };

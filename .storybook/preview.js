@@ -1,27 +1,18 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { addParameters, addDecorator } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { withContexts } from '@storybook/addon-contexts/react';
 import { normalize } from 'polished';
 import { DocsPage } from 'storybook-addon-deps/blocks';
 import { contexts } from './contexts';
 
 addParameters({
-	backgrounds: [
-		{ name: 'Default background', value: '#ffffff', default: true },
-		{ name: 'Dark background', value: '#222222' },
-	],
-});
-
-addParameters({
 	docs: { page: DocsPage },
 	dependencies: { withStoriesOnly: true, hideEmpty: false },
 });
 
-addDecorator(withContexts(contexts));
-
-const GlobalStyle = createGlobalStyle`
-  	${normalize()}
+const GlobalStyle = createGlobalStyle(({ theme }) => `
+	${normalize()}
   
 	html {
 		/* 1rem = 10px */
@@ -30,8 +21,9 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
 		font-size: 1.6rem;
+		background: ${theme.colors.backgroundColor};
 	}
-`;
+`);
 
 const RowDiv = styled.div`
 	display: flex;
@@ -45,3 +37,5 @@ addDecorator(storyFn => (
 		{storyFn()}
 	</RowDiv>
 ));
+
+addDecorator(withContexts(contexts));
