@@ -385,6 +385,7 @@ export function CustomGroupFilter() {
 							title="Remove from chart"
 							onClick={() => onFilterTask(id)}
 						>
+							<span className="sr-only">Remove from chart</span>
 							<Icon name="talend-cross" />
 						</button>
 						{label}
