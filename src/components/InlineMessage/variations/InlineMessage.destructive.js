@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { tint } from 'polished';
-import Alert from '../Alert';
+import InlineMessage from '../InlineMessage';
 import Icon from '../../Icon';
 
-const StyledComponent = styled(Alert)`
+const StyledComponent = styled(InlineMessage)`
 	color: ${props =>
 		!props.withBackground && props.theme.colors.inverseColor
 			? props.theme.colors.inverseColor
@@ -12,7 +12,7 @@ const StyledComponent = styled(Alert)`
 	background: ${props => props.withBackground && tint(0.9, props.theme.colors.destructiveColor)};
 `;
 
-const AlertDestructive = React.forwardRef((props, ref) => {
+const InlineMessageDestructive = React.forwardRef((props, ref) => {
 	return (
 		<StyledComponent
 			icon={<Icon className={'text-red-500'} name={'cross'} />}
@@ -22,6 +22,6 @@ const AlertDestructive = React.forwardRef((props, ref) => {
 	);
 });
 
-AlertDestructive.propTypes = Alert.propTypes;
+InlineMessageDestructive.propTypes = InlineMessage.propTypes;
 
-export default React.memo(AlertDestructive);
+export default React.memo(InlineMessageDestructive);

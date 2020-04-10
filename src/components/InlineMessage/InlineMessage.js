@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
 
-import './Alert.css';
+import './InlineMessage.css';
 
 import tokens from '../../tokens';
 
-export const StyledAlert = styled(
+export const StyledInlineMessage = styled(
 	React.forwardRef(({ theme, ...props }, ref) => <div ref={ref} {...props} />),
 )`
 	${props => props.withBackground && tw`flex items-center p-2 rounded-md`}
@@ -35,9 +35,9 @@ export const StyledSpan = styled.span`
 `;
 
 // @link https://inclusive-components.design/notifications
-function Alert({ icon, title, description, link, withBackground = false, ...rest }) {
+function InlineMessage({ icon, title, description, link, withBackground = false, ...rest }) {
 	return (
-		<StyledAlert withBackground={withBackground} {...rest} role="status" aria-live="polite">
+		<StyledInlineMessage withBackground={withBackground} {...rest} role="status" aria-live="polite">
 			<StyledParagraph icon={icon} withBackground={withBackground}>
 				{(icon || title) && (
 					<StyledStrong>
@@ -48,13 +48,13 @@ function Alert({ icon, title, description, link, withBackground = false, ...rest
 				{description && <StyledSpan>{description}</StyledSpan>}
 				{link && <StyledSpan>{link}</StyledSpan>}
 			</StyledParagraph>
-		</StyledAlert>
+		</StyledInlineMessage>
 	);
 }
 
-Alert.defaultProps = { theme: tokens };
+InlineMessage.defaultProps = { theme: tokens };
 
-Alert.propTypes = {
+InlineMessage.propTypes = {
 	icon: PropTypes.node,
 	title: PropTypes.string,
 	description: PropTypes.string.isRequired,
@@ -62,4 +62,4 @@ Alert.propTypes = {
 	withBackground: PropTypes.bool,
 };
 
-export default Alert;
+export default InlineMessage;

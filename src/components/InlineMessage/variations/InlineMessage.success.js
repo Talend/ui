@@ -1,24 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import { tint } from 'polished';
-import Alert from '../Alert';
+import InlineMessage from '../InlineMessage';
 import tokens from '../../../tokens';
 import Icon from '../../Icon';
 
-const StyledComponent = styled(Alert)`
+const StyledComponent = styled(InlineMessage)`
 	background: ${props => props.withBackground && tint(0.9, tokens.colors.successColor)};
 `;
 
-const AlertSuccess = React.forwardRef((props, ref) => {
+const InlineMessageSuccess = React.forwardRef((props, ref) => {
 	return (
 		<StyledComponent
-			icon={<Icon className={'text-green-500'} name={'checkCircle'} />}
+			icon={<Icon className={'text-green-500'} name={'check'} />}
 			{...props}
 			ref={ref}
 		/>
 	);
 });
 
-AlertSuccess.propTypes = Alert.propTypes;
+InlineMessageSuccess.propTypes = InlineMessage.propTypes;
 
-export default React.memo(AlertSuccess);
+export default React.memo(InlineMessageSuccess);

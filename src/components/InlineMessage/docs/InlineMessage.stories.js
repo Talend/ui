@@ -2,18 +2,18 @@
 import React from 'react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import Alert from './../index';
+import InlineMessage from './../index';
 
 export default {
-	title: 'Components|Alert',
+	title: 'Components|InlineMessage',
 	parameters: {
-		component: Alert,
+		component: InlineMessage,
 	},
 	decorators: [withKnobs],
 };
 
 export const basic = () => (
-	<Alert
+	<InlineMessage
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
@@ -23,7 +23,7 @@ export const basic = () => (
 	/>
 );
 export const information = () => (
-	<Alert.Information
+	<InlineMessage.Information
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
@@ -33,7 +33,7 @@ export const information = () => (
 	/>
 );
 export const informationWithBg = () => (
-	<Alert.Information
+	<InlineMessage.Information
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
@@ -44,7 +44,7 @@ export const informationWithBg = () => (
 	/>
 );
 export const success = () => (
-	<Alert.Success
+	<InlineMessage.Success
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
@@ -54,7 +54,7 @@ export const success = () => (
 	/>
 );
 export const successWithBg = () => (
-	<Alert.Success
+	<InlineMessage.Success
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
@@ -65,7 +65,7 @@ export const successWithBg = () => (
 	/>
 );
 export const warning = () => (
-	<Alert.Warning
+	<InlineMessage.Warning
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
@@ -75,7 +75,7 @@ export const warning = () => (
 	/>
 );
 export const warningWithBg = () => (
-	<Alert.Warning
+	<InlineMessage.Warning
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
@@ -86,7 +86,7 @@ export const warningWithBg = () => (
 	/>
 );
 export const destructive = () => (
-	<Alert.Destructive
+	<InlineMessage.Destructive
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
@@ -96,7 +96,7 @@ export const destructive = () => (
 	/>
 );
 export const destructiveWithBg = () => (
-	<Alert.Destructive
+	<InlineMessage.Destructive
 		title={text('title', 'Lorem ipsum')}
 		description={text(
 			'description',
