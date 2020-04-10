@@ -5,10 +5,13 @@ import { useTranslation } from 'react-i18next';
 import GuidedTour from '../GuidedTour';
 import Toggle from '../Toggle';
 import Stepper from '../Stepper';
-import { isAllSuccessful, isStepsLoading } from '../Stepper/Stepper.component';
+import {
+	isAllSuccessful,
+	isStepsLoading,
+	SHOW_COMPLETED_TRANSITION_TIMER,
+} from '../Stepper/Stepper.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-const DEMO_CONTENT_SUCCESSFUL_TRANSITION_DELAY = 1000;
 const DEMO_CONTENT_STEP_ID = 1;
 export const DEFAULT_LOCAL_STORAGE_KEY = 'app-guided-tour-viewed';
 
@@ -43,7 +46,7 @@ function AppGuidedTour({
 		if (isImportSuccessFul) {
 			timeoutId = setTimeout(() => {
 				setCurrentStep(prev => (prev === DEMO_CONTENT_STEP_ID ? DEMO_CONTENT_STEP_ID + 1 : prev));
-			}, DEMO_CONTENT_SUCCESSFUL_TRANSITION_DELAY);
+			}, SHOW_COMPLETED_TRANSITION_TIMER);
 		}
 		return () => clearTimeout(timeoutId);
 	}, [isImportSuccessFul]);
