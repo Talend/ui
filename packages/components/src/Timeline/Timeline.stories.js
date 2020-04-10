@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import format from 'date-fns/format';
 import { action } from '@storybook/addon-actions';
@@ -6,6 +6,7 @@ import { action } from '@storybook/addon-actions';
 import IconsProvider from '../IconsProvider';
 import Icon from '../Icon';
 import Timeline from './Timeline.component';
+import { useTimelineContext } from './context';
 import getLocale from '../DateFnsLocale/locale';
 import { getCurrentLanguage } from '../translate';
 
@@ -106,7 +107,9 @@ export function Zoom() {
 				<Timeline.Toolbar>
 					<Timeline.Zoom />
 				</Timeline.Toolbar>
-				<Timeline.Grid />
+				<Timeline.Body>
+					<Timeline.Grid />
+				</Timeline.Body>
 			</Timeline>
 		</>
 	);
@@ -130,7 +133,9 @@ export function DateFilter() {
 				<Timeline.Toolbar>
 					<Timeline.DateFilter id="date-filter" />
 				</Timeline.Toolbar>
-				<Timeline.Grid />
+				<Timeline.Body>
+					<Timeline.Grid />
+				</Timeline.Body>
 			</Timeline>
 		</>
 	);
@@ -241,7 +246,9 @@ export const ScaleHour = () => (
 	<ScaleTimeline dataArray={jsoExecutionsByHour[0][0][0]} initialIndex={0} />
 );
 
-const TMCTimeline = ({ data, locale }) => {
+const TMCTimeline = ({ data }) => {
+	const { t } = useTranslation();
+	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 	const { executions, engine, timeRange } = data;
 	return (
 		<Timeline
@@ -291,37 +298,107 @@ const TMCTimeline = ({ data, locale }) => {
 	);
 };
 export function Chart() {
-	const { t } = useTranslation();
-	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 	const data = jsoExecutionsByDay[0][0][0];
 	return (
 		<>
 			<IconsProvider />
-			<TMCTimeline data={data} locale={locale} />
+			<TMCTimeline data={data} />
 		</>
 	);
 }
 
 export function Mozaic() {
-	const { t } = useTranslation();
-	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
 	return (
 		<>
 			<IconsProvider />
 			<div style={{ display: 'flex', flexWrap: 'wrap' }}>
 				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
-					<TMCTimeline data={jsoExecutionsByDay[0][0][0]} locale={locale} />
+					<TMCTimeline data={jsoExecutionsByDay[0][0][0]} />
 				</div>
 				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
-					<TMCTimeline data={jsoExecutionsByDay[1][0][0]} locale={locale} />
+					<TMCTimeline data={jsoExecutionsByDay[1][0][0]} />
 				</div>
 				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
-					<TMCTimeline data={jsoExecutionsByDay[2][0][0]} locale={locale} />
+					<TMCTimeline data={jsoExecutionsByDay[2][0][0]} />
 				</div>
 				<div style={{ flex: '1', padding: '3rem 5rem', maxWidth: '50%', border: '1px solid grey' }}>
-					<TMCTimeline data={jsoExecutionsByDay[3][0][0]} locale={locale} />
+					<TMCTimeline data={jsoExecutionsByDay[3][0][0]} />
 				</div>
 			</div>
+		</>
+	);
+}
+
+function useTaskFilter() {
+	const [taskIds, setTasksIds] = useState([]);
+	function onResetTaskFilter() {
+		setTasksIds([]);
+	}
+	function onFilterTask(id) {
+		setTasksIds((oldIds) => oldIds.concat(id));
+	}
+
+	return { taskIds, onResetTaskFilter, onFilterTask };
+}
+function TaskFilter({ taskIds = [], onResetTaskFilter }) {
+	const { addGroupFilters, removeGroupFilters } = useTimelineContext();
+	const filterName = 'idFilter';
+
+	useEffect(() => {
+		if (taskIds.length) {
+			addGroupFilters({
+				id: filterName,
+				predicate: ({ id }) => !taskIds.includes(id),
+			});
+		}
+		return () => removeGroupFilters(filterName);
+	}, [taskIds]);
+
+	return (
+		<button
+			className="btn btn-info btn-inverse"
+			onClick={onResetTaskFilter}
+			disabled={!taskIds.length}
+		>
+			Show all tasks
+		</button>
+	);
+}
+export function CustomGroupFilter() {
+	const data = jsoExecutionsByDay[0][0][0].executions;
+	const { taskIds, onResetTaskFilter, onFilterTask } = useTaskFilter();
+	return (
+		<>
+			<IconsProvider />
+			<Timeline
+				data={data}
+				idName="context.executionId"
+				caption={data[0].context.engine.name}
+				startName="time.start"
+				endName="time.end"
+				groupIdName="context.task.id"
+				groupLabelName="context.task.name"
+				groupLabelFormatter={({ id, label }) => (
+					<>
+						<button
+							className="btn btn-link btn-icon-only"
+							title="Remove from chart"
+							onClick={() => onFilterTask(id)}
+						>
+							<Icon name="talend-cross" />
+						</button>
+						{label}
+					</>
+				)}
+				dataItemProps={getItemProps}
+			>
+				<Timeline.Toolbar>
+					<TaskFilter id="date-filter" taskIds={taskIds} onResetTaskFilter={onResetTaskFilter} />
+				</Timeline.Toolbar>
+				<Timeline.Body>
+					<Timeline.Grid />
+				</Timeline.Body>
+			</Timeline>
 		</>
 	);
 }

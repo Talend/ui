@@ -34,6 +34,7 @@ export default function Timeline({
 	endName = 'end',
 	groupIdName = 'groupId',
 	groupLabelName = 'groupLabel',
+	groupLabelFormatter = ({ label }) => label,
 	caption = '',
 	dataItemProps = () => ({}),
 	dataItemPopover,
@@ -43,7 +44,14 @@ export default function Timeline({
 }) {
 	const [zoom, setZoom] = useState(1);
 	const groups = useGroups(data, { groupIdName, groupLabelName, startName, endName });
-	const { filters, addFilters, removeFilters } = useFilters();
+	const {
+		filters,
+		addFilters,
+		removeFilters,
+		groupFilters,
+		addGroupFilters,
+		removeGroupFilters,
+	} = useFilters();
 	const [timeRange, setTimeRange] = useTimeRange(
 		{ timeRangeFromProps, groups },
 		{
@@ -55,11 +63,13 @@ export default function Timeline({
 	);
 	const filteredData = useMemo(
 		() =>
-			groups.map((group) => ({
-				...group,
-				items: group.items.filter((item) => filters.every(({ predicate }) => predicate(item))),
-			})),
-		[groups, filters],
+			groups
+				.filter((group) => groupFilters.every(({ predicate }) => predicate(group)))
+				.map((group) => ({
+					...group,
+					items: group.items.filter((item) => filters.every(({ predicate }) => predicate(item))),
+				})),
+		[groups, filters, groupFilters],
 	);
 	const scale = useScale(timeRange, zoom);
 	const measures = useGridMeasures({ data: filteredData, timeRange, zoom, scale });
@@ -70,12 +80,16 @@ export default function Timeline({
 				filters,
 				addFilters,
 				removeFilters,
+				groupFilters,
+				addGroupFilters,
+				removeGroupFilters,
 				data: filteredData,
 				idName,
 				startName,
 				endName,
 				groupIdName,
 				groupLabelName,
+				groupLabelFormatter,
 				caption,
 				dataItemProps,
 				dataItemPopover,

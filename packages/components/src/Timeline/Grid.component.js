@@ -22,6 +22,7 @@ export default function Grid() {
 		startName,
 		endName,
 		dataItemProps,
+		groupLabelFormatter,
 		caption,
 		onClick,
 		dataItemPopover,
@@ -36,7 +37,8 @@ export default function Grid() {
 		<table className={theme.grid} style={{ position: 'relative', width: measures.total.widthUnit }}>
 			<caption className={`${theme.timelineSticky} ${theme.timelineCaption}`}>{caption}</caption>
 			<tbody className={theme.timelineRows}>
-				{data.map(({ id, label, items, maxLevel = 0 }, groupIndex) => {
+				{data.map((group, groupIndex) => {
+					const { id, items, maxLevel = 0 } = group;
 					const itemsPerInterval = getItemsPerInterval(items, scale.intervals.timeUnits, startName);
 					const height = `${(maxLevel + 1) * measures.row.height}rem`;
 					return (
@@ -47,7 +49,7 @@ export default function Grid() {
 							data-group-index={groupIndex}
 						>
 							<th scope="row" key={id} className={`${theme.timelineSticky} ${theme.timelineTitle}`}>
-								{label}
+								{groupLabelFormatter(group)}
 							</th>
 							{itemsPerInterval.map(({ start, isNewDate, items }) => {
 								return (
