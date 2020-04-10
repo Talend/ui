@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { addDecorator } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
 import { withContexts } from '@storybook/addon-contexts/react';
 import { normalize } from 'polished';
 import { DocsPage } from 'storybook-addon-deps/blocks';
@@ -11,7 +11,8 @@ addParameters({
 	dependencies: { withStoriesOnly: true, hideEmpty: false },
 });
 
-const GlobalStyle = createGlobalStyle(({ theme }) => `
+const GlobalStyle = createGlobalStyle(
+	({ theme }) => `
 	${normalize()}
   
 	html {
@@ -23,7 +24,8 @@ const GlobalStyle = createGlobalStyle(({ theme }) => `
 		font-size: 1.6rem;
 		background: ${theme.colors.backgroundColor};
 	}
-`);
+`,
+);
 
 const RowDiv = styled.div`
 	display: flex;
