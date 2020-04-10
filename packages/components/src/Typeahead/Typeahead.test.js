@@ -173,7 +173,7 @@ describe('Typeahead', () => {
 			typeaheadInstance
 				.find('Item')
 				.at(0)
-				.simulate('mouseDown');
+				.simulate('click');
 
 			// then
 			expect(onSelect).toBeCalled();
