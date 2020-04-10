@@ -27,9 +27,13 @@ function AppGuidedTour({
 	const isImportSuccessFul = demoContentSteps.length && isAllSuccessful(demoContentSteps);
 
 	useEffect(() => {
+		let timeoutId = null;
 		if (isImportSuccessFul) {
-			setCurrentStep(prev => (prev === DEMO_CONTENT_STEP_ID ? DEMO_CONTENT_STEP_ID + 1 : prev));
+			timeoutId = setTimeout(() => {
+				setCurrentStep(prev => (prev === DEMO_CONTENT_STEP_ID ? DEMO_CONTENT_STEP_ID + 1 : prev));
+			}, 1000);
 		}
+		return () => clearTimeout(timeoutId);
 	}, [isImportSuccessFul]);
 
 	return (
