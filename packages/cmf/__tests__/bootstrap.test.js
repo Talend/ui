@@ -57,7 +57,6 @@ describe('bootstrap', () => {
 		ReactDOM.render.mockClear();
 	});
 	describe('error management', () => {
-
 		it('should bootstrap onError', () => {
 			const options = {
 				onError: {

@@ -1,7 +1,8 @@
+import React from 'react';
 import { spawn } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
 
-export function mergeObjects(obj1, obj2) {
+function mergeObjects(obj1, obj2) {
 	if (!obj2) {
 		return obj1;
 	}
@@ -23,7 +24,7 @@ export function mergeObjects(obj1, obj2) {
 	}, Object.assign({}, obj1));
 }
 
-export function mergeFns(fn1, fn2) {
+function mergeFns(fn1, fn2) {
 	if (!fn2) {
 		return fn1;
 	}
@@ -44,7 +45,7 @@ function throwIfBothExists(obj1, obj2, name) {
 	}
 }
 
-export function getUnique(obj1, obj2, name) {
+function getUnique(obj1, obj2, name) {
 	throwIfBothExists(obj1, obj2, name);
 	if (obj1) {
 		return obj1;
@@ -52,7 +53,7 @@ export function getUnique(obj1, obj2, name) {
 	return obj2;
 }
 
-export function mergeSaga(saga, newSaga) {
+function mergeSaga(saga, newSaga) {
 	assertValueTypeOf(saga, 'function');
 	assertValueTypeOf(newSaga, 'function');
 
@@ -68,7 +69,7 @@ export function mergeSaga(saga, newSaga) {
 	return saga;
 }
 
-export function mergeArrays(preReducer, newPreReducer) {
+function mergeArrays(preReducer, newPreReducer) {
 	if (preReducer && newPreReducer) {
 		return [].concat(preReducer).concat(newPreReducer);
 	}
@@ -78,13 +79,25 @@ export function mergeArrays(preReducer, newPreReducer) {
 	return preReducer;
 }
 
+function composeComponents(RootComponent, NestedRootComponent) {
+	if (!RootComponent) {
+		return NestedRootComponent;
+	}
+	// eslint-disable-next-line react/prop-types
+	return ({ children }) => (
+		<RootComponent>
+			<NestedRootComponent>{children}</NestedRootComponent>
+		</RootComponent>
+	);
+}
+
 const MERGE_FNS = {
 	id: () => undefined,
 	modules: () => undefined,
 	onError: getUnique,
 	root: getUnique,
 	appId: getUnique,
-	RootComponent: getUnique,
+	RootComponent: composeComponents,
 	AppLoader: getUnique,
 	saga: mergeSaga,
 	httpMiddleware: getUnique,
@@ -103,7 +116,7 @@ const MERGE_FNS = {
 	httpInterceptors: mergeArrays,
 };
 
-export function getReduceConfig(mergeConfig = MERGE_FNS) {
+function getReduceConfig(mergeConfig = MERGE_FNS) {
 	return function reduceConfig(acc, config) {
 		return Object.keys(config).reduce((subacc, key) => {
 			if (!mergeConfig[key]) {
