@@ -2,7 +2,7 @@ import React from 'react';
 import { spawn } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
 
-function mergeObjects(obj1, obj2) {
+export function mergeObjects(obj1, obj2) {
 	if (!obj2) {
 		return obj1;
 	}
@@ -45,7 +45,7 @@ function throwIfBothExists(obj1, obj2, name) {
 	}
 }
 
-function getUnique(obj1, obj2, name) {
+export function getUnique(obj1, obj2, name) {
 	throwIfBothExists(obj1, obj2, name);
 	if (obj1) {
 		return obj1;
@@ -116,7 +116,7 @@ const MERGE_FNS = {
 	httpInterceptors: mergeArrays,
 };
 
-function getReduceConfig(mergeConfig = MERGE_FNS) {
+export function getReduceConfig(mergeConfig = MERGE_FNS) {
 	return function reduceConfig(acc, config) {
 		return Object.keys(config).reduce((subacc, key) => {
 			if (!mergeConfig[key]) {

@@ -118,9 +118,9 @@ function DefaultRootComponent() {
  * @param {object} options the set of supported options
  * @returns {object} app object with render function
  */
-export default function bootstrap(appOptions = {}) {
+export default async function bootstrap(appOptions = {}) {
 	// setup asap
-	const options = cmfModule(appOptions);
+	const options = await cmfModule(appOptions);
 	assertTypeOf(options, 'root', 'object');
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'RootComponent', 'function');
