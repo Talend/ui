@@ -71,33 +71,6 @@ function sortElements(a, b) {
 }
 
 /**
- * This function check if the type is a number & check with min/max
- * @param {object} props list of component props
- * @param {string} propName current prop name
- * @param {string} componentName component name
- */
-export function propTypeCheckSize(props, propName, componentName) {
-	if (props[propName] == null) {
-		return null;
-	}
-	if (typeof props[propName] !== 'number') {
-		return new Error(
-			`Invalid type of ${propName} supplied to ${componentName} : ${typeof props[
-				propName
-			]}. Validation failed.`,
-		);
-	} else if (
-		props[propName] < PIECHART_CONSTANTS.MIN_SIZE ||
-		props[propName] > PIECHART_CONSTANTS.MAX_SIZE
-	) {
-		return new Error(
-			`Invalid prop ${propName} supplied to ${componentName} : ${props[propName]}. Validation failed.`,
-		);
-	}
-	return null;
-}
-
-/**
  * this function generates chart's empty part
  * @param {array} values the values shown in the graph
  * @param {object} size the current size
@@ -361,7 +334,7 @@ export const pieChartIconPropTypes = {
 			percentage: PropTypes.number.isRequired,
 		}).isRequired,
 	),
-	size: propTypeCheckSize,
+	size: PropTypes.string,
 };
 
 PieChartIconComponent.propTypes = {

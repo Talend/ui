@@ -178,22 +178,24 @@ function getCaption(
  * @param {function} captionsFormat the function to format the caption
  */
 function getHandle(captionsFormat, getTooltipContainer) {
-	function Handle(props) {
+	// https://github.com/react-component/slider/issues/502
+	function Handle({ dragging, ...rest }) {
 		return (
 			<Tooltip
 				prefixCls="rc-slider-tooltip"
-				overlay={captionsFormat(props.value)}
+				overlay={captionsFormat(rest.value)}
 				getTooltipContainer={getTooltipContainer}
 				visible
 				placement="top"
-				key={props.index}
+				key={rest.index}
 			>
-				<RcSlider.Handle {...props} />
+				<RcSlider.Handle dragging={dragging.toString()} {...rest} />
 			</Tooltip>
 		);
 	}
 
 	Handle.propTypes = {
+		dragging: PropTypes.bool,
 		value: PropTypes.number.isRequired,
 		index: PropTypes.number.isRequired,
 	};

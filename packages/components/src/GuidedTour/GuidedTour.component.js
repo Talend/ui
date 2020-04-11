@@ -73,7 +73,7 @@ GuidedTour.defaultProps = {
 };
 
 GuidedTour.propTypes = {
-	className: PropTypes.string,
+	className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 	steps: PropTypes.arrayOf(
 		PropTypes.shape({
 			selector: PropTypes.string,
