@@ -39,10 +39,10 @@ matrix:
       after_success:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Analysis skipped."; travis_terminate 0; fi
         - .travis/after_success_prettier.sh
-        - (yarn audit --json | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/audit.json
-        - (yarn run audit-router | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/router.json
-        - (yarn run audit-scripts | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/scripts.json
-        - (yarn run audit-html | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/html-webpack-plugin.json
+        # - (yarn audit --json | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/audit.json
+        # - (yarn run audit-router | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/router.json
+        # - (yarn run audit-scripts | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/scripts.json
+        # - (yarn run audit-html | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/html-webpack-plugin.json
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
 
