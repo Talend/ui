@@ -406,7 +406,13 @@ class Datalist extends Component {
 					className={classNames('tc-datalist', this.props.className)}
 					focusedItemIndex={this.state.focusedItemIndex}
 					focusedSectionIndex={this.state.focusedSectionIndex}
-					items={this.state.suggestions}
+					items={
+						this.state.suggestions &&
+						this.state.suggestions.map(suggestion => ({
+							'data-feature': suggestion.value,
+							...suggestion,
+						}))
+					}
 					onBlur={this.onBlur}
 					onChange={this.onChange}
 					onFocus={this.onFocus}
