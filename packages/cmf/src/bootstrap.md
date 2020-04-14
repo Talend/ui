@@ -41,7 +41,7 @@ cmf.bootstrap({
 | RootComponent    | React Component    | undefined                      | Let you define the React component to use to wrapp the App. It can be a react-router for example.             |
 | registry         | Object             | undefined                      | Let you register anything you want as key/value in the CMF registry                                           |
 | httpInterceptors | Array              | undefined                      | Let you register interceptors                                                                                 |
-| asyncInit        | function           | undefined                      | Function that return the module content initialised                                                           |
+| init             | function           | undefined                      | Function that return the module content initialised                                                           |
 
 ## Modules
 

@@ -1,9 +1,9 @@
 import merge from './cmfModule.merge';
 
 async function getModule(module) {
-	const { asyncInit, ...syncModule } = module;
-	if (asyncInit) {
-		const asyncModule = await asyncInit();
+	const { init, ...syncModule } = module;
+	if (init) {
+		const asyncModule = await init();
 		return {
 			...syncModule,
 			...asyncModule,
