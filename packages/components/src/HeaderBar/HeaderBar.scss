@@ -66,8 +66,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 					width: $svg-xlg-size;
 				}
 				// change logo colors
-				.ti-foreground { fill: $regal-blue; }
-				.ti-background { fill: $white; }
+				.ti-foreground {
+					fill: $regal-blue;
+				}
+				.ti-background {
+					fill: $white;
+				}
 			}
 
 			&.full :global(.tc-svg-icon) {
