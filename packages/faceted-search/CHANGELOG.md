@@ -26,16 +26,17 @@ Types of changes
 
 ## [unreleased]
 
+## [0.7.0]
+
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/2734):  Expose an helper to remove `contains` operator if `containsIgnoreCase` is here
+- [feat](https://github.com/Talend/ui/pull/2734): Expose an helper to remove `contains` operator if `containsIgnoreCase` is here
 
 ## [0.6.0]
 
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/2732):  Implement containsIgnoreCase operator
-
+- [feat](https://github.com/Talend/ui/pull/2732): Implement containsIgnoreCase operator
 
 ## [0.5.2]
 
