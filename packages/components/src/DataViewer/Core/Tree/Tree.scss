@@ -1,5 +1,3 @@
-$border-size: 0.1rem;
-
 :global(.tc-model .tc-tree) {
 	overflow: auto;
 }
@@ -15,9 +13,9 @@ $border-size: 0.1rem;
 	}
 
 	&-node-border {
-		border-left: $border-size solid $alto;
+		border-left: 1px solid $alto;
 		&:hover {
-			border-left: $border-size solid $silver-chalice;
+			border-left-color: $silver-chalice;
 		}
 	}
 }

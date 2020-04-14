@@ -16,23 +16,27 @@ export class RecordsViewer extends React.Component {
 		paddingOffset: PropTypes.number,
 		t: PropTypes.func.isRequired,
 		virtualized: PropTypes.bool,
+		displayHeader: PropTypes.bool,
 	};
 
 	static defaultProps = {
 		virtualized: true,
 		t: getDefaultT(),
+		displayHeader: true,
 	};
 
 	renderCellRenderer = args => <RecordsCellRenderer {...this.props} {...args} />;
 
 	render() {
-		const { onCollapseAll, onVerticalScroll, t, virtualized, ...props } = this.props;
+		const { onCollapseAll, onVerticalScroll, t, virtualized, displayHeader, ...props } = this.props;
 		return (
 			<div className={classNames(theme['tc-records-viewer'], 'tc-records-viewer')}>
-				<TreeHeader
-					title={t('RECORDS_HEADER_TITLE', { defaultValue: 'Records' })}
-					onClickCollapseAll={onCollapseAll}
-				/>
+				{displayHeader && (
+					<TreeHeader
+						title={t('RECORDS_HEADER_TITLE', { defaultValue: 'Records' })}
+						onClickCollapseAll={onCollapseAll}
+					/>
+				)}
 				{virtualized ? (
 					<VirtualizedTree
 						cellRenderer={this.renderCellRenderer}

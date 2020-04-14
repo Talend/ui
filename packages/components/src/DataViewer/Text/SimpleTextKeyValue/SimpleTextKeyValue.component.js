@@ -38,7 +38,7 @@ function getTypeRenderer(schemaType) {
 	return schemaType.type;
 }
 
-function AvroRenderer({ colDef, data }) {
+export function AvroRenderer({ colDef, data }) {
 	const typeRenderer = getTypeRenderer(colDef.avro.type);
 	const dateToString = value => {
 		if (value === null) {
