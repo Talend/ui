@@ -82,7 +82,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
         aria-selected={true}
         className="theme-item-highlighted tc-typeahead-item-highlighted"
         id="react-autowhatever-42--item-0"
-        onMouseDown={[Function]}
+        onClick={[Function]}
         role="option"
       >
         <div
@@ -158,7 +158,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
           aria-selected={true}
           className="theme-item-highlighted tc-typeahead-item-highlighted"
           id="react-autowhatever-42-section-0-item-0"
-          onMouseDown={[Function]}
+          onClick={[Function]}
           role="option"
         >
           <div
