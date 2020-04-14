@@ -59,10 +59,15 @@ $background-color-on-hover: shade($brand-primary, 30);
 			line-height: $svg-xlg-size;
 			padding: 8px $padding-normal 8px $padding-small;
 
-			:global(.tc-svg-icon) {
-				height: $svg-xlg-size;
-				vertical-align: top;
-				width: $svg-xlg-size;
+			:global {
+				.tc-svg-icon {
+					height: $svg-xlg-size;
+					vertical-align: top;
+					width: $svg-xlg-size;
+				}
+				// change logo colors
+				.ti-foreground { fill: $regal-blue; }
+				.ti-background { fill: $white; }
 			}
 
 			&.full :global(.tc-svg-icon) {
