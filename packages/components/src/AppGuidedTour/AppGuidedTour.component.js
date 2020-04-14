@@ -5,7 +5,11 @@ import { useTranslation } from 'react-i18next';
 import GuidedTour from '../GuidedTour';
 import Toggle from '../Toggle';
 import Stepper from '../Stepper';
-import { isAllSuccessful, isStepsLoading } from '../Stepper/Stepper.component';
+import {
+	isAllSuccessful,
+	isStepsLoading,
+	SHOW_COMPLETED_TRANSITION_TIMER,
+} from '../Stepper/Stepper.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const DEMO_CONTENT_STEP_ID = 1;
@@ -38,9 +42,13 @@ function AppGuidedTour({
 	}, [setIsAlreadyViewed, onRequestOpen]);
 
 	useEffect(() => {
+		let timeoutId = null;
 		if (isImportSuccessFul) {
-			setCurrentStep(prev => (prev === DEMO_CONTENT_STEP_ID ? DEMO_CONTENT_STEP_ID + 1 : prev));
+			timeoutId = setTimeout(() => {
+				setCurrentStep(prev => (prev === DEMO_CONTENT_STEP_ID ? DEMO_CONTENT_STEP_ID + 1 : prev));
+			}, SHOW_COMPLETED_TRANSITION_TIMER);
 		}
+		return () => clearTimeout(timeoutId);
 	}, [isImportSuccessFul]);
 
 	return (

@@ -10,7 +10,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const getClass = getTheme(theme);
 
-const SHOW_COMPLETED_TRANSITION_TIMER = 1000;
+export const SHOW_COMPLETED_TRANSITION_TIMER = 1000;
 export const TRANSITION_STATE = {
 	STEPS: 'STEPS',
 	TRANSITION: 'TRANSITION',
