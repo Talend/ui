@@ -11,8 +11,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 // change logo colors
 #talend-logo-square {
-	.ti-foreground { fill: $regal-blue; }
-	.ti-background { fill: $white; }
+	.ti-foreground {
+		fill: $regal-blue;
+	}
+	.ti-background {
+		fill: $white;
+	}
 }
 
 .tc-header-bar {
