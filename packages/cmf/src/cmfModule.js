@@ -19,8 +19,11 @@ async function find(options, buff = []) {
 				throw new Error('a cmf.module must have an id');
 			}
 
-			// prevent module duplication
-			if (!buff.some(({ id }) => current.id === id)) {
+			if (buff.some(({ id }) => current.id === id)) {
+				console.warn(
+					`cmf.bootstrap: 2 modules have the same id ${current.id}. This duplicated module will be skipped.`,
+				);
+			} else {
 				const module = await getModule(current);
 				buff.push(module);
 				await find(module, buff);
