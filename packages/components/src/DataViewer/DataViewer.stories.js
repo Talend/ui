@@ -16,7 +16,7 @@ const icons = {
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
 };
 
-const stories = storiesOf('DataViewer', module);
+const stories = storiesOf('Data/Tree/DataViewer', module);
 
 stories
 	.addDecorator(story => (
