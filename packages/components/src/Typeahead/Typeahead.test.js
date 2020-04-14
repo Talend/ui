@@ -110,10 +110,7 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance
-				.find('Button.tc-typeahead-toggle')
-				.at(0)
-				.simulate('click');
+			typeaheadInstance.find('Button.tc-typeahead-toggle').at(0).simulate('click');
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -170,10 +167,7 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance
-				.find('Item')
-				.at(0)
-				.simulate('click');
+			typeaheadInstance.find('Item').at(0).simulate('click');
 
 			// then
 			expect(onSelect).toBeCalled();
