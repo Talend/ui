@@ -94,6 +94,7 @@ function composeComponents(RootComponent, NestedRootComponent) {
 const MERGE_FNS = {
 	id: () => undefined,
 	modules: () => undefined,
+	init: () => undefined,
 	onError: getUnique,
 	root: getUnique,
 	appId: getUnique,
