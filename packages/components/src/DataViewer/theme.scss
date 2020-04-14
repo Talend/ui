@@ -32,16 +32,6 @@ $tc-layout-skeleton-height: 9.6rem !default;
 	}
 }
 
-.tdc {
-	:global {
-		@import '~@talend/bootstrap-theme/src/theme/variations/tdc';
-	}
-}
-
-:global(.sb-show-main) {
-	background: #f6f6f6;
-}
-
 :global(.button-padding) {
 	margin-top: $padding-normal;
 	margin-right: $padding-small;
