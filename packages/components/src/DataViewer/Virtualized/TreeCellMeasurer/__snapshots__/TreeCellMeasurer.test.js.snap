@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeCellMeasurer it should render my cell renderer 1`] = `
+<CellMeasurer
+  cache={
+    CellMeasurerCache {
+      "_cellHeightCache": Object {},
+      "_cellWidthCache": Object {},
+      "_columnCount": 0,
+      "_columnWidthCache": Object {},
+      "_defaultHeight": 30,
+      "_defaultWidth": 100,
+      "_hasFixedHeight": false,
+      "_hasFixedWidth": false,
+      "_keyMapper": [Function],
+      "_minHeight": 0,
+      "_minWidth": 0,
+      "_rowCount": 0,
+      "_rowHeightCache": Object {},
+      "columnWidth": [Function],
+      "rowHeight": [Function],
+    }
+  }
+  columnIndex={0}
+  parent={
+    Object {
+      "props": Object {
+        "cache": CellMeasurerCache {
+          "_cellHeightCache": Object {},
+          "_cellWidthCache": Object {},
+          "_columnCount": 0,
+          "_columnWidthCache": Object {},
+          "_defaultHeight": 30,
+          "_defaultWidth": 100,
+          "_hasFixedHeight": false,
+          "_hasFixedWidth": false,
+          "_keyMapper": [Function],
+          "_minHeight": 0,
+          "_minWidth": 0,
+          "_rowCount": 0,
+          "_rowHeightCache": Object {},
+          "columnWidth": [Function],
+          "rowHeight": [Function],
+        },
+        "paddingOffset": 30,
+      },
+    }
+  }
+  rowIndex={0}
+>
+  [Function]
+</CellMeasurer>
+`;

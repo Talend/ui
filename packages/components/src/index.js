@@ -62,6 +62,7 @@ import Inject from './Inject';
 import ResourceList from './ResourceList';
 import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
+import { ModelViewer, RecordsViewer } from './DataViewer';
 
 const {
 	Alert,
@@ -172,9 +173,11 @@ export {
 	List,
 	ListView,
 	Loader,
+	ModelViewer,
 	Notification,
 	ObjectViewer,
 	Progress,
+	RecordsViewer,
 	ResourceList,
 	ResourcePicker,
 	RichError,

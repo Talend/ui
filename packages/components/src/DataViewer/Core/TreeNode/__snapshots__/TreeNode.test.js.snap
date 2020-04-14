@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeNode should return a new branch 1`] = `
+<div>
+  new branch
+</div>
+`;
+
+exports[`TreeNode should return a new leaf 1`] = `
+<div>
+  new leaf
+</div>
+`;

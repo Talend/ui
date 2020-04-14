@@ -2,6 +2,24 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Badges/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Headers/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Icons/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Managers/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/RecordsViewer/Branch/RecordsViewerBranch.component.js
+  91:5  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Text/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
@@ -57,6 +75,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   73:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 23 problems (21 errors, 2 warnings)
+✖ 29 problems (27 errors, 2 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 

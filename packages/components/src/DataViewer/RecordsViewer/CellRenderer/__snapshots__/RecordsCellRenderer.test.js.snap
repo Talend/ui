@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecordsCellRenderer should render 1`] = `
+<Tree
+  dataKey={0}
+  index={0}
+  jsonpath="$"
+  level={0}
+  measure={[MockFunction]}
+  onToggle={[Function]}
+  type="object"
+  value={
+    Object {
+      "data": "myData",
+    }
+  }
+  withNodeBorder={true}
+/>
+`;
