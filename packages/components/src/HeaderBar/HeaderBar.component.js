@@ -15,9 +15,7 @@ import getDefaultT from '../translate';
 
 function Logo({ isFull, getComponent, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
-	const itemClassName = classNames(theme['tc-header-bar-action'], {
-		[theme.separated]: !isFull,
-	});
+	const itemClassName = classNames(theme['tc-header-bar-action'], theme.separated);
 	const actionClassName = classNames(theme['tc-header-bar-logo'], 'tc-header-bar-logo', {
 		[theme.full]: isFull,
 	});
