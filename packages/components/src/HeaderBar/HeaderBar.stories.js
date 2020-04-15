@@ -81,17 +81,6 @@ const props = {
 		id: 'header-logo',
 		onClick: action('onLogoClick'),
 	},
-	search: {
-		icon: {
-			name: 'talend-search',
-			title: 'Search',
-			bsStyle: 'link',
-			tooltipPlacement: 'bottom',
-		},
-		id: 'header-search',
-		onToggle: action('onSearchClick'),
-		docked: true,
-	},
 	help: {
 		id: 'header-help',
 		icon: 'talend-question-circle',

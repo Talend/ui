@@ -101,7 +101,7 @@ function CallToAction({ getComponent, ...props }) {
 		'tc-header-bar-action',
 		'tc-header-bar-call-to-action',
 		'separated',
-		'flex',
+		// 'flex',
 	);
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
@@ -232,7 +232,10 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 
 function Intercom({ id, config, tooltipPlacement }) {
 	return (
-		<li role="presentation" className={theme('tc-header-bar-intercom', 'separated')}>
+		<li
+			role="presentation"
+			className={theme('tc-header-bar-intercom', 'tc-header-bar-action', 'separated')}
+		>
 			<ActionIntercom
 				className="btn btn-link"
 				id={id}

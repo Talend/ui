@@ -99,6 +99,8 @@ $background-color-on-hover: shade($brand-primary, 30);
 			:global {
 				.btn.btn-info.btn-inverse {
 					background-color: $white;
+					margin-top: 0.8rem;
+					height: 3.2rem;
 					border: none;
 					margin-right: $padding-normal;
 
@@ -195,7 +197,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 		min-height: auto;
 		height: 3.2rem;
 		width: 3.2rem;
-		margin: 0 $padding-small;
+		margin: 0.8rem $padding-small 0 $padding-small;
 		padding: 0;
 	}
 }
