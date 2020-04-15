@@ -71,11 +71,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-logo:global(.btn):global(.btn-link) {
-			padding: 0 $padding-normal;
+			padding: 0;
 			width: $tc-headerbar-logo-width;
 			line-height: $svg-xlg-size;
 
 			:global(.tc-svg-icon) {
+				padding: 0;
 				height: $svg-xlg-size;
 				width: $svg-xlg-size;
 			}
@@ -84,12 +85,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 				width: auto;
 
 				:global(.tc-svg-icon) {
+					padding: 0 $padding-normal;
 					width: $tc-headerbar-logo-full-width;
 				}
 			}
 		}
 
 		.tc-header-bar-brand:global(.btn):global(.btn-link) {
+			padding: 0;
 			font-size: $font-size-base;
 		}
 
