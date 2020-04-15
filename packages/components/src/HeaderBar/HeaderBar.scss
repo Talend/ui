@@ -71,17 +71,16 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-logo:global(.btn):global(.btn-link) {
+			padding: 0 $padding-normal;
 			width: $tc-headerbar-logo-width;
 			line-height: $svg-xlg-size;
 
 			:global(.tc-svg-icon) {
 				height: $svg-xlg-size;
-				vertical-align: top;
 				width: $svg-xlg-size;
 			}
 
 			&.full {
-				padding: 8px $padding-normal 8px $padding-small;
 				width: auto;
 
 				:global(.tc-svg-icon) {
