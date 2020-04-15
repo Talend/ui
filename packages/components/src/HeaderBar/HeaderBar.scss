@@ -53,21 +53,24 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-action {
-			height: 100%;
 			list-style: none;
-			white-space: nowrap;
 			display: flex;
+			align-items: center;
+			height: 100%;
+			white-space: nowrap;
+
+			&.separated:not(:last-child):after {
+				content: ' ';
+				width: 1px;
+				height: $font-size-large;
+				background-color: $white;
+			}
 
 			:global {
 				.tc-typeahead-item-title,
 				.tc-typeahead-item-description {
 					white-space: initial;
 				}
-			}
-
-			&.flex {
-				display: flex;
-				align-items: center;
 			}
 		}
 
@@ -99,8 +102,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 			:global {
 				.btn.btn-info.btn-inverse {
 					background-color: $white;
-					margin-top: 0.8rem;
-					height: 3.2rem;
 					border: none;
 					margin-right: $padding-normal;
 
@@ -110,15 +111,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 				}
 			}
 		}
-	}
-
-	.separated:not(:last-child):after {
-		content: ' ';
-		display: inline-block;
-		background-color: $white;
-		width: 1px;
-		height: $font-size-large;
-		margin-top: $padding-normal;
 	}
 
 	.tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
@@ -197,7 +189,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 		min-height: auto;
 		height: 3.2rem;
 		width: 3.2rem;
-		margin: 0.8rem $padding-small 0 $padding-small;
+		margin: 0 $padding-small;
 		padding: 0;
 	}
 }

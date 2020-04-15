@@ -241,65 +241,6 @@ decoratedStories
 		{ info: { styles: infoStyle } },
 	)
 	.add(
-		'with search input',
-		() => {
-			const headerProps = Immutable.fromJS(props).toJS();
-			headerProps.search = {
-				placeholder: 'Search...',
-				onBlur: action('onSearchBlur'),
-				onChange: action('onSearchChange'),
-			};
-			return <HeaderBar {...headerProps} />;
-		},
-		{ info: { styles: infoStyle } },
-	)
-	.add(
-		'while searching',
-		() => {
-			const headerProps = Immutable.fromJS(props).toJS();
-			headerProps.search = {
-				position: 'right',
-				value: 'le',
-				searching: true,
-				onBlur: action('onSearchBlur'),
-				onChange: action('onSearchChange'),
-			};
-			return <HeaderBar {...headerProps} />;
-		},
-		{ info: { styles: infoStyle } },
-	)
-	.add(
-		'with search results',
-		() => {
-			const headerProps = Immutable.fromJS(props).toJS();
-			headerProps.search = {
-				position: 'right',
-				value: 'le',
-				items: typeaheadItems,
-				onBlur: action('onSearchBlur'),
-				onChange: action('onSearchChange'),
-				onSelect: action('onSearchResultSelect'),
-			};
-			return <HeaderBar {...headerProps} />;
-		},
-		{ info: { styles: infoStyle } },
-	)
-	.add(
-		'with no search result',
-		() => {
-			const headerProps = Immutable.fromJS(props).toJS();
-			headerProps.search = {
-				position: 'right',
-				value: 'le',
-				items: [],
-				onBlur: action('onSearchBlur'),
-				onChange: action('onSearchChange'),
-			};
-			return <HeaderBar {...headerProps} />;
-		},
-		{ info: { styles: infoStyle } },
-	)
-	.add(
 		'with callToAction',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();

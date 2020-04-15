@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import omit from 'lodash/omit';
 import { withTranslation } from 'react-i18next';
 
@@ -101,7 +100,6 @@ function CallToAction({ getComponent, ...props }) {
 		'tc-header-bar-action',
 		'tc-header-bar-call-to-action',
 		'separated',
-		// 'flex',
 	);
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
@@ -112,7 +110,7 @@ function CallToAction({ getComponent, ...props }) {
 }
 
 function Search({ getComponent, icon, ...props }) {
-	const className = theme('tc-header-bar-action', 'tc-header-bar-search', 'separated', 'flex');
+	const className = theme('tc-header-bar-action', 'tc-header-bar-search', 'separated');
 	const Renderers = Inject.getAll(getComponent, { Typeahead });
 	const a11yIcon = icon && { ...icon, role: 'search' };
 
