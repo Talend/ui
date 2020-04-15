@@ -1,3 +1,3 @@
-FROM maven:3.6
+FROM node:12
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
