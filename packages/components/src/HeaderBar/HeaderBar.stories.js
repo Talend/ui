@@ -4,37 +4,11 @@ import { action } from '@storybook/addon-actions';
 import { makeDecorator } from '@storybook/addons';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
-import talendIcons from '@talend/icons/dist/react';
 
 import IconsProvider from '../IconsProvider';
 import HeaderBar from './HeaderBar.component';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../Layout/constants';
-
-const icons = {
-	'talend-bubbles': talendIcons['talend-bubbles'],
-	'talend-burger': talendIcons['talend-burger'],
-	'talend-cog': talendIcons['talend-cog'],
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-environment': talendIcons['talend-environment'],
-	'talend-filter': talendIcons['talend-filter'],
-	'talend-info-circle': talendIcons['talend-info-circle'],
-	'talend-launcher': talendIcons['talend-launcher'],
-	'talend-logo': talendIcons['talend-logo'],
-	'talend-tdp-colored': talendIcons['talend-tdp-colored'],
-	'talend-tic-colored': talendIcons['talend-tic-colored'],
-	'talend-tmc-colored': talendIcons['talend-tmc-colored'],
-	'talend-logo-square': talendIcons['talend-logo-square'],
-	'talend-question-circle': talendIcons['talend-question-circle'],
-	'talend-search': talendIcons['talend-search'],
-	'talend-share-alt': talendIcons['talend-share-alt'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-user-circle': talendIcons['talend-user-circle'],
-	'talend-board': talendIcons['talend-board'],
-	'talend-bell': talendIcons['talend-bell'],
-	'talend-bell-notification': talendIcons['talend-bell-notification'],
-	'talend-tdc-negative': talendIcons['talend-tdc-negative'],
-};
 
 const typeaheadItems = [
 	{
@@ -176,7 +150,7 @@ const withIcons = makeDecorator({
 		const story = getStory(context);
 		return (
 			<div>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 				{story}
 				<div className="container" style={{ paddingTop: 40 }} />
 			</div>
@@ -407,6 +381,9 @@ const appStyle = require('../../stories/config/themes.scss');
 
 apps.forEach(app => {
 	const headerProps = Immutable.fromJS(props).toJS();
+	if (app.toLocaleLowerCase() === 'portal') {
+		headerProps.logo.isFull = true;
+	}
 	decoratedStories.add(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
 		<div className={appStyle[app]}>
 			<div className={TALEND_T7_THEME_CLASSNAME}>

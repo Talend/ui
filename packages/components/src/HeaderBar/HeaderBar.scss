@@ -1,4 +1,7 @@
+$tc-headerbar-logo-width: 6rem !default;
+$tc-headerbar-logo-full-width: 8.5rem !default;
 $background-color-on-hover: shade($brand-primary, 30);
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -6,6 +9,18 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 	to {
 		opacity: 1;
+	}
+}
+
+// tmp change Talend logo colors until rebranding is done
+:global {
+	#talend-logo-square path {
+		&.ti-foreground {
+			fill: $regal-blue;
+		}
+		&.ti-background {
+			fill: $white;
+		}
 	}
 }
 
@@ -41,6 +56,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 			height: 100%;
 			list-style: none;
 			white-space: nowrap;
+			display: flex;
 
 			:global {
 				.tc-typeahead-item-title,
@@ -55,18 +71,23 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 		}
 
-		.tc-header-bar-logo:global(.btn):global(.btn-link) {
-			line-height: $svg-xlg-size;
-			padding: 8px $padding-normal 8px $padding-small;
+		.tc-header-bar-logo {
+			padding: 0;
+			width: $tc-headerbar-logo-width;
 
 			:global(.tc-svg-icon) {
-				height: $svg-xlg-size;
-				vertical-align: top;
-				width: $svg-xlg-size;
+				padding: 0;
+				height: 2.8rem;
+				width: 2.8rem;
 			}
 
-			&.full :global(.tc-svg-icon) {
-				width: 85px;
+			&.full {
+				width: auto;
+
+				:global(.tc-svg-icon) {
+					padding: 0 $padding-normal;
+					width: $tc-headerbar-logo-full-width;
+				}
 			}
 		}
 
@@ -90,8 +111,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 	}
 
 	.separated:not(:last-child):after {
-		content: '|';
-		color: $white;
+		content: ' ';
+		display: inline-block;
+		background-color: $white;
+		width: 1px;
+		height: $font-size-large;
+		margin-top: $padding-normal;
 	}
 
 	.tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
@@ -108,10 +133,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 	.tc-header-bar-brand + :global(.dropdown-menu) {
 		min-width: 100%;
 		width: auto;
-	}
-
-	.tc-header-bar-brand :global(.tc-dropdown-button-title-label) {
-		margin-left: $padding-small;
 	}
 
 	:global(.btn):global(.btn-link) {
