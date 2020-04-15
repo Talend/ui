@@ -87,6 +87,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
       >
         <div
           className="theme-item"
+          data-feature="bar-1"
           title="Bar"
         >
           <div
@@ -163,6 +164,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
         >
           <div
             className="theme-item"
+            data-feature="dog"
             title="Puppy"
           >
             <div
