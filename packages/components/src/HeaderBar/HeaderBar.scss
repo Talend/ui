@@ -61,6 +61,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 			&.separated:not(:last-child):after {
 				content: ' ';
+				display: block;
 				width: 1px;
 				height: $font-size-large;
 				background-color: $white;
