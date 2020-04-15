@@ -19,9 +19,9 @@ const theme = getTheme(headerBarCssModule);
 
 function Logo({ isFull, getComponent, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
-	const itemClassName = classNames(theme['tc-header-bar-action'], theme.separated);
-	const actionClassName = classNames(theme['tc-header-bar-logo'], {
-		[theme.full]: isFull,
+	const itemClassName = theme('tc-header-bar-action', 'separated');
+	const actionClassName = theme('tc-header-bar-logo', {
+		full: isFull,
 	});
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
@@ -40,8 +40,8 @@ function Logo({ isFull, getComponent, t, ...props }) {
 }
 
 function Brand({ label, isSeparated, getComponent, t, ...props }) {
-	const className = classNames(theme['tc-header-bar-action'], {
-		[theme.separated]: isSeparated,
+	const className = theme('tc-header-bar-action', {
+		separated: isSeparated,
 	});
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown, Action });
 
@@ -64,7 +64,7 @@ function Brand({ label, isSeparated, getComponent, t, ...props }) {
 			<span role="heading">
 				<ActionComponent
 					bsStyle="link"
-					className={classNames(theme['tc-header-bar-brand'])}
+					className={theme('tc-header-bar-brand')}
 					tooltipPlacement="bottom"
 					label={label}
 					{...props}
@@ -79,7 +79,7 @@ function Brand({ label, isSeparated, getComponent, t, ...props }) {
 function Environment({ getComponent, ...props }) {
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
 	return (
-		<li role="presentation" className={theme['tc-header-bar-action']}>
+		<li role="presentation" className={theme('tc-header-bar-action')}>
 			<Renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-environment"
@@ -97,11 +97,11 @@ function CallToAction({ getComponent, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = classNames(
-		theme['tc-header-bar-action'],
-		theme['tc-header-bar-call-to-action'],
-		theme.separated,
-		theme.flex,
+	const className = theme(
+		'tc-header-bar-action',
+		'tc-header-bar-call-to-action',
+		'separated',
+		'flex',
 	);
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
@@ -112,12 +112,7 @@ function CallToAction({ getComponent, ...props }) {
 }
 
 function Search({ getComponent, icon, ...props }) {
-	const className = classNames(
-		theme['tc-header-bar-action'],
-		theme['tc-header-bar-search'],
-		theme.separated,
-		theme.flex,
-	);
+	const className = theme('tc-header-bar-action', 'tc-header-bar-search', 'separated', 'flex');
 	const Renderers = Inject.getAll(getComponent, { Typeahead });
 	const a11yIcon = icon && { ...icon, role: 'search' };
 
@@ -138,11 +133,7 @@ function Help({ getComponent, t, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = classNames(
-		theme['tc-header-bar-action'],
-		'tc-header-bar-help',
-		theme.separated,
-	);
+	const className = theme('tc-header-bar-action', 'tc-header-bar-help', 'separated');
 	const Renderers = Inject.getAll(getComponent, { Action });
 
 	return (
@@ -160,7 +151,7 @@ function Information({ getComponent, t, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = classNames(theme['tc-header-bar-action'], theme.separated);
+	const className = theme('tc-header-bar-action', 'separated');
 	const Renderers = Inject.getAll(getComponent, { Action, ActionDropdown });
 
 	return (
@@ -175,11 +166,7 @@ function Information({ getComponent, t, ...props }) {
 }
 
 function User({ name, firstName, lastName, getComponent, t, ...rest }) {
-	const className = classNames(
-		theme['tc-header-bar-action'],
-		theme['tc-header-bar-user'],
-		theme.separated,
-	);
+	const className = theme('tc-header-bar-action', 'tc-header-bar-user', 'separated');
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
 
 	function getDisplayName(params) {
@@ -210,7 +197,7 @@ function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 }
 
 function AppNotification({ getComponent, hasUnread, t, ...props }) {
-	const className = classNames(theme['tc-header-bar-action'], theme.separated);
+	const className = theme('tc-header-bar-action', 'separated');
 
 	let icon;
 	let label;
@@ -245,10 +232,7 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 
 function Intercom({ id, config, tooltipPlacement }) {
 	return (
-		<li
-			role="presentation"
-			className={classNames(theme['tc-header-bar-intercom'], theme.separated)}
-		>
+		<li role="presentation" className={theme('tc-header-bar-intercom', 'separated')}>
 			<ActionIntercom
 				className="btn btn-link"
 				id={id}
@@ -274,8 +258,8 @@ function HeaderBar(props) {
 	});
 
 	return (
-		<nav className={classNames(theme['tc-header-bar'], 'navbar')}>
-			<ul className={classNames(theme['tc-header-bar-actions'], 'navbar-nav')}>
+		<nav className={theme('tc-header-bar', 'navbar')}>
+			<ul className={theme('tc-header-bar-actions', 'navbar-nav')}>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
@@ -290,7 +274,7 @@ function HeaderBar(props) {
 				)}
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
-			<ul className={classNames(theme['tc-header-bar-actions'], 'navbar-nav', theme.right)}>
+			<ul className={theme('tc-header-bar-actions', 'navbar-nav', 'right')}>
 				{props.callToAction && (
 					<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
 				)}
