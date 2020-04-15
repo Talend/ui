@@ -1,5 +1,5 @@
 $tc-headerbar-logo-width: 5.7rem !default;
-$tc-headerbar-logo-full-width: 7.5rem !default;
+$tc-headerbar-logo-full-width: 8.5rem !default;
 $background-color-on-hover: shade($brand-primary, 30);
 
 @keyframes fadeIn {
@@ -73,7 +73,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 		.tc-header-bar-logo:global(.btn):global(.btn-link) {
 			padding: 0;
 			width: $tc-headerbar-logo-width;
-			line-height: $svg-xlg-size;
 
 			:global(.tc-svg-icon) {
 				padding: 0;
@@ -92,7 +91,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-brand:global(.btn):global(.btn-link) {
-			padding: 0;
 			font-size: $font-size-base;
 		}
 
@@ -130,10 +128,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 	.tc-header-bar-brand + :global(.dropdown-menu) {
 		min-width: 100%;
 		width: auto;
-	}
-
-	.tc-header-bar-brand :global(.tc-dropdown-button-title-label) {
-		margin-left: $padding-small;
 	}
 
 	:global(.btn):global(.btn-link) {
