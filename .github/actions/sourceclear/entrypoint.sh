@@ -9,4 +9,4 @@ echo "Starting scan on . (root) ..."
 echo "Scan completed on . (root)"
 echo "Starting scan on ./packages/components ..."
 ./srcclr.sh scan ./packages/components
-echo "Scan completed on ./packages/components "
+echo "Scan completed on ./packages/components"
