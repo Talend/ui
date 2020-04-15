@@ -1,4 +1,7 @@
+$tc-headerbar-logo-width: 5.7rem !default;
+$tc-headerbar-logo-full-width: 8.5rem !default;
 $background-color-on-hover: shade($brand-primary, 30);
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -9,13 +12,15 @@ $background-color-on-hover: shade($brand-primary, 30);
 	}
 }
 
-// change logo colors
-#talend-logo-square path {
-	&.ti-foreground {
-		fill: $regal-blue;
-	}
-	&.ti-background {
-		fill: $white;
+// tmp change logo colors
+:global {
+	#talend-logo-square path {
+		&.ti-foreground {
+			fill: $regal-blue;
+		}
+		&.ti-background {
+			fill: $white;
+		}
 	}
 }
 
@@ -66,8 +71,8 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-logo:global(.btn):global(.btn-link) {
+			width: $tc-headerbar-logo-width;
 			line-height: $svg-xlg-size;
-			padding: 8px $padding-normal 8px $padding-small;
 
 			:global(.tc-svg-icon) {
 				height: $svg-xlg-size;
@@ -75,8 +80,13 @@ $background-color-on-hover: shade($brand-primary, 30);
 				width: $svg-xlg-size;
 			}
 
-			&.full :global(.tc-svg-icon) {
-				width: 85px;
+			&.full {
+				padding: 8px $padding-normal 8px $padding-small;
+				width: auto;
+
+				:global(.tc-svg-icon) {
+					width: $tc-headerbar-logo-full-width;
+				}
 			}
 		}
 
