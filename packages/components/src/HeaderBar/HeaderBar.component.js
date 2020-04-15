@@ -160,10 +160,7 @@ function Information({ getComponent, t, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = classNames(
-		theme['tc-header-bar-action'],
-		theme.separated,
-	);
+	const className = classNames(theme['tc-header-bar-action'], theme.separated);
 	const Renderers = Inject.getAll(getComponent, { Action, ActionDropdown });
 
 	return (
@@ -250,10 +247,7 @@ function Intercom({ id, config, tooltipPlacement }) {
 	return (
 		<li
 			role="presentation"
-			className={classNames(
-				theme['tc-header-bar-intercom'],
-				theme.separated,
-			)}
+			className={classNames(theme['tc-header-bar-intercom'], theme.separated)}
 		>
 			<ActionIntercom
 				className="btn btn-link"
@@ -281,12 +275,7 @@ function HeaderBar(props) {
 
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'navbar')}>
-			<ul
-				className={classNames(
-					theme['tc-header-bar-actions'],
-					'navbar-nav',
-				)}
-			>
+			<ul className={classNames(theme['tc-header-bar-actions'], 'navbar-nav')}>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
@@ -301,13 +290,7 @@ function HeaderBar(props) {
 				)}
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
-			<ul
-				className={classNames(
-					theme['tc-header-bar-actions'],
-					'navbar-nav',
-					theme.right,
-				)}
-			>
+			<ul className={classNames(theme['tc-header-bar-actions'], 'navbar-nav', theme.right)}>
 				{props.callToAction && (
 					<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
 				)}
