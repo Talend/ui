@@ -9,14 +9,18 @@ import Action from '../Actions/Action';
 import ActionIntercom from '../ActionIntercom';
 import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
-import theme from './HeaderBar.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
+import { getTheme } from '../theme';
+
+import headerBarCssModule from './HeaderBar.scss';
+
+const theme = getTheme(headerBarCssModule);
 
 function Logo({ isFull, getComponent, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const itemClassName = classNames(theme['tc-header-bar-action'], theme.separated);
-	const actionClassName = classNames(theme['tc-header-bar-logo'], 'tc-header-bar-logo', {
+	const actionClassName = classNames(theme['tc-header-bar-logo'], {
 		[theme.full]: isFull,
 	});
 	const Renderers = Inject.getAll(getComponent, { Action });
@@ -60,7 +64,7 @@ function Brand({ label, isSeparated, getComponent, t, ...props }) {
 			<span role="heading">
 				<ActionComponent
 					bsStyle="link"
-					className={classNames(theme['tc-header-bar-brand'], 'tc-header-bar-brand')}
+					className={classNames(theme['tc-header-bar-brand'])}
 					tooltipPlacement="bottom"
 					label={label}
 					{...props}
@@ -95,9 +99,7 @@ function CallToAction({ getComponent, ...props }) {
 	};
 	const className = classNames(
 		theme['tc-header-bar-action'],
-		'tc-header-bar-action',
 		theme['tc-header-bar-call-to-action'],
-		'tc-header-bar-call-to-action',
 		theme.separated,
 		theme.flex,
 	);
@@ -112,9 +114,7 @@ function CallToAction({ getComponent, ...props }) {
 function Search({ getComponent, icon, ...props }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
-		'tc-header-bar-action',
 		theme['tc-header-bar-search'],
-		'tc-header-bar-search',
 		theme.separated,
 		theme.flex,
 	);
@@ -162,7 +162,6 @@ function Information({ getComponent, t, ...props }) {
 	};
 	const className = classNames(
 		theme['tc-header-bar-action'],
-		'tc-header-bar-action',
 		theme.separated,
 	);
 	const Renderers = Inject.getAll(getComponent, { Action, ActionDropdown });
@@ -182,7 +181,6 @@ function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		theme['tc-header-bar-user'],
-		'tc-header-bar-user',
 		theme.separated,
 	);
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
@@ -254,7 +252,6 @@ function Intercom({ id, config, tooltipPlacement }) {
 			role="presentation"
 			className={classNames(
 				theme['tc-header-bar-intercom'],
-				'tc-header-bar-intercom',
 				theme.separated,
 			)}
 		>
@@ -283,11 +280,10 @@ function HeaderBar(props) {
 	});
 
 	return (
-		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar')}>
+		<nav className={classNames(theme['tc-header-bar'], 'navbar')}>
 			<ul
 				className={classNames(
 					theme['tc-header-bar-actions'],
-					'tc-header-bar-actions',
 					'navbar-nav',
 				)}
 			>
@@ -308,7 +304,6 @@ function HeaderBar(props) {
 			<ul
 				className={classNames(
 					theme['tc-header-bar-actions'],
-					'tc-header-bar-actions',
 					'navbar-nav',
 					theme.right,
 				)}
