@@ -70,7 +70,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 		}
 
-		.tc-header-bar-logo:global(.btn):global(.btn-link) {
+		.tc-header-bar-logo {
 			padding: 0;
 			width: $tc-headerbar-logo-width;
 
