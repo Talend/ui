@@ -1,4 +1,4 @@
-$tc-headerbar-logo-width: 5.7rem !default;
+$tc-headerbar-logo-width: 6rem !default;
 $tc-headerbar-logo-full-width: 8.5rem !default;
 $background-color-on-hover: shade($brand-primary, 30);
 
@@ -56,6 +56,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 			height: 100%;
 			list-style: none;
 			white-space: nowrap;
+			display: flex;
 
 			:global {
 				.tc-typeahead-item-title,
@@ -76,8 +77,8 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 			:global(.tc-svg-icon) {
 				padding: 0;
-				height: $svg-xlg-size;
-				width: $svg-xlg-size;
+				height: 2.8rem;
+				width: 2.8rem;
 			}
 
 			&.full {
@@ -110,8 +111,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 	}
 
 	.separated:not(:last-child):after {
-		content: '|';
-		color: $white;
+		content: ' ';
+		display: inline-block;
+		background-color: $white;
+		width: 1px;
+		height: $font-size-large;
+		margin-top: $padding-normal;
 	}
 
 	.tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
