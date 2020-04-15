@@ -218,6 +218,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <div
               className="theme-item"
+              data-feature="le"
               title="le title 1"
             >
               <div
@@ -265,6 +266,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <div
               className="theme-item"
+              data-feature="le"
               title="title 2 les elephants elementaires ont des aile"
             >
               <div
@@ -352,6 +354,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <div
               className="theme-item"
+              data-feature="le"
               title="title 3"
             >
               <div
