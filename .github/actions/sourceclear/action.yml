@@ -1,0 +1,9 @@
+name: 'SourceClear Scan'
+description: 'Scan a project with the SourceClear agent'
+author: 'SourceClear'
+secrets:
+  SRCCLR_API_TOKEN:
+    description: 'The API token to use'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

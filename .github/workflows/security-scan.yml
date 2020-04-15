@@ -1,0 +1,15 @@
+name: Security scan
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Scan
+        uses: ./.github/actions/sourceclear
+        with:
+          ref: jsomsanith/poc/veracode # to test on my branch, TODO : remove
+        env:
+          SRCCLR_API_TOKEN: ${{ secrets.SRCCLR_API_TOKEN }}
