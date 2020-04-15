@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-          with:
-            ref: jsomsanith/poc/veracode # to test on my branch, TODO : remove
+        with:
+          ref: jsomsanith/poc/veracode # to test on my branch, TODO : remove
       - name: Scan
         uses: ./.github/actions/sourceclear
         env:
