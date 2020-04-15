@@ -96,11 +96,7 @@ function CallToAction({ getComponent, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = theme(
-		'tc-header-bar-action',
-		'tc-header-bar-call-to-action',
-		'separated',
-	);
+	const className = theme('tc-header-bar-action', 'tc-header-bar-call-to-action', 'separated');
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
 		<li role="presentation" className={className}>
