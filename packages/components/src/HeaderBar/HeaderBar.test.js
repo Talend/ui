@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import HeaderBarComponent from './HeaderBar.component';
 
 describe('HeaderBar', () => {
-	it('should render nav without props', () => {
+	it('should render', () => {
 		const wrapper = mount(<HeaderBarComponent.WrappedComponent />);
 		expect(wrapper.find('HeaderBar')).toBeDefined();
 	});
