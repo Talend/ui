@@ -1,8 +1,9 @@
 name: Security scan
 
-on:
-  schedule:
-    - cron: '0 0 * * 0' # https://crontab.guru/every-week "At 00:00 on Sunday."
+# on:
+#   schedule:
+#     - cron: '0 0 * * 0' # https://crontab.guru/every-week "At 00:00 on Sunday."
+on: [push]
 
 jobs:
   build:
