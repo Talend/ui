@@ -3,12 +3,10 @@
     "commander": "^2.9.0",
     "cpx": "^1.5.0",
     "i18next-scanner": "^2.9.1",
-    "lerna": "2.5.1",
+    "lerna": "3.20.2",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.2",
     "puppeteer": "^1.2.0",
-    "storybook-chroma": "^3.5.0",
-    "surge": "^0.20.3",
     "tmp-promise": "^1.0.4"
   },
   "scripts": {
@@ -47,8 +45,7 @@
     "extract-i18n-forms": "i18next-scanner --config packages/forms/i18next-scanner.config.js 'packages/forms/src/**/*.js' '!packages/forms/src/**/*.stories.js'",
     "extract-i18n-containers": "i18next-scanner --config packages/containers/i18next-scanner.config.js 'packages/containers/src/**/*.js' '!packages/containers/src/**/*.stories.js'",
     "extract-i18n-datagrid": "i18next-scanner --config packages/datagrid/i18next-scanner.config.js 'packages/datagrid/src/**/*.js' '!packages/datagrid/src/**/*.stories.js'",
-    "extract-i18n-stepper": "i18next-scanner --config packages/stepper/i18next-scanner.config.js 'packages/stepper/src/**/*.js' '!packages/stepper/src/**/*.stories.js'",
-    "chroma": "CHROMA_APP_CODE=x8p2jxrsvbq chroma"
+    "extract-i18n-stepper": "i18next-scanner --config packages/stepper/i18next-scanner.config.js 'packages/stepper/src/**/*.js' '!packages/stepper/src/**/*.stories.js'"
   },
   "repository": {
     "type": "git",
@@ -70,5 +67,8 @@
     "packages/stepper",
     "packages/storybook-cmf",
     "packages/theme"
-  ]
+  ],
+  "dependencies": {
+    "surge": "^0.21.3"
+  }
 }
