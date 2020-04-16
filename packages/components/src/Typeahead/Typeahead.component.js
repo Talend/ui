@@ -15,6 +15,22 @@ import {
 import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
+const emptyArray = [];
+
+function getItems(items, enableValueAsDataFeature) {
+	if (!items) {
+		return emptyArray;
+	}
+	if (!enableValueAsDataFeature) {
+		return items;
+	}
+
+	return items.map(item => ({
+		'data-feature': item.value,
+		...item,
+	}));
+}
+
 /**
  * Show suggestions for search bar
  * @example
@@ -124,7 +140,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...sectionProps,
 		...themeProps,
 		...inputProps,
-		items: rest.items || [],
+		items: getItems(rest.items, rest.enableValueAsDataFeature),
 		itemProps: ({ itemIndex }) => ({
 			onClick: rest.onSelect,
 			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
@@ -146,6 +162,7 @@ Typeahead.defaultProps = {
 	readOnly: false,
 	searching: false,
 	docked: false,
+	enableValueAsDataFeature: false,
 };
 
 Typeahead.propTypes = {
@@ -180,6 +197,7 @@ Typeahead.propTypes = {
 	value: PropTypes.string,
 
 	// suggestions
+	enableValueAsDataFeature: PropTypes.bool,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,
