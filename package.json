@@ -2,8 +2,8 @@
   "devDependencies": {
     "commander": "^2.9.0",
     "i18next-scanner": "^2.9.1",
-    "lerna": "2.5.1",
-    "surge": "^0.20.3"
+    "lerna": "3.20.2",
+    "surge": "^0.21.3"
   },
   "scripts": {
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
