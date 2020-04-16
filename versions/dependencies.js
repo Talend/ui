@@ -92,7 +92,6 @@ module.exports = {
 	'@babel/plugin-proposal-export-default-from': '^7.8.3',
 	'@babel/preset-env': '^7.8.3',
 	'@babel/preset-react': '^7.8.3',
-	cpx: '^1.5.0',
 	enzyme: '^3.9.0',
 	'enzyme-adapter-react-15': '^1.3.1',
 	'enzyme-adapter-react-16': '^1.11.2',
