@@ -258,7 +258,7 @@ export function renderItem(item, { value, ...rest }) {
 				[theme.selected]: value === title,
 			})}
 			title={title}
-			data-feature={item['data-feature'] || rest['data-feature'] || item.value}
+			data-feature={item['data-feature'] || rest['data-feature']}
 		>
 			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
 			<div className={theme['item-text']}>

@@ -15,11 +15,9 @@ import {
 import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-const emptyArray = [];
-
 function getItems(items, enableValueAsDataFeature) {
 	if (!items) {
-		return emptyArray;
+		return [];
 	}
 	if (!enableValueAsDataFeature) {
 		return items;
