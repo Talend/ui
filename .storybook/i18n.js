@@ -7,7 +7,7 @@ import { locales as tuiLocales } from '@talend/locales-tui/locales';
 i18n.use(initReactI18next).init({
 	debug: false,
 	interpolation: {
-		format: (value, format) => {
+		format: function(value, format) {
 			if (value && format === 'lowercase') return value.toLocaleLowerCase();
 			if (value && format === 'uppercase') return value.toLocaleUpperCase();
 			return value;
