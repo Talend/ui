@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMenuState, Menu, MenuDisclosure, MenuItem } from 'reakit/Menu';
+import { useMenuState, Menu, MenuButton, MenuItem } from 'reakit/Menu';
 import styled from 'styled-components';
 import Icon from '../Icon';
 import tokens from '../../tokens';
@@ -30,12 +30,13 @@ const Dropdown = React.forwardRef(({ children, items, ...props }, ref) => {
 		loop: true,
 		placement: 'bottom-start',
 	});
+	const { 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, ...rest } = props;
 	return (
 		<>
-			<MenuDisclosure {...menu} {...props} ref={ref}>
+			<MenuButton {...menu} {...rest} ref={ref}>
 				{children} <StyledIcon name="caret" />
-			</MenuDisclosure>
-			<StyledMenu {...menu}>
+			</MenuButton>
+			<StyledMenu {...menu} aria-label={ariaLabel} aria-labelledby={ariaLabelledby}>
 				{items.map((item, i) => (
 					<StyledMenuItem {...menu} {...item.props} key={i}>
 						{itemProps => React.cloneElement(item, itemProps)}
