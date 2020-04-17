@@ -34,14 +34,13 @@
   },
   "dependencies": {
     "@sentry/browser": "^5.11.1",
-    "bson-objectid": "^1.1.5",
     "deepmerge": "^1.5.1",
     "hoist-non-react-statics": "2.5.5",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "jsonpath": "^1.0.0",
     "lodash": "^4.17.4",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.4",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
     "react-immutable-proptypes": "^2.1.0",
@@ -54,7 +53,8 @@
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "uuid": "^7.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -75,7 +75,7 @@
     "eslint-plugin-react": "^6.3.0",
     "jest": "^24.7.1",
     "jest-in-case": "^1.0.2",
-    "jsdoc": "^3.4.1",
+    "jsdoc": "^3.6.4",
     "node-fetch": "^1.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
