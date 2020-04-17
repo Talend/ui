@@ -15,7 +15,7 @@ import {
 import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-function getItems(items, enableValueAsDataFeature) {
+export function getItems(items, enableValueAsDataFeature) {
 	if (!items) {
 		return [];
 	}

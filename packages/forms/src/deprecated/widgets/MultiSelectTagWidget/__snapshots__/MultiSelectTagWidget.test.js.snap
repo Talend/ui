@@ -26,6 +26,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
       autoFocus={false}
       disabled={false}
       docked={false}
+      enableValueAsDataFeature={false}
       id="42"
       items={null}
       multiSection={false}
@@ -87,7 +88,6 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
       >
         <div
           className="theme-item"
-          data-feature="bar-1"
           title="Bar"
         >
           <div
@@ -164,7 +164,6 @@ exports[`MultiSelectTagWidget should render section title when items has categor
         >
           <div
             className="theme-item"
-            data-feature="dog"
             title="Puppy"
           >
             <div

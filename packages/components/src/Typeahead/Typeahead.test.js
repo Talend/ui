@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Typeahead from './Typeahead.component';
+import Typeahead, { getItems } from './Typeahead.component';
 
 describe('Typeahead', () => {
 	const initialProps = {
@@ -47,6 +47,12 @@ describe('Typeahead', () => {
 				},
 			],
 		},
+	];
+
+	const flatItems = [
+		{ name: 'First item ', value: 'item-1' },
+		{ name: 'Second item ', value: 'item-2' },
+		{ name: 'Third item ', value: 'item-3' },
 	];
 
 	const noHeaderItems = [
@@ -110,7 +116,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Button.tc-typeahead-toggle').at(0).simulate('click');
+			typeaheadInstance
+				.find('Button.tc-typeahead-toggle')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -167,7 +176,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Item').at(0).simulate('click');
+			typeaheadInstance
+				.find('Item')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(onSelect).toBeCalled();
@@ -204,5 +216,27 @@ describe('Typeahead', () => {
 
 		// then
 		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(2);
+	});
+
+	describe('getItems', () => {
+		it('should return an empty array if provided collection is null', () => {
+			const computedItems = getItems(null);
+			expect(computedItems).toEqual([]);
+		});
+		it('should return an empty array if provided collection is undefined', () => {
+			const computedItems = getItems(undefined);
+			expect(computedItems).toEqual([]);
+		});
+		it('should return provided array if enableValueAsDataFeature is falsy', () => {
+			const computedItems = getItems(flatItems);
+			expect(computedItems).toBe(flatItems);
+		});
+		it('should return an array with a data-feature property on each item that equals the value of the item', () => {
+			const computedItems = getItems(flatItems, true);
+			expect(computedItems.length).toBe(flatItems.length);
+			for (let i = 0; i < flatItems.length; i += 1) {
+				expect(computedItems[i]['data-feature']).toBe(flatItems[i].value);
+			}
+		});
 	});
 });
