@@ -71,6 +71,7 @@
     "handlebars": "^4.7.6",
     "lodash.merge": "^4.6.2",
     "websocket-driver": "^0.7.3",
-    "webpack-dev-middleware": "^3.7.2"
+    "webpack-dev-middleware": "^3.7.2",
+    "node-sass": "^4.13.1"
   }
 }
