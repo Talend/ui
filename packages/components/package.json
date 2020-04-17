@@ -8,7 +8,6 @@
     "test": "cross-env TZ=Europe/Paris jest",
     "test:watch": "cross-env TZ=Europe/Paris jest --watch",
     "test:cov": "cross-env TZ=Europe/Paris jest --coverage",
-    "test:slimerjs": "slimerjs stories/slimer.js",
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",
     "lint:es": "eslint --config ../../.eslintrc --ignore-path ../../.eslintignore src",
@@ -119,7 +118,6 @@
     "rimraf": "^2.6.2",
     "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0",
-    "slimerjs": "^0.10.2",
     "storybook-addon-i18next": "^1.2.1",
     "style-loader": "^0.23.0"
   },
