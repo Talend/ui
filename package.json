@@ -2,8 +2,7 @@
   "devDependencies": {
     "commander": "^2.9.0",
     "i18next-scanner": "^2.9.1",
-    "lerna": "^3.20.2",
-    "surge": "^0.21.3"
+    "lerna": "^3.20.2"
   },
   "scripts": {
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
@@ -33,7 +32,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-demo": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
-    "publish-storybook": "npm run build-demo && cd .static && surge",
+    "publish-storybook": "npm run build-demo && cd .static && npx surge",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(100,trunc)%s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers && npm run extract-i18n-datagrid",
     "extract-i18n-components": "i18next-scanner --config packages/components/i18next-scanner.config.js 'packages/components/src/**/*.js' '!packages/components/src/**/*.stories.js'",
