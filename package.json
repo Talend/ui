@@ -62,5 +62,9 @@
     "packages/stepper",
     "packages/storybook-cmf",
     "packages/theme"
-  ]
+  ],
+  "resolutions": {
+    "lodash": "^4.17.15",
+    "minimist": "^1.2.5"
+  }
 }
