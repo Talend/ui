@@ -72,7 +72,6 @@
     "lodash.merge": "^4.6.2",
     "websocket-driver": "^0.7.3",
     "webpack-dev-middleware": "^3.7.2",
-    "node-sass": "^4.13.1",
     "elliptic": "^6.5.2"
   }
 }
