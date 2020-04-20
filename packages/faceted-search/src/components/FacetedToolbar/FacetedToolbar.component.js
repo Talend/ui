@@ -3,17 +3,22 @@ import PropTypes from 'prop-types';
 import Toggle from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
 
-import { FACETED_MODE } from '../../constants';
+import { FACETED_MODE, PENDO_TAGS } from '../../constants';
 import cssModule from './FacetedToolbar.scss';
 
 const theme = getTheme(cssModule);
 
 const SwitchFacetedMode = ({ facetedMode, id, onChange, t }) => {
 	const values = [
-		{ value: FACETED_MODE.BASIC, label: t('FACETED_SEARCH_BASIC', { defaultValue: 'Basic' }) },
+		{
+			value: FACETED_MODE.BASIC,
+			label: t('FACETED_SEARCH_BASIC', { defaultValue: 'Basic' }),
+			dataFeature: PENDO_TAGS.BASIC,
+		},
 		{
 			value: FACETED_MODE.ADVANCED,
 			label: t('FACETED_SEARCH_ADVANCED', { defaultValue: 'Advanced' }),
+			dataFeature: PENDO_TAGS.ADVANCED,
 		},
 	];
 

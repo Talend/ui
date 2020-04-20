@@ -90,6 +90,7 @@ const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges,
 				role="button"
 				tabIndex={getTabIndex(isFocusable)}
 				disabled={isDisabled}
+				data-feature={'klsdjfklsjdflk'}
 			>
 				<div className={theme('tc-add-facet-popover-row-text')}>{label}</div>
 			</Button>

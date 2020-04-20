@@ -58,6 +58,7 @@ const BadgeText = ({
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
+					label={label}
 					t={t}
 				/>
 			)}

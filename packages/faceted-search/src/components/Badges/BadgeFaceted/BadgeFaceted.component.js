@@ -14,13 +14,13 @@ import { useBadgeOverlayFlow, OVERLAY_FLOW_ACTIONS } from '../../../hooks/badgeO
 import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';
 
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
+import { PENDO_TAGS } from '../../../constants';
 
 const theme = getTheme(cssModule);
 
 const findOperatorByName = name => operator => name === operator.name;
 
 const getOverlays = (initialOperatorOpened, initialValueOpened, operators) => {
-
 	if (operators.length < 2 && initialOperatorOpened) {
 		// To open the value just after the selection of the type
 		return useBadgeOverlayFlow(false, true);
@@ -125,6 +125,7 @@ const BadgeFaceted = ({
 			<BadgeComposition.DeleteAction
 				id={id}
 				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
+				data-feature={PENDO_TAGS.BADGE_REMOVE}
 				onClick={onDeleteBadge}
 				t={t}
 			/>

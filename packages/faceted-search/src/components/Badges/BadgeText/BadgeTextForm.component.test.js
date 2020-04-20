@@ -16,6 +16,7 @@ describe('BadgeTextForm', () => {
 		const props = {
 			id: 'myId',
 			onSubmit: jest.fn(),
+			label: 'name',
 			t: () => 'Apply',
 		};
 		// When
@@ -36,6 +37,7 @@ describe('BadgeTextForm', () => {
 			category: 'potato',
 			onSubmit,
 			value: 'init value',
+			label: 'name',
 			t: () => 'Apply',
 		};
 		// When
@@ -46,13 +48,7 @@ describe('BadgeTextForm', () => {
 		);
 
 		// Then
-		expect(
-			wrapper
-				.find('input[type="text"]')
-				.first()
-				.props()
-				.value,
-		).toEqual('init value');
+		expect(wrapper.find('input[type="text"]').first().props().value).toEqual('init value');
 
 		const submitButton = wrapper.find('button[type="submit"]').first();
 		submitButton.simulate('submit');
