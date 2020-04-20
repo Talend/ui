@@ -115,7 +115,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Button.tc-typeahead-toggle').at(0).simulate('click');
+			typeaheadInstance
+				.find('Button.tc-typeahead-toggle')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -172,7 +175,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Item').at(0).simulate('click');
+			typeaheadInstance
+				.find('Item')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(onSelect).toBeCalled();
@@ -211,8 +217,42 @@ describe('Typeahead', () => {
 		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(2);
 	});
 
-	describe('render ', () => {
+	describe('render flatItems', () => {
 		it('should render empty if provided collection is null', () => {
+			// given
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: null,
+				multiSection: false,
+			};
+			const typeahead = <Typeahead {...props} />;
+
+			// when
+			const typeaheadInstance = mount(typeahead);
+
+			// then
+			expect(typeaheadInstance.find('Item')).toMatchObject({});
+		});
+		it('should render empty if provided collection is undefined', () => {
+			// given
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: undefined,
+				multiSection: false,
+			};
+			const typeahead = <Typeahead {...props} />;
+
+			// when
+			const typeaheadInstance = mount(typeahead);
+
+			// then
+			expect(typeaheadInstance.find('Item')).toMatchObject({});
+		});
+		it('should render Items if provided collection is flat', () => {
 			// given
 			const props = {
 				...initialProps,
@@ -225,9 +265,9 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-
 			// then
-			expect(typeaheadInstance.find('data-feature')).toMatchObject({});
+			const foundItems = typeaheadInstance.find('Item');
+			expect(foundItems.length).toBe(3);
 		});
 	});
 
