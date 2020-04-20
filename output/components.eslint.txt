@@ -2,6 +2,11 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/AppGuidedTour/DemoContentStep.component.js
+  16:5   error  Strings must use singlequote  quotes
+  23:8   error  Strings must use singlequote  quotes
+  24:40  error  Strings must use singlequote  quotes
+
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/Badges/index.js
   3:10  error  Prefer default export  import/prefer-default-export
 
@@ -75,6 +80,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   73:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 29 problems (27 errors, 2 warnings)
-  1 error, 0 warnings potentially fixable with the `--fix` option.
+✖ 32 problems (30 errors, 2 warnings)
+  4 errors, 0 warnings potentially fixable with the `--fix` option.
 
