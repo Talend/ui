@@ -18,7 +18,7 @@ export default function DemoContentStep({ demoContentSteps }) {
 				<Icon name="talend-info-circle" />
 				{i18n.t('tui-components:DEMO_CONTENT_LOADING_MESSAGE', {
 					defaultValue:
-						'Loading may take a few minutes to complete. Bear with us. Content is loading. Isn\'t it time for tea or coffee?',
+						"Loading may take a few minutes to complete. Bear with us. Content is loading. Isn't it time for tea or coffee?",
 				})}
 			</p>
 			<Stepper steps={demoContentSteps} />
