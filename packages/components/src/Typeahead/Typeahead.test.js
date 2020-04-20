@@ -259,6 +259,7 @@ describe('Typeahead', () => {
 				onToggle: jest.fn(),
 				docked: false,
 				items: flatItems,
+				dataFeature: 'smtg',
 				multiSection: false,
 			};
 			const typeahead = <Typeahead {...props} />;
@@ -267,7 +268,12 @@ describe('Typeahead', () => {
 			const typeaheadInstance = mount(typeahead);
 			// then
 			const foundItems = typeaheadInstance.find('Item');
+			console.log('foundItems', JSON.stringify(foundItems));
+			console.log('foundItems.length', foundItems.length);
+
 			expect(foundItems.length).toBe(3);
+			expect(foundItems[0].attributes.getNamedItem('data-feature').value).toBe('smtg.item-1');
+			//console.log('foundItems 0 ', console.debug(foundItems[0]));
 		});
 	});
 
