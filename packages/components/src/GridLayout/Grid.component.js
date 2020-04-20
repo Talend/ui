@@ -15,14 +15,14 @@ const theme = getTheme(css);
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 
-const columns = {
+const DEFAULT_COLUMNS = {
 	s: 2,
 	m: 4,
 	l: 6,
 	xl: 12,
 };
 
-const breakpoints = {
+const DEFAULT_BREAKPOINTS = {
 	s: 479,
 	m: 768,
 	l: 1024,
@@ -43,6 +43,8 @@ function Grid({
 	skeletonConfiguration,
 	compactType = 'vertical',
 	verticalCompact = true,
+	columns = DEFAULT_COLUMNS,
+	breakpoints = DEFAULT_BREAKPOINTS,
 }) {
 	return (
 		<ResponsiveGridLayout
@@ -84,6 +86,18 @@ Grid.propTypes = {
 	onDragStop: PropTypes.func,
 	onResizeStop: PropTypes.func,
 	isLoading: PropTypes.bool,
+	columns: PropTypes.shape({
+		s: PropTypes.number,
+		m: PropTypes.number,
+		l: PropTypes.number,
+		xl: PropTypes.number,
+	}),
+	breakpoints: PropTypes.shape({
+		s: PropTypes.number,
+		m: PropTypes.number,
+		l: PropTypes.number,
+		xl: PropTypes.number,
+	}),
 	skeletonConfiguration: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,
