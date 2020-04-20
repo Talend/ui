@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Typeahead, { getItems } from './Typeahead.component';
+import Typeahead from './Typeahead.component';
 
 describe('Typeahead', () => {
 	const initialProps = {
