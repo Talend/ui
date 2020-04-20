@@ -200,7 +200,6 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 			autoFocus: PropTypes.bool,
-
 			dataFeature: PropTypes.string,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
