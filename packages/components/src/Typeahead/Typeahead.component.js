@@ -15,6 +15,20 @@ import {
 import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
+function getItems(items, dataFeature) {
+	if (!items) {
+		return [];
+	}
+	if (!dataFeature) {
+		return items;
+	}
+
+	return items.map(item => ({
+		'data-feature': `${dataFeature}.${item.value}`,
+		...item,
+	}));
+}
+
 /**
  * Show suggestions for search bar
  * @example
@@ -124,7 +138,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...sectionProps,
 		...themeProps,
 		...inputProps,
-		items: rest.items || [],
+		items: getItems(rest.items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
 			onMouseDown: event => event.preventDefault(),
 			onClick: rest.onSelect,
@@ -181,6 +195,7 @@ Typeahead.propTypes = {
 	value: PropTypes.string,
 
 	// suggestions
+	dataFeature: PropTypes.string,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,
