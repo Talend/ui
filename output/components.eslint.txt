@@ -33,8 +33,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   78:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
-  279:53  error  'footerActions' is already declared in the upper scope  no-shadow
-  279:53  error  'footerActions' is defined but never used               no-unused-vars
+  281:43  error  'footerActions' is already declared in the upper scope  no-shadow
+  281:43  error  'footerActions' is defined but never used               no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
   68:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent

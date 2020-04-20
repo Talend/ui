@@ -104,7 +104,7 @@
     "jest": "^24.9.0",
     "jest-in-case": "^1.0.2",
     "jest-serializer-html": "^7.0.0",
-    "jsdom": "^11.11.0",
+    "jsdom": "^16.2.2",
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.5.10",
