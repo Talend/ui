@@ -48,7 +48,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.7.1",
+    "jest": "^24.9.0",
     "node-fetch": "^1.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
