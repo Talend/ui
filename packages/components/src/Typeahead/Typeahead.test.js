@@ -230,7 +230,9 @@ describe('Typeahead', () => {
 			const computedItems = getItems(flatItems, dataFeatureContext);
 			expect(computedItems.length).toBe(flatItems.length);
 			for (let i = 0; i < flatItems.length; i += 1) {
-				expect(computedItems[i]['data-feature']).toBe(`${dataFeatureContext}-${flatItems[i].value}`);
+				expect(computedItems[i]['data-feature']).toBe(
+					`${dataFeatureContext}-${flatItems[i].value}`,
+				);
 			}
 		});
 	});
