@@ -11,6 +11,7 @@ import {
 	SHOW_COMPLETED_TRANSITION_TIMER,
 } from '../Stepper/Stepper.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import DemoContentStep from './DemoContentStep.component';
 
 const DEMO_CONTENT_STEP_ID = 1;
 export const DEFAULT_LOCAL_STORAGE_KEY = 'app-guided-tour-viewed';
@@ -109,7 +110,7 @@ function AppGuidedTour({
 						header: t('GUIDED_TOUR_WELCOME_STEP_HEADER', {
 							defaultValue: 'Importing demo content',
 						}),
-						body: () => (demoContentSteps.length ? <Stepper steps={demoContentSteps} /> : null),
+						body: () => <DemoContentStep demoContentSteps={demoContentSteps} />,
 					},
 				},
 				...steps,
