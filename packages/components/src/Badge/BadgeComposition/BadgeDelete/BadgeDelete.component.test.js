@@ -45,4 +45,18 @@ describe('BadgeDelete', () => {
 		// then
 		expect(wrapper.find('button').prop('aria-label')).toBe('My custom label');
 	});
+	it('should pass the props dataFeature to the button', () => {
+		// given
+		const onClick = jest.fn();
+		const props = {
+			id: 'my-id',
+			dataFeature: 'feature-delete',
+			onClick,
+			t: getDefaultT(),
+		};
+		// when
+		const wrapper = mount(<BadgeDelete {...props} />);
+		// then
+		expect(wrapper.find('button').prop('data-feature')).toBe('feature-delete');
+	});
 });
