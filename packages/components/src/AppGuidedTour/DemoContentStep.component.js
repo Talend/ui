@@ -12,12 +12,14 @@ export default function DemoContentStep({ demoContentSteps }) {
 		return null;
 	}
 
-
 	return (
 		<>
 			<p className={theme.info}>
 				<Icon name="talend-info-circle" />
-				{i18n.t('tui-components:DEMO_CONTENT_INFO_TIME', { defaultValue: "Loading may take a few minutes to complete. Bear with us. Content is loading. Isn't it time for tea or coffee?" })}
+				{i18n.t('tui-components:DEMO_CONTENT_INFO_TIME', {
+					defaultValue:
+						"Loading may take a few minutes to complete. Bear with us. Content is loading. Isn't it time for tea or coffee?",
+				})}
 			</p>
 			<Stepper steps={demoContentSteps} />
 		</>
