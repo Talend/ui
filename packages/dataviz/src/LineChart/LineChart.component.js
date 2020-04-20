@@ -160,7 +160,7 @@ function CustomLineChart({
 	return (
 		<React.Fragment>
 			<ResponsiveContainer width={width} height={height}>
-				<LineChart data={data} margin={margin}>
+				<LineChart data={data} margin={margin} className={'td-linechart'}>
 					<CartesianGrid stroke="#F2F2F2" strokeDasharray="2" vertical={false} />
 					<XAxis dataKey={key} tickLine={false} tick={<Tick />} />
 					<YAxis dx={-5} tickFormatter={tickFormatter} ticks={ticks} />
