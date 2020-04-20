@@ -276,7 +276,10 @@ function Drawer({
 	let activeTabItem = [];
 	let customTabs;
 	if (tabs && tabs.items.length > 0) {
-		customTabs = { ...tabs, items: tabs.items?.map(({ footerActions, ...item }) => item) };
+		customTabs = {
+			...tabs,
+			items: tabs.items && tabs.items.map(({ footerActions, ...item }) => item),
+		};
 
 		if (selectedTabKey) {
 			customTabs.selectedKey = selectedTabKey;
