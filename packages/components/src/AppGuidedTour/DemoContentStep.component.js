@@ -13,7 +13,7 @@ export default function DemoContentStep({ demoContentSteps }) {
 	}
 
 	return (
-		<>
+		<React.Fragment>
 			<p className={theme.info}>
 				<Icon name="talend-info-circle" />
 				{i18n.t('tui-components:DEMO_CONTENT_LOADING_MESSAGE', {
@@ -22,7 +22,7 @@ export default function DemoContentStep({ demoContentSteps }) {
 				})}
 			</p>
 			<Stepper steps={demoContentSteps} />
-		</>
+		</React.Fragment>
 	);
 }
 
