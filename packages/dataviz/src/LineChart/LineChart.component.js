@@ -19,8 +19,7 @@ import {
 	getStrokeWidth,
 	union,
 } from './linechart-utils';
-
-import './LineChart.scss';
+import theme from './LineChart.scss';
 
 export function handleMouseDown(selectedLegends, setSelectedLegends) {
 	return o => {
@@ -91,9 +90,9 @@ export const renderLegend = (
 					selectedLegends,
 				);
 				const legendClass = classNames({
-					'recharts-legend-item': true,
-					'legend-selected': isSelected,
-				});
+					[theme['td-legend-item']]: true,
+					[theme['td-legend-selected']]: isSelected,
+				}, 'td-legend-item');
 				return (
 					<li
 						role="button"
@@ -126,6 +125,25 @@ export const renderLegend = (
 	);
 };
 
+function Tick({ x, y, width, height, ...rest }) {
+	const { payload } = rest;
+
+	return (
+		<g className={classNames(theme['axis-tick'], 'td-axis-tick')}>
+			<text width={width} height={height} x={x} y={y} textAnchor="middle">
+				<tspan x={x} dy={'1em'}>{payload.value}</tspan>
+			</text>
+		</g>
+	);
+}
+
+Tick.propTypes = {
+	x: PropTypes.string,
+	y: PropTypes.string,
+	height: PropTypes.string,
+	width: PropTypes.string,
+};
+
 function CustomLineChart({
 	data,
 	key = 'name',
@@ -144,7 +162,7 @@ function CustomLineChart({
 			<ResponsiveContainer width={width} height={height}>
 				<LineChart data={data} margin={margin}>
 					<CartesianGrid stroke="#F2F2F2" strokeDasharray="2" vertical={false} />
-					<XAxis dy={5} dataKey={key} tickLine={false} />
+					<XAxis dataKey={key} tickLine={false} tick={<Tick />} />
 					<YAxis dx={-5} tickFormatter={tickFormatter} ticks={ticks} />
 					<Legend
 						content={renderLegend(

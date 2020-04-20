@@ -78,19 +78,19 @@ describe('linechart', () => {
 			const wrapper = shallow(
 				<div>{renderLegend('Jane Doe', [], mouseDownFn, mouseEnterFn, mouseLeaveFn)(data)}</div>,
 			);
-			expect(wrapper.find('.recharts-legend-item').length).toBe(2);
+			expect(wrapper.find('.td-legend-item').length).toBe(2);
 			// not selected/higlight
 			const firstLegend = wrapper
-				.find('.recharts-legend-item')
+				.find('.td-legend-item')
 				.at(0)
 				.getElement().props;
-			expect(firstLegend.className.indexOf('legend-selected') > -1).toBeFalsy();
+			expect(firstLegend.className.indexOf('td-legend-selected') > -1).toBeFalsy();
 			// higlighted
 			const secondLegend = wrapper
-				.find('.recharts-legend-item')
+				.find('.td-legend-item')
 				.at(1)
 				.getElement().props;
-			expect(secondLegend.className.indexOf('legend-selected') > -1).toBeTruthy();
+			expect(secondLegend.className.indexOf('td-legend-selected') > -1).toBeTruthy();
 		});
 		it('should legend mouseLeave event', () => {
 			// given

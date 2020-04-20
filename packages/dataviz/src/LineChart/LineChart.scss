@@ -1,26 +1,27 @@
-:global {
-	.recharts-cartesian-axis-tick-value {
-		font-size: 12px;
-		font-family: 'Source Sans Pro';
-		color: $dove-gray;
-	}
+.axis-tick {
+	font-size: 12px;
+	font-family: 'Source Sans Pro';
+	color: $dove-gray;
+}
 
+.td-legend-item {
+	display: inline-block;
+	margin-right: 10px;
+	cursor: pointer;
+	&.td-legend-selected {
+		font-weight: 600;
+	}
+	svg {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 5px;
+	}
+}
+
+:global {
 	.recharts-legend-wrapper {
 		display: flex;
 		text-align: center;
 		justify-content: center;
-		.recharts-legend-item {
-			display: inline-block;
-			margin-right: 10px;
-			cursor: pointer;
-			&.legend-selected {
-				font-weight: 600;
-			}
-			svg {
-				display: inline-block;
-				vertical-align: middle;
-				margin-right: 5px;
-			}
-		}
 	}
 }
