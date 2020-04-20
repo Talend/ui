@@ -116,7 +116,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Button.tc-typeahead-toggle').at(0).simulate('click');
+			typeaheadInstance
+				.find('Button.tc-typeahead-toggle')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -173,7 +176,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Item').at(0).simulate('click');
+			typeaheadInstance
+				.find('Item')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(onSelect).toBeCalled();
@@ -210,6 +216,25 @@ describe('Typeahead', () => {
 
 		// then
 		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(2);
+	});
+
+	describe('render ', () => {
+		it('should render empty if provided collection is null', () => {
+			// given
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: flatItems,
+			};
+			const typeahead = <Typeahead {...props} />;
+
+			// when
+			const typeaheadInstance = mount(typeahead);
+
+			// then
+			expect(typeaheadInstance.find('data-feature')).toBeUndefined();
+		});
 	});
 
 	describe('getItems', () => {
