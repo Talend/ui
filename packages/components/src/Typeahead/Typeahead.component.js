@@ -24,7 +24,7 @@ export function getItems(items, dataFeature) {
 	}
 
 	return items.map(item => ({
-		'data-feature': `${dataFeature}-${item.value}`,
+		'data-feature': `${dataFeature}.${item.value}`,
 		...item,
 	}));
 }
