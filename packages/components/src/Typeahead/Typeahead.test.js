@@ -84,7 +84,6 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-
 			// then
 			expect(typeaheadInstance.find('Action').length).toBe(0);
 		});
@@ -226,6 +225,7 @@ describe('Typeahead', () => {
 				onToggle: jest.fn(),
 				docked: false,
 				items: flatItems,
+				multiSection: false,
 			};
 			const typeahead = <Typeahead {...props} />;
 
@@ -233,7 +233,7 @@ describe('Typeahead', () => {
 			const typeaheadInstance = mount(typeahead);
 
 			// then
-			expect(typeaheadInstance.find('data-feature')).toBeUndefined();
+			expect(typeaheadInstance.find('data-feature')).toMatchObject({});
 		});
 	});
 
