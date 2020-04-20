@@ -151,7 +151,7 @@ class Datalist extends Component {
 				<DataListComponent
 					{...props}
 					{...this.state}
-					enableValueAsDataFeature={this.props.schema.enableValueAsDataFeature}
+					dataFeature={this.props.schema.dataFeature}
 					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || this.props.valueIsUpdating}
@@ -200,9 +200,10 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 			autoFocus: PropTypes.bool,
+
+			dataFeature: PropTypes.string,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
-			enableValueAsDataFeature: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,

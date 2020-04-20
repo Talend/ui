@@ -31,7 +31,6 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
         caret={true}
         disabled={false}
         docked={false}
-        enableValueAsDataFeature={false}
         id="my-select-tag"
         inputProps={
           Object {

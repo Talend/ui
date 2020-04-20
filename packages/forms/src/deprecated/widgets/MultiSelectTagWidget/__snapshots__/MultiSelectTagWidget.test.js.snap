@@ -26,7 +26,6 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
       autoFocus={false}
       disabled={false}
       docked={false}
-      enableValueAsDataFeature={false}
       id="42"
       items={null}
       multiSection={false}

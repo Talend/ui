@@ -5,7 +5,6 @@ exports[`Typeahead container should render 1`] = `
   autoFocus={false}
   disabled={false}
   docked={true}
-  enableValueAsDataFeature={false}
   focusedItemIndex={null}
   focusedSectionIndex={null}
   icon={Object {}}

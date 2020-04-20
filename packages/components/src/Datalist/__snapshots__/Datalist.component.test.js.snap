@@ -11,7 +11,6 @@ exports[`Datalist component should render a typeahead 1`] = `
     className="tc-datalist"
     disabled={false}
     docked={false}
-    enableValueAsDataFeature={false}
     errorMessage="This should be correct"
     id="my-datalist"
     isValid={true}

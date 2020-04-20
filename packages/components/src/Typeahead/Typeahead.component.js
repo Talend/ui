@@ -15,16 +15,16 @@ import {
 import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-export function getItems(items, enableValueAsDataFeature) {
+export function getItems(items, dataFeature) {
 	if (!items) {
 		return [];
 	}
-	if (!enableValueAsDataFeature) {
+	if (!dataFeature) {
 		return items;
 	}
 
 	return items.map(item => ({
-		'data-feature': item.value,
+		'data-feature': `${dataFeature}-${item.value}`,
 		...item,
 	}));
 }
@@ -138,7 +138,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...sectionProps,
 		...themeProps,
 		...inputProps,
-		items: getItems(rest.items, rest.enableValueAsDataFeature),
+		items: getItems(rest.items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
 			onClick: rest.onSelect,
 			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
@@ -160,7 +160,6 @@ Typeahead.defaultProps = {
 	readOnly: false,
 	searching: false,
 	docked: false,
-	enableValueAsDataFeature: false,
 };
 
 Typeahead.propTypes = {
@@ -195,7 +194,7 @@ Typeahead.propTypes = {
 	value: PropTypes.string,
 
 	// suggestions
-	enableValueAsDataFeature: PropTypes.bool,
+	dataFeature: PropTypes.string,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,
