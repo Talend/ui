@@ -17,7 +17,6 @@ import {
 	getDotR,
 	getStrokeOpacity,
 	getStrokeWidth,
-	union,
 } from './linechart-utils';
 import theme from './LineChart.scss';
 
@@ -46,12 +45,11 @@ export function handleMouseLeave(setHighlightLegendKey) {
 }
 
 export function renderLine(data, key, highlightLegendKey, selectedLegends, colors) {
-	let dataKeys = new Set();
-	data.forEach(dots => {
-		dataKeys = union(dataKeys, new Set(Object.keys(dots)));
-	});
-	dataKeys.delete(key);
-	return [...dataKeys].map((dataKey, index) => {
+	const allDots = data.reduce((acc, dots) => {
+		acc = acc.concat(Object.keys(dots).filter(dot => dot !== key));
+		return acc;
+	}, []);
+	return [...new Set(allDots)].map((dataKey, index) => {
 		const color = index < colors.length ? colors[index] : '';
 		return (
 			<Line
