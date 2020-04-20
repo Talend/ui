@@ -36,6 +36,7 @@
   "dependencies": {
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
+    "cpx2": "^2.0.0",
     "d3-shape": "1.2.0",
     "date-fns": "^1.27.2",
     "date-fns-timezone": "^0.1.4",
@@ -89,7 +90,6 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
     "copy-webpack-plugin": "^5.1.1",
-    "cpx": "^1.5.0",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
     "enzyme": "^3.9.0",
