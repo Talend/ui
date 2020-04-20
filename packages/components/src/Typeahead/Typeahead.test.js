@@ -115,10 +115,7 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance
-				.find('Button.tc-typeahead-toggle')
-				.at(0)
-				.simulate('click');
+			typeaheadInstance.find('Button.tc-typeahead-toggle').at(0).simulate('click');
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -175,10 +172,7 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance
-				.find('Item')
-				.at(0)
-				.simulate('click');
+			typeaheadInstance.find('Item').at(0).simulate('click');
 
 			// then
 			expect(onSelect).toBeCalled();
@@ -267,24 +261,9 @@ describe('Typeahead', () => {
 			// when
 			const typeaheadInstance = mount(typeahead);
 			// then
-			expect(
-				typeaheadInstance
-					.find('li>div')
-					.at(0)
-					.prop('data-feature'),
-			).toEqual('smtg.item-1');
-			expect(
-				typeaheadInstance
-					.find('li>div')
-					.at(1)
-					.prop('data-feature'),
-			).toEqual('smtg.item-2');
-			expect(
-				typeaheadInstance
-					.find('li>div')
-					.at(2)
-					.prop('data-feature'),
-			).toEqual('smtg.item-3');
+			expect(typeaheadInstance.find('li>div').at(0).prop('data-feature')).toEqual('smtg.item-1');
+			expect(typeaheadInstance.find('li>div').at(1).prop('data-feature')).toEqual('smtg.item-2');
+			expect(typeaheadInstance.find('li>div').at(2).prop('data-feature')).toEqual('smtg.item-3');
 		});
 	});
 });
