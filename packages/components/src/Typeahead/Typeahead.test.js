@@ -287,29 +287,4 @@ describe('Typeahead', () => {
 			).toEqual('smtg.item-3');
 		});
 	});
-
-	describe('getItems', () => {
-		it('should return an empty array if provided collection is null', () => {
-			const computedItems = getItems(null);
-			expect(computedItems).toEqual([]);
-		});
-		it('should return an empty array if provided collection is undefined', () => {
-			const computedItems = getItems(undefined);
-			expect(computedItems).toEqual([]);
-		});
-		it('should return provided array if dataFeature props is falsy', () => {
-			const computedItems = getItems(flatItems);
-			expect(computedItems).toBe(flatItems);
-		});
-		it('should return an array with a data-feature property on each item that equals the concat of the prop and the value of the item', () => {
-			const dataFeatureContext = 'data-feature-context';
-			const computedItems = getItems(flatItems, dataFeatureContext);
-			expect(computedItems.length).toBe(flatItems.length);
-			for (let i = 0; i < flatItems.length; i += 1) {
-				expect(computedItems[i]['data-feature']).toBe(
-					`${dataFeatureContext}.${flatItems[i].value}`,
-				);
-			}
-		});
-	});
 });
