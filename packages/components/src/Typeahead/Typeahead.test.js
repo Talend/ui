@@ -252,7 +252,7 @@ describe('Typeahead', () => {
 			// then
 			expect(typeaheadInstance.find('Item')).toMatchObject({});
 		});
-		it('should render Items if provided collection is flat', () => {
+		it('should render Items with data-feature attribute if provided collection is flat', () => {
 			// given
 			const props = {
 				...initialProps,
