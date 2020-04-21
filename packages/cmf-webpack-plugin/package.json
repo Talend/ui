@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "prepublish": "npm run build && npm run test",
+    "prepare": "npm run build && npm run test",
     "build": "rimraf ./dist && babel -d dist ./src/ --ignore **/*.test.js",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
@@ -50,7 +50,7 @@
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
-    "rimraf": "^2.6.2"
+    "rimraf": "^3.0.2"
   },
   "publishConfig": {
     "access": "public"

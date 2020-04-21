@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "rimraf lib && babel -d lib ./src/ && cpx -v \"./src/**/*.scss\" lib",
+    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.stories.js','src/**/*.test.js' && cpx -v \"./src/**/*.scss\" lib",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -89,7 +89,7 @@
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
     "react-test-renderer": "^16.8.6",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.2",
     "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0",
     "storybook-addon-i18next": "^1.2.1"

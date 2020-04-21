@@ -17,7 +17,7 @@
     "addon"
   ],
   "scripts": {
-    "prepublish": "babel -d lib ./src/",
+    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js'",
     "lint": "eslint --config ../../.eslintrc src",
     "test": "jest",
     "test:demo": "echo nothing to demo"
@@ -45,7 +45,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^5.0.7",
-    "redux-saga": "^0.15.4"
+    "redux-saga": "^0.15.4",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "@storybook/addon-actions": "^5.3.1",
