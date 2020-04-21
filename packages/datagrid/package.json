@@ -57,7 +57,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.6",
-    "cpx": "^1.5.0",
+    "cpx2": "^2.0.0",
     "css-loader": "^1.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
