@@ -13,7 +13,7 @@
     "lint:style": "sass-lint -v -q",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es && npm run lint:style",
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" lib",
+    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js' && cpx -v \"./src/**/*.scss\" lib",
     "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "cpx": "cpx \"./src/**/*.scss\" ./lib"
@@ -76,7 +76,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0"
   },

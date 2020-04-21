@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" ./lib",
+    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js' && cpx -v \"./src/**/*.scss\" ./lib",
     "start": "start-storybook -p 6009",
     "test": "jest --silent",
     "test:noisy": "jest",
@@ -49,8 +49,8 @@
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/icons": "^5.0.0",
-    "@talend/react-components": "^5.0.0",
+    "@talend/icons": "^5.1.1",
+    "@talend/react-components": "^5.1.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.6",
@@ -74,7 +74,7 @@
     "react-i18next": "^10.11.4",
     "react-redux": "^5.0.7",
     "react-transition-group": "^2.3.1",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0"
   },
@@ -111,5 +111,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.0"
+  "version": "5.1.1"
 }
