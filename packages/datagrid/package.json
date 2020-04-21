@@ -76,7 +76,7 @@
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
     "rimraf": "^3.0.2",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^7.3.1",
     "storybook-addon-i18next": "^1.2.1",
     "style-loader": "^0.23.0"
   },
