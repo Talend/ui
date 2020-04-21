@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/",
+    "prepare": "rimraf ./lib && babel -d lib ./src/",
     "start": "echo nothing to start",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -81,7 +81,8 @@
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
     "redux-mock-store": "^1.2.3",
-    "redux-saga-tester": "^1.0.345"
+    "redux-saga-tester": "^1.0.345",
+    "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "react": "^16.8.6",

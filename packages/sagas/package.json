@@ -6,7 +6,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "rimraf lib && babel -d lib ./src/",
+    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js'",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -63,7 +63,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "rimraf": "^2.6.2"
+    "rimraf": "^3.0.2"
   },
   "jest": {
     "collectCoverageFrom": [

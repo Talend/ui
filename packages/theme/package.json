@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "webpack -p",
+    "prepare": "rimraf ./dist && webpack -p",
     "start": "webpack-dev-server --port 1337",
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",
@@ -40,6 +40,7 @@
     "file-loader": "^2.0.0",
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
+    "rimraf": "^3.0.2",
     "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
