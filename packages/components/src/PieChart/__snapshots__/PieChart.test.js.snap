@@ -14,9 +14,11 @@ exports[`PieChart should render a PieChartIcon with a tooltip 1`] = `
   label="myToolTip"
   tooltipPlacement="top"
 >
-  <withI18nextTranslation(PieChartIcon)
-    label="myToolTip"
-  />
+  <span>
+    <withI18nextTranslation(PieChartIcon)
+      label="myToolTip"
+    />
+  </span>
 </TooltipTrigger>
 `;
 
@@ -33,10 +35,12 @@ exports[`decorateWithTooltip should return component with tooltip 1`] = `
   label="label"
   tooltipPlacement="top"
 >
-  <PieChartButton
-    available={true}
-    overlayId="pie-chart-popover"
-    overlayPlacement="bottom"
-  />
+  <span>
+    <PieChartButton
+      available={true}
+      overlayId="pie-chart-popover"
+      overlayPlacement="bottom"
+    />
+  </span>
 </TooltipTrigger>
 `;

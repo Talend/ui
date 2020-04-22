@@ -1,22 +1,14 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import Action from '@talend/react-components/lib/Actions/Action';
 import FilterBar from '@talend/react-components/lib/FilterBar';
 import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
-import Toggle, { Checkbox } from '@talend/react-components/lib/Toggle';
-
+import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
-
 import cssModule from './BadgeCheckboxes.scss';
 
 const theme = getTheme(cssModule);
-
-const useFilter = () => {
-	const [filter, setFilter] = useState('');
-	const onFilter = (_, filterValue) => setFilter(filterValue.trim().toLowerCase());
-	const resetFilter = () => setFilter('');
-	return [filter, onFilter, resetFilter];
-};
 
 const BadgeCheckbox = ({ checked, id, label, onChange }) => {
 	const describedby = `${id}-${label}`;
@@ -55,29 +47,36 @@ const createCheckboxEntity = value => checkbox => {
 	};
 };
 
-const getCheckboxes = (checkboxes, value, filterValue) =>
-	checkboxes
-		.filter(checkbox => checkbox.label.toLowerCase().includes(filterValue))
+const getCheckboxes = (checkboxes, value, filterValue) => {
+	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
+
+	return checkboxes
+		.filter(checkbox =>
+			get(checkbox, 'label', '')
+				.toLocaleLowerCase()
+				.includes(formatFilterValue),
+		)
 		.map(createCheckboxEntity(value));
+};
 
 const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t }) => {
-	const [filter, onFilter, resetFilter] = useFilter();
-	const [showSelected, setToggleShowSelected] = useState(false);
+	const [filter, setFilter] = useState('');
+
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
-	const checkboxes = useMemo(() => getCheckboxes(checkboxValues, value, filter), [
+	const checkboxes = useCallback(getCheckboxes(checkboxValues, value, filter), [
 		checkboxValues,
 		value,
 		filter,
 	]);
-	const displayedCheckboxes = showSelected
-		? checkboxes.filter(checkbox => checkbox.checked)
-		: checkboxes;
 	const onChangeCheckBoxes = (event, checkboxId) => {
 		const entity = checkboxes.find(checkboxValue => checkboxValue.id === checkboxId);
 		if (entity) {
 			entity.checked = event.target.checked;
 		}
-		onChange(event, checkboxes.filter(c => c.checked));
+		onChange(
+			event,
+			checkboxes.filter(c => c.checked),
+		);
 	};
 	return (
 		<React.Fragment>
@@ -90,8 +89,8 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 				placeholder={t('FIND_COLUMN_FILTER_PLACEHOLDER', {
 					defaultValue: 'Find an entity',
 				})}
-				onToggle={resetFilter}
-				onFilter={onFilter}
+				onToggle={() => setFilter('')}
+				onFilter={(_, filterValue) => setFilter(filterValue)}
 				value={filter}
 			/>
 			<form
@@ -103,7 +102,7 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 					id={badgeCheckBoxesFormId}
 					className={theme('fs-badge-checkbox-form-body')}
 				>
-					{displayedCheckboxes.map(checkbox => (
+					{checkboxes.map(checkbox => (
 						<BadgeCheckbox
 							key={checkbox.id}
 							id={checkbox.id}
@@ -114,13 +113,6 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 					))}
 				</RichLayout.Body>
 				<RichLayout.Footer id={id} className={theme('fs-badge-checkbox-form-footer')}>
-					<Toggle
-						checked={showSelected}
-						id={`${badgeCheckBoxesFormId}-show-checked`}
-						label={t('TOGGLE_SELECTED_VALUES_ONLY', { defaultValue: 'Selected values only' })}
-						onChange={() => setToggleShowSelected(!showSelected)}
-						test-id="checkbox-selected-values-only"
-					/>
 					<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
 				</RichLayout.Footer>
 			</form>

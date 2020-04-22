@@ -31,19 +31,19 @@
   },
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
+    "@babel/polyfill": "^7.8.3",
     "immutable": "^3.8.1",
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "@babel/preset-react": "^7.0.0",
-    "@talend/react-cmf": "^4.22.0",
-    "babel-eslint": "^10.0.1",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@talend/react-cmf": "^5.1.1",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
@@ -52,16 +52,16 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.7.1",
+    "jest": "^24.9.0",
     "mock-socket": "^7.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "redux-mock-store": "^1.2.3",
-    "rimraf": "^2.6.2"
+    "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^4.22.0",
+    "@talend/react-cmf": "^5.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -83,5 +83,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.22.0"
+  "version": "5.1.1"
 }

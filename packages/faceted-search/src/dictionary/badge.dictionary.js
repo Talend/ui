@@ -14,6 +14,11 @@ const standardBadges = {
 	[standardBadgeTypeNames.number]: BadgeNumber,
 };
 
+export const filterBadgeDefinitionsWithDictionary = (badgesDictionary, badgeDefinition) => {
+	const supportedTypes = Object.keys(badgesDictionary);
+	return badgeDefinition.filter(badge => supportedTypes.includes(badge.properties.type));
+};
+
 const createBadgesDict = badges => {
 	if (badges) {
 		return { ...standardBadges, ...badges };

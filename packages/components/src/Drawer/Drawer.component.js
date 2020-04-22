@@ -185,13 +185,11 @@ function DrawerTitle({
 				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
-			{children && (
-				<div
-					className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
-				>
-					{children}
-				</div>
-			)}
+			<div
+				className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
+			>
+				{children}
+			</div>
 		</div>
 	);
 }
@@ -215,7 +213,9 @@ function DrawerContent({ children, className, ...rest }) {
 			className={classnames('tc-drawer-content', theme['tc-drawer-content'], className)}
 			{...rest}
 		>
-			{children}
+			<div className={classnames('tc-drawer-content-wrapper', theme['tc-drawer-content-wrapper'])}>
+				{children}
+			</div>
 		</div>
 	);
 }
@@ -276,7 +276,10 @@ function Drawer({
 	let activeTabItem = [];
 	let customTabs;
 	if (tabs && tabs.items.length > 0) {
-		customTabs = Object.assign({}, tabs);
+		customTabs = {
+			...tabs,
+			items: tabs.items && tabs.items.map(({ footerActions, ...item }) => item),
+		};
 
 		if (selectedTabKey) {
 			customTabs.selectedKey = selectedTabKey;
@@ -306,17 +309,19 @@ function Drawer({
 					/>
 				</div>
 			)}
-			<DrawerContent>{children}</DrawerContent>
-			<div
-				className={classnames(
-					'tc-drawer-actionbar-container',
-					theme['tc-drawer-actionbar-container'],
-				)}
-			>
-				<ActionBar
-					{...combinedFooterActions(onCancelAction, footerActions, activeTabItem)}
-					className={classnames('tc-drawer-actionbar', theme['tc-drawer-actionbar'])}
-				/>
+			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
+				<DrawerContent>{children}</DrawerContent>
+				<div
+					className={classnames(
+						'tc-drawer-actionbar-container',
+						theme['tc-drawer-actionbar-container'],
+					)}
+				>
+					<ActionBar
+						{...combinedFooterActions(onCancelAction, footerActions, activeTabItem)}
+						className={classnames('tc-drawer-actionbar', theme['tc-drawer-actionbar'])}
+					/>
+				</div>
 			</div>
 		</DrawerContainer>
 	);
@@ -332,7 +337,7 @@ Drawer.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
-	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
+	footerActions: PropTypes.shape(ActionBar.propTypes),
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,

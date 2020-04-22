@@ -14,7 +14,7 @@ import Action from '../../Actions/Action/Action.component';
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 const { LARGE } = listTypes;
 
-const MAX_DIRECT_NB_ICON = 3;
+const MAX_DIRECT_NB_ICON = 4;
 
 function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
@@ -109,7 +109,6 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
 				hideLabel
 				link
-				noCaret
 			/>,
 		);
 	}

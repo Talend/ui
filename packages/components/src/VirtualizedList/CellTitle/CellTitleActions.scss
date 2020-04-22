@@ -17,6 +17,7 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
 		opacity: 0;
 		width: 0;
+		overflow: hidden;
 
 		&:not(:last-child):after {
 			content: '|';
@@ -39,7 +40,16 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 
 	:global {
 		.btn-link {
-			padding: 0 $padding-small;
+			padding: 0 $padding-smaller;
+			.tc-svg-icon[name='talend-caret-down'] {
+				display: none;
+			}
+
+			.tc-svg-icon {
+				margin: 0;
+				height: 2rem;
+				width: 2rem;
+			}
 		}
 
 		.btn-group > .dropdown-menu,

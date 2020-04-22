@@ -73,7 +73,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 			title={item.title || item.label}
 			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item')}
 		>
-			{item.icon && <Icon name={item.icon} />}
+			{item.icon && <Icon key="icon" name={item.icon} />}
 			{!item.hideLabel && item.label}
 		</Renderers.MenuItem>
 	);
@@ -195,19 +195,20 @@ class ActionDropdown extends React.Component {
 		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 		const title = [
-			icon ? <Icon name={icon} key={'icon'} /> : null,
-			hideLabel ? null : (
-				<span className="tc-dropdown-button-title-label" key={'label'}>
+			icon && <Icon name={icon} key="icon" />,
+			!hideLabel && (
+				<span className="tc-dropdown-button-title-label" key="label">
 					{label}
 				</span>
 			),
 			<Icon
+				key="caret"
 				name="talend-caret-down"
 				className={classNames(theme['tc-dropdown-caret'], {
 					[theme['tc-dropdown-caret-open']]: this.state.isOpen,
 				})}
 			/>,
-		];
+		].filter(Boolean);
 		const style = link ? 'link' : bsStyle;
 
 		function onItemSelect(object, event) {

@@ -1,25 +1,35 @@
 import React from 'react';
-import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Skeleton from '@talend/react-components/lib/Skeleton';
 import theme from './FormSkeleton.scss';
 
-export default function FormSkeleton() {
+export default function FormSkeleton({ displayMode }) {
 	return (
-		<div className={classNames(theme.container, 'tc-skeleton-heartbeat')} aria-busy>
+		<div className={`${theme.container} tc-skeleton-heartbeat`} aria-busy>
 			<div className={theme['form-content']}>
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
+				<div className={theme['form-content-wrapper']}>
+					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
+					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
+					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
+					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
+				</div>
 			</div>
-			<div className={theme['form-actions']}>
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
-			</div>
+			{displayMode !== 'text' && (
+				<div className={theme.submit}>
+					<div className={theme['submit-wrapper']}>
+						<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
+						<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }
+
+FormSkeleton.propTypes = {
+	displayMode: PropTypes.string,
+};

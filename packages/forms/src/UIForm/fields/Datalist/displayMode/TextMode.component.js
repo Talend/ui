@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { withTranslation } from 'react-i18next';
 import callTrigger from '../../../trigger';
 import { DID_MOUNT, FOCUS } from '../constants';
@@ -34,9 +35,18 @@ class TextMode extends React.Component {
 
 	render() {
 		const { id, schema, value, t } = this.props;
-		const { title } = schema;
-		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
-		const titleEntry = titleMap.find(entry => entry.value === value);
+		const { title, options } = schema;
+		let titleEntry;
+
+		if (options && options.isMultiSection) {
+			options.titleMap.find(section => {
+				titleEntry = section.suggestions.find(entry => entry.value === value);
+				return !!titleEntry;
+			});
+		} else {
+			const titleMap = get(this.state, 'titleMap') || get(this.props, 'schema.titleMap') || [];
+			titleEntry = titleMap.find(entry => entry.value === value);
+		}
 
 		let displayValue = (titleEntry && titleEntry.name) || value;
 		if (value && this.state.isLoading) {

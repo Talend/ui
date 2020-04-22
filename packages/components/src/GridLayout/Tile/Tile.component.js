@@ -25,7 +25,7 @@ function Tile(props) {
 	return (
 		<TileContext.Provider value={contextValues}>
 			<div
-				className={classnames(theme['tc-tile-container'], 'tc-tile-container')}
+				className={classnames(theme['tc-tile-container'], 'tc-tile-container', props.className)}
 				onMouseDown={ignoreDragOnInput}
 			>
 				{props.children}
@@ -36,6 +36,7 @@ function Tile(props) {
 
 Tile.propTypes = {
 	children: PropTypes.node,
+	className: PropTypes.string,
 };
 
 export default Tile;

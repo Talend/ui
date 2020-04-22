@@ -4,9 +4,13 @@ exports[`Drawer render drawer content with extra className 1`] = `
 <div
   className="tc-drawer-content theme-tc-drawer-content extraClass"
 >
-  <h1>
-    Hello world
-  </h1>
+  <div
+    className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+  >
+    <h1>
+      Hello world
+    </h1>
+  </div>
 </div>
 `;
 
@@ -14,9 +18,13 @@ exports[`Drawer render drawer content without extra className 1`] = `
 <div
   className="tc-drawer-content theme-tc-drawer-content"
 >
-  <h1>
-    Hello world
-  </h1>
+  <div
+    className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+  >
+    <h1>
+      Hello world
+    </h1>
+  </div>
 </div>
 `;
 
@@ -30,18 +38,33 @@ exports[`Drawer should render 1`] = `
     className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
-      className="tc-drawer-content theme-tc-drawer-content"
-    >
-      <h1>
-        Hello world
-      </h1>
-    </div>
-    <div
-      className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
     >
       <div
-        className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-      />
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -55,18 +78,33 @@ exports[`Drawer should render stacked 1`] = `
     className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
-      className="tc-drawer-content theme-tc-drawer-content"
-    >
-      <h1>
-        Hello world
-      </h1>
-    </div>
-    <div
-      className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
     >
       <div
-        className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-      />
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -80,18 +118,33 @@ exports[`Drawer should render using custom className 1`] = `
     className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
-      className="tc-drawer-content theme-tc-drawer-content"
-    >
-      <h1>
-        Hello world
-      </h1>
-    </div>
-    <div
-      className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
     >
       <div
-        className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-      />
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -110,18 +163,33 @@ exports[`Drawer should render using custom styles 1`] = `
     className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
-      className="tc-drawer-content theme-tc-drawer-content"
-    >
-      <h1>
-        Hello world
-      </h1>
-    </div>
-    <div
-      className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
     >
       <div
-        className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-      />
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -185,18 +253,33 @@ exports[`Drawer should render with tabs 1`] = `
       </div>
     </div>
     <div
-      className="tc-drawer-content theme-tc-drawer-content"
-    >
-      <h1>
-        Hello world
-      </h1>
-    </div>
-    <div
-      className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
     >
       <div
-        className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-      />
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -328,18 +411,33 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
     className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
-      className="tc-drawer-content theme-tc-drawer-content"
-    >
-      <h1>
-        Hello world
-      </h1>
-    </div>
-    <div
-      className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
     >
       <div
-        className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-      />
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
     </div>
   </div>
 </div>

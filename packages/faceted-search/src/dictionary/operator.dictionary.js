@@ -1,5 +1,6 @@
 const operatorNames = {
 	contains: 'contains',
+	containsIgnoreCase: 'containsIgnoreCase',
 	equals: 'equals',
 	notEquals: 'notEquals',
 	in: 'in',
@@ -12,14 +13,14 @@ const operatorNames = {
 const standardOperators = t => ({
 	[operatorNames.notEquals]: {
 		label: t('OPERATOR_NOT_EQUALS_LABEL', {
-			defaultValue: 'Not equals',
+			defaultValue: 'Not equal to',
 		}),
 		name: 'notEquals',
 		iconName: 'not-equal',
 	},
 	[operatorNames.equals]: {
 		label: t('OPERATOR_EQUALS_LABEL', {
-			defaultValue: 'Equals',
+			defaultValue: 'Equal to',
 		}),
 		name: 'equals',
 		iconName: 'equal',
@@ -29,6 +30,13 @@ const standardOperators = t => ({
 			defaultValue: 'Contains',
 		}),
 		name: 'contains',
+		iconName: 'contains',
+	},
+	[operatorNames.containsIgnoreCase]: {
+		label: t('OPERATOR_CONTAINS_LABEL', {
+			defaultValue: 'Contains',
+		}),
+		name: 'containsIgnoreCase',
 		iconName: 'contains',
 	},
 	[operatorNames.in]: {
@@ -46,7 +54,7 @@ const standardOperators = t => ({
 	},
 	[operatorNames.greaterThanOrEquals]: {
 		label: t('OPERATOR_GREATER_THAN_OR_EQUAL_LABEL', {
-			defaultValue: 'Greater than or equal',
+			defaultValue: 'Greater than or equal to',
 		}),
 		name: 'greaterThanOrEquals',
 		iconName: 'greater-than-equal',
@@ -60,7 +68,7 @@ const standardOperators = t => ({
 	},
 	[operatorNames.lessThanOrEquals]: {
 		label: t('OPERATOR_LESS_THAN_OR_EQUAL_LABEL', {
-			defaultValue: 'Less than or equal',
+			defaultValue: 'Less than or equal to',
 		}),
 		name: 'lessThanOrEquals',
 		iconName: 'less-than-equal',
@@ -77,7 +85,9 @@ const createOperatorsDict = (t, operators) => {
 	return standardOperators(t);
 };
 const getOperatorsFromDict = (operatorsDictionary, operatorsKeys) =>
-	operatorsKeys.map(operatorKey => operatorsDictionary[operatorKey]);
+	operatorsKeys
+		.map(operatorKey => operatorsDictionary[operatorKey])
+		.filter(element => element !== undefined);
 
 // eslint-disable-next-line import/prefer-default-export
-export { createOperatorsDict, getOperatorsFromDict };
+export { operatorNames, createOperatorsDict, getOperatorsFromDict };

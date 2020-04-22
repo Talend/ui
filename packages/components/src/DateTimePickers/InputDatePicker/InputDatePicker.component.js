@@ -8,7 +8,7 @@ import { Popper } from 'react-popper';
 import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
-import Date from '../Date';
+import DatePicker from '../Date';
 import TimeZone from '../TimeZone';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
@@ -47,7 +47,7 @@ export default function InputDatePicker(props) {
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
-		<Date.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
+		<DatePicker.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
 		handlers.showPicker && (
 			<Popper
 				key="popper"
@@ -71,15 +71,15 @@ export default function InputDatePicker(props) {
 						ref={ref}
 						onMouseDown={onMouseDown}
 					>
-						<Date.Picker {...props} />
+						<DatePicker.Picker {...props} />
 					</div>
 				)}
 			</Popper>
 		),
-		!props.hideTimezone && props.timezone && <TimeZone timezone={props.timezone} />,
+		!props.hideTimezone && props.timezone && <TimeZone key="timezone" timezone={props.timezone} />,
 	].filter(Boolean);
 	return (
-		<Date.Manager
+		<DatePicker.Manager
 			value={props.value}
 			dateFormat={props.dateFormat}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
@@ -98,7 +98,7 @@ export default function InputDatePicker(props) {
 			>
 				{timePicker}
 			</FocusManager>
-		</Date.Manager>
+		</DatePicker.Manager>
 	);
 }
 InputDatePicker.displayName = 'InputDatePicker';

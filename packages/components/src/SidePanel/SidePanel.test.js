@@ -1,10 +1,9 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { mount } from 'enzyme';
 import SidePanel from './SidePanel.component';
 
 describe('SidePanel', () => {
-	it('should trigger toggleDock callback on toggle click', () => {
+	it('should trigger callback on toggle click (controlled)', () => {
 		// given
 		const onClick = jest.fn();
 		const onToggleDock = jest.fn();
@@ -13,33 +12,33 @@ describe('SidePanel', () => {
 			{ label: 'Datasets', icon: 'fa fa-file-excel-o', onClick },
 			{ label: 'Favorites', icon: 'fa fa-star', onClick },
 		];
-		const docked = false;
 
 		// when
-		const sidePanel = (
-			<SidePanel
-				actions={actions}
-				onToggleDock={onToggleDock}
-				docked={docked}
-				toggleIcon={'fa fa-arrow-left'}
-			/>
+		const wrapper = mount(
+			<SidePanel id="sp" actions={actions} onToggleDock={onToggleDock} docked />,
 		);
-		const wrapper = mount(sidePanel);
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		expect(wrapper.find('nav').prop('className')).toEqual(expect.stringContaining('docked'));
+		wrapper.find('button#sp-toggle-dock').simulate('click');
 
 		// then
 		expect(onToggleDock).toBeCalled();
+		expect(wrapper.find('nav').prop('className')).toEqual(expect.stringContaining('docked'));
 	});
 
-	it('should work even if there is no id, label, or action id', () => {
-		const actions = [{}, {}, {}];
-		const sidePanel = <SidePanel actions={actions} />;
+	it('should toggle panel (uncontrolled)', () => {
+		// given
+		const actions = [
+			{ label: 'Preparations', icon: 'fa fa-asterisk', href: '/preparations' },
+			{ label: 'Datasets', icon: 'fa fa-file-excel-o', href: '/datasets' },
+			{ label: 'Favorites', icon: 'fa fa-star', href: '/favorites' },
+		];
 
-		expect(() => {
-			mount(sidePanel);
-		}).not.toThrow();
+		// when
+		const wrapper = mount(<SidePanel id="sp" actions={actions} docked />);
+		expect(wrapper.find('nav').prop('className')).toEqual(expect.stringContaining('docked'));
+		wrapper.find('button#sp-toggle-dock').simulate('click');
+
+		// then
+		expect(wrapper.find('nav').prop('className')).toEqual(expect.not.stringContaining('docked'));
 	});
 });

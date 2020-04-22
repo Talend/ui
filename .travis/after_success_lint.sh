@@ -11,7 +11,6 @@ if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
 	(lerna exec --scope=@talend/react-components -- npm run lint:es | awk '{if(NR>2)print}') 1> output/components.eslint.txt 2>/dev/null
 	(lerna exec --scope=@talend/react-containers -- npm run lint:es | awk '{if(NR>2)print}') 1> output/containers.eslint.txt 2>/dev/null
 	(lerna exec --scope=@talend/react-forms -- npm run lint:es | awk '{if(NR>2)print}') 1> output/forms.eslint.txt 2>/dev/null
-	(lerna exec --scope=@talend/log -- npm run lint:es | awk '{if(NR>2)print}') 1> output/logging.eslint.txt 2>/dev/null
 	# not in lerna
 	cd packages/router/ && (yarn run lint:es | awk '{if(NR>2)print}') 1> ../../output/router.eslint.txt 2>/dev/null && cd ../../
 

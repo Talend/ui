@@ -1,29 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HeaderBar from '@talend/react-components/lib/HeaderBar';
-import Layout from '@talend/react-components/lib/Layout';
-import Dialog from '@talend/react-components/lib/Dialog';
-import Drawer from '@talend/react-components/lib/Drawer';
+import { HeaderBar, Layout, Dialog, Drawer } from '@talend/react-components';
 import Form from '../src/index';
 
 const simple = require('./json/concepts/core-simple.json');
-
-const actions = [
-	{
-		bsStyle: 'default btn-inverse',
-		'data-feature': 'form.feature.cancel',
-		title: 'Cancel',
-		type: 'button',
-		widget: 'button',
-	},
-	{
-		bsStyle: 'primary',
-		'data-feature': 'form.feature.submit',
-		title: 'Submit',
-		type: 'submit',
-		widget: 'button',
-	},
-];
 
 function LayoutDrawer({ title, stacked, ...props }) {
 	const drawers = [
@@ -52,25 +32,23 @@ export default [
 		story: () => (
 			<div>
 				<h1>Form by default take 100% width of the container</h1>
-				<Form data={simple} actions={actions} />
+				<Form data={simple} />
 			</div>
 		),
 	},
 	{
 		name: 'drawer',
-		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} actions={actions} />,
+		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} />,
 	},
 	{
 		name: 'drawer-stacked',
-		story: () => (
-			<LayoutDrawer title="UIForm in a drawer" data={simple} actions={actions} stacked />
-		),
+		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} stacked />,
 	},
 	{
 		name: 'modal',
 		story: () => (
 			<Dialog header="UIForm in a Modal" flex show>
-				<Form data={simple} actions={actions} />
+				<Form data={simple} />
 			</Dialog>
 		),
 	},

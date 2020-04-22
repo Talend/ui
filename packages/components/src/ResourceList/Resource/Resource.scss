@@ -1,0 +1,145 @@
+.resource-item {
+	padding-left: $padding-normal;
+	padding-right: $padding-normal;
+	cursor: pointer;
+	display: flex;
+
+	&.center {
+		align-items: center;
+	}
+
+	.icon {
+		margin-right: $padding-small;
+	}
+
+	> * {
+		max-width: 100%;
+		overflow: hidden;
+	}
+
+	.data-container {
+		flex: 1;
+		min-width: 0;
+
+		> .title,
+		> .author,
+		> .subtitle {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			font-size: 14px;
+			display: block;
+			color: $dove-gray;
+			margin: 0;
+		}
+		> .title {
+			font-weight: 600;
+		}
+	}
+
+	.flags-container {
+		margin-right: $padding-normal;
+		opacity: 0;
+
+		.flag {
+			opacity: 0;
+			margin-left: $padding-small;
+
+			&.visible {
+				opacity: 1;
+			}
+			&[name='talend-star'] {
+				color: $lightning-yellow;
+			}
+			&[name='talend-badge'] {
+				color: $brand-primary;
+			}
+		}
+	}
+
+	&:hover,
+	&:focus,
+	&:global(.selected),
+	&:active {
+		:global(.tc-svg-icon) {
+			color: $brand-primary;
+		}
+		.flags-container {
+			opacity: 1;
+		}
+	}
+
+	&:hover {
+		background-color: $wild-sand;
+
+		.data-container {
+			> .title,
+			> .author,
+			> .subtitle {
+				color: $scooter;
+			}
+		}
+	}
+
+	&:global(.selected) {
+		background: tint($scooter, 90);
+
+		.data-container {
+			> .title,
+			> .author,
+			> .subtitle {
+				color: $dove-gray;
+			}
+		}
+	}
+
+	:global {
+		h3 {
+			margin-top: $padding-small;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+		dl {
+			padding-left: $padding-small;
+			margin-bottom: 0;
+
+			div:first-child {
+				margin-bottom: $padding-small;
+			}
+
+			div {
+				display: flex;
+			}
+
+			dt,
+			dd {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			dt {
+				display: flex;
+				align-items: center;
+				font-weight: initial;
+				flex-shrink: 0;
+
+				&.icon-only {
+					margin-right: -1 * $padding-smaller;
+				}
+
+				.tc-svg-icon {
+					margin: 0 $padding-smaller;
+					color: $brand-primary;
+				}
+			}
+
+			dd {
+				padding: 0 $padding-smaller;
+				flex-grow: 1;
+				min-width: 0;
+			}
+		}
+	}
+}

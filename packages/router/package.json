@@ -1,12 +1,12 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "3.2.2",
+  "version": "3.3.1",
   "description": "",
   "main": "lib/index.js",
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/",
+    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js'",
     "start": "echo nothing to start",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -16,8 +16,8 @@
     "lint": "npm run lint:es"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
-    "lodash": "^4.17.4",
+    "@babel/polyfill": "^7.8.4",
+    "lodash": "^4.17.15",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
     "react-redux": "^5.0.7",
@@ -31,15 +31,15 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/plugin-transform-object-assign": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "@babel/preset-react": "^7.0.0",
-    "@talend/react-cmf": "^2.1.0",
-    "babel-eslint": "^10.0.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.4",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.4",
+    "@talend/react-cmf": "^5.1.1",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
@@ -48,11 +48,12 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.7.1",
+    "jest": "^24.9.0",
     "node-fetch": "^1.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "redux-saga-tester": "^1.0.345"
+    "redux-saga-tester": "^1.0.345",
+    "rimraf": "^3.0.2"
   },
   "jest": {
     "collectCoverageFrom": [

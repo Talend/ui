@@ -19,6 +19,15 @@ const theme = getTheme(cssModule);
 
 const findOperatorByName = name => operator => name === operator.name;
 
+const getOverlays = (initialOperatorOpened, initialValueOpened, operators) => {
+
+	if (operators.length < 2 && initialOperatorOpened) {
+		// To open the value just after the selection of the type
+		return useBadgeOverlayFlow(false, true);
+	}
+	return useBadgeOverlayFlow(initialOperatorOpened, initialValueOpened);
+};
+
 const BadgeFaceted = ({
 	badgeId,
 	children,
@@ -38,7 +47,7 @@ const BadgeFaceted = ({
 		overlayDispatch,
 		onChangeOperatorOverlay,
 		onChangeValueOverlay,
-	] = useBadgeOverlayFlow(initialOperatorOpened, initialValueOpened);
+	] = getOverlays(initialOperatorOpened, initialValueOpened, operators);
 
 	const { dispatch } = useBadgeFacetedContext();
 	const [badgeOperator, setBadgeOperator] = useState(operator);
@@ -80,6 +89,12 @@ const BadgeFaceted = ({
 		overlayDispatch(OVERLAY_FLOW_ACTIONS.openValue);
 		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
 	};
+
+	const onHideSubmitBadge = (...args) => {
+		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
+		onSubmitBadge(...args);
+	};
+
 	return (
 		<Badge id={id} className={theme('tc-badge-faceted')} display={size}>
 			<BadgeComposition.Category category={labelCategory} label={labelCategory} />
@@ -100,7 +115,7 @@ const BadgeFaceted = ({
 				className={theme('tc-badge-faceted-overlay')}
 				hideLabel={false}
 				label={labelValue}
-				onHide={onSubmitBadge}
+				onHide={onHideSubmitBadge}
 				opened={overlayState.valueOpened}
 				onChange={onChangeValueOverlay}
 				t={t}

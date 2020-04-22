@@ -2,6 +2,7 @@
 	:global(.tc-tooltip-body) {
 		margin: 0;
 		padding: 2rem;
+		overflow-y: auto;
 	}
 
 	&-body {
@@ -10,7 +11,7 @@
 
 	&-footer {
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-end;
 	}
 
 	:global(.tc-tooltip-content) {

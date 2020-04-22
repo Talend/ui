@@ -1,19 +1,17 @@
-$tc-drawer-content-max-width: 60rem !default;
+$tc-drawer-content-max-width: 65rem !default;
+$tc-drawer-padding: $padding-large !default;
 
 .container,
-.form-content {
+.form-content,
+.form-content-wrapper {
 	display: flex;
 	flex-direction: column;
 }
 
 .form-content {
-	flex-grow: 1;
-	min-height: 0;
-	overflow-y: auto;
-
 	:global {
 		.tc-skeleton {
-			margin: $padding-large 0 0;
+			margin: $padding-normal 0;
 
 			&.skeleton-fit-content {
 				width: auto;
@@ -22,63 +20,53 @@ $tc-drawer-content-max-width: 60rem !default;
 	}
 }
 
-.form-actions {
+.submit-wrapper {
 	display: flex;
 	justify-content: space-between;
-	padding: {
-		top: $padding-larger;
-		bottom: $padding-larger;
-	}
+	margin: $padding-normal auto;
 }
 
 :global(.tc-drawer-container) {
 	> .container {
-		display: flex;
-		flex-direction: column;
 		flex-grow: 1;
 		min-height: 0;
 	}
 
-	.form-content,
-	.form-actions {
-		padding: {
-			left: $padding-larger;
-			right: $padding-larger;
-		}
+	.form-content {
+		flex-grow: 1;
+		min-height: 0;
+		overflow-y: auto;
 	}
 
-	.form-actions {
-		box-shadow: 0px -1px 5px 0px;
+	.form-content-wrapper,
+	.submit-wrapper {
+		margin: 0;
+		padding: $tc-drawer-padding;
+	}
+
+	.submit-wrapper {
+		padding: $padding-small $tc-drawer-padding;
+	}
+
+	.submit {
+		background-color: $wild-sand;
 	}
 }
 
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
-		.form-content,
-		.form-actions {
-			flex-shrink: 0;
+		.form-content-wrapper,
+		.submit-wrapper {
 			margin: 0 auto;
-			padding: {
-				left: 0;
-				right: 0;
-			}
+			padding: $tc-drawer-padding;
 			width: $tc-drawer-content-max-width;
-			background: none;
-			box-shadow: none;
 		}
-
-		.form-content {
-			padding: {
-				bottom: 10rem;
-			}
+		.submit-wrapper {
+			padding: $padding-small $tc-drawer-padding;
 		}
-
-		.form-actions {
-			position: relative; // Internet Explorer only
-			position: sticky; // sass-lint:disable-line no-duplicate-properties
-			bottom: 0;
-			background-color: $white;
-			z-index: 1;
+		:global(.form-actions) {
+			margin: auto;
+			max-width: $tc-drawer-content-max-width;
 		}
 	}
 }

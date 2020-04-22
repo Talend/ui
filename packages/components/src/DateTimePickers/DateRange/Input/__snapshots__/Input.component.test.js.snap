@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Date.Input should render 1`] = `
-<ForwardRef(DateRange.Input)
+<DateRange.Input
   date={
     Object {
       "textInput": "2019-10-11",
@@ -72,5 +72,5 @@ exports[`Date.Input should render 1`] = `
       </span>
     </InputSizer>
   </div>
-</ForwardRef(DateRange.Input)>
+</DateRange.Input>
 `;

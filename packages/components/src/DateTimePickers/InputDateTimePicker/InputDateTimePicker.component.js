@@ -25,6 +25,7 @@ function InputDateTimePicker(props) {
 			useUTC={props.useUTC}
 			timezone={props.timezone}
 			onChange={props.onChange}
+			defaultTimeValue={props.defaultTimeValue}
 		>
 			<DateTimeContext.Consumer>
 				{({ date, time, onDateChange, onTimeChange }) => (
@@ -69,6 +70,11 @@ InputDateTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
 	timezone: PropTypes.string,
+	defaultTimeValue: PropTypes.shape({
+		hours: PropTypes.string.isRequired,
+		minutes: PropTypes.string.isRequired,
+		seconds: PropTypes.string,
+	}),
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 };

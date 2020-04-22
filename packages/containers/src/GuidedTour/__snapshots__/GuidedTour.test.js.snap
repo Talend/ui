@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Guided Tour Container should render 1`] = `
-<withI18nextTranslation(GuidedTour)
+<GuidedTour
   disableAllInteractions={false}
   disableKeyboardNavigation={false}
   onRequestClose={[Function]}

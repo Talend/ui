@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import Table from './Table';
 import JSONLike from './JSONLike';
 import List from './List';
+
+import { checkDataSchemaToConvert, convertDate } from './convertDate';
 
 export const DISPLAY_MODES = {
 	FLAT: 'flat',
@@ -12,22 +14,31 @@ export const DISPLAY_MODES = {
 	LIST: 'list',
 };
 
-export default function ObjectViewer({ displayMode, ...props }) {
-	if (!props.data) {
+export default function ObjectViewer({ displayMode, dataSchema, data, ...props }) {
+	if (!data) {
 		return null;
 	}
 
+	// check if we need to convert timestamp to ISO String Date
+	const toConvert = useMemo(() => checkDataSchemaToConvert(dataSchema), [dataSchema]);
+	const newData = useMemo(() => convertDate(data, toConvert), [data, toConvert]);
+
+	const newProps = {
+		...props,
+		data: newData || data,
+	};
+
 	switch (displayMode) {
 		case DISPLAY_MODES.TABLE:
-			return <Table {...props} />;
+			return <Table {...newProps} />;
 		case DISPLAY_MODES.FLAT:
-			return <Table {...props} flat />;
+			return <Table {...newProps} flat />;
 		case DISPLAY_MODES.TREE:
-			return <JSONLike {...props} />;
+			return <JSONLike {...newProps} />;
 		case DISPLAY_MODES.LIST:
-			return <List {...props} />;
+			return <List {...newProps} />;
 		default:
-			return <JSONLike {...props} />;
+			return <JSONLike {...newProps} />;
 	}
 }
 
@@ -38,7 +49,8 @@ ObjectViewer.propTypes = {
 	tupleLabel: PropTypes.string,
 	rootLabel: PropTypes.string,
 	showTypes: PropTypes.bool,
-	data: PropTypes.arrayOf(PropTypes.object),
+	data: PropTypes.array,
+	dataSchema: PropTypes.arrayOf(PropTypes.object),
 };
 
 ObjectViewer.Table = Table;

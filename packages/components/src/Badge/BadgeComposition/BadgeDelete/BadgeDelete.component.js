@@ -6,7 +6,7 @@ import { getTheme } from '../../../theme';
 
 const theme = getTheme(badgeCssModule);
 
-const BadgeDelete = ({ disabled, id, label, onClick, t }) => (
+const BadgeDelete = ({ disabled, id, label, onClick, t, dataFeature }) => (
 	<Action
 		className={theme('tc-badge-delete-icon')}
 		disabled={disabled}
@@ -18,14 +18,16 @@ const BadgeDelete = ({ disabled, id, label, onClick, t }) => (
 		link
 		onClick={onClick}
 		role="button"
+		data-feature={dataFeature}
 	/>
 );
 
 BadgeDelete.propTypes = {
 	disabled: PropTypes.bool,
-	id: PropTypes.string.isRequired,
+	id: PropTypes.string,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
+	dataFeature: PropTypes.string,
 	t: PropTypes.func,
 };
 

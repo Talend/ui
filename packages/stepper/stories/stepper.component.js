@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Action from '@talend/react-components/lib/Actions/Action';
+import Stepper from '@talend/react-components/lib/Stepper';
+
 // eslint-disable-next-line
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { LanguageSwitcher } from './config/i18n';
-import { default as Stepper } from '../src/components/Stepper.component';
 import { StepperConstants } from '../src';
 
 import './style.scss';
@@ -28,12 +28,6 @@ function renderActions(isInError) {
 }
 
 stories
-	.addDecorator(story => (
-		<div style={{ backgroundColor: 'white', height: '400px' }} className="col-lg-offset-2 col-lg-8">
-			<LanguageSwitcher />
-			{story()}
-		</div>
-	))
 	.add('Stepper default', () => {
 		const steps = [
 			{ label: 'Fetch Sample', status: StepperConstants.LOADING_STEP_STATUSES.SUCCESS },

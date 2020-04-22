@@ -33,18 +33,18 @@ const getLabel = labels => {
  */
 const BadgeOverlay = ({
 	children,
-	t,
 	className,
+	hasAddButton = false,
 	iconName,
-	initialOpened = false,
 	id,
+	initialOpened = false,
 	label,
 	onChange,
 	onHide,
 	opened = false,
 	placement = 'bottom',
 	rootClose = true,
-	hasAddButton = false,
+	t,
 }) => {
 	const [overlayOpened, setOverlayOpened] = useState(initialOpened);
 	const [buttonRef, setButtonRef] = useState(null);

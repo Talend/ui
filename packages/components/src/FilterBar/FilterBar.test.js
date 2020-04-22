@@ -210,4 +210,18 @@ describe('FilterBar', () => {
 		// then the search icon should appear
 		expect(filterInstance.find(Icon).length).toEqual(1);
 	});
+
+	it('should enable the input by default', () => {
+		// given
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} />);
+		// then
+		expect(filterInstance.find('input').prop('disabled')).toBe(false);
+	});
+
+	it('should disabled the input if have the props', () => {
+		// given
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} disabled />);
+		// then
+		expect(filterInstance.find('input').prop('disabled')).toBe(true);
+	});
 });
