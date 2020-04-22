@@ -10,6 +10,7 @@ export function RecordsViewerLeaf({
 	renderLeafAdditionalValue,
 	className,
 	nodeHighlighted,
+	displayTypes,
 }) {
 	return (
 		<div
@@ -20,10 +21,10 @@ export function RecordsViewerLeaf({
 		>
 			{renderLeafAdditionalValue && renderLeafAdditionalValue(value)}
 			<SimpleTextKeyValue
-				formattedKey={`${dataKey}:`}
+				formattedKey={`${dataKey}`}
 				value={value.data}
 				schema={value.schema}
-				separator={' '}
+				displayTypes={displayTypes}
 			/>
 		</div>
 	);
@@ -31,13 +32,14 @@ export function RecordsViewerLeaf({
 
 RecordsViewerLeaf.propTypes = {
 	className: PropTypes.string,
-	dataKey: PropTypes.string,
+	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	nodeHighlighted: PropTypes.bool,
 	value: PropTypes.shape({
 		data: PropTypes.object,
 		schema: PropTypes.object,
 	}),
 	renderLeafAdditionalValue: PropTypes.func,
+	displayTypes: PropTypes.bool,
 };
 
 export default RecordsViewerLeaf;

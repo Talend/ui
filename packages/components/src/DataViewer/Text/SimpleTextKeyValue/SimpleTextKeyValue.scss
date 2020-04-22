@@ -9,12 +9,17 @@
 		font-weight: 400;
 	}
 	&-key {
+		margin-right: 5px;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		flex-shrink: 1;
 		color: $dove-gray;
 		vertical-align: top;
+	}
+
+	&-key::after {
+		content: ':';
 	}
 
 	&-value {
@@ -30,6 +35,12 @@
 		display: inline-block;
 		color: $brand-primary;
 		font-family: 'Inconsolata';
+	}
+
+	&-type {
+		color: $dark-silver;
+		opacity: 0.75;
+		margin-left: $padding-smaller;
 	}
 }
 
