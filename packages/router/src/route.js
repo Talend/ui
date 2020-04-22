@@ -116,7 +116,7 @@ function loadComponents(context, item, dispatch) {
  * @return {object} react router config
  */
 function getRoutesFromSettings(context, settings, dispatch) {
-	const copy = { ...settings};
+	const copy = { ...settings };
 	loadComponents(context, copy, dispatch);
 	return copy;
 }

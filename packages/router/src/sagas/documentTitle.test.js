@@ -84,7 +84,10 @@ describe('getTitleFromRoutes', () => {
 		const location = '/hello/world';
 		const myTitle = 'myTitle';
 		const myDefaultTitle = 'myDefaultTitle';
-		const routes = new Map([[location, myTitle], ['/dumb', 'dumber']]);
+		const routes = new Map([
+			[location, myTitle],
+			['/dumb', 'dumber'],
+		]);
 		// When
 		const title = getTitleFromRoutes(routes, location, myDefaultTitle);
 		// Then
@@ -93,7 +96,10 @@ describe('getTitleFromRoutes', () => {
 	it('should return default title', () => {
 		// Given
 		const myDefaultTitle = 'myDefaultTitle';
-		const routes = new Map([['/error', 'myTitle'], ['/dumb', 'dumber']]);
+		const routes = new Map([
+			['/error', 'myTitle'],
+			['/dumb', 'dumber'],
+		]);
 		// When
 		const title = getTitleFromRoutes(routes, 'unknown', myDefaultTitle);
 		// Then
