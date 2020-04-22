@@ -16,8 +16,8 @@ describe('#DefaultCellRenderer', () => {
 			<DefaultCellRenderer
 				avroRenderer={{ stringCellRenderer: 'StringRenderer' }}
 				colDef={{ avro: { type: 'string' } }}
-				value={{ quality: QUALITY_EMPTY_KEY }}
 				getComponent={getComponent}
+				value={{ quality: QUALITY_EMPTY_KEY }}
 			/>,
 		);
 
@@ -25,7 +25,7 @@ describe('#DefaultCellRenderer', () => {
 	});
 
 	it('should render the default cell on loading state', () => {
-		const wrapper = shallow(<DefaultCellRenderer data={{ loading: true }} />);
+		const wrapper = shallow(<DefaultCellRenderer data={{ loaded: false }} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
