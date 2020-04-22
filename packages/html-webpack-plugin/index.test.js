@@ -60,7 +60,7 @@ describe('@talend/html-webpack-plugin', () => {
 		const result = pluginExecFn(DATA, pluginExecCallback);
 		expect(result.head[0].attributes).toMatchObject({
 			media: 'none',
-			onload: 'if(media!=\'all\')media=\'all\'',
+			onload: "if(media!='all')media='all'",
 		});
 	});
 	it('should add TALEND_APP_INFO global var with versions option', () => {
@@ -75,8 +75,6 @@ describe('@talend/html-webpack-plugin', () => {
 		const options = { appLoaderIcon: "url('data:image/svg+xml;base64,PHN2...')" };
 		refresh(options);
 		const result = pluginExecFn(DATA, pluginExecCallback);
-		expect(result.head[0].innerHTML).toBe(
-			AppLoader.getLoaderStyle(options.appLoaderIcon)
-		);
+		expect(result.head[0].innerHTML).toBe(AppLoader.getLoaderStyle(options.appLoaderIcon));
 	});
 });
