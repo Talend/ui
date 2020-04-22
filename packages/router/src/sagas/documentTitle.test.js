@@ -7,7 +7,7 @@ import changeDocumentTitle, {
 	getTitleFromRoutes,
 	assignDocTitle,
 	handleDocumentTitle,
-} from '../../src/sagas/documentTitle';
+} from './documentTitle';
 
 describe('changeDocumentTitle', () => {
 	it('should change document title on REACT_CMF.REQUEST_SETTINGS_OK', () => {
