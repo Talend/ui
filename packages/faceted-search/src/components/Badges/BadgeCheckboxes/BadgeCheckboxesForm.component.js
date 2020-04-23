@@ -56,7 +56,7 @@ const getCheckboxes = (checkboxes, value, filterValue) => {
 		.map(createCheckboxEntity(value));
 };
 
-const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, label, t }) => {
+const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, feature, t }) => {
 	const [filter, setFilter] = useState('');
 
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
@@ -65,7 +65,7 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, la
 		value,
 		filter,
 	]);
-	const applyDataFeature = useMemo(() => getApplyDataFeature(label), [label]);
+	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const onChangeCheckBoxes = (event, checkboxId) => {
 		const entity = checkboxes.find(checkboxValue => checkboxValue.id === checkboxId);
 		if (entity) {
@@ -135,7 +135,7 @@ BadgeCheckboxesForm.propTypes = {
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
 	value: PropTypes.array,
-	label: PropTypes.string.isRequired,
+	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 };
 

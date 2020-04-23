@@ -60,7 +60,7 @@ export const BadgeCheckboxes = ({
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
 					checkboxValues={values}
-					label={label}
+					feature={label}
 					t={t}
 				/>
 			)}

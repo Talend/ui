@@ -31,7 +31,7 @@ describe('BadgeCheckboxesForm', () => {
 			onChange: jest.fn(),
 			onSubmit: jest.fn(),
 			value: [],
-			label: 'Connection type',
+			feature: 'Connection type',
 			t,
 		};
 		// When
@@ -51,7 +51,7 @@ describe('BadgeCheckboxesForm', () => {
 			onChange,
 			onSubmit: jest.fn(),
 			value: [],
-			label: 'Connection type',
+			feature: 'Connection type',
 			t,
 		};
 		// When
@@ -81,7 +81,7 @@ describe('BadgeCheckboxesForm', () => {
 					label: 'Checkbox One',
 				},
 			],
-			label: 'Connection type',
+			feature: 'Connection type',
 			t,
 		};
 		// When
@@ -96,7 +96,7 @@ describe('BadgeCheckboxesForm', () => {
 			id: 'myId',
 			onChange: jest.fn(),
 			onSubmit: jest.fn(),
-			label: 'Connection type',
+			feature: 'Connection type',
 			value: [],
 			t,
 		};
@@ -124,7 +124,7 @@ describe('BadgeCheckboxesForm', () => {
 			onChange: jest.fn(),
 			onSubmit,
 			value: [],
-			label: 'Connection type',
+			feature: 'Connection type',
 			t,
 		};
 		// When
@@ -141,7 +141,7 @@ describe('BadgeCheckboxesForm', () => {
 			onChange: jest.fn(),
 			onSubmit: jest.fn(),
 			value: [],
-			label: 'Connection type',
+			feature: 'Connection type',
 			t,
 		};
 		// When
