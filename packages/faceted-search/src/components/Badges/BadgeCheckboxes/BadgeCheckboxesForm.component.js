@@ -7,7 +7,7 @@ import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
 import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
 import cssModule from './BadgeCheckboxes.scss';
-import { getApplyDataFeature } from '../../../helpers/pendo.helpers';
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);
 

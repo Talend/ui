@@ -4,7 +4,7 @@ import Action from '@talend/react-components/lib/Actions/Action';
 import Text from '@talend/react-forms/lib/UIForm/fields/Text';
 import { getTheme } from '@talend/react-components/lib/theme';
 import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
-import { getApplyDataFeature } from '../../../helpers/pendo.helpers';
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeText.scss';
 

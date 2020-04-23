@@ -5,7 +5,7 @@ const FACETED_MODE = {
 	BASIC: 'basic',
 };
 
-const PENDO_TAGS = {
+const USAGE_TRACKING_TAGS = {
 	ADVANCED: 'filter.advanced',
 	ADVANCED_APPLY: 'filter.advanced.apply',
 	ADVANCED_CLEAR: 'filter.advanced.clear',
@@ -16,4 +16,4 @@ const PENDO_TAGS = {
 	BADGE_ADD: 'filter.#{badgeName}.add',
 };
 
-export { I18N_DOMAIN_FACETED_SEARCH, FACETED_MODE, PENDO_TAGS };
+export { I18N_DOMAIN_FACETED_SEARCH, FACETED_MODE, USAGE_TRACKING_TAGS };

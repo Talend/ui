@@ -14,7 +14,7 @@ import { useBadgeOverlayFlow, OVERLAY_FLOW_ACTIONS } from '../../../hooks/badgeO
 import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';
 
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
-import { PENDO_TAGS } from '../../../constants';
+import { USAGE_TRACKING_TAGS } from '../../../constants';
 
 const theme = getTheme(cssModule);
 
@@ -125,7 +125,7 @@ const BadgeFaceted = ({
 			<BadgeComposition.DeleteAction
 				id={id}
 				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
-				data-feature={PENDO_TAGS.BADGE_REMOVE}
+				data-feature={USAGE_TRACKING_TAGS.BADGE_REMOVE}
 				onClick={onDeleteBadge}
 				t={t}
 			/>

@@ -1,6 +1,6 @@
-import { getApplyDataFeature } from './pendo.helpers';
+import { getApplyDataFeature } from './usage.helpers';
 
-describe('helpers/pendo', () => {
+describe('helpers/usage', () => {
 	it('should format an apply button data-feature based on label', () => {
 		expect(getApplyDataFeature('name')).toEqual('filter.name.add');
 		expect(getApplyDataFeature('Connection type')).toEqual('filter.connection_type.add');

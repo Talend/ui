@@ -10,7 +10,7 @@ import { getTheme } from '@talend/react-components/lib/theme';
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 
 import theme from './AdvancedSearch.scss';
-import { PENDO_TAGS } from '../../constants';
+import { USAGE_TRACKING_TAGS } from '../../constants';
 
 const css = getTheme(theme);
 
@@ -100,7 +100,7 @@ export function AdvancedSearch({
 							<Action
 								bsStyle="link"
 								className={css('adv-search-buttons-icon', 'adv-search-buttons-cancel')}
-								data-feature={PENDO_TAGS.ADVANCED_CLEAR}
+								data-feature={USAGE_TRACKING_TAGS.ADVANCED_CLEAR}
 								hideLabel
 								icon="talend-cross"
 								label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
@@ -110,7 +110,7 @@ export function AdvancedSearch({
 							<Action
 								bsStyle="link"
 								className={css('adv-search-buttons-icon', 'adv-search-buttons-submit')}
-								data-feature={PENDO_TAGS.ADVANCED_APPLY}
+								data-feature={USAGE_TRACKING_TAGS.ADVANCED_APPLY}
 								hideLabel
 								icon="talend-check"
 								label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}

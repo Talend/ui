@@ -6,14 +6,14 @@ import { getTheme } from '@talend/react-components/lib/theme';
 import { useTranslation } from 'react-i18next';
 
 import facetedSearchIconTheme from './FacetedSearchIcon.scss';
-import { I18N_DOMAIN_FACETED_SEARCH, PENDO_TAGS } from '../../constants';
+import { I18N_DOMAIN_FACETED_SEARCH, USAGE_TRACKING_TAGS } from '../../constants';
 
 const theme = getTheme(facetedSearchIconTheme);
 
 // eslint-disable-next-line import/prefer-default-export
 export function FacetedSearchIcon({ active, loading, onClick }) {
 	const { t } = useTranslation(I18N_DOMAIN_FACETED_SEARCH);
-	const dataFeature = active ? PENDO_TAGS.COLLAPSE : PENDO_TAGS.EXPAND;
+	const dataFeature = active ? USAGE_TRACKING_TAGS.COLLAPSE : USAGE_TRACKING_TAGS.EXPAND;
 
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.large} />;
