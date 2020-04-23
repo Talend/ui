@@ -4741,6 +4741,11 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-4.30.1.tgz#67425be0f38a52fc8cd01d15f3a12c0bca183121"
   integrity sha512-3Oa6gnlUX1WaMW3/tgz5oeP8bqwW4OaWd2ON3URlRCl9Ck0+vUvtWu7j28qTNGrOQBOdASYcW3Yu1mb1q0yylQ==
 
+"@talend/locales-tui@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-5.1.1.tgz#32ff344967994ee443c5df88bc023f916f093187"
+  integrity sha512-ayGeokKrf8GjXiXUGmDqOBqBA2WankswQK2ttJJ87o0rlMqssrCP0Ed0vrEo3JPkiXKCM248mVD18deip4mQRQ==
+
 "@talend/react-cmf-router@^3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.2.1.tgz#3d67811a08f66f9989f0fb12bd3d20d09edd00e8"
