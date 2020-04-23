@@ -7,4 +7,4 @@ Talend scripts mode : production
 Talend scripts configuration file found and loaded
 
 RUN -----------------------------------------------------------------------------------------------
-Done in 3.43s.
+Done in 3.55s.
