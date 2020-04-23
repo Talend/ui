@@ -1,5 +1,14 @@
-> eslint --config ../../.eslintrc src
+> talend-scripts lint:es
 
+
+CONFIGURATION -------------------------------------------------------------------------------------
+Running command: lint:es With options: 
+
+CONFIGURATION -------------------------------------------------------------------------------------
+Talend scripts mode : production
+Talend scripts configuration file found and loaded
+
+RUN -----------------------------------------------------------------------------------------------
 
 /home/travis/build/Talend/ui/packages/containers/src/AboutDialog/AboutDialog.container.js
   15:2  error  Expected blank line between class members  lines-between-class-members
