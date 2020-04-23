@@ -4815,34 +4815,6 @@
     redux "^3.7.2"
     redux-saga "^0.15.4"
 
-"@talend/react-cmf@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.1.1.tgz#17092ed7becfc2374cb492456ac1c4bd6c776478"
-  integrity sha512-I28lKETHeVsZzveLt8+dJcyno7Td3thmpVY2vZEbhV+jD7gRqFqRWmvw+1X1VsMVaaqSPl5EE8ps+PYWJSqKkw==
-  dependencies:
-    "@sentry/browser" "^5.11.1"
-    deepmerge "^1.5.1"
-    hoist-non-react-statics "2.5.5"
-    immutable "^3.8.1"
-    invariant "^2.2.2"
-    jsonpath "^1.0.0"
-    lodash "^4.17.4"
-    mkdirp "^1.0.4"
-    path-to-regexp "^2.0.0"
-    prop-types "^15.5.10"
-    react-immutable-proptypes "^2.1.0"
-    react-redux "^5.0.7"
-    redux "^3.7.2"
-    redux-batched-actions "^0.2.0"
-    redux-batched-subscribe "^0.1.6"
-    redux-saga "^0.15.4"
-    redux-storage "^4.1.2"
-    redux-storage-decorator-filter "^1.1.8"
-    redux-storage-decorator-immutablejs "^1.0.4"
-    redux-storage-engine-localstorage "^1.1.4"
-    redux-thunk "^2.2.0"
-    uuid "^7.0.3"
-
 "@talend/scripts-config-babel@^5.2.0":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-5.2.0.tgz#6f51df906ce904f5be78c299abd6570f6b330300"
