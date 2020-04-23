@@ -38,6 +38,7 @@ exports[`BadgeTextForm should mount a default badge 1`] = `
           class="theme-footer tc-tooltip-footer"
   >
     <button aria-label="Apply"
+            data-feature="filter.name.add"
             type="submit"
             class="btn btn-info"
     >

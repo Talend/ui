@@ -31,29 +31,15 @@ describe('BadgeCheckboxesForm', () => {
 			onChange: jest.fn(),
 			onSubmit: jest.fn(),
 			value: [],
+			feature: 'Connection type',
 			t,
 		};
 		// When
 		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
 		// Then
-		expect(
-			wrapper
-				.find('span')
-				.at(0)
-				.text(),
-		).toBe('Checkbox One');
-		expect(
-			wrapper
-				.find('span')
-				.at(1)
-				.text(),
-		).toBe('Checkbox Two');
-		expect(
-			wrapper
-				.find('span')
-				.at(2)
-				.text(),
-		).toBe('Checkbox Three');
+		expect(wrapper.find('span').at(0).text()).toBe('Checkbox One');
+		expect(wrapper.find('span').at(1).text()).toBe('Checkbox Two');
+		expect(wrapper.find('span').at(2).text()).toBe('Checkbox Three');
 		expect(wrapper.find('input[type="checkbox"]')).toHaveLength(3);
 	});
 	it('should trigger on change callback when checkbox generated from checkbox values are clicked', () => {
@@ -65,16 +51,12 @@ describe('BadgeCheckboxesForm', () => {
 			onChange,
 			onSubmit: jest.fn(),
 			value: [],
+			feature: 'Connection type',
 			t,
 		};
 		// When
 		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
-		expect(
-			wrapper
-				.find('input[type="checkbox"]')
-				.at(0)
-				.prop('checked'),
-		).toBe(false);
+		expect(wrapper.find('input[type="checkbox"]').at(0).prop('checked')).toBe(false);
 		wrapper
 			.find('input[type="checkbox"]')
 			.at(0)
@@ -99,6 +81,7 @@ describe('BadgeCheckboxesForm', () => {
 					label: 'Checkbox One',
 				},
 			],
+			feature: 'Connection type',
 			t,
 		};
 		// When
@@ -113,6 +96,7 @@ describe('BadgeCheckboxesForm', () => {
 			id: 'myId',
 			onChange: jest.fn(),
 			onSubmit: jest.fn(),
+			feature: 'Connection type',
 			value: [],
 			t,
 		};
@@ -140,6 +124,7 @@ describe('BadgeCheckboxesForm', () => {
 			onChange: jest.fn(),
 			onSubmit,
 			value: [],
+			feature: 'Connection type',
 			t,
 		};
 		// When
@@ -156,6 +141,7 @@ describe('BadgeCheckboxesForm', () => {
 			onChange: jest.fn(),
 			onSubmit: jest.fn(),
 			value: [],
+			feature: 'Connection type',
 			t,
 		};
 		// When

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Action from '@talend/react-components/lib/Actions/Action';
@@ -7,6 +7,7 @@ import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
 import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
 import cssModule from './BadgeCheckboxes.scss';
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);
 
@@ -51,15 +52,11 @@ const getCheckboxes = (checkboxes, value, filterValue) => {
 	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
 
 	return checkboxes
-		.filter(checkbox =>
-			get(checkbox, 'label', '')
-				.toLocaleLowerCase()
-				.includes(formatFilterValue),
-		)
+		.filter(checkbox => get(checkbox, 'label', '').toLocaleLowerCase().includes(formatFilterValue))
 		.map(createCheckboxEntity(value));
 };
 
-const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t }) => {
+const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, feature, t }) => {
 	const [filter, setFilter] = useState('');
 
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
@@ -68,6 +65,7 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 		value,
 		filter,
 	]);
+	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const onChangeCheckBoxes = (event, checkboxId) => {
 		const entity = checkboxes.find(checkboxValue => checkboxValue.id === checkboxId);
 		if (entity) {
@@ -113,7 +111,12 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 					))}
 				</RichLayout.Body>
 				<RichLayout.Footer id={id} className={theme('fs-badge-checkbox-form-footer')}>
-					<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
+					<Action
+						data-feature={applyDataFeature}
+						type="submit"
+						label={t('APPLY', { defaultValue: 'Apply' })}
+						bsStyle="info"
+					/>
 				</RichLayout.Footer>
 			</form>
 		</React.Fragment>
@@ -132,6 +135,7 @@ BadgeCheckboxesForm.propTypes = {
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
 	value: PropTypes.array,
+	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 };
 

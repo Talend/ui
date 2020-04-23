@@ -26,6 +26,15 @@ Types of changes
 
 ## [unreleased]
 
+### Breaking change
+Rename two data-feature attributes for harmonization:
+- `faceted-advanced-search.cancel` become `filter.advanced.clear`
+- `faceted-advanced-search.submit` become `filter.advanced.apply`
+
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2759): Add somes data-feature attributes for Pendo tracking / E2E tests
+
 ## [0.7.0]
 
 ### Added
