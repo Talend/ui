@@ -4736,11 +4736,6 @@
     objectpath "^1.2.1"
     tv4 "^1.3.0"
 
-"@talend/locales-tui@^4.30.1":
-  version "4.30.1"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-4.30.1.tgz#67425be0f38a52fc8cd01d15f3a12c0bca183121"
-  integrity sha512-3Oa6gnlUX1WaMW3/tgz5oeP8bqwW4OaWd2ON3URlRCl9Ck0+vUvtWu7j28qTNGrOQBOdASYcW3Yu1mb1q0yylQ==
-
 "@talend/locales-tui@^5.1.1":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-5.1.1.tgz#32ff344967994ee443c5df88bc023f916f093187"
