@@ -13,7 +13,7 @@
     "test:cov": "echo no test",
     "test:demo": "node ./scripts/docs.js",
     "start": "echo nothing to start",
-    "svgo": "svgo -f src/svg --config=.svgo-icons.yml && svgo -f src/filters --config=.svgo-filters.yml" 
+    "svgo": "svgo -f src/svg --config=.svgo-icons.yml && svgo -f src/filters --config=.svgo-filters.yml"
   },
   "files": [
     "index.js",
@@ -58,5 +58,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.1.1"
+  "version": "5.2.0-y.0"
 }
