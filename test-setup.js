@@ -52,8 +52,8 @@ jest.mock('i18next', () => {
 	};
 	i18n.init = () => {};
 	return {
-		createInstance: () => i18n,
 		...i18n,
+		createInstance: () => i18n,
 	};
 });
 

@@ -51,7 +51,7 @@
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
     "@talend/icons": "^5.2.0-y.1",
-    "@talend/locales-tui": "^4.30.1",
+    "@talend/locales-tui": "^5.1.1",
     "@talend/react-components": "^5.2.0-y.1",
     "@talend/react-storybook-cmf": "^5.2.0-y.1",
     "babel-loader": "^8.0.6",
