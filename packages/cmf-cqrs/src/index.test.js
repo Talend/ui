@@ -1,4 +1,4 @@
-import { actions, ACKDispatcher, constants, middlewares, reducers, sagas, ackProcessed } from './';
+import { actions, ACKDispatcher, constants, middlewares, reducers, sagas, ackProcessed } from '.';
 
 describe('cmf-cqrs', () => {
 	it('should export API', () => {
