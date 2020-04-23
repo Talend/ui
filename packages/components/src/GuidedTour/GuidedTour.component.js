@@ -54,7 +54,6 @@ function GuidedTour({ className, disableAllInteractions, steps, ...rest }) {
 					label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })}
 				/>
 			}
-			maskClassName="tc-guided-tour__mask"
 			maskSpace={10}
 			rounded={4}
 			showNavigationNumber={false}
