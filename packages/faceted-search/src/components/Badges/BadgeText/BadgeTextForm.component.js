@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Action from '@talend/react-components/lib/Actions/Action';
 import Text from '@talend/react-forms/lib/UIForm/fields/Text';
 import { getTheme } from '@talend/react-components/lib/theme';
 import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeText.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeTextForm = ({ id, onChange, onSubmit, value, t }) => {
+const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t }) => {
+	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
+
 	const onChangeText = (event, entity) => {
 		onChange(event, entity.value);
 	};
@@ -33,7 +36,12 @@ const BadgeTextForm = ({ id, onChange, onSubmit, value, t }) => {
 				/>
 			</RichLayout.Body>
 			<RichLayout.Footer id={id}>
-				<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
+				<Action
+					type="submit"
+					data-feature={applyDataFeature}
+					label={t('APPLY', { defaultValue: 'Apply' })}
+					bsStyle="info"
+				/>
 			</RichLayout.Footer>
 		</form>
 	);
@@ -44,6 +52,7 @@ BadgeTextForm.propTypes = {
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
 	value: PropTypes.string,
+	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 };
 

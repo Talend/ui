@@ -73,6 +73,7 @@ const BadgeNumber = ({
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
+					feature={label}
 					t={t}
 				/>
 			)}
