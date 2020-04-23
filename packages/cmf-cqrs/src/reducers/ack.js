@@ -1,9 +1,5 @@
 import { Map } from 'immutable';
-import {
-	ACK_ADD_CONTEXT,
-	ACK_RECEIVE_MESSAGE,
-	ACK_DELETE,
-} from '../constants/index';
+import { ACK_ADD_CONTEXT, ACK_RECEIVE_MESSAGE, ACK_DELETE } from '../constants/index';
 
 const DEFAULT_STATE = new Map({});
 
@@ -31,7 +27,6 @@ export default function ackReducer(state = DEFAULT_STATE, action) {
 export function ackProcessed(state, action) {
 	if (action.ack) {
 		const newState = {
-			
 			...state,
 			ack: ackReducer(state.ack, action.ack),
 		};

@@ -9,19 +9,22 @@ export function mergeObjects(obj1, obj2) {
 	if (!obj1) {
 		return obj2;
 	}
-	return Object.keys(obj2).reduce((acc, key) => {
-		if (obj2[key] === undefined) {
-			throw new TypeError(`${key} value is undefined. You may have a bad import here`);
-		}
-		if (obj1[key] !== undefined && obj1[key] !== obj2[key]) {
-			// eslint-disable-next-line no-console
-			console.warn(`override detected ${key}`);
-		}
-		return {
-			...acc,
-			[key]: obj2[key],
-		};
-	}, { ...obj1});
+	return Object.keys(obj2).reduce(
+		(acc, key) => {
+			if (obj2[key] === undefined) {
+				throw new TypeError(`${key} value is undefined. You may have a bad import here`);
+			}
+			if (obj1[key] !== undefined && obj1[key] !== obj2[key]) {
+				// eslint-disable-next-line no-console
+				console.warn(`override detected ${key}`);
+			}
+			return {
+				...acc,
+				[key]: obj2[key],
+			};
+		},
+		{ ...obj1 },
+	);
 }
 
 function mergeFns(fn1, fn2) {

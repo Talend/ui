@@ -42,7 +42,7 @@ function getActionInfo(context, id) {
 	if (!action) {
 		throw new Error(`action not found id: ${id}`);
 	}
-	return { ...action};
+	return { ...action };
 }
 
 /**
@@ -69,7 +69,7 @@ function getActionObject(context, action, event, data) {
 			actionInfo,
 		});
 	}
-	return { ...actionInfo.payload, event, data, context};
+	return { ...actionInfo.payload, event, data, context };
 }
 
 /**
@@ -103,7 +103,7 @@ function mapDispatchToProps(dispatch, props) {
 			dispatch(action);
 		};
 	});
-	return { ...props, ...resolvedActions};
+	return { ...props, ...resolvedActions };
 }
 
 const registerActionCreator = deprecated(

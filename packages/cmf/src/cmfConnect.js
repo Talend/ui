@@ -67,7 +67,7 @@ export function getStateToProps({
 	mapStateToProps,
 	WrappedComponent,
 }) {
-	const props = { ...defaultProps};
+	const props = { ...defaultProps };
 
 	const cmfProps = getStateProps(
 		state,
@@ -320,7 +320,7 @@ export default function cmfConnect({
 			}
 
 			dispatchActionCreator(actionCreatorId, event, data, context) {
-				const extendedContext = { ...this.context, ...context};
+				const extendedContext = { ...this.context, ...context };
 				this.props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 

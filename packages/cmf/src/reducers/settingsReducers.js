@@ -22,10 +22,10 @@ export function attachRef(refs, obj) {
 	if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) {
 		return obj;
 	}
-	let props = { ...obj};
+	let props = { ...obj };
 	if (props._ref) {
 		invariant(refs[props._ref], `CMF/Settings: Reference '${props._ref}' not found`);
-		props = { ...refs[props._ref], ...obj};
+		props = { ...refs[props._ref], ...obj };
 		delete props._ref;
 	}
 	return props;
@@ -45,7 +45,7 @@ export function attachRefs(refs, props) {
  * @return {object} frozen settings with ref computed
  */
 function prepareSettings({ views, props, ref, ...rest }) {
-	const settings = {props: {}, ...rest};
+	const settings = { props: {}, ...rest };
 	if (views) {
 		if (process.env.NODE_ENV === 'development') {
 			// eslint-disable-next-line no-console
@@ -75,7 +75,7 @@ function prepareSettings({ views, props, ref, ...rest }) {
 export function settingsReducers(state = defaultState, action) {
 	switch (action.type) {
 		case CONSTANTS.REQUEST_OK:
-			return { ...state, initialized: true, ...prepareSettings(action.settings)};
+			return { ...state, initialized: true, ...prepareSettings(action.settings) };
 		case CONSTANTS.REQUEST_KO:
 			// eslint-disable-next-line no-console
 			console.error(`Settings can't be loaded ${get(action, 'error.message')}`, action.error);

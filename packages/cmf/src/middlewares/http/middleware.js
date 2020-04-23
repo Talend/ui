@@ -238,7 +238,7 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 			.then(handleResponse)
 			.then(interceptors.onResponse)
 			.then(response => {
-				const newAction = { ...action};
+				const newAction = { ...action };
 				dispatch(http.onResponse(response.data));
 				if (newAction.transform) {
 					newAction.response = newAction.transform(response.data);
