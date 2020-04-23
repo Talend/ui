@@ -596,7 +596,7 @@ RUN ----------------------------------------------------------------------------
 /home/travis/build/Talend/ui/packages/components/src/GuidedTour/GuidedTour.component.js
   52:5   error  Missing parentheses around multilines JSX            react/jsx-wrap-multilines
   53:14  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  72:2   error  defaultProp "steps" defined for isRequired propType  react/default-props-match-prop-types
+  71:2   error  defaultProp "steps" defined for isRequired propType  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/GuidedTour/GuidedTour.stories.js
     1:1   error    File has too many classes (2). Maximum allowed is 1                                                                         max-classes-per-file
