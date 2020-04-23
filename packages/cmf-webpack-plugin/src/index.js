@@ -13,13 +13,11 @@ function ReactCMFWebpackPlugin(options = {}) {
 	this.lastRun = null;
 	this.lastWatch = null;
 	this.modifiedFiles = [];
-	this.options = Object.assign(
-		{
-			quiet: false,
-			watch: false,
-		},
-		options,
-	);
+	this.options = {
+		quiet: false,
+		watch: false,
+		...options,
+	};
 	this.log = (...args) => {
 		if (!this.options.quiet) {
 			console.error('[ReactCMFWebpackPlugin]', ...args); // eslint-disable-line no-console
@@ -28,7 +26,7 @@ function ReactCMFWebpackPlugin(options = {}) {
 }
 
 function getCmfconfig(cmfconfigPath) {
-	const cmfconfig = require(cmfconfigPath);
+	const cmfconfig = require(cmfconfigPath); // eslint-disable-line import/no-dynamic-require
 	if (process.env.CMF_ENV) {
 		return cmfconfig[process.env.CMF_ENV];
 	}
