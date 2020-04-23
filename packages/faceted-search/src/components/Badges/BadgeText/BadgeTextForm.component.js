@@ -10,8 +10,8 @@ import cssModule from './BadgeText.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeTextForm = ({ id, onChange, onSubmit, value, label, t }) => {
-	const applyDataFeature = useMemo(() => getApplyDataFeature(label), [label]);
+const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t }) => {
+	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
 	const onChangeText = (event, entity) => {
 		onChange(event, entity.value);
@@ -52,7 +52,7 @@ BadgeTextForm.propTypes = {
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
 	value: PropTypes.string,
-	label: PropTypes.string.isRequired,
+	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 };
 

@@ -2,8 +2,8 @@
 
 exports[`BadgeNumberForm should mount a default badge 1`] = `
 <BadgeNumberForm
+  feature="price"
   id="customId"
-  label="price"
   onSubmit={[MockFunction]}
   t={[Function]}
 />

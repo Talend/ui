@@ -58,7 +58,7 @@ const BadgeText = ({
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
-					label={label}
+					feature={label}
 					t={t}
 				/>
 			)}

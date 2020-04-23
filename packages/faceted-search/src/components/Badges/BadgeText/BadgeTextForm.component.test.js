@@ -16,7 +16,7 @@ describe('BadgeTextForm', () => {
 		const props = {
 			id: 'myId',
 			onSubmit: jest.fn(),
-			label: 'name',
+			feature: 'name',
 			t: () => 'Apply',
 		};
 		// When
@@ -37,7 +37,7 @@ describe('BadgeTextForm', () => {
 			category: 'potato',
 			onSubmit,
 			value: 'init value',
-			label: 'name',
+			feature: 'name',
 			t: () => 'Apply',
 		};
 		// When

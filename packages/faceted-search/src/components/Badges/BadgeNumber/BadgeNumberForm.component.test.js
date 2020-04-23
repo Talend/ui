@@ -17,7 +17,7 @@ describe('BadgeNumberForm', () => {
 		const props = {
 			id: 'customId',
 			onSubmit: jest.fn(),
-			label: 'price',
+			feature: 'price',
 			t: getDefaultT(),
 		};
 		// When
@@ -37,7 +37,7 @@ describe('BadgeNumberForm', () => {
 			id: 'customId',
 			onSubmit,
 			value: 'i230982903',
-			label: 'price',
+			feature: 'price',
 			t: getDefaultT(),
 		};
 		// When
