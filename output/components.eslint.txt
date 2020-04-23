@@ -1,2 +1,845 @@
 > eslint --config ../../.eslintrc --ignore-path ../../.eslintignore src
 
+
+/home/travis/build/Talend/ui/packages/components/src/AboutDialog/AboutDialog.component.js
+  108:3  error  defaultProp "copyright" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  112:3  error  defaultProp "t" defined for isRequired propType                     react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
+   28:27  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+   29:40  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+   34:27  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+   35:40  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+   46:13  error    Use an object spread instead of `Object.assign` eg: `{ ...foo }`                                     prefer-object-spread
+   54:12  error    Use an object spread instead of `Object.assign` eg: `{ ...foo }`                                     prefer-object-spread
+   79:16  error    Use an object spread instead of `Object.assign` eg: `{ ...foo }`                                     prefer-object-spread
+  152:2   error    defaultProp "actions" defined for isRequired propType                                                react/default-props-match-prop-types
+  153:2   error    defaultProp "t" has no corresponding propTypes declaration                                           react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.snapshot.test.js
+  197:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
+  32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.test.js
+  12:1  error  Import in body of module; reorder to top  import/first
+  13:1  error  Import in body of module; reorder to top  import/first
+  14:1  error  Import in body of module; reorder to top  import/first
+  15:1  error  Import in body of module; reorder to top  import/first
+  17:1  error  Import in body of module; reorder to top  import/first
+  18:1  error  Import in body of module; reorder to top  import/first
+
+/home/travis/build/Talend/ui/packages/components/src/ActionList/ActionList.component.js
+  47:22  error  Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.component.js
+   6:1  error  Dependency cycle via ./ActionSplitDropdown.component:1  import/no-cycle
+   7:1  error  Dependency cycle via ./ActionDropdown.component:1       import/no-cycle
+  53:8  error  'Action' was used before it was defined                 @typescript-eslint/no-use-before-define
+  55:8  error  'Action' was used before it was defined                 @typescript-eslint/no-use-before-define
+  57:8  error  'Action' was used before it was defined                 @typescript-eslint/no-use-before-define
+  59:8  error  'Action' was used before it was defined                 @typescript-eslint/no-use-before-define
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionButton/ActionButton.test.js
+  222:49  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.component.js
+   14:1   error  Dependency cycle via ../ActionDropdown:7             import/no-cycle
+  230:10  error  Arrow function should not return assignment          no-return-assign
+  311:2   error  defaultProp "items" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/index.js
+  1:1  error  Dependency cycle via ../Action/Action.component:14  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionFile/ActionFile.component.js
+  74:3  error  'iconPosition' PropType is defined but prop is never used            react/no-unused-prop-types
+  76:3  error  'link' PropType is defined but prop is never used                    react/no-unused-prop-types
+  77:3  error  'model' PropType is defined but prop is never used                   react/no-unused-prop-types
+  86:3  error  defaultProp "available" has no corresponding propTypes declaration   react/default-props-match-prop-types
+  89:3  error  defaultProp "inProgress" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  97:2  error  Expected blank line between class members                            lines-between-class-members
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionFile/ActionFile.test.js
+   27:63  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  120:53  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.component.js
+   9:1  error  Dependency cycle via ../ActionSplitDropdown:6        import/no-cycle
+  89:2  error  defaultProp "items" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/index.js
+  1:1  error  Dependency cycle via ../Action/Action.component:9  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/Actions.component.js
+   10:26  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+  102:2   error    defaultProp "renderers" has no corresponding propTypes declaration                                   react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/AppGuidedTour/AppGuidedTour.component.js
+  42:5  warning  React Hook useEffect has a missing dependency: 'isAlreadyViewed'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/AppLoader/AppLoader.component.js
+  33:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Badge/Badge.component.js
+  142:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Badge/BadgeComposition/BadgeDelete/BadgeDelete.component.js
+  14:8  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/CircularProgress/CircularProgress.component.js
+  84:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
+   10:28  error    Useless path segments for "./../TooltipTrigger", should be "../TooltipTrigger"                       import/no-useless-path-segments
+   32:12  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+   38:12  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+   47:31  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+   48:35  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+  142:4   error    Visible, non-interactive elements with click handlers must have at least one keyboard listener       jsx-a11y/click-events-have-key-events
+  248:2   error    defaultProp "t" has no corresponding propTypes declaration                                           react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ConfirmDialog/ConfirmDialog.component.js
+  73:4  error  Do not pass children as props. Instead, nest children between the opening and closing tags  react/no-children-prop
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/Tree.component.js
+  4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4                                             import/no-cycle
+  5:1  error  Dependency cycle via ./TreeNodeList.component:1=>../TreeNode:4=>./TreeNode.component:1=>../Tree:4  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/index.js
+  1:1  error  Dependency cycle via ../TreeNode:4=>./TreeNode.component:1  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/TreeNode/TreeNode.component.js
+  4:1  error  Dependency cycle via ./Tree.component:1=>../TreeNode:4  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/TreeNode/index.js
+  1:1  error  Dependency cycle via ../Tree:4=>./Tree.component:1  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/TreeNodeList/TreeNodeList.component.js
+  4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4=>./Tree.component:1=>../TreeNodeList:5  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/TreeNodeList/index.js
+  1:1  error  Dependency cycle via ../TreeNode:4=>./TreeNode.component:1=>../Tree:4=>./Tree.component:1  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Managers/TreeManager/TreeManager.container.js
+  62:20  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  69:19  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/ModelViewer/Branch/ModelViewerBranch.component.js
+  48:2  error  State initialization should be in a constructor                       react/state-in-constructor
+  70:6  error  Use an object literal instead of `Object.assign`. eg: `{ foo: bar }`  prefer-object-spread
+  97:6  error  A control must be associated with a text label                        jsx-a11y/control-has-associated-label
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/ModelViewer/Leaf/ModelViewerLeaf.component.js
+  101:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/ModelViewer/ModelViewer.container.js
+  159:3  error  defaultProp "withTreeBorder" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/RecordsViewer/RecordsViewer.component.js
+  24:3  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/RecordsViewer/RecordsViewer.container.js
+  62:3  error  defaultProp "getObjectBranchDatakey" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Text/SimpleTextKeyValue/DefaultValueRenderer.component.js
+  66:4  error  onMouseOver must be accompanied by onFocus for accessibility  jsx-a11y/mouse-events-have-key-events
+
+/home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.js
+  272:47  error  'titleMap[].suggestions' is missing in props validation            react/prop-types
+  272:59  error  'titleMap[].suggestions.findIndex' is missing in props validation  react/prop-types
+  310:43  error  'titleMap[].suggestions' is missing in props validation            react/prop-types
+  310:55  error  'titleMap[].suggestions.find' is missing in props validation       react/prop-types
+  339:11  error  Use callback in setState when referencing the previous state       react/no-access-state-in-setstate
+  428:2   error  defaultProp "multiSection" defined for isRequired propType         react/default-props-match-prop-types
+  429:2   error  defaultProp "titleMap" defined for isRequired propType             react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.test.js
+   40:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   43:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   60:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   63:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   93:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  100:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  126:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  129:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  153:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  156:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  179:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  182:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  205:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  208:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  227:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  230:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  254:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  257:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  281:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  284:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  307:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  310:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  338:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  341:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  368:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  371:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  394:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  397:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  420:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  423:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  446:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  450:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  471:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  474:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  495:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  498:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  522:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  525:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  562:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  565:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  586:18  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  589:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
+  18:20  error    'required' is missing in props validation                                                                                             react/prop-types
+  31:5   warning  React Hook useEffect has missing dependencies: 'getDateOptions' and 'state.date'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/date-extraction.js
+  8:1  error  Dependency cycle detected  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.js
+  49:5  warning  React Hook useEffect has missing dependencies: 'options', 'state.endDate.value', and 'state.startDate.value'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
+  14:22  error    'dateFormat' is missing in props validation                                                                                               react/prop-types
+  17:20  error    'timezone' is missing in props validation                                                                                                 react/prop-types
+  30:5   warning  React Hook useEffect has missing dependencies: 'getDateOptions' and 'state.datetime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  39:36  error    'defaultTimeValue' is missing in props validation                                                                                         react/prop-types
+  82:2   error    defaultProp "dateFormat" has no corresponding propTypes declaration                                                                       react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/datetime-extraction.js
+  6:1  error  Dependency cycle detected  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTimeRange/Manager/Manager.component.js
+  29:5  warning  React Hook useEffect has missing dependencies: 'props.endDateTime', 'props.startDateTime', 'state.endDateTime', and 'state.startDateTime'. Either include them or remove the dependency array. If 'setState' needs the current value of 'props.startDateTime', you can also switch to useReducer instead of useState and read 'props.startDateTime' in the reducer  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDatePicker/InputDatePicker.component.js
+   67:6  error  Static HTML elements with event handlers require a role            jsx-a11y/no-static-element-interactions
+  108:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateRangePicker/InputDateRangePicker.component.js
+  128:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
+  87:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
+   37:2  warning  The 'showHorizontalAndTest' function makes the dependencies of useEffect Hook (at line 53) change on every render. To fix this, wrap the 'showHorizontalAndTest' definition into its own useCallback() Hook  react-hooks/exhaustive-deps
+   57:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array                                                                                     react-hooks/exhaustive-deps
+  111:2  error    defaultProp "t" defined for isRequired propType                                                                                                                                                              react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/Manager/Manager.component.js
+   29:2   error  Expected blank line between class members                     lines-between-class-members
+  109:35  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  122:20  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  158:35  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  171:22  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  171:22  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  171:22  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  171:39  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  171:39  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+  171:39  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/Validation/Validation.component.js
+  66:4  error  The element button has an implicit role of button. Defining this explicitly is redundant and should be avoided  jsx-a11y/no-redundant-roles
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/pickers/DateTimePicker/DateTimePicker.component.js
+  187:5  error  `tabIndex` should only be declared on interactive elements  jsx-a11y/no-noninteractive-tabindex
+  251:2  error  defaultProp "t" defined for isRequired propType             react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/pickers/TimePicker/TimePicker.component.js
+  15:3  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/pickers/YearPicker/YearPicker.component.js
+  22:3  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/views/DateTimeView/DateTimeView.component.js
+  46:3  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/views/MonthYearView/MonthYearView.component.js
+  55:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Time/Manager/Manager.component.js
+  9:2  error  Expected blank line between class members  lines-between-class-members
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Time/time-extraction.test.js
+  3:42  error  Useless path segments for "../Time/time-extraction", should be "./time-extraction"  import/no-useless-path-segments
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/CalendarPicker/CalendarPicker.component.js
+  172:5  error  `tabIndex` should only be declared on interactive elements  jsx-a11y/no-noninteractive-tabindex
+  226:2  error  defaultProp "t" defined for isRequired propType             react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/TimePicker/TimePicker.component.js
+   74:2   error  Expected blank line between class members                          lines-between-class-members
+   79:2   error  Expected blank line between class members                          lines-between-class-members
+   84:2   error  Expected blank line between class members                          lines-between-class-members
+   94:2   error  Expected blank line between class members                          lines-between-class-members
+  108:2   error  Expected blank line between class members                          lines-between-class-members
+  118:2   error  Expected blank line between class members                          lines-between-class-members
+  120:42  error  Arrow function should not return assignment                        no-return-assign
+  132:8   error  Interactive elements should not be assigned non-interactive roles  jsx-a11y/no-interactive-element-to-noninteractive-role
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/YearPicker/YearPicker.component.js
+  22:3  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/shared/InputSizer/InputSizer.component.js
+  22:2  warning  React Hook useEffect contains a call to 'setWidth'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/views/DateView/DateView.component.js
+  39:3  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/views/MonthYearView/MonthYearView.component.js
+  55:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Draggable/DraggableComponent.test.js
+  7:23  error  Unexpected use of file extension "js" for "./DraggableComponent.js"  import/extensions
+
+/home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
+   93:31  error  Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread
+  239:32  error  Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread
+  281:43  error  'footerActions' is already declared in the upper scope            no-shadow
+
+/home/travis/build/Talend/ui/packages/components/src/EditableText/EditableText.component.js
+  22:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/EditableText/EditableText.test.js
+  12:3  error  Arrow function should not return assignment  no-return-assign
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
+  221:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/HeaderInput.component.js
+  89:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/Item.component.js
+   49:18  error  'item.index' is missing in props validation                  react/prop-types
+   72:64  error  'searchCriteria.toLowerCase' is missing in props validation  react/prop-types
+   81:72  error  'searchCriteria.length' is missing in props validation       react/prop-types
+   85:54  error  'searchCriteria.length' is missing in props validation       react/prop-types
+   95:62  error  'item.className' is missing in props validation              react/prop-types
+  103:38  error  'item.className' is missing in props validation              react/prop-types
+  106:15  error  'item.index' is missing in props validation                  react/prop-types
+  120:21  error  'item.isSelected' is missing in props validation             react/prop-types
+  124:11  error  'item.icon' is missing in props validation                   react/prop-types
+  125:34  error  'item.icon' is missing in props validation                   react/prop-types
+  125:39  error  'item.icon.title' is missing in props validation             react/prop-types
+  127:23  error  'item.icon' is missing in props validation                   react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/Item.propTypes.js
+  11:30  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+  20:54  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
+  147:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Items.component.js
+  111:13  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.component.js
+  267:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.test.js
+   46:80  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   84:48  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   84:69  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  134:66  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/Gesture/withCalendarGesture.js
+  2:1  error  File has too many classes (2). Maximum allowed is 1  max-classes-per-file
+
+/home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
+  70:7   error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
+  70:22  error  Curly braces are unnecessary here                     react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/GridLayout/Tile/Skeleton/SkeletonTile.component.js
+  10:21  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  10:37  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/GridLayout/Tile/Tile.component.js
+  27:4  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/components/src/GuidedTour/GuidedTour.component.js
+  52:5   error  Missing parentheses around multilines JSX            react/jsx-wrap-multilines
+  53:14  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
+  72:2   error  defaultProp "steps" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
+   19:25  error  'getComponent' is missing in props validation      react/prop-types
+   41:18  error  'label' is missing in props validation             react/prop-types
+   41:38  error  'getComponent' is missing in props validation      react/prop-types
+   41:52  error  't' is missing in props validation                 react/prop-types
+   50:21  error  'items' is missing in props validation             react/prop-types
+   50:36  error  'items' is missing in props validation             react/prop-types
+   50:42  error  'items.length' is missing in props validation      react/prop-types
+   58:23  error  'onClick' is missing in props validation           react/prop-types
+   78:24  error  'getComponent' is missing in props validation      react/prop-types
+   92:25  error  'getComponent' is missing in props validation      react/prop-types
+  122:17  error  'getComponent' is missing in props validation      react/prop-types
+  140:24  error  'getComponent' is missing in props validation      react/prop-types
+  153:11  error  'items' is missing in props validation             react/prop-types
+  153:26  error  'items' is missing in props validation             react/prop-types
+  153:32  error  'items.length' is missing in props validation      react/prop-types
+  162:44  error  'getComponent' is missing in props validation      react/prop-types
+  193:28  error  'getComponent' is missing in props validation      react/prop-types
+  227:33  error  'tooltipPlacement' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Icon/Icon.component.js
+  47:66  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/IconsProvider/IconsProvider.component.js
+   9:2   warning  Unexpected console statement                                      no-console
+  10:16  error    Unexpected require()                                              global-require
+  45:18  error    Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread
+
+/home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.component.js
+  116:10  error  'ObjectRenderer' was used before it was defined                @typescript-eslint/no-use-before-define
+  233:14  error  'schema.jsonSchema' is missing in props validation             react/prop-types
+  233:36  error  'schema.properties' is missing in props validation             react/prop-types
+  236:34  error  'schema.properties' is missing in props validation             react/prop-types
+  237:13  error  'schema.uiSchema' is missing in props validation               react/prop-types
+  238:39  error  'schema.uiSchema' is missing in props validation               react/prop-types
+  238:48  error  'schema.uiSchema.ui:order' is missing in props validation      react/prop-types
+  240:54  error  'schema.jsonSchema' is missing in props validation             react/prop-types
+  240:65  error  'schema.jsonSchema.properties' is missing in props validation  react/prop-types
+  240:84  error  'schema.uiSchema' is missing in props validation               react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.test.js
+  6:2  error  InvalidSchemaException not found in './JSONSchemaRenderer.component'  import/named
+  7:2  error  UnkownTypeException not found in './JSONSchemaRenderer.component'     import/named
+
+/home/travis/build/Talend/ui/packages/components/src/List/List.component.js
+  169:19  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionFilter.hook.js
+  27:65  warning  React Hook useMemo has unnecessary dependencies: 'filterFunctions' and 'textFilter'. Either exclude them or remove the dependency array. Outer scope values like 'textFilter' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionFilter.hook.test.js
+  108:23  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionSelection.hook.js
+  23:5  warning  React Hook useEffect has missing dependencies: 'filterSelectionFromCollection' and 'selectedIds'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionSort.hook.js
+  31:61  warning  React Hook useMemo has unnecessary dependencies: 'sortFunctions' and 'sortParams'. Either exclude them or remove the dependency array. Outer scope values like 'sortParams' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/SortBy/SortBy.component.js
+  81:45  error  'options[].name' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/VList/VList.component.js
+  26:5  error  Unexpected newline before '{'  react/jsx-curly-newline
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/collection.js
+  1:1  error  '@storybook/addon-actions' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
+  39:19  error  'titleProps.persistentActionsKey' is missing in props validation  react/prop-types
+  40:15  error  'titleProps.persistentActionsKey' is missing in props validation  react/prop-types
+  68:47  error  'titleProps.onClick' is missing in props validation               react/prop-types
+  69:40  error  'itemProps.onToggleAll' is missing in props validation            react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooserButton/hooks/columnChooserManager.hook.js
+  82:1  error  Expected space or tab before '*/' in comment  spaced-comment
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooserButton/hooks/columnChooserManager.hook.test.js
+  58:12  error  Arrow function should not return assignment  no-return-assign
+  64:12  error  Arrow function should not return assignment  no-return-assign
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/DisplayModeToggle/DisplayModeToggle.component.js
+  59:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Pagination/Pagination.component.js
+   77:15  error  Curly braces are unnecessary here                react/jsx-curly-brace-presence
+   89:15  error  Curly braces are unnecessary here                react/jsx-curly-brace-presence
+  105:15  error  Curly braces are unnecessary here                react/jsx-curly-brace-presence
+  118:15  error  Curly braces are unnecessary here                react/jsx-curly-brace-presence
+  156:2   error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectAll/SelectAll.component.js
+  42:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectSortBy/SelectSortBy.component.js
+  125:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ListView/Header/Header.propTypes.js
+  6:58  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ListView/Header/HeaderInput.component.js
+  68:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
+
+/home/travis/build/Talend/ui/packages/components/src/ListView/Items/Items.component.js
+  212:13  error  Arrow function should not return assignment  no-return-assign
+
+/home/travis/build/Talend/ui/packages/components/src/ListView/Items/items.test.js
+   4:31  error  Useless path segments for "./../../../test/props-without-i18n", should be "../../../test/props-without-i18n"  import/no-useless-path-segments
+  39:55  error  Curly braces are unnecessary here                                                                             react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/ListView/ListView.component.js
+  23:22  error  'displayMode' is missing in props validation                          react/prop-types
+  45:2   error  defaultProp "isSwitchBox" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Loader/Loader.component.js
+  5:30  error  Useless path segments for "./../CircularProgress", should be "../CircularProgress"  import/no-useless-path-segments
+
+/home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
+  39:6  error  A form label must be associated with a control  jsx-a11y/label-has-associated-control
+
+/home/travis/build/Talend/ui/packages/components/src/MultiSelect/MultiSelect.container.js
+   38:2  error  Expected blank line between class members                                                      lines-between-class-members
+   39:2  error  Expected blank line between class members                                                      lines-between-class-members
+   45:2  error  Expected blank line between class members                                                      lines-between-class-members
+  282:6  error  Interactive elements should not be assigned non-interactive roles                              jsx-a11y/no-interactive-element-to-noninteractive-role
+  290:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
+
+/home/travis/build/Talend/ui/packages/components/src/MultiSelect/index.js
+  1:25  error  Unexpected use of file extension "js" for "./MultiSelect.container.js"  import/extensions
+
+/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
+    1:1   error    File has too many classes (3). Maximum allowed is 1                                                  max-classes-per-file
+   18:9   error    Curly braces are unnecessary here                                                                    react/jsx-curly-brace-presence
+  100:3   error    Visible, non-interactive elements with click handlers must have at least one keyboard listener       jsx-a11y/click-events-have-key-events
+  107:4   error    `tabIndex` should only be declared on interactive elements                                           jsx-a11y/no-noninteractive-tabindex
+  247:5   error    Curly braces are unnecessary here                                                                    react/jsx-curly-brace-presence
+  255:9   error    onMouseOut must be accompanied by onBlur for accessibility                                           jsx-a11y/mouse-events-have-key-events
+  279:33  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
+  334:5   error  Missing parentheses around multilines JSX                        react/jsx-wrap-multilines
+  337:11  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  351:5   error  Missing parentheses around multilines JSX                        react/jsx-wrap-multilines
+  451:6   error  Missing parentheses around multilines JSX                        react/jsx-wrap-multilines
+  471:13  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  510:2   error  defaultProp "opened" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.test.js
+  195:7  error  Missing parentheses around multilines JSX       react/jsx-wrap-multilines
+  227:6  error  A control must be associated with a text label  jsx-a11y/control-has-associated-label
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/ObjectViewer.component.js
+  23:20  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  24:18  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/Table/Table.component.js
+  34:1  error  Expected indentation of 4 tabs but found 5  @typescript-eslint/indent
+  35:1  error  Expected indentation of 4 tabs but found 5  @typescript-eslint/indent
+  36:1  error  Expected indentation of 4 tabs but found 5  @typescript-eslint/indent
+  37:1  error  Expected indentation of 4 tabs but found 5  @typescript-eslint/indent
+  38:1  error  Expected indentation of 4 tabs but found 5  @typescript-eslint/indent
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/convertDate.js
+  36:2  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  37:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  53:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  56:4  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+
+/home/travis/build/Talend/ui/packages/components/src/OverlayTrigger/OverlayTrigger.component.js
+  12:43  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+  14:39  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+  39:3   error    defaultProp "preventScrolling" has no corresponding propTypes declaration                            react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/PieChart/PieChartIcon.component.js
+  346:2  error  defaultProp "labelIndex" has no corresponding propTypes declaration         react/default-props-match-prop-types
+  347:2  error  defaultProp "minimumPercentage" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  348:2  error  defaultProp "display" has no corresponding propTypes declaration            react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/Resource/Resource.component.js
+  52:3   error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
+  52:3   error  Non-interactive elements should not be assigned mouse or keyboard event listeners               jsx-a11y/no-noninteractive-element-interactions
+  61:4   error  `tabIndex` should only be declared on interactive elements                                      jsx-a11y/no-noninteractive-tabindex
+  63:31  error  'parent.props.rowCount' is missing in props validation                                          react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/ResourceList.component.js
+  14:1   error    Dependency cycle via ./ResourceList:62                                                                        import/no-cycle
+  46:72  error    Curly braces are unnecessary here                                                                             react/jsx-curly-brace-presence
+  51:3   warning  React Hook React.useCallback has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/ResourceList.propTypes.js
+  10:35  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/Toolbar/SortOptions/OrderChooser/OrderChooser.component.js
+  27:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/Toolbar/SortOptions/OrderChooser/OrderChooser.test.js
+  9:74  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/Toolbar/SortOptions/SortOptions.component.js
+  42:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  53:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/Toolbar/SortOptions/SortOptions.test.js
+  14:10  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/Toolbar/StateFilter/StateFilter.component.js
+  31:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  40:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  49:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/ResourceList/index.js
+  1:1  error  Dependency cycle via ../index:14  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
+  5:1  error  Dependency cycle via ../index:14=>./ResourcePicker:47  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/ResourcePicker/index.js
+  1:1  error  Dependency cycle via ../ResourceList/ResourceList.component:5=>../index:14  import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
+  75:5  warning  React Hook useLayoutEffect has missing dependencies: 'large' and 'minimised'. Either include them or remove the dependency array. If 'setWidth' needs the current value of 'large', you can also switch to useReducer instead of useState and read 'large' in the reducer  react-hooks/exhaustive-deps
+  83:5  warning  React Hook useEffect has a missing dependency: 'animation'. Either include it or remove the dependency array                                                                                                                                                               react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/Skeleton/Skeleton.component.js
+  81:2  error  defaultProp "type" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Slider/Slider.component.js
+  280:2  error  defaultProp "min" defined for isRequired propType  react/default-props-match-prop-types
+  281:2  error  defaultProp "max" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Status/Status.component.js
+   5:21  error  Useless path segments for "./../Actions/Actions.component", should be "../Actions/Actions.component"                                      import/no-useless-path-segments
+   6:30  error  Useless path segments for "./../CircularProgress/CircularProgress.component", should be "../CircularProgress/CircularProgress.component"  import/no-useless-path-segments
+   7:18  error  Useless path segments for "./../Icon/Icon.component", should be "../Icon/Icon.component"                                                  import/no-useless-path-segments
+  68:34  error  Curly braces are unnecessary here                                                                                                         react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/Stepper/Stepper.component.js
+  171:5  warning  React Hook useEffect has missing dependencies: 'children' and 'transitionState'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
+  4:8  error  'Container' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.component.js
+  129:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.test.js
+  13:3  error  Arrow function should not return assignment  no-return-assign
+
+/home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.component.js
+  59:5  warning  React Hook useEffect has missing dependencies: 'responsive' and 'showTabBarAndTest'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  79:5  warning  React Hook useEffect has a missing dependency: 'responsive'. Either include it or remove the dependency array                            react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.test.js
+  45:50  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Body/TableBody.js
+  4:22  error  Unexpected use of file extension "js" for "../Row/TableRow.js"  import/extensions
+
+/home/travis/build/Talend/ui/packages/components/src/Toggle/LabelToggle/LabelToggle.component.js
+  56:7  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
+
+/home/travis/build/Talend/ui/packages/components/src/Toggle/Toggle.component.js
+  7:1  error  Expected space or tab before '*/' in comment  spaced-comment
+
+/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeView.component.js
+  104:2  error  defaultProp "id" defined for isRequired propType  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
+   98:3  error  defaultProp "level" defined for isRequired propType  react/default-props-match-prop-types
+  209:4  error  'item.hidden' is missing in props validation         react/prop-types
+  242:5  error  Unexpected newline before '{'                        react/jsx-curly-newline
+
+/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.js
+  53:28  error  'icon.tooltipPlacement' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellActions/CellActions.component.js
+  18:2  error  Expected blank line between class members  lines-between-class-members
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellBoolean/CellBoolean.component.js
+  9:8  error  'Action' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.component.js
+  23:22  error  'columnData.selectionMode' is missing in props validation  react/prop-types
+  23:47  error  'columnData.getRowState' is missing in props validation    react/prop-types
+  40:23  error  Curly braces are unnecessary here                          react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellDatetime/CellDatetime.component.js
+  40:2   error  Expected blank line between class members                     lines-between-class-members
+  52:35  error  'columnData.tooltipPlacement' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTextIcon/CellWithIcon.test.js
+  17:50  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  29:50  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.component.js
+  33:2  error  Expected blank line between class members  lines-between-class-members
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.test.js
+   27:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   56:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   92:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  121:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  147:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  171:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  210:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  232:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  256:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  282:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
+   28:8  error  Curly braces are unnecessary here                        react/jsx-curly-brace-presence
+   61:9  error  Curly braces are unnecessary here                        react/jsx-curly-brace-presence
+  106:9  error  Curly braces are unnecessary here                        react/jsx-curly-brace-presence
+  118:8  error  Curly braces are unnecessary here                        react/jsx-curly-brace-presence
+  132:8  error  Curly braces are unnecessary here                        react/jsx-curly-brace-presence
+  177:3  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
+  205:2  error  defaultProp "t" defined for isRequired propType          react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.component.js
+  54:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.test.js
+  16:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  17:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  36:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  37:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  62:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  63:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  89:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  90:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleSelector.test.js
+  17:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  18:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  19:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  38:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  39:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  40:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  58:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  59:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  60:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  78:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  79:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  80:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/HeaderCheckbox/HeaderCheckbox.component.js
+  16:18  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/HeaderResizable/HeaderResizable.component.js
+  24:2  error  State initialization should be in a constructor               react/state-in-constructor
+  34:7  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
+  73:2  error  defaultProp "rowHeight" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.test.js
+  17:8  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  43:8  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  66:8  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.component.js
+  77:4  error  Unexpected newline before '{'  react/jsx-curly-newline
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.test.js
+  13:55  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  28:55  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  45:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  47:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  48:19  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  67:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  89:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RendererSelector.component.js
+   42:29  error  Curly braces are unnecessary here                                        react/jsx-curly-brace-presence
+  127:2   error  defaultProp "noRowsRenderer" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  128:2   error  defaultProp "type" has no corresponding propTypes declaration            react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RendererSelector.test.js
+   40:15  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   50:8   error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+   58:12  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+   59:19  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+   76:8   error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+   84:12  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+   85:19  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  103:8   error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  129:8   error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  153:8   error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  178:8   error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  185:12  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  186:19  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  204:8   error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  212:12  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  213:19  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  233:8   error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  241:12  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  242:19  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+  243:10  error  Curly braces are unnecessary here                                react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.component.js
+  52:2  error  Expected blank line between class members                                          lines-between-class-members
+  58:2  error  Expected blank line between class members                                          lines-between-class-members
+  69:6  error  Non-interactive elements should not be assigned mouse or keyboard event listeners  jsx-a11y/no-noninteractive-element-interactions
+  77:7  error  `tabIndex` should only be declared on interactive elements                         jsx-a11y/no-noninteractive-tabindex
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.test.js
+  90:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
+   47:14  error  '_' is already declared in the upper scope                                         no-shadow
+  117:4   error  Non-interactive elements should not be assigned mouse or keyboard event listeners  jsx-a11y/no-noninteractive-element-interactions
+  134:5   error  `tabIndex` should only be declared on interactive elements                         jsx-a11y/no-noninteractive-tabindex
+  177:2   error  defaultProp "t" defined for isRequired propType                                    react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.test.js
+   84:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  107:24  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowSelection/RowSelection.test.js
+  30:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  52:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  74:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.component.js
+  70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.test.js
+   44:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   49:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   50:19  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   67:9   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   72:13  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   73:20  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+   91:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  100:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  101:19  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  116:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  125:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  126:19  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
+  21:11  error    Curly braces are unnecessary here           react/jsx-curly-brace-presence
+  22:13  error    Curly braces are unnecessary here           react/jsx-curly-brace-presence
+  42:3   warning  Unexpected console statement                no-console
+  70:1   error    Expected indentation of 6 tabs but found 7  @typescript-eslint/indent
+  71:1   error    Expected indentation of 6 tabs but found 7  @typescript-eslint/indent
+  72:1   error    Expected indentation of 6 tabs but found 7  @typescript-eslint/indent
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.test.js
+  46:22  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  62:64  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/WithDrawer/withDrawer.test.js
+  5:20  error  Useless path segments for "./../Drawer", should be "../Drawer"  import/no-useless-path-segments
+
+/home/travis/build/Talend/ui/packages/components/src/index.js
+  47:1  error  Dependency cycle via ./ResourcePicker.component:1=>../ResourceList/ResourceList.component:5  import/no-cycle
+  62:1  error  Dependency cycle via ./ResourceList.component:1                                              import/no-cycle
+
+/home/travis/build/Talend/ui/packages/components/src/utils/getPropsFrom.js
+  20:24  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/wrap.js
+  42:20  error  Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread
+
+/home/travis/build/Talend/ui/packages/components/src/wrap.test.js
+  26:24  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+  26:54  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
+
+✖ 487 problems (447 errors, 40 warnings)
+  228 errors and 0 warnings potentially fixable with the `--fix` option.
+

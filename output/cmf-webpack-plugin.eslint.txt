@@ -1,2 +1,11 @@
-> eslint --config ../../.eslintrc --ext .js src
+> talend-scripts lint:es
 
+
+CONFIGURATION -------------------------------------------------------------------------------------
+Running command: lint:es With options: 
+
+CONFIGURATION -------------------------------------------------------------------------------------
+Talend scripts mode : production
+Talend scripts configuration file found and loaded
+
+RUN -----------------------------------------------------------------------------------------------

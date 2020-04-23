@@ -9,3 +9,12 @@ Talend scripts mode : production
 Talend scripts configuration file found and loaded
 
 RUN -----------------------------------------------------------------------------------------------
+
+/home/travis/build/Talend/ui/packages/cmf/src/cmfModule.js
+  17:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+
+/home/travis/build/Talend/ui/packages/cmf/src/components/ErrorPanel/ErrorPanel.component.js
+  19:5  warning  React Hook useEffect has a missing dependency: 'url'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 2 problems (1 error, 1 warning)
+
