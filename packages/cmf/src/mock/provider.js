@@ -41,6 +41,7 @@ class MockProvider extends React.Component {
 		};
 		return context;
 	}
+
 	render() {
 		return <div className="mock-provider">{this.props.children}</div>;
 	}

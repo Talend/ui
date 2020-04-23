@@ -18,6 +18,7 @@ export default class RegistryProvider extends React.Component {
 		super(props);
 		this.registry = Registry.getRegistry();
 	}
+
 	/**
 	 * @return {object} child with registry as only key
 	 */

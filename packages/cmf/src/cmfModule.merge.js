@@ -21,7 +21,7 @@ export function mergeObjects(obj1, obj2) {
 			...acc,
 			[key]: obj2[key],
 		};
-	}, Object.assign({}, obj1));
+	}, { ...obj1});
 }
 
 function mergeFns(fn1, fn2) {
