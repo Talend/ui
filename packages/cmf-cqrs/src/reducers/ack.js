@@ -30,13 +30,11 @@ export default function ackReducer(state = DEFAULT_STATE, action) {
 
 export function ackProcessed(state, action) {
 	if (action.ack) {
-		const newState = Object.assign(
-			{},
-			state,
-			{
-				ack: ackReducer(state.ack, action.ack),
-			},
-		);
+		const newState = {
+			
+			...state,
+			ack: ackReducer(state.ack, action.ack),
+		};
 		return newState;
 	}
 	return state;

@@ -75,7 +75,7 @@ function getReducer(appReducer) {
 	let reducerObject = {};
 	if (appReducer) {
 		if (typeof appReducer === 'object') {
-			reducerObject = Object.assign({}, appReducer);
+			reducerObject = { ...appReducer};
 		} else if (typeof appReducer === 'function') {
 			reducerObject = { app: appReducer };
 		}

@@ -67,7 +67,7 @@ export function getStateToProps({
 	mapStateToProps,
 	WrappedComponent,
 }) {
-	const props = Object.assign({}, defaultProps);
+	const props = { ...defaultProps};
 
 	const cmfProps = getStateProps(
 		state,
@@ -240,16 +240,21 @@ export default function cmfConnect({
 		}
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
+
 			static propTypes = {
 				...cmfConnect.propTypes,
 			};
+
 			static contextTypes = {
 				store: PropTypes.object,
 				registry: PropTypes.object,
 				router: PropTypes.object,
 			};
+
 			static WrappedComponent = WrappedComponent;
+
 			static getState = getState;
+
 			static setStateAction = function setStateAction(state, id = 'default', type) {
 				if (typeof state !== 'function') {
 					return getSetStateAction(state, id, type);
@@ -315,7 +320,7 @@ export default function cmfConnect({
 			}
 
 			dispatchActionCreator(actionCreatorId, event, data, context) {
-				const extendedContext = Object.assign({}, this.context, context);
+				const extendedContext = { ...this.context, ...context};
 				this.props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 

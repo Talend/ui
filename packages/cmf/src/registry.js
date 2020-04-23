@@ -3,7 +3,7 @@
  * The registry will register everything from a react component to redux action.
  * @module react-cmf/lib/registry
  */
-/* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }]*/
+/* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }] */
 
 /**
  * @typedef {Object<string, *>} Registry

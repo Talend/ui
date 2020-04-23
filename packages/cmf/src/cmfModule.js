@@ -20,6 +20,7 @@ async function find(options, buff = []) {
 			}
 
 			if (buff.some(({ id }) => current.id === id)) {
+				// eslint-disable-next-line no-console
 				console.warn(
 					`cmf.bootstrap: 2 modules have the same id ${current.id}. This duplicated module will be skipped.`,
 				);
