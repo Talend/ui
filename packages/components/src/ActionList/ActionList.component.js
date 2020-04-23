@@ -14,12 +14,7 @@ import theme from './ActionList.scss';
  */
 function getActionId(id, action) {
 	if (action.id || action.label) {
-		const actionId =
-			action.id ||
-			action.label
-				.toLowerCase()
-				.split(' ')
-				.join('-');
+		const actionId = action.id || action.label.toLowerCase().split(' ').join('-');
 		return id && `${id}-nav-${actionId}`;
 	}
 	return undefined;
@@ -58,7 +53,6 @@ function ActionListItem({ getComponent, id, onSelect, action, isSelected, isNav,
 
 	return (
 		<li
-			title={action.label}
 			key={action.key || action.label}
 			className={classNames(theme['tc-action-list-item'], 'tc-action-list-item', itemClassName, {
 				active: isSelected,
