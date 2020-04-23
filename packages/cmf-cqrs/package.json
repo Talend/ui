@@ -52,7 +52,6 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.9.0",
     "mock-socket": "^7.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",

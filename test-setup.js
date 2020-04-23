@@ -1,10 +1,10 @@
-/* eslint-disable global-require,no-plusplus */
-import '@babel/polyfill';
-import 'isomorphic-fetch';
-import 'raf/polyfill';
-import { Headers } from 'node-fetch';
-import { configure } from 'enzyme';
-import dateMock from './mocks/dateMock';
+// /* eslint-disable global-require,no-plusplus */
+// import '@babel/polyfill';
+// import 'isomorphic-fetch';
+// import 'raf/polyfill';
+// import { Headers } from 'node-fetch';
+// import { configure } from 'enzyme';
+// import dateMock from './mocks/dateMock';
 
 /**
  * lets mock i18next for all tests
@@ -50,81 +50,78 @@ jest.mock('i18next', () => {
 		},
 		changeLanguage: noop,
 	};
-	i18n.init = options => {
-		// i18n.store.data = options.resources;
-	};
+	i18n.init = () => {};
 	return {
-		// default: i18n,
 		createInstance: () => i18n,
 		...i18n,
 	};
 });
 
-function getMajorVersion() {
-	if (!process.env.REACT_VERSION) {
-		return '16';
-	}
-	return process.env.REACT_VERSION.replace('^', '').split('.')[0];
-}
+// function getMajorVersion() {
+// 	if (!process.env.REACT_VERSION) {
+// 		return '16';
+// 	}
+// 	return process.env.REACT_VERSION.replace('^', '').split('.')[0];
+// }
 
-const REACT_VERSION = getMajorVersion();
+// const REACT_VERSION = getMajorVersion();
 
-let AdapterReact;
-if (REACT_VERSION === '15') {
-	AdapterReact = require('enzyme-adapter-react-15');
-} else if (REACT_VERSION === '16') {
-	AdapterReact = require('enzyme-adapter-react-16');
-} else {
-	throw new Error(`Unsupported version of React: ${REACT_VERSION}`);
-}
+// let AdapterReact;
+// if (REACT_VERSION === '15') {
+// 	AdapterReact = require('enzyme-adapter-react-15');
+// } else if (REACT_VERSION === '16') {
+// 	AdapterReact = require('enzyme-adapter-react-16');
+// } else {
+// 	throw new Error(`Unsupported version of React: ${REACT_VERSION}`);
+// }
 
-configure({ adapter: new AdapterReact() });
+// configure({ adapter: new AdapterReact() });
 
-// define fetch
-const fetch = jest.fn(
-	(url, config) =>
-		new Promise(resolve => {
-			if (config.response) {
-				return resolve(config.response);
-			}
-			return resolve();
-		}),
-);
-global.fetch = fetch;
-global.Headers = Headers;
-global.localStorage = {
-	setItem(key, value) {
-		global.localStorage[key] = value;
-	},
-};
+// // define fetch
+// const fetch = jest.fn(
+// 	(url, config) =>
+// 		new Promise(resolve => {
+// 			if (config.response) {
+// 				return resolve(config.response);
+// 			}
+// 			return resolve();
+// 		}),
+// );
+// global.fetch = fetch;
+// global.Headers = Headers;
+// global.localStorage = {
+// 	setItem(key, value) {
+// 		global.localStorage[key] = value;
+// 	},
+// };
 
-// define Element.closest
-if (typeof Element.prototype.matches !== 'function') {
-	Element.prototype.matches = function matches(selector) {
-		const element = this;
-		const elements = (element.document || element.ownerDocument).querySelectorAll(selector);
-		let index = 0;
+// // define Element.closest
+// if (typeof Element.prototype.matches !== 'function') {
+// 	Element.prototype.matches = function matches(selector) {
+// 		const element = this;
+// 		const elements = (element.document || element.ownerDocument).querySelectorAll(selector);
+// 		let index = 0;
 
-		while (elements[index] && elements[index] !== element) {
-			++index;
-		}
+// 		while (elements[index] && elements[index] !== element) {
+// 			++index;
+// 		}
 
-		return Boolean(elements[index]);
-	};
-}
+// 		return Boolean(elements[index]);
+// 	};
+// }
 
-Element.prototype.closest = function closest(selector) {
-	let element = this;
+// Element.prototype.closest = function closest(selector) {
+// 	let element = this;
 
-	while (element && element.nodeType === 1) {
-		if (element.matches(selector)) {
-			return element;
-		}
+// 	while (element && element.nodeType === 1) {
+// 		if (element.matches(selector)) {
+// 			return element;
+// 		}
 
-		element = element.parentNode;
-	}
+// 		element = element.parentNode;
+// 	}
 
-	return null;
-};
+// 	return null;
+// };
 
-global.dateMock = dateMock;
+// global.dateMock = dateMock;
