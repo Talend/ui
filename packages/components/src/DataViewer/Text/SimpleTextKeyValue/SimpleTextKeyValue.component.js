@@ -110,7 +110,7 @@ export default function SimpleTextKeyValue({
 					{separator}
 					{displayTypes && schema && value && (
 						<span className={classNames(theme['tc-simple-text-type'], 'tc-simple-text-type')}>
-							({schema.type.type || value.unionKey})
+							- {schema.type.type || value.unionKey}
 						</span>
 					)}
 				</span>
