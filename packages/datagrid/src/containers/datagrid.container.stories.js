@@ -6,7 +6,7 @@ import mock from '@talend/react-cmf/lib/mock';
 import { IconsProvider } from '@talend/react-components';
 import api from '@talend/react-cmf';
 
-import DataGrid from './';
+import DataGrid from '.';
 import register from '../register';
 import theme from '../components/DataGrid/DataGrid.scss';
 import sample from '../../stories/sample.json';

@@ -1,7 +1,7 @@
 import Immutable, { fromJS } from 'immutable';
 import omit from 'lodash/omit';
 
-import { QUALITY_KEY } from '../../constants/';
+import { QUALITY_KEY } from '../../constants';
 import {
 	convertSample,
 	getCellValue,
