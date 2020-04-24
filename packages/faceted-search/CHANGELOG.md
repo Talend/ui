@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+## [0.8.0]
+
 ### Breaking change
 Rename two data-feature attributes for harmonization:
 - `faceted-advanced-search.cancel` become `filter.advanced.clear`
