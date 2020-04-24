@@ -5,10 +5,8 @@ exports[`DemOContentStep should show the demo content step 1`] = `
   <p
     className="theme-info"
   >
-    <Icon
-      name="talend-info-circle"
-    />
-    Loading may take a few minutes to complete. Bear with us. Content is loading. Isn't it time for tea or coffee?
+    Loading may take a few minutes to complete.
+Isn't it time for tea or coffee?
   </p>
   <Stepper
     steps={
