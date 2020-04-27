@@ -1,13 +1,12 @@
 import React from 'react';
-import Icon from '../Icon';
+import { useTranslation } from 'react-i18next';
 import Stepper from '../Stepper';
-import { getI18nInstance } from '../translate';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import theme from './DemoContentStep.scss';
 
-const i18n = getI18nInstance();
-
 export default function DemoContentStep({ demoContentSteps }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	if (!demoContentSteps.length) {
 		return null;
 	}
@@ -15,7 +14,7 @@ export default function DemoContentStep({ demoContentSteps }) {
 	return (
 		<React.Fragment>
 			<p className={theme.info}>
-				{i18n.t('tui-components:DEMO_CONTENT_LOADING_MESSAGE', {
+				{t('DEMO_CONTENT_LOADING_MESSAGE', {
 					defaultValue:
 						"Loading may take a few minutes to complete.\nIsn't it time for tea or coffee?",
 				})}
