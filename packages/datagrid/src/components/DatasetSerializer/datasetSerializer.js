@@ -143,7 +143,10 @@ export function getQuality(qualityTotal, rowsTotal) {
  */
 export function getQualityValue(type) {
 	if (isArray(type)) {
-		return get(type.find(value => value[QUALITY_KEY] !== undefined), QUALITY_KEY);
+		return get(
+			type.find(value => value[QUALITY_KEY] !== undefined),
+			QUALITY_KEY,
+		);
 	}
 	return get(type, QUALITY_KEY);
 }
