@@ -132,7 +132,7 @@ SimpleTextKeyValue.propTypes = {
 	value: PropTypes.object,
 	separator: PropTypes.string,
 	style: PropTypes.object,
-	displayTypes: PropTypes.bool,
+	displayTypes: PropTypes.bool.isRequired,
 };
 
 SimpleTextKeyValue.defaultProps = {

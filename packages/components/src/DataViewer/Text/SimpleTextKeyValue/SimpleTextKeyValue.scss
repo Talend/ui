@@ -9,7 +9,7 @@
 		font-weight: 400;
 	}
 	&-key {
-		margin-right: 5px;
+		margin-right: $padding-smaller;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
