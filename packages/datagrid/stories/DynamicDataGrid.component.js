@@ -10,7 +10,7 @@ import getComponent from './getComponent';
 
 const ADD_ITEMS_NUMBER = 4;
 const LOADING_ITEM = {
-	loading: true,
+	loaded: false,
 	value: {},
 };
 
