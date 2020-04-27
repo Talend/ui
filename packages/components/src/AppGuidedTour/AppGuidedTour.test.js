@@ -71,6 +71,7 @@ describe('AppGuidedTour', () => {
 		});
 
 		expect(wrapper.find('Tour').prop('goToStep')).toBe(1);
+		expect(wrapper.find('DemoContentStep').length).toBe(1);
 	});
 	it('should reset state on close', () => {
 		const onRequestCloseMock = jest.fn();
