@@ -134,7 +134,7 @@ RUN ----------------------------------------------------------------------------
   3:1  error  '@storybook/addon-actions' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/AppGuidedTour/AppGuidedTour.component.js
-  42:5  warning  React Hook useEffect has a missing dependency: 'isAlreadyViewed'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  43:5  warning  React Hook useEffect has a missing dependency: 'isAlreadyViewed'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/AppGuidedTour/AppGuidedTour.stories.js
    2:1   error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
