@@ -21,7 +21,7 @@ export function RecordsViewerLeaf({
 		>
 			{renderLeafAdditionalValue && renderLeafAdditionalValue(value)}
 			<SimpleTextKeyValue
-				formattedKey={`${dataKey}`}
+				formattedKey={dataKey}
 				value={value.data}
 				schema={value.schema}
 				displayTypes={displayTypes}
