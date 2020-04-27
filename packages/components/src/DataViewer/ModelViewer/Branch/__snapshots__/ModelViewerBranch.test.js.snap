@@ -21,6 +21,7 @@ exports[`ModelViewerBranch render ModelViewerBranch 1`] = `
       value={Object {}}
     />
     <SimpleTextKeyValue
+      displayTypes={false}
       formattedKey="myValueValue"
       formattedValue="myKeyValue"
       separator=" "
@@ -50,6 +51,7 @@ exports[`ModelViewerBranch render ModelViewerBranch as a union 1`] = `
       value={Object {}}
     />
     <SimpleTextKeyValue
+      displayTypes={false}
       formattedKey="myValueValue"
       formattedValue="({...})"
       separator=" "

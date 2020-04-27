@@ -5,13 +5,13 @@ exports[`Component should render the leaf 1`] = `
   className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
 >
   <SimpleTextKeyValue
-    formattedKey="myDataKey:"
+    displayTypes={false}
+    formattedKey="myDataKey"
     schema={
       Object {
         "type": "int",
       }
     }
-    separator=" "
     value={
       Object {
         "value": "myValue",
@@ -26,13 +26,13 @@ exports[`Component should render the leaf highlighted 1`] = `
   className="theme-tc-records-viewer-leaf tc-records-viewer-leaf theme-tc-records-viewer-leaf-highlighted tc-records-viewer-leaf-highlighted"
 >
   <SimpleTextKeyValue
-    formattedKey="myDataKey:"
+    displayTypes={false}
+    formattedKey="myDataKey"
     schema={
       Object {
         "type": "int",
       }
     }
-    separator=" "
     value={
       Object {
         "value": "myValue",
@@ -51,13 +51,13 @@ exports[`Component should render the leaf with additional value 1`] = `
     myValue
   </div>
   <SimpleTextKeyValue
-    formattedKey="myDataKey:"
+    displayTypes={false}
+    formattedKey="myDataKey"
     schema={
       Object {
         "type": "int",
       }
     }
-    separator=" "
     value={
       Object {
         "value": "myValue",
@@ -72,13 +72,13 @@ exports[`Component should render the leaf with padding offset 1`] = `
   className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
 >
   <SimpleTextKeyValue
-    formattedKey="myDataKey:"
+    displayTypes={false}
+    formattedKey="myDataKey"
     schema={
       Object {
         "type": "int",
       }
     }
-    separator=" "
     value={
       Object {
         "value": "myValue",

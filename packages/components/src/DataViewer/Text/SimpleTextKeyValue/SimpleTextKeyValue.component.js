@@ -40,6 +40,7 @@ function getTypeRenderer(schemaType) {
 
 export function AvroRenderer({ colDef, data }) {
 	const typeRenderer = getTypeRenderer(colDef.avro.type);
+
 	const dateToString = value => {
 		if (value === null) {
 			return value;
@@ -54,6 +55,7 @@ export function AvroRenderer({ colDef, data }) {
 
 	switch (typeRenderer) {
 		case 'DefaultInt':
+		case 'number':
 			return (
 				<DefaultValueRenderer
 					value={data.value}
@@ -62,6 +64,8 @@ export function AvroRenderer({ colDef, data }) {
 			);
 
 		case 'DefaultDate':
+		case 'date':
+		case 'datetime':
 			return (
 				<DefaultValueRenderer
 					value={dateToString(data.value)}
@@ -93,6 +97,7 @@ export default function SimpleTextKeyValue({
 	separator,
 	style,
 	value,
+	displayTypes,
 }) {
 	return (
 		<span
@@ -103,6 +108,11 @@ export default function SimpleTextKeyValue({
 				<span className={classNames(theme['tc-simple-text-key'], 'tc-simple-text-key')}>
 					{formattedKey}
 					{separator}
+					{displayTypes && schema && value && (
+						<span className={classNames(theme['tc-simple-text-type'], 'tc-simple-text-type')}>
+							- {schema.type.type || value.unionKey}
+						</span>
+					)}
 				</span>
 			)}
 			{!schema && value && (
@@ -122,4 +132,9 @@ SimpleTextKeyValue.propTypes = {
 	value: PropTypes.object,
 	separator: PropTypes.string,
 	style: PropTypes.object,
+	displayTypes: PropTypes.bool,
+};
+
+SimpleTextKeyValue.defaultProps = {
+	displayTypes: false,
 };

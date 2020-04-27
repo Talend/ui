@@ -11,6 +11,7 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf 1`] = `
     title="toto"
   />
   <SimpleTextKeyValue
+    displayTypes={false}
     formattedKey="toto"
     separator=" "
     value=""
@@ -32,6 +33,7 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf highlighted 1`] = `
     title=" (typeSem)*"
   />
   <SimpleTextKeyValue
+    displayTypes={false}
     separator=" "
     value="(typeSem)*"
   />
@@ -52,6 +54,7 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf with additional data 1`] 
     title=" (typeSem)*"
   />
   <SimpleTextKeyValue
+    displayTypes={false}
     separator=" "
     value="(typeSem)*"
   />
