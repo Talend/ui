@@ -1,17 +1,20 @@
-> eslint --config ../../.eslintrc --ignore-path ../../.eslintignore src
+> talend-scripts lint:es
 
+
+CONFIGURATION -------------------------------------------------------------------------------------
+Running command: lint:es With options: 
+
+CONFIGURATION -------------------------------------------------------------------------------------
+Talend scripts mode : production
+Talend scripts configuration file found and loaded
+
+RUN -----------------------------------------------------------------------------------------------
 
 /home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
   107:4  warning  Unexpected console statement                                                                                                                                               no-console
   180:4  warning  Unexpected console statement                                                                                                                                               no-console
   272:3  error    iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
   289:3  error    iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DatasetSerializer/datasetSerializer.js
-  14:8  error  Useless path segments for "../../constants/", should be "../../constants"  import/no-useless-path-segments
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DatasetSerializer/datasetSerializer.test.js
-  4:29  error  Useless path segments for "../../constants/", should be "../../constants"  import/no-useless-path-segments
 
 /home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultValueRenderer.component.js
   66:4  error  onMouseOver must be accompanied by onFocus for accessibility  jsx-a11y/mouse-events-have-key-events
@@ -22,9 +25,22 @@
   38:28  error  'column.colDef.type' is missing in props validation  react/prop-types
   40:22  error  'column.colDef.type' is missing in props validation  react/prop-types
 
-/home/travis/build/Talend/ui/packages/datagrid/src/containers/DataGrid/DataGrid.container.js
-  4:23  error  Useless path segments for "../../components/", should be "../../components"  import/no-useless-path-segments
+/home/travis/build/Talend/ui/packages/datagrid/src/components/datagrid.component.stories.js
+    2:1   error    '@storybook/react' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
+    3:1   error    '@storybook/addon-actions' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+   16:38  error    Irregular whitespace not allowed                                                                no-irregular-whitespace
+   34:32  warning  Unexpected console statement                                                                    no-console
+   49:32  warning  Unexpected console statement                                                                    no-console
+   63:32  warning  Unexpected console statement                                                                    no-console
+   77:32  warning  Unexpected console statement                                                                    no-console
+   91:32  warning  Unexpected console statement                                                                    no-console
+  105:32  warning  Unexpected console statement                                                                    no-console
+  149:36  warning  Unexpected console statement                                                                    no-console
 
-✖ 12 problems (10 errors, 2 warnings)
-  3 errors and 0 warnings potentially fixable with the `--fix` option.
+/home/travis/build/Talend/ui/packages/datagrid/src/containers/datagrid.container.stories.js
+    3:1  error    '@storybook/react' should be listed in the project's dependencies, not devDependencies             import/no-extraneous-dependencies
+    4:1  error    '@talend/react-storybook-cmf' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  170:2  warning  Unexpected console statement                                                                       no-console
+
+✖ 22 problems (12 errors, 10 warnings)
 
