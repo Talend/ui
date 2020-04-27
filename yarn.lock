@@ -4118,16 +4118,6 @@ address@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/address/-/address-1.1.0.tgz#ef8e047847fcd2c5b6f50c16965f924fd99fe709"
 
-ag-grid-community@^21.2.1:
-  version "21.2.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-21.2.1.tgz#0d8ab868f2fe8da302e19d14ef99669ef00d3b28"
-
-ag-grid-react@^21.2.1:
-  version "21.2.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-21.2.1.tgz#f1c97cb673ef8c30ae39b4774772a5a7b83593c1"
-  dependencies:
-    prop-types "^15.6.2"
-
 agent-base@^4.1.0:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-4.2.1.tgz#d89e5999f797875674c07d87f260fc41e83e8ca9"
