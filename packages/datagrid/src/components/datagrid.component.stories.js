@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '@talend/react-components';
 
-import DataGrid from './';
+import DataGrid from '.';
 import DynamicDataGrid from '../../stories/DynamicDataGrid.component';
 import FasterDatagrid from '../../stories/FasterDatagrid.component';
 import ImmutableDataGrid from '../../stories/ImmutableDatagrid.component';

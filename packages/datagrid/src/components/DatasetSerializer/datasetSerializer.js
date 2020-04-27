@@ -11,7 +11,7 @@ import {
 	QUALITY_INVALID_KEY,
 	QUALITY_EMPTY_KEY,
 	QUALITY_VALID_KEY,
-} from '../../constants/';
+} from '../../constants';
 
 /**
  * check if the type is null
