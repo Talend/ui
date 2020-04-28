@@ -1,6 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
 import { storiesOf } from '@storybook/react';
+
 import withCMF from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { IconsProvider } from '@talend/react-components';
@@ -166,11 +167,6 @@ cmfState.cmf.settings.props['Container(DataGrid)#TypeRenderer'] = {
 	cellRenderer: 'DefaultCellRenderer',
 };
 
-const reducer = (state = {}, a) => {
-	console.log(a);
-	return state;
-};
-
 function registerCustomizedComponents() {
 	api.component.register('CustomCellRenderer', props => (
 		<span>{get(props, 'value.value.bytes', '') || get(props, 'value.value', '')}</span>
@@ -206,9 +202,14 @@ function registerCustomizedComponents() {
 register();
 registerCustomizedComponents();
 
+const logMiddleware = () => next => action => {
+	// eslint-disable-next-line no-console
+	console.log(action);
+	return next(action);
+};
 const options = {
 	cmf: {
-		reducer,
+		middleware: logMiddleware,
 		state: cmfState,
 	},
 };

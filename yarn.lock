@@ -3470,10 +3470,24 @@
     "@babel/preset-react" "^7.8.3"
     babel-core "^7.0.0-bridge.0"
 
-"@talend/scripts-config-eslint@^5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-eslint/-/scripts-config-eslint-5.2.1.tgz#691f279a6138491d0d40afac9d17fe23cd13b91d"
-  integrity sha512-v6+vjoV93eHqOWB0qcJ6HJpbEv9o5zujw432KXR/n1I28wEZp6+sByY8tMVEp4j951QohjcHhSziipgM3NEBlA==
+"@talend/scripts-config-babel@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-5.3.0.tgz#9f049befc499e1a900c8f5d33a1fb7880311b026"
+  integrity sha512-XmwuE0btu8BZROrXDKuZOiQDfe4JVJkOOKz5X6PRzsfQyblgxDL3CycRZ4Qs3Q4NziWQEiYnpY8ZbB3OP1RIQw==
+  dependencies:
+    "@babel/core" "^7.8.7"
+    "@babel/plugin-proposal-class-properties" "^7.8.3"
+    "@babel/plugin-proposal-export-default-from" "^7.8.3"
+    "@babel/plugin-proposal-export-namespace-from" "^7.8.3"
+    "@babel/plugin-transform-object-assign" "^7.8.3"
+    "@babel/preset-env" "^7.8.7"
+    "@babel/preset-react" "^7.8.3"
+    babel-core "^7.0.0-bridge.0"
+
+"@talend/scripts-config-eslint@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-eslint/-/scripts-config-eslint-5.3.0.tgz#08a51eceecde48673580541e5665dce33c9a8c4e"
+  integrity sha512-2bn+vCNlKbxsUppqYHQvVS/efAT/zMqNUwIWQdg+4cXrARLxkZWCQe1oKPlr9TM+rOhhKZfdPPhdLO/lTsjtfw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.23.0"
     babel-eslint "^10.1.0"
@@ -3486,12 +3500,12 @@
     eslint-plugin-react "^7.19.0"
     eslint-plugin-react-hooks "^2.5.0"
 
-"@talend/scripts-config-jest@^5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-jest/-/scripts-config-jest-5.2.1.tgz#d53d1da6a82346611a2d7b98c89a822a5edb4187"
-  integrity sha512-eqIto9JPVh2mqkdxbw+RGqsV56TOLMK0RLv0gM7l8ih05grEiMAPbwFJBxLk0tGTLe7FmkHji6GYDCkCkdnZ2w==
+"@talend/scripts-config-jest@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-jest/-/scripts-config-jest-5.3.0.tgz#dd363a30aa830eb79979697fd801cf759181b1ac"
+  integrity sha512-D7o1YiAjTtcMX8gTHMditmsbbM+mcvNlb6lsplMjm34CPSURtT9D+KOqGntfccI83+HDDi1kgACpnqBBUJ8fqg==
   dependencies:
-    "@talend/scripts-config-babel" "^5.2.1"
+    "@talend/scripts-config-babel" "^5.3.0"
     "@types/jest" "^25.1.4"
     babel-jest "^25.1.0"
     core-js "^3.6.4"
@@ -3504,17 +3518,17 @@
     regenerator-runtime "^0.13.3"
     ts-jest "^25.2.1"
 
-"@talend/scripts-config-typescript@^5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-5.2.1.tgz#5eb27840d7d54a9e481bb38a1eacc6e875e3f005"
-  integrity sha512-CE6I+rEZNWDF23WroJGgD/yv+zsUbVbRTA7taiSuIKXGNEanzhhkwInxkzxoRs3AD2K/6xhe3bgyn+GheCBnbg==
+"@talend/scripts-config-typescript@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-5.3.0.tgz#16f4092cbe7d434da35a97a11ed90fa7e35273e1"
+  integrity sha512-RNCyOCjpNHIbX5nYbGoXRCZXUeNBqYCUVUoNNl8Kwn0hvka4kSilCtlnYCrJLepZWAL5/nncM4d6Lw+6RwIdcQ==
   dependencies:
     typescript "^3.8.3"
 
-"@talend/scripts-core@^5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-5.2.1.tgz#087509838135585f22a07d3efe2b9872afab3982"
-  integrity sha512-Ks4ubdmIo9zEmvM17R9X2A3svTESJnTQk6v/jFaTaJaGK5jurvVTzjWq4ZNKC2kjSWsFyWBb93ffLj+lNHveZQ==
+"@talend/scripts-core@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-5.3.0.tgz#e762197653405124c8871d2805ca9652b24d3490"
+  integrity sha512-tiFMM5/dN6L1c0Y95TexHQkcHi6NFRvtlS6NWrIYbdGtsVBIY+wDmpopMpdyM39OXrZ92oKhMs/FSx4oWa0b6Q==
   dependencies:
     "@babel/cli" "^7.8.3"
     "@babel/core" "^7.8.7"
@@ -3529,15 +3543,15 @@
     which "^2.0.1"
     yargs "^15.3.0"
 
-"@talend/scripts-preset-react-lib@^5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-5.2.1.tgz#afd0d00fc3f9a508067f9b94a01dffb8cf50b815"
-  integrity sha512-0FfDOHjBYZQBLZefty3YXcldRFH4n355epRdCA+d8wClBHDeC/csKTzU3wmHDlyTXT/ExBwbFiQwOLqH2/E2rw==
+"@talend/scripts-preset-react-lib@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-5.3.0.tgz#3e54c5aaae5cee61ee5728a7565c7773d84ba279"
+  integrity sha512-o7zsZG1wG+NWGKbXhyTRF+6rhMdL0ojVD4UBn3EBzKw0b1s7HrJ+DUT1gCOogK6F/OIjtN+/1SK7/wwFJyQBkg==
   dependencies:
-    "@talend/scripts-config-babel" "^5.2.1"
-    "@talend/scripts-config-eslint" "^5.2.1"
-    "@talend/scripts-config-jest" "^5.2.1"
-    "@talend/scripts-config-typescript" "^5.2.1"
+    "@talend/scripts-config-babel" "^5.3.0"
+    "@talend/scripts-config-eslint" "^5.3.0"
+    "@talend/scripts-config-jest" "^5.3.0"
+    "@talend/scripts-config-typescript" "^5.3.0"
 
 "@types/babel__core@^7.1.7":
   version "7.1.7"
@@ -4174,21 +4188,6 @@ airbnb-js-shims@^2.2.1:
     string.prototype.padstart "^3.0.0"
     symbol.prototype.description "^1.0.0"
 
-airbnb-prop-types@^2.12.0:
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/airbnb-prop-types/-/airbnb-prop-types-2.13.2.tgz#43147a5062dd2a4a5600e748a47b64004cc5f7fc"
-  dependencies:
-    array.prototype.find "^2.0.4"
-    function.prototype.name "^1.1.0"
-    has "^1.0.3"
-    is-regex "^1.0.4"
-    object-is "^1.0.1"
-    object.assign "^4.1.0"
-    object.entries "^1.1.0"
-    prop-types "^15.7.2"
-    prop-types-exact "^1.2.0"
-    react-is "^16.8.6"
-
 airbnb-prop-types@^2.15.0:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/airbnb-prop-types/-/airbnb-prop-types-2.15.0.tgz#5287820043af1eb469f5b0af0d6f70da6c52aaef"
@@ -4490,13 +4489,6 @@ array-unique@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
-
-array.prototype.find@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/array.prototype.find/-/array.prototype.find-2.0.4.tgz#556a5c5362c08648323ddaeb9de9d14bc1864c90"
-  dependencies:
-    define-properties "^1.1.2"
-    es-abstract "^1.7.0"
 
 array.prototype.find@^2.1.0:
   version "2.1.1"
@@ -7447,18 +7439,6 @@ envinfo@^7.3.1:
   resolved "https://registry.yarnpkg.com/envinfo/-/envinfo-7.5.0.tgz#91410bb6db262fb4f1409bd506e9ff57e91023f4"
   integrity sha512-jDgnJaF/Btomk+m3PZDTTCb5XIIIX3zYItnCRfF73zVgvinLoRomuhi75Y4su0PtQxWz4v66XnLLckyvyJTOIQ==
 
-enzyme-adapter-react-16@^1.11.2:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.12.1.tgz#6a2d74c80559d35ac0a91ca162fa45f4186290cf"
-  dependencies:
-    enzyme-adapter-utils "^1.11.0"
-    object.assign "^4.1.0"
-    object.values "^1.1.0"
-    prop-types "^15.7.2"
-    react-is "^16.8.6"
-    react-test-renderer "^16.0.0-0"
-    semver "^5.6.0"
-
 enzyme-adapter-react-16@^1.15.1:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.15.2.tgz#b16db2f0ea424d58a808f9df86ab6212895a4501"
@@ -7473,17 +7453,6 @@ enzyme-adapter-react-16@^1.15.1:
     react-is "^16.12.0"
     react-test-renderer "^16.0.0-0"
     semver "^5.7.0"
-
-enzyme-adapter-utils@^1.11.0:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/enzyme-adapter-utils/-/enzyme-adapter-utils-1.11.0.tgz#6ffff782b1b57dd46c72a845a91fc4103956a117"
-  dependencies:
-    airbnb-prop-types "^2.12.0"
-    function.prototype.name "^1.1.0"
-    object.assign "^4.1.0"
-    object.fromentries "^2.0.0"
-    prop-types "^15.7.2"
-    semver "^5.6.0"
 
 enzyme-adapter-utils@^1.13.0:
   version "1.13.0"
@@ -13097,7 +13066,7 @@ object.entries@^1.1.1:
     function-bind "^1.1.1"
     has "^1.0.3"
 
-object.fromentries@^2.0.0, "object.fromentries@^2.0.0 || ^1.0.0":
+"object.fromentries@^2.0.0 || ^1.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/object.fromentries/-/object.fromentries-2.0.0.tgz#49a543d92151f8277b3ac9600f1e930b189d30ab"
   dependencies:
