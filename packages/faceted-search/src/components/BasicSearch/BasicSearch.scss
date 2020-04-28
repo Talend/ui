@@ -5,8 +5,19 @@
 	overflow: auto;
 	padding-left: $padding-large;
 	width: 100%;
+	position: relative;
+	margin-right: 1.5rem;
 
-
+	&:after {
+		content: '';
+		height: 2.5rem;
+		width: 0;
+		border-right: 1px solid $gallery;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+	}
 
 	&-content {
 		display: flex;
@@ -14,27 +25,9 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		flex-grow: 1;
-
-
 	}
 
 	&-clear-button {
-		position: relative;
-		margin-right: 1.5rem;
 		padding: 0 0.5rem;
-		line-height: 2.5rem;
-		min-height: 2.5rem;
-
-		&:after {
-			content: '';
-			height: 2.5rem;
-			width: 0;
-			border-right: 1px solid $gallery;
-
-			position: absolute;
-			top: 50%;
-			right: 0;
-			transform: translateY(-50%);
-		}
 	}
 }
