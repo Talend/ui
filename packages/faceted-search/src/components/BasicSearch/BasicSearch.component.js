@@ -20,6 +20,7 @@ import { useFacetedBadges, BADGES_ACTIONS } from '../../hooks/facetedBadges.hook
 import { badgesFacetedPropTypes, operatorsPropTypes } from '../facetedSearch.propTypes';
 
 import theme from './BasicSearch.scss';
+import ClearBasicButton from '../ClearBasicSearch/ClearBasicSearch.component';
 
 const css = getTheme(theme);
 
@@ -60,34 +61,41 @@ const BasicSearch = ({
 	const badgeFacetedContextValue = { state, dispatch, onSubmit };
 	return (
 		<div id={basicSearchId} className={css('tc-basic-search')}>
-			<BadgeFacetedProvider value={badgeFacetedContextValue}>
-				<BadgesGenerator
-					badges={state.badges}
-					badgesDictionary={badgesDictionary}
-					getBadgeFromDict={getBadgesFromDict}
-					id={basicSearchId}
-					t={t}
-				/>
-			</BadgeFacetedProvider>
-			<BadgeOverlay
-				id={basicSearchId}
-				iconName="plus-circle"
-				label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
-				t={t}
-				hideLabel
-				hasAddButton
-			>
-				{setOverlayOpened => (
-					<AddFacetPopover
+			<div className={css('tc-basic-search-content')}>
+				<BadgeFacetedProvider value={badgeFacetedContextValue}>
+					<BadgesGenerator
 						badges={state.badges}
-						badgesDefinitions={badges}
+						badgesDictionary={badgesDictionary}
+						getBadgeFromDict={getBadgesFromDict}
 						id={basicSearchId}
-						initialFilterValue={initialFilterValue}
-						onClick={onClickOverlayRow(setOverlayOpened)}
 						t={t}
 					/>
-				)}
-			</BadgeOverlay>
+				</BadgeFacetedProvider>
+				<BadgeOverlay
+					id={basicSearchId}
+					iconName="plus-circle"
+					label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
+					t={t}
+					hideLabel
+					hasAddButton
+				>
+					{setOverlayOpened => (
+						<AddFacetPopover
+							badges={state.badges}
+							badgesDefinitions={badges}
+							id={basicSearchId}
+							initialFilterValue={initialFilterValue}
+							onClick={onClickOverlayRow(setOverlayOpened)}
+							t={t}
+						/>
+					)}
+				</BadgeOverlay>
+			</div>
+			<ClearBasicButton
+				onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
+				isDisabled={state.badges.length === 0}
+				t={t}
+			/>
 		</div>
 	);
 };
