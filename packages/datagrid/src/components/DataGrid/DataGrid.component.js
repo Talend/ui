@@ -176,10 +176,6 @@ export default class DataGrid extends React.Component {
 	}
 
 	getAgGridConfig() {
-		if (this.props.getRowDataFn && this.props.rowData) {
-			console.warn('Should use either rowData nor getRowDataFn. Not the both at the same time');
-		}
-
 		let rowData = this.props.rowData;
 		if (typeof this.props.getRowDataFn === 'function') {
 			rowData = this.props.getRowDataFn(this.props.data, this.props.startIndex);

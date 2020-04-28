@@ -6,76 +6,96 @@
 // import { configure } from 'enzyme';
 // import dateMock from './mocks/dateMock';
 
+import i18n from 'i18next';
+import reactI18n from 'react-i18next';
+
 /**
  * lets mock i18next for all tests
  */
-jest.mock('i18next', () => {
-	const noop = () => {};
-	const i18n = {
-		t: (msg, options) => {
-			let buff = options.defaultValue || msg;
-			const split = buff.split('}}');
-			if (split.length > 1) {
-				buff = split.reduce((acc, current) => {
-					const sub = current.split('{{');
-					let value = sub.length > 1 ? options[sub[1].trim()] : '';
-					if (value === undefined) {
-						value = '';
-					}
-					return `${acc}${sub[0]}${value}`;
-				}, '');
+// jest.mock('i18next', () => {
+// 	const noop = () => {};
+// 	const i18n = {
+// 		t: (msg, options) => {
+// 			let buff = options.defaultValue || msg;
+// 			const split = buff.split('}}');
+// 			if (split.length > 1) {
+// 				buff = split.reduce((acc, current) => {
+// 					const sub = current.split('{{');
+// 					let value = sub.length > 1 ? options[sub[1].trim()] : '';
+// 					if (value === undefined) {
+// 						value = '';
+// 					}
+// 					return `${acc}${sub[0]}${value}`;
+// 				}, '');
+// 			}
+// 			return buff;
+// 		},
+// 		isMock: true,
+// 		getFixedT: () => i18n.t,
+// 		options: {},
+// 		language: 'en',
+// 		languages: ['en'],
+// 		isInitialized: true,
+// 		init: noop,
+// 		on: noop,
+// 		off: noop,
+// 		loadNamespaces: noop,
+// 		hasResourceBundle: () => false,
+// 		services: {
+// 			resourceStore: {
+// 				data: {},
+// 			},
+// 			backendConnector: {},
+// 		},
+// 		store: {
+// 			data: {},
+// 			on: noop,
+// 			off: noop,
+// 		},
+// 		changeLanguage: noop,
+// 	};
+// 	i18n.createInstance = () => i18n;
+// 	return i18n;
+// });
+
+// jest.mock('react-i18next', () => {
+// 	const mock = jest.genMockFromModule('react-i18next');
+// 	mock.useTranslation = () => ({
+// 		t: (key, options) => {
+// 			let buff = options.defaultValue || key;
+// 			const split = buff.split('}}');
+// 			if (split.length > 1) {
+// 				buff = split.reduce((acc, current) => {
+// 					const sub = current.split('{{');
+// 					let value = sub.length > 1 ? options[sub[1].trim()] : '';
+// 					if (value === undefined) {
+// 						value = '';
+// 					}
+// 					return `${acc}${sub[0]}${value}`;
+// 				}, '');
+// 			}
+// 			return buff;
+// 		},
+// 	});
+
+// 	return mock;
+// });
+i18n.t = (key, options) => {
+	let buff = options.defaultValue || key;
+	const split = buff.split('}}');
+	if (split.length > 1) {
+		buff = split.reduce((acc, current) => {
+			const sub = current.split('{{');
+			let value = sub.length > 1 ? options[sub[1].trim()] : '';
+			if (value === undefined) {
+				value = '';
 			}
-			return buff;
-		},
-		isMock: true,
-		getFixedT: () => i18n.t,
-		options: {},
-		language: 'en',
-		languages: ['en'],
-		isInitialized: true,
-		on: noop,
-		off: noop,
-		loadNamespaces: noop,
-		hasResourceBundle: () => false,
-		services: {
-			resourceStore: {
-				data: {},
-			},
-			backendConnector: {},
-		},
-		store: {
-			data: {},
-			on: noop,
-			off: noop,
-		},
-		changeLanguage: noop,
-	};
-	i18n.init = () => {};
-	return {
-		...i18n,
-		createInstance: () => i18n,
-	};
-});
-
-// function getMajorVersion() {
-// 	if (!process.env.REACT_VERSION) {
-// 		return '16';
-// 	}
-// 	return process.env.REACT_VERSION.replace('^', '').split('.')[0];
-// }
-
-// const REACT_VERSION = getMajorVersion();
-
-// let AdapterReact;
-// if (REACT_VERSION === '15') {
-// 	AdapterReact = require('enzyme-adapter-react-15');
-// } else if (REACT_VERSION === '16') {
-// 	AdapterReact = require('enzyme-adapter-react-16');
-// } else {
-// 	throw new Error(`Unsupported version of React: ${REACT_VERSION}`);
-// }
-
-// configure({ adapter: new AdapterReact() });
+			return `${acc}${sub[0]}${value}`;
+		}, '');
+	}
+	return buff;
+};
+reactI18n.useTranslation = () => ({ t: i18n.t });
 
 // // define fetch
 // const fetch = jest.fn(

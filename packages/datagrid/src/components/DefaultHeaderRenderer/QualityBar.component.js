@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_DATAGRID from '../../constant';
 import getDefaultT from '../../translate';
@@ -24,14 +24,15 @@ export function formatNumber(value) {
 	return parts.join('.');
 }
 
-export function QualityBarComponent(props) {
+function QualityBar(props) {
+	const { t = getDefaultT() } = useTranslation(I18N_DOMAIN_DATAGRID);
 	return (
 		<div className={classNames(theme['td-quality-bar'], 'td-quality-bar')}>
 			{!!props.invalid.total && (
 				<span
 					className={classNames(theme['td-quality-bar-invalid'], 'td-quality-bar-invalid')}
 					style={{ width: `${props.invalid.percentage}%`, minWidth: `${QUALITY_BAR_MIN_WIDTH}%` }}
-					title={props.t('QUALITY_BAR_INVALID', {
+					title={t('QUALITY_BAR_INVALID', {
 						count: props.invalid.total,
 						defaultValue: '{{total}} invalid values ({{percentage}}%)',
 						percentage: props.invalid.percentage,
@@ -43,7 +44,7 @@ export function QualityBarComponent(props) {
 				<span
 					className={classNames(theme['td-quality-bar-empty'], 'td-quality-bar-empty')}
 					style={{ width: `${props.empty.percentage}%`, minWidth: `${QUALITY_BAR_MIN_WIDTH}%` }}
-					title={props.t('QUALITY_BAR_EMPTY', {
+					title={t('QUALITY_BAR_EMPTY', {
 						count: props.empty.total,
 						defaultValue: '{{total}} empty values ({{percentage}}%)',
 						percentage: props.empty.percentage,
@@ -55,7 +56,7 @@ export function QualityBarComponent(props) {
 				<span
 					className={classNames(theme['td-quality-bar-valid'], 'td-quality-bar-valid')}
 					style={{ width: `${props.valid.percentage}%`, minWidth: `${QUALITY_BAR_MIN_WIDTH}%` }}
-					title={props.t('QUALITY_BAR_VALID', {
+					title={t('QUALITY_BAR_VALID', {
 						count: props.valid.total,
 						total: formatNumber(props.valid.total),
 						percentage: props.valid.percentage,
@@ -72,15 +73,10 @@ export const QUALITY_PROPTYPE = {
 	percentage: PropTypes.number,
 };
 
-QualityBarComponent.propTypes = {
+QualityBar.propTypes = {
 	valid: PropTypes.shape(QUALITY_PROPTYPE),
 	empty: PropTypes.shape(QUALITY_PROPTYPE),
 	invalid: PropTypes.shape(QUALITY_PROPTYPE),
-	t: PropTypes.func,
 };
 
-QualityBarComponent.defaultProps = {
-	t: getDefaultT(),
-};
-
-export default withTranslation(I18N_DOMAIN_DATAGRID)(QualityBarComponent);
+export default QualityBar;
