@@ -93,18 +93,16 @@ const BasicSearch = ({
 				</BadgeOverlay>
 			</div>
 
-			<div className={css('tc-basic-search-clear')}>
-				<ActionButton
-					className={css('tc-basic-search-clear-button')}
-					tooltipLabel={t('FACETED_SEARCH_BASIC_CLEAR', { defaultValue: 'Remove all filters' })}
-					data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
-					icon="talend-trash"
-					onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
-					link
-					label=""
-					disabled={state.badges.length === 0}
-				/>
-			</div>
+			<ActionButton
+				className={css('tc-basic-search-clear-button')}
+				tooltipLabel={t('FACETED_SEARCH_BASIC_CLEAR', { defaultValue: 'Remove all filters' })}
+				data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
+				icon="talend-trash"
+				onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
+				link
+				label=""
+				disabled={state.badges.length === 0}
+			/>
 		</div>
 	);
 };

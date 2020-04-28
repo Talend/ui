@@ -26,27 +26,25 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
       </button>
     </div>
   </div>
-  <div class="tc-basic-search-clear theme-tc-basic-search-clear">
-    <button disabled
-            role="link"
-            aria-label="Remove all filters"
-            data-feature="filter.basic.clear"
-            aria-describedby="42"
-            type="button"
-            class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only theme-btn-disabled btn btn-link"
+  <button disabled
+          role="link"
+          aria-label="Remove all filters"
+          data-feature="filter.basic.clear"
+          aria-describedby="42"
+          type="button"
+          class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only theme-btn-disabled btn btn-link"
+  >
+    <svg name="talend-trash"
+         class="theme-tc-svg-icon tc-svg-icon"
+         focusable="false"
+         aria-hidden="true"
     >
-      <svg name="talend-trash"
-           class="theme-tc-svg-icon tc-svg-icon"
-           focusable="false"
-           aria-hidden="true"
-      >
-        <use xlink:href="#talend-trash">
-        </use>
-      </svg>
-      <span>
-      </span>
-    </button>
-  </div>
+      <use xlink:href="#talend-trash">
+      </use>
+    </svg>
+    <span>
+    </span>
+  </button>
 </div>
 `;
 
@@ -134,25 +132,23 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
       </button>
     </div>
   </div>
-  <div class="tc-basic-search-clear theme-tc-basic-search-clear">
-    <button role="link"
-            aria-label="Remove all filters"
-            data-feature="filter.basic.clear"
-            aria-describedby="42"
-            type="button"
-            class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
+  <button role="link"
+          aria-label="Remove all filters"
+          data-feature="filter.basic.clear"
+          aria-describedby="42"
+          type="button"
+          class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
+  >
+    <svg name="talend-trash"
+         class="theme-tc-svg-icon tc-svg-icon"
+         focusable="false"
+         aria-hidden="true"
     >
-      <svg name="talend-trash"
-           class="theme-tc-svg-icon tc-svg-icon"
-           focusable="false"
-           aria-hidden="true"
-      >
-        <use xlink:href="#talend-trash">
-        </use>
-      </svg>
-      <span>
-      </span>
-    </button>
-  </div>
+      <use xlink:href="#talend-trash">
+      </use>
+    </svg>
+    <span>
+    </span>
+  </button>
 </div>
 `;
