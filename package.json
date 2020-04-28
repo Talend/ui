@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "@talend/design-system",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -52,6 +52,7 @@
     "react-dom": "^16.13.1",
     "storybook-addon-deps": "^2.0.0",
     "storybook-addon-styled-component-theme": "^1.3.0",
+    "storybook-chroma": "^3.5.3",
     "stylelint": "^13.3.2",
     "tailwind.macro": "next",
     "tailwindcss": "^1.2.0",
