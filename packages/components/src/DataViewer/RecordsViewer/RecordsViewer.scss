@@ -114,3 +114,7 @@ $border-size: 0.1rem;
 		}
 	}
 }
+
+:global(.tc-tree-branch-icon) + .tc-records-viewer-branch-text {
+	margin-left: $padding-smaller;
+}

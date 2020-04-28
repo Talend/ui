@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import isNull from 'lodash/isNull';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
 import theme from './SimpleTextKeyValue.scss';
 
@@ -104,7 +105,7 @@ export default function SimpleTextKeyValue({
 			className={classNames(theme['tc-simple-text'], 'tc-simple-text', className)}
 			style={style}
 		>
-			{formattedKey && (
+			{!isNull(formattedKey) && (
 				<span className={classNames(theme['tc-simple-text-key'], 'tc-simple-text-key')}>
 					{formattedKey}
 					{separator}

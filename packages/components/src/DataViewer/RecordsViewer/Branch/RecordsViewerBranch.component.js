@@ -8,8 +8,8 @@ import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
 import theme from '../RecordsViewer.scss';
 
-const ICON_MARGIN_PLUS = -12;
-const ICON_MARGIN_CARET = -10;
+const ICON_MARGIN_PLUS = -17;
+const ICON_MARGIN_CARET = -17;
 
 /**
  * Used with the lazy loading to allow the render of the skeleton.
