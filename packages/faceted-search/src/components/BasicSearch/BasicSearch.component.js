@@ -1,6 +1,7 @@
 import React, { useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '@talend/react-components/lib/theme';
+import ActionButton from '@talend/react-components/lib/Actions/ActionButton';
 import get from 'lodash/get';
 
 import { AddFacetPopover } from '../AddFacetPopover';
@@ -20,7 +21,7 @@ import { useFacetedBadges, BADGES_ACTIONS } from '../../hooks/facetedBadges.hook
 import { badgesFacetedPropTypes, operatorsPropTypes } from '../facetedSearch.propTypes';
 
 import theme from './BasicSearch.scss';
-import ClearBasicButton from '../ClearBasicSearch/ClearBasicSearch.component';
+import { USAGE_TRACKING_TAGS } from '../../constants';
 
 const css = getTheme(theme);
 
@@ -91,11 +92,19 @@ const BasicSearch = ({
 					)}
 				</BadgeOverlay>
 			</div>
-			<ClearBasicButton
-				onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
-				isDisabled={state.badges.length === 0}
-				t={t}
-			/>
+
+			<div className={css('tc-basic-search-clear')}>
+				<ActionButton
+					className={css('tc-basic-search-clear-button')}
+					tooltipLabel={t('FACETED_SEARCH_BASIC_CLEAR', { defaultValue: 'Remove all filters' })}
+					data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
+					icon="talend-trash"
+					onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
+					link
+					label=""
+					disabled={state.badges.length === 0}
+				/>
+			</div>
 		</div>
 	);
 };

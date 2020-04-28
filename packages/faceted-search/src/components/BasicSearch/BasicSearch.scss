@@ -1,11 +1,10 @@
 .tc-basic-search {
 	align-items: center;
 	display: flex;
-	flex-direction: row;
 	height: inherit;
 	overflow: auto;
 	padding-left: $padding-large;
-	flex-grow: 1;
+	width: 100%;
 
 	&-content {
 		display: flex;
@@ -13,5 +12,16 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		flex-grow: 1;
+	}
+
+	&-clear {
+		border-right: 0.1rem solid $gallery;
+		margin-right: 1.5rem;
+
+		&-button {
+			padding: 0 0.5rem;
+			line-height: 2.5rem;
+			min-height: 2.5rem;
+		}
 	}
 }
