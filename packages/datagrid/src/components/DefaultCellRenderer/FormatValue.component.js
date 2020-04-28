@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Icon } from '@talend/react-components';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import getDefaultT from '../../translate';
 import I18N_DOMAIN_DATAGRID from '../../constant';
@@ -130,6 +130,7 @@ function replaceWhiteCharacters(content, regexp, t) {
 }
 
 export function FormatValueComponent(props) {
+	const { t } = useTranslation(I18N_DOMAIN_DATAGRID);
 	let content = [];
 
 	const hiddenCharsRegExpMatch = props.value.match(REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS);
@@ -138,7 +139,7 @@ export function FormatValueComponent(props) {
 		content = replaceWhiteCharacters(
 			hiddenCharsRegExpMatch[1],
 			REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
-			props.t,
+			t,
 		);
 	}
 
@@ -146,7 +147,7 @@ export function FormatValueComponent(props) {
 		const formattedContent = replaceWhiteCharacters(
 			hiddenCharsRegExpMatch[2],
 			REG_EXP_CAPTUR_LINE_FEEDING,
-			props.t,
+			t,
 		);
 		content = [...content, ...formattedContent];
 	}
@@ -155,7 +156,7 @@ export function FormatValueComponent(props) {
 		const formattedContent = replaceWhiteCharacters(
 			hiddenCharsRegExpMatch[3],
 			REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
-			props.t,
+			t,
 		);
 		content = [...content, ...formattedContent];
 	}
@@ -165,11 +166,6 @@ export function FormatValueComponent(props) {
 
 FormatValueComponent.propTypes = {
 	value: PropTypes.string,
-	t: PropTypes.func,
 };
 
-FormatValueComponent.defaultProps = {
-	t: getDefaultT(),
-};
-
-export default withTranslation(I18N_DOMAIN_DATAGRID)(FormatValueComponent);
+export default FormatValueComponent;
