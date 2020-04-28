@@ -108,6 +108,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
+			// eslint-disable-next-line no-console
 			console.warn('DEPRECATED: forceRedrawRows is deprecated');
 			this.gridAPI.redrawRows();
 		}
@@ -269,9 +270,7 @@ export default class DataGrid extends React.Component {
 			`.${FOCUSED_COLUMN_CLASS_NAME}`,
 		);
 
-		for (const focusedCell of focusedCells) {
-			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
-		}
+		focusedCells.forEach(({ classList }) => classList.remove(FOCUSED_COLUMN_CLASS_NAME));
 	}
 
 	updateStyleFocusColumn() {
@@ -286,9 +285,7 @@ export default class DataGrid extends React.Component {
 			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
 		);
 
-		for (const columnCell of columnsCells) {
-			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
-		}
+		columnsCells.forEach(({ classList }) => classList.add(FOCUSED_COLUMN_CLASS_NAME));
 	}
 
 	handleKeyboard({ nextCellPosition, previousCellPosition }) {

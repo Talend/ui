@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -13,6 +15,7 @@ import sample3 from '../../stories/sample3.json';
 import sampleWithoutQuality from '../../stories/sampleWithoutQuality.json';
 import getComponent from '../../stories/getComponent';
 
+// eslint-disable-next-line no-irregular-whitespace
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 psum	 	 `;
 

@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { Icon } from '@talend/react-components';
 import { useTranslation } from 'react-i18next';
 
-import getDefaultT from '../../translate';
 import I18N_DOMAIN_DATAGRID from '../../constant';
 import theme from './FormatValue.scss';
 
