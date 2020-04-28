@@ -70,11 +70,11 @@
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/bootstrap-theme": "^5.2.0-y.1",
-    "@talend/icons": "^5.2.0-y.1",
+    "@talend/bootstrap-theme": "^5.2.0",
+    "@talend/icons": "^5.2.0",
     "@talend/locales-tui": "^5.1.1",
-    "@talend/scripts-core": "^5.2.1",
-    "@talend/scripts-preset-react-lib": "^5.2.1",
+    "@talend/scripts-core": "^5.3.0",
+    "@talend/scripts-preset-react-lib": "^5.3.0",
     "autoprefixer": "^7.1.4",
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^5.2.0",
@@ -110,5 +110,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.2.0-y.1"
+  "version": "5.2.0"
 }

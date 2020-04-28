@@ -1,7 +1,0 @@
-{
-	"extends": "./../../node_modules/@talend/scripts-config-eslint/.eslintrc",
-	"rules": {
-		"@typescript-eslint/indent": 0,
-		"react/no-unescaped-entities": 0
-	}
-}

@@ -29,8 +29,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "ag-grid-community": "^21.2.1",
-    "ag-grid-react": "^21.2.1",
+    "@ag-grid-community/client-side-row-model": "^22.1.1",
+    "@ag-grid-community/core": "^22.1.1",
+    "@ag-grid-community/react": "^22.1.2",
     "classnames": "^2.2.5",
     "keycode": "^2.2.0",
     "lodash": "^4.17.4"
@@ -40,12 +41,12 @@
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/icons": "^5.2.0-y.1",
+    "@talend/icons": "^5.2.0",
     "@talend/locales-tui": "^5.1.1",
-    "@talend/react-components": "^5.2.0-y.1",
-    "@talend/react-storybook-cmf": "^5.2.0-y.1",
-    "@talend/scripts-core": "^5.2.1",
-    "@talend/scripts-preset-react-lib": "^5.2.1",
+    "@talend/react-components": "^5.2.0",
+    "@talend/react-storybook-cmf": "^5.2.0",
+    "@talend/scripts-core": "^5.3.0",
+    "@talend/scripts-preset-react-lib": "^5.3.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^1.0.1",
     "enzyme": "^3.9.0",
@@ -73,5 +74,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.2.0-y.1"
+  "version": "5.2.0"
 }

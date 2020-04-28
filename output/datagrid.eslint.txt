@@ -11,36 +11,8 @@ Talend scripts configuration file found and loaded
 RUN -----------------------------------------------------------------------------------------------
 
 /home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
-  107:4  warning  Unexpected console statement                                                                                                                                               no-console
-  180:4  warning  Unexpected console statement                                                                                                                                               no-console
-  272:3  error    iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-  289:3  error    iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultValueRenderer.component.js
-  66:4  error  onMouseOver must be accompanied by onFocus for accessibility  jsx-a11y/mouse-events-have-key-events
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultHeaderRenderer/DefaultHeaderRenderer.component.js
-  16:53  error  'column.colId' is missing in props validation        react/prop-types
-  17:59  error  'column.colId' is missing in props validation        react/prop-types
-  38:28  error  'column.colDef.type' is missing in props validation  react/prop-types
-  40:22  error  'column.colDef.type' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/datagrid.component.stories.js
-    2:1   error    '@storybook/react' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-    3:1   error    '@storybook/addon-actions' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   16:38  error    Irregular whitespace not allowed                                                                no-irregular-whitespace
-   34:32  warning  Unexpected console statement                                                                    no-console
-   49:32  warning  Unexpected console statement                                                                    no-console
-   63:32  warning  Unexpected console statement                                                                    no-console
-   77:32  warning  Unexpected console statement                                                                    no-console
-   91:32  warning  Unexpected console statement                                                                    no-console
-  105:32  warning  Unexpected console statement                                                                    no-console
-  149:36  warning  Unexpected console statement                                                                    no-console
-
-/home/travis/build/Talend/ui/packages/datagrid/src/containers/datagrid.container.stories.js
-    3:1  error    '@storybook/react' should be listed in the project's dependencies, not devDependencies             import/no-extraneous-dependencies
-    4:1  error    '@talend/react-storybook-cmf' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  170:2  warning  Unexpected console statement                                                                       no-console
+  111:4  warning  Unexpected console statement  no-console
+  184:4  warning  Unexpected console statement  no-console
 
 ✖ 22 problems (12 errors, 10 warnings)
 

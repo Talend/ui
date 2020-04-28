@@ -46,15 +46,15 @@
         }
       }
     },
-    { "value": {}, "loading": true },
-    { "value": {}, "loading": true },
-    { "value": {}, "loading": true },
-    { "value": {}, "loading": true },
-    { "value": {}, "loading": true },
-    { "value": {}, "loading": true },
-    { "value": {}, "loading": true },
-    { "value": {}, "loading": true },
-    { "value": {}, "loading": true }
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false }
   ],
   "encoding": "JSON",
   "@talend-quality@": {
