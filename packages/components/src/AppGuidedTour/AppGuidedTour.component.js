@@ -79,7 +79,7 @@ function AppGuidedTour({
 			steps={[
 				{
 					content: {
-						header: t('GUIDED_TOUR_WELCOME_STEP_BODY', {
+						header: t('GUIDED_TOUR_WELCOME_STEP_HEADER', {
 							appName,
 							defaultValue: 'Welcome to {{appName}}',
 						}),
