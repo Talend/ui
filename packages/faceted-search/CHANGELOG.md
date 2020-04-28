@@ -28,7 +28,7 @@ Types of changes
 
 ### Added
 
-- [feat](https://github.com/Talend/ui/pull/XXXX): Add a clear button to remove all badges in basic search
+- [feat](https://github.com/Talend/ui/pull/2793): Add a clear button to remove all badges in basic search
 
 ## [0.8.0]
 
