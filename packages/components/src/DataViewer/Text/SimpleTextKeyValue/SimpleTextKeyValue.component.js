@@ -39,7 +39,7 @@ function getTypeRenderer(schemaType) {
 	return schemaType.type;
 }
 
-export function AvroRenderer({ colDef, data }) {
+export function AvroRenderer({ colDef, data, isValueOverflown, isLongValueToggled }) {
 	const typeRenderer = getTypeRenderer(colDef.avro.type);
 
 	const dateToString = value => {
@@ -60,6 +60,8 @@ export function AvroRenderer({ colDef, data }) {
 			return (
 				<DefaultValueRenderer
 					value={data.value}
+					isValueOverflown={isValueOverflown}
+					isLongValueToggled={isLongValueToggled}
 					className={classNames(theme['td-cell-int'], 'td-cell-int')}
 				/>
 			);
@@ -70,12 +72,20 @@ export function AvroRenderer({ colDef, data }) {
 			return (
 				<DefaultValueRenderer
 					value={dateToString(data.value)}
+					isValueOverflown={isValueOverflown}
+					isLongValueToggled={isLongValueToggled}
 					className={classNames('td-cell-date')}
 				/>
 			);
 
 		default:
-			return <DefaultValueRenderer value={data.value} />;
+			return (
+				<DefaultValueRenderer
+					value={data.value}
+					isValueOverflown={isValueOverflown}
+					isLongValueToggled={isLongValueToggled}
+				/>
+			);
 	}
 }
 
@@ -89,19 +99,27 @@ AvroRenderer.propTypes = {
 		}),
 	}),
 	data: PropTypes.object,
+	isValueOverflown: PropTypes.bool,
+	isLongValueToggled: PropTypes.bool,
 };
 
-export default function SimpleTextKeyValue({
-	formattedKey,
-	className,
-	schema,
-	separator,
-	style,
-	value,
-	displayTypes,
-}) {
-	return (
+const SimpleTextKeyValue = React.forwardRef(
+	(
+		{
+			formattedKey,
+			className,
+			schema,
+			separator,
+			style,
+			value,
+			displayTypes,
+			isValueOverflown,
+			isLongValueToggled,
+		},
+		ref,
+	) => (
 		<span
+			ref={ref}
 			className={classNames(theme['tc-simple-text'], 'tc-simple-text', className)}
 			style={style}
 		>
@@ -117,25 +135,41 @@ export default function SimpleTextKeyValue({
 				</span>
 			)}
 			{!schema && value && (
-				<span className={classNames(theme['tc-simple-text-value'], 'tc-simple-text-value')}>
+				<span
+					className={classNames(theme['tc-simple-text-value'], 'tc-simple-text-value', {
+						[theme['shrink-value']]: isValueOverflown,
+						[theme['wrap-value']]: isLongValueToggled,
+					})}
+				>
 					{value}
 				</span>
 			)}
-			{schema && value && <AvroRenderer colDef={{ avro: schema }} data={value} />}
+			{schema && value && (
+				<AvroRenderer
+					colDef={{ avro: schema }}
+					data={value}
+					isValueOverflown={isValueOverflown}
+					isLongValueToggled={isLongValueToggled}
+				/>
+			)}
 		</span>
-	);
-}
+	),
+);
 
 SimpleTextKeyValue.propTypes = {
 	className: PropTypes.string,
 	formattedKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	schema: PropTypes.object,
-	value: PropTypes.object,
+	value: PropTypes.any,
 	separator: PropTypes.string,
 	style: PropTypes.object,
 	displayTypes: PropTypes.bool,
+	isValueOverflown: PropTypes.bool,
+	isLongValueToggled: PropTypes.bool,
 };
 
 SimpleTextKeyValue.defaultProps = {
 	displayTypes: false,
 };
+
+export default SimpleTextKeyValue;

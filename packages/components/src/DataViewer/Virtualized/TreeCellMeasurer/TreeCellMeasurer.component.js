@@ -4,6 +4,8 @@ import get from 'lodash/get';
 import { CellMeasurer } from 'react-virtualized';
 
 export default function TreeCellMeasurer({ index, key, parent, style, cellRenderer, className }) {
+	const ref = React.createRef();
+
 	return (
 		<CellMeasurer
 			cache={get(parent, 'props.cache')}

@@ -6,6 +6,7 @@
 	:global(.tc-svg-anchor) {
 		background: transparent;
 		border: none;
+		padding: 0;
 		color: $brand-primary;
 		display: flex;
 		&:focus,

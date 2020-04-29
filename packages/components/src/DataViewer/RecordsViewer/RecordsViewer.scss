@@ -29,6 +29,10 @@ $border-size: 0.1rem;
 		:global(.ReactVirtualized__Grid__innerScrollContainer) {
 			overflow: initial !important;
 		}
+		:global(.tc-svg-icon) {
+			height: 1.2rem;
+			width: 1.2rem;
+		}
 		&-border {
 			border-bottom: $border-size solid $alto;
 		}
@@ -44,19 +48,22 @@ $border-size: 0.1rem;
 	&-branch,
 	&-leaf {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		// flex-direction: column;
+		// justify-content: center;
 		margin-left: $padding-larger;
 		position: relative;
 	}
 
 	&-leaf {
+		justify-content: flex-start;
+		align-items: baseline;
+
 		&-highlighted {
 			&::before {
 				@include selection($background-highlight);
 			}
 		}
-		height: $records-node-height;
+		min-height: $records-node-height;
 		&-quality {
 			display: inline-flex;
 			margin-left: -$padding-larger;
@@ -66,6 +73,9 @@ $border-size: 0.1rem;
 		}
 	}
 	&-branch {
+		flex-direction: column;
+		justify-content: center;
+
 		&-highlighted::before {
 			@include selection($background-highlight);
 		}
@@ -117,4 +127,40 @@ $border-size: 0.1rem;
 
 :global(.tc-tree-branch-icon) + .tc-records-viewer-branch-text {
 	margin-left: $padding-smaller;
+}
+
+@mixin chevron($color) {
+	border: 1px solid $scooter;
+	padding: 3px;
+	border-radius: 10px;
+	color: $color;
+}
+
+.tc-leaf-overflow-icon {
+	margin-left: -17px;
+	margin-right: $padding-smaller;
+	&-chevron {
+		height: $svg-sm-size;
+		width: $svg-sm-size;
+		svg {
+			@include chevron($scooter);
+		}
+		&-filled {
+			svg {
+				@include chevron($white);
+				background-color: $scooter;
+			}
+		}
+	}
+	:global(.tc-svg-anchor) {
+		background: transparent;
+		border: none;
+		padding: 0;
+		color: $brand-primary;
+		display: flex;
+		&:focus,
+		&:hover {
+			color: $scooter;
+		}
+	}
 }

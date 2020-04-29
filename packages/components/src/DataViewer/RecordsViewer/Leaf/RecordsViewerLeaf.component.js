@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from '../RecordsViewer.scss';
 import { SimpleTextKeyValue } from '../../Text';
+import Icon from '../../../Icon';
 
 export function RecordsViewerLeaf({
 	dataKey,
@@ -11,7 +12,22 @@ export function RecordsViewerLeaf({
 	className,
 	nodeHighlighted,
 	displayTypes,
+	measure,
 }) {
+	const ref = React.createRef();
+	const [isValueOverflown, setIsValueOverflown] = useState(false);
+	const [isLongValueToggled, setIsLongValueToggled] = useState(false);
+
+	useLayoutEffect(() => {
+		if (ref.current.offsetParent.offsetWidth < ref.current.scrollWidth) {
+			setIsValueOverflown(true);
+		}
+	}, []);
+
+	useLayoutEffect(() => {
+		measure();
+	}, [isLongValueToggled]);
+
 	return (
 		<div
 			className={classNames(theme['tc-records-viewer-leaf'], 'tc-records-viewer-leaf', className, {
@@ -19,12 +35,34 @@ export function RecordsViewerLeaf({
 				'tc-records-viewer-leaf-highlighted': nodeHighlighted,
 			})}
 		>
+			{isValueOverflown && (
+				<span
+					className={classNames(theme['tc-leaf-overflow-icon'], 'tc-leaf-overflow-icon', className)}
+				>
+					<Icon
+						className={classNames(theme['tc-leaf-overflow-icon-chevron'], {
+							[theme['tc-leaf-overflow-icon-chevron-filled']]: isLongValueToggled,
+						})}
+						key="Icon"
+						name="talend-chevron-left"
+						onClick={e => {
+							e.stopPropagation();
+							setIsLongValueToggled(val => !val);
+						}}
+						title=""
+						transform={isLongValueToggled ? 'rotate-90' : 'rotate-270'}
+					/>
+				</span>
+			)}
 			{renderLeafAdditionalValue && renderLeafAdditionalValue(value)}
 			<SimpleTextKeyValue
+				ref={ref}
 				formattedKey={dataKey}
 				value={value.data}
 				schema={value.schema}
 				displayTypes={displayTypes}
+				isValueOverflown={isValueOverflown}
+				isLongValueToggled={isLongValueToggled}
 			/>
 		</div>
 	);
@@ -40,6 +78,7 @@ RecordsViewerLeaf.propTypes = {
 	}),
 	renderLeafAdditionalValue: PropTypes.func,
 	displayTypes: PropTypes.bool,
+	measure: PropTypes.func.isRequired,
 };
 
 export default RecordsViewerLeaf;

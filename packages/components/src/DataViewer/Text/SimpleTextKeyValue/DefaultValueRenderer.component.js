@@ -20,33 +20,35 @@ export default class DefaultValueRenderer extends React.Component {
 	static propTypes = {
 		className: PropTypes.string,
 		value: DEFAULT_VALUE_PROP_TYPES,
+		isValueOverflown: PropTypes.bool,
+		isLongValueToggled: PropTypes.bool,
 	};
 
-	constructor(props) {
-		super(props);
+	// constructor(props) {
+	// 	super(props);
 
-		this.state = {
-			overflowing: false,
-		};
+	// 	this.state = {
+	// 		overflowing: false,
+	// 	};
 
-		this.checkOverflow = this.checkOverflow.bind(this);
-		this.setDOMElement = this.setDOMElement.bind(this);
-	}
+	// 	this.checkOverflow = this.checkOverflow.bind(this);
+	// 	this.setDOMElement = this.setDOMElement.bind(this);
+	// }
 
-	setDOMElement(domElement) {
-		this.domElement = domElement;
-	}
+	// setDOMElement(domElement) {
+	// 	this.domElement = domElement;
+	// }
 
-	checkOverflow() {
-		// use a  1.5 ratio to avoid to show the tooltip when the element has slighty overflowed
-		const overflowing =
-			this.domElement.scrollWidth > this.domElement.clientWidth ||
-			this.domElement.scrollHeight > this.domElement.clientHeight * 1.5;
+	// checkOverflow() {
+	// 	// use a  1.5 ratio to avoid to show the tooltip when the element has slighty overflowed
+	// 	const overflowing =
+	// 		this.domElement.scrollWidth > this.domElement.clientWidth ||
+	// 		this.domElement.scrollHeight > this.domElement.clientHeight * 1.5;
 
-		if (this.state.overflowing !== overflowing) {
-			this.setState({ overflowing });
-		}
-	}
+	// 	if (this.state.overflowing !== overflowing) {
+	// 		this.setState({ overflowing });
+	// 	}
+	// }
 
 	render() {
 		let stringValue;
@@ -66,13 +68,16 @@ export default class DefaultValueRenderer extends React.Component {
 			<div
 				ref={this.setDOMElement}
 				onMouseOver={this.checkOverflow}
-				className={classNames(theme['td-default-cell'], this.props.className, 'td-default-cell')}
+				className={classNames(theme['td-default-cell'], this.props.className, 'td-default-cell', {
+					[theme['shrink-value']]: this.props.isValueOverflown,
+					[theme['wrap-value']]: this.props.isLongValueToggled,
+				})}
 			>
 				{formattedContent}
 			</div>
 		);
 
-		if (this.state.overflowing) {
+		if (this.props.isValueOverflown) {
 			return (
 				<TooltipTrigger tooltipPlacement="bottom" label={formattedContent}>
 					{content}
