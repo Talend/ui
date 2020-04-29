@@ -2,12 +2,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
+import Icon from '../../Icon';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
+import { getTheme } from '../../theme';
 
-import Action from '../../Actions/Action';
-import styles from './CellBoolean.scss';
+import theme from './CellBoolean.scss';
+
+const css = getTheme(theme);
+export const DISPLAY_MODE = {
+	TEXT: 'TEXT',
+	ICON: 'ICON',
+};
 
 /**
  * Cell renderer that displays a boolean
@@ -18,13 +25,26 @@ class CellBoolean extends React.Component {
 	}
 
 	render() {
-		const { cellData, t } = this.props;
+		const { cellData, t, columnData } = this.props;
+
+		if (columnData.displayMode === DISPLAY_MODE.TEXT) {
+			return (
+				<React.Fragment>
+					{cellData === true && t('BOOLEAN_VALUE_TRUE', { defaultValue: 'Yes' })}
+					{cellData === false && t('BOOLEAN_VALUE_FALSE', { defaultValue: 'No' })}
+				</React.Fragment>
+			);
+		}
 
 		return (
-			<div className={classnames('cell-boolean-container', styles['cell-boolean-container'])}>
-				{cellData === true && t('BOOLEAN_VALUE_TRUE', { defaultValue: 'Yes' })}
-				{cellData === false && t('BOOLEAN_VALUE_FALSE', { defaultValue: 'No' })}
-			</div>
+			cellData && (
+				<div className={css('cell-boolean-container')}>
+					<Icon
+						name="talend-check-circle"
+						title={t('CAD_LIST_MANDATORY_REQUIRED', { defaultValue: 'Required' })}
+					/>
+				</div>
+			)
 		);
 	}
 }
@@ -34,10 +54,16 @@ CellBoolean.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
 	cellData: PropTypes.bool,
 	t: PropTypes.func,
+	columnData: PropTypes.shape({
+		displayMode: PropTypes.oneOf(Object.values(DISPLAY_MODE)),
+	}).isRequired,
 };
 
 CellBoolean.defaultProps = {
 	t: getDefaultT(),
+	columnData: {
+		displayMode: DISPLAY_MODE.TEXT,
+	},
 };
 
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(CellBoolean);
