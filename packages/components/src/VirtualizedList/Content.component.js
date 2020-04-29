@@ -19,7 +19,13 @@ function DefaultRenderer({ cellData }) {
 	return <div className={css('tc-virtualizedlist-default-cell-text')}>{cellData}</div>;
 }
 DefaultRenderer.propTypes = {
-	cellData: PropTypes.string,
+	cellData: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.shape({
+			label: PropTypes.string,
+			icon: PropTypes.string,
+		}),
+	]),
 };
 
 export const defaultColumnConfiguration = {
