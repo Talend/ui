@@ -222,3 +222,28 @@ export const badgeEmptyLabel = {
 		operators: ['containsIgnoreCase', 'equals'],
 	},
 };
+
+export const badgePriceAsCustomAttribute = {
+	properties: {
+		attribute: 'price',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Price',
+		operator: {},
+		operators: [],
+		type: 'number',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		category: 'Custom attributes',
+		operators: [
+			'equals',
+			'notEquals',
+			'greaterThan',
+			'greaterThanOrEquals',
+			'lessThan',
+			'lessThanOrEquals',
+		],
+	},
+};
