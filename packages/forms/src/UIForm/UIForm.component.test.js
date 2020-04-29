@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import tv4 from 'tv4';
-import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
+import { actions, data, nestedData, mergedSchema, initProps } from '../../__mocks__/data';
 import UIForm, { UIFormComponent } from './UIForm.component';
 
 describe('UIForm component', () => {
@@ -21,6 +21,14 @@ describe('UIForm component', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render form with ids concatenated with ;', () => {
+		// when
+		const instance = mount(<UIFormComponent {...nestedData} {...props} idSeparator=";" />);
+		// then
+		expect(instance.find('Text[id="timestamp;value"]')).toHaveLength(1);
+		expect(instance.find('Text[id="timestamp;gmt_offset"]')).toHaveLength(1);
 	});
 
 	it('should render form in text display mode', () => {

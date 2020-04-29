@@ -40,6 +40,65 @@ export const data = {
 	errors: {},
 };
 
+export const nestedData = {
+	jsonSchema: {
+		type: 'object',
+		title: 'Comment',
+		properties: {
+			lastname: {
+				type: 'string',
+				minLength: 4,
+			},
+			firstname: {
+				type: 'string',
+			},
+			timestamp: {
+				type: 'object',
+				title: 'Published at',
+				properties: {
+					value: { type: 'number' },
+					gmt: { type: 'string' },
+				},
+			},
+		},
+		required: ['firstname'],
+	},
+	uiSchema: [
+		{
+			key: 'lastname',
+			title: 'Last Name (with description)',
+			description: 'Hint: this is the last name',
+			autoFocus: true,
+		},
+		{
+			key: 'firstname',
+			title: 'First Name (with placeholder)',
+			placeholder: 'Enter your firstname here',
+			triggers: ['after'],
+		},
+		{
+			placeholder: 'timestampConfiguration',
+			required: true,
+			title: '',
+			widget: 'fieldset',
+			items: [
+				{
+					key: 'timestamp.value',
+					title: 'Published at ',
+					widget: 'text',
+				},
+				{
+					key: 'timestamp.gmt_offset',
+					title: '+ GMT offset ',
+					widget: 'text',
+				},
+			],
+		},
+	],
+	properties: {},
+	errors: {},
+};
+
 export const actions = [
 	{
 		title: 'Reset',
