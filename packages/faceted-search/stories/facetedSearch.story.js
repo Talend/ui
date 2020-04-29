@@ -17,6 +17,7 @@ import {
 	badgeEnumsAsCustomAttribute,
 	badgeTextAsCategory,
 	badgeEmptyLabel,
+	badgePriceAsCustomAttribute,
 } from './badgesDefinitions.story';
 
 const badgesDefinitions = [badgeName, badgeConnectionType, badgePrice];
@@ -179,6 +180,7 @@ storiesOf('FacetedSearch', module)
 						badgePrice,
 						badgeTags,
 						badgeTextAsCustomAttribute,
+						badgePriceAsCustomAttribute,
 						badgeEnumsAsCustomAttribute,
 						...times(2, () => badgeTextAsCategory),
 					]}

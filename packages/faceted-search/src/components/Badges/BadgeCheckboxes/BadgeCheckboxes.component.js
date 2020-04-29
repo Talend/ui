@@ -32,6 +32,7 @@ export const BadgeCheckboxes = ({
 	operators,
 	size,
 	value,
+	category,
 	values,
 	t,
 }) => {
@@ -60,7 +61,7 @@ export const BadgeCheckboxes = ({
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
 					checkboxValues={values}
-					feature={label}
+					feature={category || label}
 					t={t}
 				/>
 			)}
@@ -76,6 +77,7 @@ BadgeCheckboxes.propTypes = {
 	operator: operatorPropTypes,
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
+	category: PropTypes.string,
 	value: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.arrayOf(

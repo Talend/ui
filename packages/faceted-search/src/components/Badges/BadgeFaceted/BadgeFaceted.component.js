@@ -125,7 +125,7 @@ const BadgeFaceted = ({
 			<BadgeComposition.DeleteAction
 				id={id}
 				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
-				data-feature={USAGE_TRACKING_TAGS.BADGE_REMOVE}
+				dataFeature={USAGE_TRACKING_TAGS.BADGE_REMOVE}
 				onClick={onDeleteBadge}
 				t={t}
 			/>
