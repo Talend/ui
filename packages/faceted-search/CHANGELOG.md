@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+## [0.9.0]
+
 ### Fixed
 
 - [fixed](https://github.com/Talend/ui/pull/2801): Fix somes user tracking tag
