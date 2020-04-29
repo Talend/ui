@@ -27,24 +27,25 @@ class CellBoolean extends React.Component {
 	render() {
 		const { cellData, t, columnData } = this.props;
 
-		if (columnData.displayMode === DISPLAY_MODE.TEXT) {
-			return (
-				<React.Fragment>
-					{cellData === true && t('BOOLEAN_VALUE_TRUE', { defaultValue: 'Yes' })}
-					{cellData === false && t('BOOLEAN_VALUE_FALSE', { defaultValue: 'No' })}
-				</React.Fragment>
-			);
+		if (columnData.displayMode === DISPLAY_MODE.ICON) {
+			if (cellData) {
+				return (
+					<div className={css('cell-boolean-container')}>
+						<Icon
+							name="talend-check-circle"
+							title={t('CAD_LIST_MANDATORY_REQUIRED', { defaultValue: 'Required' })}
+						/>
+					</div>
+				);
+			}
+			return null;
 		}
 
 		return (
-			cellData && (
-				<div className={css('cell-boolean-container')}>
-					<Icon
-						name="talend-check-circle"
-						title={t('CAD_LIST_MANDATORY_REQUIRED', { defaultValue: 'Required' })}
-					/>
-				</div>
-			)
+			<React.Fragment>
+				{cellData === true && t('BOOLEAN_VALUE_TRUE', { defaultValue: 'Yes' })}
+				{cellData === false && t('BOOLEAN_VALUE_FALSE', { defaultValue: 'No' })}
+			</React.Fragment>
 		);
 	}
 }
