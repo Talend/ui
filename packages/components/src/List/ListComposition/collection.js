@@ -267,8 +267,7 @@ for (let i = 0; i < 100; i += 1) {
 		name: `Title with icon and actions ${i}`,
 		nameWithIcon: {
 			icon: 'talend-list',
-			label:
-				'list list list list list list list list list list list list list list list list list list list list list list list list list list ',
+			label: 'list',
 		},
 		isValid: [true, false, undefined][random(2)],
 		tag: 'test',
