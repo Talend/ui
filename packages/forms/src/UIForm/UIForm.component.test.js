@@ -106,10 +106,7 @@ describe('UIForm component', () => {
 			const event = { target: { value: newValue } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(0)
-				.simulate('change', event);
+			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
 			expect(props.onChange).toBeCalledWith(expect.anything(), {
@@ -174,10 +171,7 @@ describe('UIForm component', () => {
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper
-				.find('input')
-				.at(1)
-				.simulate('blur');
+			wrapper.find('input').at(1).simulate('blur');
 
 			// then
 			expect(props.onTrigger).not.toBeCalled();
@@ -263,10 +257,7 @@ describe('UIForm component', () => {
 			const wrapper = mount(<UIForm {...data} {...props} />);
 
 			// when
-			wrapper
-				.find('button')
-				.at(0)
-				.simulate('click');
+			wrapper.find('button').at(0).simulate('click');
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
