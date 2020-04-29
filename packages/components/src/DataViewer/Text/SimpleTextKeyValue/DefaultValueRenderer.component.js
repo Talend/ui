@@ -24,32 +24,6 @@ export default class DefaultValueRenderer extends React.Component {
 		isLongValueToggled: PropTypes.bool,
 	};
 
-	// constructor(props) {
-	// 	super(props);
-
-	// 	this.state = {
-	// 		overflowing: false,
-	// 	};
-
-	// 	this.checkOverflow = this.checkOverflow.bind(this);
-	// 	this.setDOMElement = this.setDOMElement.bind(this);
-	// }
-
-	// setDOMElement(domElement) {
-	// 	this.domElement = domElement;
-	// }
-
-	// checkOverflow() {
-	// 	// use a  1.5 ratio to avoid to show the tooltip when the element has slighty overflowed
-	// 	const overflowing =
-	// 		this.domElement.scrollWidth > this.domElement.clientWidth ||
-	// 		this.domElement.scrollHeight > this.domElement.clientHeight * 1.5;
-
-	// 	if (this.state.overflowing !== overflowing) {
-	// 		this.setState({ overflowing });
-	// 	}
-	// }
-
 	render() {
 		let stringValue;
 
@@ -67,7 +41,6 @@ export default class DefaultValueRenderer extends React.Component {
 		const content = (
 			<div
 				ref={this.setDOMElement}
-				onMouseOver={this.checkOverflow}
 				className={classNames(theme['td-default-cell'], this.props.className, 'td-default-cell', {
 					[theme['shrink-value']]: this.props.isValueOverflown,
 					[theme['wrap-value']]: this.props.isLongValueToggled,

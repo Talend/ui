@@ -4,9 +4,11 @@ exports[`Component should render the leaf 1`] = `
 <div
   className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
 >
-  <SimpleTextKeyValue
+  <ForwardRef(SimpleTextKeyValue)
     displayTypes={false}
     formattedKey="myDataKey"
+    isLongValueToggled={false}
+    isValueOverflown={false}
     schema={
       Object {
         "type": "int",
@@ -25,9 +27,11 @@ exports[`Component should render the leaf highlighted 1`] = `
 <div
   className="theme-tc-records-viewer-leaf tc-records-viewer-leaf theme-tc-records-viewer-leaf-highlighted tc-records-viewer-leaf-highlighted"
 >
-  <SimpleTextKeyValue
+  <ForwardRef(SimpleTextKeyValue)
     displayTypes={false}
     formattedKey="myDataKey"
+    isLongValueToggled={false}
+    isValueOverflown={false}
     schema={
       Object {
         "type": "int",
@@ -50,9 +54,11 @@ exports[`Component should render the leaf with additional value 1`] = `
     Additional render for what you want, you can use the value : 
     myValue
   </div>
-  <SimpleTextKeyValue
+  <ForwardRef(SimpleTextKeyValue)
     displayTypes={false}
     formattedKey="myDataKey"
+    isLongValueToggled={false}
+    isValueOverflown={false}
     schema={
       Object {
         "type": "int",
@@ -71,9 +77,11 @@ exports[`Component should render the leaf with padding offset 1`] = `
 <div
   className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
 >
-  <SimpleTextKeyValue
+  <ForwardRef(SimpleTextKeyValue)
     displayTypes={false}
     formattedKey="myDataKey"
+    isLongValueToggled={false}
+    isValueOverflown={false}
     schema={
       Object {
         "type": "int",

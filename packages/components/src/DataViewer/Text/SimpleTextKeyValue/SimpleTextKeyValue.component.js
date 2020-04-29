@@ -103,21 +103,22 @@ AvroRenderer.propTypes = {
 	isLongValueToggled: PropTypes.bool,
 };
 
-const SimpleTextKeyValue = React.forwardRef(
-	(
-		{
-			formattedKey,
-			className,
-			schema,
-			separator,
-			style,
-			value,
-			displayTypes,
-			isValueOverflown,
-			isLongValueToggled,
-		},
-		ref,
-	) => (
+// eslint-disable-next-line prefer-arrow-callback
+const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
+	{
+		formattedKey,
+		className,
+		schema,
+		separator,
+		style,
+		value,
+		displayTypes,
+		isValueOverflown,
+		isLongValueToggled,
+	},
+	ref,
+) {
+	return (
 		<span
 			ref={ref}
 			className={classNames(theme['tc-simple-text'], 'tc-simple-text', className)}
@@ -153,8 +154,10 @@ const SimpleTextKeyValue = React.forwardRef(
 				/>
 			)}
 		</span>
-	),
-);
+	);
+});
+
+SimpleTextKeyValue.displayName = 'SimpleTextKeyValue';
 
 SimpleTextKeyValue.propTypes = {
 	className: PropTypes.string,

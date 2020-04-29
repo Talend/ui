@@ -1,58 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom renderer) with the tooltip when the label overflow in width 1`] = `
-<div
-  className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
->
-  <withI18nextTranslation(FormatValueComponent)
-    value=" loreum "
-  />
-</div>
-`;
-
-exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom renderer) with the tooltip when the label overflow in width 2`] = `
-<div
-  className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
->
-  <withI18nextTranslation(FormatValueComponent)
-    value=" loreum "
-  />
-</div>
-`;
-
-exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in height 1`] = `
-<div
-  className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
->
-  loreum
-</div>
-`;
-
-exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in height 2`] = `
-<div
-  className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
->
-  loreum
-</div>
-`;
-
 exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in width 1`] = `
-<div
-  className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
+<TooltipTrigger
+  label="loreum"
+  tooltipPlacement="bottom"
 >
-  loreum
-</div>
+  <div
+    className="theme-td-default-cell td-default-cell theme-shrink-value"
+  >
+    loreum
+  </div>
+</TooltipTrigger>
 `;
 
 exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in width 2`] = `
 <div
   className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
 >
   loreum
 </div>
@@ -61,7 +24,6 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer with the toolt
 exports[`#DefaultValueRenderer should render a boolean 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
 >
   false
 </div>
@@ -70,7 +32,6 @@ exports[`#DefaultValueRenderer should render a boolean 1`] = `
 exports[`#DefaultValueRenderer should render a bytes 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
 >
   ejfiejifje
 </div>
@@ -79,7 +40,6 @@ exports[`#DefaultValueRenderer should render a bytes 1`] = `
 exports[`#DefaultValueRenderer should render empty when the value is null 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
 >
   
 </div>
@@ -88,7 +48,6 @@ exports[`#DefaultValueRenderer should render empty when the value is null 1`] = 
 exports[`#DefaultValueRenderer should render the leading/trailing special character 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
 >
   <withI18nextTranslation(FormatValueComponent)
     value=" loreum "
@@ -99,7 +58,6 @@ exports[`#DefaultValueRenderer should render the leading/trailing special charac
 exports[`#DefaultValueRenderer should render without the tooltip 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
 >
   loreum
 </div>
