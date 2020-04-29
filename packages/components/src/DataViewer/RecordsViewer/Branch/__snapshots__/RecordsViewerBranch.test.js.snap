@@ -20,7 +20,7 @@ exports[`RecordsViewerBranch should render the branch with additional value 1`] 
       opened={false}
       style={
         Object {
-          "marginLeft": -10,
+          "marginLeft": -17,
         }
       }
       useCustomIcon={false}
@@ -92,7 +92,7 @@ exports[`RecordsViewerBranch should render the branch with children 1`] = `
       opened={true}
       style={
         Object {
-          "marginLeft": -10,
+          "marginLeft": -17,
         }
       }
       useCustomIcon={false}
@@ -142,7 +142,7 @@ exports[`RecordsViewerBranch should render the branch with length badge 1`] = `
       onToggle={[MockFunction]}
       style={
         Object {
-          "marginLeft": -10,
+          "marginLeft": -17,
         }
       }
       useCustomIcon={false}

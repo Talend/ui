@@ -17,6 +17,9 @@ exports[`SimpleTextKeyValue should render only the value 1`] = `
   className="theme-tc-simple-text tc-simple-text"
 >
   <span
+    className="theme-tc-simple-text-key tc-simple-text-key"
+  />
+  <span
     className="theme-tc-simple-text-value tc-simple-text-value"
   >
     myValue
