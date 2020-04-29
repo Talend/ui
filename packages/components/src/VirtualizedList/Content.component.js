@@ -1,9 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
+import theme from './Content.scss';
+import { getTheme } from '../theme';
+import Icon from '../Icon';
+
+const css = getTheme(theme);
 
 function DefaultRenderer({ cellData }) {
-	return <div className="tc-virtualizedlist-default-cell">{cellData}</div>;
+	if (typeof cellData === 'object' && cellData !== null) {
+		return (
+			<div className={css('tc-virtualizedlist-default-cell')}>
+				<Icon name={cellData.icon} />
+				<span className={css('tc-virtualizedlist-default-cell-text')}>{cellData.label}</span>
+			</div>
+		);
+	}
+	return <div className={css('tc-virtualizedlist-default-cell-text')}>{cellData}</div>;
 }
 DefaultRenderer.propTypes = {
 	cellData: PropTypes.string,

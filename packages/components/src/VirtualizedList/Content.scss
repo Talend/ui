@@ -1,0 +1,13 @@
+.tc-virtualizedlist-default-cell {
+	display: flex;
+	:global(.tc-svg-icon) {
+		margin-right: $padding-small;
+	}
+
+	&-text {
+		min-width: 0;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+}

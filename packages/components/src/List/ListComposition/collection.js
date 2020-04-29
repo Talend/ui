@@ -162,6 +162,10 @@ const complexCollection = [
 	{
 		id: 0,
 		name: 'Title with few actions',
+		nameWithIcon: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
@@ -174,6 +178,10 @@ const complexCollection = [
 	{
 		id: 1,
 		name: 'Title with lot of actions',
+		nameWithIcon: {
+			icon: 'talend-text',
+			label: 'text',
+		},
 		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
@@ -235,6 +243,10 @@ for (let i = complexCollection.length; i < 100; i += 1) {
 	complexCollection.push({
 		id: i,
 		name: `Title with icon and actions ${i}`,
+		nameWithIcon: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		tag: 'test',
 		created: 1474495200,
 		modified: 1474495200,
@@ -253,6 +265,11 @@ for (let i = 0; i < 100; i += 1) {
 	simpleCollection.push({
 		id: i,
 		name: `Title with icon and actions ${i}`,
+		nameWithIcon: {
+			icon: 'talend-list',
+			label:
+				'list list list list list list list list list list list list list list list list list list list list list list list list list list ',
+		},
 		isValid: [true, false, undefined][random(2)],
 		tag: 'test',
 		created: 1474495200,
