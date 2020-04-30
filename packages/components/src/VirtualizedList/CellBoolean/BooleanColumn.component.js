@@ -1,6 +1,6 @@
 import React from 'react';
 import { defaultColumnConfiguration } from '../Content.component';
-import CellBoolean from './CellBoolean.component';
+import CellBoolean, { DISPLAY_MODE } from './CellBoolean.component';
 
 export const cellType = 'texticon';
 export const booleanColumnConfiguration = {
@@ -12,6 +12,7 @@ export const booleanColumnConfiguration = {
 export default function BooleanColumn() {
 	return null;
 }
+BooleanColumn.displayMode = DISPLAY_MODE;
 
 BooleanColumn.defaultProps = {
 	...defaultColumnConfiguration,

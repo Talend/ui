@@ -44,6 +44,7 @@ exports[`BadgeText should mount a default badge 1`] = `
     <button role="button"
             aria-label="Remove filter"
             id="tc-badge-delete-myId-badge-text"
+            data-feature="filter.remove"
             aria-describedby="42"
             type="button"
             class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"

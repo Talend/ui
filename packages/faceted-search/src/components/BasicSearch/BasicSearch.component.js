@@ -1,6 +1,7 @@
 import React, { useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '@talend/react-components/lib/theme';
+import ActionButton from '@talend/react-components/lib/Actions/ActionButton';
 import get from 'lodash/get';
 
 import { AddFacetPopover } from '../AddFacetPopover';
@@ -20,6 +21,7 @@ import { useFacetedBadges, BADGES_ACTIONS } from '../../hooks/facetedBadges.hook
 import { badgesFacetedPropTypes, operatorsPropTypes } from '../facetedSearch.propTypes';
 
 import theme from './BasicSearch.scss';
+import { USAGE_TRACKING_TAGS } from '../../constants';
 
 const css = getTheme(theme);
 
@@ -60,34 +62,47 @@ const BasicSearch = ({
 	const badgeFacetedContextValue = { state, dispatch, onSubmit };
 	return (
 		<div id={basicSearchId} className={css('tc-basic-search')}>
-			<BadgeFacetedProvider value={badgeFacetedContextValue}>
-				<BadgesGenerator
-					badges={state.badges}
-					badgesDictionary={badgesDictionary}
-					getBadgeFromDict={getBadgesFromDict}
-					id={basicSearchId}
-					t={t}
-				/>
-			</BadgeFacetedProvider>
-			<BadgeOverlay
-				id={basicSearchId}
-				iconName="plus-circle"
-				label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
-				t={t}
-				hideLabel
-				hasAddButton
-			>
-				{setOverlayOpened => (
-					<AddFacetPopover
+			<div className={css('tc-basic-search-content')}>
+				<BadgeFacetedProvider value={badgeFacetedContextValue}>
+					<BadgesGenerator
 						badges={state.badges}
-						badgesDefinitions={badges}
+						badgesDictionary={badgesDictionary}
+						getBadgeFromDict={getBadgesFromDict}
 						id={basicSearchId}
-						initialFilterValue={initialFilterValue}
-						onClick={onClickOverlayRow(setOverlayOpened)}
 						t={t}
 					/>
-				)}
-			</BadgeOverlay>
+				</BadgeFacetedProvider>
+				<BadgeOverlay
+					id={basicSearchId}
+					iconName="plus-circle"
+					label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
+					t={t}
+					hideLabel
+					hasAddButton
+				>
+					{setOverlayOpened => (
+						<AddFacetPopover
+							badges={state.badges}
+							badgesDefinitions={badges}
+							id={basicSearchId}
+							initialFilterValue={initialFilterValue}
+							onClick={onClickOverlayRow(setOverlayOpened)}
+							t={t}
+						/>
+					)}
+				</BadgeOverlay>
+			</div>
+
+			<ActionButton
+				className={css('tc-basic-search-clear-button')}
+				tooltipLabel={t('FACETED_SEARCH_BASIC_CLEAR', { defaultValue: 'Remove all filters' })}
+				data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
+				icon="talend-trash"
+				onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
+				link
+				label=""
+				disabled={state.badges.length === 0}
+			/>
 		</div>
 	);
 };

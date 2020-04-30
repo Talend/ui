@@ -129,4 +129,24 @@ describe('BasicSearch', () => {
 		expect(onSubmit.mock.calls[0][0]).toEqual({});
 		expect(onSubmit.mock.calls[0][1]).toEqual(props.badgesFaceted.badges);
 	});
+
+	it('should remove all badges on clear button click', () => {
+		// Given
+		const props = {
+			badgesDefinitions,
+			badgesFaceted,
+			onSubmit: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<FacetedManager id="manager-id">
+				<BasicSearch {...props} />
+			</FacetedManager>,
+		);
+
+		// Then
+		expect(wrapper.find('.tc-badge').length).toBe(1);
+		wrapper.find('.tc-basic-search-clear-button').at(0).simulate('click');
+		expect(wrapper.find('.tc-badge').length).toBe(0);
+	});
 });

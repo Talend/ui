@@ -1115,37 +1115,6 @@ RUN ----------------------------------------------------------------------------
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellActions/CellActions.component.js
   18:2  error  Expected blank line between class members  lines-between-class-members
 
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellBoolean/CellBoolean.component.js
-  9:8  error  'Action' is defined but never used  @typescript-eslint/no-unused-vars
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.component.js
-  23:22  error  'columnData.selectionMode' is missing in props validation  react/prop-types
-  23:47  error  'columnData.getRowState' is missing in props validation    react/prop-types
-  40:23  error  Curly braces are unnecessary here                          react/jsx-curly-brace-presence
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellDatetime/CellDatetime.component.js
-  40:2   error  Expected blank line between class members                     lines-between-class-members
-  52:35  error  'columnData.tooltipPlacement' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTextIcon/CellWithIcon.test.js
-  17:50  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  29:50  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.component.js
-  33:2  error  Expected blank line between class members  lines-between-class-members
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.test.js
-   27:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-   56:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-   92:14  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  121:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  147:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  171:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  210:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  232:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  256:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  282:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
    28:8  error  Curly braces are unnecessary here                        react/jsx-curly-brace-presence
    61:9  error  Curly braces are unnecessary here                        react/jsx-curly-brace-presence
@@ -1337,6 +1306,6 @@ RUN ----------------------------------------------------------------------------
   26:24  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
   26:54  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
 
-✖ 809 problems (767 errors, 42 warnings)
-  359 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 28 problems (26 errors, 2 warnings)
+  1 error, 0 warnings potentially fixable with the `--fix` option.
 

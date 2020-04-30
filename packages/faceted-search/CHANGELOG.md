@@ -26,6 +26,16 @@ Types of changes
 
 ## [unreleased]
 
+## [0.9.0]
+
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2801): Fix somes user tracking tag
+
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2793): Add a clear button to remove all badges in basic search
+
 ## [0.8.0]
 
 ### Breaking change

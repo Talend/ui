@@ -49,6 +49,7 @@ const BadgeNumber = ({
 	size,
 	t,
 	value,
+	category,
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
@@ -73,7 +74,7 @@ const BadgeNumber = ({
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
-					feature={label}
+					feature={category || label}
 					t={t}
 				/>
 			)}
@@ -91,6 +92,7 @@ BadgeNumber.propTypes = {
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
 	t: PropTypes.func.isRequired,
 	value: PropTypes.string,
+	category: PropTypes.string,
 };
 
 // eslint-disable-next-line import/prefer-default-export
