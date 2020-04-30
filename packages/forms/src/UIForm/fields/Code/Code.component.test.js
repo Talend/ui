@@ -22,7 +22,7 @@ describe('Code field', () => {
 
 	afterEach(() => {
 		// clear JSDOM to avoid tests that mount on document.body to pollute other tests
-		document.getElementsByTagName('html')[0].innerHTML = '';
+		document.documentElement.innerHTML = '';
 	});
 
 	it('should render ace-editor in FieldTemplate', () => {
