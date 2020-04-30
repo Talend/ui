@@ -161,6 +161,10 @@ const persistentActions = [
 const complexCollection = [
 	{
 		id: 0,
+		iconAndText: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		name: 'Title with few actions',
 		tag: 'test',
 		created: '2016-09-22',
@@ -173,6 +177,10 @@ const complexCollection = [
 	},
 	{
 		id: 1,
+		iconAndText: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		name: 'Title with lot of actions',
 		tag: 'test',
 		created: '2016-09-22',
@@ -184,6 +192,10 @@ const complexCollection = [
 	},
 	{
 		id: 2,
+		iconAndText: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		name: 'Title with persistant actions',
 		tag: 'test',
 		created: '2016-09-22',
@@ -196,6 +208,10 @@ const complexCollection = [
 	},
 	{
 		id: 3,
+		iconAndText: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		name: 'Title with icon',
 		tag: 'test',
 		created: '2016-09-22',
@@ -208,6 +224,10 @@ const complexCollection = [
 	},
 	{
 		id: 4,
+		iconAndText: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		name: 'Title in input mode',
 		tag: 'test',
 		created: '2016-09-22',
@@ -220,6 +240,10 @@ const complexCollection = [
 	},
 	{
 		id: 5,
+		iconAndText: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		name: 'Title with long long long long long long long long long long long text',
 		tag: 'test',
 		created: '2016-09-22',
@@ -234,6 +258,10 @@ const complexCollection = [
 for (let i = complexCollection.length; i < 100; i += 1) {
 	complexCollection.push({
 		id: i,
+		iconAndText: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		name: `Title with icon and actions ${i}`,
 		tag: 'test',
 		created: 1474495200,
@@ -252,6 +280,10 @@ const simpleCollection = [];
 for (let i = 0; i < 100; i += 1) {
 	simpleCollection.push({
 		id: i,
+		iconAndText: {
+			icon: 'talend-list',
+			label: 'list',
+		},
 		name: `Title with icon and actions ${i}`,
 		isValid: [true, false, undefined][random(2)],
 		tag: 'test',

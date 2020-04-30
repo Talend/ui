@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellBoolean should render an empty cell 1`] = `
+<div
+  className="tc-virtualizedlist-cell-icon-text theme-tc-virtualizedlist-cell-icon-text"
+>
+  <Icon />
+  <span
+    className="tc-virtualizedlist-cell-icon-text-label theme-tc-virtualizedlist-cell-icon-text-label"
+  />
+</div>
+`;
+
+exports[`CellBoolean should render an icon cell in a truthy case 1`] = `
+<div
+  className="tc-virtualizedlist-cell-icon-text theme-tc-virtualizedlist-cell-icon-text"
+>
+  <Icon
+    name="talend-list"
+  />
+  <span
+    className="tc-virtualizedlist-cell-icon-text-label theme-tc-virtualizedlist-cell-icon-text-label"
+  >
+    list
+  </span>
+</div>
+`;
