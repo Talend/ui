@@ -2,24 +2,23 @@
 
 exports[`CellBoolean should render an empty cell 1`] = `
 <div
-  className="tc-virtualizedlist-cell-icon-text theme-tc-virtualizedlist-cell-icon-text"
+  className="tc-icon-text theme-tc-icon-text"
 >
-  <Icon />
   <span
-    className="tc-virtualizedlist-cell-icon-text-label theme-tc-virtualizedlist-cell-icon-text-label"
+    className="theme-label"
   />
 </div>
 `;
 
 exports[`CellBoolean should render an icon cell in a truthy case 1`] = `
 <div
-  className="tc-virtualizedlist-cell-icon-text theme-tc-virtualizedlist-cell-icon-text"
+  className="tc-icon-text theme-tc-icon-text"
 >
   <Icon
     name="talend-list"
   />
   <span
-    className="tc-virtualizedlist-cell-icon-text-label theme-tc-virtualizedlist-cell-icon-text-label"
+    className="theme-label"
   >
     list
   </span>

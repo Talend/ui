@@ -18,9 +18,9 @@ class CellIconText extends React.Component {
 		const { cellData } = this.props;
 
 		return (
-			<div className={css('tc-virtualizedlist-cell-icon-text')}>
-				<Icon name={cellData.icon} />
-				<span className={css('tc-virtualizedlist-cell-icon-text-label')}>{cellData.label}</span>
+			<div className={css('tc-icon-text')}>
+				{cellData.icon && <Icon name={cellData.icon} />}
+				<span className={theme.label}>{cellData.label}</span>
 			</div>
 		);
 	}
