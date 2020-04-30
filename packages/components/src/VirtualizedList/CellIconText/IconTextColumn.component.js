@@ -9,10 +9,10 @@ export const iconTextColumnConfiguration = {
 
 // this is a fake component to be usable in JSX,
 // but the element is used as props object internally (VirtualizedList / RV)
-export default function BooleanColumn() {
+export default function IconTextColumn() {
 	return null;
 }
-BooleanColumn.defaultProps = {
+IconTextColumn.defaultProps = {
 	...defaultColumnConfiguration,
 	...iconTextColumnConfiguration,
 };
