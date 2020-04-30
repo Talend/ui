@@ -90,7 +90,7 @@ describe('Default Array Template component', () => {
 	it('should render default array template', () => {
 		// when
 		const wrapper = shallow(
-			<DefaultArrayTemplate.WrappedComponent
+			<DefaultArrayTemplate
 				canReorder
 				id={'my-template'}
 				onAdd={jest.fn()}
@@ -111,7 +111,7 @@ describe('Default Array Template component', () => {
 	it('should render error with error classname', () => {
 		// when
 		const wrapper = shallow(
-			<DefaultArrayTemplate.WrappedComponent
+			<DefaultArrayTemplate
 				canReorder
 				id={'my-template'}
 				onAdd={jest.fn()}
@@ -132,7 +132,7 @@ describe('Default Array Template component', () => {
 	it('should support readonly', () => {
 		// when
 		const wrapper = shallow(
-			<DefaultArrayTemplate.WrappedComponent
+			<DefaultArrayTemplate
 				canReorder
 				id={'my-template'}
 				onAdd={jest.fn()}

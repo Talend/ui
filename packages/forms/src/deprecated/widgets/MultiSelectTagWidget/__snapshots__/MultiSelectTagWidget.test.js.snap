@@ -16,7 +16,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
   <div
     className="theme-wrapper form-control"
   >
-    <withI18nextTranslation(Badge)
+    <Badge
       label="Foo"
       onDelete={[Function]}
       selected={false}

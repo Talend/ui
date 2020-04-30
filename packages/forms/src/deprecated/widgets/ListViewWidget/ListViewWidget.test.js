@@ -38,17 +38,11 @@ function generateProps(values, selected) {
 }
 
 function switchToSearchMode(wrapper) {
-	wrapper
-		.find('.tc-listview-header button')
-		.at(0)
-		.simulate('click');
+	wrapper.find('.tc-listview-header button').at(0).simulate('click');
 }
 
 function simulateSearch(wrapper, value) {
-	wrapper
-		.find('.tc-listview-header input')
-		.at(0)
-		.simulate('change', { target: { value } });
+	wrapper.find('.tc-listview-header input').at(0).simulate('change', { target: { value } });
 	jest.runAllTimers();
 }
 
@@ -58,10 +52,7 @@ describe('ListViewWidget', () => {
 		const nextValues = ['A', 'F', 'G', 'H'];
 		const onChange = jest.fn();
 		let wrapper = mount(
-			<ListViewWidget.WrappedComponent
-				{...generateProps(values, values.slice(0, 2))}
-				onChange={onChange}
-			/>,
+			<ListViewWidget {...generateProps(values, values.slice(0, 2))} onChange={onChange} />,
 		);
 		const items = wrapper.state('items');
 		expect(wrapper.state('items').length).toEqual(4);
@@ -139,7 +130,7 @@ describe('ListViewWidget', () => {
 			const wrapper = mount(
 				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
 			);
-			expect(wrapper.find('Item').length).toBe(4);
+			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(4);
 
 			// when
 			switchToSearchMode(wrapper);
@@ -172,10 +163,7 @@ describe('ListViewWidget', () => {
 			const wrapper = mount(<ListViewWidget {...generateProps([])} />);
 
 			// when
-			wrapper
-				.find('button')
-				.at(0)
-				.simulate('click');
+			wrapper.find('button').at(0).simulate('click');
 
 			// then
 			expect(wrapper.find('HeaderListView input').length).toBe(1);
@@ -188,7 +176,7 @@ describe('ListViewWidget', () => {
 			const wrapper = mount(
 				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
 			);
-			expect(wrapper.find('Item').length).toBe(4);
+			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(4);
 
 			// when
 			switchToSearchMode(wrapper);
@@ -196,7 +184,7 @@ describe('ListViewWidget', () => {
 			wrapper.update();
 
 			// then
-			expect(wrapper.find('Item').length).toBe(2);
+			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(2);
 		});
 
 		it('should display a message when no results was found', () => {
@@ -206,7 +194,7 @@ describe('ListViewWidget', () => {
 			const wrapper = mount(
 				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
 			);
-			expect(wrapper.find('Item').length).toBe(4);
+			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(4);
 
 			// when
 			switchToSearchMode(wrapper);
@@ -214,13 +202,8 @@ describe('ListViewWidget', () => {
 			wrapper.update();
 
 			// then
-			expect(wrapper.find('Item').length).toBe(0);
-			expect(
-				wrapper
-					.find('span')
-					.at(0)
-					.text(),
-			).toBe(NO_RESULT_MESSAGE);
+			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(0);
+			expect(wrapper.find('span').at(0).text()).toBe(NO_RESULT_MESSAGE);
 		});
 	});
 
@@ -232,14 +215,8 @@ describe('ListViewWidget', () => {
 		const wrapper = mount(<ListViewWidget onChange={handler} {...generateProps(values)} />);
 
 		// when
-		wrapper
-			.find('input#checkbox-my-widget-2-item')
-			.at(0)
-			.simulate('change', evt);
-		wrapper
-			.find('input#checkbox-my-widget-3-item')
-			.at(0)
-			.simulate('change', evt);
+		wrapper.find('input#checkbox-my-widget-2-item').at(0).simulate('change', evt);
+		wrapper.find('input#checkbox-my-widget-3-item').at(0).simulate('change', evt);
 
 		// then
 		expect(handler).toBeCalledWith(['B', 'C']);
@@ -253,12 +230,7 @@ describe('ListViewWidget', () => {
 		const wrapper = mount(<ListViewWidget {...generateProps(values)} />);
 
 		// then
-		expect(
-			wrapper
-				.find('span')
-				.at(0)
-				.text(),
-		).toBe(EMPTY_LIST_MESSAGE);
+		expect(wrapper.find('span').at(0).text()).toBe(EMPTY_LIST_MESSAGE);
 	});
 
 	describe('enumOptions management', () => {
@@ -299,10 +271,7 @@ describe('ListViewWidget', () => {
 			const wrapper = mount(<ListViewWidget onChange={handler} {...generateProps(values)} />);
 
 			// when
-			wrapper
-				.find('input#checkbox-my-widget-0-item')
-				.at(0)
-				.simulate('change', evt);
+			wrapper.find('input#checkbox-my-widget-0-item').at(0).simulate('change', evt);
 
 			// then
 			expect(handler).toBeCalledWith(['key1']);

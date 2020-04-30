@@ -46,7 +46,7 @@ describe('File field', () => {
 
 	it('should render default File', () => {
 		// when
-		const wrapper = shallow(<File.WrappedComponent {...props} />);
+		const wrapper = shallow(<File {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -60,7 +60,7 @@ describe('File field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<File.WrappedComponent {...valuedProps} />);
+		const wrapper = shallow(<File {...valuedProps} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -74,7 +74,7 @@ describe('File field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<File.WrappedComponent {...valuedProps} />);
+		const wrapper = shallow(<File {...valuedProps} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -82,7 +82,7 @@ describe('File field', () => {
 
 	it('should trigger onChange when user select file', () => {
 		// given
-		const wrapper = shallow(<File.WrappedComponent {...props} />);
+		const wrapper = shallow(<File {...props} />);
 		expect(props.onChange).not.toBeCalled();
 		const testContent = { test: 'content' };
 		const blob = new Blob([JSON.stringify(testContent, null, 2)], {
@@ -111,7 +111,7 @@ describe('File field', () => {
 
 	it('should trigger pre-signed url related onChange when user select file', () => {
 		// given
-		const wrapper = shallow(<File.WrappedComponent {...propsWithPresignedUrlTrigger} />);
+		const wrapper = shallow(<File {...propsWithPresignedUrlTrigger} />);
 		expect(props.onChange).not.toBeCalled();
 		const testContent = { test: 'content' };
 		const blob = new Blob([JSON.stringify(testContent, null, 2)], {
@@ -141,7 +141,7 @@ describe('File field', () => {
 
 	it('should trigger onChange when user cancel file', () => {
 		// given
-		const wrapper = shallow(<File.WrappedComponent {...props} />);
+		const wrapper = shallow(<File {...props} />);
 		const event = {
 			persist: jest.fn(),
 			preventDefault: jest.fn(),

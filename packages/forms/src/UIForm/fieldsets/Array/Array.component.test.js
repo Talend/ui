@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ArrayWidget from './Array.component';
+import DefaultArrayTemplate from './DefaultArrayTemplate.component';
 
 const schema = {
 	key: ['comments'],
@@ -481,9 +482,7 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(
-				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
-			).toEqual(true);
+			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(true);
 		});
 
 		it('should pass isCloseable false if widget has isCloseable property set to false', () => {
@@ -499,9 +498,7 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(
-				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
-			).toEqual(false);
+			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(false);
 		});
 
 		it('should pass isCloseable false if widget does not have isCloseable property', () => {
@@ -517,9 +514,7 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(
-				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
-			).toEqual(false);
+			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(false);
 		});
 	});
 });

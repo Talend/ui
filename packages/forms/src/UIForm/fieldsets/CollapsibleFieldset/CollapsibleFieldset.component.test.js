@@ -107,10 +107,7 @@ describe('CollapsibleFieldset', () => {
 			/>,
 		);
 		// when
-		wrapper
-			.find(CollapsiblePanel)
-			.getElement()
-			.props.onToggle(event);
+		wrapper.find(CollapsiblePanel).getElement().props.onToggle(event);
 
 		// then
 		expect(event.stopPropagation).toBeCalled();
@@ -126,7 +123,7 @@ describe('CollapsibleFieldset', () => {
 		const onChange = jest.fn();
 		const actions = [{ id: 'action1' }, { id: 'action2' }];
 
-		const wrapper = shallow(
+		const wrapper = mount(
 			<CollapsibleFieldset
 				id={'my-fieldset'}
 				onChange={onChange}
@@ -135,16 +132,9 @@ describe('CollapsibleFieldset', () => {
 				actions={actions}
 			/>,
 		);
-		const header = wrapper
-			.find(CollapsiblePanel)
-			.dive()
-			.getElement().props.header;
-		expect(header.length).toBe(2);
-		expect(header[1].length).toBe(2);
-		expect(header[1][0].id).toBe('action1');
-		expect(header[1][0].displayMode).toBe(TYPE_ACTION);
-		expect(header[1][1].id).toBe('action2');
-		expect(header[1][1].displayMode).toBe(TYPE_ACTION);
+
+		expect(wrapper.find('.panel-title button#action1').length).toBe(1);
+		expect(wrapper.find('.panel-title button#action2').length).toBe(1);
 	});
 
 	it('should not render Actions component if actions are not provided', () => {
