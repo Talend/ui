@@ -48,8 +48,6 @@ $border-size: 0.1rem;
 	&-branch,
 	&-leaf {
 		display: flex;
-		// flex-direction: column;
-		// justify-content: center;
 		margin-left: $padding-larger;
 		position: relative;
 	}
