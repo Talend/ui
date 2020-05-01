@@ -33,6 +33,8 @@ function ContextualManager(props) {
 		if (props.value !== state.datetime) {
 			const nextState = extractParts(props.value, getDateOptions());
 			setState(nextState);
+			// Triggering onChange will propagate the error to the outside world when the
+			// new input is invalid and different then the default dateTime input.
 			if (nextState.errors && nextState.errors.length > 0) {
 				onChange(null, nextState);
 			}
