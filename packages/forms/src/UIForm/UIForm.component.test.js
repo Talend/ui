@@ -27,9 +27,9 @@ describe('UIForm component', () => {
 		// when
 		const instance = mount(<UIFormComponent {...nestedData} {...props} idSeparator=";" />);
 		// then
-		expect(instance.find('Text[id="myFormId;content"]')).toHaveLength(1);
-		expect(instance.find('Text[id="timestamp;value"]')).toHaveLength(1);
-		expect(instance.find('Text[id="timestamp;gmt_offset"]')).toHaveLength(1);
+		expect(instance.find('Text').at(0).prop('id')).toEqual('myFormId;content');
+		expect(instance.find('Text').at(1).prop('id')).toEqual('timestamp;value');
+		expect(instance.find('Text').at(2).prop('id')).toEqual('timestamp;gmt_offset');
 	});
 
 	it('should render form in text display mode', () => {
