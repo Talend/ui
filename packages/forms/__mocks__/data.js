@@ -63,7 +63,7 @@ export const nestedData = {
 		{
 			key: 'content',
 			title: 'Content of the comment',
-			description: 'Hint: put you coment here',
+			description: 'Hint: put you comment here',
 			autoFocus: true,
 		},
 		{
