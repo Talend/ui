@@ -87,6 +87,7 @@
     "react": "^16.8.6",
     "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
+    "react-hook-form": "^5.6.0",
     "react-i18next": "^10.11.4",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^3.0.2",
@@ -101,6 +102,7 @@
     "react": "^16.8.6",
     "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
+    "react-hook-form": "^5.6.0",
     "react-i18next": "^10.10.0"
   },
   "jest": {
