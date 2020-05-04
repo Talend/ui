@@ -16,7 +16,7 @@ export function RecordsViewerLeaf({
 }) {
 	const ref = React.createRef();
 	const [isValueOverflown, setIsValueOverflown] = useState(false);
-	const [isLongValueToggled, setIsLongValueToggled] = useState(false);
+	const [isLongValueExpanded, setIsLongValueExpanded] = useState(false);
 
 	useLayoutEffect(() => {
 		if (ref.current.offsetParent.offsetWidth < ref.current.scrollWidth) {
@@ -26,7 +26,7 @@ export function RecordsViewerLeaf({
 
 	useLayoutEffect(() => {
 		measure();
-	}, [isLongValueToggled]);
+	}, [isLongValueExpanded]);
 
 	return (
 		<div
@@ -41,16 +41,16 @@ export function RecordsViewerLeaf({
 				>
 					<Icon
 						className={classNames(theme['tc-leaf-overflow-icon-chevron'], {
-							[theme['tc-leaf-overflow-icon-chevron-filled']]: isLongValueToggled,
+							[theme['tc-leaf-overflow-icon-chevron-filled']]: isLongValueExpanded,
 						})}
 						key="Icon"
 						name="talend-chevron-left"
 						onClick={e => {
 							e.stopPropagation();
-							setIsLongValueToggled(val => !val);
+							setIsLongValueExpanded(val => !val);
 						}}
 						title=""
-						transform={isLongValueToggled ? 'rotate-90' : 'rotate-270'}
+						transform={isLongValueExpanded ? 'rotate-90' : 'rotate-270'}
 					/>
 				</span>
 			)}
@@ -62,7 +62,7 @@ export function RecordsViewerLeaf({
 				schema={value.schema}
 				displayTypes={displayTypes}
 				isValueOverflown={isValueOverflown}
-				isLongValueToggled={isLongValueToggled}
+				isLongValueToggled={isLongValueExpanded}
 			/>
 		</div>
 	);

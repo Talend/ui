@@ -8,8 +8,6 @@ import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
 import theme from '../RecordsViewer.scss';
 
-const ICON_MARGIN = -17;
-
 /**
  * Used with the lazy loading to allow the render of the skeleton.
  * @param {object} value
@@ -108,9 +106,6 @@ export class RecordsViewerBranch extends React.Component {
 						jsonpath={this.props.jsonpath}
 						onToggle={this.props.onToggle}
 						opened={opened}
-						style={{
-							marginLeft: ICON_MARGIN,
-						}}
 						useCustomIcon={type === 'object'}
 						value={value}
 					/>
