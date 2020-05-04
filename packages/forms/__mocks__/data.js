@@ -45,12 +45,9 @@ export const nestedData = {
 		type: 'object',
 		title: 'Comment',
 		properties: {
-			lastname: {
+			content: {
 				type: 'string',
 				minLength: 4,
-			},
-			firstname: {
-				type: 'string',
 			},
 			timestamp: {
 				type: 'object',
@@ -61,20 +58,13 @@ export const nestedData = {
 				},
 			},
 		},
-		required: ['firstname'],
 	},
 	uiSchema: [
 		{
-			key: 'lastname',
-			title: 'Last Name (with description)',
-			description: 'Hint: this is the last name',
+			key: 'content',
+			title: 'Content of the comment',
+			description: 'Hint: put you coment here',
 			autoFocus: true,
-		},
-		{
-			key: 'firstname',
-			title: 'First Name (with placeholder)',
-			placeholder: 'Enter your firstname here',
-			triggers: ['after'],
 		},
 		{
 			placeholder: 'timestampConfiguration',
