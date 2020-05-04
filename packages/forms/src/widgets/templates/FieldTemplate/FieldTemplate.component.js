@@ -1,24 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Message from '../Message';
 import theme from './FieldTemplate.scss';
-
-function Label(props) {
-	return (
-		<label htmlFor={props.id} className="control-label">
-			{props.label}
-		</label>
-	);
-}
-
-if (process.env.NODE_ENV !== 'production') {
-	Label.propTypes = {
-		id: PropTypes.string,
-		label: PropTypes.string,
-	};
-}
 
 function FieldTemplate(props) {
 	const groupsClassNames = classNames('form-group', {
@@ -28,14 +12,23 @@ function FieldTemplate(props) {
 
 	return (
 		<div className={groupsClassNames} aria-busy={props.inProgress}>
-			{props.label && <Label id={props.id} label={props.label} />}
+			<label htmlFor={props.id} className="control-label">
+				{props.label}
+			</label>
+
 			{props.children}
-			<Message
-				description={props.description}
-				descriptionId={props.descriptionId}
-				error={props.error}
-				errorId={props.errorId}
-			/>
+
+			<div>
+				<p
+					id={props.descriptionId}
+					className={classNames('help-block', { 'sr-only': props.error })}
+				>
+					{props.description}
+				</p>
+				<p id={props.errorId} className="help-block" role="status" aria-live="assertive">
+					{props.error}
+				</p>
+			</div>
 		</div>
 	);
 }
