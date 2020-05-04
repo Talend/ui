@@ -23,10 +23,11 @@ describe('UIForm component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render form with ids concatenated with ;', () => {
+	it('should render form with ids concatenated with ; if nested', () => {
 		// when
 		const instance = mount(<UIFormComponent {...nestedData} {...props} idSeparator=";" />);
 		// then
+		expect(instance.find('Text[id="myFormId;content"]')).toHaveLength(1);
 		expect(instance.find('Text[id="timestamp;value"]')).toHaveLength(1);
 		expect(instance.find('Text[id="timestamp;gmt_offset"]')).toHaveLength(1);
 	});
