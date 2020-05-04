@@ -300,6 +300,7 @@ export class UIFormComponent extends React.Component {
 			this.state.mergedSchema.map((nextSchema, index) => (
 				<Widget
 					id={this.props.id}
+					idSeparator={this.props.idSeparator}
 					key={index}
 					onChange={this.onChange}
 					onFinish={this.onFinish}
