@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
@@ -18,13 +18,14 @@ function listviewClasses() {
 }
 
 function ListView(props) {
-	const noResultLabel = props.t('NO_RESULT_FOUND', { defaultValue: 'No result found.' });
-	const emptyLabel = props.t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const noResultLabel = t('NO_RESULT_FOUND', { defaultValue: 'No result found.' });
+	const emptyLabel = t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
 	const label = props.displayMode === DISPLAY_MODE_SEARCH ? noResultLabel : emptyLabel;
 	return (
 		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
-			{props.items && props.items.length ? (
+			{props.items.length ? (
 				<ItemsListView {...props} />
 			) : (
 				<span className={theme['empty-message']}>{label}</span>
@@ -36,13 +37,12 @@ function ListView(props) {
 ListView.displayName = 'ListView';
 
 ListView.propTypes = {
+	displayMode: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.object),
-	t: PropTypes.func,
 };
 
 ListView.defaultProps = {
 	items: [],
-	isSwitchBox: false,
 };
 
 function ItemsListView(props) {
@@ -72,7 +72,6 @@ function HeaderListView(props) {
 		items,
 		required,
 		searchPlaceholder,
-		t,
 	} = props;
 
 	switch (displayMode) {
@@ -82,7 +81,6 @@ function HeaderListView(props) {
 				onInputChange,
 				onAddKeyDown,
 				inputPlaceholder: searchPlaceholder,
-				t,
 			};
 			return <HeaderInput {...propsInput} />;
 		}
@@ -93,7 +91,6 @@ function HeaderListView(props) {
 				required,
 				nbItems: items.length,
 				nbItemsSelected: items.filter(item => !!item.checked).length,
-				t,
 			};
 			return <Header {...propsDefault} />;
 		}
@@ -102,7 +99,6 @@ function HeaderListView(props) {
 
 HeaderListView.defaultProps = {
 	displayMode: DISPLAY_MODE_DEFAULT,
-	t: getDefaultT(),
 };
 
 HeaderListView.propTypes = {
@@ -115,7 +111,6 @@ HeaderListView.propTypes = {
 	onAddKeyDown: PropTypes.func,
 	required: PropTypes.bool,
 	searchPlaceholder: PropTypes.string,
-	t: PropTypes.func,
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ListView);
+export default ListView;

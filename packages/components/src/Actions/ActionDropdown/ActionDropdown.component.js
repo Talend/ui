@@ -174,21 +174,21 @@ class ActionDropdown extends React.Component {
 
 	render() {
 		const {
-			bsStyle,
+			bsStyle = 'default',
 			hideLabel,
 			icon,
-			items,
+			items = [],
 			label,
 			link,
 			onSelect,
-			tooltipPlacement,
+			tooltipPlacement = 'top',
 			tooltipLabel,
 			getComponent,
 			components,
 			className,
 			loading,
 			children,
-			t,
+			t = getDefaultT(),
 			...rest
 		} = this.props;
 
@@ -287,7 +287,7 @@ ActionDropdown.propTypes = {
 			}),
 		),
 		ImmutablePropTypes.list,
-	]).isRequired,
+	]),
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	loading: PropTypes.bool,
@@ -303,13 +303,6 @@ ActionDropdown.propTypes = {
 	}),
 	t: PropTypes.func,
 	children: PropTypes.node,
-};
-
-ActionDropdown.defaultProps = {
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-	items: [],
-	t: getDefaultT(),
 };
 
 export { getMenuItem, InjectDropdownMenuItem };
