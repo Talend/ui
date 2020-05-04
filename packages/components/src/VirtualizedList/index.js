@@ -9,6 +9,7 @@ import { TextIconColumn } from './CellTextIcon';
 import { TitleColumn } from './CellTitle';
 import { BooleanColumn } from './CellBoolean';
 import { LabelColumn } from './CellLabel';
+import { IconTextColumn } from './CellIconText';
 
 export { cellDictionary, headerDictionary } from './utils/dictionary';
 export * from './utils/constants';
@@ -25,5 +26,6 @@ VirtualizedList.TextIcon = TextIconColumn;
 VirtualizedList.Title = TitleColumn;
 VirtualizedList.Boolean = BooleanColumn;
 VirtualizedList.Label = LabelColumn;
+VirtualizedList.IconText = IconTextColumn;
 
 export default VirtualizedList;

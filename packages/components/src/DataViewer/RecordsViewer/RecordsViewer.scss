@@ -29,6 +29,12 @@ $border-size: 0.1rem;
 		:global(.ReactVirtualized__Grid__innerScrollContainer) {
 			overflow: initial !important;
 		}
+		:global(.tc-svg-icon) {
+			height: 1.2rem;
+			width: 1.2rem;
+			margin: 0;
+			vertical-align: baseline;
+		}
 		&-border {
 			border-bottom: $border-size solid $alto;
 		}
@@ -44,19 +50,20 @@ $border-size: 0.1rem;
 	&-branch,
 	&-leaf {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		margin-left: $padding-larger;
 		position: relative;
 	}
 
 	&-leaf {
+		justify-content: flex-start;
+		align-items: baseline;
+
 		&-highlighted {
 			&::before {
 				@include selection($background-highlight);
 			}
 		}
-		height: $records-node-height;
+		min-height: $records-node-height;
 		&-quality {
 			display: inline-flex;
 			margin-left: -$padding-larger;
@@ -66,10 +73,14 @@ $border-size: 0.1rem;
 		}
 	}
 	&-branch {
+		flex-direction: column;
+		justify-content: center;
+
 		&-highlighted::before {
 			@include selection($background-highlight);
 		}
 		&-content {
+			position: relative;
 			align-items: center;
 			display: inline-flex;
 			height: $records-node-height;
@@ -95,6 +106,10 @@ $border-size: 0.1rem;
 		}
 
 		&-icon {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(-150%, -50%);
 			color: $brand-primary;
 			height: $svg-sm-size;
 			width: $svg-sm-size;
@@ -111,6 +126,44 @@ $border-size: 0.1rem;
 					pointer-events: none;
 				}
 			}
+		}
+	}
+}
+
+@mixin chevron($color) {
+	border: 1px solid $scooter;
+	padding: 2px;
+	border-radius: 10px;
+	color: $color;
+}
+
+.tc-leaf-overflow-icon {
+	position: absolute;
+	left: -1.7rem;
+	margin-right: $padding-smaller;
+	&-chevron {
+		padding: 0;
+		line-height: initial;
+		min-height: initial;
+		svg {
+			@include chevron($scooter);
+		}
+		&-filled {
+			svg {
+				@include chevron($white);
+				background-color: $scooter;
+			}
+		}
+	}
+	:global(.tc-svg-anchor) {
+		background: transparent;
+		border: none;
+		padding: 0;
+		color: $brand-primary;
+		display: flex;
+		&:focus,
+		&:hover {
+			color: $scooter;
 		}
 	}
 }

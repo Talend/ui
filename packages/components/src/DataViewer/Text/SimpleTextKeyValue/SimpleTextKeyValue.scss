@@ -5,14 +5,11 @@
 
 	&-key,
 	:global(.td-default-cell) {
-		overflow: hidden;
 		font-weight: 400;
 	}
 	&-key {
 		margin-right: $padding-smaller;
-		overflow: hidden;
 		white-space: nowrap;
-		text-overflow: ellipsis;
 		flex-shrink: 1;
 		color: $dove-gray;
 		vertical-align: top;
@@ -28,10 +25,20 @@
 		}
 		text-transform: lowercase;
 		white-space: nowrap;
+
+		&.shrink-value {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		&.wrap-value {
+			overflow: initial;
+			white-space: normal;
+			word-break: break-all;
+		}
 	}
 
 	:global(.td-default-cell) {
-		white-space: nowrap;
 		display: inline-block;
 		color: $brand-primary;
 		font-family: 'Inconsolata';

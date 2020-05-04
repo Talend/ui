@@ -432,6 +432,42 @@ describe('DateTime.Manager', () => {
 				expect(args[1].errors).toEqual([]);
 				expect(args[1].errorMessage).toBe(null);
 			});
+			it('shouldn\'t trigger props.onChange if the default datetime is valid', () => {
+				const onChange = jest.fn();
+				const textInput = '2015-01-15 11:11';
+				const wrapper = mount(
+					<Manager id={DEFAULT_ID} onChange={onChange} value={textInput}>
+						<DateTimeConsumer />
+					</Manager>,
+				);
+				expect(onChange).not.toBeCalled();
+				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
+				expect(contextValue.date).toEqual('2015-01-15');
+				expect(contextValue.time).toEqual('11:11');
+			});
+			it('should trigger props.onChange when default datetime is changed', () => {
+				const onChange = jest.fn();
+				const textInput = '2015-01-15';
+				mount(
+					<Manager id={DEFAULT_ID} onChange={onChange} value={textInput}>
+						<DateTimeConsumer />
+					</Manager>,
+				);
+				expect(onChange).toHaveBeenCalledTimes(1);
+			});
+			it('should propagate error via props.onChange for invalid datetime text input', () => {
+				// given
+				let data = null;
+				const onChange = (event, payload) => { data = payload; };
+				const textInput = '2015-01-15';
+				mount(
+					<Manager id={DEFAULT_ID} onChange={onChange} value={textInput}>
+						<DateTimeConsumer />
+					</Manager>,
+				);
+				expect(data.errors.length).toEqual(1);
+				expect(data.errors[0].code).toEqual('INVALID_TIME_EMPTY');
+			});
 			it('should trigger props.onChange with invalid time', () => {
 				// given
 				const onChange = jest.fn();

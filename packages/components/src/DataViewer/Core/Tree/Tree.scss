@@ -14,6 +14,7 @@
 
 	&-node-border {
 		border-left: 1px solid $alto;
+		margin-left: -12px;
 		&:hover {
 			border-left-color: $silver-chalice;
 		}
