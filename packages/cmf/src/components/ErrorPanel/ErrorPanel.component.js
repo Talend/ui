@@ -16,7 +16,7 @@ function ErrorPanel({ error = {} }) {
 		return () => {
 			onError.revokeObjectURL(url);
 		};
-	}, [error]);
+	}, [error, url]);
 	const HAS_REPORT = onError.hasReportFeature();
 	return (
 		<div>
