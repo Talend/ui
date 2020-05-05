@@ -31,8 +31,49 @@ const StyledDiv = styled.div(
 `,
 );
 
+const StyledFieldGroup = styled.div(
+	({ theme }) => `
+  display: inline-flex;
+  align-items: center;
+  
+  input {
+  	padding-right: 3rem;
+  }
+  
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -3rem;
+    padding: 0;
+    width: 3rem;
+    height: 3rem;
+    min-height: auto;
+    border: none;
+    
+    svg {
+      margin:0;
+    }
+    
+    &:focus {
+      outline: none;
+    }
+      
+    &:hover {    
+	  svg {
+	    fill: ${theme.colors.activeColor}
+      }
+    }
+  }
+`,
+);
+
 const StyledField = styled.div(
 	({ theme }) => `
+  padding: 0 1rem;    
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   background: ${theme.colors.backgroundColor};
   border: 2px solid ${theme.colors.textColor};
   
@@ -42,11 +83,18 @@ const StyledField = styled.div(
 `,
 );
 
-function Field({ label, ...rest }) {
+function Field({ label, button, ...rest }) {
 	return (
 		<StyledDiv inline={['checkbox', 'radio'].includes(rest.type)}>
 			{label && <Label htmlFor={label}>{label}</Label>}
-			<StyledField id={label} {...rest} />
+			{button ? (
+				<StyledFieldGroup>
+					<StyledField id={label} {...rest} />
+					{button}
+				</StyledFieldGroup>
+			) : (
+				<StyledField id={label} {...rest} />
+			)}
 		</StyledDiv>
 	);
 }
