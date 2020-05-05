@@ -72,7 +72,7 @@ describe('CollapsibleFieldset', () => {
 			// when
 			const wrapper = shallow(
 				<CollapsibleFieldset
-					id={'my-fieldset'}
+					id="my-fieldset"
 					schema={schema}
 					value={{ ...(opts.empty ? {} : value), isClosed: opts.isClosed }}
 				/>,
@@ -100,7 +100,7 @@ describe('CollapsibleFieldset', () => {
 
 		const wrapper = shallow(
 			<CollapsibleFieldset
-				id={'my-fieldset'}
+				id="my-fieldset"
 				onChange={onChange}
 				schema={schema}
 				value={{ ...value, isClosed: true }}
@@ -125,7 +125,7 @@ describe('CollapsibleFieldset', () => {
 
 		const wrapper = mount(
 			<CollapsibleFieldset
-				id={'my-fieldset'}
+				id="my-fieldset"
 				onChange={onChange}
 				schema={schema}
 				value={value}
@@ -142,7 +142,7 @@ describe('CollapsibleFieldset', () => {
 		const onChange = jest.fn();
 
 		const wrapper = shallow(
-			<CollapsibleFieldset id={'my-fieldset'} onChange={onChange} schema={schema} value={value} />,
+			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} value={value} />,
 		);
 
 		expect(wrapper.exists('Actions')).toEqual(false);
@@ -152,7 +152,7 @@ describe('CollapsibleFieldset', () => {
 		const onChange = jest.fn();
 
 		const wrapper = mount(
-			<CollapsibleFieldset id={'my-fieldset'} onChange={onChange} schema={schema} value={value} />,
+			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} value={value} />,
 		);
 		const panel = wrapper.find('CollapsiblePanel');
 

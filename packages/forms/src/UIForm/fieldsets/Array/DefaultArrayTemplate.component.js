@@ -40,7 +40,7 @@ function DefaultArrayTemplate(props) {
 				<Action
 					id={`${id || 'tf-array'}-btn`}
 					className={classNames(theme['tf-array-add'], 'tf-array-add')}
-					bsStyle={'info'}
+					bsStyle="info"
 					onClick={onAdd}
 					disabled={valueIsUpdating || schema.disabled}
 					label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'Add' })}

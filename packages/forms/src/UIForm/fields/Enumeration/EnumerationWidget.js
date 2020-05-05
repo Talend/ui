@@ -10,7 +10,7 @@ import FocusManager from '@talend/react-components/lib/FocusManager';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import FieldTemplate from '../../../UIForm/fields/FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
 export const enumerationStates = {
 	DISPLAY_MODE_DEFAULT: 'DISPLAY_MODE_DEFAULT',

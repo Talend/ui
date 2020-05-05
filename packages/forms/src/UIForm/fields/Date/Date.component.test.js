@@ -17,14 +17,14 @@ describe('Date widget', () => {
 		// when
 		const wrapper = shallow(
 			<DateWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				options={{ dafeFormat: 'DD/MM/YYYY' }}
 				schema={schema}
-				value={'15/02/2018 23:55:32'}
+				value="15/02/2018 23:55:32"
 			/>,
 		);
 
@@ -43,9 +43,9 @@ describe('Date widget', () => {
 		// when
 		const wrapper = shallow(
 			<DateWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -65,14 +65,14 @@ describe('Date widget', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<DateWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				options={{ dafeFormat: 'DD/MM/YYYY' }}
 				schema={schema}
-				value={'15/02/2018'}
+				value="15/02/2018"
 			/>,
 		);
 		expect(onFinish).not.toBeCalled();
@@ -91,14 +91,14 @@ describe('Date widget', () => {
 			const onChange = jest.fn();
 			const wrapper = shallow(
 				<DateWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
 					schema={schema}
-					value={'15/02/2018'}
+					value="15/02/2018"
 				/>,
 			);
 			expect(onChange).not.toBeCalled();
@@ -125,9 +125,9 @@ describe('Date widget', () => {
 			};
 			const wrapper = shallow(
 				<DateWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -161,9 +161,9 @@ describe('Date widget', () => {
 			};
 			const wrapper = shallow(
 				<DateWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -197,9 +197,9 @@ describe('Date widget', () => {
 			};
 			const wrapper = shallow(
 				<DateWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -229,14 +229,14 @@ describe('Date widget', () => {
 			const onFinish = jest.fn();
 			const wrapper = shallow(
 				<DateWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
 					schema={schema}
-					value={'15/02/2018'}
+					value="15/02/2018"
 				/>,
 			);
 			expect(onFinish).not.toBeCalled();
@@ -259,14 +259,14 @@ describe('Date widget', () => {
 			const onFinish = jest.fn();
 			const wrapper = shallow(
 				<DateWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
 					schema={schema}
-					value={'15/02/2018'}
+					value="15/02/2018"
 				/>,
 			);
 			expect(onFinish).not.toBeCalled();

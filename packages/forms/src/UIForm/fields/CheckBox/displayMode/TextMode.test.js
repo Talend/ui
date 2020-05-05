@@ -8,7 +8,7 @@ describe('CheckBox field in text mode', () => {
 
 	it('should render checked value', () => {
 		// when
-		const wrapper = shallow(<CheckBox id={'myForm'} schema={schema} value />);
+		const wrapper = shallow(<CheckBox id="myForm" schema={schema} value />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -16,7 +16,7 @@ describe('CheckBox field in text mode', () => {
 
 	it('should render unchecked value', () => {
 		// when
-		const wrapper = shallow(<CheckBox id={'myForm'} schema={schema} value={false} />);
+		const wrapper = shallow(<CheckBox id="myForm" schema={schema} value={false} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

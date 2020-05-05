@@ -20,13 +20,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -38,13 +38,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={{ ...schema, type: 'password' }}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -62,13 +62,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -86,13 +86,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -114,13 +114,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={minSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -142,13 +142,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={maxSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -169,7 +169,7 @@ describe('Text field', () => {
 
 		// when
 		const wrapper = shallow(
-			<Text id={'myForm'} isValid onChange={jest.fn()} onFinish={jest.fn()} schema={stepSchema} />,
+			<Text id="myForm" isValid onChange={jest.fn()} onFinish={jest.fn()} schema={stepSchema} />,
 		);
 
 		// then
@@ -186,13 +186,13 @@ describe('Text field', () => {
 		const onChange = jest.fn();
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		const event = { target: { value: 'totoa' } };
@@ -213,9 +213,9 @@ describe('Text field', () => {
 		const onChange = jest.fn();
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
 				onFinish={jest.fn()}
 				schema={numberSchema}
@@ -236,13 +236,13 @@ describe('Text field', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		const event = { target: { value: 'totoa' } };
@@ -264,11 +264,11 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={hiddenSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 

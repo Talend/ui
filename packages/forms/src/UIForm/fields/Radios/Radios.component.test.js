@@ -21,13 +21,13 @@ describe('Radios field', () => {
 		// when
 		const wrapper = shallow(
 			<Radios
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -45,13 +45,13 @@ describe('Radios field', () => {
 		// when
 		const wrapper = shallow(
 			<Radios
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={inlineSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -69,13 +69,13 @@ describe('Radios field', () => {
 		// when
 		const wrapper = shallow(
 			<Radios
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -88,13 +88,13 @@ describe('Radios field', () => {
 		const onChange = jest.fn();
 		const wrapper = shallow(
 			<Radios
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		const event = { target: { value: 'foo' } };
@@ -114,13 +114,13 @@ describe('Radios field', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<Radios
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		const event = { target: { value: 'foo' } };

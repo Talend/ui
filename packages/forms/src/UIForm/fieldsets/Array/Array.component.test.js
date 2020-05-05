@@ -91,9 +91,9 @@ describe('Array component', () => {
 		// when
 		const wrapper = shallow(
 			<ArrayWidget
-				description={'My array description'}
-				errorMessage={'This array is not correct'}
-				id={'talend-array'}
+				description="My array description"
+				errorMessage="This array is not correct"
+				id="talend-array"
 				isValid
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -116,9 +116,9 @@ describe('Array component', () => {
 		// when
 		const wrapper = shallow(
 			<ArrayWidget
-				description={'My array description'}
-				errorMessage={'This array is not correct'}
-				id={'talend-array'}
+				description="My array description"
+				errorMessage="This array is not correct"
+				id="talend-array"
 				isValid
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -134,9 +134,9 @@ describe('Array component', () => {
 	it('should render a readOnly array', () => {
 		const wrapper = mount(
 			<ArrayWidget
-				description={'My array description'}
-				errorMessage={'This array is not correct'}
-				id={'talend-array'}
+				description="My array description"
+				errorMessage="This array is not correct"
+				id="talend-array"
 				isValid
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -157,8 +157,8 @@ describe('Array component', () => {
 		// when
 		const wrapper = mount(
 			<ArrayWidget
-				description={'My array description'}
-				id={'talend-array'}
+				description="My array description"
+				id="talend-array"
 				isValid
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -179,9 +179,9 @@ describe('Array component', () => {
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					onChange={onChange}
 					onFinish={onFinish}
@@ -206,9 +206,9 @@ describe('Array component', () => {
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					onChange={onChange}
 					onFinish={onFinish}
@@ -255,9 +255,9 @@ describe('Array component', () => {
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					onChange={onChange}
 					onFinish={onFinish}
@@ -284,9 +284,9 @@ describe('Array component', () => {
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					onChange={onChange}
 					onFinish={onFinish}
@@ -310,9 +310,9 @@ describe('Array component', () => {
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					onChange={jest.fn()}
 					onFinish={onFinish}
@@ -351,9 +351,9 @@ describe('Array component', () => {
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					onChange={onChange}
 					onFinish={onFinish}
@@ -377,9 +377,9 @@ describe('Array component', () => {
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					onChange={jest.fn()}
 					onFinish={onFinish}
@@ -416,9 +416,9 @@ describe('Array component', () => {
 			// given
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					schema={schema}
 					value={value}
@@ -446,9 +446,9 @@ describe('Array component', () => {
 			};
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					schema={deepSchema}
 					value={value}
@@ -473,9 +473,9 @@ describe('Array component', () => {
 			const widgets = { myCloseableWidget: { isCloseable: true } };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
 					widgets={widgets}
@@ -489,9 +489,9 @@ describe('Array component', () => {
 			const widgets = { someWidget: { isCloseable: false } };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					schema={{ ...schema, itemWidget: 'someWidget' }}
 					widgets={widgets}
@@ -505,9 +505,9 @@ describe('Array component', () => {
 			const widgets = { someWidget: {} };
 			const wrapper = shallow(
 				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
 					isValid
 					schema={{ ...schema, itemWidget: 'someWidget' }}
 					widgets={widgets}

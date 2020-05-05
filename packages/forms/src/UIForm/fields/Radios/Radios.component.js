@@ -46,7 +46,7 @@ export default function Radios({
 								name={id}
 								onBlur={event => onFinish(event, { schema })}
 								onChange={event => onChange(event, { schema, value: option.value })}
-								type={'radio'}
+								type="radio"
 								value={option.value}
 								// eslint-disable-next-line jsx-a11y/aria-proptypes
 								aria-invalid={!isValid}

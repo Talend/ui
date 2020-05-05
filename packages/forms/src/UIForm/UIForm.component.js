@@ -20,6 +20,7 @@ import theme from './UIForm.scss';
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
+
 	constructor(props) {
 		super(props);
 		const { jsonSchema, uiSchema } = props;

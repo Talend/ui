@@ -63,14 +63,14 @@ describe('Datalist component', () => {
 		// when
 		const wrapper = shallow(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn()}
 				schema={schema}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 
@@ -82,14 +82,14 @@ describe('Datalist component', () => {
 		// when
 		const wrapper = shallow(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn()}
 				schema={schemaMultiSection}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 
