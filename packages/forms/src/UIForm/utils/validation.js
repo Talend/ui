@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import omit from 'lodash/omit';
 import { validate } from '@talend/json-schema-form-core';
 import { getValue } from './properties';
@@ -188,11 +189,7 @@ export function isValid(schema, errors) {
 	}
 
 	if (items) {
-		for (const itemSchema of items) {
-			if (!isValid(itemSchema, errors)) {
-				return false;
-			}
-		}
+		return items.every(itemSchema => isValid(itemSchema, errors));
 	}
 
 	return true;

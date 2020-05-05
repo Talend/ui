@@ -72,6 +72,10 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func,
 		properties: PropTypes.object,
 		schema: PropTypes.shape({
+			options: PropTypes.shape({
+				isMultiSection: PropTypes.bool,
+				titleMap: PropTypes.array,
+			}),
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -82,7 +86,7 @@ if (process.env.NODE_ENV !== 'production') {
 			triggers: PropTypes.array,
 			type: PropTypes.string,
 		}),
-		t: PropTypes.func.isRequired,
+		t: PropTypes.func,
 		value: PropTypes.string,
 	};
 }

@@ -14,7 +14,7 @@ export default function RadioOrSelect(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	RadioOrSelect.propTypes = {
-		schema: PropTypes.shape({ titleMap: PropTypes.array }).isRequired,
+		schema: PropTypes.shape({ titleMap: PropTypes.array }),
 	};
 }
 

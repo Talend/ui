@@ -3,7 +3,7 @@ import cases from 'jest-in-case';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 import { shallow, mount } from 'enzyme';
-import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
+import CollapsiblePanel from '@talend/react-components/lib/CollapsiblePanel';
 import createCollapsibleFieldset, { defaultTitle } from './CollapsibleFieldset.component';
 
 function customTitle(value, schema) {

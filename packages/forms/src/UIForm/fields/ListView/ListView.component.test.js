@@ -90,9 +90,7 @@ describe('ListView field', () => {
 			const instance = ReactDOM.render(<ListViewWidget {...props} value={[]} />, node);
 			const previousItems = instance.state.displayedItems;
 			expect(previousItems.length).toBe(4);
-			for (const item of previousItems) {
-				expect(item.checked).toBe(false);
-			}
+			previousItems.forEach(({ checked }) => expect(checked).toBe(false));
 
 			const allValues = props.schema.titleMap.map(option => option.value);
 
@@ -102,9 +100,7 @@ describe('ListView field', () => {
 			// then
 			const nextItems = instance.state.displayedItems;
 			expect(nextItems.length).toBe(4);
-			for (const item of nextItems) {
-				expect(item.checked).toBe(true);
-			}
+			nextItems.forEach(({ checked }) => expect(checked).toBe(true));
 		});
 
 		it('should update items on props.schema change', () => {

@@ -91,6 +91,7 @@ if (process.env.NODE_ENV !== 'production') {
 		options: PropTypes.shape({
 			dateFormat: PropTypes.string,
 			useSeconds: PropTypes.bool,
+			timezone: PropTypes.string,
 			useUTC: PropTypes.bool,
 		}),
 		schema: PropTypes.shape({
@@ -104,6 +105,7 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 			schema: PropTypes.shape({
 				type: PropTypes.string,
+				format: PropTypes.string,
 			}),
 		}),
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),

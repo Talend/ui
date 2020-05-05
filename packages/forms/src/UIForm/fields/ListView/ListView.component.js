@@ -82,7 +82,7 @@ class ListViewWidget extends React.Component {
 	onInputChange(event, { value }) {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
-			this.setState(getItemsProps(this.state.items, value));
+			this.setState(oldState => getItemsProps(oldState.items, value));
 		}, 400);
 	}
 
@@ -145,7 +145,10 @@ class ListViewWidget extends React.Component {
 			checkedItems = this.state.items;
 		}
 
-		this.onChange(event, checkedItems.map(item => item.value));
+		this.onChange(
+			event,
+			checkedItems.map(item => item.value),
+		);
 	}
 
 	/**

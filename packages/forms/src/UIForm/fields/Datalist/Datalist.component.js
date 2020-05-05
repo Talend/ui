@@ -193,6 +193,7 @@ if (process.env.NODE_ENV !== 'production') {
 		resolveName: PropTypes.func,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
+				enum: PropTypes.array,
 				type: PropTypes.string,
 			}),
 			triggers: PropTypes.arrayOf(

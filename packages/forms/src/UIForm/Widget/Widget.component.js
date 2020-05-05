@@ -95,7 +95,7 @@ if (process.env.NODE_ENV !== 'production') {
 		idSeparator: PropTypes.string,
 		properties: PropTypes.object,
 		schema: PropTypes.shape({
-			conditions: PropTypes.arrayOf(
+			condition: PropTypes.arrayOf(
 				PropTypes.shape({
 					path: PropTypes.string,
 					values: PropTypes.array,
@@ -103,8 +103,11 @@ if (process.env.NODE_ENV !== 'production') {
 					shouldBe: PropTypes.bool,
 				}),
 			),
+			displayMode: PropTypes.string,
 			key: PropTypes.array,
 			options: PropTypes.object,
+			tooltip: PropTypes.string,
+			tooltipPlacement: PropTypes.string,
 			type: PropTypes.string,
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,

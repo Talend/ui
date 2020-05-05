@@ -1,0 +1,8 @@
+{
+	"extends": "../../.eslintrc",
+	"rules": {
+		"import/no-cycle": 0,
+		"max-classes-per-file": 0,
+		"react/jsx-curly-newline": 0
+	}
+}
