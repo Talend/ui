@@ -12,13 +12,11 @@ import Toggle from '@talend/react-components/lib/Toggle';
 function buildOptions(schema) {
 	return {
 		enumOptions: optionsList(
-			Object.assign(
-				{
-					enumNames: ['true', 'false'],
+			{
+				enumNames: ['true', 'false'],
 					enum: [true, false],
-				},
-				{ enumNames: schema.enumNames },
-			),
+				enumNames: schema.enumNames,
+			},
 		),
 	};
 }

@@ -33,7 +33,7 @@ const schemaWithGroups = {
 describe('Datalist component in text display mode', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(<DatalistTextMode id={'my-datalist'} schema={schema} value={'foo'} />);
+		const wrapper = shallow(<DatalistTextMode id="my-datalist" schema={schema} value="foo" />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -69,7 +69,7 @@ describe('Datalist component in text display mode', () => {
 		};
 
 		// when
-		wrapper = mount(<DatalistTextMode {...props} value={'foo'} />);
+		wrapper = mount(<DatalistTextMode {...props} value="foo" />);
 
 		// then
 		expect(props.onTrigger).toBeCalledWith(null, {
@@ -83,7 +83,7 @@ describe('Datalist component in text display mode', () => {
 	it('should show name in text mode when have groups', () => {
 		// when
 		const wrapper = mount(
-			<DatalistTextMode id={'my-datalist-with-groups'} schema={schemaWithGroups} value={'foo'} />,
+			<DatalistTextMode id="my-datalist-with-groups" schema={schemaWithGroups} value="foo" />,
 		);
 
 		// then

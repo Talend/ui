@@ -19,13 +19,13 @@ describe('RadioOrSelect field', () => {
 		// when
 		const wrapper = shallow(
 			<RadioOrSelect
-				id={'myRadioOrSelect'}
+				id="myRadioOrSelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 
@@ -43,13 +43,13 @@ describe('RadioOrSelect field', () => {
 		// when
 		const wrapper = shallow(
 			<RadioOrSelect
-				id={'myRadioOrSelect'}
+				id="myRadioOrSelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={moreThan2OptionsSchema}
-				value={'lol'}
+				value="lol"
 			/>,
 		);
 

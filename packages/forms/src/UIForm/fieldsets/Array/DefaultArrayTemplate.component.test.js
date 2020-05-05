@@ -92,14 +92,14 @@ describe('Default Array Template component', () => {
 		const wrapper = shallow(
 			<DefaultArrayTemplate
 				canReorder
-				id={'my-template'}
+				id="my-template"
 				onAdd={jest.fn()}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
 				renderItem={index => <div>Render item {index}</div>}
 				schema={schema}
 				value={value}
-				errorMessage={'This is an error'}
+				errorMessage="This is an error"
 				isValid
 			/>,
 		);
@@ -113,14 +113,14 @@ describe('Default Array Template component', () => {
 		const wrapper = shallow(
 			<DefaultArrayTemplate
 				canReorder
-				id={'my-template'}
+				id="my-template"
 				onAdd={jest.fn()}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
 				renderItem={index => <div>Render item {index}</div>}
 				schema={schema}
 				value={value}
-				errorMessage={'This is an error'}
+				errorMessage="This is an error"
 				isValid={false}
 			/>,
 		);
@@ -134,7 +134,7 @@ describe('Default Array Template component', () => {
 		const wrapper = shallow(
 			<DefaultArrayTemplate
 				canReorder
-				id={'my-template'}
+				id="my-template"
 				onAdd={jest.fn()}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}

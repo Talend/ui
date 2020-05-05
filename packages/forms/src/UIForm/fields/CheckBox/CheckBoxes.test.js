@@ -22,9 +22,9 @@ describe('CheckBoxes field', () => {
 		// when
 		const wrapper = shallow(
 			<CheckBoxes
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
@@ -40,9 +40,9 @@ describe('CheckBoxes field', () => {
 		// when
 		const wrapper = shallow(
 			<CheckBoxes
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
@@ -63,9 +63,9 @@ describe('CheckBoxes field', () => {
 		// when
 		const wrapper = shallow(
 			<CheckBoxes
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
@@ -83,9 +83,9 @@ describe('CheckBoxes field', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<CheckBoxes
-					id={'myForm'}
+					id="myForm"
 					isValid
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -109,9 +109,9 @@ describe('CheckBoxes field', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<CheckBoxes
-					id={'myForm'}
+					id="myForm"
 					isValid
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -135,9 +135,9 @@ describe('CheckBoxes field', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<CheckBoxes
-					id={'myForm'}
+					id="myForm"
 					isValid
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -162,9 +162,9 @@ describe('CheckBoxes field', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<CheckBoxes
-					id={'myForm'}
+					id="myForm"
 					isValid
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -190,9 +190,9 @@ describe('CheckBoxes field', () => {
 		const onFinish = jest.fn();
 		const wrapper = mount(
 			<CheckBoxes
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}

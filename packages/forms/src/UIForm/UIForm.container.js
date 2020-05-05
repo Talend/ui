@@ -73,6 +73,7 @@ const setInitialStateAsLiveState = prevState => ({
 
 export default class UIForm extends React.Component {
 	static displayName = 'Container(UIForm)';
+
 	constructor(props) {
 		super(props);
 		this.state = {

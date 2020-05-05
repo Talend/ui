@@ -40,6 +40,7 @@ class Datalist extends Component {
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
 	}
+
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection

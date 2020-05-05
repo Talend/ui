@@ -12,7 +12,7 @@ describe('SingleButton field', () => {
 
 	it('should render button', () => {
 		// when
-		const wrapper = shallow(<SingleButton id={'myForm'} schema={schema} />);
+		const wrapper = shallow(<SingleButton id="myForm" schema={schema} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -26,7 +26,7 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id={'myForm'} schema={submitSchema} />);
+		const wrapper = shallow(<SingleButton id="myForm" schema={submitSchema} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -41,7 +41,7 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id={'myForm'} schema={submitSchema} />);
+		const wrapper = shallow(<SingleButton id="myForm" schema={submitSchema} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -55,7 +55,7 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id={'myForm'} schema={resetSchema} />);
+		const wrapper = shallow(<SingleButton id="myForm" schema={resetSchema} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -69,7 +69,7 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id={'myForm'} schema={disabledSchema} />);
+		const wrapper = shallow(<SingleButton id="myForm" schema={disabledSchema} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -83,7 +83,7 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id={'myForm'} schema={inProgressSchema} />);
+		const wrapper = shallow(<SingleButton id="myForm" schema={inProgressSchema} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -97,7 +97,7 @@ describe('SingleButton field', () => {
 		};
 		const onTrigger = jest.fn(() => Promise.resolve());
 		const wrapper = mount(
-			<SingleButton id={'myForm'} onTrigger={onTrigger} schema={triggerSchema} />,
+			<SingleButton id="myForm" onTrigger={onTrigger} schema={triggerSchema} />,
 		);
 
 		// when

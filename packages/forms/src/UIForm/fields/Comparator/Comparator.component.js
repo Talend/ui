@@ -131,6 +131,7 @@ class Comparator extends React.Component {
 	}
 
 	getOperatorSchema = getPartSchema.bind(this, this.props.schema, 'operator');
+
 	getValueSchema = getPartSchema.bind(this, this.props.schema, 'value');
 
 	getFormattedOperators() {

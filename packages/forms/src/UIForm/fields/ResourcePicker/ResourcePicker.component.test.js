@@ -80,9 +80,9 @@ describe('ResourcePicker field', () => {
 	it('should render simple select', done => {
 		const wrapper = mount(
 			<ResourcePicker
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn(
@@ -105,9 +105,9 @@ describe('ResourcePicker field', () => {
 	it('should render simple select with wanted sort and filter', done => {
 		const wrapper = mount(
 			<ResourcePicker
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn(
