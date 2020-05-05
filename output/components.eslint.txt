@@ -15,7 +15,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:10  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/RecordsViewer/Branch/RecordsViewerBranch.component.js
-  91:5  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  88:5  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/Text/index.js
   3:10  error  Prefer default export  import/prefer-default-export
@@ -27,10 +27,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   186:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
-  78:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
-  79:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
-  81:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
-  82:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
+  80:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
+  81:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
+  83:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
+  84:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
   281:43  error  'footerActions' is already declared in the upper scope  no-shadow
