@@ -22,11 +22,11 @@ describe('getDefaultIcon', () => {
 	});
 	it('should return an opened icon', () => {
 		const myIcon = getDefaultIcon({ opened: true });
-		expect(myIcon).toEqual({ name: 'talend-caret-down', transform: null });
+		expect(myIcon).toEqual({ name: 'talend-caret-down' });
 	});
 	it('should return a closed icon', () => {
 		const myIcon = getDefaultIcon({ opened: false });
-		expect(myIcon).toEqual({ name: 'talend-chevron-left', transform: 'rotate-180' });
+		expect(myIcon).toEqual({ name: 'talend-chevron-left' });
 	});
 });
 
