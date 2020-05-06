@@ -1,5 +1,5 @@
 $tc-headerbar-logo-width: 6rem !default;
-$tc-headerbar-logo-full-width: 8.5rem !default;
+$tc-headerbar-logo-full-width: 9rem !default;
 $background-color-on-hover: shade($brand-primary, 30);
 
 @keyframes fadeIn {
@@ -86,11 +86,11 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 
 			&.full {
-				width: auto;
+				width: $tc-headerbar-logo-full-width;
 
 				:global(.tc-svg-icon) {
-					padding: 0 $padding-normal;
-					width: $tc-headerbar-logo-full-width;
+					height: 1.2rem;
+					width: 6rem;
 				}
 			}
 		}
