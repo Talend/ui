@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-autofocus */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
@@ -92,6 +94,11 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
+			schema: PropTypes.shape({
+				type: PropTypes.string,
+				uniqueItems: PropTypes.bool,
+			}),
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({

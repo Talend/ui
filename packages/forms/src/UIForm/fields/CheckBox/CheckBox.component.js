@@ -43,7 +43,10 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			className: PropTypes.string,
 			description: PropTypes.string,
+			disabled: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 		}),
 		value: PropTypes.bool,

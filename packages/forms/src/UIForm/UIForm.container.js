@@ -77,7 +77,7 @@ export default class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			initialState: addErrorObject(this.props.data),
+			initialState: addErrorObject(this.props.data), // eslint-disable-line react/no-unused-state
 			liveState: addErrorObject(this.props.data),
 		};
 		this.onChange = this.onChange.bind(this);
@@ -97,7 +97,7 @@ export default class UIForm extends React.Component {
 		}
 		if (nextProps.initialData !== this.props.initialData) {
 			this.setState({
-				initialState: addErrorObject(nextProps.initialData),
+				initialState: addErrorObject(nextProps.initialData), // eslint-disable-line react/no-unused-state
 				liveState: addErrorObject(nextProps.initialData),
 			});
 		}

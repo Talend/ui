@@ -1038,7 +1038,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
 		schema: PropTypes.object,
-		t: PropTypes.func.isRequired,
+		t: PropTypes.func,
 		value: PropTypes.arrayOf(
 			PropTypes.shape({
 				id: PropTypes.string,

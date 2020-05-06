@@ -10,7 +10,7 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "build-storybook",
-    "lint:es": "talend-scripts lint:es",
+    "lint:es": "talend-scripts lint:es --ignore-pattern deprecated",
     "lint:style": "sass-lint -v -q",
     "start": "start-storybook -p 6008"
   },

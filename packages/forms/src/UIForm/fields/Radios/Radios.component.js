@@ -1,4 +1,5 @@
-/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
@@ -72,6 +73,7 @@ if (process.env.NODE_ENV !== 'production') {
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			inline: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({

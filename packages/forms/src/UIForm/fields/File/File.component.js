@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-autofocus */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
@@ -204,6 +206,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
+		required: PropTypes.bool,
 		schema: PropTypes.shape({
 			accept: PropTypes.string,
 			autoFocus: PropTypes.bool,
@@ -211,6 +214,7 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 			type: PropTypes.string,
 			triggers: PropTypes.arrayOf(PropTypes.object),

@@ -284,12 +284,14 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
+		required: PropTypes.bool,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(

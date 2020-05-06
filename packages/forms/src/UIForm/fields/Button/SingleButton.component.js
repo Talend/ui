@@ -21,8 +21,6 @@ export default class SingleButton extends React.Component {
 				.finally(() => this.setState({ inProgress: false }));
 		} else if (this.props.onClick) {
 			this.props.onClick(event, schema);
-		} else {
-			this.setState({ error: 'No handler' });
 		}
 	}
 
@@ -55,8 +53,9 @@ if (process.env.NODE_ENV !== 'production') {
 			bsStyle: PropTypes.string,
 			disabled: PropTypes.bool,
 			inProgress: PropTypes.bool,
-			name: PropTypes.string,
 			label: PropTypes.string,
+			name: PropTypes.string,
+			title: PropTypes.string,
 			triggers: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])),
 			type: PropTypes.oneOf(['button', 'submit', 'reset']),
 		}),

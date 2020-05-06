@@ -210,6 +210,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
 		}),
+		value: PropTypes.object,
 	};
 
 	OperatorListElement.propTypes = {
