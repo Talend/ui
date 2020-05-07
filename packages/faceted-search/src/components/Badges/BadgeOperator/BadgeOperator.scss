@@ -13,14 +13,16 @@ $circle-size-small: 1.8rem !default;
 	align-items: center;
 	background: white;
 	border-radius: 10rem;
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 	margin: 0 $padding-smaller 0 $padding-smaller;
 
 	&-button {
 		padding: 0;
+		display: inline-flex;
 		> button:hover,
 		> button {
+			padding: 0;
 			text-decoration: none;
 			text-transform: none;
 		}
