@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
 import get from 'lodash/get';
 import Widget from '../../Widget';
+import { generateDescriptionId } from '../../Message/generateId';
 
 import theme from './CollapsibleFieldset.scss';
 
@@ -83,6 +84,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			...action,
 			displayMode: TYPE_ACTION,
 		}));
+		const descriptionId = generateDescriptionId(id);
 
 		return (
 			<fieldset
@@ -94,6 +96,11 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					onToggle={toggle}
 					expanded={!value.isClosed}
 				>
+					<div>
+						<p key="description" className="help-block" id={descriptionId}>
+							{schema.description ? schema.description : ''}
+						</p>
+					</div>
 					{items.map((itemSchema, index) => (
 						<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
 					))}
