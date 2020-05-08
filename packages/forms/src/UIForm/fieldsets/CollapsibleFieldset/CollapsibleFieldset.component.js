@@ -84,7 +84,6 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			...action,
 			displayMode: TYPE_ACTION,
 		}));
-		const descriptionId = generateDescriptionId(id);
 
 		return (
 			<fieldset
@@ -96,11 +95,15 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					onToggle={toggle}
 					expanded={!value.isClosed}
 				>
-					<div>
-						<p key="description" className="help-block" id={descriptionId}>
-							{schema.description ? schema.description : ''}
-						</p>
-					</div>
+					{schema.description ? (
+						<div>
+							<p key="description" className="help-block" id={generateDescriptionId(id)}>
+								{schema.description}
+							</p>
+						</div>
+					) : (
+						''
+					)}
 					{items.map((itemSchema, index) => (
 						<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
 					))}
