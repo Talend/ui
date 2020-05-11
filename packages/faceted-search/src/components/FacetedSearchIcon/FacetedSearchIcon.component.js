@@ -11,7 +11,7 @@ import { I18N_DOMAIN_FACETED_SEARCH, USAGE_TRACKING_TAGS } from '../../constants
 const theme = getTheme(facetedSearchIconTheme);
 
 // eslint-disable-next-line import/prefer-default-export
-export function FacetedSearchIcon({ active, loading, onClick }) {
+export function FacetedSearchIcon({ active, tick, loading, onClick }) {
 	const { t } = useTranslation(I18N_DOMAIN_FACETED_SEARCH);
 	const dataFeature = active ? USAGE_TRACKING_TAGS.COLLAPSE : USAGE_TRACKING_TAGS.EXPAND;
 
@@ -22,6 +22,7 @@ export function FacetedSearchIcon({ active, loading, onClick }) {
 	return (
 		<ActionIconToggle
 			active={active}
+			tick={tick}
 			className={theme('faceted-search-icon')}
 			icon="talend-filter"
 			label={t('SHOW_FACETED_SEARCH', {
@@ -36,6 +37,7 @@ export function FacetedSearchIcon({ active, loading, onClick }) {
 
 FacetedSearchIcon.propTypes = {
 	active: PropTypes.bool,
+	tick: PropTypes.bool,
 	onClick: PropTypes.func.isRequired,
 	loading: PropTypes.bool,
 };
