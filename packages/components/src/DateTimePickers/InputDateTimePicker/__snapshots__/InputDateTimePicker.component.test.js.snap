@@ -17,7 +17,6 @@ exports[`InputDateTimePicker should render 1`] = `
     <DateTime.Manager
       dateFormat="YYYY-MM-DD"
       id="my-picker"
-      required={true}
       useSeconds={true}
       useUTC={false}
       value={2017-04-04T13:27:00.000Z}

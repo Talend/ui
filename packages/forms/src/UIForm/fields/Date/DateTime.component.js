@@ -71,7 +71,6 @@ export default function DateTimeWidget(props) {
 				useUTC={options.useUTC}
 				timezone={options.timezone}
 				value={convertedValue}
-				required={!!schema.required}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
 				aria-required={!!schema.required}
