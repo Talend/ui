@@ -17,6 +17,14 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
     id="my-fieldset"
     onToggle={[Function]}
   >
+    <div>
+      <p
+        className="help-block"
+        id="my-fieldset-description"
+      >
+        This is description
+      </p>
+    </div>
     <Widget
       id="my-fieldset"
       schema={
@@ -50,7 +58,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
           "schema": Object {
             "type": "string",
           },
-          "title": "FirstName",
+          "title": "LastName",
           "type": "string",
         }
       }
@@ -84,6 +92,14 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
     id="my-fieldset"
     onToggle={[Function]}
   >
+    <div>
+      <p
+        className="help-block"
+        id="my-fieldset-description"
+      >
+        This is description
+      </p>
+    </div>
     <Widget
       id="my-fieldset"
       schema={
@@ -117,7 +133,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
           "schema": Object {
             "type": "string",
           },
-          "title": "FirstName",
+          "title": "LastName",
           "type": "string",
         }
       }
@@ -151,6 +167,14 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
     id="my-fieldset"
     onToggle={[Function]}
   >
+    <div>
+      <p
+        className="help-block"
+        id="my-fieldset-description"
+      >
+        This is description
+      </p>
+    </div>
     <Widget
       id="my-fieldset"
       schema={
@@ -184,7 +208,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
           "schema": Object {
             "type": "string",
           },
-          "title": "FirstName",
+          "title": "LastName",
           "type": "string",
         }
       }
@@ -218,6 +242,14 @@ exports[`CollapsibleFieldset should render without value 1`] = `
     id="my-fieldset"
     onToggle={[Function]}
   >
+    <div>
+      <p
+        className="help-block"
+        id="my-fieldset-description"
+      >
+        This is description
+      </p>
+    </div>
     <Widget
       id="my-fieldset"
       schema={
@@ -249,7 +281,7 @@ exports[`CollapsibleFieldset should render without value 1`] = `
           "schema": Object {
             "type": "string",
           },
-          "title": "FirstName",
+          "title": "LastName",
           "type": "string",
         }
       }
