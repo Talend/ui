@@ -10,7 +10,17 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionIconToggle.scss';
 
 function ActionIconToggle(props) {
-	const { active, tick, className, icon, iconTransform, id, label, tooltipPlacement, ...rest } = props;
+	const {
+		active,
+		tick,
+		className,
+		icon,
+		iconTransform,
+		id,
+		label,
+		tooltipPlacement,
+		...rest
+	} = props;
 
 	const cn = classNames(className, 'tc-icon-toggle', theme['tc-icon-toggle'], {
 		[theme.active]: active,
