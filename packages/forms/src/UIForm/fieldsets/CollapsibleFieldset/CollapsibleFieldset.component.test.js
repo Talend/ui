@@ -108,10 +108,7 @@ describe('CollapsibleFieldset', () => {
 			/>,
 		);
 		// when
-		wrapper
-			.find(CollapsiblePanel)
-			.getElement()
-			.props.onToggle(event);
+		wrapper.find(CollapsiblePanel).getElement().props.onToggle(event);
 
 		// then
 		expect(event.stopPropagation).toBeCalled();
@@ -136,10 +133,7 @@ describe('CollapsibleFieldset', () => {
 				actions={actions}
 			/>,
 		);
-		const header = wrapper
-			.find(CollapsiblePanel)
-			.dive()
-			.getElement().props.header;
+		const header = wrapper.find(CollapsiblePanel).dive().getElement().props.header;
 		expect(header.length).toBe(2);
 		expect(header[1].length).toBe(2);
 		expect(header[1][0].id).toBe('action1');
