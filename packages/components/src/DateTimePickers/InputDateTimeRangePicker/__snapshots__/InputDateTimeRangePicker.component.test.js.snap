@@ -47,6 +47,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
               dateFormat="YYYY-MM-DD"
               id="my-picker-start"
               onChange={[Function]}
+              required={true}
               useSeconds={true}
               useUTC={false}
               value="2019-12-01 00:00:00"
@@ -393,6 +394,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
               dateFormat="YYYY-MM-DD"
               id="my-picker-end"
               onChange={[Function]}
+              required={true}
               useSeconds={true}
               useUTC={false}
               value="2019-12-11 23:59:59"
@@ -783,6 +785,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
               }
               id="my-picker-start"
               onChange={[Function]}
+              required={true}
               useSeconds={false}
               useUTC={false}
             >
@@ -1161,6 +1164,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
               }
               id="my-picker-end"
               onChange={[Function]}
+              required={true}
               useSeconds={false}
               useUTC={false}
             >

@@ -19,6 +19,7 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
     id="talend-date-time"
     onBlur={[Function]}
     onChange={[Function]}
+    required={true}
   />
 </FieldTemplate>
 `;

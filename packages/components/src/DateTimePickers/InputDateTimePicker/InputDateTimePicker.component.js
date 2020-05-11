@@ -26,6 +26,7 @@ function InputDateTimePicker(props) {
 			timezone={props.timezone}
 			onChange={props.onChange}
 			defaultTimeValue={props.defaultTimeValue}
+			required={props.required}
 		>
 			<DateTimeContext.Consumer>
 				{({ date, time, onDateChange, onTimeChange }) => (
@@ -77,6 +78,7 @@ InputDateTimePicker.propTypes = {
 	}),
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	required: PropTypes.bool,
 };
 
 InputDateTimePicker.defaultProps = {
