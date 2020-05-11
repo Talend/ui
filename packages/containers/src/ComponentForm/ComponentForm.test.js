@@ -255,13 +255,13 @@ describe('ComponentForm', () => {
 			const dispatch = jest.fn();
 			const oldUrl = 'http://old';
 			const newUrl = 'http://new';
-			const properties = { properties: { name: 'old' } };
+			const componentState = { properties: { name: 'old' } };
 
 			// when
 			const wrapper = shallow(
 				<TCompForm state={state} definitionURL={oldUrl} dispatch={dispatch} />,
 			);
-			wrapper.setState(properties);
+			wrapper.setState(componentState);
 			wrapper.setProps({ definitionURL: newUrl });
 
 			// then
@@ -270,7 +270,7 @@ describe('ComponentForm', () => {
 				dispatch,
 				state,
 				type: TCompForm.ON_DEFINITION_URL_CHANGED,
-				...properties,
+				...componentState,
 			});
 		});
 	});
