@@ -1,7 +1,14 @@
 .tc-tree-branch-icon {
 	&-caret {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translate(-150%, -50%);
 		height: $svg-sm-size;
 		width: $svg-sm-size;
+		&-right {
+			transform: translate(-150%, -50%) rotate(180deg);
+		}
 	}
 	:global(.tc-svg-anchor) {
 		background: transparent;

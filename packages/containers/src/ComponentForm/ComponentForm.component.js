@@ -105,6 +105,7 @@ export class TCompForm extends React.Component {
 			this.props.dispatch({
 				type: TCompForm.ON_DEFINITION_URL_CHANGED,
 				...this.props,
+				properties: this.state.properties,
 			});
 		}
 	}

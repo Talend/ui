@@ -14,9 +14,8 @@ RUN ----------------------------------------------------------------------------
   108:3  error  defaultProp "copyright" has no corresponding propTypes declaration  react/default-props-match-prop-types
   112:3  error  defaultProp "t" defined for isRequired propType                     react/default-props-match-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/AboutDialog/AboutModal.stories.js
-  2:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-  3:1  error  '@storybook/addon-actions' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/RecordsViewer/Branch/RecordsViewerBranch.component.js
+  88:5  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
    28:27  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
@@ -317,10 +316,10 @@ RUN ----------------------------------------------------------------------------
   49:5  warning  React Hook useEffect has missing dependencies: 'options', 'state.endDate.value', and 'state.startDate.value'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
-  78:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
-  79:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
-  81:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
-  82:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
+  80:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
+  81:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
+  83:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
+  84:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
    93:31  error  Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread

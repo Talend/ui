@@ -29,6 +29,8 @@ export default function DateTimeWidget(props) {
 		let result = datetime;
 		if (!nextErrorMessage && datetime) {
 			result = convertDate(datetime, textInput, props.schema.schema);
+		} else if (!nextErrorMessage && datetime === null) {
+			result = '';
 		}
 
 		const payload = {
@@ -54,7 +56,7 @@ export default function DateTimeWidget(props) {
 			id={id}
 			isValid={isValid}
 			label={schema.title}
-			required={schema.required}
+			required={!!schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
 			<InputDateTimePicker
@@ -71,7 +73,7 @@ export default function DateTimeWidget(props) {
 				value={convertedValue}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
-				aria-required={schema.required}
+				aria-required={!!schema.required}
 				aria-describedby={`${descriptionId} ${errorId}`}
 			/>
 		</FieldTemplate>

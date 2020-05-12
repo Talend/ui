@@ -41,3 +41,5 @@ jspm_packages
 *.map
 /docs/jsdoc
 /docs/storybook
+
+i18n-extract

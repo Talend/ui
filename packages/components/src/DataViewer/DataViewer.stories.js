@@ -14,6 +14,7 @@ import theme from './theme.scss';
 
 const icons = {
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
+	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-minus-circle': talendIcons['talend-minus-circle'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 };

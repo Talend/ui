@@ -84,7 +84,7 @@ function timeToSeconds(hours, minutes, seconds) {
  */
 function dateAndTimeToDateTime(date, time, options) {
 	if (isEmpty(date) && isEmpty(time)) {
-		throw new DateTimePickerException('INVALID_DATETIME_EMPTY', 'INVALID_DATETIME_EMPTY');
+		return null;
 	} else if (isEmpty(date)) {
 		throw new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
 	} else if (isEmpty(time)) {
