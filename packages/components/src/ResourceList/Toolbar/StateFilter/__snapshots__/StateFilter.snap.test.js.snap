@@ -15,6 +15,7 @@ exports[`StateFilter component snaps should render in default mode 1`] = `
     icon="talend-check-circle"
     label="Selected"
     onClick={[Function]}
+    tick={false}
     tooltipPlacement="top"
   />
   <ActionIconToggle
@@ -23,6 +24,7 @@ exports[`StateFilter component snaps should render in default mode 1`] = `
     icon="talend-badge"
     label="Certified"
     onClick={[Function]}
+    tick={false}
     tooltipPlacement="top"
   />
   <ActionIconToggle
@@ -31,6 +33,7 @@ exports[`StateFilter component snaps should render in default mode 1`] = `
     icon="talend-star"
     label="Favorites"
     onClick={[Function]}
+    tick={false}
     tooltipPlacement="top"
   />
 </div>
@@ -51,6 +54,7 @@ exports[`StateFilter component snaps should render with only certified 1`] = `
     icon="talend-badge"
     label="Certified"
     onClick={[Function]}
+    tick={false}
     tooltipPlacement="top"
   />
 </div>
@@ -71,6 +75,7 @@ exports[`StateFilter component snaps should render with only favorites 1`] = `
     icon="talend-star"
     label="Favorites"
     onClick={[Function]}
+    tick={false}
     tooltipPlacement="top"
   />
 </div>
@@ -91,6 +96,7 @@ exports[`StateFilter component snaps should render with states to set to true 1`
     icon="talend-check-circle"
     label="Selected"
     onClick={[Function]}
+    tick={false}
     tooltipPlacement="top"
   />
   <ActionIconToggle
@@ -99,6 +105,7 @@ exports[`StateFilter component snaps should render with states to set to true 1`
     icon="talend-badge"
     label="Certified"
     onClick={[Function]}
+    tick={false}
     tooltipPlacement="top"
   />
   <ActionIconToggle
@@ -107,6 +114,7 @@ exports[`StateFilter component snaps should render with states to set to true 1`
     icon="talend-star"
     label="Favorites"
     onClick={[Function]}
+    tick={false}
     tooltipPlacement="top"
   />
 </div>

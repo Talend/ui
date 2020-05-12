@@ -1,6 +1,8 @@
 $tc-icon-toggle-size: 2.4rem !default;
 $tc-icon-toggle-icon-size: $svg-sm-size !default;
 $tc-icon-toggle-border: 1px solid $gray;
+$tc-icon-toggle-tick-size: 12px !default;
+$tc-icon-toggle-tick-border: 1px solid $white;
 
 @mixin tc-icon-toggle($btn-size: $tc-icon-toggle-size, $icon-size: $tc-icon-toggle-icon-size) {
 	height: $btn-size;
@@ -19,7 +21,7 @@ $tc-icon-toggle-border: 1px solid $gray;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
+	position: relative;
 	background-color: transparent;
 
 	box-shadow: none;
@@ -67,5 +69,17 @@ $tc-icon-toggle-border: 1px solid $gray;
 			background-color: $scooter;
 			border-color: $scooter;
 		}
+	}
+
+	&.tick:after {
+		content: '';
+		position: absolute;
+		width: $tc-icon-toggle-tick-size;
+		height: $tc-icon-toggle-tick-size;
+		border-radius: $tc-icon-toggle-tick-size / 2;
+		right: -0.4rem;
+		top: -0.4rem;
+		background: $scooter;
+		border: $tc-icon-toggle-tick-border;
 	}
 }

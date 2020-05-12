@@ -10,11 +10,23 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionIconToggle.scss';
 
 function ActionIconToggle(props) {
-	const { active, className, icon, iconTransform, id, label, tooltipPlacement, ...rest } = props;
+	const {
+		active,
+		tick,
+		className,
+		icon,
+		iconTransform,
+		id,
+		label,
+		tooltipPlacement,
+		...rest
+	} = props;
 
 	const cn = classNames(className, 'tc-icon-toggle', theme['tc-icon-toggle'], {
 		[theme.active]: active,
 		active,
+		[theme.tick]: tick,
+		tick,
 	});
 
 	return (
@@ -35,6 +47,7 @@ function ActionIconToggle(props) {
 
 ActionIconToggle.propTypes = {
 	active: PropTypes.bool,
+	tick: PropTypes.bool,
 	className: PropTypes.string,
 	icon: PropTypes.string.isRequired,
 	iconTransform: PropTypes.string,
@@ -46,6 +59,7 @@ ActionIconToggle.propTypes = {
 
 ActionIconToggle.defaultProps = {
 	active: false,
+	tick: false,
 	tooltipPlacement: 'top',
 };
 
