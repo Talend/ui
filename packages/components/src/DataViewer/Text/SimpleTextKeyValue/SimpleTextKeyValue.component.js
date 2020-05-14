@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isNull from 'lodash/isNull';
+import get from 'lodash/get';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
 import theme from './SimpleTextKeyValue.scss';
 
@@ -126,7 +127,7 @@ const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
 		>
 			{!isNull(formattedKey) && (
 				<span className={classNames(theme['tc-simple-text-key'], 'tc-simple-text-key')}>
-					{formattedKey}
+					{get(schema, 'talend.component.label', formattedKey)}
 					{separator}
 					{displayTypes && schema && value && (
 						<span className={classNames(theme['tc-simple-text-type'], 'tc-simple-text-type')}>

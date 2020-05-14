@@ -15,6 +15,20 @@ describe('SimpleTextKeyValue', () => {
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should render the key by the talend.component.label property', () => {
+		const wrapper = shallow(
+			<SimpleTextKeyValue
+				className="myCLass"
+				formattedKey="non readable value"
+				schema={{ 'talend.component.label': 'readable value' }}
+				value="myValue"
+				separator=" : "
+				style={{ padding: 0 }}
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 	it('should render the value by the datagrid avroRenderer', () => {
 		const schema = {
 			type: {
