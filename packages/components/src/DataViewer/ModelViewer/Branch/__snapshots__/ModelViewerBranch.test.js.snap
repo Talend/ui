@@ -25,6 +25,7 @@ exports[`ModelViewerBranch render ModelViewerBranch 1`] = `
       formattedKey="myValueValue"
       formattedValue="myKeyValue"
       separator=" "
+      typesRenderer={[Function]}
     />
   </span>
 </div>
@@ -55,6 +56,7 @@ exports[`ModelViewerBranch render ModelViewerBranch as a union 1`] = `
       formattedKey="myValueValue"
       formattedValue="({...})"
       separator=" "
+      typesRenderer={[Function]}
     />
   </span>
 </div>
