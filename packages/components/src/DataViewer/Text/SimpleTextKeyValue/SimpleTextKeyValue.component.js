@@ -113,11 +113,21 @@ const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
 		style,
 		value,
 		displayTypes,
+		typesRenderer,
 		isValueOverflown,
 		isLongValueToggled,
 	},
 	ref,
 ) {
+	let types;
+	if (displayTypes && schema && value) {
+		types = (
+			<span className={classNames(theme['tc-simple-text-type'], 'tc-simple-text-type')}>
+				{typesRenderer ? typesRenderer(schema) : `- ${schema.type.type}`}
+			</span>
+		);
+	}
+
 	return (
 		<span
 			ref={ref}
@@ -128,11 +138,7 @@ const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
 				<span className={classNames(theme['tc-simple-text-key'], 'tc-simple-text-key')}>
 					{formattedKey}
 					{separator}
-					{displayTypes && schema && value && (
-						<span className={classNames(theme['tc-simple-text-type'], 'tc-simple-text-type')}>
-							- {schema.type.type || value.unionKey}
-						</span>
-					)}
+					{types}
 				</span>
 			)}
 			{!schema && value && (
@@ -167,6 +173,7 @@ SimpleTextKeyValue.propTypes = {
 	separator: PropTypes.string,
 	style: PropTypes.object,
 	displayTypes: PropTypes.bool,
+	typesRenderer: PropTypes.func,
 	isValueOverflown: PropTypes.bool,
 	isLongValueToggled: PropTypes.bool,
 };
