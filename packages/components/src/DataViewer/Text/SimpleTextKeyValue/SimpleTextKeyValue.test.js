@@ -49,4 +49,45 @@ describe('SimpleTextKeyValue', () => {
 		const wrapper = shallow(<SimpleTextKeyValue value="myValue" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+	it('should render the type', () => {
+		const schema = {
+			type: {
+				type: 'int',
+			},
+		};
+		const data = {
+			value: '',
+		};
+		const wrapper = shallow(
+			<SimpleTextKeyValue
+				className="myCLass"
+				formattedKey="myKey"
+				value={data}
+				schema={schema}
+				displayTypes
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render the type with a custom render', () => {
+		const schema = {
+			type: {
+				type: 'int',
+			},
+		};
+		const data = {
+			value: '',
+		};
+		const wrapper = shallow(
+			<SimpleTextKeyValue
+				className="myCLass"
+				formattedKey="myKey"
+				value={data}
+				schema={schema}
+				displayTypes
+				typesRenderer={s => <span>And the type is {s.type.type}</span>}
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 });

@@ -91,6 +91,18 @@ stories
 				</div>
 			</Provider>
 		);
+	})
+	.add('DataTree with type display on records', () => {
+		return (
+			<div style={{ height: '100%' }}>
+				<RecordsViewer
+					componentId="RecordsViewer"
+					sample={hierarchicSample}
+					displayTypes
+					typesRenderer={schema => <>- of type {schema.type[0].type}</>}
+				/>
+			</div>
+		);
 	});
 
 /**

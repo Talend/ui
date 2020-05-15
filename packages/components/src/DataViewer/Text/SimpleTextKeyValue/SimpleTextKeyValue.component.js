@@ -123,7 +123,7 @@ const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
 	if (displayTypes && schema && value) {
 		types = (
 			<span className={classNames(theme['tc-simple-text-type'], 'tc-simple-text-type')}>
-				{typesRenderer ? typesRenderer(schema) : `- ${schema.type.type}`}
+				{typesRenderer(schema)}
 			</span>
 		);
 	}
@@ -180,6 +180,7 @@ SimpleTextKeyValue.propTypes = {
 
 SimpleTextKeyValue.defaultProps = {
 	displayTypes: false,
+	typesRenderer: schema => `- ${schema.type.type}`,
 };
 
 export default SimpleTextKeyValue;
