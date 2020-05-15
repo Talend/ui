@@ -67,7 +67,7 @@ describe('SimpleTextKeyValue', () => {
 				displayTypes
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('.tc-simple-text-type').text()).toBe('- int');
 	});
 	it('should render the type with a custom render', () => {
 		const schema = {
