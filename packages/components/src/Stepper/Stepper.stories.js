@@ -71,7 +71,11 @@ stories
 			},
 			{ label: 'Flattening', status: LOADING_STEP_STATUSES.ABORTED },
 		];
-		return <Stepper steps={steps} title={title} renderActions={renderActions} >Steppers finished</Stepper>;
+		return (
+			<Stepper steps={steps} title={title} renderActions={renderActions}>
+				Steppers finished
+			</Stepper>
+		);
 	})
 	.add('Stepper without steps', () => (
 		<Stepper title={title} renderActions={renderActions}>
