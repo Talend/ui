@@ -70,7 +70,7 @@ describe('Stepper Component', () => {
 				</Stepper>,
 			);
 			// then
-			expect(renderActions).toHaveBeenCalledWith(true);
+			expect(renderActions).toHaveBeenCalledWith(false);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 	});

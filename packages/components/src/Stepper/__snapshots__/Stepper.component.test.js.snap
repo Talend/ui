@@ -14,7 +14,7 @@ exports[`Stepper Component render should render when there is an aborted in the 
       className="stepper theme-stepper"
     >
       <div
-        className="loading-content-steps theme-loading-content-steps stepper-content-error theme-stepper-content-error"
+        className="loading-content-steps theme-loading-content-steps"
       >
         <h2>
           Test
