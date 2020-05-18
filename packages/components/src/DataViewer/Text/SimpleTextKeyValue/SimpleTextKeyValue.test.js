@@ -88,6 +88,6 @@ describe('SimpleTextKeyValue', () => {
 				typesRenderer={s => <span>And the type is {s.type.type}</span>}
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('.tc-simple-text-type').text()).toBe('And the type is int');
 	});
 });
