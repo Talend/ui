@@ -62,6 +62,17 @@ stories
 		];
 		return <Stepper steps={steps} title={title} renderActions={renderActions} />;
 	})
+	.add('Stepper with aborted step', () => {
+		const steps = [
+			{
+				label: 'Fetch Sample',
+				status: LOADING_STEP_STATUSES.SUCCESS,
+				message: { label: 'Everything is fine 🔥🐶' },
+			},
+			{ label: 'Flattening', status: LOADING_STEP_STATUSES.ABORTED },
+		];
+		return <Stepper steps={steps} title={title} renderActions={renderActions} />;
+	})
 	.add('Stepper without steps', () => (
 		<Stepper title={title} renderActions={renderActions}>
 			<p>No step to display here, it means content is already loaded.</p>

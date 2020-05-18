@@ -50,5 +50,28 @@ describe('Stepper Component', () => {
 			expect(renderActions).toHaveBeenCalledWith(true);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
+
+		it('should render when there is an aborted in the steps', () => {
+			// given
+			const title = 'Test';
+			const steps = [
+				{
+					label: 'Fetch Sample',
+					status: LOADING_STEP_STATUSES.SUCCESS,
+				},
+				{ label: 'Flattening', status: LOADING_STEP_STATUSES.ABORTED },
+				{ label: 'Column Quality', status: LOADING_STEP_STATUSES.ABORTED },
+			];
+			const renderActions = jest.fn();
+			// when
+			const wrapper = shallow(
+				<Stepper steps={steps} title={title} renderActions={renderActions}>
+					Import successfull
+				</Stepper>,
+			);
+			// then
+			expect(renderActions).toHaveBeenCalledWith(true);
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
 	});
 });

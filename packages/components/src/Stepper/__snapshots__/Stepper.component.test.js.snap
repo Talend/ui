@@ -1,5 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Stepper Component render should render when there is an aborted in the steps 1`] = `
+<React.Fragment>
+  <StepperTransition
+    active={true}
+  >
+    Import successfull
+  </StepperTransition>
+  <StepperTransition
+    active={false}
+  >
+    <div
+      className="stepper theme-stepper"
+    >
+      <div
+        className="loading-content-steps theme-loading-content-steps stepper-content-error theme-stepper-content-error"
+      >
+        <h2>
+          Test
+        </h2>
+        <ol
+          className="stepper-steps theme-stepper-steps"
+        >
+          <li
+            className="stepper-step theme-stepper-step stepper-step-success theme-stepper-step-success"
+          >
+            <div
+              className="stepper-step-infos theme-stepper-step-infos"
+            >
+              <Icon
+                className="stepper-icon-success theme-stepper-icon-success stepper-icon theme-stepper-icon"
+                name="talend-check"
+              />
+              Fetch Sample
+            </div>
+          </li>
+          <li
+            className="stepper-step theme-stepper-step stepper-step-aborted theme-stepper-step-aborted"
+          >
+            <div
+              className="stepper-step-infos theme-stepper-step-infos"
+            >
+              <Icon
+                className="stepper-icon-aborted theme-stepper-icon-aborted stepper-icon theme-stepper-icon"
+                name="talend-cross"
+              />
+              Flattening
+               (Aborted)
+            </div>
+          </li>
+          <li
+            className="stepper-step theme-stepper-step stepper-step-aborted theme-stepper-step-aborted"
+          >
+            <div
+              className="stepper-step-infos theme-stepper-step-infos"
+            >
+              <Icon
+                className="stepper-icon-aborted theme-stepper-icon-aborted stepper-icon theme-stepper-icon"
+                name="talend-cross"
+              />
+              Column Quality
+               (Aborted)
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </StepperTransition>
+</React.Fragment>
+`;
+
 exports[`Stepper Component render should render when there is an errors in the steps 1`] = `
 <React.Fragment>
   <StepperTransition

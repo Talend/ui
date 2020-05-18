@@ -25,6 +25,8 @@ export const LOADING_STEP_STATUSES = {
 	FAILURE: 'failure',
 };
 
+const isStepAborted = steps => steps.some(step => step.status === LOADING_STEP_STATUSES.ABORTED);
+
 /**
  * This function tells if there is an error in the steps
  * @param {array} steps array of steps
@@ -44,7 +46,7 @@ export const isAllSuccessful = steps =>
  * @param {array} steps array of steps
  */
 export const isStepsLoading = steps =>
-	steps.length !== 0 && !isAllSuccessful(steps) && !isErrorInSteps(steps);
+	steps.length !== 0 && !isAllSuccessful(steps) && !isErrorInSteps(steps) && !isStepAborted(steps);
 
 /**
  * This function returns a label for some status
@@ -149,6 +151,7 @@ const transitionEmptyToLoading = transition(TRANSITION_STATE.STEPS, DEFAULT_TRAN
 
 function Stepper({ steps, title, renderActions, children }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const stepAborted = isStepAborted(steps);
 	const isInError = isErrorInSteps(steps);
 	const [transitionState, setTransitionState] = useState(
 		isStepsLoading(steps) || !children ? TRANSITION_STATE.STEPS : TRANSITION_STATE.CHILD,
@@ -179,15 +182,15 @@ function Stepper({ steps, title, renderActions, children }) {
 				<div className={getClass('stepper')}>
 					<div
 						className={getClass('loading-content-steps', {
-							'stepper-content-error': isInError,
+							'stepper-content-error': isInError || stepAborted,
 						})}
 					>
 						{title && <h2>{title}</h2>}
 						<ol className={getClass('stepper-steps')}>
 							{steps.map((step, index, array) => showStep(t, step, index, array))}
 						</ol>
-						{renderActions && renderActions(isInError) ? (
-							<div>{renderActions(isInError)}</div>
+						{renderActions && renderActions(isInError || stepAborted) ? (
+							<div>{renderActions(isInError || stepAborted)}</div>
 						) : null}
 					</div>
 				</div>
