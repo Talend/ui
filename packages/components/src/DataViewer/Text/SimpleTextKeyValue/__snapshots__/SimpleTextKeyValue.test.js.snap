@@ -49,39 +49,3 @@ exports[`SimpleTextKeyValue should render the key and the value 1`] = `
   </span>
 </span>
 `;
-
-exports[`SimpleTextKeyValue should render the type with a custom render 1`] = `
-<span
-  className="theme-tc-simple-text tc-simple-text myCLass"
->
-  <span
-    className="theme-tc-simple-text-key tc-simple-text-key"
-  >
-    myKey
-    <span
-      className="theme-tc-simple-text-type tc-simple-text-type"
-    >
-      <span>
-        And the type is 
-        int
-      </span>
-    </span>
-  </span>
-  <AvroRenderer
-    colDef={
-      Object {
-        "avro": Object {
-          "type": Object {
-            "type": "int",
-          },
-        },
-      }
-    }
-    data={
-      Object {
-        "value": "",
-      }
-    }
-  />
-</span>
-`;
