@@ -9,8 +9,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   7:24  error  'children' is missing in props validation  react/prop-types
   7:34  error  'onSubmit' is missing in props validation  react/prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/templates/FieldTemplate/FieldTemplate.test.js
-  2:10  error  'shallow' is defined but never used  no-unused-vars
-
-✖ 4 problems (4 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
