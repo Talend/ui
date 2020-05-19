@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import FieldTemplate from './FieldTemplate.component';
 
 describe('FieldTemplate', () => {
@@ -19,7 +20,7 @@ describe('FieldTemplate', () => {
 			</FieldTemplate>,
 		);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should hide description when there is an error message', () => {
