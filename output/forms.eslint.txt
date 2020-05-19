@@ -10,9 +10,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   7:34  error  'onSubmit' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/templates/FieldTemplate/FieldTemplate.test.js
-  1:8   error  'React' is defined but never used    no-unused-vars
   2:10  error  'shallow' is defined but never used  no-unused-vars
-  2:19  error  'mount' is defined but never used    no-unused-vars
 
-✖ 6 problems (6 errors, 0 warnings)
+✖ 4 problems (4 errors, 0 warnings)
 
