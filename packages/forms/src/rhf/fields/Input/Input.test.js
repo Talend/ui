@@ -1,18 +1,77 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { mount } from 'enzyme';
+import { useForm, FormContext } from 'react-hook-form/dist/react-hook-form.ie11';
+import Input from './RHFInput.component';
+
+function FormWrapper({ children, onSubmit }) {
+	const rhf = useForm();
+	return (
+		<form onSubmit={rhf.handleSubmit(onSubmit)}>
+			<FormContext {...rhf}>
+				{children}
+				<button type="submit" />
+			</FormContext>
+		</form>
+	);
+}
 
 describe('Input RHF widget', () => {
-	it('should integrate with RHF', () => {
+	it('should integrate with RHF', async () => {
 		// given
+		const onSubmit = jest.fn();
 		// when
+		const wrapper = mount(
+			<FormWrapper onSubmit={onSubmit}>
+				<Input type="text" id="name" name="name" label="name" defaultValue="12" />
+			</FormWrapper>,
+		);
 		// then
-		// Render a for, set a value in the input, submit, check that submitted value is ok
+		await act(async () => {
+			wrapper.find('form').simulate('submit');
+		});
+		expect(onSubmit.mock.calls[0][0]).toEqual({ name: '12' });
+
+		await act(async () => {
+			const input = wrapper.find('input').at(0);
+			input.getDOMNode().value = 'test';
+			input.getDOMNode().dispatchEvent(new Event('input'));
+			wrapper.find('form').simulate('submit');
+		});
+
+		expect(onSubmit.mock.calls[1][0]).toEqual({ name: 'test' });
 	});
 
-	it('should render RHF error', () => {
+	it('should render RHF error', async () => {
 		// given
+		const onSubmit = jest.fn();
 		// when
+		const wrapper = mount(
+			<FormWrapper onSubmit={onSubmit}>
+				<Input
+					type="text"
+					id="name"
+					name="name"
+					label="name"
+					defaultValue="12"
+					rules={{
+						validate(value) {
+							return value === '' ? 'This should not be empty' : null;
+						},
+					}}
+				/>
+			</FormWrapper>,
+		);
 		// then
-		// see if it's possible to render with error, or just set a mandatory input + submit
+		expect(wrapper.find('p[id="name-error"]').text()).toBe('');
+
+		await act(async () => {
+			const input = wrapper.find('input').at(0);
+			input.getDOMNode().value = '';
+			input.getDOMNode().dispatchEvent(new Event('input'));
+		});
+
+		expect(wrapper.html()).toBe('');
+		expect(wrapper.find('p[id="name-error"]').html()).toBe('');
 	});
 });
