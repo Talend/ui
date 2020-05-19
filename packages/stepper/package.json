@@ -76,6 +76,7 @@
     "react-transition-group": "^2.3.1",
     "rimraf": "^3.0.2",
     "sass-loader": "^7.3.1",
+    "@storybook/addon-info": "^5.3.1",
     "style-loader": "^0.23.0"
   },
   "peerDependencies": {
