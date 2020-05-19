@@ -5,7 +5,7 @@ import { useForm, FormContext } from 'react-hook-form/dist/react-hook-form.ie11'
 import Input from './RHFInput.component';
 
 function FormWrapper({ children, onSubmit }) {
-	const rhf = useForm();
+	const rhf = useForm({ mode: 'onChange' });
 	return (
 		<form onSubmit={rhf.handleSubmit(onSubmit)}>
 			<FormContext {...rhf}>
@@ -54,10 +54,9 @@ describe('Input RHF widget', () => {
 					name="name"
 					label="name"
 					defaultValue="12"
+					required
 					rules={{
-						validate(value) {
-							return value === '' ? 'This should not be empty' : null;
-						},
+						required: 'This should not be empty',
 					}}
 				/>
 			</FormWrapper>,
@@ -71,7 +70,6 @@ describe('Input RHF widget', () => {
 			input.getDOMNode().dispatchEvent(new Event('input'));
 		});
 
-		expect(wrapper.html()).toBe('');
-		expect(wrapper.find('p[id="name-error"]').html()).toBe('');
+		expect(wrapper.find('p[id="name-error"]').text()).toBe('This should not be empty');
 	});
 });
