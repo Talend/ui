@@ -27,7 +27,8 @@ describe('SimpleTextKeyValue', () => {
 				style={{ padding: 0 }}
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+
+		expect(wrapper.find('.tc-simple-text-key').text()).toBe('readable value : ');
 	});
 	it('should render the value by the datagrid avroRenderer', () => {
 		const schema = {

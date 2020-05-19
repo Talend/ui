@@ -49,31 +49,3 @@ exports[`SimpleTextKeyValue should render the key and the value 1`] = `
   </span>
 </span>
 `;
-
-exports[`SimpleTextKeyValue should render the key by the talend.component.label property 1`] = `
-<span
-  className="theme-tc-simple-text tc-simple-text myCLass"
-  style={
-    Object {
-      "padding": 0,
-    }
-  }
->
-  <span
-    className="theme-tc-simple-text-key tc-simple-text-key"
-  >
-    readable value
-     : 
-  </span>
-  <AvroRenderer
-    colDef={
-      Object {
-        "avro": Object {
-          "talend.component.label": "readable value",
-        },
-      }
-    }
-    data="myValue"
-  />
-</span>
-`;
