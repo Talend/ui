@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldTemplate should render the common widget markup 1`] = `"<div class=\\"form-group has-error\\"><label class=\\"control-label\\">Test</label><input name=\\"test\\"><div><p id=\\"test-description\\" class=\\"help-block sr-only\\">This is the description</p><p id=\\"test-error\\" class=\\"help-block\\" role=\\"status\\" aria-live=\\"assertive\\">This is the error</p></div></div>"`;
