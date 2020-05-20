@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint no-console: 0 */
 
-const REACT_VERSION = process.env.REACT_VERSION || '^16.8.6';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.13.1';
 console.log('REACT_VERSION: ', REACT_VERSION);
 const JEST_VERSION = '^24.7.1';
 
