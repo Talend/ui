@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js' && cpx -v \"./src/**/*.scss\" ./lib",
+    "prepare": "babel -d lib ./src/ --ignore 'src/**/*.test.js' --delete-dir-on-start && cpx -v \"./src/**/*.scss\" ./lib",
     "start": "start-storybook -p 6009",
     "test": "jest --silent",
     "test:noisy": "jest",
@@ -35,6 +35,7 @@
     "classnames": "^2.2.5",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
+    "core-js": "3",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
@@ -73,7 +74,6 @@
     "react-i18next": "^10.11.4",
     "react-redux": "^5.0.7",
     "react-transition-group": "^2.3.1",
-    "rimraf": "^3.0.2",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.0"
   },

@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js','src/**/*.stories.js' && cpx -v \"./src/**/*.scss\" ./lib",
+    "prepare": "babel -d lib ./src/ --ignore 'src/**/*.test.js','src/**/*.stories.js' --delete-dir-on-start && cpx -v \"./src/**/*.scss\" ./lib",
     "start": "start-storybook -p 6010",
     "test": "jest --silent",
     "test:noisy": "jest",
@@ -37,6 +37,7 @@
     "@ag-grid-community/react": "^22.1.2",
     "classnames": "^2.2.5",
     "keycode": "^2.2.0",
+    "core-js": "3",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
@@ -75,7 +76,6 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
-    "rimraf": "^3.0.2",
     "sass-loader": "^7.3.1",
     "storybook-addon-i18next": "^1.2.1",
     "style-loader": "^0.23.0"

@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "rimraf ./lib &&  babel -d lib ./src/ --ignore **/*.test.js",
+    "build": "babel -d lib ./src/ --ignore **/*.test.js --delete-dir-on-start",
     "start": "echo nothing to start",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -32,7 +32,8 @@
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
     "immutable": "^3.8.1",
-    "redux-saga": "^0.15.4"
+    "redux-saga": "^0.15.4",
+    "core-js": "3"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -56,8 +57,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "redux-mock-store": "^1.2.3",
-    "rimraf": "^3.0.2"
+    "redux-mock-store": "^1.2.3"
   },
   "peerDependencies": {
     "@talend/react-cmf": "^5.0.0",

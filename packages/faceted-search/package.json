@@ -13,7 +13,7 @@
     "lint:style": "sass-lint -v -q",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es && npm run lint:style",
-    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js' && cpx -v \"./src/**/*.scss\" lib",
+    "prepare": "babel -d lib ./src/ --ignore 'src/**/*.test.js' --delete-dir-on-start && cpx -v \"./src/**/*.scss\" lib",
     "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
@@ -40,6 +40,7 @@
     "keycode": "^2.2.0",
     "lodash": "^4.17.4",
     "react-bootstrap": "0.32.4",
+    "core-js": "3",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
@@ -77,7 +78,6 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
-    "rimraf": "^3.0.2",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.0"
   },

@@ -6,7 +6,7 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
-    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js'",
+    "prepare": "babel -d lib ./src/ --ignore 'src/**/*.test.js' --delete-dir-on-start",
     "start": "echo nothing to start",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -22,6 +22,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^3.2.0",
     "react-router-redux": "^4.0.8",
+    "core-js": "3",
     "redux-saga": "^0.15.4"
   },
   "peerDependencies": {
@@ -51,8 +52,7 @@
     "node-fetch": "^1.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "redux-saga-tester": "^1.0.345",
-    "rimraf": "^3.0.2"
+    "redux-saga-tester": "^1.0.345"
   },
   "jest": {
     "collectCoverageFrom": [
