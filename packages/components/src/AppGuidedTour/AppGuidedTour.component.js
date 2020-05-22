@@ -107,7 +107,7 @@ function AppGuidedTour({
 				},
 				importDemoContent && {
 					content: {
-						header: t('GUIDED_TOUR_WELCOME_STEP_HEADER', {
+						header: t('GUIDED_TOUR_DEMO_CONTENT_STEP_HEADER', {
 							defaultValue: 'Importing demo content',
 						}),
 						body: () => <DemoContentStep demoContentSteps={demoContentSteps} />,

@@ -1,4 +1,6 @@
 // /* eslint-disable global-require,no-plusplus */
+import 'mutationobserver-shim';
+
 // import '@babel/polyfill';
 // import 'isomorphic-fetch';
 // import 'raf/polyfill';

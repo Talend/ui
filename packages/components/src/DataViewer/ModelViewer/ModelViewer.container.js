@@ -76,6 +76,7 @@ export function filterNullUnion(union) {
 		type: typeWithoutNull.length === 1 ? head(typeWithoutNull) : typeWithoutNull,
 		optional: typeWithoutNull.length < union.type.length,
 		path: union.path,
+		'talend.component.label': union['talend.component.label'],
 	};
 }
 

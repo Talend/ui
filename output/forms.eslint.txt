@@ -706,6 +706,9 @@
   22:28  error  Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread
   33:17  error  Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread
 
-✖ 511 problems (511 errors, 0 warnings)
-  366 errors and 0 warnings potentially fixable with the `--fix` option.
+/home/travis/build/Talend/ui/packages/forms/src/rhf/fields/Input/Input.test.js
+  7:24  error  'children' is missing in props validation  react/prop-types
+  7:34  error  'onSubmit' is missing in props validation  react/prop-types
+
+✖ 3 problems (3 errors, 0 warnings)
 

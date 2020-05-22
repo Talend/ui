@@ -15,6 +15,7 @@ export function RecordsViewerLeaf({
 	className,
 	nodeHighlighted,
 	displayTypes,
+	typesRenderer,
 	measure,
 	t,
 }) {
@@ -70,6 +71,7 @@ export function RecordsViewerLeaf({
 				value={value.data}
 				schema={value.schema}
 				displayTypes={displayTypes}
+				typesRenderer={typesRenderer}
 				isValueOverflown={isValueOverflown}
 				isLongValueToggled={isLongValueExpanded}
 			/>
@@ -87,6 +89,7 @@ RecordsViewerLeaf.propTypes = {
 	}),
 	renderLeafAdditionalValue: PropTypes.func,
 	displayTypes: PropTypes.bool,
+	typesRenderer: PropTypes.func,
 	measure: PropTypes.func.isRequired,
 	t: PropTypes.func,
 };
