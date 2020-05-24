@@ -1,0 +1,49 @@
+.fs-badge-tags-form {
+  :global(.tc-tooltip-body) {
+    margin: 1.2rem 0 0;
+    padding: 0.5rem 2rem 2rem;
+    overflow-y: auto;
+    background: #fcfcfc;
+    border-top: 0.1rem solid #ededed;
+  }
+
+  &-body {
+    width: inherit;
+  }
+
+  &-content {
+    display: flex;
+  }
+
+  &-empty {
+    font-size: $font-size-base;
+    align-self: center;
+    margin: 4rem 0;
+    text-align: center;
+    font-style: italic;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-left-button,
+  &-left-button:focus{
+    text-transform: none;
+    color: $st-tropaz;
+    font-weight: 600;
+  }
+
+  &-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24rem;
+    min-width: 34rem;
+  }
+
+  :global(.tc-tooltip-content) {
+    flex-direction: column;
+  }
+}

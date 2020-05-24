@@ -1,17 +1,20 @@
 import { BadgeText } from '../components/Badges/BadgeText/BadgeText.component';
 import { BadgeCheckboxes } from '../components/Badges/BadgeCheckboxes/BadgeCheckboxes.component';
 import { BadgeNumber } from '../components/Badges/BadgeNumber/BadgeNumber.component';
+import { BadgeTags } from '../components/Badges/BadgeTags/BadgeTags.component';
 
 const standardBadgeTypeNames = {
 	text: 'text',
 	checkbox: 'checkbox',
 	number: 'number',
+	tags: 'tags',
 };
 
 const standardBadges = {
 	[standardBadgeTypeNames.text]: BadgeText,
 	[standardBadgeTypeNames.checkbox]: BadgeCheckboxes,
 	[standardBadgeTypeNames.number]: BadgeNumber,
+	[standardBadgeTypeNames.tags]: BadgeTags,
 };
 
 export const filterBadgeDefinitionsWithDictionary = (badgesDictionary, badgeDefinition) => {
