@@ -20,6 +20,7 @@ exports[`DateTimeView should render 1`] = `
           goToNextMonth={[Function]}
           goToPreviousMonth={[Function]}
           onSelect={[MockFunction]}
+          t={[Function]}
         />
       </div>
       <div
@@ -28,6 +29,7 @@ exports[`DateTimeView should render 1`] = `
         <withI18nextTranslation(TimePicker)
           allowFocus={true}
           onChange={[MockFunction]}
+          t={[Function]}
           value={
             Object {
               "hours": "15",
@@ -57,6 +59,7 @@ exports[`DateTimeView should render 1`] = `
           }
         }
         monthIndex={5}
+        t={[Function]}
         year={2006}
       />,
       "rightElement": <Action
@@ -93,6 +96,7 @@ exports[`DateTimeView should render without timePicker 1`] = `
           goToNextMonth={[Function]}
           goToPreviousMonth={[Function]}
           onSelect={[MockFunction]}
+          t={[Function]}
         />
       </div>
     </div>
@@ -116,6 +120,7 @@ exports[`DateTimeView should render without timePicker 1`] = `
           }
         }
         monthIndex={5}
+        t={[Function]}
         year={2006}
       />,
       "rightElement": <Action

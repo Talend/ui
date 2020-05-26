@@ -8,6 +8,7 @@ exports[`MonthYearView should render 1`] = `
       onSelect={[MockFunction]}
       selectedMonthIndex={8}
       selectedYear={2012}
+      t={[Function]}
     />
   }
   header={
@@ -23,6 +24,7 @@ exports[`MonthYearView should render 1`] = `
       "middleElement": <withI18nextTranslation(HeaderTitle)
         monthIndex={8}
         onSelectYear={[MockFunction]}
+        t={[Function]}
         year={2012}
       />,
     }
