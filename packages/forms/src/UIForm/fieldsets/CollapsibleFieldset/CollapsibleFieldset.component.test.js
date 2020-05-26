@@ -12,6 +12,7 @@ function customTitle(value, schema) {
 
 const schema = {
 	title: 'Basic',
+	description: 'This is description',
 	items: [
 		{
 			key: ['firstname'],
@@ -21,7 +22,7 @@ const schema = {
 		},
 		{
 			key: ['lastname'],
-			title: 'FirstName',
+			title: 'LastName',
 			schema: { type: 'string' },
 			type: 'string',
 		},
@@ -107,10 +108,7 @@ describe('CollapsibleFieldset', () => {
 			/>,
 		);
 		// when
-		wrapper
-			.find(CollapsiblePanel)
-			.getElement()
-			.props.onToggle(event);
+		wrapper.find(CollapsiblePanel).getElement().props.onToggle(event);
 
 		// then
 		expect(event.stopPropagation).toBeCalled();
@@ -135,10 +133,7 @@ describe('CollapsibleFieldset', () => {
 				actions={actions}
 			/>,
 		);
-		const header = wrapper
-			.find(CollapsiblePanel)
-			.dive()
-			.getElement().props.header;
+		const header = wrapper.find(CollapsiblePanel).dive().getElement().props.header;
 		expect(header.length).toBe(2);
 		expect(header[1].length).toBe(2);
 		expect(header[1][0].id).toBe('action1');
@@ -157,6 +152,7 @@ describe('CollapsibleFieldset', () => {
 
 		expect(wrapper.exists('Actions')).toEqual(false);
 	});
+
 	it('should concat values in case it is used in array', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
 		const onChange = jest.fn();
@@ -167,6 +163,18 @@ describe('CollapsibleFieldset', () => {
 		const panel = wrapper.find('CollapsiblePanel');
 
 		expect(panel.props().header[0].label).toEqual(`${value.firstname}, ${value.lastname}`);
+	});
+
+	it('should display description', () => {
+		// given
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		const onChange = jest.fn();
+		// when
+		const wrapper = mount(
+			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} />,
+		);
+		// then
+		expect(wrapper.find('#my-fieldset-description').text()).toBe('This is description');
 	});
 });
 

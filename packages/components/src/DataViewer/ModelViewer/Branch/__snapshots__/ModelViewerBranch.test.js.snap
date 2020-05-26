@@ -20,11 +20,12 @@ exports[`ModelViewerBranch render ModelViewerBranch 1`] = `
       opened={false}
       value={Object {}}
     />
-    <SimpleTextKeyValue
+    <ForwardRef(SimpleTextKeyValue)
       displayTypes={false}
       formattedKey="myValueValue"
       formattedValue="myKeyValue"
       separator=" "
+      typesRenderer={[Function]}
     />
   </span>
 </div>
@@ -50,11 +51,12 @@ exports[`ModelViewerBranch render ModelViewerBranch as a union 1`] = `
       opened={true}
       value={Object {}}
     />
-    <SimpleTextKeyValue
+    <ForwardRef(SimpleTextKeyValue)
       displayTypes={false}
       formattedKey="myValueValue"
       formattedValue="({...})"
       separator=" "
+      typesRenderer={[Function]}
     />
   </span>
 </div>

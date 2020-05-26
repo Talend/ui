@@ -6,8 +6,6 @@ import getErrorMessage from '../shared/error-messages';
 import { convertDateToTimezone, extractDateOnly } from '../Date/date-extraction';
 import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
 
-const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
-
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
 export function DateTimePickerException(code, message) {
@@ -86,7 +84,7 @@ function timeToSeconds(hours, minutes, seconds) {
  */
 function dateAndTimeToDateTime(date, time, options) {
 	if (isEmpty(date) && isEmpty(time)) {
-		throw new DateTimePickerException('INVALID_DATETIME_EMPTY', 'INVALID_DATETIME_EMPTY');
+		return null;
 	} else if (isEmpty(date)) {
 		throw new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
 	} else if (isEmpty(time)) {
@@ -162,15 +160,12 @@ function extractPartsFromTextInput(textInput, options) {
 	let errors = [];
 
 	try {
-		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
-		if (!splitMatches.length) {
-			throw new DateTimePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
-		} else {
-			date = splitMatches[1];
-			time = splitMatches[2];
-			datetime = dateAndTimeToDateTime(date, time, options);
-		}
+		const splitMatches = textInput.split(/\s/);
+		date = splitMatches[0];
+		time = splitMatches[1];
+		datetime = dateAndTimeToDateTime(date, time, options);
 	} catch (error) {
+		datetime = INTERNAL_INVALID_DATE;
 		errors = [error];
 	}
 

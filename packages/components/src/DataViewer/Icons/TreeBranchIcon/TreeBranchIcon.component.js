@@ -16,7 +16,6 @@ export function getDefaultIcon({ useCustomIcon, getIcon, opened, ...props }) {
 	}
 	return {
 		name: opened ? 'talend-caret-down' : 'talend-chevron-left',
-		transform: opened ? null : 'rotate-180',
 	};
 }
 
@@ -64,6 +63,8 @@ export class TreeBranchIcon extends React.PureComponent {
 		const iconClassNames = classNames(icon.className, {
 			[theme['tc-tree-branch-icon-caret']]: !useCustomIcon,
 			'tc-tree-branch-icon-caret': !useCustomIcon,
+			[theme['tc-tree-branch-icon-caret-right']]: !opened,
+			'tc-tree-branch-icon-caret-right': !opened,
 		});
 		return (
 			<span
@@ -76,7 +77,6 @@ export class TreeBranchIcon extends React.PureComponent {
 					name={icon.name}
 					onClick={this.onClick}
 					title={`${title} ${dataKey} (${jsonpath})`}
-					transform={icon.transform}
 				/>
 			</span>
 		);

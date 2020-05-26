@@ -14,6 +14,7 @@ import theme from './theme.scss';
 
 const icons = {
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
+	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-minus-circle': talendIcons['talend-minus-circle'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 };
@@ -89,6 +90,18 @@ stories
 					</div>
 				</div>
 			</Provider>
+		);
+	})
+	.add('DataTree with type display on records', () => {
+		return (
+			<div style={{ height: '100%' }}>
+				<RecordsViewer
+					componentId="RecordsViewer"
+					sample={hierarchicSample}
+					displayTypes
+					typesRenderer={schema => <>- of type {schema.type[0].type}</>}
+				/>
+			</div>
 		);
 	});
 

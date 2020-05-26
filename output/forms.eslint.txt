@@ -5,5 +5,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 1 problem (1 error, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/rhf/fields/Input/Input.test.js
+  7:24  error  'children' is missing in props validation  react/prop-types
+  7:34  error  'onSubmit' is missing in props validation  react/prop-types
+
+✖ 3 problems (3 errors, 0 warnings)
 

@@ -14,17 +14,17 @@ import customErrors from './customErrors';
 import customDisplayMode from './customDisplayMode';
 import customHoverSubmitStory from './customHoverSubmitStory';
 
-const coreConceptsStories = storiesOf('Core concepts', module);
+const coreConceptsStories = storiesOf('UIForm V2/Core concepts', module);
 
-const coreFieldsetsStories = storiesOf('Core fieldsets', module);
+const coreFieldsetsStories = storiesOf('UIForm V2/Core fieldsets', module);
 
-const coreFieldsStories = storiesOf('Core fields', module);
+const coreFieldsStories = storiesOf('UIForm V2/Core fields', module);
 
-const playground = storiesOf('Playground', module);
+const playground = storiesOf('UIForm V2/Playground', module);
 playground.addDecorator(withKnobs);
 playground.add(playgroundStory.name, playgroundStory.story);
 
-const layout = storiesOf('Layout', module);
+const layout = storiesOf('UIForm V2/Layout', module);
 layouts.forEach(info => layout.add(info.name, info.story, info.options));
 
 jsonStories.forEach(({ category, name, story }) => {

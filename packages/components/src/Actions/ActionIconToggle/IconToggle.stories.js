@@ -87,6 +87,12 @@ storiesOf('Buttons/IconToggle', module)
 
 			<p>Active</p>
 			<ActionIconToggle {...activeIconToggle} />
+
+			<p>With tick</p>
+			<ActionIconToggle {...inactiveIconToggle} tick />
+
+			<p>Active with tick</p>
+			<ActionIconToggle {...activeIconToggle} tick />
 		</div>
 	))
 	.add('customize sizes', () => (

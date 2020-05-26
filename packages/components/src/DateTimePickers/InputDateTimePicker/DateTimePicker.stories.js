@@ -34,6 +34,15 @@ storiesOf('Form/Controls/DatePicker/DateTime', module)
 			value={new Date(2018, 4, 13, 12, 30, 44)}
 		/>
 	))
+	.add('Text Input', () => (
+		<InputDateTimePicker
+			id="my-date-picker"
+			name="datetime"
+			onBlur={action('onBlur')}
+			onChange={action('onChange')}
+			value="2020-12-31 10:10"
+		/>
+	))
 	.add('Default time ', () => (
 		<InputDateTimePicker
 			id="my-date-picker"

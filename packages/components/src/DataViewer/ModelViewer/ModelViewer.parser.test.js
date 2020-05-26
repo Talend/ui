@@ -110,12 +110,18 @@ describe('#defaultGetDisplayKey', () => {
 
 describe('#filterOptionalUnion', () => {
 	it('should return one type without null value and parent name / path', () => {
-		const union = { name: 'name', type: [{ type: 'Toto' }, { type: 'null' }], path: 'name' };
+		const union = {
+			name: 'name',
+			type: [{ type: 'Toto' }, { type: 'null' }],
+			path: 'name',
+			'talend.component.label': 'readable label',
+		};
 		expect(filterNullUnion(union)).toEqual({
 			name: union.name,
 			optional: true,
 			type: { type: 'Toto', name: union.name, path: union.path },
 			path: union.path,
+			'talend.component.label': 'readable label',
 		});
 	});
 	it('should return one type without null value', () => {
@@ -123,12 +129,14 @@ describe('#filterOptionalUnion', () => {
 			name: 'name',
 			type: [{ name: 'customTypeToto', type: 'Toto' }, { type: 'null' }],
 			path: 'name',
+			'talend.component.label': 'readable label',
 		};
 		expect(filterNullUnion(union)).toEqual({
 			name: union.name,
 			optional: true,
 			type: { type: 'Toto', name: 'customTypeToto' },
 			path: union.path,
+			'talend.component.label': 'readable label',
 		});
 	});
 	it('should return an array of type without null value and parent name / path ', () => {
@@ -136,6 +144,7 @@ describe('#filterOptionalUnion', () => {
 			name: 'name',
 			path: 'name',
 			type: [{ type: 'Toto' }, { type: 'Tata' }, { type: 'null' }],
+			'talend.component.label': 'readable label',
 		};
 		expect(filterNullUnion(union)).toEqual({
 			name: union.name,
@@ -145,6 +154,7 @@ describe('#filterOptionalUnion', () => {
 				{ type: 'Toto', name: union.name, path: union.path },
 				{ type: 'Tata', name: union.name, path: union.path },
 			],
+			'talend.component.label': 'readable label',
 		});
 	});
 });
