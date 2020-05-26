@@ -107,7 +107,7 @@ function TabBar(props) {
 		}
 	}
 
-	const { className, id, items, selectedKey, children, generateChildId } = props;
+	const { className, id, items, selectedKey, children, generateChildId, tooltipPlacement } = props;
 	const hasChildren = children || items.some(item => item.children);
 	const tabContent = hasChildren && (
 		<Tab.Content>
@@ -120,40 +120,7 @@ function TabBar(props) {
 		</Tab.Content>
 	);
 
-	let tabMenu = (
-		<Nav
-			bsStyle="tabs"
-			className={classnames(
-				theme['tc-tab-bar'],
-				'tc-tab-bar',
-				responsive && theme['tc-tab-bar-responsive'],
-				responsive && 'tc-tab-bar-responsive',
-			)}
-			ref={tabBarRef}
-		>
-			{items.map(({ icon, ...item }) => (
-				<NavItem
-					className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
-					{...item}
-					eventKey={item.key}
-					componentClass="button"
-				>
-					<TooltipTrigger label={item.label} tooltipPlacement={props.tooltipPlacement}>
-						<React.Fragment>
-							{icon && (
-								<Icon
-									className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
-									{...icon}
-								/>
-							)}
-							{item.label}
-						</React.Fragment>
-					</TooltipTrigger>
-				</NavItem>
-			))}
-		</Nav>
-	);
-
+	let tabMenu;
 	if (responsive && showDropdown) {
 		const selectedItem = items.find(item => item.key === selectedKey) || items[0];
 		tabMenu = (
@@ -170,7 +137,42 @@ function TabBar(props) {
 				link
 			/>
 		);
+	} else {
+		tabMenu = (
+			<Nav
+				bsStyle="tabs"
+				className={classnames(
+					theme['tc-tab-bar'],
+					'tc-tab-bar',
+					responsive && theme['tc-tab-bar-responsive'],
+					responsive && 'tc-tab-bar-responsive',
+				)}
+				ref={tabBarRef}
+			>
+				{items.map(({ icon, ...item }) => (
+					<NavItem
+						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
+						{...item}
+						eventKey={item.key}
+						componentClass="button"
+					>
+						<TooltipTrigger label={item.label} tooltipPlacement={tooltipPlacement}>
+							<React.Fragment>
+								{icon && (
+									<Icon
+										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
+										{...icon}
+									/>
+								)}
+								{item.label}
+							</React.Fragment>
+						</TooltipTrigger>
+					</NavItem>
+				))}
+			</Nav>
+		);
 	}
+
 	return (
 		<Tab.Container
 			id={id}
