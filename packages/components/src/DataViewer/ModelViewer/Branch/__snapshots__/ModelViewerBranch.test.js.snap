@@ -18,9 +18,11 @@ exports[`ModelViewerBranch render ModelViewerBranch 1`] = `
       jsonpath="$"
       onToggle={[Function]}
       opened={false}
+      t={[Function]}
+      useCustomIcon={false}
       value={Object {}}
     />
-    <ForwardRef(SimpleTextKeyValue)
+    <SimpleTextKeyValue
       displayTypes={false}
       formattedKey="myValueValue"
       formattedValue="myKeyValue"
@@ -49,9 +51,11 @@ exports[`ModelViewerBranch render ModelViewerBranch as a union 1`] = `
       jsonpath="$"
       onToggle={[Function]}
       opened={true}
+      t={[Function]}
+      useCustomIcon={false}
       value={Object {}}
     />
-    <ForwardRef(SimpleTextKeyValue)
+    <SimpleTextKeyValue
       displayTypes={false}
       formattedKey="myValueValue"
       formattedValue="({...})"

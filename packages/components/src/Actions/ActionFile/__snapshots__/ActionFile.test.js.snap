@@ -41,6 +41,7 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
   >
     <withI18nextTranslation(CircularProgress)
       size="small"
+      t={[Function]}
     />
     <span>
       Click me

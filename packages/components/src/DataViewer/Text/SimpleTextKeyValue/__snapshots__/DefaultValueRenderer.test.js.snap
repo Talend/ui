@@ -50,6 +50,7 @@ exports[`#DefaultValueRenderer should render the leading/trailing special charac
   className="theme-td-default-cell td-default-cell"
 >
   <withI18nextTranslation(FormatValueComponent)
+    t={[Function]}
     value=" loreum "
   />
 </div>

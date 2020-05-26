@@ -10,7 +10,7 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf 1`] = `
     onClick={[Function]}
     title="toto"
   />
-  <ForwardRef(SimpleTextKeyValue)
+  <SimpleTextKeyValue
     displayTypes={false}
     formattedKey="toto"
     separator=" "
@@ -33,7 +33,7 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf highlighted 1`] = `
     onClick={[Function]}
     title=" (typeSem)*"
   />
-  <ForwardRef(SimpleTextKeyValue)
+  <SimpleTextKeyValue
     displayTypes={false}
     separator=" "
     typesRenderer={[Function]}
@@ -55,7 +55,7 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf with additional data 1`] 
     onClick={[Function]}
     title=" (typeSem)*"
   />
-  <ForwardRef(SimpleTextKeyValue)
+  <SimpleTextKeyValue
     displayTypes={false}
     separator=" "
     typesRenderer={[Function]}
