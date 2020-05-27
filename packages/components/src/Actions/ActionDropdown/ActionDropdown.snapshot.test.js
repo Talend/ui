@@ -31,7 +31,6 @@ describe('ActionDropdown', () => {
 		const wrapper = mount(<ActionDropdown {...props} />);
 
 		// then
-		// expect(toJsonWithoutI18n(wrapper.find('ActionDropdown'))).toMatchSnapshot();
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 
