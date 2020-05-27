@@ -7,7 +7,7 @@ exports[`SubTitle should render 1`] = `
 `;
 
 exports[`SubTitle should render in loading mode 1`] = `
-<withI18nextTranslation(Skeleton)
+<Skeleton
   className="tc-subheader-details-loading-subtitle theme-tc-subheader-details-loading-subtitle"
   size="large"
   type="text"

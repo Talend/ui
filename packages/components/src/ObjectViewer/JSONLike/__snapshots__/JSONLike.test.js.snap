@@ -1,44 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`JSONLike ComplexItem should render 1`] = `
-<ComplexItem
+<LineItem
+  badge={
+    <TooltipTrigger
+      className="offset"
+      label=""
+      tooltipPlacement="right"
+    >
+      <sup
+        aria-label="Contains  child"
+        className="theme-badge badge"
+      >
+        (undefined)
+      </sup>
+    </TooltipTrigger>
+  }
   edited={Array []}
-  i18n={
-    Object {
-      "changeLanguage": [Function],
-      "getFixedT": [Function],
-      "hasResourceBundle": [Function],
-      "init": [Function],
-      "isInitialized": true,
-      "isMock": true,
-      "language": "en",
-      "languages": Array [
-        "en",
-      ],
-      "loadNamespaces": [Function],
-      "off": [Function],
-      "on": [Function],
-      "options": Object {},
-      "reportNamespaces": ReportNamespaces {
-        "usedNamespaces": Object {
-          "tui-components": true,
-        },
-      },
-      "services": Object {
-        "backendConnector": Object {},
-        "resourceStore": Object {
-          "data": Object {},
-        },
-      },
-      "store": Object {
-        "data": Object {},
-        "off": [Function],
-        "on": [Function],
-      },
-      "t": [Function],
-    }
+  hasChildren={true}
+  icon={
+    <Action
+      aria-hidden={true}
+      className="theme-toggle tc-object-viewer-toggle"
+      icon="talend-caret-down"
+      iconTransform="rotate-270"
+      label=""
+      link={true}
+      onClick={[Function]}
+      tabIndex="-1"
+    />
   }
   info={Object {}}
+  isOpened={false}
   name="name"
   onKeyDown={[MockFunction]}
   onSelect={[MockFunction]}
@@ -46,7 +39,7 @@ exports[`JSONLike ComplexItem should render 1`] = `
   onToggleAllSiblings={[MockFunction]}
   opened={Array []}
   t={[Function]}
-  tReady={true}
+  type={null}
 />
 `;
 

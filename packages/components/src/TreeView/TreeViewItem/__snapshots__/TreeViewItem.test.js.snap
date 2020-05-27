@@ -46,7 +46,7 @@ exports[`TreeView item should render 1`] = `
     <div
       className="theme-tc-treeview-item-ctrl"
     >
-      <withI18nextTranslation(Badge)
+      <Badge
         label="101"
       />
       <Action
@@ -103,7 +103,7 @@ exports[`TreeView item should render items with icon 1`] = `
     <div
       className="theme-tc-treeview-item-ctrl"
     >
-      <withI18nextTranslation(Badge)
+      <Badge
         label="101"
       />
       <Action
