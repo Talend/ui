@@ -50,7 +50,7 @@ describe('Intercom button', () => {
 		});
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should boot intercom at mount', () => {
