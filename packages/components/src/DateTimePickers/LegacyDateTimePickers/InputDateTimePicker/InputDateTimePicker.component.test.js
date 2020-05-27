@@ -86,15 +86,12 @@ describe('InputDateTimePicker', () => {
 
 		it('should focus on calendar day if it is open with input DOWN', () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
+			const wrapper = mount(<InputDateTimePicker id="my-picker" />, { attachTo: document.body });
 			wrapper.simulate('focus');
 			const event = { keyCode: keycode.codes.down };
 
 			// when
-			wrapper
-				.find('input')
-				.first()
-				.simulate('keydown', event);
+			wrapper.find('input').first().simulate('keydown', event);
 
 			// then
 			expect(document.activeElement.classList.contains('tc-date-picker-day')).toBe(true);
@@ -139,10 +136,7 @@ describe('InputDateTimePicker', () => {
 				expect(getOverlay(wrapper).exists()).toBe(true);
 
 				// when
-				wrapper
-					.find('.tc-date-picker-day')
-					.first()
-					.simulate('click');
+				wrapper.find('.tc-date-picker-day').first().simulate('click');
 
 				// then
 				expect(getOverlay(wrapper).exists()).toBe(expectedOverlay);
@@ -189,10 +183,7 @@ describe('InputDateTimePicker', () => {
 			expect(getOverlay(wrapper).exists()).toBe(true);
 
 			// when
-			wrapper
-				.find('.tc-date-picker-day')
-				.last()
-				.simulate('click');
+			wrapper.find('.tc-date-picker-day').last().simulate('click');
 			wrapper.find('form').simulate('submit');
 
 			// then

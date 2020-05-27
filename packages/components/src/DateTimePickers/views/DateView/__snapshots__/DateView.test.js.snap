@@ -35,7 +35,7 @@ exports[`DateView should render 1`] = `
         onClick={[Function]}
         tabIndex="-1"
       />,
-      "middleElement": <withI18nextTranslation(HeaderTitle)
+      "middleElement": <HeaderTitle
         button={
           Object {
             "aria-label": "Switch to month and year pickers view",
@@ -44,7 +44,6 @@ exports[`DateView should render 1`] = `
           }
         }
         monthIndex={5}
-        t={[Function]}
         year={2006}
       />,
       "rightElement": <Action
@@ -96,7 +95,7 @@ exports[`DateView should render without timePicker 1`] = `
         onClick={[Function]}
         tabIndex="-1"
       />,
-      "middleElement": <withI18nextTranslation(HeaderTitle)
+      "middleElement": <HeaderTitle
         button={
           Object {
             "aria-label": "Switch to month and year pickers view",
@@ -105,7 +104,6 @@ exports[`DateView should render without timePicker 1`] = `
           }
         }
         monthIndex={5}
-        t={[Function]}
         year={2006}
       />,
       "rightElement": <Action

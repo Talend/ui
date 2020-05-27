@@ -21,10 +21,9 @@ exports[`MonthYearView should render 1`] = `
         onClick={[MockFunction]}
         tabIndex={0}
       />,
-      "middleElement": <withI18nextTranslation(HeaderTitle)
+      "middleElement": <HeaderTitle
         monthIndex={8}
         onSelectYear={[MockFunction]}
-        t={[Function]}
         year={2012}
       />,
     }

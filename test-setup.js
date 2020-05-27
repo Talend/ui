@@ -6,7 +6,7 @@ import 'mutationobserver-shim';
 // import 'raf/polyfill';
 // import { Headers } from 'node-fetch';
 // import { configure } from 'enzyme';
-// import dateMock from './mocks/dateMock';
+import dateMock from './mocks/dateMock';
 
 // // define fetch
 // const fetch = jest.fn(
@@ -55,4 +55,4 @@ import 'mutationobserver-shim';
 // 	return null;
 // };
 
-// global.dateMock = dateMock;
+global.dateMock = dateMock;

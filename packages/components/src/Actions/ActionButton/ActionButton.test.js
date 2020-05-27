@@ -22,7 +22,7 @@ function OverlayComponent() {
 describe('Action', () => {
 	it('should render a button', () => {
 		// when
-		const wrapper = shallow(<ActionButton.WrappedComponent {...myAction} />);
+		const wrapper = shallow(<ActionButton {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe('Action', () => {
 
 	it('should render a button with loading state', () => {
 		// when
-		const wrapper = shallow(<ActionButton.WrappedComponent loading />);
+		const wrapper = shallow(<ActionButton loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -38,7 +38,7 @@ describe('Action', () => {
 
 	it('should render a link button with loading state', () => {
 		// when
-		const wrapper = shallow(<ActionButton.WrappedComponent link loading />);
+		const wrapper = shallow(<ActionButton link loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -48,7 +48,7 @@ describe('Action', () => {
 		// given
 		const onClick = jest.fn();
 		const props = { ...myAction, onClick };
-		const wrapper = shallow(<ActionButton.WrappedComponent extra="extra" {...props} />);
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		// when
 		wrapper.simulate('click', {});
@@ -74,7 +74,7 @@ describe('Action', () => {
 		const onMouseEnter = jest.fn();
 		const onMouseLeave = jest.fn();
 		const props = { ...myAction, onMouseEnter, onMouseLeave };
-		const wrapper = shallow(<ActionButton.WrappedComponent extra="extra" {...props} />);
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		wrapper.simulate('mouseenter', {});
 
@@ -115,7 +115,7 @@ describe('Action', () => {
 		// given
 		const onClick = jest.fn();
 		const props = { ...myAction, overlayComponent: OverlayComponent, onClick };
-		const wrapper = shallow(<ActionButton.WrappedComponent extra="extra" {...props} />);
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		// when
 		wrapper.simulate('click', {});
@@ -141,7 +141,7 @@ describe('Action', () => {
 		const onMouseEnter = jest.fn();
 		const onMouseLeave = jest.fn();
 		const props = { ...myAction, overlayComponent: OverlayComponent, onMouseEnter, onMouseLeave };
-		const wrapper = shallow(<ActionButton.WrappedComponent extra="extra" {...props} />);
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		wrapper.simulate('mouseenter', {});
 
@@ -180,9 +180,7 @@ describe('Action', () => {
 
 	it('should pass all props to the Button', () => {
 		// when
-		const wrapper = shallow(
-			<ActionButton.WrappedComponent className="navbar-btn" notExisting {...myAction} />,
-		);
+		const wrapper = shallow(<ActionButton className="navbar-btn" notExisting {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -190,9 +188,7 @@ describe('Action', () => {
 
 	it('should display a Progress indicator if set', () => {
 		// when
-		const wrapper = shallow(
-			<ActionButton.WrappedComponent className="navbar-btn" inProgress {...myAction} />,
-		);
+		const wrapper = shallow(<ActionButton className="navbar-btn" inProgress {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -200,9 +196,7 @@ describe('Action', () => {
 
 	it('should display a disabled Icon', () => {
 		// when
-		const wrapper = shallow(
-			<ActionButton.WrappedComponent className="navbar-btn" disabled {...myAction} />,
-		);
+		const wrapper = shallow(<ActionButton className="navbar-btn" disabled {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -210,7 +204,7 @@ describe('Action', () => {
 
 	it('should reverse icon/label', () => {
 		// when
-		const wrapper = shallow(<ActionButton.WrappedComponent iconPosition="right" {...myAction} />);
+		const wrapper = shallow(<ActionButton iconPosition="right" {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -218,9 +212,7 @@ describe('Action', () => {
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = shallow(
-			<ActionButton.WrappedComponent iconTransform={'rotate-180'} {...myAction} />,
-		);
+		const wrapper = shallow(<ActionButton iconTransform={'rotate-180'} {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -228,7 +220,7 @@ describe('Action', () => {
 
 	it('should render action with html property name = props.name if set', () => {
 		// when
-		const wrapper = shallow(<ActionButton.WrappedComponent name="custom_name" {...myAction} />);
+		const wrapper = shallow(<ActionButton name="custom_name" {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -236,7 +228,7 @@ describe('Action', () => {
 
 	it('should trigger action if set up onMouseDown event', () => {
 		// given
-		const wrapper = shallow(<ActionButton.WrappedComponent extra="extra" {...mouseDownAction} />);
+		const wrapper = shallow(<ActionButton extra="extra" {...mouseDownAction} />);
 
 		// when
 		wrapper.simulate('mouseDown');
@@ -251,7 +243,7 @@ describe('Action', () => {
 	});
 
 	it('should not render action if props.available=false', () => {
-		const wrapper = shallow(<ActionButton.WrappedComponent available={false} />);
+		const wrapper = shallow(<ActionButton available={false} />);
 		expect(wrapper.type()).toBe(null);
 	});
 
@@ -264,7 +256,7 @@ describe('Action', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionButton.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionButton {...props} />);
 
 		// then
 		expect(wrapper.find('OverlayTrigger').length).toBe(0);
@@ -280,7 +272,7 @@ describe('Action', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionButton.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionButton {...props} />);
 
 		// then
 		expect(wrapper.find('OverlayTrigger').length).toBe(1);
@@ -297,7 +289,7 @@ describe('Action', () => {
 			overlayId: 'myOverlayId',
 		};
 		// when
-		mount(<ActionButton.WrappedComponent {...props} />);
+		mount(<ActionButton {...props} />);
 
 		// then
 		expect(myRefFunc).toHaveBeenCalled();
@@ -306,7 +298,7 @@ describe('Action', () => {
 		// Given
 		const myRefFunc = jest.fn();
 		// when
-		mount(<ActionButton.WrappedComponent {...myAction} buttonRef={myRefFunc} />);
+		mount(<ActionButton {...myAction} buttonRef={myRefFunc} />);
 
 		// then
 		expect(myRefFunc).toHaveBeenCalled();

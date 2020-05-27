@@ -202,6 +202,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
       Object {
         "before-actions": <Count
           selected={1}
+          t={[Function]}
         />,
       }
     }
@@ -234,6 +235,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
       Object {
         "before-actions": <Count
           selected={1}
+          t={[Function]}
         />,
       }
     }
@@ -304,6 +306,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
       Object {
         "before-actions": <Count
           selected={1}
+          t={[Function]}
         />,
       }
     }
