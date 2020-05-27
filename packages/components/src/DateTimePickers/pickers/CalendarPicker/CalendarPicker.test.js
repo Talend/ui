@@ -4,7 +4,7 @@ import startOfDay from 'date-fns/start_of_day';
 import CalendarPicker from './CalendarPicker.component';
 import DateView from '../../views/DateView';
 import MonthYearView from '../../views/MonthYearView';
-import dateMock from '../../../../../../../mocks/dateMock';
+import dateMock from '../../../../../../mocks/dateMock';
 
 describe('CalendarPicker', () => {
 	afterEach(() => {
