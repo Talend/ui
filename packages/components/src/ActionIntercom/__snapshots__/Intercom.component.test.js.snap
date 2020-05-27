@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Intercom button should render a button 1`] = `
-<Intercom
+<withI18nextTranslation(Intercom)
   config={
     Object {
       "app_id": "a218987bc6f",
@@ -51,5 +51,5 @@ exports[`Intercom button should render a button 1`] = `
       </Icon>
     </button>
   </TooltipTrigger>
-</Intercom>
+</withI18nextTranslation(Intercom)>
 `;

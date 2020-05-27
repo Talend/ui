@@ -45,7 +45,7 @@ describe('Intercom button', () => {
 
 	it('should render a button', () => {
 		// when
-		const wrapper = mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
+		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
 		});
 
@@ -58,7 +58,7 @@ describe('Intercom button', () => {
 		expect(IntercomService.boot).not.toBeCalled();
 
 		// when
-		mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
+		mount(<Intercom id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
 		});
 
@@ -68,7 +68,7 @@ describe('Intercom button', () => {
 
 	it('should update intercom on config change', () => {
 		// given
-		const wrapper = mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
+		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
 		});
 		expect(IntercomService.boot.mock.calls.length).toBe(1);
@@ -88,7 +88,7 @@ describe('Intercom button', () => {
 
 	it('should shutdown intercom at unmount', () => {
 		// given
-		const wrapper = mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
+		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
 		});
 		expect(IntercomService.shutdown).not.toBeCalled();
@@ -102,7 +102,7 @@ describe('Intercom button', () => {
 
 	it('should change label on open/close', () => {
 		// given
-		const wrapper = mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
+		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
 		});
 		const onShow = IntercomService.onShow.mock.calls[0][0];
@@ -130,7 +130,7 @@ describe('Intercom button', () => {
 		expect(IntercomService.setPosition).not.toBeCalled();
 
 		// when
-		mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
+		mount(<Intercom id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
 		});
 
@@ -140,7 +140,7 @@ describe('Intercom button', () => {
 
 	it('should focus on trigger button on hide', () => {
 		// given
-		const wrapper = mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
+		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
 		});
 		const onShow = IntercomService.onShow.mock.calls[0][0];
