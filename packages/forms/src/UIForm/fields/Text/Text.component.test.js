@@ -275,4 +275,23 @@ describe('Text field', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+	it('should pass autoComplete to input', () => {
+		// given
+		const autoCompleteSchema = {
+			...schema,
+			autoComplete: 'off',
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={autoCompleteSchema}
+				value={'toto'}
+			/>,
+		);
+		expect(wrapper.find('input').prop('autoComplete')).toBe('off');
+	});
 });
