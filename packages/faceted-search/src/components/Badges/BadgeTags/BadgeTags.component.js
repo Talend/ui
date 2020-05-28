@@ -45,17 +45,21 @@ export const BadgeTags = ({
 	useEffect(() => {
 		if (!callbacks.getTags) {
 			console.warn("get tags callback is not defined, tags can't be fetch from server");
+			return;
 		}
 
 		setIsLoading(true);
-		callbacks.getTags().then(data => {
-			setTagsValues(data.map(item => ({ id: item, label: item })));
-			setIsLoading(false);
-		});
+		callbacks
+			.getTags()
+			.then(data => {
+				setTagsValues(data.map(item => ({ id: item, label: item })));
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
 	}, []);
 
-	const currentOperators = useMemo(() => operators, [operators]);
-	const currentOperator = operator || (currentOperators && currentOperators[0]);
+	const currentOperator = operator || (operators && operators[0]);
 	const badgeTagsId = `${id}-badge-tags`;
 	const badgeLabel = useMemo(() => getSelectBadgeLabel(value, t), [value, t]);
 	return (
@@ -67,7 +71,7 @@ export const BadgeTags = ({
 			labelCategory={label}
 			labelValue={badgeLabel}
 			operator={currentOperator}
-			operators={currentOperators}
+			operators={operators}
 			size={size}
 			t={t}
 			value={value || []}

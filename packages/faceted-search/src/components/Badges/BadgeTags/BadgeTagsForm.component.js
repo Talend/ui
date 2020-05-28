@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Action from '@talend/react-components/lib/Actions/Action';
@@ -50,9 +50,7 @@ const createTagEntity = value => checkbox => {
 	};
 };
 
-const getTags = (tagsValues, value) => {
-	return tagsValues.map(createTagEntity(value));
-};
+const getTags = (tagsValues, value) => tagsValues.map(createTagEntity(value));
 
 const getVisibleTags = (tags, filterValue, showAll) => {
 	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
@@ -68,8 +66,8 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 
 	const badgeTagsFormId = `${id}-tags-form`;
 
-	const tags = useCallback(getTags(tagsValues, value, filter), [tagsValues, value]);
-	const visibleTags = useCallback(getVisibleTags(tags, filter, showAll), [tags, filter, showAll]);
+	const tags = useMemo(() => getTags(tagsValues, value), [tagsValues, value]);
+	const visibleTags = useMemo(() => getVisibleTags(tags, filter, showAll), [tags, filter, showAll]);
 
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
@@ -85,7 +83,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 	};
 
 	const leftBtnLabel = showAll
-		? t('SELECTED_TAGS', { count: value.length, defaultValue: '{{count}} selected' })
+		? t('NB_SELECTED_TAGS', { count: value.length, defaultValue: '{{count}} selected' })
 		: t('SHOW_ALL_TAGS', { defaultValue: 'Show all' });
 
 	return (
@@ -118,7 +116,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 					<RichLayout.Body id={badgeTagsFormId} className={theme('fs-badge-tags-form-body')}>
 						{!visibleTags.length && (
 							<span className={theme('fs-badge-tags-form-empty')}>
-								{t('TAG_FACET_NO_RESULT', {
+								{t('FIND_TAG_NO_RESULT', {
 									defaultValue: 'No result found',
 								})}
 							</span>

@@ -1,10 +1,10 @@
 .fs-badge-tags-form {
 	:global(.tc-tooltip-body) {
-		margin: 1.2rem 0 0;
-		padding: 0.5rem 2rem 2rem;
+		margin: $padding-normal 0 0;
+		padding: $padding-smaller $padding-large $padding-large;
 		overflow-y: auto;
 		background: #fcfcfc;
-		border-top: 0.1rem solid #ededed;
+		border-top: 1px solid $gallery;
 	}
 
 	&-body {
