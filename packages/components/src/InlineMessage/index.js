@@ -1,4 +1,4 @@
 import '../polyfills/focus-within';
-import { InlineMessage, getbsStyleFromStatus } from './InlineMessage.component';
+import { InlineMessage } from './InlineMessage.component';
 
-export { InlineMessage, getbsStyleFromStatus };
+export default InlineMessage;
