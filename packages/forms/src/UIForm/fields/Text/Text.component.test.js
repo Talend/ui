@@ -173,12 +173,7 @@ describe('Text field', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('[type="number"]')
-				.at(0)
-				.props().step,
-		).toEqual(0.01);
+		expect(wrapper.find('[type="number"]').at(0).props().step).toEqual(0.01);
 	});
 
 	it('should trigger onChange', () => {
