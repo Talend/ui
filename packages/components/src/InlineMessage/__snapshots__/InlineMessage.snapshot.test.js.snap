@@ -2,14 +2,13 @@
 
 exports[`InlineMessage should render with higligthed background 1`] = `
 <div
-  className="theme-tc-inline-message tc-inline-message"
-  role="inline-message"
+  className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="theme-tc-inline-message-wrapper tc-inline-message-wrapper theme-success theme-background"
+    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success background theme-background"
   >
     <span
-      className="theme-tc-inline-message-icon tc-inline-message-icon theme-success"
+      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
     >
       <svg
         aria-hidden="true"
@@ -23,15 +22,17 @@ exports[`InlineMessage should render with higligthed background 1`] = `
         />
       </svg>
     </span>
-    <span
-      className="theme-tc-inline-message-title tc-inline-message-title"
-    >
-      Validation title.
-    </span>
-    <span
-      className="theme-tc-inline-message-description tc-inline-message-description"
-    >
-      Validation and successful messages
+    <span>
+      <span
+        className="tc-inline-message-title theme-tc-inline-message-title"
+      >
+        Validation title.
+      </span>
+      <span
+        className="tc-inline-message-description theme-tc-inline-message-description"
+      >
+        Validation and successful messages
+      </span>
     </span>
   </span>
 </div>
@@ -39,14 +40,13 @@ exports[`InlineMessage should render with higligthed background 1`] = `
 
 exports[`InlineMessage should render with icon and description 1`] = `
 <div
-  className="theme-tc-inline-message tc-inline-message"
-  role="inline-message"
+  className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="theme-tc-inline-message-wrapper tc-inline-message-wrapper theme-success"
+    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success"
   >
     <span
-      className="theme-tc-inline-message-icon tc-inline-message-icon theme-success"
+      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
     >
       <svg
         aria-hidden="true"
@@ -60,11 +60,13 @@ exports[`InlineMessage should render with icon and description 1`] = `
         />
       </svg>
     </span>
-    
-    <span
-      className="theme-tc-inline-message-description tc-inline-message-description"
-    >
-      Validation and successful messages
+    <span>
+      
+      <span
+        className="tc-inline-message-description theme-tc-inline-message-description"
+      >
+        Validation and successful messages
+      </span>
     </span>
   </span>
 </div>
@@ -72,14 +74,13 @@ exports[`InlineMessage should render with icon and description 1`] = `
 
 exports[`InlineMessage should render with icon, title and description 1`] = `
 <div
-  className="theme-tc-inline-message tc-inline-message"
-  role="inline-message"
+  className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="theme-tc-inline-message-wrapper tc-inline-message-wrapper theme-success"
+    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success"
   >
     <span
-      className="theme-tc-inline-message-icon tc-inline-message-icon theme-success"
+      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
     >
       <svg
         aria-hidden="true"
@@ -93,15 +94,17 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
         />
       </svg>
     </span>
-    <span
-      className="theme-tc-inline-message-title tc-inline-message-title"
-    >
-      Validation title.
-    </span>
-    <span
-      className="theme-tc-inline-message-description tc-inline-message-description"
-    >
-      Validation and successful messages
+    <span>
+      <span
+        className="tc-inline-message-title theme-tc-inline-message-title"
+      >
+        Validation title.
+      </span>
+      <span
+        className="tc-inline-message-description theme-tc-inline-message-description"
+      >
+        Validation and successful messages
+      </span>
     </span>
   </span>
 </div>
@@ -109,14 +112,13 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
 
 exports[`InlineMessage should render with icon, title, description and link 1`] = `
 <div
-  className="theme-tc-inline-message tc-inline-message"
-  role="inline-message"
+  className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="theme-tc-inline-message-wrapper tc-inline-message-wrapper theme-success"
+    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success"
   >
     <span
-      className="theme-tc-inline-message-icon tc-inline-message-icon theme-success"
+      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
     >
       <svg
         aria-hidden="true"
@@ -130,46 +132,55 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
         />
       </svg>
     </span>
-    <span
-      className="theme-tc-inline-message-title tc-inline-message-title"
-    >
-      Validation title.
+    <span>
+      <span
+        className="tc-inline-message-title theme-tc-inline-message-title"
+      >
+        Validation title.
+      </span>
+      <span
+        className="tc-inline-message-description theme-tc-inline-message-description"
+      >
+        Validation and successful messages
+      </span>
+      <a
+        className="tc-inline-message-link theme-tc-inline-message-link"
+        href="https://my.custom.link"
+      >
+        See more
+      </a>
     </span>
-    <span
-      className="theme-tc-inline-message-description tc-inline-message-description"
-    >
-      Validation and successful messages
-    </span>
-    <a
-      className="theme-tc-inline-message-link tc-inline-message-link"
-      href="https://my.custom.link"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      See more
-    </a>
   </span>
 </div>
 `;
 
 exports[`InlineMessage should render with title and description 1`] = `
 <div
-  className="theme-tc-inline-message tc-inline-message"
-  role="inline-message"
+  className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="theme-tc-inline-message-wrapper tc-inline-message-wrapper theme-success"
+    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success"
   >
-    
     <span
-      className="theme-tc-inline-message-title tc-inline-message-title"
+      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
     >
-      Validation title.
+      <div
+        className="alert alert-danger"
+      >
+        Icon: no name provided
+      </div>
     </span>
-    <span
-      className="theme-tc-inline-message-description tc-inline-message-description"
-    >
-      Validation and successful messages
+    <span>
+      <span
+        className="tc-inline-message-title theme-tc-inline-message-title"
+      >
+        Validation title.
+      </span>
+      <span
+        className="tc-inline-message-description theme-tc-inline-message-description"
+      >
+        Validation and successful messages
+      </span>
     </span>
   </span>
 </div>
