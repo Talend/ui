@@ -50,12 +50,15 @@ const createTagEntity = value => checkbox => {
 	};
 };
 
-const getTags = (tagsValues, value, filterValue, showAll) => {
+const getTags = (tagsValues, value) => {
+	return tagsValues.map(createTagEntity(value));
+};
+
+const getVisibleTags = (tags, filterValue, showAll) => {
 	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
 
-	return tagsValues
+	return tags
 		.filter(checkbox => get(checkbox, 'label', '').toLocaleLowerCase().includes(formatFilterValue))
-		.map(createTagEntity(value))
 		.filter(tag => (showAll ? true : tag.checked));
 };
 
@@ -64,16 +67,10 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 	const [showAll, setShowAll] = useState(true);
 
 	const badgeTagsFormId = `${id}-tags-form`;
-	const tags = useCallback(getTags(tagsValues, value, filter, showAll), [
-		tagsValues,
-		value,
-		filter,
-		showAll,
-	]);
-	const tagsSelected = useCallback(
-		tags.filter(tag => tag.checked),
-		[tags],
-	);
+
+	const tags = useCallback(getTags(tagsValues, value, filter), [tagsValues, value]);
+	const visibleTags = useCallback(getVisibleTags(tags, filter, showAll), [tags, filter, showAll]);
+
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
 	const onChangeTags = (event, checkboxId) => {
@@ -88,7 +85,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 	};
 
 	const leftBtnLabel = showAll
-		? t('SELECTED_TAGS', { count: tagsSelected.length, defaultValue: '{{count}} selected' })
+		? t('SELECTED_TAGS', { count: value.length, defaultValue: '{{count}} selected' })
 		: t('SHOW_ALL_TAGS', { defaultValue: 'Show all' });
 
 	return (
@@ -119,7 +116,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 					onSubmit={onSubmit}
 				>
 					<RichLayout.Body id={badgeTagsFormId} className={theme('fs-badge-tags-form-body')}>
-						{!tags.length && (
+						{!visibleTags.length && (
 							<span className={theme('fs-badge-tags-form-empty')}>
 								{t('TAG_FACET_NO_RESULT', {
 									defaultValue: 'No result found',
@@ -127,7 +124,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 							</span>
 						)}
 
-						{tags.map(checkbox => (
+						{visibleTags.map(checkbox => (
 							<BadgeTag
 								key={checkbox.id}
 								id={checkbox.id}
@@ -139,10 +136,13 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 					</RichLayout.Body>
 					<RichLayout.Footer id={id} className={theme('fs-badge-tags-form-footer')}>
 						<div>
-							{tagsSelected.length > 0 && (
+							{value.length > 0 && (
 								<Action
 									type="button"
-									onClick={() => setShowAll(!showAll)}
+									onClick={() => {
+										setFilter('');
+										setShowAll(!showAll);
+									}}
 									label={leftBtnLabel}
 									bsStyle="link"
 									className={theme('fs-badge-tags-form-left-button')}
@@ -154,7 +154,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 							type="submit"
 							label={t('APPLY', { defaultValue: 'Apply' })}
 							bsStyle="info"
-							disabled={tagsSelected.length === 0}
+							disabled={value.length === 0}
 						/>
 					</RichLayout.Footer>
 				</form>
