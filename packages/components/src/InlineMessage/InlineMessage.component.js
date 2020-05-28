@@ -35,15 +35,20 @@ export const getbsStyleFromType = type => {
 		[TYPES.SUCCESSFUL]: 'success',
 		[TYPES.WARNING]: 'warning',
 		[TYPES.ERROR]: 'danger',
-	}
+	};
 	return typesMap[type] || '';
-}
+};
 
 export function InlineMessage({ type, title, description, icon, link, withBackground }) {
 	const rootClassnames = classNames(css['tc-inline-message'], 'tc-inline-message');
-	const wrapperClassnames = classNames(css['tc-inline-message-wrapper'], 'tc-inline-message-wrapper', css[getbsStyleFromType(type)], {
-		[css.background]: withBackground,
-	});
+	const wrapperClassnames = classNames(
+		css['tc-inline-message-wrapper'],
+		'tc-inline-message-wrapper',
+		css[getbsStyleFromType(type)],
+		{
+			[css.background]: withBackground,
+		},
+	);
 
 	const iconClassnames = classNames(
 		css['tc-inline-message-icon'],
@@ -54,13 +59,22 @@ export function InlineMessage({ type, title, description, icon, link, withBackgr
 	return (
 		<div role="inline-message" className={rootClassnames}>
 			<span className={wrapperClassnames}>
-				{icon && (<span className={iconClassnames}>
-					<Icon name={icon} />
-				</span>)}
-				{title && <span className={classNames(css['tc-inline-message-title'], 'tc-inline-message-title')}>
-					{title}
-				</span>}
-				<span className={classNames(css['tc-inline-message-description'], 'tc-inline-message-description')}>
+				{icon && (
+					<span className={iconClassnames}>
+						<Icon name={icon} />
+					</span>
+				)}
+				{title && (
+					<span className={classNames(css['tc-inline-message-title'], 'tc-inline-message-title')}>
+						{title}
+					</span>
+				)}
+				<span
+					className={classNames(
+						css['tc-inline-message-description'],
+						'tc-inline-message-description',
+					)}
+				>
 					{description}
 				</span>
 				{link && (
@@ -71,7 +85,8 @@ export function InlineMessage({ type, title, description, icon, link, withBackgr
 						href={link.href}
 					>
 						{link.label}
-					</a>)}
+					</a>
+				)}
 			</span>
 		</div>
 	);
@@ -80,12 +95,7 @@ export function InlineMessage({ type, title, description, icon, link, withBackgr
 InlineMessage.displayName = 'InlineMessage';
 
 InlineMessage.propTypes = {
-	type: PropTypes.oneOf([
-		TYPES.INFO,
-		TYPES.SUCCESSFUL,
-		TYPES.WARNING,
-		TYPES.ERROR,
-	]),
+	type: PropTypes.oneOf([TYPES.INFO, TYPES.SUCCESSFUL, TYPES.WARNING, TYPES.ERROR]),
 	icon: PropTypes.string,
 	title: PropTypes.string,
 	description: PropTypes.string,

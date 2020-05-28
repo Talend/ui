@@ -11,7 +11,7 @@ const props = {
 	icon: 'talend-check-circle',
 };
 
-const Wrapper = ({ width, children }) => (<div style={{width}}>{children}</div>);
+const Wrapper = ({ width, children }) => <div style={{ width }}>{children}</div>;
 
 storiesOf('Messaging & Communication/InlineMessage', module)
 	.add('default', () => (
@@ -20,8 +20,9 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 			<h1>InlineMessage</h1>
 			<h2>Definition</h2>
 			<p>
-				Inline message highlights information necessary to display for the user in many different contexts.
-				It can be additional information related to system status, it can be a required action to complete the current task.
+				Inline message highlights information necessary to display for the user in many different
+				contexts. It can be additional information related to system status, it can be a required
+				action to complete the current task.
 			</p>
 			<h2>Examples</h2>
 			<h3>
@@ -78,7 +79,9 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 		<div>
 			<IconsProvider />
 			<h1>InlineMessage</h1>
-			<h2><code>withBackground</code> prop is passed</h2>
+			<h2>
+				<code>withBackground</code> prop is passed
+			</h2>
 			<h2>Examples</h2>
 			<h3>
 				InlineMessage type is <code>success</code>
