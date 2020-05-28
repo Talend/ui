@@ -1,1 +1,1 @@
-export * from './InlineMessage.component'; 
+export * from './InlineMessage.component';
