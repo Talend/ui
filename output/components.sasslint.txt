@@ -22,12 +22,6 @@ src/GuidedTour/GuidedTour.scss
   77:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
   86:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
 
-src/InlineMessage/InlineMessage.scss
-  57:47  warning  No unit allowed for values of 0  zero-unit
-  62:49  warning  No unit allowed for values of 0  zero-unit
-  67:52  warning  No unit allowed for values of 0  zero-unit
-  72:44  warning  No unit allowed for values of 0  zero-unit
-
 src/List/Toolbar/Toolbar.scss
   70:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
   74:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
@@ -37,5 +31,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 18 problems (13 errors, 5 warnings)
+✖ 14 problems (13 errors, 1 warning)
 
