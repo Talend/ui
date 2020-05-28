@@ -54,22 +54,22 @@ $tc-inline-message-space-btn-icon-description: 5px !default;
 
 			&.info {
 				background-color: tint($lochmara, 95);
-				box-shadow: tint($lochmara, 75) 0 1px 2px 0px;
+				box-shadow: tint($lochmara, 75) 0 1px 2px 0;
 			}
 
 			&.success {
 				background-color: tint($rio-grande, 95);
-				box-shadow: tint($rio-grande, 75) 0 1px 2px 0px;
+				box-shadow: tint($rio-grande, 75) 0 1px 2px 0;
 			}
 
 			&.danger {
 				background-color: tint($chestnut-rose, 95);
-				box-shadow: tint($chestnut-rose, 75) 0 1px 2px 0px;
+				box-shadow: tint($chestnut-rose, 75) 0 1px 2px 0;
 			}
 
 			&.warning {
 				background-color: tint($jaffa, 95);
-				box-shadow: tint($jaffa, 75) 0 1px 2px 0px;
+				box-shadow: tint($jaffa, 75) 0 1px 2px 0;
 			}
 		}
 	}
