@@ -1,5 +1,5 @@
 $tc-inline-message-icon-size: $svg-md-size !default;
-$tc-inline-message-space-btn-icon-description: 5px !default;
+$tc-inline-message-space-btn-icon-description: $padding-smaller !default;
 $tc-inline-message-min-height: 2.5rem;
 $tc-inline-message-border-radius: 0.4rem;
 
@@ -12,8 +12,7 @@ $tc-inline-message-border-radius: 0.4rem;
 	position: relative;
 	display: flex;
 	align-items: center;
-	height: 100%;
-
+	min-height: $tc-inline-message-min-height;
 	color: $black;
 
 	&-title {
@@ -56,7 +55,6 @@ $tc-inline-message-border-radius: 0.4rem;
 		display: flex;
 		align-items: center;
 		padding: 0 $padding-smaller;
-		min-height: $tc-inline-message-min-height;
 
 		&.background {
 			border-radius: $tc-inline-message-border-radius;
