@@ -43,30 +43,29 @@ const theme = getTheme(InlineMessageCss);
 
 export function InlineMessage({ type, title, description, icon, link, withBackground }) {
 	const rootClassnames = theme('tc-inline-message');
-	const wrapperClassnames = theme('tc-inline-message-wrapper', getbsStyleFromType(type), {
+
+	const textClasses = theme('tc-inline-message-text', getbsStyleFromType(type), {
 		background: withBackground,
-	});
+	})
 
 	const iconClassnames = theme('tc-inline-message-icon', getbsStyleFromType(type));
 
 	return (
 		<div className={rootClassnames}>
-			<span className={wrapperClassnames}>
-				<span className={iconClassnames}>
-					<Icon name={icon} />
-				</span>
-				<span>
-					{title && <span className={theme('tc-inline-message-title')}>{title}</span>}
-					{description && (
-						<span className={theme('tc-inline-message-description')}>{description}</span>
-					)}
-					{link && (
-						<a className={theme('tc-inline-message-link')} href={link.href} {...link.props}>
-							{link.label}
-						</a>
-					)}
-				</span>
+			<span className={iconClassnames}>
+				<Icon name={icon} />
 			</span>
+			<div className={textClasses}>
+				{title && <span className={theme('tc-inline-message-title')}>{title}</span>}
+				{description && (
+					<span className={theme('tc-inline-message-description')}>{description}</span>
+				)}
+				{link && (
+					<a className={theme('tc-inline-message-link')} href={link.href} {...link.props}>
+						{link.label}
+					</a>
+				)}
+			</div>
 		</div>
 	);
 }

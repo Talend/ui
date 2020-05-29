@@ -11,13 +11,36 @@ $tc-inline-message-border-radius: 0.4rem;
 .tc-inline-message {
 	position: relative;
 	display: flex;
-	align-items: center;
-	min-height: $tc-inline-message-min-height;
 	color: $black;
+	padding-left: padding-smaller;
 
 	&-title {
 		font-weight: $font-weight-semi-bold;
 		margin-right: $padding-smaller;
+	}
+
+	&-text {
+		padding-right: $padding-smaller;
+		padding-left: calc(#{$tc-inline-message-icon-size} + #{$padding-small});
+		border-radius: $tc-inline-message-border-radius;
+
+		&.background {
+			&.info {
+				@include tc-background-highlight($lochmara);
+			}
+	
+			&.success {
+				@include tc-background-highlight($rio-grande);
+			}
+	
+			&.danger {
+				@include tc-background-highlight($chestnut-rose);
+			}
+	
+			&.warning {
+				@include tc-background-highlight($jaffa);
+			}
+		}
 	}
 
 	&-link {
@@ -25,8 +48,8 @@ $tc-inline-message-border-radius: 0.4rem;
 	}
 
 	&-icon {
-		margin-top: $padding-smaller;
-		align-self: normal;
+		padding-left: $padding-smaller;
+		position: absolute;
 
 		> svg {
 			width: $tc-inline-message-icon-size;
@@ -48,32 +71,6 @@ $tc-inline-message-border-radius: 0.4rem;
 
 		&.warning {
 			color: $jaffa;
-		}
-	}
-
-	&-wrapper {
-		display: flex;
-		align-items: center;
-		padding: 0 $padding-smaller;
-
-		&.background {
-			border-radius: $tc-inline-message-border-radius;
-
-			&.info {
-				@include tc-background-highlight($lochmara);
-			}
-
-			&.success {
-				@include tc-background-highlight($rio-grande);
-			}
-
-			&.danger {
-				@include tc-background-highlight($chestnut-rose);
-			}
-
-			&.warning {
-				@include tc-background-highlight($jaffa);
-			}
 		}
 	}
 }
