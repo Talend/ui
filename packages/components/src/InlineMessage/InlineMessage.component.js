@@ -46,7 +46,7 @@ export function InlineMessage({ type, title, description, icon, link, withBackgr
 
 	const textClasses = theme('tc-inline-message-text', getbsStyleFromType(type), {
 		background: withBackground,
-	})
+	});
 
 	const iconClassnames = theme('tc-inline-message-icon', getbsStyleFromType(type));
 
