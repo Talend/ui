@@ -80,7 +80,6 @@ InlineMessage.propTypes = {
 	link: PropTypes.shape({
 		href: PropTypes.string,
 		label: PropTypes.string,
-		props: PropTypes.object,
 	}),
 	withBackground: PropTypes.bool,
 };
