@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepare": "babel -d lib ./src/ --ignore 'src/**/*.stories.js','src/**/*.test.js' --delete-dir-on-start  && cpx -v \"./src/**/*.scss\" ./lib",
+    "prepare": "babel -d lib ./src/ --ignore 'src/**/*.stories.js','src/**/*.test.js' --delete-dir-on-start && cpx -v \"./src/**/*.scss\" ./lib",
     "start": "start-storybook -p 6007",
     "test": "jest",
     "test:watch": "jest --watch",

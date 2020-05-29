@@ -7,7 +7,7 @@ module.exports = function(api) {
 			'@babel/preset-env',
 			{
 				targets: {
-                    node: true,
+					node: true,
 				},
 			},
 		],
