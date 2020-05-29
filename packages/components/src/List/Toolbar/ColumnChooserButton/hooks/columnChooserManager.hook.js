@@ -33,6 +33,7 @@ const extractColumnValues = column => ({
 	visible: !column.hidden,
 	label: column.label,
 	order: column.order,
+	id: column.id,
 });
 
 /**
