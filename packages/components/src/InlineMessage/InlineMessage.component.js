@@ -73,10 +73,14 @@ export function InlineMessage({ type, title, description, icon, link, withBackgr
 InlineMessage.displayName = 'InlineMessage';
 
 InlineMessage.propTypes = {
-	type: PropTypes.oneOf([TYPES.INFO, TYPES.SUCCESSFUL, TYPES.WARNING, TYPES.ERROR]),
+	type: PropTypes.oneOf(Object.values(TYPES)),
 	icon: PropTypes.string.isRequired,
 	title: PropTypes.string,
 	description: PropTypes.string,
-	link: PropTypes.object,
+	link: PropTypes.shape({
+		href: PropTypes.string,
+		label: PropTypes.string,
+		props: PropTypes.object,
+	}),
 	withBackground: PropTypes.bool,
 };

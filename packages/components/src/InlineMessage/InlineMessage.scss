@@ -1,7 +1,8 @@
 $tc-inline-message-icon-size: $svg-md-size !default;
 $tc-inline-message-space-btn-icon-description: $padding-smaller !default;
-$tc-inline-message-min-height: 2.5rem;
-$tc-inline-message-border-radius: 0.4rem;
+$tc-inline-message-min-height: 2.5rem !default; 
+$tc-inline-message-border-radius: 0.4rem !default;
+$tc-inline-message-icon-offset: 0.4rem !default;
 
 @mixin tc-background-highlight($color: $black) {
 	background-color: tint($color, 95);
@@ -23,6 +24,8 @@ $tc-inline-message-border-radius: 0.4rem;
 		padding-right: $padding-smaller;
 		padding-left: calc(#{$tc-inline-message-icon-size} + #{$padding-small});
 		border-radius: $tc-inline-message-border-radius;
+		line-height: $tc-inline-message-min-height;
+		min-height: $tc-inline-message-min-height;
 
 		&.background {
 			&.info {
@@ -50,6 +53,7 @@ $tc-inline-message-border-radius: 0.4rem;
 	&-icon {
 		padding-left: $padding-smaller;
 		position: absolute;
+		top: $tc-inline-message-icon-offset;
 
 		> svg {
 			width: $tc-inline-message-icon-size;
