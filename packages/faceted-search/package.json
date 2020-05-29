@@ -36,11 +36,12 @@
   "dependencies": {
     "@talend/daikon-tql-client": "^1.2.0",
     "classnames": "^2.2.5",
+    "core-js": "3",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
     "lodash": "^4.17.4",
     "react-bootstrap": "0.32.4",
-    "core-js": "3",
+    "regenerator-runtime": "^0.13.5",
     "uuid": "^3.0.1"
   },
   "devDependencies": {

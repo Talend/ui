@@ -36,9 +36,10 @@
     "@ag-grid-community/core": "^22.1.1",
     "@ag-grid-community/react": "^22.1.2",
     "classnames": "^2.2.5",
-    "keycode": "^2.2.0",
     "core-js": "3",
-    "lodash": "^4.17.4"
+    "keycode": "^2.2.0",
+    "lodash": "^4.17.4",
+    "regenerator-runtime": "^0.13.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
