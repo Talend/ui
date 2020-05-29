@@ -9,6 +9,7 @@ import { convertValue } from '../../utils/properties';
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const {
+		autoComplete,
 		autoFocus,
 		description,
 		disabled = false,
@@ -39,6 +40,7 @@ export default function Text(props) {
 		>
 			<input
 				id={id}
+				autoComplete={autoComplete}
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled || valueIsUpdating}
@@ -70,6 +72,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			autoComplete: PropTypes.string,
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
