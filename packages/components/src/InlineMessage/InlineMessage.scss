@@ -28,15 +28,15 @@ $tc-inline-message-border-radius: 0.4rem;
 			&.info {
 				@include tc-background-highlight($lochmara);
 			}
-	
+
 			&.success {
 				@include tc-background-highlight($rio-grande);
 			}
-	
+
 			&.danger {
 				@include tc-background-highlight($chestnut-rose);
 			}
-	
+
 			&.warning {
 				@include tc-background-highlight($jaffa);
 			}
