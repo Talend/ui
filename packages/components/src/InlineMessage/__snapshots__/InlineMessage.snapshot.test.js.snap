@@ -5,36 +5,34 @@ exports[`InlineMessage should render with higligthed background 1`] = `
   className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success background theme-background"
+    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+  >
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-check-circle"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-check-circle"
+      />
+    </svg>
+  </span>
+  <div
+    className="tc-inline-message-text theme-tc-inline-message-text success theme-success background theme-background"
   >
     <span
-      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+      className="tc-inline-message-title theme-tc-inline-message-title"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-check-circle"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-check-circle"
-        />
-      </svg>
+      Validation title.
     </span>
-    <span>
-      <span
-        className="tc-inline-message-title theme-tc-inline-message-title"
-      >
-        Validation title.
-      </span>
-      <span
-        className="tc-inline-message-description theme-tc-inline-message-description"
-      >
-        Validation and successful messages
-      </span>
+    <span
+      className="tc-inline-message-description theme-tc-inline-message-description"
+    >
+      Validation and successful messages
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -43,32 +41,30 @@ exports[`InlineMessage should render with icon and description 1`] = `
   className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success"
+    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <span
-      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-check-circle"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-check-circle"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-check-circle"
-        />
-      </svg>
-    </span>
-    <span>
-      
-      <span
-        className="tc-inline-message-description theme-tc-inline-message-description"
-      >
-        Validation and successful messages
-      </span>
-    </span>
+      <use
+        xlinkHref="#talend-check-circle"
+      />
+    </svg>
   </span>
+  <div
+    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
+  >
+    
+    <span
+      className="tc-inline-message-description theme-tc-inline-message-description"
+    >
+      Validation and successful messages
+    </span>
+  </div>
 </div>
 `;
 
@@ -77,36 +73,34 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
   className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success"
+    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+  >
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-check-circle"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-check-circle"
+      />
+    </svg>
+  </span>
+  <div
+    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
   >
     <span
-      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+      className="tc-inline-message-title theme-tc-inline-message-title"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-check-circle"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-check-circle"
-        />
-      </svg>
+      Validation title.
     </span>
-    <span>
-      <span
-        className="tc-inline-message-title theme-tc-inline-message-title"
-      >
-        Validation title.
-      </span>
-      <span
-        className="tc-inline-message-description theme-tc-inline-message-description"
-      >
-        Validation and successful messages
-      </span>
+    <span
+      className="tc-inline-message-description theme-tc-inline-message-description"
+    >
+      Validation and successful messages
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -115,42 +109,40 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
   className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success"
+    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+  >
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-check-circle"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-check-circle"
+      />
+    </svg>
+  </span>
+  <div
+    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
   >
     <span
-      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+      className="tc-inline-message-title theme-tc-inline-message-title"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-check-circle"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-check-circle"
-        />
-      </svg>
+      Validation title.
     </span>
-    <span>
-      <span
-        className="tc-inline-message-title theme-tc-inline-message-title"
-      >
-        Validation title.
-      </span>
-      <span
-        className="tc-inline-message-description theme-tc-inline-message-description"
-      >
-        Validation and successful messages
-      </span>
-      <a
-        className="tc-inline-message-link theme-tc-inline-message-link"
-        href="https://my.custom.link"
-      >
-        See more
-      </a>
+    <span
+      className="tc-inline-message-description theme-tc-inline-message-description"
+    >
+      Validation and successful messages
     </span>
-  </span>
+    <a
+      className="tc-inline-message-link theme-tc-inline-message-link"
+      href="https://my.custom.link"
+    >
+      See more
+    </a>
+  </div>
 </div>
 `;
 
@@ -159,29 +151,27 @@ exports[`InlineMessage should render with title and description 1`] = `
   className="tc-inline-message theme-tc-inline-message"
 >
   <span
-    className="tc-inline-message-wrapper theme-tc-inline-message-wrapper success theme-success"
+    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+  >
+    <div
+      className="alert alert-danger"
+    >
+      Icon: no name provided
+    </div>
+  </span>
+  <div
+    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
   >
     <span
-      className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
+      className="tc-inline-message-title theme-tc-inline-message-title"
     >
-      <div
-        className="alert alert-danger"
-      >
-        Icon: no name provided
-      </div>
+      Validation title.
     </span>
-    <span>
-      <span
-        className="tc-inline-message-title theme-tc-inline-message-title"
-      >
-        Validation title.
-      </span>
-      <span
-        className="tc-inline-message-description theme-tc-inline-message-description"
-      >
-        Validation and successful messages
-      </span>
+    <span
+      className="tc-inline-message-description theme-tc-inline-message-description"
+    >
+      Validation and successful messages
     </span>
-  </span>
+  </div>
 </div>
 `;
