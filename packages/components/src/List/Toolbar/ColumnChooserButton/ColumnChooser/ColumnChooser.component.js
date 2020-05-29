@@ -18,7 +18,7 @@ const changeVisibleToHidden = column => ({
 	hidden: !column.visible,
 	label: column.label,
 	order: column.order,
-	id: column.id,
+	key: column.key,
 });
 const mapToColumnsList = columns => columns.map(changeVisibleToHidden);
 
