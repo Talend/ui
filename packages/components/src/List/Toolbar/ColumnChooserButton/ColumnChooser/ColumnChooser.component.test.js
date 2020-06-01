@@ -58,12 +58,17 @@ describe('ColumnChooser', () => {
 		// Then
 		expect(onSubmit).toHaveBeenCalled();
 		expect(onSubmit.mock.calls[0][1]).toEqual([
-			{ hidden: false, label: 'Id', order: 1 },
-			{ hidden: false, label: 'Name', order: 2 },
-			{ hidden: false, label: 'Author', order: 3 },
-			{ hidden: false, label: 'Very long name long name long name long name long name', order: 4 },
-			{ hidden: true, label: 'Icon', order: 5 },
-			{ hidden: false, label: 'Created', order: 6 },
+			{ hidden: false, key: 'id', label: 'Id', order: 1 },
+			{ hidden: false, key: 'name', label: 'Name', order: 2 },
+			{ hidden: false, key: 'author', label: 'Author', order: 3 },
+			{
+				hidden: false,
+				key: 'modified',
+				label: 'Very long name long name long name long name long name',
+				order: 4,
+			},
+			{ hidden: true, key: 'icon', label: 'Icon', order: 5 },
+			{ hidden: false, key: 'created', label: 'Created', order: 6 },
 		]);
 	});
 	it('should filter the columns by name if an initial filter value is provided', () => {
