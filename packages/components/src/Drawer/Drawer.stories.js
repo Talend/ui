@@ -443,7 +443,7 @@ storiesOf('Layout/Drawer', module)
 			);
 		}
 		return (
-			<Layout header={header} mode="OneColumns" drawers={[<CustomDrawer />]}>
+			<Layout header={header} mode="TwoColumns" drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
