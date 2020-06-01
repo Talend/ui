@@ -273,7 +273,14 @@ for (let index = 0; index < 20; index++) {
 	twentyRows.push(<p key={index}>The content dictate the width</p>);
 }
 storiesOf('Layout/Drawer', module)
-	.add('Default', () => (
+	.add('Layout 1 column', () => (
+		<Layout header={header} mode="OneColumns" drawers={drawers}>
+			<span>zone with drawer</span>
+			{twentyRows}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.add('Layout 2 columns', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
@@ -436,7 +443,7 @@ storiesOf('Layout/Drawer', module)
 			);
 		}
 		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
+			<Layout header={header} mode="OneColumns" drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
