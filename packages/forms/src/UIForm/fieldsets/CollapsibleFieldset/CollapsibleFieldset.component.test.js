@@ -207,7 +207,9 @@ describe('CollapsibleFieldset', () => {
 		);
 		const panel = wrapper.find('CollapsiblePanel');
 
-		expect(panel.props().header[0].label).toEqual([value.firstname, value.lastname, value.addressLine].join(', '));
+		expect(panel.props().header[0].label).toEqual(
+			[value.firstname, value.lastname, value.addressLine].join(', '),
+		);
 	});
 
 	it('should display description', () => {
@@ -231,7 +233,9 @@ describe('defaultTitle', () => {
 		expect(defaultTitle({}, schemaBasic)).toBe(schemaBasic.title);
 	});
 	it('should return concat values if used in an array', () => {
-		expect(defaultTitle(value, schema)).toBe([value.firstname, value.lastname, value.addressLine].join(', '));
+		expect(defaultTitle(value, schema)).toBe(
+			[value.firstname, value.lastname, value.addressLine].join(', '),
+		);
 	});
 	it('should support option in an array', () => {
 		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(

@@ -37,7 +37,11 @@ function isCollapsibleArray(element, schema) {
 		if (item.items && isCollapsibleArray(item, element)) {
 			acc.push(true);
 		}
-		if (acc.length === 0 && schema && (schema.items || []).some(data => data.widget === 'collapsibleFieldset')) {
+		if (
+			acc.length === 0 &&
+			schema &&
+			(schema.items || []).some(data => data.widget === 'collapsibleFieldset')
+		) {
 			acc.push(true);
 		}
 		return acc;
