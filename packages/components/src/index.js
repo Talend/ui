@@ -63,6 +63,7 @@ import ResourceList from './ResourceList';
 import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
 import { ModelViewer, RecordsViewer } from './DataViewer';
+import { InlineMessage } from './InlineMessage';
 
 const {
 	Alert,
@@ -184,6 +185,7 @@ export {
 	RichLayout,
 	SidePanel,
 	Status,
+	InlineMessage,
 	SubHeaderBar,
 	TabBar,
 	Table,

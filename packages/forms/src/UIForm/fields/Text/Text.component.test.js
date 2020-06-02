@@ -173,12 +173,7 @@ describe('Text field', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('[type="number"]')
-				.at(0)
-				.props().step,
-		).toEqual(0.01);
+		expect(wrapper.find('[type="number"]').at(0).props().step).toEqual(0.01);
 	});
 
 	it('should trigger onChange', () => {
@@ -274,5 +269,24 @@ describe('Text field', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should pass autoComplete to input', () => {
+		// given
+		const autoCompleteSchema = {
+			...schema,
+			autoComplete: 'off',
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={autoCompleteSchema}
+				value={'toto'}
+			/>,
+		);
+		expect(wrapper.find('input').prop('autoComplete')).toBe('off');
 	});
 });
