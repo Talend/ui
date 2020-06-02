@@ -20,7 +20,7 @@ import {
 	badgePriceAsCustomAttribute,
 } from './badgesDefinitions.story';
 
-const badgesDefinitions = [badgeName, badgeConnectionType, badgePrice];
+const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice];
 const lotsOfBadgesDefinitions = [];
 let i = 0;
 while (i < 50) {
@@ -28,6 +28,29 @@ while (i < 50) {
 	i += 1;
 }
 
+const callbacks = {
+	getTags: () =>
+		new Promise(resolve =>
+			setTimeout(resolve, 2000, [
+				'clean',
+				'production',
+				'last chunk',
+				'salesforce',
+				'outdated',
+				'extracted',
+				'security',
+				'in processing',
+				'deep learning',
+				'sql',
+				'cluster',
+				'visualization',
+				'analytics',
+				'users',
+				'warehouse',
+				'api',
+			]),
+		),
+};
 const badgesFaceted = {
 	badges: [
 		{
@@ -110,6 +133,7 @@ storiesOf('FacetedSearch', module)
 					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
 						<FacetedSearch.BasicSearch
 							badgesDefinitions={badgesDefinitions}
+							callbacks={callbacks}
 							onSubmit={action('onSubmit')}
 						/>
 					))
@@ -130,6 +154,7 @@ storiesOf('FacetedSearch', module)
 							badgesDefinitions={badgesDefinitions}
 							badgesFaceted={badgesFaceted}
 							onSubmit={action('onSubmit')}
+							callbacks={callbacks}
 						/>
 					))
 				}
@@ -143,6 +168,7 @@ storiesOf('FacetedSearch', module)
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={lotsOfBadgesDefinitions}
 					onSubmit={action('onSubmit')}
+					callbacks={callbacks}
 				/>
 			</FacetedSearch.Faceted>
 		</div>
@@ -154,6 +180,7 @@ storiesOf('FacetedSearch', module)
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeWithVeryLongName, badgeConnectionType, badgeName, badgePrice]}
 					onSubmit={action('onSubmit')}
+					callbacks={callbacks}
 				/>
 			</FacetedSearch.Faceted>
 		</div>
@@ -165,6 +192,7 @@ storiesOf('FacetedSearch', module)
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeEnumWithLotOfValues]}
 					onSubmit={action('onSubmit')}
+					callbacks={callbacks}
 				/>
 			</FacetedSearch.Faceted>
 		</div>
@@ -185,6 +213,7 @@ storiesOf('FacetedSearch', module)
 						...times(2, () => badgeTextAsCategory),
 					]}
 					onSubmit={action('onSubmit')}
+					callbacks={callbacks}
 				/>
 			</FacetedSearch.Faceted>
 		</div>
@@ -196,6 +225,7 @@ storiesOf('FacetedSearch', module)
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeName, badgeEmptyLabel]}
 					onSubmit={action('onSubmit')}
+					callbacks={callbacks}
 				/>
 			</FacetedSearch.Faceted>
 		</div>

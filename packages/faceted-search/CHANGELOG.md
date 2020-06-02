@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [0.10.0]
+
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2828): Add badge tags support
+
 ## [0.9.1]
 
 ### Fixed
