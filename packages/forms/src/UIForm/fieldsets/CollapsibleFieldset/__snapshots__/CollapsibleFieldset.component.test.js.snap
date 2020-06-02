@@ -9,7 +9,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
     header={
       Array [
         Object {
-          "label": "Jimmy, Somsanith",
+          "label": "Jimmy, Somsanith, park avenue",
         },
         Array [],
       ]
@@ -41,6 +41,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
       }
       value={
         Object {
+          "addressLine": "park avenue",
           "firstname": "Jimmy",
           "isClosed": true,
           "lastname": "Somsanith",
@@ -64,6 +65,56 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
       }
       value={
         Object {
+          "addressLine": "park avenue",
+          "firstname": "Jimmy",
+          "isClosed": true,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "items": Array [
+            Object {
+              "items": Array [
+                Object {
+                  "key": Array [
+                    "addressLine",
+                  ],
+                  "title": "Address line",
+                },
+                Object {
+                  "key": Array [
+                    "postCode",
+                  ],
+                  "title": "Post code",
+                },
+              ],
+              "key": Array [
+                "details.address[]",
+              ],
+              "title": "Primary address",
+              "widget": "collapsibleFieldset",
+            },
+          ],
+          "key": Array [
+            "details.address",
+          ],
+          "schema": Object {
+            "items": Object {
+              "type": "string",
+            },
+            "type": "array",
+          },
+          "title": "Address",
+        }
+      }
+      value={
+        Object {
+          "addressLine": "park avenue",
           "firstname": "Jimmy",
           "isClosed": true,
           "lastname": "Somsanith",
@@ -116,6 +167,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       }
       value={
         Object {
+          "addressLine": "park avenue",
           "firstname": "Jimmy",
           "isClosed": false,
           "lastname": "Somsanith",
@@ -139,6 +191,56 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       }
       value={
         Object {
+          "addressLine": "park avenue",
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "items": Array [
+            Object {
+              "items": Array [
+                Object {
+                  "key": Array [
+                    "addressLine",
+                  ],
+                  "title": "Address line",
+                },
+                Object {
+                  "key": Array [
+                    "postCode",
+                  ],
+                  "title": "Post code",
+                },
+              ],
+              "key": Array [
+                "details.address[]",
+              ],
+              "title": "Primary address",
+              "widget": "collapsibleFieldset",
+            },
+          ],
+          "key": Array [
+            "details.address",
+          ],
+          "schema": Object {
+            "items": Object {
+              "type": "string",
+            },
+            "type": "array",
+          },
+          "title": "Address",
+        }
+      }
+      value={
+        Object {
+          "addressLine": "park avenue",
           "firstname": "Jimmy",
           "isClosed": false,
           "lastname": "Somsanith",
@@ -159,7 +261,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
     header={
       Array [
         Object {
-          "label": "Jimmy, Somsanith",
+          "label": "Jimmy, Somsanith, park avenue",
         },
         Array [],
       ]
@@ -191,6 +293,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       }
       value={
         Object {
+          "addressLine": "park avenue",
           "firstname": "Jimmy",
           "isClosed": false,
           "lastname": "Somsanith",
@@ -214,6 +317,56 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       }
       value={
         Object {
+          "addressLine": "park avenue",
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "items": Array [
+            Object {
+              "items": Array [
+                Object {
+                  "key": Array [
+                    "addressLine",
+                  ],
+                  "title": "Address line",
+                },
+                Object {
+                  "key": Array [
+                    "postCode",
+                  ],
+                  "title": "Post code",
+                },
+              ],
+              "key": Array [
+                "details.address[]",
+              ],
+              "title": "Primary address",
+              "widget": "collapsibleFieldset",
+            },
+          ],
+          "key": Array [
+            "details.address",
+          ],
+          "schema": Object {
+            "items": Object {
+              "type": "string",
+            },
+            "type": "array",
+          },
+          "title": "Address",
+        }
+      }
+      value={
+        Object {
+          "addressLine": "park avenue",
           "firstname": "Jimmy",
           "isClosed": false,
           "lastname": "Somsanith",
@@ -234,7 +387,7 @@ exports[`CollapsibleFieldset should render without value 1`] = `
     header={
       Array [
         Object {
-          "label": "Basic",
+          "label": "Primary address",
         },
         Array [],
       ]
@@ -283,6 +436,52 @@ exports[`CollapsibleFieldset should render without value 1`] = `
           },
           "title": "LastName",
           "type": "string",
+        }
+      }
+      value={
+        Object {
+          "isClosed": undefined,
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "items": Array [
+            Object {
+              "items": Array [
+                Object {
+                  "key": Array [
+                    "addressLine",
+                  ],
+                  "title": "Address line",
+                },
+                Object {
+                  "key": Array [
+                    "postCode",
+                  ],
+                  "title": "Post code",
+                },
+              ],
+              "key": Array [
+                "details.address[]",
+              ],
+              "title": "Primary address",
+              "widget": "collapsibleFieldset",
+            },
+          ],
+          "key": Array [
+            "details.address",
+          ],
+          "schema": Object {
+            "items": Object {
+              "type": "string",
+            },
+            "type": "array",
+          },
+          "title": "Address",
         }
       }
       value={

@@ -19,6 +19,19 @@
       "comment": {
         "type": "string",
         "maxLength": 20
+      },
+      "addressLine": {
+        "type": "string"
+      },
+      "postCode": {
+        "type": "string"
+      },
+      "fruits": {
+        "type": "string",
+        "enum": ["Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit"]
+      },
+      "city": {
+        "type": "string"
       }
     },
     "required": [
@@ -47,7 +60,7 @@
     },
     {
       "widget": "collapsibleFieldset",
-      "key": "technical.details",
+      "key": "details",
       "title": "Details",
       "items": [
         {
@@ -55,8 +68,47 @@
           "title": "Age"
         },
         {
-          "key": "address",
-          "title": "Adress"
+          "type": "array",
+          "key": "details.address",
+          "title": "Address",
+          "items": [
+            {
+              "widget": "collapsibleFieldset",
+              "key": "details.address[]",
+              "title": "Primary address",
+              "items": [
+                {
+                  "key": "addressLine",
+                  "title": "Address line"
+                },
+                {
+                  "key": "postCode",
+                  "title": "Post code"
+                }
+              ]
+            },
+            {
+              "widget": "collapsibleFieldset",
+              "key": "secondaryAddress",
+              "title": "Secondary address",
+              "items": [
+                {
+                  "key": "addressLine",
+                  "title": "Address line"
+                },
+                {
+                  "key": "postCode",
+                  "title": "Post code"
+                }
+              ]
+            }
+          ],
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         },
         {
           "key": "comment",
@@ -64,6 +116,61 @@
           "title": "Comment",
           "placeholder": "Make a comment",
           "validationMessage": "Don't be greedy!"
+        }
+      ]
+    },
+    {
+      "widget": "collapsibleFieldset",
+      "key": "extra",
+      "title": "Additional information",
+      "items": [
+        {
+          "key": "city",
+          "title": "Favourite city"
+        },
+        {
+          "type": "array",
+          "key": "extra.fruits",
+          "title": "Favourite fruits",
+          "items": [
+            {
+              "key": "extra.fruits[]",
+              "title": "Fruit",
+              "widget": "datalist",
+              "titleMap": [
+                {
+                  "name": "My Apple",
+                  "value": "Apple"
+                },
+                {
+                  "name": "My Pineapple",
+                  "value": "Pine[apple]"
+                },
+                {
+                  "name": "My Banana",
+                  "value": "Banana"
+                },
+                {
+                  "name": "My Cherry",
+                  "value": "Cher[ry"
+                },
+                {
+                  "name": "My Lemon",
+                  "value": "Lemo}n"
+                },
+                {
+                  "name": "My Grapefruit",
+                  "value": "Grapefruit"
+                }
+              ]
+            }
+          ],
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       ]
     },
@@ -87,6 +194,9 @@
     }
   ],
   "properties": {
-    "comment": "lol"
+    "comment": "lol",
+    "age": 33,
+    "lastname": "jackson",
+    "primaryAddress": "paris"
   }
 }

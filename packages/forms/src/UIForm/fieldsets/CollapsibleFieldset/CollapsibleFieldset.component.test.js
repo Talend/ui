@@ -10,6 +10,24 @@ function customTitle(value, schema) {
 	return `${schema.title}: ${value.firstname} ${value.lastname}`;
 }
 
+const schemaBasic = {
+	title: 'Basic',
+	items: [
+		{
+			key: ['firstname'],
+			title: 'FirstName',
+			schema: { type: 'string' },
+			type: 'string',
+		},
+		{
+			key: ['lastname'],
+			title: 'FirstName',
+			schema: { type: 'string' },
+			type: 'string',
+		},
+	],
+};
+
 const schema = {
 	title: 'Basic',
 	description: 'This is description',
@@ -26,12 +44,40 @@ const schema = {
 			schema: { type: 'string' },
 			type: 'string',
 		},
+		{
+			key: ['details.address'],
+			title: 'Address',
+			items: [
+				{
+					widget: 'collapsibleFieldset',
+					key: ['details.address[]'],
+					title: 'Primary address',
+					items: [
+						{
+							key: ['addressLine'],
+							title: 'Address line',
+						},
+						{
+							key: ['postCode'],
+							title: 'Post code',
+						},
+					],
+				},
+			],
+			schema: {
+				type: 'array',
+				items: {
+					type: 'string',
+				},
+			},
+		},
 	],
 };
 
 const value = {
 	firstname: 'Jimmy',
 	lastname: 'Somsanith',
+	addressLine: 'park avenue',
 };
 
 const defaultTitleMockData = {
@@ -152,7 +198,6 @@ describe('CollapsibleFieldset', () => {
 
 		expect(wrapper.exists('Actions')).toEqual(false);
 	});
-
 	it('should concat values in case it is used in array', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
 		const onChange = jest.fn();
@@ -162,7 +207,7 @@ describe('CollapsibleFieldset', () => {
 		);
 		const panel = wrapper.find('CollapsiblePanel');
 
-		expect(panel.props().header[0].label).toEqual(`${value.firstname}, ${value.lastname}`);
+		expect(panel.props().header[0].label).toEqual([value.firstname, value.lastname, value.addressLine].join(', '));
 	});
 
 	it('should display description', () => {
@@ -183,25 +228,25 @@ describe('defaultTitle', () => {
 		// given not used in an array you have the schema.title
 		expect(defaultTitle({}, { title: 'Comment' })).toBe('Comment');
 		// given no value, you have the schema.title
-		expect(defaultTitle({}, schema)).toBe(schema.title);
+		expect(defaultTitle({}, schemaBasic)).toBe(schemaBasic.title);
 	});
 	it('should return concat values if used in an array', () => {
-		expect(defaultTitle(value, schema)).toBe(`${value.firstname}, ${value.lastname}`);
+		expect(defaultTitle(value, schema)).toBe([value.firstname, value.lastname, value.addressLine].join(', '));
 	});
 	it('should support option in an array', () => {
 		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(
-			`${value.firstname} -- || -- ${value.lastname}`,
+			[value.firstname, value.lastname, value.addressLine].join(' -- || -- '),
 		);
 		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(
-			`${value.firstname} || ${value.lastname}`,
+			[value.firstname, value.lastname, value.addressLine].join(' || '),
 		);
 	});
 	it('should support recursive call', () => {
 		expect(defaultTitle(value, schema, { separator: ' -- || -- ' })).toBe(
-			`${value.firstname} -- || -- ${value.lastname}`,
+			[value.firstname, value.lastname, value.addressLine].join(' -- || -- '),
 		);
 		expect(defaultTitle(value, { ...schema, options: { separator: ' || ' } })).toBe(
-			`${value.firstname} || ${value.lastname}`,
+			[value.firstname, value.lastname, value.addressLine].join(' || '),
 		);
 	});
 	it('should support recursive call on deeper objects', () => {
