@@ -43,7 +43,9 @@ export const BadgeTags = ({
 	const [tagsValues, setTagsValues] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => {
-		if (!callbacks.getTags) {
+		if (!callbacks || !callbacks.getTags) {
+			setIsLoading(false);
+
 			console.warn("get tags callback is not defined, tags can't be fetch from server");
 			return;
 		}
