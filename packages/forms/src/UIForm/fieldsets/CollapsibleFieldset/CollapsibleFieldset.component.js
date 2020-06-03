@@ -29,31 +29,8 @@ function getDrillKey(key) {
 	}, []);
 }
 
-function isCollapsibleArray(element, schema) {
-	if (!schema && element.items && !element.items.some(item => item.type === 'array')) {
-		return true;
-	}
-	const hasCollapsible = (element.items || []).reduce((acc, item) => {
-		if (item.items && isCollapsibleArray(item, element)) {
-			acc.push(true);
-		}
-		if (
-			acc.length === 0 &&
-			schema &&
-			(schema.items || []).some(data => data.widget === 'collapsibleFieldset')
-		) {
-			acc.push(true);
-		}
-		return acc;
-	}, []);
-	return hasCollapsible.length > 0;
-}
-
 export function defaultTitle(formData, schema, options) {
-	if (!isCollapsibleArray(schema)) {
-		return schema.title;
-	}
-	const title = (schema.items || []).reduce((acc, item) => {
+	const title = (schema.type !== 'array' && schema.items || []).reduce((acc, item) => {
 		let value;
 		if (item.key) {
 			const lastKey = getDrillKey(item.key);

@@ -123,6 +123,7 @@
       "widget": "collapsibleFieldset",
       "key": "extra",
       "title": "Additional information",
+      "type": "array",
       "items": [
         {
           "key": "city",

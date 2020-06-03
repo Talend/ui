@@ -198,6 +198,7 @@ describe('CollapsibleFieldset', () => {
 
 		expect(wrapper.exists('Actions')).toEqual(false);
 	});
+
 	it('should concat values in case it is used in array', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
 		const onChange = jest.fn();
