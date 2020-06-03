@@ -30,7 +30,7 @@ function getDrillKey(key) {
 }
 
 export function defaultTitle(formData, schema, options) {
-	const title = (schema.type !== 'array' && schema.items || []).reduce((acc, item) => {
+	const title = ((schema.type !== 'array' && schema.items) || []).reduce((acc, item) => {
 		let value;
 		if (item.key) {
 			const lastKey = getDrillKey(item.key);
