@@ -48,7 +48,9 @@ $tc-inline-message-link-margin: 0.35rem !default;
 	}
 
 	&-link {
-		margin-left: $tc-inline-message-link-margin;
+		&:before {
+			content: " ";
+		}
 	}
 
 	&-icon {
