@@ -164,6 +164,7 @@ describe('Drawer', () => {
 				<h1>Hello world</h1>
 			</Drawer>,
 		);
+
 		expect(wrapper.find('ActionBar')).toHaveLength(1);
 		expect(toJsonWithoutI18n(wrapper.find('ActionBar'))).toMatchSnapshot();
 	});
@@ -220,18 +221,8 @@ describe('Drawer', () => {
 
 		expect(wrapper.find('TabBar')).toHaveLength(0);
 		expect(wrapper.find('CustomTabBar')).toHaveLength(1);
-		expect(
-			wrapper
-				.find('DrawerTitle')
-				.dive()
-				.find('Action'),
-		).toHaveLength(0);
-		expect(
-			wrapper
-				.find('DrawerTitle')
-				.dive()
-				.find('CustomAction'),
-		).toHaveLength(1);
+		expect(wrapper.find('DrawerTitle').dive().find('Action')).toHaveLength(0);
+		expect(wrapper.find('DrawerTitle').dive().find('CustomAction')).toHaveLength(1);
 	});
 
 	it('render children event if there is no title', () => {

@@ -4,10 +4,9 @@ exports[`SubHeaderBar should render without i18n 1`] = `
 <header
   className="theme-tc-subheader tc-subheader myClassName"
 >
-  <withI18nextTranslation(ActionBar)
+  <ActionBar
     className="theme-tc-subheader-navbar tc-subheader-navbar"
     components={Object {}}
-    t={[Function]}
   >
     <SubHeaderBarActions
       left={true}
@@ -74,6 +73,6 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         onClick={[MockFunction]}
       />
     </SubHeaderBarActions>
-  </withI18nextTranslation(ActionBar)>
+  </ActionBar>
 </header>
 `;

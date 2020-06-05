@@ -29,6 +29,7 @@ exports[`HeaderTitle should render a span and ActionDropdown 1`] = `
     <withI18nextTranslation(YearPicker)
       data-feature="actiondropdown.items"
       id="year-picker-in-datetime-header"
+      onSelect={[MockFunction]}
       t={[Function]}
     />
   </withI18nextTranslation(ActionDropdown)>
