@@ -1,4 +1,5 @@
 import cmf from '@talend/react-cmf';
+import openApiTester from '@talend/api-tester-opener';
 import { call, put, takeEvery, take } from 'redux-saga/effects';
 
 import Connected from './HeaderBar.connect';
@@ -33,6 +34,11 @@ export function* fetchProducts(action) {
  * @param {Object} action
  */
 export function handleOpenProduct(action) {
+	if (action.payload.key === 'TAPIT' && action.payload.TAPIExtensionId) {
+		openApiTester(action.payload.TAPIExtensionId);
+		return;
+	}
+
 	if ('url' in action.payload) {
 		window.location.assign(action.payload.url);
 	}

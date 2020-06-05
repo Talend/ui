@@ -89,6 +89,17 @@ class HeaderBar extends React.Component {
 			}
 		}
 
+		if (!this.props.productsUrl && this.props.productsItems) {
+			const items = this.props.productsItems.toJS().map(product => ({
+				'data-feature': `product.${(product.key || '').toLowerCase()}`,
+				...product,
+				onClickDispatch: openProduct({ ...product, TAPIExtensionId: this.props.TAPIExtensionId }),
+			}));
+
+			items.sort(productsSort);
+			productsProps.products = Object.assign({}, this.products, { items });
+		}
+
 		return <Component {...omit(props, cmfConnect.INJECTED_PROPS)} {...productsProps} />;
 	}
 }
