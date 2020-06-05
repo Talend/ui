@@ -56,9 +56,9 @@ export function InlineMessage({ type, title, description, icon, link, withBackgr
 				<Icon name={icon} />
 			</span>
 			<div className={textClasses}>
-				{title && <span className={theme('tc-inline-message-title')}>{title}</span>}
+				{title && <span className={theme('tc-inline-message-title', 'tc-inline-message-text-item')}>{title}</span>}
 				{description && (
-					<span className={theme('tc-inline-message-description')}>{description}</span>
+					<span className={theme('tc-inline-message-description', 'tc-inline-message-text-item')}>{description}</span>
 				)}
 				{link && (
 					<a className={theme('tc-inline-message-link')} href={link.href} {...link.props}>
