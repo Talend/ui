@@ -1,8 +1,11 @@
 import cmf from '@talend/react-cmf';
+import openApiTester from '@talend/api-tester-opener';
 
 import { fetchProducts, handleOpenProduct } from './HeaderBar.sagas';
 import Connected from './HeaderBar.connect';
 import Constants from './HeaderBar.constant';
+
+jest.mock('@talend/api-tester-opener', () => jest.fn());
 
 describe('HeaderBar sagas', () => {
 	describe('fetchProducts', () => {
@@ -80,6 +83,16 @@ describe('HeaderBar sagas', () => {
 
 			handleOpenProduct(action);
 			expect(global.location.assign).toHaveBeenCalledWith('productUrl');
+		});
+
+		it('should call openApiTester with the extension id ', () => {
+			const extensionId = 'extensionId';
+			const action = {
+				payload: { key: Constants.APPLICATION_KEY_API_TESTER, TAPIExtensionId: 'extensionId' },
+			};
+
+			handleOpenProduct(action);
+			expect(openApiTester).toHaveBeenCalledWith(extensionId);
 		});
 
 		it('should do nothing if no product URI is provided', () => {

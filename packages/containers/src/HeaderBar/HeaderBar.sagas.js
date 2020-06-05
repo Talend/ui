@@ -34,7 +34,10 @@ export function* fetchProducts(action) {
  * @param {Object} action
  */
 export function handleOpenProduct(action) {
-	if (action.payload.key === 'TAPIT' && action.payload.TAPIExtensionId) {
+	if (
+		action.payload.key === Constants.APPLICATION_KEY_API_TESTER &&
+		action.payload.TAPIExtensionId
+	) {
 		openApiTester(action.payload.TAPIExtensionId);
 		return;
 	}

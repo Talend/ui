@@ -89,7 +89,7 @@ class HeaderBar extends React.Component {
 			}
 		}
 
-		if (!this.props.productsUrl && this.props.productsItems) {
+		if (!this.props.productsUrl && !hasFetchedProducts && this.props.productsItems) {
 			const items = this.props.productsItems.toJS().map(product => ({
 				'data-feature': `product.${(product.key || '').toLowerCase()}`,
 				...product,
