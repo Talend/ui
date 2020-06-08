@@ -1,13 +1,13 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
-import InputBehaviors from './images/inputfields-behaviors.png';
-import InputZoning from './images/inputfields-zoning.jpg';
+import InputBehaviors from './images/inputs-behaviors.png';
+import InputZoning from './images/inputs-zoning.jpg';
 
 
-<Meta title="Guidelines|Components/Input fields" />
+<Meta title="Guidelines|Components/Inputs" />
 
-# Input fields
+# Inputs
 
 Text fields can display user input in the following ways:
 - Single line text fields display only one line of text
@@ -40,11 +40,12 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 	</Col>
 </Row>
 
-## Style
 
 ## Zoning
 
-<img src={InputZoning} alt="zoning image for classic input fields" className="full" class="full" />
+<img src={InputZoning} alt="zoning image for classic inputs" className="full" class="full" />
+
+## Style
 
 ## Variations
 
@@ -54,7 +55,8 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 
 | Attribute                      | Variable          |
 | ------------------------------ | ----------------- |
-| width                          | based on content  |
+| min-width                      | 8rem              |
+| max-width                      | 70rem             |
 | height    			    	 | 3.2rem            |
 | padding-left and right         | $small            |
 | border-radius                  | 0.2rem            |
@@ -100,12 +102,6 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 - Validation of the field will be done either by a click outside of the field, or pressing ENTER on the keyboard, or clicking on the validation button (depends on the use case)
 
 
-## Accessibility <a id="accessibility" />
-
-Press <kbd>TABS</kbd> to focus on an input element
-
-Press the <kbd>ENTER</kbd> to submit your value
-
 ## Usage <a id="usage" />
 * Label:  
 Indicate what sort of information the field requires. Has to be short text.
@@ -118,9 +114,15 @@ Describe the star by using an hidden text. (ex: this field is mandatory)
 // TO DO = Add demo
 
 * Placeholder text:  
-Lets people know how they should use the field (e.g. 'Start typing to see names'). Use it only when clarification is required.
+Lets people know how they should use the field (e.g. 'Start typing to see namegis'). Use it only when clarification is required.
 
 // TO DO = Add demo
+
+## Accessibility <a id="accessibility" />
+
+Press <kbd>TABS</kbd> to focus on an input element
+
+Press the <kbd>ENTER</kbd> to submit your value
 
 ## Changelog
 
