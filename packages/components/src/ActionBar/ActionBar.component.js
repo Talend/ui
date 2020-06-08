@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import Inject from '../Inject';
-import getDefaultT from '../translate';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import css from './ActionBar.scss';
 
@@ -141,7 +140,7 @@ function SwitchActions({ actions, left, right, center, getComponent, components 
 	);
 }
 SwitchActions.propTypes = {
-	actions: PropTypes.arrayOf(PropTypes.shape(actionsShape)).isRequired,
+	actions: PropTypes.arrayOf(PropTypes.shape(actionsShape)),
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
@@ -150,10 +149,11 @@ SwitchActions.propTypes = {
 };
 SwitchActions.defaultProps = {
 	actions: [],
-	t: getDefaultT(),
 };
 
-function Count({ selected, t }) {
+function Count({ selected }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+
 	if (!selected) {
 		return null;
 	}
@@ -165,7 +165,6 @@ function Count({ selected, t }) {
 }
 Count.propTypes = {
 	selected: PropTypes.number,
-	t: PropTypes.func,
 };
 
 function defineComponentLeft(parentComponentLeft, selected, t) {
@@ -182,7 +181,7 @@ function defineComponentLeft(parentComponentLeft, selected, t) {
 	return undefined;
 }
 
-export function ActionBarComponent(props) {
+export function ActionBar(props) {
 	const { left, right, center } = getActionsToRender(props);
 	const cssClass = classNames(
 		css['tc-actionbar-container'],
@@ -223,24 +222,22 @@ export function ActionBarComponent(props) {
 	);
 }
 
-ActionBarComponent.propTypes = {
+ActionBar.propTypes = {
 	selected: PropTypes.number,
 	children: PropTypes.node,
 	className: PropTypes.string,
 	getComponent: PropTypes.func,
-	t: PropTypes.func,
 	components: PropTypes.object,
 };
-ActionBarComponent.defaultProps = {
+ActionBar.defaultProps = {
 	components: {},
 };
-ActionBarComponent.displayName = 'ActionBar';
+ActionBar.displayName = 'ActionBar';
 
-const TranslatedActionBar = withTranslation(I18N_DOMAIN_COMPONENTS)(ActionBarComponent);
-TranslatedActionBar.DISPLAY_MODES = DISPLAY_MODES;
-TranslatedActionBar.Count = Count;
-TranslatedActionBar.SwitchActions = SwitchActions;
-TranslatedActionBar.getActionsToRender = getActionsToRender;
-TranslatedActionBar.Content = Content;
-TranslatedActionBar.getContentClassName = getContentClassName;
-export default TranslatedActionBar;
+ActionBar.DISPLAY_MODES = DISPLAY_MODES;
+ActionBar.Count = Count;
+ActionBar.SwitchActions = SwitchActions;
+ActionBar.getActionsToRender = getActionsToRender;
+ActionBar.Content = Content;
+ActionBar.getContentClassName = getContentClassName;
+export default ActionBar;

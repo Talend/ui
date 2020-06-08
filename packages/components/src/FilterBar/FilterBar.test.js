@@ -131,7 +131,9 @@ describe('FilterBar', () => {
 	it('should call onToggle on ENTER keydown', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<FilterBarComponent {...props} id={'filter'} />);
+		const filterInstance = mount(<FilterBarComponent {...props} id="filter" />, {
+			attachTo: document.body,
+		});
 		expect(document.activeElement.id).toBe('filter-input');
 
 		// when
@@ -139,6 +141,7 @@ describe('FilterBar', () => {
 
 		// then
 		expect(document.activeElement.id).toBe('');
+		filterInstance.detach();
 	});
 
 	it('should call onFilter with debounce options', done => {
