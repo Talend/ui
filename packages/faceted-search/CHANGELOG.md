@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+- [fixed](https://github.com/Talend/ui/pull/2847): Check badge existence before trying to set it
+
 ## [0.10.1]
 
 ### Fixed
