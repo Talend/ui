@@ -44,7 +44,7 @@ function LargeInnerRowLoading({ columns, rows }) {
 					<div key={index} className={theme['loading-inner-column']}>
 						{Array(rows)
 							.fill(0)
-							.map((_, innerIndex) => (
+							.map((__, innerIndex) => (
 								<RandomSizeSkeleton key={innerIndex} />
 							))}
 					</div>

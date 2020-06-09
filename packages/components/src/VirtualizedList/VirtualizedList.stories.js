@@ -406,21 +406,21 @@ const sourceItems = [...new Array(50)].map(
 );
 
 function CollapsiblePanels(props) {
-	const [collection, setCollection] = React.useState(props.sourceItems);
+	const [cpCollection, setCPCollection] = React.useState(props.sourceItems);
 	return (
 		<div>
 			<h1>Virtualized List with Collapsible Panels</h1>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '90vh' }}>
 				<VirtualizedList
-					collection={collection}
+					collection={cpCollection}
 					onRowClick={(_, rowItem) => {
 						action('onRowClick');
-						collection[rowItem.index] = {
+						cpCollection[rowItem.index] = {
 							...rowItem,
 							expanded: !rowItem.expanded,
 						};
-						setCollection([...collection]);
+						setCPCollection([...cpCollection]);
 					}}
 					onScroll={action('onScroll')}
 					id="my-list"
