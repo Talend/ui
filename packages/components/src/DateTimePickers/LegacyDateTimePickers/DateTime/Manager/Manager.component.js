@@ -26,6 +26,7 @@ import {
 
 class ContextualManager extends React.Component {
 	static displayName = 'DateTime.Manager';
+
 	static propTypes = {
 		children: PropTypes.node,
 		dateFormat: PropTypes.string,

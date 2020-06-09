@@ -43,7 +43,7 @@ function ResourceList({
 					role="status"
 					aria-live="polite"
 				>
-					<Icon className={theme('tc-resource-list--no-results-icon')} name={'talend-fieldglass'} />{' '}
+					<Icon className={theme('tc-resource-list--no-results-icon')} name="talend-fieldglass" />{' '}
 					{t('RESOURCELIST_NO_RESULTS', { defaultValue: 'No results' })}
 				</span>
 			</div>

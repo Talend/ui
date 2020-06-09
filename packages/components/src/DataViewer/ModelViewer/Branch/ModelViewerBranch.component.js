@@ -67,7 +67,7 @@ export default class ModelViewerBranch extends React.Component {
 				{ firstClickUnion: false },
 				this.props.onToggle(
 					event,
-					Object.assign({ ...options, firstClickUnion: true }),
+					{...options, firstClickUnion: true},
 					this.props.index,
 				),
 			);

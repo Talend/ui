@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import CircularProgress from './../CircularProgress';
+import CircularProgress from '../CircularProgress';
 import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 
 import theme from './Loader.scss';

@@ -480,14 +480,14 @@ stories
 	.add('tree default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handlerHighlight} />
+			<ObjectViewer id="my-viewer" data={data} {...handlerHighlight} />
 		</div>
 	))
 	.add('array tree with datetime', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={dateTimeData}
 				{...rootOpenedTypeHandler}
 				showType={showType}
@@ -497,14 +497,14 @@ stories
 	.add('primitive array tree', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={primitiveArray} {...rootOpenedTypeHandler} />
+			<ObjectViewer id="my-viewer" data={primitiveArray} {...rootOpenedTypeHandler} />
 		</div>
 	))
 	.add('tree with hightlighting', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={data}
 				{...handlerHighlight}
 				selectedJsonpath={selectedJsonpath}
@@ -515,7 +515,7 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={data}
 				{...handlerHighlight}
 				selectedJsonpath={selectedJsonpath}
@@ -527,7 +527,7 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={data}
 				rootLabel="cafesDataset"
 				tupleLabel="Record"
@@ -539,14 +539,14 @@ stories
 	.add('tree without rootLabel', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} tupleLabel="Record" />
+			<ObjectViewer id="my-viewer" data={data} tupleLabel="Record" />
 		</div>
 	))
 	.add('tree with very large root label', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={data}
 				rootLabel={veryLongDatasetLabel}
 				tupleLabel="Record"
@@ -557,38 +557,38 @@ stories
 	.add('tree with injected elements', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handlerTags} />
+			<ObjectViewer id="my-viewer" data={data} {...handlerTags} />
 		</div>
 	))
 	.add('tree with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handler} />
+			<ObjectViewer id="my-viewer" data={data} {...handler} />
 		</div>
 	))
 	.add('list default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="list" />
+			<ObjectViewer id="my-viewer" data={data} displayMode="list" />
 		</div>
 	))
 	.add('list with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="list" {...handler} />
+			<ObjectViewer id="my-viewer" data={data} displayMode="list" {...handler} />
 		</div>
 	))
 	.add('table default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="table" title="Table data" />
+			<ObjectViewer id="my-viewer" data={data} displayMode="table" title="Table data" />
 		</div>
 	))
 	.add('table with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={data}
 				{...handler}
 				displayMode="table"
@@ -605,7 +605,7 @@ stories
 			<div>
 				<IconsProvider defaultIcons={icons} />
 				<ObjectViewer
-					id={'my-viewer'}
+					id="my-viewer"
 					data={enhancedData}
 					{...handler}
 					displayMode="table"
@@ -617,14 +617,14 @@ stories
 	.add('flat default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="flat" title="Table data" />
+			<ObjectViewer id="my-viewer" data={data} displayMode="flat" title="Table data" />
 		</div>
 	))
 	.add('flat default with schema', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={{ dataset: data, schema }}
 				displayMode="flat"
 				title="Table data"
@@ -635,7 +635,7 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={data}
 				{...handler}
 				displayMode="flat"
@@ -647,7 +647,7 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
+				id="my-viewer"
 				data={moreComplexDataShape}
 				{...handler}
 				displayMode="flat"
@@ -658,6 +658,6 @@ stories
 	.add('tree with a long field', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={longFieldData} {...handlerHighlight} />
+			<ObjectViewer id="my-viewer" data={longFieldData} {...handlerHighlight} />
 		</div>
 	));

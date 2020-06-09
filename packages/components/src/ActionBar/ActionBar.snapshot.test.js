@@ -194,7 +194,7 @@ describe('ActionBar.SwitchActions', () => {
 		const wrapper = shallow(
 			<ActionBar.SwitchActions
 				actions={actions}
-				getComponent={'whatever'}
+				getComponent="whatever"
 				components={components}
 				left
 			/>,

@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { simpleCollection } from './collection';
 import IconsProvider from '../../IconsProvider';
 import ActionBar from '../../ActionBar';
-import List from './';
+import List from '.';
 import useCollectionSelection from './Manager/hooks/useCollectionSelection.hook';
 import { headerDictionary } from '../../VirtualizedList/utils/dictionary';
 import { headerType as headerResizableType } from '../../VirtualizedList/HeaderResizable';
@@ -106,7 +106,8 @@ storiesOf('Data/List/List Composition', module)
 		<List.VList.Datetime label="Modified" dataKey="modified" />
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<CustomList />
@@ -130,7 +131,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -171,7 +173,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -206,7 +209,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -242,7 +246,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -280,7 +285,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager
 					collection={simpleCollection}
@@ -322,7 +328,8 @@ storiesOf('Data/List/List Composition', module)
 						...
 					</List.VList>
 				</List.Manager>
-		`}</pre>
+		`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager
 					collection={simpleCollection}
@@ -368,7 +375,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -436,7 +444,8 @@ storiesOf('Data/List/List Composition', module)
 		/>
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager
 					collection={simpleCollection}
@@ -483,7 +492,8 @@ storiesOf('Data/List/List Composition', module)
 							<CustomList />
 						</List.Manager>
 
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -533,7 +543,8 @@ storiesOf('Data/List/List Composition', module)
 			...
 	</List.LazyLoadingList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<h2>Table mode</h2>
 			<section style={{ height: '30vh' }}>
 				<List.Manager id="my-table-list" collection={[simpleCollection[0]]}>

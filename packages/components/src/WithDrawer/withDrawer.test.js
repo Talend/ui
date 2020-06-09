@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import WithDrawer from './WithDrawer.component';
-import Drawer from './../Drawer';
+import Drawer from '../Drawer';
 
 describe('WithDrawer', () => {
 	it('should inject route as key if available', () => {

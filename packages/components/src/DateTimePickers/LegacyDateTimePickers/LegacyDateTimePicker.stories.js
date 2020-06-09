@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '../../IconsProvider';
 
-import InputDateTimePicker from './';
+import InputDateTimePicker from '.';
 
 storiesOf('Deprecated/LegacyDteTimePicker', module).add('Legacy - form mode', () => (
 	<div>

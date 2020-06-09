@@ -43,7 +43,7 @@ describe('tablerow', () => {
 				<VirtualizedList.Content
 					label="Id"
 					dataKey="id"
-					headerClassName={'my-header-classname'}
+					headerClassName="my-header-classname"
 					width={50}
 				/>,
 			];
@@ -59,7 +59,7 @@ describe('tablerow', () => {
 			// given
 			const theme = { cell: 'theme-classname' };
 			const children = [
-				<VirtualizedList.Content label="Id" dataKey="id" className={'my-classname'} width={50} />,
+				<VirtualizedList.Content label="Id" dataKey="id" className="my-classname" width={50} />,
 			];
 
 			// when

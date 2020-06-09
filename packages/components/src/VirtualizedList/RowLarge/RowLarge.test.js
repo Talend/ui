@@ -81,7 +81,7 @@ describe('RowLarge', () => {
 		// when
 		const wrapper = shallow(
 			<RowLarge
-				className={'my-class-names'}
+				className="my-class-names"
 				index={1}
 				parent={parent}
 				style={{ background: 'red' }}
@@ -104,7 +104,7 @@ describe('RowLarge', () => {
 
 		// when
 		const wrapper = mount(
-			<RowLarge className={'my-class-names'} index={1} parent={noDataParent} />,
+			<RowLarge className="my-class-names" index={1} parent={noDataParent} />,
 		);
 
 		// then 3 columns on one line

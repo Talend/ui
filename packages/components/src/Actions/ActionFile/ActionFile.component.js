@@ -94,6 +94,7 @@ class ActionFile extends React.Component {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
 	}
+
 	handleChange(event) {
 		event.preventDefault();
 		if (event.target.files.length > 0) {

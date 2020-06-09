@@ -42,17 +42,13 @@ function getActionsToRender({ selected, actions, multiSelectActions = {}, appMul
 		if (appMultiSelectActions) {
 			return ['left', 'center', 'right'].reduce((result, type) => {
 				if (multiSelectActions[type] && appMultiSelectActions[type]) {
-					return Object.assign({}, result, {
-						[type]: [
+					return { ...result, [type]: [
 							...multiSelectActions[type],
 							{ displayMode: 'divider' },
 							...appMultiSelectActions[type],
-						],
-					});
+						]};
 				}
-				return Object.assign({}, result, {
-					[type]: multiSelectActions[type] || appMultiSelectActions[type],
-				});
+				return { ...result, [type]: multiSelectActions[type] || appMultiSelectActions[type]};
 			}, {});
 		}
 		return multiSelectActions || {};
@@ -75,12 +71,10 @@ function getContentClassName(tag, left, center, right, className) {
 }
 
 function Content({ tag = TAG_TYPES.DIV, left, right, center, className, children, ...rest }) {
-	const props = Object.assign(
-		{
-			className: getContentClassName(tag, left, center, right, className),
-		},
-		rest,
-	);
+	const props = {
+		className: getContentClassName(tag, left, center, right, className),
+		...rest,
+	};
 	return React.createElement(tag, props, children);
 }
 Content.propTypes = {

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import { Status, getbsStyleFromStatus } from '../Status';
-import TooltipTrigger from './../TooltipTrigger';
+import TooltipTrigger from '../TooltipTrigger';
 
 import css from './CollapsiblePanel.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';

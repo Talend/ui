@@ -39,7 +39,7 @@ function SortOptions({ t, types, onChange, orders }) {
 				</span>
 				{types.includes(TYPES.NAME) && (
 					<OrderChooser
-						icon={'talend-sort-az'}
+						icon="talend-sort-az"
 						label={t('SORT_BY_NAME', {
 							defaultValue: 'Sort by name (current order: {{order}})',
 							order: orders[TYPES.NAME],
@@ -50,7 +50,7 @@ function SortOptions({ t, types, onChange, orders }) {
 				)}
 				{types.includes(TYPES.DATE) && (
 					<OrderChooser
-						icon={'talend-sort-desc'}
+						icon="talend-sort-desc"
 						label={t('SORT_BY_DATE', {
 							defaultValue: 'Sort by date (current order: {{order}})',
 							order: orders[TYPES.DATE],

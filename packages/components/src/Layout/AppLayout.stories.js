@@ -5,12 +5,12 @@ import { action } from '@storybook/addon-actions';
 import Drawer from '../Drawer';
 import HeaderBar from '../HeaderBar';
 import IconsProvider from '../IconsProvider';
-import Layout from '../Layout';
+import Layout from '.';
 import SidePanel from '../SidePanel';
 import SubHeaderBar from '../SubHeaderBar';
 import List from '../List/ListComposition';
 
-import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../Layout/constants';
+import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from './constants';
 
 const actions = [
 	{

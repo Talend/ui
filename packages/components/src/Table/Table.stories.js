@@ -5,7 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
-import Table from './';
+import Table from '.';
 import IconsProvider from '../IconsProvider';
 import draggable from '../Draggable';
 

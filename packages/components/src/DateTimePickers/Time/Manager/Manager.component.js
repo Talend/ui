@@ -6,6 +6,7 @@ import extractTime, { getTimeFormat } from '../time-extraction';
 
 class ContextualManager extends React.Component {
 	static displayName = 'Time.Manager';
+
 	static propTypes = {
 		children: PropTypes.node,
 		onChange: PropTypes.func,

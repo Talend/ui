@@ -178,16 +178,16 @@ storiesOf('Layout/CollapsiblePanel', module)
 			>
 				Coucou
 			</CollapsiblePanel>
-			<CollapsiblePanel id="panel-header-7" header={statusSuccessfulHeader} status={'successful'} />
-			<CollapsiblePanel id="panel-header-8" header={statusFailedHeader} status={'failed'} />
-			<CollapsiblePanel id="panel-header-9" header={statusWarningHeader} status={'warning'} />
-			<CollapsiblePanel id="panel-header-10" header={statusCanceledHeader} status={'canceled'} />
+			<CollapsiblePanel id="panel-header-7" header={statusSuccessfulHeader} status="successful" />
+			<CollapsiblePanel id="panel-header-8" header={statusFailedHeader} status="failed" />
+			<CollapsiblePanel id="panel-header-9" header={statusWarningHeader} status="warning" />
+			<CollapsiblePanel id="panel-header-10" header={statusCanceledHeader} status="canceled" />
 			<CollapsiblePanel
 				id="panel-header-11"
 				header={statusInProgressHeader}
-				status={'inProgress'}
+				status="inProgress"
 			/>
-			<CollapsiblePanel id="panel-header-12" header={statusSkeletonHeader} status={'skeleton'} />
+			<CollapsiblePanel id="panel-header-12" header={statusSkeletonHeader} status="skeleton" />
 		</div>
 	))
 	.add('Body', () => (

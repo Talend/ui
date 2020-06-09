@@ -10,7 +10,7 @@ function AppGuidedTourContainer() {
 	return (
 		<AppGuidedTour
 			isOpen
-			appName={'Data Preparation'}
+			appName="Data Preparation"
 			demoContentSteps={[
 				{
 					label: 'Importing datasets',

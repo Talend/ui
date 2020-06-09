@@ -65,7 +65,7 @@ storiesOf('Deprecated/SplitDropdown', module)
 			</div>
 			<p>Without icon</p>
 			<div id="noicon">
-				<ActionSplitDropdown {...myAction} icon={''} />
+				<ActionSplitDropdown {...myAction} icon="" />
 			</div>
 			<p>dropup</p>
 			<div id="noicon">

@@ -20,10 +20,7 @@ const propsDockToggle = {
 	tooltipPlacement: 'bottom',
 };
 
-const propsIconAlwaysVisble = Object.assign({}, propsDockToggle, {
-	iconAlwaysVisible: true,
-	dockable: false,
-});
+const propsIconAlwaysVisble = { ...propsDockToggle, iconAlwaysVisible: true, dockable: false };
 
 const propsNoDockToggle = {
 	id: 'FILTER-noDockAndNoDockable',
@@ -39,9 +36,7 @@ const propsNoDockToggle = {
 	highlight: false,
 };
 
-const propsDisabled = Object.assign({}, propsDockToggle, {
-	disabled: true,
-});
+const propsDisabled = { ...propsDockToggle, disabled: true };
 
 const divStyle = {
 	width: '30rem',

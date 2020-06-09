@@ -11,7 +11,7 @@ describe('SortOptions', () => {
 				onChange={onChange}
 				nameAsc={false}
 				dateAsc
-				icon={'talend-sort-desc'}
+				icon="talend-sort-desc"
 				types={[TYPES.NAME, TYPES.DATE]}
 				orders={{
 					[TYPES.NAME]: ORDERS.ASC,

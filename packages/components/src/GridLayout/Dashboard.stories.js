@@ -104,7 +104,7 @@ function ChartTile({ tile, id }) {
 			{tile.header ? (
 				<Tile.Header>
 					{tile.header.label}
-					<ViewSelector></ViewSelector>
+					<ViewSelector />
 				</Tile.Header>
 			) : null}
 			<Tile.Body>

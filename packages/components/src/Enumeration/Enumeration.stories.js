@@ -131,11 +131,9 @@ const props = {
 	onAddKeyDown: action('onAddKeyDown'),
 };
 
-const defaultEmptyListProps = Object.assign({}, props, { items: [] });
+const defaultEmptyListProps = { ...props, items: []};
 
-const searchModeEmptyListProps = Object.assign({}, defaultEmptyListProps, {
-	displayMode: 'DISPLAY_MODE_SEARCH',
-});
+const searchModeEmptyListProps = { ...defaultEmptyListProps, displayMode: 'DISPLAY_MODE_SEARCH'};
 
 const dropDownActionsProps = {
 	...props,

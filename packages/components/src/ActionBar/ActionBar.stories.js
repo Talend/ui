@@ -277,11 +277,11 @@ storiesOf('Form/Controls/ActionBar', module)
 			<IconsProvider defaultIcons={icons} />
 			<p>No Selected, Layout: Left Space Right</p>
 			<div id="default">
-				<ActionBar {...Object.assign({}, basicProps, { selected: 0 })} />
+				<ActionBar {...basicProps} selected={0} />
 			</div>
 			<p>1 Selected, Layout: Left Center Right</p>
 			<div id="selected">
-				<ActionBar {...Object.assign({}, basicProps, { selected: 1 })} />
+				<ActionBar {...basicProps} selected={1} />
 			</div>
 
 			<p>1 Selected, Layout: Right</p>

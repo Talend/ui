@@ -87,7 +87,7 @@ describe('RowCollapsiblePanel', () => {
 		// when
 		const wrapper = shallow(
 			<RowCollapsiblePanel
-				className={'my-class-names'}
+				className="my-class-names"
 				index={1}
 				key={18}
 				parent={parent}

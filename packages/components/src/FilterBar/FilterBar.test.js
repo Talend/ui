@@ -43,7 +43,7 @@ describe('FilterBar', () => {
 
 	it('should accept data-test attribute', () => {
 		// given
-		const filterInstance = mount(<FilterBarComponent {...defaultProps} data-test={'my.test'} />);
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} data-test="my.test" />);
 		// then
 		expect(filterInstance.find('input').prop('data-test')).toEqual('my.test');
 	});
@@ -81,7 +81,7 @@ describe('FilterBar', () => {
 	it('should call onToggle on cross icon click', () => {
 		// given
 		const filterInstance = mount(
-			<FilterBarComponent {...defaultProps} value={'initial value'} id={'id1'} />,
+			<FilterBarComponent {...defaultProps} value="initial value" id="id1" />,
 		);
 		// when
 		filterInstance.find('button').simulate('mouseDown');

@@ -34,10 +34,10 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 			</h3>
 			<InlineMessage
 				{...{ ...props }}
-				type={'info'}
-				title={'Info title.'}
-				description={'Info message'}
-				icon={'talend-info-circle'}
+				type="info"
+				title="Info title."
+				description="Info message"
+				icon="talend-info-circle"
 				link={{
 					href: 'https://my.custom.link',
 					label: 'See more',
@@ -48,20 +48,20 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 			</h3>
 			<InlineMessage
 				{...{ ...props }}
-				type={'warning'}
-				title={'Warning title.'}
-				description={'Warning message'}
-				icon={'talend-warning'}
+				type="warning"
+				title="Warning title."
+				description="Warning message"
+				icon="talend-warning"
 			/>
 			<h3>
 				InlineMessage type is <code>error</code>
 			</h3>
 			<InlineMessage
 				{...props}
-				type={'error'}
-				title={'Error title.'}
-				description={'Error message'}
-				icon={'talend-cross-circle'}
+				type="error"
+				title="Error title."
+				description="Error message"
+				icon="talend-cross-circle"
 			/>
 			<h3>
 				InlineMessage type is <code>success</code> and parent width is 400px
@@ -69,7 +69,7 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 			<Wrapper width="400px">
 				<InlineMessage
 					{...props}
-					description={'Validation and successful message to test wrapping text if its too long.'}
+					description="Validation and successful message to test wrapping text if its too long."
 				/>
 			</Wrapper>
 			<br />
@@ -92,10 +92,10 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 			</h3>
 			<InlineMessage
 				{...{ ...props }}
-				type={'info'}
-				title={'Info title.'}
-				description={'Info message'}
-				icon={'talend-info-circle'}
+				type="info"
+				title="Info title."
+				description="Info message"
+				icon="talend-info-circle"
 				link={{
 					href: 'https://my.custom.link',
 					label: 'See more',
@@ -107,10 +107,10 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 			</h3>
 			<InlineMessage
 				{...{ ...props }}
-				type={'warning'}
-				title={'Warning title.'}
-				description={'Warning message'}
-				icon={'talend-warning'}
+				type="warning"
+				title="Warning title."
+				description="Warning message"
+				icon="talend-warning"
 				withBackground
 			/>
 			<h3>
@@ -118,10 +118,10 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 			</h3>
 			<InlineMessage
 				{...props}
-				type={'error'}
-				title={'Error title.'}
-				description={'Error message'}
-				icon={'talend-cross-circle'}
+				type="error"
+				title="Error title."
+				description="Error message"
+				icon="talend-cross-circle"
 				withBackground
 			/>
 			<h3>
@@ -130,7 +130,7 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 			<Wrapper width="400px">
 				<InlineMessage
 					{...props}
-					description={'Validation and successful message to test wrapping text if its too long.'}
+					description="Validation and successful message to test wrapping text if its too long."
 					withBackground
 				/>
 			</Wrapper>

@@ -1,4 +1,11 @@
 /* eslint-disable import/imports-first */
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { mount } from 'enzyme';
+
+import Intercom from './Intercom.component';
+import IntercomService from './Intercom.service';
+
 jest.mock('./Intercom.service', () => ({
 	init: jest.fn(),
 	boot: jest.fn(),
@@ -8,14 +15,6 @@ jest.mock('./Intercom.service', () => ({
 	onShow: jest.fn(),
 	setPosition: jest.fn(),
 }));
-
-import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-
-import Intercom from './Intercom.component';
-import IntercomService from './Intercom.service';
 
 const config = {
 	app_id: 'a218987bc6f',

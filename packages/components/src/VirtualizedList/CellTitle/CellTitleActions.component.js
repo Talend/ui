@@ -25,7 +25,7 @@ function renderActionsGroup(getComponent) {
 		<Actions
 			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
-			key={'large-display-actions'}
+			key="large-display-actions"
 			actions={actions}
 			hideLabel
 			link
@@ -58,7 +58,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 		actionsBlocs.push(
 			<Actions
 				getComponent={getComponent}
-				key={'direct-actions'}
+				key="direct-actions"
 				actions={actions}
 				hideLabel
 				link
@@ -103,7 +103,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 		actionsBlocs.push(
 			<ActionDropdown
 				id={`${id}-ellispsis-actions`}
-				key={'ellipsis-actions'}
+				key="ellipsis-actions"
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 				items={remainingActions}
 				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
@@ -115,7 +115,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 
 	return (
 		<div
-			key={'cell-title-actions'}
+			key="cell-title-actions"
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
 		>
 			{actionsBlocs}
@@ -129,7 +129,7 @@ function getPersistentActions(actions, getComponent) {
 	}
 	return (
 		<Actions
-			key={'persistent-actions'}
+			key="persistent-actions"
 			getComponent={getComponent}
 			className={classNames('persistent-actions', theme['persistent-actions'])}
 			actions={actions}

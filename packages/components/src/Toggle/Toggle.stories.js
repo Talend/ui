@@ -98,7 +98,7 @@ storiesOf('Form/Controls/Toggle', module)
 						{ value: 'basic', label: 'Basic' },
 						{ value: 'advanced', label: 'Advanced' },
 					]}
-					value={'advanced'}
+					value="advanced"
 					onChange={onChange}
 				/>
 				<h3>Interactive</h3>
@@ -106,11 +106,11 @@ storiesOf('Form/Controls/Toggle', module)
 				<h3>Interactive autofocused</h3>
 				<InteractiveLabelToggle name="toggle3" autoFocus />
 				<h3>Interactive with default selected value</h3>
-				<InteractiveLabelToggle defaultValue={'val3'} name="toggle4" />
+				<InteractiveLabelToggle defaultValue="val3" name="toggle4" />
 				<h3>Disabled with selected value</h3>
 				<Toggle.Label
 					{...labelToggleProps}
-					value={'val2'}
+					value="val2"
 					disabled
 					name="toggle5"
 					onChange={onChange}

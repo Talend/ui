@@ -212,7 +212,7 @@ describe('Action', () => {
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = shallow(<ActionButton iconTransform={'rotate-180'} {...myAction} />);
+		const wrapper = shallow(<ActionButton iconTransform="rotate-180" {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

@@ -16,7 +16,7 @@ function BadgeDelete({ disabled, id, label, onClick, dataFeature }) {
 			className={theme('tc-badge-delete-icon')}
 			disabled={disabled}
 			hideLabel
-			icon={'talend-cross'}
+			icon="talend-cross"
 			id={id && `tc-badge-delete-${id}`}
 			key="delete"
 			label={label || t('BADGE_DELETE', { defaultValue: 'Delete' })}

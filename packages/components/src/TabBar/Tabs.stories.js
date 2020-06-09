@@ -150,7 +150,8 @@ stories
 				The generated id will be passed to the panel as aria-describedby.
 			</p>
 
-			<pre>{`
+			<pre>
+				{`
 function generateChildId(key, kind) {
 	if (kind === 'tab') {
 		return \`my-custom-id-\${key}\`;
@@ -163,7 +164,8 @@ function generateChildId(key, kind) {
 >
 	I'm the child
 </TabBar>
-				`}</pre>
+				`}
+			</pre>
 			<div id="customId">
 				<TabBar {...tabProps} generateChildId={generateChildId}>
 					I'm the child
