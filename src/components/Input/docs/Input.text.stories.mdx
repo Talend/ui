@@ -1,17 +1,16 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
-import InputBehaviors from './images/inputs-behaviors.png';
-import InputZoning from './images/inputs-zoning.jpg';
+import InputBehaviors from './images/input-behaviors.png';
+import InputZoning from './images/input-text-zoning.jpg';
 
 
-<Meta title="Guidelines|Components/Inputs" />
+<Meta title="Guidelines|Components/Input-Text" />
 
-# Inputs
+# Text 
 
 Text fields can display user input in the following ways:
 - Single line text fields display only one line of text
-- Text areas are fixed-width fields
 Use text fields in forms to help people enter, select, and search for text. 
 Text fields are usually found within a form but can also be part of a modal, search, or widget… 
 Common text input types include: usernames, descriptions, URLs, emails, addresses, and plain text searches.
@@ -43,13 +42,9 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 
 ## Zoning
 
-<img src={InputZoning} alt="zoning image for classic inputs" className="full" class="full" />
+<img src={InputZoning} alt="zoning image for text area" className="full" class="full" />
 
 ## Style
-
-## Variations
-
-// TO DO = Add variations
 
 ## Sizes <a id="sizes" />
 
@@ -57,11 +52,14 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 | ------------------------------ | ----------------- |
 | min-width                      | 8rem              |
 | max-width                      | 70rem             |
-| height    			    	 | 3.2rem            |
+| max-height    		    	 | 50rem             |
 | padding-left and right         | $small            |
+| padding-top and bottom         | $smaller          |
 | border-radius                  | 0.2rem            |
 | border                         | 0.1rem            |
 | margin-top                     | $smaller          |
+| grip icon size				 | $svg-md-size      |
+
 
 
 ## Colors <a id="colors" />
@@ -70,7 +68,6 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 | ------------------------------ | ----------------------------------- |
 | background-color               | $white                              |
 | border (default)               | $silver chalice                     |
-| label                          | $black                              |
 | placeholder                    | $dark-silver                        |
 
 
@@ -78,7 +75,6 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 
 | Property       | font-size | font-weight | color |
 |----------------|-----------|-------------|-------|
-| **Label**      | 1.2rem    |semi-bold    |$black |
 | **Placeholder**| 1.4rem    |regular      |$dark-silver |
 | **Input**      | 1.4rem    |regular      |$black |
 
@@ -103,15 +99,6 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 
 
 ## Usage <a id="usage" />
-* Label:  
-Indicate what sort of information the field requires. Has to be short text.
-
-// TO DO = Add demo
-
-* Mandatory icon:  
-Describe the star by using an hidden text. (ex: this field is mandatory)
-
-// TO DO = Add demo
 
 * Placeholder text:  
 Lets people know how they should use the field (e.g. 'Start typing to see namegis'). Use it only when clarification is required.
@@ -128,5 +115,4 @@ Press the <kbd>ENTER</kbd> to submit your value
 
 | Date       | Author | Description |
 | ---------- | ------ | ----------- |
-| 04/01/2020 | Monia Huet  | Init page   |
-| 05/05/2020 | Monia Huet  | Update accessibility section  |
+| 06/09/2020 | Monia Huet  | Init page   |
