@@ -23,20 +23,20 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "i18next": "^19.4.2",
-    "polished": "^3.5.1",
+    "i18next": "^19.4.5",
+    "polished": "^3.6.4",
     "prop-types": "^15.7.2",
-    "react-i18next": "^11.3.4",
+    "react-i18next": "^11.5.0",
     "react-inlinesvg": "^1.2.0",
     "react-is": "^16.13.1",
-    "reakit": "^1.0.0-rc.0",
-    "styled-components": "^5.1.0"
+    "reakit": "^1.0.4",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.10.2",
     "@storybook/addon-actions": "next",
-    "@storybook/addon-backgrounds": "^6.0.0-alpha.27",
-    "@storybook/addon-contexts": "^6.0.0-alpha.27",
+    "@storybook/addon-backgrounds": "next",
+    "@storybook/addon-contexts": "next",
     "@storybook/addon-docs": "next",
     "@storybook/addon-knobs": "next",
     "@storybook/addon-links": "next",
@@ -45,22 +45,22 @@
     "@storybook/react": "next",
     "@storybook/source-loader": "next",
     "@storybook/theming": "next",
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.0",
     "babel-loader": "^8.1.0",
     "postcss-import": "^12.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "storybook-addon-deps": "^2.0.0",
+    "storybook-addon-deps": "^2.0.1",
     "storybook-addon-styled-component-theme": "^1.3.0",
-    "storybook-chroma": "^3.5.3",
-    "stylelint": "^13.3.2",
+    "storybook-chroma": "^4.0.2",
+    "stylelint": "^13.6.0",
     "tailwind.macro": "next",
-    "tailwindcss": "^1.2.0",
-    "webpack": "^4.42.1"
+    "tailwindcss": "^1.4.6",
+    "webpack": "^4.43.0"
   },
   "peerDependencies": {
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "resolutions": {
     "core-js": "3"
