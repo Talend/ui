@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Label from '../Label';
 
+import tokens from '../../../tokens';
+
 const StyledDiv = styled.div(
 	({ theme, inline }) => `
 	display: flex;
@@ -37,17 +39,27 @@ const StyledFieldGroup = styled.div(
   align-items: center;
   
   input {
-  	padding-right: 3rem;
+  	min-width: 8rem;
+  	max-width: 70rem;
+  	padding-right: 2rem;
+  }}
+  
+  svg, 
+  button {
+    margin: -2rem; 	
+    padding: 0;
+	width: ${tokens.sizes.medium};
+    height: ${tokens.sizes.medium};
+  }
+  
+  svg {
+    fill: ${tokens.colors.darkSilver};
   }
   
   button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: -3rem;
-    padding: 0;
-    width: 3rem;
-    height: 3rem;
     min-height: auto;
     border: none;
     
@@ -65,6 +77,15 @@ const StyledFieldGroup = styled.div(
       }
     }
   }
+  
+  @media all and (-ms-high-contrast:none) {
+    input{
+	  padding-right: inherit;
+    }
+
+    button,
+    *::-ms-backdrop, button { display: none }
+  }
 `,
 );
 
@@ -74,23 +95,29 @@ const StyledField = styled.div(
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  
   background: ${theme.colors.backgroundColor};
-  border: 2px solid ${theme.colors.textColor};
+  border-radius: ${theme.borders.inputBorderRadius};
+  box-shadow: 0 0 0 1px ${theme.colors.inputBorderColor};
+  
+  &:hover {
+  	box-shadow: 0 0 0 1px  ${theme.colors.inputBorderHoverColor};
+  }
   
   &:focus {
-  	border: 2px solid ${theme.colors.activeColor};  	
+	box-shadow: 0 0 0 2px  ${theme.colors.inputBorderFocusColor};  	
   }
 `,
 );
 
-function Field({ label, button, ...rest }) {
+function Field({ label, after, icon, ...rest }) {
 	return (
 		<StyledDiv inline={['checkbox', 'radio'].includes(rest.type)}>
 			{label && <Label htmlFor={label}>{label}</Label>}
-			{button ? (
+			{after ? (
 				<StyledFieldGroup>
 					<StyledField id={label} {...rest} />
-					{button}
+					{after}
 				</StyledFieldGroup>
 			) : (
 				<StyledField id={label} {...rest} />

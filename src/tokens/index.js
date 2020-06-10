@@ -12,6 +12,12 @@ export const defaultTheme = {
 		textColor: colors.black,
 		activeColor: colors.lochmara,
 		backgroundColor: colors.transparent,
+
+		inputBorderColor: colors.silverChalice,
+		inputBorderHoverColor: colors.doveGray,
+		inputBorderFocusColor: colors.lochmara,
+		inputBorderDisabledColor: '#AAA',
+		inputBorderReadOnlyColor: colors.silverChalice,
 	},
 	opacity,
 	sizes,

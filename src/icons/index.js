@@ -5,6 +5,7 @@ import eye from './eye.svg';
 import eyeSlash from './eye-slash.svg';
 import information from './information.svg';
 import plus from './plus.svg';
+import search from './search.svg';
 import warning from './warning.svg';
 
 export default {
@@ -15,5 +16,6 @@ export default {
 	eyeSlash,
 	information,
 	plus,
+	search,
 	warning,
 };
