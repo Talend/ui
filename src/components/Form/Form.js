@@ -1,8 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+export const StyledForm = styled.form`
+	width: 100%;
+`;
+
 function Form({ children }) {
-	return <form>{children}</form>;
+	return <StyledForm>{children}</StyledForm>;
 }
 
 Form.propTypes = {

@@ -7,7 +7,11 @@ import tokens from '../../../tokens';
 const StyledDiv = styled.div(
 	({ theme, inline }) => `
 	display: flex;
-	padding-bottom: 1rem;
+	width: 100%;
+  	min-width: 8rem;
+  	max-width: 70rem;
+	padding-bottom: ${tokens.spacings.small};
+	
 	${
 		!inline
 			? `
@@ -25,7 +29,7 @@ const StyledDiv = styled.div(
 		flex-direction: row-reverse;
 		
 		label {
-		  padding: 0 1rem;
+		  padding: 0 ${tokens.spacings.small};
 		}
 	`
 	}
@@ -37,10 +41,9 @@ const StyledFieldGroup = styled.div(
 	({ theme }) => `
   display: inline-flex;
   align-items: center;
+  width: 100%;
   
   input {
-  	min-width: 8rem;
-  	max-width: 70rem;
   	padding-right: 2rem;
   }}
   
@@ -92,7 +95,7 @@ const StyledFieldGroup = styled.div(
 
 const StyledField = styled.div(
 	({ theme }) => `
-  padding: 0 1rem;    
+  padding: 0 ${tokens.spacings.small};    
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
