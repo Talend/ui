@@ -1,15 +1,15 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
-import InputBehaviors from './images/input-text-behaviors.png';
-import InputZoning from './images/input-text-zoning.jpg';
+import InputBehaviors from './images/input-search-behaviors.png';
+import InputVariations from './images/input-search-variations.png';
+import InputZoning from './images/input-search-zoning.jpg';
 
 
-<Meta title="Guidelines|Components/Input-Text" />
+<Meta title="Guidelines|Components/Input-Search" />
 
-# Text 
+# Search 
 
-The text area is an input control that allows the user to enter several lines of text.
 
 <Row>
 	<Col centered="all">
@@ -32,7 +32,12 @@ The text area is an input control that allows the user to enter several lines of
 
 ## Zoning
 
-<img src={InputZoning} alt="zoning image for text area" className="full" class="full" />
+<img src={InputZoning} alt="zoning image for search" className="full" class="full" />
+
+## Variations
+
+<img src={InputVariations} alt="Variations for search" className="full" class="full" />
+
 
 ## Style
 
@@ -42,13 +47,12 @@ The text area is an input control that allows the user to enter several lines of
 | ------------------------------ | ----------------- |
 | min-width                      | 8rem              |
 | max-width                      | 70rem             |
-| max-height    		    	 | 50rem             |
+| height    		 		   	 | 3.2rem            |
 | padding-left and right         | $small            |
-| padding-top and bottom         | $smaller          |
 | border-radius                  | 0.2rem            |
 | border                         | 0.1rem            |
 | margin-top                     | $smaller          |
-| (grip icon) size				 | $svg-md-size      |
+| icon							 | $svg-md-size      |
 
 
 
@@ -59,7 +63,7 @@ The text area is an input control that allows the user to enter several lines of
 | background-color               | $white                              |
 | border (default)               | $silver chalice                     |
 | placeholder                    | $dark-silver                        |
-| grip icon	                     | $dark-silver                        |
+| icon		                     | $dark-silver                        |
 
 
 ## Fonts <a id="fonts" />
@@ -72,24 +76,21 @@ The text area is an input control that allows the user to enter several lines of
 
 ## States <a id="states" />
 
-<img src={InputBehaviors} alt="Behaviors image for text area" className="full" class="full" />
+<img src={InputBehaviors} alt="Behaviors image for input search" className="full" class="full" />
 
-|                      | **Hover**           | **Focused**       | **Disabled**     | **Read only**    |
-| -------------------- | ------------------- | ----------------- | ---------------- | ---------------- |
-| background-color     | $white			     | $white			 | opacity 0.54     | transparent	   |
-| border               | 0.1rem $dove-gray   | 0.2rem $lochmara  | opacity 0.54     | $sliver-chalice  |
-| text                 | -                   | $black            | opacity 0.54     | $black		   |
+|                      | **Hover**           | **Focused**       | **Disabled**     | 
+| -------------------- | ------------------- | ----------------- | ---------------- | 
+| background-color     | $white			     | $white			 | opacity 0.54     | 
+| border               | 0.1rem $dove-gray   | 0.2rem $lochmara  | opacity 0.54     | 
+| text                 | -                   | $black            | opacity 0.54     | 
 
 ## Usage <a id="usage" />
 
-* Scrollbar:
-Textareas can either have a fixed height, in which case a vertical scrollbar appears when the content exceeds the available space, or the height can expand to accommodate the amount of text.
 
-// TO DO = Add demo
 
 
 ## Changelog
 
 | Date       | Author      | Description |
 | ---------- | ----------- | ----------- |
-| 06/09/2020 | Monia Huet  | Init page   |
+| 07/09/2020 | Monia Huet  | Init page   |
