@@ -1,8 +1,8 @@
 import React from 'react';
 import Field from '../Field';
 
-function Input(props) {
-	return <Field as="input" {...props} />;
-}
+const Input = React.forwardRef((props, ref) => {
+	return <Field as="input" ref={ref} {...props} />;
+});
 
 export default Input;

@@ -16,7 +16,7 @@ const StyledDiv = styled.div(
 		flex-direction: column;
 		
 		${StyledField} {
-			width: 100%
+			width: 100%;
 		}
 	`
 			: `
@@ -54,6 +54,7 @@ const StyledFieldGroup = styled.div(
   
   svg {
     fill: ${tokens.colors.darkSilver};
+	pointer-events: none;
   }
   
   button {
@@ -110,13 +111,13 @@ const StyledField = styled.div(
 `,
 );
 
-function Field({ label, after, icon, ...rest }) {
+const Field = React.forwardRef(({ label, after, icon, ...rest }, ref) => {
 	return (
 		<StyledDiv inline={['checkbox', 'radio'].includes(rest.type)}>
 			{label && <Label htmlFor={label}>{label}</Label>}
 			{after ? (
 				<StyledFieldGroup>
-					<StyledField id={label} {...rest} />
+					<StyledField id={label} ref={ref} {...rest} />
 					{after}
 				</StyledFieldGroup>
 			) : (
@@ -124,6 +125,6 @@ function Field({ label, after, icon, ...rest }) {
 			)}
 		</StyledDiv>
 	);
-}
+});
 
 export default Field;

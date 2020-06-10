@@ -25,5 +25,9 @@ export default function useRevealPassword() {
 		setRevealed((prevState) => !prevState);
 	}
 
-	return { currentType, RevealPasswordButton };
+	function resetType() {
+		setRevealed((prevState) => false);
+	}
+
+	return { currentType, resetType, RevealPasswordButton };
 }
