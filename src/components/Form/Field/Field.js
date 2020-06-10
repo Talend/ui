@@ -51,8 +51,8 @@ const StyledFieldGroup = styled.div(
   button {
     margin: -2rem; 	
     padding: 0;
-	width: ${tokens.sizes.medium};
-    height: ${tokens.sizes.medium};
+	width: ${tokens.sizes.smaller};
+    height: ${tokens.sizes.smaller};
   }
   
   svg {
