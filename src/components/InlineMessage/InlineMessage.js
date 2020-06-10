@@ -7,9 +7,7 @@ import './InlineMessage.css';
 
 import defaultTheme from '../../tokens';
 
-export const StyledInlineMessage = styled(
-	React.forwardRef(({ theme, withBackground, ...props }, ref) => <div ref={ref} {...props} />),
-)`
+export const StyledInlineMessage = styled.div`
 	${(props) => props.withBackground && tw`flex items-center p-2 rounded-md`}
 `;
 export const StyledParagraph = styled.p`
