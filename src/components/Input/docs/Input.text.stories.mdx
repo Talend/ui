@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
-import InputBehaviors from './images/input-behaviors.png';
+import InputBehaviors from './images/input-text-behaviors.png';
 import InputZoning from './images/input-text-zoning.jpg';
 
 
@@ -9,11 +9,7 @@ import InputZoning from './images/input-text-zoning.jpg';
 
 # Text 
 
-Text fields can display user input in the following ways:
-- Single line text fields display only one line of text
-Use text fields in forms to help people enter, select, and search for text. 
-Text fields are usually found within a form but can also be part of a modal, search, or widget… 
-Common text input types include: usernames, descriptions, URLs, emails, addresses, and plain text searches.
+The text area is an input control that allows the user to enter several lines of text.
 
 <Row>
 	<Col centered="all">
@@ -28,14 +24,8 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 	<Col centered="all">
 		<a href="#states">States</a>
 	</Col>
-	<Col centered="all">
-		<a href="#content">Content</a>
-	</Col>
-	<Col centered="all">
-		<a href="#interaction">Interaction</a>
-	</Col>
-	<Col centered="all">
-		<a href="#accessibility">Accessibility</a>
+		<Col centered="all">
+		<a href="#usage">Usage</a>
 	</Col>
 </Row>
 
@@ -58,7 +48,8 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 | border-radius                  | 0.2rem            |
 | border                         | 0.1rem            |
 | margin-top                     | $smaller          |
-| grip icon size				 | $svg-md-size      |
+| (grip icon) size				 | $svg-md-size      |
+| (grip icon) color			     | $dark-silver      |
 
 
 
@@ -73,46 +64,32 @@ Common text input types include: usernames, descriptions, URLs, emails, addresse
 
 ## Fonts <a id="fonts" />
 
-| Property       | font-size | font-weight | color |
-|----------------|-----------|-------------|-------|
+| Property       | font-size | font-weight | color		 |
+|----------------|-----------|-------------|-------------|
 | **Placeholder**| 1.4rem    |regular      |$dark-silver |
-| **Input**      | 1.4rem    |regular      |$black |
+| **Input**      | 1.4rem    |regular      |$black		 |
 
 
 ## States <a id="states" />
 
 <img src={InputBehaviors} alt="Behaviors image for classic Input fields" className="full" class="full" />
 
-|                      | **Hover**           | **Focused**       | **Disabled**     |
-| -------------------- | ------------------- | ----------------- | ---------------- |
-| border               | 0.1rem $dove-gray   | 0.2rem $lochmara  | opacity 0.54     |
-| text                 | -                   | -                 | opacity 0.54     |
-
-
-
-## Content <a id="content" />
-
-## Interaction <a id="interaction" />
-
-* Focus on the field allows user to type in.
-- Validation of the field will be done either by a click outside of the field, or pressing ENTER on the keyboard, or clicking on the validation button (depends on the use case)
-
+|                      | **Hover**           | **Focused**       | **Disabled**     | **Read only**    |
+| -------------------- | ------------------- | ----------------- | ---------------- | ---------------- |
+| background-color     | $white			     | $white			 | opacity 0.54     | transparent	   |
+| border               | 0.1rem $dove-gray   | 0.2rem $lochmara  | opacity 0.54     | $sliver-chalice  |
+| text                 | -                   | $black            | opacity 0.54     | $black		   |
 
 ## Usage <a id="usage" />
 
-* Placeholder text:  
-Lets people know how they should use the field (e.g. 'Start typing to see namegis'). Use it only when clarification is required.
+* Scrollbar:
+Textareas can either have a fixed height, in which case a vertical scrollbar appears when the content exceeds the available space, or the height can expand to accommodate the amount of text.
 
 // TO DO = Add demo
 
-## Accessibility <a id="accessibility" />
-
-Press <kbd>TABS</kbd> to focus on an input element
-
-Press the <kbd>ENTER</kbd> to submit your value
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
+| Date       | Author      | Description |
+| ---------- | ----------- | ----------- |
 | 06/09/2020 | Monia Huet  | Init page   |
