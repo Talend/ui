@@ -33,7 +33,7 @@ const RowDiv = styled.div`
 	align-items: center;
 `;
 
-addDecorator(storyFn => (
+addDecorator((storyFn) => (
 	<RowDiv>
 		<GlobalStyle />
 		{storyFn()}
