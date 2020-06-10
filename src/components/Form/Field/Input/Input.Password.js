@@ -3,7 +3,7 @@ import Input from './Input';
 
 import useRevealPassword from './hooks/useRevealPassword';
 
-function Text(props) {
+function Password(props) {
 	const { currentType, onReset, RevealPasswordButton } = useRevealPassword();
 	const isInitialMount = useRef(true);
 	const inputRef = useRef();
@@ -32,4 +32,4 @@ function Text(props) {
 	);
 }
 
-export default Text;
+export default Password;
