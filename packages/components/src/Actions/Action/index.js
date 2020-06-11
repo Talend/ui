@@ -1,4 +1,3 @@
-import Action, { wrapOnClick } from './Action.component';
+import Action from './Action.component';
 
-export { wrapOnClick };
 export default Action;

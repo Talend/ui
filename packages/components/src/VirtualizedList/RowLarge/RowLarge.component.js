@@ -171,7 +171,7 @@ RowLarge.propTypes = {
 	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 RowLarge.defaultProps = {
 	t: getDefaultT(),
