@@ -1,0 +1,26 @@
+.tc-header-bar-brand:global(.btn):global(.btn-link) {
+	font-size: $font-size-base;
+}
+
+.tc-header-bar-action {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	white-space: nowrap;
+
+	&.separated:not(:last-child):after {
+		content: ' ';
+		display: block;
+		width: 1px;
+		height: $font-size-large;
+		background-color: $white;
+	}
+
+	:global {
+		.tc-typeahead-item-title,
+		.tc-typeahead-item-description {
+			white-space: initial;
+		}
+	}
+}
