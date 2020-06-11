@@ -12,16 +12,16 @@ const StyledIcon = styled(Icon)`
 const StyledMenu = styled(Menu)`
 	display: flex;
 	flex-direction: column;
-	padding: ${tokens.spacings.smaller} 0;
+	padding: ${tokens.space.smaller} 0;
 	max-width: 25rem;
 	background: ${tokens.colors.white};
-	border-radius: ${tokens.borders.rectRadius};
-	border: 1px solid;
-	z-index: 99999;
+	border-radius: ${tokens.radii.rectRadius};
+	border: ${tokens.borders.normal};
+	z-index: ${tokens.zIndices.dropdowns};
 `;
 
 const StyledMenuItem = styled(MenuItem)`
-	padding: ${tokens.spacings.small} ${tokens.spacings.normal};
+	padding: ${tokens.space.small} ${tokens.space.normal};
 `;
 
 const Dropdown = React.forwardRef(({ children, items, ...props }, ref) => {
@@ -39,7 +39,7 @@ const Dropdown = React.forwardRef(({ children, items, ...props }, ref) => {
 			<StyledMenu {...menu} aria-label={ariaLabel} aria-labelledby={ariaLabelledby}>
 				{items.map((item, i) => (
 					<StyledMenuItem {...menu} {...item.props} key={i}>
-						{itemProps => React.cloneElement(item, itemProps)}
+						{(itemProps) => React.cloneElement(item, itemProps)}
 					</StyledMenuItem>
 				))}
 			</StyledMenu>

@@ -21,13 +21,13 @@ const StyledTooltipArrow = styled(TooltipArrow)`
 
 const StyledTooltip = styled(ReakitTooltip)`
 	max-width: 25rem;
-	padding-left: ${tokens.spacings.smaller};
-	padding-right: ${tokens.spacings.smaller};
+	padding-left: ${tokens.space.smaller};
+	padding-right: ${tokens.space.smaller};
 	font-size: 1.2rem;
 	color: ${tokens.colors.white};
 	background: ${tokens.colors.doveGray};
-	border-radius: ${tokens.borders.rectRadius};
-	z-index: 99999;
+	border-radius: ${tokens.radii.rectRadius};
+	z-index: ${tokens.zIndices.tooltips};
 `;
 
 const Tooltip = React.forwardRef(({ children, title, placement, visible, ...rest }, ref) => {
@@ -39,7 +39,7 @@ const Tooltip = React.forwardRef(({ children, title, placement, visible, ...rest
 	return (
 		<>
 			<StyledTooltipReference {...tooltipState} {...children.props} ref={ref}>
-				{referenceProps => React.cloneElement(children, referenceProps)}
+				{(referenceProps) => React.cloneElement(children, referenceProps)}
 			</StyledTooltipReference>
 			{title && (
 				<StyledTooltip {...tooltipState} {...rest}>

@@ -1,0 +1,95 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { ColorPalette, ColorItem, Typeset } from '@storybook/components';
+
+<Meta title="Design Tokens/Overview" />
+
+import DesignTokens from './DesignTokens.component';
+
+import { tokens } from './../index';
+import colors, { greyscale, backgrounds, palette } from './../colors.tokens';
+
+# Design Tokens
+
+We are using <a href="https://system-ui.com/theme/" target="_blank">the System UI theme specification</a>
+
+## Space
+
+<DesignTokens tokens={tokens.space} />
+
+## Colors
+
+### Monochrome
+
+<ColorPalette>
+	<ColorItem title="theme.colors.greyscale" subtitle="Some of the greys" colors={greyscale} />
+</ColorPalette>
+
+### Layout
+
+<ColorPalette>
+	<ColorItem
+		title="theme.colors.backgrounds"
+		subtitle="All possible backgrounds"
+		colors={backgrounds}
+	/>
+</ColorPalette>
+
+### Informative
+
+<ColorPalette>
+	<ColorItem title="theme.colors.palette" subtitle="Some informative colors" colors={palette} />
+</ColorPalette>
+
+## fontSizes
+
+<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} />
+
+## fonts
+
+## fontWeights
+
+<DesignTokens tokens={tokens.fontWeights} />
+
+## lineHeights
+
+<DesignTokens tokens={tokens.lineHeights} />
+
+## letterSpacings
+
+<DesignTokens tokens={tokens.letterSpacings} />
+
+## sizes
+
+<DesignTokens tokens={tokens.sizes} />
+
+## borders
+
+<DesignTokens tokens={tokens.borders} />
+
+## borderWidths
+
+<DesignTokens tokens={tokens.borderWidths} />
+
+## borderStyles
+
+<DesignTokens tokens={tokens.borderStyles} />
+
+## opacity
+
+<DesignTokens tokens={tokens.opacity} />
+
+## radii
+
+<DesignTokens tokens={tokens.radii} />
+
+## shadows
+
+<DesignTokens tokens={tokens.shadows} />
+
+## zIndices
+
+<DesignTokens tokens={tokens.zIndices} />
+
+## transitions
+
+<DesignTokens tokens={tokens.transitions} />

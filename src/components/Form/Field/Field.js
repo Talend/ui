@@ -10,7 +10,7 @@ const StyledDiv = styled.div(
 	width: 100%;
   	min-width: 8rem;
   	max-width: 70rem;
-	padding-bottom: ${tokens.spacings.small};
+	padding-bottom: ${tokens.space.small};
 	
 	${
 		!inline
@@ -29,7 +29,7 @@ const StyledDiv = styled.div(
 		flex-direction: row-reverse;
 		
 		label {
-		  padding: 0 ${tokens.spacings.small};
+		  padding: 0 ${tokens.space.small};
 		}
 	`
 	}
@@ -95,7 +95,7 @@ const StyledFieldGroup = styled.div(
 
 const StyledField = styled.div(
 	({ theme }) => `
-  padding: 0 ${tokens.spacings.small};    
+  padding: 0 ${tokens.space.small};    
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -103,13 +103,21 @@ const StyledField = styled.div(
   background: ${theme.colors.backgroundColor};
   border-radius: ${theme.borders.inputBorderRadius};
   box-shadow: 0 0 0 1px ${theme.colors.inputBorderColor};
-  
+   
   &:hover {
   	box-shadow: 0 0 0 1px  ${theme.colors.inputBorderHoverColor};
   }
   
   &:focus {
 	box-shadow: 0 0 0 2px  ${theme.colors.inputBorderFocusColor};  	
+  }
+  
+  &:disabled {
+  
+  }
+  
+  &:read-only {
+  
   }
 `,
 );

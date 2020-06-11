@@ -5,27 +5,26 @@ import { shade, tint } from 'polished';
 import { VisuallyHidden } from 'reakit';
 import ButtonBase from '../Button';
 import Icon from '../../Icon';
-import tokens from '../../../tokens';
 
 const StyledButton = styled(ButtonBase)`
 	padding: 0;
 	min-height: unset;
-	height: ${props => props.theme.sizes.small};
-	width: ${props => props.theme.sizes.small};
+	height: ${(props) => props.theme.sizes.small};
+	width: ${(props) => props.theme.sizes.small};
 	align-items: center;
 	justify-content: center;
-	color: ${props => props.theme.colors.primaryColor};
-	border: 2px solid ${props => props.theme.colors.primaryColor};
-	border-radius: ${props => props.theme.borders.circleRadius};
+	color: ${(props) => props.theme.colors.primaryColor};
+	border: 2px solid ${(props) => props.theme.colors.primaryColor};
+	border-radius: ${(props) => props.theme.radii.circleRadius};
 
 	&:not([aria-disabled='true']):hover {
-		color: ${props => shade(0.2, props.theme.colors.primaryColor)};
-		border-color: ${props => shade(0.2, props.theme.colors.primaryColor)};
+		color: ${(props) => shade(0.2, props.theme.colors.primaryColor)};
+		border-color: ${(props) => shade(0.2, props.theme.colors.primaryColor)};
 	}
 
 	&:not([aria-disabled='true']):active {
-		color: ${props => shade(0.4, props.theme.colors.primaryColor)};
-		border-color: ${props => shade(0.4, props.theme.colors.primaryColor)};
+		color: ${(props) => shade(0.4, props.theme.colors.primaryColor)};
+		border-color: ${(props) => shade(0.4, props.theme.colors.primaryColor)};
 	}
 
 	svg {
@@ -34,7 +33,7 @@ const StyledButton = styled(ButtonBase)`
 	}
 
 	&[aria-disabled='true'] {
-		border-color: ${props =>
+		border-color: ${(props) =>
 			tint(1 - props.theme.opacity.disabled, props.theme.colors.black)} !important;
 	}
 `;
@@ -52,6 +51,5 @@ ButtonIcon.propTypes = {
 	...ButtonBase.propTypes,
 	icon: PropTypes.string.isRequired,
 };
-ButtonIcon.defaultProps = { theme: tokens };
 
 export default ButtonIcon;

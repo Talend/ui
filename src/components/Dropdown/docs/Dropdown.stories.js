@@ -5,7 +5,7 @@ import Button from '../../Button';
 import Dropdown from '../Dropdown';
 
 export default {
-	title: 'Components|Dropdown',
+	title: 'Components/Dropdown/Stories',
 
 	parameters: {
 		component: Dropdown,

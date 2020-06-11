@@ -6,7 +6,7 @@ import Button from '../../Button';
 import Tooltip from '../Tooltip';
 
 export default {
-	title: 'Components|Tooltip',
+	title: 'Components/Tooltip/Stories',
 
 	parameters: {
 		component: Tooltip,

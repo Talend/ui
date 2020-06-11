@@ -5,7 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import InlineMessage from './../index';
 
 export default {
-	title: 'Components|InlineMessage',
+	title: 'Components/InlineMessage/Stories',
 	parameters: {
 		component: InlineMessage,
 	},
