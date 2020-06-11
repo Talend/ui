@@ -74,3 +74,5 @@ export const Datalist = () => (
 );
 
 export const Textarea = () => <Form.Textarea label="Textarea" />;
+export const TextareaDisabled = () => <Form.Textarea label="Disabled Textarea" disabled />;
+export const TextareaReadOnly = () => <Form.Textarea label="Read-Only Textarea" readOnly />;
