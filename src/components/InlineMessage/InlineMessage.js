@@ -17,11 +17,12 @@ export const StyledStrong = styled.strong`
 	${tw`inline-flex items-baseline`}
 `;
 export const StyledIconSpan = styled.span`
-	${tw`inline-flex self-center w-6`}
+	${tw`inline-flex self-center w-8`}
 	${(props) => props.withBackground && tw`-ml-6`}
 
 	svg {
-		${tw`h-4 max-w-full`}
+		height: 1.6rem;
+		${tw`max-w-full`}
 
 		path {
 			${tw`fill-current`}

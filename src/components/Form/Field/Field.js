@@ -42,14 +42,10 @@ const StyledFieldGroup = styled.div(
   display: inline-flex;
   align-items: center;
   width: 100%;
-  
-  input {
-  	padding-right: 2rem;
-  }}
-  
+
   svg, 
   button {
-    margin: -2rem; 	
+    margin: -3.2rem; 	
     padding: 0;
 	width: ${tokens.sizes.smaller};
     height: ${tokens.sizes.smaller};
@@ -64,6 +60,7 @@ const StyledFieldGroup = styled.div(
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
     min-height: auto;
     border: none;
     
@@ -94,15 +91,24 @@ const StyledFieldGroup = styled.div(
 );
 
 const StyledField = styled.div(
-	({ theme }) => `
+	({ theme, as, type }) => `
   padding: 0 ${tokens.space.small};    
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  
-  background: ${theme.colors.backgroundColor};
-  border-radius: ${theme.borders.inputBorderRadius};
+    
+  color: ${theme.colors.inputColor};
+  font-size: ${theme.fontSizes.normal};
+  background: ${theme.colors.inputBackgroundColor};
+  border-radius: ${theme.radii.inputBorderRadius};
   box-shadow: 0 0 0 1px ${theme.colors.inputBorderColor};
+  
+  ${['input', 'select'].includes(as) && !['radio', 'checkbox'].includes(type) && 'height: 3.2rem;'} 
+   
+  &::placeholder {
+  	color: ${theme.colors.inputPlaceholderColor};
+  	font-size: ${theme.fontSizes.normal};
+  }
    
   &:hover {
   	box-shadow: 0 0 0 1px  ${theme.colors.inputBorderHoverColor};
@@ -113,11 +119,13 @@ const StyledField = styled.div(
   }
   
   &:disabled {
-  
+  	cursor: not-allowed;
+  	opacity: ${tokens.opacity.disabled};
+	box-shadow: 0 0 0 1px ${theme.colors.inputBorderDisabledColor};
   }
   
   &:read-only {
-  
+	box-shadow: 0 0 0 1px ${theme.colors.inputBorderDisabledColor};
   }
 `,
 );

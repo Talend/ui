@@ -35,7 +35,8 @@ const BaseButton = styled(
 	svg {
 		margin-left: 1rem;
 		fill: currentColor;
-		flex: 0 0 1rem;
+		flex-grow: 0;
+		flex-shrink: 0;
 	}
 `;
 
