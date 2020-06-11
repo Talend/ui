@@ -41,7 +41,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   73:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
-  116:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
+   80:37  error    Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
+  221:3   warning  Unexpected console statement                                       no-console
 
 /home/travis/build/Talend/ui/packages/components/src/IconsProvider/IconsProvider.component.js
    9:2   warning  Unexpected console statement  no-console
@@ -72,6 +73,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   73:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 28 problems (26 errors, 2 warnings)
+✖ 29 problems (26 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
