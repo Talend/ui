@@ -58,7 +58,7 @@
     "@talend/scripts-preset-react-lib": "^6.2.3",
     "autoprefixer": "^7.1.4",
     "enzyme": "^3.9.0",
-    "enzyme-to-json": "^3.3.5",
+    "enzyme-to-json": "^3.5.0",
     "i18next": "^15.1.3",
     "jest-in-case": "^1.0.2",
     "json-loader": "^0.5.7",

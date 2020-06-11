@@ -97,7 +97,7 @@ if (process.env.NODE_ENV !== 'production') {
 		product: PropTypes.string,
 		version: PropTypes.string,
 		icon: PropTypes.string,
-		t: PropTypes.func.isRequired,
+		t: PropTypes.func,
 		...AboutDialogTable.propTypes,
 	};
 
@@ -105,7 +105,7 @@ if (process.env.NODE_ENV !== 'production') {
 		expanded: false,
 		show: false,
 		loading: false,
-		copyright: null,
+		copyrights: '',
 		version: '',
 		icon: '',
 		product: 'this product',

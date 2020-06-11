@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Immutable from 'immutable';
-import toJsonWithoutI18n from '../../../test/props-without-i18n';
 
 import ActionDropdown from './ActionDropdown.component';
 

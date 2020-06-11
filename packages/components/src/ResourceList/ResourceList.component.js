@@ -11,7 +11,7 @@ import VirtualizedList from '../VirtualizedList';
 import getRowSelectionRenderer from '../VirtualizedList/RowSelection';
 
 import cssModule from './ResourceList.scss';
-import { Icon } from '../index';
+import Icon from '../Icon';
 
 const theme = getTheme(cssModule);
 

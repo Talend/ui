@@ -1,0 +1,8 @@
+{
+	"extends": "../../.eslintrc",
+	"rules": {
+		"react/forbid-foreign-prop-types": 0,
+		"react/jsx-wrap-multilines": 0,
+		"no-console": [2, { "allow": ["warn", "error"] }]
+	}
+}

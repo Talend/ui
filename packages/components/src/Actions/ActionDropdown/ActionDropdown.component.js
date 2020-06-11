@@ -11,7 +11,7 @@ import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
-import { wrapOnClick } from '../Action/Action.component';
+import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -227,7 +227,9 @@ class ActionDropdown extends React.Component {
 				aria-label={tooltipLabel || label}
 				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
-				ref={ref => (this.ref = ref)}
+				ref={ref => {
+					this.ref = ref;
+				}}
 				noCaret
 			>
 				{!children && !items.length && !items.size && !loading && !components && (

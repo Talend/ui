@@ -42,13 +42,16 @@ function getActionsToRender({ selected, actions, multiSelectActions = {}, appMul
 		if (appMultiSelectActions) {
 			return ['left', 'center', 'right'].reduce((result, type) => {
 				if (multiSelectActions[type] && appMultiSelectActions[type]) {
-					return { ...result, [type]: [
+					return {
+						...result,
+						[type]: [
 							...multiSelectActions[type],
 							{ displayMode: 'divider' },
 							...appMultiSelectActions[type],
-						]};
+						],
+					};
 				}
-				return { ...result, [type]: multiSelectActions[type] || appMultiSelectActions[type]};
+				return { ...result, [type]: multiSelectActions[type] || appMultiSelectActions[type] };
 			}, {});
 		}
 		return multiSelectActions || {};
@@ -161,14 +164,14 @@ Count.propTypes = {
 	selected: PropTypes.number,
 };
 
-function defineComponentLeft(parentComponentLeft, selected, t) {
+function defineComponentLeft(parentComponentLeft, selected) {
 	if (parentComponentLeft) {
 		return parentComponentLeft;
 	}
 
 	if (selected > 0) {
 		return {
-			'before-actions': <Count selected={selected} t={t} />,
+			'before-actions': <Count selected={selected} />,
 		};
 	}
 
@@ -184,7 +187,7 @@ export function ActionBar(props) {
 		props.className,
 	);
 
-	const componentsLeft = defineComponentLeft(props.components.left, props.selected, props.t);
+	const componentsLeft = defineComponentLeft(props.components.left, props.selected);
 	const componentsCenter = props.components.center;
 	const componentsRight = props.components.right;
 
