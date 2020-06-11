@@ -23,8 +23,17 @@ The textarea is a control that allows the user to enter multiple lines of text.
 	<Col centered="all">
 		<a href="#states">States</a>
 	</Col>
+	<Col centered="all">
+		<a href="#content">Content</a>
+	</Col>
 		<Col centered="all">
-		<a href="#usage">Usage</a>
+		<a href="#interaction">Interaction</a>
+	</Col>
+	<Col centered="all">
+		<a href="#code">Code</a>
+	</Col>
+	<Col centered="all">
+		<a href="#accessibility">Accessibility</a>
 	</Col>
 </Row>
 
@@ -35,49 +44,25 @@ The textarea is a control that allows the user to enter multiple lines of text.
 
 ## Style
 
-## Sizes <a id="sizes" />
+### Sizes <a id="sizes" />
 
-| Attribute                      | Variable          |
-| ------------------------------ | ----------------- |
-| min-width                      | 8rem              |
-| max-width                      | 70rem             |
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
 | max-height    		    	 | 50rem             |
-| padding-left and right         | $small            |
-| padding-top and bottom         | $smaller          |
-| border-radius                  | 0.2rem            |
-| border                         | 0.1rem            |
-| margin-top                     | $smaller          |
-| (grip icon) size				 | $svg-md-size      |
 
+### Space <a id="space" />
 
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| padding-top; padding-bottom	 | $smaller          | 
 
-## Colors <a id="colors" />
+### Font <a id="fonts" />
 
-| Attribute                      | Variable                            |
-| ------------------------------ | ----------------------------------- |
-| background-color               | $white                              |
-| border (default)               | $silver chalice                     |
-| placeholder                    | $dark-silver                        |
-| grip icon	                     | $dark-silver                        |
-
-
-## Fonts <a id="fonts" />
-
-| Property       | font-size | font-weight | color		 |
-|----------------|-----------|-------------|-------------|
-| **Placeholder**| 1.4rem    |regular      |$dark-silver |
-| **Input**      | 1.4rem    |regular      |$black		 |
-
+| Property                       | Value             | 
+| ------------------------------ | ----------------- |
+| line-height					 | 1.1				 |
 
 ## States <a id="states" />
-
-<img src={InputBehaviors} alt="Behaviors image for text area" className="full" class="full" />
-
-|                      | **Hover**           | **Focused**       | **Disabled**     | **Read only**    |
-| -------------------- | ------------------- | ----------------- | ---------------- | ---------------- |
-| background-color     | $white			     | $white			 | opacity 0.54     | transparent	   |
-| border               | 0.1rem $dove-gray   | 0.2rem $lochmara  | opacity 0.54     | $sliver-chalice  |
-| text                 | -                   | $black            | opacity 0.54     | $black		   |
 
 ### Default
 
@@ -91,12 +76,18 @@ The textarea is a control that allows the user to enter multiple lines of text.
 
 <Story id="components-form--textarea-read-only" />
 
-## Usage <a id="usage" />
+## Interaction <a id="interaction" />
 
 * Scrollbar:
 Textarea can either have a fixed height, in which case a vertical scrollbar appears when the content exceeds the available space, or the height can expand to accommodate the amount of text.
 
 // TO DO = Add demo
+
+## Code <a id="code" />
+
+To do
+
+## Accessibility <a id="accessibility" />
 
 
 ## Changelog
