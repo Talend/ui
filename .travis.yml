@@ -1,23 +1,23 @@
 language: node_js
 cache:
-  directories:
-    - node_modules
-    - $HOME/.npm
-    - $HOME/.yarn-cache
+    directories:
+        - node_modules
+        - $HOME/.npm
+        - $HOME/.yarn-cache
 node_js:
-  - "8"
+    - '10'
 before_install:
-  - npm i -g yarn --cache-min 999999999
+    - npm i -g yarn --cache-min 999999999
 install:
-  - yarn
+    - yarn
 after_success:
-  - npm run test:cov
-  - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
-  - rm -rf ./coverage
-  - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
-  - python travis_after_all.py
-  - export $(cat .to_export_back) &> /dev/null
-  - npm run semantic-release
+    - npm run test:cov
+    - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
+    - rm -rf ./coverage
+    - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
+    - python travis_after_all.py
+    - export $(cat .to_export_back) &> /dev/null
+    - npm run semantic-release
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+    except:
+        - /^v\d+\.\d+\.\d+$/
