@@ -13,7 +13,7 @@ const theme = getTheme(AppSwitcherCSSModule);
 
 export default function AppSwitcher({ label, isSeparated, ...props }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const className = theme('tc-header-bar-action', {
+	const className = theme('tc-app-switcher-action', {
 		separated: isSeparated,
 	});
 
@@ -36,7 +36,7 @@ export default function AppSwitcher({ label, isSeparated, ...props }) {
 			<span role="heading">
 				<ActionComponent
 					bsStyle="link"
-					className={theme('tc-header-bar-brand')}
+					className={theme('tc-app-switcher')}
 					tooltipPlacement="bottom"
 					label={label}
 					{...props}
