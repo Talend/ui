@@ -15,11 +15,7 @@ describe('HeaderBar', () => {
 			onClick: jest.fn(),
 		};
 		const wrapper = mount(<HeaderBarComponent.WrappedComponent logo={logo} />);
-		const element = wrapper
-			.find('Logo')
-			.at(0)
-			.find('Button')
-			.at(0);
+		const element = wrapper.find('Logo').at(0).find('Button').at(0);
 		expect(element).not.toBeUndefined();
 		element.simulate('click');
 		expect(logo.onClick).toHaveBeenCalled();
