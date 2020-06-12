@@ -97,7 +97,7 @@ describe('#handleHttpResponse', () => {
 		});
 	});
 
-	it('should handle the response with a code different of 2xx', done => {
+	it('should throw with a code different of 2xx', done => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
@@ -107,7 +107,7 @@ describe('#handleHttpResponse', () => {
 				headers,
 			}),
 		).catch(response => {
-			expect(response instanceof Response).toBe(true);
+			expect(response instanceof Error).toBe(true);
 			done();
 		});
 	});
@@ -380,34 +380,5 @@ describe('#httpFetch', () => {
 			method: HTTP_METHODS.GET,
 			response: config.response,
 		});
-	});
-
-	it('should fail the request', done => {
-		const url = '/foo';
-		const headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-
-		const config = {
-			response: new Response('{"foo": 42}', {
-				status: HTTP_STATUS.FORBIDDEN,
-				headers,
-			}),
-		};
-		const payload = {
-			bar: 42,
-		};
-
-		try {
-			httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-				expect(body instanceof Error).toBe(true);
-				expect(body.data).toEqual({
-					foo: 42,
-				});
-				expect(body.response instanceof Response).toBe(true);
-				done();
-			});
-		} catch (e) {
-			expect(e).toBe({});
-		}
 	});
 });
