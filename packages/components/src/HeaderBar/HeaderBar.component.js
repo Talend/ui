@@ -217,7 +217,7 @@ function HeaderBar(props) {
 		Intercom,
 	});
 
-	if (props.brand || props.products) {
+	if (props.brand && props.products) {
 		console.warn('Deprecated: use @talend/ui-ee/AppSwitcher');
 	}
 
