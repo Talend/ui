@@ -1,21 +1,26 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
 import { ColorPalette, ColorItem } from '@storybook/components';
 import colors,{ greyscale, backgrounds, palette } from '../../../tokens/colors.tokens';
 import { IconItem, IconGallery } from '@storybook/components';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import Icon from '../../Icon';
 import icons from '../../../icons';
-
+import InlineMessage from '../';
 import MessageZoning from './images/inlinemessage-zoning.jpg';
 import MessageLine from './images/inlinemessage-multipleline.jpg';
 
+<Meta
+    title="Components/InlineMessage"
+    component={InlineMessage}
+    decorators={[ withKnobs ]}
+/>
 
-<Meta title="Components/InlineMessage/Guidelines" />
+# Inline Message
 
-# Inline message
-
-Inline message highlights information necessary to display for the user in many different contexts. It can be additional information related to system status, it can be a required action to complete the current task. 
+Inline Message highlights information necessary to display for the user in many different contexts.
+It can be additional information related to system status, it can be a required action to complete the current task.
 
 <Row>
 	<Col centered="all">
@@ -47,8 +52,112 @@ Inline message highlights information necessary to display for the user in many 
 
 <img src={MessageZoning} alt="zoning image for inline messages" className="full" class="full" />
 
+<Preview>
+  <Story name="basic">
+    <InlineMessage
+    		title={text('title', 'Lorem ipsum')}
+    		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+    		link={<a href={'#'}>{text('link', 'See more')}</a>}
+    	/>
+  </Story>
+</Preview>
+
 ## Variations
 
+<Preview>
+  <Story name="information">
+    <InlineMessage.Information
+        		title={text('title', 'Lorem ipsum')}
+        		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+        		link={<a href={'#'}>{text('link', 'See more')}</a>}
+        	/>
+  </Story>
+  <Story name="success">
+    <InlineMessage.Success
+        		title={text('title', 'Lorem ipsum')}
+        		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+        		link={<a href={'#'}>{text('link', 'See more')}</a>}
+        	/>
+  </Story>
+  <Story name="warning">
+    <InlineMessage.Warning
+        		title={text('title', 'Lorem ipsum')}
+        		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+        		link={<a href={'#'}>{text('link', 'See more')}</a>}
+        	/>
+  </Story>
+  <Story name="destructive">
+   <InlineMessage.Destructive
+       		title={text('title', 'Lorem ipsum')}
+       		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+       		link={<a href={'#'}>{text('link', 'See more')}</a>}
+       	/>
+  </Story>
+</Preview>
+
+### With background
+
+<Preview>
+  <Story name="informationWithBg">
+    <InlineMessage.Information
+        		title={text('title', 'Lorem ipsum')}
+        		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+        		link={<a href={'#'}>{text('link', 'See more')}</a>}
+           		withBackground
+        	/>
+  </Story>
+  <Story name="successWithBg">
+    <InlineMessage.Success
+        		title={text('title', 'Lorem ipsum')}
+        		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+        		link={<a href={'#'}>{text('link', 'See more')}</a>}
+           		withBackground
+        	/>
+  </Story>
+  <Story name="warningWithBg">
+    <InlineMessage.Warning
+        		title={text('title', 'Lorem ipsum')}
+        		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+        		link={<a href={'#'}>{text('link', 'See more')}</a>}
+           		withBackground
+        	/>
+  </Story>
+  <Story name="destructiveWithBg">
+   <InlineMessage.Destructive
+       		title={text('title', 'Lorem ipsum')}
+       		description={text(
+			'description',
+			'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
+		)}
+       		link={<a href={'#'}>{text('link', 'See more')}</a>}
+       		withBackground
+       	/>
+  </Story>
+</Preview>
 
 ## Sizes <a id="sizes" />
 
@@ -92,7 +201,11 @@ Inline message highlights information necessary to display for the user in many 
 
 _Non applicable_
 
-## Content <a id="content" />
+## Code
+
+<Props />
+
+## Content
 
 - Be clear and conversational
 - Use direct language
@@ -100,7 +213,7 @@ _Non applicable_
 
 ## Interaction <a id="interaction" />
 
-Inline messages are non clickable, except if there is a link. In that case, only the link will be clickable. 
+Inline messages are non clickable, except if there is a link. In that case, only the link will be clickable.
 Please refer to the hyperlink guidelines for more information.
 
 ## Accessibility <a id="accessibility" />
