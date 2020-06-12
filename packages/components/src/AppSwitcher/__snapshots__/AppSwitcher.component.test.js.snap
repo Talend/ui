@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppSwitcher should render brand 1`] = `
+exports[`AppSwitcher should render the products 1`] = `
 <li role="presentation"
     class="tc-header-bar-action theme-tc-header-bar-action"
 >
