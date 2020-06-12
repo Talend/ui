@@ -42,7 +42,11 @@ export const StyledLinkSpan = styled(StyledSpan)`
 		`color: ${withBackground ? defaultTheme.colors.activeColor : theme.colors.activeColor};`}
 `;
 
-// @link https://inclusive-components.design/notifications
+/**
+ Inline message highlights information necessary to display for the user in many different contexts.
+ It can be additional information related to system status, it can be a required action to complete the current task.
+ @link https://inclusive-components.design/notifications
+ **/
 function InlineMessage({ icon, title, description, link, withBackground = false, ...rest }) {
 	return (
 		<StyledInlineMessage withBackground={withBackground} {...rest} role="status" aria-live="polite">
@@ -61,10 +65,25 @@ function InlineMessage({ icon, title, description, link, withBackground = false,
 }
 
 InlineMessage.propTypes = {
+	/**
+	 Icon element.
+	 */
 	icon: PropTypes.node,
+	/**
+	 Title of the message.
+	 */
 	title: PropTypes.string,
+	/**
+	 Description of the inline message.
+	 */
 	description: PropTypes.string.isRequired,
+	/**
+	 Link element at the end.
+	 */
 	link: PropTypes.node,
+	/**
+	 Show or not a background.
+	 */
 	withBackground: PropTypes.bool,
 };
 

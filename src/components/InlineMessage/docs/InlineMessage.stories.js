@@ -8,6 +8,7 @@ export default {
 	title: 'Components/InlineMessage/Stories',
 	parameters: {
 		component: InlineMessage,
+		componentSubtitle: '',
 	},
 	decorators: [withKnobs],
 };
@@ -22,6 +23,11 @@ export const basic = () => (
 		link={<a href={'#'}>{text('link', 'See more')}</a>}
 	/>
 );
+
+basic.story = {
+	parameters: { docs: { storyDescription: 'No style here, just an abstract version.' } },
+};
+
 export const information = () => (
 	<InlineMessage.Information
 		title={text('title', 'Lorem ipsum')}
@@ -32,6 +38,7 @@ export const information = () => (
 		link={<a href={'#'}>{text('link', 'See more')}</a>}
 	/>
 );
+
 export const informationWithBg = () => (
 	<InlineMessage.Information
 		title={text('title', 'Lorem ipsum')}
