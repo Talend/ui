@@ -98,16 +98,16 @@ const StyledField = styled.div(
   text-overflow: ellipsis;
     
   color: ${theme.colors.inputColor};
-  font-size: ${theme.fontSizes.normal};
+  font-size: ${tokens.fontSizes.normal};
   background: ${theme.colors.inputBackgroundColor};
-  border-radius: ${theme.radii.inputBorderRadius};
+  border-radius: ${tokens.radii.inputBorderRadius};
   box-shadow: 0 0 0 1px ${theme.colors.inputBorderColor};
   
   ${['input', 'select'].includes(as) && !['radio', 'checkbox'].includes(type) && 'height: 3.2rem;'} 
    
   &::placeholder {
   	color: ${theme.colors.inputPlaceholderColor};
-  	font-size: ${theme.fontSizes.normal};
+  	font-size: ${tokens.fontSizes.normal};
   }
    
   &:hover {

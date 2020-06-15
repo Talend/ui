@@ -1,0 +1,25 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import Form from '../';
+import Button from '../../Button';
+
+<Meta title="Components|Form"/>
+
+# Form
+
+<Preview>
+    <Story name="simple">
+    <Form>
+        <Form.Fieldset legend="Form fields">
+            <Form.Text label="Input" />
+            <Form.Textarea label="Textarea" />
+            <Form.Select label="Select" values={['', 'foo', 'bar']} />
+            <Form.Checkbox label="Checkbox" />
+            <Form.Radio label="Radio" />
+        </Form.Fieldset>
+        <Button.Ghost onClick={action('clicked')}>Reset</Button.Ghost>
+        <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
+    </Form>
+    </Story>
+</Preview>

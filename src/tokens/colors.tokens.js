@@ -30,10 +30,6 @@ export default {
 	...greyscale,
 	...backgrounds,
 	...palette,
-	primaryColor: palette.stTropaz,
-	informationColor: palette.lochmara,
-	warningColor: palette.jaffa,
-	successColor: palette.rioGrande,
-	destructiveColor: palette.chesnutRose,
+
 	transparent: 'rgba(0,0,0,0)',
 };

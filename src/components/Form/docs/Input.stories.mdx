@@ -4,7 +4,9 @@ import Row from './Row.component';
 import InputBehaviors from './images/input-behaviors.png';
 import InputZoning from './images/input-zoning.jpg';
 
-<Meta title="Components/Form/Input/Text" />
+import Form from '../';
+
+<Meta title="Components|Form/Field/Input/Text" />
 
 # Input text
 
@@ -106,21 +108,21 @@ To do
 | box-shadow			         | 0 0 0 0.1rem      |
 | box-shadow (focus)	         | 0 0 0 0.2rem      |
 
-
 ## States <a id="states" />
 
-### Default
-<Story id="components-form--text" />
-
-### Disabled 
-
-<Story id="components-form--text-disabled" />
+<Preview>
+    <Story name="default">
+        <Form.Text label="Select" />
+    </Story>
+    <Story name="disabled">
+        <Form.Text label="Disabled Select" disabled />
+    </Story>
+    <Story name="read-only">
+        <Form.Text label="Read-Only Select" readOnly />
+    </Story>
+</Preview>
 
 When the input is disabled the whole component is displayed with 0.54 opacity
-
-### Read-only 
-
-<Story id="components-form--text-read-only" />
 
 ## Content <a id="content" />
 

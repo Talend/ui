@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import { light, dark } from '../.';
+
+<Meta title="Themes|Themes" />
+
+# Themes
+
+## Light (default)
+
+<dl>
+	{Object.entries(light).map(([k, v], index) => (
+		<div key={index}>
+			<dt>{k}</dt>
+			<dd>
+				<code>{JSON.stringify(v, null, 2)}</code>
+			</dd>
+		</div>
+	))}
+</dl>
+
+## Dark
+
+<dl>
+	{Object.entries(dark).map(([k, v], index) => (
+		<div key={index}>
+			<dt>{k}</dt>
+			<dd>
+				<code>{JSON.stringify(v, null, 2)}</code>
+			</dd>
+		</div>
+	))}
+</dl>

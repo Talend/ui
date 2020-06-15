@@ -15,7 +15,7 @@ import space from './space.tokens';
 import transitions from './transitions.tokens';
 import zIndices from './zIndices.tokens';
 
-export const tokens = {
+export default {
 	borders,
 	borderStyles,
 	borderWidths,
@@ -33,35 +33,3 @@ export const tokens = {
 	transitions,
 	zIndices,
 };
-
-export const defaultTheme = {
-	...tokens,
-	colors: {
-		...tokens.colors,
-		textColor: colors.black,
-		activeColor: colors.lochmara,
-		backgroundColor: colors.transparent,
-
-		inputColor: colors.black,
-		inputPlaceholderColor: colors.darkSilver,
-		inputBackgroundColor: colors.white,
-		inputBackgroundReadOnlyColor: colors.transparent,
-		inputBorderColor: colors.silverChalice,
-		inputBorderHoverColor: colors.doveGray,
-		inputBorderFocusColor: colors.lochmara,
-		inputBorderDisabledColor: colors.silverChalice,
-		inputBorderReadOnlyColor: colors.silverChalice,
-	},
-};
-
-export const darkTheme = {
-	...defaultTheme,
-	colors: {
-		...defaultTheme.colors,
-		textColor: colors.white,
-		activeColor: colors.scooter,
-		backgroundColor: colors.black,
-	},
-};
-
-export default defaultTheme;

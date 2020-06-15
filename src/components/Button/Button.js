@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'reakit';
 import styled, { css } from 'styled-components';
-import { tokens } from '../../tokens';
+import tokens from '../../tokens';
 
 const BaseButton = styled(
 	React.forwardRef(({ theme, small, ...props }, ref) => <Button ref={ref} {...props} />),

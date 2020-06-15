@@ -5,7 +5,9 @@ import InputBehaviors from './images/input-search-behaviors.png';
 import InputVariations from './images/input-search-variations.png';
 import InputZoning from './images/input-search-zoning.jpg';
 
-<Meta title="Components/Form/Input/Search" />
+import Form from '../';
+
+<Meta title="Components|Form/Field/Input/Search" />
 
 # Search
 
@@ -70,19 +72,17 @@ These are functionally identical to text inputs, but may be styled differently b
 
 ## States <a id="states" />
 
-### Default
-<Story id="components-form--search" />
-
-### Disabled 
-
-When the search input is disabled the whole component is displayed with 0.54 opacity
-
-<Story id="components-form--search-disabled" />
-
-### Read-only 
-
-<Story id="components-form--search-read-only" />
-
+<Preview>
+    <Story name="default">
+        <Form.Search label="Search" />
+    </Story>
+    <Story name="disabled">
+        <Form.Search label="Disabled Search" disabled />
+    </Story>
+    <Story name="read-only">
+        <Form.Search label="Read-Only Search" readOnly />
+    </Story>
+</Preview>
 
 ## Interaction <a id="interaction" />
 

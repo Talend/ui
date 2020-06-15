@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { tint, shade } from 'polished';
 import ButtonBase from '../Button';
+import tokens from '../../../tokens';
 
 const ButtonPrimary = styled(ButtonBase)`
-	color: ${(props) => props.theme.colors.white};
+	color: ${tokens.colors.white};
 	background: ${(props) => props.theme.colors.primaryColor};
 	border-color: none;
 
@@ -16,9 +17,9 @@ const ButtonPrimary = styled(ButtonBase)`
 	}
 
 	&[aria-disabled='true'] {
-		background-color: ${(props) => props.theme.colors.alto};
-		border-color: ${(props) => props.theme.colors.alto};
-		color: ${(props) => tint(1 - props.theme.opacity.disabled, props.theme.colors.black)};
+		background-color: ${tokens.colors.alto};
+		border-color: ${tokens.colors.alto};
+		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)};
 	}
 `;
 

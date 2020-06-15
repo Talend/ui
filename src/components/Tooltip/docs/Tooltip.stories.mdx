@@ -1,18 +1,38 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
 import Col from '../../../docs/Col.component';
 import Row from '../../../docs/Row.component';
+import Tooltip from '../.';
+import Button from '../../Button';
 
-<Meta title="Components/Tooltip/Guidelines" />
+<Meta title="Components|Tooltip" />
 
 # Tooltip
 
 Tooltip appears on mouse hover in order to identify or define relevant information about elements.
 
-<Row>
-	<Col>
-		<Story id="components-tooltip-stories--basic" />
-	</Col>
-</Row>
+<Preview>
+  <Story name="top">
+		<Tooltip title="Relevant information about this basic button" placement="top" visible>
+			<Button onClick={action('clicked')}>Top</Button>
+		</Tooltip>
+  </Story>
+  <Story name="left">
+		<Tooltip title="Relevant information about this basic button" placement="left">
+			<Button onClick={action('clicked')}>Left</Button>
+		</Tooltip>
+  </Story>
+  <Story name="bottom">
+		<Tooltip title="Relevant information about this basic button" placement="bottom">
+			<Button onClick={action('clicked')}>Bottom</Button>
+		</Tooltip>
+  </Story>
+  <Story name="right">
+		<Tooltip title="Relevant information about this basic button" placement="right">
+			<Button onClick={action('clicked')}>Right</Button>
+		</Tooltip>
+  </Story>
+</Preview>
 
 ## Style
 
@@ -25,7 +45,7 @@ Tooltip appears on mouse hover in order to identify or define relevant informati
 | height                      | 2rem         |
 | max-height                  | 5rem         |
 | max-width                   | 25rem        |
-| padding-left; padding-right | \$smaller    |
+| padding-left; padding-right | $smaller    |
 | border-radius               | rectRadius   |
 | **Pointer details**         |
 | width                       | 0.6rem       |
@@ -36,8 +56,8 @@ Tooltip appears on mouse hover in order to identify or define relevant informati
 
 | Attribute        | Variable    |
 | ---------------- | ----------- |
-| background-color | \$dove-gray |
-| color            | \$white     |
+| background-color | $dove-gray |
+| color            | $white     |
 
 ## Fonts
 

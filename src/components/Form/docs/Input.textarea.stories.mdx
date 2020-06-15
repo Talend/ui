@@ -3,8 +3,9 @@ import Col from './Col.component';
 import Row from './Row.component';
 import InputBehaviors from './images/input-text-behaviors.png';
 import InputZoning from './images/input-text-zoning.jpg';
+import Form from '../';
 
-<Meta title="Components/Form/Textarea" />
+<Meta title="Components|Form/Field/Textarea" />
 
 # Text Area
 
@@ -64,17 +65,17 @@ The textarea is a control that allows the user to enter multiple lines of text.
 
 ## States <a id="states" />
 
-### Default
-
-<Story id="components-form--textarea" />
-
-### Disabled
-
-<Story id="components-form--textarea-disabled" />
-
-### Read-only
-
-<Story id="components-form--textarea-read-only" />
+<Preview>
+    <Story name="default">
+        <Form.Textarea label="Textarea" />
+    </Story>
+    <Story name="disabled">
+        <Form.Textarea label="Disabled Textarea" disabled />
+    </Story>
+    <Story name="read-only">
+        <Form.Textarea label="Read-Only Textarea" readOnly />
+    </Story>
+</Preview>
 
 ## Interaction <a id="interaction" />
 

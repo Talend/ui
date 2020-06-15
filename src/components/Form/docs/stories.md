@@ -1,34 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import { action } from '@storybook/addon-actions';
-
-import Button from '../../Button';
-import Form from '../index';
-
-export default {
-	title: 'Components|Form',
-
-	parameters: {
-		component: Form,
-	},
-};
-
-export const basic = () => (
-	<>
-		<Form>
-			<Form.Fieldset legend="Form fields">
-				<Form.Text label="Input" />
-				<Form.Textarea label="Textarea" />
-				<Form.Select label="Select" values={['', 'foo', 'bar']} />
-				<Form.Checkbox label="Checkbox" />
-				<Form.Radio label="Radio" />
-			</Form.Fieldset>
-			<Button.Ghost onClick={action('clicked')}>Reset</Button.Ghost>
-			<Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
-		</Form>
-	</>
-);
-
 export const Checkbox = () => <Form.Checkbox label="Checkbox" />;
 export const Date = () => <Form.Date label="Date" />;
 export const DatetimeLocal = () => <Form.DatetimeLocal label="DatetimeLocal" />;
@@ -72,7 +41,3 @@ export const Select = () => (
 export const Datalist = () => (
 	<Form.Datalist label="Datalist" id={'datalist'} values={['foo', 'bar']} />
 );
-
-export const Textarea = () => <Form.Textarea label="Textarea" />;
-export const TextareaDisabled = () => <Form.Textarea label="Disabled Textarea" disabled />;
-export const TextareaReadOnly = () => <Form.Textarea label="Read-Only Textarea" readOnly />;

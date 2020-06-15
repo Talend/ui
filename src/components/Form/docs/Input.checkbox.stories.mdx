@@ -3,7 +3,9 @@ import Col from './Col.component';
 import Row from './Row.component';
 import InputZoning from './images/checkbox-zoning.jpg';
 
-<Meta title="Components/Form/Input/Checkbox"/>
+import Form from '../';
+
+<Meta title="Components|Form/Field/Input/Checkbox"/>
 
 # Checkbox
 
@@ -105,16 +107,17 @@ To do
 
 ## States <a id="states" />
 
-
-### Default
-
-### Disabled 
-
-
-When the checkbox is disabled the whole component is displayed with 0.54 opacity
-
-### Read-only 
-
+<Preview>
+    <Story name="default">
+        <Form.Checkbox label="Checkbox" />
+    </Story>
+    <Story name="disabled">
+        <Form.Checkbox label="Disabled Checkbox" disabled />
+    </Story>
+    <Story name="read-only">
+        <Form.Checkbox label="Read-Only Checkbox" readOnly />
+    </Story>
+</Preview>
 
 ## Content <a id="content" />
 

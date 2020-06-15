@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import dropdownZoning from './images/zoning-dropdown.jpg';
+import Button from '../../Button';
+import Dropdown from '../';
 
-<Meta title="Components/Dropdown/Guidelines" />
+<Meta title="Components|Dropdown" />
 
 # Dropdown
 
@@ -20,10 +22,10 @@ A dropdown menu displays a list of actions to take.
 | Attribute                    | Variable                        |
 | ---------------------------- | ------------------------------- |
 | height                       | 3.5rem                          |
-| padding-left & padding-right | \$normal                        |
-| _ (if icon) _ icon-size      | \$svg-md-size                   |
-| _ (if icon) _ margin-right   | \$normal                        |
-| _ (if separator) _           | border: solid, 0.1rem \$gallery |
+| padding-left & padding-right | $normal                        |
+| _ (if icon) _ icon-size      | $svg-md-size                   |
+| _ (if icon) _ margin-right   | $normal                        |
+| _ (if separator) _           | border: solid, 0.1rem $gallery |
 
 ### Menu
 
@@ -31,7 +33,7 @@ A dropdown menu displays a list of actions to take.
 | ------------- | ------------------------------ |
 | max-height    | 32rem                          |
 | min-width     | 15rem                          |
-| border        | solid, 0.1rem \$gallery        |
+| border        | solid, 0.1rem $gallery        |
 | border-radius | rectRadius                     |
 | box-shadow    | 0 -1px 3px 0px rgba(0,0,0,0.2) |
 
@@ -39,7 +41,7 @@ A dropdown menu displays a list of actions to take.
 
 | Attribute        | Variable |
 | ---------------- | -------- |
-| background-color | \$white  |
+| background-color | $white  |
 
 ## Fonts
 
@@ -47,7 +49,7 @@ A dropdown menu displays a list of actions to take.
 | -------------- | ---------------- |
 | font-size      | 1.4rem           |
 | font-weight    | regular          |
-| color          | \$dove-gray      |
+| color          | $dove-gray      |
 | text-align     | left             |
 | label position | vertical aligned |
 
@@ -55,9 +57,9 @@ A dropdown menu displays a list of actions to take.
 
 |                    | Attribute        | Variable              |
 | ------------------ | ---------------- | --------------------- |
-| **Default**        | background-color | \$white               |
-| **Hover**          | background-color | tint (\$scooter, 10%) |
-| **Selected**       | background-color | \$concrete            |
+| **Default**        | background-color | $white               |
+| **Hover**          | background-color | tint ($scooter, 10%) |
+| **Selected**       | background-color | $concrete            |
 | **Hover selected** | background-color | #CCDCE8               |
 
 ## Content
@@ -68,11 +70,22 @@ If not, when the label is too long for the available horizontal space, they wrap
 
 ## Interaction
 
-<Row>
-	<Col centered="all">
-		<Story id="components-dropdown-stories--basic" />
-	</Col>
-</Row>
+
+<Preview>
+  <Story name="information">
+	<Dropdown
+		as={Button}
+		aria-label="Custom menu"
+		items={[
+			<button>Custom item 1</button>,
+			<button>Custom item 2</button>,
+			<button>Custom item 3</button>,
+		]}
+	>
+		Menu
+	</Dropdown>
+  </Story>
+</Preview>
 
 - **Dropdown menu items should all have a tooltip on hover displaying the description**
 
@@ -85,7 +98,7 @@ If not, when the label is too long for the available horizontal space, they wrap
 | height           | 3.4rem               |
 | width            | 8rem                 |
 | border-radius    | rectRadius           |
-| background-color | shade (\$black, 25%) |
+| background-color | shade ($black, 25%) |
 
 // TODO add demo
 

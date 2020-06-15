@@ -3,7 +3,9 @@ import Col from './Col.component';
 import Row from './Row.component';
 import InputZoning from './images/input-select-zoning.jpg';
 
-<Meta title="Components/Form/Select" />
+import Form from '../';
+
+<Meta title="Components/Form/Field/Select" />
 
 # Select
 
@@ -65,15 +67,17 @@ Select lets the user choose one option or multiple options from an options menu.
 
 ## States <a id="states" />
 
-
-### Default
-
-<Story id="components-form--select" />
-
-### Disabled 
-
-### Read-only 
-
+<Preview>
+    <Story name="default">
+        <Form.Select label="Select" values={['', 'foo', 'bar']}/>
+    </Story>
+    <Story name="disabled">
+        <Form.Select label="Disabled Select" disabled  values={['', 'foo', 'bar']}/>
+    </Story>
+    <Story name="read-only">
+        <Form.Select label="Read-Only Select" readOnly value="foo" values={['', 'foo', 'bar']}/>
+    </Story>
+</Preview>
 
 ## Content <a id="content" />
 
