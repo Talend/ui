@@ -7,6 +7,12 @@
     "type": "git",
     "url": "https://github.com/Talend/ui"
   },
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Talend <frontend@talend.com>",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
