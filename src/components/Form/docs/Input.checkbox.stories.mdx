@@ -3,7 +3,7 @@ import Col from './Col.component';
 import Row from './Row.component';
 import InputZoning from './images/checkbox-zoning.jpg';
 
-<Meta title="Components/Form/Checkbox"/>
+<Meta title="Components/Form/Input/Checkbox"/>
 
 # Checkbox
 
@@ -69,11 +69,12 @@ To do
 | Property                       | Value                               | Themeable				 |
 | ------------------------------ | ----------------------------------- | ----------------------- |
 | background-color               | $wild-sand                          | -	 |
-| background-color (active)      | $lochmara                           | -						 |
+| background-color (checked)     | $lochmara                           | -						 |
 | border (default)               | $dark-silver		                   | -		 |
-| border (active)                | shade ($lochmara, 15%)              | -		 |
+| border (checked)               | shade ($lochmara, 15%)              | -		 |
 | border (hover)                 | $lochmara                           | -	 |
 | border (disabled)              | $silver-chalice                     | -		 |
+| border (read-only)             | $concrete	                       | -		 |
 | icon 							 | $white							   | - | 
 | color							 | $black 							   | -	   			 |
 
@@ -81,13 +82,13 @@ To do
 
 | Property                       | Value             | 
 | ------------------------------ | ----------------- |
-| label							 | 1.4rem 			 |
+| Label							 | 1.4rem 			 |
 
 ### Font weight <a id="fonts" />
 
 | Property                       | Value             | 
 | ------------------------------ | ----------------- |
-| label							 | regular			 |
+| Label							 | regular			 |
 
 ### Radii <a id="radii" />
  
@@ -110,7 +111,7 @@ To do
 ### Disabled 
 
 
-When the input is disabled the whole component is displayed with 0.54 opacity
+When the checkbox is disabled the whole component is displayed with 0.54 opacity
 
 ### Read-only 
 
@@ -119,14 +120,13 @@ When the input is disabled the whole component is displayed with 0.54 opacity
 
 To do
 
-- Truncable text
-When the text is too long in the input, it will display an ellipsis at the end of the content.
-
-// ADD DEMO
+- Not use commas or semicolons at the end of each line
+- Each label should start with a capital letter
 
 ## Interaction <a id="interaction" />
 
-Non applicable
+- If a label is provided, it should always be clickable to check or uncheck.
+- Checking one checkbox does not change the state of others, unless the parent was indeterminant and all children have the same state.
 
 ## Code <a id="code" />
 
@@ -134,14 +134,15 @@ To do
 
 ## Accessibility <a id="accessibility" />
 
-Press <kbd>TABS</kbd> to focus on an input element
+Press <kbd>TABS</kbd> to focus on a checkbox.
 
-Press the <kbd>ENTER</kbd> to submit the form
+Press the <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to toggle the checkbox between selected and not selected. 
+
 
 ## Changelog
 
 | Date       | Author | Description |
 | ---------- | ------ | ----------- |
-| 05/05/2020 | Monia Huet  | Update accessibility section  |
-| 04/01/2020 | Monia Huet  | Init page   |
+| 06/15/2020 | Monia Huet  | Init page   |
+
 
