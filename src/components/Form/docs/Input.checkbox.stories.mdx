@@ -1,0 +1,147 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Col from './Col.component';
+import Row from './Row.component';
+import InputZoning from './images/checkbox-zoning.jpg';
+
+<Meta title="Components/Form/Checkbox"/>
+
+# Checkbox
+
+Checkbox should be used for item/option selection a,donly when more than one item can be selected at the same time.
+If there is only two options (on/off) consider using a switch/toggle.
+ 
+If the user should select only one option, use radio buttons.
+
+Use a checkbox when you want to give your recipients the opportunity to select more than one option. 
+
+<Row>
+	<Col centered="all">
+		<a href="#sizes">Sizes</a>
+	</Col>
+	<Col centered="all">
+		<a href="#colors">Colors</a>
+	</Col>
+	<Col centered="all">
+		<a href="#fonts">Fonts</a>
+	</Col>
+	<Col centered="all">
+		<a href="#states">States</a>
+	</Col>
+	<Col centered="all">
+		<a href="#content">Content</a>
+	</Col>
+		<Col centered="all">
+		<a href="#interaction">Interaction</a>
+	</Col>
+	<Col centered="all">
+		<a href="#code">Code</a>
+	</Col>
+	<Col centered="all">
+		<a href="#accessibility">Accessibility</a>
+	</Col>
+</Row>
+
+
+## Zoning
+
+<img src={InputZoning} alt="zoning image for default inputs" className="full" class="full" />
+
+## Style
+
+### Sizes <a id="sizes" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| width           	             | 1.2rem            | 
+| height    			    	 | 1.2rem            | 
+| icon 							 | $svg-xs-size		 |
+
+### Space <a id="space" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| (label)margin-left             | $small            |
+
+### Colors <a id="colors" />
+
+To do
+
+| Property                       | Value                               | Themeable				 |
+| ------------------------------ | ----------------------------------- | ----------------------- |
+| background-color               | $wild-sand                          | -	 |
+| background-color (active)      | $lochmara                           | -						 |
+| border (default)               | $dark-silver		                   | -		 |
+| border (active)                | shade ($lochmara, 15%)              | -		 |
+| border (hover)                 | $lochmara                           | -	 |
+| border (disabled)              | $silver-chalice                     | -		 |
+| icon 							 | $white							   | - | 
+| color							 | $black 							   | -	   			 |
+
+### Font size <a id="fonts" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- |
+| label							 | 1.4rem 			 |
+
+### Font weight <a id="fonts" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- |
+| label							 | regular			 |
+
+### Radii <a id="radii" />
+ 
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| border-radius			         | 0.2rem            |
+
+### Shadows <a id="shadows" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| box-shadow			         | 0 0 0 0.1rem      |
+
+
+## States <a id="states" />
+
+
+### Default
+
+### Disabled 
+
+
+When the input is disabled the whole component is displayed with 0.54 opacity
+
+### Read-only 
+
+
+## Content <a id="content" />
+
+To do
+
+- Truncable text
+When the text is too long in the input, it will display an ellipsis at the end of the content.
+
+// ADD DEMO
+
+## Interaction <a id="interaction" />
+
+Non applicable
+
+## Code <a id="code" />
+
+To do
+
+## Accessibility <a id="accessibility" />
+
+Press <kbd>TABS</kbd> to focus on an input element
+
+Press the <kbd>ENTER</kbd> to submit the form
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 05/05/2020 | Monia Huet  | Update accessibility section  |
+| 04/01/2020 | Monia Huet  | Init page   |
+
