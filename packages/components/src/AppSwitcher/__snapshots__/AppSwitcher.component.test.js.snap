@@ -2,7 +2,7 @@
 
 exports[`AppSwitcher should render the products 1`] = `
 <li role="presentation"
-    class="tc-header-bar-action theme-tc-header-bar-action"
+    class="tc-app-switcher-action theme-tc-app-switcher-action"
 >
   <span role="heading">
     <div class="dropdown btn-group btn-group-link">
@@ -13,7 +13,7 @@ exports[`AppSwitcher should render the products 1`] = `
               aria-haspopup="true"
               aria-expanded="false"
               type="button"
-              class="theme-tc-dropdown-button tc-dropdown-button tc-header-bar-brand theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              class="theme-tc-dropdown-button tc-dropdown-button tc-app-switcher theme-tc-app-switcher dropdown-toggle btn btn-link"
       >
         <span class="tc-dropdown-button-title-label">
           My App
