@@ -1,0 +1,137 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Col from './Col.component';
+import Row from './Row.component';
+import InputZoning from './images/radiobutton-zoning.jpg';
+
+import Form from '../';
+
+<Meta title="Components|Form/Field/Input/Radio button"/>
+
+# Radio button
+
+Radio buttons are used when a question has only one answer. Radio buttons allow the user to select one option from a set. 
+Use radio buttons for exclusive selection if you think that the user needs to see all available options side-by-side.
+
+Otherwise, consider checkboxes, toggle switch or a dropdown.
+
+<Row>
+	<Col centered="all">
+		<a href="#sizes">Sizes</a>
+	</Col>
+	<Col centered="all">
+		<a href="#colors">Colors</a>
+	</Col>
+	<Col centered="all">
+		<a href="#fonts">Fonts</a>
+	</Col>
+	<Col centered="all">
+		<a href="#states">States</a>
+	</Col>
+	<Col centered="all">
+		<a href="#content">Content</a>
+	</Col>
+		<Col centered="all">
+		<a href="#interaction">Interaction</a>
+	</Col>
+	<Col centered="all">
+		<a href="#code">Code</a>
+	</Col>
+	<Col centered="all">
+		<a href="#accessibility">Accessibility</a>
+	</Col>
+</Row>
+
+
+## Zoning
+
+<img src={InputZoning} alt="zoning image for default inputs" className="full" class="full" />
+
+## Style
+
+### Sizes <a id="sizes" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| width           	             | 1.2rem            | 
+| height    			    	 | 1.2rem            | 
+| inner-circle 					 | 0.8rem			 |
+
+### Space <a id="space" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| (label)margin-left             | $small            |
+
+### Colors <a id="colors" />
+
+To do
+
+| Property                       | Value                               | Themeable				 |
+| ------------------------------ | ----------------------------------- | ----------------------- |
+| background-color               | $wild-sand                          | -	 |
+| border (default)               | $dark-silver		                   | -		 |
+| border (checked)               | shade ($lochmara, 15%)              | -		 |
+| border (hover)                 | $lochmara                           | -	 |
+| border (disabled)              | $dark-silver		                   | -		 |
+| border (read-only)             | $dark-silver	                       | -		 |
+| inner-circle 					 | $lochmara						   | - | 
+| color							 | $black 							   | -	   			 |
+
+### Font size <a id="fonts" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- |
+| Label							 | 1.4rem 			 |
+
+### Font weight <a id="fonts" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- |
+| Label							 | regular			 |
+
+### Radii <a id="radii" />
+ 
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| border-radius			         | 0.10rem            |
+
+### Shadows <a id="shadows" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| box-shadow			         | 0 0 0 0.1rem      |
+
+
+## States <a id="states" />
+
+
+## Content <a id="content" />
+
+To do
+
+- Not use commas or semicolons at the end of each line
+- Each label should start with a capital letter
+
+## Interaction <a id="interaction" />
+
+- If a label is provided, it should always be clickable to check or uncheck.
+- A set of radio buttons should default to having one option selected.
+
+## Code <a id="code" />
+
+To do
+
+## Accessibility <a id="accessibility" />
+
+Press <kbd>TABS</kbd> to focus on a radio button.
+
+Press the <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to toggle the radio button between selected and not selected. 
+
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 06/15/2020 | Monia Huet  | Init page   |
+
+
