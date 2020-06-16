@@ -24,4 +24,5 @@ export default {
 		inputBorderDisabledColor: colors.silverChalice,
 		inputBorderReadOnlyColor: colors.silverChalice,
 	},
+	id: 'light',
 };

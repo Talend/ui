@@ -1,12 +1,14 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { addDecorator, addParameters } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { withContexts } from '@storybook/addon-contexts/react';
 import { normalize } from 'polished';
 import { contexts } from './contexts';
 
 const GlobalStyle = createGlobalStyle(
-	({ theme }) => `
+	({ theme }) =>
+		console.log('GlobalStyle', theme.id) ||
+		`
 	${normalize()}
   
 	html {
@@ -15,8 +17,23 @@ const GlobalStyle = createGlobalStyle(
 	}
 
 	body {
-		font-size: 1.6rem;
-		background: ${theme.colors.backgroundColor};
+		margin: 0;
+		padding: 0;
+        font-size: 14px;
+	}
+	
+	#storybook-preview-iframe {
+		${theme.colors.backgroundColor}
+	}
+	
+	
+	.sbdocs.sbdocs-wrapper {
+		margin: -1rem;
+	}
+
+	.sb-show-main,
+	.sbdocs.sbdocs-preview {
+		background: ${theme.colors.backgroundColor}
 	}
 `,
 );
@@ -27,7 +44,7 @@ const RowDiv = styled.div`
 	align-items: center;
 `;
 
-addDecorator((storyFn) => (
+addDecorator((storyFn, ...rest) => (
 	<RowDiv>
 		<GlobalStyle />
 		{storyFn()}

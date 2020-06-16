@@ -1,6 +1,6 @@
 import { light } from '.';
-
-const colors = light.colors;
+import tokens from '../tokens';
+const colors = tokens.colors;
 
 export default {
 	...light,
@@ -10,4 +10,5 @@ export default {
 		activeColor: colors.scooter,
 		backgroundColor: colors.black,
 	},
+	id: 'dark',
 };
