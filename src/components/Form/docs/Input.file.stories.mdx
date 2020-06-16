@@ -1,0 +1,96 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Col from './Col.component';
+import Row from './Row.component';
+import InputZoning from './images/input-file-zoning.jpg';
+
+import Form from '../';
+
+<Meta title="Components/Form/Field/Input/File" />
+
+# File
+
+File uploader allows the user to transfer a file.
+
+<Row>
+	<Col centered="all">
+		<a href="#sizes">Sizes</a>
+	</Col>
+	<Col centered="all">
+		<a href="#colors">Colors</a>
+	</Col>
+	<Col centered="all">
+		<a href="#fonts">Fonts</a>
+	</Col>
+	<Col centered="all">
+		<a href="#states">States</a>
+	</Col>
+	<Col centered="all">
+		<a href="#content">Content</a>
+	</Col>
+		<Col centered="all">
+		<a href="#interaction">Interaction</a>
+	</Col>
+	<Col centered="all">
+		<a href="#code">Code</a>
+	</Col>
+	<Col centered="all">
+		<a href="#accessibility">Accessibility</a>
+	</Col>
+</Row>
+
+
+## Zoning
+
+<img src={InputZoning} alt="zoning image for the file upload input" className="full" class="full" />
+
+## Style
+
+### Sizes <a id="sizes" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| icon           	             | 1.2rem            | 
+
+
+### Space <a id="space" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| padding-right					 | 3.2rem            | 
+
+
+### Colors <a id="colors" />
+
+| Property                       | Value                               | 
+| ------------------------------ | ----------------------------------- | 
+| icon		                     | $dark-silver                        |
+
+## States <a id="states" />
+
+### Loading States
+Display a spinner icon instead of the upload a file icon when the file is loading into the input.
+
+## Content <a id="content" />
+
+- Use an ellipsis if the filename extends beyond the width of its parent element.
+
+
+## Interaction <a id="interaction" />
+
+- When a user clicks on the "add a file button" it triggers a browser-specific upload window.
+- Once the user chooses files to upload, the browser-specific upload window closes and the files will appear in the file input.
+
+## Code <a id="code" />
+
+To do
+
+## Accessibility <a id="accessibility" />
+
+To do
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 06/16/2020 | Monia Huet  | Init page   |
+
