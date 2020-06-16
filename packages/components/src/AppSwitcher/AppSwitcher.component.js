@@ -11,7 +11,7 @@ import { getTheme } from '../theme';
 
 const theme = getTheme(AppSwitcherCSSModule);
 
-export default function AppSwitcher({ label, isSeparated, ...props }) {
+export default function AppSwitcher({ label, isSeparated, onClick, ...props }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const className = theme('tc-app-switcher-action', {
 		separated: isSeparated,
@@ -28,7 +28,7 @@ export default function AppSwitcher({ label, isSeparated, ...props }) {
 		});
 	} else {
 		ActionComponent = Action;
-		clickAction = props.onClick;
+		clickAction = onClick;
 	}
 
 	return (
@@ -39,9 +39,9 @@ export default function AppSwitcher({ label, isSeparated, ...props }) {
 					className={theme('tc-app-switcher')}
 					tooltipPlacement="bottom"
 					label={label}
-					{...props}
 					aria-label={ariaLabel}
 					onClick={clickAction}
+					{...props}
 				/>
 			</span>
 		</li>
