@@ -311,7 +311,7 @@ decoratedStories
 		{ info: { styles: infoStyle } },
 	)
 	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } })
-	.add('AppSwitcher props', () => <HeaderBar AppSwitcher={AppSwitcherComponent} />, {
+	.add('Custom AppSwitcher', () => <HeaderBar AppSwitcher={AppSwitcherComponent} />, {
 		info: { styles: infoStyle },
 	});
 
