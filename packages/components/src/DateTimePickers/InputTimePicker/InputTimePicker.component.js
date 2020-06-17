@@ -23,20 +23,6 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'timezone',
 ];
 
-function convertToString(time = {}, useSeconds) {
-	return [time.hours, time.minutes]
-		.concat(useSeconds ? time.seconds : [])
-		.filter(Boolean)
-		.join(':');
-}
-
-function getTime(time, useSeconds) {
-	if (typeof time === 'string') {
-		return time;
-	}
-	return convertToString(time, useSeconds);
-}
-
 export default function InputTimePicker(props) {
 	const popoverId = `time-picker-${props.id || uuid.v4()}`;
 
@@ -54,7 +40,6 @@ export default function InputTimePicker(props) {
 		<Time.Input
 			{...inputProps}
 			id={`${props.id}-input`}
-			value={getTime(props.value, props.useSeconds)}
 			key="input"
 			inputRef={inputRef}
 		/>,
