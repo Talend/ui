@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
 import InputZoning from './images/radiobutton-zoning.jpg';
@@ -93,7 +93,7 @@ To do
  
 | Property                       | Value             | 
 | ------------------------------ | ----------------- | 
-| border-radius			         | 0.10rem            |
+| border-radius			         | circleRadius      |
 
 ### Shadows <a id="shadows" />
 
@@ -104,6 +104,32 @@ To do
 
 ## States <a id="states" />
 
+<Preview>
+    <Story name="default">
+        <Form.Radio label="Radio" />
+    </Story>
+    <Story name="checked">
+        <Form.Radio label="Checked Radio" checked />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="disabled">
+        <Form.Radio label="Disabled Radio" disabled />
+    </Story>
+    <Story name="disabled checked">
+        <Form.Radio label="Disabled Checked Radio" disabled checked />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="read-only">
+        <Form.Radio label="Read-Only Radio" readOnly />
+    </Story>
+    <Story name="read-only checked">
+        <Form.Radio label="Read-Only Checked Radio" readOnly checked />
+    </Story>
+</Preview>
 
 ## Content <a id="content" />
 

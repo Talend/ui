@@ -1,39 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 import Label from '../Label';
-
 import tokens from '../../../tokens';
 
 const StyledDiv = styled.div(
 	({ theme, inline }) => `
 	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding-bottom: ${tokens.space.small};
 	width: 100%;
   	min-width: 8rem;
   	max-width: 70rem;
-	padding-bottom: ${tokens.space.small};
-	
-	${
-		!inline
-			? `
-		align-items: flex-start;
-		justify-content: center;
-		flex-direction: column;
-		
-		${StyledField} {
-			width: 100%;
-		}
-	`
-			: `
-		align-items: center;
-		justify-content: flex-end;
-		flex-direction: row-reverse;
-		
-		label {
-		  padding: 0 ${tokens.space.small};
-		}
-	`
+
+	label {
+		font-size: ${tokens.fontSizes.small};
+		color: ${theme.colors.textColor};
 	}
-	color: ${theme.colors.textColor};
+
+	${StyledField} {
+		width: 100%;
+	}
 `,
 );
 
@@ -131,17 +119,19 @@ const StyledField = styled.div(
 );
 
 const Field = React.forwardRef(({ label, after, icon, ...rest }, ref) => {
+	const inline = ['checkbox', 'radio'].includes(rest.type);
 	return (
-		<StyledDiv inline={['checkbox', 'radio'].includes(rest.type)}>
-			{label && <Label htmlFor={label}>{label}</Label>}
+		<StyledDiv inline={inline}>
+			{label && !inline && <Label htmlFor={label}>{label}</Label>}
 			{after ? (
 				<StyledFieldGroup>
-					<StyledField id={label} ref={ref} {...rest} />
+					<StyledField id={label} {...rest} ref={ref} />
 					{after}
 				</StyledFieldGroup>
 			) : (
 				<StyledField id={label} {...rest} />
 			)}
+			{label && inline && <Label htmlFor={label}>{label}</Label>}
 		</StyledDiv>
 	);
 });

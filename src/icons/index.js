@@ -4,8 +4,10 @@ import cross from './cross.svg';
 import eye from './eye.svg';
 import eyeSlash from './eye-slash.svg';
 import information from './information.svg';
+import minus from './minus.svg';
 import plus from './plus.svg';
 import search from './search.svg';
+import validate from './validate.svg';
 import warning from './warning.svg';
 
 export default {
@@ -15,7 +17,9 @@ export default {
 	eye,
 	eyeSlash,
 	information,
+	minus,
 	plus,
 	search,
+	validate,
 	warning,
 };
