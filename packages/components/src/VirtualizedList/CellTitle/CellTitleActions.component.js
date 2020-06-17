@@ -56,13 +56,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 	// few actions : display them
 	if (hasFewActions) {
 		actionsBlocs.push(
-			<Actions
-				getComponent={getComponent}
-				key="direct-actions"
-				actions={actions}
-				hideLabel
-				link
-			/>,
+			<Actions getComponent={getComponent} key="direct-actions" actions={actions} hideLabel link />,
 		);
 	} else {
 		// lot of actions, we extract 2 actions (including all dropdowns) to display them directly

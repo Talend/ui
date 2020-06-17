@@ -40,12 +40,11 @@ function ActionListItem({ getComponent, id, onSelect, action, isSelected, isNav,
 	}
 
 	const actionProps = {
-		
 		...action,
 		active: undefined, // active scope is only the list item
-			id: getActionId(id, action),
-			bsStyle: 'link',
-			role: 'link',
+		id: getActionId(id, action),
+		bsStyle: 'link',
+		role: 'link',
 		...extra,
 	};
 

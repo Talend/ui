@@ -42,7 +42,7 @@ export function getIconHREF(name) {
 <IconsProvider />
  */
 function IconsProvider({ defaultIcons = talendIcons, icons = {}, getIconHref = () => {} }) {
-	const iconset = { ...defaultIcons, ...icons};
+	const iconset = { ...defaultIcons, ...icons };
 	const ids = Object.keys(iconset);
 	context.ids = ids;
 	context.get = getIconHref;

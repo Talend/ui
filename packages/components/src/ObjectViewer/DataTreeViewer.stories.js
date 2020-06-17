@@ -19,10 +19,7 @@ const icons = {
 };
 
 const schema = new Map();
-schema
-	.set('business_id', 'integer')
-	.set('name', 'CAFE_NAME')
-	.set('rating', 'integer');
+schema.set('business_id', 'integer').set('name', 'CAFE_NAME').set('rating', 'integer');
 const veryLongDatasetLabel =
 	"Dataset of something that I cant't imagine; Dataset of something that I cant't imagine; Dataset of something that I cant't imagine";
 const clubName = "Betty's Cafe";
@@ -634,13 +631,7 @@ stories
 	.add('flat with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer
-				id="my-viewer"
-				data={data}
-				{...handler}
-				displayMode="flat"
-				title="Table data"
-			/>
+			<ObjectViewer id="my-viewer" data={data} {...handler} displayMode="flat" title="Table data" />
 		</div>
 	))
 	.add('flat with complex nested data', () => (

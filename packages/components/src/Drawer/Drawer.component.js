@@ -92,8 +92,8 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 	const ActionComponent = Inject.get(getComponent, 'Action', Action);
 	const enhancedCancelAction = {
 		icon: 'talend-cross',
-			hideLabel: true,
-			link: true,
+		hideLabel: true,
+		link: true,
 		...onCancelAction,
 	};
 	return (
@@ -234,7 +234,7 @@ DrawerFooter.propTypes = {
 };
 
 export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = {}) {
-	const enhancedFooterActions = { ...omit(footerActions, 'actions')};
+	const enhancedFooterActions = { ...omit(footerActions, 'actions') };
 	enhancedFooterActions.actions = {};
 	['left', 'center', 'right'].forEach(item => {
 		enhancedFooterActions.actions[item] = [

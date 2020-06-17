@@ -9,10 +9,7 @@ describe('OrderChooser', () => {
 		const wrapper = mount(<OrderChooser onClick={onClick} asc={false} icon="talend-sort-desc" />);
 		expect(onClick).not.toBeCalled();
 
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		expect(onClick).toBeCalled();
 	});

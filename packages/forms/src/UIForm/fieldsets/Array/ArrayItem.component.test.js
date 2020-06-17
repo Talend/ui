@@ -114,10 +114,7 @@ describe('Array Item component', () => {
 		);
 
 		// when
-		wrapper
-			.find('Button#talend-control-3-delete')
-			.first()
-			.simulate('click');
+		wrapper.find('Button#talend-control-3-delete').first().simulate('click');
 
 		// then
 		expect(onRemove).toBeCalledWith(expect.anything(), 3);
@@ -146,10 +143,7 @@ describe('Array Item component', () => {
 		);
 
 		// when
-		wrapper
-			.find('Button#talend-control-3-moveUp')
-			.first()
-			.simulate('click');
+		wrapper.find('Button#talend-control-3-moveUp').first().simulate('click');
 
 		// then
 		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 2 });
@@ -170,10 +164,7 @@ describe('Array Item component', () => {
 		);
 
 		// when
-		wrapper
-			.find('Button#talend-control-3-moveDown')
-			.first()
-			.simulate('click');
+		wrapper.find('Button#talend-control-3-moveDown').first().simulate('click');
 
 		// then
 		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 4 });

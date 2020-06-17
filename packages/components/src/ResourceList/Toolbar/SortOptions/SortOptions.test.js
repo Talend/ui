@@ -22,16 +22,10 @@ describe('SortOptions', () => {
 
 		expect(onChange).not.toBeCalled();
 
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 		expect(onChange).toBeCalledWith(TYPES.NAME, ORDERS.DESC);
 
-		wrapper
-			.find(Button)
-			.at(1)
-			.simulate('click');
+		wrapper.find(Button).at(1).simulate('click');
 		expect(onChange).toBeCalledWith(TYPES.DATE, ORDERS.ASC);
 	});
 });

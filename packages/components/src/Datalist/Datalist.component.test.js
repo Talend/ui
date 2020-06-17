@@ -313,10 +313,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().items).toEqual(null);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('input').at(0).simulate('focus');
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual([
@@ -349,10 +346,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().value).toBe('newValue');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('keydown', { which: keycode.codes.esc });
+		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.esc });
 
 		// then
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
@@ -374,10 +368,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('keydown', { which: keycode.codes.down });
+		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.down });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items.length).toBe(4);
@@ -504,12 +495,7 @@ describe('Datalist component', () => {
 		wrapper.setProps({ value: 'bar' });
 
 		// then
-		expect(
-			wrapper
-				.update()
-				.find(Typeahead)
-				.props().value,
-		).toBe('bar');
+		expect(wrapper.update().find(Typeahead).props().value).toBe('bar');
 	});
 
 	it('should set new mapping and suggestions on titleMap props change', () => {

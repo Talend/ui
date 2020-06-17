@@ -95,10 +95,7 @@ describe('CheckBoxes field', () => {
 			const event = { target: { checked: true } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(2)
-				.simulate('change', event);
+			wrapper.find('input').at(2).simulate('change', event);
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });
@@ -120,10 +117,7 @@ describe('CheckBoxes field', () => {
 			const event = { target: { checked: true } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(2)
-				.simulate('change', event);
+			wrapper.find('input').at(2).simulate('change', event);
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['lol'] });
@@ -147,10 +141,7 @@ describe('CheckBoxes field', () => {
 			const event = { target: { checked: false } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(0)
-				.simulate('change', event);
+			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['bar'] });
@@ -174,10 +165,7 @@ describe('CheckBoxes field', () => {
 			const event = { target: { checked: false } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(0)
-				.simulate('change', event);
+			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: undefined });
@@ -202,10 +190,7 @@ describe('CheckBoxes field', () => {
 		const event = { target: { checked: true } };
 
 		// when
-		wrapper
-			.find('input')
-			.at(2)
-			.simulate('change', event);
+		wrapper.find('input').at(2).simulate('change', event);
 
 		// then
 		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });

@@ -69,10 +69,7 @@ describe('SimpleCheckBox field', () => {
 		const event = { target: { checked: false } };
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', event);
+		wrapper.find('input').at(0).simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema, value: false });
@@ -95,10 +92,7 @@ describe('SimpleCheckBox field', () => {
 		const event = { target: { checked: false } };
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', event);
+		wrapper.find('input').at(0).simulate('change', event);
 
 		// then
 		expect(onFinish).toBeCalledWith(event, { schema, value: false });

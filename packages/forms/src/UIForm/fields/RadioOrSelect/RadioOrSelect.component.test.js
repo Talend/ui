@@ -12,7 +12,10 @@ describe('RadioOrSelect field', () => {
 			type: 'string',
 		},
 		title: 'My Select title',
-		titleMap: [{ name: 'My foo title', value: 'foo' }, { name: 'My bar title', value: 'bar' }],
+		titleMap: [
+			{ name: 'My foo title', value: 'foo' },
+			{ name: 'My bar title', value: 'bar' },
+		],
 	};
 
 	it('should render select when titleMap has less than 2 options', () => {

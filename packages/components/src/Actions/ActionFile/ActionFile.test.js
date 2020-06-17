@@ -42,10 +42,7 @@ describe('ActionFile', () => {
 
 		// when
 		// when
-		wrapper
-			.find('input')
-			.first()
-			.simulate('change', mockEvent);
+		wrapper.find('input').first().simulate('change', mockEvent);
 
 		// then
 		expect(myAction.onChange).toHaveBeenCalled();
@@ -61,10 +58,7 @@ describe('ActionFile', () => {
 
 		// when
 		// when
-		wrapper
-			.find('input')
-			.first()
-			.simulate('change', mockEvent);
+		wrapper.find('input').first().simulate('change', mockEvent);
 
 		// then
 		expect(myAction.onChange).not.toHaveBeenCalled();

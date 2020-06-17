@@ -65,11 +65,7 @@ export default class ModelViewerBranch extends React.Component {
 		if (this.state.firstClickUnion && union) {
 			this.setState(
 				{ firstClickUnion: false },
-				this.props.onToggle(
-					event,
-					{...options, firstClickUnion: true},
-					this.props.index,
-				),
+				this.props.onToggle(event, { ...options, firstClickUnion: true }, this.props.index),
 			);
 		} else {
 			this.props.onToggle(event, options, this.props.index);

@@ -262,7 +262,7 @@ class NotificationsContainer extends React.Component {
 								onClick={this.onClick}
 							/>
 						</CSSTransition>
-						))}
+					))}
 				</TransitionGroup>
 			</div>
 		);

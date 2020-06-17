@@ -100,10 +100,7 @@ describe('Radios field', () => {
 		const event = { target: { value: 'foo' } };
 
 		// when
-		wrapper
-			.find('input[type="radio"]')
-			.at(0)
-			.simulate('change', event);
+		wrapper.find('input[type="radio"]').at(0).simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema, value: 'foo' });
@@ -126,10 +123,7 @@ describe('Radios field', () => {
 		const event = { target: { value: 'foo' } };
 
 		// when
-		wrapper
-			.find('input[type="radio"]')
-			.at(0)
-			.simulate('blur', event);
+		wrapper.find('input[type="radio"]').at(0).simulate('blur', event);
 
 		// then
 		expect(onFinish).toBeCalledWith(event, { schema });
