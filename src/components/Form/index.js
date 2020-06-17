@@ -22,6 +22,7 @@ Form.Radio = Input.Radio;
 Form.Range = Input.Range;
 Form.Search = Input.Search;
 Form.Select = Select;
+Form.Switch = Input.Switch;
 Form.Tel = Input.Tel;
 Form.Text = Input.Text;
 Form.Textarea = Textarea;

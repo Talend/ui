@@ -133,6 +133,42 @@ Switches are a quick way to view and switch between two states or on-off state i
 
 ## States <a id="states" />
 
+<Preview>
+    <Story name="default">
+        <Form.Switch label="Switch off" />
+        <Form.Switch label="Switch on" checked />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="disabled">
+        <Form.Switch label="Disabled Switch off" disabled />
+        <Form.Switch label="Disabled Switch on" checked disabled />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="read-only">
+        <Form.Switch label="Disabled Switch off" readOnly />
+        <Form.Switch label="Disabled Switch on" checked readOnly />
+    </Story>
+</Preview>
+
+
+<Preview>
+    <Story name="default with 2 values">
+        <Form.Switch label="Switch on" values={['off', 'on']} value="on" />
+        <Form.Switch label="Switch off" values={['this is off', 'and of course this is on']} />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="default with 3 values">
+        <Form.Switch label="Switch off" values={['one', 'two', 'three']} />
+        <Form.Switch label="Switch on" values={['one', 'two', 'and of course this is three']} value="two" />
+    </Story>
+</Preview>
+
 When the switch is disabled the whole component is displayed with 0.54 opacity
 
 
