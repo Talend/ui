@@ -137,7 +137,7 @@ InputDateTimeRangePicker.propTypes = {
 		PropTypes.number,
 		PropTypes.string,
 	]),
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 export default InputDateTimeRangePicker;

@@ -45,7 +45,7 @@ export class RecordsViewer extends React.Component {
 		getChilds: PropTypes.func,
 		getChildsCount: PropTypes.func,
 		getIcon: PropTypes.func,
-		getObjectBranchDatakey: PropTypes.func.isRequired,
+		getObjectBranchDatakey: PropTypes.func,
 		getJSONPath: PropTypes.func,
 		getItemType: PropTypes.func,
 		highlighted: PropTypes.array,

@@ -244,7 +244,7 @@ DateTimePicker.propTypes = {
 	 */
 	useUTC: PropTypes.bool,
 
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 DateTimePicker.defaultProps = {

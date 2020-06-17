@@ -25,7 +25,7 @@ class TimePicker extends React.PureComponent {
 		}),
 		useSeconds: PropTypes.bool,
 		useUTC: PropTypes.bool,
-		t: PropTypes.func.isRequired,
+		t: PropTypes.func,
 	};
 
 	constructor(props) {

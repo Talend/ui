@@ -99,9 +99,6 @@ Actions.propTypes = {
 
 Actions.defaultProps = {
 	actions: [],
-	renderers: {
-		Action,
-	},
 };
 
 export default Actions;
