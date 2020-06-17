@@ -32,10 +32,16 @@ describe('AppSwitcher', () => {
 
 		expect(wrapper.find('ActionDropdown')).not.toBeUndefined();
 
-		wrapper.find('a').at(0).simulate('click');
+		wrapper
+			.find('a')
+			.at(0)
+			.simulate('click');
 		expect(brand.items[0].onClick).toHaveBeenCalled();
 
-		wrapper.find('Button').at(0).simulate('click');
+		wrapper
+			.find('Button')
+			.at(0)
+			.simulate('click');
 
 		expect(brand.onClick).not.toHaveBeenCalled();
 	});
@@ -48,7 +54,10 @@ describe('AppSwitcher', () => {
 		};
 		const wrapper = mount(<AppSwitcher {...brand} />);
 		expect(wrapper.find('Action')).not.toBeUndefined();
-		wrapper.find('Button').at(0).simulate('click');
+		wrapper
+			.find('Button')
+			.at(0)
+			.simulate('click');
 		expect(brand.onClick).toHaveBeenCalled();
 	});
 
@@ -61,6 +70,17 @@ describe('AppSwitcher', () => {
 		};
 		const wrapper = mount(<AppSwitcher {...brand} />);
 
-		expect(wrapper.find('li').prop('className').includes('separated')).toBeTruthy();
+		expect(
+			wrapper
+				.find('li')
+				.prop('className')
+				.includes('separated'),
+		).toBeTruthy();
+	});
+
+	it('should hide the AppSwitcher', () => {
+		const wrapper = mount(<AppSwitcher />);
+
+		expect(wrapper.html()).toBe(null);
 	});
 });

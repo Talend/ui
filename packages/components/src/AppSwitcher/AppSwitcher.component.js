@@ -13,6 +13,11 @@ const theme = getTheme(AppSwitcherCSSModule);
 
 export default function AppSwitcher({ label, isSeparated, onClick, ...props }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+
+	if (!label) {
+		return null;
+	}
+
 	const className = theme('tc-app-switcher-action', {
 		separated: isSeparated,
 	});

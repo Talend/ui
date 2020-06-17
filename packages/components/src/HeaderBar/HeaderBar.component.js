@@ -222,7 +222,7 @@ function HeaderBar(props) {
 	}
 
 	const AppSwitcherComponent =
-		props.AppSwitcher || Inject.get(props.getComponent, 'AppSwitcher', AppSwitcher) || null;
+		props.AppSwitcher || Inject.get(props.getComponent, 'AppSwitcher', AppSwitcher);
 
 	return (
 		<nav className={theme('tc-header-bar', 'navbar')}>
@@ -230,9 +230,7 @@ function HeaderBar(props) {
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
-				{AppSwitcherComponent && (
-					<AppSwitcherComponent {...props.brand} {...props.products} isSeparated={!!props.env} />
-				)}
+				<AppSwitcherComponent {...props.brand} {...props.products} isSeparated={!!props.env} />
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
 			<ul className={theme('tc-header-bar-actions', 'navbar-nav', 'right')}>
