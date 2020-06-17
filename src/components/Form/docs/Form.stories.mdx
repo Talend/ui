@@ -9,17 +9,19 @@ import Button from '../../Button';
 # Form
 
 <Preview>
-    <Story name="simple">
-    <Form>
-        <Form.Fieldset legend="Form fields">
-            <Form.Text label="Input" />
-            <Form.Textarea label="Textarea" />
-            <Form.Select label="Select" values={['', 'foo', 'bar']} />
-            <Form.Checkbox label="Checkbox" />
-            <Form.Radio label="Radio" />
-        </Form.Fieldset>
-        <Button.Ghost onClick={action('clicked')}>Reset</Button.Ghost>
-        <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
-    </Form>
+    <Story name="overview">
+        <Form>
+            <Form.Fieldset legend="Form fields">
+                <Form.Text label="Input" />
+                <Form.Password label="Password" />
+                <Form.Search label="Search" />
+                <Form.Textarea label="Textarea" />
+                <Form.Select label="Select" values={['', 'foo', 'bar']} />
+                <Form.Checkbox label="Checkbox" />
+                <Form.Radio label="Radio" />
+            </Form.Fieldset>
+            <Button.Ghost onClick={action('clicked')}>Reset</Button.Ghost>
+            <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
+        </Form>
     </Story>
 </Preview>

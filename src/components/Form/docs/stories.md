@@ -1,3 +1,5 @@
+// FIXME to delete
+
 export const Checkbox = () => <Form.Checkbox label="Checkbox" />;
 export const Date = () => <Form.Date label="Date" />;
 export const DatetimeLocal = () => <Form.DatetimeLocal label="DatetimeLocal" />;
