@@ -33,11 +33,11 @@ function FieldTemplate(props) {
 			{props.hint && (
 				<Action
 					id={`${props.id}-hint`}
-					icon={props.hint.icon || "talend-info-circle"}
+					icon={props.hint.icon || 'talend-info-circle'}
 					link
 					overlayComponent={props.hint.overlayComponent}
 					overlayId={`${props.id}-hint-overlay`}
-					overlayPlacement={props.hint.overlayPlacement || "right"}
+					overlayPlacement={props.hint.overlayPlacement || 'right'}
 				/>
 			)}
 		</div>
