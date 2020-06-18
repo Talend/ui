@@ -75,7 +75,43 @@ Select lets the user choose one option or multiple options from an options menu.
         <Form.Select label="Disabled Select" disabled  values={['', 'foo', 'bar']}/>
     </Story>
     <Story name="read-only">
-        <Form.Select label="Read-Only Select" readOnly value="foo" values={['', 'foo', 'bar']}/>
+        <Form.Select label="Read-Only Select" readOnly value="foo" values={['', 'foo', 'bar']} />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="default multiple">
+        <Form.Select label="Select" values={['', 'foo', 'bar']} multiple />
+    </Story>
+    <Story name="disabled multiple">
+        <Form.Select label="Disabled Select" disabled  values={['', 'foo', 'bar']} multiple/>
+    </Story>
+    <Story name="read-only multiple">
+        <Form.Select label="Read-Only Select" readOnly value={['','bar']} values={['', 'foo', 'bar']} multiple/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="default object">
+        <Form.Select label="Select" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} />
+    </Story>
+    <Story name="disabled object">
+        <Form.Select label="Disabled Select" disabled  values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}}/>
+    </Story>
+    <Story name="read-only object">
+        <Form.Select label="Read-Only Select" readOnly value="foo" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}}/>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="default multiple object">
+        <Form.Select label="Select" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} multiple />
+    </Story>
+    <Story name="disabled multiple object">
+        <Form.Select label="Disabled Select" disabled  values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} multiple />
+    </Story>
+    <Story name="read-only multiple object">
+        <Form.Select label="Read-Only Select" readOnly value={['','bar']} values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} multiple />
     </Story>
 </Preview>
 

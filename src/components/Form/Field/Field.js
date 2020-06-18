@@ -4,7 +4,7 @@ import Label from '../Label';
 import tokens from '../../../tokens';
 
 const StyledDiv = styled.div(
-	({ theme, inline }) => `
+	({ theme }) => `
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -79,7 +79,7 @@ const StyledFieldGroup = styled.div(
 );
 
 const StyledField = styled.div(
-	({ theme, as, type }) => `
+	({ theme, as, type, multiple }) => `
   padding: 0 ${tokens.space.small};    
   overflow: hidden;
   white-space: nowrap;
@@ -91,7 +91,12 @@ const StyledField = styled.div(
   border-radius: ${tokens.radii.inputBorderRadius};
   box-shadow: 0 0 0 1px ${theme.colors.inputBorderColor};
   
-  ${['input', 'select'].includes(as) && !['radio', 'checkbox'].includes(type) && 'height: 3.2rem;'} 
+  ${
+		['input', 'select'].includes(as) &&
+		!['radio', 'checkbox'].includes(type) &&
+		!multiple &&
+		'height: 3.2rem;'
+	} 	
    
   &::placeholder {
   	color: ${theme.colors.inputPlaceholderColor};
@@ -125,11 +130,12 @@ const Field = React.forwardRef(({ label, after, icon, ...rest }, ref) => {
 			{label && !inline && <Label htmlFor={label}>{label}</Label>}
 			{after ? (
 				<StyledFieldGroup>
-					<StyledField id={label} {...rest} ref={ref} />
-					{after}
+					<StyledField id={label} {...rest} ref={ref} /> {after}
 				</StyledFieldGroup>
 			) : (
-				<StyledField id={label} {...rest} />
+				<div className={`input--${rest.as} ${rest.multiple ? 'input--multiple' : ''}`}>
+					<StyledField id={label} {...rest} />{' '}
+				</div>
 			)}
 			{label && inline && <Label htmlFor={label}>{label}</Label>}
 		</StyledDiv>
