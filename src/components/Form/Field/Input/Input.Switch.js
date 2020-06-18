@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { shade } from 'polished';
 import { useRadioState, Radio, RadioGroup } from 'reakit/Radio';
 import { useCheckboxState, Checkbox } from 'reakit/Checkbox';
 import InlineStyle from './styles/Input.Inline.style';
 import tokens from '../../../../tokens';
 
 const Div = styled(InlineStyle)(
-	({ theme }) => `
+	({ theme, readOnly }) => `
 	input + span {
 		padding-left: calc(2rem + 3.2rem);
 	}
@@ -29,20 +30,36 @@ const Div = styled(InlineStyle)(
 	}
 
 	input + span:before {
-		background: ${tokens.colors.gallery};
-		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25), 
-					0 0 0 1px ${theme.colors.inputBorderColor};
+		background: ${tokens.colors.alto};
+		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
 	}
 	
-	input:not(:disabled) + span:hover:before,
-	input:not(:disabled):focus + span:before {
-		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25), 
-					0 0 0 1px ${theme.colors.inputBorderFocusColor};
+	${
+		!readOnly
+			? `
+			input:not(:disabled) + span:hover:before,
+			input:not(:disabled):focus + span:before {
+				background: ${shade(0.25, tokens.colors.alto)};
+				box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
+			}
+			
+			input:not(:disabled):checked + span:hover:before,
+			input:not(:disabled):checked:focus + span:before {
+				background: ${shade(0.25, theme.colors.activeColor)};
+			}
+			
+			input:not(:disabled):focus + span:before {
+				outline: .1rem solid ${theme.colors.focusColor};
+			}
+		`
+			: `
+			// FIXME
+			pointer-events: none;	
+		`
 	}
 	
 	input:checked + span:before {
-		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25), 
-					0 0 0 1px ${theme.colors.activeColor};
+		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
 	}
 	
 	input:checked + span:before {
@@ -56,13 +73,12 @@ const Div = styled(InlineStyle)(
 );
 
 const DivFlex = styled.div(
-	({ theme, values }) =>
-		`
+	({ theme, values, readOnly }) => `
 	div {
 		position: relative;
     	display: flex;
 		padding: 0 1rem;
-		background: ${tokens.colors.gallery};
+		background: ${tokens.colors.alto};
 		border-radius: 10rem;
 		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
 		overflow: hidden;
@@ -77,25 +93,23 @@ const DivFlex = styled.div(
 		position: relative;
 		display: flex;
 		align-items: center;
-		justify-content: center;
-    	flex-grow: 1;
-    	width: 1%;
-		max-width: 10rem;
-		font-weight: 600;		
-		text-align: center;
-		cursor: pointer;
-    	opacity: ${tokens.opacity.disabled};
+		justify-content: space-around;
+		padding: 0 1rem;
+		font-size: ${tokens.fontSizes.small};
+		font-weight: ${tokens.fontWeights.normal};		
+    	opacity: ${tokens.opacity.disabled};		
+    	cursor: pointer;
 		z-index: 2;
 	}
 	
 	label span {
-		padding: 0 1rem;
 	}	
 	
-	label:nth-child(1) span {
+	label:nth-child(1) {
 		padding-left: 0;
 	}
-	label:nth-child(${values.length}) span {
+	
+	label:nth-child(${values.length}) {
 		padding-right: 0;
 	}
 
@@ -106,21 +120,33 @@ const DivFlex = styled.div(
     	bottom: 0;
     	padding: 0;
     	width: ${100 / values.length}%;
-    	border-radius: 100px;
-		transform: translateX(-100%);
-    	transition: transform .3s;
+		transform: translateX(-200%);
+    	transition: transform .3s ease-out;
 		z-index: 1;
   	}
   	
   	strong em {
   		position: absolute;
   		top: .2rem;
-  		left: .2rem;
+  		left: -.2rem;
   		bottom: .2rem;
-  		right: .2rem;
+  		right: -.2rem;
 	    background: ${theme.colors.activeColor};    
     	border-radius: 100px;
   	}
+
+	${
+		!readOnly
+			? `
+				div:hover strong em {
+					background: ${shade(0.25, theme.colors.activeColor)};
+				}
+			`
+			: `
+				// FIXME
+				pointer-events: none;
+			`
+	} 
   
 	[data-checked="true"] {
 		color: ${theme.colors.inputBackgroundColor};
@@ -134,15 +160,35 @@ const DivFlex = styled.div(
 			}
 
 			transform: none !important;
+			
+			${
+				index === 0
+					? ` 
+				[data-checked="true"]:nth-child(${index + 1}) ~ strong em {
+					left: .2rem;
+				}
+			`
+					: ''
+			}
+			
+			${
+				index === values.length - 1
+					? ` 
+				[data-checked="true"]:nth-child(${index + 1}) ~ strong em {
+					right: .2rem;
+				}
+			`
+					: ''
+			}
 		`,
 	)}`,
 );
 
-function Switch({ label, value, values, checked, ...rest }) {
+function Switch({ label, value, values, checked, readOnly, ...rest }) {
 	if (!values) {
 		const checkbox = useCheckboxState({ state: checked });
 		return (
-			<Div>
+			<Div readOnly={readOnly}>
 				<label>
 					<Checkbox {...rest} {...checkbox} /> <span>{label}</span>
 				</label>
@@ -152,7 +198,7 @@ function Switch({ label, value, values, checked, ...rest }) {
 
 	const radio = useRadioState({ state: value });
 	return (
-		<DivFlex values={values}>
+		<DivFlex values={values} readOnly={readOnly}>
 			<RadioGroup {...rest} {...radio} aria-label={label}>
 				{values.map((v, i) => {
 					const isChecked = radio.state === v;

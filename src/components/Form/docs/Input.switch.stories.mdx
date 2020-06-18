@@ -133,12 +133,16 @@ Switches are a quick way to view and switch between two states or on-off state i
 
 ## States <a id="states" />
 
+### Default
+
 <Preview>
     <Story name="default">
         <Form.Switch label="Switch off" />
         <Form.Switch label="Switch on" checked />
     </Story>
 </Preview>
+
+### Disabled
 
 <Preview>
     <Story name="disabled">
@@ -147,6 +151,8 @@ Switches are a quick way to view and switch between two states or on-off state i
     </Story>
 </Preview>
 
+### Read-only
+
 <Preview>
     <Story name="read-only">
         <Form.Switch label="Read-only Switch off" readOnly />
@@ -154,18 +160,39 @@ Switches are a quick way to view and switch between two states or on-off state i
     </Story>
 </Preview>
 
+### Default with 2 values
 
 <Preview>
     <Story name="default with 2 values">
         <Form.Switch label="Switch on" values={['off', 'on']} value="on" />
-        <Form.Switch label="Switch off" values={['this is off', 'and of course this is on']} />
+        <Form.Switch label="Switch off" values={['basic', 'advanced']} />
     </Story>
 </Preview>
 
+### Read-only with 2 values
+
+<Preview>
+    <Story name="read-only with 2 values">
+        <Form.Switch label="Switch on" values={['off', 'on']} value="on" readOnly />
+        <Form.Switch label="Switch off" values={['this is off', 'and of course this is on']} readOnly />
+    </Story>
+</Preview>
+
+### Default with 3 values
+
 <Preview>
     <Story name="default with 3 values">
-        <Form.Switch label="Switch off" values={['one', 'two', 'three']} />
-        <Form.Switch label="Switch on" values={['one', 'two', 'and three']} value="two" />
+        <Form.Switch label="Switch one/two/three" values={['one', 'two', 'three']}  value="two"/>
+        <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} />
+    </Story>
+</Preview>
+
+### Read-only with 3 values
+
+<Preview>
+    <Story name="read-only with 3 values">
+        <Form.Switch label="Switch one/two/three" values={['one', 'two', 'three']}  value="two" readOnly />
+        <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} readOnly />
     </Story>
 </Preview>
 
