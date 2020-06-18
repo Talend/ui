@@ -28,3 +28,18 @@
 .updating {
 	@include heartbeat(object-blink);
 }
+
+.field-template-title {
+	display: flex;
+	align-items: center;
+
+	:global {
+		.control-label {
+			margin-right: 5px;
+		}
+
+		.btn {
+			padding: 0;
+		}
+	}
+}

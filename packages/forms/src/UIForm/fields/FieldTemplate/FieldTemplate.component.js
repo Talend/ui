@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-
+import Action from '@talend/react-components/lib/Actions/Action';
 import Message from '../../Message';
 import theme from './FieldTemplate.scss';
 
@@ -27,11 +27,29 @@ function FieldTemplate(props) {
 		[theme.updating]: props.valueIsUpdating,
 	});
 
+
+	const title = (
+		<div className={theme['field-template-title']}>
+			<Label id={props.id} label={props.label} />
+			{props.hint && (
+				<Action
+					id={`${props.id}-hint`}
+					icon={props.hint.icon || "talend-info-circle"}
+					link
+					overlayComponent={props.hint.overlayComponent}
+					overlayId={`${props.id}-hint-overlay`}
+					overlayPlacement={props.hint.overlayPlacement || "right"}
+					tooltipPlacement={props.hint.tooltipPlacement || "right"}
+				/>
+			)}
+		</div>
+	);
+
 	return (
 		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>
-			{props.label && !props.labelAfter && <Label id={props.id} label={props.label} />}
+			{props.label && !props.labelAfter && title}
 			{props.children}
-			{props.label && props.labelAfter && <Label id={props.id} label={props.label} />}
+			{props.label && !props.labelAfter && title}
 			<Message
 				description={props.description}
 				descriptionId={props.descriptionId}

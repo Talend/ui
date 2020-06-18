@@ -23,8 +23,11 @@ export default function Radios({
 		'radio-inline': inline,
 		disabled,
 	});
+
 	return (
 		<FieldTemplate
+			id={id}
+			hint={schema.hint}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
