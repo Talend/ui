@@ -21,17 +21,25 @@ describe('HeaderBar', () => {
 		expect(logo.onClick).toHaveBeenCalled();
 	});
 
-	it('should render brand', () => {
+	it('should render AppSwitcher component', () => {
 		const brand = {
 			id: 'brand',
 			label: 'My App',
 			onClick: jest.fn(),
 		};
 		const wrapper = mount(<HeaderBarComponent.WrappedComponent brand={brand} />);
-		const element = wrapper.find('Brand').at(0).find('Button').at(0);
+		const element = wrapper.find('AppSwitcher');
 		expect(element).not.toBeUndefined();
-		element.simulate('click');
-		expect(brand.onClick).toHaveBeenCalled();
+	});
+
+	it('should render custom AppSwitcher component', () => {
+		function AppSwitcher() {
+			return null;
+		}
+
+		const wrapper = mount(<HeaderBarComponent.WrappedComponent AppSwitcher={AppSwitcher} />);
+		const element = wrapper.find(AppSwitcher);
+		expect(element).not.toBeUndefined();
 	});
 
 	it('should render search', () => {
