@@ -82,14 +82,14 @@ export class TimePicker extends React.Component {
 		}
 	}
 	onSelect(event, option) {
-		this.props.onChange(event, {
+		setTimeout(() => this.props.onChange(event, {
 			textInput: option.label,
 			time: {
 				hours: pad(option.value.hours),
 				minutes: pad(option.value.minutes),
 				seconds: pad(option.value.seconds),
 			},
-		});
+		}));
 	}
 	scrollItemIntoView(textInput) {
 		const found = this.options.findIndex(option => option.label.includes(textInput));
