@@ -242,7 +242,6 @@ exports[`InputDateTimePicker should render 1`] = `
                     }
                   }
                   key="input"
-                  value="15:27:00"
                 >
                   <InputSizer
                     inputText="15:27:00"

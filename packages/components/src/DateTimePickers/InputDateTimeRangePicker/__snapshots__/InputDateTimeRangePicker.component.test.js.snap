@@ -261,7 +261,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             }
                           }
                           key="input"
-                          value="00:00:00"
                         >
                           <InputSizer
                             inputText="00:00:00"
@@ -607,7 +606,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             }
                           }
                           key="input"
-                          value="23:59:59"
                         >
                           <InputSizer
                             inputText="23:59:59"
@@ -991,7 +989,6 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             }
                           }
                           key="input"
-                          value=""
                         >
                           <InputSizer
                             inputText=""
@@ -1369,7 +1366,6 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             }
                           }
                           key="input"
-                          value=""
                         >
                           <InputSizer
                             inputText=""
