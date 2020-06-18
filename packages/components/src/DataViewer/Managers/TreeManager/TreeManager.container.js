@@ -57,17 +57,17 @@ export default class TreeManager extends React.Component {
 	}
 
 	onExpandAll = () => {
-		this.setState({
+		this.setState(oldState => ({
 			isAllExpanded: true,
-			collapsedNodes: this.state.collapsedNodes.clear(),
-		});
+			collapsedNodes: oldState.collapsedNodes.clear(),
+		}));
 	};
 
 	onCollapseAll = () => {
-		this.setState({
+		this.setState(oldState => ({
 			isAllExpanded: false,
-			expandedNodes: this.state.expandedNodes.clear(),
-		});
+			expandedNodes: oldState.expandedNodes.clear(),
+		}));
 	};
 
 	onToggle = (event, options, index) => {

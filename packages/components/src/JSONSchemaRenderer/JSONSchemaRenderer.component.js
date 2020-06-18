@@ -113,7 +113,7 @@ const registry = {
 	integer: TextRenderer,
 	boolean: BooleanRenderer,
 	array: ArrayRenderer,
-	object: ObjectRenderer, // eslint-disable-line no-use-before-define
+	object: ObjectRenderer, // eslint-disable-line @typescript-eslint/no-use-before-define
 };
 
 function isHidden(uiSchema, element) {
@@ -248,7 +248,7 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 JSONSchemaRenderer.displayName = 'JSONSchemaRenderer';
 
 JSONSchemaRenderer.propTypes = {
-	schema: PropTypes.shape({ ...SchemaProptypes }),
+	schema: PropTypes.shape(SchemaProptypes),
 	className: PropTypes.string,
 };
 

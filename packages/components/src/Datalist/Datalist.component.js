@@ -335,9 +335,9 @@ class Datalist extends Component {
 	 */
 	resetValue() {
 		this.resetSuggestions();
-		this.setState({
-			value: this.state.previousValue,
-		});
+		this.setState(oldState => ({
+			value: oldState.previousValue,
+		}));
 	}
 
 	/**
@@ -437,7 +437,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onFocus: PropTypes.func,
 		onLiveChange: PropTypes.func,
 		disabled: PropTypes.bool,
-		multiSection: PropTypes.bool.isRequired,
+		multiSection: PropTypes.bool,
 		readOnly: PropTypes.bool,
 		restricted: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(
@@ -448,7 +448,7 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 				PropTypes.shape({
 					title: PropTypes.string,
-					items: PropTypes.arrayOf(
+					suggestions: PropTypes.arrayOf(
 						PropTypes.shape({
 							name: PropTypes.string,
 							value: PropTypes.string,
@@ -456,7 +456,7 @@ if (process.env.NODE_ENV !== 'production') {
 					),
 				}),
 			]),
-		).isRequired,
+		),
 		value: PropTypes.string,
 	};
 }

@@ -54,6 +54,7 @@ HeaderTitle.propTypes = {
 	button: PropTypes.object,
 	className: PropTypes.string,
 	onSelectYear: PropTypes.func,
+	t: PropTypes.func,
 };
 
 export default HeaderTitle;
