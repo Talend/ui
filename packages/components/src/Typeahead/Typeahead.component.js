@@ -140,7 +140,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...inputProps,
 		items: getItems(rest.items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
-			onMouseDown: event => event.preventDefault(),
+			onMouseDown: rest.onSelect,
 			onClick: rest.onSelect,
 			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
 		}),
