@@ -11,6 +11,7 @@ export default {
 		destructiveColor: colors.chesnutRose,
 
 		textColor: colors.black,
+		focusColor: colors.russianViolet,
 		activeColor: colors.lochmara,
 		backgroundColor: colors.transparent,
 

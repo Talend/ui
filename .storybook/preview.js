@@ -35,6 +35,10 @@ const GlobalStyle = createGlobalStyle(
 	.sbdocs.sbdocs-preview {
 		background: ${theme.colors.backgroundColor}
 	}
+	
+	*:focus {
+		outline: .1rem solid ${theme.colors.focusColor};
+	}
 `,
 );
 
