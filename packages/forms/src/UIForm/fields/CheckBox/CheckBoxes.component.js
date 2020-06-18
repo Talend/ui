@@ -20,6 +20,8 @@ export default function CheckBoxes(props) {
 
 	return (
 		<FieldTemplate
+			id={id}
+			hint={schema.hint}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}

@@ -11,6 +11,8 @@ export default function Button(props) {
 
 	return (
 		<FieldTemplate
+			id={id}
+			hint={schema.hint}
 			descriptionId={descriptionId}
 			description={schema.description}
 			errorId={errorId}

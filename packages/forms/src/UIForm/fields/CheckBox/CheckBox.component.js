@@ -11,6 +11,8 @@ export default function CheckBox(props) {
 
 	return (
 		<FieldTemplate
+			id={id}
+			hint={schema.hint}
 			className={schema.className}
 			description={schema.description}
 			descriptionId={descriptionId}

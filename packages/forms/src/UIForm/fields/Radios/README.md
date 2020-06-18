@@ -64,7 +64,10 @@ This widget allows you to render radios input.
 | disabled | Disable the input | `false` |
 | inline | Display the radio on 1 line | `false` |
 | titleMap | A mapping of value/label to display |  |
-| hint | Configuration for tooltip with help information, that will be displayed when clicking on action icon | |
+| hint | Configuration for tooltip with help information, that will be displayed when clicking on action icon (optional) | |
+| hint.icon | icon for action button (optional) | info-circle |
+| hint.overlayComponent | component to display in tooltip content (JSX) | |
+| hint.overlayPlacement | component placement relative to the action icon (optional) | right |
 
 ```json
 [
@@ -85,8 +88,7 @@ This widget allows you to render radios input.
     "hint": {
       "icon": "my custom icon",
       "overlayComponent": "<span>My custom popover content</span>",
-      "overlayPlacement": "My custom overlay placement",
-      "tooltipPlacement": "My custom overlay tooltip placement"
+      "overlayPlacement": "My custom overlay placement"
     },
     "widget": "radios"
   },

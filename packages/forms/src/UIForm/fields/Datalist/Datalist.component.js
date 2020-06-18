@@ -138,6 +138,8 @@ class Datalist extends Component {
 		const errorId = generateErrorId(this.props.id);
 		return (
 			<FieldTemplate
+				id={this.props.id}
+				hint={this.props.schema.hint}
 				description={this.props.schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}

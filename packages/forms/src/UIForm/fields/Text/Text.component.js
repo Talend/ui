@@ -27,6 +27,8 @@ export default function Text(props) {
 
 	return (
 		<FieldTemplate
+			id={id}
+			hint={schema.hint}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}

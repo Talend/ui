@@ -27,7 +27,6 @@ function FieldTemplate(props) {
 		[theme.updating]: props.valueIsUpdating,
 	});
 
-
 	const title = (
 		<div className={theme['field-template-title']}>
 			<Label id={props.id} label={props.label} />
@@ -39,7 +38,6 @@ function FieldTemplate(props) {
 					overlayComponent={props.hint.overlayComponent}
 					overlayId={`${props.id}-hint-overlay`}
 					overlayPlacement={props.hint.overlayPlacement || "right"}
-					tooltipPlacement={props.hint.tooltipPlacement || "right"}
 				/>
 			)}
 		</div>
@@ -49,7 +47,7 @@ function FieldTemplate(props) {
 		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>
 			{props.label && !props.labelAfter && title}
 			{props.children}
-			{props.label && !props.labelAfter && title}
+			{props.label && props.labelAfter && title}
 			<Message
 				description={props.description}
 				descriptionId={props.descriptionId}

@@ -23,6 +23,10 @@ The json schema is not impacted because there is no value associated to a button
 | bsStyle | The bootstrap style to apply |
 | triggers | List of trigger types. Only the first one is triggered (for now) |
 | type | The button type :<br>`reset` - restore the form values to initial values<br>`button` - perform the trigger<br>`submit` - submit the form |
+| hint | Configuration for tooltip with help information, that will be displayed when clicking on action icon (optional) |
+| hint.icon | icon for action button (optional, default is info-circle) |
+| hint.overlayComponent | component to display in tooltip content (JSX) |
+| hint.overlayPlacement | component placement relative to the action icon (optional, default is right) |
 
 | Property for a set of buttons | Description |
 |---|---|
@@ -37,6 +41,11 @@ The json schema is not impacted because there is no value associated to a button
     "title": "Check me",
     "widget": "button",
     "triggers": ["after"],
+    "hint": {
+      "icon": "my custom icon",
+      "overlayComponent": "<span>My custom popover content</span>",
+      "overlayPlacement": "My custom overlay placement"
+    },
     "description": "This should trigger a successful check"
   },
   {
