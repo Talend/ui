@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
 import InputZoning from './images/checkbox-zoning.jpg';
@@ -10,7 +10,7 @@ import Form from '../';
 # Checkbox
 
 Checkbox should be used for item/option selection a,donly when more than one item can be selected at the same time.
-If there is only two options (on/off) consider using a switch/toggle.
+If there is only two options (on/off) consider using a switch.
  
 If the user should select only one option, use radio buttons.
 
@@ -111,11 +111,35 @@ To do
     <Story name="default">
         <Form.Checkbox label="Checkbox" />
     </Story>
+    <Story name="indeterminate">
+        <Form.Checkbox label="Indeterminate Checkbox" indeterminate />
+    </Story>
+    <Story name="checked">
+        <Form.Checkbox label="Checked Checkbox" checked />
+    </Story>
+</Preview>
+
+<Preview>
     <Story name="disabled">
         <Form.Checkbox label="Disabled Checkbox" disabled />
     </Story>
+    <Story name="disabled indeterminate">
+        <Form.Checkbox label="Disabled Indeterminate Checkbox" disabled indeterminate />
+    </Story>
+    <Story name="disabled checked">
+        <Form.Checkbox label="Disabled Checked Checkbox" disabled checked />
+    </Story>
+</Preview>
+
+<Preview>
     <Story name="read-only">
         <Form.Checkbox label="Read-Only Checkbox" readOnly />
+    </Story>
+    <Story name="read-only indeterminate">
+        <Form.Checkbox label="Read-Only Indeterminate Checkbox" readOnly indeterminate />
+    </Story>
+    <Story name="read-only checked">
+        <Form.Checkbox label="Read-Only Checked Checkbox" readOnly checked />
     </Story>
 </Preview>
 
