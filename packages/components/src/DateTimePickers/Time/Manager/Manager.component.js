@@ -5,7 +5,7 @@ import { TimeContext } from '../Context';
 import extractTime, { getTimeFormat } from '../time-extraction';
 
 function TimeContextualManager(props) {
-	const [state, setState] = useState(extractTime(props.value, props.useSeconds));
+	const [state, setState] = useState(() => extractTime(props.value, props.useSeconds));
 
 	useEffect(() => {
 		const nextState = extractTime(props.value, props.useSeconds);
