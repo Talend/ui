@@ -62,6 +62,15 @@ function FieldTemplate(props) {
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		children: PropTypes.node,
+		hint: PropTypes.shape({
+			icon: PropTypes.string,
+			overlayComponent: PropTypes.oneOfType([
+				PropTypes.node,
+				PropTypes.element,
+				PropTypes.elementType,
+			]).isRequired,
+			overlayPlacement: PropTypes.string,
+		}),
 		className: PropTypes.string,
 		description: PropTypes.string,
 		descriptionId: PropTypes.string.isRequired,

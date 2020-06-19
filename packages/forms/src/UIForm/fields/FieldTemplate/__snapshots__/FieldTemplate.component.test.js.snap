@@ -5,10 +5,14 @@ exports[`FieldTemplate should add animation on value with updating status 1`] = 
   aria-busy={true}
   className="form-group theme-template has-error theme-updating"
 >
-  <Label
-    id="myAwesomeField"
-    label="My awesome label"
-  />
+  <div
+    className="theme-field-template-title"
+  >
+    <Label
+      id="myAwesomeField"
+      label="My awesome label"
+    />
+  </div>
   <input
     id="myAwesomeField"
   />
@@ -26,10 +30,14 @@ exports[`FieldTemplate should render invalid className 1`] = `
 <div
   className="form-group theme-template has-error"
 >
-  <Label
-    id="myAwesomeField"
-    label="My awesome label"
-  />
+  <div
+    className="theme-field-template-title"
+  >
+    <Label
+      id="myAwesomeField"
+      label="My awesome label"
+    />
+  </div>
   <input
     id="myAwesomeField"
   />
@@ -43,6 +51,43 @@ exports[`FieldTemplate should render invalid className 1`] = `
 </div>
 `;
 
+exports[`FieldTemplate should render with hint 1`] = `
+<div
+  className="form-group theme-template"
+>
+  <div
+    className="theme-field-template-title"
+  >
+    <Label
+      id="myAwesomeField"
+      label="My awesome label"
+    />
+    <Action
+      icon="talend-info-circle"
+      id="myAwesomeField-hint"
+      link={true}
+      overlayComponent={
+        <span>
+          Tooltip content, which helps to understand what is the purpose of this field
+        </span>
+      }
+      overlayId="myAwesomeField-hint-overlay"
+      overlayPlacement="top"
+    />
+  </div>
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;
+
 exports[`FieldTemplate should render with label after 1`] = `
 <div
   className="form-group theme-template"
@@ -50,10 +95,14 @@ exports[`FieldTemplate should render with label after 1`] = `
   <input
     id="myAwesomeField"
   />
-  <Label
-    id="myAwesomeField"
-    label="My awesome label"
-  />
+  <div
+    className="theme-field-template-title"
+  >
+    <Label
+      id="myAwesomeField"
+      label="My awesome label"
+    />
+  </div>
   <Message
     description="My awesome description"
     descriptionId="myAwesomeField-description"
@@ -68,10 +117,14 @@ exports[`FieldTemplate should render with label before 1`] = `
 <div
   className="form-group theme-template"
 >
-  <Label
-    id="myAwesomeField"
-    label="My awesome label"
-  />
+  <div
+    className="theme-field-template-title"
+  >
+    <Label
+      id="myAwesomeField"
+      label="My awesome label"
+    />
+  </div>
   <input
     id="myAwesomeField"
   />

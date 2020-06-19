@@ -6,6 +6,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
   descriptionId="myForm-description"
   errorId="myForm-error"
   errorMessage="My error message"
+  id="myForm"
   isValid={true}
   label="My checkboxes title"
 >
@@ -108,6 +109,7 @@ exports[`CheckBoxes field should render checkboxes with no values 1`] = `
   descriptionId="myForm-description"
   errorId="myForm-error"
   errorMessage="My error message"
+  id="myForm"
   isValid={true}
   label="My checkboxes title"
 >
@@ -210,6 +212,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
   descriptionId="myForm-description"
   errorId="myForm-error"
   errorMessage="My error message"
+  id="myForm"
   isValid={true}
   label="My checkboxes title"
 >
