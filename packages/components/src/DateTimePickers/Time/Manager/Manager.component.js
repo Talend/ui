@@ -8,7 +8,10 @@ function TimeContextualManager(props) {
 	const [state, setState] = useState(extractTime(props.value, props.useSeconds));
 
 	useEffect(() => {
-		setState(extractTime(props.value, props.useSeconds));
+		const nextState = extractTime(props.value, props.useSeconds);
+		if (!nextState.errorMessage) {
+			setState(nextState);
+		}
 	}, [props.value, props.useSeconds]);
 
 	function onChange(event, origin, nextState) {
