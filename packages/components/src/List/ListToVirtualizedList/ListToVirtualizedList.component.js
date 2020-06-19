@@ -143,7 +143,6 @@ ListToVirtualizedList.propTypes = {
 		key: PropTypes.string,
 		onClick: PropTypes.func,
 		persistentActionsKey: PropTypes.string,
-		presistentActionsKey: PropTypes.string,
 	}),
 	rowRenderers: PropTypes.object,
 };
