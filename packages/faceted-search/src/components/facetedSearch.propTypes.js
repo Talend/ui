@@ -42,6 +42,10 @@ const badgeFacetedPropTypes = PropTypes.shape({
 
 const badgesFacetedPropTypes = PropTypes.arrayOf(badgeFacetedPropTypes);
 
+const callbacksPropTypes = PropTypes.shape({
+	getTags: PropTypes.func,
+});
+
 export {
 	badgeDefinitionRawDataPropTypes,
 	badgesDefinitionsRawDataPropTypes,
@@ -49,4 +53,5 @@ export {
 	badgesFacetedPropTypes,
 	operatorPropTypes,
 	operatorsPropTypes,
+	callbacksPropTypes,
 };

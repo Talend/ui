@@ -75,7 +75,7 @@ export const badgeTags = {
 		type: 'tags',
 	},
 	metadata: {
-		badgePerFacet: 'N',
+		badgePerFacet: '1',
 		entitiesPerBadge: 'N',
 		operators: ['in'],
 	},

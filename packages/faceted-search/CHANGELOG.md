@@ -26,6 +26,18 @@ Types of changes
 
 ## [unreleased]
 
+## [0.10.0]
+
+### Added
+
+- [feat](https://github.com/Talend/ui/pull/2828): Add badge tags support
+
+## [0.9.1]
+
+### Fixed
+
+- [TMDM-14276](https://github.com/Talend/ui/pull/2818): IE11 : Center icons faceted #2818
+
 ## [0.9.0]
 
 ### Fixed
@@ -39,7 +51,9 @@ Types of changes
 ## [0.8.0]
 
 ### Breaking change
+
 Rename two data-feature attributes for harmonization:
+
 - `faceted-advanced-search.cancel` become `filter.advanced.clear`
 - `faceted-advanced-search.submit` become `filter.advanced.apply`
 

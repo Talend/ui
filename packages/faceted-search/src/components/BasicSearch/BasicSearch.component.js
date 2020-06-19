@@ -18,7 +18,11 @@ import {
 } from '../../dictionary/badge.dictionary';
 import { createOperatorsDict, getOperatorsFromDict } from '../../dictionary/operator.dictionary';
 import { useFacetedBadges, BADGES_ACTIONS } from '../../hooks/facetedBadges.hook';
-import { badgesFacetedPropTypes, operatorsPropTypes } from '../facetedSearch.propTypes';
+import {
+	badgesFacetedPropTypes,
+	callbacksPropTypes,
+	operatorsPropTypes,
+} from '../facetedSearch.propTypes';
 
 import theme from './BasicSearch.scss';
 import { USAGE_TRACKING_TAGS } from '../../constants';
@@ -35,6 +39,7 @@ const BasicSearch = ({
 	initialFilterValue,
 	onSubmit,
 	setBadgesFaceted,
+	callbacks,
 }) => {
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary));
@@ -69,6 +74,7 @@ const BasicSearch = ({
 						badgesDictionary={badgesDictionary}
 						getBadgeFromDict={getBadgesFromDict}
 						id={basicSearchId}
+						callbacks={callbacks}
 						t={t}
 					/>
 				</BadgeFacetedProvider>
@@ -117,6 +123,7 @@ BasicSearch.propTypes = {
 	initialFilterValue: PropTypes.string,
 	onSubmit: PropTypes.func.isRequired,
 	setBadgesFaceted: PropTypes.func,
+	callbacks: callbacksPropTypes,
 };
 
 // eslint-disable-next-line import/prefer-default-export
