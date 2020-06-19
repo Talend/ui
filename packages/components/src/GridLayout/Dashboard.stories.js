@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
@@ -133,49 +134,49 @@ function TileWithAction({ tile }) {
 	);
 }
 
-function GridContainer({ isLoading = false, skeletonConfiguration, isResizable = true, ...rest }) {
-	const [tiles, setTiles] = useState([
-		{
-			header: {
-				label: "My tile's title",
-			},
-			key: 'firstTile',
-			'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'firstTile' },
+const tiles = [
+	{
+		header: {
+			label: "My tile's title",
 		},
-		{
-			header: {
-				label: "My second tile's title",
-			},
-			key: 'secondTile',
-			'data-grid': { w: 2, h: 2, x: 2, y: 0, i: 'secondTile' },
+		key: 'firstTile',
+		'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'firstTile' },
+	},
+	{
+		header: {
+			label: "My second tile's title",
 		},
-		{
-			key: 'thirdTile',
-			'data-grid': { w: 12, h: 2, x: 0, y: 2, i: 'thirdTile' },
+		key: 'secondTile',
+		'data-grid': { w: 2, h: 2, x: 2, y: 0, i: 'secondTile' },
+	},
+	{
+		key: 'thirdTile',
+		'data-grid': { w: 12, h: 2, x: 0, y: 2, i: 'thirdTile' },
+	},
+	{
+		header: {
+			label: "My fourth tile's title",
 		},
-		{
-			header: {
-				label: "My fourth tile's title",
-			},
-			key: 'fourthTile',
-			'data-grid': { w: 2, h: 2, x: 4, y: 2, i: 'fourthTile' },
+		key: 'fourthTile',
+		'data-grid': { w: 2, h: 2, x: 4, y: 2, i: 'fourthTile' },
+	},
+	{
+		header: {
+			label: "My Fifth tile's title",
 		},
-		{
-			header: {
-				label: "My Fifth tile's title",
-			},
-			key: 'fifthTile',
-			'data-grid': { w: 4, h: 2, x: 4, y: 2, i: 'fifthTile' },
+		key: 'fifthTile',
+		'data-grid': { w: 4, h: 2, x: 4, y: 2, i: 'fifthTile' },
+	},
+	{
+		header: {
+			label: "My Sixth tile's title",
 		},
-		{
-			header: {
-				label: "My Sixth tile's title",
-			},
-			key: 'sixthTile',
-			'data-grid': { w: 4, h: 2, x: 4, y: 2, i: 'sixthTile' },
-		},
-	]);
+		key: 'sixthTile',
+		'data-grid': { w: 4, h: 2, x: 4, y: 2, i: 'sixthTile' },
+	},
+];
 
+function GridContainer({ isLoading = false, skeletonConfiguration, isResizable = true, ...rest }) {
 	return (
 		<div className="App">
 			<GridLayout

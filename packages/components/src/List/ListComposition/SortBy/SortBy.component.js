@@ -132,6 +132,7 @@ if (process.env.NODE_ENV !== 'production') {
 			PropTypes.shape({
 				key: PropTypes.string,
 				label: PropTypes.string,
+				name: PropTypes.string,
 			}),
 		).isRequired,
 		onChange: PropTypes.func,
