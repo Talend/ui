@@ -87,7 +87,7 @@ This widget allows you to render radios input.
     },
     "hint": {
       "icon": "my custom icon name",
-      "overlayComponent": "<span>My custom popover content</span>",
+      "overlayComponent": <span>My custom popover content</span>,
       "overlayPlacement": "My custom overlay placement"
     },
     "widget": "radios"
