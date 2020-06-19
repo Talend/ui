@@ -76,20 +76,17 @@ export class TimePicker extends React.Component {
 			this.scrollItemIntoView(this.props.textInput);
 		}
 	}
-	componentDidUpdate(prevProps) {
-		if (prevProps.textInput !== this.props.textInput) {
-			this.scrollItemIntoView(this.props.textInput);
-		}
-	}
-	onSelect(event, option) {
-		setTimeout(() => this.props.onChange(event, {
-			textInput: option.label,
-			time: {
-				hours: pad(option.value.hours),
-				minutes: pad(option.value.minutes),
-				seconds: pad(option.value.seconds),
-			},
-		}));
+	onSelect(event, option, index) {
+		this.setState({ hightlightedItemIndex: index }, () =>
+			this.props.onChange(event, {
+				textInput: option.label,
+				time: {
+					hours: pad(option.value.hours),
+					minutes: pad(option.value.minutes),
+					seconds: pad(option.value.seconds),
+				},
+			}),
+		);
 	}
 	scrollItemIntoView(textInput) {
 		const found = this.options.findIndex(option => option.label.includes(textInput));
@@ -133,7 +130,7 @@ export class TimePicker extends React.Component {
 							type="button"
 							key={index}
 							className={className}
-							onClick={event => this.onSelect(event, option)}
+							onClick={event => this.onSelect(event, option, index)}
 							onKeyDown={event => this.props.onKeyDown(event, this.containerRef.childNodes[index])}
 							{...ariaProps}
 						>

@@ -72,6 +72,9 @@ describe('InputTimePicker', () => {
 				.first()
 				.simulate('click');
 
+			jest.runAllTimers();
+
+			wrapper.update();
 			// then
 			expect(getOverlay(wrapper).exists()).toBe(false);
 		});

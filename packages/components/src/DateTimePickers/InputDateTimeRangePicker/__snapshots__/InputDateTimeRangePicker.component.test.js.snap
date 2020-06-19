@@ -226,7 +226,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <span
                               style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                             >
-                              00:00:00
+                              HH:mm:ss
                             </span>
                           </div>,
                         }
@@ -263,8 +263,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                           key="input"
                         >
                           <InputSizer
-                            inputText="00:00:00"
-                            placeholder="HH:mm:ss"
+                            inputText="HH:mm:ss"
                           >
                             <DebounceInput
                               autoComplete="off"
@@ -328,7 +327,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 }
                               }
                             >
-                              00:00:00
+                              HH:mm:ss
                             </span>
                           </InputSizer>
                         </Time.Input>
@@ -571,7 +570,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <span
                               style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                             >
-                              23:59:59
+                              HH:mm:ss
                             </span>
                           </div>,
                         }
@@ -608,8 +607,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                           key="input"
                         >
                           <InputSizer
-                            inputText="23:59:59"
-                            placeholder="HH:mm:ss"
+                            inputText="HH:mm:ss"
                           >
                             <DebounceInput
                               autoComplete="off"
@@ -673,7 +671,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 }
                               }
                             >
-                              23:59:59
+                              HH:mm:ss
                             </span>
                           </InputSizer>
                         </Time.Input>
@@ -952,7 +950,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               value=""
                             />
                             <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute; font-style: oblique;"
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                             >
                               HH:mm
                             </span>
@@ -991,8 +989,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                           key="input"
                         >
                           <InputSizer
-                            inputText=""
-                            placeholder="HH:mm"
+                            inputText="HH:mm"
                           >
                             <DebounceInput
                               autoComplete="off"
@@ -1050,7 +1047,6 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               style={
                                 Object {
                                   "fontSize": "1.6rem",
-                                  "fontStyle": "oblique",
                                   "fontWeight": 400,
                                   "position": "absolute",
                                   "visibility": "hidden",
@@ -1329,7 +1325,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               value=""
                             />
                             <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute; font-style: oblique;"
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                             >
                               HH:mm
                             </span>
@@ -1368,8 +1364,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                           key="input"
                         >
                           <InputSizer
-                            inputText=""
-                            placeholder="HH:mm"
+                            inputText="HH:mm"
                           >
                             <DebounceInput
                               autoComplete="off"
@@ -1427,7 +1422,6 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               style={
                                 Object {
                                   "fontSize": "1.6rem",
-                                  "fontStyle": "oblique",
                                   "fontWeight": 400,
                                   "position": "absolute",
                                   "visibility": "hidden",
