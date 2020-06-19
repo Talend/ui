@@ -130,7 +130,7 @@ export class TimePicker extends React.Component {
 							type="button"
 							key={index}
 							className={className}
-							onClick={event => this.onSelect(event, option, index)}
+							onClick={event => this.onSelect(event, option)}
 							onKeyDown={event => this.props.onKeyDown(event, this.containerRef.childNodes[index])}
 							{...ariaProps}
 						>
