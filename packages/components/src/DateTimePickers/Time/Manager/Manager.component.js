@@ -15,6 +15,7 @@ function TimeContextualManager(props) {
 	}, [props.value, props.useSeconds]);
 
 	function onChange(event, origin, nextState) {
+		setState(nextState);
 		if (!props.onChange) {
 			return;
 		}
@@ -24,7 +25,6 @@ function TimeContextualManager(props) {
 	function onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractTime(textInput, props.useSeconds);
-		setState(nextState);
 		onChange(event, 'INPUT', nextState);
 	}
 
@@ -35,8 +35,6 @@ function TimeContextualManager(props) {
 			errors: [],
 			errorMessage: null,
 		};
-
-		setState(nextState);
 		onChange(event, 'PICKER', nextState);
 	}
 
