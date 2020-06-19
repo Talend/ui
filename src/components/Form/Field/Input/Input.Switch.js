@@ -97,7 +97,8 @@ const DivFlex = styled.div(
 		padding: 0 1rem;
 		font-size: ${tokens.fontSizes.small};
 		font-weight: ${tokens.fontWeights.normal};		
-    	opacity: ${tokens.opacity.disabled};		
+    	opacity: ${tokens.opacity.disabled};
+		user-select: none; 		
     	cursor: pointer;
 		z-index: 2;
 	}
