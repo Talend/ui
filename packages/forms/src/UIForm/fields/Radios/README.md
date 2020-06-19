@@ -65,7 +65,7 @@ This widget allows you to render radios input.
 | inline | Display the radio on 1 line | `false` |
 | titleMap | A mapping of value/label to display |  |
 | hint | Configuration for tooltip with help information, that will be displayed when clicking on action icon (optional) | |
-| hint.icon | icon for action button (optional) | info-circle |
+| hint.icon | icon name for action button (optional) | info-circle |
 | hint.overlayComponent | component to display in tooltip content (JSX) | |
 | hint.overlayPlacement | component placement relative to the action icon (optional) | right |
 
@@ -86,7 +86,7 @@ This widget allows you to render radios input.
       "qux": "my custom qux title"
     },
     "hint": {
-      "icon": "my custom icon",
+      "icon": "my custom icon name",
       "overlayComponent": "<span>My custom popover content</span>",
       "overlayPlacement": "My custom overlay placement"
     },

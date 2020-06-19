@@ -27,7 +27,6 @@ export default function TextArea({
 
 	return (
 		<FieldTemplate
-			id={id}
 			hint={schema.hint}
 			description={description}
 			descriptionId={descriptionId}
@@ -75,6 +74,15 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			rows: PropTypes.number,
 			title: PropTypes.string,
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([
+					PropTypes.node,
+					PropTypes.element,
+					PropTypes.elementType,
+				]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		valueIsUpdating: PropTypes.bool,

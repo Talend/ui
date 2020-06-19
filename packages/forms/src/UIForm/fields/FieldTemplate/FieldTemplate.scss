@@ -34,12 +34,9 @@
 	align-items: center;
 
 	:global {
-		.control-label {
-			margin-right: 5px;
-		}
-
 		.btn {
 			padding: 0;
+			margin-left: 5px;
 		}
 	}
 }

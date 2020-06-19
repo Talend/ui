@@ -52,40 +52,18 @@ exports[`FieldTemplate should render invalid className 1`] = `
 `;
 
 exports[`FieldTemplate should render with hint 1`] = `
-<div
-  className="form-group theme-template"
->
-  <div
-    className="theme-field-template-title"
-  >
-    <Label
-      id="myAwesomeField"
-      label="My awesome label"
-    />
-    <Action
-      icon="talend-info-circle"
-      id="myAwesomeField-hint"
-      link={true}
-      overlayComponent={
-        <span>
-          Tooltip content, which helps to understand what is the purpose of this field
-        </span>
-      }
-      overlayId="myAwesomeField-hint-overlay"
-      overlayPlacement="top"
-    />
-  </div>
-  <input
-    id="myAwesomeField"
-  />
-  <Message
-    description="My awesome description"
-    descriptionId="myAwesomeField-description"
-    errorId="myAwesomeField-error"
-    errorMessage="This is wrong o_o"
-    isValid={true}
-  />
-</div>
+<Action
+  icon="talend-info-circle"
+  id="myAwesomeField-hint"
+  link={true}
+  overlayComponent={
+    <span>
+      Tooltip content, which helps to understand what is the purpose of this field
+    </span>
+  }
+  overlayId="myAwesomeField-hint-overlay"
+  overlayPlacement="top"
+/>
 `;
 
 exports[`FieldTemplate should render with label after 1`] = `

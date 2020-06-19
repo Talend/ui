@@ -66,8 +66,7 @@ if (process.env.NODE_ENV !== 'production') {
 			icon: PropTypes.string,
 			overlayComponent: PropTypes.oneOfType([
 				PropTypes.node,
-				PropTypes.element,
-				PropTypes.elementType,
+				PropTypes.string,
 			]).isRequired,
 			overlayPlacement: PropTypes.string,
 		}),
