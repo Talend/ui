@@ -120,7 +120,7 @@ const DivFlex = styled.div(
     	top: 0;
     	width: 0;
     	bottom: 0;
-    	transition: left .2s;
+    	transition: left .2s, width .2s;
 		z-index: 1;
   	}
   	
@@ -185,12 +185,12 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 		loop: false,
 	});
 
-	let radioGroupWidth;
-	let radioWidths;
+	const switchIndicator = React.createRef();
+
+	let radioWidths = [];
 
 	useEffect(() => {
 		const radioGroup = document.getElementById(radio.baseId);
-		radioGroupWidth = radioGroup.scrollWidth;
 		radioWidths = radio.items.map((item) => {
 			const radio = item.ref.current;
 			const radioLabel = radio.parentNode;
@@ -205,19 +205,33 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 			const checkedRadioLabel = checkedRadio.parentNode;
 			const checkedRadioSpan = checkedRadioLabel.getElementsByTagName('span')[0];
 			const checkedRadioSpanWidth = checkedRadioSpan.scrollWidth;
-			const radioGroup = checkedRadioLabel.parentNode;
-			const switchIndicator = radioGroup.getElementsByTagName('strong')[0];
-			if (switchIndicator) {
-				switchIndicator.style.left = `${
+			const switchIndicatorRef = switchIndicator.current;
+			if (switchIndicatorRef) {
+				switchIndicatorRef.style.left = `${
 					radioWidths
 						.slice(0, checkedRadioIndex - 1)
 						.reduce((accumulator, currentValue) => accumulator + currentValue, 0) +
 					(checkedRadioIndex > 1 ? 10 : 0)
 				}px`;
-				switchIndicator.style.width = `${checkedRadioSpanWidth + 20}px`;
+				switchIndicatorRef.style.width = `${checkedRadioSpanWidth + 20}px`;
+				console.log({
+					radio,
+					currentId: checkedRadio,
+					width: `${checkedRadioSpanWidth + 20}px`,
+					left: `${
+						radioWidths
+							.slice(0, checkedRadioIndex - 1)
+							.reduce((accumulator, currentValue) => accumulator + currentValue, 0) +
+						(checkedRadioIndex > 1 ? 10 : 0)
+					}px`,
+				});
 			}
 		}
 	}, [radio.currentId]);
+
+	console.log({
+		currentId: radio.currentId,
+	});
 
 	return (
 		<DivFlex values={values} readOnly={readOnly}>
@@ -230,7 +244,7 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 						</label>
 					);
 				})}
-				<strong aria-hidden="true">
+				<strong ref={switchIndicator} aria-hidden="true">
 					<em></em>
 				</strong>
 			</RadioGroup>
