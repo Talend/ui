@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { shade } from 'polished';
 import { useRadioState, Radio, RadioGroup } from 'reakit/Radio';
@@ -102,9 +102,6 @@ const DivFlex = styled.div(
 		z-index: 2;
 	}
 	
-	label span {
-	}	
-	
 	label:nth-child(1) {
 		padding-left: 0;
 	}
@@ -112,25 +109,26 @@ const DivFlex = styled.div(
 	label:nth-child(${values.length}) {
 		padding-right: 0;
 	}
+	
+	label span {
+		padding-left: .2rem
+	}
 
 	strong {
     	position: absolute;
     	top: 0;
-    	left: 0;
+    	width: 0;
     	bottom: 0;
-    	padding: 0;
-    	width: ${100 / values.length}%;
-		transform: translateX(-200%);
-    	transition: transform .3s ease-out;
+    	transition: left .2s;
 		z-index: 1;
   	}
   	
   	strong em {
   		position: absolute;
   		top: .2rem;
-  		left: -.2rem;
+		right: .2rem;
   		bottom: .2rem;
-  		right: -.2rem;
+  		left: .2rem;
 	    background: ${theme.colors.activeColor};    
     	border-radius: 100px;
   	}
@@ -144,44 +142,27 @@ const DivFlex = styled.div(
 			`
 			: `
 				// FIXME
-				pointer-events: none;
+				// pointer-events: none;
 			`
 	} 
   
+	[data-checked] {
+		transition: color .3s;
+	}
+	
 	[data-checked="true"] {
 		color: ${theme.colors.inputBackgroundColor};
 		opacity: 1;
 	}
+		
+	[data-checked] ~ strong {
+		visibility: hidden;
+	}
 	
-	${values.map(
-		(value, index) => `
-			[data-checked="true"]:nth-child(${index + 1}) ~ strong {
-				transform: translateX(${index * 100}%);
-			}
-
-			transform: none !important;
-			
-			${
-				index === 0
-					? ` 
-				[data-checked="true"]:nth-child(${index + 1}) ~ strong em {
-					left: .2rem;
-				}
-			`
-					: ''
-			}
-			
-			${
-				index === values.length - 1
-					? ` 
-				[data-checked="true"]:nth-child(${index + 1}) ~ strong em {
-					right: .2rem;
-				}
-			`
-					: ''
-			}
-		`,
-	)}`,
+	[data-checked="true"] ~ strong {
+		visibility: visible;
+	}
+`,
 );
 
 function Switch({ label, value, values, checked, readOnly, ...rest }) {
@@ -196,7 +177,47 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 		);
 	}
 
-	const radio = useRadioState({ state: value });
+	const radio = useRadioState({
+		state: value,
+		orientation: 'horizontal',
+		wrap: 'horizontal',
+		loop: false,
+	});
+
+	let radioGroupWidth;
+	let radioWidths;
+
+	useEffect(() => {
+		const radioGroup = document.getElementById(radio.baseId);
+		radioGroupWidth = radioGroup.scrollWidth;
+		radioWidths = radio.items.map((item) => {
+			const radio = item.ref.current;
+			const radioLabel = radio.parentNode;
+			return radioLabel.scrollWidth;
+		});
+	});
+
+	useEffect(() => {
+		const checkedRadio = document.getElementById(radio.currentId);
+		if (checkedRadio) {
+			const checkedRadioIndex = radio.currentId.split('-')[2];
+			const checkedRadioLabel = checkedRadio.parentNode;
+			const checkedRadioSpan = checkedRadioLabel.getElementsByTagName('span')[0];
+			const checkedRadioSpanWidth = checkedRadioSpan.scrollWidth;
+			const radioGroup = checkedRadioLabel.parentNode;
+			const switchIndicator = radioGroup.getElementsByTagName('strong')[0];
+			if (switchIndicator) {
+				switchIndicator.style.left = `${
+					radioWidths
+						.slice(0, checkedRadioIndex - 1)
+						.reduce((accumulator, currentValue) => accumulator + currentValue, 0) +
+					(checkedRadioIndex > 1 ? 10 : 0)
+				}px`;
+				switchIndicator.style.width = `${checkedRadioSpanWidth + 20}px`;
+			}
+		}
+	}, [radio.currentId]);
+
 	return (
 		<DivFlex values={values} readOnly={readOnly}>
 			<RadioGroup {...rest} {...radio} aria-label={label}>
