@@ -9,15 +9,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   7:24  error  'children' is missing in props validation  react/prop-types
   7:34  error  'onSubmit' is missing in props validation  react/prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.js
-  142:29  error  'schema.hint' is missing in props validation  react/prop-types
-  147:5   error  No duplicate props allowed                    react/jsx-no-duplicate-props
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.js
-  36:4  error  No duplicate props allowed  react/jsx-no-duplicate-props
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/TextArea/TextArea.component.js
-  36:4  error  No duplicate props allowed  react/jsx-no-duplicate-props
-
-✖ 7 problems (7 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
