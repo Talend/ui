@@ -66,7 +66,7 @@ describe('FieldTemplate', () => {
 				label={'My awesome label'}
 			>
 				<input id={'myAwesomeField'} />
-			</FieldTemplate>
+			</FieldTemplate>,
 		);
 
 		// then
