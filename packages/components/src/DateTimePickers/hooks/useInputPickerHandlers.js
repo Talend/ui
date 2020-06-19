@@ -25,7 +25,7 @@ export default function useInputPickerHandlers({ handleBlur, handleChange, handl
 		if (['PICKER', 'END_PICKER'].includes(payload.origin)) {
 			inputRef.focus();
 			setPicked(true);
-			setTimeout(() => closePicker());
+			closePicker();
 		}
 	}
 
