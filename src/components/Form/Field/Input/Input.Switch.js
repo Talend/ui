@@ -9,7 +9,7 @@ import tokens from '../../../../tokens';
 const Div = styled(InlineStyle)(
 	({ theme, readOnly }) => `
 	input + span {
-		padding-left: calc(2rem + 3.2rem);
+		padding-left: calc(1rem + 3.2rem);
 	}
 	
 	input + span:before,

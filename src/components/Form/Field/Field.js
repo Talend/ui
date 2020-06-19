@@ -19,7 +19,8 @@ const StyledDiv = styled.div(
 		color: ${theme.colors.textColor};
 	}
 
-	${StyledField} {
+	${StyledField}, 
+	.input {
 		width: 100%;
 	}
 `,
@@ -33,13 +34,13 @@ const StyledFieldGroup = styled.div(
 
   svg, 
   button {
-    margin: -3.2rem; 	
     padding: 0;
-	width: ${tokens.sizes.smaller};
     height: ${tokens.sizes.smaller};
+    z-index: 1;
   }
   
   svg {
+	padding: 0 1rem;
     fill: ${tokens.colors.darkSilver};
 	pointer-events: none;
   }
@@ -123,17 +124,17 @@ const StyledField = styled.div(
 `,
 );
 
-const Field = React.forwardRef(({ label, after, icon, ...rest }, ref) => {
+const Field = React.forwardRef(({ label, before, after, ...rest }, ref) => {
 	const inline = ['checkbox', 'radio'].includes(rest.type);
 	return (
 		<StyledDiv inline={inline}>
 			{label && !inline && <Label htmlFor={label}>{label}</Label>}
-			{after ? (
+			{before || after ? (
 				<StyledFieldGroup>
-					<StyledField id={label} {...rest} ref={ref} /> {after}
+					{before} <StyledField id={label} {...rest} ref={ref} /> {after}
 				</StyledFieldGroup>
 			) : (
-				<div className={`input--${rest.as} ${rest.multiple ? 'input--multiple' : ''}`}>
+				<div className={`input input--${rest.as} ${rest.multiple ? 'input--multiple' : ''}`}>
 					<StyledField id={label} {...rest} />{' '}
 				</div>
 			)}

@@ -17,8 +17,9 @@ import Button from '../../Button';
                 <Form.Search label="Search" />
                 <Form.Textarea label="Textarea" />
                 <Form.Select label="Select" values={['', 'foo', 'bar']} />
-                <Form.Checkbox label="Checkbox" />
-                <Form.Radio label="Radio" />
+                <Form.Checkbox label="Checkbox" checked />
+                <Form.Radio label="Radio" checked />
+                <Form.Switch label="Switch" checked />
             </Form.Fieldset>
             <Button.Ghost onClick={action('clicked')}>Reset</Button.Ghost>
             <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
