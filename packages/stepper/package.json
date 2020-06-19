@@ -33,11 +33,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "core-js": "3",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
-    "lodash": "^4.17.4",
-    "regenerator-runtime": "^0.13.5"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",

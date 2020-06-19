@@ -34,7 +34,6 @@
   },
   "dependencies": {
     "@sentry/browser": "^5.11.1",
-    "core-js": "3",
     "deepmerge": "^1.5.1",
     "hoist-non-react-statics": "2.5.5",
     "immutable": "^3.8.1",
@@ -55,7 +54,6 @@
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "^2.2.0",
-    "regenerator-runtime": "^0.13.5",
     "uuid": "^7.0.3"
   },
   "devDependencies": {

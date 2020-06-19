@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "core-js": "3",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
@@ -41,7 +40,6 @@
     "memoize-one": "^4.0.0",
     "react-immutable-proptypes": "^2.1.0",
     "redux-saga": "^0.15.4",
-    "regenerator-runtime": "^0.13.5",
     "reselect": "^2.5.4",
     "uuid": "^3.0.1"
   },

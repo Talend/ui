@@ -33,11 +33,9 @@
   "dependencies": {
     "@talend/react-cmf": "^5.5.0",
     "chokidar": "^2.0.2",
-    "core-js": "3",
     "deepmerge": "^1.5.1",
     "lodash": "^4.17.4",
-    "mkdirp": "^0.5.1",
-    "regenerator-runtime": "^0.13.5"
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
