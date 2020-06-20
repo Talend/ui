@@ -47,7 +47,6 @@ function ContextualManager(props) {
 		const nextState = {
 			...state,
 			...newState,
-			time,
 		};
 		setState(nextState);
 		onChange(event, nextState);
