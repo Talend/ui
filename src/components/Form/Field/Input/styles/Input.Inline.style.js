@@ -12,6 +12,7 @@ const InlineStyle = styled.span(
 		position: relative;
 		padding: 0 2rem;
 		font-size: ${tokens.fontSizes.normal};
+		color: ${theme.colors.textColor};
 		cursor: pointer;
 	}
 

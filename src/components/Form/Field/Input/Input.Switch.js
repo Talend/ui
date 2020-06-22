@@ -30,7 +30,7 @@ const Div = styled(InlineStyle)(
 	}
 
 	input + span:before {
-		background: ${tokens.colors.alto};
+		background: ${theme.colors.inputRadioBackgroundColor};
 		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
 	}
 	
@@ -39,7 +39,7 @@ const Div = styled(InlineStyle)(
 			? `
 			input:not(:disabled) + span:hover:before,
 			input:not(:disabled):focus + span:before {
-				background: ${shade(0.25, tokens.colors.alto)};
+				background: ${shade(0.25, theme.colors.inputRadioBackgroundColor)};
 				box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
 			}
 			
@@ -78,7 +78,7 @@ const DivFlex = styled.div(
 		position: relative;
     	display: flex;
 		padding: 0 1rem;
-		background: ${tokens.colors.alto};
+		background: ${theme.colors.inputRadioBackgroundColor};
 		border-radius: 10rem;
 		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
 		overflow: hidden;
@@ -95,6 +95,7 @@ const DivFlex = styled.div(
 		align-items: center;
 		justify-content: space-around;
 		padding: 0 1rem;
+		color: ${theme.colors.textColor}
 		font-size: ${tokens.fontSizes.small};
 		font-weight: ${tokens.fontWeights.normal};		
     	opacity: ${tokens.opacity.disabled};
