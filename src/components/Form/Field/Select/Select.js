@@ -14,16 +14,12 @@ const Div = styled.div(
 		.input--select:not(.input--multiple) select {
 			padding-right: 3.2rem;
 			appearance: none;
+			overflow: auto;
+			cursor: pointer;
 		}
-		
-		.input--select:not(.input--multiple) select:hover {
-  			box-shadow: 0 0 0 1px  ${theme.colors.inputBorderHoverColor};
-		}
-  
-		.input--select:not(.input--multiple) select:disabled {
-			cursor: not-allowed;
-			opacity: ${tokens.opacity.disabled};
-			box-shadow: 0 0 0 1px ${theme.colors.inputBorderDisabledColor};
+
+		.input--select.input--multiple select {
+			overflow: auto;
 		}
 
 		.input--select:not(.input--multiple):after {
@@ -40,6 +36,22 @@ const Div = styled.div(
 			background-color: ${theme.colors.inputPlaceholderColor};
 			mask-image: url(${CaretSVG});
 			pointer-events: none;
+		}
+		
+		.input--select:not(.input--multiple):hover {
+			select:not(:disabled) {
+  				box-shadow: 0 0 0 1px ${theme.colors.inputBorderHoverColor};
+  			}
+			
+			&:after  {
+  				background-color: ${theme.colors.inputBorderFocusColor};
+			}
+		}
+  
+		.input--select:not(.input--multiple) select:disabled {
+			box-shadow: 0 0 0 1px ${theme.colors.inputBorderDisabledColor};
+			opacity: ${tokens.opacity.disabled};
+			cursor: not-allowed;
 		}
 `,
 );

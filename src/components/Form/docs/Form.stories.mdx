@@ -9,17 +9,19 @@ import Button from '../../Button';
 # Form
 
 <Preview>
-    <Story name="overview">
+    <Story name="Overview">
         <Form>
             <Form.Fieldset legend="Form fields">
                 <Form.Text label="Input" />
                 <Form.Password label="Password" />
                 <Form.Search label="Search" />
                 <Form.Textarea label="Textarea" />
-                <Form.Select label="Select" values={['', 'foo', 'bar']} />
+                <Form.Select label="Select" values={['', 'foo', 'bar']} value="foo"/>
+                <Form.Select label="Select multiple" values={['foo', 'bar']} multiple value={['foo']} />
                 <Form.Checkbox label="Checkbox" checked />
                 <Form.Radio label="Radio" checked />
                 <Form.Switch label="Switch" checked />
+                <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} value="both"/>
             </Form.Fieldset>
             <Button.Ghost onClick={action('clicked')}>Reset</Button.Ghost>
             <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>

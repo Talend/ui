@@ -76,7 +76,7 @@ const DivFlex = styled.div(
 	({ theme, values, readOnly }) => `
 	div {
 		position: relative;
-    	display: flex;
+    	display: inline-flex;
 		padding: 0 1rem;
 		background: ${theme.colors.inputRadioBackgroundColor};
 		border-radius: 10rem;
