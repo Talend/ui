@@ -1949,12 +1949,13 @@
     "@babel/helper-create-regexp-features-plugin" "^7.8.3"
     "@babel/helper-plugin-utils" "^7.8.3"
 
-"@babel/polyfill@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.4.4.tgz#78801cf3dbe657844eeabf31c1cae3828051e893"
+"@babel/polyfill@^7.8.4":
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.10.1.tgz#d56d4c8be8dd6ec4dce2649474e9b707089f739f"
+  integrity sha512-TviueJ4PBW5p48ra8IMtLXVkDucrlOZAIZ+EXqS3Ot4eukHbWiqcn7DcqpA1k5PcKtmJ4Xl9xwdv6yQvvcA+3g==
   dependencies:
     core-js "^2.6.5"
-    regenerator-runtime "^0.13.2"
+    regenerator-runtime "^0.13.4"
 
 "@babel/preset-env@^7.4.3":
   version "7.4.4"
@@ -4354,17 +4355,17 @@
   integrity sha512-3Oa6gnlUX1WaMW3/tgz5oeP8bqwW4OaWd2ON3URlRCl9Ck0+vUvtWu7j28qTNGrOQBOdASYcW3Yu1mb1q0yylQ==
 
 "@talend/react-cmf-router@^3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.2.1.tgz#3d67811a08f66f9989f0fb12bd3d20d09edd00e8"
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.3.1.tgz#98981dd6c5c302ad9704c6d06f4d8c686a881b5c"
+  integrity sha512-DW+0Lqa0JWzV8UFC1FUtAnQ3M/GUA0Cp6ufk2ixJ/XYfE/xAwT2nPghw0M5AMWcBTETG0hbHentiL54LPF+/Jw==
   dependencies:
-    "@babel/polyfill" "^7.0.0"
-    lodash "^4.17.4"
+    "@babel/polyfill" "^7.8.4"
+    lodash "^4.17.15"
     path-to-regexp "^2.0.0"
     prop-types "^15.5.10"
     react-redux "^5.0.7"
     react-router "^3.2.0"
     react-router-redux "^4.0.8"
-    redux "^3.7.2"
     redux-saga "^0.15.4"
 
 "@types/babel__core@^7.1.0":
