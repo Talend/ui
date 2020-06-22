@@ -4,6 +4,8 @@ import tw from 'tailwind.macro';
 
 import './InlineMessage.css';
 
+import tokens from '../../tokens';
+
 export const StyledInlineMessage = styled.div`
 	${(props) => props.withBackground && tw`flex items-center p-2 rounded-md`}
 `;
@@ -31,12 +33,12 @@ export const StyledSpan = styled.span`
 	${tw`mr-2`}
 
 	${({ theme, withBackground }) =>
-		`color: ${withBackground ? theme.colors.textColor : theme.colors.textColor};`}
+		`color: ${withBackground ? tokens.colors.black : theme.colors.textColor};`}
 `;
 
 export const StyledLinkSpan = styled(StyledSpan)`
 	${({ theme, withBackground }) =>
-		`color: ${withBackground ? theme.colors.activeColor : theme.colors.activeColor};`}
+		`color: ${withBackground ? tokens.colors.lochmara : theme.colors.activeColor};`}
 `;
 
 export type InlineMessageProps = {
