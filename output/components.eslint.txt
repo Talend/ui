@@ -27,10 +27,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   186:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
-  80:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
-  81:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
-  83:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
-  84:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
+  79:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
+  80:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
+  82:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
+  83:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Time/Manager/Manager.component.js
+  70:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
   281:43  error  'footerActions' is already declared in the upper scope  no-shadow
@@ -73,6 +76,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   73:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 29 problems (26 errors, 3 warnings)
+✖ 30 problems (27 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
