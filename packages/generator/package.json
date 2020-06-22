@@ -40,7 +40,6 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/polyfill": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/register": "^7.8.3",
