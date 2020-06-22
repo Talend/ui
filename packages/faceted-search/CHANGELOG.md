@@ -26,6 +26,16 @@ Types of changes
 
 ## [unreleased]
 
+## [0.10.2]
+
+- [fixed](https://github.com/Talend/ui/pull/2847): Check badge existence before trying to set it
+
+## [0.10.1]
+
+### Fixed
+
+- [fixed](https://github.com/Talend/ui/pull/2842): Avoid error when there is no callbacks props
+
 ## [0.10.0]
 
 ### Added
