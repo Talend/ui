@@ -1,84 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { TimeContext } from '../Context';
 import extractTime, { getTimeFormat } from '../time-extraction';
 
-class ContextualManager extends React.Component {
-	static displayName = 'Time.Manager';
-	static propTypes = {
-		children: PropTypes.node,
-		onChange: PropTypes.func,
-		useSeconds: PropTypes.bool,
-		timezone: PropTypes.string,
-		value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-	};
+function TimeContextualManager(props) {
+	const [state, setState] = useState(() => extractTime(props.value, props.useSeconds));
 
-	static defaultProps = {
-		useSeconds: false,
-	};
+	useEffect(() => {
+		const nextState = extractTime(props.value, props.useSeconds);
+		if (!nextState.errorMessage) {
+			setState(nextState);
+		}
+	}, [props.value, props.useSeconds]);
 
-	constructor(props) {
-		super(props);
-
-		this.state = extractTime(props.value, props.useSeconds);
-		this.onChange = this.onChange.bind(this);
-		this.onInputChange = this.onInputChange.bind(this);
-		this.onPickerChange = this.onPickerChange.bind(this);
-	}
-
-	onChange(event, origin) {
-		if (!this.props.onChange) {
+	function onChange(event, origin, nextState) {
+		setState(nextState);
+		if (!props.onChange) {
 			return;
 		}
-		this.props.onChange(event, { ...this.state, origin });
+		props.onChange(event, { ...nextState, origin });
 	}
 
-	onInputChange(event) {
+	function onInputChange(event) {
 		const textInput = event.target.value;
-		const nextState = extractTime(textInput, this.props.useSeconds);
-		this.setState(nextState, () => {
-			this.onChange(event, 'INPUT');
-		});
+		const nextState = extractTime(textInput, props.useSeconds);
+		onChange(event, 'INPUT', nextState);
 	}
 
-	onPickerChange(event, { textInput, time }) {
+	function onPickerChange(event, { textInput, time }) {
 		const nextState = {
 			time,
 			textInput,
 			errors: [],
 			errorMessage: null,
 		};
-
-		this.setState(nextState, () => {
-			this.onChange(event, 'PICKER');
-		});
+		onChange(event, 'PICKER', nextState);
 	}
 
-	render() {
-		return (
-			<TimeContext.Provider
-				value={{
-					time: {
-						time: this.state.time,
-						textInput: this.state.textInput,
-						timezone: this.props.timezone,
-					},
+	return (
+		<TimeContext.Provider
+			value={{
+				time: {
+					time: state.time,
+					textInput: state.textInput,
+					timezone: props.timezone,
+				},
 
-					inputManagement: {
-						onChange: this.onInputChange,
-						placeholder: getTimeFormat(this.props.useSeconds),
-					},
+				inputManagement: {
+					onChange: onInputChange,
+					placeholder: getTimeFormat(props.useSeconds),
+				},
 
-					pickerManagement: {
-						onChange: this.onPickerChange,
-					},
-				}}
-			>
-				{this.props.children}
-			</TimeContext.Provider>
-		);
-	}
+				pickerManagement: {
+					onChange: onPickerChange,
+				},
+			}}
+		>
+			{props.children}
+		</TimeContext.Provider>
+	);
 }
+TimeContextualManager.displayName = 'Time.Manager';
+TimeContextualManager.defaultProps = {
+	useSeconds: false,
+};
+TimeContextualManager.propTypes = {
+	children: PropTypes.node,
+	onChange: PropTypes.func,
+	useSeconds: PropTypes.bool,
+	timezone: PropTypes.string,
+	value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+};
 
-export default ContextualManager;
+export default TimeContextualManager;
