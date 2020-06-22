@@ -5,7 +5,7 @@ const StyledFieldset = styled.fieldset(
 	({ theme }) => `
 	display: flex;
 	flex-direction: column;
-	padding: 2rem;
+	justify-content: center;
 `,
 );
 

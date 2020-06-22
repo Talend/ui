@@ -23,29 +23,49 @@ const StyledDiv = styled.div(
 	.input {
 		width: 100%;
 	}
+	
+	textarea {
+		padding: 1rem
+	}
 `,
 );
 
 const StyledFieldGroup = styled.div(
-	({ theme }) => `
+	({ theme, after }) => `
+  position: relative;
   display: inline-flex;
   align-items: center;
   width: 100%;
 
+  ${
+		after
+			? ` input {
+	padding-right: 3.6rem;
+  }`
+			: ''
+	}
+
   svg, 
   button {
+    position: absolute;
     padding: 0;
     height: ${tokens.sizes.smaller};
     z-index: 1;
   }
   
   svg {
+  	left: 0;
 	padding: 0 1rem;
     fill: ${tokens.colors.darkSilver};
 	pointer-events: none;
+	
+	+ input {
+		padding-left: 3.6rem;
+	}
   }
   
   button {
+  	right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,6 +74,7 @@ const StyledFieldGroup = styled.div(
     border: none;
     
     svg {
+	  position: static;
       margin:0;
     }
     
@@ -130,7 +151,7 @@ const Field = React.forwardRef(({ label, before, after, ...rest }, ref) => {
 		<StyledDiv inline={inline}>
 			{label && !inline && <Label htmlFor={label}>{label}</Label>}
 			{before || after ? (
-				<StyledFieldGroup>
+				<StyledFieldGroup after={after}>
 					{before} <StyledField id={label} {...rest} ref={ref} /> {after}
 				</StyledFieldGroup>
 			) : (

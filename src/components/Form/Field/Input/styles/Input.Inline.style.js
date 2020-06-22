@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import tokens from '../../../../../tokens';
 
-const InlineStyle = styled.span(
+const InlineStyle = styled.div(
 	({ theme }) => `
 	input {
 		position: absolute;
