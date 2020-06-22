@@ -8,7 +8,7 @@ import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propT
 
 const createDefaultOperators = t => [
 	{
-		label: t('FACETED_SEARCH_DOES_NOT_CONTAINS', { defaultValue: 'Does not contains' }),
+		label: t('FACETED_SEARCH_DOES_NOT_CONTAIN', { defaultValue: 'Does not contain' }),
 		name: 'notEquals',
 		iconName: 'not-equal',
 	},

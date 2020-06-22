@@ -57,8 +57,10 @@ function getActionsWrapped(actions) {
 			return {
 				...action,
 				onClick: event => {
-					event.preventDefault();
-					event.stopPropagation();
+					if (!event.metaKey && !event.ctrlKey) {
+						event.preventDefault();
+						event.stopPropagation();
+					}
 				},
 				onClickDispatch: {
 					type: ACTION_TYPE_LINK,

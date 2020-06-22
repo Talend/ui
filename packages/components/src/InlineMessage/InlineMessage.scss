@@ -17,7 +17,6 @@ $tc-inline-message-icon-offset: 0.4rem !default;
 
 	&-title {
 		font-weight: $font-weight-semi-bold;
-		margin-right: $padding-smaller;
 	}
 
 	&-text {
@@ -26,6 +25,12 @@ $tc-inline-message-icon-offset: 0.4rem !default;
 		border-radius: $tc-inline-message-border-radius;
 		line-height: $tc-inline-message-min-height;
 		min-height: $tc-inline-message-min-height;
+
+		&-item {
+			&:after {
+				content: ' ';
+			}
+		}
 
 		&.background {
 			&.info {
@@ -44,10 +49,6 @@ $tc-inline-message-icon-offset: 0.4rem !default;
 				@include tc-background-highlight($jaffa);
 			}
 		}
-	}
-
-	&-link {
-		margin-left: 1ch;
 	}
 
 	&-icon {
