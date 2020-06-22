@@ -1,8 +1,16 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { ColorPalette, ColorItem } from '@storybook/components';
 
 import { light, dark } from '../.';
 
+import tokens from '../../tokens';
+
 <Meta title="Themes|Themes" />
+
+export function getTokenNameByValue(value) {
+    const designToken = Object.entries(tokens.colors).find(([k, v]) => v === value)
+    return designToken ? designToken[0] : 'there is no design token used here!';
+}
 
 # Themes
 
@@ -19,6 +27,16 @@ import { light, dark } from '../.';
 	))}
 </dl>
 
+<ColorPalette>
+    {Object.entries(light.colors).map(([k, v], index) => (
+        <ColorItem
+          key={index}
+          title={k}
+          colors={{ [`${getTokenNameByValue(v)}`]: v }}
+        />
+	))}
+</ColorPalette>
+
 ## Dark
 
 <dl>
@@ -31,3 +49,13 @@ import { light, dark } from '../.';
 		</div>
 	))}
 </dl>
+
+<ColorPalette>
+    {Object.entries(dark.colors).map(([k, v], index) => (
+        <ColorItem
+          key={index}
+          title={k}
+          colors={{ [`${getTokenNameByValue(v)}`]: v }}
+        />
+	))}
+</ColorPalette>
