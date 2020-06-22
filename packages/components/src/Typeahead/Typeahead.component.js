@@ -140,8 +140,18 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...inputProps,
 		items: getItems(rest.items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
-			onMouseDown: rest.onSelect,
-			onClick: rest.onSelect,
+			// onBlur shouldn't be called before onClick but the general order is (mouseDown, Blur, Click)
+			// so we require preventDefault after mouseDown event
+			onMouseDown: event => event.preventDefault(),
+			// onClick is required to track the element usage in pendo
+			onClick: (event, data) => {
+				rest.onSelect(event, data);
+				// onBlur is needed to focus out from the dataList after selection which lets the user
+				// to open the options without having to click outside of the element after selection
+				setTimeout(() => {
+					document.activeElement.blur();
+				});
+			},
 			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
 		}),
 	};
