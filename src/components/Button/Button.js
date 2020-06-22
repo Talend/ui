@@ -6,23 +6,28 @@ import tokens from '../../tokens';
 
 const BaseButton = styled(
 	React.forwardRef(({ theme, small, ...props }, ref) => <Button ref={ref} {...props} />),
-)`
+)(
+	({ theme, small }) => `
 	display: inline-flex;
 	align-items: center;
 	border: ${tokens.borders.normal};
 	border-radius: ${tokens.radii.rectRadius};
-	padding: ${`${tokens.space.none} ${tokens.space.large}`};
+	padding: ${tokens.space.none} ${tokens.space.large};
 	min-height: ${tokens.sizes.large};
-	font: ${`${tokens.fontWeights.normal} ${tokens.fonts.sansSerif}`};
+	font-weight: ${tokens.fontWeights.normal};
+	font-family: ${tokens.fonts.sansSerif};
+	color: ${theme.colors.textColor};
 	background: ${tokens.colors.transparent};
 	cursor: pointer;
 
-	${(props) =>
-		props.small &&
-		css`
+	${
+		small
+			? `
 			padding: ${tokens.space.none} ${tokens.space.small};
-			height: ${tokens.sizes.small};
-		`}
+			min-height: ${tokens.sizes.small};
+		`
+			: ''
+	}
 
 	&:focus {
 		outline: ${tokens.colors.scooter} 0.3rem solid;
@@ -38,7 +43,8 @@ const BaseButton = styled(
 		flex-grow: 0;
 		flex-shrink: 0;
 	}
-`;
+`,
+);
 
 BaseButton.propTypes = {
 	small: PropTypes.bool,

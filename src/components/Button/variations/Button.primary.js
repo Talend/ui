@@ -5,21 +5,21 @@ import tokens from '../../../tokens';
 
 const ButtonPrimary = styled(ButtonBase)`
 	color: ${tokens.colors.white};
-	background: ${(props) => props.theme.colors.primaryColor};
-	border-color: none;
+	background-color: ${({ theme }) => theme.colors.primaryColor};
+	border-color: ${tokens.colors.transparent};
 
 	&:not([aria-disabled='true']):hover {
-		background: ${(props) => shade(0.2, props.theme.colors.primaryColor)};
+		background-color: ${({ theme }) => shade(0.2, theme.colors.primaryColor)};
 	}
 
 	&:not([aria-disabled='true']):active {
-		background: ${(props) => shade(0.4, props.theme.colors.primaryColor)};
+		background-color: ${({ theme }) => shade(0.4, theme.colors.primaryColor)};
 	}
 
 	&[aria-disabled='true'] {
+		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)};
 		background-color: ${tokens.colors.alto};
 		border-color: ${tokens.colors.alto};
-		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)};
 	}
 `;
 

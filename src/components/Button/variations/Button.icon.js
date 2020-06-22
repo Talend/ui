@@ -34,7 +34,8 @@ const StyledButton = styled(ButtonBase)`
 	}
 
 	&[aria-disabled='true'] {
-		border-color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)} !important;
+		border-color: ${({ theme }) =>
+			tint(1 - tokens.opacity.disabled, theme.colors.textColor)} !important;
 	}
 `;
 
