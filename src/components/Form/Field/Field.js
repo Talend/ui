@@ -24,8 +24,9 @@ const StyledDiv = styled.div(
 		width: 100%;
 	}
 	
-	textarea {
-		padding: 1rem
+	textarea,
+    select[multiple] {
+		padding: 1rem;
 	}
 `,
 );
