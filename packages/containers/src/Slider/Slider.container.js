@@ -51,11 +51,12 @@ class Slider extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
+		const props = {
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
 			value: state.get(VALUE_ATTR, this.props.value),
 			onChange: this.onChange,
 			onAfterChange: this.onAfterChange,
-		});
+		};
 		return <Component {...props} />;
 	}
 }

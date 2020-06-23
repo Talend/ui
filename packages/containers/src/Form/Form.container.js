@@ -20,6 +20,7 @@ export const DEFAULT_STATE = new Immutable.Map({});
  */
 class Form extends React.Component {
 	static displayName = 'Container(Form)';
+
 	static propTypes = {
 		formId: PropTypes.string.isRequired,
 		...cmfConnect.propTypes,
@@ -120,7 +121,7 @@ class Form extends React.Component {
 		if (typeof this.props.data === 'function') {
 			return this.props.data(state.data);
 		}
-		return Object.assign({}, this.props.data, state.data);
+		return { ...this.props.data, ...state.data};
 	}
 
 	errors() {
@@ -128,7 +129,7 @@ class Form extends React.Component {
 		if (typeof this.props.errors === 'function') {
 			return this.props.errors(state.errors);
 		}
-		return Object.assign({}, this.props.errors, state.errors);
+		return { ...this.props.errors, ...state.errors};
 	}
 
 	formActions() {
