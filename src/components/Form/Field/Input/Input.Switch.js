@@ -107,16 +107,13 @@ const DivFlex = styled.div(
 		padding-right: 0;
 	}
 	
-	button {
-		padding-left: .2rem
-	}
-
 	strong {
     	position: absolute;
     	top: 0;
+    	left: 0;
     	width: 0;
     	bottom: 0;
-    	transition: left .2s, width .2s;
+    	transition: transform .2s, width .2s;
 		z-index: 1;
   	}
   	
@@ -175,7 +172,7 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 	}
 
 	const radio = useRadioState({
-		state: value,
+		state: value || values[0],
 		loop: false,
 		unstable_virtual: true,
 	});
@@ -205,12 +202,16 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 		const checkedRadioIndex = radioGroupChildren.indexOf(checkedElement);
 		const checkedRadioSpanWidth = checkedElement.scrollWidth;
 		const switchIndicatorRef = switchIndicator.current;
+		const isFirst = checkedRadioIndex === 0;
 		const isLast = checkedRadioIndex === radioWidths.length - 1;
 		if (switchIndicatorRef) {
-			switchIndicatorRef.style.left = `${radioWidths
-				.slice(0, checkedRadioIndex)
-				.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}px`;
-			switchIndicatorRef.style.width = `${checkedRadioSpanWidth + (isLast ? 20 : 10)}px`;
+			switchIndicatorRef.style.transform = `translateX(${
+				radioWidths
+					.slice(0, checkedRadioIndex)
+					.reduce((accumulator, currentValue) => accumulator + currentValue, 0) +
+				(!isFirst ? 10 : 0)
+			}px)`;
+			switchIndicatorRef.style.width = `${checkedRadioSpanWidth + (isFirst || isLast ? 10 : 0)}px`;
 		}
 	}, [radio]);
 
