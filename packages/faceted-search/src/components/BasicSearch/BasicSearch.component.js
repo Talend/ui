@@ -65,6 +65,7 @@ const BasicSearch = ({
 	};
 	const basicSearchId = `${id}-basic-search`;
 	const badgeFacetedContextValue = { state, dispatch, onSubmit };
+
 	return (
 		<div id={basicSearchId} className={css('tc-basic-search')}>
 			<div className={css('tc-basic-search-content')}>
@@ -99,16 +100,18 @@ const BasicSearch = ({
 				</BadgeOverlay>
 			</div>
 
-			<ActionButton
-				className={css('tc-basic-search-clear-button')}
-				tooltipLabel={t('FACETED_SEARCH_BASIC_CLEAR', { defaultValue: 'Remove all filters' })}
-				data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
-				icon="talend-trash"
-				onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
-				link
-				label=""
-				disabled={state.badges.length === 0}
-			/>
+			{state.badges.length > 0 && (
+				<ActionButton
+					className={css('tc-basic-search-clear-button')}
+					tooltipLabel={t('FACETED_SEARCH_BASIC_CLEAR', { defaultValue: 'Remove all filters' })}
+					data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
+					icon="talend-trash"
+					onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
+					link
+					label=""
+					disabled={state.badges.length === 0}
+				/>
+			)}
 		</div>
 	);
 };
