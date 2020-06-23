@@ -232,6 +232,6 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = () => shallow(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper).toThrow('Unkown type: unknown');
+		expect(wrapper).toThrow('Unknown type: unknown');
 	});
 });
