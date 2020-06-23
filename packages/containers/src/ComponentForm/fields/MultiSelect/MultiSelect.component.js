@@ -38,6 +38,7 @@ export default class MultiSelectField extends React.Component {
 			onResponse: data => this.setState(data),
 		});
 	}
+
 	onTriggerResult(event, trigger) {
 		return this.props.onTrigger(event, {
 			trigger,

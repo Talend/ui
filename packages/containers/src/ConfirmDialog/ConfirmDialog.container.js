@@ -13,9 +13,11 @@ export const DEFAULT_STATE = new Map({
 
 class ConfirmDialog extends React.Component {
 	static displayName = 'CMFContainer(ConfirmDialog)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
 	};
+
 	static contextTypes = {
 		store: PropTypes.object,
 		registry: PropTypes.object,
