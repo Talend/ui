@@ -1,0 +1,6 @@
+{
+	"extends": "../../.eslintrc",
+	"rules": {
+		"react/state-in-constructor": 0
+	}
+}

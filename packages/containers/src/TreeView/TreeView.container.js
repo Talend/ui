@@ -102,6 +102,7 @@ class TreeView extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {
+		childrenAttr: PropTypes.string,
 		data: ImmutablePropTypes.list,
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
