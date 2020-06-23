@@ -22,8 +22,8 @@ export function deleteNotification(indexNotification) {
 export function mergeProps(stateProps, dispatchProps, ownProps) {
 	return {
 		deleteNotification(i) {
-				dispatchProps.setState(deleteNotification(i));
-			},
+			dispatchProps.setState(deleteNotification(i));
+		},
 		...ownProps,
 		...stateProps,
 		...dispatchProps,

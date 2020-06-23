@@ -148,7 +148,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = { ...ownProps, ...stateProps, ...dispatchProps};
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	if (props.actionIds) {
 		delete props.actionIds;
 	}

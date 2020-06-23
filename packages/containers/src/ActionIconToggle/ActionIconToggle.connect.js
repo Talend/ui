@@ -20,13 +20,13 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = { ...ownProps, ...stateProps, ...dispatchProps};
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionId;
 	return props;
 }
 
 export function ContainerActionIconToggle(props) {
-	const newProps = { ...props};
+	const newProps = { ...props };
 
 	if (!newProps.onClick) {
 		newProps.onClick = (event, data) => {
