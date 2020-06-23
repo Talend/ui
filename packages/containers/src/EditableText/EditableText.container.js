@@ -91,12 +91,11 @@ class EditableText extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = {
-			
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
 			onEdit: this.onEdit,
-				onCancel: this.onCancel,
-				onSubmit: this.onSubmit,
-				onChange: this.onChange,
+			onCancel: this.onCancel,
+			onSubmit: this.onSubmit,
+			onChange: this.onChange,
 			...state.toJS(),
 		};
 		return <Component {...props} />;
