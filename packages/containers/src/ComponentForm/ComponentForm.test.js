@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS, Map } from 'immutable';
-import addSchemaMock from './ComponentForm.test.schema';
+import addSchemaMock from './ComponentForm.test.schema.json';
 
 import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
 
@@ -440,7 +440,7 @@ describe('ComponentForm', () => {
 		});
 
 		describe('#onReset', () => {
-			it('should reset form state, and set dirty to false', () => {
+			it('should reset form state', () => {
 				// given
 				const setState = jest.fn();
 				const dispatch = jest.fn();
@@ -456,9 +456,7 @@ describe('ComponentForm', () => {
 
 				// when
 				wrapper.instance().onChange(event, changePayload);
-				// then
-				// dispatch dirty
-				expect(setState).toBeCalledWith({ dirty: true });
+
 				// change state
 				expect(wrapper.state()).toEqual({
 					properties: {
@@ -477,7 +475,6 @@ describe('ComponentForm', () => {
 					properties: {
 						_datasetMetadata: {},
 					},
-					dirty: false,
 				});
 			});
 		});

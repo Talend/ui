@@ -22,8 +22,13 @@ class Form extends React.Component {
 	static displayName = 'Container(Form)';
 
 	static propTypes = {
-		formId: PropTypes.string.isRequired,
 		...cmfConnect.propTypes,
+		formId: PropTypes.string.isRequired,
+		data: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+	};
+
+	static defaultProps = {
+		data: {},
 	};
 
 	/**
@@ -121,7 +126,7 @@ class Form extends React.Component {
 		if (typeof this.props.data === 'function') {
 			return this.props.data(state.data);
 		}
-		return { ...this.props.data, ...state.data};
+		return { ...this.props.data, ...state.data };
 	}
 
 	errors() {
@@ -129,7 +134,7 @@ class Form extends React.Component {
 		if (typeof this.props.errors === 'function') {
 			return this.props.errors(state.errors);
 		}
-		return { ...this.props.errors, ...state.errors};
+		return { ...this.props.errors, ...state.errors };
 	}
 
 	formActions() {
@@ -174,8 +179,5 @@ class Form extends React.Component {
 		return <BaseForm {...props}>{this.props.children}</BaseForm>;
 	}
 }
-Form.defaultProps = {
-	data: {},
-};
 
 export default Form;
