@@ -2,6 +2,7 @@ import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import Col from './Col.component';
 import Row from './Row.component';
 import InputZoning from './images/input-file-zoning.jpg';
+import InputFileFilledZoning from './images/input-file-filled-zoning.jpg';
 
 import Form from '../';
 
@@ -9,7 +10,7 @@ import Form from '../';
 
 # File
 
-File uploader allows the user to transfer a file.
+File uploader allows the user to transfer a file by drag and drop or by clicking on the link.
 
 <Row>
 	<Col centered="all">
@@ -41,7 +42,14 @@ File uploader allows the user to transfer a file.
 
 ## Zoning
 
+### Empty
+
 <img src={InputZoning} alt="zoning image for the file upload input" className="full" class="full" />
+
+### Filled
+
+<img src={InputFileFilledZoning} alt="zoning image for the file upload input filled" className="full" class="full" />
+
 
 ## Style
 
@@ -49,26 +57,34 @@ File uploader allows the user to transfer a file.
 
 | Property                       | Value             | 
 | ------------------------------ | ----------------- | 
-| icon           	             | 1.2rem            | 
+| icon           	             | 1.4rem            | 
 
 
 ### Space <a id="space" />
 
+#### Empty
+
 | Property                       | Value             | 
 | ------------------------------ | ----------------- | 
-| padding-right					 | 3.2rem            | 
+| (icon) margin-right			 | $small            | 
 
 
 ### Colors <a id="colors" />
 
 | Property                       | Value                               | 
 | ------------------------------ | ----------------------------------- | 
-| icon		                     | $dark-silver                        |
+| icon		                     | $lochmara	                       |
+
+### Shadows <a id="shadows" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| border-style		             | dashed	         |
 
 ## States <a id="states" />
 
 ### Loading States
-Display a spinner icon instead of the upload a file icon when the file is loading into the input.
+Display an heartbeat animation when the file is loading into the input.
 
 ## Content <a id="content" />
 
