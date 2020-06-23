@@ -37,25 +37,21 @@ export function getActionsProps(context, ids, model) {
 	});
 
 	const props = infos.map(info =>
-		Object.assign(
-			{
-				onClick(event, data) {
+		({
+			onClick(event, data) {
 					if (info.actionCreator) {
 						context.store.dispatch(cmf.action.getActionObject(context, info.id, event, data));
 					} else {
 						context.store.dispatch(
-							Object.assign(
-								{
-									model,
-								},
-								info.payload,
-							),
+							{
+								model,
+								...info.payload,
+							},
 						);
 					}
 				},
-			},
-			evalExpressions(info, context, { model }),
-		),
+			...evalExpressions(info, context, { model }),
+		}),
 	);
 
 	if (onlyOne) {

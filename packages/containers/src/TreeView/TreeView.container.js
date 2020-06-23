@@ -100,6 +100,7 @@ export function transform(items, props, parent) {
  */
 class TreeView extends React.Component {
 	static displayName = DISPLAY_NAME;
+
 	static propTypes = {
 		data: ImmutablePropTypes.list,
 		idAttr: PropTypes.string,
@@ -112,6 +113,7 @@ class TreeView extends React.Component {
 
 		...cmfConnect.propTypes,
 	};
+
 	static defaultProps = DEFAULT_PROPS;
 
 	constructor(props) {
