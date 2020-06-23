@@ -70,23 +70,29 @@ describe('HeaderBar sagas', () => {
 	});
 
 	describe('handleOpenProduct', () => {
+		const { location } = window;
+
 		beforeEach(() => {
-			global.location = {};
-			global.location.assign = jest.fn();
+			delete window.location;
+			window.location = { assign: jest.fn() };
+		});
+
+		afterAll(() => {
+			window.location = location;
 		});
 
 		it("should open a product's page when an URL is provided", () => {
 			const action = { payload: { url: 'productUrl' } };
 
 			handleOpenProduct(action);
-			expect(global.location.assign).toHaveBeenCalledWith('productUrl');
+			expect(window.location.assign).toHaveBeenCalledWith('productUrl');
 		});
 
 		it('should do nothing if no product URI is provided', () => {
 			const action = { payload: { foo: 'bar' } };
 
 			handleOpenProduct(action);
-			expect(global.location.assign).not.toHaveBeenCalled();
+			expect(window.location.assign).not.toHaveBeenCalled();
 		});
 	});
 });
