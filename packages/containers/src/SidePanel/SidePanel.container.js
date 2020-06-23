@@ -33,9 +33,8 @@ class SidePanel extends React.Component {
 	render() {
 		const { state = DEFAULT_STATE } = this.props;
 		const props = {
-			
 			docked: state.get('docked'),
-				onToggleDock: this.onToggleDock,
+			onToggleDock: this.onToggleDock,
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
 		};
 		return <Component {...props} />;
