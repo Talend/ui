@@ -146,7 +146,7 @@ Pagination.propTypes = {
 	totalResults: PropTypes.number.isRequired,
 	itemsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
 	onChange: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 Pagination.defaultProps = {

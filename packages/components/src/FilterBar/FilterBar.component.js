@@ -254,7 +254,7 @@ FilterBarComponent.propTypes = {
 	value: PropTypes.string,
 	tooltipPlacement: PropTypes.string,
 	disabled: PropTypes.bool,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 FilterBarComponent.defaultProps = {

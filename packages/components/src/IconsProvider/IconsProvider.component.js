@@ -7,6 +7,7 @@ let talendIcons = {};
 
 if (!process.env.ICON_BUNDLE) {
 	console.warn('WARNING ICON_BUNDLE will be the default in the next major release');
+	// eslint-disable-next-line global-require
 	talendIcons = require('@talend/icons/dist/react').default;
 }
 
