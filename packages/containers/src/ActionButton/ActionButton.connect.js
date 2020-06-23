@@ -20,27 +20,23 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionId;
 	return props;
 }
 
 export function ContainerActionButton(props) {
-	const newProps = Object.assign({}, props);
+	const newProps = { ...props };
 
 	if (!newProps.onClick && (props.actionCreator || props.payload)) {
 		newProps.onClick = (event, data) => {
 			if (props.actionCreator) {
 				props.dispatchActionCreator(props.actionCreator, event, data);
 			} else {
-				props.dispatch(
-					Object.assign(
-						{
-							model: props.model,
-						},
-						props.payload,
-					),
-				);
+				props.dispatch({
+					model: props.model,
+					...props.payload,
+				});
 			}
 		};
 	}
