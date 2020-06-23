@@ -7,6 +7,7 @@ import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-d
 
 import IconsProvider from '../IconsProvider';
 import HeaderBar from './HeaderBar.component';
+import AppSwitcher from '../AppSwitcher';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../Layout/constants';
 
@@ -71,6 +72,10 @@ const infoStyle = stylesheet => ({
 		},
 	},
 });
+
+function AppSwitcherComponent() {
+	return <AppSwitcher {...props.brand} />;
+}
 
 const withIcons = makeDecorator({
 	name: 'withIcons',
@@ -244,7 +249,10 @@ decoratedStories
 		),
 		{ info: { styles: infoStyle } },
 	)
-	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } });
+	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } })
+	.add('Custom AppSwitcher', () => <HeaderBar AppSwitcher={AppSwitcherComponent} />, {
+		info: { styles: infoStyle },
+	});
 
 const appStyle = require('../../stories/config/themes.scss');
 

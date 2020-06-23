@@ -1164,6 +1164,6 @@ RUN ----------------------------------------------------------------------------
   26:24  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
   26:54  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
 
-✖ 28 problems (26 errors, 2 warnings)
+✖ 29 problems (26 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
