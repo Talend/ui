@@ -84,12 +84,7 @@ const DivFlex = styled.div(
 		overflow: hidden;
 	}
 	
-	input {
-	    position: absolute;
-		margin-left: -200vw;
-	}
-	
-	label {
+	button {
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -104,15 +99,15 @@ const DivFlex = styled.div(
 		z-index: 2;
 	}
 	
-	label:nth-child(1) {
+	button:nth-child(1) {
 		padding-left: 0;
 	}
 	
-	label:nth-child(${values.length}) {
+	button:nth-child(${values.length}) {
 		padding-right: 0;
 	}
 	
-	label span {
+	button {
 		padding-left: .2rem
 	}
 
@@ -191,11 +186,9 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 	let radioWidths = [];
 
 	useEffect(() => {
-		const radioGroup = document.getElementById(radio.baseId);
 		radioWidths = radio.items.map((item) => {
 			const radio = item.ref.current;
-			const radioLabel = radio.parentNode;
-			return radioLabel.scrollWidth;
+			return radio.scrollWidth;
 		});
 	});
 
@@ -205,22 +198,19 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 			return;
 		}
 		const radioGroupChildren = Array.prototype.slice.call(radioGroup.children);
-		const checkedRadioLabel = radioGroup.querySelector(`[data-checked="true"]`);
-		if (!checkedRadioLabel) {
+		const checkedElement = radioGroup.querySelector(`#${radio.currentId}`);
+		if (!checkedElement) {
 			return;
 		}
-		const checkedRadioIndex = radioGroupChildren.indexOf(checkedRadioLabel);
-		const checkedRadioSpan = checkedRadioLabel.getElementsByTagName('span')[0];
-		const checkedRadioSpanWidth = checkedRadioSpan.scrollWidth;
+		const checkedRadioIndex = radioGroupChildren.indexOf(checkedElement);
+		const checkedRadioSpanWidth = checkedElement.scrollWidth;
 		const switchIndicatorRef = switchIndicator.current;
+		const isLast = checkedRadioIndex === radioWidths.length - 1;
 		if (switchIndicatorRef) {
-			switchIndicatorRef.style.left = `${
-				radioWidths
-					.slice(0, checkedRadioIndex)
-					.reduce((accumulator, currentValue) => accumulator + currentValue, 0) +
-				(checkedRadioIndex >= 1 ? 10 : 0)
-			}px`;
-			switchIndicatorRef.style.width = `${checkedRadioSpanWidth + 20}px`;
+			switchIndicatorRef.style.left = `${radioWidths
+				.slice(0, checkedRadioIndex)
+				.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}px`;
+			switchIndicatorRef.style.width = `${checkedRadioSpanWidth + (isLast ? 20 : 10)}px`;
 		}
 	}, [radio]);
 
@@ -230,9 +220,9 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 				{values.map((v, i) => {
 					const isChecked = radio.state === v;
 					return (
-						<label key={i} data-checked={isChecked}>
-							<Radio {...radio} value={v} /> <span>{v}</span>
-						</label>
+						<Radio {...radio} value={v} as="button" key={i} data-checked={isChecked}>
+							{v}
+						</Radio>
 					);
 				})}
 				<strong ref={switchIndicator} aria-hidden="true">
