@@ -10,9 +10,15 @@ if [ -n "$GH_TOKEN" ]; then
 	cd "$TRAVIS_BUILD_DIR"
 	echo "✓ Move to Travis build dir"
 	if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
+		echo "git branch"
+		git branch
+		echo "git stash"
+		git stash
 	    git fetch origin $TRAVIS_PULL_REQUEST_BRANCH:$TRAVIS_PULL_REQUEST_BRANCH --depth 1
 		git checkout $TRAVIS_PULL_REQUEST_BRANCH
 		echo "✓ Checkout $TRAVIS_PULL_REQUEST_BRANCH"
+		echo "git stash pop"
+		git stash pop
 		echo "git status"
 		git status
 
