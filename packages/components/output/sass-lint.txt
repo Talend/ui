@@ -1,2 +1,0 @@
-yarn run v0.19.1
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

@@ -5359,7 +5359,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           >
                                             <svg
                                               aria-busy="true"
-                                              aria-label="Loading undefined"
+                                              aria-label="Loading "
                                               className="tc-circular-progress theme-loader theme-animate theme-small"
                                               focusable="false"
                                               viewBox="0 0 50 50"
@@ -9832,7 +9832,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           >
                             <svg
                               aria-busy="true"
-                              aria-label="Loading undefined"
+                              aria-label="Loading "
                               className="tc-circular-progress theme-loader theme-animate theme-small"
                               focusable="false"
                               viewBox="0 0 50 50"
