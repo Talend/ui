@@ -34,6 +34,12 @@ if [ -n "$GH_TOKEN" ]; then
 		echo "git status"
 		git status
 
+		echo "git branch"
+		git branch
+
+		echo "git log"
+		git log
+
 		git push -q https://build-travis-ci:$GH_TOKEN@github.com/Talend/ui $TRAVIS_PULL_REQUEST_BRANCH
 		echo "✓ Push to $TRAVIS_PULL_REQUEST_BRANCH"
 	fi
