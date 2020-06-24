@@ -44,13 +44,6 @@
   49:5  warning  React Hook useEffect has missing dependencies: 'options', 'state.endDate.value', and 'state.startDate.value'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  80:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
-  81:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
-  83:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
-  84:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
-=======
   42:5  warning  React Hook useEffect has missing dependencies: 'getDateOptions', 'onChange', and 'state.datetime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/datetime-extraction.js
@@ -115,16 +108,6 @@
 
 /home/travis/build/Talend/ui/packages/components/src/Draggable/DraggableComponent.test.js
   7:23  error  Unexpected use of file extension "js" for "./DraggableComponent.js"  import/extensions
->>>>>>> Stashed changes
-=======
-  79:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
-  80:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
-  82:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
-  83:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Time/Manager/Manager.component.js
-  70:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
->>>>>>> master
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
   279:43  error  'footerActions' is already declared in the upper scope  no-shadow
@@ -347,69 +330,4 @@
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.component.js
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-<<<<<<< Updated upstream
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.stories.js
-   10:44  error  Useless path segments for "./", should be "."        import/no-useless-path-segments
-   32:19  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  409:9   error  'collection' is already declared in the upper scope  no-shadow
-  426:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  462:49  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  490:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  512:49  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  535:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  537:13  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  538:20  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  574:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  610:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  646:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  678:49  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  740:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  774:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  811:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  854:49  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  885:65  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  914:41  error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-  939:9   error  Curly braces are unnecessary here                    react/jsx-curly-brace-presence
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.test.js
-   44:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-   49:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-   50:19  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-   67:9   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-   72:13  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-   73:20  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-   91:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  100:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  101:19  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  116:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  125:12  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  126:19  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
-  21:11  error    Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  22:13  error    Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  42:3   warning  Unexpected console statement       no-console
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.test.js
-  46:22  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  62:64  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-
-/home/travis/build/Talend/ui/packages/components/src/WithDrawer/withDrawer.test.js
-  5:20  error  Useless path segments for "./../Drawer", should be "../Drawer"  import/no-useless-path-segments
-
-/home/travis/build/Talend/ui/packages/components/src/index.js
-  47:1  error  Dependency cycle via ./ResourcePicker.component:1=>../ResourceList/ResourceList.component:5  import/no-cycle
-  62:1  error  Dependency cycle via ./ResourceList.component:1                                              import/no-cycle
-
-/home/travis/build/Talend/ui/packages/components/src/utils/getPropsFrom.js
-  20:24  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/wrap.js
-  42:20  error  Use an object spread instead of `Object.assign` eg: `{ ...foo }`  prefer-object-spread
-
-/home/travis/build/Talend/ui/packages/components/src/wrap.test.js
-  26:24  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
-  26:54  warning  Using propTypes from another component is not safe because they may be removed in production builds  react/forbid-foreign-prop-types
-
-✖ 30 problems (27 errors, 3 warnings)
-  1 error, 0 warnings potentially fixable with the `--fix` option.
+✖ 155 problems (134 errors, 21 warnings)
