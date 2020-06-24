@@ -28,7 +28,10 @@ if [ -n "$GH_TOKEN" ]; then
 			echo "✓ Commit optimized icons to $TRAVIS_PULL_REQUEST_BRANCH"
 		fi
 
-		git add output/
+		echo "git add output"
+		git add output
+		echo "git status"
+		git status
 		git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): update code style outputs"
 		echo "✓ Commit updated lint output to $TRAVIS_PULL_REQUEST_BRANCH"
 		echo "git status"
