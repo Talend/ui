@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component should render the leaf 1`] = `
+<RecordsViewerLeaf
+  dataKey="myDataKey"
+  getQuality={[MockFunction]}
+  i18n={
+    Object {
+      "changeLanguage": [Function],
+      "getFixedT": [Function],
+      "hasResourceBundle": [Function],
+      "init": [Function],
+      "isInitialized": true,
+      "isMock": true,
+      "language": "en",
+      "languages": Array [
+        "en",
+      ],
+      "loadNamespaces": [Function],
+      "off": [Function],
+      "on": [Function],
+      "options": Object {},
+      "reportNamespaces": ReportNamespaces {
+        "usedNamespaces": Object {
+          "tui-components": true,
+        },
+      },
+      "services": Object {
+        "backendConnector": Object {},
+        "resourceStore": Object {
+          "data": Object {},
+        },
+      },
+      "store": Object {
+        "data": Object {},
+        "off": [Function],
+        "on": [Function],
+      },
+      "t": [Function],
+    }
+  }
+  level={0}
+  t={[Function]}
+  tReady={true}
+  value={
+    Object {
+      "data": Object {
+        "value": "myValue",
+      },
+      "schema": Object {
+        "type": "int",
+      },
+    }
+  }
+/>
+`;
+
+exports[`Component should render the leaf highlighted 1`] = `
+<RecordsViewerLeaf
+  dataKey="myDataKey"
+  getQuality={[MockFunction]}
+  i18n={
+    Object {
+      "changeLanguage": [Function],
+      "getFixedT": [Function],
+      "hasResourceBundle": [Function],
+      "init": [Function],
+      "isInitialized": true,
+      "isMock": true,
+      "language": "en",
+      "languages": Array [
+        "en",
+      ],
+      "loadNamespaces": [Function],
+      "off": [Function],
+      "on": [Function],
+      "options": Object {},
+      "reportNamespaces": ReportNamespaces {
+        "usedNamespaces": Object {
+          "tui-components": true,
+        },
+      },
+      "services": Object {
+        "backendConnector": Object {},
+        "resourceStore": Object {
+          "data": Object {},
+        },
+      },
+      "store": Object {
+        "data": Object {},
+        "off": [Function],
+        "on": [Function],
+      },
+      "t": [Function],
+    }
+  }
+  level={0}
+  nodeHighlighted={true}
+  t={[Function]}
+  tReady={true}
+  value={
+    Object {
+      "data": Object {
+        "value": "myValue",
+      },
+      "schema": Object {
+        "type": "int",
+      },
+    }
+  }
+/>
+`;
+
+exports[`Component should render the leaf with additional value 1`] = `
+<RecordsViewerLeaf
+  dataKey="myDataKey"
+  getQuality={[MockFunction]}
+  i18n={
+    Object {
+      "changeLanguage": [Function],
+      "getFixedT": [Function],
+      "hasResourceBundle": [Function],
+      "init": [Function],
+      "isInitialized": true,
+      "isMock": true,
+      "language": "en",
+      "languages": Array [
+        "en",
+      ],
+      "loadNamespaces": [Function],
+      "off": [Function],
+      "on": [Function],
+      "options": Object {},
+      "reportNamespaces": ReportNamespaces {
+        "usedNamespaces": Object {
+          "tui-components": true,
+        },
+      },
+      "services": Object {
+        "backendConnector": Object {},
+        "resourceStore": Object {
+          "data": Object {},
+        },
+      },
+      "store": Object {
+        "data": Object {},
+        "off": [Function],
+        "on": [Function],
+      },
+      "t": [Function],
+    }
+  }
+  level={0}
+  renderLeafAdditionalValue={[Function]}
+  t={[Function]}
+  tReady={true}
+  value={
+    Object {
+      "data": Object {
+        "value": "myValue",
+      },
+      "schema": Object {
+        "type": "int",
+      },
+    }
+  }
+/>
+`;
+
+exports[`Component should render the leaf with padding offset 1`] = `
+<RecordsViewerLeaf
+  dataKey="myDataKey"
+  getQuality={[MockFunction]}
+  i18n={
+    Object {
+      "changeLanguage": [Function],
+      "getFixedT": [Function],
+      "hasResourceBundle": [Function],
+      "init": [Function],
+      "isInitialized": true,
+      "isMock": true,
+      "language": "en",
+      "languages": Array [
+        "en",
+      ],
+      "loadNamespaces": [Function],
+      "off": [Function],
+      "on": [Function],
+      "options": Object {},
+      "reportNamespaces": ReportNamespaces {
+        "usedNamespaces": Object {
+          "tui-components": true,
+        },
+      },
+      "services": Object {
+        "backendConnector": Object {},
+        "resourceStore": Object {
+          "data": Object {},
+        },
+      },
+      "store": Object {
+        "data": Object {},
+        "off": [Function],
+        "on": [Function],
+      },
+      "t": [Function],
+    }
+  }
+  level={1}
+  paddingOffset={30}
+  t={[Function]}
+  tReady={true}
+  value={
+    Object {
+      "data": Object {
+        "value": "myValue",
+      },
+      "schema": Object {
+        "type": "int",
+      },
+    }
+  }
+/>
+`;

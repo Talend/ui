@@ -46,7 +46,6 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 		color: $tc-list-title-color;
 		font-size: inherit;
 		font-weight: 600;
-		letter-spacing: inherit;
 		text-transform: none;
 		text-align: left;
 
@@ -75,7 +74,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 			}
 
 			.main-title {
-				color: $scooter;
+				color: $lochmara;
 			}
 		}
 	}
@@ -89,8 +88,9 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
 			opacity: 1;
+			width: 100%;
 			transition: opacity 0.15s ease-in;
-			visibility: visible;
+			overflow: visible;
 		}
 	}
 }

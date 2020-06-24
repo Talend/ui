@@ -67,6 +67,10 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		font-family: inherit;
 	}
 
+	:global(.ag-horizontal-left-spacer) {
+		overflow-x: hidden;
+	}
+
 	:global(.ag-body-viewport) {
 		user-select: text;
 	}

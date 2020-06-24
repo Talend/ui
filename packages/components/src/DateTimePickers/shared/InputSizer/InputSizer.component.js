@@ -21,7 +21,7 @@ function InputSizer({ placeholder, inputText, children }) {
 
 	useEffect(() => {
 		setWidth(sizerRef.current.getBoundingClientRect().width);
-	}, [inputText, placeholder]);
+	});
 
 	const style = inputText ? inputTextSizerStyle : placeholderSizerStyle;
 	const text = inputText || placeholder;
@@ -36,7 +36,7 @@ function InputSizer({ placeholder, inputText, children }) {
 }
 
 InputSizer.propTypes = {
-	placeholder: PropTypes.string.isRequired,
+	placeholder: PropTypes.string,
 	inputText: PropTypes.string,
 	children: PropTypes.func.isRequired,
 };

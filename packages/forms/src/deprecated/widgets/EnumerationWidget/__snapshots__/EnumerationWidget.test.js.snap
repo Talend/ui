@@ -3616,6 +3616,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -6252,6 +6254,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -6575,74 +6579,75 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                             label="Loading"
                                             tooltipPlacement="bottom"
                                           >
-                                            <span
+                                            <Button
+                                              active={false}
                                               aria-describedby={42}
-                                              className="theme-tc-action-disabled-btn-container tc-action-disabled-btn-container"
+                                              aria-label="Loading (in progress)"
+                                              block={false}
+                                              bsClass="btn"
+                                              bsStyle="link"
+                                              className="btn-icon-only theme-btn-disabled"
+                                              disabled={true}
                                               key=".0"
                                               onBlur={[Function]}
                                               onClick={[Function]}
                                               onFocus={[Function]}
                                               onKeyPress={[Function]}
+                                              onMouseDown={[Function]}
                                               onMouseOut={[Function]}
                                               onMouseOver={[Function]}
+                                              role="link"
                                             >
-                                              <Button
-                                                active={false}
+                                              <button
+                                                aria-describedby={42}
                                                 aria-label="Loading (in progress)"
-                                                block={false}
-                                                bsClass="btn"
-                                                bsStyle="link"
-                                                className="btn-icon-only theme-btn-disabled"
+                                                className="btn-icon-only theme-btn-disabled btn btn-link"
                                                 disabled={true}
+                                                onBlur={[Function]}
                                                 onClick={[Function]}
+                                                onFocus={[Function]}
+                                                onKeyPress={[Function]}
                                                 onMouseDown={[Function]}
+                                                onMouseOut={[Function]}
+                                                onMouseOver={[Function]}
                                                 role="link"
+                                                type="button"
                                               >
-                                                <button
-                                                  aria-label="Loading (in progress)"
-                                                  className="btn-icon-only theme-btn-disabled btn btn-link"
-                                                  disabled={true}
-                                                  onClick={[Function]}
-                                                  onMouseDown={[Function]}
-                                                  role="link"
-                                                  type="button"
+                                                <withI18nextTranslation(CircularProgress)
+                                                  key="icon"
+                                                  size="small"
                                                 >
-                                                  <withI18nextTranslation(CircularProgress)
-                                                    key="icon"
+                                                  <CircularProgress
+                                                    i18n={Object {}}
                                                     size="small"
+                                                    t={[Function]}
+                                                    tReady={true}
                                                   >
-                                                    <CircularProgress
-                                                      i18n={Object {}}
-                                                      size="small"
-                                                      t={[Function]}
-                                                      tReady={true}
+                                                    <svg
+                                                      aria-busy="true"
+                                                      aria-label="Loading "
+                                                      className="tc-circular-progress theme-loader theme-animate theme-small"
+                                                      focusable="false"
+                                                      viewBox="0 0 50 50"
                                                     >
-                                                      <svg
-                                                        aria-busy="true"
-                                                        aria-label="Loading "
-                                                        className="tc-circular-progress theme-loader theme-animate theme-small"
-                                                        focusable="false"
-                                                        viewBox="0 0 50 50"
-                                                      >
-                                                        <circle
-                                                          className="theme-path"
-                                                          cx={25}
-                                                          cy={25}
-                                                          fill="none"
-                                                          r={20}
-                                                          style={
-                                                            Object {
-                                                              "strokeDasharray": 12.566370614359172,
-                                                              "strokeDashoffset": 0,
-                                                            }
+                                                      <circle
+                                                        className="theme-path"
+                                                        cx={25}
+                                                        cy={25}
+                                                        fill="none"
+                                                        r={20}
+                                                        style={
+                                                          Object {
+                                                            "strokeDasharray": 12.566370614359172,
+                                                            "strokeDashoffset": 0,
                                                           }
-                                                        />
-                                                      </svg>
-                                                    </CircularProgress>
-                                                  </withI18nextTranslation(CircularProgress)>
-                                                </button>
-                                              </Button>
-                                            </span>
+                                                        }
+                                                      />
+                                                    </svg>
+                                                  </CircularProgress>
+                                                </withI18nextTranslation(CircularProgress)>
+                                              </button>
+                                            </Button>
                                           </TooltipTrigger>
                                         </ActionButton>
                                       </withI18nextTranslation(ActionButton)>
@@ -7360,6 +7365,8 @@ exports[`EnumerationWidget should select an item 1`] = `
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -8770,6 +8777,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -11094,7 +11103,6 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               <Icon
                                 name="talend-download"
                               />,
-                              null,
                               <Icon
                                 className="theme-tc-dropdown-caret"
                                 name="talend-caret-down"
@@ -11221,6 +11229,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         </Icon>
                                         <Icon
                                           className="theme-tc-dropdown-caret"
+                                          key="caret"
                                           name="talend-caret-down"
                                         >
                                           <svg
@@ -12103,76 +12112,77 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           label="Loading"
                           tooltipPlacement="top"
                         >
-                          <span
+                          <Button
+                            active={false}
                             aria-describedby={42}
-                            className="theme-tc-action-disabled-btn-container tc-action-disabled-btn-container"
+                            aria-label="Loading (in progress)"
+                            block={false}
+                            bsClass="btn"
+                            bsStyle="link"
+                            className="btn-icon-only theme-btn-disabled"
+                            disabled={true}
+                            id="loading"
                             key=".0"
                             onBlur={[Function]}
                             onClick={[Function]}
                             onFocus={[Function]}
                             onKeyPress={[Function]}
+                            onMouseDown={[Function]}
                             onMouseOut={[Function]}
                             onMouseOver={[Function]}
+                            role="link"
                           >
-                            <Button
-                              active={false}
+                            <button
+                              aria-describedby={42}
                               aria-label="Loading (in progress)"
-                              block={false}
-                              bsClass="btn"
-                              bsStyle="link"
-                              className="btn-icon-only theme-btn-disabled"
+                              className="btn-icon-only theme-btn-disabled btn btn-link"
                               disabled={true}
                               id="loading"
+                              onBlur={[Function]}
                               onClick={[Function]}
+                              onFocus={[Function]}
+                              onKeyPress={[Function]}
                               onMouseDown={[Function]}
+                              onMouseOut={[Function]}
+                              onMouseOver={[Function]}
                               role="link"
+                              type="button"
                             >
-                              <button
-                                aria-label="Loading (in progress)"
-                                className="btn-icon-only theme-btn-disabled btn btn-link"
-                                disabled={true}
-                                id="loading"
-                                onClick={[Function]}
-                                onMouseDown={[Function]}
-                                role="link"
-                                type="button"
+                              <withI18nextTranslation(CircularProgress)
+                                key="icon"
+                                size="small"
                               >
-                                <withI18nextTranslation(CircularProgress)
-                                  key="icon"
+                                <CircularProgress
+                                  i18n={Object {}}
                                   size="small"
+                                  t={[Function]}
+                                  tReady={true}
                                 >
-                                  <CircularProgress
-                                    i18n={Object {}}
-                                    size="small"
-                                    t={[Function]}
-                                    tReady={true}
+                                  <svg
+                                    aria-busy="true"
+                                    aria-label="Loading "
+                                    className="tc-circular-progress theme-loader theme-animate theme-small"
+                                    focusable="false"
+                                    viewBox="0 0 50 50"
                                   >
-                                    <svg
-                                      aria-busy="true"
-                                      aria-label="Loading "
-                                      className="tc-circular-progress theme-loader theme-animate theme-small"
-                                      focusable="false"
-                                      viewBox="0 0 50 50"
-                                    >
-                                      <circle
-                                        className="theme-path"
-                                        cx={25}
-                                        cy={25}
-                                        fill="none"
-                                        r={20}
-                                        style={
-                                          Object {
-                                            "strokeDasharray": 12.566370614359172,
-                                            "strokeDashoffset": 0,
-                                          }
+                                    <circle
+                                      className="theme-path"
+                                      cx={25}
+                                      cy={25}
+                                      fill="none"
+                                      r={20}
+                                      style={
+                                        Object {
+                                          "strokeDasharray": 12.566370614359172,
+                                          "strokeDashoffset": 0,
                                         }
-                                      />
-                                    </svg>
-                                  </CircularProgress>
-                                </withI18nextTranslation(CircularProgress)>
-                              </button>
-                            </Button>
-                          </span>
+                                      }
+                                    />
+                                  </svg>
+                                </CircularProgress>
+                              </withI18nextTranslation(CircularProgress)>
+                            </button>
+                          </Button>
                         </TooltipTrigger>
                       </ActionButton>
                     </withI18nextTranslation(ActionButton)>
@@ -12369,6 +12379,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div
@@ -14031,7 +14043,6 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               <Icon
                                 name="talend-download"
                               />,
-                              null,
                               <Icon
                                 className="theme-tc-dropdown-caret"
                                 name="talend-caret-down"
@@ -14155,6 +14166,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         </Icon>
                                         <Icon
                                           className="theme-tc-dropdown-caret"
+                                          key="caret"
                                           name="talend-caret-down"
                                         >
                                           <svg
@@ -14626,6 +14638,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               <div
                 className="theme-tc-enumeration-items tc-enumeration-items"
                 onScroll={[Function]}
+                style={Object {}}
+                test-id="enumeration-items-list"
               >
                 <MockAutoSizer>
                   <div

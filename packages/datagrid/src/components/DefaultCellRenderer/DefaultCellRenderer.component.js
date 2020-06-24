@@ -24,10 +24,9 @@ function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }
 	let content;
 
 	const plainValue = convertValue(value);
-	// console.log('DefaultCellRenderer');
-	if (data.loading) {
-		content = null;
-		// content = <Skeleton key="1" />;
+
+	if (data.loaded === false) {
+		content = <Skeleton key="1" />;
 	} else {
 		content = [
 			<QualityIndicator key="2" qualityIndex={plainValue.quality} />,

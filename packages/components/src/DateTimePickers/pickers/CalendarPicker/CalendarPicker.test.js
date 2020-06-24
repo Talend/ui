@@ -25,8 +25,8 @@ describe('CalendarPicker', () => {
 		const wrapper = shallow(<CalendarPicker onSubmit={() => {}} />);
 
 		// then
-		const dateTimeView = wrapper.find(DateView);
-		expect(dateTimeView.prop('calendar')).toEqual({
+		const dateView = wrapper.find(DateView);
+		expect(dateView.prop('calendar')).toEqual({
 			monthIndex: 4,
 			year: 2016,
 		});
@@ -204,6 +204,40 @@ describe('CalendarPicker', () => {
 			// then
 			expect(wrapper.state('isDateView')).toBe(true);
 			expect(wrapper.state('selectedDate')).toStrictEqual(startOfDay(new Date()));
+		});
+	});
+	describe('date range', () => {
+		it('should initialize calendar of startDate when pick "from" date', () => {
+			// when
+			const wrapper = shallow(
+				<CalendarPicker
+					selectedDate={new Date(2013, 0, 15)}
+					endDate={new Date(2013, 1, 2)}
+					onSubmit={() => {}}
+				/>,
+			);
+
+			// then
+			expect(wrapper.state('calendar')).toEqual({
+				monthIndex: 0,
+				year: 2013,
+			});
+		});
+		it('should initialize calendar of endDate when pick "to" date', () => {
+			// when
+			const wrapper = shallow(
+				<CalendarPicker
+					startDate={new Date(2012, 11, 29)}
+					selectedDate={new Date(2013, 0, 15)}
+					onSubmit={() => {}}
+				/>,
+			);
+
+			// then
+			expect(wrapper.state('calendar')).toEqual({
+				monthIndex: 0,
+				year: 2013,
+			});
 		});
 	});
 });

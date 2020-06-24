@@ -25,7 +25,7 @@ exports[`Typeahead injection should use render props to inject extra components 
       autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
       readOnly={false}
@@ -76,6 +76,7 @@ exports[`Typeahead injection should use render props to inject extra components 
           <li
             aria-selected={false}
             id="react-autowhatever-my-search--item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -99,6 +100,7 @@ exports[`Typeahead injection should use render props to inject extra components 
           <li
             aria-selected={false}
             id="react-autowhatever-my-search--item-1"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -154,7 +156,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
       autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
       readOnly={false}
@@ -213,6 +215,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -260,6 +263,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-1"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -347,6 +351,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-1-item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -418,7 +423,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
       autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
       readOnly={false}
@@ -482,7 +487,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
       readOnly={false}
@@ -540,6 +545,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -570,6 +576,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-1"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -628,6 +635,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-1-item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -687,7 +695,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
       readOnly={false}
@@ -723,6 +731,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
         <li
           aria-selected={false}
           id="react-autowhatever-my-search--item-0"
+          onMouseDown={[Function]}
           role="option"
           style={Object {}}
         >
@@ -747,6 +756,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
         <li
           aria-selected={false}
           id="react-autowhatever-my-search--item-1"
+          onMouseDown={[Function]}
           role="option"
           style={Object {}}
         >
@@ -799,7 +809,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
       readOnly={false}
@@ -863,7 +873,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
       readOnly={false}
@@ -901,7 +911,7 @@ exports[`Typeahead should pass input extra props 1`] = `
       autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
       readOnly={false}

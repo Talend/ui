@@ -6,7 +6,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 
 // needed to increase its weight
 .switch.switch {
-	[type='checkbox'] {
+	input[type='checkbox'] {
 		position: absolute;
 		clip: rect(1px, 1px, 1px, 1px);
 		padding: 0;
@@ -43,7 +43,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 			margin-top: -0.5rem;
 			width: 1.5rem;
 			height: 1.5rem;
-			background-color: $wild-sand;
+			background: $wild-sand;
 			border: 1px solid $silver;
 			box-shadow: $switch-thumb-shadow;
 			z-index: 1;

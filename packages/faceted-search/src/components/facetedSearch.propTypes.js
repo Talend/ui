@@ -6,17 +6,17 @@ const badgeDefinitionRawDataPropTypes = PropTypes.shape({
 	operators: PropTypes.arrayOf(PropTypes.string),
 	type: PropTypes.string.isRequired,
 	metadata: PropTypes.shape({
-		badges_per_facet: PropTypes.string,
-		entities_per_badge: PropTypes.string,
+		badgePerFacet: PropTypes.string,
+		entitiesPerBadge: PropTypes.string,
 	}),
 });
 
 const badgesDefinitionsRawDataPropTypes = PropTypes.arrayOf(badgeDefinitionRawDataPropTypes);
 
 const operatorPropTypes = PropTypes.shape({
-	name: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	iconName: PropTypes.string.isRequired,
+	name: PropTypes.string,
+	label: PropTypes.string,
+	iconName: PropTypes.string,
 });
 
 const operatorsPropTypes = PropTypes.arrayOf(operatorPropTypes);
@@ -32,15 +32,19 @@ const badgeFacetedPropTypes = PropTypes.shape({
 		type: PropTypes.string.isRequired,
 	}),
 	metadata: PropTypes.shape({
-		badgeId: PropTypes.string.isRequired,
-		badgesPerFacet: PropTypes.string,
-		case: PropTypes.string,
+		badgeId: PropTypes.string,
+		badgePerFacet: PropTypes.string,
+		isInCreation: PropTypes.bool,
 		entitiesPerBadge: PropTypes.string,
 		operators: PropTypes.arrayOf(PropTypes.string),
 	}),
 });
 
 const badgesFacetedPropTypes = PropTypes.arrayOf(badgeFacetedPropTypes);
+
+const callbacksPropTypes = PropTypes.shape({
+	getTags: PropTypes.func,
+});
 
 export {
 	badgeDefinitionRawDataPropTypes,
@@ -49,4 +53,5 @@ export {
 	badgesFacetedPropTypes,
 	operatorPropTypes,
 	operatorsPropTypes,
+	callbacksPropTypes,
 };

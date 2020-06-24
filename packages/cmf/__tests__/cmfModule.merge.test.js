@@ -1,3 +1,8 @@
+/* eslint-disable no-empty-function */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { mount } from 'enzyme';
+
 import mergeModules from '../src/cmfModule.merge';
 
 describe('mergeModule', () => {
@@ -17,10 +22,12 @@ describe('mergeModule', () => {
 		expect(config.components.foo).toBe(b.components.foo);
 		expect(config.components.bar).toBe(a.components.bar);
 	});
+
 	it('should not merge module id', () => {
 		const config = mergeModules({ id: 'foo' }, { id: 'bar' });
 		expect(config.id).toBeUndefined();
 	});
+
 	it('should merge sagas config', () => {
 		const a = {
 			sagas: {
@@ -37,6 +44,7 @@ describe('mergeModule', () => {
 		expect(config.sagas.foo).toBe(b.sagas.foo);
 		expect(config.sagas.bar).toBe(a.sagas.bar);
 	});
+
 	it('should support undefined as value', () => {
 		const a = {
 			appId: 'app',
@@ -57,6 +65,7 @@ describe('mergeModule', () => {
 		const config = mergeModules(a, b);
 		expect(config.expressions.ttt).toBe(a.expressions.ttt);
 	});
+
 	it('should merge expressions config', () => {
 		const a = {
 			expressions: {
@@ -73,6 +82,7 @@ describe('mergeModule', () => {
 		expect(config.expressions.foo).toBe(b.expressions.foo);
 		expect(config.expressions.bar).toBe(a.expressions.bar);
 	});
+
 	it('should merge actionCreators config', () => {
 		const a = {
 			actionCreators: {
@@ -89,23 +99,28 @@ describe('mergeModule', () => {
 		expect(config.actionCreators.foo).toBe(b.actionCreators.foo);
 		expect(config.actionCreators.bar).toBe(a.actionCreators.bar);
 	});
+
 	it('should throw an exception on unknown keys', () => {
 		const toThrow = () => mergeModules({ foo: {} });
 		expect(toThrow).toThrow();
 	});
+
 	it('should throw a TypeError on undefined keys', () => {
 		const toThrow = () =>
 			mergeModules({ expressions: {} }, { expressions: { toThrow: undefined } });
 		expect(toThrow).toThrow('toThrow value is undefined. You may have a bad import here');
 	});
+
 	it('should throw an exception if two config has appId', () => {
 		const toThrow = () => mergeModules({ appId: 'foo' }, { appId: 'bar' });
 		expect(toThrow).toThrow();
 	});
+
 	it('should get appId in config', () => {
 		const left = mergeModules({ appId: 'foo' }, {}, {});
 		expect(left.appId).toBe('foo');
 	});
+
 	it('should merge enhancer functions', () => {
 		const fn1 = jest.fn();
 		const fn2 = jest.fn();
@@ -115,6 +130,7 @@ describe('mergeModule', () => {
 		expect(fn1).toHaveBeenCalledWith('foo');
 		expect(fn2).toHaveBeenCalledWith('foo');
 	});
+
 	it('should merge saga', () => {
 		const fn1 = jest.fn();
 		const fn2 = jest.fn();
@@ -123,6 +139,7 @@ describe('mergeModule', () => {
 		expect(config.saga).not.toBe(fn1);
 		expect(config.saga).not.toBe(fn2);
 	});
+
 	it('should merge middlewares', () => {
 		const mid1 = [jest.fn()];
 		const mid2 = [jest.fn()];
@@ -131,6 +148,7 @@ describe('mergeModule', () => {
 		expect(config.middlewares[0]).toBe(mid1[0]);
 		expect(config.middlewares[1]).toBe(mid2[0]);
 	});
+
 	it('should merge storeCallback fns', () => {
 		const storeCallback1 = jest.fn();
 		const storeCallback2 = jest.fn();
@@ -143,6 +161,7 @@ describe('mergeModule', () => {
 		expect(storeCallback1).toHaveBeenCalledWith('foo');
 		expect(storeCallback2).toHaveBeenCalledWith('foo');
 	});
+
 	it('should merge reducer', () => {
 		const ob1 = { foo: jest.fn() };
 		const ob2 = { bar: jest.fn() };
@@ -152,6 +171,7 @@ describe('mergeModule', () => {
 		expect(config.reducer.foo).toBe(ob1.foo);
 		expect(config.reducer.bar).toBe(ob2.bar);
 	});
+
 	it('should merge preReducer', () => {
 		const fn1 = jest.fn();
 		const fn2 = jest.fn();
@@ -182,13 +202,33 @@ describe('mergeModule', () => {
 		expect(config.preReducer[0]).toBe(array1[0]);
 		expect(config.preReducer[1]).toBe(array2[0]);
 	});
+
 	it('should merge httpInterceptors', () => {
 		const fn1 = jest.fn();
 		const fn2 = jest.fn();
-		const config = mergeModules({ httpInterceptors: [fn1]}, { httpInterceptors: [fn2]});
+		const config = mergeModules({ httpInterceptors: [fn1] }, { httpInterceptors: [fn2] });
 		expect(Array.isArray(config.httpInterceptors)).toBeTruthy();
 		expect(config.httpInterceptors.length).toBe(2);
 		expect(config.httpInterceptors[0]).toBe(fn1);
 		expect(config.httpInterceptors[1]).toBe(fn2);
+	});
+
+	it('should compose RootComponent', () => {
+		// given
+		const module1 = { RootComponent: ({ children }) => <div id="mod1">{children}</div> };
+		const module2 = { RootComponent: ({ children }) => <div id="mod2">{children}</div> };
+		const module3 = { RootComponent: ({ children }) => <div id="mod3">{children}</div> };
+
+		// when
+		const { RootComponent } = mergeModules(module1, module2, module3);
+		const wrapper = mount(<RootComponent />);
+
+		// then
+		const mod1 = wrapper.find('#mod1');
+		expect(mod1.length).toBe(1);
+		const mod2 = mod1.find('#mod2');
+		expect(mod2.length).toBe(1);
+		const mod3 = mod1.find('#mod3');
+		expect(mod3.length).toBe(1);
 	});
 });

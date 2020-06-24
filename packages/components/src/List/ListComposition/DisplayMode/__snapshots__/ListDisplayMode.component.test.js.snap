@@ -29,6 +29,7 @@ exports[`List DisplayMode should render 1`] = `
         key="table"
         label="Set Table as current display mode."
         onClick={[Function]}
+        tick={false}
         tooltipPlacement="top"
       >
         <TooltipTrigger
@@ -105,6 +106,7 @@ exports[`List DisplayMode should render 1`] = `
         key="large"
         label="Set Expanded as current display mode."
         onClick={[Function]}
+        tick={false}
         tooltipPlacement="top"
       >
         <TooltipTrigger

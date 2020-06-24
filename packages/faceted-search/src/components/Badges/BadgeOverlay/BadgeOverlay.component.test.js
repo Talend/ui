@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
 import { BadgeOverlay } from './BadgeOverlay.component';
+import getDefaultT from '../../../translate';
 
 describe('BadgeOverlay', () => {
 	it('should render the html output in the default state', () => {
@@ -11,6 +12,7 @@ describe('BadgeOverlay', () => {
 		const props = {
 			id: 'my-id',
 			label: 'my label',
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
@@ -29,6 +31,7 @@ describe('BadgeOverlay', () => {
 		const props = {
 			id: 'my-id',
 			label: 'my label',
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>{() => childrenAsFunc()}</BadgeOverlay>);
@@ -39,16 +42,20 @@ describe('BadgeOverlay', () => {
 		// Given
 		const props = {
 			id: 'my-id',
+			label: 'my label',
+			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(<BadgeOverlay {...props} />);
+		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
 		expect(
 			wrapper
 				.find('Overlay')
 				.at(0)
 				.prop('show'),
 		).toBe(false);
-		act(() => wrapper.find('button').simulate('click'));
+		act(() => {
+			wrapper.find('button').simulate('click');
+		});
 		wrapper.update();
 		// Then
 		expect(
@@ -62,11 +69,13 @@ describe('BadgeOverlay', () => {
 		// Given
 		const onChange = jest.fn();
 		const props = {
+			label: 'my label',
 			id: 'my-id',
+			t: getDefaultT(),
 			onChange,
 		};
 		// When
-		const wrapper = mount(<BadgeOverlay {...props} />);
+		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
 		expect(
 			wrapper
 				.find('Overlay')
@@ -81,11 +90,13 @@ describe('BadgeOverlay', () => {
 	it('should render with the overlay showed', () => {
 		// Given
 		const props = {
+			label: 'my label',
 			id: 'my-id',
 			initialOpened: true,
+			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(<BadgeOverlay {...props} />);
+		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
 		// Then
 		expect(
 			wrapper

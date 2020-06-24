@@ -19,9 +19,13 @@ const FacetedSearch = ({ children, error, facetedMode, id, inProgress, setFacete
 	const setMode = isControlled ? setFacetedMode : setFacetedModeState;
 	return (
 		<FacetedManager error={error} id={facetedId} inProgress={inProgress} t={t}>
-			<FacetedToolbar id={id} facetedMode={mode} onChangeFacetedMode={setMode} t={t}>
-				{children(mode)}
-			</FacetedToolbar>
+			{typeof children === 'function' ? (
+				<FacetedToolbar id={id} facetedMode={mode} onChangeFacetedMode={setMode} t={t}>
+					{children(mode)}
+				</FacetedToolbar>
+			) : (
+				children
+			)}
 		</FacetedManager>
 	);
 };

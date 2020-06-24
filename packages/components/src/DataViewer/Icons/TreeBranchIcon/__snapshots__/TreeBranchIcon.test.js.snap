@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeBranchIcon should render an closed icon 1`] = `
+<span
+  className="theme-tc-tree-branch-icon tc-tree-branch-icon"
+>
+  <Icon
+    className="theme-tc-tree-branch-icon-caret tc-tree-branch-icon-caret theme-tc-tree-branch-icon-caret-right tc-tree-branch-icon-caret-right"
+    name="talend-chevron-left"
+    onClick={[Function]}
+    title="Expand myDataKey (myJsonPath)"
+  />
+</span>
+`;
+
+exports[`TreeBranchIcon should render an opened icon 1`] = `
+<span
+  className="theme-tc-tree-branch-icon tc-tree-branch-icon"
+>
+  <Icon
+    className="theme-tc-tree-branch-icon-caret tc-tree-branch-icon-caret"
+    name="talend-caret-down"
+    onClick={[Function]}
+    title="Collapse myDataKey (myJsonPath)"
+  />
+</span>
+`;

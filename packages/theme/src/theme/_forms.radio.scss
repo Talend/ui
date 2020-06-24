@@ -6,7 +6,7 @@ $tt-radio-checked-border-color: shade($lochmara, 15) !default;
 $tt-radio-disabled-checked-color: $gray-light !default;
 $tt-radio-hover-border-color: tint($lochmara, 15) !default;
 
-[type='radio'] {
+input[type='radio'] {
 	&:before,
 	&:after,
 	+ *:before,

@@ -34,9 +34,7 @@ export function* fetchProducts(action) {
  */
 export function handleOpenProduct(action) {
 	if ('url' in action.payload) {
-		const opened = window.open(action.payload.url, '_blank');
-		// security fix:
-		opened.opener = null;
+		window.location.assign(action.payload.url);
 	}
 }
 

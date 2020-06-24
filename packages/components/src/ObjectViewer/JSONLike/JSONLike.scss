@@ -1,3 +1,10 @@
+@mixin chevron($color) {
+	border: 1px solid $scooter;
+	padding: 3px;
+	border-radius: 10px;
+	color: $color;
+}
+
 .container {
 	display: block;
 	font-size: 1.4rem;
@@ -32,6 +39,7 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
+		max-width: 100%;
 
 		&:focus {
 			outline: none;
@@ -50,6 +58,10 @@
 		.line {
 			display: flex;
 
+			&.full-width {
+				width: 100%;
+			}
+
 			.toggle {
 				min-height: auto;
 				line-height: unset;
@@ -66,14 +78,17 @@
 				display: flex;
 				align-items: center;
 
-				&:focus,
-				&:hover {
+				&:focus {
 					.value {
 						white-space: normal;
 						word-break: break-all;
 						overflow: visible;
 						vertical-align: top;
 					}
+				}
+
+				&.shrink-value {
+					overflow: hidden;
 				}
 			}
 		}
@@ -93,9 +108,17 @@
 		.value {
 			color: $brand-primary;
 			margin-left: $padding-smaller;
-			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
+
+			&.wrap-string {
+				white-space: normal;
+				word-break: break-all;
+			}
+
+			&.shrink-value {
+				overflow: hidden;
+			}
 		}
 
 		.type {
@@ -118,5 +141,18 @@
 			padding: ($padding-smaller / 2) $padding-smaller;
 			display: inline-table;
 		}
+	}
+}
+
+.chevron {
+	svg {
+		@include chevron($scooter);
+	}
+}
+
+.chevron-filled {
+	svg {
+		@include chevron($white);
+		background-color: $scooter;
 	}
 }

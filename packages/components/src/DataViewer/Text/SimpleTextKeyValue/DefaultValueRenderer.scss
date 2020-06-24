@@ -1,0 +1,16 @@
+.td-default-cell {
+	height: 100%;
+	white-space: nowrap;
+}
+
+.shrink-value {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre;
+}
+
+.wrap-value {
+	overflow: initial;
+	white-space: normal;
+	word-break: break-all;
+}

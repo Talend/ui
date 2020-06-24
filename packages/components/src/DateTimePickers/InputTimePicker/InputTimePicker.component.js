@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
 import { Popper } from 'react-popper';
@@ -36,7 +37,12 @@ export default function InputTimePicker(props) {
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
-		<Time.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
+		<Time.Input
+			{...inputProps}
+			id={`${props.id}-input`}
+			key="input"
+			inputRef={inputRef}
+		/>,
 		handlers.showPicker && (
 			<Popper
 				key="popper"
@@ -59,7 +65,7 @@ export default function InputTimePicker(props) {
 				)}
 			</Popper>
 		),
-		props.timezone && <TimeZone timezone={props.timezone} />,
+		props.timezone && <TimeZone key="timezone" timezone={props.timezone} />,
 	].filter(Boolean);
 	return (
 		<Time.Manager
@@ -69,7 +75,7 @@ export default function InputTimePicker(props) {
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 		>
 			<FocusManager
-				className={theme['time-picker']}
+				className={classnames(theme['time-picker'], 'time-picker')}
 				divRef={containerRef}
 				onClick={handlers.onClick}
 				onFocusIn={handlers.onFocus}

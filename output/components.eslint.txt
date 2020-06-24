@@ -1,45 +1,55 @@
-> eslint --config ../../.eslintrc src
+> eslint --config ../../.eslintrc --ignore-path ../../.eslintignore src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/components/src/Badge/index.js
-  1:8  error  Using exported name 'Badge' as identifier for default export  import/no-named-as-default
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Badges/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Headers/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Icons/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Managers/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/RecordsViewer/Branch/RecordsViewerBranch.component.js
+  88:5  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/components/src/DataViewer/Text/index.js
+  3:10  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
-  72:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
-  73:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
-  75:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
-  76:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.js
+  186:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/shared/error-messages.js
-   7:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-   9:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  11:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  13:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  17:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  19:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  23:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  25:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  27:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  29:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  31:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  35:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  39:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  41:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
+  80:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
+  81:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
+  83:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
+  84:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
+  281:43  error  'footerActions' is already declared in the upper scope  no-shadow
+  281:43  error  'footerActions' is defined but never used               no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
-  59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
-  62:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
+  70:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
+  73:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
-  129:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
+   80:37  error    Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
+  221:3   warning  Unexpected console statement                                       no-console
 
 /home/travis/build/Talend/ui/packages/components/src/IconsProvider/IconsProvider.component.js
    9:2   warning  Unexpected console statement  no-console
   10:16  error    Unexpected require()          global-require
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/collection.js
+  1:1  error  '@storybook/addon-actions' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -47,19 +57,22 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemView.component.js
   41:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
-  17:2  warning  Unexpected console statement  no-console
-
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
   4:8  error  'Container' is defined but never used  no-unused-vars
 
+/home/travis/build/Talend/ui/packages/components/src/Toggle/Checkbox.js
+  3:1  error  Prefer default export  import/prefer-default-export
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
-  166:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  177:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
+  47:14  error  '_' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   42:3  warning  Unexpected console statement  no-console
-  71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
+  73:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 32 problems (29 errors, 3 warnings)
+✖ 29 problems (26 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 

@@ -108,24 +108,6 @@ function bootstrapInterceptors(options) {
 	}
 }
 
-function addOnErrorListener() {
-	window.addEventListener('error', event => {
-		const error = event.error;
-		if (!error) {
-			return;
-		}
-		// remove duplicate in dev mode
-		// SEE: https://github.com/facebook/react/issues/10474
-		if (process.env.NODE_ENV !== 'production') {
-			if (error.ALREADY_THROWN) {
-				return;
-			}
-			error.ALREADY_THROWN = true;
-		}
-		onError.report(error);
-	});
-}
-
 function DefaultRootComponent() {
 	return 'RootComponent is required';
 }
@@ -139,10 +121,10 @@ function DefaultRootComponent() {
  * @param {object} options the set of supported options
  * @returns {object} app object with render function
  */
-export default function bootstrap(appOptions = {}) {
+export default async function bootstrap(appOptions = {}) {
 	// setup asap
-	// addOnErrorListener();
-	const options = cmfModule(appOptions);
+	const options = await cmfModule(appOptions);
+	assertTypeOf(options, 'root', 'object');
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'RootComponent', 'function');
 
@@ -155,10 +137,11 @@ export default function bootstrap(appOptions = {}) {
 	onError.bootstrap(options, store);
 	saga.run();
 	const RootComponent = options.RootComponent || DefaultRootComponent;
+	const element = options.root || document.getElementById(appId);
 	render(
 		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
 			<RootComponent />
 		</App>,
-		document.getElementById(appId),
+		element,
 	);
 }

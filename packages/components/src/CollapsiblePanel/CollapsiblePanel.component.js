@@ -139,11 +139,7 @@ function CollapsiblePanelHeader(props) {
 			</Button>
 		) : (
 			/* eslint-disable jsx-a11y/no-static-element-interactions */
-			<div
-				className={classNames(css['panel-title'])}
-				key="panel-toggle"
-				onClick={onToggle}
-			>
+			<div className={classNames(css['panel-title'])} key="panel-toggle" onClick={onToggle}>
 				{headerItems}
 			</div>
 		),
@@ -156,6 +152,7 @@ function CollapsiblePanelHeader(props) {
 
 		const defaultCaret = (
 			<ActionIconToggle
+				key={`collapse_header_${id}`}
 				aria-expanded={expanded}
 				className={classNames(css.toggle, 'toggle')}
 				onClick={onToggle}
@@ -169,7 +166,11 @@ function CollapsiblePanelHeader(props) {
 		);
 		wrappedHeader.push(defaultCaret);
 	}
-	return <div className={classNames(css['panel-header-content'], 'panel-header-content')}>{wrappedHeader}</div>;
+	return (
+		<div className={classNames(css['panel-header-content'], 'panel-header-content')}>
+			{wrappedHeader}
+		</div>
+	);
 }
 
 function getKeyValueContent(content) {

@@ -66,6 +66,29 @@ describe('BadgeOperatorPopover', () => {
 		expect(wrapper.find('button')).toHaveLength(2);
 		expect(wrapper.find('svg')).toHaveLength(2);
 	});
+	it('should render a button with text as operator', () => {
+		// Given
+		const props = {
+			id: 'my-id',
+			operators: [
+				{
+					name: 'myTextOperator',
+					label: 'Label',
+				},
+			],
+			onClick: jest.fn(),
+		};
+		// When
+		const wrapper = mount(<BadgeOperatorPopover {...props} />);
+		// Then
+		expect(
+			wrapper
+				.find('button')
+				.at(0)
+				.prop('aria-label'),
+		).toEqual('Label');
+		expect(wrapper.find('button')).toHaveLength(1);
+	});
 	it('should trigger on click', () => {
 		// Given
 		const onClick = jest.fn();

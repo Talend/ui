@@ -6,11 +6,7 @@ import theme from './RichLayout.scss';
 
 const TooltipPropTypes = {
 	id: PropTypes.string.isRequired,
-	children: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.arrayOf(PropTypes.element),
-		PropTypes.string,
-	]),
+	children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
 	className: PropTypes.string,
 };
 
@@ -37,22 +33,21 @@ const Footer = ({ id, children, className }) => (
 );
 Footer.propTypes = TooltipPropTypes;
 
-export default function RichLayout(props) {
-	return (
-		<span id={props.id}>
-			<Header id={`${props.id}-header`}>
-				{Inject.getReactElement(props.getComponent, props.Header)}
-			</Header>
-			<Body id={`${props.id}-body`} className={props.className}>
-				{props.text && <p>{props.text}</p>}
-				{!props.text && Inject.getReactElement(props.getComponent, props.Content)}
-			</Body>
-			<Footer id={`${props.id}-footer`}>
-				{Inject.getReactElement(props.getComponent, props.Footer)}
-			</Footer>
-		</span>
-	);
-}
+const RichLayout = React.forwardRef((props, ref) => (
+	<div id={props.id} className={theme['rich-layout']} ref={ref} tabIndex="-1">
+		<Header id={`${props.id}-header`}>
+			{Inject.getReactElement(props.getComponent, props.Header)}
+		</Header>
+		<Body id={`${props.id}-body`} className={props.className}>
+			{props.text && <p>{props.text}</p>}
+			{!props.text && Inject.getReactElement(props.getComponent, props.Content)}
+		</Body>
+		<Footer id={`${props.id}-footer`}>
+			{Inject.getReactElement(props.getComponent, props.Footer)}
+		</Footer>
+	</div>
+));
+
 RichLayout.Header = Header;
 RichLayout.Body = Body;
 RichLayout.Footer = Footer;
@@ -66,3 +61,5 @@ RichLayout.propTypes = {
 	text: PropTypes.string,
 	id: PropTypes.string.isRequired,
 };
+
+export default RichLayout;

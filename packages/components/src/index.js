@@ -12,6 +12,7 @@ import {
 } from './Actions';
 import ActionBar from './ActionBar';
 import ActionList from './ActionList';
+import AppGuidedTour from './AppGuidedTour';
 import AppLoader from './AppLoader';
 import Notification from './Notification';
 import HeaderBar from './HeaderBar';
@@ -49,6 +50,7 @@ import SidePanel from './SidePanel';
 import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
+import Stepper from './Stepper';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -57,8 +59,11 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
+import ResourceList from './ResourceList';
 import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
+import { ModelViewer, RecordsViewer } from './DataViewer';
+import { InlineMessage } from './InlineMessage';
 
 const {
 	Alert,
@@ -139,6 +144,7 @@ export {
 	ActionFile,
 	ActionIconToggle,
 	ActionSplitDropdown,
+	AppGuidedTour,
 	AppLoader,
 	Badge,
 	Breadcrumbs,
@@ -168,14 +174,18 @@ export {
 	List,
 	ListView,
 	Loader,
+	ModelViewer,
 	Notification,
 	ObjectViewer,
 	Progress,
+	RecordsViewer,
+	ResourceList,
 	ResourcePicker,
 	RichError,
 	RichLayout,
 	SidePanel,
 	Status,
+	InlineMessage,
 	SubHeaderBar,
 	TabBar,
 	Table,
@@ -246,6 +256,7 @@ export {
 	SafeAnchor,
 	Skeleton,
 	SplitButton,
+	Stepper,
 	Tab,
 	TabContainer,
 	TabContent,

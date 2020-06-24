@@ -14,18 +14,14 @@ import Action from '../../Actions/Action/Action.component';
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 const { LARGE } = listTypes;
 
-const MAX_DIRECT_NB_ICON = 3;
+const MAX_DIRECT_NB_ICON = 4;
 
 function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
 }
 
-function getLargeDisplayActions(actions, getComponent) {
-	if (!actions || !actions.length) {
-		return null;
-	}
-
-	return (
+function renderActionsGroup(getComponent) {
+	return actions => (
 		<Actions
 			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
@@ -35,6 +31,18 @@ function getLargeDisplayActions(actions, getComponent) {
 			link
 		/>
 	);
+}
+
+function getLargeDisplayActions(actions, getComponent) {
+	if (!actions || !actions.length) {
+		return null;
+	}
+
+	if (Array.isArray(actions) && actions.every(item => Array.isArray(item))) {
+		return actions.map(renderActionsGroup(getComponent));
+	}
+
+	return renderActionsGroup(getComponent)(actions);
 }
 
 function getDefaultDisplayActions(actions, getComponent, t, id) {
@@ -101,7 +109,6 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
 				hideLabel
 				link
-				noCaret
 			/>,
 		);
 	}
@@ -146,7 +153,7 @@ export function CellTitleActionsComponent({
 	t,
 	type,
 }) {
-	const dataActions = get(rowData, actionsKey, []).filter(isAvailable);
+	let dataActions = get(rowData, actionsKey, []).filter(isAvailable);
 	const persistentActions = get(rowData, persistentActionsKey, []);
 	const hasActions = dataActions.length || persistentActions.length;
 	if (displayMode !== TITLE_MODE_TEXT || !hasActions) {
@@ -157,6 +164,10 @@ export function CellTitleActionsComponent({
 	if (type === LARGE) {
 		actions.push(getLargeDisplayActions(dataActions, getComponent));
 	} else {
+		// flatening in tab case
+		if (Array.isArray(dataActions) && dataActions.every(item => Array.isArray(item))) {
+			dataActions = dataActions.flatMap(item => item);
+		}
 		actions.push(getDefaultDisplayActions(dataActions, getComponent, t, id));
 	}
 

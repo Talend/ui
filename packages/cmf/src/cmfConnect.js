@@ -33,7 +33,7 @@ import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
-import bsonObjectid from 'bson-objectid';
+import { v4 as uuidv4 } from 'uuid';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
@@ -220,9 +220,7 @@ export default function cmfConnect({
 			displayNameWarning = false;
 			// eslint-disable-next-line no-console
 			console.warn(
-				`${
-					WrappedComponent.name
-				} has no displayName. Please read https://jira.talendforge.org/browse/TUI-302`,
+				`${WrappedComponent.name} has no displayName. Please read https://jira.talendforge.org/browse/TUI-302`,
 			);
 		}
 		function getState(state, id = 'default') {
@@ -264,7 +262,7 @@ export default function cmfConnect({
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
 				this.getOnEventProps = this.getOnEventProps.bind(this);
-				this.id = bsonObjectid().toString();
+				this.id = uuidv4();
 			}
 
 			componentDidMount() {

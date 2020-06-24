@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useCollectionSelection(
 	collection = [],
@@ -6,6 +6,21 @@ export default function useCollectionSelection(
 	idKey = 'id',
 ) {
 	const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
+
+	function filterSelectionFromCollection(selection) {
+		return collection
+			.filter(item => selection.includes(item[idKey]))
+			.map(item => item[idKey]);
+	}
+
+	useEffect(() => {
+		if (selectedIds.length === 0) {
+			return;
+		}
+
+		const filteredSelection = filterSelectionFromCollection(selectedIds);
+		setSelectedIds(filteredSelection);
+	}, [collection]);
 
 	function isSelected(item) {
 		const itemId = item[idKey];
@@ -21,7 +36,7 @@ export default function useCollectionSelection(
 		} else {
 			newSelectedIds.push(itemId);
 		}
-		setSelectedIds(newSelectedIds);
+		setSelectedIds(filterSelectionFromCollection(newSelectedIds));
 	}
 
 	function onToggleAll() {

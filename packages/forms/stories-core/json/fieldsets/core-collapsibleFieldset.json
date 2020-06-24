@@ -66,6 +66,24 @@
           "validationMessage": "Don't be greedy!"
         }
       ]
+    },
+    {
+      "widget": "collapsibleFieldset",
+      "key": "technical.description",
+      "title": "Description",
+      "description": "Hint: this is the description",
+      "items": [
+        {
+          "key": "lastname",
+          "title": "Last Name (with description)",
+          "description": "Hint: this is the last name"
+        },
+        {
+          "key": "firstname",
+          "title": "First Name (with description)",
+          "description": "Hint: this is the first name"
+        }
+      ]
     }
   ],
   "properties": {

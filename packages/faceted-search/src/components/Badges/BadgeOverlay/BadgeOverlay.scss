@@ -1,0 +1,24 @@
+.tc-badge-link-plus {
+	color: $lochmara;
+	border: 1px solid rgba($lochmara, 0.25);
+	text-transform: none;
+	padding: 0 0.8rem;
+	min-height: auto;
+	height: 2.4rem;
+	line-height: normal;
+	border-radius: 2.5rem;
+	font-weight: $font-weight-semi-bold;
+
+	&:hover,
+	&:focus {
+		color: $lochmara;
+		border-color: rgba($lochmara, 1);
+		text-decoration: none;
+	}
+
+	.tc-badge-link-plus-icon {
+		width: 1.2rem;
+		height: 1.2rem;
+		margin: 0;
+	}
+}

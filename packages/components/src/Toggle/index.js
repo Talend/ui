@@ -1,5 +1,8 @@
 import Toggle from './Toggle.component';
+import LabelToggle from './LabelToggle/LabelToggle.component';
+
+Toggle.Label = LabelToggle;
 
 export default Toggle;
 
-export function Checkbox(params) { return new Toggle({ className: 'checkbox', ...params }); }
+export { Checkbox } from './Checkbox';

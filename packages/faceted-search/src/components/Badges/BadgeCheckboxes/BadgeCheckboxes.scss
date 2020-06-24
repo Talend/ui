@@ -1,0 +1,20 @@
+.fs-badge-checkbox-form {
+	:global(.tc-tooltip-body) {
+		margin: 0;
+		padding: 2rem;
+		overflow-y: auto;
+	}
+
+	&-body {
+		width: inherit;
+	}
+
+	&-footer {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	:global(.tc-tooltip-content) {
+		flex-direction: column;
+	}
+}

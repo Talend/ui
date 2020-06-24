@@ -10,6 +10,7 @@ import { getTheme } from '@talend/react-components/lib/theme';
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 
 import theme from './AdvancedSearch.scss';
+import { USAGE_TRACKING_TAGS } from '../../constants';
 
 const css = getTheme(theme);
 
@@ -19,8 +20,6 @@ const AdvancedSearchError = ({ id, label }) => (
 	</p>
 );
 
-const DATA_FEATURE = 'faceted-advanced-search';
-
 AdvancedSearchError.propTypes = {
 	label: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
@@ -28,7 +27,6 @@ AdvancedSearchError.propTypes = {
 
 // eslint-disable-next-line import/prefer-default-export
 export function AdvancedSearch({
-	dataFeature = DATA_FEATURE,
 	initialQuery = '',
 	onCancel,
 	onChange,
@@ -102,7 +100,7 @@ export function AdvancedSearch({
 							<Action
 								bsStyle="link"
 								className={css('adv-search-buttons-icon', 'adv-search-buttons-cancel')}
-								data-feature={`${dataFeature}.cancel`}
+								data-feature={USAGE_TRACKING_TAGS.ADVANCED_CLEAR}
 								hideLabel
 								icon="talend-cross"
 								label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
@@ -112,7 +110,7 @@ export function AdvancedSearch({
 							<Action
 								bsStyle="link"
 								className={css('adv-search-buttons-icon', 'adv-search-buttons-submit')}
-								data-feature={`${dataFeature}.submit`}
+								data-feature={USAGE_TRACKING_TAGS.ADVANCED_APPLY}
 								hideLabel
 								icon="talend-check"
 								label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
@@ -129,7 +127,6 @@ export function AdvancedSearch({
 }
 
 AdvancedSearch.propTypes = {
-	dataFeature: PropTypes.string,
 	initialQuery: PropTypes.string,
 	onCancel: PropTypes.func,
 	onChange: PropTypes.func,

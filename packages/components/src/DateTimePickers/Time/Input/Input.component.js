@@ -10,10 +10,7 @@ export default function Input(props) {
 	const { time, inputManagement } = useContext(TimeContext);
 
 	return (
-		<InputSizer
-			placeholder={inputManagement.placeholder}
-			inputText={time.time ? time.textInput : ''}
-		>
+		<InputSizer inputText={inputManagement.placeholder}>
 			{width => (
 				<DebounceInput
 					autoComplete="off"
@@ -22,6 +19,7 @@ export default function Input(props) {
 					type="text"
 					value={time.textInput}
 					style={{ width }}
+					maxLength={inputManagement.placeholder.length}
 					{...inputManagement}
 					{...props}
 				/>

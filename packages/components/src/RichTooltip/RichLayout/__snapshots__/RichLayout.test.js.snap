@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RichLayout should render RichLayout with header, content and footer 1`] = `
-<span
+<div
+  className="theme-rich-layout"
   id="richlayout"
+  tabIndex="-1"
 >
   <Header
     id="richlayout-header"
@@ -25,12 +27,14 @@ exports[`RichLayout should render RichLayout with header, content and footer 1`]
       Footer
     </div>
   </Footer>
-</span>
+</div>
 `;
 
 exports[`RichLayout should render with a text in the body 1`] = `
-<span
+<div
+  className="theme-rich-layout"
   id="richlayout"
+  tabIndex="-1"
 >
   <Header
     id="richlayout-header"
@@ -45,5 +49,5 @@ exports[`RichLayout should render with a text in the body 1`] = `
   <Footer
     id="richlayout-footer"
   />
-</span>
+</div>
 `;

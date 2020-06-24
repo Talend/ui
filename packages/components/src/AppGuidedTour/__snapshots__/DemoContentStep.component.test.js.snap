@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DemOContentStep should show the demo content step 1`] = `
+<React.Fragment>
+  <p
+    className="theme-info"
+  >
+    Loading may take a few minutes to complete.
+Isn't it time for tea or coffee?
+  </p>
+  <Stepper
+    steps={
+      Array [
+        Object {
+          "label": "Importing dataset",
+          "status": "failure",
+        },
+      ]
+    }
+  />
+</React.Fragment>
+`;

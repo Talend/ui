@@ -9,7 +9,7 @@ import theme from './RowSelection.scss';
  */
 function getRowSelectionRenderer(
 	WrappedComponent,
-	{ isSelected, isActive, getRowState, getRowData },
+	{ isSelected, isActive, getRowState, getRowData, as, rowProps },
 ) {
 	function RowSelection(props) {
 		const rowData = getRowData(props);
@@ -27,8 +27,9 @@ function getRowSelectionRenderer(
 			{ selected },
 		);
 
-		return <WrappedComponent {...props} className={enhancedClassNames} />;
+		return <WrappedComponent {...props} {...rowProps} as={as} className={enhancedClassNames} />;
 	}
+
 	RowSelection.propTypes = WrappedComponent.propTypes;
 	RowSelection.displayName = `RowSelection(${WrappedComponent.displayName})`;
 

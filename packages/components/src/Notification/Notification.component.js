@@ -170,6 +170,8 @@ class Registry {
 	cancel(notification) {
 		if (this.isRegistered(notification)) {
 			this.timerRegistry[notification.id].cancel();
+			// Clean registry to avoid memory leak
+			delete this.timerRegistry[notification.id];
 		}
 	}
 }
@@ -230,7 +232,10 @@ class NotificationsContainer extends React.Component {
 			.forEach(notification => {
 				this.registry.register(
 					notification,
-					new Timer(() => this.props.leaveFn(notification), this.props.autoLeaveTimeout),
+					new Timer(() => {
+						this.props.leaveFn(notification);
+						this.registry.cancel(notification);
+					}, this.props.autoLeaveTimeout),
 				);
 			});
 	}

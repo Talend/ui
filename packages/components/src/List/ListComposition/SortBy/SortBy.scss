@@ -19,13 +19,11 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		color: $tc-list-toolbar-display-color;
 		font-size: 1em;
 		margin: 0;
-		letter-spacing: 0;
 	}
 
 	&-order-chooser[type='button'] {
 		display: flex;
-		margin-bottom: $padding-smaller;
-		align-items: flex-end;
+		align-items: center;
 		padding: 0;
 		&:hover,
 		&:focus,
@@ -47,6 +45,7 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 	&-items > a[role='button'] {
 		display: inline-block;
 		text-transform: lowercase;
+		white-space: nowrap;
 		&::first-letter {
 			text-transform: uppercase;
 		}

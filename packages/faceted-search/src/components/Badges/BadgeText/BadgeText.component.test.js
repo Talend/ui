@@ -3,6 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { BadgeText } from './BadgeText.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import getDefaultT from '../../../translate';
 
 const badgeFacetedContextValue = {
 	onDeleteBadge: jest.fn(),
@@ -16,8 +17,7 @@ describe('BadgeText', () => {
 		const props = {
 			label: 'My Label',
 			id: 'myId',
-			onSubmit: jest.fn(),
-			t: jest.fn(),
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(
@@ -35,9 +35,8 @@ describe('BadgeText', () => {
 			id: 'potatoId',
 			initialOpenedOperator: true,
 			label: 'all the stuff',
-			onSubmit: jest.fn(),
 			value: 'init value',
-			t: jest.fn(),
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(

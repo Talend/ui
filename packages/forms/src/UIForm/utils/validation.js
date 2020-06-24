@@ -13,7 +13,7 @@ export function adaptAdditionalRules(mergedSchema) {
 	// skip enum validation if explicitly not restricted
 	const { schema } = mergedSchema;
 	if (mergedSchema.restricted === false) {
-		if (schema.type === 'array' && (schema.items && schema.items.enum)) {
+		if (schema.type === 'array' && schema.items && schema.items.enum) {
 			return {
 				...mergedSchema,
 				schema: {
@@ -113,8 +113,11 @@ export function validateSimple(
 ) {
 	const results = {};
 	const { key, items } = mergedSchema;
-
-	results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
+	// do not break in case we do not have the key
+	// we need to keep deepValidation
+	if (key) {
+		results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
+	}
 
 	if (deepValidation && items) {
 		// eslint-disable-next-line no-use-before-define
@@ -145,7 +148,6 @@ export function validateSingle(
 	if (mergedSchema.type === 'array') {
 		return validateArray(mergedSchema, value, properties, customValidationFn, deepValidation);
 	}
-
 	return validateSimple(mergedSchema, value, properties, customValidationFn, deepValidation);
 }
 
@@ -159,13 +161,14 @@ export function validateSingle(
  */
 export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
-	mergedSchema.forEach(schema => {
-		const value = getValue(properties, schema);
-		const subResults = !shouldValidate(schema.condition, properties)
-			? true
-			: validateSingle(schema, value, properties, customValidationFn, true); // deep validation
-		Object.assign(results, subResults);
-	});
+	mergedSchema
+		.filter(schema => shouldValidate(schema.condition, properties, schema.key))
+		.forEach(schema => {
+			const value = getValue(properties, schema);
+			// deep validation
+			const subResults = validateSingle(schema, value, properties, customValidationFn, true);
+			Object.assign(results, subResults);
+		});
 	return results;
 }
 

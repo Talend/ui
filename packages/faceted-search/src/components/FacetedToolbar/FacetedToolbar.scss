@@ -42,11 +42,11 @@ $toolbar-height: 5.5rem;
 
 		&-advanced,
 		&-advanced.tc-button-selected {
-			border-radius: $padding-large 0 0 $padding-large;
+			border-radius: 0 $padding-large $padding-large 0;
 		}
 		&-basic,
 		&-basic.tc-button-selected {
-			border-radius: 0 $padding-large $padding-large 0;
+			border-radius: $padding-large 0 0 $padding-large;
 		}
 	}
 }

@@ -3,9 +3,9 @@ import { mount, shallow } from 'enzyme';
 import HeaderBarComponent from './HeaderBar.component';
 
 describe('HeaderBar', () => {
-	it('should render nav without props', () => {
+	it('should render', () => {
 		const wrapper = mount(<HeaderBarComponent.WrappedComponent />);
-		expect(wrapper.find('.theme-tc-header-bar').type()).toBe('nav');
+		expect(wrapper.find('HeaderBar')).toBeDefined();
 	});
 
 	it('should render logo', () => {
@@ -15,23 +15,31 @@ describe('HeaderBar', () => {
 			onClick: jest.fn(),
 		};
 		const wrapper = mount(<HeaderBarComponent.WrappedComponent logo={logo} />);
-		const element = wrapper.find('Button.tc-header-bar-logo').at(0);
+		const element = wrapper.find('Logo').at(0).find('Button').at(0);
 		expect(element).not.toBeUndefined();
 		element.simulate('click');
 		expect(logo.onClick).toHaveBeenCalled();
 	});
 
-	it('should render brand', () => {
+	it('should render AppSwitcher component', () => {
 		const brand = {
 			id: 'brand',
 			label: 'My App',
 			onClick: jest.fn(),
 		};
 		const wrapper = mount(<HeaderBarComponent.WrappedComponent brand={brand} />);
-		const element = wrapper.find('Action.tc-header-bar-brand');
+		const element = wrapper.find('AppSwitcher');
 		expect(element).not.toBeUndefined();
-		element.simulate('click');
-		expect(brand.onClick).toHaveBeenCalled();
+	});
+
+	it('should render custom AppSwitcher component', () => {
+		function AppSwitcher() {
+			return null;
+		}
+
+		const wrapper = mount(<HeaderBarComponent.WrappedComponent AppSwitcher={AppSwitcher} />);
+		const element = wrapper.find(AppSwitcher);
+		expect(element).not.toBeUndefined();
 	});
 
 	it('should render search', () => {

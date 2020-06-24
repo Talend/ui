@@ -15,7 +15,7 @@ export default class FocusManager extends Component {
 	static propTypes = {
 		onFocusOut: PropTypes.func,
 		onFocusIn: PropTypes.func,
-		divRef: PropTypes.func,
+		divRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 	};
 
 	onFocus = event => {

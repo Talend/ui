@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimpleTextKeyValue should render only the key 1`] = `
+<span
+  className="theme-tc-simple-text tc-simple-text"
+>
+  <span
+    className="theme-tc-simple-text-key tc-simple-text-key"
+  >
+    myKey
+  </span>
+</span>
+`;
+
+exports[`SimpleTextKeyValue should render only the value 1`] = `
+<span
+  className="theme-tc-simple-text tc-simple-text"
+>
+  <span
+    className="theme-tc-simple-text-key tc-simple-text-key"
+  />
+  <span
+    className="theme-tc-simple-text-value tc-simple-text-value"
+  >
+    myValue
+  </span>
+</span>
+`;
+
+exports[`SimpleTextKeyValue should render the key and the value 1`] = `
+<span
+  className="theme-tc-simple-text tc-simple-text myCLass"
+  style={
+    Object {
+      "padding": 0,
+    }
+  }
+>
+  <span
+    className="theme-tc-simple-text-key tc-simple-text-key"
+  >
+    myKey
+     : 
+  </span>
+  <span
+    className="theme-tc-simple-text-value tc-simple-text-value"
+  >
+    myValue
+  </span>
+</span>
+`;

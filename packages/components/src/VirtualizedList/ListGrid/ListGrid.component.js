@@ -65,13 +65,12 @@ ListGrid.propTypes = {
 	onRowClick: PropTypes.func,
 	onRowDoubleClick: PropTypes.func,
 	rowCount: PropTypes.number,
-	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
 	width: PropTypes.number,
 };
 
 ListGrid.defaultProps = {
-	rowHeight: 135,
+	rowHeight: 170,
 };
 
 export default ListGrid;

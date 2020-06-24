@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function FieldTemplate(props) {
-	const groupsClassNames = classNames('form-group', theme.template, {
+	const groupsClassNames = classNames('form-group', theme.template, props.className, {
 		'has-error': !props.isValid,
 		required: props.required,
 		[theme.updating]: props.valueIsUpdating,
@@ -46,6 +46,7 @@ function FieldTemplate(props) {
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		children: PropTypes.node,
+		className: PropTypes.string,
 		description: PropTypes.string,
 		descriptionId: PropTypes.string.isRequired,
 		errorId: PropTypes.string.isRequired,
