@@ -37,7 +37,7 @@
     "json-logic-js": "^1.2.2",
     "keycode": "^2.2.0",
     "lodash": "^4.17.4",
-    "memoize-one": "^4.0.0",
+    "memoize-one": "^5.0.0",
     "react-autowhatever": "10.2.0",
     "react-bootstrap": "0.32.4",
     "react-jsonschema-form": "0.51.0",
