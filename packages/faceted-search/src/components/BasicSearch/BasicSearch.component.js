@@ -42,10 +42,16 @@ const BasicSearch = ({
 	callbacks,
 }) => {
 	const { id, t } = useFacetedSearchContext();
-	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary));
-	const badgesDictionary = useMemo(() => createBadgesDict(customBadgesDictionary));
-	const badges = useMemo(() =>
-		filterBadgeDefinitionsWithDictionary(badgesDictionary, badgesDefinitions),
+	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary), [
+		t,
+		customOperatorsDictionary,
+	]);
+	const badgesDictionary = useMemo(() => createBadgesDict(customBadgesDictionary), [
+		customBadgesDictionary,
+	]);
+	const badges = useMemo(
+		() => filterBadgeDefinitionsWithDictionary(badgesDictionary, badgesDefinitions),
+		[badgesDictionary, badgesDefinitions],
 	);
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 
