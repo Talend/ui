@@ -2,7 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import AppGuidedTour, { DEFAULT_LOCAL_STORAGE_KEY } from './AppGuidedTour.component';
-import { LOADING_STEP_STATUSES } from '../Stepper';
+import Stepper from '../Stepper';
 
 const DEFAULT_PROPS = {
 	appName: 'app name',
@@ -67,7 +67,9 @@ describe('AppGuidedTour', () => {
 			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
 		});
 		wrapper.setProps({
-			demoContentSteps: [{ label: 'Importing dataset', status: LOADING_STEP_STATUSES.FAILURE }],
+			demoContentSteps: [
+				{ label: 'Importing dataset', status: Stepper.LOADING_STEP_STATUSES.FAILURE },
+			],
 		});
 
 		expect(wrapper.find('Tour').prop('goToStep')).toBe(1);

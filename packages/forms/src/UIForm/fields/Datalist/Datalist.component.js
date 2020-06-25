@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DataListComponent from '@talend/react-components/lib/Datalist';
+import Datalist from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import get from 'lodash/get';
 import { withTranslation } from 'react-i18next';
@@ -27,7 +27,7 @@ const PROPS_TO_OMIT = [
 	'resolveName',
 ];
 
-class Datalist extends Component {
+class DatalistWidget extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -43,7 +43,7 @@ class Datalist extends Component {
 
 	/**
 	 * On change callback
-	 * We call onFinish to trigger validation on datalist item selection
+	 * We call onFinish to trigger validation on Datalist item selection
 	 * @param event
 	 * @param payload
 	 */
@@ -116,7 +116,7 @@ class Datalist extends Component {
 	addCustomValue(value, isMultiSection) {
 		if (isMultiSection) {
 			return {
-				title: this.props.t('TF_DATALIST_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }),
+				title: this.props.t('TF_Datalist_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }),
 				suggestions: [{ name: this.props.resolveName(value), value }],
 			};
 		}
@@ -149,7 +149,7 @@ class Datalist extends Component {
 				required={this.props.schema.required}
 				valueIsUpdating={this.props.valueIsUpdating}
 			>
-				<DataListComponent
+				<Datalist
 					{...props}
 					{...this.state}
 					dataFeature={this.props.schema.dataFeature}
@@ -173,15 +173,15 @@ class Datalist extends Component {
 	}
 }
 
-Datalist.displayName = 'Datalist field';
-Datalist.defaultProps = {
+DatalistWidget.displayName = 'Datalist field';
+DatalistWidget.defaultProps = {
 	resolveName: value => value,
 	value: '',
 	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {
-	Datalist.propTypes = {
+	DatalistWidget.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -237,4 +237,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_FORMS)(Datalist);
+export default withTranslation(I18N_DOMAIN_FORMS)(DatalistWidget);

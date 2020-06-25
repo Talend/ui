@@ -30,14 +30,15 @@ import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import FocusManager from './FocusManager';
 import GridLayout from './GridLayout';
-import Tile from './GridLayout/Tile';
 import GuidedTour from './GuidedTour';
 import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
+import { InputDatePicker, InputDateTimePicker, InputTimePicker } from './DateTimePickers';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
@@ -47,11 +48,12 @@ import Progress from './Progress';
 import ResourcePicker from './ResourcePicker';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
-import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import Stepper from './Stepper';
 import TabBar from './TabBar';
+import Table from './Table';
+import Tile from './GridLayout/Tile';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import getTranslated from './TranslateWrapper';
@@ -64,6 +66,9 @@ import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
 import { ModelViewer, RecordsViewer } from './DataViewer';
 import { InlineMessage } from './InlineMessage';
+
+import getTheme from './theme';
+import getLocale from './DateFnsLocale/locale';
 
 const {
 	Alert,
@@ -160,8 +165,8 @@ export {
 	Emphasis,
 	Enumeration,
 	FilterBar,
+	FocusManager,
 	GridLayout,
-	Tile,
 	GuidedTour,
 	HeaderBar,
 	HeaderTitle,
@@ -169,6 +174,10 @@ export {
 	Icon,
 	IconsProvider,
 	Inject,
+	InlineMessage,
+	InputDatePicker,
+	InputDateTimePicker,
+	InputTimePicker,
 	JSONSchemaRenderer,
 	Layout,
 	List,
@@ -184,11 +193,13 @@ export {
 	RichError,
 	RichLayout,
 	SidePanel,
+	Skeleton,
 	Status,
-	InlineMessage,
+	Stepper,
 	SubHeaderBar,
 	TabBar,
 	Table,
+	Tile,
 	Toggle,
 	TooltipTrigger,
 	TreeView,
@@ -196,6 +207,8 @@ export {
 	VirtualizedList,
 	WithDrawer,
 	getTranslated,
+	getTheme,
+	getLocale,
 	I18N_DOMAIN_COMPONENTS,
 	CIRCULAR_PROGRESS_SIZE,
 	// bootstrap
@@ -254,9 +267,7 @@ export {
 	ResponsiveEmbed,
 	Row,
 	SafeAnchor,
-	Skeleton,
 	SplitButton,
-	Stepper,
 	Tab,
 	TabContainer,
 	TabContent,

@@ -10,14 +10,14 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const getClass = getTheme(theme);
 
-export const SHOW_COMPLETED_TRANSITION_TIMER = 1000;
-export const TRANSITION_STATE = {
+const SHOW_COMPLETED_TRANSITION_TIMER = 1000;
+const TRANSITION_STATE = {
 	STEPS: 'STEPS',
 	TRANSITION: 'TRANSITION',
 	CHILD: 'CHILD',
 };
 
-export const LOADING_STEP_STATUSES = {
+const LOADING_STEP_STATUSES = {
 	ABORTED: 'aborted',
 	PENDING: 'pending',
 	LOADING: 'loading',
@@ -29,21 +29,19 @@ export const LOADING_STEP_STATUSES = {
  * This function tells if there is an error in the steps
  * @param {array} steps array of steps
  */
-export const isErrorInSteps = steps =>
-	steps.some(step => step.status === LOADING_STEP_STATUSES.FAILURE);
+const isErrorInSteps = steps => steps.some(step => step.status === LOADING_STEP_STATUSES.FAILURE);
 
 /**
  * This function tells if all the steps are successful
  * @param {array} steps array of steps
  */
-export const isAllSuccessful = steps =>
-	steps.every(step => step.status === LOADING_STEP_STATUSES.SUCCESS);
+const isAllSuccessful = steps => steps.every(step => step.status === LOADING_STEP_STATUSES.SUCCESS);
 
 /**
  * This function tells if the loading is done, by an error, a success ot not started
  * @param {array} steps array of steps
  */
-export const isStepsLoading = steps =>
+const isStepsLoading = steps =>
 	steps.length !== 0 && !isAllSuccessful(steps) && !isErrorInSteps(steps);
 
 /**
@@ -217,5 +215,12 @@ Stepper.propTypes = {
 		}),
 	),
 };
+
+Stepper.isAllSuccessful = isAllSuccessful;
+Stepper.isStepsLoading = isStepsLoading;
+Stepper.isErrorInSteps = isErrorInSteps;
+Stepper.SHOW_COMPLETED_TRANSITION_TIMER = SHOW_COMPLETED_TRANSITION_TIMER;
+Stepper.TRANSITION_STATE = TRANSITION_STATE;
+Stepper.LOADING_STEP_STATUSES = LOADING_STEP_STATUSES;
 
 export default Stepper;
