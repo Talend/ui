@@ -34,9 +34,9 @@
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
+    "@talend/react-cmf": "^6.0.0-alpha.0",
     "@talend/scripts-core": "next",
     "@talend/scripts-preset-react-lib": "next",
-    "@talend/react-cmf": "^5.9.0",
     "enzyme": "^3.9.0",
     "mock-socket": "^7.0.0",
     "prop-types": "^15.5.10",
@@ -53,5 +53,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.9.0"
+  "version": "6.0.0-alpha.0"
 }
