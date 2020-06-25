@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DatalistComponent from '@talend/react-components/lib/Datalist';
-import Datalist from './Datalist.component';
+import Datalist from '@talend/react-components/lib/Datalist';
+import DatalistWidget from './Datalist.component';
 
 const schema = {
 	autoFocus: true,
@@ -62,7 +62,7 @@ describe('Datalist component', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<Datalist
+			<DatalistWidget
 				id="my-datalist"
 				isValid
 				errorMessage="This should be correct"
@@ -81,7 +81,7 @@ describe('Datalist component', () => {
 	it('should render with multisection', () => {
 		// when
 		const wrapper = shallow(
-			<Datalist
+			<DatalistWidget
 				id="my-datalist"
 				isValid
 				errorMessage="This should be correct"
@@ -101,6 +101,7 @@ describe('Datalist component', () => {
 		it('should call props.onChange && props.onFinish', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -111,7 +112,7 @@ describe('Datalist component', () => {
 					},
 				},
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 			const selectedValue = { label: 'Bar', value: 'bar' };
 			const event = { type: 'change' };
 			wrapper.instance().onChange(event, selectedValue);
@@ -130,12 +131,13 @@ describe('Datalist component', () => {
 		it('should rebuild schema to match restriction on validation', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
 				schema,
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 			const selectedValue = { label: 'Bar', value: 'bar' };
 			const event = { type: 'change' };
 			wrapper.instance().setState({
@@ -168,6 +170,7 @@ describe('Datalist component', () => {
 		it('should support undefined value', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -180,7 +183,7 @@ describe('Datalist component', () => {
 			};
 			const event = { type: 'change' };
 			const payload = undefined;
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 			wrapper.instance().onChange(event, payload);
 			// then
 			expect(props.onChange).toHaveBeenCalledWith(event, { schema: props.schema });
@@ -188,23 +191,14 @@ describe('Datalist component', () => {
 	});
 
 	describe('onFocus', () => {
-		it('should call onTrigger when triggers has onEvent="focus"', done => {
+		it('should call onTrigger when triggers has onEvent="focus"', () => {
 			// given
 			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
-				onTrigger: jest.fn(
-					event =>
-						new Promise(resolve => {
-							// hack: to be sure we catch the setState after the promise
-							setTimeout(() => {
-								expect(event.target.state.isLoading).toBe(false);
-								done();
-							}, 0);
-							return resolve(data);
-						}),
-				),
+				onTrigger: jest.fn(() => Promise.resolve(data)),
 				schema: {
 					type: 'string',
 					schema: {
@@ -217,11 +211,11 @@ describe('Datalist component', () => {
 					],
 				},
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 			const event = { type: 'focus', target: wrapper.instance() };
 
 			// when
-			wrapper.find(DatalistComponent).props().onFocus(event);
+			wrapper.find(Datalist).props().onFocus(event);
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(event, {
@@ -238,13 +232,14 @@ describe('Datalist component', () => {
 		it('should return array from schema.titleMap', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
 				schema,
 				value: '',
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 			const options = wrapper.instance().getTitleMap();
 
 			// then
@@ -258,12 +253,13 @@ describe('Datalist component', () => {
 		it('should give priority to state.titleMap', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
 				schema,
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 			wrapper.setState({
 				titleMap: [
 					{ name: 'Hello', value: 'hello' },
@@ -282,6 +278,7 @@ describe('Datalist component', () => {
 		it('should add unknown value to the titleMap if not restricted', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -289,10 +286,10 @@ describe('Datalist component', () => {
 				value: 'hello',
 				resolveName: value => `${value}_name`,
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 
 			// then
-			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
+			expect(wrapper.find(Datalist).prop('titleMap')).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },
@@ -303,16 +300,17 @@ describe('Datalist component', () => {
 		it('should NOT add empty value to the titleMap', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
 				schema: { ...schema, restricted: false },
 				value: '',
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 
 			// then
-			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
+			expect(wrapper.find(Datalist).prop('titleMap')).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },
@@ -339,6 +337,7 @@ describe('Datalist component', () => {
 				titleMap: undefined,
 			};
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -348,10 +347,10 @@ describe('Datalist component', () => {
 			};
 
 			// when
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 
 			// then
-			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
+			expect(wrapper.find(Datalist).prop('titleMap')).toEqual([
 				{
 					suggestions: [
 						{ name: 'Foo', value: 'foo' },
@@ -367,16 +366,17 @@ describe('Datalist component', () => {
 		it('should NOT add unknown value on restricted datalist', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
 				schema,
 				value: 'hello',
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const wrapper = shallow(<DatalistWidget {...props} />);
 
 			// then
-			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
+			expect(wrapper.find(Datalist).prop('titleMap')).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },

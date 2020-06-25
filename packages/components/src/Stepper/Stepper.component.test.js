@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Stepper, { LOADING_STEP_STATUSES } from './Stepper.component';
+import Stepper from './Stepper.component';
 
 describe('Stepper Component', () => {
 	describe('render', () => {
@@ -8,10 +8,10 @@ describe('Stepper Component', () => {
 			// given
 			const title = 'Test';
 			const steps = [
-				{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS },
-				{ label: 'Global Quality', status: LOADING_STEP_STATUSES.LOADING },
-				{ label: 'Flattening', status: LOADING_STEP_STATUSES.LOADING },
-				{ label: 'Column Quality', status: LOADING_STEP_STATUSES.PENDING },
+				{ label: 'Fetch Sample', status: Stepper.LOADING_STEP_STATUSES.SUCCESS },
+				{ label: 'Global Quality', status: Stepper.LOADING_STEP_STATUSES.LOADING },
+				{ label: 'Flattening', status: Stepper.LOADING_STEP_STATUSES.LOADING },
+				{ label: 'Column Quality', status: Stepper.LOADING_STEP_STATUSES.PENDING },
 			];
 			const renderActions = jest.fn();
 			// when
@@ -29,15 +29,15 @@ describe('Stepper Component', () => {
 			const steps = [
 				{
 					label: 'Fetch Sample',
-					status: LOADING_STEP_STATUSES.SUCCESS,
+					status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 				},
 				{
 					label: 'Global Quality',
-					status: LOADING_STEP_STATUSES.FAILURE,
+					status: Stepper.LOADING_STEP_STATUSES.FAILURE,
 					message: { label: "We couldn't connect to the remote engine" },
 				},
-				{ label: 'Flattening', status: LOADING_STEP_STATUSES.ABORTED },
-				{ label: 'Column Quality', status: LOADING_STEP_STATUSES.ABORTED },
+				{ label: 'Flattening', status: Stepper.LOADING_STEP_STATUSES.ABORTED },
+				{ label: 'Column Quality', status: Stepper.LOADING_STEP_STATUSES.ABORTED },
 			];
 			const renderActions = jest.fn();
 			// when

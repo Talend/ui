@@ -12,9 +12,9 @@ import TooltipTrigger from '../TooltipTrigger';
 import css from './CollapsiblePanel.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-export const TYPE_STATUS = 'status';
-export const TYPE_ACTION = 'action';
-export const TYPE_BADGE = 'badge';
+const TYPE_STATUS = 'status';
+const TYPE_ACTION = 'action';
+const TYPE_BADGE = 'badge';
 
 function getActionHandler(func, item) {
 	return function actionHandler(e) {
@@ -282,5 +282,9 @@ if (process.env.NODE_ENV !== 'production') {
 		theme: PropTypes.string,
 	};
 }
+
+CollapsiblePanel.TYPE_STATUS = TYPE_STATUS;
+CollapsiblePanel.TYPE_ACTION = TYPE_ACTION;
+CollapsiblePanel.TYPE_BADGE = TYPE_BADGE;
 
 export default CollapsiblePanel;

@@ -23,7 +23,10 @@ describe('MultiSelectTag field', () => {
 			required: true,
 			restricted: false,
 			title: 'Tags',
-			titleMap: [{ name: 'toto', value: 'titi' }, { name: 'tata', value: 'tutu' }],
+			titleMap: [
+				{ name: 'toto', value: 'titi' },
+				{ name: 'tata', value: 'tutu' },
+			],
 		},
 		value: ['aze', 'tutu'],
 	};
@@ -149,10 +152,7 @@ describe('MultiSelectTag field', () => {
 		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
 
 		// when
-		wrapper
-			.find('Button.tc-badge-delete-icon')
-			.at(0)
-			.simulate('click');
+		wrapper.find('Button.tc-badge-delete-icon').at(0).simulate('click');
 
 		// then
 		const payload = { schema: props.schema, value: props.value.slice(1) };
@@ -160,22 +160,12 @@ describe('MultiSelectTag field', () => {
 		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should call onTrigger on focus', done => {
+	it('should call onTrigger on focus', () => {
 		// given
 		const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 		const triggerProps = {
 			...props,
-			onTrigger: jest.fn(
-				event =>
-					new Promise(resolve => {
-						// hack: to be sure we catch the setState after the promise
-						setTimeout(() => {
-							expect(event.target.state.isLoading).toBe(false);
-							done();
-						}, 0);
-						return resolve(data);
-					}),
-			),
+			onTrigger: jest.fn(() => Promise.resolve(data)),
 			schema: {
 				...props.schema,
 				triggers: [
@@ -189,10 +179,7 @@ describe('MultiSelectTag field', () => {
 		const event = { type: 'focus', target: wrapper.instance() };
 
 		// when
-		wrapper
-			.find('FieldTemplate')
-			.find(Typeahead)
-			.prop('onFocus')(event);
+		wrapper.find('FieldTemplate').find(Typeahead).prop('onFocus')(event);
 
 		// then
 		expect(triggerProps.onTrigger).toBeCalledWith(event, {
@@ -213,11 +200,7 @@ describe('MultiSelectTag field', () => {
 		const wrapper = shallow(<MultiSelectTag {...nameResolverProps} />);
 
 		// when
-		const firstLabel = wrapper
-			.find('FieldTemplate')
-			.find(Badge)
-			.first()
-			.prop('label');
+		const firstLabel = wrapper.find('FieldTemplate').find(Badge).first().prop('label');
 
 		// then
 		expect(firstLabel).toBe('aze_name');

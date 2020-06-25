@@ -1,4 +1,7 @@
-export { LOADING_STEP_STATUSES } from '@talend/react-components/lib/Stepper';
+import Stepper from '@talend/react-components/lib/Stepper';
+
+const { LOADING_STEP_STATUSES } = Stepper;
+export { LOADING_STEP_STATUSES };
 
 export const initialState = {};
 export const STATE_KEY = 'stepper';
