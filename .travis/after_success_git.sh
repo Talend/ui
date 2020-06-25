@@ -10,17 +10,9 @@ if [ -n "$GH_TOKEN" ]; then
 	cd "$TRAVIS_BUILD_DIR"
 	echo "✓ Move to Travis build dir"
 	if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
-		echo "git branch"
-		git branch
-		echo "git stash"
-		git stash
 	    git fetch origin $TRAVIS_PULL_REQUEST_BRANCH:$TRAVIS_PULL_REQUEST_BRANCH --depth 1
 		git checkout $TRAVIS_PULL_REQUEST_BRANCH
 		echo "✓ Checkout $TRAVIS_PULL_REQUEST_BRANCH"
-		echo "git stash pop"
-		git stash pop
-		echo "git status"
-		git status
 
 		if [[ "$TALEND_COMMIT_MSG" =~ 'icon' ]]; then
 			git add packages/icons/src/svg
@@ -28,26 +20,13 @@ if [ -n "$GH_TOKEN" ]; then
 			echo "✓ Commit optimized icons to $TRAVIS_PULL_REQUEST_BRANCH"
 		fi
 
-		echo "git add output"
-		git add output
-		echo "git status"
-		git status
+		git add output/
 		git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): update code style outputs"
 		echo "✓ Commit updated lint output to $TRAVIS_PULL_REQUEST_BRANCH"
-		echo "git status"
-		git status
 
 		find packages/*/src -name "*.scss" -o -name "*.js" -o -name "*.json" | xargs git add
 		git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): prettier"
 		echo "✓ Commit prettified files to $TRAVIS_PULL_REQUEST_BRANCH"
-		echo "git status"
-		git status
-
-		echo "git branch"
-		git branch
-
-		echo "git log"
-		git log
 
 		git push -q https://build-travis-ci:$GH_TOKEN@github.com/Talend/ui $TRAVIS_PULL_REQUEST_BRANCH
 		echo "✓ Push to $TRAVIS_PULL_REQUEST_BRANCH"
