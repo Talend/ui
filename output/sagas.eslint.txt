@@ -1,2 +1,0 @@
-> eslint --config ../../.eslintrc src
-

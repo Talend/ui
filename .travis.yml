@@ -34,6 +34,7 @@ matrix:
         - yarn global add prettier@2.0.4
         - .travis/before_script_icons.sh
       script:
+        - git branch
         - yarn install
         - yarn install-router
       after_success:
