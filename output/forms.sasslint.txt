@@ -1,0 +1,2 @@
+> sass-lint -v -q
+
