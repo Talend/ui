@@ -5,8 +5,6 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "lint": "lerna exec --scope=@talend/react-components -- npm run lint:es -- -o ../../output/components.eslint.txt --no-color",
-    "lint2": "lerna exec --scope=@talend/react-containers -- npm run lint:es -- -o ../../output/containers.eslint.txt --no-color",
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "build": "lerna exec -- yarn",
