@@ -26,6 +26,9 @@ Types of changes
 
 ## [unreleased]
 
+- [fixed](https://github.com/Talend/ui/pull/2862): Hide delete icon if no filters
+
+
 ## [0.10.2]
 
 - [fixed](https://github.com/Talend/ui/pull/2847): Check badge existence before trying to set it
