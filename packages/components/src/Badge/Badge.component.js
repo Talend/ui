@@ -4,7 +4,13 @@ import React from 'react';
 import badgeCssModule from './Badge.scss';
 import { getTheme } from '../theme';
 
-import BadgeLib from './BadgeComposition';
+import {
+	BadgeCategory,
+	BadgeDelete,
+	BadgeIcon,
+	BadgeLabel,
+	BadgeSeparator,
+} from './BadgeComposition';
 
 const theme = getTheme(badgeCssModule);
 
@@ -15,13 +21,13 @@ const SIZES = {
 
 const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete }) => (
 	<React.Fragment>
-		{category && <BadgeLib.Category label={category} />}
-		{category && <BadgeLib.Separator />}
-		<BadgeLib.Label aslink={aslink} category={category} label={label}>
-			{icon && <BadgeLib.Icon name={icon} />}
-		</BadgeLib.Label>
-		{icon && onDelete && <BadgeLib.Separator iconSeparator />}
-		{onDelete && <BadgeLib.DeleteAction id={id} onClick={onDelete} disabled={disabled} />}
+		{category && <BadgeCategory label={category} />}
+		{category && <BadgeSeparator />}
+		<BadgeLabel aslink={aslink} category={category} label={label}>
+			{icon && <BadgeIcon name={icon} />}
+		</BadgeLabel>
+		{icon && onDelete && <BadgeSeparator iconSeparator />}
+		{onDelete && <BadgeDelete id={id} onClick={onDelete} disabled={disabled} />}
 	</React.Fragment>
 );
 
@@ -130,4 +136,10 @@ Badge.propTypes = {
 };
 
 Badge.SIZES = SIZES;
+
+Badge.Category = BadgeCategory;
+Badge.DeleteAction = BadgeDelete;
+Badge.Icon = BadgeIcon;
+Badge.Label = BadgeLabel;
+Badge.Separator = BadgeSeparator;
 export default Badge;

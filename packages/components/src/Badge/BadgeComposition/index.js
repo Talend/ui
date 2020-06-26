@@ -4,10 +4,4 @@ import BadgeIcon from './BadgeIcon';
 import BadgeLabel from './BadgeLabel';
 import BadgeSeparator from './BadgeSeparator';
 
-export default {
-	Category: BadgeCategory,
-	DeleteAction: BadgeDelete,
-	Icon: BadgeIcon,
-	Label: BadgeLabel,
-	Separator: BadgeSeparator,
-};
+export { BadgeCategory, BadgeDelete, BadgeIcon, BadgeLabel, BadgeSeparator };
