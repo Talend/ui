@@ -49,6 +49,7 @@ import Progress from './Progress';
 import ResourcePicker from './ResourcePicker';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
+import Slider from './Slider';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import Stepper from './Stepper';
@@ -194,6 +195,7 @@ export {
 	RichTooltip,
 	SidePanel,
 	Skeleton,
+	Slider,
 	Status,
 	Stepper,
 	SubHeaderBar,
