@@ -11,6 +11,7 @@ exports[`ActionFile should apply transformation on icon 1`] = `
   />
   <label
     className="btn btn-default theme-btn-file"
+    data-feature="action.feature"
     htmlFor={42}
   >
     <Icon
@@ -37,6 +38,7 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
   />
   <label
     className="btn btn-default theme-btn-file disabled"
+    data-feature="action.feature"
     htmlFor={42}
   >
     <withI18nextTranslation(CircularProgress)
@@ -62,6 +64,7 @@ exports[`ActionFile should display a disabled Icon 1`] = `
   />
   <label
     className="btn btn-default theme-btn-file disabled"
+    data-feature="action.feature"
     htmlFor={42}
   >
     <Icon
@@ -87,6 +90,7 @@ exports[`ActionFile should pass all props to the Button 1`] = `
   />
   <label
     className="btn btn-default theme-btn-file"
+    data-feature="action.feature"
     htmlFor={42}
   >
     <Icon
@@ -110,6 +114,7 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
   />
   <label
     className="btn btn-default theme-btn-file"
+    data-feature="action.feature"
     htmlFor={42}
   >
     <Icon
@@ -135,6 +140,7 @@ exports[`ActionFile should render a div with a input[type="file"] with some clas
   />
   <label
     className="btn btn-default theme-btn-file"
+    data-feature="action.feature"
     htmlFor={42}
   >
     <Icon
@@ -159,6 +165,7 @@ exports[`ActionFile should render action with html property name = props.name if
   />
   <label
     className="btn btn-default theme-btn-file"
+    data-feature="action.feature"
     htmlFor={42}
   >
     <Icon
@@ -182,6 +189,7 @@ exports[`ActionFile should reverse icon/label 1`] = `
   />
   <label
     className="btn btn-default theme-btn-file"
+    data-feature="action.feature"
     htmlFor={42}
   >
     <span>
