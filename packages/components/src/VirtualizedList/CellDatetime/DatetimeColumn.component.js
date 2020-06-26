@@ -1,10 +1,11 @@
 import React from 'react';
 import { defaultColumnConfiguration } from '../Content.component';
-import CellDatetime from './CellDatetime.component';
+import CellDatetime, { computeValue } from './CellDatetime.component';
 
 export const cellType = 'datetime';
 export const datetimeColumnConfiguration = {
 	cellRenderer: props => <CellDatetime {...props} />,
+	computeValue,
 };
 
 // this is a fake component to be usable in JSX,
