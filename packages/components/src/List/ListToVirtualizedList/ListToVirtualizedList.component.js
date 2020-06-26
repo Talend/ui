@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import VirtualizedList, { SORT_BY, cellDictionary, headerDictionary } from '../../VirtualizedList';
+import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import { cellType as titleCellType } from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
 
@@ -53,8 +53,8 @@ export function ListToVirtualizedList(props) {
 	}
 
 	// Allow to override or add new cell renderer from outside
-	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
-	const listHeaderDictionary = { ...headerDictionary, ...props.headerDictionary };
+	const listCellDictionary = { ...VirtualizedList.cellDictionary, ...props.cellDictionary };
+	const listHeaderDictionary = { ...VirtualizedList.headerDictionary, ...props.headerDictionary };
 	return (
 		<VirtualizedList
 			collection={props.items}
