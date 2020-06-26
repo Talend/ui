@@ -24,7 +24,7 @@ export const StepperSelectors = {
 };
 
 export const StepperComponents = {
-	StepperContainer,
+	Stepper: StepperContainer,
 };
 
 export const StepperUtils = {
