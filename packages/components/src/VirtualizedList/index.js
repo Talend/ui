@@ -11,8 +11,8 @@ import { BooleanColumn } from './CellBoolean';
 import { LabelColumn } from './CellLabel';
 import { IconTextColumn } from './CellIconText';
 import * as gridrow from './utils/gridrow';
+import { cellDictionary, headerDictionary } from './utils/dictionary';
 
-export { cellDictionary, headerDictionary } from './utils/dictionary';
 export * from './utils/constants';
 
 // For compatibility
@@ -30,5 +30,7 @@ VirtualizedList.Label = LabelColumn;
 VirtualizedList.IconText = IconTextColumn;
 
 VirtualizedList.gridrow = gridrow;
+VirtualizedList.headerDictionary = headerDictionary;
+VirtualizedList.cellDictionary = cellDictionary;
 
 export default VirtualizedList;
