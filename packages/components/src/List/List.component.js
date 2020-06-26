@@ -9,6 +9,8 @@ import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 import Inject from '../Inject';
 
+import Composition from './ListComposition';
+
 function ListToolbar({
 	id,
 	columnChooser,
@@ -194,5 +196,9 @@ List.propTypes = {
 List.defaultProps = {
 	displayMode: 'table',
 };
+
+Object.entries(Composition).forEach(([key, value]) => {
+	List[key] = value;
+});
 
 export default List;

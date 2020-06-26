@@ -44,6 +44,7 @@ import Layout from './Layout';
 import List from './List';
 import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
+import PieChart from './PieChart';
 import Progress from './Progress';
 import ResourcePicker from './ResourcePicker';
 import Skeleton from './Skeleton';
@@ -186,6 +187,7 @@ export {
 	ModelViewer,
 	Notification,
 	ObjectViewer,
+	PieChart,
 	Progress,
 	RecordsViewer,
 	ResourceList,
