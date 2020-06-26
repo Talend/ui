@@ -63,8 +63,7 @@ import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
 import ResourceList from './ResourceList';
-import RichLayout from './RichTooltip/RichLayout';
-import RichError from './RichTooltip/RichError';
+import RichTooltip from './RichTooltip';
 import { ModelViewer, RecordsViewer } from './DataViewer';
 import { InlineMessage } from './InlineMessage';
 
@@ -192,8 +191,7 @@ export {
 	RecordsViewer,
 	ResourceList,
 	ResourcePicker,
-	RichError,
-	RichLayout,
+	RichTooltip,
 	SidePanel,
 	Skeleton,
 	Status,
