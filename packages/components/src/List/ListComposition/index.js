@@ -20,14 +20,14 @@ export default {
 	TextFilter,
 	Toolbar,
 	VList,
-};
 
-export const hooks = {
-	useCollectionActions,
-	useCollectionSort,
-	sortCollection,
-	useCollectionFilter,
-	useCollectionSelection,
-	filterCollection,
-	useDisplayMode: useLocalStorage,
+	hooks: {
+		useCollectionActions,
+		useCollectionSort,
+		sortCollection,
+		useCollectionFilter,
+		useCollectionSelection,
+		filterCollection,
+		useDisplayMode: useLocalStorage,
+	},
 };
