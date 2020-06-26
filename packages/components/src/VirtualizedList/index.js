@@ -10,9 +10,9 @@ import { TitleColumn } from './CellTitle';
 import { BooleanColumn } from './CellBoolean';
 import { LabelColumn } from './CellLabel';
 import { IconTextColumn } from './CellIconText';
+import * as gridrow from './utils/gridrow';
 
 export { cellDictionary, headerDictionary } from './utils/dictionary';
-export gridrow from './utils/gridrow';
 export * from './utils/constants';
 
 // For compatibility
