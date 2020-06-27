@@ -18,6 +18,7 @@ const AVRO_TYPES = [
 	'string',
 	'unknown',
 	'date',
+	'enum',
 ];
 const TIMESTAMP_MILLIS_LOGICAL_TYPES = 'timestamp-millis';
 const LOGICAL_TYPES = [TIMESTAMP_MILLIS_LOGICAL_TYPES];
@@ -29,6 +30,7 @@ const PRIMITIVES_MAPPING = {
 };
 
 function getTypeRenderer(schemaType) {
+	if (!schemaType) return '';
 	if (schemaType.type === LONG_TYPE && schemaType.logicalType === TIMESTAMP_MILLIS_LOGICAL_TYPES) {
 		return DATE_TYPE_FORMATER;
 	}
@@ -76,6 +78,15 @@ export function AvroRenderer({ colDef, data, isValueOverflown, isLongValueToggle
 					isValueOverflown={isValueOverflown}
 					isLongValueToggled={isLongValueToggled}
 					className={classNames('td-cell-date')}
+				/>
+			);
+
+		case 'fixed':
+			return (
+				<DefaultValueRenderer
+					value={data}
+					isValueOverflown={isValueOverflown}
+					isLongValueToggled={isLongValueToggled}
 				/>
 			);
 
@@ -154,7 +165,7 @@ const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
 			)}
 			{schema && value && (
 				<AvroRenderer
-					colDef={{ avro: schema }}
+					colDef={{ avro: typeof schema.type === 'string' ? { type: schema } : schema }}
 					data={value}
 					isValueOverflown={isValueOverflown}
 					isLongValueToggled={isLongValueToggled}
