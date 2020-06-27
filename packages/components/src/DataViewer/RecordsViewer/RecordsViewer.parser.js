@@ -13,6 +13,7 @@ export function getNextSchemaItems(schema) {
 		get(schema, 'type.values.items') ||
 		get(schema, 'type.fields') ||
 		get(schema, 'items.fields') ||
+		get(schema, 'values.items') ||
 		get(schema, 'fields') ||
 		get(schema, 'items') ||
 		get(schema, 'type') ||
@@ -27,7 +28,7 @@ export function getNextSchemaItems(schema) {
  * @param {object} schema
  */
 export function transformObjectBranch(itemChilds, schema) {
-	if (get(schema, 'type.values')) {
+	if (get(schema, 'type.values') || get(schema, 'values')) {
 		return Object.entries(itemChilds).map(obj => {
 			const OBJECT_KEY = 0;
 			const OBJECT_VALUE = 1;
