@@ -105,12 +105,12 @@ AvroRenderer.propTypes = {
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
-				type: PropTypes.oneOf(AVRO_TYPES),
+				type: PropTypes.oneOf([...AVRO_TYPES, 'array', 'fixed']),
 				logicalType: PropTypes.oneOf(LOGICAL_TYPES),
 			}),
 		}),
 	}),
-	data: PropTypes.object,
+	data: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number, PropTypes.bool]),
 	isValueOverflown: PropTypes.bool,
 	isLongValueToggled: PropTypes.bool,
 };
