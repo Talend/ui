@@ -3,10 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
 import List from '@talend/react-components/lib/List';
-import CellTitleRenderer, {
-	cellType as cellTitleType,
-} from '@talend/react-components/lib/VirtualizedList/CellTitle';
-import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle/CellTitle.component';
+import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
@@ -32,7 +29,7 @@ function mapStateToProps(state, ownProps) {
 
 	return {};
 }
-
+const { cellType, cellRenderer } = VirtualizedList.cellDictionary.title;
 const ConnectedCellTitle = cmfConnect({
 	mapStateToProps,
 	omitCMFProps: true,
@@ -40,10 +37,10 @@ const ConnectedCellTitle = cmfConnect({
 	withDispatch: true,
 	withDispatchActionCreator: true,
 	withComponentId: true,
-})(CellTitle);
+})(cellRenderer);
 export const connectedCellDictionary = {
-	[cellTitleType]: {
-		...CellTitleRenderer,
+	[cellType]: {
+		...VirtualizedList.cellDictionary.title,
 		cellRenderer: props => <ConnectedCellTitle {...props} />,
 	},
 };
