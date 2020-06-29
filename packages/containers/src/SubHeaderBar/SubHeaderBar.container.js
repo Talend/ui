@@ -67,14 +67,11 @@ class SubHeaderBar extends React.Component {
 		if (hasGoBack) {
 			eventHandlerProps.onGoBack = this.onGoBack;
 		}
-		const props = Object.assign(
-			{},
-			omit(this.props, cmfConnect.INJECTED_PROPS),
-			eventHandlerProps,
-			{
-				...state.toJS(),
-			},
-		);
+		const props = {
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
+			...eventHandlerProps,
+			...state.toJS(),
+		};
 
 		return <Component {...props} />;
 	}

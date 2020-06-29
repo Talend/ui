@@ -16,9 +16,9 @@ describe('Button field', () => {
 		// when
 		const wrapper = shallow(
 			<Button
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'This is wrong'}
+				errorMessage="This is wrong"
 				onTrigger={jest.fn()}
 				schema={schema}
 			/>,

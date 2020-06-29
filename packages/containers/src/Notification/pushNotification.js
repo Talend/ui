@@ -15,15 +15,11 @@ export default function pushNotification(state, notification) {
 	}
 	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path, new Immutable.List());
-	notifs = notifs.push(
-		Object.assign(
-			{
-				id: uuid.v4(),
-			},
-			notification,
-		),
-	);
-	const newState = Object.assign({}, state);
+	notifs = notifs.push({
+		id: uuid.v4(),
+		...notification,
+	});
+	const newState = { ...state };
 	newState.cmf.components = state.cmf.components.setIn(path, notifs);
 	return newState;
 }

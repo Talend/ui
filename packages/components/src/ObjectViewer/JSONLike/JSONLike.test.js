@@ -202,12 +202,7 @@ describe('JSONLike', () => {
 				/>,
 			);
 
-			expect(
-				wrapper
-					.find('TooltipTrigger+#injected')
-					.at(0)
-					.text(),
-			).toEqual('hello world');
+			expect(wrapper.find('TooltipTrigger+#injected').at(0).text()).toEqual('hello world');
 		});
 
 		it("should toggle item but don't trigger form submit", () => {

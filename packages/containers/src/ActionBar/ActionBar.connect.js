@@ -38,7 +38,7 @@ export function mapStateToProps(state, { actionIds }) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionIds;
 	return props;
 }

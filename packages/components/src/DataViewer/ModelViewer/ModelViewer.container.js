@@ -157,7 +157,6 @@ export class ModelViewer extends React.Component {
 		getItemType,
 		hasSemanticAwareness: true,
 		t: getDefaultT(),
-		withTreeBorder: false,
 	};
 
 	renderLeaf = args => (

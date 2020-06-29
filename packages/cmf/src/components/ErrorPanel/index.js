@@ -1,3 +1,3 @@
-import ErrorPanel from './ErrorPanel.component.js';
+import ErrorPanel from './ErrorPanel.component';
 
 export default ErrorPanel;

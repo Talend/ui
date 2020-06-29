@@ -48,6 +48,7 @@ exports[`Comparator field should render default Comparator 1`] = `
     }
     noCaret={true}
     onSelect={[Function]}
+    t={[Function]}
   />
   <Widget
     errors={Object {}}
@@ -124,6 +125,7 @@ exports[`Comparator field should render disabled Comparator 1`] = `
     }
     noCaret={true}
     onSelect={[Function]}
+    t={[Function]}
   />
   <Widget
     errors={Object {}}

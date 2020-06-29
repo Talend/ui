@@ -186,15 +186,11 @@ function scrollableContent() {
 }
 
 const drawers = [
-	<Drawer
-		stacked
-		title="Im stacked drawer 1"
-		footerActions={Object.assign({}, basicProps, { selected: 0 })}
-	>
+	<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
 		<h1>Hello drawer 1</h1>
-		<p>{"You should not being able to read this because I'm first"}</p>
+		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
-	<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+	<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
 		<h1>Hello drawer 2</h1>
 		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
@@ -203,19 +199,11 @@ const drawers = [
 ];
 
 const editableDrawers = [
-	<Drawer
-		stacked
-		title="Im stacked drawer 1"
-		footerActions={Object.assign({}, basicProps, { selected: 0 })}
-	>
+	<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
 		<h1>Hello drawer 1</h1>
-		<p>{"You should not being able to read this because I'm first"}</p>
+		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
-	<Drawer
-		editableTitle
-		title="Im drawer 20"
-		footerActions={Object.assign({}, basicProps, { selected: 0 })}
-	>
+	<Drawer editableTitle title="Im drawer 20" footerActions={{ ...basicProps, selected: 0 }}>
 		<h1>Hello drawer 2</h1>
 		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
@@ -224,18 +212,14 @@ const editableDrawers = [
 ];
 
 const longEditableDrawers = [
-	<Drawer
-		stacked
-		title="Im stacked drawer 1"
-		footerActions={Object.assign({}, basicProps, { selected: 0 })}
-	>
+	<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
 		<h1>Hello drawer 1</h1>
 		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
 	<Drawer
 		editableTitle
 		title="Im drawer 20 here in the long title header header header"
-		footerActions={Object.assign({}, basicProps, { selected: 0 })}
+		footerActions={{ ...basicProps, selected: 0 }}
 		onCancelAction={onCancelAction}
 	>
 		<h1>Hello drawer 2</h1>
@@ -250,16 +234,12 @@ const drawersNoTransition = [
 		route={{ state: { withTransition: false } }}
 		stacked
 		title="Im stacked drawer 1"
-		footerActions={Object.assign({}, basicProps, { selected: 0 })}
+		footerActions={{ ...basicProps, selected: 0 }}
 	>
 		<h1>Hello drawer 1</h1>
-		<p>{"You should not being able to read this because I'm first"}</p>
+		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
-	<Drawer
-		withTransition={false}
-		title="Im drawer 2"
-		footerActions={Object.assign({}, basicProps, { selected: 0 })}
-	>
+	<Drawer withTransition={false} title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
 		<h1>Hello drawer 2</h1>
 		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
@@ -310,28 +290,16 @@ storiesOf('Layout/Drawer', module)
 	))
 	.add('stacked drawers', () => {
 		const stackedDrawers = [
-			<Drawer
-				stacked
-				title="I'm stacked drawer 1"
-				footerActions={Object.assign({}, basicProps, { selected: 0 })}
-			>
+			<Drawer stacked title="I'm stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
 				<h1>Hello drawer 1</h1>
-				<p>{"You should not being able to read this because I'm first"}</p>
+				<p>You should not being able to read this because I'm first</p>
 			</Drawer>,
-			<Drawer
-				stacked
-				title="I'm drawer 2"
-				footerActions={Object.assign({}, basicProps, { selected: 0 })}
-			>
+			<Drawer stacked title="I'm drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
 				<h1>Hello drawer 2</h1>
 				<p>The scroll is defined by the content</p>
 				{scrollableContent()}
 			</Drawer>,
-			<Drawer
-				stacked
-				title="I'm drawer 3"
-				footerActions={Object.assign({}, basicProps, { selected: 0 })}
-			>
+			<Drawer stacked title="I'm drawer 3" footerActions={{ ...basicProps, selected: 0 }}>
 				<h1>Hello drawer 3</h1>
 				<p>The scroll is defined by the content</p>
 				{scrollableContent()}
@@ -370,7 +338,7 @@ storiesOf('Layout/Drawer', module)
 			<Drawer
 				stacked
 				title="I'm a stacked drawer with tabs"
-				selectedTabKey={'info'}
+				selectedTabKey="info"
 				tabs={tabsActionFooter}
 			>
 				<p>This tab contain specific actions in left, center and right parts of the footer.</p>
@@ -379,7 +347,7 @@ storiesOf('Layout/Drawer', module)
 					in the tab "navigator" but not visible in the tab "info".
 				</p>
 			</Drawer>,
-			<Drawer title="I'm a drawer with tabs" selectedTabKey={'info'} tabs={tabsActionFooter}>
+			<Drawer title="I'm a drawer with tabs" selectedTabKey="info" tabs={tabsActionFooter}>
 				<p>This tab contain specific actions in left, center and right parts of the footer.</p>
 				<p>
 					An other specific action with the label "Action not visible in the tab 'info'" is define

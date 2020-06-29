@@ -5,12 +5,10 @@ import cases from 'jest-in-case';
 import withListGesture from './withListGesture';
 import List from '../../__mocks__/list';
 
-
 function getComponentWithGesture(loop) {
 	const ComponentWithGesture = withListGesture(List, loop);
 	return ComponentWithGesture;
 }
-
 
 describe('List Gesture HOC', () => {
 	it('should wrap Tree component', () => {
@@ -21,7 +19,7 @@ describe('List Gesture HOC', () => {
 	function testFocus({ elementPosition, expectedActivePosition, keyCode, loop }) {
 		// given
 		const ComponentWithGesture = getComponentWithGesture(loop);
-		const wrapper = mount(<ComponentWithGesture />);
+		const wrapper = mount(<ComponentWithGesture />, { attachTo: document.body });
 		const event = { keyCode };
 		const element = wrapper.find(`#item-${elementPosition}`);
 
@@ -30,6 +28,7 @@ describe('List Gesture HOC', () => {
 
 		// then
 		expect(document.activeElement.getAttribute('id')).toBe(`item-${expectedActivePosition}`);
+		wrapper.detach();
 	}
 
 	/**

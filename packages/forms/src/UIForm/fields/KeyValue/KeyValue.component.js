@@ -105,6 +105,7 @@ if (process.env.NODE_ENV !== 'production') {
 			key: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
 			items: PropTypes.array,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 		}),
 		value: PropTypes.shape({

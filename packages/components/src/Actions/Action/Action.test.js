@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Action, { getActionComponent, wrapOnClick } from './Action.component';
+import Action, { getActionComponent } from './Action.component';
 import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';
 import ActionDropdown from '../ActionDropdown';
@@ -92,35 +92,5 @@ describe('Action', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="iconToggle" />);
 		expect(wrapper.getElement().type).toBe(ActionIconToggle);
 		expect(wrapper.getElement().props.label).toBe('hello world');
-	});
-});
-
-describe('#wrapOnClick', () => {
-	it('should return onclick', () => {
-		// given
-		const onClick = jest.fn();
-		const eventFn = wrapOnClick({
-			onClick,
-			label: 'label',
-			model: {
-				id: '#model',
-			},
-		});
-
-		// when
-		eventFn({
-			type: 'click',
-		});
-
-		// then
-		expect(onClick).toHaveBeenCalledWith(
-			{
-				type: 'click',
-			},
-			{
-				action: { label: 'label' },
-				model: { id: '#model' },
-			},
-		);
 	});
 });

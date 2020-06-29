@@ -28,19 +28,16 @@ exports[`ActionBar should render a btn-group 1`] = `
     }
     key="0"
     left={true}
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     center={true}
     key="1"
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     key="2"
     right={true}
-    t={[Function]}
   />
 </div>
 `;
@@ -84,19 +81,16 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
     }
     key="0"
     left={true}
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     center={true}
     key="1"
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     key="2"
     right={true}
-    t={[Function]}
   />
 </div>
 `;
@@ -120,13 +114,11 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
     }
     key="0"
     left={true}
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     center={true}
     key="1"
-    t={[Function]}
   />
   <SwitchActions
     actions={
@@ -157,7 +149,6 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
     }
     key="2"
     right={true}
-    t={[Function]}
   />
 </div>
 `;
@@ -207,19 +198,16 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     }
     key="0"
     left={true}
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     center={true}
     key="1"
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     key="2"
     right={true}
-    t={[Function]}
   />
 </div>
 `;
@@ -239,13 +227,11 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     }
     key="0"
     left={true}
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     center={true}
     key="1"
-    t={[Function]}
   />
   <SwitchActions
     actions={
@@ -281,7 +267,6 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     }
     key="2"
     right={true}
-    t={[Function]}
   />
 </div>
 `;
@@ -309,13 +294,11 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
     }
     key="0"
     left={true}
-    t={[Function]}
   />
   <SwitchActions
     actions={Array []}
     center={true}
     key="1"
-    t={[Function]}
   />
   <SwitchActions
     actions={
@@ -346,7 +329,6 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
     }
     key="2"
     right={true}
-    t={[Function]}
   />
 </div>
 `;
@@ -355,7 +337,7 @@ exports[`ActionBar.Count should render if selected 1`] = `
 <span
   className="theme-tc-actionbar-selected-count tc-actionbar-selected-count"
 >
-  1 ACTION_BAR_COUNT_SELECTED
+  1 selected
 </span>
 `;
 

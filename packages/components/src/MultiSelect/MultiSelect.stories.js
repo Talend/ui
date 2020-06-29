@@ -12,6 +12,7 @@ class Photos extends React.Component {
 			photos: [],
 		};
 	}
+
 	componentDidMount() {
 		fetch('https://jsonplaceholder.typicode.com/photos')
 			.then(resp => resp.json())
@@ -22,6 +23,7 @@ class Photos extends React.Component {
 				});
 			});
 	}
+
 	render() {
 		return (
 			<section style={{ margin: 20 }}>

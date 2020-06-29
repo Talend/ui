@@ -30,6 +30,7 @@ class CellTitle extends React.Component {
 			this.props.type !== nextProps.type
 		);
 	}
+
 	render() {
 		const { cellData, columnData, getComponent, rowData, rowIndex, type } = this.props;
 

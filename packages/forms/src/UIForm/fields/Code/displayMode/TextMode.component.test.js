@@ -10,7 +10,7 @@ describe('Code text display mode', () => {
 
 	it('should render textarea', () => {
 		// when
-		const wrapper = shallow(<Code id={'myForm'} schema={schema} value={'toto'} />);
+		const wrapper = shallow(<Code id="myForm" schema={schema} value="toto" />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -25,7 +25,7 @@ describe('Code text display mode', () => {
 
 		// when
 		const wrapper = shallow(
-			<Code id={'myForm'} schema={schemaWithRows} value={'toto'} options={{ height: '20px' }} />,
+			<Code id="myForm" schema={schemaWithRows} value="toto" options={{ height: '20px' }} />,
 		);
 
 		// then

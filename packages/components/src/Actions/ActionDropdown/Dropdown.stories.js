@@ -223,7 +223,7 @@ storiesOf('Buttons/Dropdown', module).add('default', () => (
 		<h3>Automatic Dropup : this is contained in a restricted ".tc-dropdown-container" element.</h3>
 		<div
 			id="auto-dropup"
-			className={'tc-dropdown-container'}
+			className="tc-dropdown-container"
 			style={{ border: '1px solid black', overflow: 'scroll', height: '300px' }}
 		>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

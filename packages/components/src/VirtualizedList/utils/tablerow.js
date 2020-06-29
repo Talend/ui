@@ -18,8 +18,8 @@ export function insertSelectionConfiguration(props) {
 		const toggleColumn = (
 			<Column
 				id={internalIds.rowSelector}
-				label={''}
-				dataKey={''}
+				label=""
+				dataKey=""
 				disableSort
 				width={35}
 				flexShrink={0}

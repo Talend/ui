@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -40,7 +41,7 @@ class ImportDemo extends React.Component {
 			return <span>Finish ✅</span>;
 		}
 		return (
-			<button className={'btn btn-info'} onClick={this.onClick}>
+			<button className="btn btn-info" onClick={this.onClick}>
 				Simulate import
 			</button>
 		);

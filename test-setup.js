@@ -1,131 +1,58 @@
-/* eslint-disable global-require,no-plusplus */
-import '@babel/polyfill';
-import 'isomorphic-fetch';
-import 'raf/polyfill';
+// /* eslint-disable global-require,no-plusplus */
 import 'mutationobserver-shim';
-import { Headers } from 'node-fetch';
-import { configure } from 'enzyme';
+
+// import '@babel/polyfill';
+// import 'isomorphic-fetch';
+// import 'raf/polyfill';
+// import { Headers } from 'node-fetch';
+// import { configure } from 'enzyme';
 import dateMock from './mocks/dateMock';
 
-/**
- * lets mock i18next for all tests
- */
-jest.mock('i18next', () => {
-	const noop = () => {};
-	const i18n = {
-		t: (msg, options) => {
-			let buff = options.defaultValue || msg;
-			const split = buff.split('}}');
-			if (split.length > 1) {
-				buff = split.reduce((acc, current) => {
-					const sub = current.split('{{');
-					let value = sub.length > 1 ? options[sub[1].trim()] : '';
-					if (value === undefined) {
-						value = '';
-					}
-					return `${acc}${sub[0]}${value}`;
-				}, '');
-			}
-			return buff;
-		},
-		isMock: true,
-		getFixedT: () => i18n.t,
-		options: {},
-		language: 'en',
-		languages: ['en'],
-		isInitialized: true,
-		on: noop,
-		off: noop,
-		loadNamespaces: noop,
-		hasResourceBundle: () => false,
-		services: {
-			resourceStore: {
-				data: {},
-			},
-			backendConnector: {},
-		},
-		store: {
-			data: {},
-			on: noop,
-			off: noop,
-		},
-		changeLanguage: noop,
-	};
-	i18n.init = options => {
-		// i18n.store.data = options.resources;
-	};
-	return {
-		// default: i18n,
-		createInstance: () => i18n,
-		...i18n,
-	};
-});
+// // define fetch
+// const fetch = jest.fn(
+// 	(url, config) =>
+// 		new Promise(resolve => {
+// 			if (config.response) {
+// 				return resolve(config.response);
+// 			}
+// 			return resolve();
+// 		}),
+// );
+// global.fetch = fetch;
+// global.Headers = Headers;
+// global.localStorage = {
+// 	setItem(key, value) {
+// 		global.localStorage[key] = value;
+// 	},
+// };
 
-function getMajorVersion() {
-	if (!process.env.REACT_VERSION) {
-		return '16';
-	}
-	return process.env.REACT_VERSION.replace('^', '').split('.')[0];
-}
+// // define Element.closest
+// if (typeof Element.prototype.matches !== 'function') {
+// 	Element.prototype.matches = function matches(selector) {
+// 		const element = this;
+// 		const elements = (element.document || element.ownerDocument).querySelectorAll(selector);
+// 		let index = 0;
 
-const REACT_VERSION = getMajorVersion();
+// 		while (elements[index] && elements[index] !== element) {
+// 			++index;
+// 		}
 
-let AdapterReact;
-if (REACT_VERSION === '15') {
-	AdapterReact = require('enzyme-adapter-react-15');
-} else if (REACT_VERSION === '16') {
-	AdapterReact = require('enzyme-adapter-react-16');
-} else {
-	throw new Error(`Unsupported version of React: ${REACT_VERSION}`);
-}
+// 		return Boolean(elements[index]);
+// 	};
+// }
 
-configure({ adapter: new AdapterReact() });
+// Element.prototype.closest = function closest(selector) {
+// 	let element = this;
 
-// define fetch
-const fetch = jest.fn(
-	(url, config) =>
-		new Promise(resolve => {
-			if (config.response) {
-				return resolve(config.response);
-			}
-			return resolve();
-		}),
-);
-global.fetch = fetch;
-global.Headers = Headers;
-global.localStorage = {
-	setItem(key, value) {
-		global.localStorage[key] = value;
-	},
-};
+// 	while (element && element.nodeType === 1) {
+// 		if (element.matches(selector)) {
+// 			return element;
+// 		}
 
-// define Element.closest
-if (typeof Element.prototype.matches !== 'function') {
-	Element.prototype.matches = function matches(selector) {
-		const element = this;
-		const elements = (element.document || element.ownerDocument).querySelectorAll(selector);
-		let index = 0;
+// 		element = element.parentNode;
+// 	}
 
-		while (elements[index] && elements[index] !== element) {
-			++index;
-		}
-
-		return Boolean(elements[index]);
-	};
-}
-
-Element.prototype.closest = function closest(selector) {
-	let element = this;
-
-	while (element && element.nodeType === 1) {
-		if (element.matches(selector)) {
-			return element;
-		}
-
-		element = element.parentNode;
-	}
-
-	return null;
-};
+// 	return null;
+// };
 
 global.dateMock = dateMock;

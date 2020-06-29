@@ -115,13 +115,11 @@ export function mergeConfiguredHeader(config) {
 }
 
 export function mergeOptions(action) {
-	const options = Object.assign(
-		{
-			method: getMethod(action),
-			credentials: 'same-origin',
-		},
-		action,
-	);
+	const options = {
+		method: getMethod(action),
+		credentials: 'same-origin',
+		...action,
+	};
 
 	if (typeof options.body === 'object' && !(options.body instanceof FormData)) {
 		options.body = JSON.stringify(options.body);
@@ -240,7 +238,7 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 			.then(handleResponse)
 			.then(interceptors.onResponse)
 			.then(response => {
-				const newAction = Object.assign({}, action);
+				const newAction = { ...action };
 				dispatch(http.onResponse(response.data));
 				if (newAction.transform) {
 					newAction.response = newAction.transform(response.data);

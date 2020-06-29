@@ -14,13 +14,13 @@ describe('Time component', () => {
 	it('should render an InputTimePicker', () => {
 		const wrapper = shallow(
 			<TimeWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'12:34'}
+				value="12:34"
 			/>,
 		);
 
@@ -31,13 +31,13 @@ describe('Time component', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<TimeWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}
-				value={'12:00'}
+				value="12:00"
 			/>,
 		);
 		expect(onFinish).not.toBeCalled();
@@ -55,9 +55,9 @@ describe('Time component', () => {
 			const onChange = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -82,9 +82,9 @@ describe('Time component', () => {
 			const onChange = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -113,9 +113,9 @@ describe('Time component', () => {
 			const onChange = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -143,9 +143,9 @@ describe('Time component', () => {
 			const onFinish = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					schema={schema}
@@ -170,9 +170,9 @@ describe('Time component', () => {
 			const onFinish = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					schema={schema}

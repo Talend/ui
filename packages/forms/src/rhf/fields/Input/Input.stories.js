@@ -2,7 +2,7 @@
 import React from 'react';
 import { useForm, FormContext } from 'react-hook-form/dist/react-hook-form.ie11';
 import { action } from '@storybook/addon-actions';
-import Input from './';
+import Input from '.';
 
 export default {
 	title: 'RHF/Input',

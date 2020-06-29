@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { simpleCollection } from './collection';
 import IconsProvider from '../../IconsProvider';
 import ActionBar from '../../ActionBar';
-import List from './';
+import List from '.';
 import useCollectionSelection from './Manager/hooks/useCollectionSelection.hook';
 import { headerDictionary } from '../../VirtualizedList/utils/dictionary';
 import { headerType as headerResizableType } from '../../VirtualizedList/HeaderResizable';
@@ -92,7 +92,8 @@ storiesOf('Data/List/List Composition', module)
 			<IconsProvider />
 			<h1>Default list</h1>
 			<p>By default List doesn't come with any feature</p>
-			<pre>{`
+			<pre>
+				{`
 <List.Manager id="my-list" collection={simpleCollection}>
 	<List.VList id="my-vlist">
 		<List.VList.Text label="Id" dataKey="id" />
@@ -106,7 +107,8 @@ storiesOf('Data/List/List Composition', module)
 		<List.VList.Datetime label="Modified" dataKey="modified" />
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<CustomList />
@@ -119,7 +121,8 @@ storiesOf('Data/List/List Composition', module)
 			<IconsProvider />
 			<h1>List with display mode change</h1>
 			<p>You can change display mode by adding the selector in toolbar</p>
-			<pre>{`
+			<pre>
+				{`
 <List.Manager id="my-list" collection={collection} initialDisplayMode="table">
 	<List.Toolbar>
 		<List.Toolbar.Right>
@@ -130,7 +133,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -153,7 +157,8 @@ storiesOf('Data/List/List Composition', module)
 				- passing the display mode to List.DisplayMode and List.VList
 				<br />- handling the display mode change via List.DisplayMode onChange prop
 			</p>
-			<pre>{`
+			<pre>
+				{`
 <List.Manager
  	id="my-list"
  	collection={collection}
@@ -171,7 +176,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -193,7 +199,8 @@ storiesOf('Data/List/List Composition', module)
 			<IconsProvider />
 			<h1>Text Filter</h1>
 			<p>You can filter the dataset with the text by adding the component and let it work itself</p>
-			<pre>{`<List.Manager
+			<pre>
+				{`<List.Manager
  	id="my-list"
  	collection={collection}
 >
@@ -206,7 +213,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -229,7 +237,8 @@ storiesOf('Data/List/List Composition', module)
 				- handle the text filter value change and filter data
 				<br />- handle the text filter's docked status
 			</p>
-			<pre>{`<List.Manager
+			<pre>
+				{`<List.Manager
  	id="my-list"
  	collection={collection}
 >
@@ -242,7 +251,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -265,7 +275,8 @@ storiesOf('Data/List/List Composition', module)
 			<IconsProvider />
 			<h1>List with sorting feature</h1>
 			<p>You can change the sorting criteria by adding the component in the toolbar</p>
-			<pre>{`
+			<pre>
+				{`
 <List.Manager id="my-list" collection={simpleCollection}>
 	<List.Toolbar>
 		<List.Toolbar.Right>
@@ -280,7 +291,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager
 					collection={simpleCollection}
@@ -308,7 +320,8 @@ storiesOf('Data/List/List Composition', module)
 			<IconsProvider />
 			<h1>List with sorting feature</h1>
 			<p>You can change the sorting criteria by adding the component in the toolbar</p>
-			<pre>{`
+			<pre>
+				{`
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
 						<List.SortBy
@@ -322,7 +335,8 @@ storiesOf('Data/List/List Composition', module)
 						...
 					</List.VList>
 				</List.Manager>
-		`}</pre>
+		`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager
 					collection={simpleCollection}
@@ -354,7 +368,8 @@ storiesOf('Data/List/List Composition', module)
 				You can control the sorting feature by providing both onChange and onOrderChange props
 				(functions) to the SortBy component.
 			</p>
-			<pre>{`
+			<pre>
+				{`
 <List.Manager id="my-list" collection={simpleCollection}>
 	<List.Toolbar>
 		<List.SortBy
@@ -368,7 +383,8 @@ storiesOf('Data/List/List Composition', module)
 		...
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -399,7 +415,8 @@ storiesOf('Data/List/List Composition', module)
 				headerRenderer "headerResizableType" (note: the last column don't need to have the
 				headerRenderer)
 			</p>
-			<pre>{`
+			<pre>
+				{`
 <List.Manager id="my-list" collection={simpleCollection}>
 	<List.Toolbar>
 		<List.Toolbar.Right>
@@ -436,7 +453,8 @@ storiesOf('Data/List/List Composition', module)
 		/>
 	</List.VList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager
 					collection={simpleCollection}
@@ -467,7 +485,8 @@ storiesOf('Data/List/List Composition', module)
 				With multiple actions the Right component will align the actions to the right, and add a
 				separator between each.
 			</p>
-			<pre>{`
+			<pre>
+				{`
 							<List.Manager id="my-list" collection={simpleCollection}>
 							<List.Toolbar>
 								<List.Toolbar.Right>
@@ -483,7 +502,8 @@ storiesOf('Data/List/List Composition', module)
 							<CustomList />
 						</List.Manager>
 
-`}</pre>
+`}
+			</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
@@ -526,14 +546,16 @@ storiesOf('Data/List/List Composition', module)
 				<br />
 				Skeleton rows are rendered when data is missing, while they are being fetched.
 			</p>
-			<pre>{`
+			<pre>
+				{`
 <List.Manager id="my-list" collection={collection}>
 	<List.LazyLoadingList id="my-infinite-scroll-list" loadMoreRows={loadMoreRows} rowCount={totalRowCount}>
 		<List.VList.Text label="Id" dataKey="id" width={-1} />
 			...
 	</List.LazyLoadingList>
 </List.Manager>
-`}</pre>
+`}
+			</pre>
 			<h2>Table mode</h2>
 			<section style={{ height: '30vh' }}>
 				<List.Manager id="my-table-list" collection={[simpleCollection[0]]}>

@@ -9,7 +9,7 @@ describe('SortOptions component snaps', () => {
 			onChange: () => {},
 		};
 
-		const wrapper = shallow(<SortOptions.WrappedComponent {...props} />);
+		const wrapper = shallow(<SortOptions {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -23,7 +23,7 @@ describe('SortOptions component snaps', () => {
 			},
 		};
 
-		const wrapper = shallow(<SortOptions.WrappedComponent {...props} />);
+		const wrapper = shallow(<SortOptions {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -37,7 +37,7 @@ describe('SortOptions component snaps', () => {
 			},
 		};
 
-		const wrapper = shallow(<SortOptions.WrappedComponent {...props} />);
+		const wrapper = shallow(<SortOptions {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -52,7 +52,7 @@ describe('SortOptions component snaps', () => {
 			types: [TYPES.DATE],
 		};
 
-		const wrapper = shallow(<SortOptions.WrappedComponent {...props} />);
+		const wrapper = shallow(<SortOptions {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -67,7 +67,7 @@ describe('SortOptions component snaps', () => {
 			types: [TYPES.NAME],
 		};
 
-		const wrapper = shallow(<SortOptions.WrappedComponent {...props} />);
+		const wrapper = shallow(<SortOptions {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -82,7 +82,7 @@ describe('SortOptions component snaps', () => {
 			types: [],
 		};
 
-		const wrapper = shallow(<SortOptions.WrappedComponent {...props} />);
+		const wrapper = shallow(<SortOptions {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

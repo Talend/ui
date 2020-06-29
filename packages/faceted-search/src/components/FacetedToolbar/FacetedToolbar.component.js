@@ -8,7 +8,7 @@ import cssModule from './FacetedToolbar.scss';
 
 const theme = getTheme(cssModule);
 
-const SwitchFacetedMode = ({ facetedMode, id, onChange, t }) => {
+const SwitchFacetedMode = ({ facetedMode, onChange, t }) => {
 	const values = [
 		{
 			value: FACETED_MODE.BASIC,
@@ -31,7 +31,6 @@ const SwitchFacetedMode = ({ facetedMode, id, onChange, t }) => {
 
 SwitchFacetedMode.propTypes = {
 	facetedMode: PropTypes.string.isRequired,
-	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };

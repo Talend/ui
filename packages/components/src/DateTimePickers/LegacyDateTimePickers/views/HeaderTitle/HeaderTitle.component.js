@@ -6,7 +6,6 @@ import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
 import theme from './HeaderTitle.scss';
 import { getPickerLocale } from '../../generator';
-import getDefaultT from '../../../../translate';
 import { ActionDropdown, Action } from '../../../../Actions';
 import YearPicker from '../../pickers/YearPicker';
 
@@ -54,12 +53,8 @@ HeaderTitle.propTypes = {
 	year: PropTypes.number.isRequired,
 	button: PropTypes.object,
 	className: PropTypes.string,
-	t: PropTypes.func,
 	onSelectYear: PropTypes.func,
-};
-
-HeaderTitle.defaultProps = {
-	t: getDefaultT(),
+	t: PropTypes.func,
 };
 
 export default HeaderTitle;

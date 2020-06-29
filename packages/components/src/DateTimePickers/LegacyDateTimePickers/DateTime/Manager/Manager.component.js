@@ -26,6 +26,7 @@ import {
 
 class ContextualManager extends React.Component {
 	static displayName = 'DateTime.Manager';
+
 	static propTypes = {
 		children: PropTypes.node,
 		dateFormat: PropTypes.string,
@@ -106,11 +107,14 @@ class ContextualManager extends React.Component {
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
-		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'INPUT');
-			}
-		});
+		this.setState(
+			oldState => ({ previousErrors: oldState.errors, ...nextState }),
+			() => {
+				if (!this.props.formMode) {
+					this.onChange(event, 'INPUT');
+				}
+			},
+		);
 	}
 
 	onPickerChange(event, { date, time, field }) {

@@ -3,9 +3,12 @@
 exports[`EditableText container should render 1`] = `
 <withI18nextTranslation(EditableText)
   editMode={false}
+  inProgress={false}
+  loading={false}
   onCancel={[Function]}
   onChange={[Function]}
   onEdit={[Function]}
   onSubmit={[Function]}
+  t={[Function]}
 />
 `;

@@ -15,7 +15,7 @@ class YearPicker extends React.Component {
 	static propTypes = {
 		selectedYear: PropTypes.number,
 		onSelect: PropTypes.func.isRequired,
-		t: PropTypes.func.isRequired,
+		t: PropTypes.func,
 	};
 
 	static defaultProps = {

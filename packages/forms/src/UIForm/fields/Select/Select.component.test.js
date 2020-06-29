@@ -27,13 +27,13 @@ describe('Select field', () => {
 		// when
 		const wrapper = shallow(
 			<Select
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'lol'}
+				value="lol"
 			/>,
 		);
 
@@ -48,13 +48,13 @@ describe('Select field', () => {
 		// when
 		const wrapper = shallow(
 			<Select
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={localSchema}
-				value={'lol'}
+				value="lol"
 			/>,
 		);
 
@@ -77,9 +77,9 @@ describe('Select field', () => {
 		// when
 		const wrapper = shallow(
 			<Select
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={multipleSchema}
@@ -101,13 +101,13 @@ describe('Select field', () => {
 		// when
 		const wrapper = shallow(
 			<Select
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
-				value={'lol'}
+				value="lol"
 			/>,
 		);
 
@@ -125,13 +125,13 @@ describe('Select field', () => {
 		// when
 		const wrapper = shallow(
 			<Select
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
-				value={'lol'}
+				value="lol"
 			/>,
 		);
 
@@ -144,13 +144,13 @@ describe('Select field', () => {
 		const onChange = jest.fn();
 		const wrapper = shallow(
 			<Select
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={onChange}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'lol'}
+				value="lol"
 			/>,
 		);
 		const event = { target: { value: 'bar' } };
@@ -186,9 +186,9 @@ describe('Select field', () => {
 		};
 		const wrapper = shallow(
 			<Select
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={onChange}
 				onFinish={onFinish}
 				schema={multipleSchema}

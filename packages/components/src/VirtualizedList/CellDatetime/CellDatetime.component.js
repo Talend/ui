@@ -37,6 +37,7 @@ export class CellDatetimeComponent extends React.Component {
 			this.props.cellData !== nextProps.cellData || this.props.columnData !== nextProps.columnData
 		);
 	}
+
 	render() {
 		const { cellData, columnData, t } = this.props;
 		const cell = (

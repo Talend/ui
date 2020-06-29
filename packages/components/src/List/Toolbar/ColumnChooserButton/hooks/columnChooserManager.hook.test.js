@@ -55,13 +55,17 @@ const testHook = hook => {
 describe('useColumnChooserManager', () => {
 	let columnChooserHook;
 	beforeEach(() =>
-		testHook(() => (columnChooserHook = useColumnChooserManager(initialColumns, lockedLeftItems))),
+		testHook(() => {
+			columnChooserHook = useColumnChooserManager(initialColumns, lockedLeftItems);
+		}),
 	);
 	it('should have no columns defined', () => {
 		// given nothing
 		let hookWithNoValue;
 		// when mounting component
-		testHook(() => (hookWithNoValue = useColumnChooserManager()));
+		testHook(() => {
+			hookWithNoValue = useColumnChooserManager();
+		});
 		expect(hookWithNoValue.columns).toEqual([]);
 	});
 	it('should have some columns with the first two left locked', () => {

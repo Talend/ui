@@ -9,11 +9,10 @@ export function mapStateToProps(state, ownProps) {
 	};
 	const expression = get(ownProps, 'callToAction.renderIfExpression');
 	if (expression) {
-		props.callToAction = Object.assign(
-			{},
-			ownProps.callToAction,
-			cmf.expression.mapStateToProps(state, ownProps.callToAction),
-		);
+		props.callToAction = {
+			...ownProps.callToAction,
+			...cmf.expression.mapStateToProps(state, ownProps.callToAction),
+		};
 		if (props.callToAction.renderIf === false) {
 			props.callToAction = null;
 		}

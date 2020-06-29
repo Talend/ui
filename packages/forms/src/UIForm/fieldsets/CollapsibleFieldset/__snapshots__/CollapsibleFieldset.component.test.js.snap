@@ -4,7 +4,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <withI18nextTranslation(CollapsiblePanel)
+  <CollapsiblePanel
     expanded={false}
     header={
       Array [
@@ -71,7 +71,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
       }
       widgets={Object {}}
     />
-  </withI18nextTranslation(CollapsiblePanel)>
+  </CollapsiblePanel>
 </fieldset>
 `;
 
@@ -79,7 +79,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <withI18nextTranslation(CollapsiblePanel)
+  <CollapsiblePanel
     expanded={true}
     header={
       Array [
@@ -146,7 +146,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       }
       widgets={Object {}}
     />
-  </withI18nextTranslation(CollapsiblePanel)>
+  </CollapsiblePanel>
 </fieldset>
 `;
 
@@ -154,7 +154,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <withI18nextTranslation(CollapsiblePanel)
+  <CollapsiblePanel
     expanded={true}
     header={
       Array [
@@ -221,7 +221,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       }
       widgets={Object {}}
     />
-  </withI18nextTranslation(CollapsiblePanel)>
+  </CollapsiblePanel>
 </fieldset>
 `;
 
@@ -229,7 +229,7 @@ exports[`CollapsibleFieldset should render without value 1`] = `
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <withI18nextTranslation(CollapsiblePanel)
+  <CollapsiblePanel
     expanded={true}
     header={
       Array [
@@ -292,6 +292,6 @@ exports[`CollapsibleFieldset should render without value 1`] = `
       }
       widgets={Object {}}
     />
-  </withI18nextTranslation(CollapsiblePanel)>
+  </CollapsiblePanel>
 </fieldset>
 `;

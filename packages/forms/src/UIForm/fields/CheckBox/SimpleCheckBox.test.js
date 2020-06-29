@@ -14,11 +14,11 @@ describe('SimpleCheckBox field', () => {
 		// when
 		const wrapper = shallow(
 			<SimpleCheckBox
-				describedby={'myForm-description myForm-error'}
+				describedby="myForm-description myForm-error"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
-				id={'myForm'}
-				label={'My checkbox custom label'}
+				id="myForm"
+				label="My checkbox custom label"
 				schema={schema}
 				value
 			/>,
@@ -38,11 +38,11 @@ describe('SimpleCheckBox field', () => {
 		// when
 		const wrapper = shallow(
 			<SimpleCheckBox
-				describedby={'myForm-description myForm-error'}
+				describedby="myForm-description myForm-error"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
-				id={'myForm'}
-				label={'My checkbox custom label'}
+				id="myForm"
+				label="My checkbox custom label"
 				schema={disabledSchema}
 				value
 			/>,
@@ -58,8 +58,8 @@ describe('SimpleCheckBox field', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<SimpleCheckBox
-				id={'myForm'}
-				label={'My checkbox custom label'}
+				id="myForm"
+				label="My checkbox custom label"
 				onChange={onChange}
 				onFinish={onFinish}
 				schema={schema}
@@ -69,10 +69,7 @@ describe('SimpleCheckBox field', () => {
 		const event = { target: { checked: false } };
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', event);
+		wrapper.find('input').at(0).simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema, value: false });
@@ -84,8 +81,8 @@ describe('SimpleCheckBox field', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<SimpleCheckBox
-				id={'myForm'}
-				label={'My checkbox custom label'}
+				id="myForm"
+				label="My checkbox custom label"
 				onChange={onChange}
 				onFinish={onFinish}
 				schema={schema}
@@ -95,10 +92,7 @@ describe('SimpleCheckBox field', () => {
 		const event = { target: { checked: false } };
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', event);
+		wrapper.find('input').at(0).simulate('change', event);
 
 		// then
 		expect(onFinish).toBeCalledWith(event, { schema, value: false });
@@ -110,11 +104,11 @@ describe('SimpleCheckBox field', () => {
 		it('should render checkbox with check data-feature when checkbox is unchecked', () => {
 			const wrapper = shallow(
 				<SimpleCheckBox
-					describedby={'myForm-description myForm-error'}
+					describedby="myForm-description myForm-error"
 					onChange={jest.fn()}
 					onFinish={jest.fn()}
-					id={'myForm'}
-					label={'My checkbox custom label'}
+					id="myForm"
+					label="My checkbox custom label"
 					schema={{
 						...schema,
 						'data-feature': dataFeature,
@@ -127,11 +121,11 @@ describe('SimpleCheckBox field', () => {
 		it('should render checkbox with uncheck data-feature when checkbox is checked', () => {
 			const wrapper = shallow(
 				<SimpleCheckBox
-					describedby={'myForm-description myForm-error'}
+					describedby="myForm-description myForm-error"
 					onChange={jest.fn()}
 					onFinish={jest.fn()}
-					id={'myForm'}
-					label={'My checkbox custom label'}
+					id="myForm"
+					label="My checkbox custom label"
 					schema={{
 						...schema,
 						'data-feature': dataFeature,

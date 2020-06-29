@@ -149,7 +149,7 @@ describe('TreeGesture HOC', () => {
 
 	function testFocus({ elementPosition, expectedActivePosition, keyCode }) {
 		// given
-		const wrapper = mount(<ComponentWithGesture {...treeProps} />);
+		const wrapper = mount(<ComponentWithGesture {...treeProps} />, { attachTo: document.body });
 		const event = { keyCode };
 		const element = wrapper.find(getSelector(elementPosition));
 		const expectedActiveElementId = wrapper
@@ -162,6 +162,7 @@ describe('TreeGesture HOC', () => {
 
 		// then
 		expect(document.activeElement.getAttribute('id')).toBe(expectedActiveElementId);
+		wrapper.detach();
 	}
 
 	/**

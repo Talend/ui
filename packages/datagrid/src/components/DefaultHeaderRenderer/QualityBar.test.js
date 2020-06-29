@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { QualityBarComponent, formatNumber } from './QualityBar.component';
+import QualityBar, { formatNumber } from './QualityBar.component';
 
 function quality(total, percentage) {
 	return {
@@ -13,11 +13,7 @@ function quality(total, percentage) {
 describe('#QualityBar', () => {
 	it('should render QualityBar', () => {
 		const wrapper = shallow(
-			<QualityBarComponent
-				invalid={quality(999, 32)}
-				empty={quality(1000, 33)}
-				valid={quality(1001, 35)}
-			/>,
+			<QualityBar invalid={quality(999, 32)} empty={quality(1000, 33)} valid={quality(1001, 35)} />,
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -25,11 +21,7 @@ describe('#QualityBar', () => {
 
 	it('should render QualityBar without invalid value', () => {
 		const wrapper = shallow(
-			<QualityBarComponent
-				invalid={quality(0, 0)}
-				empty={quality(1000, 49)}
-				valid={quality(1001, 51)}
-			/>,
+			<QualityBar invalid={quality(0, 0)} empty={quality(1000, 49)} valid={quality(1001, 51)} />,
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -37,11 +29,7 @@ describe('#QualityBar', () => {
 
 	it('should render QualityBar without empty value', () => {
 		const wrapper = shallow(
-			<QualityBarComponent
-				invalid={quality(1000, 49)}
-				empty={quality(0, 0)}
-				valid={quality(1001, 51)}
-			/>,
+			<QualityBar invalid={quality(1000, 49)} empty={quality(0, 0)} valid={quality(1001, 51)} />,
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -49,11 +37,7 @@ describe('#QualityBar', () => {
 
 	it('should render QualityBar without valid value', () => {
 		const wrapper = shallow(
-			<QualityBarComponent
-				invalid={quality(1000, 49)}
-				empty={quality(1001, 51)}
-				valid={quality(0, 0)}
-			/>,
+			<QualityBar invalid={quality(1000, 49)} empty={quality(1001, 51)} valid={quality(0, 0)} />,
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();

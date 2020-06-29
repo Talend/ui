@@ -291,7 +291,7 @@ exports[`#DataGrid should render one Skeleton is InProgress 1`] = `
 <div
   className="theme-td-grid-loading theme-td-grid td-grid"
 >
-  <withI18nextTranslation(Skeleton)
+  <Skeleton
     name="talend-table"
     type="icon"
   />

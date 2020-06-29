@@ -17,36 +17,23 @@
     "addon"
   ],
   "scripts": {
-    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js'",
-    "lint": "eslint --config ../../.eslintrc src",
-    "test": "jest",
-    "test:demo": "echo nothing to demo"
+    "prepare": "talend-scripts build:lib",
+    "test": "talend-scripts test",
+    "test:demo": "echo nothing to demo",
+    "lint:es": "talend-scripts lint:es"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-react": "^7.8.3",
     "@storybook/react": "^5.3.1",
     "@talend/react-cmf": "^5.9.0",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.7.1",
-    "babel-loader": "^8.0.6",
+    "@talend/scripts-core": "^6.3.0",
+    "@talend/scripts-preset-react-lib": "^6.3.0",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^5.0.7",
-    "redux-saga": "^0.15.4",
-    "rimraf": "^3.0.2"
+    "redux-saga": "^0.15.4"
   },
   "dependencies": {
     "@storybook/addon-actions": "^5.3.1",
@@ -55,17 +42,10 @@
     "prop-types": "^15.5.10"
   },
   "peerDependencies": {
-    "@kadira/storybook": "^2",
+    "@storybook/react": "^5.3.1",
     "@talend/react-cmf": "^5.0.0",
-    "react": "^16.8.6"
-  },
-  "jest": {
-    "roots": [
-      "src"
-    ],
-    "testRegex": "&*\\.test\\.js$",
-    "setupFilesAfterEnv": [
-      "<rootDir>/../../test-setup.js"
-    ]
+    "react": "^16.8.6",
+    "react-redux": "^5.0.7",
+    "redux-saga": "^0.15.4"
   }
 }

@@ -3,7 +3,7 @@ import cases from 'jest-in-case';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 import { shallow, mount } from 'enzyme';
-import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
+import CollapsiblePanel from '@talend/react-components/lib/CollapsiblePanel';
 import createCollapsibleFieldset, { defaultTitle } from './CollapsibleFieldset.component';
 
 function customTitle(value, schema) {
@@ -73,7 +73,7 @@ describe('CollapsibleFieldset', () => {
 			// when
 			const wrapper = shallow(
 				<CollapsibleFieldset
-					id={'my-fieldset'}
+					id="my-fieldset"
 					schema={schema}
 					value={{ ...(opts.empty ? {} : value), isClosed: opts.isClosed }}
 				/>,
@@ -101,7 +101,7 @@ describe('CollapsibleFieldset', () => {
 
 		const wrapper = shallow(
 			<CollapsibleFieldset
-				id={'my-fieldset'}
+				id="my-fieldset"
 				onChange={onChange}
 				schema={schema}
 				value={{ ...value, isClosed: true }}
@@ -124,22 +124,18 @@ describe('CollapsibleFieldset', () => {
 		const onChange = jest.fn();
 		const actions = [{ id: 'action1' }, { id: 'action2' }];
 
-		const wrapper = shallow(
+		const wrapper = mount(
 			<CollapsibleFieldset
-				id={'my-fieldset'}
+				id="my-fieldset"
 				onChange={onChange}
 				schema={schema}
 				value={value}
 				actions={actions}
 			/>,
 		);
-		const header = wrapper.find(CollapsiblePanel).dive().getElement().props.header;
-		expect(header.length).toBe(2);
-		expect(header[1].length).toBe(2);
-		expect(header[1][0].id).toBe('action1');
-		expect(header[1][0].displayMode).toBe(TYPE_ACTION);
-		expect(header[1][1].id).toBe('action2');
-		expect(header[1][1].displayMode).toBe(TYPE_ACTION);
+
+		expect(wrapper.find('.panel-title button#action1').length).toBe(1);
+		expect(wrapper.find('.panel-title button#action2').length).toBe(1);
 	});
 
 	it('should not render Actions component if actions are not provided', () => {
@@ -147,7 +143,7 @@ describe('CollapsibleFieldset', () => {
 		const onChange = jest.fn();
 
 		const wrapper = shallow(
-			<CollapsibleFieldset id={'my-fieldset'} onChange={onChange} schema={schema} value={value} />,
+			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} value={value} />,
 		);
 
 		expect(wrapper.exists('Actions')).toEqual(false);
@@ -158,7 +154,7 @@ describe('CollapsibleFieldset', () => {
 		const onChange = jest.fn();
 
 		const wrapper = mount(
-			<CollapsibleFieldset id={'my-fieldset'} onChange={onChange} schema={schema} value={value} />,
+			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} value={value} />,
 		);
 		const panel = wrapper.find('CollapsiblePanel');
 

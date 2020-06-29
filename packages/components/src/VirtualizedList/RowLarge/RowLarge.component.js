@@ -44,7 +44,7 @@ function LargeInnerRowLoading({ columns, rows }) {
 					<div key={index} className={theme['loading-inner-column']}>
 						{Array(rows)
 							.fill(0)
-							.map((_, innerIndex) => (
+							.map((__, innerIndex) => (
 								<RandomSizeSkeleton key={innerIndex} />
 							))}
 					</div>
@@ -171,7 +171,7 @@ RowLarge.propTypes = {
 	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 RowLarge.defaultProps = {
 	t: getDefaultT(),

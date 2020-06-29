@@ -1,49 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RecordsViewer should render recordsViewer 1`] = `
-<RecordsViewerContainer
-  getChilds={[Function]}
-  getChildsCount={[Function]}
-  getIcon={[Function]}
-  getItemType={[Function]}
-  getJSONPath={[Function]}
-  getObjectBranchDatakey={[Function]}
-  i18n={
-    Object {
-      "changeLanguage": [Function],
-      "getFixedT": [Function],
-      "hasResourceBundle": [Function],
-      "init": [Function],
-      "isInitialized": true,
-      "isMock": true,
-      "language": "en",
-      "languages": Array [
-        "en",
-      ],
-      "loadNamespaces": [Function],
-      "off": [Function],
-      "on": [Function],
-      "options": Object {},
-      "reportNamespaces": ReportNamespaces {
-        "usedNamespaces": Object {
-          "tui-components": true,
-        },
-      },
-      "services": Object {
-        "backendConnector": Object {},
-        "resourceStore": Object {
-          "data": Object {},
-        },
-      },
-      "store": Object {
-        "data": Object {},
-        "off": [Function],
-        "on": [Function],
-      },
-      "t": [Function],
-    }
-  }
-  t={[Function]}
-  tReady={true}
+<Container(TreeManager)
+  componentId="RecordsViewer"
+  wrappedComponent={[Function]}
 />
 `;

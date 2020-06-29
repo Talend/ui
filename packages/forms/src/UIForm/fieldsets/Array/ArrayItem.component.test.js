@@ -9,7 +9,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
@@ -26,7 +26,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				isClosed
 				onRemove={jest.fn()}
@@ -44,7 +44,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown={false}
 				hasMoveUp
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				onRemove={jest.fn()}
 			/>,
@@ -60,7 +60,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown={false}
 				hasMoveUp
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
@@ -77,7 +77,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp={false}
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
@@ -94,7 +94,7 @@ describe('Array Item component', () => {
 			deleteAction = actions[0];
 		};
 		// when
-		shallow(<ArrayItem id={'disabled-array-item'} renderItem={renderItem} disabled />);
+		shallow(<ArrayItem id="disabled-array-item" renderItem={renderItem} disabled />);
 		// then
 		expect(deleteAction.disabled).toBe(true);
 	});
@@ -106,7 +106,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				onRemove={onRemove}
 				onReorder={jest.fn()}
@@ -114,10 +114,7 @@ describe('Array Item component', () => {
 		);
 
 		// when
-		wrapper
-			.find('Button#talend-control-3-delete')
-			.first()
-			.simulate('click');
+		wrapper.find('Button#talend-control-3-delete').first().simulate('click');
 
 		// then
 		expect(onRemove).toBeCalledWith(expect.anything(), 3);
@@ -126,7 +123,7 @@ describe('Array Item component', () => {
 	it('should not render the remove button in ArrayItem if the widget is closeable', () => {
 		// It will be rendered inside the widget instead
 		const wrapper = shallow(
-			<ArrayItem hasMoveDown hasMoveUp id={'talend-control-3'} index={3} isCloseable />,
+			<ArrayItem hasMoveDown hasMoveUp id="talend-control-3" index={3} isCloseable />,
 		);
 		expect(wrapper.exists('Action')).toEqual(false);
 	});
@@ -138,7 +135,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={onReorder}
@@ -146,10 +143,7 @@ describe('Array Item component', () => {
 		);
 
 		// when
-		wrapper
-			.find('Button#talend-control-3-moveUp')
-			.first()
-			.simulate('click');
+		wrapper.find('Button#talend-control-3-moveUp').first().simulate('click');
 
 		// then
 		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 2 });
@@ -162,7 +156,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={onReorder}
@@ -170,10 +164,7 @@ describe('Array Item component', () => {
 		);
 
 		// when
-		wrapper
-			.find('Button#talend-control-3-moveDown')
-			.first()
-			.simulate('click');
+		wrapper.find('Button#talend-control-3-moveDown').first().simulate('click');
 
 		// then
 		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 4 });
@@ -187,7 +178,7 @@ describe('Array Item component', () => {
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
-				id={'talend-control-3'}
+				id="talend-control-3"
 				index={3}
 				renderItem={renderItem}
 				onRemove={jest.fn()}

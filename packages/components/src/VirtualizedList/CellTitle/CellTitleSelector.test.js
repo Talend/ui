@@ -14,9 +14,9 @@ describe('CellTitleSelector', () => {
 		// when
 		const wrapper = shallow(
 			<CellTitleSelector
-				id={'my-title'}
-				cellData={'my value'}
-				className={'my-title-classname'}
+				id="my-title"
+				cellData="my value"
+				className="my-title-classname"
 				displayMode={TITLE_MODE_INPUT}
 				onEditCancel={jest.fn()}
 				onEditSubmit={jest.fn()}
@@ -35,9 +35,9 @@ describe('CellTitleSelector', () => {
 		// when
 		const wrapper = shallow(
 			<CellTitleSelector
-				id={'my-title'}
-				cellData={'my value'}
-				className={'my-title-classname'}
+				id="my-title"
+				cellData="my value"
+				className="my-title-classname"
 				displayMode={TITLE_MODE_TEXT}
 				onClick={jest.fn()}
 				rowData={rowData}
@@ -55,9 +55,9 @@ describe('CellTitleSelector', () => {
 		const clickEvent = { button: 0 };
 		const wrapper = shallow(
 			<CellTitleSelector
-				id={'my-title'}
-				cellData={'my value'}
-				className={'my-title-classname'}
+				id="my-title"
+				cellData="my value"
+				className="my-title-classname"
 				displayMode={TITLE_MODE_TEXT}
 				onClick={onClick}
 				rowData={rowData}
@@ -75,9 +75,9 @@ describe('CellTitleSelector', () => {
 		// when
 		const wrapper = shallow(
 			<CellTitleSelector
-				id={'my-title'}
-				cellData={'my value'}
-				className={'my-title-classname'}
+				id="my-title"
+				cellData="my value"
+				className="my-title-classname"
 				displayMode={TITLE_MODE_TEXT}
 			/>,
 		);

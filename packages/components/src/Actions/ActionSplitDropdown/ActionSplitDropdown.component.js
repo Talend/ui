@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import uuid from 'uuid';
 import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.scss';
-import { wrapOnClick } from '../Action/Action.component';
+import wrapOnClick from '../wrapOnClick';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 /**
@@ -76,7 +76,7 @@ ActionSplitDropdown.propTypes = {
 			label: PropTypes.string,
 			...MenuItem.propTypes,
 		}),
-	).isRequired,
+	),
 	label: PropTypes.string.isRequired,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func,

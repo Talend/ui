@@ -181,20 +181,20 @@ const commonProps = {
 export function Preparation({ name, createdBy, path }) {
 	const { t } = useTranslation();
 	return (
-		<div className={'preparation'}>
+		<div className="preparation">
 			<h3>{name}</h3>
 			<dl>
 				<div>
 					<dt>
-						<Icon name={'talend-user-circle'} />
+						<Icon name="talend-user-circle" />
 						{t('CREATED_BY', { defaultValue: 'Created by' })}
 					</dt>
 					<dd>{createdBy}</dd>
 				</div>
 				<div>
-					<dt className={'icon-only'}>
-						<Icon name={'talend-folder-closed'} />
-						<span className={'sr-only'}>{t('Path', { defaultValue: 'Path' })}</span>
+					<dt className="icon-only">
+						<Icon name="talend-folder-closed" />
+						<span className="sr-only">{t('Path', { defaultValue: 'Path' })}</span>
 					</dt>
 					<dd>{path}</dd>
 				</div>
@@ -217,12 +217,12 @@ export function Pipeline({ name, createdBy, usedAs }) {
 		item2: usedAs[1],
 	});
 	return (
-		<div className={'pipeline'}>
+		<div className="pipeline">
 			<h3>{name}</h3>
 			<dl>
 				<div>
 					<dt>
-						<Icon name={'talend-user-circle'} />
+						<Icon name="talend-user-circle" />
 						{t('CREATED_BY', { defaultValue: 'Created by' })}
 					</dt>
 					<dd>{createdBy}</dd>

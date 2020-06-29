@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';

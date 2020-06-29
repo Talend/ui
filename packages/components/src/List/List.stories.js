@@ -9,7 +9,7 @@ import cloneDeep from 'lodash/cloneDeep';
 
 import List from './List.component';
 import IconsProvider from '../IconsProvider';
-import { columnChooserService } from '../List/Toolbar/ColumnChooserButton';
+import { columnChooserService } from './Toolbar/ColumnChooserButton';
 
 function MyCustomRow(props) {
 	return (
@@ -708,7 +708,7 @@ storiesOf('Data/List/List', module)
 		const customEmptyRendererListProps = cloneDeep(props);
 		customEmptyRendererListProps.list.items = [];
 		customEmptyRendererListProps.list.noRowsRenderer = () => (
-			<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
+			<span className="tc-virtualizedlist-no-result" role="status" aria-live="polite">
 				I'm a custom NoRowsRenderer
 			</span>
 		);
@@ -854,7 +854,7 @@ storiesOf('Data/List/List', module)
 	.add('Sort', () => {
 		const tprops = cloneDeep(props);
 		// disable sort on column author
-		let authorColumn = tprops.list.columns.find(e => e.key === 'author');
+		const authorColumn = tprops.list.columns.find(e => e.key === 'author');
 		authorColumn.disableSort = true;
 		tprops.list.sort = sort;
 		return (
@@ -1035,7 +1035,7 @@ storiesOf('Data/List/List', module)
 	.add('Inline parent', () => (
 		<div className="virtualized-list">
 			<h1>List</h1>
-			{/* Do not reproduce!*/}
+			{/* Do not reproduce! */}
 			<span>
 				<List {...props} />
 			</span>
