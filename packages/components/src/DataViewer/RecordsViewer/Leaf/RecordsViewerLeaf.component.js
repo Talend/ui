@@ -84,7 +84,12 @@ RecordsViewerLeaf.propTypes = {
 	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	nodeHighlighted: PropTypes.bool,
 	value: PropTypes.shape({
-		data: PropTypes.object,
+		data: PropTypes.oneOfType([
+			PropTypes.object,
+			PropTypes.string,
+			PropTypes.number,
+			PropTypes.bool,
+		]),
 		schema: PropTypes.object,
 	}),
 	renderLeafAdditionalValue: PropTypes.func,
