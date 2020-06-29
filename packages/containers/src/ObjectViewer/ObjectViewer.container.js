@@ -3,7 +3,7 @@ import React from 'react';
 import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
-import Component from '@talend/react-components/lib/ObjectViewer';
+import ObjectViewer from '@talend/react-components/lib/ObjectViewer';
 import { cmfConnect } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({
@@ -71,14 +71,14 @@ export function editWrapper(prevState, data) {
 	return prevState;
 }
 
-class ObjectViewer extends React.Component {
+class ObjectViewerContainer extends React.Component {
 	static displayName = 'CMFContainer(ObjectViewer)';
 
 	static propTypes = {
 		id: PropTypes.string,
-		data: get(Component, 'propTypes.data', PropTypes.any),
-		displayMode: get(Component, 'propTypes.displayMode', PropTypes.func),
-		onSubmit: get(Component, 'propTypes.onSubmit', PropTypes.func),
+		data: get(ObjectViewer, 'propTypes.data', PropTypes.any),
+		displayMode: get(ObjectViewer, 'propTypes.displayMode', PropTypes.func),
+		onSubmit: get(ObjectViewer, 'propTypes.onSubmit', PropTypes.func),
 		...cmfConnect.propTypes,
 	};
 
@@ -114,7 +114,7 @@ class ObjectViewer extends React.Component {
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		return (
-			<Component
+			<ObjectViewer
 				{...this.props}
 				onChange={this.props.onSubmit ? this.onChange : undefined}
 				onSelect={this.onSelect}
@@ -129,4 +129,4 @@ class ObjectViewer extends React.Component {
 	}
 }
 
-export default ObjectViewer;
+export default ObjectViewerContainer;

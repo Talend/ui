@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { cmfConnect, componentState } from '@talend/react-cmf';
-import Component from '@talend/react-components/lib/Typeahead';
+import Typeahead from '@talend/react-components/lib/Typeahead';
 import omit from 'lodash/omit';
 import keycode from 'keycode';
 
@@ -18,7 +18,7 @@ export const DEFAULT_STATE = new Immutable.Map({
 /**
  * The Typeahead React container
  */
-export default class Typeahead extends React.Component {
+export default class TypeaheadContainer extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {
@@ -113,6 +113,6 @@ export default class Typeahead extends React.Component {
 			items: items && items.toJS ? items.toJS() : items,
 		};
 
-		return <Component {...props} />;
+		return <Typeahead {...props} />;
 	}
 }

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
-import Component from '@talend/react-components/lib/AboutDialog';
+import AboutDialog from '@talend/react-components/lib/AboutDialog';
 import Constants from './AboutDialog.constant';
 
 export const DEFAULT_STATE = new Map({
 	expanded: false,
 });
 
-class AboutDialog extends React.Component {
+class AboutDialogContainer extends React.Component {
 	static displayName = 'Container(AboutDialog)';
 
 	static propTypes = {
@@ -36,7 +36,7 @@ class AboutDialog extends React.Component {
 	render() {
 		const { state, ...props } = this.props;
 		return (
-			<Component
+			<AboutDialog
 				onToggle={this.toggle}
 				onHide={this.hide}
 				expanded={state.get('expanded')}
@@ -48,4 +48,4 @@ class AboutDialog extends React.Component {
 	}
 }
 
-export default AboutDialog;
+export default AboutDialogContainer;

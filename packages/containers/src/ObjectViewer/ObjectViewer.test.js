@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import Component from '@talend/react-components/lib/ObjectViewer';
+import ObjectViewer from '@talend/react-components/lib/ObjectViewer';
 import Container, {
 	DEFAULT_STATE,
 	toggleState,
@@ -39,7 +39,7 @@ describe('Container ObjectViewer', () => {
 	it('should pass needed props to pure component', () => {
 		const setState = jest.fn();
 		const wrapper = shallow(<Container data={data} state={DEFAULT_STATE} setState={setState} />);
-		expect(wrapper.find(Component).length).toBe(1);
+		expect(wrapper.find(ObjectViewer).length).toBe(1);
 		const props = wrapper.props();
 		expect(props.onChange).toBe(undefined);
 		expect(props.onSubmit).toBe(undefined);

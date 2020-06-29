@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Component from '@talend/react-components/lib/SubHeaderBar';
+import SubHeaderBar from '@talend/react-components/lib/SubHeaderBar';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
@@ -8,7 +8,7 @@ import { cmfConnect } from '@talend/react-cmf';
 export const DISPLAY_NAME = 'Container(SubHeaderBar)';
 export const DEFAULT_STATE = new Immutable.Map({});
 
-class SubHeaderBar extends React.Component {
+class SubHeaderBarContainer extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {
@@ -73,8 +73,8 @@ class SubHeaderBar extends React.Component {
 			...state.toJS(),
 		};
 
-		return <Component {...props} />;
+		return <SubHeaderBar {...props} />;
 	}
 }
 
-export default SubHeaderBar;
+export default SubHeaderBarContainer;

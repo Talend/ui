@@ -1,5 +1,5 @@
 import React from 'react';
-import Component from '@talend/react-components/lib/SidePanel';
+import SidePanel from '@talend/react-components/lib/SidePanel';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
 import omit from 'lodash/omit';
@@ -13,7 +13,7 @@ export const DEFAULT_STATE = new Map({
  * Checkout the {@link http://talend.surge.sh/containers/?selectedKind=SidePanelExample&selectedStory=Default|examples}
  * @param {object} props react props
  */
-class SidePanel extends React.Component {
+class SidePanelContainer extends React.Component {
 	static displayName = 'Container(SidePanel)';
 
 	static propTypes = {
@@ -37,9 +37,9 @@ class SidePanel extends React.Component {
 			onToggleDock: this.onToggleDock,
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
 		};
-		return <Component {...props} />;
+		return <SidePanel {...props} />;
 	}
 }
 
-SidePanel.ACTION_TYPE_LINK = ACTION_TYPE_LINK;
-export default SidePanel;
+SidePanelContainer.ACTION_TYPE_LINK = ACTION_TYPE_LINK;
+export default SidePanelContainer;

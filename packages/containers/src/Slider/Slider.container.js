@@ -1,6 +1,6 @@
 import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
-import Component from '@talend/react-components/lib/Slider';
+import Slider from '@talend/react-components/lib/Slider';
 import omit from 'lodash/omit';
 import Immutable from 'immutable';
 import PropTypes from 'prop-types';
@@ -12,7 +12,7 @@ export const DEFAULT_STATE = new Immutable.Map({
 
 export const DISPLAY_NAME = 'Container(Slider)';
 
-class Slider extends React.Component {
+class SliderContainer extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static contextTypes = {
@@ -57,8 +57,8 @@ class Slider extends React.Component {
 			onChange: this.onChange,
 			onAfterChange: this.onAfterChange,
 		};
-		return <Component {...props} />;
+		return <Slider {...props} />;
 	}
 }
 
-export default Slider;
+export default SliderContainer;

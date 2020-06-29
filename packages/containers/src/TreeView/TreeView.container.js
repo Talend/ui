@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
-import Component from '@talend/react-components/lib/TreeView';
+import TreeView from '@talend/react-components/lib/TreeView';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
@@ -98,7 +98,7 @@ export function transform(items, props, parent) {
 /**
  * The TreeView React container
  */
-class TreeView extends React.Component {
+class TreeViewContainer extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {
@@ -192,7 +192,7 @@ class TreeView extends React.Component {
 		const structure = transform(this.props.data.toJS(), this.props);
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		return (
-			<Component
+			<TreeView
 				{...props}
 				structure={structure}
 				onSelect={this.onSelect}
@@ -224,4 +224,4 @@ export default cmfConnect({
 	withDispatch: true,
 	withDispatchActionCreator: true,
 	withComponentId: true,
-})(TreeView);
+})(TreeViewContainer);

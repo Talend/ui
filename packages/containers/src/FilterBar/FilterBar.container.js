@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import Immutable from 'immutable';
-import Component from '@talend/react-components/lib/FilterBar';
+import FilterBar from '@talend/react-components/lib/FilterBar';
 
 export const QUERY_ATTR = 'query';
 export const DEFAULT_STATE = new Immutable.Map({
@@ -15,7 +15,7 @@ export const DISPLAY_NAME = 'Container(FilterBar)';
 
 const DOCKED_ATTR = 'docked';
 
-class FilterBar extends React.Component {
+class FilterBarContainer extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static contextTypes = {
@@ -75,8 +75,8 @@ class FilterBar extends React.Component {
 			onToggle: this.onToggle,
 			onFilter: this.onFilter,
 		};
-		return <Component {...props} />;
+		return <FilterBar {...props} />;
 	}
 }
 
-export default FilterBar;
+export default FilterBarContainer;

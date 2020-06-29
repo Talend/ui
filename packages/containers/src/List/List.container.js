@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
-import Component from '@talend/react-components/lib/List';
+import List from '@talend/react-components/lib/List';
 import CellTitleRenderer, {
 	cellType as cellTitleType,
 } from '@talend/react-components/lib/VirtualizedList/CellTitle';
@@ -91,7 +91,7 @@ export function getItems(context, props) {
 	});
 }
 
-class List extends React.Component {
+class ListContainer extends React.Component {
 	static displayName = 'Container(List)';
 
 	static propTypes = {
@@ -377,8 +377,8 @@ class List extends React.Component {
 				}
 			}
 		}
-		return <Component {...props} />;
+		return <List {...props} />;
 	}
 }
 
-export default List;
+export default ListContainer;

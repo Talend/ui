@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { List, Map } from 'immutable';
-import Component from '@talend/react-components/lib/Notification';
+import Notification from '@talend/react-components/lib/Notification';
 import { cmfConnect } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({
 	notifications: new List(),
 });
 
-function Notification(props) {
+function NotificationContainer(props) {
 	const state = (props.state || DEFAULT_STATE).toJS();
 	return (
-		<Component
+		<Notification
 			leaveFn={i => props.deleteNotification(i)}
 			notifications={state.notifications}
 			autoLeaveError={props.autoLeaveError}
@@ -19,11 +19,11 @@ function Notification(props) {
 	);
 }
 
-Notification.displayName = 'Container(Notification)';
-Notification.propTypes = {
+NotificationContainer.displayName = 'Container(Notification)';
+NotificationContainer.propTypes = {
 	deleteNotification: PropTypes.func,
 	autoLeaveError: PropTypes.bool,
 	...cmfConnect.propTypes,
 };
 
-export default Notification;
+export default NotificationContainer;

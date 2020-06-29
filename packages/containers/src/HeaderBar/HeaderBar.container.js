@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
-import Component from '@talend/react-components/lib/HeaderBar';
+import HeaderBar from '@talend/react-components/lib/HeaderBar';
 
 import { fetchProducts, openProduct } from './HeaderBar.actions';
 
@@ -17,7 +17,7 @@ function sortProductsByLabel(a, b) {
 	return a.label > b.label ? 1 : -1;
 }
 
-class HeaderBar extends React.Component {
+class HeaderBarContainer extends React.Component {
 	static displayName = 'Container(HeaderBar)';
 
 	static propTypes = {
@@ -89,8 +89,8 @@ class HeaderBar extends React.Component {
 			}
 		}
 
-		return <Component {...omit(props, cmfConnect.INJECTED_PROPS)} {...productsProps} />;
+		return <HeaderBar {...omit(props, cmfConnect.INJECTED_PROPS)} {...productsProps} />;
 	}
 }
 
-export default HeaderBar;
+export default HeaderBarContainer;

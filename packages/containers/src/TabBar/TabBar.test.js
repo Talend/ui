@@ -1,12 +1,12 @@
 import { Map } from 'immutable';
-import Component from '@talend/react-components/lib/TabBar';
+import TabBar from '@talend/react-components/lib/TabBar';
 import Connected, { DEFAULT_STATE } from './TabBar.connect';
 import { getComponentState, getSelectedKey } from './TabBar.selectors';
 
 describe('TabBar connected', () => {
 	it('should connect TabBar', () => {
-		expect(Connected.displayName).toBe(`Connect(CMF(${Component.displayName}))`);
-		expect(Connected.WrappedComponent).toBe(Component);
+		expect(Connected.displayName).toBe(`Connect(CMF(${TabBar.displayName}))`);
+		expect(Connected.WrappedComponent).toBe(TabBar);
 	});
 });
 
@@ -15,7 +15,7 @@ describe('TabBar selectors', () => {
 	const componentState = Map({ selectedKey: 'hello' });
 	beforeEach(() => {
 		mockState = {
-			cmf: { components: Map({ [Component.displayName]: Map({ thisTabBar: componentState }) }) },
+			cmf: { components: Map({ [TabBar.displayName]: Map({ thisTabBar: componentState }) }) },
 		};
 	});
 

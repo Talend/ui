@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Component from '@talend/react-components/lib/EditableText';
+import EditableText from '@talend/react-components/lib/EditableText';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
@@ -10,7 +10,7 @@ export const DEFAULT_STATE = new Immutable.Map({
 	editMode: false,
 });
 
-class EditableText extends React.Component {
+class EditableTextContainer extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {
@@ -98,8 +98,8 @@ class EditableText extends React.Component {
 			onChange: this.onChange,
 			...state.toJS(),
 		};
-		return <Component {...props} />;
+		return <EditableText {...props} />;
 	}
 }
 
-export default EditableText;
+export default EditableTextContainer;
