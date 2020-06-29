@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
 
 import ItemEdit from './ItemEdit.component';
 
@@ -12,15 +12,18 @@ const item = {
 		key: 'values',
 		onSubmitItem: jest.fn(), // provided click callback
 		onAbortItem: jest.fn(), // provided click callback
-		actions: [{
-			label: 'Validate',
-			id: 'validate',
-			onClick: jest.fn(), // provided click callback
-		}, {
-			label: 'Cancel',
-			id: 'cancel',
-			onClick: jest.fn(), // provided click callback
-		}],
+		actions: [
+			{
+				label: 'Validate',
+				id: 'validate',
+				onClick: jest.fn(), // provided click callback
+			},
+			{
+				label: 'Cancel',
+				id: 'cancel',
+				onClick: jest.fn(), // provided click callback
+			},
+		],
 	},
 };
 
@@ -61,15 +64,18 @@ describe('Item', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // provided click callback
 				onAbortItem: jest.fn(), // provided click callback
-				actions: [{
-					label: 'Validate',
-					id: 'validate',
-					onClick: jest.fn(), // provided click callback
-				}, {
-					label: 'Cancel',
-					id: 'cancel',
-					onClick: jest.fn(), // provided click callback
-				}],
+				actions: [
+					{
+						label: 'Validate',
+						id: 'validate',
+						onClick: jest.fn(), // provided click callback
+					},
+					{
+						label: 'Cancel',
+						id: 'cancel',
+						onClick: jest.fn(), // provided click callback
+					},
+				],
 			},
 		};
 
@@ -98,15 +104,18 @@ describe('Item', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // provided click callback
 				onAbortItem: jest.fn(), // provided click callback
-				actions: [{
-					label: 'Validate',
-					id: 'validate',
-					onClick: jest.fn(), // provided click callback
-				}, {
-					label: 'Cancel',
-					id: 'cancel',
-					onClick: jest.fn(), // provided click callback
-				}],
+				actions: [
+					{
+						label: 'Validate',
+						id: 'validate',
+						onClick: jest.fn(), // provided click callback
+					},
+					{
+						label: 'Cancel',
+						id: 'cancel',
+						onClick: jest.fn(), // provided click callback
+					},
+				],
 			},
 		};
 

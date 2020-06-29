@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
 import getPropsFrom from './getPropsFrom';
 
 describe('Action', () => {

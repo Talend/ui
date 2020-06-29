@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
 
 import Header from './Header.component';
 
@@ -8,13 +8,15 @@ describe('Header', () => {
 	it('should trigger callback when clicking on header button', () => {
 		// given
 		const props = {
-			headerDefault: [{
-				disabled: false,
-				label: 'Search for specific values',
-				icon: 'talend-search',
-				id: 'search',
-				onClick: jest.fn(), // provided click callback
-			}],
+			headerDefault: [
+				{
+					disabled: false,
+					label: 'Search for specific values',
+					icon: 'talend-search',
+					id: 'search',
+					onClick: jest.fn(), // provided click callback
+				},
+			],
 		};
 		const headerInstance = <Header {...props} />;
 

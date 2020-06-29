@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { SplitButton, MenuItem } from 'react-bootstrap';
+import SplitButton from 'react-bootstrap/lib/SplitButton';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
 import { useTranslation } from 'react-i18next';
 import uuid from 'uuid';
 import Icon from '../../Icon';

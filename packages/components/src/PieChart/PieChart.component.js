@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { OverlayTrigger } from 'react-bootstrap';
+import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import PieChartIcon from './PieChartIcon.component';
 import PieChartButton from './PieChartButton.component';
 import TooltipTrigger from '../TooltipTrigger';

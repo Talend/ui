@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
 import Breadcrumbs from './Breadcrumbs.component';
 
 describe('Breadcrumbs', () => {
@@ -83,11 +83,7 @@ describe('Breadcrumbs', () => {
 			// when
 			const breadcrumbs = <Breadcrumbs items={actions} />;
 			const wrapper = mount(breadcrumbs);
-			wrapper
-				.find('.tc-breadcrumb')
-				.find(Button)
-				.at(clickedElementIndex)
-				.simulate('click');
+			wrapper.find('.tc-breadcrumb').find(Button).at(clickedElementIndex).simulate('click');
 
 			// then
 			expect(onTextAClick).not.toBeCalled();

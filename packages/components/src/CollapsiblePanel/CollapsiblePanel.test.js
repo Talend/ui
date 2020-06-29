@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
 import { mount } from 'enzyme';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
@@ -76,10 +76,7 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		// then
 		expect(propsDescriptivePanel.onSelect).toBeCalled();
@@ -91,10 +88,7 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		// then
 		expect(propsPanelWithActions.onToggle).toBeCalled();

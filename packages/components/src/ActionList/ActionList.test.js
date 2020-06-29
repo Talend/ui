@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
 import { mount } from 'enzyme';
 import ActionList from './ActionList.component';
 
@@ -18,10 +18,7 @@ describe('ActionList', () => {
 		// when
 		const actionList = <ActionList actions={actions} />;
 		const wrapper = mount(actionList);
-		wrapper
-			.find(Button)
-			.at(2)
-			.simulate('click');
+		wrapper.find(Button).at(2).simulate('click');
 
 		// then
 		expect(onPreparationsClick).not.toBeCalled();

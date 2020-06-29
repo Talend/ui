@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
+import BaseOverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import { withTranslation } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';

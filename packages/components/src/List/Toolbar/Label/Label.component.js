@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/lib/Navbar';
 
 function Label({ htmlFor, text }) {
 	return (

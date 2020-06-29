@@ -1,8 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
 import TooltipTrigger from './TooltipTrigger.component';
 
 function generateButtonWithTooltip(label, tooltipPlacement) {

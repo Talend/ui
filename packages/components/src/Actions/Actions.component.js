@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ButtonGroup, OverlayTrigger } from 'react-bootstrap';
+import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
+import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import classNames from 'classnames';
 import Action from './Action';
 import Inject from '../Inject';

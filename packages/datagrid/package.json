@@ -58,7 +58,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
-    "sass-loader": "^7.3.1",
+    "sass-loader": "^8.0.2",
     "storybook-addon-i18next": "^1.2.1",
     "style-loader": "^0.23.0"
   },

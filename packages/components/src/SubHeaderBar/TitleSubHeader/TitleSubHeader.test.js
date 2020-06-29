@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Label } from 'react-bootstrap';
+import Label from 'react-bootstrap/lib/Label';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import Action from '../../Actions/Action';

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
-import { OverlayTrigger } from 'react-bootstrap';
+import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import keycode from 'keycode';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';

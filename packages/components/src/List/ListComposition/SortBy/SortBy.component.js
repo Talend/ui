@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar, MenuItem, NavDropdown, Nav, Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
+import Navbar from 'react-bootstrap/lib/Button';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
+import NavDropdown from 'react-bootstrap/lib/NavDropdown';
+import Nav from 'react-bootstrap/lib/Nav';
 import uuid from 'uuid';
 import Icon from '../../../Icon';
 

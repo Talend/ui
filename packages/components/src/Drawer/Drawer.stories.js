@@ -1,7 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Nav, NavItem, Tab } from 'react-bootstrap';
+import Nav from 'react-bootstrap/lib/Nav';
+import NavItem from 'react-bootstrap/lib/NavItem';
+import Tab from 'react-bootstrap/lib/Tab';
 
 import talendIcons from '@talend/icons/dist/react';
 import Drawer from './Drawer.component';
