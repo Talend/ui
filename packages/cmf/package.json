@@ -56,8 +56,8 @@
     "uuid": "^7.0.3"
   },
   "devDependencies": {
-    "@talend/scripts-core": "next",
-    "@talend/scripts-preset-react-lib": "next",
+    "@talend/scripts-core": "7.0.0-alpha.2",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.2",
     "enzyme": "^3.9.0",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.4",

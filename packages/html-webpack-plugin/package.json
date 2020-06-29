@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "@talend/react-components": "5.1.1",
-    "@talend/scripts-core": "next",
-    "@talend/scripts-preset-react-lib": "next"
+    "@talend/scripts-core": "7.0.0-alpha.2",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.2"
   },
   "peerDependencies": {
     "@talend/react-components": ">2.3.0"

@@ -42,6 +42,7 @@ class ActionFile extends React.Component {
 		tooltipPlacement: OverlayTrigger.propTypes.placement,
 		tooltip: PropTypes.bool,
 		tooltipLabel: PropTypes.string,
+		'data-feature': PropTypes.string,
 	};
 
 	static defaultProps = {
@@ -72,6 +73,7 @@ class ActionFile extends React.Component {
 			available,
 			bsStyle,
 			className,
+			'data-feature': dataFeature,
 			disabled,
 			inProgress,
 			hideLabel,
@@ -112,7 +114,7 @@ class ActionFile extends React.Component {
 					disabled={inProgress || disabled}
 					className={classNames(theme['action-file-input'], 'sr-only')}
 				/>
-				<label htmlFor={localId} className={labelClasses}>
+				<label htmlFor={localId} className={labelClasses} data-feature={dataFeature}>
 					{iconPosition === RIGHT ? [labelInstance, iconInstance] : [iconInstance, labelInstance]}
 				</label>
 			</span>
