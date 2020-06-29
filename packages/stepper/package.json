@@ -50,8 +50,8 @@
     "@storybook/addon-info": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/icons": "^5.7.0",
-    "@talend/react-components": "^5.7.0",
+    "@talend/icons": "^5.7.1",
+    "@talend/react-components": "^5.7.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.6",
@@ -112,5 +112,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.7.0"
+  "version": "5.7.1"
 }
