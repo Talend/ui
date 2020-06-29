@@ -396,7 +396,7 @@ describe('#transformObjectBranch', () => {
 			},
 		};
 		const schema = {
-			name: 'objectValue',
+			name: 'someObjectValue',
 			type: {
 				name: 'record',
 				fields: [
