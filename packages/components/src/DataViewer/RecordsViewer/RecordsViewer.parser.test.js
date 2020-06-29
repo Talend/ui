@@ -275,7 +275,7 @@ describe('#getNextSchemaItems', () => {
 });
 
 describe('#transformObjectBranch', () => {
-	it('should reuturn an array when there values attr in schema', () => {
+	it('should return an array when there values attr in schema', () => {
 		const schema = {
 			name: 'addresses',
 			type: {
@@ -395,59 +395,65 @@ describe('#transformObjectBranch', () => {
 				quality: 1,
 			},
 		};
-		const schema = [
-			{
-				name: 'name',
-				type: {
-					type: 'string',
-					dqType: '',
-					dqTypeKey: '',
-					'@talend-quality@': {
-						0: 0,
-						1: 48,
-						'-1': 0,
-						total: 48,
-					},
-				},
-			},
-			{
-				name: 'rating',
-				type: {
-					type: 'long',
-					dqType: '',
-					dqTypeKey: '',
-					'@talend-quality@': {
-						0: 0,
-						1: 48,
-						'-1': 0,
-						total: 48,
-					},
-				},
-			},
-			{
-				name: 'comments',
-				type: {
-					type: 'array',
-					items: {
-						type: 'string',
-						dqType: '',
-						dqTypeKey: '',
-						'@talend-quality@': {
-							0: 0,
-							1: 96,
-							'-1': 0,
-							total: 96,
+		const schema = {
+			name: 'someObjectValue',
+			type: {
+				name: 'record',
+				fields: [
+					{
+						name: 'name',
+						type: {
+							type: 'string',
+							dqType: '',
+							dqTypeKey: '',
+							'@talend-quality@': {
+								0: 0,
+								1: 48,
+								'-1': 0,
+								total: 48,
+							},
 						},
 					},
-					'@talend-quality@': {
-						0: 0,
-						1: 48,
-						'-1': 0,
-						total: 48,
+					{
+						name: 'rating',
+						type: {
+							type: 'long',
+							dqType: '',
+							dqTypeKey: '',
+							'@talend-quality@': {
+								0: 0,
+								1: 48,
+								'-1': 0,
+								total: 48,
+							},
+						},
 					},
-				},
+					{
+						name: 'comments',
+						type: {
+							type: 'array',
+							items: {
+								type: 'string',
+								dqType: '',
+								dqTypeKey: '',
+								'@talend-quality@': {
+									0: 0,
+									1: 96,
+									'-1': 0,
+									total: 96,
+								},
+							},
+							'@talend-quality@': {
+								0: 0,
+								1: 48,
+								'-1': 0,
+								total: 48,
+							},
+						},
+					},
+				],
 			},
-		];
+		};
 		const result = [
 			{
 				dataKey: 'name',
@@ -712,22 +718,28 @@ describe('#getChilds', () => {
 	describe('return an array of the next branch of items', () => {
 		it('when type is an object', () => {
 			const item = {
-				schema: [
-					{
-						name: 'name',
-						type: {
-							type: 'string',
-							dqType: '',
-							dqTypeKey: '',
-							'@talend-quality@': {
-								0: 0,
-								1: 48,
-								'-1': 0,
-								total: 48,
+				schema: {
+					name: 'subRecord',
+					type: {
+						type: 'record',
+						fields: [
+							{
+								name: 'name',
+								type: {
+									type: 'string',
+									dqType: '',
+									dqTypeKey: '',
+									'@talend-quality@': {
+										0: 0,
+										1: 48,
+										'-1': 0,
+										total: 48,
+									},
+								},
 							},
-						},
+						],
 					},
-				],
+				},
 				data: {
 					value: {
 						name: {
@@ -738,22 +750,28 @@ describe('#getChilds', () => {
 					quality: 1,
 				},
 			};
-			const schema = [
-				{
-					name: 'name',
-					type: {
-						type: 'string',
-						dqType: '',
-						dqTypeKey: '',
-						'@talend-quality@': {
-							0: 0,
-							1: 48,
-							'-1': 0,
-							total: 48,
+			const schema = {
+				name: 'subRecord',
+				type: {
+					type: 'record',
+					fields: [
+						{
+							name: 'name',
+							type: {
+								type: 'string',
+								dqType: '',
+								dqTypeKey: '',
+								'@talend-quality@': {
+									0: 0,
+									1: 48,
+									'-1': 0,
+									total: 48,
+								},
+							},
 						},
-					},
+					],
 				},
-			];
+			};
 			expect(getChilds(item, schema, 'object')).toEqual([
 				{
 					dataKey: 'name',
