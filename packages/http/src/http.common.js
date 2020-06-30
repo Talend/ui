@@ -94,7 +94,7 @@ export async function httpFetch(url, config, method, payload) {
 	};
 
 	/**
-	 * If the playload is an instance of FormData the body should be set to this object
+	 * If the payload is an instance of FormData the body should be set to this object
 	 * and the Content-type header should be stripped since the browser
 	 * have to build a special headers with file boundary in if said FormData is used to upload file
 	 */
