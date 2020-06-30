@@ -3430,10 +3430,10 @@
     "@svgr/plugin-svgo" "^4.2.0"
     loader-utils "^1.2.3"
 
-"@talend/babel-plugin-import-from-index@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-0.1.2.tgz#2e5da0db97afbefa69d5c58e7590232e04b39fcb"
-  integrity sha512-j8up222f2Xmq1dxg72nvMhTHaDt9JdRKLVmlWP6x06LWJ6i8YPmh6lMX+U6jRbgFnr85cPiE8Gym5rIcHjXfMQ==
+"@talend/babel-plugin-import-from-index@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-0.1.3.tgz#87d80385b333501143e0465e260b82601e4c598f"
+  integrity sha512-JujyuJS9qJU1thmSpy7BTDcQGZPxgo7Bdb3nL1BgmrKnzS5GtHIhO2+Hdf2gwpdkOJW2QGEySDxr/QwL1duabw==
 
 "@talend/html-webpack-plugin@^1.1.0":
   version "1.1.0"
@@ -3505,10 +3505,10 @@
     redux-thunk "^2.2.0"
     uuid "^7.0.3"
 
-"@talend/scripts-config-babel@^7.0.0-alpha.2":
-  version "7.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-7.0.0-alpha.2.tgz#43eb0d556d3856ff7b8899baf707ea8391fbbe9d"
-  integrity sha512-GT5U4u6yzs6Vhoh9bHrcQa2E1Rh2rA4mRJQAV81OWoBzmJb3wXHRbpAqXBZyUaExyXgROEn24esnmJx8aXsX7w==
+"@talend/scripts-config-babel@^7.0.0-alpha.3":
+  version "7.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-7.0.0-alpha.3.tgz#9f4d15b5b3d18f90a6d6f565b13f26be5b580bda"
+  integrity sha512-6s45Pn257ERQrcPK6BTA+NtS15diuFuiGrwhhwuUKyFpcVlsDtEJOTc9vGOoyhurCgJQ4r71IdlaIWxy678e+w==
   dependencies:
     "@babel/core" "^7.8.7"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -3517,13 +3517,13 @@
     "@babel/plugin-transform-object-assign" "^7.8.3"
     "@babel/preset-env" "^7.8.7"
     "@babel/preset-react" "^7.8.3"
-    "@talend/babel-plugin-import-from-index" "^0.1.2"
+    "@talend/babel-plugin-import-from-index" "^0.1.3"
     babel-core "^7.0.0-bridge.0"
 
-"@talend/scripts-config-eslint@^7.0.0-alpha.2":
-  version "7.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-eslint/-/scripts-config-eslint-7.0.0-alpha.2.tgz#9cc72e384475c3e855346a1944f6947925e8b07b"
-  integrity sha512-di2JoUiVUAwqxOSWAbWqgQPIWFc/Ru96CDRfYPmi4EBTLLLq344X7V3mpVuvHfH+GsOjb+s1Q2o0nMhudtx8QA==
+"@talend/scripts-config-eslint@^7.0.0-alpha.3":
+  version "7.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-eslint/-/scripts-config-eslint-7.0.0-alpha.3.tgz#cf32c7d1fdb484176b6e4f397240e0dd1d1204c1"
+  integrity sha512-hotwX5Gy/20s4ohomkLJ9pElAFods7ByaHrDj7Q8fZvRsMFb9Bzsm9wP1qMqwxp3O8arFbB9OIzn2Tbr5X5knw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.23.0"
     babel-eslint "^10.1.0"
@@ -3536,12 +3536,12 @@
     eslint-plugin-react "^7.19.0"
     eslint-plugin-react-hooks "^2.5.0"
 
-"@talend/scripts-config-jest@^7.0.0-alpha.2":
-  version "7.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-jest/-/scripts-config-jest-7.0.0-alpha.2.tgz#f5d09b9727402c2fb142212473fe3dac407a02f9"
-  integrity sha512-MZUKIKlDyCWUHtQaM1+jaknp/yYChVQ8XOywCTyJH62+mQsKfG4r3rjJpdK712tjSlHTmInJCleFkgCDT6pS2Q==
+"@talend/scripts-config-jest@^7.0.0-alpha.3":
+  version "7.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-jest/-/scripts-config-jest-7.0.0-alpha.3.tgz#243cee128fd72ac8523869c9a2946504900057fd"
+  integrity sha512-JhCCvv2Jwn85UPfHFyKU7VNab876BX3KuQUIq71TYUvKdXXt5Ch2N5LRNYKF7/CrZZVAjSfETLAKa9EKrsDakw==
   dependencies:
-    "@talend/scripts-config-babel" "^7.0.0-alpha.2"
+    "@talend/scripts-config-babel" "^7.0.0-alpha.3"
     "@types/jest" "^25.1.4"
     babel-jest "^25.1.0"
     core-js "^3.6.4"
@@ -3554,14 +3554,14 @@
     regenerator-runtime "^0.13.3"
     ts-jest "^25.2.1"
 
-"@talend/scripts-config-react-webpack@^7.0.0-alpha.2":
-  version "7.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-7.0.0-alpha.2.tgz#0476487c137fd7dd85c69642fb3b37579a321333"
-  integrity sha512-TM3fRdOCfjHbXQe74GKpPO7a+QKak3zGlbMPwjQSDsL+UXfLGDje1jmSFVdviM1FS1dEIJctu79YXMqbJYWldw==
+"@talend/scripts-config-react-webpack@^7.0.0-alpha.3":
+  version "7.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-7.0.0-alpha.3.tgz#d0466a85a0816bc18a0795844693832bd8c7e115"
+  integrity sha512-cBmeBsX3I26JuNv7kRue1AMZUoq52n9z9MvBeU96fZbYAKEnt5Hq9EU55NVoCphoXmSzs5j54qFRqBs/0xni3g==
   dependencies:
     "@talend/html-webpack-plugin" "^1.1.0"
     "@talend/react-cmf-webpack-plugin" ">=3.4.0"
-    "@talend/scripts-config-babel" "^7.0.0-alpha.2"
+    "@talend/scripts-config-babel" "^7.0.0-alpha.3"
     autoprefixer "^9.7.4"
     babel-loader "^8.0.6"
     cache-loader "^4.1.0"
@@ -3592,17 +3592,17 @@
     webpack-dev-server "^3.10.3"
     whatwg-fetch "^3.0.0"
 
-"@talend/scripts-config-typescript@^7.0.0-alpha.2":
-  version "7.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-7.0.0-alpha.2.tgz#e6ed79497d87ce002e2acc1be0368eea5d677a7b"
-  integrity sha512-2wDbeJkeuUZaWHcxwYQW0WAP3/umVW4aWgfHCvML/iCe8eTKWNWdFiY8U0533cDJl13u+s4I+sYx6E22icUHqw==
+"@talend/scripts-config-typescript@^7.0.0-alpha.3":
+  version "7.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-7.0.0-alpha.3.tgz#32114a59f33479c6be5f94757c943f772b865b9a"
+  integrity sha512-+pLOQlbKiWgB/K4sigfp55IaieZ3hRSxO8kkAXG9/eXQzelSkYmZHhq5Kg6P9Ad3q8KrMWgUnJpWaFNwAfTp0g==
   dependencies:
     typescript "^3.8.3"
 
-"@talend/scripts-core@7.0.0-alpha.2":
-  version "7.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-7.0.0-alpha.2.tgz#556c0df798130fd2cab5740c304bcb513c939dab"
-  integrity sha512-tfrSUJr+Qxvj+nEG1vhr2mfcKHDsmWY3D6FjnPQynAfavIw33V0uiGVdbuubnhpn2PWsSB1FjM9EbT0fqNSNrQ==
+"@talend/scripts-core@7.0.0-alpha.3":
+  version "7.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-7.0.0-alpha.3.tgz#81a69bf6663adf914bfcd86c9a79d087339210f4"
+  integrity sha512-cb+uA0nfV79pLO0yoNo17IfZnmMdKkSd4EQHJQPUotsi2XMOA2HFeLXvzVbte8FkeQ2gjwlzsfHtMwI5y6XqVA==
   dependencies:
     "@babel/cli" "^7.8.3"
     "@babel/core" "^7.8.7"
@@ -3617,26 +3617,26 @@
     which "^2.0.1"
     yargs "^15.3.0"
 
-"@talend/scripts-preset-react-lib@7.0.0-alpha.2":
-  version "7.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-7.0.0-alpha.2.tgz#e3515c8bba241949803017e5005406a112c80c1d"
-  integrity sha512-3tn9+cw3MpUUuWfPuWYSRnWy7For1pSxEuyk2St7shEeTXFmXWwBQFaAUrehswXsS8M1PNoADDwD0fyKIQCFKA==
+"@talend/scripts-preset-react-lib@7.0.0-alpha.3":
+  version "7.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-7.0.0-alpha.3.tgz#305760a61029e9262399bc27084df56bf5156814"
+  integrity sha512-3E07iI2M6giDcBrcNmdTWLW0anK0nUMAkUn4erYKpi4CzwTDV5z+2Dt5zGzuWYluO6bqS5Rbfkf+3Zj5tIM12A==
   dependencies:
-    "@talend/scripts-config-babel" "^7.0.0-alpha.2"
-    "@talend/scripts-config-eslint" "^7.0.0-alpha.2"
-    "@talend/scripts-config-jest" "^7.0.0-alpha.2"
-    "@talend/scripts-config-typescript" "^7.0.0-alpha.2"
+    "@talend/scripts-config-babel" "^7.0.0-alpha.3"
+    "@talend/scripts-config-eslint" "^7.0.0-alpha.3"
+    "@talend/scripts-config-jest" "^7.0.0-alpha.3"
+    "@talend/scripts-config-typescript" "^7.0.0-alpha.3"
 
-"@talend/scripts-preset-react@7.0.0-alpha.2":
-  version "7.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react/-/scripts-preset-react-7.0.0-alpha.2.tgz#dbf34093fc7a4919f068357098a1369a8cdd2490"
-  integrity sha512-7cYijP1fnVqGJvwuzkfiB5YQdf6Uwdb4l58Rxg3GUkAoEQ+BY84bnltozNIv2ixVwpAKhxph7uR8EzjK4Dt8kg==
+"@talend/scripts-preset-react@7.0.0-alpha.3":
+  version "7.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react/-/scripts-preset-react-7.0.0-alpha.3.tgz#5698003bc334f1d79e34120b5516f410c36bb564"
+  integrity sha512-yqqCQA+MHUp5gpRGY4www5amsuR8ti2R3ozYZx1LWjXY0ZuR0rdGWDpgNLHLS5MU25jmFl4g0idxwFgmbSo0Wg==
   dependencies:
-    "@talend/scripts-config-babel" "^7.0.0-alpha.2"
-    "@talend/scripts-config-eslint" "^7.0.0-alpha.2"
-    "@talend/scripts-config-jest" "^7.0.0-alpha.2"
-    "@talend/scripts-config-react-webpack" "^7.0.0-alpha.2"
-    "@talend/scripts-config-typescript" "^7.0.0-alpha.2"
+    "@talend/scripts-config-babel" "^7.0.0-alpha.3"
+    "@talend/scripts-config-eslint" "^7.0.0-alpha.3"
+    "@talend/scripts-config-jest" "^7.0.0-alpha.3"
+    "@talend/scripts-config-react-webpack" "^7.0.0-alpha.3"
+    "@talend/scripts-config-typescript" "^7.0.0-alpha.3"
 
 "@types/anymatch@*":
   version "1.3.1"

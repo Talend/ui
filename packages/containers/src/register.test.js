@@ -19,7 +19,7 @@ jest.mock('@talend/react-cmf-router', () => ({
 	},
 }));
 
-describe('#register contianers', () => {
+describe('#register containers', () => {
 	it('should register all component', () => {
 		cmf.component.registerMany = jest.fn();
 		cmf.component.register = jest.fn();

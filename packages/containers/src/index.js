@@ -1,6 +1,6 @@
 import omit from 'lodash/omit';
-import * as allComponents from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';
+import * as allComponents from '@talend/react-components';
 import * as containers from './containers';
 
 const components = Object.keys(allComponents).reduce((acc, key) => {
