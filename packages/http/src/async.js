@@ -9,7 +9,7 @@ import { httpFetch } from './http.common';
  * @param  {object} config  option that you want apply to the request
  * @example
  * import { http } from '@talend/http/async';
- * await http.post(/foo', {foo: 42}))
+ * await http.post('/foo', {foo: 42}))
  */
 export async function httpPost(url, payload, config) {
 	return httpFetch(url, config, HTTP_METHODS.POST, payload);
