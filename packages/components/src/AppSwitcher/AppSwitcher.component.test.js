@@ -63,10 +63,4 @@ describe('AppSwitcher', () => {
 
 		expect(wrapper.find('li').prop('className').includes('separated')).toBeTruthy();
 	});
-
-	it('should hide the AppSwitcher', () => {
-		const wrapper = mount(<AppSwitcher />);
-
-		expect(wrapper.html()).toBe(null);
-	});
 });
