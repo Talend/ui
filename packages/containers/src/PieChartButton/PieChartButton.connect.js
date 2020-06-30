@@ -43,7 +43,7 @@ export function ContainerPieChartButton(props) {
 		onClick,
 	};
 
-	return <PieChart.PieChartButton {...newProps} />;
+	return <PieChart.Button {...newProps} />;
 }
 
 ContainerPieChartButton.displayName = 'Container(PieChartButton)';
