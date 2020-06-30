@@ -6,5 +6,4 @@ PieChart.Button = PieChartButton;
 PieChart.Icon = PieChartIcon;
 PieChart.SIZES = PIECHART_SIZES;
 
-export { PieChartButton, PieChartIcon, PIECHART_SIZES };
 export default PieChart;
