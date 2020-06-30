@@ -218,6 +218,8 @@ class Slider extends React.Component {
 		captionTextStepNumber: PropTypes.number,
 		min: PropTypes.number.isRequired,
 		max: PropTypes.number.isRequired,
+		rightTrack: PropTypes.bool,
+		noTrack: PropTypes.bool,
 		captionsFormat: PropTypes.func,
 		disabled: PropTypes.bool,
 	};
@@ -239,6 +241,8 @@ class Slider extends React.Component {
 			captionsFormat,
 			min,
 			max,
+			rightTrack,
+			noTrack,
 			onChange,
 			disabled,
 			...rest
@@ -254,7 +258,14 @@ class Slider extends React.Component {
 						min={min}
 						max={max}
 						handle={noValue ? undefined : this.state.handle}
-						className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+						className={classnames(
+							theme['tc-slider-rc-slider'],
+							{[theme['tc-slider-rc-slider--track-right']]: rightTrack},
+							{[theme['tc-slider-rc-slider--track-none']]: noTrack},
+							'tc-slider-rc-slider',
+							{'tc-slider-rc-slider--track-right': rightTrack},
+							{'tc-slider-rc-slider--track-none': noTrack}
+						)}
 						onChange={onChange}
 						disabled={disabled}
 						{...rest}

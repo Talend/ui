@@ -86,4 +86,25 @@ $tc-slider-line-height: 24px;
 			}
 		}
 	}
+
+  &-rc-slider--track-right {
+		:global(.rc-slider-rail) {
+			background-color: $brand-primary;
+		}
+		:global(.rc-slider-track) {
+			background-color: $alto;
+		}
+	}
+
+	&-rc-slider--track-none {
+		:global(.rc-slider-rail),
+		:global(.rc-slider-track) {
+			background-color: $alto;
+		}
+
+		:global(.rc-slider-handle) {
+			box-shadow: $tc-slider-thumb-shadow;
+			background-color: $brand-primary;
+		}
+	}
 }

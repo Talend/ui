@@ -79,6 +79,26 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 				<Slider onChange={action('onChange')} />
 			</div>
 			<div style={delimiterStyle}>
+				<p>Track on the right</p>
+				<Slider
+					max={10}
+					min={0}
+					rightTrack={true}
+					onChange={action('onChange')}
+					value={3}
+				/>
+			</div>
+			<div style={delimiterStyle}>
+				<p>No track</p>
+				<Slider
+					max={10}
+					min={0}
+					noTrack={true}
+					onChange={action('onChange')}
+					value={5}
+				/>
+			</div>
+			<div style={delimiterStyle}>
 				<p>With disabled</p>
 				<Slider onChange={action('onChange')} disabled />
 			</div>
