@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
+import RichTooltip from '@talend/react-components/lib/RichTooltip';
 import Action from '@talend/react-components/lib/Actions/Action';
 import { getTheme } from '@talend/react-components/lib/theme';
 
@@ -50,7 +50,7 @@ BadgeOperatorRow.propTypes = {
 const BadgeOperatorPopover = ({ id, operators, onClick }) => {
 	return (
 		<div className={theme('tc-badge-operator-popover')}>
-			<RichLayout.Body id={id}>
+			<RichTooltip.RichLayout.Body id={id}>
 				{operators.map(operator => (
 					<BadgeOperatorRow
 						id={id}
@@ -59,7 +59,7 @@ const BadgeOperatorPopover = ({ id, operators, onClick }) => {
 						{...operator}
 					/>
 				))}
-			</RichLayout.Body>
+			</RichTooltip.RichLayout.Body>
 		</div>
 	);
 };
