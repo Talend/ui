@@ -13,38 +13,38 @@ import {
 
 describe('#getNextSchemaItems', () => {
 	describe('it should return the next schema', () => {
-		it('when schema.type.items.fields', () => {
-			const nextItems = [
-				{
-					name: 'name',
-					type: {
-						type: 'string',
-						dqType: '',
-						dqTypeKey: '',
-						'@talend-quality@': {
-							0: 0,
-							1: 24,
-							'-1': 0,
-							total: 24,
+		it('when schema.type.items', () => {
+			const nextItems = {
+				type: 'record',
+				name: 'devices',
+				fields: [
+					{
+						name: 'name',
+						type: {
+							type: 'string',
+							dqType: '',
+							dqTypeKey: '',
+							'@talend-quality@': {
+								0: 0,
+								1: 24,
+								'-1': 0,
+								total: 24,
+							},
 						},
 					},
+				],
+				'@talend-quality@': {
+					0: 0,
+					1: 24,
+					'-1': 0,
+					total: 24,
 				},
-			];
+			};
 			const schema = {
 				name: 'devices',
 				type: {
 					type: 'array',
-					items: {
-						type: 'record',
-						name: 'devices',
-						fields: nextItems,
-						'@talend-quality@': {
-							0: 0,
-							1: 24,
-							'-1': 0,
-							total: 24,
-						},
-					},
+					items: nextItems,
 					'@talend-quality@': {
 						0: 0,
 						1: 12,
@@ -55,8 +55,24 @@ describe('#getNextSchemaItems', () => {
 			};
 			expect(getNextSchemaItems(schema)).toEqual(nextItems);
 		});
-		it('when schema.type.values.fields', () => {
-			const nextItems = [{ name: 'device', type: { type: 'string' } }];
+		it('when schema.type.values', () => {
+			const nextItems = {
+				'@talend-quality@': {
+					0: 0,
+					1: 24,
+					'-1': 0,
+					total: 24,
+				},
+				fields: [
+					{
+						type: {
+							type: 'string',
+						},
+						name: 'device',
+					},
+				],
+				type: 'object',
+			};
 			const schema = {
 				name: 'devices',
 				type: {
@@ -77,6 +93,7 @@ describe('#getNextSchemaItems', () => {
 								name: 'device',
 							},
 						],
+						type: 'object',
 					},
 					'@talend-quality@': {
 						0: 0,
@@ -188,88 +205,59 @@ describe('#getNextSchemaItems', () => {
 	});
 	it('when schema.type', () => {
 		const nextItems = {
-			type: 'array',
-			items: {
-				type: 'string',
-				dqType: '',
-				dqTypeKey: '',
-				'@talend-quality@': {
-					0: 595,
-					1: 603,
-					'-1': 0,
-					total: 1198,
-				},
-			},
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
 			'@talend-quality@': {
-				0: 0,
-				1: 599,
+				0: 595,
+				1: 603,
 				'-1': 0,
-				total: 599,
+				total: 1198,
 			},
 		};
 		const schema = {
 			name: 'lines',
-			type: nextItems,
+			type: {
+				type: 'array',
+				items: nextItems,
+				'@talend-quality@': {
+					0: 0,
+					1: 599,
+					'-1': 0,
+					total: 599,
+				},
+			},
 		};
 		expect(getNextSchemaItems(schema)).toEqual(nextItems);
 	});
-	it('when schema.items.fields', () => {
-		const nextItems = [
-			{
-				name: 'anotherThing',
-				type: [
-					{
-						type: 'string',
-					},
-					{
-						type: 'null',
-					},
-				],
-			},
-		];
+	it('when schema.items', () => {
+		const nextItems = {
+			type: 'record',
+			name: 'something',
+			fields: [
+				{
+					name: 'anotherThing',
+					type: [
+						{
+							type: 'string',
+						},
+						{
+							type: 'null',
+						},
+					],
+				},
+			],
+		};
 
 		const schema = {
 			name: 'something',
 			type: 'array',
-			items: {
-				type: 'record',
-				name: 'something',
-				fields: nextItems,
-			},
+			items: nextItems,
 		};
 		expect(getNextSchemaItems(schema)).toEqual(nextItems);
 	});
 	it('when there is no direct fields or type', () => {
-		const schema = [
-			{
-				name: 'id',
-				type: {
-					type: 'long',
-					dqType: '',
-					dqTypeKey: '',
-					'@talend-quality@': {
-						0: 0,
-						1: 12,
-						'-1': 0,
-						total: 12,
-					},
-				},
-			},
-			{
-				name: 'name',
-				type: {
-					type: 'string',
-					dqType: '',
-					dqTypeKey: '',
-					'@talend-quality@': {
-						0: 0,
-						1: 12,
-						'-1': 0,
-						total: 12,
-					},
-				},
-			},
-		];
+		const schema = 'string';
 		expect(getNextSchemaItems(schema)).toEqual(schema);
 	});
 });
@@ -588,23 +576,14 @@ describe('#transformArrayBranch', () => {
 				dataKey: 0,
 				value: {
 					schema: {
-						type: 'array',
-						items: {
-							type: 'string',
-							dqType: '',
-							dqTypeKey: '',
-							'@talend-quality@': {
-								0: 0,
-								1: 96,
-								'-1': 0,
-								total: 96,
-							},
-						},
+						type: 'string',
+						dqType: '',
+						dqTypeKey: '',
 						'@talend-quality@': {
 							0: 0,
-							1: 48,
+							1: 96,
 							'-1': 0,
-							total: 48,
+							total: 96,
 						},
 					},
 					data: {
@@ -617,23 +596,14 @@ describe('#transformArrayBranch', () => {
 				dataKey: 1,
 				value: {
 					schema: {
-						type: 'array',
-						items: {
-							type: 'string',
-							dqType: '',
-							dqTypeKey: '',
-							'@talend-quality@': {
-								0: 0,
-								1: 96,
-								'-1': 0,
-								total: 96,
-							},
-						},
+						type: 'string',
+						dqType: '',
+						dqTypeKey: '',
 						'@talend-quality@': {
 							0: 0,
-							1: 48,
+							1: 96,
 							'-1': 0,
-							total: 48,
+							total: 96,
 						},
 					},
 					data: {
@@ -862,14 +832,10 @@ describe('#getChilds', () => {
 					value: {
 						data: { quality: 1, value: 'deserunt enim est anim ea' },
 						schema: {
-							'@talend-quality@': { '-1': 0, 0: 0, 1: 48, total: 48 },
-							items: {
-								'@talend-quality@': { '-1': 0, 0: 0, 1: 96, total: 96 },
-								dqType: '',
-								dqTypeKey: '',
-								type: 'string',
-							},
-							type: 'array',
+							'@talend-quality@': { '-1': 0, 0: 0, 1: 96, total: 96 },
+							dqType: '',
+							dqTypeKey: '',
+							type: 'string',
 						},
 					},
 				},
@@ -881,14 +847,10 @@ describe('#getChilds', () => {
 							value: 'eiusmod laboris consequat exercitation labore',
 						},
 						schema: {
-							'@talend-quality@': { '-1': 0, 0: 0, 1: 48, total: 48 },
-							items: {
-								'@talend-quality@': { '-1': 0, 0: 0, 1: 96, total: 96 },
-								dqType: '',
-								dqTypeKey: '',
-								type: 'string',
-							},
-							type: 'array',
+							'@talend-quality@': { '-1': 0, 0: 0, 1: 96, total: 96 },
+							dqType: '',
+							dqTypeKey: '',
+							type: 'string',
 						},
 					},
 				},
@@ -897,14 +859,10 @@ describe('#getChilds', () => {
 					value: {
 						data: { quality: 1, value: 'aute voluptate exercitation elit consequat' },
 						schema: {
-							'@talend-quality@': { '-1': 0, 0: 0, 1: 48, total: 48 },
-							items: {
-								'@talend-quality@': { '-1': 0, 0: 0, 1: 96, total: 96 },
-								dqType: '',
-								dqTypeKey: '',
-								type: 'string',
-							},
-							type: 'array',
+							'@talend-quality@': { '-1': 0, 0: 0, 1: 96, total: 96 },
+							dqType: '',
+							dqTypeKey: '',
+							type: 'string',
 						},
 					},
 				},

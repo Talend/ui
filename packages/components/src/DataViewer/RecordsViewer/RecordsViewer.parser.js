@@ -8,12 +8,10 @@ import formatJSONPath from '../jsonPath';
 
 export function getNextSchemaItems(schema) {
 	return (
-		get(schema, 'type.items.fields') ||
-		get(schema, 'type.values.fields') ||
-		get(schema, 'type.values.items') ||
+		get(schema, 'type.items') ||
+		get(schema, 'type.values') ||
 		get(schema, 'type.fields') ||
-		get(schema, 'items.fields') ||
-		get(schema, 'values.items') ||
+		get(schema, 'values') ||
 		get(schema, 'fields') ||
 		get(schema, 'items') ||
 		get(schema, 'type') ||
