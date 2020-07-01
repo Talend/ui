@@ -55,8 +55,24 @@ describe('#getNextSchemaItems', () => {
 			};
 			expect(getNextSchemaItems(schema)).toEqual(nextItems);
 		});
-		it('when schema.type.values.fields', () => {
-			const nextItems = [{ name: 'device', type: { type: 'string' } }];
+		it('when schema.type.values', () => {
+			const nextItems = {
+				'@talend-quality@': {
+					0: 0,
+					1: 24,
+					'-1': 0,
+					total: 24,
+				},
+				fields: [
+					{
+						type: {
+							type: 'string',
+						},
+						name: 'device',
+					},
+				],
+				type: 'object',
+			};
 			const schema = {
 				name: 'devices',
 				type: {
@@ -77,6 +93,7 @@ describe('#getNextSchemaItems', () => {
 								name: 'device',
 							},
 						],
+						type: 'object',
 					},
 					'@talend-quality@': {
 						0: 0,
@@ -240,36 +257,7 @@ describe('#getNextSchemaItems', () => {
 		expect(getNextSchemaItems(schema)).toEqual(nextItems);
 	});
 	it('when there is no direct fields or type', () => {
-		const schema = [
-			{
-				name: 'id',
-				type: {
-					type: 'long',
-					dqType: '',
-					dqTypeKey: '',
-					'@talend-quality@': {
-						0: 0,
-						1: 12,
-						'-1': 0,
-						total: 12,
-					},
-				},
-			},
-			{
-				name: 'name',
-				type: {
-					type: 'string',
-					dqType: '',
-					dqTypeKey: '',
-					'@talend-quality@': {
-						0: 0,
-						1: 12,
-						'-1': 0,
-						total: 12,
-					},
-				},
-			},
-		];
+		const schema = 'string';
 		expect(getNextSchemaItems(schema)).toEqual(schema);
 	});
 });
