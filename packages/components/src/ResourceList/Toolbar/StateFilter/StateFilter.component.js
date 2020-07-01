@@ -28,7 +28,7 @@ function StateFilter({ t, types, onChange, selection, favorites, certified }) {
 				</span>
 				{types.includes(TYPES.SELECTION) && (
 					<ActionIconToggle
-						icon={'talend-check-circle'}
+						icon="talend-check-circle"
 						label={t('SELECTION', { defaultValue: 'Selected' })}
 						active={selection}
 						onClick={() => onChange(TYPES.SELECTION, !selection)}
@@ -37,7 +37,7 @@ function StateFilter({ t, types, onChange, selection, favorites, certified }) {
 				)}
 				{types.includes(TYPES.CERTIFIED) && (
 					<ActionIconToggle
-						icon={'talend-badge'}
+						icon="talend-badge"
 						label={t('CERTIFIED', { defaultValue: 'Certified' })}
 						active={certified}
 						onClick={() => onChange(TYPES.CERTIFIED, !certified)}
@@ -46,7 +46,7 @@ function StateFilter({ t, types, onChange, selection, favorites, certified }) {
 				)}
 				{types.includes(TYPES.FAVORITES) && (
 					<ActionIconToggle
-						icon={'talend-star'}
+						icon="talend-star"
 						label={t('FAVORITES', { defaultValue: 'Favorites' })}
 						active={favorites}
 						onClick={() => onChange(TYPES.FAVORITES, !favorites)}

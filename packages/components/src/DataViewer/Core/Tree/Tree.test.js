@@ -30,10 +30,6 @@ describe('Tree', () => {
 		const wrapper = shallow(<Tree {...props} value={{}} dataKey="myDataKey" level={0} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should return a TreeNodeList with no tree border', () => {
-		const wrapper = shallow(<Tree {...props} value={[]} level={0} withTreeBorder={false} noRoot />);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
 	it('should return a TreeNodeList with custom className', () => {
 		const wrapper = shallow(
 			<Tree {...props} value={[]} className="myCustomClass" level={0} noRoot />,

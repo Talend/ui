@@ -108,7 +108,7 @@ class Items extends React.PureComponent {
 		const actions = this.props.itemsProp && this.props.itemsProp.actionsDefault;
 		return (
 			<div
-				test-id={'enumeration-items-list'}
+				test-id="enumeration-items-list"
 				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
 				onScroll={this.scrollEnumeration}
 				style={calculateListHeight ? { height: `${calculateListHeight(this.props.items)}px` } : {}}

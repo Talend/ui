@@ -92,7 +92,7 @@ describe('Array Template in text mode', () => {
 		// when
 		const wrapper = shallow(
 			<TextModeArrayTemplate
-				id={'my-template'}
+				id="my-template"
 				renderItem={index => <div>Render item {index}</div>}
 				schema={schema}
 				value={value}
@@ -106,7 +106,7 @@ describe('Array Template in text mode', () => {
 		// when
 		const wrapper = shallow(
 			<TextModeArrayTemplate
-				id={'my-template'}
+				id="my-template"
 				renderItem={index => <div>Render item {index}</div>}
 				schema={schema}
 				value={simpleValue}

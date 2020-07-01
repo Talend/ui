@@ -35,7 +35,7 @@ describe('Buttons field', () => {
 		// when
 		const wrapper = shallow(
 			<Buttons
-				id={'myForm'}
+				id="myForm"
 				onTrigger={jest.fn()}
 				onClick={jest.fn()}
 				schema={schema}

@@ -19,28 +19,24 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionId;
 	props.name = stateProps.name;
 	return props;
 }
 
 export function ContainerActionFile({ onChange, ...props }) {
-	const newProps = Object.assign({}, props);
+	const newProps = { ...props };
 	if (!onChange) {
 		newProps.onChange = (event, data) => {
 			if (props.actionCreator) {
 				props.dispatchActionCreator(props.actionCreator, event, data);
 			} else {
-				props.dispatch(
-					Object.assign(
-						{
-							model: props.model,
-						},
-						props.payload,
-						{ file: data },
-					),
-				);
+				props.dispatch({
+					model: props.model,
+					...props.payload,
+					file: data,
+				});
 			}
 		};
 	}

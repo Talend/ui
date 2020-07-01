@@ -82,7 +82,7 @@ const updateVisibilityAttr = changeColumnChooserAttribute('visible');
 
 /** *******************************************************************************
  * HOOK ENTRY POINT
- *********************************************************************************/
+ ******************************************************************************** */
 
 /**
  * Manage the state of each row representing a column for the ColumnChooser overlay.

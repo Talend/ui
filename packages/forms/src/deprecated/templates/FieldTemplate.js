@@ -28,9 +28,7 @@ function CustomFieldTemplate(props) {
 	} = props;
 	const uiWidget = uiSchema && uiSchema['ui:widget'];
 	const isToggle = uiWidget === 'toggle';
-	const shouldDisplayLabel = displayLabel && ![
-		'listview',
-	].includes(uiWidget);
+	const shouldDisplayLabel = displayLabel && !['listview'].includes(uiWidget);
 	const hasLabelBefore = [
 		'checkboxes',
 		'checkbox',
@@ -40,28 +38,29 @@ function CustomFieldTemplate(props) {
 		'multiSelectTag',
 	].includes(uiWidget);
 
-
 	if (!Object.prototype.hasOwnProperty.call(schema, 'title')) {
 		schema.title = label;
 	}
 
 	function renderLabel(classPrefix) {
 		if (!isToggle && shouldDisplayLabel) {
-			return (<Label
-				label={label}
-				required={required || schema.required}
-				id={id}
-				className={`${classPrefix}-label`}
-			/>);
+			return (
+				<Label
+					label={label}
+					required={required || schema.required}
+					id={id}
+					className={`${classPrefix}-label`}
+				/>
+			);
 		}
 		return null;
 	}
 
 	return (
 		<div className={classNames}>
-			{hasLabelBefore && renderLabel('form') }
+			{hasLabelBefore && renderLabel('form')}
 			{children}
-			{!hasLabelBefore && renderLabel('control') }
+			{!hasLabelBefore && renderLabel('control')}
 			{shouldDisplayLabel && description ? description : null}
 			{errors}
 			{help}

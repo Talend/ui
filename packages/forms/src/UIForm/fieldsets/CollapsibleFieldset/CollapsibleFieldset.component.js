@@ -124,6 +124,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			onChange: PropTypes.func.isRequired,
 			schema: PropTypes.shape({
 				items: PropTypes.array.isRequired,
+				description: PropTypes.string,
 			}).isRequired,
 			value: PropTypes.object,
 			actions: PropTypes.array,

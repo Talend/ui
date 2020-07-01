@@ -31,7 +31,9 @@ describe('Typeahead container', () => {
 		const props = {
 			...defaultProps,
 			state: Map({ docked: true }),
-			setState: jest.fn(fn => (state = fn())),
+			setState: jest.fn(fn => {
+				state = fn();
+			}),
 			onToggle: jest.fn(),
 		};
 

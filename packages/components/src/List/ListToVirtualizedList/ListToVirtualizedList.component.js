@@ -127,6 +127,7 @@ ListToVirtualizedList.propTypes = {
 		isSelected: PropTypes.func,
 		onRowClick: PropTypes.func,
 		onToggle: PropTypes.func,
+		onToggleAll: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
@@ -139,8 +140,9 @@ ListToVirtualizedList.propTypes = {
 	}),
 	titleProps: PropTypes.shape({
 		actionsKey: PropTypes.string,
-		presistentActionsKey: PropTypes.string,
 		key: PropTypes.string,
+		onClick: PropTypes.func,
+		persistentActionsKey: PropTypes.string,
 	}),
 	rowRenderers: PropTypes.object,
 };

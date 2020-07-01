@@ -75,7 +75,7 @@ function getReducer(appReducer) {
 	let reducerObject = {};
 	if (appReducer) {
 		if (typeof appReducer === 'object') {
-			reducerObject = Object.assign({}, appReducer);
+			reducerObject = { ...appReducer };
 		} else if (typeof appReducer === 'function') {
 			reducerObject = { app: appReducer };
 		}
@@ -129,10 +129,10 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 		enhancers.push(enhancer);
 	}
 	const middles = getMiddlewares(middleware);
-	const store = compose(
-		applyMiddleware(...middles),
-		...enhancers,
-	)(createStore)(reducer, preloadedState);
+	const store = compose(applyMiddleware(...middles), ...enhancers)(createStore)(
+		reducer,
+		preloadedState,
+	);
 
 	return store;
 }

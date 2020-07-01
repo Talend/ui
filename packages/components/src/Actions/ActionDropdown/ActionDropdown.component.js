@@ -11,7 +11,7 @@ import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
-import { wrapOnClick } from '../Action/Action.component';
+import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -174,21 +174,21 @@ class ActionDropdown extends React.Component {
 
 	render() {
 		const {
-			bsStyle,
+			bsStyle = 'default',
 			hideLabel,
 			icon,
-			items,
+			items = [],
 			label,
 			link,
 			onSelect,
-			tooltipPlacement,
+			tooltipPlacement = 'top',
 			tooltipLabel,
 			getComponent,
 			components,
 			className,
 			loading,
 			children,
-			t,
+			t = getDefaultT(),
 			...rest
 		} = this.props;
 
@@ -227,7 +227,9 @@ class ActionDropdown extends React.Component {
 				aria-label={tooltipLabel || label}
 				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
-				ref={ref => (this.ref = ref)}
+				ref={ref => {
+					this.ref = ref;
+				}}
 				noCaret
 			>
 				{!children && !items.length && !items.size && !loading && !components && (
@@ -287,7 +289,7 @@ ActionDropdown.propTypes = {
 			}),
 		),
 		ImmutablePropTypes.list,
-	]).isRequired,
+	]),
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	loading: PropTypes.bool,
@@ -303,13 +305,6 @@ ActionDropdown.propTypes = {
 	}),
 	t: PropTypes.func,
 	children: PropTypes.node,
-};
-
-ActionDropdown.defaultProps = {
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-	items: [],
-	t: getDefaultT(),
 };
 
 export { getMenuItem, InjectDropdownMenuItem };

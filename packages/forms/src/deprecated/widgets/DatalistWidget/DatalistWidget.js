@@ -80,7 +80,9 @@ function getSectionItems(section) {
  */
 class DatalistWidget extends React.Component {
 	static itemContainerStyle = theme['items-container'];
+
 	static noResultStyle = theme['no-result'];
+
 	static emptyStyle = theme.empty;
 
 	constructor(props) {
@@ -432,13 +434,14 @@ class DatalistWidget extends React.Component {
 			},
 		};
 
-		const propsWithCategory = Object.assign({}, props, {
+		const propsWithCategory = {
+			...props,
 			multiSection: true,
 			renderSectionTitle,
 			getSectionItems,
 			renderItem: (item, filter) => this.renderDatalistItem(item.text, filter),
 			highlightedSectionIndex: this.state.sectionIndex,
-		});
+		};
 
 		if (this.props.options && this.props.options.groupBy) {
 			return <Autowhatever {...propsWithCategory} />;

@@ -22,14 +22,14 @@ const SchemaProptypes = {
 };
 
 /**
- * UnkownTypeException
+ * UnknownTypeException
  *
- * @param {string} type - The unkown type
- * @returns {Object} An UnkownTypeException
+ * @param {string} type - The Unknown type
+ * @returns {Object} An UnknownTypeException
  */
-function UnkownTypeException(type) {
-	this.name = 'UnkownTypeException';
-	this.message = `Unkown type: ${type}`;
+function UnknownTypeException(type) {
+	this.name = 'UnknownTypeException';
+	this.message = `Unknown type: ${type}`;
 }
 
 /**
@@ -113,7 +113,7 @@ const registry = {
 	integer: TextRenderer,
 	boolean: BooleanRenderer,
 	array: ArrayRenderer,
-	object: ObjectRenderer, // eslint-disable-line no-use-before-define
+	object: ObjectRenderer, // eslint-disable-line @typescript-eslint/no-use-before-define
 };
 
 function isHidden(uiSchema, element) {
@@ -129,7 +129,7 @@ export function isPassword(uiSchema, element) {
  *
  * @param schema - The JSONSchema of the data being rendered
  * @param uiSchema
- * @throws {UnkownTypeException} Type must be part of the registry
+ * @throws {UnknownTypeException} Type must be part of the registry
  * @returns {Object} Resolved Renderer and props
  */
 function typeResolver(schema, uiSchema) {
@@ -157,7 +157,7 @@ function typeResolver(schema, uiSchema) {
 
 		const renderer = registry[type];
 		if (!renderer) {
-			throw new UnkownTypeException(type);
+			throw new UnknownTypeException(type);
 		}
 
 		return {
@@ -248,11 +248,11 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 JSONSchemaRenderer.displayName = 'JSONSchemaRenderer';
 
 JSONSchemaRenderer.propTypes = {
-	schema: PropTypes.shape({ ...SchemaProptypes }),
+	schema: PropTypes.shape(SchemaProptypes),
 	className: PropTypes.string,
 };
 
 JSONSchemaRenderer.InvalidSchemaException = InvalidSchemaException;
-JSONSchemaRenderer.UnkownTypeException = UnkownTypeException;
+JSONSchemaRenderer.UnknownTypeException = UnknownTypeException;
 
 export default JSONSchemaRenderer;

@@ -92,7 +92,7 @@ ModelViewerLeaf.propTypes = {
 	jsonPathSelection: PropTypes.string,
 	level: PropTypes.number,
 	onSelect: PropTypes.func,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 	value: PropTypes.object,
 	renderLeafOptions: PropTypes.func,
 };

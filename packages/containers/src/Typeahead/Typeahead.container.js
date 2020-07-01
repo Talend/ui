@@ -20,6 +20,7 @@ export const DEFAULT_STATE = new Immutable.Map({
  */
 export default class Typeahead extends React.Component {
 	static displayName = DISPLAY_NAME;
+
 	static propTypes = {
 		...componentState.propTypes,
 		onSelect: PropTypes.func,

@@ -4,7 +4,7 @@ import HeaderBarComponent from './HeaderBar.component';
 
 describe('HeaderBar', () => {
 	it('should render', () => {
-		const wrapper = mount(<HeaderBarComponent.WrappedComponent />);
+		const wrapper = mount(<HeaderBarComponent />);
 		expect(wrapper.find('HeaderBar')).toBeDefined();
 	});
 
@@ -14,7 +14,7 @@ describe('HeaderBar', () => {
 			label: 'My App',
 			onClick: jest.fn(),
 		};
-		const wrapper = mount(<HeaderBarComponent.WrappedComponent logo={logo} />);
+		const wrapper = mount(<HeaderBarComponent logo={logo} />);
 		const element = wrapper.find('Logo').at(0).find('Button').at(0);
 		expect(element).not.toBeUndefined();
 		element.simulate('click');
@@ -27,7 +27,7 @@ describe('HeaderBar', () => {
 			label: 'My App',
 			onClick: jest.fn(),
 		};
-		const wrapper = mount(<HeaderBarComponent.WrappedComponent brand={brand} />);
+		const wrapper = mount(<HeaderBarComponent brand={brand} />);
 		const element = wrapper.find('AppSwitcher');
 		expect(element).not.toBeUndefined();
 	});
@@ -37,7 +37,7 @@ describe('HeaderBar', () => {
 			return null;
 		}
 
-		const wrapper = mount(<HeaderBarComponent.WrappedComponent AppSwitcher={AppSwitcher} />);
+		const wrapper = mount(<HeaderBarComponent AppSwitcher={AppSwitcher} />);
 		const element = wrapper.find(AppSwitcher);
 		expect(element).not.toBeUndefined();
 	});
@@ -54,7 +54,7 @@ describe('HeaderBar', () => {
 				tooltipPlacement: 'bottom',
 			},
 		};
-		const wrapper = mount(<HeaderBarComponent.WrappedComponent search={search} />);
+		const wrapper = mount(<HeaderBarComponent search={search} />);
 		const element = wrapper.find('Button[role="search"]');
 		expect(element).not.toBeUndefined();
 		element.simulate('click');
@@ -67,7 +67,7 @@ describe('HeaderBar', () => {
 			onClick: jest.fn(),
 			icon: 'talend-icon',
 		};
-		const wrapper = mount(<HeaderBarComponent.WrappedComponent help={help} />);
+		const wrapper = mount(<HeaderBarComponent help={help} />);
 		const element = wrapper.find('Action#help');
 		expect(element).not.toBeUndefined();
 		element.simulate('click');
@@ -89,10 +89,9 @@ describe('HeaderBar', () => {
 			firstName: 'John',
 			lastName: 'Doe',
 		};
-		const wrapper = mount(<HeaderBarComponent.WrappedComponent user={user} />);
-		const element = wrapper.find('ActionDropdown#user');
-		element.simulate('click');
-		element.find('a#settings').simulate('click');
+		const wrapper = mount(<HeaderBarComponent user={user} />);
+		wrapper.find('button#user').simulate('click');
+		wrapper.find('a#settings').simulate('click');
 		expect(user.items[0].onClick).toHaveBeenCalled();
 	});
 
@@ -123,11 +122,8 @@ describe('HeaderBar', () => {
 			label: 'My App',
 			onClick: jest.fn(),
 		};
-		const wrapper = mount(
-			<HeaderBarComponent.WrappedComponent brand={brand} products={products} />,
-		);
-		const element = wrapper.find('button#brand');
-		element.simulate('click');
+		const wrapper = mount(<HeaderBarComponent brand={brand} products={products} />);
+		wrapper.find('button#brand').simulate('click');
 		wrapper.find('a#tdp').simulate('click');
 		expect(products.onSelect).toHaveBeenCalled();
 	});
@@ -135,8 +131,8 @@ describe('HeaderBar', () => {
 	it('should render intercom', () => {
 		// when
 		const wrapper = shallow(
-			<HeaderBarComponent.WrappedComponent
-				intercom={{ id: 'my-intercom', config: { app_id: 'e19c98d' } }}
+			<HeaderBarComponent
+				intercom={{ id: 'my-intercom', config: { app_id: 'e19c98d', email: 'lol@lol.com' } }}
 			/>,
 		);
 
@@ -146,10 +142,12 @@ describe('HeaderBar', () => {
 			.dive()
 			.find('withI18nextTranslation(Intercom)');
 		expect(intercomTrigger.length).toBe(1);
-		expect(intercomTrigger.props()).toEqual({
-			className: 'btn btn-link',
-			id: 'my-intercom',
-			config: { app_id: 'e19c98d', vertical_padding: 70 },
+		expect(intercomTrigger.prop('className')).toEqual('btn btn-link');
+		expect(intercomTrigger.prop('id')).toEqual('my-intercom');
+		expect(intercomTrigger.prop('config')).toEqual({
+			app_id: 'e19c98d',
+			email: 'lol@lol.com',
+			vertical_padding: 70,
 		});
 	});
 });

@@ -14,7 +14,7 @@ describe('ListGrid', () => {
 			<ListGrid
 				collection={collection}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				rowHeight={130}
 				rowRenderer={RowLarge}
 				onRowClick={jest.fn()}
@@ -40,7 +40,7 @@ describe('ListGrid', () => {
 			<ListGrid
 				collection={collection}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				isSelected={jest.fn()}
 				rowHeight={130}
 				rowRenderer={RowLarge}
@@ -63,7 +63,7 @@ describe('ListGrid', () => {
 			<ListGrid
 				collection={[]}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				isSelected={jest.fn()}
 				rowHeight={130}
 				rowRenderer={RowLarge}

@@ -7,7 +7,7 @@ import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 // eslint-disable-next-line react/prop-types
 const MyWrappedBadge = ({ children, properties, providerValue }) => (
 	<BadgeFacetedProvider value={providerValue}>
-		<BadgeFaceted children={children} {...properties} />
+		<BadgeFaceted {...properties}>{children}</BadgeFaceted>
 	</BadgeFacetedProvider>
 );
 

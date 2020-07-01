@@ -27,7 +27,7 @@ export function AppLoaderComponent({ t }) {
 	);
 }
 AppLoaderComponent.propTypes = {
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 AppLoaderComponent.defaultProps = {
 	t: getDefaultT(),

@@ -35,7 +35,7 @@ SelectAll.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object).isRequired,
 	isSelected: PropTypes.func.isRequired,
 	onToggleAll: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 SelectAll.defaultProps = {

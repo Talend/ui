@@ -281,6 +281,7 @@ HeaderBar.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
+		getComponent: PropTypes.func,
 		isFull: PropTypes.bool,
 		renderers: PropTypes.shape({
 			Action: PropTypes.func,
@@ -289,12 +290,14 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	Environment.propTypes = {
+		getComponent: PropTypes.func,
 		renderers: PropTypes.shape({
 			ActionDropdown: PropTypes.func,
 		}),
 	};
 
 	CallToAction.propTypes = {
+		getComponent: PropTypes.func,
 		renders: PropTypes.shape({
 			Action: PropTypes.func,
 		}),
@@ -308,6 +311,7 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	Help.propTypes = {
+		getComponent: PropTypes.func,
 		renderers: PropTypes.shape({
 			ActionSplitDropdown: PropTypes.func,
 			Action: PropTypes.func,
@@ -316,6 +320,8 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	Information.propTypes = {
+		getComponent: PropTypes.func,
+		items: PropTypes.array,
 		renderers: PropTypes.shape({
 			ActionSplitDropdown: PropTypes.func,
 			Action: PropTypes.func,
@@ -324,14 +330,16 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	User.propTypes = {
-		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
-		name: PropTypes.string,
 		firstName: PropTypes.string,
 		lastName: PropTypes.string,
+		getComponent: PropTypes.func,
+		name: PropTypes.string,
+		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		t: PropTypes.func,
 	};
 
 	AppNotification.propTypes = {
+		getComponent: PropTypes.func,
 		hasUnread: PropTypes.bool,
 		renderers: PropTypes.shape({ Action: PropTypes.func }),
 		t: PropTypes.func.isRequired,
@@ -340,6 +348,7 @@ if (process.env.NODE_ENV !== 'production') {
 	Intercom.propTypes = {
 		id: PropTypes.string.isRequired,
 		config: PropTypes.object.isRequired,
+		tooltipPlacement: PropTypes.string,
 	};
 
 	HeaderBar.propTypes = {

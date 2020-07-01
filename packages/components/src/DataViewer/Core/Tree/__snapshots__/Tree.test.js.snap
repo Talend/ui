@@ -68,17 +68,3 @@ exports[`Tree should return a TreeNodeList with custom className 1`] = `
   value={Array []}
 />
 `;
-
-exports[`Tree should return a TreeNodeList with no tree border 1`] = `
-<TreeNodeList
-  branch={[MockFunction]}
-  getJSONPath={[MockFunction]}
-  getValueType={[MockFunction]}
-  jsonpath="$"
-  leaf={[MockFunction]}
-  level={0}
-  treeClassName="theme-tc-tree tc-tree"
-  value={Array []}
-  withTreeBorder={false}
-/>
-`;

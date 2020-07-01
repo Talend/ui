@@ -7,7 +7,7 @@ import talendIcons from '@talend/icons/dist/react';
 import { SortIndicator } from 'react-virtualized';
 
 import IconsProvider from '../IconsProvider';
-import VirtualizedList, { listTypes } from './';
+import VirtualizedList, { listTypes } from '.';
 
 import { headerDictionary } from './utils/dictionary';
 import { headerType as headerResizableType } from './HeaderResizable';
@@ -29,7 +29,7 @@ function MyCustomRow(props) {
 
 function NoRowsRenderer() {
 	return (
-		<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
+		<span className="tc-virtualizedlist-no-result" role="status" aria-live="polite">
 			I'm a custom NoRowsRenderer
 		</span>
 	);
@@ -406,24 +406,24 @@ const sourceItems = [...new Array(50)].map(
 );
 
 function CollapsiblePanels(props) {
-	const [collection, setCollection] = React.useState(props.sourceItems);
+	const [cpCollection, setCPCollection] = React.useState(props.sourceItems);
 	return (
 		<div>
 			<h1>Virtualized List with Collapsible Panels</h1>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '90vh' }}>
 				<VirtualizedList
-					collection={collection}
+					collection={cpCollection}
 					onRowClick={(_, rowItem) => {
 						action('onRowClick');
-						collection[rowItem.index] = {
+						cpCollection[rowItem.index] = {
 							...rowItem,
 							expanded: !rowItem.expanded,
 						};
-						setCollection([...collection]);
+						setCPCollection([...cpCollection]);
 					}}
 					onScroll={action('onScroll')}
-					id={'my-list'}
+					id="my-list"
 					type={listTypes.COLLAPSIBLE_PANEL}
 				/>
 			</section>
@@ -459,7 +459,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collection} id={'my-list'}>
+				<VirtualizedList collection={collection} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
@@ -487,7 +487,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list'}
+					id="my-list"
 					isSelected={item => item.id === 2}
 					selectionToggle={action('selectionToggle')}
 					selectionMode="SINGLE"
@@ -509,7 +509,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<h1>Virtualized List with radio button title</h1>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collection} id={'my-list'}>
+				<VirtualizedList collection={collection} id="my-list">
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Label label="Author" dataKey="author" />
 					<VirtualizedList.Datetime
@@ -532,10 +532,10 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list'}
+					id="my-list"
 					sort={action('sort')}
-					sortBy={'name'}
-					sortDirection={'ASC'}
+					sortBy="name"
+					sortDirection="ASC"
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
@@ -571,7 +571,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list'}
+					id="my-list"
 					isSelected={item => item.id === 6}
 					selectionToggle={action('selectionToggle')}
 					onRowDoubleClick={action('doubleClick')}
@@ -607,7 +607,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list'}
+					id="my-list"
 					onRowClick={action('onRowClick')}
 					isActive={item => item.id === 6}
 				>
@@ -643,7 +643,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list'}
+					id="my-list"
 					onRowClick={action('onRowClick')}
 					getRowState={row => (row.id === 2 ? { disabled: true, tooltip: 'Houlala' } : null)}
 				>
@@ -675,7 +675,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section>
-				<VirtualizedList collection={collection} id={'my-list'}>
+				<VirtualizedList collection={collection} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" width={40} />
 					<VirtualizedList.Title
 						columnData={titleProps}
@@ -737,7 +737,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list'}
+					id="my-list"
 					rowHeight={135}
 					type={listTypes.LARGE}
 				>
@@ -771,7 +771,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list'}
+					id="my-list"
 					isSelected={item => item.id === 6}
 					onRowDoubleClick={action('doubleClick')}
 					rowHeight={135}
@@ -808,7 +808,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list'}
+					id="my-list"
 					isActive={item => item.id === 6}
 					onRowClick={action('onRowClick')}
 					rowHeight={135}
@@ -851,7 +851,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			</pre>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collection} id={'my-list'} disableHeader>
+				<VirtualizedList collection={collection} id="my-list" disableHeader>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
@@ -882,7 +882,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collectionWithTooltupLabel} id={'my-list'}>
+				<VirtualizedList collection={collectionWithTooltupLabel} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title
 						label="Name"
@@ -911,7 +911,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={[]} id={'my-list'} noRowsRenderer={NoRowsRenderer}>
+				<VirtualizedList collection={[]} id="my-list" noRowsRenderer={NoRowsRenderer}>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
@@ -936,7 +936,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collectionWithTooltupLabel}
-					id={'my-list'}
+					id="my-list"
 					type="custom"
 					rowHeight={116}
 					rowRenderers={{ custom: MyCustomRow }}

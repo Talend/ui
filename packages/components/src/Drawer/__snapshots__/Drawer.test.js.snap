@@ -302,9 +302,6 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
   }
   className="tc-drawer-actionbar theme-tc-drawer-actionbar"
   components={Object {}}
-  i18n={Object {}}
-  t={[Function]}
-  tReady={true}
 >
   <div
     className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
@@ -313,7 +310,6 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
       actions={Array []}
       key="0"
       left={true}
-      t={[Function]}
     />
     <SwitchActions
       actions={
@@ -327,7 +323,6 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
       }
       center={true}
       key="1"
-      t={[Function]}
     >
       <Content
         center={true}
@@ -341,53 +336,46 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
             label="ActionCenter-tab-2"
           >
             <withI18nextTranslation(ActionButton)
+              available={true}
+              bsStyle="default"
+              disabled={false}
               id="view-center-tab-2"
+              inProgress={false}
               label="ActionCenter-tab-2"
+              loading={false}
+              t={[Function]}
+              tooltipPlacement="top"
             >
-              <ActionButton
-                available={true}
+              <Button
+                active={false}
+                aria-label="ActionCenter-tab-2"
+                block={false}
+                bsClass="btn"
                 bsStyle="default"
+                className=""
                 disabled={false}
-                i18n={Object {}}
                 id="view-center-tab-2"
-                inProgress={false}
-                label="ActionCenter-tab-2"
-                loading={false}
-                t={[Function]}
-                tReady={true}
-                tooltipPlacement="top"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
               >
-                <Button
-                  active={false}
+                <button
                   aria-label="ActionCenter-tab-2"
-                  block={false}
-                  bsClass="btn"
-                  bsStyle="default"
-                  className=""
+                  className="btn btn-default"
                   disabled={false}
                   id="view-center-tab-2"
                   onClick={[Function]}
                   onMouseDown={[Function]}
                   role={null}
+                  type="button"
                 >
-                  <button
-                    aria-label="ActionCenter-tab-2"
-                    className="btn btn-default"
-                    disabled={false}
-                    id="view-center-tab-2"
-                    onClick={[Function]}
-                    onMouseDown={[Function]}
-                    role={null}
-                    type="button"
+                  <span
+                    key="label"
                   >
-                    <span
-                      key="label"
-                    >
-                      ActionCenter-tab-2
-                    </span>
-                  </button>
-                </Button>
-              </ActionButton>
+                    ActionCenter-tab-2
+                  </span>
+                </button>
+              </Button>
             </withI18nextTranslation(ActionButton)>
           </Action>
         </div>
@@ -397,7 +385,6 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
       actions={Array []}
       key="2"
       right={true}
-      t={[Function]}
     />
   </div>
 </ActionBar>

@@ -18,6 +18,7 @@ exports[`Notification should render error 1`] = `
         "type": "error",
       }
     }
+    t={[Function]}
   />
   <Message
     notification={

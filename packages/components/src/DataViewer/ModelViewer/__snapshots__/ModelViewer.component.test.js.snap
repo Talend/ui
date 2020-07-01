@@ -5,6 +5,7 @@ exports[`ModelViewer should render the ModelViewer 1`] = `
   className="theme-tc-model tc-model"
 >
   <withI18nextTranslation(TreeHeader)
+    t={[Function]}
     title="Data Model"
   />
   <Tree

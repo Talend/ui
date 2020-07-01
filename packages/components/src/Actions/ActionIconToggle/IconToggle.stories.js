@@ -129,8 +129,8 @@ $my-btn-icon-size: 2.5rem;
 			</style>
 
 			<p>Custom sizes</p>
-			<ActionIconToggle {...inactiveIconToggle} className={'my-custom-icon-toggle'} />
-			<ActionIconToggle {...activeIconToggle} className={'my-custom-icon-toggle'} />
+			<ActionIconToggle {...inactiveIconToggle} className="my-custom-icon-toggle" />
+			<ActionIconToggle {...activeIconToggle} className="my-custom-icon-toggle" />
 
 			<p>Classical sizes</p>
 			<ActionIconToggle {...inactiveIconToggle} />

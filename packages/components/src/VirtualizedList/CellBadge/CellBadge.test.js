@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import CellBadge from './CellBadge.component';
 
-describe('CellActions', () => {
+describe('CellBadge', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(

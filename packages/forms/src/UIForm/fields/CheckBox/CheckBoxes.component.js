@@ -68,6 +68,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			description: PropTypes.string,
+			disabled: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({

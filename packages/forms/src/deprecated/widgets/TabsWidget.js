@@ -19,7 +19,7 @@ class TabsField extends Component {
 					const tabSchema = schema.properties[tabKey];
 					const itemIdSchema = toIdSchema(tabSchema, tabKey, definitions);
 					const saveToFormData = state => {
-						const formDataCopy = Object.assign({}, formData);
+						const formDataCopy = { ...formData };
 						formDataCopy[tabKey] = state;
 						onChange(formDataCopy);
 					};
@@ -30,7 +30,7 @@ class TabsField extends Component {
 								formData={formData[tabKey]}
 								onChange={newState => saveToFormData(newState)}
 								registry={registry}
-								schema={Object.assign({}, tabSchema, { title: '' })}
+								schema={{ ...tabSchema, title: '' }}
 								uiSchema={uiSchema[tabKey]}
 							/>
 						</Tab>

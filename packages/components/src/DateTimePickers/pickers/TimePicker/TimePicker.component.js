@@ -71,11 +71,13 @@ export class TimePicker extends React.Component {
 			),
 		};
 	}
+
 	componentDidMount() {
 		if (this.props.textInput) {
 			this.scrollItemIntoView(this.props.textInput);
 		}
 	}
+
 	onSelect(event, option, index) {
 		this.setState({ hightlightedItemIndex: index }, () =>
 			this.props.onChange(event, {
@@ -88,6 +90,7 @@ export class TimePicker extends React.Component {
 			}),
 		);
 	}
+
 	scrollItemIntoView(textInput) {
 		const found = this.options.findIndex(option => option.label.includes(textInput));
 		if (found) {
@@ -102,6 +105,7 @@ export class TimePicker extends React.Component {
 			}
 		}
 	}
+
 	updateHighlightIndex(index) {
 		this.setState(({ hightlightedItemIndex }) => {
 			if (hightlightedItemIndex !== index) {
@@ -112,6 +116,7 @@ export class TimePicker extends React.Component {
 			return null;
 		});
 	}
+
 	render() {
 		return (
 			<div className={theme.container} ref={ref => (this.containerRef = ref)} role="list">

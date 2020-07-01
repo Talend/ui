@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { all, fork } from 'redux-saga/effects';
 import PropTypes from 'prop-types';

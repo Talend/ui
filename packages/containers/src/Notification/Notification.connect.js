@@ -20,16 +20,14 @@ export function deleteNotification(indexNotification) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	return Object.assign(
-		{
-			deleteNotification(i) {
-				dispatchProps.setState(deleteNotification(i));
-			},
+	return {
+		deleteNotification(i) {
+			dispatchProps.setState(deleteNotification(i));
 		},
-		ownProps,
-		stateProps,
-		dispatchProps,
-	);
+		...ownProps,
+		...stateProps,
+		...dispatchProps,
+	};
 }
 
 export default cmfConnect({

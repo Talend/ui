@@ -27,7 +27,7 @@ describe('RowSelection', () => {
 		// when
 		const wrapper = shallow(
 			<Row
-				className={'my-class-names'}
+				className="my-class-names"
 				index={1}
 				key={18}
 				parent={{}}
@@ -49,7 +49,7 @@ describe('RowSelection', () => {
 		// when
 		const wrapper = shallow(
 			<Row
-				className={'my-class-names'}
+				className="my-class-names"
 				index={1}
 				key={18}
 				parent={{}}
@@ -71,7 +71,7 @@ describe('RowSelection', () => {
 		// when
 		const wrapper = shallow(
 			<Row
-				className={'my-class-names'}
+				className="my-class-names"
 				index={1}
 				key={18}
 				parent={{}}

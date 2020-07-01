@@ -14,7 +14,7 @@ describe('CellWithIcon', () => {
 			}),
 		};
 
-		const wrapper = shallow(<CellWithIcon cellData={'Test label'} columnData={columnData} />);
+		const wrapper = shallow(<CellWithIcon cellData="Test label" columnData={columnData} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -26,7 +26,7 @@ describe('CellWithIcon', () => {
 			getIcon: () => undefined,
 		};
 
-		const wrapper = shallow(<CellWithIcon cellData={'Test label 2'} columnData={columnData} />);
+		const wrapper = shallow(<CellWithIcon cellData="Test label 2" columnData={columnData} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

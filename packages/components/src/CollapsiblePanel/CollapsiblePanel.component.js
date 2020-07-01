@@ -1,14 +1,13 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import { Status, getbsStyleFromStatus } from '../Status';
-import TooltipTrigger from './../TooltipTrigger';
-import getDefaultT from '../translate';
+import TooltipTrigger from '../TooltipTrigger';
 
 import css from './CollapsiblePanel.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -107,7 +106,8 @@ renderHeaderItem.propTypes = PropTypes.oneOfType([
 ]);
 
 function CollapsiblePanelHeader(props) {
-	const { header, content, id, onSelect, onToggle, expanded, t } = props;
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const { header, content, id, onSelect, onToggle, expanded } = props;
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
 		const isHeaderItemArray = Array.isArray(headerItem);
@@ -244,9 +244,6 @@ function CollapsiblePanel(props) {
 }
 
 CollapsiblePanel.displayName = 'CollapsiblePanel';
-CollapsiblePanel.defaultProps = {
-	t: getDefaultT(),
-};
 
 if (process.env.NODE_ENV !== 'production') {
 	CollapsiblePanelHeader.propTypes = {
@@ -275,7 +272,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		/** Caret click callback function, needed for controlled panel */
 		onToggle: PropTypes.func,
-		t: PropTypes.func.isRequired,
 	};
 
 	CollapsiblePanel.propTypes = {
@@ -287,4 +283,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(CollapsiblePanel);
+export default CollapsiblePanel;

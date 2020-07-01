@@ -40,18 +40,17 @@ class CellBoolean extends React.Component {
 			return null;
 		}
 
-		return (
-			<React.Fragment>
-				{cellData === true && t('BOOLEAN_VALUE_TRUE', { defaultValue: 'Yes' })}
-				{cellData === false && t('BOOLEAN_VALUE_FALSE', { defaultValue: 'No' })}
-			</React.Fragment>
-		);
+		if (cellData === true) {
+			return t('BOOLEAN_VALUE_TRUE', { defaultValue: 'Yes' });
+		} else if (cellData === false) {
+			return t('BOOLEAN_VALUE_FALSE', { defaultValue: 'No' });
+		}
+		return null;
 	}
 }
 
 CellBoolean.displayName = 'VirtualizedList(CellBoolean)';
 CellBoolean.propTypes = {
-	// The cell value : props.rowData[props.dataKey]
 	cellData: PropTypes.bool,
 	t: PropTypes.func,
 	columnData: PropTypes.shape({

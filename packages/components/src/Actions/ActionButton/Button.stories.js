@@ -112,9 +112,9 @@ storiesOf('Buttons/Button', module)
 				onMouseLeave={action('mouse leave')}
 			/>
 			<h3>Transform icon</h3>
-			<ActionButton id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
+			<ActionButton id="reverseDisplay" {...myAction} iconTransform="rotate-180" />
 			<h3>Custom tooltip</h3>
-			<ActionButton id="default" {...myAction} tooltipLabel={'Custom label here'} />
+			<ActionButton id="default" {...myAction} tooltipLabel="Custom label here" />
 			<h3>OnMouse down handler</h3>
 			<ActionButton id="hidelabel" {...mouseDownAction} hideLabel />
 			<h3>Action with popover</h3>
@@ -143,7 +143,7 @@ storiesOf('Buttons/Button', module)
 			</h3>
 			<div
 				id="auto-dropup"
-				className={'tc-dropdown-container'}
+				className="tc-dropdown-container"
 				style={{
 					border: '1px solid black',
 					overflow: 'scroll',

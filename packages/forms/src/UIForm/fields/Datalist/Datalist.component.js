@@ -40,6 +40,7 @@ class Datalist extends Component {
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
 	}
+
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection
@@ -193,6 +194,7 @@ if (process.env.NODE_ENV !== 'production') {
 		resolveName: PropTypes.func,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
+				enum: PropTypes.array,
 				type: PropTypes.string,
 			}),
 			triggers: PropTypes.arrayOf(

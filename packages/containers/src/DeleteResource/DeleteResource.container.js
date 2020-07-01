@@ -25,29 +25,28 @@ function getLabel(resource) {
  */
 export class DeleteResource extends React.Component {
 	static displayName = 'Container(DeleteResource)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
-		'cancel-action': PropTypes.string.isRequired,
-		'validate-action': PropTypes.string.isRequired,
 		header: PropTypes.string,
 		uri: PropTypes.string.isRequired,
 		resourceType: PropTypes.string.isRequired,
 		resourceTypeLabel: PropTypes.string,
 		resourceId: PropTypes.string,
-		resourceUri: PropTypes.string,
 		collectionId: PropTypes.string,
 		female: PropTypes.string,
 		onCancelRedirectUrl: PropTypes.string,
 		validateActionProps: PropTypes.object,
-		cancelActionProps: PropTypes.object,
+		t: PropTypes.func,
 	};
+
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
 		store: PropTypes.object.isRequired,
 	};
+
 	static defaultProps = {
 		validateActionProps: {},
-		cancelActionProps: {},
 		t: getDefaultT(),
 	};
 

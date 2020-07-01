@@ -12,20 +12,23 @@ describe('RadioOrSelect field', () => {
 			type: 'string',
 		},
 		title: 'My Select title',
-		titleMap: [{ name: 'My foo title', value: 'foo' }, { name: 'My bar title', value: 'bar' }],
+		titleMap: [
+			{ name: 'My foo title', value: 'foo' },
+			{ name: 'My bar title', value: 'bar' },
+		],
 	};
 
 	it('should render select when titleMap has less than 2 options', () => {
 		// when
 		const wrapper = shallow(
 			<RadioOrSelect
-				id={'myRadioOrSelect'}
+				id="myRadioOrSelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 
@@ -43,13 +46,13 @@ describe('RadioOrSelect field', () => {
 		// when
 		const wrapper = shallow(
 			<RadioOrSelect
-				id={'myRadioOrSelect'}
+				id="myRadioOrSelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={moreThan2OptionsSchema}
-				value={'lol'}
+				value="lol"
 			/>,
 		);
 

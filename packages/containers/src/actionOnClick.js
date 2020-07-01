@@ -14,14 +14,10 @@ export default function getOnClick(item, props) {
 			if (item.actionCreator) {
 				props.dispatchActionCreator(item.actionCreator, event, data);
 			} else {
-				props.dispatch(
-					Object.assign(
-						{
-							model: props.model,
-						},
-						item.payload,
-					),
-				);
+				props.dispatch({
+					model: props.model,
+					...item.payload,
+				});
 			}
 		},
 	};

@@ -50,6 +50,7 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 		}),
 		value: PropTypes.bool,

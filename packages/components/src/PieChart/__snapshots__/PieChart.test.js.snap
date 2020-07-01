@@ -16,7 +16,11 @@ exports[`PieChart should render a PieChartIcon with a tooltip 1`] = `
 >
   <span>
     <withI18nextTranslation(PieChartIcon)
+      display="small"
       label="myToolTip"
+      labelIndex={0}
+      minimumPercentage={5}
+      t={[Function]}
     />
   </span>
 </TooltipTrigger>
