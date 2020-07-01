@@ -230,7 +230,12 @@ function HeaderBar(props) {
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
-				<AppSwitcherComponent {...props.brand} {...props.products} isSeparated={!!props.env} getComponent={props.getComponent} />
+				<AppSwitcherComponent
+					{...props.brand}
+					{...props.products}
+					isSeparated={!!props.env}
+					getComponent={props.getComponent}
+				/>
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
 			<ul className={theme('tc-header-bar-actions', 'navbar-nav', 'right')}>
