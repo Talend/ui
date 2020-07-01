@@ -42,7 +42,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "@talend/react-cmf": "^5.9.1",
+    "@talend/react-cmf": "^5.9.2",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.7.1",
     "enzyme": "^3.9.0",
@@ -83,5 +83,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.9.1"
+  "version": "5.9.2"
 }
