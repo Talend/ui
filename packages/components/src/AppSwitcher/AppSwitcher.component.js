@@ -5,14 +5,17 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
+import Inject from '../Inject';
 
 import AppSwitcherCSSModule from './AppSwitcher.scss';
 import { getTheme } from '../theme';
 
 const theme = getTheme(AppSwitcherCSSModule);
 
-export default function AppSwitcher({ label, isSeparated, onClick, ...props }) {
+export default function AppSwitcher({ label, isSeparated, onClick, getComponent, ...props }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+
+	const Renderers = Inject.getAll(getComponent, { Action, ActionDropdown });
 
 	const className = theme('tc-app-switcher-action', {
 		separated: isSeparated,
@@ -22,13 +25,13 @@ export default function AppSwitcher({ label, isSeparated, onClick, ...props }) {
 	let clickAction;
 	let ariaLabel;
 	if (props && props.items && props.items.length) {
-		ActionComponent = ActionDropdown;
+		ActionComponent = Renderers.ActionDropdown;
 		ariaLabel = t('APP_SWITCHER', {
 			defaultValue: 'Switch to another application. Current application: {{appName}}',
 			appName: label,
 		});
 	} else {
-		ActionComponent = Action;
+		ActionComponent = Renderers.Action;
 		clickAction = onClick;
 	}
 
@@ -54,7 +57,5 @@ AppSwitcher.propTypes = {
 	isSeparated: PropTypes.bool,
 	items: PropTypes.arrayOf(PropTypes.object),
 	onClick: PropTypes.func,
-	renderers: PropTypes.shape({
-		Action: PropTypes.func,
-	}),
+	getComponent: PropTypes.func,
 };
