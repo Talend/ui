@@ -48,6 +48,29 @@ export function getCaptionsValue(captionsLength, min, max) {
 }
 
 /**
+ * Return correct modifier styles for usage mode
+ * @param {string} mode
+ * @param {number} value
+ */
+export function getModeStyles(mode, value) {
+	if (Array.isArray(value)) {
+		if (mode === 'exclusive') {
+			return 'exclusive';
+		} else {
+			return false;
+		}
+	} else {
+		if (mode === 'greaterThan') {
+			return 'greaterThan';
+		} else if (mode === 'equals') {
+			return 'equals';
+		} else {
+			return false;
+		}
+	}
+}
+
+/**
  * This function allow to get the actions components
  * @param {array} actions
  * @param {number} value
@@ -218,8 +241,7 @@ class Slider extends React.Component {
 		captionTextStepNumber: PropTypes.number,
 		min: PropTypes.number.isRequired,
 		max: PropTypes.number.isRequired,
-		rightTrack: PropTypes.bool,
-		noTrack: PropTypes.bool,
+		mode: PropTypes.bool,
 		captionsFormat: PropTypes.func,
 		disabled: PropTypes.bool,
 	};
@@ -241,14 +263,14 @@ class Slider extends React.Component {
 			captionsFormat,
 			min,
 			max,
-			rightTrack,
-			noTrack,
+			mode,
 			onChange,
 			disabled,
 			...rest
 		} = this.props;
 		const noValue = value === null || value === undefined;
 		const Component = Array.isArray(value) ? Range : RcSlider;
+		const modeStyles = getModeStyles(mode, value);
 		return (
 			<div>
 				<div className={classnames(theme['tc-slider'], 'tc-slider')} key="slider">
@@ -260,11 +282,13 @@ class Slider extends React.Component {
 						handle={noValue ? undefined : this.state.handle}
 						className={classnames(
 							theme['tc-slider-rc-slider'],
-							{[theme['tc-slider-rc-slider--track-right']]: rightTrack},
-							{[theme['tc-slider-rc-slider--track-none']]: noTrack},
+							{[theme['tc-slider-rc-slider--track-equals']]: modeStyles === 'equals'},
+							{[theme['tc-slider-rc-slider--track-exclusive']]: modeStyles === 'exclusive'},
+							{[theme['tc-slider-rc-slider--track-greater-than']]: modeStyles === 'greaterThan'},
 							'tc-slider-rc-slider',
-							{'tc-slider-rc-slider--track-right': rightTrack},
-							{'tc-slider-rc-slider--track-none': noTrack}
+							{'tc-slider-rc-slider--track-equals': modeStyles === 'equals'},
+							{'tc-slider-rc-slider--track-exclusive': modeStyles === 'exclusive'},
+							{'tc-slider-rc-slider--track-greater-than': modeStyles === 'greaterThan'}
 						)}
 						onChange={onChange}
 						disabled={disabled}
