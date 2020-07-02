@@ -2,8 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import Slider from './Slider.component';
+import Slider, {SLIDER_MODE} from './Slider.component';
 import IconsProvider from '../IconsProvider';
+// import SLIDER_MODE from './Slider.component';
 
 const icons = [
 	'talend-activity',
@@ -22,7 +23,6 @@ const delimiterStyle = {
 	paddingBottom: '25px',
 	borderBottom: '1px dashed grey',
 };
-
 
 const actions = [
 	{
@@ -90,7 +90,7 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 				<Slider
 					max={10}
 					min={0}
-					mode={'greaterThan'}
+					mode={SLIDER_MODE.GREATER_THAN}
 					onChange={action('onChange')}
 					value={3}
 				/>
@@ -100,7 +100,7 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 				<Slider
 					max={10}
 					min={0}
-					mode={'equals'}
+					mode={SLIDER_MODE.EQUALS}
 					onChange={action('onChange')}
 					value={5}
 				/>
@@ -151,7 +151,7 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 					onChange={action('onChange')}
 					min={0}
 					max={100}
-					mode={'exclusive'}
+					mode={SLIDER_MODE.EXCLUSIVE}
 					value={[25, 75]}
 					allowCross={false}
 				/>

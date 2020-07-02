@@ -10,6 +10,14 @@ import theme from './Slider.scss';
 import Action from '../Actions/Action';
 
 const noFormat = value => value;
+/**
+ * Options for controlling slider operator display mode
+ */
+export const SLIDER_MODE = {
+	GREATER_THAN: 'greaterThan',
+	EQUALS: 'equals',
+	EXCLUSIVE: 'exclusive'
+};
 
 /**
  * this function check if we have icons to display
@@ -45,29 +53,6 @@ export function getCaptionsValue(captionsLength, min, max) {
 	const captionsValue = range(min, max, interval);
 	captionsValue.push(max);
 	return captionsValue;
-}
-
-/**
- * Return correct modifier styles for usage mode
- * @param {string} mode
- * @param {number} value
- */
-export function getModeStyles(mode, value) {
-	if (Array.isArray(value)) {
-		if (mode === 'exclusive') {
-			return 'exclusive';
-		} else {
-			return false;
-		}
-	} else {
-		if (mode === 'greaterThan') {
-			return 'greaterThan';
-		} else if (mode === 'equals') {
-			return 'equals';
-		} else {
-			return false;
-		}
-	}
 }
 
 /**
@@ -241,7 +226,7 @@ class Slider extends React.Component {
 		captionTextStepNumber: PropTypes.number,
 		min: PropTypes.number.isRequired,
 		max: PropTypes.number.isRequired,
-		mode: PropTypes.bool,
+		mode: PropTypes.string,
 		captionsFormat: PropTypes.func,
 		disabled: PropTypes.bool,
 	};
@@ -270,7 +255,6 @@ class Slider extends React.Component {
 		} = this.props;
 		const noValue = value === null || value === undefined;
 		const Component = Array.isArray(value) ? Range : RcSlider;
-		const modeStyles = getModeStyles(mode, value);
 		return (
 			<div>
 				<div className={classnames(theme['tc-slider'], 'tc-slider')} key="slider">
@@ -282,13 +266,13 @@ class Slider extends React.Component {
 						handle={noValue ? undefined : this.state.handle}
 						className={classnames(
 							theme['tc-slider-rc-slider'],
-							{[theme['tc-slider-rc-slider--track-equals']]: modeStyles === 'equals'},
-							{[theme['tc-slider-rc-slider--track-exclusive']]: modeStyles === 'exclusive'},
-							{[theme['tc-slider-rc-slider--track-greater-than']]: modeStyles === 'greaterThan'},
+							{[theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS},
+							{[theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE},
+							{[theme['tc-slider-rc-slider--track-greater-than']]: mode === SLIDER_MODE.GREATER_THAN},
 							'tc-slider-rc-slider',
-							{'tc-slider-rc-slider--track-equals': modeStyles === 'equals'},
-							{'tc-slider-rc-slider--track-exclusive': modeStyles === 'exclusive'},
-							{'tc-slider-rc-slider--track-greater-than': modeStyles === 'greaterThan'}
+							{'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS},
+							{'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE},
+							{'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN}
 						)}
 						onChange={onChange}
 						disabled={disabled}
