@@ -8,6 +8,8 @@ TalendHTMLOptimize.prototype.apply = function myapply(compiler) {
 	const options = this.options || {};
 	compiler.plugin('compilation', compilation => {
 		compilation.plugin('html-webpack-plugin-alter-asset-tags', data => {
+			// FIXME With inject: false we can't alter asset tags anymore
+			// 		 We need to use another hook of this plugin
 			if (options.bodyBefore) {
 				data.body = options.bodyBefore.concat(data.body);
 			}
