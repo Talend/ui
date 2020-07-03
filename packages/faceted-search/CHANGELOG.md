@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+- [fixed](https://github.com/Talend/ui/pull/2881): IE11: hide scrollbar for BasicSearch
+
 ## [0.10.1]
 
 ### Fixed
