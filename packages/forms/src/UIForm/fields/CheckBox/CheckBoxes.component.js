@@ -84,6 +84,7 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string,
 				}),
 			),
+			className: PropTypes.string,
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
 		valueIsUpdating: PropTypes.bool,
