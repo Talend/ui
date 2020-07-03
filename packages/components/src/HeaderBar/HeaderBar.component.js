@@ -31,7 +31,6 @@ function Logo({ isFull, getComponent, t, ...props }) {
 				className={actionClassName}
 				hideLabel
 				label={t('HEADERBAR_GO_PORTAL', { defaultValue: 'Go to Portal' })}
-				icon={icon}
 				tooltipPlacement="bottom"
 				{...props}
 			/>
