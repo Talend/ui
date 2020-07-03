@@ -67,6 +67,11 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			required: PropTypes.bool,

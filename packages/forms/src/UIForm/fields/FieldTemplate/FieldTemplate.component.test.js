@@ -58,14 +58,14 @@ describe('FieldTemplate', () => {
 					overlayComponent: tooltipContent,
 					overlayPlacement: 'top',
 				}}
-				description={'My awesome description'}
-				descriptionId={'myAwesomeField-description'}
-				errorId={'myAwesomeField-error'}
-				errorMessage={'This is wrong o_o'}
-				id={'myAwesomeField'}
-				label={'My awesome label'}
+				description="My awesome description"
+				descriptionId="myAwesomeField-description"
+				errorId="myAwesomeField-error"
+				errorMessage="This is wrong o_o"
+				id="myAwesomeField"
+				label="My awesome label"
 			>
-				<input id={'myAwesomeField'} />
+				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 

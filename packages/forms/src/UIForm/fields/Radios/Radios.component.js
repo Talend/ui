@@ -84,6 +84,11 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		valueIsUpdating: PropTypes.bool,
