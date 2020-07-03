@@ -95,6 +95,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		options: PropTypes.shape({
 			dateFormat: PropTypes.string,
+			useUTC: PropTypes.string,
 		}),
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
@@ -106,6 +107,7 @@ if (process.env.NODE_ENV !== 'production') {
 			required: PropTypes.bool,
 			title: PropTypes.string,
 			schema: PropTypes.shape({
+				format: PropTypes.string,
 				type: PropTypes.string,
 			}),
 		}),

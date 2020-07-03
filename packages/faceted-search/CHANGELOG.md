@@ -27,6 +27,12 @@ Types of changes
 ## [unreleased]
 
 - [fixed](https://github.com/Talend/ui/pull/2881): IE11: hide scrollbar for BasicSearch
+- [fixed](https://github.com/Talend/ui/pull/2862): Hide delete icon if no filters
+- [changed](https://github.com/Talend/ui/pull/2778): chore: use @talend/scripts
+
+## [0.10.2]
+
+- [fixed](https://github.com/Talend/ui/pull/2847): Check badge existence before trying to set it
 
 ## [0.10.1]
 

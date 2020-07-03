@@ -11,7 +11,7 @@ import VirtualizedList from '../VirtualizedList';
 import getRowSelectionRenderer from '../VirtualizedList/RowSelection';
 
 import cssModule from './ResourceList.scss';
-import { Icon } from '../index';
+import Icon from '../Icon';
 
 const theme = getTheme(cssModule);
 
@@ -43,7 +43,7 @@ function ResourceList({
 					role="status"
 					aria-live="polite"
 				>
-					<Icon className={theme('tc-resource-list--no-results-icon')} name={'talend-fieldglass'} />{' '}
+					<Icon className={theme('tc-resource-list--no-results-icon')} name="talend-fieldglass" />{' '}
 					{t('RESOURCELIST_NO_RESULTS', { defaultValue: 'No results' })}
 				</span>
 			</div>

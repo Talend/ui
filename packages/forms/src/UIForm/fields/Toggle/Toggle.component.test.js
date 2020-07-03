@@ -15,9 +15,9 @@ describe('Toggle field', () => {
 		// when
 		const wrapper = shallow(
 			<Toggle
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
@@ -39,9 +39,9 @@ describe('Toggle field', () => {
 		// when
 		const wrapper = shallow(
 			<Toggle
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={autoFocusedSchema}
@@ -63,9 +63,9 @@ describe('Toggle field', () => {
 		// when
 		const wrapper = shallow(
 			<Toggle
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
@@ -83,9 +83,9 @@ describe('Toggle field', () => {
 		const onFinish = jest.fn();
 		const wrapper = mount(
 			<Toggle
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
 				onFinish={onFinish}
 				schema={schema}

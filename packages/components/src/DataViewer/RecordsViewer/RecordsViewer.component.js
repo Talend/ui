@@ -14,7 +14,7 @@ export class RecordsViewer extends React.Component {
 		onCollapseAll: PropTypes.func.isRequired,
 		onVerticalScroll: PropTypes.func,
 		paddingOffset: PropTypes.number,
-		t: PropTypes.func.isRequired,
+		t: PropTypes.func,
 		virtualized: PropTypes.bool,
 		displayHeader: PropTypes.bool,
 	};

@@ -11,7 +11,7 @@ describe('StateFilter component snaps', () => {
 			onChange: () => {},
 		};
 
-		const wrapper = shallow(<StateFilter.WrappedComponent {...props} />);
+		const wrapper = shallow(<StateFilter {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -23,7 +23,7 @@ describe('StateFilter component snaps', () => {
 			onChange: () => {},
 		};
 
-		const wrapper = shallow(<StateFilter.WrappedComponent {...props} />);
+		const wrapper = shallow(<StateFilter {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -35,7 +35,7 @@ describe('StateFilter component snaps', () => {
 			types: [TYPES.FAVORITES],
 		};
 
-		const wrapper = shallow(<StateFilter.WrappedComponent {...props} />);
+		const wrapper = shallow(<StateFilter {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -47,7 +47,7 @@ describe('StateFilter component snaps', () => {
 			types: [TYPES.CERTIFIED],
 		};
 
-		const wrapper = shallow(<StateFilter.WrappedComponent {...props} />);
+		const wrapper = shallow(<StateFilter {...props} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

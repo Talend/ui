@@ -24,7 +24,7 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 			>
 				<Icon name={icon} />
 				<Icon
-					name={'talend-caret-down'}
+					name="talend-caret-down"
 					className={classNames(
 						'tc-resource-picker-order-indicator',
 						theme['tc-resource-picker-order-indicator'],

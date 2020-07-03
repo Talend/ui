@@ -435,6 +435,7 @@ describe('UIForm component', () => {
 			// given
 			const wrapper = mount(
 				<UIFormComponent {...data} {...props} errors={{ firstname: 'firstname is required' }} />,
+				{ attachTo: document.body },
 			);
 
 			// when

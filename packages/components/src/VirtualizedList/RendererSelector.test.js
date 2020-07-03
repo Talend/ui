@@ -47,7 +47,7 @@ describe('RendererSelector', () => {
 			<RendererSelector
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
@@ -55,8 +55,8 @@ describe('RendererSelector', () => {
 				onRowDoubleClick={jest.fn()}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				width={1024}
 			>
 				{contentFields}
@@ -73,7 +73,7 @@ describe('RendererSelector', () => {
 			<RendererSelector
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
@@ -81,8 +81,8 @@ describe('RendererSelector', () => {
 				onScroll={jest.fn()}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={TABLE}
 				width={1024}
 			>
@@ -100,7 +100,7 @@ describe('RendererSelector', () => {
 			<RendererSelector
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
@@ -126,7 +126,7 @@ describe('RendererSelector', () => {
 			<RendererSelector
 				collection={[]}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
@@ -150,7 +150,7 @@ describe('RendererSelector', () => {
 			<RendererSelector
 				collection={[]}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
@@ -175,15 +175,15 @@ describe('RendererSelector', () => {
 				collection={[]}
 				noRowsRenderer={NoRowsRenderer}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
 				onRowDoubleClick={jest.fn()}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={TABLE}
 				width={1024}
 			>
@@ -201,7 +201,7 @@ describe('RendererSelector', () => {
 			<RendererSelector
 				collection={[]}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				noRowsRenderer={NoRowsRenderer}
@@ -209,8 +209,8 @@ describe('RendererSelector', () => {
 				onRowDoubleClick={jest.fn()}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={LARGE}
 				width={1024}
 			>
@@ -230,7 +230,7 @@ describe('RendererSelector', () => {
 			<RendererSelector
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				noRowsRenderer={NoRowsRenderer}
@@ -238,9 +238,9 @@ describe('RendererSelector', () => {
 				onRowDoubleClick={jest.fn()}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
-				type={'custom'}
+				sortBy="name"
+				sortDirection="DESC"
+				type="custom"
 				rowRenderers={{ custom: Custom }}
 				width={1024}
 			>

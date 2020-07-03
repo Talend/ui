@@ -6,7 +6,6 @@ exports[`Array component #renderItem should render item at given index 1`] = `
   errorMessage="This array is not correct"
   id="talend-array-1"
   isValid={true}
-  items={Array []}
   schema={
     Object {
       "items": Array [
@@ -80,14 +79,13 @@ exports[`Array component #renderItem should render item at given index 1`] = `
 `;
 
 exports[`Array component should render array 1`] = `
-<withI18nextTranslation(DefaultArrayTemplate)
+<DefaultArrayTemplate
   canReorder={true}
   description="My array description"
   errorMessage="This array is not correct"
   id="talend-array"
   isCloseable={false}
   isValid={true}
-  items={Array []}
   onAdd={[Function]}
   onChange={[MockFunction]}
   onFinish={[MockFunction]}
@@ -208,14 +206,13 @@ exports[`Array component should render array 1`] = `
 `;
 
 exports[`Array component should render array that can't be reordered 1`] = `
-<withI18nextTranslation(DefaultArrayTemplate)
+<DefaultArrayTemplate
   canReorder={false}
   description="My array description"
   errorMessage="This array is not correct"
   id="talend-array"
   isCloseable={false}
   isValid={true}
-  items={Array []}
   onAdd={[Function]}
   onChange={[MockFunction]}
   onFinish={[MockFunction]}

@@ -334,7 +334,7 @@ function UntranslatedComplexItem(props) {
 				<Action
 					key="toggle"
 					className={classNames(theme.toggle, 'tc-object-viewer-toggle')}
-					icon={'talend-caret-down'}
+					icon="talend-caret-down"
 					iconTransform={isOpened ? undefined : 'rotate-270'}
 					id={id && `${id}-toggle`}
 					onClick={e => {
@@ -468,7 +468,7 @@ export function Item(props) {
 						<Action
 							key="toggle"
 							className={classNames(theme.chevron, { [theme['chevron-filled']]: nativeValueWrap })}
-							icon={'talend-chevron-left'}
+							icon="talend-chevron-left"
 							iconTransform={nativeValueWrap ? 'rotate-90' : 'rotate-270'}
 							onClick={e => {
 								e.stopPropagation();

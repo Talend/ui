@@ -81,7 +81,7 @@ class HeaderBar extends React.Component {
 				})),
 			];
 
-			productsProps.products = Object.assign({}, productsFromProps, { items });
+			productsProps.products = { ...productsFromProps, items };
 			productsProps.products.items.sort(productsSort || sortProductsByLabel);
 
 			if (prepareProducts) {

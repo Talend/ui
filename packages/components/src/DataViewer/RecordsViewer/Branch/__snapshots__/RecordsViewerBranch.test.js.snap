@@ -18,6 +18,7 @@ exports[`RecordsViewerBranch should render the branch with additional value 1`] 
       jsonpath="$"
       onToggle={[MockFunction]}
       opened={false}
+      t={[Function]}
       useCustomIcon={false}
       value={
         Object {
@@ -85,6 +86,7 @@ exports[`RecordsViewerBranch should render the branch with children 1`] = `
       jsonpath="$"
       onToggle={[MockFunction]}
       opened={true}
+      t={[Function]}
       useCustomIcon={false}
       value={
         Object {
@@ -130,6 +132,7 @@ exports[`RecordsViewerBranch should render the branch with length badge 1`] = `
       index={0}
       jsonpath="$"
       onToggle={[MockFunction]}
+      t={[Function]}
       useCustomIcon={false}
       value={
         Object {

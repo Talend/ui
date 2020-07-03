@@ -9,14 +9,14 @@ describe('FieldTemplate', () => {
 		const wrapper = shallow(
 			<FieldTemplate
 				isValid
-				description={'My awesome description'}
-				descriptionId={'myAwesomeField-description'}
-				errorId={'myAwesomeField-error'}
-				errorMessage={'This is wrong o_o'}
-				id={'myAwesomeField'}
-				label={'My awesome label'}
+				description="My awesome description"
+				descriptionId="myAwesomeField-description"
+				errorId="myAwesomeField-error"
+				errorMessage="This is wrong o_o"
+				id="myAwesomeField"
+				label="My awesome label"
 			>
-				<input id={'myAwesomeField'} />
+				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 
@@ -29,15 +29,15 @@ describe('FieldTemplate', () => {
 		const wrapper = shallow(
 			<FieldTemplate
 				isValid
-				description={'My awesome description'}
-				descriptionId={'myAwesomeField-description'}
-				errorId={'myAwesomeField-error'}
-				errorMessage={'This is wrong o_o'}
-				id={'myAwesomeField'}
-				label={'My awesome label'}
+				description="My awesome description"
+				descriptionId="myAwesomeField-description"
+				errorId="myAwesomeField-error"
+				errorMessage="This is wrong o_o"
+				id="myAwesomeField"
+				label="My awesome label"
 				labelAfter
 			>
-				<input id={'myAwesomeField'} />
+				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 
@@ -50,14 +50,14 @@ describe('FieldTemplate', () => {
 		const wrapper = shallow(
 			<FieldTemplate
 				isValid={false}
-				description={'My awesome description'}
-				descriptionId={'myAwesomeField-description'}
-				errorId={'myAwesomeField-error'}
-				errorMessage={'This is wrong o_o'}
-				id={'myAwesomeField'}
-				label={'My awesome label'}
+				description="My awesome description"
+				descriptionId="myAwesomeField-description"
+				errorId="myAwesomeField-error"
+				errorMessage="This is wrong o_o"
+				id="myAwesomeField"
+				label="My awesome label"
 			>
-				<input id={'myAwesomeField'} />
+				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 
@@ -70,15 +70,15 @@ describe('FieldTemplate', () => {
 		const wrapper = shallow(
 			<FieldTemplate
 				isValid={false}
-				description={'My awesome description'}
-				descriptionId={'myAwesomeField-description'}
-				errorId={'myAwesomeField-error'}
-				errorMessage={'This is wrong o_o'}
-				id={'myAwesomeField'}
-				label={'My awesome label'}
+				description="My awesome description"
+				descriptionId="myAwesomeField-description"
+				errorId="myAwesomeField-error"
+				errorMessage="This is wrong o_o"
+				id="myAwesomeField"
+				label="My awesome label"
 				valueIsUpdating
 			>
-				<input id={'myAwesomeField'} />
+				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 

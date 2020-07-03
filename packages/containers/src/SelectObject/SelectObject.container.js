@@ -124,10 +124,12 @@ export function filterAll(
 
 class SelectObject extends React.Component {
 	static displayName = DISPLAY_NAME;
+
 	static FILTER_MODE = {
 		ALL: 'ALL',
 		LEAF: 'LEAF',
 	};
+
 	static propTypes = {
 		...cmfConnect.propTypes,
 		sourceData: PropTypes.array,
@@ -138,6 +140,7 @@ class SelectObject extends React.Component {
 		breadCrumbsRootLabel: PropTypes.string,
 		filterMode: PropTypes.oneOf([SelectObject.FILTER_MODE.ALL, SelectObject.FILTER_MODE.LEAF]),
 	};
+
 	static defaultProps = {
 		sourceData: new Immutable.List(),
 		idAttr: 'id',

@@ -44,7 +44,7 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 	};
 	if (name.startsWith('src-')) {
 		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
-		return <img className={classNames} src={name.substring(4)} alt={''} aria-hidden {...props} />;
+		return <img className={classNames} src={name.substring(4)} alt="" aria-hidden {...props} />;
 	}
 	if (name.startsWith('fa-')) {
 		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);

@@ -11,7 +11,7 @@ describe('Text field text display mode', () => {
 
 	it('should render input', () => {
 		// when
-		const wrapper = shallow(<TextMode id={'myForm'} schema={schema} value="toto" />);
+		const wrapper = shallow(<TextMode id="myForm" schema={schema} value="toto" />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -19,7 +19,7 @@ describe('Text field text display mode', () => {
 
 	it('should render array input', () => {
 		// when
-		const wrapper = shallow(<TextMode id={'myForm'} schema={schema} value={['toto']} />);
+		const wrapper = shallow(<TextMode id="myForm" schema={schema} value={['toto']} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

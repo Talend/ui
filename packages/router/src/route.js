@@ -3,7 +3,7 @@
  * @module react-cmf/lib/route
  */
 
-/* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
+/* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }] */
 
 import PropTypes from 'prop-types';
 
@@ -116,7 +116,7 @@ function loadComponents(context, item, dispatch) {
  * @return {object} react router config
  */
 function getRoutesFromSettings(context, settings, dispatch) {
-	const copy = Object.assign({}, settings);
+	const copy = { ...settings };
 	loadComponents(context, copy, dispatch);
 	return copy;
 }

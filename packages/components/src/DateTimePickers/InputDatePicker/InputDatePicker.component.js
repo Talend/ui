@@ -46,7 +46,7 @@ export default function InputDatePicker(props) {
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
-	const timePicker = [
+	const datePicker = [
 		<DatePicker.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
 		handlers.showPicker && (
 			<Popper
@@ -96,7 +96,7 @@ export default function InputDatePicker(props) {
 					handlers.onKeyDown(event, inputRef.current);
 				}}
 			>
-				{timePicker}
+				{datePicker}
 			</FocusManager>
 		</DatePicker.Manager>
 	);

@@ -41,7 +41,7 @@ try {
 			const contextProps = this.props.formContext && this.props.formContext.codeWidgetProps;
 			let setOptions = SET_OPTIONS;
 			if (contextProps && contextProps.setOptions) {
-				setOptions = Object.assign({}, SET_OPTIONS, contextProps.setOptions);
+				setOptions = { ...SET_OPTIONS, ...contextProps.setOptions };
 				delete contextProps.setOptions;
 			}
 			return (

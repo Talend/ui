@@ -67,10 +67,7 @@ describe('InputTimePicker', () => {
 			expect(getOverlay(wrapper).exists()).toBe(true);
 
 			// when
-			wrapper
-				.find('button[role="listitem"]')
-				.first()
-				.simulate('click');
+			wrapper.find('button[role="listitem"]').first().simulate('click');
 
 			// then
 			expect(getOverlay(wrapper).exists()).toBe(false);
@@ -119,15 +116,12 @@ describe('InputTimePicker', () => {
 
 		it('should focus on time option if it is open with input DOWN', () => {
 			// given
-			const wrapper = mount(<InputTimePicker id="my-picker" />);
+			const wrapper = mount(<InputTimePicker id="my-picker" />, { attachTo: document.body });
 			wrapper.simulate('focus');
 			const event = { keyCode: keycode.codes.down };
 
 			// when
-			wrapper
-				.find('input')
-				.first()
-				.simulate('keydown', event);
+			wrapper.find('input').first().simulate('keydown', event);
 
 			// then
 			expect(document.activeElement.classList.contains('tc-time-picker-time')).toBe(true);

@@ -24,6 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
 	Columns.propTypes = {
 		schema: PropTypes.shape({
 			items: PropTypes.array.isRequired,
+			title: PropTypes.string,
 		}).isRequired,
 	};
 }

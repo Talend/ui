@@ -14,7 +14,7 @@ describe('Connect', () => {
 
 describe('SubHeaderBar container', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Container />);
+		const wrapper = shallow(<Container onGoBack={jest.fn()} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should call onGoBack event when goBack event trigger', () => {

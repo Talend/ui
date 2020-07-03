@@ -1,6 +1,6 @@
 import cases from 'jest-in-case';
 
-import { getTimeFormat, timeToStr } from '../Time/time-extraction';
+import { getTimeFormat, timeToStr } from './time-extraction';
 
 describe('time-extraction', () => {
 	describe('getTimeFormat', () => {

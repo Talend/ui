@@ -40,7 +40,7 @@ function AppGuidedTour({
 		if (!isAlreadyViewed) {
 			onRequestOpen();
 		}
-	}, [setIsAlreadyViewed, onRequestOpen]);
+	}, [isAlreadyViewed, onRequestOpen]);
 
 	useEffect(() => {
 		let timeoutId = null;

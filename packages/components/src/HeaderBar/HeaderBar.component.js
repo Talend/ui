@@ -11,6 +11,7 @@ import Typeahead from '../Typeahead';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import { getTheme } from '../theme';
+import AppSwitcher from '../AppSwitcher';
 
 import headerBarCssModule from './HeaderBar.scss';
 
@@ -34,43 +35,6 @@ function Logo({ isFull, getComponent, t, ...props }) {
 				tooltipPlacement="bottom"
 				{...props}
 			/>
-		</li>
-	);
-}
-
-function Brand({ label, isSeparated, getComponent, t, ...props }) {
-	const className = theme('tc-header-bar-action', {
-		separated: isSeparated,
-	});
-	const Renderers = Inject.getAll(getComponent, { ActionDropdown, Action });
-
-	let ActionComponent;
-	let clickAction;
-	let ariaLabel;
-	if (props && props.items && props.items.length) {
-		ActionComponent = Renderers.ActionDropdown;
-		ariaLabel = t('HEADER_BAR_APP_SWITCHER', {
-			defaultValue: 'Switch to another application. Current application: {{appName}}',
-			appName: label,
-		});
-	} else {
-		ActionComponent = Renderers.Action;
-		clickAction = props.onClick;
-	}
-
-	return (
-		<li role="presentation" className={className}>
-			<span role="heading">
-				<ActionComponent
-					bsStyle="link"
-					className={theme('tc-header-bar-brand')}
-					tooltipPlacement="bottom"
-					label={label}
-					{...props}
-					aria-label={ariaLabel}
-					onClick={clickAction}
-				/>
-			</span>
 		</li>
 	);
 }
@@ -243,7 +207,6 @@ function Intercom({ id, config, tooltipPlacement }) {
 function HeaderBar(props) {
 	const Components = Inject.getAll(props.getComponent, {
 		Logo,
-		Brand,
 		Environment,
 		CallToAction,
 		Search,
@@ -254,21 +217,25 @@ function HeaderBar(props) {
 		Intercom,
 	});
 
+	if (props.brand && props.products) {
+		console.warn('Deprecated: use @talend/ui-ee/AppSwitcher');
+	}
+
+	const AppSwitcherComponent =
+		props.AppSwitcher || Inject.get(props.getComponent, 'AppSwitcher', AppSwitcher);
+
 	return (
 		<nav className={theme('tc-header-bar', 'navbar')}>
 			<ul className={theme('tc-header-bar-actions', 'navbar-nav')}>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
-				{props.brand && (
-					<Components.Brand
-						getComponent={props.getComponent}
-						{...props.brand}
-						{...props.products}
-						isSeparated={!!props.env}
-						t={props.t}
-					/>
-				)}
+				<AppSwitcherComponent
+					{...props.brand}
+					{...props.products}
+					isSeparated={!!props.env}
+					getComponent={props.getComponent}
+				/>
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
 			<ul className={theme('tc-header-bar-actions', 'navbar-nav', 'right')}>
@@ -305,7 +272,6 @@ function HeaderBar(props) {
 }
 
 HeaderBar.Logo = Logo;
-HeaderBar.Brand = Brand;
 HeaderBar.Environment = Environment;
 HeaderBar.CallToAction = CallToAction;
 HeaderBar.Search = Search;
@@ -320,6 +286,7 @@ HeaderBar.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
+		getComponent: PropTypes.func,
 		isFull: PropTypes.bool,
 		renderers: PropTypes.shape({
 			Action: PropTypes.func,
@@ -327,20 +294,15 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 
-	Brand.propTypes = {
-		isSeparated: PropTypes.bool,
-		renderers: PropTypes.shape({
-			Action: PropTypes.func,
-		}),
-	};
-
 	Environment.propTypes = {
+		getComponent: PropTypes.func,
 		renderers: PropTypes.shape({
 			ActionDropdown: PropTypes.func,
 		}),
 	};
 
 	CallToAction.propTypes = {
+		getComponent: PropTypes.func,
 		renders: PropTypes.shape({
 			Action: PropTypes.func,
 		}),
@@ -354,6 +316,7 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	Help.propTypes = {
+		getComponent: PropTypes.func,
 		renderers: PropTypes.shape({
 			ActionSplitDropdown: PropTypes.func,
 			Action: PropTypes.func,
@@ -362,6 +325,8 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	Information.propTypes = {
+		getComponent: PropTypes.func,
+		items: PropTypes.array,
 		renderers: PropTypes.shape({
 			ActionSplitDropdown: PropTypes.func,
 			Action: PropTypes.func,
@@ -370,14 +335,16 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	User.propTypes = {
-		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
-		name: PropTypes.string,
 		firstName: PropTypes.string,
 		lastName: PropTypes.string,
+		getComponent: PropTypes.func,
+		name: PropTypes.string,
+		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		t: PropTypes.func,
 	};
 
 	AppNotification.propTypes = {
+		getComponent: PropTypes.func,
 		hasUnread: PropTypes.bool,
 		renderers: PropTypes.shape({ Action: PropTypes.func }),
 		t: PropTypes.func.isRequired,
@@ -386,11 +353,18 @@ if (process.env.NODE_ENV !== 'production') {
 	Intercom.propTypes = {
 		id: PropTypes.string.isRequired,
 		config: PropTypes.object.isRequired,
+		tooltipPlacement: PropTypes.string,
 	};
 
 	HeaderBar.propTypes = {
+		AppSwitcher: PropTypes.func,
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
-		brand: PropTypes.shape(Brand.propTypes),
+		brand: PropTypes.shape({
+			isSeparated: PropTypes.bool,
+			renderers: PropTypes.shape({
+				Action: PropTypes.func,
+			}),
+		}),
 		env: PropTypes.shape(Environment.propTypes),
 		callToAction: PropTypes.shape(CallToAction.propTypes),
 		search: PropTypes.shape(Search.propTypes),

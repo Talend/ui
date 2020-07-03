@@ -78,6 +78,7 @@ class NotificationWrapper extends React.Component {
 			this.setState({ counter: this.state.counter + 1 });
 		}, 2500);
 	}
+
 	leaveFn(notification) {
 		const index = this.notifications.indexOf(notification);
 		if (index !== -1) {
@@ -85,6 +86,7 @@ class NotificationWrapper extends React.Component {
 			this.setState({ counter: this.state.counter - 1 });
 		}
 	}
+
 	render() {
 		return (
 			<NotificationContainer leaveFn={i => this.leaveFn(i)} notifications={this.notifications} />

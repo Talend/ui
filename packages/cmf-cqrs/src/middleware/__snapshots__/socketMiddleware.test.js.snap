@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pathToServer should ask the ws module to send a patch 1`] = `
+Array [
+  Array [
+    "ws://localhosttest",
+    Object {
+      "onClose": [Function],
+      "onError": [Function],
+      "onMessage": [Function],
+      "onOpen": [Function],
+      "onPing": [Function],
+      "onPingTimeout": [Function],
+    },
+  ],
+]
+`;

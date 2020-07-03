@@ -7,7 +7,7 @@ describe('FieldTemplate in text display mode', () => {
 	it('should render dt/dd', () => {
 		// when
 		const wrapper = shallow(
-			<TextModeFieldTemplate id={'myAwesomeField'} label={'My awesome label'}>
+			<TextModeFieldTemplate id="myAwesomeField" label="My awesome label">
 				My value as chrildren
 			</TextModeFieldTemplate>,
 		);

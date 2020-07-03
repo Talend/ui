@@ -7,6 +7,7 @@ let talendIcons = {};
 
 if (!process.env.ICON_BUNDLE) {
 	console.warn('WARNING ICON_BUNDLE will be the default in the next major release');
+	// eslint-disable-next-line global-require
 	talendIcons = require('@talend/icons/dist/react').default;
 }
 
@@ -42,7 +43,7 @@ export function getIconHREF(name) {
 <IconsProvider />
  */
 function IconsProvider({ defaultIcons = talendIcons, icons = {}, getIconHref = () => {} }) {
-	const iconset = Object.assign({}, defaultIcons, icons);
+	const iconset = { ...defaultIcons, ...icons };
 	const ids = Object.keys(iconset);
 	context.ids = ids;
 	context.get = getIconHref;

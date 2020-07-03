@@ -35,13 +35,16 @@ function isIn(element, container) {
 
 class MultiSelect extends React.Component {
 	static displayName = 'MultiSelect';
+
 	static theme = theme;
+
 	static defaultProps = {
 		itemOptionRender: ItemOption,
 		itemViewRender: ItemView,
 		selected: [],
 		options: [],
 	};
+
 	static propTypes = {
 		id: PropTypes.string.isRequired,
 		name: PropTypes.string,

@@ -47,7 +47,6 @@ function ContextualManager(props) {
 		const nextState = {
 			...state,
 			...newState,
-			time,
 		};
 		setState(nextState);
 		onChange(event, nextState);
@@ -77,11 +76,14 @@ function ContextualManager(props) {
 ContextualManager.displayName = 'DateTime.Manager';
 ContextualManager.propTypes = {
 	children: PropTypes.node,
+	dateFormat: PropTypes.string,
+	defaultTimeValue: PropTypes.string,
 	onChange: PropTypes.func,
 	required: PropTypes.bool,
-	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	timezone: PropTypes.string,
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 };
 
 ContextualManager.defaultProps = {

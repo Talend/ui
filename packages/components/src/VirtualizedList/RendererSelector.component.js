@@ -39,7 +39,7 @@ class RendererSelector extends React.Component {
 
 	noRowsRenderer() {
 		if (this.props.inProgress) {
-			return <Loader className={'tc-virtualizedlist-no-result'} />;
+			return <Loader className="tc-virtualizedlist-no-result" />;
 		}
 		const NoRowsRenderer = this.props.noRowsRenderer;
 		return <NoRowsRenderer />;

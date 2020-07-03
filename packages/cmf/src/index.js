@@ -2,7 +2,7 @@
  * @module react-cmf
  */
 
-import actions from './actions/';
+import actions from './actions';
 import actionCreator from './actionCreator';
 
 import bootstrap from './bootstrap';
@@ -12,7 +12,7 @@ import ConnectedDispatcher from './Dispatcher';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
 import expression from './expression';
 import expressions from './expressions';
-import Inject from './Inject.component.js';
+import Inject from './Inject.component';
 import matchPath from './matchPath';
 import sagas from './sagas';
 import selectors from './selectors';

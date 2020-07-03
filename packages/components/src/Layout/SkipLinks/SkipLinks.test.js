@@ -7,7 +7,7 @@ import SkipLinks from './SkipLinks.component';
 describe('Skip links', () => {
 	it('should render only main link', () => {
 		// when
-		const wrapper = mount(<SkipLinks.WrappedComponent mainId="#my-custom-main-id" />);
+		const wrapper = mount(<SkipLinks mainId="#my-custom-main-id" />);
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -16,7 +16,7 @@ describe('Skip links', () => {
 	it('should render navigation link', () => {
 		// when
 		const wrapper = mount(
-			<SkipLinks.WrappedComponent mainId="#my-custom-main-id" navigationId="#my-custom-nav-id" />,
+			<SkipLinks mainId="#my-custom-main-id" navigationId="#my-custom-nav-id" />,
 		);
 
 		// then

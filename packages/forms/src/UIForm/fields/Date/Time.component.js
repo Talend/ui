@@ -25,14 +25,14 @@ function TimeWidget({
 		onFinish(event, { schema });
 	}
 
-	function onTimeChange(event, { errorMessage: nextErrorMessage, textInput, time }) {
+	function onTimeChange(event, { errorMessage: nextErrorMessage, textInput }) {
 		setState({ errorMessage: nextErrorMessage });
 		const payload = {
 			schema,
 			value: textInput,
 		};
 		onChange(event, payload);
-		if (!nextErrorMessage && time) {
+		if (!nextErrorMessage) {
 			onFinish(event, payload);
 		}
 	}

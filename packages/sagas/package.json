@@ -1,22 +1,18 @@
 {
   "name": "@talend/react-sagas",
-  "version": "5.6.0",
+  "version": "5.10.0",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepare": "rimraf ./lib && babel -d lib ./src/ --ignore 'src/**/*.test.js'",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "prepare": "talend-scripts build:lib",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-sagas",
-    "lint:es": "eslint --config ../../.eslintrc src",
-    "lint:style": "sass-lint -v -q",
-    "lint": "npm run lint:es",
-    "storybook": "start-storybook -p 6008",
-    "start": "start-storybook -p 6008",
-    "build-storybook": "build-storybook"
+    "lint:es": "talend-scripts lint:es",
+    "lint:style": "sass-lint -v -q"
   },
   "keywords": [
     "react",
@@ -34,7 +30,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^5.6.0",
+    "@talend/react-cmf": "^5.10.0",
     "immutable": "^3.8.1",
     "redux-saga": "^0.15.4"
   },
@@ -44,40 +40,11 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.3",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
-    "@babel/plugin-transform-object-assign": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-react": "^7.8.3",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.7.1",
-    "babel-loader": "^8.0.6",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.9.0",
+    "@talend/scripts-core": "^6.3.0",
+    "@talend/scripts-preset-react-lib": "^6.3.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "rimraf": "^3.0.2"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/__snapshots__/**"
-    ],
-    "roots": [
-      "src"
-    ],
-    "testRegex": "&*\\.test\\.js$",
-    "setupFilesAfterEnv": [
-      "<rootDir>/../../test-setup.js"
-    ]
+    "react-dom": "^16.8.6"
   },
   "publishConfig": {
     "access": "public"

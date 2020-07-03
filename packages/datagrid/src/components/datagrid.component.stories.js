@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
+
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '@talend/react-components';
 
-import DataGrid from './';
+import DataGrid from '.';
 import DynamicDataGrid from '../../stories/DynamicDataGrid.component';
 import FasterDatagrid from '../../stories/FasterDatagrid.component';
 import ImmutableDataGrid from '../../stories/ImmutableDatagrid.component';
@@ -13,6 +15,7 @@ import sample3 from '../../stories/sample3.json';
 import sampleWithoutQuality from '../../stories/sampleWithoutQuality.json';
 import getComponent from '../../stories/getComponent';
 
+// eslint-disable-next-line no-irregular-whitespace
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 psum	 	 `;
 

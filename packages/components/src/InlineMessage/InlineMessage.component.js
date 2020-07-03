@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Icon from './../Icon/Icon.component';
+import Icon from '../Icon/Icon.component';
 import InlineMessageCss from './InlineMessage.scss';
 import { getTheme } from '../theme';
 
@@ -86,6 +86,7 @@ InlineMessage.propTypes = {
 	link: PropTypes.shape({
 		href: PropTypes.string,
 		label: PropTypes.string,
+		props: PropTypes.object,
 	}),
 	withBackground: PropTypes.bool,
 };

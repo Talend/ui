@@ -22,10 +22,12 @@ export const DEFAULT_STATE = new Map({});
  */
 class ACKDispatcher extends React.Component {
 	static displayName = 'Container(ACKDispatcher)';
+
 	static propTypes = {
 		acks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		...cmfConnect.propTypes,
 	};
+
 	static contextTypes = {
 		registry: PropTypes.object,
 		store: PropTypes.object,

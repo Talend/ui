@@ -118,7 +118,7 @@ SelectSortBy.propTypes = {
 			name: PropTypes.string,
 		}),
 	).isRequired,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 SelectSortBy.defaultProps = {

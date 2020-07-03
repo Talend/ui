@@ -175,7 +175,6 @@ export class TCompForm extends React.Component {
 		);
 		this.setState({
 			properties: this.props.state.getIn(['initialState', 'properties']).toJS(),
-			dirty: false,
 		});
 	}
 

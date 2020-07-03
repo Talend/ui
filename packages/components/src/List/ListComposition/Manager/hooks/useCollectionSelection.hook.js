@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export default function useCollectionSelection(
 	collection = [],
@@ -7,20 +7,20 @@ export default function useCollectionSelection(
 ) {
 	const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
 
-	function filterSelectionFromCollection(selection) {
-		return collection
-			.filter(item => selection.includes(item[idKey]))
-			.map(item => item[idKey]);
-	}
+	const filterSelectionFromCollection = useCallback(
+		selection =>
+			collection.filter(item => selection.includes(item[idKey])).map(item => item[idKey]),
+		[idKey, collection],
+	);
 
 	useEffect(() => {
-		if (selectedIds.length === 0) {
-			return;
-		}
-
-		const filteredSelection = filterSelectionFromCollection(selectedIds);
-		setSelectedIds(filteredSelection);
-	}, [collection]);
+		setSelectedIds(oldIds => {
+			if (oldIds.length === 0) {
+				return oldIds;
+			}
+			return filterSelectionFromCollection(oldIds);
+		});
+	}, [collection, filterSelectionFromCollection]);
 
 	function isSelected(item) {
 		const itemId = item[idKey];

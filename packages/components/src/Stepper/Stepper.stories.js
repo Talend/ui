@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import Action from '../Actions/Action';
 import IconsProvider from '../IconsProvider';
 import Stepper, { LOADING_STEP_STATUSES } from './Stepper.component';
+
 const stories = storiesOf('Messaging & Communication/Stepper', module);
 const title = 'Sample processing...';
 
@@ -71,7 +72,7 @@ stories
 		<Stepper
 			title={title}
 			steps={[{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS }]}
-		></Stepper>
+		/>
 	))
 	.add('Stepper successful with transition', () => {
 		const defaultSteps = [

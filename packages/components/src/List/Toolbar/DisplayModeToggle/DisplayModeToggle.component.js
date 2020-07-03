@@ -52,7 +52,7 @@ DisplayModeToggle.propTypes = {
 	mode: PropTypes.string,
 	displayModes: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 DisplayModeToggle.defaultProps = {

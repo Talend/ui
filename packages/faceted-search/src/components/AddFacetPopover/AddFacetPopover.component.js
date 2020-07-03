@@ -66,6 +66,7 @@ const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges,
 	const isDisabled = useMemo(() => isButtonDisabled(badges, badgeDefinition, occurences), [
 		badges,
 		badgeDefinition,
+		occurences,
 	]);
 	const onClickRow = event => {
 		onClick(event, badgeDefinition);
@@ -295,7 +296,7 @@ const AddFacetPopover = ({
 								{screen.rows.map(rowItem =>
 									isString(rowItem) ? (
 										<OpenCategoryRow
-											id={'open-category-row'}
+											id="open-category-row"
 											key={rowItem}
 											label={rowItem}
 											onClick={onCategoryChange}

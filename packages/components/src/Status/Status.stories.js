@@ -45,27 +45,27 @@ storiesOf('Messaging & Communication/Status', module).add('default', () => (
 		</h3>
 		<Status
 			{...{ ...myStatus, actions: [cancelAction, deleteAction] }}
-			status={'inProgress'}
-			label={'In Progress'}
-			icon={''}
+			status="inProgress"
+			label="In Progress"
+			icon=""
 		/>
 		<h3>
 			Status is <code>warning</code>
 		</h3>
 		<Status
 			{...{ ...myStatus, actions: [cancelAction] }}
-			status={'warning'}
-			label={'Warning'}
-			icon={'talend-warning'}
+			status="warning"
+			label="Warning"
+			icon="talend-warning"
 		/>
 		<h3>
 			Status is <code>failed</code>
 		</h3>
-		<Status {...myStatus} status={'failed'} label={'Failed'} icon={'talend-cross'} />
+		<Status {...myStatus} status="failed" label="Failed" icon="talend-cross" />
 		<h3>
 			Status is <code>canceled</code>
 		</h3>
-		<Status {...myStatus} status={'canceled'} label={'Canceled'} icon={'talend-cross'} />
+		<Status {...myStatus} status="canceled" label="Canceled" icon="talend-cross" />
 		<h3>Status without actions</h3>
 		<Status {...{ ...myStatus, actions: [] }} />
 		<h3>
@@ -73,9 +73,9 @@ storiesOf('Messaging & Communication/Status', module).add('default', () => (
 		</h3>
 		<Status
 			{...{ ...myStatus, actions: [cancelAction, deleteAction] }}
-			status={'inProgress'}
-			label={'In Progress'}
-			icon={''}
+			status="inProgress"
+			label="In Progress"
+			icon=""
 			progress="50"
 		/>
 		<br />

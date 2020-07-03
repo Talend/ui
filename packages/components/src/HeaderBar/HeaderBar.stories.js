@@ -7,69 +7,9 @@ import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-d
 
 import IconsProvider from '../IconsProvider';
 import HeaderBar from './HeaderBar.component';
+import AppSwitcher from '../AppSwitcher';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../Layout/constants';
-
-const typeaheadItems = [
-	{
-		title: 'category 1',
-		icon: {
-			name: 'talend-filter',
-			title: 'icon',
-		},
-		suggestions: [
-			{
-				title: 'le title 1',
-				description:
-					'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
-			},
-			{
-				title:
-					'title 2 les elephants elementaires ont des aile cum erat inquam controversia autem mihi utrumqo',
-				description:
-					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
-			},
-		],
-	},
-	{
-		title: 'category 2',
-		icon: {
-			name: 'talend-star',
-			title: 'icon',
-		},
-		suggestions: [
-			{
-				title: 'title 3',
-				description:
-					'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
-			},
-		],
-	},
-	{
-		title: 'category 3',
-		icon: {
-			name: 'talend-share-alt',
-			title: 'icon',
-		},
-		suggestions: [
-			{
-				title: 'title 4',
-				description:
-					'description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.',
-			},
-			{
-				title: 'title 5',
-				description:
-					'description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.',
-			},
-			{
-				title: 'title 6',
-				description:
-					'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
-			},
-		],
-	},
-];
 
 const props = {
 	brand: {
@@ -132,6 +72,10 @@ const infoStyle = stylesheet => ({
 		},
 	},
 });
+
+function AppSwitcherComponent() {
+	return <AppSwitcher {...props.brand} />;
+}
 
 const withIcons = makeDecorator({
 	name: 'withIcons',
@@ -305,7 +249,10 @@ decoratedStories
 		),
 		{ info: { styles: infoStyle } },
 	)
-	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } });
+	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } })
+	.add('Custom AppSwitcher', () => <HeaderBar AppSwitcher={AppSwitcherComponent} />, {
+		info: { styles: infoStyle },
+	});
 
 const appStyle = require('../../stories/config/themes.scss');
 

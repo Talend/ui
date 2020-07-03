@@ -1,4 +1,5 @@
-/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
@@ -46,7 +47,7 @@ export default function Radios({
 								name={id}
 								onBlur={event => onFinish(event, { schema })}
 								onChange={event => onChange(event, { schema, value: option.value })}
-								type={'radio'}
+								type="radio"
 								value={option.value}
 								// eslint-disable-next-line jsx-a11y/aria-proptypes
 								aria-invalid={!isValid}
@@ -72,6 +73,7 @@ if (process.env.NODE_ENV !== 'production') {
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			inline: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({

@@ -135,6 +135,8 @@ exports[`Stepper Component render should render when there is no errors in the s
             >
               <withI18nextTranslation(CircularProgress)
                 className="stepper-icon-loading theme-stepper-icon-loading stepper-icon theme-stepper-icon"
+                size="default"
+                t={[Function]}
               />
               Global Quality
             </div>
@@ -148,6 +150,8 @@ exports[`Stepper Component render should render when there is no errors in the s
             >
               <withI18nextTranslation(CircularProgress)
                 className="stepper-icon-loading theme-stepper-icon-loading stepper-icon theme-stepper-icon"
+                size="default"
+                t={[Function]}
               />
               Flattening
             </div>
