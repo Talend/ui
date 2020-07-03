@@ -47,6 +47,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			hint: PropTypes.shape({
 				icon: PropTypes.string,
+				className: PropTypes.string,
 				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 				overlayPlacement: PropTypes.string,
 			}),

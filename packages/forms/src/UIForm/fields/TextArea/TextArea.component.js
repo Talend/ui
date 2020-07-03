@@ -30,6 +30,7 @@ export default function TextArea({
 	return (
 		<FieldTemplate
 			hint={schema.hint}
+			className={schema.className}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
@@ -79,6 +80,7 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 			hint: PropTypes.shape({
 				icon: PropTypes.string,
+				className: PropTypes.string,
 				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 				overlayPlacement: PropTypes.string,
 			}),

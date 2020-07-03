@@ -33,6 +33,7 @@ function FieldTemplate(props) {
 			{props.hint && (
 				<Action
 					id={`${props.id}-hint`}
+					className={props.hint.className}
 					icon={props.hint.icon || 'talend-info-circle'}
 					link
 					overlayComponent={props.hint.overlayComponent}
@@ -64,6 +65,7 @@ if (process.env.NODE_ENV !== 'production') {
 		children: PropTypes.node,
 		hint: PropTypes.shape({
 			icon: PropTypes.string,
+			className: PropTypes.string,
 			overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 			overlayPlacement: PropTypes.string,
 		}),

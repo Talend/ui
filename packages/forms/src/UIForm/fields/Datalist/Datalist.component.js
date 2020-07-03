@@ -140,6 +140,7 @@ class Datalist extends Component {
 		return (
 			<FieldTemplate
 				hint={this.props.schema.hint}
+				className={this.props.schema.className}
 				description={this.props.schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
@@ -219,6 +220,7 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 			hint: PropTypes.shape({
 				icon: PropTypes.string,
+				className: PropTypes.string,
 				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 				overlayPlacement: PropTypes.string,
 			}),

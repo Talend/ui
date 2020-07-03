@@ -110,7 +110,8 @@
       "widget": "textarea",
       "title": "Text area with hint",
       "hint": {
-        "overlayComponent": "Explanation meaning of the field"
+        "overlayComponent": "Explanation meaning of the field (bottom placement)",
+        "overlayPlacement": "bottom"
       }
     }
   ]
