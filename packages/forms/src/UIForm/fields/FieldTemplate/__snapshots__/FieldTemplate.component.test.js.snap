@@ -56,7 +56,7 @@ exports[`FieldTemplate should render with hint 1`] = `
   hideLabel={true}
   icon="talend-info-circle"
   id="myAwesomeField-hint"
-  label="THis button displays the hint for the input My awesome label"
+  label="This button displays the hint for the input My awesome label"
   link={true}
   overlayComponent={
     <span>

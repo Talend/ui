@@ -39,7 +39,7 @@ function FieldTemplate(props) {
 					className={props.hint.className}
 					icon={props.hint.icon || 'talend-info-circle'}
 					label={t('FIELD_TEMPLATE_HINT_LABEL', {
-						defaultValue: 'THis button displays the hint for the input {{inputLabel}}',
+						defaultValue: 'This button displays the hint for the input {{inputLabel}}',
 						inputLabel: props.label,
 					})}
 					hideLabel
