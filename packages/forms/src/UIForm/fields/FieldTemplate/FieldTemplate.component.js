@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import Action from '@talend/react-components/lib/Actions/Action';
 import Message from '../../Message';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './FieldTemplate.scss';
 
 function Label(props) {
@@ -21,6 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function FieldTemplate(props) {
+	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const groupsClassNames = classNames('form-group', theme.template, props.className, {
 		'has-error': !props.isValid,
 		required: props.required,
@@ -35,6 +38,11 @@ function FieldTemplate(props) {
 					id={`${props.id}-hint`}
 					className={props.hint.className}
 					icon={props.hint.icon || 'talend-info-circle'}
+					label={t('FIELD_TEMPLATE_HINT_LABEL', {
+						defaultValue: 'THis button displays the hint for the input {{inputLabel}}',
+						inputLabel: props.label,
+					})}
+					hideLabel
 					link
 					overlayComponent={props.hint.overlayComponent}
 					overlayId={`${props.id}-hint-overlay`}
