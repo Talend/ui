@@ -12,6 +12,7 @@ import DatePicker from '../Date/Picker';
 const icons = {
 	'talend-info-circle': talendIcons['talend-info-circle'],
 	'talend-arrow-right': talendIcons['talend-arrow-right'],
+	'talend-arrow-left': talendIcons['talend-arrow-left'],
 };
 
 storiesOf('Form/Controls/DatePicker/Date Range', module)
@@ -39,7 +40,7 @@ storiesOf('Form/Controls/DatePicker/Date Range', module)
 	))
 	.add('Picker', () => (
 		<div style={{ border: '1px solid black', width: 320 }}>
-			<DateManager id="simple" onChange={action('onChange')}>
+			<DateManager id="simple" onChange={action('onChange', { depth: 3 })}>
 				<DatePicker selectedDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} />
 			</DateManager>
 		</div>
