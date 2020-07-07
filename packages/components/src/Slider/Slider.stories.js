@@ -2,8 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import Slider from './Slider.component';
+import Slider, {SLIDER_MODE} from './Slider.component';
 import IconsProvider from '../IconsProvider';
+// import SLIDER_MODE from './Slider.component';
 
 const icons = [
 	'talend-activity',
@@ -22,7 +23,6 @@ const delimiterStyle = {
 	paddingBottom: '25px',
 	borderBottom: '1px dashed grey',
 };
-
 
 const actions = [
 	{
@@ -79,6 +79,33 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 				<Slider onChange={action('onChange')} />
 			</div>
 			<div style={delimiterStyle}>
+				<p>With value</p>
+				<Slider
+					onChange={action('onChange')}
+					value={10}
+				/>
+			</div>
+			<div style={delimiterStyle}>
+				<p>Greater than usage</p>
+				<Slider
+					max={10}
+					min={0}
+					mode={SLIDER_MODE.GREATER_THAN}
+					onChange={action('onChange')}
+					value={3}
+				/>
+			</div>
+			<div style={delimiterStyle}>
+				<p>Equals</p>
+				<Slider
+					max={10}
+					min={0}
+					mode={SLIDER_MODE.EQUALS}
+					onChange={action('onChange')}
+					value={5}
+				/>
+			</div>
+			<div style={delimiterStyle}>
 				<p>With disabled</p>
 				<Slider onChange={action('onChange')} disabled />
 			</div>
@@ -109,11 +136,22 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 				/>
 			</div>
 			<div style={delimiterStyle}>
-				<p>with range</p>
+				<p>with range (inclusive)</p>
 				<Slider
 					onChange={action('onChange')}
 					min={0}
 					max={100}
+					value={[25, 75]}
+					allowCross={false}
+				/>
+			</div>
+			<div style={delimiterStyle}>
+				<p>with range (exclusive)</p>
+				<Slider
+					onChange={action('onChange')}
+					min={0}
+					max={100}
+					mode={SLIDER_MODE.EXCLUSIVE}
 					value={[25, 75]}
 					allowCross={false}
 				/>
