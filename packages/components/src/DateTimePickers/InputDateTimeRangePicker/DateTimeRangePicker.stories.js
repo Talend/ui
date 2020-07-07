@@ -9,6 +9,7 @@ import InputDateTimeRangePicker from './InputDateTimeRangePicker.component';
 const icons = {
 	'talend-info-circle': talendIcons['talend-info-circle'],
 	'talend-arrow-right': talendIcons['talend-arrow-right'],
+	'talend-arrow-left': talendIcons['talend-arrow-left'],
 };
 
 storiesOf('Form/Controls/DatePicker/Date Time Range', module)

@@ -9,7 +9,7 @@ export default function useCollectionSelection(
 
 	const filterSelectionFromCollection = useCallback(
 		selection =>
-			collection.filter(item => selection.includes(item[idKey])).map(item => item[idKey]),
+			collection.filter(item => item && selection.includes(item[idKey])).map(item => item[idKey]),
 		[idKey, collection],
 	);
 
@@ -43,7 +43,7 @@ export default function useCollectionSelection(
 		if (collection.length === selectedIds.length) {
 			setSelectedIds([]);
 		} else {
-			setSelectedIds(collection.map(item => item[idKey]));
+			setSelectedIds(collection.filter(item => !!item).map(item => item[idKey]));
 		}
 	}
 

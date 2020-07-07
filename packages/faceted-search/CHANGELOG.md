@@ -24,8 +24,9 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
-## [unreleased]
+## [0.10.3]
 
+- [fixed](https://github.com/Talend/ui/pull/2881): IE11: hide scrollbar for BasicSearch
 - [fixed](https://github.com/Talend/ui/pull/2862): Hide delete icon if no filters
 - [changed](https://github.com/Talend/ui/pull/2778): chore: use @talend/scripts
 
