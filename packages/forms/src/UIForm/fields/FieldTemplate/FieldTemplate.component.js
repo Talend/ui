@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import Action from '@talend/react-components/lib/Actions/Action';
+import { Button } from 'react-bootstrap';
+import OverlayTrigger from '@talend/react-components/lib/OverlayTrigger';
+import Icon from '@talend/react-components/lib/Icon';
 import Message from '../../Message';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './FieldTemplate.scss';
@@ -34,20 +36,24 @@ function FieldTemplate(props) {
 		<div className={theme['field-template-title']}>
 			<Label id={props.id} label={props.label} />
 			{props.hint && (
-				<Action
-					id={`${props.id}-hint`}
-					className={props.hint.className}
-					icon={props.hint.icon || 'talend-info-circle'}
-					label={t('FIELD_TEMPLATE_HINT_LABEL', {
-						defaultValue: 'This button displays the hint for the input {{inputLabel}}',
-						inputLabel: props.label,
-					})}
-					hideLabel
-					link
-					overlayComponent={props.hint.overlayComponent}
+				<OverlayTrigger
 					overlayId={`${props.id}-hint-overlay`}
 					overlayPlacement={props.hint.overlayPlacement || 'right'}
-				/>
+					overlayComponent={props.hint.overlayComponent}
+				>
+					<Button
+						id={`${props.id}-hint`}
+						bsStyle="link"
+						className={props.hint.className}
+						aria-label={t('FIELD_TEMPLATE_HINT_LABEL', {
+							defaultValue: 'This button displays the hint for the input {{inputLabel}}',
+							inputLabel: props.label,
+						})}
+						aria-haspopup
+					>
+						<Icon name={props.hint.icon || 'talend-info-circle'} />
+					</Button>
+				</OverlayTrigger>
 			)}
 		</div>
 	);

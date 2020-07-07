@@ -70,7 +70,7 @@ describe('FieldTemplate', () => {
 		);
 
 		// then
-		expect(wrapper.find('Action').getElement()).toMatchSnapshot();
+		expect(wrapper.find('OverlayTrigger').getElement()).toMatchSnapshot();
 	});
 
 	it('should render invalid className', () => {

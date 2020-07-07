@@ -52,12 +52,7 @@ exports[`FieldTemplate should render invalid className 1`] = `
 `;
 
 exports[`FieldTemplate should render with hint 1`] = `
-<Action
-  hideLabel={true}
-  icon="talend-info-circle"
-  id="myAwesomeField-hint"
-  label="This button displays the hint for the input My awesome label"
-  link={true}
+<OverlayTrigger
   overlayComponent={
     <span>
       Tooltip content, which helps to understand what is the purpose of this field
@@ -65,7 +60,23 @@ exports[`FieldTemplate should render with hint 1`] = `
   }
   overlayId="myAwesomeField-hint-overlay"
   overlayPlacement="top"
-/>
+  preventScrolling={false}
+>
+  <Button
+    active={false}
+    aria-haspopup={true}
+    aria-label="This button displays the hint for the input My awesome label"
+    block={false}
+    bsClass="btn"
+    bsStyle="link"
+    disabled={false}
+    id="myAwesomeField-hint"
+  >
+    <Icon
+      name="talend-info-circle"
+    />
+  </Button>
+</OverlayTrigger>
 `;
 
 exports[`FieldTemplate should render with label after 1`] = `
