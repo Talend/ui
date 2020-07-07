@@ -188,7 +188,7 @@ describe('useCollectionSelection', () => {
 		);
 
 		// then
-		let allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
+		const allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
 		expect(allIsSelected).toBe(false);
 	});
 
