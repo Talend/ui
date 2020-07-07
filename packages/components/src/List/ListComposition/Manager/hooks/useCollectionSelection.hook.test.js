@@ -176,7 +176,7 @@ describe('useCollectionSelection', () => {
 	it('should provide the "select all" status with unloaded items', () => {
 		// given
 		const caseCollection = [...collection, null];
-		const selection =[0, 1, 2, 3, 4];
+		const selection = [0, 1, 2, 3, 4];
 
 		// when
 		const wrapper = mount(
