@@ -154,6 +154,25 @@ describe('useCollectionSelection', () => {
 		expect(allIsSelected).toBe(false);
 	});
 
+	it('should provide the "select all" status with unloaded', () => {
+		// given
+		const caseCollection = [...collection, null];
+		const selection =[0, 1, 2, 3, 4];
+
+		// when
+		const wrapper = mount(
+			<SelectionComponent
+				collection={caseCollection}
+				initialSelectedIds={selection}
+				idKey="number"
+			/>,
+		);
+
+		// then
+		let allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
+		expect(allIsSelected).toBe(false);
+	});
+
 	it('should toggle all', () => {
 		// given
 		const wrapper = mount(<SelectionComponent collection={collection} idKey="number" />);
