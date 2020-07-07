@@ -10,6 +10,14 @@ import theme from './Slider.scss';
 import Action from '../Actions/Action';
 
 const noFormat = value => value;
+/**
+ * Options for controlling slider operator display mode
+ */
+export const SLIDER_MODE = {
+	GREATER_THAN: 'greaterThan',
+	EQUALS: 'equals',
+	EXCLUSIVE: 'exclusive'
+};
 
 /**
  * this function check if we have icons to display
@@ -218,6 +226,7 @@ class Slider extends React.Component {
 		captionTextStepNumber: PropTypes.number,
 		min: PropTypes.number.isRequired,
 		max: PropTypes.number.isRequired,
+		mode: PropTypes.string,
 		captionsFormat: PropTypes.func,
 		disabled: PropTypes.bool,
 	};
@@ -239,6 +248,7 @@ class Slider extends React.Component {
 			captionsFormat,
 			min,
 			max,
+			mode,
 			onChange,
 			disabled,
 			...rest
@@ -254,7 +264,16 @@ class Slider extends React.Component {
 						min={min}
 						max={max}
 						handle={noValue ? undefined : this.state.handle}
-						className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+						className={classnames(
+							theme['tc-slider-rc-slider'],
+							{[theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS},
+							{[theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE},
+							{[theme['tc-slider-rc-slider--track-greater-than']]: mode === SLIDER_MODE.GREATER_THAN},
+							'tc-slider-rc-slider',
+							{'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS},
+							{'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE},
+							{'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN}
+						)}
 						onChange={onChange}
 						disabled={disabled}
 						{...rest}
