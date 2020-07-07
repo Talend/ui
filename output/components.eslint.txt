@@ -247,8 +247,8 @@
   83:5  warning  React Hook useEffect has a missing dependency: 'animation'. Either include it or remove the dependency array                                                                                                                                                               react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/Slider/Slider.component.js
-  280:2  error  defaultProp "min" defined for isRequired propType  react/default-props-match-prop-types
-  281:2  error  defaultProp "max" defined for isRequired propType  react/default-props-match-prop-types
+  299:2  error  defaultProp "min" defined for isRequired propType  react/default-props-match-prop-types
+  300:2  error  defaultProp "max" defined for isRequired propType  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Stepper/Stepper.component.js
   171:5  warning  React Hook useEffect has missing dependencies: 'children' and 'transitionState'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
