@@ -23,6 +23,10 @@ export default function useCollectionSelection(
 	}, [collection, filterSelectionFromCollection]);
 
 	function isSelected(item) {
+		if (!item) {
+			return false;
+		}
+
 		const itemId = item[idKey];
 		return selectedIds.some(itemKey => itemKey === itemId);
 	}
