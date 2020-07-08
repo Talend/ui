@@ -65,7 +65,7 @@ exports[`FieldTemplate should render with hint 1`] = `
   <Button
     active={false}
     aria-haspopup={true}
-    aria-label="This button displays the hint for the input My awesome label"
+    aria-label="Display the input My awesome label hint"
     block={false}
     bsClass="btn"
     bsStyle="link"

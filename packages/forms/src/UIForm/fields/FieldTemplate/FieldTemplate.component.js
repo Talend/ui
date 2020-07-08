@@ -46,7 +46,7 @@ function FieldTemplate(props) {
 						bsStyle="link"
 						className={props.hint.className}
 						aria-label={t('FIELD_TEMPLATE_HINT_LABEL', {
-							defaultValue: 'This button displays the hint for the input {{inputLabel}}',
+							defaultValue: 'Display the input {{inputLabel}} hint',
 							inputLabel: props.label,
 						})}
 						aria-haspopup
