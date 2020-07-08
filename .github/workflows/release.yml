@@ -2,6 +2,7 @@ name: Release monorepo packages
 
 on:
   push:
+    branches: [master]
     paths:
       - 'lerna.json'
 
