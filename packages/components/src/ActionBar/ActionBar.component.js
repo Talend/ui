@@ -156,7 +156,7 @@ function Count({ selected }) {
 	}
 	return (
 		<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
-			{t('ACTION_BAR_COUNT_SELECTED_lol', { defaultValue: '{{selected}} selected', selected })}
+			{t('ACTION_BAR_COUNT_SELECTED', { defaultValue: '{{selected}} selected', selected })}
 		</span>
 	);
 }
