@@ -5,6 +5,7 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
+    "bump-version": "lerna version",
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "build": "lerna exec -- yarn",
