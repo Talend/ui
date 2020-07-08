@@ -5,7 +5,7 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "bump-version": "lerna version",
+    "bump-version": "lerna version --force-publish --yes",
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "build": "lerna exec -- yarn",
@@ -29,7 +29,7 @@
     "start-stepper": "cd packages/stepper && yarn start",
     "start-forms": "cd packages/forms && yarn start",
     "start-theme": "cd packages/theme && yarn start",
-    "publish": "lerna publish --force-publish=*",
+    "publish": "lerna publish from-package --yes --no-verify-access",
     "storybook": "start-storybook -p 6006",
     "build-demo": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish-storybook": "npm run build-demo && cd .static && npx surge",
