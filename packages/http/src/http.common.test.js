@@ -2,13 +2,7 @@ import { Headers, Response } from 'node-fetch';
 import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
 
 import { HTTP, getDefaultConfig, setDefaultConfig } from './config';
-import {
-	httpFetch,
-	handleBody,
-	handleHttpResponse,
-	handleError,
-	encodePayload,
-} from './http.common';
+import { httpFetch, handleBody, handleHttpResponse, encodePayload } from './http.common';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
 
