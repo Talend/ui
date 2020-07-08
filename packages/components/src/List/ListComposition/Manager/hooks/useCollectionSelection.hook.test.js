@@ -117,6 +117,29 @@ describe('useCollectionSelection', () => {
 		expect(isSelected(collection[4])).toBe(true);
 	});
 
+	it('should provide a function to check an item selection that supports unloaded items', () => {
+		// given
+		const initialSelectedIds = [1, 4];
+
+		// when
+		const wrapper = mount(
+			<SelectionComponent
+				collection={[...collection, null]}
+				initialSelectedIds={initialSelectedIds}
+				idKey="number"
+			/>,
+		);
+
+		// then
+		const isSelected = wrapper.find('#mainChild').prop('isSelected');
+		expect(isSelected(collection[0])).toBe(false);
+		expect(isSelected(collection[1])).toBe(true);
+		expect(isSelected(collection[2])).toBe(false);
+		expect(isSelected(collection[3])).toBe(false);
+		expect(isSelected(collection[4])).toBe(true);
+		expect(isSelected(collection[6])).toBe(false);
+	});
+
 	it('should set new item selection', () => {
 		// given
 		const wrapper = mount(<SelectionComponent collection={collection} idKey="number" />);
