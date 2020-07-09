@@ -8,10 +8,13 @@ echo "VERSIONS--------------------------------"
 echo "Previous: $PREVIOUS_VERSION"
 echo "Current: $CURRENT_VERSION"
 
+# Build the demo domain
+DEMO_DOMAIN="${CURRENT_VERSION//[.]/-}.talend.surge.sh"
+echo "Demo: $DEMO_DOMAIN"
 
 # Generate changelog
 CHANGELOG=$(git log --date=short --pretty="%ad %s" v$PREVIOUS_VERSION..master | tail -n +2)
-DEMO=$'Demo: http://\n'
+DEMO="Demo: http://$DEMO_DOMAIN"$'\n'
 TITLE=$'# Changelog\n'
 FEATURES=$'## Features\n'
 FIXES=$'## Fixes\n'
@@ -39,3 +42,4 @@ FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//$'\r'/'%0D'}"
 # Set env var for create-release action
 echo ::set-env name=CHANGELOG::"$FORMATTED_CHANGELOG"
 echo ::set-env name=TAG::"v$CURRENT_VERSION"
+echo ::set-env name=DEMO_DOMAIN::"$DEMO_DOMAIN"

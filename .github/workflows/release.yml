@@ -32,7 +32,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  tag:
+  tag-demo:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -40,7 +40,9 @@ jobs:
         with:
           fetch-depth: 0 # fetch all commits and tags
       - uses: actions/setup-node@v1
-      - run: ./.github/workflows/release-tag.sh # this sets env.TAG and env.CHANGELOG
+        with:
+          node-version: 14
+      - run: ./.github/workflows/release-variables.sh # this sets env.TAG, env.CHANGELOG and env.DEMO_DOMAIN
       - uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -50,3 +52,4 @@ jobs:
           body: ${{ env.CHANGELOG }}
           draft: false
           prerelease: false
+      - run: yarn build-demo && npx surge --project .static --domain ${{ env.DEMO_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
