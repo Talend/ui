@@ -95,6 +95,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
+			onClick: rest.onClick,
 			onKeyDown: rest.onKeyDown,
 			placeholder: rest.placeholder,
 			readOnly: rest.readOnly,

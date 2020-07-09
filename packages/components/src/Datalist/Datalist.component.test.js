@@ -602,6 +602,21 @@ describe('Datalist component', () => {
 		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
 	});
 
+	it('should call props.onClick when clicking on the datalist', () => {
+		const onClick = jest.fn();
+		const wrapper = shallow(<Datalist {...props} onClick={onClick} onChange={jest.fn()} />);
+
+		// when
+		const event = { type: 'foo', target: { select: jest.fn() } };
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.updateSelectedIndexes = jest.fn();
+		instance.onClick(event);
+		expect(onClick).toHaveBeenCalledWith(event);
+		expect(instance.updateSuggestions).toHaveBeenCalled();
+		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
+	});
+
 	it('should call onLiveChange when user type in the input', () => {
 		// given
 		const onLiveChange = jest.fn();
