@@ -113,7 +113,7 @@ class Datalist extends Component {
 	 * Display suggestions on click
 	 * @param event the click event
 	 */
-	onClick(event) {
+	onClick() {
 		if (!this.state.suggestions) {
 			// display all suggestions when they are not displayed
 			this.updateSuggestions();
@@ -449,6 +449,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onBlur: PropTypes.func,
 		onChange: PropTypes.func.isRequired,
 		onFocus: PropTypes.func,
+		onClick: PropTypes.func,
 		onLiveChange: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool,

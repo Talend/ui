@@ -191,6 +191,7 @@ Typeahead.propTypes = {
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
+	onClick: PropTypes.func,
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,
