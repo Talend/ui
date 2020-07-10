@@ -19,6 +19,7 @@ exports[`Datalist component should render a typeahead 1`] = `
     noResultText="there is nothing ..."
     onBlur={[Function]}
     onChange={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onSelect={[Function]}

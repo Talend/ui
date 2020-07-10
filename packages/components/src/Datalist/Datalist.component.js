@@ -21,6 +21,7 @@ class Datalist extends Component {
 		this.onBlur = this.onBlur.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.onClick = this.onClick.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 		this.resetSuggestions = this.resetSuggestions.bind(this);
@@ -106,6 +107,18 @@ class Datalist extends Component {
 		event.target.select();
 		this.updateSuggestions();
 		this.updateSelectedIndexes(this.state.value);
+	}
+
+	/**
+	 * Display suggestions on click
+	 * @param event the click event
+	 */
+	onClick() {
+		if (!this.state.suggestions) {
+			// display all suggestions when they are not displayed
+			this.updateSuggestions();
+			this.updateSelectedIndexes(this.state.value);
+		}
 	}
 
 	/**
@@ -410,6 +423,7 @@ class Datalist extends Component {
 					onBlur={this.onBlur}
 					onChange={this.onChange}
 					onFocus={this.onFocus}
+					onClick={this.onClick}
 					onKeyDown={this.onKeyDown}
 					onSelect={this.onSelect}
 					theme={this.theme}
@@ -435,6 +449,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onBlur: PropTypes.func,
 		onChange: PropTypes.func.isRequired,
 		onFocus: PropTypes.func,
+		onClick: PropTypes.func,
 		onLiveChange: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool,

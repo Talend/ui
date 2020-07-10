@@ -602,6 +602,30 @@ describe('Datalist component', () => {
 		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
 	});
 
+	it('should update suggestions when clicking on the datalist', () => {
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				errorMessage="This should be correct"
+				onChange={jest.fn()}
+				{...props}
+				value="foobar"
+			/>,
+		);
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.updateSelectedIndexes = jest.fn();
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('click');
+
+		// then
+		expect(instance.updateSuggestions).toHaveBeenCalled();
+		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
+	});
+
 	it('should call onLiveChange when user type in the input', () => {
 		// given
 		const onLiveChange = jest.fn();

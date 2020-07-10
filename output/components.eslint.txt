@@ -32,7 +32,7 @@
   34:5  warning  React Hook useLayoutEffect has a missing dependency: 'measure'. Either include it or remove the dependency array. If 'measure' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.js
-  41:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+  42:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   31:5  warning  React Hook useEffect has missing dependencies: 'getDateOptions' and 'state.date'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
