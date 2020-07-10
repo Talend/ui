@@ -154,6 +154,12 @@ describe('Datalist component', () => {
 					...schema.schema,
 					enum: ['my', 'title', 'map'],
 				},
+
+				titleMap: [
+					{ name: 'my_name', value: 'my' },
+					{ name: 'title_name', value: 'title' },
+					{ name: 'map_name', value: 'map' },
+				],
 			};
 			expect(props.onChange).toBeCalledWith(event, {
 				schema: generatedSchema,
