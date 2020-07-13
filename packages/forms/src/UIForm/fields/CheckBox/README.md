@@ -58,6 +58,10 @@ This widget allows you to render checkboxes input.
 | autoFocus | Focus on input on render | `false` |
 | disabled | Disable the input | `false` |
 | titleMap | A mapping of value/label to display |  |
+| hint | Configuration for tooltip with help information, that will be displayed when clicking on action icon (optional) | |
+| hint.icon | icon name for action button (optional) | info-circle |
+| hint.overlayComponent | component to display in tooltip content (JSX) | |
+| hint.overlayPlacement | component placement relative to the action icon (optional) | right |
 | data-feature | A `data-feature` value to set on the checkbox label |  |
 
 ```json
@@ -78,6 +82,11 @@ This widget allows you to render checkboxes input.
       "bar": "My custom bar title",
       "fuzz": "My custom fuzz title",
       "qux": "my custom qux title"
+    },
+    "hint": {
+      "icon": "my custom icon name",
+      "overlayComponent": <span>My custom popover content</span>,
+      "overlayPlacement": "My custom overlay placement"
     }
   }
 ]

@@ -6,6 +6,7 @@ exports[`CheckBox field should render disabled input 1`] = `
   descriptionId="myForm-description"
   errorId="myForm-error"
   errorMessage="My error message"
+  id="myForm"
   isValid={true}
 >
   <SimpleCheckBox
@@ -36,6 +37,7 @@ exports[`CheckBox field should render input 1`] = `
   descriptionId="myForm-description"
   errorId="myForm-error"
   errorMessage="My error message"
+  id="myForm"
   isValid={true}
 >
   <SimpleCheckBox
