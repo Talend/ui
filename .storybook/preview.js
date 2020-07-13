@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { addDecorator } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
 import { withContexts } from '@storybook/addon-contexts/react';
 import { normalize } from 'polished';
 import { contexts } from './contexts';
@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle(
 	({ theme }) =>
 		console.log('GlobalStyle', theme.id) ||
 		`
-	${normalize()}
   
 	html {
 		/* 1rem = 10px */
@@ -56,3 +55,9 @@ addDecorator((storyFn, ...rest) => (
 ));
 
 addDecorator(withContexts(contexts));
+
+addParameters({
+	options: {
+		showRoots: true,
+	},
+});

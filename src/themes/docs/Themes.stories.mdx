@@ -4,13 +4,16 @@ import { ColorPalette, ColorItem } from '@storybook/components';
 import { light, dark } from '../.';
 
 import tokens from '../../tokens';
+import { TableOfContent } from '../../docs';
 
-<Meta title="Themes|Themes" />
+<Meta title="Themes/Themes" />
 
 export function getTokenNameByValue(value) {
     const designToken = Object.entries(tokens.colors).find(([k, v]) => v === value)
     return designToken ? designToken[0] : 'there is no design token used here!';
 }
+
+<TableOfContent />
 
 # Themes
 

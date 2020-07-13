@@ -1,9 +1,5 @@
 import Col from './Col.component';
-import DesignTokens from './DesignTokens.component';
 import Row from './Row.component';
+import TableOfContent from './TableOfContent.component';
 
-export default {
-	Col,
-	DesignTokens,
-	Row,
-};
+export { Col, Row, TableOfContent };
