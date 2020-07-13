@@ -89,14 +89,6 @@ class Datalist extends Component {
 		});
 	}
 
-	hasTitleMap() {
-		return (
-			has(this.state, 'titleMap') ||
-			has(this.props, 'schema.options.titleMap') ||
-			has(this.props, 'schema.titleMap')
-		);
-	}
-
 	getTitleMap() {
 		const titleMap =
 			this.state.titleMap ||
@@ -131,6 +123,14 @@ class Datalist extends Component {
 				return acc;
 			}, []);
 		return titleMap.concat(additionalOptions);
+	}
+
+	hasTitleMap() {
+		return (
+			has(this.state, 'titleMap') ||
+			has(this.props, 'schema.options.titleMap') ||
+			has(this.props, 'schema.titleMap')
+		);
 	}
 
 	addCustomValue(value, isMultiSection) {
