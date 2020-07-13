@@ -13,7 +13,7 @@ module.exports = optimize => ({
 	entry: './src/index.js',
 	output: {
 		path: distRoot,
-		filename: optimize ? 'tui.min.js' : 'tui.js',
+		filename: optimize ? 'TalendReactComponents.min.js' : 'TalendReactComponents.js',
 		library: 'TalendReactComponents',
 		libraryTarget: 'umd',
 	},
@@ -73,8 +73,8 @@ module.exports = optimize => ({
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'tui.css',
-			chunkFilename: 'tui.css',
+			filename: 'TalendReactComponents.css',
+			chunkFilename: 'TalendReactComponents.css',
 		}),
 		// new BundleAnalyzerPlugin({ analyzerPort: 8080 }),
 	],
