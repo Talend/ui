@@ -238,6 +238,43 @@ describe('Datalist component', () => {
 			});
 			expect(wrapper.state('isLoading')).toBe(true);
 		});
+
+		it('should call get titleMap from trigger and send it in onChange', done => {
+			// given
+			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
+			const props = {
+				onChange: jest.fn(),
+				onFinish: jest.fn(),
+				onTrigger: jest.fn(
+					event =>
+						new Promise(resolve => {
+							// hack: to be sure we catch the setState after the promise
+							setTimeout(() => {
+								wrapper.instance().onChange(event, undefined);
+								expect(props.onChange).toHaveBeenCalledWith(event, {
+									schema: { ...props.schema, titleMap: data.titleMap },
+								});
+								done();
+							}, 0);
+							return resolve(data);
+						}),
+				),
+				schema: {
+					type: 'string',
+					schema: {
+						type: 'string',
+					},
+					triggers: [
+						{
+							onEvent: 'focus',
+						},
+					],
+				},
+			};
+			const wrapper = shallow(<Datalist {...props} />);
+			const event = { type: 'focus', target: wrapper.instance() };
+			wrapper.find(DatalistComponent).props().onFocus(event);
+		});
 	});
 
 	describe('getTitleMap', () => {
