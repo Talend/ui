@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import get from 'lodash/get';
+import has from 'lodash/has';
 import { withTranslation } from 'react-i18next';
 import FieldTemplate from '../FieldTemplate';
 import getDefaultT from '../../../translate';
@@ -62,7 +63,18 @@ class Datalist extends Component {
 			};
 		}
 
-		const payloadWithSchema = { ...payload, schema: mergedSchema };
+		let payloadWithSchema = {
+			...payload,
+			schema: { ...mergedSchema },
+		};
+
+		if (this.hasTitleMap()) {
+			payloadWithSchema = {
+				...payloadWithSchema,
+				schema: { ...payloadWithSchema.schema, titleMap: this.getTitleMap() },
+			};
+		}
+
 		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
@@ -111,6 +123,14 @@ class Datalist extends Component {
 				return acc;
 			}, []);
 		return titleMap.concat(additionalOptions);
+	}
+
+	hasTitleMap() {
+		return (
+			has(this.state, 'titleMap') ||
+			has(this.props, 'schema.options.titleMap') ||
+			has(this.props, 'schema.titleMap')
+		);
 	}
 
 	addCustomValue(value, isMultiSection) {
