@@ -76,7 +76,19 @@ Display an heartbeat animation when the file is loading into the input.
 
 <Preview>
     <Story name="default">
-        <Form.File label="File" />
+        <Form.File label="file" />
+    </Story>
+    <Story name="multiple">
+        <Form.File label="files" multiple />
+    </Story>
+    <Story name="filled">
+        <Form.File label="file" value=" " />
+    </Story>
+    <Story name="disabled">
+        <Form.File label="file" disabled />
+    </Story>
+    <Story name="read-only">
+        <Form.File label="file" readOnly />
     </Story>
 </Preview>
 
