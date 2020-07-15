@@ -109,4 +109,16 @@ describe('AppGuidedTour', () => {
 		});
 		expect(localStorage.getItem(DEFAULT_LOCAL_STORAGE_KEY)).toBe('true');
 	});
+	it('Should not show demo content form if no step is provided', () => {
+		const onRequestOpenMock = jest.fn();
+		const wrapper = mount(
+			<AppGuidedTour
+				{...DEFAULT_PROPS}
+				isOpen={false}
+				onRequestOpen={onRequestOpenMock}
+				demoContentSteps={null}
+			/>,
+		);
+		expect(wrapper.find('Toggle')).toHaveLength(0);
+	});
 });
