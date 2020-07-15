@@ -29,8 +29,6 @@ export default function Text(props) {
 
 	return (
 		<FieldTemplate
-			hint={schema.hint}
-			className={schema.className}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
@@ -76,7 +74,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
-			className: PropTypes.string,
 			autoComplete: PropTypes.string,
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
@@ -85,12 +82,6 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
-			hint: PropTypes.shape({
-				icon: PropTypes.string,
-				className: PropTypes.string,
-				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-				overlayPlacement: PropTypes.string,
-			}),
 			type: PropTypes.string,
 			schema: PropTypes.object,
 		}),

@@ -159,8 +159,6 @@ class Datalist extends Component {
 		const errorId = generateErrorId(this.props.id);
 		return (
 			<FieldTemplate
-				hint={this.props.schema.hint}
-				className={this.props.schema.className}
 				description={this.props.schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
@@ -231,7 +229,6 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			restricted: PropTypes.bool,
-			className: PropTypes.string,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -239,12 +236,6 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
-			hint: PropTypes.shape({
-				icon: PropTypes.string,
-				className: PropTypes.string,
-				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-				overlayPlacement: PropTypes.string,
-			}),
 			options: PropTypes.shape({
 				isMultiSection: PropTypes.bool,
 				titleMap: PropTypes.arrayOf(

@@ -45,34 +45,6 @@ describe('FieldTemplate', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render with hint', () => {
-		const tooltipContent = (
-			<span>Tooltip content, which helps to understand what is the purpose of this field</span>
-		);
-
-		// when
-		const wrapper = shallow(
-			<FieldTemplate
-				isValid
-				hint={{
-					overlayComponent: tooltipContent,
-					overlayPlacement: 'top',
-				}}
-				description="My awesome description"
-				descriptionId="myAwesomeField-description"
-				errorId="myAwesomeField-error"
-				errorMessage="This is wrong o_o"
-				id="myAwesomeField"
-				label="My awesome label"
-			>
-				<input id="myAwesomeField" />
-			</FieldTemplate>,
-		);
-
-		// then
-		expect(wrapper.find('OverlayTrigger').getElement()).toMatchSnapshot();
-	});
-
 	it('should render invalid className', () => {
 		// when
 		const wrapper = shallow(
