@@ -79,15 +79,16 @@ export default class OverlayTrigger extends React.Component {
 	}
 
 	render() {
-		const popoverContent = this.props.getComponent
-			? Inject.getReactElement(this.props.getComponent, this.props.overlayComponent)
-			: this.props.overlayComponent;
 		const props = {
 			placement: this.state.placement,
 			onClick: this.props.onClick,
 			onEntering: this.onEntering,
 			onExited: this.onExited,
-			overlay: <Popover id={this.props.overlayId}>{popoverContent}</Popover>,
+			overlay: (
+				<Popover id={this.props.overlayId}>
+					{Inject.getReactElement(this.props.getComponent, this.props.overlayComponent)}
+				</Popover>
+			),
 			ref: this.props.overlayRef,
 			rootClose: true,
 			trigger: 'click',
