@@ -156,7 +156,11 @@ const Field = React.forwardRef(({ label, before, after, ...rest }, ref) => {
 					{before} <StyledField id={label} {...rest} ref={ref} /> {after}
 				</StyledFieldGroup>
 			) : (
-				<div className={`input input--${rest.as} ${rest.multiple ? 'input--multiple' : ''}`}>
+				<div
+					className={`input ${typeof rest.as === 'string' ? `input--${rest.as}` : ''} ${
+						rest.multiple ? 'input--multiple' : ''
+					}`}
+				>
 					<StyledField id={label} {...rest} />{' '}
 				</div>
 			)}

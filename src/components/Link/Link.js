@@ -1,8 +1,14 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import { Button } from 'reakit';
+import tokens from '../../tokens';
 
-function Link(props) {
-	return <Button as="a" {...props} />;
+const ButtonAsAnchor = styled(Button)`
+	color: ${tokens.colors.lochmara};
+`;
+
+function Link({ href = '#', ...rest }) {
+	return <ButtonAsAnchor as="a" href={href} {...rest} />;
 }
 
 export default Link;
