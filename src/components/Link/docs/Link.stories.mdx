@@ -2,6 +2,8 @@ import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { TableOfContent } from '../../../docs';
 import Link from '../';
+import LinkZoning from './images/link-zoning.jpg';
+
 
 <Meta title="Components/Link" />
 
@@ -15,6 +17,8 @@ Links are clickable items used for the navigation.
 
 ## Zoning
 
+<img src={LinkZoning} alt="zoning image for links" className="full" class="full" />
+
 
 ## Variations
 
@@ -24,16 +28,68 @@ Links are clickable items used for the navigation.
 	</Story>
  </Preview>
 
-## Sizes
+### Sizes <a id="sizes" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- | 
+| icon           	             | 1.4rem            | 
+
+### Spaces <a id="spaces" />
+
+| Property          		                | Value             | 
+| ----------------------------------------- | ----------------- | 
+| (if icon) padding-right & padding-left	| $smaller          | 
+
+### Colors <a id="colors" />
+
+Icons should always be the same color as the link text.
+
+| Property                       | Value                               | 
+| ------------------------------ | ----------------------------------- | 
+| font & icon		             | $lochmara                           |
+| font & icon	(hover)	         | shade ($lochmara, 20%)              |
+| font & icon	(hover)	         | shade ($lochmara, 40%)              |
+
+### Font size <a id="fonts" />
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- |
+| text							 | 1.4rem 			 |
+
+### Font weight
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- |
+| text							 | semibold 		 |
+
+### Text transform
+
+| Property                       | Value             | 
+| ------------------------------ | ----------------- |
+| text (hover)					 | underline 		 |
 
 ## States
 
+When the link is disabled the whole component is displayed with 0.54 opacity
+
 ## Content
+
+Use a meaningful link text that indicates what will happen when the user interacts with the link.
 
 ## Interaction
 
 ## Accessibility
 
+Press <kbd>TABS</kbd> to focus on a link
+
+Press <kbd>ENTER</kbd> to open a link
+
 ## Usage
 
+When a link opens the page in a new tab, please use the external link icon right after.
+
 ## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 07/16/2020 | Monia Huet  | Init page   |
