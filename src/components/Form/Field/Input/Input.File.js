@@ -36,7 +36,7 @@ const FileField = styled.div(
 		&__text,
 		&__preview,
 		&__input {
-			min-height: 6.4rem;
+			min-height: 3.2rem;
 		}
 
 		&__input {
