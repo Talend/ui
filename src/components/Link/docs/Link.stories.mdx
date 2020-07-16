@@ -4,7 +4,6 @@ import { TableOfContent } from '../../../docs';
 import Link from '../';
 import LinkZoning from './images/link-zoning.jpg';
 
-
 <Meta title="Components/Link" />
 
 <TableOfContent />
@@ -23,8 +22,26 @@ Links are clickable items used for the navigation.
 ## Variations
 
 <Preview>
-  <Story name="default">
-		<Link href="#" onClick={event => { action('clicked'); event.preventDefault() }}>Link</Link>
+    <Story name="default">
+        <Link href="#">Link example</Link>
+	</Story>
+ </Preview>
+
+<Preview>
+    <Story name="external">
+        <Link href="https://www.google.com" target="_blank">Talend</Link>
+	</Story>
+ </Preview>
+
+<Preview>
+    <Story name="with icon">
+        <Link href="#" icon="information">Link example</Link>
+	</Story>
+ </Preview>
+
+<Preview>
+    <Story name="disabled">
+        <Link href="#" disabled icon="information">Link example</Link>
 	</Story>
  </Preview>
 
@@ -48,7 +65,7 @@ Icons should always be the same color as the link text.
 | ------------------------------ | ----------------------------------- | 
 | font & icon		             | $lochmara                           |
 | font & icon	(hover)	         | shade ($lochmara, 20%)              |
-| font & icon	(hover)	         | shade ($lochmara, 40%)              |
+| font & icon	(active)         | shade ($lochmara, 40%)              |
 
 ### Font size <a id="fonts" />
 
@@ -66,7 +83,7 @@ Icons should always be the same color as the link text.
 
 | Property                       | Value             | 
 | ------------------------------ | ----------------- |
-| text (hover)					 | underline 		 |
+| text (hover & active)			 | underline 		 |
 
 ## States
 
