@@ -3,8 +3,11 @@ import { action } from '@storybook/addon-actions';
 
 import Form from '../';
 import Button from '../../Button';
+import { TableOfContent } from '../../../docs';
 
-<Meta title="Components|Form"/>
+<Meta title="Components/Form"/>
+
+<TableOfContent />
 
 # Form
 
@@ -14,6 +17,7 @@ import Button from '../../Button';
             <Form>
                 <Form.Fieldset legend="Form fields">
                     <Form.Text label="Input" />
+                    <Form.File label="File" />
                     <Form.Password label="Password" />
                     <Form.Search label="Search" />
                     <Form.Textarea label="Textarea" />

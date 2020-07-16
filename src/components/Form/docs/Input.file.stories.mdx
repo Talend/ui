@@ -5,39 +5,15 @@ import InputZoning from './images/input-file-zoning.jpg';
 import InputFileFilledZoning from './images/input-file-filled-zoning.jpg';
 
 import Form from '../';
+import { TableOfContent } from '../../../docs';
 
 <Meta title="Components/Form/Fields/File" />
+
+<TableOfContent />
 
 # File
 
 File uploader allows the user to transfer a file by drag and drop or by clicking on the link.
-
-<Row>
-	<Col centered="all">
-		<a href="#sizes">Sizes</a>
-	</Col>
-	<Col centered="all">
-		<a href="#colors">Colors</a>
-	</Col>
-	<Col centered="all">
-		<a href="#fonts">Fonts</a>
-	</Col>
-	<Col centered="all">
-		<a href="#states">States</a>
-	</Col>
-	<Col centered="all">
-		<a href="#content">Content</a>
-	</Col>
-		<Col centered="all">
-		<a href="#interaction">Interaction</a>
-	</Col>
-	<Col centered="all">
-		<a href="#code">Code</a>
-	</Col>
-	<Col centered="all">
-		<a href="#accessibility">Accessibility</a>
-	</Col>
-</Row>
 
 
 ## Zoning
@@ -53,14 +29,14 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 
 ## Style
 
-### Sizes <a id="sizes" />
+### Sizes
 
 | Property                       | Value             | 
 | ------------------------------ | ----------------- | 
 | icon           	             | 1.4rem            | 
 
 
-### Space <a id="space" />
+### Space
 
 #### Empty
 
@@ -69,38 +45,66 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 | (icon) margin-right			 | $small            | 
 
 
-### Colors <a id="colors" />
+### Colors
 
 | Property                       | Value                               | 
 | ------------------------------ | ----------------------------------- | 
 | icon		                     | $lochmara	                       |
 
-### Shadows <a id="shadows" />
+### Shadows
 
 | Property                       | Value             | 
 | ------------------------------ | ----------------- | 
 | border-style		             | dashed	         |
 
-## States <a id="states" />
+## States
 
 ### Loading States
 Display an heartbeat animation when the file is loading into the input.
 
-## Content <a id="content" />
+## Content
 
-- Use an ellipsis if the filename extends beyond the width of its parent element.
+- Use an ellipsis if the filename too long.
 
 
-## Interaction <a id="interaction" />
+## Interaction
 
 - When a user clicks on the "add a file button" it triggers a browser-specific upload window.
 - Once the user chooses files to upload, the browser-specific upload window closes and the files will appear in the file input.
 
-## Code <a id="code" />
+## Code
 
-To do
+<Preview>
+    <Story name="default">
+        <Form.File label="file" />
+    </Story>
+</Preview>
 
-## Accessibility <a id="accessibility" />
+<Preview>
+    <Story name="multiple">
+        <Form.File label="files" multiple />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="filled">
+        <Form.File label="file" value="" />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="disabled">
+        <Form.File label="file" disabled />
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="read-only">
+        <Form.File label="file" readOnly />
+    </Story>
+</Preview>
+
+## Accessibility
 
 To do
 

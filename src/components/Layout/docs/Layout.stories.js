@@ -4,7 +4,7 @@ import React from 'react';
 import Layout from '../Col';
 
 export default {
-	title: 'Components|Layout',
+	title: 'Components/Layout',
 
 	parameters: {
 		component: Layout,

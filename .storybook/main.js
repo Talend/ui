@@ -8,7 +8,6 @@ module.exports = {
 	],
 	addons: [
 		'@storybook/addon-actions',
-		'@storybook/addon-controls',
 		'@storybook/addon-links',
 		{
 			name: '@storybook/addon-docs',
@@ -16,6 +15,7 @@ module.exports = {
 				configureJSX: true,
 			},
 		},
+		'@storybook/addon-controls',
 		'@storybook/addon-viewport/register',
 		'@storybook/addon-contexts/register',
 		'@storybook/addon-backgrounds/register',
