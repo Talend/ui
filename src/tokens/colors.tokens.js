@@ -17,7 +17,7 @@ export const backgrounds = {
 };
 
 export const palette = {
-	russianViolet: '#2C1F56',
+	moodyPurple: '#6664D1',
 	stTropaz: '#236192',
 	lochmara: '#0675C1',
 	scooter: '#66BDFF',
