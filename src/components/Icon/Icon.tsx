@@ -12,5 +12,5 @@ export default function Icon({ name, ...rest }: IconProps) {
 	if (!Object.keys(icons).find((iconName) => iconName === name)) {
 		return null;
 	}
-	return <SVG src={icons[name]} {...rest} />;
+	return <SVG src={icons[name]} aria-hidden {...rest} />;
 }

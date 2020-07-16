@@ -1,37 +1,42 @@
 import React from 'react';
 import { shade, tint } from 'polished';
 import styled from 'styled-components';
-import Input from './Input';
+import { VisuallyHidden } from 'reakit';
 import Button from '../../../Button';
 import Link from '../../../Link';
 import Icon from '../../../Icon';
+import Input from './Input';
 import tokens from '../../../../tokens';
-import { VisuallyHidden } from 'reakit';
 
 const FileField = styled.div(
 	({ theme }) => `
+	
 	.input-file {
 		position: relative;
-		min-height: 3.2rem;
 		border: 1px dashed ${theme.colors.inputBorderColor};
 		border-radius: ${tokens.radii.inputBorderRadius};
-	
+		
 		&:hover {
 			border-color: ${theme.colors.inputBorderHoverColor};
+			
+			.text__icon {
+                fill: ${theme.colors.inputBorderHoverColor};
+            }
 		}
 
 		&--dragging {
-			background: ${tint(0.95, tokens.colors.lochmara)};
-			border-width: 2px;
-			border-color: ${tokens.colors.lochmara};
+			background: ${tint(0.95, theme.colors.activeColor)};
+			border: 2px dashed ${theme.colors.activeColor};
 			
             .text__icon {
-                fill: ${tokens.colors.lochmara};
+                fill: ${theme.colors.activeColor};
             }
 		}
 		
-		&__preview {
-			min-height: 3.2rem;
+		&__text,
+		&__preview,
+		&__input {
+			min-height: 6.4rem;
 		}
 
 		&__input {
@@ -42,24 +47,18 @@ const FileField = styled.div(
 			right: 0;
 			opacity: 0;
 		}
-        
-        &:hover {
-            .text__icon {
-                fill: ${tokens.colors.doveGray};
-            }
-        }
 	}
 	
 	.text {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 3.2rem;
+		color: ${theme.colors.inputPlaceholderColor};
 		
 		&__icon {
 			margin: 0 1rem;
 			width: ${tokens.sizes.smaller};
-			fill: ${tokens.colors.darkSilver};
+			fill: ${theme.colors.inputPlaceholderColor};
 		}
 	}	
 	
@@ -71,6 +70,7 @@ const FileField = styled.div(
 			
 			&-item {
 				line-height: 3.2rem;
+				color: ${theme.colors.inputColor}; 
 			}
 		}
 		
@@ -84,6 +84,10 @@ const FileField = styled.div(
 			min-height: 3.2rem;
 			border: none;
 			
+			&:focus {
+			  	outline: none;
+			}
+			
 			svg {
 				position: static;
 				margin:0;
@@ -92,10 +96,6 @@ const FileField = styled.div(
 				path {
 					fill: ${theme.colors.activeColor};
 				}
-			}
-			
-			&:focus {
-			  	outline: none;
 			}
 			  
 			&:hover {    
@@ -107,34 +107,32 @@ const FileField = styled.div(
 	}
 	
 	.input {
-		input {
-			cursor: pointer;
+		input[type=file], 
+		input[type=file]::-webkit-file-upload-button {
+			height: 100%;
+			cursor: pointer; 
 		}
 		
 		&--filled {				
 			pointer-events: none;
-
-			input {
-				cursor: auto; 
-			}
 		}
 	}
 `,
 );
 
-function returnFileSize(number) {
-	if (number < 1024) {
-		return number + 'bytes';
-	} else if (number > 1024 && number < 1048576) {
-		return (number / 1024).toFixed(1) + 'KB';
-	} else if (number > 1048576) {
-		return (number / 1048576).toFixed(1) + 'MB';
+function getFileSize(size) {
+	if (size < 1024) {
+		return size + 'bytes';
+	} else if (size > 1024 && size < 1048576) {
+		return (size / 1024).toFixed(1) + 'KB';
+	} else if (size > 1048576) {
+		return (size / 1048576).toFixed(1) + 'MB';
 	}
 }
 
 function InputFile(props) {
 	const [drag, setDrag] = React.useState(false);
-	const [files, setFiles] = React.useState();
+	const [files, setFiles] = React.useState(props.files);
 
 	const inputRef = React.useRef();
 
@@ -197,7 +195,7 @@ function InputFile(props) {
 						<ol className="preview__list">
 							{files.map((file, index) => (
 								<li className="preview__list-item" key={index}>
-									{file.name} ({returnFileSize(file.size)})
+									{typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`}
 								</li>
 							))}
 						</ol>
