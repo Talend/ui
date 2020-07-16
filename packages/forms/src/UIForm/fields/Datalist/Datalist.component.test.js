@@ -194,7 +194,7 @@ describe('Datalist component', () => {
 	});
 
 	describe('onFocus', () => {
-		it('should call onTrigger when triggers has onEvent="focus"', async ()  => {
+		it('should call onTrigger when triggers has onEvent="focus"', async () => {
 			// given
 			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 			const props = {
