@@ -36,7 +36,7 @@ const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature,
 						schema={schema}
 						value={value}
 					/>
-					<span className={theme('tc-badge-value-symbol')} >%</span>
+					<span className={theme('tc-badge-value-symbol')}>%</span>
 				</div>
 				<Slider value={value} captionTextStepNumber={2} onChange={setValue} />
 			</RichLayout.Body>

@@ -45,11 +45,6 @@ describe('BadgeSlider', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(
-			wrapper
-				.find('#customId-badge-number-action-overlay')
-				.first()
-				.text(),
-		).toEqual('2981723');
+		expect(wrapper.find('#customId-badge-number-action-overlay').first().text()).toEqual('2981723');
 	});
 });
