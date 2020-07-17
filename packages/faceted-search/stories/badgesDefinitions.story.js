@@ -64,6 +64,29 @@ export const badgePrice = {
 	},
 };
 
+export const badgeQuality = {
+	properties: {
+		attribute: 'quality',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Quality',
+		operator: {},
+		operators: [],
+		type: 'slider',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: [
+			'equals',
+			'greaterThan',
+			'greaterThanOrEquals',
+			'lessThan',
+			'lessThanOrEquals',
+		],
+	},
+};
+
 export const badgeTags = {
 	properties: {
 		attribute: 'tags',

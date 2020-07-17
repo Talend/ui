@@ -1,0 +1,61 @@
+.tc-badge-slider-form {
+	:global(.tc-tooltip-body) {
+		margin: 0;
+		padding: 2rem;
+		width: 100%;
+	}
+
+	&-body {
+		width: inherit;
+
+		&-row {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			svg {
+				width: 3.2rem;
+				height: 3.2rem;
+				margin-right: 1.4rem;
+			}
+
+			.tc-badge-value-symbol {
+				font-size: 3.2rem;
+				font-weight: 600;
+				width: 4.5rem;
+			}
+
+			:global(.form-group) {
+				input {
+					font-size: 3.2rem;
+					font-weight: 600;
+					width: 5rem;
+					text-align: right;
+					color: $dove-gray;
+					box-shadow: none;
+
+					&:focus {
+					}
+
+					&[type='number']::-webkit-inner-spin-button,
+					&[type='number']::-webkit-outer-spin-button {
+						-webkit-appearance: none;
+						margin: 0;
+					}
+				}
+
+				> div {
+					display: none;
+				}
+			}
+		}
+	}
+
+	:global(.tc-tooltip-content) {
+		flex-direction: column;
+	}
+
+	:global(.tc-tooltip-footer) {
+		justify-content: flex-end;
+	}
+}

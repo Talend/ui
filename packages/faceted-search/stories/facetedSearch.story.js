@@ -10,6 +10,7 @@ import {
 	badgeConnectionType,
 	badgeName,
 	badgePrice,
+	badgeQuality,
 	badgeEnumWithLotOfValues,
 	badgeTags,
 	badgeWithVeryLongName,
@@ -20,7 +21,7 @@ import {
 	badgePriceAsCustomAttribute,
 } from './badgesDefinitions.story';
 
-const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice];
+const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice, badgeQuality];
 const lotsOfBadgesDefinitions = [];
 let i = 0;
 while (i < 50) {
