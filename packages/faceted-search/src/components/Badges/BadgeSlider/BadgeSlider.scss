@@ -1,3 +1,13 @@
+:global {
+	#talend-pie-charts path[class^="ti-slice-"] {
+		fill: $text-color;
+	}
+
+	#talend-pie-charts path.ti-slice-right {
+		fill: currentColor;
+	}
+}
+
 .tc-badge-slider-form {
 	:global(.tc-tooltip-body) {
 		margin: 0;
@@ -60,5 +70,9 @@
 
 	:global(.tc-tooltip-footer) {
 		justify-content: flex-end;
+	}
+
+	:global(.invalid) {
+		color: $jaffa;
 	}
 }
