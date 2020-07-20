@@ -29,7 +29,7 @@ function AppGuidedTour({
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const [isAlreadyViewed, setIsAlreadyViewed] = useLocalStorage(localStorageKey, false);
-	const [importDemoContent, setImportDemoContent] = useState(!isAlreadyViewed);
+	const [importDemoContent, setImportDemoContent] = useState(demoContentSteps && !isAlreadyViewed);
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isNavigationDisabled =
