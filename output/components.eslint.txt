@@ -2,6 +2,10 @@
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.component.js
+  191:4  error  'available' is missing in props validation                          react/prop-types
+  316:2  error  defaultProp "available" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
   142:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
@@ -330,4 +334,4 @@
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.component.js
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-✖ 155 problems (134 errors, 21 warnings)
+✖ 157 problems (136 errors, 21 warnings)
