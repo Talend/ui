@@ -8872,6 +8872,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                   </withI18nextTranslation(ActionButton)>
                 </Action>
                 <withI18nextTranslation(ActionDropdown)
+                  available={true}
                   btooltipPlacement="bottom"
                   data-feature="file.import"
                   displayMode="dropdown"
@@ -11276,6 +11277,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   </withI18nextTranslation(ActionButton)>
                 </Action>
                 <withI18nextTranslation(ActionDropdown)
+                  available={true}
                   btooltipPlacement="bottom"
                   displayMode="dropdown"
                   hideLabel={true}

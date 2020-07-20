@@ -5,6 +5,7 @@ exports[`Comparator field should render default Comparator 1`] = `
   className="theme-comparator"
 >
   <withI18nextTranslation(ActionDropdown)
+    available={true}
     hideLabel={false}
     items={
       Array [
