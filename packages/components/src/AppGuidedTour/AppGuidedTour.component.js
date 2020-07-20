@@ -29,12 +29,12 @@ function AppGuidedTour({
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const [isAlreadyViewed, setIsAlreadyViewed] = useLocalStorage(localStorageKey, false);
-	const [importDemoContent, setImportDemoContent] = useState(!isAlreadyViewed);
+	const [importDemoContent, setImportDemoContent] = useState(demoContentSteps && !isAlreadyViewed);
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isNavigationDisabled =
 		importDemoContent && currentStep === DEMO_CONTENT_STEP_ID && isStepsLoading(demoContentSteps);
-	const isImportSuccessFul = demoContentSteps.length && isAllSuccessful(demoContentSteps);
+	const isImportSuccessFul = demoContentSteps?.length && isAllSuccessful(demoContentSteps);
 
 	useEffect(() => {
 		if (!isAlreadyViewed) {
@@ -89,18 +89,20 @@ function AppGuidedTour({
 									defaultValue: `If you're new, you may want to take a quick tour of the tool now.
 										 If not, you can replay the tour from the user menu.`,
 								})}
-								<form>
-									<Toggle
-										id="app-guided-tour__import-demo-content-toggle"
-										label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
-											defaultValue: 'Import demo content',
-										})}
-										onChange={event => {
-											setImportDemoContent(event.target.checked);
-										}}
-										checked={importDemoContent}
-									/>
-								</form>
+								{demoContentSteps && (
+									<form>
+										<Toggle
+											id="app-guided-tour__import-demo-content-toggle"
+											label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
+												defaultValue: 'Import demo content',
+											})}
+											onChange={event => {
+												setImportDemoContent(event.target.checked);
+											}}
+											checked={importDemoContent}
+										/>
+									</form>
+								)}
 							</div>
 						),
 					},
@@ -125,9 +127,9 @@ AppGuidedTour.propTypes = {
 	appName: PropTypes.string.isRequired,
 	localStorageKey: PropTypes.string,
 	steps: GuidedTour.propTypes.steps,
-	demoContentSteps: Stepper.propTypes.steps.isRequired,
+	demoContentSteps: Stepper.propTypes.steps,
 	onRequestOpen: PropTypes.func.isRequired,
-	onImportDemoContent: PropTypes.func.isRequired,
+	onImportDemoContent: PropTypes.func,
 	onRequestClose: PropTypes.func.isRequired,
 };
 
