@@ -188,9 +188,14 @@ class ActionDropdown extends React.Component {
 			className,
 			loading,
 			children,
+			available,
 			t = getDefaultT(),
 			...rest
 		} = this.props;
+
+		if (!available) {
+			return null;
+		}
 
 		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
@@ -306,6 +311,10 @@ ActionDropdown.propTypes = {
 	t: PropTypes.func,
 	children: PropTypes.node,
 };
+
+ActionDropdown.defaultProps = {
+	available: true,
+}
 
 export { getMenuItem, InjectDropdownMenuItem };
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionDropdown);
