@@ -73,6 +73,12 @@ export const badgeQuality = {
 		operator: {},
 		operators: [],
 		type: 'slider',
+		icon:  {
+			name: 'talend-pie-charts',
+			class: 'invalid',
+		},
+		symbol: '%',
+		defaultValue: 50,
 	},
 	metadata: {
 		badgePerFacet: 'N',

@@ -12,7 +12,7 @@ import cssModule from './BadgeSlider.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature, t, ...rest }) => {
+const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature, t, symbol, icon }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const [value, setValue] = useState(initialValue || 0);
 	const [editing, setEditing] = useState(false);
@@ -23,12 +23,6 @@ const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature,
 		disabled: false,
 		type: 'number',
 	};
-	const icon = {
-		name: 'talend-pie-charts',
-		class: 'invalid',
-	};
-
-	console.log('[NC] rest: ', rest);
 
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
@@ -45,7 +39,7 @@ const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature,
 						/>
 					) : (
 						<span className={theme('tc-badge-value-symbol')} onClick={() => setEditing(true)}>
-							{value}%
+							{value}{symbol}
 						</span>
 					)}
 				</div>

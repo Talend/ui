@@ -35,10 +35,15 @@ const BadgeSlider = ({
 	t,
 	value,
 	category,
+	defaultValue = 0,
+	symbol = '',
+	...rest
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
 	const badgeTextId = `${id}-badge-slider`;
+	const labelValue = value && `${value}${symbol}`;
+
 	return (
 		<BadgeFaceted
 			badgeId={id}
@@ -46,12 +51,12 @@ const BadgeSlider = ({
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
 			labelCategory={label}
-			labelValue={value || t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' })}
+			labelValue={labelValue || defaultValue}
 			operator={currentOperator}
 			operators={currentOperators}
 			size={size}
 			t={t}
-			value={value || ''}
+			value={value || defaultValue}
 		>
 			{({ onSubmitBadge, onChangeValue, badgeValue }) => (
 				<BadgeSliderForm
@@ -60,7 +65,9 @@ const BadgeSlider = ({
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
 					feature={category || label}
+					symbol={symbol}
 					t={t}
+					{...rest}
 				/>
 			)}
 		</BadgeFaceted>
