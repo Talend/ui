@@ -314,7 +314,7 @@ ActionDropdown.propTypes = {
 
 ActionDropdown.defaultProps = {
 	available: true,
-}
+};
 
 export { getMenuItem, InjectDropdownMenuItem };
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionDropdown);
