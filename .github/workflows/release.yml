@@ -52,4 +52,4 @@ jobs:
           body: ${{ env.CHANGELOG }}
           draft: false
           prerelease: false
-      - run: yarn build-demo && npx surge --project .static --domain ${{ env.DEMO_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: yarn && yarn build-demo && npx surge --project .static --domain ${{ env.DEMO_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
