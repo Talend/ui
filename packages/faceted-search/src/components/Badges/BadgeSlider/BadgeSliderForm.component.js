@@ -15,28 +15,33 @@ const theme = getTheme(cssModule);
 const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature, t }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const [value, setValue] = useState(initialValue);
+	const [editing, setEditing] = useState(false);
 	useEffect(() => onChange(null, value), [value]);
 
 	const schema = {
 		autoFocus: true,
 		disabled: false,
 		type: 'number',
-		placeholder: t('TYPE_HERE', { defaultValue: 'Type here' }),
 	};
 
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
 				<div className={theme('tc-badge-slider-form-body-row')}>
-					<Icon name="talend-pie-charts" />
-					<Text
-						id={`${id}-input`}
-						onChange={(_, { value }) => setValue(value)}
-						onFinish={() => {}}
-						schema={schema}
-						value={value}
-					/>
-					<span className={theme('tc-badge-value-symbol')} >%</span>
+					{icon && <Icon name={icon} />}
+					{editing ? (
+						<Text
+							id={`${id}-input`}
+							onChange={(_, { value }) => setValue(value)}
+							onFinish={() => setEditing(false)}
+							schema={schema}
+							value={value}
+						/>
+					) : (
+						<span className={theme('tc-badge-value-symbol')} onClick={() => setEditing(true)}>
+							{value}%
+						</span>
+					)}
 				</div>
 				<Slider value={value} captionTextStepNumber={2} onChange={setValue} />
 			</RichLayout.Body>

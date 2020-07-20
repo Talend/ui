@@ -22,20 +22,23 @@
 			.tc-badge-value-symbol {
 				font-size: 3.2rem;
 				font-weight: 600;
-				width: 4.5rem;
+				width: 5rem;
+				height: 4.7rem;
+				padding-top: 0.2rem;
+				margin-bottom: 0;
 			}
 
 			:global(.form-group) {
+				padding-top: 0;
+				margin-bottom: 0;
+
 				input {
 					font-size: 3.2rem;
 					font-weight: 600;
 					width: 5rem;
-					text-align: right;
 					color: $dove-gray;
 					box-shadow: none;
-
-					&:focus {
-					}
+					height: 4.7rem;
 
 					&[type='number']::-webkit-inner-spin-button,
 					&[type='number']::-webkit-outer-spin-button {
