@@ -12,9 +12,9 @@ import cssModule from './BadgeSlider.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature, t }) => {
+const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature, t, ...rest }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
-	const [value, setValue] = useState(initialValue);
+	const [value, setValue] = useState(initialValue || 0);
 	const [editing, setEditing] = useState(false);
 	useEffect(() => onChange(null, value), [value]);
 
@@ -23,12 +23,18 @@ const BadgeSliderForm = ({ id, onChange, onSubmit, value: initialValue, feature,
 		disabled: false,
 		type: 'number',
 	};
+	const icon = {
+		name: 'talend-pie-charts',
+		class: 'invalid',
+	};
+
+	console.log('[NC] rest: ', rest);
 
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
 				<div className={theme('tc-badge-slider-form-body-row')}>
-					{icon && <Icon name={icon} />}
+					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (
 						<Text
 							id={`${id}-input`}

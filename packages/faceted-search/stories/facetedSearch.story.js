@@ -99,10 +99,23 @@ const badgesFaceted = {
 };
 
 const paddingLeft = { paddingLeft: '10px' };
-
 storiesOf('FacetedSearch', module)
 	.addDecorator(story => (
 		<div style={{ ...paddingLeft }}>
+			<style>
+				{`
+				[name="talend-pie-charts"].tc-badge-icon.invalid .ti-slice-right {
+					fill: red;
+				}
+				// svg.tc-badge-icon.invalid #talend-pie-charts  {
+				// 	border: 1px solid blue;
+				// }
+
+				// .invalid #talend-pie-charts  .ti-slice-right {
+				// 	fill: red;
+				// }
+				`}
+			</style>
 			<IconsProvider />
 			<h1>Faceted Search</h1>
 			{story()}
