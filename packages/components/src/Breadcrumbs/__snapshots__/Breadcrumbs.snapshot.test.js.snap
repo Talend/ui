@@ -87,6 +87,7 @@ exports[`Breadcrumbs should render items with a dropdown menu if default max ite
     >
       <withI18nextTranslation(ActionDropdown)
         aria-label="Open first links menu"
+        available={true}
         id="42-ellipsis"
         items={
           Array [

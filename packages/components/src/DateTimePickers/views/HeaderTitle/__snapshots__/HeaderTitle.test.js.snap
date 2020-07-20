@@ -22,6 +22,7 @@ exports[`HeaderTitle should render a span and ActionDropdown 1`] = `
     </span>
   </div>
   <withI18nextTranslation(ActionDropdown)
+    available={true}
     className="btn-tertiary btn-info"
     label="2012"
     t={[Function]}
