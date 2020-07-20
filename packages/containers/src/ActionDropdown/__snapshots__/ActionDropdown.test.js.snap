@@ -2,6 +2,7 @@
 
 exports[`Container(ActionDropdown) should render 1`] = `
 <withI18nextTranslation(ActionDropdown)
+  available={true}
   t={[Function]}
 />
 `;
@@ -13,6 +14,7 @@ exports[`Container(ActionDropdown) should render with items 1`] = `
       "menu:article",
     ]
   }
+  available={true}
   foo="extra"
   items={
     Array [
