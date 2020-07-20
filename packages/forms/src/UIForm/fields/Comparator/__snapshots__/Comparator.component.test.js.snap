@@ -82,6 +82,7 @@ exports[`Comparator field should render disabled Comparator 1`] = `
   className="theme-comparator"
 >
   <withI18nextTranslation(ActionDropdown)
+    available={true}
     disabled={true}
     hideLabel={false}
     items={
