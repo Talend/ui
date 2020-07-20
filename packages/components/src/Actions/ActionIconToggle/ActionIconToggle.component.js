@@ -19,6 +19,7 @@ function ActionIconToggle(props) {
 		id,
 		label,
 		tooltipPlacement,
+		buttonRef,
 		...rest
 	} = props;
 
@@ -38,6 +39,7 @@ function ActionIconToggle(props) {
 				aria-label={label}
 				aria-pressed={active}
 				bsStyle="link"
+				ref={buttonRef}
 			>
 				<Icon name={icon} transform={iconTransform} />
 			</Button>
@@ -55,6 +57,7 @@ ActionIconToggle.propTypes = {
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	buttonRef: PropTypes.func,
 };
 
 ActionIconToggle.defaultProps = {
