@@ -28,14 +28,14 @@ Links are clickable items used for the navigation.
  </Preview>
 
 <Preview>
-    <Story name="external">
-        <Link href="https://www.google.com" target="_blank">Talend</Link>
+    <Story name="with icon">
+        <Link href="#" icon="information">Link example</Link>
 	</Story>
  </Preview>
 
 <Preview>
-    <Story name="with icon">
-        <Link href="#" icon="information">Link example</Link>
+    <Story name="multi lines">
+        <Link href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique accumsan eleifend. Mauris at nibh aliquet, blandit turpis quis, scelerisque eros. Cras semper risus at felis convallis, ullamcorper rutrum augue ullamcorper. Donec malesuada felis tortor, vel porttitor tortor tincidunt at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Link>
 	</Story>
  </Preview>
 
@@ -49,7 +49,7 @@ Links are clickable items used for the navigation.
 
 | Property                       | Value             | 
 | ------------------------------ | ----------------- | 
-| icon           	             | 1.4rem            | 
+| icon           	             | 1.2rem            |
 
 ### Spaces <a id="spaces" />
 
@@ -64,8 +64,8 @@ Icons should always be the same color as the link text.
 | Property                       | Value                               | 
 | ------------------------------ | ----------------------------------- | 
 | font & icon		             | $lochmara                           |
-| font & icon	(hover)	         | shade ($lochmara, 20%)              |
-| font & icon	(active)         | shade ($lochmara, 40%)              |
+| font & icon	(hover)	         | shade($lochmara, 20%)              |
+| font & icon	(active)         | shade($lochmara, 40%)              |
 
 ### Font size <a id="fonts" />
 
@@ -103,7 +103,15 @@ Press <kbd>ENTER</kbd> to open a link
 
 ## Usage
 
-When a link opens the page in a new tab, please use the external link icon right after.
+When the link targets a new domain, we add an external link icon right after.
+
+The attribute <code>rel="noopener noreferrer"</code> is added if its target is set to `_blank`.
+
+<Preview>
+    <Story name="external">
+        <Link href="https://www.talend.com" target="_blank">Talend</Link>
+	</Story>
+ </Preview>
 
 ## Changelog
 
