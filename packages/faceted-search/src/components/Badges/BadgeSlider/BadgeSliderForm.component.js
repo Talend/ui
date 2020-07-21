@@ -33,7 +33,7 @@ const BadgeSliderForm = ({
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const validator = useMemo(() => getValidator(decimal), [decimal]);
 	const [value, setValue] = useState(initialValue);
-	const [draft, setDraft] = useState(initialValue);
+	const [slider, setSlider] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
 
 	useEffect(() => onChange(null, value), [onChange, value]);
@@ -43,7 +43,7 @@ const BadgeSliderForm = ({
 		disabled: false,
 		type: 'number',
 	};
-	const isValid = validator(draft);
+	const isValid = validator(value);
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
@@ -52,14 +52,14 @@ const BadgeSliderForm = ({
 					{editing ? (
 						<Text
 							id={`${id}-input`}
-							onChange={(_, { value: v }) => setDraft(v)}
+							onChange={(_, { value: v }) => setValue(v)}
 							onFinish={() => {
-								setValue(draft);
-								setDraft(draft);
+								setValue(value);
+								setSlider(value);
 								setEditing(false);
 							}}
 							schema={schema}
-							value={draft === null ? value : draft}
+							value={value}
 						/>
 					) : (
 						<span className={theme('tc-badge-value-unit')} onClick={() => setEditing(true)}>
@@ -74,11 +74,11 @@ const BadgeSliderForm = ({
 					)}
 				</div>
 				<Slider
-					value={value}
+					value={slider}
 					captionTextStepNumber={2}
 					onChange={v => {
 						setValue(v);
-						setDraft(v);
+						setSlider(v);
 					}}
 					min={min}
 					max={max}
