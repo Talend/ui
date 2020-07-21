@@ -23,6 +23,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "focus-visible": "^5.1.0",
     "i18next": "^19.4.5",
     "polished": "^3.6.4",
     "prop-types": "^15.7.2",
