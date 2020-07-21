@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Label from '../Label';
 import tokens from '../../../tokens';
+import Loading from '../../Loading';
 
 const StyledDiv = styled.div(
 	({ theme }) => `
@@ -22,6 +23,24 @@ const StyledDiv = styled.div(
 	${StyledField}, 
 	.input {
 		width: 100%;
+	}
+	
+	.input {
+		&--loading {
+			position: relative;	
+			
+			${StyledField} {
+				padding-right: 3.2rem;
+			}
+			
+			.loading {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 3.2rem;
+    			height: 3.2rem;	
+			}
+		}
 	}
 	
 	textarea,
@@ -146,22 +165,24 @@ const StyledField = styled.div(
 `,
 );
 
-const Field = React.forwardRef(({ label, before, after, ...rest }, ref) => {
+const Field = React.forwardRef(({ label, before, after, loading, ...rest }, ref) => {
 	const inline = ['checkbox', 'radio'].includes(rest.type);
 	return (
 		<StyledDiv inline={inline}>
 			{label && !inline && <Label htmlFor={label}>{label}</Label>}
 			{before || after ? (
 				<StyledFieldGroup after={after}>
-					{before} <StyledField id={label} {...rest} ref={ref} /> {after}
+					{before} <StyledField id={label} {...rest} ref={ref} />
+					{loading && <Loading />} {after}
 				</StyledFieldGroup>
 			) : (
 				<div
 					className={`input ${typeof rest.as === 'string' ? `input--${rest.as}` : ''} ${
 						rest.multiple ? 'input--multiple' : ''
-					}`}
+					} ${loading ? 'input--loading' : ''}`}
 				>
-					<StyledField id={label} {...rest} />{' '}
+					<StyledField id={label} {...rest} />
+					{loading && <Loading className="loading" />}
 				</div>
 			)}
 			{label && inline && <Label htmlFor={label}>{label}</Label>}

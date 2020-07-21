@@ -9,7 +9,7 @@ const SVG = styled.svg(
 `,
 );
 
-function Loading() {
+function Loading(props) {
 	return (
 		<SVG
 			xmlns="http://www.w3.org/2000/svg"
@@ -17,6 +17,7 @@ function Loading() {
 			height="40px"
 			viewBox="0 0 40 40"
 			enable-background="new 0 0 40 40"
+			{...props}
 		>
 			<path
 				opacity="0.2"
