@@ -36,8 +36,8 @@ function FieldTemplate(props) {
 
 	if (props.hint) {
 		title = (
-			<div className={classNames(theme['field-template-title'], 'form-control-title')}>
-				<Label id={props.id} label={props.label} />
+			<div className={theme['field-template-title']}>
+				{title}
 				<OverlayTrigger
 					overlayId={`${props.id}-hint-overlay`}
 					overlayPlacement={props.hint.overlayPlacement || 'right'}
@@ -59,12 +59,13 @@ function FieldTemplate(props) {
 			</div>
 		);
 	}
+	const labelAfter = props.hint ? false : props.labelAfter;
 
 	return (
 		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>
-			{props.label && !props.labelAfter && title}
+			{props.label && !labelAfter && title}
 			{props.children}
-			{props.label && props.labelAfter && title}
+			{props.label && labelAfter && title}
 			<Message
 				description={props.description}
 				descriptionId={props.descriptionId}
