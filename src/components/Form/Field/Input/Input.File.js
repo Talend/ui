@@ -107,14 +107,19 @@ const FileField = styled.div(
 	}
 	
 	.input {
-		input[type=file], 
-		input[type=file]::-webkit-file-upload-button {
+		&, 
+		&::-webkit-file-upload-button {
 			height: 100%;
 			cursor: pointer; 
 		}
 		
 		&--filled {				
 			pointer-events: none;
+		}
+		
+		&:focus + .input-file__text {
+			border-radius: ${tokens.radii.inputBorderRadius};
+			outline: 1px solid ${theme.colors.focusColor};
 		}
 	}
 `,
@@ -182,6 +187,12 @@ function InputFile(props) {
 	return (
 		<FileField aria-describedby={id}>
 			<div id={id} className={`input-file ${drag ? 'input-file--dragging' : ''}`}>
+				<input
+					type="file"
+					{...props}
+					className={`input-file__input input ${files ? 'input--filled' : ''}`}
+					ref={inputRef}
+				/>
 				{!files ? (
 					<div className="input-file__text text">
 						<Icon className="text__icon" name="upload" />{' '}
@@ -191,7 +202,7 @@ function InputFile(props) {
 					</div>
 				) : (
 					<div className="input-file__preview preview">
-						<VisuallyHidden>You've selected:</VisuallyHidden>
+						<VisuallyHidden>You have selected:</VisuallyHidden>
 						<ol className="preview__list">
 							{files.map((file, index) => (
 								<li className="preview__list-item" key={index}>
@@ -205,9 +216,6 @@ function InputFile(props) {
 						</Button>
 					</div>
 				)}
-				<div className={`input-file__input input ${files ? 'input--filled' : ''}`}>
-					<input type="file" {...props} ref={inputRef} />
-				</div>
 			</div>
 		</FileField>
 	);
