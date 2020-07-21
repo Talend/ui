@@ -73,7 +73,7 @@ const Div = styled(InlineStyle)(
 );
 
 const DivFlex = styled.div(
-	({ theme, values, readOnly }) => `
+	({ theme, values, disabled, readOnly }) => `
 	div {
 		position: relative;
     	display: inline-flex;
@@ -82,6 +82,7 @@ const DivFlex = styled.div(
 		border-radius: 10rem;
 		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
 		overflow: hidden;
+    	${disabled ? `opacity: ${tokens.opacity.disabled};` : ''}
 	}
 	
 	button {
@@ -159,7 +160,7 @@ const DivFlex = styled.div(
 `,
 );
 
-function Switch({ label, value, values, checked, readOnly, ...rest }) {
+function Switch({ label, value, values, checked, disabled, readOnly, ...rest }) {
 	if (!values) {
 		const checkbox = useCheckboxState({ state: checked });
 		return (
@@ -216,8 +217,8 @@ function Switch({ label, value, values, checked, readOnly, ...rest }) {
 	}, [radio]);
 
 	return (
-		<DivFlex values={values} readOnly={readOnly}>
-			<RadioGroup {...rest} {...radio} ref={containerRef} aria-label={label}>
+		<DivFlex values={values} readOnly={readOnly} disabled={disabled}>
+			<RadioGroup {...rest} {...radio} ref={containerRef} aria-label={label} disabled={disabled}>
 				{values.map((v, i) => {
 					const isChecked = radio.state === v;
 					return (
