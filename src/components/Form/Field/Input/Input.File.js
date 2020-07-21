@@ -118,8 +118,9 @@ const FileField = styled.div(
 		}
 		
 		&:focus + .input-file__text {
+			box-shadow: 0 0 0 2px ${theme.colors.inputBorderFocusColor}; 
 			border-radius: ${tokens.radii.inputBorderRadius};
-			outline: 1px solid ${theme.colors.focusColor};
+			outline: 0.3rem solid ${theme.colors.focusColor};
 		}
 	}
 `,

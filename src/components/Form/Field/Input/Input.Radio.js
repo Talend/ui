@@ -17,7 +17,6 @@ const InlineField = styled(InlineStyle)(
 			background-color: ${theme.colors.inputBackgroundColor};
 		}
 	
-		
 		input:checked + span:after {
 			background-color: ${theme.colors.activeColor};
 		}

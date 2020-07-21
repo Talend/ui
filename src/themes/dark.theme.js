@@ -8,7 +8,7 @@ export default {
 		...light.colors,
 
 		textColor: colors.white,
-		focusColor: colors.coral,
+		focusColor: colors.moodyPurple,
 		activeColor: colors.scooter,
 		backgroundColor: colors.black,
 
@@ -19,7 +19,7 @@ export default {
 		inputBackgroundReadOnlyColor: colors.transparent,
 		inputBorderColor: colors.alto,
 		inputBorderHoverColor: colors.white,
-		inputBorderFocusColor: colors.alto,
+		inputBorderFocusColor: colors.moodyPurple,
 		inputBorderDisabledColor: colors.silverChalice,
 		inputBorderReadOnlyColor: colors.silverChalice,
 	},

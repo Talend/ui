@@ -98,10 +98,6 @@ const StyledFieldGroup = styled.div(
       margin:0;
     }
     
-    &:focus {
-      outline: none;
-    }
-      
     &:hover {    
 	  svg {
 	    fill: ${theme.colors.activeColor}

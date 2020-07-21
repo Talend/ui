@@ -22,7 +22,7 @@ export default {
 		inputBackgroundReadOnlyColor: colors.transparent,
 		inputBorderColor: colors.darkSilver,
 		inputBorderHoverColor: colors.doveGray,
-		inputBorderFocusColor: colors.black,
+		inputBorderFocusColor: colors.lochmara,
 		inputBorderDisabledColor: colors.silverChalice,
 		inputBorderReadOnlyColor: colors.silverChalice,
 	},

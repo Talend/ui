@@ -29,10 +29,6 @@ const BaseButton = styled(
 			: ''
 	}
 
-	&:focus {
-		outline: ${tokens.colors.scooter} 0.3rem solid;
-	}
-
 	&[aria-disabled='true'] {
 		cursor: not-allowed;
 	}

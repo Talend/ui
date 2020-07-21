@@ -45,6 +45,10 @@ const InlineStyle = styled.div(
 		}
 	}
 
+    input:focus:not(:disabled) + span {
+		outline: 0.3rem solid ${theme.colors.focusColor};
+    }
+    
 	input:checked + span:before,
 	input[aria-checked="mixed"] + span:before {
 		background: ${theme.colors.activeColor};

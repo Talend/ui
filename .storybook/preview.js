@@ -38,6 +38,10 @@ const GlobalStyle = createGlobalStyle(
 	.js-focus-visible :focus:not(.focus-visible) {
   		outline: none;
 	}
+	
+	.focus-visible {
+		outline: 0.3rem solid ${theme.colors.focusColor} !important;
+	}
 `,
 );
 

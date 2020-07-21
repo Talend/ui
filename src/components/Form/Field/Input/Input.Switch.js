@@ -47,10 +47,6 @@ const Div = styled(InlineStyle)(
 			input:not(:disabled):checked:focus + span:before {
 				background: ${shade(0.25, theme.colors.activeColor)};
 			}
-			
-			input:not(:disabled):focus + span:before {
-				outline: .1rem solid ${theme.colors.focusColor};
-			}
 		`
 			: `
 			// FIXME
