@@ -12,8 +12,8 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+			margin-top: 2rem;
+			margin-bottom: 1rem;
 
 			svg {
 				width: 3.2rem;
@@ -23,7 +23,7 @@
 
 			.tc-badge-value-unit {
 				font-size: 3.2rem;
-				font-weight: 600;
+				font-weight: $font-weight-semi-bold;
 				width: 5rem;
 				height: 4.7rem;
 				padding-top: 0.2rem;
@@ -36,7 +36,7 @@
 
 				input {
 					font-size: 3.2rem;
-					font-weight: 600;
+					font-weight: $font-weight-semi-bold;
 					width: 5rem;
 					color: $dove-gray;
 					box-shadow: none;
