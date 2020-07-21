@@ -333,6 +333,11 @@ form {
 			pointer-events: none;
 		}
 
+		+ .form-control-title {
+			position: absolute;
+			top: -10px;
+		}
+
 		&.input-sm + label {
 			font-size: $font-size-small;
 		}

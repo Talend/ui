@@ -32,10 +32,12 @@ function FieldTemplate(props) {
 		[theme.updating]: props.valueIsUpdating,
 	});
 
-	const title = (
-		<div className={theme['field-template-title']}>
-			<Label id={props.id} label={props.label} />
-			{props.hint && (
+	let title = <Label id={props.id} label={props.label} />;
+
+	if (props.hint) {
+		title = (
+			<div className={classNames(theme['field-template-title'], 'form-control-title')}>
+				<Label id={props.id} label={props.label} />
 				<OverlayTrigger
 					overlayId={`${props.id}-hint-overlay`}
 					overlayPlacement={props.hint.overlayPlacement || 'right'}
@@ -54,9 +56,9 @@ function FieldTemplate(props) {
 						<Icon name={props.hint.icon || 'talend-info-circle'} />
 					</Button>
 				</OverlayTrigger>
-			)}
-		</div>
-	);
+			</div>
+		);
+	}
 
 	return (
 		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>

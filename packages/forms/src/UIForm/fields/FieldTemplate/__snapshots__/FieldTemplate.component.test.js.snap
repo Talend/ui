@@ -5,14 +5,10 @@ exports[`FieldTemplate should add animation on value with updating status 1`] = 
   aria-busy={true}
   className="form-group theme-template has-error theme-updating"
 >
-  <div
-    className="theme-field-template-title"
-  >
-    <Label
-      id="myAwesomeField"
-      label="My awesome label"
-    />
-  </div>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
   <input
     id="myAwesomeField"
   />
@@ -30,14 +26,10 @@ exports[`FieldTemplate should render invalid className 1`] = `
 <div
   className="form-group theme-template has-error"
 >
-  <div
-    className="theme-field-template-title"
-  >
-    <Label
-      id="myAwesomeField"
-      label="My awesome label"
-    />
-  </div>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
   <input
     id="myAwesomeField"
   />
@@ -86,14 +78,10 @@ exports[`FieldTemplate should render with label after 1`] = `
   <input
     id="myAwesomeField"
   />
-  <div
-    className="theme-field-template-title"
-  >
-    <Label
-      id="myAwesomeField"
-      label="My awesome label"
-    />
-  </div>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
   <Message
     description="My awesome description"
     descriptionId="myAwesomeField-description"
@@ -108,14 +96,10 @@ exports[`FieldTemplate should render with label before 1`] = `
 <div
   className="form-group theme-template"
 >
-  <div
-    className="theme-field-template-title"
-  >
-    <Label
-      id="myAwesomeField"
-      label="My awesome label"
-    />
-  </div>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
   <input
     id="myAwesomeField"
   />
