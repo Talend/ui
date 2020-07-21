@@ -17,8 +17,9 @@ describe('BadgeSliderForm', () => {
 		const props = {
 			id: 'customId',
 			onSubmit: jest.fn(),
-			feature: 'price',
+			feature: 'quality',
 			t: getDefaultT(),
+			onChange: jest.fn(),
 		};
 		// When
 		const wrapper = mount(
@@ -30,14 +31,37 @@ describe('BadgeSliderForm', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should mount a default badge in edit mode', () => {
+		// Given
+		const props = {
+			id: 'customId',
+			onSubmit: jest.fn(),
+			feature: 'quality',
+			t: getDefaultT(),
+			onChange: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm {...props} />
+			</BadgeFacetedProvider>,
+		);
+
+		wrapper.find('.tc-badge-value-unit').first().simulate('click');
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+
 	it('should mount a badge with some other values', () => {
 		// Given
 		const onSubmit = jest.fn();
 		const props = {
 			id: 'customId',
 			onSubmit,
-			value: 'i230982903',
-			feature: 'price',
+			onChange: jest.fn(),
+			value: '45',
+			feature: 'quality',
+			editing: true,
 			t: getDefaultT(),
 		};
 		// When
@@ -47,7 +71,8 @@ describe('BadgeSliderForm', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.find('input[type="number"]').first().props().value).toEqual('i230982903');
+		wrapper.find('.tc-badge-value-unit').first().simulate('click');
+		expect(wrapper.find('input[type="number"]').first().props().value).toEqual('45');
 
 		const submitButton = wrapper.find('button[type="submit"]').first();
 		submitButton.simulate('submit');

@@ -12,6 +12,9 @@ import cssModule from './BadgeSlider.scss';
 
 const theme = getTheme(cssModule);
 
+const getValidator = decimal => value =>
+	value >= 0 && value <= 100 && !(!decimal && value % 1 !== 0);
+
 const BadgeSliderForm = ({
 	id,
 	onChange,
@@ -19,20 +22,28 @@ const BadgeSliderForm = ({
 	value: initialValue,
 	feature,
 	t,
-	symbol,
+	unit,
 	icon,
+	decimal = false,
+	min = 1,
+	max = 100,
+	step = 1,
+	errorMessage = '',
 }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
-	const [value, setValue] = useState(initialValue || 0);
+	const validator = useMemo(() => getValidator(decimal), [decimal]);
+	const [value, setValue] = useState(initialValue);
+	const [draft, setDraft] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
-	useEffect(() => onChange(null, value), [value]);
+
+	useEffect(() => onChange(null, value), [onChange, value]);
 
 	const schema = {
 		autoFocus: true,
 		disabled: false,
 		type: 'number',
 	};
-
+	const isValid = validator(draft);
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
@@ -41,26 +52,50 @@ const BadgeSliderForm = ({
 					{editing ? (
 						<Text
 							id={`${id}-input`}
-							onChange={(_, { value }) => setValue(value)}
-							onFinish={() => setEditing(false)}
+							onChange={(_, { value: v }) => setDraft(v)}
+							onFinish={() => {
+								setValue(draft);
+								setDraft(draft);
+								setEditing(false);
+							}}
 							schema={schema}
-							value={value}
+							value={draft === null ? value : draft}
 						/>
 					) : (
-						<span className={theme('tc-badge-value-symbol')} onClick={() => setEditing(true)}>
+						<span className={theme('tc-badge-value-unit')} onClick={() => setEditing(true)}>
+							<span className="sr-only">
+								{t('FACETED_SEARCH_VALUES_COUNT', {
+									defaultValue: 'Edit directly',
+								})}
+							</span>
 							{value}
-							{symbol}
+							{unit}
 						</span>
 					)}
 				</div>
-				<Slider value={value} captionTextStepNumber={2} onChange={setValue} />
+				<Slider
+					value={value}
+					captionTextStepNumber={2}
+					onChange={v => {
+						setValue(v);
+						setDraft(v);
+					}}
+					min={min}
+					max={max}
+					step={step}
+					hideTooltip
+				/>
 			</RichLayout.Body>
 			<RichLayout.Footer id={`${id}-badge-footer`}>
+				<span className={theme('tc-badge-slider-form-error')}>
+					{!isValid ? errorMessage : null}
+				</span>
 				<Action
 					type="submit"
 					data-feature={applyDataFeature}
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
+					disabled={!isValid}
 				/>
 			</RichLayout.Footer>
 		</form>
@@ -74,6 +109,16 @@ BadgeSliderForm.propTypes = {
 	value: PropTypes.string,
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
+	unit: PropTypes.string,
+	decimal: PropTypes.bool,
+	min: PropTypes.number,
+	max: PropTypes.number,
+	step: PropTypes.number,
+	errorMessage: PropTypes.string,
+	icon: PropTypes.shape({
+		name: PropTypes.string,
+		class: PropTypes.string,
+	}),
 };
 
 // eslint-disable-next-line import/prefer-default-export

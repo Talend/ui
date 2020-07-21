@@ -15,7 +15,7 @@ describe('BadgeSlider', () => {
 	it('should mount a default badge', () => {
 		// Given
 		const props = {
-			label: 'Price',
+			label: 'Invalid',
 			id: 'myId',
 			t: getDefaultT(),
 		};
@@ -34,8 +34,8 @@ describe('BadgeSlider', () => {
 		const props = {
 			id: 'customId',
 			initialOpenedOperator: true,
-			label: 'Price',
-			value: '2981723',
+			label: 'Invalid',
+			value: '45',
 			t: getDefaultT(),
 		};
 		// When
@@ -45,6 +45,6 @@ describe('BadgeSlider', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.find('#customId-badge-number-action-overlay').first().text()).toEqual('2981723');
+		expect(wrapper.find('#customId-badge-slider-action-overlay').first().text()).toEqual('45');
 	});
 });

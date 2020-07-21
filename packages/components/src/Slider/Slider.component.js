@@ -185,7 +185,7 @@ function getCaption(
  * Function to set the tooltip
  * @param {function} captionsFormat the function to format the caption
  */
-function getHandle(captionsFormat, getTooltipContainer) {
+function getHandle(captionsFormat, getTooltipContainer, hideTooltip) {
 	// https://github.com/react-component/slider/issues/502
 	function Handle({ dragging, ...rest }) {
 		return (
@@ -193,7 +193,7 @@ function getHandle(captionsFormat, getTooltipContainer) {
 				prefixCls="rc-slider-tooltip"
 				overlay={captionsFormat(rest.value)}
 				getTooltipContainer={getTooltipContainer}
-				visible
+				visible={!hideTooltip}
 				placement="top"
 				key={rest.index}
 			>
@@ -226,15 +226,17 @@ class Slider extends React.Component {
 		captionTextStepNumber: PropTypes.number,
 		min: PropTypes.number.isRequired,
 		max: PropTypes.number.isRequired,
+		step: PropTypes.number,
 		mode: PropTypes.string,
 		captionsFormat: PropTypes.func,
 		disabled: PropTypes.bool,
+		hideTooltip: PropTypes.bool,
 	};
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			handle: getHandle(props.captionsFormat, props.getTooltipContainer),
+			handle: getHandle(props.captionsFormat, props.getTooltipContainer, props.hideTooltip),
 		};
 	}
 
@@ -248,6 +250,7 @@ class Slider extends React.Component {
 			captionsFormat,
 			min,
 			max,
+			step,
 			mode,
 			onChange,
 			disabled,
@@ -263,6 +266,7 @@ class Slider extends React.Component {
 						value={value}
 						min={min}
 						max={max}
+						step={step}
 						handle={noValue ? undefined : this.state.handle}
 						className={classnames(
 							theme['tc-slider-rc-slider'],
@@ -298,6 +302,7 @@ class Slider extends React.Component {
 Slider.defaultProps = {
 	min: 0,
 	max: 100,
+	step: 1,
 	captionsFormat: noFormat,
 };
 

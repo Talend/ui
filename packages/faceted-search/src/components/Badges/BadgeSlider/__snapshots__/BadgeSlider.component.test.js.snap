@@ -3,7 +3,7 @@
 exports[`BadgeSlider should mount a default badge 1`] = `
 <BadgeSlider
   id="myId"
-  label="Price"
+  label="Invalid"
   t={[Function]}
 />
 `;

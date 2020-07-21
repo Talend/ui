@@ -2,8 +2,49 @@
 
 exports[`BadgeSliderForm should mount a default badge 1`] = `
 <BadgeSliderForm
-  feature="price"
+  feature="quality"
   id="customId"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+          undefined,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onSubmit={[MockFunction]}
+  t={[Function]}
+/>
+`;
+
+exports[`BadgeSliderForm should mount a default badge in edit mode 1`] = `
+<BadgeSliderForm
+  feature="quality"
+  id="customId"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+          undefined,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onSubmit={[MockFunction]}
   t={[Function]}
 />

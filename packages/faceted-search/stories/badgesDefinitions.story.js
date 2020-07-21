@@ -64,12 +64,72 @@ export const badgePrice = {
 	},
 };
 
-export const badgeQuality = {
+export const badgeValid = {
 	properties: {
-		attribute: 'quality',
+		attribute: 'valid',
 		initialOperatorOpened: true,
 		initialValueOpened: false,
-		label: 'Quality',
+		label: 'Valid',
+		operator: {},
+		operators: [],
+		type: 'slider',
+		icon:  {
+			name: 'talend-pie-charts',
+			class: 'valid',
+		},
+		unit: '%',
+		defaultValue: 50,
+		errorMessage: 'The value must be between 0 and 100',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: [
+			'equals',
+			'greaterThan',
+			'greaterThanOrEquals',
+			'lessThan',
+			'lessThanOrEquals',
+		],
+	},
+};
+
+export const badgeEmpty = {
+	properties: {
+		attribute: 'empty',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Empty',
+		operator: {},
+		operators: [],
+		type: 'slider',
+		icon:  {
+			name: 'talend-pie-charts',
+			class: 'empty',
+		},
+		unit: '%',
+		defaultValue: 50,
+		errorMessage: 'The value must be between 0 and 100',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: [
+			'equals',
+			'greaterThan',
+			'greaterThanOrEquals',
+			'lessThan',
+			'lessThanOrEquals',
+		],
+	},
+};
+
+export const badgeInvalid = {
+	properties: {
+		attribute: 'invalid',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Invalid',
 		operator: {},
 		operators: [],
 		type: 'slider',
@@ -77,8 +137,9 @@ export const badgeQuality = {
 			name: 'talend-pie-charts',
 			class: 'invalid',
 		},
-		symbol: '%',
+		unit: '%',
 		defaultValue: 50,
+		errorMessage: 'The value must be between 0 and 100',
 	},
 	metadata: {
 		badgePerFacet: 'N',

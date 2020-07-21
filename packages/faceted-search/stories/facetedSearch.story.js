@@ -10,7 +10,9 @@ import {
 	badgeConnectionType,
 	badgeName,
 	badgePrice,
-	badgeQuality,
+	badgeValid,
+	badgeEmpty,
+	badgeInvalid,
 	badgeEnumWithLotOfValues,
 	badgeTags,
 	badgeWithVeryLongName,
@@ -21,7 +23,7 @@ import {
 	badgePriceAsCustomAttribute,
 } from './badgesDefinitions.story';
 
-const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice, badgeQuality];
+const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice, badgeValid, badgeEmpty, badgeInvalid];
 const lotsOfBadgesDefinitions = [];
 let i = 0;
 while (i < 50) {
@@ -104,16 +106,21 @@ storiesOf('FacetedSearch', module)
 		<div style={{ ...paddingLeft }}>
 			<style>
 				{`
-				[name="talend-pie-charts"].tc-badge-icon.invalid .ti-slice-right {
-					fill: red;
+				#talend-pie-charts path[class^='ti-slice-'] {
+					fill: #C6C6C6;
 				}
-				// svg.tc-badge-icon.invalid #talend-pie-charts  {
-				// 	border: 1px solid blue;
-				// }
-
-				// .invalid #talend-pie-charts  .ti-slice-right {
-				// 	fill: red;
-				// }
+				#talend-pie-charts path.ti-slice-right {
+					fill: currentColor;
+				}
+				.tc-badge-slider-form .invalid {
+					color: #EA8330;
+				}
+				.tc-badge-slider-form .valid {
+					color: #82BD41;
+				}
+				.tc-badge-slider-form .empty {
+					color: #202020;
+				}
 				`}
 			</style>
 			<IconsProvider />

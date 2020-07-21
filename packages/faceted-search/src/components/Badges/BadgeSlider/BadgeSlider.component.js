@@ -36,13 +36,13 @@ const BadgeSlider = ({
 	value,
 	category,
 	defaultValue = 0,
-	symbol = '',
+	unit = '',
 	...rest
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
 	const badgeTextId = `${id}-badge-slider`;
-	const labelValue = value && `${value}${symbol}`;
+	const labelValue = value && `${value}${unit}`;
 
 	return (
 		<BadgeFaceted
@@ -65,7 +65,7 @@ const BadgeSlider = ({
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
 					feature={category || label}
-					symbol={symbol}
+					unit={unit}
 					t={t}
 					{...rest}
 				/>
@@ -85,6 +85,8 @@ BadgeSlider.propTypes = {
 	t: PropTypes.func.isRequired,
 	value: PropTypes.string,
 	category: PropTypes.string,
+	defaultValue: PropTypes.number,
+	unit: PropTypes.string,
 };
 
 // eslint-disable-next-line import/prefer-default-export
