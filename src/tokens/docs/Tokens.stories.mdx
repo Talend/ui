@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import { ColorPalette, ColorItem, Typeset } from '@storybook/components';
-import { TableOfContent } from '../../docs';
-import DesignTokens from './DesignTokens.component';
+import { Table, TableOfContent } from '../../docs';
 import tokens from './../index';
 import colors, { greyscale, backgrounds, palette } from './../colors.tokens';
 
@@ -15,7 +14,7 @@ We are using <a href="https://system-ui.com/theme/" target="_blank">the System U
 
 ## Space
 
-<DesignTokens tokens={tokens.space} />
+<Table data={tokens.space} />
 
 ## Colors
 
@@ -49,48 +48,48 @@ We are using <a href="https://system-ui.com/theme/" target="_blank">the System U
 
 ## fontWeights
 
-<DesignTokens tokens={tokens.fontWeights} />
+<Table data={tokens.fontWeights} />
 
 ## lineHeights
 
-<DesignTokens tokens={tokens.lineHeights} />
+<Table data={tokens.lineHeights} />
 
 ## letterSpacings
 
-<DesignTokens tokens={tokens.letterSpacings} />
+<Table data={tokens.letterSpacings} />
 
 ## sizes
 
-<DesignTokens tokens={tokens.sizes} />
+<Table data={tokens.sizes} />
 
 ## borders
 
-<DesignTokens tokens={tokens.borders} />
+<Table data={tokens.borders} />
 
 ## borderWidths
 
-<DesignTokens tokens={tokens.borderWidths} />
+<Table data={tokens.borderWidths} />
 
 ## borderStyles
 
-<DesignTokens tokens={tokens.borderStyles} />
+<Table data={tokens.borderStyles} />
 
 ## opacity
 
-<DesignTokens tokens={tokens.opacity} />
+<Table data={tokens.opacity} />
 
 ## radii
 
-<DesignTokens tokens={tokens.radii} />
+<Table data={tokens.radii} />
 
 ## shadows
 
-<DesignTokens tokens={tokens.shadows} />
+<Table data={tokens.shadows} />
 
 ## zIndices
 
-<DesignTokens tokens={tokens.zIndices} />
+<Table data={tokens.zIndices} />
 
 ## transitions
 
-<DesignTokens tokens={tokens.transitions} />
+<Table data={tokens.transitions} />
