@@ -51,7 +51,6 @@ describe('BadgeSliderForm', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-
 	it('should mount a badge with some other values', () => {
 		// Given
 		const onSubmit = jest.fn();

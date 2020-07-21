@@ -16,7 +16,7 @@ const noFormat = value => value;
 export const SLIDER_MODE = {
 	GREATER_THAN: 'greaterThan',
 	EQUALS: 'equals',
-	EXCLUSIVE: 'exclusive'
+	EXCLUSIVE: 'exclusive',
 };
 
 /**
@@ -270,13 +270,16 @@ class Slider extends React.Component {
 						handle={noValue ? undefined : this.state.handle}
 						className={classnames(
 							theme['tc-slider-rc-slider'],
-							{[theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS},
-							{[theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE},
-							{[theme['tc-slider-rc-slider--track-greater-than']]: mode === SLIDER_MODE.GREATER_THAN},
+							{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
+							{ [theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE },
+							{
+								[theme['tc-slider-rc-slider--track-greater-than']]:
+									mode === SLIDER_MODE.GREATER_THAN,
+							},
 							'tc-slider-rc-slider',
-							{'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS},
-							{'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE},
-							{'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN}
+							{ 'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS },
+							{ 'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE },
+							{ 'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN },
 						)}
 						onChange={onChange}
 						disabled={disabled}
