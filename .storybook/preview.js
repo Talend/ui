@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { addDecorator, addParameters } from '@storybook/react';
 import { withContexts } from '@storybook/addon-contexts/react';
-import { normalize } from 'polished';
+import { DocsContainer } from './docs/DocsContainer';
 import { contexts } from './contexts';
 
 const GlobalStyle = createGlobalStyle(
@@ -34,10 +34,6 @@ const GlobalStyle = createGlobalStyle(
 	.sbdocs.sbdocs-preview {
 		background: ${theme.colors.backgroundColor}
 	}
-	
-	*:focus {
-		outline: .1rem solid ${theme.colors.focusColor};
-	}
 `,
 );
 
@@ -59,5 +55,8 @@ addDecorator(withContexts(contexts));
 addParameters({
 	options: {
 		showRoots: true,
+	},
+	docs: {
+		container: DocsContainer,
 	},
 });
