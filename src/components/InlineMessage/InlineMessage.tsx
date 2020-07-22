@@ -1,36 +1,40 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
-
-import './InlineMessage.css';
 
 import tokens from '../../tokens';
 
 export const StyledInlineMessage = styled.div`
-	${(props) => props.withBackground && tw`flex items-center p-2 rounded-md`}
+	${(props) =>
+		props.withBackground &&
+		`
+		display: flex; 
+		align-items: center;
+	`}
 `;
 export const StyledParagraph = styled.p`
-	${(props) => props.icon && props.withBackground && tw`pl-8`}
+	${(props) => props.icon && props.withBackground && `padding-left: 2rem;`}
 `;
 export const StyledStrong = styled.strong`
-	${tw`inline-flex items-baseline`}
+	display: inline-flex;
+	align-items: baseline;
 `;
 export const StyledIconSpan = styled.span`
-	${tw`inline-flex self-center w-10`}
-	${(props) => props.withBackground && tw`-ml-6`}
+	display: inline-flex;
+	align-self: center;
+	width: 1rem;
+
+	${(props) => props.withBackground && `margin-left: -6rem`}
 
 	svg {
 		height: 1.6rem;
-		${tw`max-w-full`}
-
-		path {
-			${tw`fill-current`}
+		max-width: 100% path {
+			fill: currentColor;
 		}
 	}
 `;
 
 export const StyledSpan = styled.span`
-	${tw`mr-2`}
+	margin-right: 1rem;
 
 	${({ theme, withBackground }) =>
 		`color: ${withBackground ? tokens.colors.black : theme.colors.textColor};`}
