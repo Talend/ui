@@ -25,7 +25,6 @@ const GlobalStyle = createGlobalStyle(
 		${theme.colors.backgroundColor}
 	}
 	
-	
 	.sbdocs.sbdocs-wrapper {
 		margin: -1rem;
 	}
@@ -61,9 +60,6 @@ addDecorator((storyFn, ...rest) => (
 addDecorator(withContexts(contexts));
 
 addParameters({
-	options: {
-		showRoots: true,
-	},
 	docs: {
 		container: DocsContainer,
 	},
