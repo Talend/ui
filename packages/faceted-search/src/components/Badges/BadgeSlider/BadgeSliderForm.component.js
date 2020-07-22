@@ -25,7 +25,7 @@ const BadgeSliderForm = ({
 	unit,
 	icon,
 	decimal = false,
-	min = 1,
+	min = 0,
 	max = 100,
 	step = 1,
 	errorMessage = '',
