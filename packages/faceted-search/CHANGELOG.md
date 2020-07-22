@@ -24,6 +24,10 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## [unreleased]
+
+- [fixed](https://github.com/Talend/ui/pull/2910): IE11 : update input type number to numberDecimal
+
 ## [0.10.3]
 
 - [fixed](https://github.com/Talend/ui/pull/2881): IE11: hide scrollbar for BasicSearch

@@ -47,7 +47,7 @@ describe('BadgeNumberForm', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.find('input[type="number"]').first().props().value).toEqual('i230982903');
+		expect(wrapper.find('input[type="numberDecimal"]').first().props().value).toEqual('i230982903');
 
 		const submitButton = wrapper.find('button[type="submit"]').first();
 		submitButton.simulate('submit');
