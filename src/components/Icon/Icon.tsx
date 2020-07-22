@@ -7,7 +7,7 @@ export type IconProps = {
 	/** The name of the icon  */
 	name: string;
 
-	className: string;
+	className?: string;
 };
 
 // TODO https://medium.com/@allalmohamedlamine/react-best-way-of-importing-svg-the-how-and-why-f7c968272dd9
