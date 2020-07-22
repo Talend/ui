@@ -1,43 +1,18 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { ColorPalette, ColorItem } from '@storybook/components';
 
-import { light, dark } from '../.';
+import { dark } from '../.';
 
 import tokens from '../../tokens';
 
-<Meta title="Themes/Themes" />
+<Meta title="Themes/Dark" />
 
 export function getTokenNameByValue(value) {
     const designToken = Object.entries(tokens.colors).find(([k, v]) => v === value)
     return designToken ? designToken[0] : 'there is no design token used here!';
 }
 
-# Themes
-
-## Light (default)
-
-<dl>
-	{Object.entries(light).map(([k, v], index) => (
-		<div key={index}>
-			<dt>{k}</dt>
-			<dd>
-				<code>{JSON.stringify(v, null, 2)}</code>
-			</dd>
-		</div>
-	))}
-</dl>
-
-<ColorPalette>
-    {Object.entries(light.colors).map(([k, v], index) => (
-        <ColorItem
-          key={index}
-          title={k}
-          colors={{ [`${getTokenNameByValue(v)}`]: v }}
-        />
-	))}
-</ColorPalette>
-
-## Dark
+# Dark theme
 
 <dl>
 	{Object.entries(dark).map(([k, v], index) => (
