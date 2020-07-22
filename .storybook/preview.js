@@ -21,17 +21,14 @@ const GlobalStyle = createGlobalStyle(
         font-size: 14px;
 	}
 	
-	#storybook-preview-iframe {
-		${theme.colors.backgroundColor}
-	}
-	
 	.sbdocs.sbdocs-wrapper {
 		margin: -1rem;
 	}
 
 	.sb-show-main,
 	.sbdocs.sbdocs-preview {
-		background: ${theme.colors.backgroundColor}
+		background: ${theme.colors.backgroundColor};
+		
 	}
 	
 	.js-focus-visible :focus:not(.focus-visible) {
