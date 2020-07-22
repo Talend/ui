@@ -4,45 +4,29 @@ import styled from 'styled-components';
 import tokens from '../../tokens';
 
 export const StyledInlineMessage = styled.div`
-	${(props) =>
-		props.withBackground &&
-		`
-		display: flex; 
-		align-items: center;
-	`}
+	${(props) => props.withBackground || 'display: inline;'}
 `;
 export const StyledParagraph = styled.p`
-	${(props) => props.icon && props.withBackground && `padding-left: 2rem;`}
+	${(props) => props.icon && props.withBackground && 'padding: 0 0.5rem;'}
 `;
-export const StyledStrong = styled.strong`
-	display: inline-flex;
-	align-items: baseline;
-`;
-export const StyledIconSpan = styled.span`
-	display: inline-flex;
-	align-self: center;
-	width: 1rem;
-
-	${(props) => props.withBackground && `margin-left: -6rem`}
+export const StyledStrong = styled.strong``;
+export const StyledSpan = styled.span``;
+export const StyledIconSpan = styled(StyledSpan)`
+	margin-right: 0.5rem;
 
 	svg {
-		height: 1.6rem;
-		max-width: 100% path {
+		display: inline;
+		height: ${tokens.sizes.smaller};
+		width: ${tokens.sizes.smaller};
+
+		path {
 			fill: currentColor;
 		}
 	}
 `;
-
-export const StyledSpan = styled.span`
-	margin-right: 1rem;
-
+export const StyledTextSpan = styled(StyledSpan)`
 	${({ theme, withBackground }) =>
 		`color: ${withBackground ? tokens.colors.black : theme.colors.textColor};`}
-`;
-
-export const StyledLinkSpan = styled(StyledSpan)`
-	${({ theme, withBackground }) =>
-		`color: ${withBackground ? tokens.colors.lochmara : theme.colors.activeColor};`}
 `;
 
 export type InlineMessageProps = {
@@ -78,12 +62,24 @@ const InlineMessage: React.FC<InlineMessageProps> = ({
 			<StyledParagraph icon={icon} withBackground={withBackground}>
 				{(icon || title) && (
 					<StyledStrong>
-						{icon && <StyledIconSpan withBackground={withBackground}>{icon}</StyledIconSpan>}
-						{title && <StyledSpan withBackground={withBackground}>{title}</StyledSpan>}
+						{icon && (
+							<>
+								<StyledIconSpan withBackground={withBackground}>{icon}</StyledIconSpan>{' '}
+							</>
+						)}
+						{title && (
+							<>
+								<StyledTextSpan withBackground={withBackground}>{title}</StyledTextSpan>{' '}
+							</>
+						)}
 					</StyledStrong>
 				)}
-				{description && <StyledSpan withBackground={withBackground}>{description}</StyledSpan>}
-				{link && <StyledLinkSpan withBackground={withBackground}>{link}</StyledLinkSpan>}
+				{description && (
+					<>
+						<StyledTextSpan withBackground={withBackground}>{description}</StyledTextSpan>{' '}
+					</>
+				)}
+				{link && <StyledTextSpan withBackground={withBackground}>{link}</StyledTextSpan>}
 			</StyledParagraph>
 		</StyledInlineMessage>
 	);
