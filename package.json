@@ -57,6 +57,7 @@
     "stylelint": "^13.6.0",
     "tailwind.macro": "next",
     "tailwindcss": "^1.4.6",
+    "tocbot": "^4.11.2",
     "webpack": "^4.43.0"
   },
   "peerDependencies": {

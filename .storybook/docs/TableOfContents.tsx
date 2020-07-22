@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import tocbot from 'tocbot';
 
 const Nav = styled.nav`
 	position: fixed;
@@ -50,6 +51,12 @@ const NavHeader = styled.header`
 	font-weight: bold;
 `;
 
+const configuration = {
+	tocSelector: '.js-toc',
+	contentSelector: '.sbdocs-content',
+	headingSelector: 'h2, h3, h4, h5, h6',
+};
+
 function TableOfContents() {
 	const [headings, setHeadings] = React.useState([]);
 
@@ -57,26 +64,25 @@ function TableOfContents() {
 		// @ts-ignore
 		setHeadings(() => [...document.getElementsByTagName('h2')]);
 
-		// @ts-ignore
 		tocbot.init({
-			tocSelector: '.js-toc',
-			contentSelector: '.sbdocs-content',
-			headingSelector: 'h2, h3, h4, h5, h6',
+			...configuration,
 			onClick: (event) => {
 				event.preventDefault();
-				document.getElementById(event.currentTarget.hash.substr(1)).focus();
+				const hash = event.currentTarget.hash;
+				const id = hash?.substr(1);
+				const element = document.getElementById(id);
+				element?.focus();
 			},
 		});
 
 		return () => {
-			// @ts-ignore
 			tocbot.destroy();
 		};
 	}, []);
 
 	return (
 		<Nav>
-			{headings.length ? <NavHeader>Table of contents</NavHeader> : null}
+			{headings.length > 0 && <NavHeader>Table of contents</NavHeader>}
 			<div className="js-toc"></div>
 		</Nav>
 	);
