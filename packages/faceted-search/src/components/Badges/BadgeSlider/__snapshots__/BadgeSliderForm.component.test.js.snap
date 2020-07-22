@@ -9,7 +9,7 @@ exports[`BadgeSliderForm should mount a default badge 1`] = `
       "calls": Array [
         Array [
           null,
-          undefined,
+          0,
         ],
       ],
       "results": Array [
@@ -34,7 +34,7 @@ exports[`BadgeSliderForm should mount a default badge in edit mode 1`] = `
       "calls": Array [
         Array [
           null,
-          undefined,
+          0,
         ],
       ],
       "results": Array [

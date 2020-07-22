@@ -42,6 +42,7 @@
 					box-shadow: none;
 					height: 4.7rem;
 
+					-moz-appearance: textfield;
 					&[type='number']::-webkit-inner-spin-button,
 					&[type='number']::-webkit-outer-spin-button {
 						-webkit-appearance: none;

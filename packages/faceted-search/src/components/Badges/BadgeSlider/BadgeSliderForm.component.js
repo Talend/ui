@@ -19,7 +19,7 @@ const BadgeSliderForm = ({
 	id,
 	onChange,
 	onSubmit,
-	value: initialValue,
+	value: initialValue = 0,
 	feature,
 	t,
 	unit,
@@ -38,12 +38,18 @@ const BadgeSliderForm = ({
 
 	useEffect(() => onChange(null, value), [onChange, value]);
 
+	const isValid = validator(value);
 	const schema = {
 		autoFocus: true,
 		disabled: false,
 		type: 'number',
+		schema: {
+			minimum: min,
+			maximum: max,
+			step,
+		},
 	};
-	const isValid = validator(value);
+
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>

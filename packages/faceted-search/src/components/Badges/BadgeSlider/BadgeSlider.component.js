@@ -42,7 +42,7 @@ const BadgeSlider = ({
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
 	const badgeTextId = `${id}-badge-slider`;
-	const labelValue = value && `${value}${unit}`;
+	const labelValue = value != null && `${value}${unit}`;
 
 	return (
 		<BadgeFaceted
