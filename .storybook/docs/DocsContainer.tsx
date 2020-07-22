@@ -12,6 +12,7 @@ import { CodeOrSourceMdx, AnchorMdx, HeadersMdx } from '@storybook/addon-docs/di
 import { scrollToElement } from '@storybook/addon-docs/dist/blocks/utils';
 
 import TableOfContents from './TableOfContents';
+import BackToTop from './BackToTop';
 
 interface DocsContainerProps {
 	context: DocsContextProps;
@@ -71,6 +72,7 @@ export const DocsContainer: FunctionComponent<DocsContainerProps> = ({ context, 
 					<DocsWrapper className="sbdocs sbdocs-wrapper">
 						<TableOfContents />
 						<DocsContent className="sbdocs sbdocs-content">{children}</DocsContent>
+						<BackToTop />
 					</DocsWrapper>
 				</MDXProvider>
 			</ThemeProvider>
