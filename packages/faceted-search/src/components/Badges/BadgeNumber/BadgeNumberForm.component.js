@@ -19,7 +19,7 @@ const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 	const schema = {
 		autoFocus: true,
 		disabled: false,
-		type: 'number',
+		type: 'numberDecimal',
 		placeholder: t('TYPE_HERE', { defaultValue: 'Type here' }),
 	};
 
