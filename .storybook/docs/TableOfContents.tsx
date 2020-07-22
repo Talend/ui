@@ -76,7 +76,7 @@ function TableOfContents() {
 
 	return (
 		<Nav>
-			{headings && <NavHeader>Table of contents</NavHeader>}
+			{headings.length ? <NavHeader>Table of contents</NavHeader> : null}
 			<div className="js-toc"></div>
 		</Nav>
 	);
