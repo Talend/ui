@@ -1,4 +1,4 @@
-import React, { ReactChildren } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { shade } from 'polished';
 import { Button } from 'reakit';
@@ -8,8 +8,10 @@ import Icon from '../Icon/Icon';
 import tokens from '../../tokens';
 
 export type LinkProps = {
-	/** The name of the icon to display */
-	icon?: string;
+	/** The name of the icon to display before */
+	before?: string;
+	/** The name of the icon to display after */
+	after?: string;
 	/** The title of the link */
 	title?: string;
 	/** The href of the link */
@@ -18,12 +20,9 @@ export type LinkProps = {
 	target?: string;
 	/** if the link is disabled */
 	disabled?: boolean;
-
-	className?: string;
-	children: ReactChildren;
 };
 
-const ButtonAsAnchor = styled(Button)(
+const ButtonAsLink = styled(Button)(
 	({ theme }) => `
 	--link-color: ${theme.colors.activeColor};
 	--link-hover-color: ${shade(0.2, theme.colors.activeColor)};
@@ -66,12 +65,15 @@ const ButtonAsAnchor = styled(Button)(
 	.link__icon {
 		display: inline-block;
 		vertical-align: baseline;
-		margin-right: ${tokens.space.smaller};
 		width: ${tokens.sizes.smallerr};
 		fill: currentColor;
   		
-  		&--external {
-			margin-right: 0;
+  		&--before {
+  			margin-right: ${tokens.space.smaller};
+		}
+  		
+  		&--external,
+	 	&--after {
 			margin-left: ${tokens.space.smaller};
 		}
 	}
@@ -79,11 +81,14 @@ const ButtonAsAnchor = styled(Button)(
 );
 
 const Link: React.FC<LinkProps> = ({
+	after,
+	before,
+	// @ts-ignore
 	children,
+	// @ts-ignore
 	className,
 	disabled,
 	href,
-	icon,
 	target,
 	title,
 	...rest
@@ -100,7 +105,7 @@ const Link: React.FC<LinkProps> = ({
 	}
 
 	return (
-		<ButtonAsAnchor
+		<ButtonAsLink
 			as="a"
 			rel={isBlank ? 'noopener noreferrer' : null}
 			{...rest}
@@ -110,10 +115,11 @@ const Link: React.FC<LinkProps> = ({
 			title={getTitle()}
 			aria-disabled={disabled ? 'true' : null}
 		>
-			{icon && <Icon className="link__icon" name={icon} />}
+			{before && <Icon className="link__icon link__icon--before" name={before} />}
 			<span className="link__text">{children}</span>
 			{isExternal && <Icon className="link__icon link__icon--external" name="link" />}
-		</ButtonAsAnchor>
+			{after && <Icon className="link__icon  link__icon--after" name={after} />}
+		</ButtonAsLink>
 	);
 };
 
