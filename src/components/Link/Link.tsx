@@ -1,9 +1,27 @@
-import * as React from 'react';
+import React, { ReactChildren } from 'react';
 import styled from 'styled-components';
 import { shade } from 'polished';
 import { Button } from 'reakit';
-import tokens from '../../tokens';
+
 import Icon from '../Icon/Icon';
+
+import tokens from '../../tokens';
+
+export type LinkProps = {
+	/** The name of the icon to display */
+	icon?: string;
+	/** The title of the link */
+	title?: string;
+	/** The href of the link */
+	href?: string;
+	/** The target of the link */
+	target?: string;
+	/** if the link is disabled */
+	disabled?: boolean;
+
+	className?: string;
+	children: ReactChildren;
+};
 
 const ButtonAsAnchor = styled(Button)(
 	({ theme }) => `
@@ -11,9 +29,6 @@ const ButtonAsAnchor = styled(Button)(
 	--link-hover-color: ${shade(0.2, theme.colors.activeColor)};
 	--link-active-color: ${shade(0.4, theme.colors.activeColor)};
 	
-	display: inline-flex;
-	align-items: center;
-	justify-content: space-between;
 	color: var(--link-color);
 	
 	&:hover,
@@ -50,6 +65,7 @@ const ButtonAsAnchor = styled(Button)(
 
 	.link__icon {
 		display: inline-block;
+		vertical-align: baseline;
 		margin-right: ${tokens.space.smaller};
 		width: ${tokens.sizes.smallerr};
 		fill: currentColor;
@@ -62,7 +78,16 @@ const ButtonAsAnchor = styled(Button)(
 `,
 );
 
-function Link({ children, className, disabled, href, target, title, icon, ...rest }) {
+const Link: React.FC<LinkProps> = ({
+	children,
+	className,
+	disabled,
+	href,
+	icon,
+	target,
+	title,
+	...rest
+}: LinkProps) => {
 	const isBlank = target?.toLocaleLowerCase().includes('blank');
 	const isExternal = href?.toLocaleLowerCase().includes('http');
 
@@ -90,6 +115,6 @@ function Link({ children, className, disabled, href, target, title, icon, ...res
 			{isExternal && <Icon className="link__icon link__icon--external" name="link" />}
 		</ButtonAsAnchor>
 	);
-}
+};
 
 export default Link;

@@ -1,13 +1,13 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import Link from '../';
 import LinkZoning from './images/link-zoning.jpg';
 
-<Meta title="Components/Link" />
+<Meta title="Components/Link" component={Link} />
 
 # Link
 
-Links are clickable items used for the navigation.
+Links are used for navigation.
 
 ## Style
 
@@ -17,30 +17,6 @@ Links are clickable items used for the navigation.
 
 
 ## Variations
-
-<Preview>
-    <Story name="default">
-        <Link href="#">Link example</Link>
-	</Story>
- </Preview>
-
-<Preview>
-    <Story name="with icon">
-        <Link href="#" icon="information">Link example</Link>
-	</Story>
- </Preview>
-
-<Preview>
-    <Story name="multi lines">
-        <Link href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique accumsan eleifend. Mauris at nibh aliquet, blandit turpis quis, scelerisque eros. Cras semper risus at felis convallis, ullamcorper rutrum augue ullamcorper. Donec malesuada felis tortor, vel porttitor tortor tincidunt at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Link>
-	</Story>
- </Preview>
-
-<Preview>
-    <Story name="disabled">
-        <Link href="#" disabled icon="information">Link example</Link>
-	</Story>
- </Preview>
 
 ### Sizes
 
@@ -84,7 +60,52 @@ Icons should always be the same color as the link text.
 
 ## States
 
-When the link is disabled the whole component is displayed with 0.54 opacity
+
+### Default
+
+<Preview>
+    <Story name="default">
+        <Link href="#">Link example</Link>
+	</Story>
+ </Preview>
+
+### With icon
+
+<Preview>
+    <Story name="with icon">
+        <Link href="#" icon="information">Link example</Link>
+	</Story>
+ </Preview>
+
+### Multi lines
+
+<Preview>
+    <Story name="multi lines">
+        <Link icon="information" href="https://www.talend.com" target="_blank">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique accumsan eleifend. Mauris at nibh aliquet, blandit turpis quis, scelerisque eros. Cras semper risus at felis convallis, ullamcorper rutrum augue ullamcorper. Donec malesuada felis tortor, vel porttitor tortor tincidunt at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Link>
+	</Story>
+ </Preview>
+
+### Disabled
+
+When the link is disabled the whole component is displayed with 0.54 opacity.
+
+<Preview>
+    <Story name="disabled">
+        <Link icon="information" href="#" disabled>Link example</Link>
+	</Story>
+</Preview>
+
+### External
+
+When the link targets a new domain, we add an external-link icon right after.
+
+<Preview>
+    <Story name="external">
+        <Link href="https://www.talend.com" target="_blank">talend.com</Link>
+	</Story>
+ </Preview>
+
+The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 
 ## Content
 
@@ -100,15 +121,18 @@ Press <kbd>ENTER</kbd> to open a link
 
 ## Usage
 
-When the link targets a new domain, we add an external link icon right after.
-
-The attribute <code>rel="noopener noreferrer"</code> is added if its target is set to `_blank`.
-
 <Preview>
-    <Story name="external">
-        <Link href="https://www.talend.com" target="_blank">Talend</Link>
-	</Story>
- </Preview>
+  <Story
+    name="usage"
+    args={{
+      text: 'Lorem ipsum',
+    }}
+  >
+    {({ text, ...rest}) => <Link {...rest}>{text}</Link>}
+  </Story>
+</Preview>
+
+<Props story="usage" />
 
 ## Changelog
 
