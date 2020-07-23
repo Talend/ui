@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeSlider should mount a default badge 1`] = `
+<BadgeSlider
+  id="myId"
+  label="Invalid"
+  t={[Function]}
+/>
+`;

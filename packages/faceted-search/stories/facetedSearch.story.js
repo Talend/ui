@@ -10,6 +10,9 @@ import {
 	badgeConnectionType,
 	badgeName,
 	badgePrice,
+	badgeValid,
+	badgeEmpty,
+	badgeInvalid,
 	badgeEnumWithLotOfValues,
 	badgeTags,
 	badgeWithVeryLongName,
@@ -20,7 +23,7 @@ import {
 	badgePriceAsCustomAttribute,
 } from './badgesDefinitions.story';
 
-const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice];
+const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice, badgeValid, badgeEmpty, badgeInvalid];
 const lotsOfBadgesDefinitions = [];
 let i = 0;
 while (i < 50) {
@@ -98,10 +101,28 @@ const badgesFaceted = {
 };
 
 const paddingLeft = { paddingLeft: '10px' };
-
 storiesOf('FacetedSearch', module)
 	.addDecorator(story => (
 		<div style={{ ...paddingLeft }}>
+			<style>
+				{`
+				#talend-pie-charts path[class^='ti-slice-'] {
+					fill: #C6C6C6;
+				}
+				#talend-pie-charts path.ti-slice-right {
+					fill: currentColor;
+				}
+				.tc-badge-slider-form .invalid {
+					color: #EA8330;
+				}
+				.tc-badge-slider-form .valid {
+					color: #82BD41;
+				}
+				.tc-badge-slider-form .empty {
+					color: #202020;
+				}
+				`}
+			</style>
 			<IconsProvider />
 			<h1>Faceted Search</h1>
 			{story()}

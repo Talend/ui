@@ -54,6 +54,11 @@ const BadgeFaceted = ({
 		if (foundOperator) {
 			setBadgeOperator(foundOperator);
 		}
+		dispatch(
+			BADGES_ACTIONS.update(badgeId, {
+				operator: foundOperator,
+			}),
+		);
 		overlayDispatch(OVERLAY_FLOW_ACTIONS.openValue);
 		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
 	};

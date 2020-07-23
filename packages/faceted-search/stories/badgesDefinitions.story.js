@@ -64,6 +64,90 @@ export const badgePrice = {
 	},
 };
 
+export const badgeValid = {
+	properties: {
+		attribute: 'valid',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Valid',
+		operator: {},
+		operators: [],
+		type: 'slider',
+		icon:  {
+			name: 'talend-pie-charts',
+			class: 'valid',
+		},
+		unit: '%',
+		defaultValue: 50,
+		errorMessage: 'The value must be between 0 and 100',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: [
+			'equals',
+			'greaterThan',
+			'lessThan',
+		],
+	},
+};
+
+export const badgeEmpty = {
+	properties: {
+		attribute: 'empty',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Empty',
+		operator: {},
+		operators: [],
+		type: 'slider',
+		icon:  {
+			name: 'talend-pie-charts',
+			class: 'empty',
+		},
+		unit: '%',
+		defaultValue: 50,
+		errorMessage: 'The value must be between 0 and 100',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: [
+			'equals',
+			'greaterThan',
+			'lessThan',
+		],
+	},
+};
+
+export const badgeInvalid = {
+	properties: {
+		attribute: 'invalid',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Invalid',
+		operator: {},
+		operators: [],
+		type: 'slider',
+		icon:  {
+			name: 'talend-pie-charts',
+			class: 'invalid',
+		},
+		unit: '%',
+		defaultValue: 50,
+		errorMessage: 'The value must be between 0 and 100',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: [
+			'equals',
+			'greaterThan',
+			'lessThan',
+		],
+	},
+};
+
 export const badgeTags = {
 	properties: {
 		attribute: 'tags',
