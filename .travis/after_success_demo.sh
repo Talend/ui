@@ -22,6 +22,9 @@ echo "✓ Copy stepper showcase to .static"
 cp -R packages/forms/storybook-static/* .static/forms
 echo "✓ Copy forms showcase to .static"
 
+cp -R packages/faceted-search/storybook-static/* .static/faceted-search
+echo "✓ Copy faceted-search showcase to .static"
+
 cp -R packages/icons/docs/index.html .static/icons
 echo "✓ Copy icons showcase to .static"
 
