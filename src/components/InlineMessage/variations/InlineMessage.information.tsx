@@ -6,8 +6,8 @@ import Icon from '../../Icon';
 
 const StyledComponent = styled(InlineMessage)`
 	color: ${({ theme }) => theme.colors.informationColor};
-	background: ${(props) => props.withBackground && tint(0.95, props.theme.colors.informationColor)};
-	box-shadow: ${(props) =>
+	background: ${props => props.withBackground && tint(0.95, props.theme.colors.informationColor)};
+	box-shadow: ${props =>
 		props.withBackground && `0 1px 2px ${tint(0.75, props.theme.colors.informationColor)}`};
 `;
 
