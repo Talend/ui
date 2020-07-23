@@ -18,6 +18,8 @@ export default {
 		inputColor: colors.black,
 		inputPlaceholderColor: colors.darkSilver,
 		inputBackgroundColor: colors.white,
+		inputGroupColor: colors.doveGray,
+		inputGroupBackgroundColor: colors.gallery,
 		inputRadioBackgroundColor: colors.alto,
 		inputBackgroundReadOnlyColor: colors.transparent,
 		inputBorderColor: colors.darkSilver,
