@@ -42,8 +42,9 @@ const BadgeSlider = ({
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
 	const badgeTextId = `${id}-badge-slider`;
-	const labelValue = value != null && `${value}${unit}`;
+	const labelValue = (value || defaultValue) != null && `${value || defaultValue}${unit}`;
 
+	console.log('[NC] currentOperator: ', currentOperator);
 	return (
 		<BadgeFaceted
 			badgeId={id}
@@ -51,7 +52,7 @@ const BadgeSlider = ({
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
 			labelCategory={label}
-			labelValue={labelValue || defaultValue}
+			labelValue={labelValue}
 			operator={currentOperator}
 			operators={currentOperators}
 			size={size}
@@ -63,6 +64,7 @@ const BadgeSlider = ({
 					id={badgeTextId}
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
+					operator={currentOperator}
 					value={badgeValue}
 					feature={category || label}
 					unit={unit}

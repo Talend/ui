@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Action from '@talend/react-components/lib/Actions/Action';
 import Icon from '@talend/react-components/lib/Icon';
-import Slider from '@talend/react-components/lib/Slider';
+import Slider, { SLIDER_MODE } from '@talend/react-components/lib/Slider';
 import Text from '@talend/react-forms/lib/UIForm/fields/Text';
 import { getTheme } from '@talend/react-components/lib/theme';
 import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
@@ -15,6 +15,17 @@ const theme = getTheme(cssModule);
 const getValidator = decimal => value =>
 	value >= 0 && value <= 100 && !(!decimal && value % 1 !== 0);
 
+const getSliderMode = ({ name }) => {
+	switch (name) {
+		case 'greaterThan':
+			return SLIDER_MODE.GREATER_THAN;
+		case 'equals':
+			return SLIDER_MODE.EQUALS;
+		default:
+			return null;
+	}
+};
+
 const BadgeSliderForm = ({
 	id,
 	onChange,
@@ -24,6 +35,7 @@ const BadgeSliderForm = ({
 	t,
 	unit,
 	icon,
+	operator,
 	decimal = false,
 	min = 0,
 	max = 100,
@@ -49,7 +61,9 @@ const BadgeSliderForm = ({
 			step,
 		},
 	};
-
+	console.log('[NC] op: ', operator);
+	console.log('[NC] getSliderMode(operator): ', getSliderMode(operator));
+	console.log('[NC] ----- ');
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
@@ -82,6 +96,7 @@ const BadgeSliderForm = ({
 				<Slider
 					value={slider}
 					captionTextStepNumber={2}
+					mode={getSliderMode(operator)}
 					onChange={v => {
 						setValue(v);
 						setSlider(v);
