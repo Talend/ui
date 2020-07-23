@@ -34,13 +34,14 @@ const Div = styled.div(
 			mask-repeat: no-repeat;
 			mask-position: center;
 			background-color: ${theme.colors.inputPlaceholderColor};
+			// border: 1px solid ${theme.colors.inputBorderHoverColor};
 			mask-image: url(${CaretSVG});
 			pointer-events: none;
 		}
 		
 		.input--select:not(.input--multiple):hover {
 			select:not(:disabled) {
-  				box-shadow: 0 0 0 1px ${theme.colors.inputBorderHoverColor};
+  				border: 1px solid ${theme.colors.inputBorderHoverColor};
   			}
 			
 			&:after  {
@@ -49,14 +50,14 @@ const Div = styled.div(
 		}
   
 		.input--select:not(.input--multiple) select:disabled {
-			box-shadow: 0 0 0 1px ${theme.colors.inputBorderDisabledColor};
+			border: 1px solid ${theme.colors.inputBorderDisabledColor};
 			opacity: ${tokens.opacity.disabled};
 			cursor: not-allowed;
 		}
 `,
 );
 
-function Select({ children, values, ...rest }) {
+function Select({ className = '', children, values, ...rest }) {
 	function getContent() {
 		if (Array.isArray(values)) {
 			return values.map((value, index) => (
@@ -81,8 +82,8 @@ function Select({ children, values, ...rest }) {
 
 	return (
 		<Div>
-			<Field {...rest} as="select">
-				<>{getContent()}</>
+			<Field {...rest} as="select" className={`${className} select`}>
+				{getContent()}
 			</Field>
 		</Div>
 	);

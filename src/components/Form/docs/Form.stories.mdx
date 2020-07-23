@@ -1,8 +1,16 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
+import CountryCodes from './data/CountryCodes.json';
 
 import Form from '../';
 import Button from '../../Button';
+
+export function getCountryCodes() {
+    return CountryCodes.map(({ name, dial_code }) => `${name} (${dial_code})`);
+}
+export function getColumnTypes() {
+    return ['String', 'Long', 'Date', 'Boolean', 'Decimal'];
+}
 
 <Meta title="Components/Form"/>
 
@@ -14,6 +22,17 @@ import Button from '../../Button';
             <Form>
                 <Form.Fieldset legend="Form fields">
                     <Form.Text label="Input" />
+                    <Form.InputGroup label="Phone" prefix={<Form.Select label="Phone prefix" values={getCountryCodes()} value="France (+33)" style={{ width: '14rem' }}/>}>
+                        <Form.Tel label="Phone number" />
+                    </Form.InputGroup>
+                    <Form.InputGroup label="Column" suffix={<Form.Select label="Column type" values={getColumnTypes()} value="Date" style={{ width: '8rem' }}/>}>
+                        <Form.Text label="Column name" />
+                    </Form.InputGroup>
+                    <Form.InputGroup label="Amount"
+                                     prefix="$"
+                                     suffix=".00">
+                        <Form.Number label="Amount without decimal" min="1" step="1" />
+                    </Form.InputGroup>
                     <Form.File label="File" />
                     <Form.Password label="Password" />
                     <Form.Search label="Search" />

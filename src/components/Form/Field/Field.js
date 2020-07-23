@@ -126,8 +126,8 @@ const StyledField = styled.div(
   color: ${theme.colors.inputColor};
   font-size: ${tokens.fontSizes.normal};
   background: ${theme.colors.inputBackgroundColor};
+  border: 1px solid ${theme.colors.inputBorderColor};
   border-radius: ${tokens.radii.inputBorderRadius};
-  box-shadow: 0 0 0 1px ${theme.colors.inputBorderColor};
   
   ${
 		['input', 'select'].includes(as) &&
@@ -142,30 +142,38 @@ const StyledField = styled.div(
   }
    
   &:hover {
-  	box-shadow: 0 0 0 1px  ${theme.colors.inputBorderHoverColor};
+  	border: 1px solid ${theme.colors.inputBorderHoverColor};
   }
   
   &:focus {
-	box-shadow: 0 0 0 2px  ${theme.colors.inputBorderFocusColor};  	
+	border: 2px solid ${theme.colors.inputBorderFocusColor};  	
   }
   
   &:disabled {
   	cursor: not-allowed;
   	opacity: ${tokens.opacity.disabled};
-	box-shadow: 0 0 0 1px ${theme.colors.inputBorderDisabledColor};
+	border: 1px solid ${theme.colors.inputBorderDisabledColor};
   }
   
-  &:read-only {
-	box-shadow: 0 0 0 1px ${theme.colors.inputBorderDisabledColor};
-  }
+  // FIXME because select
+  // &:read-only {
+  // 	border: 1px solid ${theme.colors.inputBorderDisabledColor};
+  // }
 `,
 );
 
 const Field = React.forwardRef(({ label, before, after, loading, ...rest }, ref) => {
 	const inline = ['checkbox', 'radio'].includes(rest.type);
 	return (
-		<StyledDiv inline={inline}>
-			{label && !inline && <Label htmlFor={label}>{label}</Label>}
+		<StyledDiv
+			className={`field ${typeof rest.as === 'string' ? `field--${rest.as}` : ''}`}
+			inline={inline}
+		>
+			{label && !inline && (
+				<Label className="label" htmlFor={label}>
+					{label}
+				</Label>
+			)}
 			{before || after ? (
 				<StyledFieldGroup after={after}>
 					{before} <StyledField id={label} {...rest} ref={ref} />
