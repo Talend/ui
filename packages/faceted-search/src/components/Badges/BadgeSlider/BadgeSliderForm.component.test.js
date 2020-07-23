@@ -31,6 +31,46 @@ describe('BadgeSliderForm', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should mount a badge with a greaterThan slider', () => {
+		// Given
+		const props = {
+			id: 'customId',
+			onSubmit: jest.fn(),
+			feature: 'quality',
+			t: getDefaultT(),
+			onChange: jest.fn(),
+			operator: { name: 'greaterThan' },
+		};
+		// When
+		const wrapper = mount(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm {...props} />
+			</BadgeFacetedProvider>,
+		);
+		// Then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should mount an badge with an equals slider', () => {
+		// Given
+		const props = {
+			id: 'customId',
+			onSubmit: jest.fn(),
+			feature: 'quality',
+			t: getDefaultT(),
+			onChange: jest.fn(),
+			operator: { name: 'equals' },
+		};
+		// When
+		const wrapper = mount(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm {...props} />
+			</BadgeFacetedProvider>,
+		);
+		// Then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should mount a default badge in edit mode', () => {
 		// Given
 		const props = {

@@ -41,10 +41,9 @@ const BadgeSlider = ({
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
-	const badgeTextId = `${id}-badge-slider`;
 	const labelValue = (value || defaultValue) != null && `${value || defaultValue}${unit}`;
+	const badgeTextId = `${id}-badge-slider`;
 
-	console.log('[NC] currentOperator: ', currentOperator);
 	return (
 		<BadgeFaceted
 			badgeId={id}

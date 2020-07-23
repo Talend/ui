@@ -35,7 +35,7 @@ const BadgeSliderForm = ({
 	t,
 	unit,
 	icon,
-	operator,
+	operator = {},
 	decimal = false,
 	min = 0,
 	max = 100,
@@ -61,9 +61,7 @@ const BadgeSliderForm = ({
 			step,
 		},
 	};
-	console.log('[NC] op: ', operator);
-	console.log('[NC] getSliderMode(operator): ', getSliderMode(operator));
-	console.log('[NC] ----- ');
+
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
@@ -139,6 +137,9 @@ BadgeSliderForm.propTypes = {
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		class: PropTypes.string,
+	}),
+	operator: PropTypes.shape({
+		name: PropTypes.string,
 	}),
 };
 

@@ -87,9 +87,7 @@ export const badgeValid = {
 		operators: [
 			'equals',
 			'greaterThan',
-			'greaterThanOrEquals',
 			'lessThan',
-			'lessThanOrEquals',
 		],
 	},
 };
@@ -117,9 +115,7 @@ export const badgeEmpty = {
 		operators: [
 			'equals',
 			'greaterThan',
-			'greaterThanOrEquals',
 			'lessThan',
-			'lessThanOrEquals',
 		],
 	},
 };
@@ -147,9 +143,7 @@ export const badgeInvalid = {
 		operators: [
 			'equals',
 			'greaterThan',
-			'greaterThanOrEquals',
 			'lessThan',
-			'lessThanOrEquals',
 		],
 	},
 };
