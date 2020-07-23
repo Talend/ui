@@ -16,7 +16,7 @@ const noFormat = value => value;
 export const SLIDER_MODE = {
 	GREATER_THAN: 'greaterThan',
 	EQUALS: 'equals',
-	EXCLUSIVE: 'exclusive'
+	EXCLUSIVE: 'exclusive',
 };
 
 /**
@@ -185,7 +185,7 @@ function getCaption(
  * Function to set the tooltip
  * @param {function} captionsFormat the function to format the caption
  */
-function getHandle(captionsFormat, getTooltipContainer) {
+function getHandle(captionsFormat, getTooltipContainer, hideTooltip) {
 	// https://github.com/react-component/slider/issues/502
 	function Handle({ dragging, ...rest }) {
 		return (
@@ -193,7 +193,7 @@ function getHandle(captionsFormat, getTooltipContainer) {
 				prefixCls="rc-slider-tooltip"
 				overlay={captionsFormat(rest.value)}
 				getTooltipContainer={getTooltipContainer}
-				visible
+				visible={!hideTooltip}
 				placement="top"
 				key={rest.index}
 			>
@@ -226,15 +226,17 @@ class Slider extends React.Component {
 		captionTextStepNumber: PropTypes.number,
 		min: PropTypes.number.isRequired,
 		max: PropTypes.number.isRequired,
+		step: PropTypes.number,
 		mode: PropTypes.string,
 		captionsFormat: PropTypes.func,
 		disabled: PropTypes.bool,
+		hideTooltip: PropTypes.bool,
 	};
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			handle: getHandle(props.captionsFormat, props.getTooltipContainer),
+			handle: getHandle(props.captionsFormat, props.getTooltipContainer, props.hideTooltip),
 		};
 	}
 
@@ -248,6 +250,7 @@ class Slider extends React.Component {
 			captionsFormat,
 			min,
 			max,
+			step,
 			mode,
 			onChange,
 			disabled,
@@ -263,16 +266,20 @@ class Slider extends React.Component {
 						value={value}
 						min={min}
 						max={max}
+						step={step}
 						handle={noValue ? undefined : this.state.handle}
 						className={classnames(
 							theme['tc-slider-rc-slider'],
-							{[theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS},
-							{[theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE},
-							{[theme['tc-slider-rc-slider--track-greater-than']]: mode === SLIDER_MODE.GREATER_THAN},
+							{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
+							{ [theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE },
+							{
+								[theme['tc-slider-rc-slider--track-greater-than']]:
+									mode === SLIDER_MODE.GREATER_THAN,
+							},
 							'tc-slider-rc-slider',
-							{'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS},
-							{'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE},
-							{'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN}
+							{ 'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS },
+							{ 'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE },
+							{ 'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN },
 						)}
 						onChange={onChange}
 						disabled={disabled}
@@ -298,6 +305,7 @@ class Slider extends React.Component {
 Slider.defaultProps = {
 	min: 0,
 	max: 100,
+	step: 1,
 	captionsFormat: noFormat,
 };
 
