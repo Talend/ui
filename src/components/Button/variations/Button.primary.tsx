@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { tint, shade } from 'polished';
-import ButtonBase from '../Button';
+import ButtonBase, { ButtonProps } from '../Button';
 import tokens from '../../../tokens';
+import React from 'react';
 
-const ButtonPrimary = styled(ButtonBase)`
+const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase)`
 	color: ${tokens.colors.white};
 	background-color: ${({ theme }) => theme.colors.primaryColor};
 	border-color: ${tokens.colors.transparent};

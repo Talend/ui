@@ -1,8 +1,10 @@
+import React from 'react';
 import styled from 'styled-components';
 import { shade } from 'polished';
 import ButtonPrimary from './Button.primary';
+import { ButtonProps } from '../Button';
 
-const ButtonDestructive = styled(ButtonPrimary)`
+const ButtonDestructive: React.FC<ButtonProps> = styled(ButtonPrimary)`
 	background-color: ${({ theme }) => theme.colors.destructiveColor};
 
 	&:not([aria-disabled='true']):hover {

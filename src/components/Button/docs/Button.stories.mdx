@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from 'styled-components';
 import { action } from '@storybook/addon-actions';
 import { Col, Row } from '../../../docs';
@@ -241,6 +241,20 @@ Classic behaviors expected:
 For more information, please go to accessibility page
 
 ## Usage
+
+<Preview>
+  <Story
+    name="usage"
+    height="20rem"
+    args={{
+      text: 'Lorem ipsum',
+    }}
+  >
+    {({ text, ...rest}) => 	<Button onClick={action('clicked')}>{text}</Button>}
+  </Story>
+</Preview>
+
+<Props story="usage" />
 
 ### Buttons order
 

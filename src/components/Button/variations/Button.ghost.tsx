@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import { tint } from 'polished';
-import ButtonBase from '../Button';
+import ButtonBase, { ButtonProps } from '../Button';
 import tokens from '../../../tokens';
+import React from 'react';
 
-const ButtonSecondary = styled(ButtonBase)`
+const ButtonGhost: React.FC<ButtonProps> = styled(ButtonBase)`
 	color: ${({ theme }) => theme.colors.primaryColor};
-	background: none;
+	background-color: ${tokens.colors.transparent};
+	border: none;
 
-	&:not([aria-disabled='true']):hover {
+	&:not([aria-disabled='true']):hover,
+	&:not([aria-disabled='true']):focus {
 		background-color: ${({ theme }) => tint(0.9, theme.colors.primaryColor)};
 	}
 
@@ -16,9 +19,8 @@ const ButtonSecondary = styled(ButtonBase)`
 	}
 
 	&[aria-disabled='true'] {
-		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)};
-		border-color: ${tokens.colors.alto};
+		background-color: ${tokens.colors.transparent};
 	}
 `;
 
-export default ButtonSecondary;
+export default ButtonGhost;
