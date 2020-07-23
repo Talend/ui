@@ -53,7 +53,6 @@
     "packages/cmf-cqrs",
     "packages/cmf-webpack-plugin",
     "packages/components",
-    "packages/faceted-search",
     "packages/containers",
     "packages/datagrid",
     "packages/forms",
