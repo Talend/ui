@@ -24,6 +24,10 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## [0.11.0]
+
+- [Added](https://github.com/Talend/ui/pull/2897): Badge slider
+
 ## [0.10.3]
 
 - [fixed](https://github.com/Talend/ui/pull/2881): IE11: hide scrollbar for BasicSearch
