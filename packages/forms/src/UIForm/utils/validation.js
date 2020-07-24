@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
+import get from 'lodash/get';
 import omit from 'lodash/omit';
 import { validate } from '@talend/json-schema-form-core';
 import { getValue } from './properties';
@@ -116,7 +117,7 @@ export function validateSimple(
 	const { key, items } = mergedSchema;
 	// do not break in case we do not have the key
 	// we need to keep deepValidation
-	if (key) {
+	if (key && !get(mergedSchema, 'options.skipParentValidation', false)) {
 		results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
 	}
 

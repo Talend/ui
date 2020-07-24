@@ -25,6 +25,11 @@
         "type": "string",
         "pattern": "^\\S+@\\S+$"
       },
+      "address": {
+        "type": "object",
+        "properties": { "Address Line": { "type": "string" }, "postcode": { "type": "string" } },
+        "required": ["postcode"]
+      },
       "comment": {
         "type": "string",
         "maxLength": 20
@@ -72,6 +77,13 @@
       "key": "disabledField",
       "title": "Field (disabled mode)",
       "disabled": true
+    },
+    {
+      "key": "address",
+      "title": "Address",
+      "options": {
+        "skipParentValidation": true
+      }
     },
     {
       "key": "comment",
