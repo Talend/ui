@@ -24,6 +24,10 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## [unreleased]
+
+- [Added](https://github.com/Talend/ui/pull/2916): Embed error messages in slider facet
+
 ## [0.11.0]
 
 - [Added](https://github.com/Talend/ui/pull/2897): Badge slider
