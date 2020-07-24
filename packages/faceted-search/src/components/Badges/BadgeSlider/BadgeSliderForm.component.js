@@ -58,7 +58,13 @@ const BadgeSliderForm = ({
 	const [value, setValue] = useState(initialValue);
 	const [slider, setSlider] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
-	const error = useMemo(() => getErrorMessage(t, decimal, min, max, value), [t, decimal, min, max, value]);
+	const error = useMemo(() => getErrorMessage(t, decimal, min, max, value), [
+		t,
+		decimal,
+		min,
+		max,
+		value,
+	]);
 
 	useEffect(() => onChange(null, value), [onChange, value]);
 	const schema = {
@@ -116,9 +122,7 @@ const BadgeSliderForm = ({
 				/>
 			</RichLayout.Body>
 			<RichLayout.Footer id={`${id}-badge-footer`}>
-				<span className={theme('tc-badge-slider-form-error')}>
-					{error}
-				</span>
+				<span className={theme('tc-badge-slider-form-error')}>{error}</span>
 				<Action
 					type="submit"
 					data-feature={applyDataFeature}

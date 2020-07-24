@@ -110,7 +110,9 @@ describe('BadgeSliderForm', () => {
 			</BadgeFacetedProvider>,
 		);
 
-		expect(wrapper.find('.tc-badge-slider-form-error').first().text()).toBe('The value must be between 6 and 76');
+		expect(wrapper.find('.tc-badge-slider-form-error').first().text()).toBe(
+			'The value must be between 6 and 76',
+		);
 		expect(wrapper.find('button[type="submit"]').first().props().disabled).toEqual(true);
 	});
 
@@ -132,7 +134,9 @@ describe('BadgeSliderForm', () => {
 			</BadgeFacetedProvider>,
 		);
 
-		expect(wrapper.find('.tc-badge-slider-form-error').first().text()).toBe('Please fill with an integer value');
+		expect(wrapper.find('.tc-badge-slider-form-error').first().text()).toBe(
+			'Please fill with an integer value',
+		);
 		expect(wrapper.find('button[type="submit"]').first().props().disabled).toEqual(true);
 	});
 
