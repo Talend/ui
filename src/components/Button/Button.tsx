@@ -18,7 +18,6 @@ const BaseButton: React.FC<ButtonProps> = styled(
 	align-items: center;
 	padding: ${tokens.space.none} ${tokens.space.large};
 	min-height: ${tokens.sizes.large};
-	font-weight: ${tokens.fontWeights.normal};
 	font-family: ${tokens.fonts.sansSerif};
 	color: ${theme.colors.textColor};
 	background: ${tokens.colors.transparent};

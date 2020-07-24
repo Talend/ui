@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChildren } from 'react';
 import styled from 'styled-components';
 import { shade } from 'polished';
 import { Button } from 'reakit';
@@ -15,20 +15,19 @@ export type LinkProps = {
 	/** The title of the link */
 	title?: string;
 	/** The href of the link */
-	href?: string;
+	href?: string | null;
 	/** The target of the link */
 	target?: string;
 	/** if the link is disabled */
 	disabled?: boolean;
+
+	className?: string | null;
+	children?: ReactChildren;
 };
 
 const ButtonAsLink = styled(Button)(
 	({ theme }) => `
-	--link-color: ${theme.colors.activeColor};
-	--link-hover-color: ${shade(0.2, theme.colors.activeColor)};
-	--link-active-color: ${shade(0.4, theme.colors.activeColor)};
-	
-	color: var(--link-color);
+	color: ${theme.colors.activeColor};
 	
 	&:hover,
 	&:active {
@@ -38,18 +37,18 @@ const ButtonAsLink = styled(Button)(
 	}
 	
 	&:hover {
-		color: var(--link-hover-color);
+		color: ${shade(0.2, theme.colors.activeColor)};
 
 		.link__icon {
-			fill: var(--link-hover-color);
+			fill: ${shade(0.2, theme.colors.activeColor)};
 		}
 	}
 	
 	&:active {
-		color: var(--link-active-color);
+		color: ${shade(0.4, theme.colors.activeColor)};
 
 		.link__icon {
-			fill: var(--link-active-color);
+			fill: ${shade(0.4, theme.colors.activeColor)};
 		}
 	}
 	

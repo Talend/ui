@@ -27,7 +27,9 @@
   },
   "homepage": "https://github.com/Talend/design-system#readme",
   "dependencies": {
-    "focus-visible": "^5.1.0",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.1",
     "i18next": "^19.4.5",
     "polished": "^3.6.4",
     "prop-types": "^15.7.2",
@@ -53,6 +55,7 @@
     "@storybook/theming": "next",
     "@talend/scripts-core": "6.4.1",
     "@talend/scripts-preset-react-lib": "6.4.1",
+    "focus-outline-manager": "^1.0.2",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -62,7 +65,8 @@
   },
   "peerDependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "focus-outline-manager": "^1.0.2"
   },
   "resolutions": {
     "core-js": "3"

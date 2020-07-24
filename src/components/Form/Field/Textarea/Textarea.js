@@ -3,7 +3,7 @@ import Field from '../Field';
 
 function Textarea({ children, ...rest }) {
 	return (
-		<Field {...rest} as="textarea">
+		<Field as="textarea" {...rest}>
 			{children}
 		</Field>
 	);

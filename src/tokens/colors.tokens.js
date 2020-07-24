@@ -21,6 +21,7 @@ export const palette = {
 	stTropaz: '#236192',
 	lochmara: '#0675C1',
 	scooter: '#66BDFF',
+	paleCyan: '#91D1ED',
 	rioGrande: '#82BD41',
 	chesnutRose: '#E96065',
 	jaffa: '#EA8330',

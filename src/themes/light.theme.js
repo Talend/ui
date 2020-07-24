@@ -1,4 +1,5 @@
 import tokens from '../tokens';
+import { tint } from 'polished';
 
 const colors = tokens.colors;
 
@@ -20,6 +21,8 @@ export default {
 		inputBackgroundColor: colors.white,
 		inputGroupColor: colors.doveGray,
 		inputGroupBackgroundColor: colors.gallery,
+		inputGroupInteractiveColor: colors.lochmara,
+		inputGroupInteractiveBackgroundColor: tint(0.9, colors.stTropaz),
 		inputRadioBackgroundColor: colors.alto,
 		inputBackgroundReadOnlyColor: colors.transparent,
 		inputBorderColor: colors.darkSilver,

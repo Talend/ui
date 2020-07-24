@@ -1,9 +1,10 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
-import CountryCodes from './data/CountryCodes.json';
 
 import Form from '../';
 import Button from '../../Button';
+
+import CountryCodes from './data/CountryCodes.json';
 
 export function getCountryCodes() {
     return CountryCodes.map(({ name, dial_code }) => `${name} (${dial_code})`);
@@ -25,7 +26,7 @@ export function getColumnTypes() {
                     <Form.InputGroup label="Phone" prefix={<Form.Select label="Phone prefix" values={getCountryCodes()} value="France (+33)" style={{ width: '14rem' }}/>}>
                         <Form.Tel label="Phone number" />
                     </Form.InputGroup>
-                    <Form.InputGroup label="Column" suffix={<Form.Select label="Column type" values={getColumnTypes()} value="Date" style={{ width: '8rem' }}/>}>
+                    <Form.InputGroup label="Column" suffix={<Form.Select label="Column type" values={getColumnTypes()} value="Date" />}>
                         <Form.Text label="Column name" />
                     </Form.InputGroup>
                     <Form.InputGroup label="Amount"
@@ -42,10 +43,9 @@ export function getColumnTypes() {
                     <Form.Checkbox label="Checkbox" checked />
                     <Form.Radio label="Radio" checked />
                     <Form.Switch label="Switch" checked />
-                    <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} value="both"/>
                 </Form.Fieldset>
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2rem 0'}}>
-                    <Button.Ghost onClick={action('clicked')}>Reset</Button.Ghost>
+                    <Button.Secondary type="reset" onClick={action('clicked')}>Reset</Button.Secondary>
                     <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
                 </div>
             </Form>

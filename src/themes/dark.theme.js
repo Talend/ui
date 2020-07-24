@@ -1,3 +1,4 @@
+import { tint } from 'polished';
 import { light } from '.';
 import tokens from '../tokens';
 const colors = tokens.colors;
@@ -7,6 +8,8 @@ export default {
 	colors: {
 		...light.colors,
 
+		primaryColor: colors.lochmara,
+
 		textColor: colors.white,
 		focusColor: colors.moodyPurple,
 		activeColor: colors.scooter,
@@ -14,12 +17,16 @@ export default {
 
 		inputColor: colors.white,
 		inputPlaceholderColor: colors.alto,
-		inputBackgroundColor: colors.black,
+		inputBackgroundColor: tint(0.1, colors.black),
+		inputGroupColor: colors.white,
+		inputGroupBackgroundColor: tint(0.3, colors.black),
+		inputGroupInteractiveColor: colors.paleCyan,
+		inputGroupInteractiveBackgroundColor: tint(0.2, colors.black),
 		inputRadioBackgroundColor: colors.darkSilver,
 		inputBackgroundReadOnlyColor: colors.transparent,
-		inputBorderColor: colors.alto,
+		inputBorderColor: tint(0.1, colors.black),
 		inputBorderHoverColor: colors.white,
-		inputBorderFocusColor: colors.moodyPurple,
+		inputBorderFocusColor: colors.paleCyan,
 		inputBorderDisabledColor: colors.silverChalice,
 		inputBorderReadOnlyColor: colors.silverChalice,
 	},

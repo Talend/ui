@@ -10,7 +10,27 @@ import tokens from '../../../../tokens';
 
 const FileField = styled.div(
 	({ theme }) => `
+	width: 100%;
 	
+	.input {
+		&, 
+		&::-webkit-file-upload-button {
+			height: 100%;
+			width: 100%;
+			cursor: pointer; 
+		}
+		
+		&--filled {				
+			pointer-events: none;
+		}
+		
+		&:focus + .input-file__text {
+			border: 2px solid ${theme.colors.inputBorderFocusColor}; 
+			border-radius: ${tokens.radii.inputBorderRadius};
+			outline: 0.3rem solid ${theme.colors.focusColor};
+		}
+	}
+
 	.input-file {
 		position: relative;
 		border: 1px dashed ${theme.colors.inputBorderColor};
@@ -84,10 +104,6 @@ const FileField = styled.div(
 			min-height: 3.2rem;
 			border: none;
 			
-			&:focus {
-			  	outline: none;
-			}
-			
 			svg {
 				position: static;
 				margin:0;
@@ -103,24 +119,6 @@ const FileField = styled.div(
 					fill: ${shade(0.25, theme.colors.activeColor)};
 				}
 			}
-		}
-	}
-	
-	.input {
-		&, 
-		&::-webkit-file-upload-button {
-			height: 100%;
-			cursor: pointer; 
-		}
-		
-		&--filled {				
-			pointer-events: none;
-		}
-		
-		&:focus + .input-file__text {
-			border: 2px solid ${theme.colors.inputBorderFocusColor}; 
-			border-radius: ${tokens.radii.inputBorderRadius};
-			outline: 0.3rem solid ${theme.colors.focusColor};
 		}
 	}
 `,
@@ -206,7 +204,7 @@ function InputFile(props) {
 						<VisuallyHidden>You have selected:</VisuallyHidden>
 						<ol className="preview__list">
 							{files.map((file, index) => (
-								<li className="preview__list-item" key={index}>
+								<li key={index} className="preview__list-item">
 									{typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`}
 								</li>
 							))}

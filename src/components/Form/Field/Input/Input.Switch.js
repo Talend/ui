@@ -89,7 +89,6 @@ const DivFlex = styled.div(
 		padding: 0 1rem;
 		color: ${theme.colors.textColor}
 		font-size: ${tokens.fontSizes.small};
-		font-weight: ${tokens.fontWeights.normal};		
     	opacity: ${tokens.opacity.disabled};
 		user-select: none; 		
     	cursor: pointer;
@@ -180,7 +179,7 @@ function Switch({ label, value, values, checked, disabled, readOnly, ...rest }) 
 	let radioWidths = [];
 
 	useEffect(() => {
-		radioWidths = radio.items.map((item) => {
+		radioWidths = radio.items.map(item => {
 			const radio = item.ref.current;
 			return radio.scrollWidth;
 		});

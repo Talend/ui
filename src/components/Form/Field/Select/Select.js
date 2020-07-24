@@ -1,64 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import Field from '../Field';
 
-import CaretSVG from './../../../../icons/caret.svg';
-import tokens from '../../../../tokens';
+import * as S from './Select.style';
 
-const Div = styled.div(
-	({ theme }) => `
-		.input--select {
-			position: relative;
-		}
-		
-		.input--select:not(.input--multiple) select {
-			padding-right: 3.2rem;
-			appearance: none;
-			overflow: auto;
-			cursor: pointer;
-		}
+function Select({ className = '', children, values, value: initialValue, multiple, ...rest }) {
+	const [value, setValue] = React.useState(initialValue);
 
-		.input--select.input--multiple select {
-			overflow: auto;
+	function onChange(event) {
+		let value = event.target.value;
+		if (multiple) {
+			const options = event.target.options;
+			value = [];
+			options.forEach(option => {
+				if (option.selected) {
+					value.push(option.value);
+				}
+			});
 		}
+		setValue(() => value);
+		rest.onChange && rest.onChange(event);
+	}
 
-		.input--select:not(.input--multiple):after {
-			display: flex;
-			content: '';
-			top: 0;
-			bottom: 0;
-			right: 0;
-			position: absolute;
-			width: ${tokens.sizes.smallerr};
-			margin: 0 1rem;
-			mask-repeat: no-repeat;
-			mask-position: center;
-			background-color: ${theme.colors.inputPlaceholderColor};
-			// border: 1px solid ${theme.colors.inputBorderHoverColor};
-			mask-image: url(${CaretSVG});
-			pointer-events: none;
-		}
-		
-		.input--select:not(.input--multiple):hover {
-			select:not(:disabled) {
-  				border: 1px solid ${theme.colors.inputBorderHoverColor};
-  			}
-			
-			&:after  {
-  				background-color: ${theme.colors.inputBorderFocusColor};
-			}
-		}
-  
-		.input--select:not(.input--multiple) select:disabled {
-			border: 1px solid ${theme.colors.inputBorderDisabledColor};
-			opacity: ${tokens.opacity.disabled};
-			cursor: not-allowed;
-		}
-`,
-);
-
-function Select({ className = '', children, values, ...rest }) {
-	function getContent() {
+	function getOptions() {
 		if (Array.isArray(values)) {
 			return values.map((value, index) => (
 				<option key={index} value={value}>
@@ -81,11 +45,18 @@ function Select({ className = '', children, values, ...rest }) {
 	}
 
 	return (
-		<Div>
-			<Field {...rest} as="select" className={`${className} select`}>
-				{getContent()}
+		<S.FieldWrapper>
+			<Field
+				as="select"
+				{...rest}
+				className={`${className} select`}
+				value={value}
+				multiple={multiple}
+				onChange={onChange}
+			>
+				{getOptions()}
 			</Field>
-		</Div>
+		</S.FieldWrapper>
 	);
 }
 

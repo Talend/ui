@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { addDecorator, addParameters } from '@storybook/react';
 import { withContexts } from '@storybook/addon-contexts/react';
-import 'focus-visible';
+import 'focus-outline-manager';
 
 import { DocsContainer } from './docs/DocsContainer';
 import { contexts } from './contexts';
@@ -28,15 +28,15 @@ const GlobalStyle = createGlobalStyle(
 	.sb-show-main,
 	.sbdocs.sbdocs-preview {
 		background: ${theme.colors.backgroundColor};
-		
+	}
+
+	:focus, 
+	button:focus {
+		outline: 0.3rem solid ${theme.colors.focusColor};
 	}
 	
-	.js-focus-visible :focus:not(.focus-visible) {
-  		outline: none;
-	}
-	
-	.focus-visible {
-		outline: 0.3rem solid ${theme.colors.focusColor} !important;
+	.focus-outline-hidden *:focus {
+		outline: none;
 	}
 `,
 );
