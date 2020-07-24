@@ -79,7 +79,6 @@ export const badgeValid = {
 		},
 		unit: '%',
 		defaultValue: 50,
-		errorMessage: 'The value must be between 0 and 100',
 	},
 	metadata: {
 		badgePerFacet: 'N',
@@ -106,8 +105,6 @@ export const badgeEmpty = {
 			class: 'empty',
 		},
 		unit: '%',
-		defaultValue: 50,
-		errorMessage: 'The value must be between 0 and 100',
 	},
 	metadata: {
 		badgePerFacet: 'N',
@@ -135,7 +132,6 @@ export const badgeInvalid = {
 		},
 		unit: '%',
 		defaultValue: 50,
-		errorMessage: 'The value must be between 0 and 100',
 	},
 	metadata: {
 		badgePerFacet: 'N',

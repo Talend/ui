@@ -91,6 +91,55 @@ describe('BadgeSliderForm', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should mount a default badge in error mode (oor)', () => {
+		// Given
+		const props = {
+			id: 'customId',
+			onSubmit: jest.fn(),
+			feature: 'quality',
+			value: 666,
+			min: 6,
+			max: 76,
+			t: getDefaultT(),
+			onChange: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm {...props} />
+			</BadgeFacetedProvider>,
+		);
+
+		expect(wrapper.find('.tc-badge-slider-form-error').first().text()).toBe(
+			'The value must be between 6 and 76',
+		);
+		expect(wrapper.find('button[type="submit"]').first().props().disabled).toEqual(true);
+	});
+
+	it('should mount a default badge in error mode (decimal)', () => {
+		// Given
+		const props = {
+			id: 'customId',
+			onSubmit: jest.fn(),
+			feature: 'quality',
+			value: 5.6,
+			decimal: false,
+			t: getDefaultT(),
+			onChange: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm {...props} />
+			</BadgeFacetedProvider>,
+		);
+
+		expect(wrapper.find('.tc-badge-slider-form-error').first().text()).toBe(
+			'Please fill with an integer value',
+		);
+		expect(wrapper.find('button[type="submit"]').first().props().disabled).toEqual(true);
+	});
+
 	it('should mount a badge with some other values', () => {
 		// Given
 		const onSubmit = jest.fn();
