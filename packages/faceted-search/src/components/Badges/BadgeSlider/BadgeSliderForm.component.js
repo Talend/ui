@@ -12,9 +12,6 @@ import cssModule from './BadgeSlider.scss';
 
 const theme = getTheme(cssModule);
 
-const getValidator = decimal => value =>
-	value >= 0 && value <= 100 && !(!decimal && value % 1 !== 0);
-
 const getSliderMode = ({ name }) => {
 	switch (name) {
 		case 'greaterThan':
@@ -26,11 +23,26 @@ const getSliderMode = ({ name }) => {
 	}
 };
 
+const getErrorMessage = (t, decimal, min, max, value) => {
+	if (!decimal && value % 1 !== 0) {
+		return t('FACETED_SEARCH_VALUE_SHOULD_BE_AN_INTEGER', {
+			defaultValue: 'Please fill with an integer value',
+		});
+	}
+	if (value < min || value > max) {
+		return t('FACETED_SEARCH_VALUES_OUT_OF_RANGE', {
+			defaultValue: 'The value must be between {{min}} and {{max}}',
+			min,
+			max,
+		});
+	}
+	return null;
+};
+
 const BadgeSliderForm = ({
 	id,
 	onChange,
 	onSubmit,
-	value: initialValue = 0,
 	feature,
 	t,
 	unit,
@@ -40,17 +52,15 @@ const BadgeSliderForm = ({
 	min = 0,
 	max = 100,
 	step = 1,
-	errorMessage = '',
+	value: initialValue = min,
 }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
-	const validator = useMemo(() => getValidator(decimal), [decimal]);
 	const [value, setValue] = useState(initialValue);
 	const [slider, setSlider] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
+	const error = useMemo(() => getErrorMessage(t, decimal, min, max, value), [t, decimal, min, max, value]);
 
 	useEffect(() => onChange(null, value), [onChange, value]);
-
-	const isValid = validator(value);
 	const schema = {
 		autoFocus: true,
 		disabled: false,
@@ -107,14 +117,14 @@ const BadgeSliderForm = ({
 			</RichLayout.Body>
 			<RichLayout.Footer id={`${id}-badge-footer`}>
 				<span className={theme('tc-badge-slider-form-error')}>
-					{!isValid ? errorMessage : null}
+					{error}
 				</span>
 				<Action
 					type="submit"
 					data-feature={applyDataFeature}
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
-					disabled={!isValid}
+					disabled={!!error}
 				/>
 			</RichLayout.Footer>
 		</form>
@@ -133,7 +143,6 @@ BadgeSliderForm.propTypes = {
 	min: PropTypes.number,
 	max: PropTypes.number,
 	step: PropTypes.number,
-	errorMessage: PropTypes.string,
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		class: PropTypes.string,
