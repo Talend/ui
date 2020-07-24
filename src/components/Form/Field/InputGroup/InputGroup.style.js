@@ -41,6 +41,21 @@ export const InputGroup = styled.div(
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
+
+	.input-group__item--prefix .input--select:not(.input--multiple):hover select:not(:disabled) {
+		border-right: none;
+	}	
+	
+	.input-group__item--suffix .input--select:not(.input--multiple):hover select:not(:disabled) {
+		border-left: none;		
+	}	
+	
+	&:hover {
+		${Span},
+		 .input-group__item--input .input > *{
+			border-color: ${theme.colors.inputBorderHoverColor};
+		}
+	}
 `,
 );
 export const InputGroupLabel = styled.span`
