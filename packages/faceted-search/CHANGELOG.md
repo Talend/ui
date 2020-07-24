@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+## [0.12.0]
+
 - [Added](https://github.com/Talend/ui/pull/2916): Embed error messages in slider facet
 
 ## [0.11.0]
