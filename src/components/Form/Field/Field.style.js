@@ -21,21 +21,18 @@ export const Field = styled.div(
 		color: ${theme.colors.textColor};
 	}
 
-	.field-group {
-		&--loading {
-			position: relative;	
-			
-			${Field} {
-				padding-right: 3.2rem;
-			}
-			
-			.loading {
-				position: absolute;
-				top: 0;
-				right: 0;
-				width: 3.2rem;
-    			height: 3.2rem;	
-			}
+	.field__group--loading {
+		.field__control {
+			padding-right: 3.2rem;
+		}
+		
+		.field__loading {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: auto;
+			width: 3.2rem;
+			height: 3.2rem;	
 		}
 	}
 	
