@@ -44,9 +44,7 @@ const BadgeSlider = ({
 	const numericValue = value != null ? value : defaultValue;
 	const labelValue = numericValue != null && `${numericValue}${unit}`;
 	const badgeTextId = `${id}-badge-slider`;
-	console.log('[NC] BadgeSlider.defaultValue: ', defaultValue);
-	console.log('[NC] BadgeSlider.value: ', value);
-	console.log('[NC] ---- ');
+
 	return (
 		<BadgeFaceted
 			badgeId={id}
