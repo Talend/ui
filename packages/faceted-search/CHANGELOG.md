@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+## [0.12.1]
+
 - [Fixed](https://github.com/Talend/ui/pull/2919): Fallback to default for slider facet
 
 ## [0.12.0]
