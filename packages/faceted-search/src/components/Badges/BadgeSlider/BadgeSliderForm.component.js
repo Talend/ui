@@ -23,6 +23,8 @@ const getSliderMode = ({ name }) => {
 	}
 };
 
+const getValidator = (decimal, min, max) => v =>
+	(v != null && (v < min || v > max)) || (!decimal && v % 1 !== 0);
 const getErrorMessage = (t, decimal, min, max, value) => {
 	if (!decimal && value % 1 !== 0) {
 		return t('FACETED_SEARCH_VALUE_SHOULD_BE_AN_INTEGER', {
@@ -53,18 +55,21 @@ const BadgeSliderForm = ({
 	max = 100,
 	step = 1,
 	value: initialValue = min,
+	defaultValue,
 }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const [value, setValue] = useState(initialValue);
 	const [slider, setSlider] = useState(initialValue);
+	const [input, setInput] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
-	const error = useMemo(() => getErrorMessage(t, decimal, min, max, value), [
+	const error = useMemo(() => getErrorMessage(t, decimal, min, max, input), [
 		t,
 		decimal,
 		min,
 		max,
-		value,
+		input,
 	]);
+	const isErroneous = useMemo(() => getValidator(decimal, min, max), [decimal, min, max]);
 
 	useEffect(() => onChange(null, value), [onChange, value]);
 	const schema = {
@@ -86,14 +91,18 @@ const BadgeSliderForm = ({
 					{editing ? (
 						<Text
 							id={`${id}-input`}
-							onChange={(_, { value: v }) => setValue(v)}
+							onChange={(_, { value: v }) => {
+								setInput(v);
+								setValue(!isErroneous(v) ? v : defaultValue);
+							}}
 							onFinish={() => {
+								setInput(value);
 								setValue(value);
 								setSlider(value);
 								setEditing(false);
 							}}
 							schema={schema}
-							value={value}
+							value={input}
 						/>
 					) : (
 						<span className={theme('tc-badge-value-unit')} onClick={() => setEditing(true)}>
@@ -113,6 +122,7 @@ const BadgeSliderForm = ({
 					mode={getSliderMode(operator)}
 					onChange={v => {
 						setValue(v);
+						setInput(v);
 						setSlider(v);
 					}}
 					min={min}
@@ -147,6 +157,7 @@ BadgeSliderForm.propTypes = {
 	min: PropTypes.number,
 	max: PropTypes.number,
 	step: PropTypes.number,
+	defaultValue: PropTypes.number,
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		class: PropTypes.string,

@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+- [Fixed](https://github.com/Talend/ui/pull/2919): Fallback to default for slider facet
+
 ## [0.12.0]
 
 - [Added](https://github.com/Talend/ui/pull/2916): Embed error messages in slider facet
