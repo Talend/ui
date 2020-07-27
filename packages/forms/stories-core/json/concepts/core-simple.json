@@ -27,8 +27,17 @@
       },
       "address": {
         "type": "object",
-        "properties": { "Address Line": { "type": "string" }, "postcode": { "type": "string" } },
-        "required": ["postcode"]
+        "properties": {
+          "addressLine": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "postcode"
+        ]
       },
       "comment": {
         "type": "string",
@@ -81,9 +90,16 @@
     {
       "key": "address",
       "title": "Address",
-      "options": {
-        "skipParentValidation": true
-      }
+      "items": [
+        {
+          "key": "address.addressLine",
+          "title": "Address Line"
+        },
+        {
+          "key": "address.postcode" ,
+          "title": "postcode"
+        }
+      ]
     },
     {
       "key": "comment",
