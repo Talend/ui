@@ -23,6 +23,8 @@ const getSliderMode = ({ name }) => {
 	}
 };
 
+const getValidator = (decimal, min, max) => v =>
+	(v != null && (v < min || v > max)) || (!decimal && v % 1 !== 0);
 const getErrorMessage = (t, decimal, min, max, value) => {
 	if (!decimal && value % 1 !== 0) {
 		return t('FACETED_SEARCH_VALUE_SHOULD_BE_AN_INTEGER', {
@@ -60,8 +62,14 @@ const BadgeSliderForm = ({
 	const [slider, setSlider] = useState(initialValue);
 	const [input, setInput] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
-	const error = useMemo(() => getErrorMessage(t, decimal, min, max, input), [t, decimal, min, max, input]);
-
+	const error = useMemo(() => getErrorMessage(t, decimal, min, max, input), [
+		t,
+		decimal,
+		min,
+		max,
+		input,
+	]);
+	const isErroneous = useMemo(() => getValidator(decimal, min, max), [decimal, min, max]);
 
 	useEffect(() => onChange(null, value), [onChange, value]);
 	const schema = {
@@ -82,19 +90,19 @@ const BadgeSliderForm = ({
 					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (
 						<Text
-								id={`${id}-input`}
-								onChange={(_, { value: v }) => {
-									setInput(v);
-									setValue(v != null && !error ? v : defaultValue);
-								}}
-								onFinish={() => {
-									setInput(value);
-									setValue(value);
-									setSlider(value);
-									setEditing(false);
-								}}
-								schema={schema}
-								value={input}
+							id={`${id}-input`}
+							onChange={(_, { value: v }) => {
+								setInput(v);
+								setValue(!isErroneous(v) ? v : defaultValue);
+							}}
+							onFinish={() => {
+								setInput(value);
+								setValue(value);
+								setSlider(value);
+								setEditing(false);
+							}}
+							schema={schema}
+							value={input}
 						/>
 					) : (
 						<span className={theme('tc-badge-value-unit')} onClick={() => setEditing(true)}>
