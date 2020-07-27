@@ -15,10 +15,10 @@ export const Field = styled.div(
 	width: 100%;
   	min-width: 8rem;
   	max-width: 70rem;
+	color: ${theme.colors.textColor};
 
 	label {
 		font-size: ${tokens.fontSizes.small};
-		color: ${theme.colors.textColor};
 	}
 
 	.field__group--loading {

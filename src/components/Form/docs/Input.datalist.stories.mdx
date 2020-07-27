@@ -1,0 +1,59 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Datalist" component={Form.Datalist} />
+
+# Datalist
+
+Datalist is a set of options that represent the permissible or recommended options available to choose from within other controls.
+
+## Zoning
+
+## Style
+
+## States
+
+### Default
+
+<Preview>
+    <Story name="default">
+        <Form.Datalist label="Datalist" values={['', 'foo', 'bar']}/>
+    </Story>
+    <Story name="disabled">
+        <Form.Datalist label="Disabled Datalist" disabled  values={['', 'foo', 'bar']}/>
+    </Story>
+    <Story name="read-only">
+        <Form.Datalist label="Read-Only Datalist" readOnly value="foo" values={['', 'foo', 'bar']} />
+    </Story>
+</Preview>
+
+## Content
+
+## Interaction
+
+## Code
+
+<Preview>
+  <Story
+    name="usage"
+    args={{
+      label: 'Datalist',
+      id: 1234,
+      values: ['apple', 'orange', 'banana'],
+    }}
+  >
+    {(props) => <Form.Datalist {...props} />}
+  </Story>
+</Preview>
+
+<Props story="usage" />
+
+## Accessibility
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 27/07/2020 | Fabien Rassinier  | Init page   |
+
