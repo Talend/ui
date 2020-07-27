@@ -60,8 +60,13 @@ const BadgeSliderForm = ({
 	const [slider, setSlider] = useState(initialValue);
 	const [input, setInput] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
-	const error = useMemo(() => getErrorMessage(t, decimal, min, max, input), [t, decimal, min, max, input]);
-
+	const error = useMemo(() => getErrorMessage(t, decimal, min, max, input), [
+		t,
+		decimal,
+		min,
+		max,
+		input,
+	]);
 
 	useEffect(() => onChange(null, value), [onChange, value]);
 	const schema = {
@@ -82,19 +87,19 @@ const BadgeSliderForm = ({
 					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (
 						<Text
-								id={`${id}-input`}
-								onChange={(_, { value: v }) => {
-									setInput(v);
-									setValue(v != null && !error ? v : defaultValue);
-								}}
-								onFinish={() => {
-									setInput(value);
-									setValue(value);
-									setSlider(value);
-									setEditing(false);
-								}}
-								schema={schema}
-								value={input}
+							id={`${id}-input`}
+							onChange={(_, { value: v }) => {
+								setInput(v);
+								setValue(v != null && !error ? v : defaultValue);
+							}}
+							onFinish={() => {
+								setInput(value);
+								setValue(value);
+								setSlider(value);
+								setEditing(false);
+							}}
+							schema={schema}
+							value={input}
 						/>
 					) : (
 						<span className={theme('tc-badge-value-unit')} onClick={() => setEditing(true)}>
