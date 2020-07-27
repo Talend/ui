@@ -14,12 +14,14 @@
 
 ### Common pattern
 
-There is a common pattern to all fields : a form-group, a label (optional), the field, a description (optional), an error message if invalid.
+There is a common pattern to all fields : a form-group, a label (optional), a field hint - action icon with tooltip (optional), the field, a description (optional), an error message if invalid.
 
 Those elements are managed by the `<FieldTemplate>` component. Just use it in your render method. All its props can be found in your field `props` or `props.schema`.
 
 ```javascript
 <FieldTemplate
+    id={id}
+    hint={schema.hint}
     description={description}
     errorMessage={errorMessage}
     id={id}

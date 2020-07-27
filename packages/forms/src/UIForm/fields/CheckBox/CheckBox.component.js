@@ -11,6 +11,8 @@ export default function CheckBox(props) {
 
 	return (
 		<FieldTemplate
+			id={id}
+			hint={schema.hint}
 			className={schema.className}
 			description={schema.description}
 			descriptionId={descriptionId}
@@ -43,6 +45,12 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				className: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 			className: PropTypes.string,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,

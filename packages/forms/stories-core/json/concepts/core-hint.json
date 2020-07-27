@@ -1,0 +1,118 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "properties": {
+      "checkboxes": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "foo",
+            "bar",
+            "fuzz",
+            "qux"
+          ]
+        }
+      },
+      "datalist": {
+        "type": "string",
+        "enum": ["Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit"]
+      },
+      "radios": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "text": {
+        "type": "string"
+      },
+      "textarea": {
+        "type": "string"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "checkboxes",
+      "title": "Checkboxes with hint",
+      "titleMap": {
+        "foo": "My custom foo title",
+        "bar": "My custom bar title",
+        "fuzz": "My custom fuzz title",
+        "qux": "my custom qux title"
+      },
+      "hint": {
+        "overlayComponent": "Explanation what is this checkbox for"
+      }
+    },
+    {
+      "key": "datalist",
+      "title": "Datalist with hint",
+      "widget": "datalist",
+      "titleMap": [
+        {
+          "name": "My Apple",
+          "value": "Apple"
+        },
+        {
+          "name": "My Pineapple",
+          "value": "Pine[apple]"
+        },
+        {
+          "name": "My Banana",
+          "value": "Banana"
+        },
+        {
+          "name": "My Cherry",
+          "value": "Cher[ry"
+        },
+        {
+          "name": "My Lemon",
+          "value": "Lemo}n"
+        },
+        {
+          "name": "My Grapefruit",
+          "value": "Grapefruit"
+        }
+      ],
+      "hint": {
+        "overlayComponent": "Explanation what is this datalist for, and what it's value means"
+      }
+    },
+    {
+      "key": "radios",
+      "title": "Radios with hint and custom icon",
+      "titleMap": {
+        "foo": "My custom foo title",
+        "bar": "My custom bar title",
+        "fuzz": "My custom fuzz title",
+        "qux": "my custom qux title"
+      },
+      "widget": "radios",
+      "hint": {
+        "icon": "talend-aws-kinesis",
+        "overlayComponent": "Explanation what is these radios for"
+      }
+    },
+    {
+      "key": "text",
+      "title": "Simple text with hint",
+      "hint": {
+        "overlayComponent": "Explanation what does this text field mean"
+      }
+    },
+    {
+      "key": "textarea",
+      "widget": "textarea",
+      "title": "Text area with hint",
+      "hint": {
+        "overlayComponent": "Explanation meaning of the field (bottom placement)",
+        "overlayPlacement": "bottom"
+      }
+    }
+  ]
+}

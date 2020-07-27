@@ -43,6 +43,34 @@ exports[`FieldTemplate should render invalid className 1`] = `
 </div>
 `;
 
+exports[`FieldTemplate should render with hint 1`] = `
+<OverlayTrigger
+  overlayComponent={
+    <span>
+      Tooltip content, which helps to understand what is the purpose of this field
+    </span>
+  }
+  overlayId="myAwesomeField-hint-overlay"
+  overlayPlacement="top"
+  preventScrolling={false}
+>
+  <Button
+    active={false}
+    aria-haspopup={true}
+    aria-label="Display the input My awesome label hint"
+    block={false}
+    bsClass="btn"
+    bsStyle="link"
+    disabled={false}
+    id="myAwesomeField-hint"
+  >
+    <Icon
+      name="talend-info-circle"
+    />
+  </Button>
+</OverlayTrigger>
+`;
+
 exports[`FieldTemplate should render with label after 1`] = `
 <div
   className="form-group theme-template"
