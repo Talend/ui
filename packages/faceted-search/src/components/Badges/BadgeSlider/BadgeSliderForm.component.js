@@ -84,11 +84,6 @@ const BadgeSliderForm = ({
 						<Text
 								id={`${id}-input`}
 								onChange={(_, { value: v }) => {
-									console.log('[NC]  v: ', v);
-									console.log('[NC] error: ', error);
-									console.log('[NC] v != null: ',  v != null);
-									console.log('[NC] v != null && !error ? v : defaultValue: ', v != null && !error ? v : defaultValue);
-									console.log('[NC] --- ');
 									setInput(v);
 									setValue(v != null && !error ? v : defaultValue);
 								}}
