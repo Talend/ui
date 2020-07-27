@@ -60,18 +60,21 @@ const configuration = {
 function TableOfContents() {
 	const [headings, setHeadings] = React.useState([]);
 
-	React.useLayoutEffect(() => {
+	React.useEffect(() => {
 		// @ts-ignore
 		setHeadings(() => [...document.getElementsByTagName('h2')]);
 
 		tocbot.init({
 			...configuration,
-			onClick: (event) => {
+			onClick: event => {
 				event.preventDefault();
 				const hash = event.currentTarget.hash;
 				const id = hash?.substr(1);
 				const element = document.getElementById(id);
-				element?.focus();
+				setTimeout(() => {
+					element?.focus();
+					element?.scrollIntoView();
+				}, 400);
 			},
 		});
 
