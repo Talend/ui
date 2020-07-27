@@ -53,18 +53,15 @@ const BadgeSliderForm = ({
 	max = 100,
 	step = 1,
 	value: initialValue = min,
+	defaultValue,
 }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const [value, setValue] = useState(initialValue);
 	const [slider, setSlider] = useState(initialValue);
+	const [input, setInput] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
-	const error = useMemo(() => getErrorMessage(t, decimal, min, max, value), [
-		t,
-		decimal,
-		min,
-		max,
-		value,
-	]);
+	const error = useMemo(() => getErrorMessage(t, decimal, min, max, input), [t, decimal, min, max, input]);
+
 
 	useEffect(() => onChange(null, value), [onChange, value]);
 	const schema = {
@@ -85,15 +82,24 @@ const BadgeSliderForm = ({
 					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (
 						<Text
-							id={`${id}-input`}
-							onChange={(_, { value: v }) => setValue(v)}
-							onFinish={() => {
-								setValue(value);
-								setSlider(value);
-								setEditing(false);
-							}}
-							schema={schema}
-							value={value}
+								id={`${id}-input`}
+								onChange={(_, { value: v }) => {
+									console.log('[NC]  v: ', v);
+									console.log('[NC] error: ', error);
+									console.log('[NC] v != null: ',  v != null);
+									console.log('[NC] v != null && !error ? v : defaultValue: ', v != null && !error ? v : defaultValue);
+									console.log('[NC] --- ');
+									setInput(v);
+									setValue(v != null && !error ? v : defaultValue);
+								}}
+								onFinish={() => {
+									setInput(value);
+									setValue(value);
+									setSlider(value);
+									setEditing(false);
+								}}
+								schema={schema}
+								value={input}
 						/>
 					) : (
 						<span className={theme('tc-badge-value-unit')} onClick={() => setEditing(true)}>
@@ -113,6 +119,7 @@ const BadgeSliderForm = ({
 					mode={getSliderMode(operator)}
 					onChange={v => {
 						setValue(v);
+						setInput(v);
 						setSlider(v);
 					}}
 					min={min}
@@ -147,6 +154,7 @@ BadgeSliderForm.propTypes = {
 	min: PropTypes.number,
 	max: PropTypes.number,
 	step: PropTypes.number,
+	defaultValue: PropTypes.number,
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		class: PropTypes.string,
