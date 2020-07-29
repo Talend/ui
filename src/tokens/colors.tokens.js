@@ -10,7 +10,6 @@ const rioGrande = '#82BD41';
 const lightningYellow = '#F3C446';
 const jaffa = '#EA8330';
 const coral = '#FF6D70';
-const chesnutRose = '#E96065';
 
 export const brand = {
 	coral,
@@ -20,11 +19,12 @@ export const brand = {
 };
 
 export const palette = {
+	paleCyan,
 	deepBlue,
 	rioGrande,
 	lightningYellow,
 	jaffa,
-	chesnutRose,
+	coral,
 };
 
 export const swatches = {};
@@ -59,8 +59,6 @@ export const grayscale = {
 	gray50: tint(0.95, black),
 	gray0: tint(1, black),
 };
-
-console.log(swatches);
 
 export default {
 	...brand,

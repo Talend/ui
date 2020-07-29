@@ -10,12 +10,28 @@ const theme: DefaultTheme = {
 		informationColor: colors.lochmara,
 		warningColor: colors.jaffa500,
 		successColor: colors.rioGrande500,
-		destructiveColor: colors.chesnutRose500,
+		destructiveColor: colors.coral600,
 
 		textColor: colors.gray0,
 		focusColor: colors.moodyPurple,
 		activeColor: colors.paleCyan,
 		backgroundColor: colors.gray900,
+
+		buttonPrimaryColor: colors.gray900,
+		buttonPrimaryBackgroundColor: colors.paleCyan500,
+		buttonPrimaryHoverBackgroundColor: colors.paleCyan400,
+		buttonPrimaryActiveBackgroundColor: colors.paleCyan300,
+
+		buttonDestructiveBackgroundColor: colors.coral400,
+		buttonDestructiveHoverBackgroundColor: colors.coral300,
+		buttonDestructiveActiveBackgroundColor: colors.coral200,
+
+		buttonSecondaryBackgroundColor: colors.transparent,
+		buttonSecondaryHoverBackgroundColor: colors.paleCyan900,
+		buttonSecondaryActiveBackgroundColor: colors.paleCyan900,
+
+		buttonDisabledColor: colors.gray100,
+		buttonDisabledBackgroundColor: colors.gray600,
 
 		inputColor: colors.gray0,
 		inputPlaceholderColor: colors.gray100,
