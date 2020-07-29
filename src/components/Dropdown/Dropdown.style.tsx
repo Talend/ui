@@ -20,7 +20,7 @@ export const Menu = styled(ReakitMenu)`
 	flex-direction: column;
 	padding: ${tokens.space.smaller} ${tokens.space.none};
 	max-width: 25rem;
-	background: ${tokens.colors.white};
+	background: ${tokens.colors.gray0};
 	border-radius: ${tokens.radii.rectRadius};
 	border: ${tokens.borders.normal};
 	z-index: ${tokens.zIndices.dropdowns};

@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import tokens from '../../tokens';
 
 export const StyledInlineMessage = styled.div`
-	${(props) => props.withBackground || 'display: inline;'}
+	${props => props.withBackground || 'display: inline;'}
 `;
 export const StyledParagraph = styled.p`
-	${(props) => props.icon && props.withBackground && 'padding: 0 0.5rem;'}
+	${props => props.icon && props.withBackground && 'padding: 0 0.5rem;'}
 `;
 export const StyledStrong = styled.strong``;
 export const StyledSpan = styled.span``;
@@ -26,7 +26,7 @@ export const StyledIconSpan = styled(StyledSpan)`
 `;
 export const StyledTextSpan = styled(StyledSpan)`
 	${({ theme, withBackground }) =>
-		`color: ${withBackground ? tokens.colors.black : theme.colors.textColor};`}
+		`color: ${withBackground ? tokens.colors.gray900 : theme.colors.textColor};`}
 `;
 
 export type InlineMessageProps = {

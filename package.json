@@ -50,6 +50,7 @@
     "@storybook/addon-storysource": "next",
     "@storybook/addon-viewport": "next",
     "@storybook/addons": "next",
+    "@storybook/components": "^5.3.19",
     "@storybook/react": "next",
     "@storybook/source-loader": "next",
     "@storybook/theming": "next",
@@ -64,9 +65,9 @@
     "tocbot": "^4.11.2"
   },
   "peerDependencies": {
+    "focus-outline-manager": "^1.0.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "focus-outline-manager": "^1.0.2"
+    "react-dom": "^16.13.1"
   },
   "resolutions": {
     "core-js": "3"

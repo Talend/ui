@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import { ColorPalette, ColorItem, Typeset } from '@storybook/components';
-import { Table } from '../../docs';
+import { Table, ColorSwatches } from '../../docs';
 import tokens from './../index';
-import colors, { greyscale, backgrounds, palette } from './../colors.tokens';
+import colors, { brand, grayscale, palette, swatches } from './../colors.tokens';
 
 <Meta title="Design Tokens/Design Tokens" />
 
@@ -16,27 +16,43 @@ We are using <a href="https://system-ui.com/theme/" target="_blank">the System U
 
 ## Colors
 
-### Monochrome
+### Grayscale
 
-<ColorPalette>
-	<ColorItem title="theme.colors.greyscale" subtitle="Some of the greys" colors={greyscale} />
-</ColorPalette>
+<ColorSwatches title="tokens.colors.gray" subtitle="All grays"  color='gray' colors={colors} />
 
-### Layout
+### Brand
 
 <ColorPalette>
 	<ColorItem
-		title="theme.colors.backgrounds"
-		subtitle="All possible backgrounds"
-		colors={backgrounds}
+		title="tokens.colors.brand"
+		subtitle="Brand colors"
+		colors={brand}
 	/>
 </ColorPalette>
 
-### Informative
+### Interactive colors
 
 <ColorPalette>
-	<ColorItem title="theme.colors.palette" subtitle="Some informative colors" colors={palette} />
+	<ColorItem
+		title="Clickable color"
+		colors={{ 'lochmara' : colors.lochmara }}
+	/>
 </ColorPalette>
+
+<ColorPalette>
+	<ColorItem
+		title="Focus color"
+		colors={{ 'moodyPurple' : colors.moodyPurple }}
+	/>
+</ColorPalette>
+
+### Color swatches
+
+<div>
+    {Object.keys(palette).map(color => (
+        <ColorSwatches key={color} title={`tokens.colors.${color}`} color={color} colors={swatches} />
+    ))}
+</div>
 
 ## fontSizes
 

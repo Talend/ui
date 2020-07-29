@@ -5,7 +5,7 @@ import tokens from '../../../tokens';
 import React from 'react';
 
 const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase)`
-	color: ${tokens.colors.white};
+	color: ${tokens.colors.gray0};
 	background-color: ${({ theme }) => theme.colors.primaryColor};
 	border-color: ${tokens.colors.transparent};
 
@@ -18,9 +18,9 @@ const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase)`
 	}
 
 	&[aria-disabled='true'] {
-		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)};
-		background-color: ${tokens.colors.alto};
-		border-color: ${tokens.colors.alto};
+		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.gray900)};
+		background-color: ${tokens.colors.gray100};
+		border-color: ${tokens.colors.gray100};
 	}
 `;
 

@@ -1,11 +1,8 @@
 import React, { ReactChildren } from 'react';
-import styled from 'styled-components';
-import { shade } from 'polished';
-import { Button } from 'reakit';
 
 import Icon from '../Icon/Icon';
 
-import tokens from '../../tokens';
+import * as S from './Link.style';
 
 export type LinkProps = {
 	/** The name of the icon to display before */
@@ -20,71 +17,12 @@ export type LinkProps = {
 	target?: string;
 	/** if the link is disabled */
 	disabled?: boolean;
-
-	className?: string | null;
-	children?: ReactChildren;
 };
-
-const ButtonAsLink = styled(Button)(
-	({ theme }) => `
-	color: ${theme.colors.activeColor};
-	
-	&:hover,
-	&:active {
-		.link__text {
-			text-decoration: underline;
-		}
-	}
-	
-	&:hover {
-		color: ${shade(0.2, theme.colors.activeColor)};
-
-		.link__icon {
-			fill: ${shade(0.2, theme.colors.activeColor)};
-		}
-	}
-	
-	&:active {
-		color: ${shade(0.4, theme.colors.activeColor)};
-
-		.link__icon {
-			fill: ${shade(0.4, theme.colors.activeColor)};
-		}
-	}
-	
-	&.link--disabled {
-		cursor: not-allowed;
-		opacity: ${tokens.opacity.disabled};
-		
-		.link__text {
-			text-decoration: none;
-		}
-	}
-
-	.link__icon {
-		display: inline-block;
-		vertical-align: baseline;
-		width: ${tokens.sizes.smallerr};
-		fill: currentColor;
-  		
-  		&--before {
-  			margin-right: ${tokens.space.smaller};
-		}
-  		
-  		&--external,
-	 	&--after {
-			margin-left: ${tokens.space.smaller};
-		}
-	}
-`,
-);
 
 const Link: React.FC<LinkProps> = ({
 	after,
 	before,
-	// @ts-ignore
 	children,
-	// @ts-ignore
 	className,
 	disabled,
 	href,
@@ -104,7 +42,7 @@ const Link: React.FC<LinkProps> = ({
 	}
 
 	return (
-		<ButtonAsLink
+		<S.Link
 			as="a"
 			rel={isBlank ? 'noopener noreferrer' : null}
 			{...rest}
@@ -112,13 +50,13 @@ const Link: React.FC<LinkProps> = ({
 			className={`link ${disabled ? 'link--disabled' : ''} ${className ? className : ''}`}
 			target={target}
 			title={getTitle()}
-			aria-disabled={disabled ? 'true' : null}
+			ariaDisabled={disabled ? 'true' : null}
 		>
 			{before && <Icon className="link__icon link__icon--before" name={before} />}
 			<span className="link__text">{children}</span>
 			{isExternal && <Icon className="link__icon link__icon--external" name="link" />}
-			{after && <Icon className="link__icon  link__icon--after" name={after} />}
-		</ButtonAsLink>
+			{after && <Icon className="link__icon link__icon--after" name={after} />}
+		</S.Link>
 	);
 };
 

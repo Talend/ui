@@ -17,8 +17,8 @@ const ButtonSecondary: React.FC<ButtonProps> = styled(ButtonBase)`
 	}
 
 	&[aria-disabled='true'] {
-		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.black)};
-		border-color: ${tokens.colors.alto};
+		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.gray900)};
+		border-color: ${tokens.colors.gray100};
 	}
 `;
 
