@@ -1,27 +1,29 @@
 import styled from 'styled-components';
-import { tint, shade } from 'polished';
 import ButtonBase, { ButtonProps } from '../Button';
-import tokens from '../../../tokens';
 import React from 'react';
 
-const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase)`
-	color: ${tokens.colors.gray0};
-	background-color: ${({ theme }) => theme.colors.primaryColor};
-	border-color: ${tokens.colors.transparent};
+const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase)(
+	({ theme }) => `
+	color: ${theme.colors.buttonPrimaryColor};
+	background-color: ${theme.colors.buttonPrimaryBackgroundColor};
+	border-color: ${theme.colors.buttonPrimaryBackgroundColor};
 
 	&:not([aria-disabled='true']):hover {
-		background-color: ${({ theme }) => shade(0.2, theme.colors.primaryColor)};
+		background-color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
+        border-color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
 	}
 
 	&:not([aria-disabled='true']):active {
-		background-color: ${({ theme }) => shade(0.4, theme.colors.primaryColor)};
+		background-color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
+        border-color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
 	}
 
 	&[aria-disabled='true'] {
-		color: ${tint(1 - tokens.opacity.disabled, tokens.colors.gray900)};
-		background-color: ${tokens.colors.gray100};
-		border-color: ${tokens.colors.gray100};
+		color: ${theme.colors.buttonDisabledColor};
+		background-color: ${theme.colors.buttonDisabledBackgroundColor};
+		border-color: ${theme.colors.buttonDisabledBackgroundColor};
 	}
-`;
+`,
+);
 
 export default ButtonPrimary;

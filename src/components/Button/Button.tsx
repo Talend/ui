@@ -25,15 +25,6 @@ const BaseButton: React.FC<ButtonProps> = styled(
 	border-radius: ${tokens.radii.rectRadius};
 	cursor: pointer;
 
-	${
-		small
-			? `
-			padding: ${tokens.space.none} ${tokens.space.small};
-			min-height: ${tokens.sizes.small};
-		`
-			: ''
-	}
-
 	&[aria-disabled='true'] {
 		cursor: not-allowed;
 	}
@@ -43,6 +34,15 @@ const BaseButton: React.FC<ButtonProps> = styled(
 		fill: currentColor;
 		flex-grow: 0;
 		flex-shrink: 0;
+	}
+
+	${
+		small
+			? `
+			padding: ${tokens.space.none} ${tokens.space.small};
+			min-height: ${tokens.sizes.small};
+		`
+			: ''
 	}
 `,
 );
