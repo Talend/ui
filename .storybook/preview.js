@@ -20,10 +20,6 @@ const GlobalStyle = createGlobalStyle(
 		padding: 0;
         font-size: 14px;
 	}
-	
-	.sbdocs.sbdocs-wrapper {
-		margin: -1rem;
-	}
 
 	.sb-show-main,
 	.sbdocs.sbdocs-preview {
