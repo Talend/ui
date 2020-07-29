@@ -1,0 +1,138 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Button, Dropdown, Form, InlineMessage, Link } from './';
+
+<Meta title="GettingStarted" />
+
+## Buttons
+
+<Preview>
+    <Story name="Buttons">
+        <Button.Primary>Primary button</Button.Primary>
+        <Button.Secondary>Secondary button</Button.Secondary>
+        <Button.Destructive>Destructive button</Button.Destructive>
+        <Button.Ghost>Ghost button</Button.Ghost>
+    </Story>
+</Preview>
+
+## Dropdowns
+
+<Preview>
+    <Story name="Dropdowns">
+    	<Dropdown
+    		as={Button.Primary}
+    		aria-label="Custom menu"
+    		items={[
+    			<button>Custom item 1</button>,
+    			<button>Custom item 2</button>,
+    			<button>Custom item 3</button>,
+    		]}
+    	>
+    		Primary Dropdown
+    	</Dropdown>
+    	<Dropdown
+    		as={Button.Secondary}
+    		aria-label="Custom menu"
+    		items={[
+    			<button>Custom item 1</button>,
+    			<button>Custom item 2</button>,
+    			<button>Custom item 3</button>,
+    		]}
+    	>
+    		Secondary Dropdown
+    	</Dropdown>
+    	<Dropdown
+    		as={Button.Destructive}
+    		aria-label="Custom menu"
+    		items={[
+    			<button>Custom item 1</button>,
+    			<button>Custom item 2</button>,
+    			<button>Custom item 3</button>,
+    		]}
+    	>
+    		Destructive Dropdown
+    	</Dropdown>
+    	<Dropdown
+    		as={Button.Ghost}
+    		aria-label="Custom menu"
+    		items={[
+    			<button>Custom item 1</button>,
+    			<button>Custom item 2</button>,
+    			<button>Custom item 3</button>,
+    		]}
+    	>
+    		Ghost Dropdown
+    	</Dropdown>
+    </Story>
+</Preview>
+
+## Links
+
+<Preview>
+    <Story name="Links">
+        <Link>Link</Link>
+    </Story>
+</Preview>
+
+## Forms
+
+<Preview>
+    <Story name="Forms">
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto', width: '60vw', maxWidth: '70rem'}}>
+            <Form>
+                <Form.Fieldset legend="Form fields">
+                    <Form.Text label="Input" />
+                    <Form.InputGroup label="Amount"
+                                     prefix="$"
+                                     suffix=".00">
+                        <Form.Number label="Amount without decimal" min="1" step="1" />
+                    </Form.InputGroup>
+                    <Form.File label="File" />
+                    <Form.Password label="Password" />
+                    <Form.Datalist label="Datalist" values={['foo', 'bar']} />
+                    <Form.Search label="Search" />
+                    <Form.Textarea label="Textarea" />
+                    <Form.Select label="Select" values={['', 'foo', 'bar']} value="foo"/>
+                    <Form.Select label="Select multiple" values={['foo', 'bar']} multiple value={['foo']} />
+                    <Form.Checkbox label="Checkbox" checked />
+                    <Form.Radio label="Radio" checked />
+                    <Form.Switch label="Switch" checked />
+                </Form.Fieldset>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2rem 0'}}>
+                    <Button.Secondary type="reset">Reset</Button.Secondary>
+                    <Button.Primary type="submit">Submit</Button.Primary>
+                </div>
+            </Form>
+        </div>
+    </Story>
+</Preview>
+
+## Inline Messages
+
+<Preview>
+  <Story name="InlineMessages">
+        <InlineMessage.Information
+            title={'Lorem ipsum'}
+            description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+            link={<Link href={'#'}>See more</Link>}
+            withBackground
+        />
+        <InlineMessage.Success
+            title={'Lorem ipsum'}
+            description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+            link={<Link href={'#'}>See more</Link>}
+            withBackground
+        />
+        <InlineMessage.Warning
+            title={'Lorem ipsum'}
+            description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+            link={<Link href={'#'}>See more</Link>}
+            withBackground
+        />
+        <InlineMessage.Destructive
+       		title={'Lorem ipsum'}
+       		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+       		link={<Link href={'#'}>See more</Link>}
+       		withBackground
+       	/>
+  </Story>
+</Preview>
