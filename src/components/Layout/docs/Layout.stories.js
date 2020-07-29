@@ -1,7 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
-import Layout from '../Col';
+import Layout from '../Layout';
 
 export default {
 	title: 'Components/Layout',
@@ -11,14 +10,10 @@ export default {
 	},
 };
 
-const Header = () => (
-	<div className="mx-auto bg-blue-300">
-		<h1>Header</h1>
-	</div>
-);
+const Header = () => <h1>Header</h1>;
 
 const Aside = () => (
-	<nav className="p-8 bg-blue-200">
+	<nav>
 		<ul>
 			<li>Link A</li>
 			<li>Link B</li>
@@ -28,7 +23,7 @@ const Aside = () => (
 );
 
 const Main = () => (
-	<section className="m-auto bg-blue-100">
+	<section>
 		<h1>Heading</h1>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut vestibulum sapien. Donec
@@ -42,8 +37,8 @@ const Main = () => (
 );
 
 const Footer = () => (
-	<div className="mx-auto bg-blue-300">
-		<ul className="inline-flex">
+	<div>
+		<ul>
 			<li>Link a</li>
 			<li>Link b</li>
 			<li>Link c</li>
@@ -52,7 +47,7 @@ const Footer = () => (
 	</div>
 );
 
-const FullScreenHeightLayout = (props) => <Layout hasScreenHeight {...props} />;
+const FullScreenHeightLayout = props => <Layout hasScreenHeight {...props} />;
 
 export const Full = () => (
 	<FullScreenHeightLayout
