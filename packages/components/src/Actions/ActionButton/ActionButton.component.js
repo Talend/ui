@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
+import CoralButton from '@talend/design-system/lib/components/Button';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -172,7 +173,7 @@ function ActionButton(props) {
 		buttonProps.rel = 'noopener noreferrer';
 	}
 	let btn = (
-		<Button
+		<CoralButton.Primary
 			onMouseDown={!overlayComponent ? rMouseDown : null}
 			onClick={!overlayComponent ? rClick : null}
 			onMouseEnter={!overlayComponent ? rMouseEnter : null}
@@ -186,7 +187,7 @@ function ActionButton(props) {
 			{...buttonProps}
 		>
 			{buttonContent}
-		</Button>
+		</CoralButton.Primary>
 	);
 	if (hasPopup) {
 		btn = (

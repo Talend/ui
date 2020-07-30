@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import CoralForm from '@talend/design-system/lib/components/Form';
 import omit from 'lodash/omit';
 import theme from './Toggle.scss';
 
@@ -45,7 +46,7 @@ function Toggle({ id, label, className, intermediate, ...props }) {
 					id={id}
 					data-checked={dataChecked}
 					{...omit(props, 'data-feature')}
-				/>
+		/>
 				<span>{label}</span>
 			</label>
 		</div>
@@ -75,4 +76,4 @@ Toggle.propTypes = {
 	'data-feature': PropTypes.string,
 };
 
-export default Toggle;
+export default CoralForm.Switch;

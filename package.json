@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@babel/compat-data": "7.8.0",
     "commander": "^2.9.0",
     "i18next-scanner": "^2.9.1",
     "lerna": "^3.20.2"
@@ -64,6 +65,7 @@
     "packages/theme"
   ],
   "resolutions": {
+    "@babel/preset-env": "^7.8.7",
     "dot-prop": "^5.2.0",
     "minimist": "^1.2.5",
     "set-value": "^2.0.1",

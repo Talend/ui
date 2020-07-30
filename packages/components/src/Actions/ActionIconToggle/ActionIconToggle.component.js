@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger } from 'react-bootstrap';
+import CoralToggle from '@talend/design-system/lib/components/Toggle';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -67,4 +68,5 @@ ActionIconToggle.defaultProps = {
 };
 
 ActionIconToggle.displayName = 'ActionIconToggle';
-export default ActionIconToggle;
+
+export default ({ active, ...rest}) => (<CoralToggle {...rest} isActive={active} />);

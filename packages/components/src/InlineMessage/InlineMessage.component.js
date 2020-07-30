@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Icon from '../Icon/Icon.component';
-import InlineMessageCss from './InlineMessage.scss';
-import { getTheme } from '../theme';
+import CoralInlineMessage from '@talend/design-system/lib/components/InlineMessage';
+import CoralLink from '@talend/design-system/lib/components/Link';
 
 /**
  * @param {object} props react props
@@ -29,50 +28,23 @@ export const TYPES = {
 	ERROR: 'error',
 };
 
-export const getbsStyleFromType = type => {
+export const getComponentByType = type => {
 	const typesMap = {
-		[TYPES.INFO]: 'info',
-		[TYPES.SUCCESSFUL]: 'success',
-		[TYPES.WARNING]: 'warning',
-		[TYPES.ERROR]: 'danger',
+		[TYPES.INFO]: CoralInlineMessage.Information,
+		[TYPES.SUCCESSFUL]: CoralInlineMessage.Success,
+		[TYPES.WARNING]: CoralInlineMessage.Warning,
+		[TYPES.ERROR]: CoralInlineMessage.Destructive,
 	};
 	return typesMap[type] || '';
 };
 
-const theme = getTheme(InlineMessageCss);
-
-export function InlineMessage({ type, title, description, icon, link, withBackground }) {
-	const rootClassnames = theme('tc-inline-message');
-
-	const textClasses = theme('tc-inline-message-text', getbsStyleFromType(type), {
-		background: withBackground,
-	});
-
-	const iconClassnames = theme('tc-inline-message-icon', getbsStyleFromType(type));
-
+export function InlineMessage({ type, icon, link, ...rest }) {
+	const Component = getComponentByType(type);
 	return (
-		<div className={rootClassnames}>
-			<span className={iconClassnames}>
-				<Icon name={icon} />
-			</span>
-			<div className={textClasses}>
-				{title && (
-					<span className={theme('tc-inline-message-title', 'tc-inline-message-text-item')}>
-						{title}
-					</span>
-				)}
-				{description && (
-					<span className={theme('tc-inline-message-description', 'tc-inline-message-text-item')}>
-						{description}
-					</span>
-				)}
-				{link && (
-					<a className={theme('tc-inline-message-link')} href={link.href} {...link.props}>
-						{link.label}
-					</a>
-				)}
-			</div>
-		</div>
+		<Component
+			{...rest}
+			link={link ? <CoralLink {...link}>{link.label}</CoralLink> : null}
+		/>
 	);
 }
 

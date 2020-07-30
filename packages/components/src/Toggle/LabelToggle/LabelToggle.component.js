@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import get from 'lodash/get';
+import CoralForm from '@talend/design-system/lib/components/Form';
 import { getTheme } from '../../theme';
 
 import css from './LabelToggle.scss';
@@ -78,4 +79,4 @@ LabelToggle.propTypes = {
 	),
 };
 
-export default LabelToggle;
+export default CoralForm.Switch;

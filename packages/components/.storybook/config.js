@@ -2,6 +2,9 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import React from 'react';
 
+import { ThemeProvider } from '@talend/design-system/lib/components/ThemeProvider';
+import theme from '@talend/design-system/lib/themes/light.theme';
+
 import { configure, addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withI18next } from 'storybook-addon-i18next';
@@ -20,5 +23,7 @@ addDecorator(
 	}),
 );
 addDecorator(withA11y);
-
+addDecorator(storyFn => (
+	<ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
+));
 configure([require.context('../src', true, /\.stories\.js$/)], module);

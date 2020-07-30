@@ -11,7 +11,7 @@ const icons = {
 };
 
 const inactiveIconToggle = {
-	icon: 'talend-panel-opener-right',
+	icon: 'datagrid',
 	id: 'my-inactive-action',
 	label: "Click me, I'm inactive",
 	'data-feature': 'actionicontoggle',
@@ -21,7 +21,7 @@ const inactiveIconToggle = {
 
 const activeIconToggle = {
 	active: true,
-	icon: 'talend-panel-opener-right',
+	icon: 'datagrid',
 	id: 'my-active-action',
 	label: "Click me, I'm inactive",
 	'data-feature': 'actionicontoggle',
@@ -43,7 +43,7 @@ class DisableActionIconToggle extends React.Component {
 
 	render() {
 		const props = {
-			icon: 'talend-panel-opener-right',
+			icon: 'datagrid',
 			tooltipPlacement: 'top',
 		};
 		return (

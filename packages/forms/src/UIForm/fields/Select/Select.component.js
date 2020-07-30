@@ -2,6 +2,8 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import CoralForm from '@talend/design-system/lib/components/Form';
+
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
@@ -32,6 +34,42 @@ export default function Select({
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
 
+	return <CoralForm.Select
+		label={title}
+		required={schema.required}
+		id={id}
+		multiple={multiple}
+		autoFocus={autoFocus}
+		className="form-control"
+		disabled={disabled || valueIsUpdating}
+		onChange={event => {
+			const payload = { schema, value: getSelectedOptions(event.target, multiple) };
+			onChange(event, payload);
+			onFinish(event, payload);
+		}}
+		readOnly={readOnly}
+		value={value}
+		// eslint-disable-next-line jsx-a11y/aria-proptypes
+		aria-invalid={!isValid}
+		aria-required={schema.required}
+		aria-describedby={`${descriptionId} ${errorId}`}
+	>
+		{placeholder ? (
+			<option disabled value="">
+				{placeholder}
+			</option>
+		) : null}
+		{schema.titleMap &&
+		schema.titleMap.map((option, index) => {
+			const optionProps = {
+				key: index,
+				value: option.value,
+			};
+			return <option {...optionProps}>{option.name}</option>;
+		})}
+	</CoralForm.Select>;
+
+	/*
 	return (
 		<FieldTemplate
 			description={description}
@@ -79,6 +117,7 @@ export default function Select({
 			</select>
 		</FieldTemplate>
 	);
+	 */
 }
 
 if (process.env.NODE_ENV !== 'production') {
