@@ -1,33 +1,6 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import React from 'react';
 
-import tokens from '../../tokens';
-
-export const StyledInlineMessage = styled.div`
-	${props => props.withBackground || 'display: inline;'}
-`;
-export const StyledParagraph = styled.p`
-	${props => props.icon && props.withBackground && 'padding: 0 0.5rem;'}
-`;
-export const StyledStrong = styled.strong``;
-export const StyledSpan = styled.span``;
-export const StyledIconSpan = styled(StyledSpan)`
-	margin-right: 0.5rem;
-
-	svg {
-		display: inline;
-		height: ${tokens.sizes.smaller};
-		width: ${tokens.sizes.smaller};
-
-		path {
-			fill: currentColor;
-		}
-	}
-`;
-export const StyledTextSpan = styled(StyledSpan)`
-	${({ theme, withBackground }) =>
-		`color: ${withBackground ? tokens.colors.gray900 : theme.colors.textColor};`}
-`;
+import * as S from './InlineMessage.style';
 
 export type InlineMessageProps = {
 	/** The icon element to display */
@@ -49,40 +22,44 @@ export type InlineMessageProps = {
  It can be additional information related to system status, it can be a required action to complete the current task.
  @link https://inclusive-components.design/notifications
  **/
-const InlineMessage: React.FC<InlineMessageProps> = ({
-	icon,
-	title,
-	description,
-	link,
-	withBackground = false,
-	...rest
-}: InlineMessageProps) => {
-	return (
-		<StyledInlineMessage withBackground={withBackground} {...rest} role="status" aria-live="polite">
-			<StyledParagraph icon={icon} withBackground={withBackground}>
-				{(icon || title) && (
-					<StyledStrong>
-						{icon && (
-							<>
-								<StyledIconSpan withBackground={withBackground}>{icon}</StyledIconSpan>{' '}
-							</>
-						)}
-						{title && (
-							<>
-								<StyledTextSpan withBackground={withBackground}>{title}</StyledTextSpan>{' '}
-							</>
-						)}
-					</StyledStrong>
-				)}
-				{description && (
-					<>
-						<StyledTextSpan withBackground={withBackground}>{description}</StyledTextSpan>{' '}
-					</>
-				)}
-				{link && <StyledTextSpan withBackground={withBackground}>{link}</StyledTextSpan>}
-			</StyledParagraph>
-		</StyledInlineMessage>
-	);
-};
+const InlineMessage: React.FC<InlineMessageProps> = React.forwardRef(
+	(
+		{ icon, title, description, link, withBackground = false, ...rest }: InlineMessageProps,
+		ref,
+	) => {
+		return (
+			<S.InlineMessage
+				{...rest}
+				withBackground={withBackground}
+				role="status"
+				aria-live="polite"
+				ref={ref}
+			>
+				<S.Paragraph icon={icon} withBackground={withBackground}>
+					{(icon || title) && (
+						<S.Strong>
+							{icon && (
+								<>
+									<S.IconSpan withBackground={withBackground}>{icon}</S.IconSpan>{' '}
+								</>
+							)}
+							{title && (
+								<>
+									<S.TextSpan withBackground={withBackground}>{title}</S.TextSpan>{' '}
+								</>
+							)}
+						</S.Strong>
+					)}
+					{description && (
+						<>
+							<S.TextSpan withBackground={withBackground}>{description}</S.TextSpan>{' '}
+						</>
+					)}
+					{link && <S.TextSpan withBackground={withBackground}>{link}</S.TextSpan>}
+				</S.Paragraph>
+			</S.InlineMessage>
+		);
+	},
+);
 
 export default InlineMessage;
