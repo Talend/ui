@@ -2,6 +2,7 @@ import arrowLeft from './arrow-left.svg';
 import caret from './caret.svg';
 import check from './check.svg';
 import cross from './cross.svg';
+import datagrid from './datagrid.svg';
 import eye from './eye.svg';
 import eyeSlash from './eye-slash.svg';
 import information from './information.svg';
@@ -18,6 +19,7 @@ export default {
 	caret,
 	cross,
 	check,
+	datagrid,
 	eye,
 	eyeSlash,
 	information,

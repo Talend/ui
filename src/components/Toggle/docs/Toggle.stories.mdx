@@ -1,0 +1,63 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import Toggle from '../';
+
+<Meta title="Components/Toggle" component={Toggle} />
+
+# Toggle
+
+The Toggle button component is used to toggle features visibility.
+
+## Zoning
+
+## Style
+
+## States
+
+### Default
+
+<Preview>
+    <Story name="Active">
+        <Toggle isActive icon="datagrid" />
+	</Story>
+    <Story name="Inactive">
+        <Toggle icon="datagrid" />
+	</Story>
+ </Preview>
+
+### Disabled
+
+<Preview>
+    <Story name="Disabled Active">
+        <Toggle disabled isActive icon="datagrid"/>
+	</Story>
+    <Story name="Disabled Inactive">
+        <Toggle disabled icon="datagrid"/>
+	</Story>
+ </Preview>
+
+## Content
+
+## Interaction
+
+## Accessibility
+
+## Usage
+
+<Preview>
+  <Story
+    name="usage"
+    args={{
+        icon: 'datagrid',
+    }}
+  >
+    {props => <Toggle {...props} />}
+  </Story>
+</Preview>
+
+<Props story="usage" />
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 07/30/2020 | Fabien Rassinier  | Init page   |

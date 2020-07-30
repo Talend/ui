@@ -7,6 +7,7 @@ import Link from './components/Link';
 import Loading from './components/Loading';
 import ThemeProvider from './components/ThemeProvider';
 import Tag from './components/Tag';
+import Toggle from './components/Toggle';
 import Tooltip from './components/Tooltip';
 
 import themes from './themes';
@@ -20,6 +21,7 @@ export {
 	Link,
 	Loading,
 	Tag,
+	Toggle,
 	Tooltip,
 	ThemeProvider,
 	themes,
