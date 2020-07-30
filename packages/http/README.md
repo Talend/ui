@@ -54,7 +54,7 @@ async function test() {
 
 ```javascript
 import { call } from 'redux-saga/effects';
-import { http } from '@talend/http/generators';
+import { http } from '@talend/http/lib/generators';
 
 export function* test() {
 	return yield call(http.get, '/api/v1/my-resource');
