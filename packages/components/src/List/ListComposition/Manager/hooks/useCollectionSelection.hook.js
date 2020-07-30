@@ -57,5 +57,6 @@ export default function useCollectionSelection(
 		selectedIds,
 		onToggleAll,
 		onToggleItem,
+		setSelectedIds,
 	};
 }
