@@ -48,9 +48,9 @@ const theme: DefaultTheme = {
 		inputBorderDisabledColor: colors.gray300,
 		inputBorderReadOnlyColor: colors.gray300,
 
-		tagDefaultColor: colors.gray600,
+		tagDefaultColor: colors.gray700,
 		tagDefaultBackgroundColor: colors.gray75,
-		tagInformationColor: colors.lochmara600,
+		tagInformationColor: colors.lochmara700,
 		tagInformationBackgroundColor: colors.lochmara100,
 		tagSuccessColor: colors.rioGrande700,
 		tagSuccessBackgroundColor: colors.rioGrande100,
