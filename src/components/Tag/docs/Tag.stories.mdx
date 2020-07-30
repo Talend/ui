@@ -1,0 +1,69 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import Tag from '../';
+
+<Meta title="Components/Tag" component={Tag} />
+
+# Tag
+
+The Tag component is useful to emphasize information to the user, works best with single word values.
+
+## Zoning
+
+## Style
+
+### Variations
+
+<Preview>
+    <Story name="Default">
+        <Tag>Example</Tag>
+	</Story>
+    <Story name="Information">
+        <Tag.Information>Example</Tag.Information>
+	</Story>
+    <Story name="Success">
+        <Tag.Success>Example</Tag.Success>
+	</Story>
+    <Story name="Warning">
+        <Tag.Warning>Example</Tag.Warning>
+	</Story>
+    <Story name="Destructive">
+        <Tag.Destructive>Example</Tag.Destructive>
+	</Story>
+ </Preview>
+
+## States
+
+### Default
+
+<Preview>
+    <Story name="Ellipsis">
+        <Tag>Lorem ipsum dolor sit amet</Tag>
+	</Story>
+ </Preview>
+
+## Content
+
+## Interaction
+
+## Accessibility
+
+## Usage
+
+<Preview>
+  <Story
+    name="usage"
+    args={{
+      children: 'Lorem ipsum',
+    }}
+  >
+    {props => <Tag {...props} />}
+  </Story>
+</Preview>
+
+<Props story="usage" />
+
+## Changelog
+
+| Date       | Author | Description |
+| ---------- | ------ | ----------- |
+| 07/30/2020 | Fabien Rassinier  | Init page   |

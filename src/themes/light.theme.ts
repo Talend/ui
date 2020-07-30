@@ -48,6 +48,17 @@ const theme: DefaultTheme = {
 		inputBorderFocusColor: colors.lochmara,
 		inputBorderDisabledColor: colors.gray300,
 		inputBorderReadOnlyColor: colors.gray300,
+
+		tagDefaultColor: colors.gray600,
+		tagDefaultBackgroundColor: colors.gray75,
+		tagInformationColor: colors.lochmara600,
+		tagInformationBackgroundColor: colors.lochmara100,
+		tagSuccessColor: colors.rioGrande700,
+		tagSuccessBackgroundColor: colors.rioGrande100,
+		tagDestructiveColor: colors.coral600,
+		tagDestructiveBackgroundColor: colors.coral100,
+		tagWarningColor: colors.jaffa600,
+		tagWarningBackgroundColor: colors.jaffa100,
 	},
 	id: 'light',
 };

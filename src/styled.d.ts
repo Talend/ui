@@ -15,21 +15,21 @@ declare module 'styled-components' {
 			activeColor: string;
 			backgroundColor: string;
 			// Buttons
-			buttonPrimaryColor: string; // $gray0
-			buttonPrimaryBackgroundColor: string; // $deepBlue500
-			buttonPrimaryHoverBackgroundColor: string; // $deepBlue600
-			buttonPrimaryActiveBackgroundColor: string; // $deepBlue700
+			buttonPrimaryColor: string;
+			buttonPrimaryBackgroundColor: string;
+			buttonPrimaryHoverBackgroundColor: string;
+			buttonPrimaryActiveBackgroundColor: string;
 
-			buttonDestructiveBackgroundColor: string; // $coral600
-			buttonDestructiveHoverBackgroundColor: string; // $coral700
-			buttonDestructiveActiveBackgroundColor: string; // $coral800
+			buttonDestructiveBackgroundColor: string;
+			buttonDestructiveHoverBackgroundColor: string;
+			buttonDestructiveActiveBackgroundColor: string;
 
-			buttonSecondaryBackgroundColor: string; // $transparent | $gray0
-			buttonSecondaryHoverBackgroundColor: string; // $deepBlue100
-			buttonSecondaryActiveBackgroundColor: string; // $deepBlue100
+			buttonSecondaryBackgroundColor: string;
+			buttonSecondaryHoverBackgroundColor: string;
+			buttonSecondaryActiveBackgroundColor: string;
 
-			buttonDisabledColor: string; // $gray600
-			buttonDisabledBackgroundColor: string; // $gray100
+			buttonDisabledColor: string;
+			buttonDisabledBackgroundColor: string;
 
 			// Inputs
 			inputColor: string;
@@ -46,6 +46,18 @@ declare module 'styled-components' {
 			inputBorderFocusColor: string;
 			inputBorderDisabledColor: string;
 			inputBorderReadOnlyColor: string;
+
+			// Tags
+			tagDefaultColor: string;
+			tagDefaultBackgroundColor: string;
+			tagInformationColor: string;
+			tagInformationBackgroundColor: string;
+			tagSuccessColor: string;
+			tagSuccessBackgroundColor: string;
+			tagDestructiveColor: string;
+			tagDestructiveBackgroundColor: string;
+			tagWarningColor: string;
+			tagWarningBackgroundColor: string;
 		};
 		id: string;
 	}
