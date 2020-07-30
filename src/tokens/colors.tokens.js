@@ -20,6 +20,7 @@ export const brand = {
 
 export const palette = {
 	paleCyan,
+	lochmara,
 	deepBlue,
 	rioGrande,
 	lightningYellow,
