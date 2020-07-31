@@ -28,8 +28,8 @@ const theme: DefaultTheme = {
 		buttonDestructiveActiveBackgroundColor: colors.coral800,
 
 		buttonSecondaryBackgroundColor: colors.transparent,
-		buttonSecondaryHoverBackgroundColor: colors.deepBlue100,
-		buttonSecondaryActiveBackgroundColor: colors.deepBlue100,
+		buttonSecondaryHoverBackgroundColor: colors.lochmara100,
+		buttonSecondaryActiveBackgroundColor: colors.lochmara200,
 
 		buttonDisabledColor: colors.gray600,
 		buttonDisabledBackgroundColor: colors.gray100,
@@ -40,7 +40,7 @@ const theme: DefaultTheme = {
 		inputGroupColor: colors.gray700,
 		inputGroupBackgroundColor: colors.gray75,
 		inputGroupInteractiveColor: colors.deepBlue500,
-		inputGroupInteractiveBackgroundColor: colors.deepBlue100,
+		inputGroupInteractiveBackgroundColor: colors.lochmara100,
 		inputRadioBackgroundColor: colors.gray100,
 		inputBackgroundReadOnlyColor: colors.transparent,
 		inputBorderColor: colors.gray500,
