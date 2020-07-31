@@ -18,18 +18,10 @@ export const Link = styled(Button)(
 	
 	&:hover {
 		color: ${shade(0.2, theme.colors.activeColor)};
-
-		.link__icon {
-			fill: ${shade(0.2, theme.colors.activeColor)};
-		}
 	}
 	
 	&:active {
 		color: ${shade(0.4, theme.colors.activeColor)};
-
-		.link__icon {
-			fill: ${shade(0.4, theme.colors.activeColor)};
-		}
 	}
 	
 	&.link--disabled {
