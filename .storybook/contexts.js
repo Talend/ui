@@ -1,15 +1,16 @@
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '../src/components/ThemeProvider';
 import light, { dark } from '../src/themes';
 
 export const contexts = [
 	{
-		icon: 'paintbrush',
+		icon: 'mirror',
 		title: 'Change the theme of the preview',
 		components: [ThemeProvider],
 		params: [
 			{
 				name: 'Default theme',
-				props: { theme: light, default: true },
+				props: { theme: light },
+				default: true,
 			},
 			{
 				name: 'Dark theme',

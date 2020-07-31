@@ -68,13 +68,14 @@ function TableOfContents() {
 			...configuration,
 			onClick: event => {
 				event.preventDefault();
-				const hash = event.currentTarget.hash;
+				// @ts-ignore
+				const hash = event?.currentTarget.hash;
 				const id = hash?.substr(1);
 				const element = document.getElementById(id);
 				setTimeout(() => {
 					element?.focus();
 					element?.scrollIntoView();
-				}, 400);
+				}, 500);
 			},
 		});
 
