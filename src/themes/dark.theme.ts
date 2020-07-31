@@ -58,6 +58,9 @@ const theme: DefaultTheme = {
 		tagDestructiveBackgroundColor: colors.coral100,
 		tagWarningColor: colors.jaffa700,
 		tagWarningBackgroundColor: colors.jaffa100,
+
+		tooltipColor: colors.gray900,
+		tooltipBackgroundColor: colors.gray300,
 	},
 	id: 'dark',
 };

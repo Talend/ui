@@ -58,6 +58,10 @@ declare module 'styled-components' {
 			tagDestructiveBackgroundColor: string;
 			tagWarningColor: string;
 			tagWarningBackgroundColor: string;
+
+			// Tooltips
+			tooltipColor: string;
+			tooltipBackgroundColor: string;
 		};
 		id: string;
 	}
