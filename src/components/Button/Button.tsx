@@ -4,9 +4,26 @@ import styled from 'styled-components';
 import tokens from '../../tokens';
 import Icon from '../Icon/Icon';
 
+export type IconName =
+	| 'arrowLeft'
+	| 'caret'
+	| 'cross'
+	| 'check'
+	| 'datagrid'
+	| 'eye'
+	| 'eyeSlash'
+	| 'information'
+	| 'link'
+	| 'minus'
+	| 'plus'
+	| 'search'
+	| 'upload'
+	| 'validate'
+	| 'warning';
+
 export type ButtonProps = {
 	/** The icon name of the button */
-	icon?: string;
+	icon?: IconName;
 	/** If the button is small or not */
 	small?: boolean;
 	/** If the button should not display children */

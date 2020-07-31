@@ -22,6 +22,6 @@ module.exports = {
 		'@storybook/addon-backgrounds/register',
 	],
 	typescript: {
-		reactDocgen: 'react-docgen',
+		reactDocgen: 'react-docgen-typescript',
 	},
 };

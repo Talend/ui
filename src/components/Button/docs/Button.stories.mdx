@@ -10,7 +10,7 @@ import btnBehaviors from './images/buttons-behaviors.jpg';
 import btnOrder from './images/buttons-order.jpg';
 import theme from '../../../themes';
 
-<Meta title="Components/Button" />
+<Meta title="Components/Button" component={Button} />
 
 # Button
 
@@ -247,10 +247,10 @@ For more information, please go to accessibility page
     name="usage"
     height="20rem"
     args={{
-      text: 'Lorem ipsum',
+      children: 'Lorem ipsum',
     }}
   >
-    {({ text, ...rest}) => 	<Button onClick={action('clicked')}>{text}</Button>}
+    { props => <Button {...props} onClick={action('clicked')} />}
   </Story>
 </Preview>
 
