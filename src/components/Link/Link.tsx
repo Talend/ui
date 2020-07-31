@@ -14,7 +14,7 @@ export type LinkProps = {
 	/** The href of the link */
 	href?: string | null;
 	/** The target of the link */
-	target?: string;
+	target?: '_blank' | '_self';
 	/** if the link is disabled */
 	disabled?: boolean;
 };
