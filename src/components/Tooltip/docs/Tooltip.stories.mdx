@@ -1,10 +1,10 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import Tooltip from '../.';
 import Button from '../../Button';
 import { Col, Row } from '../../../docs';
 
-<Meta title="Components/Tooltip" />
+<Meta title="Components/Tooltip" component={Tooltip}/>
 
 # Tooltip
 
@@ -69,6 +69,21 @@ Tooltip appears on mouse hover in order to identify or define relevant informati
 - Tooltip should not include clickable content.
 - The tooltip content shouldn't be longer than 3 or 4 lines to make it easy to read. If you need more space to display the message please use a popover.
 - Tooltip should not display icons or images, only text.
+
+## Usage
+
+<Preview>
+  <Story
+    name="usage"
+    args={{
+      text: 'Lorem ipsum',
+    }}
+  >
+    {({ text, ...rest}) => <Tooltip {...rest}><Button onClick={action('clicked')}>{text}</Button></Tooltip>}
+  </Story>
+</Preview>
+
+<Props story="usage" />
 
 ## Accessibility
 
