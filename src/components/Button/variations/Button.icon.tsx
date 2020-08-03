@@ -12,7 +12,6 @@ const ButtonIcon: React.FC<ButtonProps> = styled(ButtonBase).attrs({ hideLabel: 
 	align-items: center;
 	justify-content: center;
 	color: ${theme.colors.buttonPrimaryBackgroundColor};
-	border: 2px solid ${theme.colors.buttonPrimaryBackgroundColor};
 	border-color: currentColor;
 	border-radius: ${tokens.radii.circleRadius};
 

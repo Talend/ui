@@ -23,7 +23,7 @@ const IconButton = styled(({ isActive, theme, ...rest }) => <Button.Icon {...res
 		`
 			color: ${theme.colors.buttonPrimaryColor};
 			background-color: ${theme.colors.buttonPrimaryBackgroundColor};
-			border-color: ${theme.colors.buttonPrimaryBackgroundColor};
+			border: 1px solid ${theme.colors.buttonPrimaryBackgroundColor};
 				
 			&:hover,
 			&:active {
