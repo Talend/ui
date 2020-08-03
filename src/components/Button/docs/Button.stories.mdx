@@ -1,13 +1,10 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-import { ThemeProvider } from 'styled-components';
 import { action } from '@storybook/addon-actions';
 import { Col, Row } from '../../../docs';
-
 import Button from '../';
 import btnZoning from './images/buttons-zoning.jpg';
 import btnBehaviors from './images/buttons-behaviors.jpg';
 import btnOrder from './images/buttons-order.jpg';
-import theme from '../../../themes';
 
 <Meta title="Components/Button" component={Button} />
 
@@ -212,7 +209,7 @@ For more information, please go to accessibility page
       children: 'Lorem ipsum',
     }}
   >
-    { props => <Button {...props} onClick={action('clicked')} />}
+    {props => <Button {...props} onClick={action('clicked')} />}
   </Story>
 </Preview>
 
