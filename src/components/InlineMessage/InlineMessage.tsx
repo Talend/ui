@@ -1,10 +1,12 @@
 import React from 'react';
 
+import Icon, { IconName } from '../Icon/Icon';
+
 import * as S from './InlineMessage.style';
 
 export type InlineMessageProps = {
 	/** The icon element to display */
-	icon?: React.ReactNode;
+	icon: IconName;
 	/** The title of the message */
 	title?: string;
 	/** The content of the message */
@@ -38,11 +40,11 @@ const InlineMessage: React.FC<InlineMessageProps> = React.forwardRef(
 				<S.Paragraph icon={icon} withBackground={withBackground}>
 					{(icon || title) && (
 						<S.Strong>
-							{icon && (
-								<>
-									<S.IconSpan withBackground={withBackground}>{icon}</S.IconSpan>{' '}
-								</>
-							)}
+							<>
+								<S.IconSpan withBackground={withBackground}>
+									<Icon name={icon} />
+								</S.IconSpan>{' '}
+							</>
 							{title && (
 								<>
 									<S.TextSpan withBackground={withBackground}>{title}</S.TextSpan>{' '}
