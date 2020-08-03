@@ -76,10 +76,10 @@ Tooltip appears on mouse hover in order to identify or define relevant informati
   <Story
     name="usage"
     args={{
-      text: 'Lorem ipsum',
+        text: 'Example'
     }}
   >
-    {({ text, ...rest}) => <Tooltip {...rest}><Button onClick={action('clicked')}>{text}</Button></Tooltip>}
+    {({ text, ...props }) => <Tooltip {...props}><Button onClick={action('clicked')}>{text}</Button></Tooltip>}
   </Story>
 </Preview>
 

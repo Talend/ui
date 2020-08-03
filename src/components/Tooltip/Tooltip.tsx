@@ -50,4 +50,4 @@ const Tooltip = React.forwardRef(
 	},
 );
 
-export default React.memo(Tooltip);
+export default Tooltip;
