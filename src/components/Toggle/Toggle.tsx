@@ -5,7 +5,7 @@ import { IconName } from '../Icon/Icon';
 
 export type ToggleProps = {
 	/** icon name to display */
-	icon: IconName;
+	icon?: IconName;
 	/** if the toggle is active or not */
 	isActive?: boolean;
 	/** if the button is disabled or not */
@@ -50,7 +50,7 @@ const IconButton = styled(({ isActive, theme, ...rest }) => <Button.Icon {...res
 `,
 );
 
-const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
+const Toggle: React.FC<ToggleProps> = React.forwardRef((props: ToggleProps, ref) => {
 	const [isActive, toggle] = React.useState(props.isActive);
 
 	function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
@@ -58,7 +58,7 @@ const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
 		props.onChange && props.onChange(event);
 	}
 
-	return <IconButton {...props} isActive={isActive} onClick={handleClick} />;
-};
+	return <IconButton {...props} isActive={isActive} onClick={handleClick} ref={ref} />;
+});
 
 export default Toggle;
