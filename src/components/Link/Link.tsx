@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Icon from '../Icon/Icon';
+import Icon, { IconName } from '../Icon/Icon';
 
 import * as S from './Link.style';
 
 export type LinkProps = {
 	/** The name of the icon to display before */
-	before?: string;
+	iconBefore?: IconName;
 	/** The name of the icon to display after */
-	after?: string;
+	iconAfter?: IconName;
 	/** The title of the link */
 	title?: string;
 	/** The href of the link */
@@ -21,7 +21,17 @@ export type LinkProps = {
 
 const Link: React.FC<LinkProps> = React.forwardRef(
 	(
-		{ after, before, children, className, disabled, href, target, title, ...rest }: LinkProps,
+		{
+			iconAfter,
+			iconBefore,
+			children,
+			className,
+			disabled,
+			href,
+			target,
+			title,
+			...rest
+		}: LinkProps,
 		ref,
 	) => {
 		const isBlank = target?.toLocaleLowerCase().includes('blank');
@@ -47,10 +57,10 @@ const Link: React.FC<LinkProps> = React.forwardRef(
 				ariaDisabled={disabled ? 'true' : null}
 				ref={ref}
 			>
-				{before && <Icon className="link__icon link__icon--before" name={before} />}
+				{iconBefore && <Icon className="link__icon link__icon--before" name={iconBefore} />}
 				<span className="link__text">{children}</span>
 				{isExternal && <Icon className="link__icon link__icon--external" name="link" />}
-				{after && <Icon className="link__icon link__icon--after" name={after} />}
+				{iconAfter && <Icon className="link__icon link__icon--after" name={iconAfter} />}
 			</S.Link>
 		);
 	},
