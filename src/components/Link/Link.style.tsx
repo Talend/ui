@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-import { Button } from 'reakit';
+import { Button as ReakitButton } from 'reakit';
 
 import tokens from '../../tokens';
 
-export const Link = styled(Button)(
+export const Link = styled(ReakitButton)(
 	({ theme }) => `
 	color: ${theme.colors.activeColor};
 	
