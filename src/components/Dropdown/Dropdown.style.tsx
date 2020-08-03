@@ -13,6 +13,7 @@ export const Button = ReakitMenuButton;
 export const ButtonIcon = styled(Icon)`
 	height: ${tokens.sizes.smallerrr};
 	width: ${tokens.sizes.smallerrr};
+	fill: currentColor;
 `;
 
 export const Menu = styled(ReakitMenu)`

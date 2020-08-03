@@ -1,9 +1,10 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import dropdownZoning from './images/zoning-dropdown.jpg';
 import Button from '../../Button';
+import Link from '../../Link';
 import Dropdown from '../';
 
-<Meta title="Components/Dropdown" />
+<Meta title="Components/Dropdown" component={Dropdown} />
 
 # Dropdown
 
@@ -128,14 +129,14 @@ This rule is not applicable for the header-bar dropdowns.
       text: 'Lorem ipsum',
     }}
   >
-    {({ text, ...rest}) => 	<Dropdown
+    {({ text, ...rest}) => <Dropdown
                                 {...rest}
-                           		as={Button}
+                                as={Link}
                            		items={[
-                           			<button>Custom item 1</button>,
-                           			<button>Custom item 2</button>,
-                           			<button>Custom item 3</button>,
-                           		]}
+                                   <button>Custom item 1</button>,
+                                   <button>Custom item 2</button>,
+                                   <button>Custom item 3</button>,
+                               ]}
                             >
                                 {text}
                             </Dropdown>}
