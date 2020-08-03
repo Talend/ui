@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from './../Button';
+import { IconName } from '../Icon/Icon';
 
 export type ToggleProps = {
 	/** icon name to display */
-	icon: string;
+	icon: IconName;
 	/** if the toggle is active or not */
 	isActive?: boolean;
 	/** if the button is disabled or not */
