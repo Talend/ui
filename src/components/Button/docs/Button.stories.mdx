@@ -21,7 +21,7 @@ Buttons are clickable items used for actions. They can have different style depe
 ## Variations
 
 <Preview>
-  <Story name="primary">
+	<Story name="primary">
 		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
 		<Button.Primary small onClick={action('clicked')}>
 			Small Button
@@ -33,19 +33,19 @@ Buttons are clickable items used for actions. They can have different style depe
 			Disabled Focusable Button
 		</Button.Primary>
 	</Story>
-    <Story name="destructive">
+	<Story name="destructive">
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
-        <Button.Destructive small onClick={action('clicked')}>
-            Small Button
-        </Button.Destructive>
-        <Button.Destructive disabled onClick={action('clicked')}>
-            Disabled Button
-        </Button.Destructive>
-        <Button.Destructive disabled focusable onClick={action('clicked')}>
-            Disabled Focusable Button
-        </Button.Destructive>
+		<Button.Destructive small onClick={action('clicked')}>
+			Small Button
+		</Button.Destructive>
+		<Button.Destructive disabled onClick={action('clicked')}>
+			Disabled Button
+		</Button.Destructive>
+		<Button.Destructive disabled focusable onClick={action('clicked')}>
+			Disabled Focusable Button
+		</Button.Destructive>
 	</Story>
-	  <Story name="secondary">
+	<Story name="secondary">
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
 		<Button.Secondary small onClick={action('clicked')}>
 			Small Button
@@ -57,7 +57,7 @@ Buttons are clickable items used for actions. They can have different style depe
 			Disabled Focusable Button
 		</Button.Secondary>
 	</Story>
-	  <Story name="ghost">
+	<Story name="ghost">
 		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
 		<Button.Ghost small onClick={action('clicked')}>
 			Small Button
@@ -69,7 +69,7 @@ Buttons are clickable items used for actions. They can have different style depe
 			Disabled Focusable Button
 		</Button.Ghost>
 	</Story>
-	  <Story name="icon">
+	<Story name="icon">
 		<Button.Icon onClick={action('clicked')} icon={'plus'}>
 			Basic Button
 		</Button.Icon>
@@ -94,13 +94,13 @@ Cobalt support two buttons sizes: **default** and **small**.
 | Attribute                      | Variable      |
 | ------------------------------ | ------------- |
 | height                         | 3.4rem        |
-| padding-left; padding-right    | $large       |
+| padding-left; padding-right    | \$large       |
 | border                         | solid, 0.1rem |
 | border-radius                  | rectRadius    |
 | _ (if icon) _ icon-size        | 1.4rem        |
-| _ (if icon) _ margin-right     | $smaller     |
+| _ (if icon) _ margin-right     | \$smaller     |
 | _ (for dropdown) _ icon-size   | 0.8rem        |
-| _ (for dropdown) _ margin-left | $smaller     |
+| _ (for dropdown) _ margin-left | \$smaller     |
 
 ### Small
 
@@ -109,7 +109,7 @@ The small size is available for primary, secondary and ghost buttons — but sho
 | Attribute                   | Variable      |
 | --------------------------- | ------------- |
 | height                      | 2.8rem        |
-| padding-left; padding-right | $small       |
+| padding-left; padding-right | \$small       |
 | border                      | solid, 0.1rem |
 | border-radius               | rectRadius    |
 
@@ -132,9 +132,9 @@ Icon buttons has two sizes: **large** and **small**. They can also be used as dr
 
 | Property          | font-size | font-weight | colors      |
 | ----------------- | --------- | ----------- | ----------- |
-| Primary           | 1.4rem    | semi-bold   | $white     |
-| Secondary & Ghost | 1.4rem    | semi-bold   | $st-tropaz |
-| Small             | 1.4rem    | semi-bold   | $variable  |
+| Primary           | 1.4rem    | semi-bold   | \$white     |
+| Secondary & Ghost | 1.4rem    | semi-bold   | \$st-tropaz |
+| Small             | 1.4rem    | semi-bold   | \$variable  |
 
 ## States
 
@@ -142,9 +142,9 @@ Icon buttons has two sizes: **large** and **small**. They can also be used as dr
 
 |              | Primary                                              | Destructive                                          | Secondary                                        | Ghost                                     | Icon                          |
 | ------------ | ---------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------ | ----------------------------------------- | ----------------------------- |
-| **Hover**    | background-color: shade ($st-tropaz, 20%)           | background-color: shade ($chestunut-red, 20%)       | background-color: tint ($st-tropaz, 10%)        | background-color: tint ($st-tropaz, 10%) | color: tint ($variable, 20%) |
-| **Pressed**  | background-color: shade ($st-tropaz, 40%)           | background-color: shade ($chestunut-red, 40%)       | background-color: tint ($st-tropaz, 30%         | background-color: tint ($st-tropaz, 30%) | color: tint ($variable, 40%) |
-| **Disabled** | background-color: $alto; color: $black opacity 0.54; | background-color: $alto; color: $black opacity 0.54; | border-color: $alto; color: $black opacity 0.54; | color: $black opacity 0.54;              | color: $black opacity 0.54;  |
+| **Hover**    | background-color: shade (\$st-tropaz, 20%)           | background-color: shade (\$chestunut-red, 20%)       | background-color: tint (\$st-tropaz, 10%)        | background-color: tint (\$st-tropaz, 10%) | color: tint (\$variable, 20%) |
+| **Pressed**  | background-color: shade (\$st-tropaz, 40%)           | background-color: shade (\$chestunut-red, 40%)       | background-color: tint (\$st-tropaz, 30%         | background-color: tint (\$st-tropaz, 30%) | color: tint (\$variable, 40%) |
+| **Disabled** | background-color: $alto; color: $black opacity 0.54; | background-color: $alto; color: $black opacity 0.54; | border-color: $alto; color: $black opacity 0.54; | color: \$black opacity 0.54;              | color: \$black opacity 0.54;  |
 
 ## Content
 
@@ -157,7 +157,7 @@ Icon buttons has two sizes: **large** and **small**. They can also be used as dr
 - **Buttons should all have a tooltip on hover displaying the description**
 
 <Preview>
-  <Story name="basic">
+	<Story name="basic">
 		<Button onClick={action('clicked')}>Basic Button</Button>
 		<Button small onClick={action('clicked')}>
 			Small Button
@@ -185,7 +185,7 @@ In case of button with icon inside, the spinner will replace the icon as long as
 | height           | 3.4rem               |
 | width            | 8rem                 |
 | border-radius    | rectRadius           |
-| background-color | shade ($black, 25%) |
+| background-color | shade (\$black, 25%) |
 
 // TODO add demo
 
@@ -202,15 +202,28 @@ For more information, please go to accessibility page
 ## Usage
 
 <Preview>
-  <Story
-    name="usage"
-    height="20rem"
-    args={{
-      children: 'Lorem ipsum',
-    }}
-  >
-    {props => <Button {...props} onClick={action('clicked')} />}
-  </Story>
+	<Story
+		name="usage"
+		height="20rem"
+		args={{
+	    	variant: 'Primary',
+			children: 'Lorem ipsum',
+		}}
+		argTypes={{
+			variant: {
+                description: 'Button variation',
+                control: {
+                  type: 'select',
+                  options: ['', 'Primary', 'Secondary', 'Ghost', 'Destructive', 'Icon'],
+                }
+			},
+		}}
+	>
+		{props => {
+			const Component = Button[props.variant] || Button;
+			return <Component {...props} onClick={action('clicked')} />;
+		}}
+	</Story>
 </Preview>
 
 <Props story="usage" />

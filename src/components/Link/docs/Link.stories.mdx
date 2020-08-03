@@ -122,10 +122,10 @@ Press <kbd>ENTER</kbd> to open a link
   <Story
     name="usage"
     args={{
-      text: 'Lorem ipsum',
+      children: 'Lorem ipsum',
     }}
   >
-    {({ text, ...rest}) => <Link {...rest}>{text}</Link>}
+    {({ children, ...rest}) => <Link {...rest}>{children}</Link>}
   </Story>
 </Preview>
 

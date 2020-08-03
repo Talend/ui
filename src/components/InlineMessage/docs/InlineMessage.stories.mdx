@@ -146,12 +146,25 @@ _Non applicable_
   <Story
     name="basic"
     args={{
-      title: 'Title',
-      description: 'Description',
-      withBackground: false,
+        variant: 'Primary',
+        title: 'Title',
+        description: 'Description',
+        withBackground: true,
+    }}
+    argTypes={{
+        variant: {
+            description: 'InlineMessage variation',
+            control: {
+              type: 'select',
+              options: ['Information', 'Success', 'Warning', 'Destructive'],
+            }
+        },
     }}
   >
-    {(args) => <InlineMessage {...args} />}
+    {({ variant, ...rest }) => {
+        const Component = InlineMessage[variant] || InlineMessage;
+        return <Component {...rest} />
+    }}
   </Story>
 </Preview>
 

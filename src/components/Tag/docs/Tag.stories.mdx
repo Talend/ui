@@ -55,8 +55,20 @@ The Tag component is useful to emphasize information to the user, works best wit
     args={{
       children: 'Lorem ipsum',
     }}
+    argTypes={{
+        variant: {
+            description: 'Tag variation',
+            control: {
+              type: 'select',
+              options: ['', 'Information', 'Success', 'Warning', 'Destructive'],
+            }
+        },
+    }}
   >
-    {props => <Tag {...props} />}
+    {({ variant, ...rest }) => {
+        const Component = Tag[variant] || Tag;
+        return <Component {...rest} />;
+    }}
   </Story>
 </Preview>
 

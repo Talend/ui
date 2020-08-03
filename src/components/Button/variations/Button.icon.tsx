@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import ButtonBase, { ButtonProps } from '../Button';
+import Button, { ButtonProps } from '../Button';
 import tokens from '../../../tokens';
 
-const ButtonIcon: React.FC<ButtonProps> = styled(ButtonBase).attrs({ hideLabel: true })(
+const ButtonIcon: React.FC<ButtonProps> = styled(Button).attrs({ hideLabel: true })(
 	({ theme }) => `
 	padding: 0;
 	min-height: unset;

@@ -126,10 +126,10 @@ This rule is not applicable for the header-bar dropdowns.
     name="usage"
     height="20rem"
     args={{
-      text: 'Lorem ipsum',
+      children: 'Lorem ipsum',
     }}
   >
-    {({ text, ...rest}) => <Dropdown
+    {({ children, ...rest}) => <Dropdown
                                 {...rest}
                                 as={Link}
                            		items={[
@@ -138,7 +138,7 @@ This rule is not applicable for the header-bar dropdowns.
                                    <button>Custom item 3</button>,
                                ]}
                             >
-                                {text}
+                                {children}
                             </Dropdown>}
   </Story>
 </Preview>
