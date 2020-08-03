@@ -60,9 +60,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "storybook-addon-styled-component-theme": "^1.3.0",
+    "storybook-docs-toc": "^1.0.0",
     "storybook-chroma": "^4.0.2",
-    "styled-components": "^5.1.1",
-    "tocbot": "^4.11.2"
+    "styled-components": "^5.1.1"
   },
   "peerDependencies": {
     "focus-outline-manager": "^1.0.2",
