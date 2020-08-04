@@ -72,7 +72,7 @@ export const Span = styled.span(
 		align-items: center;
 		justify-content: center;
 		padding: 0 1rem;
-		height: 3.2rem;
+		height: ${tokens.sizes.xxl};
 		color: ${theme.colors.inputGroupColor};
 		background: ${theme.colors.inputGroupBackgroundColor};
 		border: 1px solid ${theme.colors.inputBorderColor};

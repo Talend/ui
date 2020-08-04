@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 import { useCheckboxState, Checkbox } from 'reakit/Checkbox';
 import InlineStyle from './styles/Input.Inline.style';
+import tokens from '../../../../tokens';
 
 const Div = styled(InlineStyle)(
 	({ theme, readOnly }) => `
 	input + span {
-		padding-left: calc(1rem + 3.2rem);
+		padding-left: calc(1rem + ${tokens.sizes.xxl});
 	}
 	
 	input + span:before,
@@ -17,7 +18,7 @@ const Div = styled(InlineStyle)(
 	}
 	
 	input + span:before {
-		width: 3.2rem;
+		width: ${tokens.sizes.xxl};
 		height: 1.6rem;
 	}
 	

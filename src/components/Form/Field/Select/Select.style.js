@@ -39,7 +39,7 @@ export const FieldWrapper = styled.div(
 				}
 	
 				select {
-					padding-right: 3.2rem;
+					padding-right: ${tokens.sizes.xxl};
 					appearance: none;
 					
 					&:hover {

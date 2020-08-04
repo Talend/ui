@@ -56,7 +56,7 @@ const FileField = styled.div(
 		&__text,
 		&__preview,
 		&__input {
-			min-height: 3.2rem;
+			min-height: ${tokens.sizes.xxl};
 		}
 
 		&__input {
@@ -89,7 +89,7 @@ const FileField = styled.div(
 			padding: 0 1rem;
 			
 			&-item {
-				line-height: 3.2rem;
+				line-height: ${tokens.sizes.xxl};
 				color: ${theme.colors.inputColor}; 
 			}
 		}
@@ -101,7 +101,7 @@ const FileField = styled.div(
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			min-height: 3.2rem;
+			min-height: ${tokens.sizes.xxl};
 			border: none;
 			
 			svg {

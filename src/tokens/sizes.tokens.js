@@ -4,5 +4,5 @@ export default {
 	m: '1.4rem',
 	l: '1.6rem',
 	xl: '2.8rem',
-	xxl: '3.4rem',
+	xxl: '3.2rem',
 };

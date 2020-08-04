@@ -23,7 +23,7 @@ export const Field = styled.div(
 
 	.field__group--loading {
 		.field__control {
-			padding-right: 3.2rem;
+			padding-right: ${tokens.sizes.xxl};
 		}
 		
 		.field__loading {
@@ -31,8 +31,8 @@ export const Field = styled.div(
 			top: 0;
 			right: 0;
 			left: auto;
-			width: 3.2rem;
-			height: 3.2rem;	
+			width: ${tokens.sizes.xxl};
+			height: ${tokens.sizes.xxl};	
 		}
 	}
 	
@@ -134,7 +134,7 @@ export const FieldControl = styled.div(
 		['input', 'select'].includes(as) &&
 		!['radio', 'checkbox'].includes(type) &&
 		!multiple &&
-		'height: 3.2rem;'
+		`height: ${tokens.sizes.xxl};`
 	} 	
    
   &::placeholder {
