@@ -1,4 +1,4 @@
-import { shade, tint } from 'polished';
+import { linearGradient, shade, tint } from 'polished';
 
 const black = '#202020';
 const russianViolet = '#2C1F56';
@@ -26,6 +26,14 @@ export const palette = {
 	lightningYellow,
 	jaffa,
 	coral,
+};
+
+export const gradients = {
+	twilight: linearGradient({
+		colorStops: [`${deepBlue} 0%`, `${russianViolet} 100%`],
+		toDirection: '133deg',
+		fallback: deepBlue,
+	}),
 };
 
 export const swatches = {};
@@ -63,6 +71,7 @@ export const grayscale = {
 
 export default {
 	...brand,
+	...gradients,
 	...swatches,
 	...interactions,
 	...grayscale,
