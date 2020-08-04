@@ -11,7 +11,7 @@ export const Field = styled.div(
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	padding-bottom: ${tokens.space.small};
+	padding-bottom: ${tokens.space.normal};
 	width: 100%;
   	min-width: 8rem;
   	max-width: 70rem;
