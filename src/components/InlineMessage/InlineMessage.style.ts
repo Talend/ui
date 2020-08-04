@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import tokens from '../../tokens';
 
 export const InlineMessage = styled.div`
+	font-family: ${tokens.fonts.sansSerif};
 	${props => props.withBackground || 'display: inline;'}
 `;
 export const Paragraph = styled.p`

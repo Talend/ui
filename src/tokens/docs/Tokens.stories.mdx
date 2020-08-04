@@ -64,9 +64,17 @@ We are using <a href="https://system-ui.com/theme/" target="_blank">the System U
 
 ## fontSizes
 
-<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} />
+<Typeset fontSizes={Object.values(tokens.fontSizes)} />
 
 ## fonts
+
+Default content uses sans-serif font.
+
+<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} fontFamily={tokens.fonts.sansSerif}/>
+
+Data related content uses monospace font.
+
+<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} fontFamily={tokens.fonts.monospace}/>
 
 ## fontWeights
 

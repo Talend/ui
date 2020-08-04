@@ -8,6 +8,7 @@ import tokens from '../../tokens';
 export const Link = styled(ReakitButton)(
 	({ theme }) => `
 	color: ${theme.colors.activeColor};
+	font-family: ${tokens.fonts.sansSerif};
 	
 	&:hover,
 	&:active {

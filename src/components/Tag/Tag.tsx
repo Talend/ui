@@ -13,6 +13,7 @@ const Span = styled.span(
 	display: inline-block;
 	padding: 0 0.5rem;	
 	max-width: 15rem;
+	font-family: ${tokens.fonts.sansSerif};
 	font-size: ${tokens.fontSizes.small};
 	font-weight: ${tokens.fontWeights.semiBold};
 	text-overflow: ellipsis;

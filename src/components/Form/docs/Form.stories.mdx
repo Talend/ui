@@ -21,9 +21,9 @@ export function getColumnTypes() {
     <Story name="Overview">
         <div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto', width: '60vw', maxWidth: '70rem'}}>
             <Form>
-                <Form.Fieldset legend="Form fields">
+                <Form.Fieldset legend="Fieldset">
                     <Form.Text label="Input" />
-                    <Form.InputGroup label="Phone" prefix={<Form.Select label="Phone prefix" values={getCountryCodes()} value="France (+33)" style={{ width: '14rem' }}/>}>
+                    <Form.InputGroup label="Phone" prefix={<Form.Select label="Phone prefix" values={getCountryCodes()} value="France (+33)" style={{ width: '13rem' }}/>}>
                         <Form.Tel label="Phone number" />
                     </Form.InputGroup>
                     <Form.InputGroup label="Column" suffix={<Form.Select label="Column type" values={getColumnTypes()} value="Date" />}>
