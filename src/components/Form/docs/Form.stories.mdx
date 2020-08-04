@@ -46,10 +46,10 @@ export function getColumnTypes() {
                     <Form.Radio label="Radio" checked />
                     <Form.Switch label="Switch" checked />
                 </Form.Fieldset>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2rem 0'}}>
+                <Form.Buttons>
                     <Button.Secondary type="reset" onClick={action('clicked')}>Reset</Button.Secondary>
                     <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
-                </div>
+                </Form.Buttons>
             </Form>
         </div>
     </Story>

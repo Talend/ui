@@ -1,6 +1,7 @@
 import Datalist from './Field/Datalist';
 import Fieldset from './Fieldset';
 import Form from './Form';
+import FormLayout from './FormLayout';
 import Input from './Field/Input';
 import InputGroup from './Field/InputGroup';
 import InputGroupPrefix from './Field/InputGroup/InputGroupPrefix';
@@ -35,5 +36,7 @@ Form.Textarea = Textarea;
 Form.Time = Input.Time;
 Form.Url = Input.Url;
 Form.Week = Input.Week;
+
+Form.Buttons = FormLayout.FormButtons;
 
 export default Form;
