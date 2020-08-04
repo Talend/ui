@@ -11,12 +11,14 @@ export type InlineMessageProps = {
 	title?: string;
 	/** The content of the message */
 	description: string;
-	/**
-	 Link element at the end
-	 */
+	/** Size variant */
+	small: boolean;
+	/** Link element at the end */
 	link?: React.ReactNode;
 	/** If it is an inline message or a block with a background */
 	withBackground?: boolean;
+
+	className?: string;
 };
 
 /**
@@ -26,39 +28,48 @@ export type InlineMessageProps = {
  **/
 const InlineMessage: React.FC<InlineMessageProps> = React.forwardRef(
 	(
-		{ icon, title, description, link, withBackground = false, ...rest }: InlineMessageProps,
+		{
+			icon,
+			title,
+			description,
+			link,
+			small = false,
+			withBackground = false,
+			className = '',
+			...rest
+		}: InlineMessageProps,
 		ref,
 	) => {
 		return (
 			<S.InlineMessage
 				{...rest}
+				className={`${className} inline-message`}
+				small={small}
 				withBackground={withBackground}
 				role="status"
 				aria-live="polite"
 				ref={ref}
 			>
-				<S.Paragraph icon={icon} withBackground={withBackground}>
+				<p>
 					{(icon || title) && (
-						<S.Strong>
-							<>
-								<S.IconSpan withBackground={withBackground}>
-									<Icon name={icon} />
-								</S.IconSpan>{' '}
-							</>
+						<>
+							<span className="inline-message__icon">
+								<Icon name={icon} />
+							</span>
 							{title && (
 								<>
-									<S.TextSpan withBackground={withBackground}>{title}</S.TextSpan>{' '}
+									<span className="inline-message__title">{title}</span>{' '}
 								</>
 							)}
-						</S.Strong>
+						</>
 					)}
 					{description && (
 						<>
-							<S.TextSpan withBackground={withBackground}>{description}</S.TextSpan>{' '}
+							<span className="inline-message__description">{description}</span>{' '}
 						</>
 					)}
-					{link && <S.TextSpan withBackground={withBackground}>{link}</S.TextSpan>}
-				</S.Paragraph>
+					{link && <span className="inline-message__link">{link}</span>}
+				</p>
 			</S.InlineMessage>
 		);
 	},

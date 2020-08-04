@@ -27,15 +27,15 @@ const InlineStyle = styled.div(
 	}
 
 	input + span:before {
-		width: ${tokens.sizes.smallerr};
-		height: ${tokens.sizes.smallerr};
+		width: ${tokens.sizes.s};
+		height: ${tokens.sizes.s};
 		box-shadow: 0 0 0 1px ${theme.colors.inputBorderColor};
 	}
 
 	input + span:after {
-		margin: calc((${tokens.sizes.smallerr} - ${tokens.sizes.smallerrr}) / 2);
-		width: ${tokens.sizes.smallerrr};
-		height: ${tokens.sizes.smallerrr};
+		margin: calc((${tokens.sizes.s} - ${tokens.sizes.xs}) / 2);
+		width: ${tokens.sizes.xs};
+		height: ${tokens.sizes.xs};
 	}
 
 	input:not(:disabled) + span:hover,

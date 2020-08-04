@@ -1,6 +1,7 @@
 import React from 'react';
 
 import * as S from './Layout.style';
+import Header from './Header';
 
 export default function Layout({
 	header,
@@ -14,7 +15,11 @@ export default function Layout({
 	const Main = () => <S.Main className={`layout__main`}>{main}</S.Main>;
 	return (
 		<S.Layout className={`layout `} {...rest}>
-			{header && <S.Header className="layout__header">{header}</S.Header>}
+			{header && (
+				<S.Header className="layout__header">
+					<Header>{header}</Header>
+				</S.Header>
+			)}
 			{aside ? (
 				<S.LayoutGroup className={`layout__group`}>
 					<S.Aside className={`layout__aside`}>{aside}</S.Aside>

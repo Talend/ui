@@ -30,6 +30,8 @@ It can be additional information related to system status, it can be a required 
 
 ## Variations
 
+### Default
+
 <Preview>
   <Story name="information">
     <InlineMessage.Information
@@ -57,6 +59,43 @@ It can be additional information related to system status, it can be a required 
        		title={'Lorem ipsum'}
        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
        		link={<Link href={'#'}>See more</Link>}
+       	/>
+  </Story>
+</Preview>
+
+### Small
+
+<Preview>
+  <Story name="informationSmall">
+    <InlineMessage.Information
+        		title={'Lorem ipsum'}
+        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+        		link={<Link href={'#'}>See more</Link>}
+           		small
+        	/>
+  </Story>
+  <Story name="successSmall">
+    <InlineMessage.Success
+        		title={'Lorem ipsum'}
+        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+        		link={<Link href={'#'}>See more</Link>}
+           		small
+        	/>
+  </Story>
+  <Story name="warningSmall">
+    <InlineMessage.Warning
+        		title={'Lorem ipsum'}
+        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+        		link={<Link href={'#'}>See more</Link>}
+           		small
+        	/>
+  </Story>
+  <Story name="destructiveSmall">
+   <InlineMessage.Destructive
+       		title={'Lorem ipsum'}
+       		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+       		link={<Link href={'#'}>See more</Link>}
+       		small
        	/>
   </Story>
 </Preview>
@@ -93,6 +132,47 @@ It can be additional information related to system status, it can be a required 
        		title={'Lorem ipsum'}
        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
        		link={<Link href={'#'}>See more</Link>}
+       		withBackground
+       	/>
+  </Story>
+</Preview>
+
+### Small with background
+
+<Preview>
+  <Story name="informationSmallWithBg">
+    <InlineMessage.Information
+        		title={'Lorem ipsum'}
+        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+        		link={<Link href={'#'}>See more</Link>}
+        		small
+           		withBackground
+        	/>
+  </Story>
+  <Story name="successSmallWithBg">
+    <InlineMessage.Success
+        		title={'Lorem ipsum'}
+        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+        		link={<Link href={'#'}>See more</Link>}
+        		small
+           		withBackground
+        	/>
+  </Story>
+  <Story name="warningSmallWithBg">
+    <InlineMessage.Warning
+        		title={'Lorem ipsum'}
+        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+        		link={<Link href={'#'}>See more</Link>}
+           		small
+           		withBackground
+        	/>
+  </Story>
+  <Story name="destructiveSmallWithBg">
+   <InlineMessage.Destructive
+       		title={'Lorem ipsum'}
+       		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
+       		link={<Link href={'#'}>See more</Link>}
+       		small
        		withBackground
        	/>
   </Story>

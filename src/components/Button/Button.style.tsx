@@ -6,8 +6,8 @@ export const Button = styled(ReakitButton)(
 	({ theme }) => `
 	display: inline-flex;
 	align-items: center;
-	padding: ${tokens.space.none} ${tokens.space.large};
-	min-height: ${tokens.sizes.large};
+	padding: ${tokens.space.none} ${tokens.space.l};
+	min-height: ${tokens.sizes.xxl};
 	font-family: ${tokens.fonts.sansSerif};
 	color: ${theme.colors.textColor};
 	background: ${tokens.colors.transparent};
@@ -38,8 +38,8 @@ export const Button = styled(ReakitButton)(
 		}
 
 		&--small {
-			padding: ${tokens.space.none} ${tokens.space.small};
-			min-height: ${tokens.sizes.small};
+			padding: ${tokens.space.none} ${tokens.space.s};
+			min-height: ${tokens.sizes.xl};
 		}
 		
 		&--icon {

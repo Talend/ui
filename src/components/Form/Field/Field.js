@@ -1,11 +1,12 @@
 import React from 'react';
 
 import Loading from '../../Loading';
+import InlineMessage from '../../InlineMessage';
 
 import * as S from './Field.style';
 
 const Field = React.forwardRef(
-	({ as = 'input', className = '', label, before, after, loading, ...rest }, ref) => {
+	({ as = 'input', className = '', label, before, after, loading, errorMessage, ...rest }, ref) => {
 		const { multiple, type } = rest;
 		const inline = ['checkbox', 'radio'].includes(type);
 
@@ -26,7 +27,9 @@ const Field = React.forwardRef(
 				<S.FieldGroup
 					className={`field__group ${typeof as === 'string' ? `field__group--${as}` : ''} ${
 						multiple ? 'field__group--multiple' : ''
-					} ${loading ? 'field__group--loading' : ''}`}
+					} ${loading ? 'field__group--loading' : ''} ${
+						errorMessage ? 'field__group--has-error' : ''
+					}`}
 					after={after}
 				>
 					{before}
@@ -43,6 +46,7 @@ const Field = React.forwardRef(
 					{after}
 				</S.FieldGroup>
 				{inline && getLabel(label)}
+				{errorMessage && <InlineMessage.Destructive small description={errorMessage} />}
 			</S.Field>
 		);
 	},

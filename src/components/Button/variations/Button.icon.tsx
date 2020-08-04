@@ -7,8 +7,8 @@ const ButtonIcon: React.FC<ButtonProps> = styled(Button).attrs({ hideLabel: true
 	({ theme }) => `
 	padding: 0;
 	min-height: unset;
-	height: ${tokens.sizes.small};
-	width: ${tokens.sizes.small};
+	height: ${tokens.sizes.xl};
+	width: ${tokens.sizes.xl};
 	align-items: center;
 	justify-content: center;
 	color: ${theme.colors.buttonPrimaryBackgroundColor};

@@ -37,16 +37,16 @@ export const Link = styled(ReakitButton)(
 	.link__icon {
 		display: inline-block;
 		vertical-align: baseline;
-		width: ${tokens.sizes.smallerr};
+		width: ${tokens.sizes.s};
 		fill: currentColor;
   		
   		&--before {
-  			margin-right: ${tokens.space.smaller};
+  			margin-right: ${tokens.space.xs};
 		}
   		
   		&--external,
 	 	&--after {
-			margin-left: ${tokens.space.smaller};
+			margin-left: ${tokens.space.xs};
 		}
 	}
 `,

@@ -29,7 +29,7 @@ export const FieldWrapper = styled.div(
 					bottom: 0;
 					right: 0;
 					position: absolute;
-					width: ${tokens.sizes.smallerr};
+					width: ${tokens.sizes.s};
 					margin: 0 1rem;
 					mask-repeat: no-repeat;
 					mask-position: center;

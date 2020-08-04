@@ -2,29 +2,41 @@ import styled from 'styled-components';
 
 import tokens from '../../tokens';
 
-export const InlineMessage = styled.div`
-	font-family: ${tokens.fonts.sansSerif};
-	${props => props.withBackground || 'display: inline;'}
-`;
-export const Paragraph = styled.p`
-	${props => props.icon && props.withBackground && 'padding: 0 0.5rem;'}
-`;
-export const Strong = styled.strong``;
-export const Span = styled.span``;
-export const IconSpan = styled(Span)`
+export const InlineMessage = styled.div(
+	({ small, withBackground, theme }) => `
+	${withBackground ? 'display: inline;' : ''}
 	margin-right: 0.5rem;
+	${
+		withBackground
+			? `padding: ${tokens.space.xs} ${tokens.space.s} ${tokens.space.xs} ${tokens.space.xl};`
+			: ''
+	}
+	font-family: ${tokens.fonts.sansSerif};
+	${small ? `font-size: ${tokens.fontSizes.small};` : ''}
 
-	svg {
-		display: inline;
-		height: ${tokens.sizes.smaller};
-		width: ${tokens.sizes.smaller};
+
+	p {
+		margin: 0;
+	}
+	
+	.inline-message__icon {
+		padding-right: ${tokens.space.xs};
+		${withBackground ? `margin-left: -${tokens.space.l}; ` : ''}
+		    
+		svg {
+			display: inline;
+			height: ${small ? tokens.sizes.s : tokens.sizes.m};
+			width: ${small ? tokens.sizes.s : tokens.sizes.m};
+		}
 
 		path {
 			fill: currentColor;
 		}
 	}
-`;
-export const TextSpan = styled(Span)`
-	${({ theme, withBackground }) =>
-		`color: ${withBackground ? tokens.colors.gray900 : theme.colors.textColor};`}
-`;
+	
+	.inline-message__title,
+	.inline-message__description {
+		color: ${withBackground ? tokens.colors.gray900 : theme.colors.textColor};
+	}
+`,
+);

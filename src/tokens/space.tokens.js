@@ -1,8 +1,8 @@
 export default {
 	none: 0,
-	smaller: '.5rem',
-	small: '1rem',
-	normal: '1.5rem',
-	large: '2rem',
-	larger: '3rem',
+	xs: '.5rem',
+	s: '1rem',
+	m: '1.5rem',
+	l: '2rem',
+	xl: '3rem',
 };

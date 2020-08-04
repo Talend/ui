@@ -11,7 +11,7 @@ export const Field = styled.div(
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	padding-bottom: ${tokens.space.normal};
+	padding-bottom: ${tokens.space.m};
 	width: 100%;
   	min-width: 8rem;
   	max-width: 70rem;
@@ -33,6 +33,12 @@ export const Field = styled.div(
 			left: auto;
 			width: 3.2rem;
 			height: 3.2rem;	
+		}
+	}
+	
+	.field__group--has-error {
+		${FieldControl} {
+			border-color: ${theme.colors.destructiveColor};
 		}
 	}
 	
@@ -64,7 +70,7 @@ export const FieldGroup = styled.div(
   button {
     position: absolute;
     padding: 0;
-    height: ${tokens.sizes.smaller};
+    height: ${tokens.sizes.l};
     z-index: 1;
   }
   
@@ -113,7 +119,7 @@ export const FieldGroup = styled.div(
 
 export const FieldControl = styled.div(
 	({ theme, as, type, multiple }) => `
-  padding: 0 ${tokens.space.small}; 
+  padding: 0 ${tokens.space.s}; 
   width: 100%;
   color: ${theme.colors.inputColor};
   font-size: ${tokens.fontSizes.normal};   

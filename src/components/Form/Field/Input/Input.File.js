@@ -77,7 +77,7 @@ const FileField = styled.div(
 		
 		&__icon {
 			margin: 0 1rem;
-			width: ${tokens.sizes.smaller};
+			width: ${tokens.sizes.l};
 			fill: ${theme.colors.inputPlaceholderColor};
 		}
 	}	
@@ -107,7 +107,7 @@ const FileField = styled.div(
 			svg {
 				position: static;
 				margin:0;
-				width: ${tokens.sizes.smaller};
+				width: ${tokens.sizes.l};
 				
 				path {
 					fill: ${theme.colors.activeColor};

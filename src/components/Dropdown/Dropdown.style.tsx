@@ -11,15 +11,15 @@ import tokens from '../../tokens';
 export const Button = ReakitMenuButton;
 
 export const ButtonIcon = styled(Icon)`
-	height: ${tokens.sizes.smallerrr};
-	width: ${tokens.sizes.smallerrr};
+	height: ${tokens.sizes.xs};
+	width: ${tokens.sizes.xs};
 	fill: currentColor;
 `;
 
 export const Menu = styled(ReakitMenu)`
 	display: flex;
 	flex-direction: column;
-	padding: ${tokens.space.smaller} ${tokens.space.none};
+	padding: ${tokens.space.xs} ${tokens.space.none};
 	max-width: 25rem;
 	background: ${tokens.colors.gray0};
 	border-radius: ${tokens.radii.rectRadius};
@@ -28,5 +28,5 @@ export const Menu = styled(ReakitMenu)`
 `;
 
 export const MenuItem = styled(ReakitMenuItem)`
-	padding: ${tokens.space.small} ${tokens.space.normal};
+	padding: ${tokens.space.s} ${tokens.space.m};
 `;

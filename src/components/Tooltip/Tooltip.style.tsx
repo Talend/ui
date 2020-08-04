@@ -10,8 +10,8 @@ import tokens from '../../tokens';
 export const Tooltip = styled(ReakitTooltip)(
 	({ theme }) => `
 	max-width: 25rem;
-	padding-left: ${tokens.space.smaller};
-	padding-right: ${tokens.space.smaller};
+	padding-left: ${tokens.space.s};
+	padding-right: ${tokens.space.s};
 	font-size: 1.2rem;
 	color: ${theme.colors.tooltipColor};
 	background: ${theme.colors.tooltipBackgroundColor};
