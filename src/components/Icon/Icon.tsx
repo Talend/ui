@@ -16,6 +16,7 @@ export type IconName =
 	| 'minus'
 	| 'plus'
 	| 'search'
+	| 'talend'
 	| 'upload'
 	| 'validate'
 	| 'warning';
