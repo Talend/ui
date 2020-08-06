@@ -120,7 +120,7 @@
   12:3  error  Arrow function should not return assignment  no-return-assign
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
-  221:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
+  227:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/HeaderInput.component.js
   89:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
