@@ -444,7 +444,8 @@ storiesOf('Form/Controls/Enumeration', module)
 					<b>itemsProp.actionsEdit</b>
 				</i>
 				<br />
-				The function takes a single argument, item data(including index). returns an array of actions.
+				The function takes a single argument, item data(including index). returns an array of
+				actions.
 			</p>
 			<IconsProvider />
 			<Enumeration {...withCustomActions} />
