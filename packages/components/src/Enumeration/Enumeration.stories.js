@@ -288,6 +288,34 @@ const withClassProps = {
 	],
 };
 
+const withCustomActions = {
+	...props,
+	itemsProp: {
+		...props.itemsProp,
+		actionsDefault: item => {
+			if (item.index % 2 === 0) {
+				return [
+					{
+						label: 'Remove value',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: action('item.onDelete'),
+					},
+				];
+			}
+			return [
+				{
+					disabled: false,
+					label: 'Edit',
+					icon: 'talend-pencil',
+					id: 'edit',
+					onClick: action('item.onEnterEditMode'),
+				},
+			];
+		},
+	},
+};
+
 storiesOf('Form/Controls/Enumeration', module)
 	.add('default', () => (
 		<div>
@@ -401,6 +429,25 @@ storiesOf('Form/Controls/Enumeration', module)
 			<p>With dynamic height: </p>
 			<IconsProvider />
 			<EnumerationDynamicHeight />
+		</div>
+	))
+	.add('with custom actions', () => (
+		<div>
+			<p>
+				With custom actions: <br />
+				You can pass a function to{' '}
+				<i>
+					<b>itemsProp.actionsDefault</b>
+				</i>{' '}
+				or{' '}
+				<i>
+					<b>itemsProp.actionsEdit</b>
+				</i>
+				<br />
+				The function takes a single argument, item data(including index). returns an array of actions.
+			</p>
+			<IconsProvider />
+			<Enumeration {...withCustomActions} />
 		</div>
 	));
 
