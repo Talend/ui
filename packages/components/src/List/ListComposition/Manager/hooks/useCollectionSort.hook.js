@@ -10,7 +10,9 @@ function getDefaultSortFunction({ sortBy, isDescending }) {
 
 		const result =
 			isNaN(valueA) || isNaN(valueB)
-				? valueA.toString().localeCompare(valueB.toString())
+				? valueA
+						.toString()
+						.localeCompare(valueB.toString(), undefined, { numeric: true, sensitivity: 'base' })
 				: valueA - valueB;
 
 		return result * direction;
