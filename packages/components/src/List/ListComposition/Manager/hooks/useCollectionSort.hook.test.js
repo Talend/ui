@@ -43,6 +43,17 @@ const collection = [
 	},
 ];
 
+const natural = [
+	{ label: 'Demo 3' },
+	{ label: 'Demo 10' },
+	{ label: 'Demo 102' },
+	{ label: 'Demo 11' },
+	{ label: 'Demo 1' },
+	{ label: 'Demo 20' },
+	{ label: 'Demo 2' },
+	{ label: 'Demo 22' },
+];
+
 describe('useCollectionSort', () => {
 	it('should not sort when no sort params is provided', () => {
 		// when
@@ -130,5 +141,14 @@ describe('useCollectionSort', () => {
 		expect(sortedCollection[2].firstName).toEqual('Luann');
 		expect(sortedCollection[3].firstName).toEqual('Conner');
 		expect(sortedCollection[4].firstName).toEqual('Shelly');
+	});
+
+	it('should use a natural sort order', () => {
+		const sortParams = {
+			sortBy: 'label',
+			isDescending: false,
+		};
+		const wrapper = mount(<SortComponent collection={natural} initialSortParams={sortParams} />);
+		expect(wrapper.find('#mainChild').prop('sortedCollection')).toMatchSnapshot();
 	});
 });
