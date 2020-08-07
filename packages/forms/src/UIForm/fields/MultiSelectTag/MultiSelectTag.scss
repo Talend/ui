@@ -1,4 +1,4 @@
-@import '~@talend/bootstrap-theme/src/theme/forms.guideline';
+// @import '~@talend/bootstrap-theme/src/theme/forms.guideline';
 $tf-datalist-items-background-color: $white !default;
 $tf-datalist-items-shadow-color: $shadow !default;
 $tf-typeahead-input-width: 135px !default;
@@ -12,7 +12,7 @@ $tc-badge-margin: $padding-smaller !default;
 
 	border: 0;
 	border-radius: 0;
-	box-shadow: $form-shadow;
+	// box-shadow: $form-shadow;
 	height: auto;
 	padding: 0;
 
@@ -21,12 +21,12 @@ $tc-badge-margin: $padding-smaller !default;
 		outline: none;
 
 		&:focus input {
-			box-shadow: $form-focus-shadow;
+			// box-shadow: $form-focus-shadow;
 		}
 	}
 
 	&:focus-within {
-		box-shadow: $form-focus-shadow;
+		// box-shadow: $form-focus-shadow;
 	}
 
 	.typeahead {
