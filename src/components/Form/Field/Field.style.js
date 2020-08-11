@@ -14,7 +14,6 @@ export const Field = styled.div(
 	padding-bottom: ${tokens.space.m};
 	width: 100%;
   	min-width: 8rem;
-  	max-width: 70rem;
 	color: ${theme.colors.textColor};
 
 	label {

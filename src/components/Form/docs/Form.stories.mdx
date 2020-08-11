@@ -19,39 +19,37 @@ export function getColumnTypes() {
 
 <Preview>
     <Story name="Overview">
-        <div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto', width: '60vw', maxWidth: '70rem'}}>
-            <Form>
-                <Form.Fieldset legend="Fieldset">
-                    <Form.Text label="Input" />
-                    <Form.Text label="Input with error" errorMessage="Lorem ipsum dolor sit amet Quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaLorem ipsum dolor sit ame"/>
-                    <Form.InputGroup label="Phone" prefix={<Form.Select label="Phone prefix" values={getCountryCodes()} value="France (+33)" style={{ width: '13rem' }}/>}>
-                        <Form.Tel label="Phone number" />
-                    </Form.InputGroup>
-                    <Form.InputGroup label="Column" suffix={<Form.Select label="Column type" values={getColumnTypes()} value="Date" />}>
-                        <Form.Text label="Column name" />
-                    </Form.InputGroup>
-                    <Form.InputGroup label="Amount"
-                                     prefix="$"
-                                     suffix=".00">
-                        <Form.Number label="Amount without decimal" min="1" step="1" />
-                    </Form.InputGroup>
-                    <Form.File label="File" />
-                    <Form.Password label="Password" />
-                    <Form.Datalist label="Datalist" values={['foo', 'bar']} />
-                    <Form.Search label="Search" />
-                    <Form.Textarea label="Textarea" />
-                    <Form.Range label="Range" />
-                    <Form.Select label="Select" values={['', 'foo', 'bar']} value="foo"/>
-                    <Form.Select label="Select multiple" values={['foo', 'bar']} multiple value={['foo']} />
-                    <Form.Checkbox label="Checkbox" checked />
-                    <Form.Radio label="Radio" checked />
-                    <Form.Switch label="Switch" checked />
-                </Form.Fieldset>
-                <Form.Buttons>
-                    <Button.Secondary type="reset" onClick={action('clicked')}>Reset</Button.Secondary>
-                    <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
-                </Form.Buttons>
-            </Form>
-        </div>
+        <Form>
+            <Form.Fieldset legend="Fieldset">
+                <Form.Text label="Input" />
+                <Form.Text label="Input with error" errorMessage="Lorem ipsum dolor sit amet Quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaLorem ipsum dolor sit ame"/>
+                <Form.InputGroup label="Phone" prefix={<Form.Select label="Phone prefix" values={getCountryCodes()} value="France (+33)" style={{ width: '13rem' }}/>}>
+                    <Form.Tel label="Phone number" />
+                </Form.InputGroup>
+                <Form.InputGroup label="Column" suffix={<Form.Select label="Column type" values={getColumnTypes()} value="Date" />}>
+                    <Form.Text label="Column name" />
+                </Form.InputGroup>
+                <Form.InputGroup label="Amount"
+                                 prefix="$"
+                                 suffix=".00">
+                    <Form.Number label="Amount without decimal" min="1" step="1" />
+                </Form.InputGroup>
+                <Form.File label="File" />
+                <Form.Password label="Password" />
+                <Form.Datalist label="Datalist" values={['foo', 'bar']} />
+                <Form.Search label="Search" />
+                <Form.Textarea label="Textarea" />
+                <Form.Range label="Range" />
+                <Form.Select label="Select" values={['', 'foo', 'bar']} value="foo"/>
+                <Form.Select label="Select multiple" values={['foo', 'bar']} multiple value={['foo']} />
+                <Form.Checkbox label="Checkbox" checked />
+                <Form.Radio label="Radio" checked />
+                <Form.Switch label="Switch" checked />
+            </Form.Fieldset>
+            <Form.Buttons>
+                <Button.Secondary type="reset" onClick={action('clicked')}>Reset</Button.Secondary>
+                <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
+            </Form.Buttons>
+        </Form>
     </Story>
 </Preview>

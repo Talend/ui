@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import tokens from '../../tokens';
 
 export const StyledForm = styled.form`
@@ -16,11 +15,5 @@ export const StyledForm = styled.form`
 function Form({ children }) {
 	return <StyledForm>{children}</StyledForm>;
 }
-
-Form.propTypes = {
-	autocomplete: PropTypes.string,
-	name: PropTypes.string,
-	novalidate: PropTypes.string,
-};
 
 export default Form;

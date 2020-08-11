@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import tokens from '../../../tokens';
 
 const StyledFieldset = styled.fieldset(
 	({ theme }) => `
@@ -12,6 +13,8 @@ const StyledFieldset = styled.fieldset(
 const StyledLegend = styled.legend(
 	({ theme }) => `
 	color: ${theme.colors.textColor};
+	font-weight: ${tokens.fontWeights.bold};
+	padding: ${tokens.space.m} 0; 
 `,
 );
 
