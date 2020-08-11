@@ -8,18 +8,9 @@ module.exports = {
 		'../src/**/*.stories.js',
 	],
 	addons: [
-		'@storybook/addon-actions',
+		'@storybook/addon-essentials',
 		'@storybook/addon-links',
-		{
-			name: '@storybook/addon-docs',
-			options: {
-				configureJSX: true,
-			},
-		},
-		'@storybook/addon-controls',
-		'@storybook/addon-viewport/register',
 		'@storybook/addon-contexts/register',
-		'@storybook/addon-backgrounds/register',
 	],
 	typescript: {
 		reactDocgen: 'react-docgen-typescript',
