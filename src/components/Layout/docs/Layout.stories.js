@@ -1,5 +1,5 @@
 import React from 'react';
-
+import HeaderBar from '../Header';
 import Layout from '../Layout';
 
 export default {
@@ -10,7 +10,7 @@ export default {
 	},
 };
 
-const Header = () => <h1>Header</h1>;
+const Header = () => <HeaderBar><strong>App name</strong></HeaderBar>;
 
 const Aside = () => (
 	<nav>
@@ -24,15 +24,17 @@ const Aside = () => (
 
 const Main = () => (
 	<section>
-		<h1>Heading</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut vestibulum sapien. Donec
-			accumsan, lorem at consequat semper, lacus neque consectetur ex, ut finibus dolor urna in
-			justo. Nunc maximus arcu vitae nibh semper, quis luctus magna vestibulum. Curabitur quis
-			mauris luctus, interdum erat laoreet, ultrices nulla. Sed non mauris hendrerit, tempus risus
-			quis, finibus ligula. Proin in turpis tortor. Aliquam erat volutpat. Nunc vitae egestas felis.
-			Praesent scelerisque sit amet mauris eget tristique. Nullam a ipsum libero.
-		</p>
+		<article>
+			<header>Heading</header>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut vestibulum sapien. Donec
+				accumsan, lorem at consequat semper, lacus neque consectetur ex, ut finibus dolor urna in
+				justo. Nunc maximus arcu vitae nibh semper, quis luctus magna vestibulum. Curabitur quis
+				mauris luctus, interdum erat laoreet, ultrices nulla. Sed non mauris hendrerit, tempus risus
+				quis, finibus ligula. Proin in turpis tortor. Aliquam erat volutpat. Nunc vitae egestas felis.
+				Praesent scelerisque sit amet mauris eget tristique. Nullam a ipsum libero.
+			</p>
+		</article>
 	</section>
 );
 
