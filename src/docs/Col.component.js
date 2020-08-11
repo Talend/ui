@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export default function Col({ children, fixed, centered, ...props }) {
 	return (
@@ -19,9 +18,3 @@ export default function Col({ children, fixed, centered, ...props }) {
 		</div>
 	);
 }
-
-Col.propTypes = {
-	children: PropTypes.node,
-	centered: PropTypes.string,
-	fixed: PropTypes.bool,
-};
