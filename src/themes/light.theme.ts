@@ -16,7 +16,7 @@ const theme: DefaultTheme = {
 		textColor: colors.gray900,
 		focusColor: colors.moodyPurple,
 		activeColor: colors.lochmara,
-		backgroundColor: colors.transparent,
+		backgroundColor: colors.gray0,
 
 		buttonPrimaryColor: colors.gray0,
 		buttonPrimaryBackgroundColor: colors.deepBlue500,
