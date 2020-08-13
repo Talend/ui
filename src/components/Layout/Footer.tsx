@@ -21,12 +21,14 @@ const SFooter = styled.div`
 const Header: React.FC<FooterProps> = ({ children }) => {
 	return (
 		<SFooter>
-			<ul>
-				<li>Link a</li>
-				<li>Link b</li>
-				<li>Link c</li>
+			<ul className="footer__links">
+				{children.map((link, index) => (
+					<li className="footer__links-item" key={index}>
+						{link}
+					</li>
+				))}
 			</ul>
-			<span>© 2020 Cobalt</span>
+			<span className="footer__copyright">© 2020 Talend. All rights reserved.</span>
 		</SFooter>
 	);
 };

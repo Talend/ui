@@ -13,6 +13,7 @@ import opener from './opener.svg';
 import plus from './plus.svg';
 import search from './search.svg';
 import talend from './talend.svg';
+import talendLogo from './talend-logo.svg';
 import upload from './upload.svg';
 import validate from './validate.svg';
 import warning from './warning.svg';
@@ -33,6 +34,7 @@ export default {
 	plus,
 	search,
 	talend,
+	talendLogo,
 	upload,
 	validate,
 	warning,

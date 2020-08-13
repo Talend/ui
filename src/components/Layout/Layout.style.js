@@ -1,4 +1,6 @@
+import React from 'react';
 import styled from 'styled-components';
+import { transparentize } from 'polished';
 import tokens from '../../tokens';
 
 export const Layout = styled.div(
@@ -23,7 +25,6 @@ export const Header = styled.header.attrs({
 
 export const LayoutGroup = styled.div(
 	({ hasOverflow }) => `
-		position: relative;
 		display: flex;
 		flex: 1; 
 		${!hasOverflow && 'overflow: hidden'}
@@ -36,24 +37,24 @@ export const Nav = styled.nav.attrs({
 	({ isNavCollapsed }) => `
 	display: flex;
 	flex-direction: column;
-	flex-shrink: 0;
-	flex-basis: ${isNavCollapsed ? '0' : '20rem'};
-	width: ${isNavCollapsed ? '6rem' : 'auto'};
+	flex: 0 1 ${isNavCollapsed ? '6rem' : '20rem'};
+	max-width: ${isNavCollapsed ? '6rem' : 'auto'};
 	color: ${tokens.colors.gray0};
 	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
 	transition: flex-basis .3s;
 
 	.nav__button {
+		margin: 1.5rem;
 		color: ${tokens.colors.gray0};
 		border: none;
 		
 		.btn__icon {
-			transition: transform 0.1s;
+			transition: transform 0.2s;
 		}
 
 		&--colapsed {
 			.btn__icon {
-				transform: rotate(180deg);
+				transform: rotate(-180deg);
 			}
 		}
 	}
@@ -79,6 +80,35 @@ export const Main = styled.main.attrs({
 `,
 );
 
+export const AsideOverlay = styled.div`
+	position: relative;
+	display: flex;
+	flex: 1;
+
+	main {
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			pointer-events: none;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: ${transparentize(0.3, tokens.colors.gray900)};
+			cursor: pointer;
+		}
+	}
+`;
+
 export const Aside = styled.aside(
 	({ theme }) => `
 	position: absolute;
@@ -87,6 +117,7 @@ export const Aside = styled.aside(
 	right: 0;
 	bottom: 0;
 	width: 50rem;
+	max-width: 100vw;
 	background: ${theme.colors.backgroundColor};
 	box-shadow: -5px 0px 20px 5px ${tokens.colors.gray500};
 `,

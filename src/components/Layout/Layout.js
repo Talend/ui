@@ -5,6 +5,7 @@ import SkipLinks from './SkipLinks';
 
 export default function Layout({ header, nav, main, aside, footer, ...rest }) {
 	const [isNavCollapsed, collapseNav] = React.useState(false);
+	const [asideVisibility, setAsideVisibility] = React.useState(true);
 	const Main = () => (
 		<S.Main id="main" className="layout__main">
 			{main}
@@ -34,8 +35,17 @@ export default function Layout({ header, nav, main, aside, footer, ...rest }) {
 								{nav}
 							</S.Nav>
 						)}
-						<Main />
-						{aside && <S.Aside>{aside}</S.Aside>}
+						{aside && asideVisibility ? (
+							<S.AsideOverlay
+								className="layout__overlay"
+								onClick={() => setAsideVisibility(() => false)}
+							>
+								<Main />
+								<S.Aside>{aside}</S.Aside>
+							</S.AsideOverlay>
+						) : (
+							<Main />
+						)}
 					</S.LayoutGroup>
 				) : (
 					<Main />

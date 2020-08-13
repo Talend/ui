@@ -8,7 +8,8 @@ export const Header = styled.div`
 	height: 5.5rem;
 	width: 100%;
 
-	svg {
+	.header__logo svg {
 		height: ${tokens.sizes.xxl};
+		margin-right: 1.5rem;
 	}
 `;

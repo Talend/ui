@@ -4,7 +4,8 @@ import Footer from '../Footer';
 import HeaderBar from '../Header';
 import Menu from '../Menu';
 import Layout from '../Layout';
-import FullHeight from '../FullHeightLayout';
+import Column from '../Column';
+import Row from '../Row';
 
 import tokens from '../../../tokens';
 
@@ -52,7 +53,7 @@ const Nav = () => (
 	</Menu>
 );
 
-const Main = () => (
+const Section = () => (
 	<section>
 		<article>
 			<header>Heading</header>
@@ -68,10 +69,9 @@ const Main = () => (
 	</section>
 );
 
-const FullScreenHeightLayout = props => <Layout hasScreenHeight hasOverflow={false} {...props} />;
-
 export const Full = () => (
-	<FullScreenHeightLayout
+	<Layout
+		hasScreenHeight
 		header={<Box>Header</Box>}
 		nav={<Box>Nav</Box>}
 		main={<Box>Main</Box>}
@@ -80,10 +80,11 @@ export const Full = () => (
 	/>
 );
 
-export const MainOnly = () => <FullScreenHeightLayout main={<Box>Main</Box>} />;
+export const MainOnly = () => <Layout hasScreenHeight main={<Box>Main</Box>} />;
 
 export const WithoutNav = () => (
-	<FullScreenHeightLayout
+	<Layout
+		hasScreenHeight
 		header={<Box>Header</Box>}
 		main={<Box>Main</Box>}
 		footer={<Box>Footer</Box>}
@@ -91,29 +92,40 @@ export const WithoutNav = () => (
 );
 
 export const WithoutFooter = () => (
-	<FullScreenHeightLayout header={<Box>Header</Box>} nav={<Box>Nav</Box>} main={<Box>Main</Box>} />
+	<Layout hasScreenHeight header={<Box>Header</Box>} nav={<Box>Nav</Box>} main={<Box>Main</Box>} />
 );
 
-const FullInContainer = ({ footer = true }) => (
-	<FullHeight
+const FullColumn = ({ footer = true }) => (
+	<Column
 		heading={<Box>Heading</Box>}
 		body={<Box style={{ height: '200rem' }}>Body</Box>}
 		footer={footer ? <Box>Footer</Box> : null}
 	/>
 );
 
+const Card = () => <Box style={{ flex: '0 0 25rem', height: '25rem' }}>Card</Box>;
+
 export const Composed = () => (
-	<FullScreenHeightLayout
+	<Layout
+		hasScreenHeight
 		header={<Header />}
 		nav={<Nav />}
-		main={<FullInContainer footer={false} />}
+		main={
+			<Row>
+				<Card />
+				<Card />
+				<Card />
+				<Card />
+			</Row>
+		}
 	/>
 );
 export const ComposedWithAside = () => (
-	<FullScreenHeightLayout
+	<Layout
+		hasScreenHeight
 		header={<Header />}
 		nav={<Nav />}
-		main={<FullInContainer footer={false} />}
-		aside={<FullInContainer />}
+		main={<FullColumn footer={false} />}
+		aside={<FullColumn />}
 	/>
 );

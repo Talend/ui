@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export type FullHeightLayoutProps = {
+export type ColumnProps = {
 	children?: any;
 };
 
-const SFullHeightLayout = styled.div`
+const SColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -29,14 +29,14 @@ const SFooter = styled.div`
 	width: 100%;
 `;
 
-const FullHeightLayout: React.FC<FullHeightLayoutProps> = ({ heading, body, footer }) => {
+const Column: React.FC<ColumnProps> = ({ heading, body, footer }) => {
 	return (
-		<SFullHeightLayout>
+		<SColumn>
 			<SHeading>{heading}</SHeading>
 			<SBody>{body}</SBody>
 			<SFooter>{footer}</SFooter>
-		</SFullHeightLayout>
+		</SColumn>
 	);
 };
 
-export default FullHeightLayout;
+export default Column;

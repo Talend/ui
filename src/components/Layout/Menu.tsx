@@ -28,7 +28,7 @@ const SMenuItem = styled(Link).attrs(({ active }) => ({
 	({ active, theme }) => `
         display: flex;
         padding: 0.5rem 1rem;
-        color: ${active ? theme.colors.primary : tokens.colors.gray0};
+        color: ${active ? tokens.colors.deepBlue500 : tokens.colors.gray0};
         background-color: ${active ? tokens.colors.gray0 : tokens.colors.transparent};
         border-radius: ${tokens.radii.rectRadius};
         min-width: 0;

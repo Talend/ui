@@ -8,7 +8,12 @@ module.exports = {
 		'../src/**/*.stories.js',
 	],
 	addons: [
-		'@storybook/addon-essentials',
+		{
+			name: '@storybook/addon-essentials',
+			options: {
+				backgrounds: false,
+			},
+		},
 		'@storybook/addon-links',
 		'@storybook/addon-contexts/register',
 	],
