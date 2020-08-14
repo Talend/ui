@@ -32,13 +32,13 @@ function Select({ className = '', children, values, value: initialValue, multipl
 		}
 		if (values) {
 			return Object.entries(values).map(([key, keyValues], i) => (
-				<optGroup key={i} label={key}>
+				<optgroup key={i} label={key}>
 					{keyValues.map((value, j) => (
 						<option key={j} value={value}>
 							{value}
 						</option>
 					))}
-				</optGroup>
+				</optgroup>
 			));
 		}
 		return children;

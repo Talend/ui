@@ -8,27 +8,21 @@ export type FooterProps = {
 const SFooter = styled.div`
 	display: flex;
 	margin: 0 auto;
-
-	ul {
-		display: inline-flex;
-	}
-
-	li {
-		padding: 0 0.5rem;
-	}
 `;
 
-const Header: React.FC<FooterProps> = ({ children }) => {
+const Header: React.FC<FooterProps> = ({ children, ...rest }) => {
 	return (
-		<SFooter>
+		<SFooter {...rest}>
 			<ul className="footer__links">
 				{children.map((link, index) => (
 					<li className="footer__links-item" key={index}>
-						{link}
+						{React.cloneElement(link, { className: 'footer__link' })}
 					</li>
 				))}
 			</ul>
-			<span className="footer__copyright">© 2020 Talend. All rights reserved.</span>
+			<span className="footer__copyright">
+				© {new Date().getFullYear()} Talend. All rights reserved.
+			</span>
 		</SFooter>
 	);
 };

@@ -9,12 +9,13 @@ const Card = styled.div.attrs({
 	flex-direction: column;
 	align-items: center;
 	padding: 5rem 2.5rem;
+	width: 100vw;
 	color: ${theme.colors.textColor};
 	background-color: ${theme.colors.backgroundColor};
     border-radius: 6px;
     box-shadow: 0px 0px 3rem -2rem ${tokens.colors.gray900};
 
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: 468px) {
 		margin: auto;
 		padding: 5rem;
 		width: 65rem;
@@ -23,16 +24,15 @@ const Card = styled.div.attrs({
 `,
 );
 
-const CardBody = styled.div.attrs({
-	className: 'card__body',
-})`
-	width: 100%;
-	max-width: 36.5rem;
-`;
-
 Card.Heading = styled.div.attrs({
 	className: 'card__heading',
 })``;
-Card.Body = CardBody;
+
+Card.Body = styled.div.attrs({
+	className: 'card__body',
+})`
+	max-width: 36.5rem;
+	width: 100%;
+`;
 
 export default Card;
