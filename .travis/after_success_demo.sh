@@ -23,7 +23,7 @@ cp -R packages/forms/storybook-static/* .static/forms
 echo "✓ Copy forms showcase to .static"
 
 cd packages/faceted-search
-yarn build-storybook
+yarn test:demo
 cd "$TRAVIS_BUILD_DIR"
 cp -R packages/faceted-search/storybook-static/* .static/faceted-search
 echo "✓ Copy faceted-search showcase to .static"
