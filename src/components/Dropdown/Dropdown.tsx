@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMenuState } from 'reakit/Menu';
+import { useMenuState, MenuSeparator } from 'reakit/Menu';
 
 import * as S from './Dropdown.style';
 
@@ -34,5 +34,7 @@ const Dropdown: React.FC<DropdownProps> = React.forwardRef(
 		);
 	},
 );
+
+Dropdown.Separator = MenuSeparator;
 
 export default Dropdown;

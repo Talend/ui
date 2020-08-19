@@ -11,6 +11,7 @@ import Link from '../components/Link';
 import Datachaos from '../images/datachaos.png';
 
 import tokens from '../tokens';
+import Template from '../templates';
 
 export const LoginForm = () => (
 	<Form className="login-form">
@@ -86,14 +87,6 @@ export const SignupCTA = () => (
 		<strong className="signup-cta__text">Don't have an account yet?</strong>
 		<Button.Secondary id="trial-registration-button">Sign up</Button.Secondary>
 	</SSignupCTA>
-);
-
-export const FooterWithLinks = () => (
-	<Layout.Footer className="footer">
-		<Link href="#cookie-policy">Cookie policy</Link>
-		<Link href="#terms-use">Terms of use</Link>
-		<Link href="#us-eula">Talend EULA</Link>
-	</Layout.Footer>
 );
 
 const SWrapper = styled.div(
@@ -221,7 +214,7 @@ const SWrapper = styled.div(
 
 const Login = ({ main, footer }) => (
 	<SWrapper>
-		<Layout hasOverflow main={main} footer={footer} />
+		<Template.Card main={main} footer={footer} />
 	</SWrapper>
 );
 
