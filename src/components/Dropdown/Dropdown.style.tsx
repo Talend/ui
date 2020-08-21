@@ -20,14 +20,28 @@ export const ButtonIcon = styled(Icon)`
 export const Menu = styled(ReakitMenu)`
 	display: flex;
 	flex-direction: column;
-	padding: ${tokens.space.xs} ${tokens.space.none};
+	padding: 0;
 	min-width: 15rem;
 	max-width: 25rem;
 	color: ${tokens.colors.gray900};
-	background: ${tokens.colors.gray0};
+	background: none;
 	border-radius: ${tokens.radii.rectRadius};
-	border: ${tokens.borders.normal};
+	border: 0;
 	z-index: ${tokens.zIndices.dropdowns};
+`;
+
+export const AnimatedMenu = styled.div`
+	display: flex;
+	flex-direction: column;
+	background: ${tokens.colors.gray0};
+	padding: ${tokens.space.xs} ${tokens.space.none};
+	border: ${tokens.borders.normal};
+	transition: opacity 250ms ease-in-out;
+	opacity: 0;
+
+	[data-enter] & {
+		opacity: 1;
+	}
 `;
 
 export const MenuItem = styled(ReakitMenuItem)`
