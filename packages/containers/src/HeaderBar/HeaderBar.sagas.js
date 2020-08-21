@@ -33,7 +33,7 @@ export function* fetchProducts(action) {
  * @param {Object} action
  */
 export function handleOpenProduct(action) {
-	if ('url' in action.payload) {
+	if ('url' in action.payload && !/^javascript:/.test(action.payload.url)) {
 		window.location.assign(action.payload.url);
 	}
 }
