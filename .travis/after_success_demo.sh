@@ -24,6 +24,7 @@ echo "✓ Copy forms showcase to .static"
 
 echo "📦 Build Faceted-Search storybook because it's not included in lerna"
 cd packages/faceted-search
+npm i
 npm run test:demo
 cd "$TRAVIS_BUILD_DIR"
 cp -R packages/faceted-search/storybook-static/* .static/faceted-search
