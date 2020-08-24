@@ -23,7 +23,8 @@ const SSkipLinks = styled.div(
 			width: auto;
 			height: auto;
 			clip: auto;
-			overflow: auto;			
+			overflow: auto;	
+			z-index: ${tokens.zIndices.skipLinks};		
 		}
 	}
 `,

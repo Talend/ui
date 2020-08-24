@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(
 		<S.Button
 			{...rest}
 			className={`
-				btn ${className ? className : null} ${small ? `btn--small` : ''}  ${
+				btn ${className ? className : ''} ${small ? `btn--small` : ''}  ${
 				icon && hideLabel ? `btn--icon` : ''
 			}
 			`}

@@ -4,6 +4,8 @@ import SVG from 'react-inlinesvg';
 
 import icons from '../../icons';
 
+import tokens from '../../tokens';
+
 export type IconName =
 	| 'arrowLeft'
 	| 'caret'
@@ -31,6 +33,9 @@ export type IconProps = {
 
 const SSVG = styled(SVG)(
 	({ preserveColors }) => `
+	width: ${tokens.sizes.l};
+	height: ${tokens.sizes.l};
+
 	path {
 		${preserveColors ? '' : 'fill: currentColor'};
 	}

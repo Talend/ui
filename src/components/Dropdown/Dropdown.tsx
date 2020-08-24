@@ -2,6 +2,8 @@ import React from 'react';
 import * as ReactIs from 'react-is';
 import { useMenuState, MenuSeparator } from 'reakit/Menu';
 
+import Button from '../Button';
+
 import * as S from './Dropdown.style';
 
 export type DropdownProps = {
@@ -20,7 +22,7 @@ const Dropdown: React.FC<DropdownProps> = React.forwardRef(
 		const { 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, ...rest } = props;
 		return (
 			<>
-				<S.Button {...menu} ref={ref} {...rest}>
+				<S.Button {...menu} as={Button} ref={ref} {...rest}>
 					{children}
 					{items.length ? <S.ButtonIcon name="caret" /> : null}
 				</S.Button>
