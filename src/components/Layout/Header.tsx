@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Button from '../Button';
-import Dialog from '../Dialog';
+import Modal from '../Modal';
 import Dropdown from '../Dropdown';
 import Icon from '../Icon';
 import Link from '../Link';
@@ -17,7 +17,7 @@ export type HeaderProps = {
 };
 
 const Header: React.FC<HeaderProps> = ({ children }) => {
-	const dialog = Dialog.useDialogState();
+	const aboutModal = Modal.useDialogState();
 	return (
 		<S.Header>
 			<S.Logo>
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
 			<S.User>
 				<Dropdown
 					items={[
-						<Button onClick={() => dialog.show()}>About</Button>,
+						<Button onClick={() => aboutModal.show()}>About</Button>,
 						<></>,
 						<Link href="#">Support</Link>,
 						<></>,
@@ -56,9 +56,9 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
 				>
 					John Doe
 				</Dropdown>
-				<Dialog.Dialog {...dialog} aria-label="About this product">
+				<Modal.Dialog {...aboutModal} aria-label="About this product">
 					<p>Talend 2020</p>
-				</Dialog.Dialog>
+				</Modal.Dialog>
 			</S.User>
 		</S.Header>
 	);
