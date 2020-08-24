@@ -36,7 +36,8 @@ const SWrapper = styled.div(
 		justify-content: center;
 				
 		svg {
-			height: 3.2rem;
+            height: 3.2rem;
+            width: auto;
 			max-width: 100%;
 		}
 
