@@ -4,8 +4,12 @@ module.exports = {
 		'../src/tokens/docs/*.stories.mdx',
 		'../src/themes/docs/Light.stories.mdx',
 		'../src/themes/docs/*.stories.mdx',
-		'../src/**/*.stories.mdx',
-		'../src/**/*.stories.js',
+		'../src/components/**/*.stories.mdx',
+		'../src/components/**/*.stories.js',
+		'../src/templates/**/*.stories.mdx',
+		'../src/templates/**/*.stories.js',
+		'../src/pages/**/*.stories.mdx',
+		'../src/pages/**/*.stories.js',
 	],
 	addons: [
 		{

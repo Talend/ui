@@ -1,11 +1,11 @@
 import Card from './Card';
-import Home from './Home';
+import List from './List';
 import Full from './Full';
 
 const Template = {};
 
 Template.Card = Card;
-Template.Home = Home;
+Template.List = List;
 Template.Full = Full;
 
 export default Template;

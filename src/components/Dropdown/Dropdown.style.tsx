@@ -30,22 +30,27 @@ export const Menu = styled(ReakitMenu)`
 	z-index: ${tokens.zIndices.dropdowns};
 `;
 
-export const AnimatedMenu = styled.div`
+export const AnimatedMenu = styled.div(
+	({ theme }) => `
 	display: flex;
 	flex-direction: column;
-	background: ${tokens.colors.gray0};
+	background: ${theme.colors.backgroundColor};
 	padding: ${tokens.space.xs} ${tokens.space.none};
 	border: ${tokens.borders.normal};
+	border-radius: ${tokens.radii.rectRadius};
 	transition: opacity 250ms ease-in-out;
 	opacity: 0;
 
 	[data-enter] & {
 		opacity: 1;
 	}
-`;
+`,
+);
 
-export const MenuItem = styled(ReakitMenuItem)`
+export const MenuItem = styled(ReakitMenuItem)(
+	({ theme }) => `
 	padding: ${tokens.space.s} ${tokens.space.m};
-	color: ${tokens.colors.gray900};
+	color: ${theme.colors.textColor};
 	cursor: pointer;
-`;
+`,
+);
