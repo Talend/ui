@@ -17,13 +17,13 @@ export type ButtonProps = ReakitButtonProps & {
 const Button: React.FC<ButtonProps> = React.forwardRef(
 	({ className, icon, small, hideLabel, children, ...rest }: ButtonProps, ref) => (
 		<S.Button
+			ref={ref}
 			{...rest}
 			className={`
 				btn ${className ? className : ''} ${small ? `btn--small` : ''}  ${
 				icon && hideLabel ? `btn--icon` : ''
 			}
 			`}
-			ref={ref}
 		>
 			{icon && <Icon className="btn__icon" name={icon} />}
 			{hideLabel ? children && <ReakitVisuallyHidden>{children}</ReakitVisuallyHidden> : children}

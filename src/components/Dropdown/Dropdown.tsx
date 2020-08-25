@@ -20,12 +20,11 @@ const Dropdown: React.FC<DropdownProps> = React.forwardRef(
 			animated: 250,
 			gutter: 0,
 			loop: true,
-			placement: 'bottom-start',
 		});
 		const { 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, ...rest } = props;
 		return (
 			<>
-				<S.Button {...menu} as={Button} ref={ref} {...rest}>
+				<S.Button as={Button} ref={ref} {...menu} {...rest}>
 					{children}
 					{items.length ? <S.ButtonIcon name="caret" /> : null}
 				</S.Button>
