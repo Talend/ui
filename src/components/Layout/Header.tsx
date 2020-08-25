@@ -46,7 +46,18 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
 					App name
 				</Dropdown>
 			</S.Brand>
-			{children}
+			{React.Children.toArray(children).map((item, index) => (
+				<S.Item>{item}</S.Item>
+			))}
+			<S.CTA>
+				<Button>Subscribe now</Button>
+			</S.CTA>
+			<S.Notification>
+				<Button.Icon icon="bell">Notifications</Button.Icon>
+			</S.Notification>
+			<S.IPC>
+				<Button.Icon icon="bubbles">IPC</Button.Icon>
+			</S.IPC>
 			<S.Help>
 				<Link iconBefore="information" href="#">
 					Help

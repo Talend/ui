@@ -1,5 +1,7 @@
 const arrowLeft = require('./arrow-left.svg') as string;
 const arrowRight = require('./arrow-right.svg') as string;
+const bell = require('./bell.svg') as string;
+const bubbles = require('./bubbles.svg') as string;
 const caret = require('./caret.svg') as string;
 const check = require('./check.svg') as string;
 const cross = require('./cross.svg') as string;
@@ -21,6 +23,8 @@ const warning = require('./warning.svg') as string;
 const icons: { [key: string]: string } = {
 	arrowLeft,
 	arrowRight,
+	bell,
+	bubbles,
 	caret,
 	cross,
 	check,

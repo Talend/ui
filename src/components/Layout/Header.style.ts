@@ -12,7 +12,8 @@ export const Header = styled.div.attrs({
 `;
 const borderLeft = props => `
 	> .link,
-	> .btn {
+	> .btn,
+	> .text {
 		position: relative;
 
 		&:before {
@@ -32,14 +33,16 @@ const HeaderItem = styled.span.attrs({
 })`
 	&,
 	> .link,
-	> .btn {
+	> .btn,
+	> .text {
 		display: inline-flex;
 		align-items: center;
 		height: 100%;
 	}
 
 	> .link,
-	> .btn {
+	> .btn,
+	> .text {
 		padding: 0 1.5rem;
 		transition: all 0.2s ease-out;
 
@@ -61,7 +64,7 @@ const HeaderItem = styled.span.attrs({
 
 	.btn {
 		border: none;
-		border-radius: none;
+		border-radius: 0;
 	}
 
 	&:hover {
@@ -96,10 +99,30 @@ export const Brand = styled(HeaderItem).attrs({
 })`
 	${borderLeft};
 `;
+export const Item = styled(HeaderItem).attrs({
+	className: 'header__item',
+})`
+	${borderLeft};
+`;
+export const CTA = styled(HeaderItem).attrs({
+	className: 'header__cta',
+})`
+	margin-left: auto;
+`;
+export const IPC = styled(HeaderItem).attrs({
+	className: 'header__ipc',
+})`
+	${borderLeft};
+`;
+export const Notification = styled(HeaderItem).attrs({
+	className: 'header__notification',
+})`
+	${borderLeft};
+`;
 export const Help = styled(HeaderItem).attrs({
 	className: 'header__help',
 })`
-	margin-left: auto;
+	${borderLeft};
 `;
 export const User = styled(HeaderItem).attrs({
 	className: 'header__user',

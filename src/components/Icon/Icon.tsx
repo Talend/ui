@@ -8,6 +8,8 @@ import tokens from '../../tokens';
 
 export type IconName =
 	| 'arrowLeft'
+	| 'bell'
+	| 'bubbles'
 	| 'caret'
 	| 'cross'
 	| 'check'
@@ -31,7 +33,6 @@ export type IconProps = BoxProps &
 	Omit<InlineSVGProps, 'src'> & {
 		/** The name of the icon  */
 		name: IconName;
-		src?: string;
 	};
 
 const SSVG = styled(SVG)<IconProps & { preserveColors: boolean }>(
@@ -51,7 +52,15 @@ const Icon: React.FC<IconProps> = React.forwardRef(
 		if (!Object.keys(icons).find(iconName => iconName === name)) {
 			return null;
 		}
-		return <SSVG aria-hidden {...rest} src={icons[name]} className={`icon ${className || ''}`} ref={ref} />;
+		return (
+			<SSVG
+				aria-hidden
+				{...rest}
+				src={icons[name]}
+				className={`icon ${className || ''}`}
+				ref={ref}
+			/>
+		);
 	},
 );
 
