@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import tokens from '../../tokens';
 
 const Card = styled.div.attrs({
@@ -24,15 +25,23 @@ const Card = styled.div.attrs({
 `,
 );
 
-Card.Heading = styled.div.attrs({
+const Heading = styled.div.attrs({
 	className: 'card__heading',
 })``;
 
-Card.Body = styled.div.attrs({
+const Body = styled.div.attrs({
 	className: 'card__body',
 })`
-	max-width: 36.5rem;
 	width: 100%;
+	max-width: 36.5rem;
 `;
 
-export default Card;
+const CardComponent = Card as typeof Card & {
+	Heading: typeof Heading;
+	Body: typeof Body;
+};
+
+CardComponent.Heading = Heading;
+CardComponent.Body = Body;
+
+export default CardComponent;

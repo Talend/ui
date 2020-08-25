@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import { transparentize } from 'polished';
 import tokens from '../../tokens';
 
-export const Layout = styled.div(
+export type LayoutProps = {
+	hasScreenHeight?: boolean;
+	hasOverflow?: boolean;
+};
+
+export const Layout = styled.div<LayoutProps>(
 	({ hasScreenHeight, hasOverflow }) => `
 	display: flex;
 	flex-direction: column;
@@ -23,7 +28,7 @@ export const Header = styled.header.attrs({
 	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
 `;
 
-export const LayoutGroup = styled.div(
+export const LayoutGroup = styled.div<LayoutProps>(
 	({ hasOverflow }) => `
 		display: flex;
 		flex: 1; 
@@ -33,7 +38,7 @@ export const LayoutGroup = styled.div(
 
 export const Nav = styled.nav.attrs({
 	role: 'navigation',
-})(
+})<{ isNavCollapsed: boolean }>(
 	({ isNavCollapsed }) => `
 	display: flex;
 	flex-direction: column;
@@ -63,7 +68,7 @@ export const Nav = styled.nav.attrs({
 
 export const Main = styled.main.attrs({
 	role: 'main',
-})(
+})<LayoutProps>(
 	({ hasScreenHeight, hasOverflow, theme }) => `
 	display: flex;
 	color: ${theme.colors.textColor};

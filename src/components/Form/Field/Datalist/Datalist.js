@@ -1,18 +1,7 @@
 import React from 'react';
 import Field from '../Field';
 
-export type DatalistProps = {
-	/** Id of the form field */
-	id?: string;
-	/** Values for the datalist */
-	values?: string[];
-};
-
-export const Datalist: React.FC<DatalistProps> = ({
-	id = Math.round(Math.random() * 1e5).toString(),
-	values,
-	...rest
-}: DatalistProps) => {
+export const Datalist = ({ id = Math.round(Math.random() * 1e5).toString(), values, ...rest }) => {
 	const listId = `datalist-${id}`;
 	return (
 		<>

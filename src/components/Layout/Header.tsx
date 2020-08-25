@@ -74,9 +74,16 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
 	);
 };
 
-Header.Logo = S.Logo;
-Header.Brand = S.Brand;
-Header.Help = S.Help;
-Header.User = S.User;
+const HeaderComponent = Header as typeof Header & {
+	Logo: typeof S.Logo;
+	Brand: typeof S.Brand;
+	Help: typeof S.Help;
+	User: typeof S.User;
+};
 
-export default Header;
+HeaderComponent.Logo = S.Logo;
+HeaderComponent.Brand = S.Brand;
+HeaderComponent.Help = S.Help;
+HeaderComponent.User = S.User;
+
+export default HeaderComponent;

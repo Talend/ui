@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-import { Button as ReakitButton } from 'reakit';
-
 import tokens from '../../tokens';
 
-export const Link = styled(ReakitButton)(
+export const Link = styled.a(
 	({ theme }) => `
 	color: ${theme.colors.activeColor};
 	font-family: ${tokens.fonts.sansSerif};

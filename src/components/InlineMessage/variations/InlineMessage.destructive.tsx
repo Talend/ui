@@ -1,15 +1,16 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { tint } from 'polished';
-import InlineMessage, { InlineMessageProps } from '../InlineMessage';
+import InlineMessage from '../InlineMessage';
 
-const InlineMessageDestructive: React.FC<InlineMessageProps> = styled(InlineMessage).attrs({
+const InlineMessageDestructive = styled(InlineMessage).attrs({
 	icon: 'cross',
-})`
-	color: ${({ theme }) => theme.colors.destructiveColor};
-	background: ${props => props.withBackground && tint(0.95, props.theme.colors.destructiveColor)};
-	box-shadow: ${props =>
-		props.withBackground && `0 1px 2px ${tint(0.75, props.theme.colors.destructiveColor)}`};
-`;
+})(
+	({ withBackground, theme }) => `
+	color: ${theme.colors.destructiveColor};
+	background: ${withBackground && tint(0.95, theme.colors.destructiveColor)};
+	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.destructiveColor)}`};
+`,
+);
 
 export default React.memo(InlineMessageDestructive);

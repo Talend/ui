@@ -1,4 +1,3 @@
-import React from 'react';
 import {
 	Menu as ReakitMenu,
 	MenuButton as ReakitMenuButton,

@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { BoxProps } from 'reakit/Box';
+
 import Icon, { IconName } from '../Icon/Icon';
 
 import * as S from './InlineMessage.style';
 
-export type InlineMessageProps = {
+export type InlineMessageProps = BoxProps & {
 	/** The icon element to display */
 	icon: IconName;
 	/** The title of the message */
@@ -14,11 +16,9 @@ export type InlineMessageProps = {
 	/** Size variant */
 	small: boolean;
 	/** Link element at the end */
-	link?: React.ReactNode;
+	link?: React.ReactElement<any>;
 	/** If it is an inline message or a block with a background */
 	withBackground?: boolean;
-
-	className?: string;
 };
 
 /**
@@ -27,27 +27,13 @@ export type InlineMessageProps = {
  @link https://inclusive-components.design/notifications
  **/
 const InlineMessage: React.FC<InlineMessageProps> = React.forwardRef(
-	(
-		{
-			icon,
-			title,
-			description,
-			link,
-			small = false,
-			withBackground = false,
-			className = '',
-			...rest
-		}: InlineMessageProps,
-		ref,
-	) => {
+	({ icon, title, description, link, className = '', ...rest }: InlineMessageProps, ref) => {
 		return (
 			<S.InlineMessage
-				{...rest}
-				className={`${className} inline-message`}
-				small={small}
-				withBackground={withBackground}
 				role="status"
 				aria-live="polite"
+				{...rest}
+				className={`inline-message ${className || ''}`}
 				ref={ref}
 			>
 				<p>

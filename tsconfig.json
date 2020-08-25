@@ -1,21 +1,12 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": [
-    "src/*"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ],
+  "include": ["src/*", "custom.d.ts"],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "target": "es5",
     "jsx": "react",
     "outDir": "./dist",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "declaration": false,
     "noImplicitAny": true,
     "strictNullChecks": true,

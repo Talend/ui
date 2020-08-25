@@ -3,7 +3,22 @@ import Button from '../Button';
 import * as S from './Layout.style';
 import SkipLinks from './SkipLinks';
 
-export default function Layout({ header, nav, main, aside, footer, ...rest }) {
+export type LayoutProps = {
+	header?: React.ReactElement<any>;
+	nav?: React.ReactElement<any>;
+	main?: React.ReactElement<any>;
+	aside?: React.ReactElement<any>;
+	footer?: React.ReactElement<any>;
+};
+
+const Layout: React.FC<LayoutProps> = ({
+	header,
+	nav,
+	main,
+	aside,
+	footer,
+	...rest
+}: LayoutProps) => {
 	const [isNavCollapsed, collapseNav] = React.useState(false);
 	const [asideVisibility, setAsideVisibility] = React.useState(true);
 	const Main = () => (
@@ -54,4 +69,6 @@ export default function Layout({ header, nav, main, aside, footer, ...rest }) {
 			</S.Layout>
 		</>
 	);
-}
+};
+
+export default Layout;

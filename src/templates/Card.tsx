@@ -126,7 +126,13 @@ const SWrapper = styled.div(
 `,
 );
 
-const CardTemplate = ({ title, main, footer }) => (
+export type CardTemplateProps = {
+	title?: string;
+	main?: React.ReactElement<any>;
+	footer?: React.ReactElement<any>;
+};
+
+const CardTemplate: React.FC<CardTemplateProps> = ({ title, main, footer }: CardTemplateProps) => (
 	<SWrapper>
 		<Layout
 			hasOverflow

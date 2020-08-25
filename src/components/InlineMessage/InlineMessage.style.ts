@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 import tokens from '../../tokens';
 
-export const InlineMessage = styled.div(
+export type InlineMessageProps = {
+	small?: boolean;
+	withBackground?: boolean;
+};
+
+export const InlineMessage = styled.div<InlineMessageProps>(
 	({ small, withBackground, theme }) => `
 	${withBackground ? 'display: inline;' : ''}
 	margin-right: 0.5rem;

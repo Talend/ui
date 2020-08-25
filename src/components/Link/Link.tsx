@@ -1,31 +1,28 @@
 import React from 'react';
-
+import { StyledProps } from 'styled-components';
+import { BoxProps } from 'reakit/Box';
 import Icon, { IconName } from '../Icon/Icon';
 
 import * as S from './Link.style';
 
-export type LinkProps = {
-	/** The name of the icon to display before */
-	iconBefore?: IconName;
-	/** The name of the icon to display after */
-	iconAfter?: IconName;
-	/** The title of the link */
-	title?: string;
-	/** The href of the link */
-	href?: string;
-	/** The target of the link */
-	target?: '_self' | '_blank' | '_parent' | '_top';
-	/** if the link is disabled */
-	disabled?: boolean;
-};
+export type LinkProps = BoxProps &
+	StyledProps<any> &
+	React.AnchorHTMLAttributes<any> & {
+		/** The name of the icon to display before */
+		iconBefore?: IconName;
+		/** The name of the icon to display after */
+		iconAfter?: IconName;
+		/** if the link is disabled */
+		disabled?: boolean;
+	};
 
 const Link: React.FC<LinkProps> = React.forwardRef(
 	(
 		{
+			className,
+			children,
 			iconAfter,
 			iconBefore,
-			children,
-			className,
 			disabled,
 			href,
 			target,
@@ -47,12 +44,10 @@ const Link: React.FC<LinkProps> = React.forwardRef(
 
 		return (
 			<S.Link
-				as="a"
 				rel={isBlank ? 'noopener noreferrer' : null}
 				{...rest}
 				href={!disabled ? href : null}
-				className={`link ${disabled ? 'link--disabled' : ''} ${className ? className : ''}`}
-				target={target}
+				className={`link ${disabled ? 'link--disabled' : ''} ${className || ''}`}
 				title={getTitle()}
 				ariaDisabled={disabled ? 'true' : null}
 				ref={ref}
