@@ -10,10 +10,24 @@ import tokens from '../../tokens';
 export const Button = ReakitMenuButton;
 
 export const ButtonIcon = styled(Icon)`
-	display: inline-block;
+	display: inline-flex;
 	height: ${tokens.sizes.xs};
 	width: ${tokens.sizes.xs};
 	fill: currentColor;
+	transition: transform 0.2s ease-out;
+
+	[aria-expanded='true'] & {
+		transform: rotate(-180deg);
+	}
+
+	[role='menuitem'] & {
+		margin-left: auto;
+		transform: rotate(-90deg);
+	}
+
+	[role='menuitem'][aria-expanded='true'] & {
+		transform: rotate(90deg);
+	}
 `;
 
 export const Menu = styled(ReakitMenu)`
@@ -42,13 +56,13 @@ export const AnimatedMenu = styled.div(
 
 export const MenuItem = styled(ReakitMenuItem)(
 	({ theme }) => `
-	display: block;
+	display: flex;
 	padding: ${tokens.space.s} ${tokens.space.m};
 	color: ${theme.colors.textColor};
 	text-align: start;
-	cursor: pointer;
 	white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
+	overflow: hidden;
+	cursor: pointer;
 `,
 );
