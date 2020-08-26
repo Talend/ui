@@ -35,9 +35,9 @@ export const AnimatedMenu = styled.div(
 	flex-direction: column;
 	background: ${theme.colors.backgroundColor};
 	padding: ${tokens.space.xs} ${tokens.space.none};
-	border: ${tokens.borders.normal};
 	border-radius: ${tokens.radii.rectRadius};
 	transition: opacity 250ms ease-in-out;
+	box-shadow: 0 2px 4px 0 ${tokens.colors.gray300};
 	opacity: 0;
 
 	[data-enter] & {
@@ -50,6 +50,7 @@ export const MenuItem = styled(ReakitMenuItem)(
 	({ theme }) => `
 	padding: ${tokens.space.s} ${tokens.space.m};
 	color: ${theme.colors.textColor};
+	text-align: start;
 	cursor: pointer;
 `,
 );

@@ -7,25 +7,21 @@ export const Header = styled.div.attrs({
 })`
 	display: flex;
 	align-items: center;
-	height: 5.5rem;
+	min-height: 4.8rem;
 	width: 100%;
 `;
-const borderLeft = props => `
-	> .link,
-	> .btn,
-	> .text {
-		position: relative;
+const borderLeft = () => `
+	position: relative;
 
-		&:before {
-			position: absolute;
-			content: '';
-			width: 1px;
-			height: 1.5rem;
-			top: 50%;
-			left: 0;
-			transform: translateY(-50%);
-			background: ${tokens.colors.gray0};
-		}
+	&:before {
+		position: absolute;
+		content: '';
+		width: 1px;
+		height: 1.5rem;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		background: ${tokens.colors.gray0};
 	}
 `;
 const HeaderItem = styled.span.attrs({
@@ -33,15 +29,15 @@ const HeaderItem = styled.span.attrs({
 })`
 	&,
 	> .link,
-	> .btn,
+	> .btn:not(.btn--small),
 	> .text {
 		display: inline-flex;
 		align-items: center;
-		height: 100%;
+		height: 4.8rem;
 	}
 
 	> .link,
-	> .btn,
+	> .btn:not(.btn--small),
 	> .text {
 		padding: 0 1.5rem;
 		transition: all 0.2s ease-out;
@@ -52,17 +48,9 @@ const HeaderItem = styled.span.attrs({
 		&:active {
 			color: ${tokens.colors.gray0};
 		}
-
-		&:hover {
-			background: ${transparentize(0.8, tokens.colors.gray0)};
-		}
-
-		&:active {
-			background: ${transparentize(0.9, tokens.colors.gray0)};
-		}
 	}
 
-	.btn {
+	.btn:not(.btn--small) {
 		border: none;
 		border-radius: 0;
 	}
@@ -71,6 +59,14 @@ const HeaderItem = styled.span.attrs({
 		.link__text {
 			text-decoration: none;
 		}
+	}
+
+	&:hover {
+		background: ${transparentize(0.8, tokens.colors.gray0)};
+	}
+
+	&:active {
+		background: ${transparentize(0.9, tokens.colors.gray0)};
 	}
 
 	[role='menuitem'] {
@@ -94,6 +90,13 @@ export const Logo = styled(HeaderItem).attrs({
 		width: ${tokens.sizes.xl};
 	}
 `;
+export const LogoFull = styled(HeaderItem).attrs({
+	className: 'header__logo header__logo--full',
+})`
+	svg {
+		height: ${tokens.sizes.xl};
+	}
+`;
 export const Brand = styled(HeaderItem).attrs({
 	className: 'header__brand',
 })`
@@ -107,6 +110,7 @@ export const Item = styled(HeaderItem).attrs({
 export const CTA = styled(HeaderItem).attrs({
 	className: 'header__cta',
 })`
+	padding: 0 1.5rem;
 	margin-left: auto;
 `;
 export const IPC = styled(HeaderItem).attrs({

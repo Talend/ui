@@ -35,8 +35,6 @@ export const Link = styled.a(
 	.link__icon {
 		display: inline-block;
 		vertical-align: baseline;
-		width: ${tokens.sizes.s};
-		fill: currentColor;
   		
   		&--before {
   			margin-right: ${tokens.space.xs};

@@ -23,7 +23,7 @@ export const Layout = styled.div<LayoutProps>(
 export const Header = styled.header.attrs({
 	role: 'main',
 })`
-	min-height: 5.5rem;
+	min-height: 4.8rem;
 	color: ${tokens.colors.gray0};
 	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
 `;
@@ -49,6 +49,8 @@ export const Nav = styled.nav.attrs({
 	transition: flex-basis .3s;
 
 	.nav__button {
+		flex: 0;
+		align-self: start;
 		margin: 1.5rem;
 		color: ${tokens.colors.gray0};
 		border: none;

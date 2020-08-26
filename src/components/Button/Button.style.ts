@@ -22,7 +22,6 @@ export const Button = styled(ReakitButton)(
 	
 	svg {
 		margin-left: 1rem;
-		fill: currentColor;
 		flex-grow: 0;
 		flex-shrink: 0;
 	}
@@ -30,7 +29,6 @@ export const Button = styled(ReakitButton)(
 	&.btn {
 		.btn__icon {
 			margin: 0 1rem 0 0;
-			height: 1.2rem;
 			
 			path {
 				fill: currentColor;
