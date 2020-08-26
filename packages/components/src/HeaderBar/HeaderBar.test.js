@@ -42,6 +42,16 @@ describe('HeaderBar', () => {
 		expect(element).not.toBeUndefined();
 	});
 
+	it('should render custom Intercom component', () => {
+		function Intercom() {
+			return null;
+		}
+
+		const wrapper = mount(<HeaderBarComponent Intercom={Intercom} />);
+		const element = wrapper.find(Intercom);
+		expect(element).not.toBeUndefined();
+	});
+
 	it('should render search', () => {
 		const search = {
 			id: 'search',

@@ -117,8 +117,8 @@ function Information({ getComponent, t, ...props }) {
 			{props.items && props.items.length ? (
 				<Renderers.ActionDropdown pullRight noCaret hideLabel {...global} />
 			) : (
-				<Renderers.Action hideLabel {...global} />
-			)}
+					<Renderers.Action hideLabel {...global} />
+				)}
 		</li>
 	);
 }
@@ -224,6 +224,14 @@ function HeaderBar(props) {
 	const AppSwitcherComponent =
 		props.AppSwitcher || Inject.get(props.getComponent, 'AppSwitcher', AppSwitcher);
 
+	let intercom;
+	if (props.Intercom) {
+		intercom = props.Intercom;
+	} else if (props.intercom) {
+		console.warn('Deprecated: use @talend/ui-ee/Intercom');
+		intercom = <Components.Intercom getComponent={props.getComponent} {...props.intercom} />;
+	}
+
 	return (
 		<nav className={theme('tc-header-bar', 'navbar')}>
 			<ul className={theme('tc-header-bar-actions', 'navbar-nav')}>
@@ -250,9 +258,7 @@ function HeaderBar(props) {
 						t={props.t}
 					/>
 				)}
-				{props.intercom && (
-					<Components.Intercom getComponent={props.getComponent} {...props.intercom} />
-				)}
+				{intercom}
 				{props.help && (
 					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
 				)}
@@ -358,6 +364,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 	HeaderBar.propTypes = {
 		AppSwitcher: PropTypes.func,
+		Intercom: PropTypes.func,
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape({
 			isSeparated: PropTypes.bool,

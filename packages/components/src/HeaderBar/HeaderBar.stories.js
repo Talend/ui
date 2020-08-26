@@ -6,6 +6,7 @@ import { makeDecorator } from '@storybook/addons';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 
 import IconsProvider from '../IconsProvider';
+import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
 import AppSwitcher from '../AppSwitcher';
 
@@ -75,6 +76,26 @@ const infoStyle = stylesheet => ({
 
 function AppSwitcherComponent() {
 	return <AppSwitcher {...props.brand} />;
+}
+
+function IntercomComponent() {
+	const style = {
+		color: 'white',
+		margin: '0 10px',
+		width: '3.2rem',
+		height: '3.2rem',
+		borderRadius: '50%',
+		background: 'green',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+	};
+
+	return (
+		<div style={style}>
+			<Icon name="talend-bubbles" />
+		</div>
+	);
 }
 
 const withIcons = makeDecorator({
@@ -251,6 +272,9 @@ decoratedStories
 	)
 	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } })
 	.add('Custom AppSwitcher', () => <HeaderBar AppSwitcher={AppSwitcherComponent} />, {
+		info: { styles: infoStyle },
+	})
+	.add('Custom Intercom', () => <HeaderBar Intercom={<IntercomComponent />} />, {
 		info: { styles: infoStyle },
 	});
 
