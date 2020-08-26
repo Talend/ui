@@ -112,6 +112,13 @@ export const CTA = styled(HeaderItem).attrs({
 })`
 	padding: 0 1.5rem;
 	margin-left: auto;
+
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		background: none;
+	}
 `;
 export const IPC = styled(HeaderItem).attrs({
 	className: 'header__ipc',

@@ -12,15 +12,12 @@ import Tooltip from '../../components/Tooltip';
 
 import tokens from '../../tokens';
 
-const CTA = styled(Button).attrs({
+import dark from '../../themes/dark.theme';
+
+const CTA = styled(Button.Primary).attrs({
 	small: true,
-})(
-	({ theme }) => `
-		font-weight: ${tokens.fontWeights.semiBold};
-		color: ${tokens.colors.gray900};
-		background: ${tokens.colors.paleCyan500};
-`,
-);
+	theme: dark,
+})``;
 
 export default function HeaderBar() {
 	const aboutModal = Modal.useDialogState();
