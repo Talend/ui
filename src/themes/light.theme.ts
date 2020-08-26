@@ -61,7 +61,7 @@ const theme: DefaultTheme = {
 		tagWarningBackgroundColor: colors.jaffa100,
 
 		tooltipColor: colors.gray0,
-		tooltipBackgroundColor: colors.gray700,
+		tooltipBackgroundColor: colors.gray900,
 	},
 	id: 'light',
 };
