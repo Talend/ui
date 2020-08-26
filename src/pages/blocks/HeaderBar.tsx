@@ -63,12 +63,12 @@ export default function HeaderBar() {
 						<></>,
 						<Dropdown
 							items={[
-								<span disabled>OpenAPI Specification / Swagger</span>,
+								<strong disabled>OpenAPI Specification / Swagger</strong>,
 								<Button>OAS 3.0</Button>,
 								<Button>OAS / Swagger 2.0</Button>,
 								<Button>Swagger 1.2</Button>,
 								<></>,
-								<span disabled>RAML</span>,
+								<strong disabled>RAML</strong>,
 								<Button>RAML 1.0</Button>,
 								<Button>RAML 0.8</Button>,
 							]}
