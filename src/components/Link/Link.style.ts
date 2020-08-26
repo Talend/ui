@@ -37,7 +37,7 @@ export const Link = styled.a(
 		vertical-align: baseline;
   		
   		&--before {
-  			margin-right: ${tokens.space.xs};
+  			margin-right: ${tokens.space.s};
 		}
   		
   		&--external,

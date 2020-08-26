@@ -9,6 +9,7 @@ import tokens from '../../tokens';
 export type IconName =
 	| 'arrowLeft'
 	| 'bell'
+	| 'burger'
 	| 'bubbles'
 	| 'caret'
 	| 'cross'
@@ -25,6 +26,7 @@ export type IconName =
 	| 'talend'
 	| 'talendLogo'
 	| 'upload'
+	| 'user'
 	| 'validate'
 	| 'warning';
 
@@ -40,7 +42,9 @@ const SSVG = styled(SVG)<IconProps & { preserveColors: boolean }>(
 	width: ${tokens.sizes.l};
 	height: ${tokens.sizes.l};
 
-	path {
+	circle,
+	path,
+	rect {
 		${preserveColors ? '' : 'fill: currentColor;'}
 	}
 `,

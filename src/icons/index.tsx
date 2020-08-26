@@ -1,6 +1,7 @@
 const arrowLeft = require('./arrow-left.svg') as string;
 const arrowRight = require('./arrow-right.svg') as string;
 const bell = require('./bell.svg') as string;
+const burger = require('./burger.svg') as string;
 const bubbles = require('./bubbles.svg') as string;
 const caret = require('./caret.svg') as string;
 const check = require('./check.svg') as string;
@@ -17,6 +18,7 @@ const search = require('./search.svg') as string;
 const talend = require('./talend.svg') as string;
 const talendLogo = require('./talend-logo.svg') as string;
 const upload = require('./upload.svg') as string;
+const user = require('./user.svg') as string;
 const validate = require('./validate.svg') as string;
 const warning = require('./warning.svg') as string;
 
@@ -25,6 +27,7 @@ const icons: { [key: string]: string } = {
 	arrowRight,
 	bell,
 	bubbles,
+	burger,
 	caret,
 	cross,
 	check,
@@ -40,6 +43,7 @@ const icons: { [key: string]: string } = {
 	talend,
 	talendLogo,
 	upload,
+	user,
 	validate,
 	warning,
 };
