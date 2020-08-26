@@ -25,6 +25,7 @@ function AppGuidedTour({
 	onRequestOpen,
 	onImportDemoContent,
 	onRequestClose,
+	disableWelcomeStep = false,
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
@@ -77,7 +78,7 @@ function AppGuidedTour({
 				setImportDemoContent(false);
 			}}
 			steps={[
-				{
+				!disableWelcomeStep && {
 					content: {
 						header: t('GUIDED_TOUR_WELCOME_STEP_HEADER', {
 							appName,
@@ -127,6 +128,7 @@ AppGuidedTour.propTypes = {
 	appName: PropTypes.string.isRequired,
 	localStorageKey: PropTypes.string,
 	steps: GuidedTour.propTypes.steps,
+	disableWelcomeStep: PropTypes.bool,
 	demoContentSteps: Stepper.propTypes.steps,
 	onRequestOpen: PropTypes.func.isRequired,
 	onImportDemoContent: PropTypes.func,
