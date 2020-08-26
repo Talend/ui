@@ -21,7 +21,7 @@ function ItemsNumber({ id, totalItems, selected, label, t }) {
 ItemsNumber.propTypes = {
 	id: PropTypes.string,
 	selected: PropTypes.number,
-	totalItems: PropTypes.number,
+	totalItems: PropTypes.number.isRequired,
 	label: PropTypes.string,
 	t: PropTypes.func,
 };
