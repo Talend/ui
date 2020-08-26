@@ -609,6 +609,22 @@ storiesOf('Data/List/List', module)
 			<List {...props} />
 		</div>
 	))
+	.add('Table with number of items', () => {
+		const customProps = cloneDeep(props);
+		customProps.toolbar.itemsNumber = {
+			totalItems: customProps.list.items.length,
+			label: 'users',
+		};
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode with the total number of items.
+				</p>
+				<List {...customProps} />
+			</div>
+		);
+	})
 	.add('Table icons', () => {
 		const customProps = cloneDeep(props);
 
