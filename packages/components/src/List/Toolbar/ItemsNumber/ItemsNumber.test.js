@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json';
 import ItemsNumber from './ItemsNumber.component';
 
 const props = {
-	id: 'list-itels-number',
+	id: 'list-items-number',
 	totalItems: 42,
 };
 describe('ItemsNumber', () => {

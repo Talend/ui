@@ -2,8 +2,8 @@
 
 exports[`ItemsNumber should render table with total number of items + customized title 1`] = `
 <div
-  className="theme-tc-items-number tc-items-number"
-  id="list-itels-number"
+  className="tc-items-number"
+  id="list-items-number"
 >
   42 bananas
 </div>
@@ -11,8 +11,8 @@ exports[`ItemsNumber should render table with total number of items + customized
 
 exports[`ItemsNumber should render table with total number of items + number of selected items 1`] = `
 <div
-  className="theme-tc-items-number tc-items-number"
-  id="list-itels-number"
+  className="tc-items-number"
+  id="list-items-number"
 >
   11/42 items
 </div>
@@ -20,8 +20,8 @@ exports[`ItemsNumber should render table with total number of items + number of 
 
 exports[`ItemsNumber should render table with total number of items 1`] = `
 <div
-  className="theme-tc-items-number tc-items-number"
-  id="list-itels-number"
+  className="tc-items-number"
+  id="list-items-number"
 >
   42 items
 </div>
