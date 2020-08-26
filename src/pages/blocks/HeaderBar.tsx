@@ -8,6 +8,7 @@ import Header from '../../components/Layout/Header';
 import Modal from '../../components/Modal';
 import Link from '../../components/Link';
 import Icon from '../../components/Icon';
+import Tooltip from '../../components/Tooltip';
 
 import tokens from '../../tokens';
 
@@ -26,10 +27,12 @@ export default function HeaderBar() {
 	return (
 		<Header>
 			<Header.Logo>
-				<Link href="#">
-					<Icon name="talend" preserveColors />
-					<VisuallyHidden>Talend</VisuallyHidden>
-				</Link>
+				<Tooltip title="Talend Portal" placement="bottom">
+					<Link href="#">
+						<Icon name="talend" preserveColors />
+						<VisuallyHidden>Talend</VisuallyHidden>
+					</Link>
+				</Tooltip>
 			</Header.Logo>
 			<Header.Brand>
 				<Dropdown
@@ -98,7 +101,9 @@ export default function HeaderBar() {
 				<Button.Icon icon="bell">Notifications</Button.Icon>
 			</Header.Notification>
 			<Header.IPC>
-				<Button.Icon icon="bubbles">IPC</Button.Icon>
+				<Tooltip title="Chat with Talend support" placement="bottom">
+					<Button.Icon icon="bubbles">IPC</Button.Icon>
+				</Tooltip>
 			</Header.IPC>
 			<Header.Help>
 				<Link iconBefore="information" href="#">
