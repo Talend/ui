@@ -26,10 +26,6 @@ export const HeaderBar = styled.div.attrs({
 	min-height: 4.8rem;
 	color: ${tokens.colors.gray0};
 	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
-
-	@media only screen and (max-width: 995px) {
-		flex-wrap: wrap;
-	}
 `;
 const HeaderBarArea = styled.div.attrs({
 	className: 'header-bar__area',
@@ -38,38 +34,19 @@ const HeaderBarArea = styled.div.attrs({
 	min-height: 4.8rem;
 
 	@media only screen and (max-width: 995px) {
-		flex: 0 0 100%;
+		flex-direction: column;
+		flex: 0 0 auto;
+		margin: 0;
 	}
 `;
-export const Fixed = styled(HeaderBarArea).attrs({
-	className: 'header-bar__area--fixed',
-})``;
 export const Left = styled(HeaderBarArea).attrs({
 	className: 'header-bar__area--left',
-})`
-	margin-right: auto;
-`;
+})``;
 export const Right = styled(HeaderBarArea).attrs({
 	className: 'header-bar__area--right',
-})<{ visible: boolean }>(
-	({ visible }) => `
+})`
 	margin-left: auto;
-
-	@media only screen and (max-width: 995px) {
-		display: ${visible ? 'flex' : 'none'};
-		flex-direction: column;
-		position: fixed;
-		padding-top: 5rem;
-		top: 0;
-		right: 0;
-		left: 0;
-		bottom: 0;
-		height: 100vh;
-		width: 100vw;
-		background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
-	}
-`,
-);
+`;
 const HeaderBarItem = styled.span.attrs({
 	className: 'header-bar__item',
 })`
@@ -125,8 +102,29 @@ const HeaderBarItem = styled.span.attrs({
 		}
 	}
 `;
-export const Menu = styled(HeaderBarItem).attrs({
-	className: 'header-bar__menu',
+export const Logo = styled(HeaderBarItem).attrs({
+	className: 'header-bar__logo',
+})<{ full: boolean }>(
+	({ full }) => `
+	max-width: ${full ? 'auto' : '6rem'};
+
+	svg {
+		height: ${tokens.sizes.xl};
+		width: ${full ? 'auto' : tokens.sizes.xl};
+	}
+`,
+);
+export const Brand = styled(HeaderBarItem).attrs({
+	className: 'header-bar__brand',
+})`
+	${borderLeft};
+
+	@media only screen and (max-width: 995px) {
+		flex: 1;
+	}
+`;
+export const MenuDisclosure = styled(HeaderBarItem).attrs({
+	className: 'header-bar__menu-disclosure',
 })`
 	margin-left: auto;
 	display: none !important;
@@ -170,43 +168,35 @@ export const Menu = styled(HeaderBarItem).attrs({
 		display: inline-flex !important;
 	}
 `;
-export const Logo = styled(HeaderBarItem).attrs({
-	className: 'header-bar__logo',
-})`
-	max-width: 6rem;
-
-	svg {
-		height: ${tokens.sizes.xl};
-		width: ${tokens.sizes.xl};
-	}
-`;
-export const LogoFull = styled(HeaderBarItem).attrs({
-	className: 'header-bar__logo header-bar__logo--full',
-})`
-	svg {
-		height: ${tokens.sizes.xl};
-		width: auto;
-	}
-`;
-export const Brand = styled(HeaderBarItem).attrs({
-	className: 'header-bar__brand',
-})`
-	${borderLeft};
+export const Menu = styled.div.attrs({
+	className: 'header-bar__menu',
+})<{ visible: boolean }>(
+	({ visible }) => `
+	display: flex;
+	flex: 1;
 
 	@media only screen and (max-width: 995px) {
-		flex: 1;
+		${visible || 'display: none'};
+		flex-direction: column;
+		position: fixed;
+		padding-top: 5rem;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		height: 100vh;
+		width: 100vw;
+		background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
 	}
-`;
+`,
+);
 export const Item = styled(HeaderBarItem).attrs({
 	className: 'header-bar__item',
-})`
-	${borderLeft};
-`;
+})``;
 export const CTA = styled(HeaderBarItem).attrs({
 	className: 'header-bar__cta',
 })`
 	padding: 0 1.5rem;
-	margin-left: auto;
 
 	&,
 	&:hover,
@@ -218,8 +208,8 @@ export const CTA = styled(HeaderBarItem).attrs({
 export const IPC = styled(HeaderBarItem).attrs({
 	className: 'header-bar__ipc',
 })``;
-export const Notification = styled(HeaderBarItem).attrs({
-	className: 'header-bar__notification',
+export const Notifications = styled(HeaderBarItem).attrs({
+	className: 'header-bar__notifications',
 })``;
 export const Help = styled(HeaderBarItem).attrs({
 	className: 'header-bar__help',

@@ -91,9 +91,9 @@ export default function HeaderBarBlock() {
 						Subscribe now
 					</Button.Primary>
 				</HeaderBar.CTA>
-				<HeaderBar.Notification>
+				<HeaderBar.Notifications>
 					<Button.Icon icon="bell">Notifications</Button.Icon>
-				</HeaderBar.Notification>
+				</HeaderBar.Notifications>
 				<HeaderBar.IPC>
 					<Tooltip title="Chat with Talend support" placement="bottom">
 						<Button.Icon icon="bubbles">IPC</Button.Icon>
