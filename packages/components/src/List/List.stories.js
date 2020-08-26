@@ -625,6 +625,36 @@ storiesOf('Data/List/List', module)
 			</div>
 		);
 	})
+	.add('Selection with number of items', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar = {
+			selected: 1,
+			multiSelectActions: {
+				left: [
+					{
+						id: 'remove',
+						label: 'Delete selection',
+						icon: 'talend-trash',
+						onClick: action('remove'),
+					},
+				],
+			},
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		selectedItemsProps.toolbar.itemsNumber = {
+			totalItems: selectedItemsProps.list.items.length,
+			label: 'books',
+		};
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode with selected items and the total number of items.
+				</p>
+				<List {...selectedItemsProps} />
+			</div>
+		);
+	})
 	.add('Table icons', () => {
 		const customProps = cloneDeep(props);
 
@@ -768,15 +798,18 @@ storiesOf('Data/List/List', module)
 	})
 	.add('Selection', () => {
 		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
-			left: [
-				{
-					id: 'remove',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('remove'),
-				},
-			],
+		selectedItemsProps.toolbar.actionBar = {
+			selected: 1,
+			multiSelectActions: {
+				left: [
+					{
+						id: 'remove',
+						label: 'Delete selection',
+						icon: 'talend-trash',
+						onClick: action('remove'),
+					},
+				],
+			},
 		};
 		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
