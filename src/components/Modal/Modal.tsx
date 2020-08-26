@@ -4,21 +4,21 @@ import { useDialogState, DialogProps } from 'reakit/Dialog';
 import * as S from './Modal.style';
 
 export type ModalProps = DialogProps & {
-	disclosure?: React.ReactElement<any>;
+	disclosure?: string;
 };
 
 const Modal: React.FC<ModalProps> = React.forwardRef(
-	({ disclosure, ...props }: ModalProps, ref) => {
+	({ disclosure, children, ...props }: ModalProps, ref) => {
 		const dialog = useDialogState();
 		return (
 			<>
 				{disclosure && (
-					<S.DialogDisclosure {...dialog} ref={ref} {...disclosure.props}>
-						{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
+					<S.DialogDisclosure ref={ref} {...dialog} {...props}>
+						{disclosure}
 					</S.DialogDisclosure>
 				)}
 				<S.DialogBackdrop {...dialog}>
-					<S.Dialog {...dialog} {...props} />
+					<S.Dialog {...dialog}>{children}</S.Dialog>
 				</S.DialogBackdrop>
 			</>
 		);
