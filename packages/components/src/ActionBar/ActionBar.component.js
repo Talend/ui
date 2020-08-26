@@ -187,7 +187,11 @@ export function ActionBar(props) {
 		props.className,
 	);
 
-	const componentsLeft = defineComponentLeft(props.components.left, props.selected, props.hideSelected);
+	const componentsLeft = defineComponentLeft(
+		props.components.left,
+		props.selected,
+		props.hideSelected,
+	);
 	const componentsCenter = props.components.center;
 	const componentsRight = props.components.right;
 

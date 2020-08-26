@@ -86,13 +86,22 @@ function Toolbar({
 		<div className={classNames(theme['tc-list-toolbar'], 'tc-list-toolbar')}>
 			{injected('before-actionbar')}
 			{actionBar && (
-				<Renderer.ActionBar {...actionBarProps} hideSelected={!!itemsNumber} className="list-action-bar">
+				<Renderer.ActionBar
+					{...actionBarProps}
+					hideSelected={!!itemsNumber}
+					className="list-action-bar"
+				>
 					<ActionBar.Content right>
 						<ul>
 							{injected('before-itemsnumber')}
 							{itemsNumber && (
 								<li className="separated">
-									<ItemsNumber id={id && `${id}-items-number`} {...itemsNumber} selected={actionBar.selected} t={t} />
+									<ItemsNumber
+										id={id && `${id}-items-number`}
+										{...itemsNumber}
+										selected={actionBar.selected}
+										t={t}
+									/>
 								</li>
 							)}
 							{injected('before-filter')}

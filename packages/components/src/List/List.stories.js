@@ -618,9 +618,7 @@ storiesOf('Data/List/List', module)
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					Display the list in table mode with the total number of items.
-				</p>
+				<p>Display the list in table mode with the total number of items.</p>
 				<List {...customProps} />
 			</div>
 		);
@@ -648,9 +646,7 @@ storiesOf('Data/List/List', module)
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					Display the list in table mode with selected items and the total number of items.
-				</p>
+				<p>Display the list in table mode with selected items and the total number of items.</p>
 				<List {...selectedItemsProps} />
 			</div>
 		);
