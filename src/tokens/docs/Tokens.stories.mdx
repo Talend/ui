@@ -18,48 +18,37 @@ We are using <a href="https://system-ui.com/theme/" target="_blank">the System U
 
 ### Grayscale
 
-<ColorSwatches title="tokens.colors.gray" subtitle="All grays"  color='gray' colors={colors} />
+<ColorSwatches title="tokens.colors.gray" subtitle="All grays" color="gray" colors={colors} />
 
 ### Brand
 
 <ColorPalette>
-	<ColorItem
-		title="tokens.colors.brand"
-		subtitle="Brand colors"
-		colors={brand}
-	/>
+	<ColorItem title="tokens.colors.brand" subtitle="Brand colors" colors={brand} />
 </ColorPalette>
-
 
 <ColorPalette>
 	<ColorItem
 		title="tokens.colors.gradients"
-		colors={{ 'twilight' : colors.twilight.backgroundImage }}
+		colors={{ twilight: colors.twilight.backgroundImage }}
 	/>
 </ColorPalette>
 
 ### Interactive colors
 
 <ColorPalette>
-	<ColorItem
-		title="Clickable color"
-		colors={{ 'lochmara' : colors.lochmara }}
-	/>
+	<ColorItem title="Clickable color" colors={{ lochmara: colors.lochmara }} />
 </ColorPalette>
 
 <ColorPalette>
-	<ColorItem
-		title="Focus color"
-		colors={{ 'moodyPurple' : colors.moodyPurple }}
-	/>
+	<ColorItem title="Focus color" colors={{ moodyPurple: colors.moodyPurple }} />
 </ColorPalette>
 
 ### Color swatches
 
 <div>
-    {Object.keys(palette).map(color => (
-        <ColorSwatches key={color} title={`tokens.colors.${color}`} color={color} colors={swatches} />
-    ))}
+	{Object.keys(palette).map(color => (
+		<ColorSwatches key={color} title={`tokens.colors.${color}`} color={color} colors={swatches} />
+	))}
 </div>
 
 ## fontSizes
@@ -70,11 +59,11 @@ We are using <a href="https://system-ui.com/theme/" target="_blank">the System U
 
 Default content uses sans-serif font.
 
-<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} fontFamily={tokens.fonts.sansSerif}/>
+<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} fontFamily={tokens.fonts.sansSerif} />
 
 Data related content uses monospace font.
 
-<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} fontFamily={tokens.fonts.monospace}/>
+<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} fontFamily={tokens.fonts.monospace} />
 
 ## fontWeights
 
@@ -123,3 +112,7 @@ Data related content uses monospace font.
 ## transitions
 
 <Table data={tokens.transitions} />
+
+## breakpoints
+
+<Table data={tokens.breakpoints} />

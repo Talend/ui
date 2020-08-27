@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { transparentize } from 'polished';
-
+import { hideVisually, transparentize } from 'polished';
+import Button from '../Button';
 import tokens from '../../tokens';
 
 const borderLeft = () => `
@@ -9,7 +9,7 @@ const borderLeft = () => `
 	&:before {
 		position: absolute;
 		content: '';
-		width: 1px;
+		width: .1rem;
 		height: 1.5rem;
 		top: 50%;
 		left: 0;
@@ -17,47 +17,23 @@ const borderLeft = () => `
 		background: ${tokens.colors.gray0};
 	}
 `;
+
 export const HeaderBar = styled.div.attrs({
 	className: 'header-bar',
 })`
 	display: flex;
-	align-items: center;
 	width: 100%;
 	min-height: 4.8rem;
 	color: ${tokens.colors.gray0};
 	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
 `;
-const HeaderBarArea = styled.div.attrs({
-	className: 'header-bar__area',
-})`
-	display: flex;
-	min-height: 4.8rem;
-
-	@media only screen and (max-width: 995px) {
-		flex-direction: column;
-		flex: 0 0 auto;
-		margin: 0;
-	}
-`;
-export const Left = styled(HeaderBarArea).attrs({
-	className: 'header-bar__area--left',
-})``;
-export const Right = styled(HeaderBarArea).attrs({
-	className: 'header-bar__area--right',
-})`
-	margin-left: auto;
-`;
-const HeaderBarItem = styled.span.attrs({
+export const Item = styled.span.attrs({
 	className: 'header-bar__item',
 })`
-	&,
-	> .link,
-	> .btn:not(.btn--small),
-	> .text {
-		display: inline-flex;
-		align-items: center;
-		height: 4.8rem;
-	}
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 4.8rem;
 
 	> .link,
 	> .btn:not(.btn--small),
@@ -73,17 +49,6 @@ const HeaderBarItem = styled.span.attrs({
 		}
 	}
 
-	.btn:not(.btn--small) {
-		border: none;
-		border-radius: 0;
-	}
-
-	&:hover {
-		.link__text {
-			text-decoration: none;
-		}
-	}
-
 	&:hover {
 		background: ${transparentize(0.8, tokens.colors.gray0)};
 	}
@@ -92,17 +57,34 @@ const HeaderBarItem = styled.span.attrs({
 		background: ${transparentize(0.9, tokens.colors.gray0)};
 	}
 
+	.btn:not(.btn--small) {
+		border: none;
+		border-radius: 0;
+	}
+
+	.link:hover {
+		.link__text {
+			text-decoration: none;
+		}
+	}
+
 	[role='menuitem'] {
 		padding: 0.5rem 1rem;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&:active {
 			color: ${tokens.colors.gray900};
 			background: ${tokens.colors.paleCyan100};
 		}
 	}
+
+	@media only screen and (min-width: ${tokens.breakpoints.l}) {
+		flex-direction: row;
+		align-items: center;
+	}
 `;
-export const Logo = styled(HeaderBarItem).attrs({
+export const Logo = styled(Item).attrs({
 	className: 'header-bar__logo',
 })<{ full: boolean }>(
 	({ full }) => `
@@ -114,106 +96,152 @@ export const Logo = styled(HeaderBarItem).attrs({
 	}
 `,
 );
-export const Brand = styled(HeaderBarItem).attrs({
+export const Brand = styled(Item).attrs({
 	className: 'header-bar__brand',
 })`
-	${borderLeft};
+	flex: 1 0 auto;
+	${borderLeft}
 
-	@media only screen and (max-width: 995px) {
-		flex: 1;
+	@media only screen and (min-width: ${tokens.breakpoints.l}) {
+		flex-grow: 0;
 	}
 `;
-export const MenuDisclosure = styled(HeaderBarItem).attrs({
+export const MenuDisclosure = styled(Button).attrs({
 	className: 'header-bar__menu-disclosure',
 })`
 	margin-left: auto;
-	display: none !important;
+	padding: 1.5rem;
+	min-height: 4.8rem;
+	border: none;
+	border-radius: 0;
 	overflow: hidden;
-
-	.menu {
-		rect {
-			transform-origin: 50% 50%;
-			transition: transform 0.2s ease-out;
-		}
-
-		&:hover {
-			background: ${transparentize(0.8, tokens.colors.gray0)};
-		}
-
-		&:active {
-			background: ${transparentize(0.9, tokens.colors.gray0)};
-		}
-
-		&--opened {
-			position: fixed;
-			top: 0;
-			right: 0;
-			z-index: 1;
-
-			rect {
-				transform: scaleX(0);
-
-				&:first-child {
-					transform: translate(-5px, 5px) rotate(45deg);
-				}
-
-				&:last-child {
-					transform: translate(-5px, -5px) rotate(-45deg);
-				}
-			}
-		}
-	}
-
-	@media only screen and (max-width: 995px) {
-		display: inline-flex !important;
-	}
-`;
-export const Menu = styled.div.attrs({
-	className: 'header-bar__menu',
-})<{ visible: boolean }>(
-	({ visible }) => `
-	display: flex;
-	flex: 1;
-
-	@media only screen and (max-width: 995px) {
-		${visible || 'display: none'};
-		flex-direction: column;
-		position: fixed;
-		padding-top: 5rem;
-		top: 0;
-		right: 0;
-		left: 0;
-		bottom: 0;
-		height: 100vh;
-		width: 100vw;
-		background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
-	}
-`,
-);
-export const Item = styled(HeaderBarItem).attrs({
-	className: 'header-bar__item',
-})``;
-export const CTA = styled(HeaderBarItem).attrs({
-	className: 'header-bar__cta',
-})`
-	padding: 0 1.5rem;
 
 	&,
 	&:hover,
 	&:focus,
 	&:active {
-		background: none;
+		color: ${tokens.colors.gray0};
+	}
+
+	&:hover {
+		background: ${transparentize(0.8, tokens.colors.gray0)};
+	}
+
+	&:active {
+		background: ${transparentize(0.9, tokens.colors.gray0)};
+	}
+
+	&.btn {
+		.btn__icon {
+			margin: 0;
+		}
+		.btn__text {
+			${hideVisually()};
+		}
+	}
+
+	rect {
+		transform-origin: 50% 50%;
+		transition: transform 0.2s ease-out;
+	}
+
+	&[aria-expanded='true'] {
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 1;
+
+		rect {
+			transform: scaleX(0);
+
+			&:first-child {
+				transform: translate(-0.5rem, 0.5rem) rotate(45deg);
+			}
+
+			&:last-child {
+				transform: translate(-0.5rem, -0.5rem) rotate(-45deg);
+			}
+		}
 	}
 `;
-export const IPC = styled(HeaderBarItem).attrs({
-	className: 'header-bar__ipc',
-})``;
-export const Notifications = styled(HeaderBarItem).attrs({
-	className: 'header-bar__notifications',
-})``;
-export const Help = styled(HeaderBarItem).attrs({
-	className: 'header-bar__help',
-})``;
-export const User = styled(HeaderBarItem).attrs({
-	className: 'header-bar__user',
-})``;
+export const Menu = styled.div.attrs({
+	className: 'header-bar__menu',
+})`
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	padding-top: 5rem;
+	height: 100vh;
+	width: 100vw;
+	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
+	opacity: 0;
+	overflow: auto;
+	transition: opacity 0.2s ease-in-out;
+
+	&[data-enter] {
+		opacity: 1;
+	}
+
+	[role='menu'] {
+		margin-left: 2rem;
+		position: static !important;
+		transform: none !important;
+
+		> * {
+			max-width: none;
+			background: none;
+			box-shadow: none;
+		}
+	}
+
+	[role='menuitem'] {
+		color: ${tokens.colors.gray0};
+	}
+`;
+const ContentArea = styled.div.attrs({
+	className: 'header-bar__content',
+})`
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 auto;
+
+	@media only screen and (min-width: ${tokens.breakpoints.l}) {
+		flex-direction: row;
+	}
+`;
+export const ContentLeft = styled(ContentArea).attrs({
+	className: 'header-bar__content--left',
+})`
+	@media only screen and (min-width: ${tokens.breakpoints.l}) {
+		${Item} {
+			${borderLeft}
+		}
+	}
+`;
+export const ContentRight = styled(ContentArea).attrs({
+	className: 'header-bar__content--right',
+})`
+	// Display Toggle labels for mobiles and tablets
+	.btn__text--hidden {
+		position: static;
+		clip: none;
+		height: auto;
+		width: auto;
+	}
+
+	@media only screen and (min-width: ${tokens.breakpoints.l}) {
+		margin-left: auto;
+
+		${Item} + ${Item} {
+			${borderLeft}
+		}
+
+		.btn__text--hidden {
+			${hideVisually()};
+		}
+	}
+`;

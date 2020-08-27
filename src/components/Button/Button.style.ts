@@ -26,25 +26,39 @@ export const Button = styled(ReakitButton)(
 		flex-shrink: 0;
 	}
 
-	&.btn {
-		.btn__icon {
-			margin: 0 1rem 0 0;
-			
-			path {
-				fill: currentColor;
-			}
+	&.btn--small {
+		padding: ${tokens.space.none} ${tokens.space.s};
+		min-height: ${tokens.sizes.xl};
+	}
+	
+	.btn__icon {
+		margin: 0;
+		
+		path {
+			fill: currentColor;
 		}
 
-		&--small {
-			padding: ${tokens.space.none} ${tokens.space.s};
-			min-height: ${tokens.sizes.xl};
+		+ .btn__text {
+			margin-left: 1rem; 
 		}
-		
-		&--icon {
-			.btn__icon {
-				margin: 0;
-			}
-		}
+	}
+	
+	.btn__text {
+		flex: 1;
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.btn__text--hidden {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		whiteSpace: nowrap;
+		width: 1px;
 	}
 `,
 );

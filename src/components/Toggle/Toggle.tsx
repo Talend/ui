@@ -1,26 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from './../Button';
+import { ButtonProps } from './../Button/Button';
 import { IconName } from '../Icon/Icon';
 
-export type ToggleProps = {
-	/** icon name to display */
-	icon?: IconName;
+export type ToggleProps = ButtonProps & {
 	/** if the toggle is active or not */
 	isActive?: boolean;
-	/** if the button is disabled or not */
-	disabled?: boolean;
 	/** onChange handler */
 	onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const IconButton = styled(({ isActive, theme, ...rest }) => <Button.Icon {...rest} />)<{
-	isActive: boolean;
-}>(
-	({ isActive, theme }) => `
-	${
-		isActive &&
-		`
+const IconButton = styled(Button.Icon)(
+	({ theme }) => `
+		&.btn--is-active {
 			color: ${theme.colors.buttonPrimaryColor};
 			background-color: ${theme.colors.buttonPrimaryBackgroundColor};
 			border: 1px solid ${theme.colors.buttonPrimaryBackgroundColor};
@@ -45,8 +38,7 @@ const IconButton = styled(({ isActive, theme, ...rest }) => <Button.Icon {...res
 				background-color: ${theme.colors.buttonDisabledBackgroundColor};
 				border-color: ${theme.colors.buttonDisabledBackgroundColor};
 			}
-		`
-	}
+		}
 `,
 );
 
@@ -54,11 +46,18 @@ const Toggle: React.FC<ToggleProps> = React.forwardRef((props: ToggleProps, ref)
 	const [isActive, toggle] = React.useState(props.isActive);
 
 	function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
-		toggle(prevState => !prevState);
+		toggle(!isActive);
 		props.onChange && props.onChange(event);
 	}
 
-	return <IconButton {...props} isActive={isActive} onClick={handleClick} ref={ref} />;
+	return (
+		<IconButton
+			ref={ref}
+			{...props}
+			className={`btn--toggle ${props.className || ''} ${isActive ? 'btn--is-active' : ''}`}
+			onClick={handleClick}
+		/>
+	);
 });
 
 export default Toggle;

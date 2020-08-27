@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {
 	Tooltip as ReakitTooltip,
@@ -20,9 +20,7 @@ export const Tooltip = styled(ReakitTooltip)(
 `,
 );
 
-export const TooltipReference = styled(ReakitTooltipReference)`
-	display: inline-block;
-`;
+export const TooltipReference = styled(ReakitTooltipReference)``;
 
 export const TooltipArrow = styled(ReakitTooltipArrow)(
 	({ theme }) => `

@@ -31,6 +31,7 @@
     "polished": "^3.6.5",
     "react-i18next": "^11.7.0",
     "react-inlinesvg": "^2.0.1",
+    "react-use": "^15.3.3",
     "reakit": "^1.2.0"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import Tooltip from '../../Tooltip';
 import Toggle from '../';
 
 <Meta title="Components/Toggle" component={Toggle} />
@@ -16,24 +17,24 @@ The Toggle button component is used to toggle features visibility.
 ### Default
 
 <Preview>
-    <Story name="Active">
-        <Toggle isActive icon="datagrid" />
+	<Story name="Active">
+		<Toggle isActive icon="datagrid" />
 	</Story>
-    <Story name="Inactive">
-        <Toggle icon="datagrid" />
+	<Story name="Inactive">
+		<Toggle icon="datagrid" />
 	</Story>
- </Preview>
+</Preview>
 
 ### Disabled
 
 <Preview>
-    <Story name="Disabled Active">
-        <Toggle disabled isActive icon="datagrid"/>
+	<Story name="Disabled Active">
+		<Toggle disabled isActive icon="datagrid" />
 	</Story>
-    <Story name="Disabled Inactive">
-        <Toggle disabled icon="datagrid"/>
+	<Story name="Disabled Inactive">
+		<Toggle disabled icon="datagrid" />
 	</Story>
- </Preview>
+</Preview>
 
 ## Content
 
@@ -44,20 +45,24 @@ The Toggle button component is used to toggle features visibility.
 ## Usage
 
 <Preview>
-  <Story
-    name="usage"
-    args={{
-        icon: 'datagrid',
-    }}
-  >
-    {props => <Toggle {...props} />}
-  </Story>
+	<Story
+		name="usage"
+		args={{
+			icon: 'datagrid',
+		}}
+	>
+		{props => (
+			<Tooltip title="Toggle the feature">
+				<Toggle {...props} />
+			</Tooltip>
+		)}
+	</Story>
 </Preview>
 
 <Props story="usage" />
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 07/30/2020 | Fabien Rassinier  | Init page   |
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 07/30/2020 | Fabien Rassinier | Init page   |

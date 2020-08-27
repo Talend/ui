@@ -4,14 +4,12 @@ import { VisuallyHidden } from 'reakit/VisuallyHidden';
 
 import Button from '../../Button';
 import Dropdown from '../../Dropdown';
-import Modal from '../../Modal';
 import Link from '../../Link';
 import Icon from '../../Icon';
 import Tooltip from '../../Tooltip';
+import HeaderBar from '..';
 
 import dark from '../../../themes/dark.theme';
-
-import HeaderBar from '..';
 
 export const PortalOnBoarding = () => (
 	<HeaderBar>
@@ -25,7 +23,6 @@ export const PortalOnBoarding = () => (
 );
 
 export const Portal = () => {
-	const [visible, setVisible] = React.useState();
 	return (
 		<HeaderBar>
 			<HeaderBar.Logo full>
@@ -34,33 +31,48 @@ export const Portal = () => {
 					<VisuallyHidden>Talend</VisuallyHidden>
 				</Link>
 			</HeaderBar.Logo>
-			<HeaderBar.MenuDisclosure>
-				<Button
-					className={`menu ${visible ? 'menu--opened' : ''}`}
-					onClick={() => setVisible(!visible)}
+			<HeaderBar.Brand>
+				<Dropdown
+					aria-label="Apps switcher"
+					items={[
+						<Link iconBefore="talend" href="#">
+							App name 1
+						</Link>,
+						<Link iconBefore="talend" href="#">
+							App name 2
+						</Link>,
+						<Link iconBefore="talend" href="#">
+							App name 3
+						</Link>,
+						<Link iconBefore="talend" href="#">
+							App name 4
+						</Link>,
+						<Link iconBefore="talend" href="#">
+							App name 5
+						</Link>,
+					]}
 				>
-					<Icon name="burger" />
-					<VisuallyHidden>Toggle menu</VisuallyHidden>
-				</Button>
-			</HeaderBar.MenuDisclosure>
-			<HeaderBar.Menu visible={visible}>
-				<HeaderBar.Right>
-					<HeaderBar.CTA>
+					Select an app
+				</Dropdown>
+			</HeaderBar.Brand>
+			<HeaderBar.Content>
+				<HeaderBar.ContentRight>
+					<HeaderBar.Item>
 						<Button.Primary small theme={dark}>
 							Subscribe now
 						</Button.Primary>
-					</HeaderBar.CTA>
-					<HeaderBar.IPC>
+					</HeaderBar.Item>
+					<HeaderBar.Item>
 						<Tooltip title="Chat with Talend support" placement="bottom">
-							<Button icon="bubbles">Intercom</Button>
+							<Toggle icon="bubbles">Intercom</Toggle>
 						</Tooltip>
-					</HeaderBar.IPC>
-					<HeaderBar.Help>
+					</HeaderBar.Item>
+					<HeaderBar.Item>
 						<Link iconBefore="information" href="#">
 							Help
 						</Link>
-					</HeaderBar.Help>
-					<HeaderBar.User>
+					</HeaderBar.Item>
+					<HeaderBar.Item>
 						<Dropdown
 							icon="user"
 							items={[
@@ -75,15 +87,14 @@ export const Portal = () => {
 						>
 							John Doe
 						</Dropdown>
-					</HeaderBar.User>
-				</HeaderBar.Right>
-			</HeaderBar.Menu>
+					</HeaderBar.Item>
+				</HeaderBar.ContentRight>
+			</HeaderBar.Content>
 		</HeaderBar>
 	);
 };
 
 export const Apps = () => {
-	const [visible, setVisible] = React.useState();
 	return (
 		<HeaderBar>
 			<HeaderBar.Logo>
@@ -114,17 +125,8 @@ export const Apps = () => {
 					App name
 				</Dropdown>
 			</HeaderBar.Brand>
-			<HeaderBar.MenuDisclosure>
-				<Button
-					className={`menu ${visible ? 'menu--opened' : ''}`}
-					onClick={() => setVisible(!visible)}
-				>
-					<Icon name="burger" />
-					<VisuallyHidden>Toggle menu</VisuallyHidden>
-				</Button>
-			</HeaderBar.MenuDisclosure>
-			<HeaderBar.Menu visible={visible}>
-				<HeaderBar.Left>
+			<HeaderBar.Content>
+				<HeaderBar.ContentLeft>
 					<HeaderBar.Item>
 						<Dropdown
 							items={[
@@ -163,29 +165,24 @@ export const Apps = () => {
 					<HeaderBar.Item>
 						<span className="text">API Saved</span>
 					</HeaderBar.Item>
-				</HeaderBar.Left>
-				<HeaderBar.Right>
-					<HeaderBar.CTA>
-						<Button.Primary small theme={dark}>
-							Subscribe now
-						</Button.Primary>
-					</HeaderBar.CTA>
-					<HeaderBar.Notifications>
+				</HeaderBar.ContentLeft>
+				<HeaderBar.ContentRight>
+					<HeaderBar.Item>
 						<Tooltip title="Notifications (you have no unread notifications)" placement="bottom">
-							<Button icon="bell">Notifications</Button>
+							<Toggle icon="bell">Notifications</Toggle>
 						</Tooltip>
-					</HeaderBar.Notifications>
-					<HeaderBar.IPC>
+					</HeaderBar.Item>
+					<HeaderBar.Item>
 						<Tooltip title="Chat with Talend support" placement="bottom">
-							<Button icon="bubbles">Intercom</Button>
+							<Toggle icon="bubbles">Intercom</Toggle>
 						</Tooltip>
-					</HeaderBar.IPC>
-					<HeaderBar.Help>
+					</HeaderBar.Item>
+					<HeaderBar.Item>
 						<Link iconBefore="information" href="#">
 							Help
 						</Link>
-					</HeaderBar.Help>
-					<HeaderBar.User>
+					</HeaderBar.Item>
+					<HeaderBar.Item>
 						<Dropdown
 							icon="user"
 							items={[
@@ -200,9 +197,9 @@ export const Apps = () => {
 						>
 							John Doe
 						</Dropdown>
-					</HeaderBar.User>
-				</HeaderBar.Right>
-			</HeaderBar.Menu>
+					</HeaderBar.Item>
+				</HeaderBar.ContentRight>
+			</HeaderBar.Content>
 		</HeaderBar>
 	);
 };

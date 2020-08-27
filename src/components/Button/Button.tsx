@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonProps as ReakitButtonProps, VisuallyHidden as ReakitVisuallyHidden } from 'reakit';
+import { ButtonProps as ReakitButtonProps } from 'reakit/Button';
 
 import Icon, { IconName } from '../Icon/Icon';
 
@@ -20,13 +20,13 @@ const Button: React.FC<ButtonProps> = React.forwardRef(
 			ref={ref}
 			{...rest}
 			className={`
-				btn ${className ? className : ''} ${small ? `btn--small` : ''}  ${
-				icon && hideLabel ? `btn--icon` : ''
-			}
+				btn ${className ? className : ''} ${icon ? 'btn--has-icon' : ''} ${
+				hideLabel ? '' : 'btn--has-label'
+			} ${small ? `btn--small` : ''}
 			`}
 		>
 			{icon && <Icon className="btn__icon" name={icon} />}
-			{hideLabel ? children && <ReakitVisuallyHidden>{children}</ReakitVisuallyHidden> : children}
+			<span className={`btn__text ${hideLabel ? 'btn__text--hidden' : ''}`}>{children}</span>
 		</S.Button>
 	),
 );
