@@ -29,16 +29,16 @@ export const HeaderBar = styled.div.attrs({
 `;
 export const Item = styled.span.attrs({
 	className: 'header-bar__item',
-})<{ interactive: boolean }>(
-	({ fixed }) => `
+})<{ freeze: boolean }>(
+	({ freeze }) => `
 	transition: all 0.2s ease-out;
 
 	&:hover {
-		background: ${fixed ? 'none' : transparentize(0.8, tokens.colors.gray0)};
+		background: ${freeze ? 'none' : transparentize(0.8, tokens.colors.gray0)};
 	}
 
 	&:active {
-		background: ${fixed ? 'none' : transparentize(0.9, tokens.colors.gray0)};
+		background: ${freeze ? 'none' : transparentize(0.9, tokens.colors.gray0)};
 	}
 
 	&,

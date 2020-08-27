@@ -58,7 +58,7 @@ export const Portal = () => {
 			</HeaderBar.Brand>
 			<HeaderBar.Content>
 				<HeaderBar.ContentRight>
-					<HeaderBar.Item fixed>
+					<HeaderBar.Item freeze>
 						<Button.Primary small theme={dark}>
 							Subscribe now
 						</Button.Primary>
@@ -163,7 +163,7 @@ export const Apps = () => {
 					<HeaderBar.Item>
 						<Button>Documentation (preview)</Button>
 					</HeaderBar.Item>
-					<HeaderBar.Item fixed>
+					<HeaderBar.Item freeze>
 						<span className="text">API Saved</span>
 					</HeaderBar.Item>
 				</HeaderBar.ContentLeft>
