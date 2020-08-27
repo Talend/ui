@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Footer from '../Footer';
-import HeaderBar from '../Header';
 import Menu from '../Menu';
 import Layout from '../Layout';
 import Column from '../Column';
@@ -104,28 +103,3 @@ const FullColumn = ({ footer = true }) => (
 );
 
 const Card = () => <Box style={{ flex: '0 0 25rem', height: '25rem' }}>Card</Box>;
-
-export const Composed = () => (
-	<Layout
-		hasScreenHeight
-		header={<Header />}
-		nav={<Nav />}
-		main={
-			<Row>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-			</Row>
-		}
-	/>
-);
-export const ComposedWithAside = () => (
-	<Layout
-		hasScreenHeight
-		header={<Header />}
-		nav={<Nav />}
-		main={<FullColumn footer={false} />}
-		aside={<FullColumn />}
-	/>
-);

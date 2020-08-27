@@ -46,7 +46,7 @@ const SMenuItem = styled(Link).attrs(({ active }) => ({
         }
 
         .link__text {
-            font-weight: ${tokens.fontWeights.extraBold};
+            font-weight: ${tokens.fontWeights.semiBold};
             min-width: 0;
             white-space: nowrap;
             text-overflow: ellipsis;

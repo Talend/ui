@@ -22,24 +22,39 @@ export const HeaderBar = styled.div.attrs({
 	className: 'header-bar',
 })`
 	display: flex;
-	width: 100%;
 	min-height: 4.8rem;
+	width: 100%;
 	color: ${tokens.colors.gray0};
 	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
 `;
 export const Item = styled.span.attrs({
 	className: 'header-bar__item',
-})`
-	display: inline-flex;
-	flex-direction: column;
-	justify-content: center;
-	min-height: 4.8rem;
+})<{ interactive: boolean }>(
+	({ fixed }) => `
+	transition: all 0.2s ease-out;
+
+	&:hover {
+		background: ${fixed ? 'none' : transparentize(0.8, tokens.colors.gray0)};
+	}
+
+	&:active {
+		background: ${fixed ? 'none' : transparentize(0.9, tokens.colors.gray0)};
+	}
+
+	&,
+	> .link,
+	> .btn:not(.btn--small),
+	> .text {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 4.8rem;
+	}
 
 	> .link,
 	> .btn:not(.btn--small),
 	> .text {
 		padding: 0 1.5rem;
-		transition: all 0.2s ease-out;
 
 		&,
 		&:hover,
@@ -49,12 +64,8 @@ export const Item = styled.span.attrs({
 		}
 	}
 
-	&:hover {
-		background: ${transparentize(0.8, tokens.colors.gray0)};
-	}
-
-	&:active {
-		background: ${transparentize(0.9, tokens.colors.gray0)};
+	.btn--small {
+		margin: 0 1.5rem;
 	}
 
 	.btn:not(.btn--small) {
@@ -79,11 +90,12 @@ export const Item = styled.span.attrs({
 		}
 	}
 
-	@media only screen and (min-width: ${tokens.breakpoints.l}) {
-		flex-direction: row;
-		align-items: center;
+	@media only screen and (max-width: ${tokens.breakpoints.l}) {
+		flex-direction: column;
+		align-items: start;
 	}
-`;
+`,
+);
 export const Logo = styled(Item).attrs({
 	className: 'header-bar__logo',
 })<{ full: boolean }>(
@@ -206,11 +218,10 @@ const ContentArea = styled.div.attrs({
 	className: 'header-bar__content',
 })`
 	display: flex;
-	flex-direction: column;
 	flex: 0 0 auto;
 
-	@media only screen and (min-width: ${tokens.breakpoints.l}) {
-		flex-direction: row;
+	@media only screen and (max-width: ${tokens.breakpoints.l}) {
+		flex-direction: column;
 	}
 `;
 export const ContentLeft = styled(ContentArea).attrs({

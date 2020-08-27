@@ -88,12 +88,12 @@ export default function HeaderBarBlock() {
 							<Link href="#">Preview</Link>
 						</Tooltip>
 					</HeaderBar.Item>
-					<HeaderBar.Item>
+					<HeaderBar.Item fixed>
 						<span className="text">API Saved</span>
 					</HeaderBar.Item>
 				</HeaderBar.ContentLeft>
 				<HeaderBar.ContentRight>
-					<HeaderBar.Item>
+					<HeaderBar.Item fixed>
 						<Tooltip title="Subscribe now for Talend Cloud" placement="bottom">
 							<Button.Primary small theme={dark}>
 								Subscribe now
