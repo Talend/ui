@@ -79,7 +79,7 @@ function Badge({
 	selected = false,
 	style,
 	white,
-	color
+	color,
 }) {
 	const displayClass =
 		display === SIZES.small ? 'tc-badge-display-small' : 'tc-badge-display-large';
@@ -137,7 +137,7 @@ Badge.propTypes = {
 	selected: PropTypes.bool,
 	style: PropTypes.object,
 	white: PropTypes.bool,
-	color: PropTypes.oneOf(Object.values(COLORS))
+	color: PropTypes.oneOf(Object.values(COLORS)),
 };
 
 Badge.SIZES = SIZES;
