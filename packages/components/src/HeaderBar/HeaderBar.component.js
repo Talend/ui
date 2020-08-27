@@ -117,8 +117,8 @@ function Information({ getComponent, t, ...props }) {
 			{props.items && props.items.length ? (
 				<Renderers.ActionDropdown pullRight noCaret hideLabel {...global} />
 			) : (
-					<Renderers.Action hideLabel {...global} />
-				)}
+				<Renderers.Action hideLabel {...global} />
+			)}
 		</li>
 	);
 }
