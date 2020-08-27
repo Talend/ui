@@ -1,7 +1,12 @@
 import React from 'react';
+import useMedia from 'react-use/lib/useMedia';
+
 import Button from '../Button';
-import * as S from './Layout.style';
 import SkipLinks from './SkipLinks';
+
+import * as S from './Layout.style';
+
+import tokens from '../../tokens';
 
 export type LayoutProps = {
 	header?: React.ReactElement<any>;
@@ -21,6 +26,12 @@ const Layout: React.FC<LayoutProps> = ({
 }: LayoutProps) => {
 	const [isNavCollapsed, collapseNav] = React.useState(false);
 	const [asideVisibility, setAsideVisibility] = React.useState(true);
+	const isWide = useMedia(`(min-width: ${tokens.breakpoints.l})`);
+
+	React.useEffect(() => {
+		collapseNav(!isWide);
+	}, [isWide]);
+
 	const Main = () => (
 		<S.Main id="main" className="layout__main">
 			{main}
