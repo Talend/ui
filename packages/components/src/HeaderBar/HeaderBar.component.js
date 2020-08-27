@@ -117,8 +117,8 @@ function Information({ getComponent, t, ...props }) {
 			{props.items && props.items.length ? (
 				<Renderers.ActionDropdown pullRight noCaret hideLabel {...global} />
 			) : (
-				<Renderers.Action hideLabel {...global} />
-			)}
+					<Renderers.Action hideLabel {...global} />
+				)}
 		</li>
 	);
 }
@@ -225,8 +225,9 @@ function HeaderBar(props) {
 		props.AppSwitcher || Inject.get(props.getComponent, 'AppSwitcher', AppSwitcher);
 
 	let intercom;
-	if (props.Intercom) {
-		intercom = props.Intercom;
+	const { Intercom: CustomIntercom } = props;
+	if (CustomIntercom) {
+		intercom = <CustomIntercom />;
 	} else if (props.intercom) {
 		console.warn('Deprecated: use @talend/ui-ee/Intercom');
 		intercom = <Components.Intercom getComponent={props.getComponent} {...props.intercom} />;

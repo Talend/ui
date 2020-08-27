@@ -274,7 +274,7 @@ decoratedStories
 	.add('Custom AppSwitcher', () => <HeaderBar AppSwitcher={AppSwitcherComponent} />, {
 		info: { styles: infoStyle },
 	})
-	.add('Custom Intercom', () => <HeaderBar Intercom={<IntercomComponent />} />, {
+	.add('Custom Intercom', () => <HeaderBar Intercom={IntercomComponent} />, {
 		info: { styles: infoStyle },
 	});
 
