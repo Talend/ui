@@ -722,4 +722,22 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 			</div>
 		</section>
 	</React.Fragment>
+)).add('colored', () => (
+	<>
+		<IconsProvider defaultIcons={icons} />
+		{Object.entries(Badge.COLORS).map(([name, value]) => (
+			<div>
+				{name}
+				<Badge
+					label="Label"
+					display={Badge.SIZES.small}
+					color={value}
+					category="Category"
+					{...onSelect("A")}
+					{...onDelete("A")}
+				/>
+			</div>
+		))
+		}
+	</>
 ));

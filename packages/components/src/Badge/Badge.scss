@@ -20,6 +20,26 @@ $tc-badge-small-padding: 0.8rem;
 
 $tc-badge-disabled-opacity: 0.62;
 
+@mixin colored-badge($background-color, $color) {
+	.tc-badge-button {
+		background-color: $background-color;
+		color: $color;
+
+		.tc-badge-category,
+		.tc-badge-separator,
+		:global(.btn-link) {
+			color: inherit;
+		}
+		.tc-badge-label {
+			.tc-badge-label-text,
+			.tc-badge-label-text-with-categ,
+			.tc-badge-label-icon {
+				color: inherit;
+			}
+		}
+	}
+}
+
 .tc-badge {
 	display: inline-flex;
 	max-width: 23.5rem;
@@ -256,5 +276,25 @@ $tc-badge-disabled-opacity: 0.62;
 		.tc-badge-button {
 			opacity: $tc-badge-disabled-opacity;
 		}
+	}
+
+	&-valid-filter {
+		@include colored-badge(adjust_color($rio-grande, $alpha: -0.7), darken($rio-grande, 30%));
+	}
+
+	&-invalid-filter {
+		@include colored-badge(adjust_color($chestnut-rose, $alpha: -0.7), darken($chestnut-rose, 30%));
+	}
+
+	&-empty-filter {
+		@include colored-badge($alto, $dove-gray);
+	}
+
+	&-pattern-filter {
+		@include colored-badge(adjust_color($jaffa, $alpha: -0.7), darken($jaffa, 30%));
+	}
+
+	&-value-filter {
+		@include colored-badge(adjust_color($lochmara, $alpha: -0.7), darken($lochmara, 30%));
 	}
 }
