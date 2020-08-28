@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
 const GlobalStyle = createGlobalStyle(
 	({ theme }) => `
 
@@ -28,4 +29,7 @@ const GlobalStyle = createGlobalStyle(
 	}
 `,
 );
-export { ThemeProvider, GlobalStyle };
+
+ThemeProvider.GlobalStyle = GlobalStyle;
+
+export default ThemeProvider;

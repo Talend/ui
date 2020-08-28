@@ -5,7 +5,7 @@ import { withTableOfContents } from 'storybook-docs-toc';
 import 'focus-outline-manager';
 
 import light, { dark } from '../src/themes';
-import { GlobalStyle, ThemeProvider } from '../src/components/ThemeProvider';
+import ThemeProvider from '../src/components/ThemeProvider';
 
 const RowDiv = styled.div`
 	display: flex;
@@ -15,7 +15,7 @@ const RowDiv = styled.div`
 
 addDecorator((storyFn, ...rest) => (
 	<RowDiv>
-		<GlobalStyle />
+		<ThemeProvider.GlobalStyle />
 		{storyFn()}
 	</RowDiv>
 ));

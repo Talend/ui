@@ -14,7 +14,9 @@ import ThemeProvider from './components/ThemeProvider';
 import Toggle from './components/Toggle';
 import Tooltip from './components/Tooltip';
 
+import icons from './icons';
 import themes from './themes';
+import tokens from './tokens';
 
 export {
 	Button,
@@ -32,5 +34,7 @@ export {
 	ThemeProvider,
 	Toggle,
 	Tooltip,
+	icons,
 	themes,
+	tokens,
 };

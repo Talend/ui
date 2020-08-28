@@ -1,5 +1,4 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-import { ThemeProvider } from 'styled-components'
 import { ColorPalette, ColorItem } from '@storybook/components';
 import tokens from '../../../tokens';
 import { IconItem, IconGallery } from '@storybook/components';
@@ -12,10 +11,7 @@ import MessageLine from './images/inlinemessage-multipleline.jpg';
 import theme from '../../../themes';
 import { Col, Row } from '../../../docs';
 
-<Meta
-    title="Components/InlineMessage"
-    component={InlineMessage}
-/>
+<Meta title="Components/InlineMessage" component={InlineMessage} />
 
 # Inline Message
 
@@ -33,188 +29,222 @@ It can be additional information related to system status, it can be a required 
 ### Default
 
 <Preview>
-  <Story name="information">
-    <InlineMessage.Information
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-        	/>
-  </Story>
-  <Story name="success">
-    <InlineMessage.Success
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-        	/>
-  </Story>
-  <Story name="warning">
-    <InlineMessage.Warning
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-        	/>
-  </Story>
-  <Story name="destructive">
-   <InlineMessage.Destructive
-       		title={'Lorem ipsum'}
-       		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-       		link={<Link href={'#'}>See more</Link>}
-       	/>
-  </Story>
+	<Story name="information">
+		<InlineMessage.Information
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+		/>
+	</Story>
+	<Story name="success">
+		<InlineMessage.Success
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+		/>
+	</Story>
+	<Story name="warning">
+		<InlineMessage.Warning
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+		/>
+	</Story>
+	<Story name="destructive">
+		<InlineMessage.Destructive
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+		/>
+	</Story>
 </Preview>
 
 ### Small
 
 <Preview>
-  <Story name="informationSmall">
-    <InlineMessage.Information
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-           		small
-        	/>
-  </Story>
-  <Story name="successSmall">
-    <InlineMessage.Success
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-           		small
-        	/>
-  </Story>
-  <Story name="warningSmall">
-    <InlineMessage.Warning
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-           		small
-        	/>
-  </Story>
-  <Story name="destructiveSmall">
-   <InlineMessage.Destructive
-       		title={'Lorem ipsum'}
-       		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-       		link={<Link href={'#'}>See more</Link>}
-       		small
-       	/>
-  </Story>
+	<Story name="informationSmall">
+		<InlineMessage.Information
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			small
+		/>
+	</Story>
+	<Story name="successSmall">
+		<InlineMessage.Success
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			small
+		/>
+	</Story>
+	<Story name="warningSmall">
+		<InlineMessage.Warning
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			small
+		/>
+	</Story>
+	<Story name="destructiveSmall">
+		<InlineMessage.Destructive
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			small
+		/>
+	</Story>
 </Preview>
 
 ### With background
 
 <Preview>
-  <Story name="informationWithBg">
-    <InlineMessage.Information
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-           		withBackground
-        	/>
-  </Story>
-  <Story name="successWithBg">
-    <InlineMessage.Success
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-           		withBackground
-        	/>
-  </Story>
-  <Story name="warningWithBg">
-    <InlineMessage.Warning
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-           		withBackground
-        	/>
-  </Story>
-  <Story name="destructiveWithBg">
-   <InlineMessage.Destructive
-       		title={'Lorem ipsum'}
-       		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-       		link={<Link href={'#'}>See more</Link>}
-       		withBackground
-       	/>
-  </Story>
+	<Story name="informationWithBg">
+		<InlineMessage.Information
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+	</Story>
+	<Story name="successWithBg">
+		<InlineMessage.Success
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+	</Story>
+	<Story name="warningWithBg">
+		<InlineMessage.Warning
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+	</Story>
+	<Story name="destructiveWithBg">
+		<InlineMessage.Destructive
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+	</Story>
 </Preview>
 
 ### Small with background
 
 <Preview>
-  <Story name="informationSmallWithBg">
-    <InlineMessage.Information
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-        		small
-           		withBackground
-        	/>
-  </Story>
-  <Story name="successSmallWithBg">
-    <InlineMessage.Success
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-        		small
-           		withBackground
-        	/>
-  </Story>
-  <Story name="warningSmallWithBg">
-    <InlineMessage.Warning
-        		title={'Lorem ipsum'}
-        		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-        		link={<Link href={'#'}>See more</Link>}
-           		small
-           		withBackground
-        	/>
-  </Story>
-  <Story name="destructiveSmallWithBg">
-   <InlineMessage.Destructive
-       		title={'Lorem ipsum'}
-       		description={'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'}
-       		link={<Link href={'#'}>See more</Link>}
-       		small
-       		withBackground
-       	/>
-  </Story>
+	<Story name="informationSmallWithBg">
+		<InlineMessage.Information
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			small
+			withBackground
+		/>
+	</Story>
+	<Story name="successSmallWithBg">
+		<InlineMessage.Success
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			small
+			withBackground
+		/>
+	</Story>
+	<Story name="warningSmallWithBg">
+		<InlineMessage.Warning
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			small
+			withBackground
+		/>
+	</Story>
+	<Story name="destructiveSmallWithBg">
+		<InlineMessage.Destructive
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			small
+			withBackground
+		/>
+	</Story>
 </Preview>
 
 ## Sizes
 
-| Attribute                      | Variable       |
-| ------------------------------ | -------------- |
-| icon                           | $svg-md-size   |
-| height    			    	 | 2.5rem         |
-| padding-left and right         | $smaller       |
-| border-radius                  | rectRadius     |
-| _ (if link) _ margin-left      | $small         |
-
+| Attribute                 | Variable      |
+| ------------------------- | ------------- |
+| icon                      | \$svg-md-size |
+| height                    | 2.5rem        |
+| padding-left and right    | \$smaller     |
+| border-radius             | rectRadius    |
+| _ (if link) _ margin-left | \$small       |
 
 ## Colors
 
 <ColorPalette>
-	<ColorItem title="theme.color.palette" subtitle="Inline message colors" colors={{
-	    Error: tokens.colors.coral500,
-		Warning: tokens.colors.jaffa500,
-		Success: tokens.colors.rioGrande500,
-		Information: tokens.colors.lochmara
-    }} />
+	<ColorItem
+		title="theme.color.palette"
+		subtitle="Inline message colors"
+		colors={{
+			Error: tokens.colors.coral500,
+			Warning: tokens.colors.jaffa500,
+			Success: tokens.colors.rioGrande500,
+			Information: tokens.colors.lochmara,
+		}}
+	/>
 </ColorPalette>
 
-| Attribute                      | Variable                            |
-| ------------------------------ | ----------------------------------- |
-| background-color               | tint($color, 95)                    |
-| box-shadow    		    	 | tint($color, 75) 0 1px 2px 0px      |
-| icon                           | $color depending on the context     |
-| font                           | $black                              |
-
+| Attribute        | Variable                         |
+| ---------------- | -------------------------------- |
+| background-color | tint(\$color, 95)                |
+| box-shadow       | tint(\$color, 75) 0 1px 2px 0px  |
+| icon             | \$color depending on the context |
+| font             | \$black                          |
 
 ## Fonts
 
-| Property    | font-size | font-weight | color |
-|-------------|-----------|-------------|-------|
-| **title**   | 1.4rem    |semi-bold    |$black |
-| **description**|1.4rem  |regular      |$black |
-| **link**   | 1.4rem    |semi-bold    |$lochmara |
+| Property        | font-size | font-weight | color      |
+| --------------- | --------- | ----------- | ---------- |
+| **title**       | 1.4rem    | semi-bold   | \$black    |
+| **description** | 1.4rem    | regular     | \$black    |
+| **link**        | 1.4rem    | semi-bold   | \$lochmara |
 
 ## States
 
@@ -223,29 +253,29 @@ _Non applicable_
 ## Code
 
 <Preview>
-  <Story
-    name="basic"
-    args={{
-        variant: 'Primary',
-        title: 'Title',
-        description: 'Description',
-        withBackground: true,
-    }}
-    argTypes={{
-        variant: {
-            description: 'InlineMessage variation',
-            control: {
-              type: 'select',
-              options: ['Information', 'Success', 'Warning', 'Destructive'],
-            }
-        },
-    }}
-  >
-    {({ variant, ...rest }) => {
-        const Component = InlineMessage[variant] || InlineMessage;
-        return <Component {...rest} />
-    }}
-  </Story>
+	<Story
+		name="basic"
+		args={{
+			variant: 'Primary',
+			title: 'Title',
+			description: 'Description',
+			withBackground: true,
+		}}
+		argTypes={{
+			variant: {
+				description: 'InlineMessage variation',
+				control: {
+					type: 'select',
+					options: ['Information', 'Success', 'Warning', 'Destructive'],
+				},
+			},
+		}}
+	>
+		{({ variant, ...rest }) => {
+			const Component = InlineMessage[variant] || InlineMessage;
+			return <Component {...rest} />;
+		}}
+	</Story>
 </Preview>
 
 <Props story="basic" />
@@ -268,11 +298,11 @@ Please refer to the hyperlink guidelines for more information.
 ### **Icon usage**
 
 <IconGallery>
-    {['cross', 'warning', 'check', 'information'].map((iconName, index) => (
-        <IconItem key={index} name={iconName}>
-            <Icon name={iconName} />
-        </IconItem>
-    ))}
+	{['cross', 'warning', 'check', 'information'].map((iconName, index) => (
+		<IconItem key={index} name={iconName}>
+			<Icon name={iconName} />
+		</IconItem>
+	))}
 </IconGallery>
 
 ### **Multiple line**
@@ -283,6 +313,6 @@ The text should adapt the surrounding layout. Depending on the context, if the t
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 03/18/2020 | Monia Huet  | Init page   |
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 03/18/2020 | Monia Huet | Init page   |
