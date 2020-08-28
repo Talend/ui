@@ -182,6 +182,26 @@ storiesOf('FacetedSearch', module)
 			</FacetedSearch.Faceted>
 		</div>
 	))
+	.add('with colors', () => (
+		<div>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				{currentFacetedMode =>
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+						<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+					)) ||
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+						<FacetedSearch.BasicSearch
+							badgesDefinitions={badgesDefinitions}
+							onSubmit={action('onSubmit')}
+							callbacks={callbacks}
+							useColors
+						/>
+					))
+				}
+			</FacetedSearch.Faceted>
+		</div>
+	))
 	.add('basic search with lots of badges definitions', () => (
 		<div style={{ height: '5.5rem' }}>
 			<IconsProvider />

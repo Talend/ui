@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Badge from '@talend/react-components/lib/Badge';
 
 const badgeDefinitionRawDataPropTypes = PropTypes.shape({
 	attribute: PropTypes.string.isRequired,
@@ -17,6 +18,7 @@ const operatorPropTypes = PropTypes.shape({
 	name: PropTypes.string,
 	label: PropTypes.string,
 	iconName: PropTypes.string,
+	color: PropTypes.oneOf(Object.values(Badge.COLORS)),
 });
 
 const operatorsPropTypes = PropTypes.arrayOf(operatorPropTypes);

@@ -11,7 +11,7 @@ $circle-size-small: 1.8rem !default;
 		height: $circle-size-large;
 	}
 	align-items: center;
-	background: white;
+	background: rgba(255,255,255, 0.5);
 	border-radius: 10rem;
 	display: inline-flex;
 	justify-content: center;
@@ -43,7 +43,6 @@ $circle-size-small: 1.8rem !default;
 	&-row-button {
 		display: flex;
 		justify-content: flex-start;
-		padding: 0 $padding-small 0 $padding-small;
 		text-transform: none;
 		width: 100%;
 		padding: 0 $padding-large 0 $padding-large;

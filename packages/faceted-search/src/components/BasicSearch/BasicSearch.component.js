@@ -37,14 +37,16 @@ const BasicSearch = ({
 	customBadgesDictionary,
 	customOperatorsDictionary,
 	initialFilterValue,
+	useColors = false,
 	onSubmit,
 	setBadgesFaceted,
 	callbacks,
 }) => {
 	const { id, t } = useFacetedSearchContext();
-	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary), [
+	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary, useColors), [
 		t,
 		customOperatorsDictionary,
+		useColors
 	]);
 	const badgesDictionary = useMemo(() => createBadgesDict(customBadgesDictionary), [
 		customBadgesDictionary,
@@ -82,6 +84,7 @@ const BasicSearch = ({
 						getBadgeFromDict={getBadgesFromDict}
 						id={basicSearchId}
 						callbacks={callbacks}
+						useColors={useColors}
 						t={t}
 					/>
 				</BadgeFacetedProvider>
@@ -130,6 +133,7 @@ BasicSearch.propTypes = {
 	customBadgesDictionary: PropTypes.object,
 	customOperatorsDictionary: operatorsPropTypes,
 	initialFilterValue: PropTypes.string,
+	useColors: PropTypes.string,
 	onSubmit: PropTypes.func.isRequired,
 	setBadgesFaceted: PropTypes.func,
 	callbacks: callbacksPropTypes,
