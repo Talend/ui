@@ -1,5 +1,6 @@
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 import DisplayMode from './DisplayMode';
+import ItemsNumber from  './ItemsNumber';
 import LazyLoadingList from './LazyLoadingList';
 import Manager from './Manager';
 import SortBy from './SortBy';
@@ -13,6 +14,7 @@ import useCollectionActions from './Manager/hooks/useCollectionActions.hook';
 
 export default {
 	DisplayMode,
+	ItemsNumber,
 	LazyLoadingList,
 	InfiniteScrollList: LazyLoadingList,
 	Manager,
