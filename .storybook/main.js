@@ -19,7 +19,6 @@ module.exports = {
 			},
 		},
 		'@storybook/addon-links',
-		'@storybook/addon-contexts/register',
 	],
 	typescript: {
 		reactDocgen: 'react-docgen-typescript',
