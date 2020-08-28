@@ -31,6 +31,7 @@ export const Item = styled.span.attrs({
 	className: 'header-bar__item',
 })<{ freeze: boolean }>(
 	({ freeze }) => `
+	padding: 0 1.5rem;
 	transition: all 0.2s ease-out;
 
 	&:hover {
@@ -54,7 +55,7 @@ export const Item = styled.span.attrs({
 	> .link,
 	> .btn:not(.btn--small),
 	> .text {
-		padding: 0 1.5rem;
+		padding: 0;
 
 		&,
 		&:hover,
@@ -62,10 +63,6 @@ export const Item = styled.span.attrs({
 		&:active {
 			color: ${tokens.colors.gray0};
 		}
-	}
-
-	.btn--small {
-		margin: 0 1.5rem;
 	}
 
 	.btn:not(.btn--small) {
@@ -80,6 +77,8 @@ export const Item = styled.span.attrs({
 	}
 
 	[role='menuitem'] {
+		display: flex;
+		align-items: center;
 		padding: 0.5rem 1rem;
 
 		&:hover,
@@ -113,6 +112,10 @@ export const Brand = styled(Item).attrs({
 })`
 	flex: 1 0 auto;
 	${borderLeft}
+
+	> .btn {
+		width: 100%;
+	}
 
 	@media only screen and (min-width: ${tokens.breakpoints.l}) {
 		flex-grow: 0;
@@ -200,7 +203,7 @@ export const Menu = styled.div.attrs({
 	}
 
 	[role='menu'] {
-		margin-left: 2rem;
+		margin-left: 4rem;
 		position: static !important;
 		transform: none !important;
 
@@ -212,6 +215,7 @@ export const Menu = styled.div.attrs({
 	}
 
 	[role='menuitem'] {
+		min-height: 4.8rem;
 		color: ${tokens.colors.gray0};
 	}
 `;
@@ -237,6 +241,17 @@ export const ContentLeft = styled(ContentArea).attrs({
 export const ContentRight = styled(ContentArea).attrs({
 	className: 'header-bar__content--right',
 })`
+	.btn--is-active {
+		&, 
+		&:focus,
+		&:hover, 
+		&:active {
+			color: ${tokens.colors.gray0};
+			background: none;
+			border: none;
+		}
+	}
+
 	// Display Toggle labels for mobiles and tablets
 	.btn__text--hidden {
 		position: static;
