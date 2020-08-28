@@ -43,11 +43,10 @@ const BasicSearch = ({
 	callbacks,
 }) => {
 	const { id, t } = useFacetedSearchContext();
-	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary, useColors), [
-		t,
-		customOperatorsDictionary,
-		useColors
-	]);
+	const operatorsDictionary = useMemo(
+		() => createOperatorsDict(t, customOperatorsDictionary, useColors),
+		[t, customOperatorsDictionary, useColors],
+	);
 	const badgesDictionary = useMemo(() => createBadgesDict(customBadgesDictionary), [
 		customBadgesDictionary,
 	]);
