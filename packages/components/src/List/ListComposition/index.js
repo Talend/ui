@@ -1,6 +1,6 @@
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 import DisplayMode from './DisplayMode';
-import ItemsNumber from  './ItemsNumber';
+import ItemsNumber from './ItemsNumber';
 import LazyLoadingList from './LazyLoadingList';
 import Manager from './Manager';
 import SortBy from './SortBy';

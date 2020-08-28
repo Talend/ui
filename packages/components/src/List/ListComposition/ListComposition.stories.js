@@ -198,7 +198,9 @@ storiesOf('Data/List/List Composition', module)
 		<div className="virtualized-list">
 			<IconsProvider />
 			<h1>Total items</h1>
-			<p>You can show the total number of elements in the list by adding the ItemsNumber component</p>
+			<p>
+				You can show the total number of elements in the list by adding the ItemsNumber component
+			</p>
 			<pre>
 				{`<List.Manager
  	id="my-list"
@@ -219,10 +221,7 @@ storiesOf('Data/List/List Composition', module)
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
 						<List.Toolbar.Right>
-							<List.ItemsNumber
-								totalItems={simpleCollection.length}
-								label="users"
-							/>
+							<List.ItemsNumber totalItems={simpleCollection.length} label="users" />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
@@ -258,11 +257,7 @@ storiesOf('Data/List/List Composition', module)
 								}}
 							/>
 							<List.Toolbar.Right>
-								<List.ItemsNumber
-									totalItems={simpleCollection.length}
-									selected={2}
-									label="users"
-								/>
+								<List.ItemsNumber totalItems={simpleCollection.length} selected={2} label="users" />
 							</List.Toolbar.Right>
 						</List.Toolbar>
 						<CustomList
