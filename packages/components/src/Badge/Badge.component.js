@@ -21,7 +21,7 @@ const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, d
 			{icon && <BadgeLib.Icon name={icon} />}
 		</BadgeLib.Label>
 		{icon && onDelete && <BadgeLib.Separator iconSeparator />}
-        {dropdown && <BadgeLib.Dropdown id={id} props={dropdown} />}
+		{dropdown && <BadgeLib.Dropdown id={id} props={dropdown} />}
 		{onDelete && <BadgeLib.DeleteAction id={id} onClick={onDelete} disabled={disabled} />}
 	</React.Fragment>
 );
@@ -34,7 +34,7 @@ DefaultBadge.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string,
 	onDelete: PropTypes.func,
-    dropdown: PropTypes.object,
+	dropdown: PropTypes.object,
 };
 
 const BadgeType = ({ disabled, onSelect, children, ...rest }) => {
@@ -73,7 +73,7 @@ function Badge({
 	selected = false,
 	style,
 	white,
-    dropdown,
+	dropdown,
 }) {
 	const displayClass =
 		display === SIZES.small ? 'tc-badge-display-small' : 'tc-badge-display-large';
@@ -106,7 +106,7 @@ function Badge({
 						id={id}
 						label={label}
 						onDelete={onDelete}
-                        dropdown={dropdown}
+						dropdown={dropdown}
 					/>
 				) : (
 					children
@@ -131,7 +131,7 @@ Badge.propTypes = {
 	selected: PropTypes.bool,
 	style: PropTypes.object,
 	white: PropTypes.bool,
-    dropdown: PropTypes.object,
+	dropdown: PropTypes.object,
 };
 
 Badge.SIZES = SIZES;

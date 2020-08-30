@@ -243,12 +243,12 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 					<Badge
 						display={Badge.SIZES.large}
 						category="Cat"
-						dropdown={{...dropdownProps, label: longStr, tooltipLabel: longStr}}
+						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr }}
 					/>
 					<Badge
 						display={Badge.SIZES.small}
 						category="Cat"
-						dropdown={{...dropdownProps, label: longStr, tooltipLabel: longStr}}
+						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr }}
 					/>
 					<span>Read only</span>
 					<Badge label={longStr} display={Badge.SIZES.large} category={longStr} />
