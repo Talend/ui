@@ -23,6 +23,29 @@ const columnStyle = {
 const icons = {
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-clock': talendIcons['talend-clock'],
+	'talend-caret-down': talendIcons['talend-caret-down'],
+};
+
+const dropdownProps = {
+	id: 'context-dropdown-related-items',
+	label: 'Label',
+	items: [
+		{
+			id: 'context-dropdown-item-document-1',
+			label: 'document 1',
+			'data-feature': 'actiondropdown.items',
+			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
+		},
+		{
+			id: 'context-dropdown-item-document-2',
+			label: 'document 2',
+			'data-feature': 'actiondropdown.items',
+			onClick: action('document 2 click'),
+		},
+	],
 };
 
 function onDelete(name) {
@@ -170,6 +193,7 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onSelect('B')}
 						{...onDelete('A')}
 					/>
+					<br />
 					<Badge
 						label="Label"
 						display={Badge.SIZES.small}
@@ -178,6 +202,10 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onSelect('B')}
 						{...onDelete('A')}
 					/>
+					<br />
+					<Badge display={Badge.SIZES.large} category="Cat" dropdown={dropdownProps} />
+					<br />
+					<Badge display={Badge.SIZES.small} category="Cat" dropdown={dropdownProps} />
 				</div>
 				<div style={columnStyle}>
 					<span>As Link</span>
@@ -210,6 +238,17 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onSelect('B')}
 						{...onDelete('A')}
 						icon="talend-clock"
+					/>
+					<span>Dropdown</span>
+					<Badge
+						display={Badge.SIZES.large}
+						category="Cat"
+						dropdown={{...dropdownProps, label: longStr, tooltipLabel: longStr}}
+					/>
+					<Badge
+						display={Badge.SIZES.small}
+						category="Cat"
+						dropdown={{...dropdownProps, label: longStr, tooltipLabel: longStr}}
 					/>
 					<span>Read only</span>
 					<Badge label={longStr} display={Badge.SIZES.large} category={longStr} />
