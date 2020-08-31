@@ -6,12 +6,12 @@ import ActionDropdown from '../../../Actions/ActionDropdown';
 
 const theme = getTheme(badgeCssModule);
 
-const BadgeIcon = ({ props }) => (
+const BadgeDropdown = ({ props }) => (
 	<ActionDropdown className={theme('tc-badge-dropdown')} bsStyle="link" {...props} />
 );
 
-BadgeIcon.propTypes = {
+BadgeDropdown.propTypes = {
 	props: PropTypes.object,
 };
 
-export default BadgeIcon;
+export default BadgeDropdown;
