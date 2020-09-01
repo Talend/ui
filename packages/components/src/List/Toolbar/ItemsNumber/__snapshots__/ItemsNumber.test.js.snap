@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ItemsNumber should render table with total number of items + customized title 1`] = `
+exports[`ItemsNumber should render total number of items + customized title 1`] = `
 <div
   className="tc-items-number"
   id="list-items-number"
@@ -9,7 +9,7 @@ exports[`ItemsNumber should render table with total number of items + customized
 </div>
 `;
 
-exports[`ItemsNumber should render table with total number of items + number of selected items 1`] = `
+exports[`ItemsNumber should render total number of items + number of selected items 1`] = `
 <div
   className="tc-items-number"
   id="list-items-number"
@@ -18,7 +18,7 @@ exports[`ItemsNumber should render table with total number of items + number of 
 </div>
 `;
 
-exports[`ItemsNumber should render table with total number of items 1`] = `
+exports[`ItemsNumber should render total number of items 1`] = `
 <div
   className="tc-items-number"
   id="list-items-number"
