@@ -14,6 +14,8 @@ export type LinkProps = BoxProps &
 		iconAfter?: IconName;
 		/** if the link is disabled */
 		disabled?: boolean;
+		/** if the link is external but the icon must not be shown */
+		hideExternalIcon?: boolean;
 	};
 
 const Link: React.FC<LinkProps> = React.forwardRef(
@@ -27,12 +29,13 @@ const Link: React.FC<LinkProps> = React.forwardRef(
 			href,
 			target,
 			title,
+			hideExternalIcon,
 			...rest
 		}: LinkProps,
 		ref,
 	) => {
 		const isBlank = target?.toLocaleLowerCase().includes('blank');
-		const isExternal = href?.toLocaleLowerCase().includes('http');
+		const isExternal = !hideExternalIcon && href?.toLocaleLowerCase().includes('http');
 
 		function getTitle() {
 			if (disabled && title) return `${title} (this link is disabled)`;

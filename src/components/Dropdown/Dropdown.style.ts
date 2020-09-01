@@ -9,24 +9,28 @@ import tokens from '../../tokens';
 
 export const Button = ReakitMenuButton;
 
-export const ButtonIcon = styled(Icon)`
-	display: inline-flex;
-	height: ${tokens.sizes.xs};
-	width: ${tokens.sizes.xs};
-	fill: currentColor;
-	transition: transform 0.2s ease-out;
+export const ButtonIcon = styled(Icon).attrs({
+	className: 'dropdown__icon',
+})`
+	&.dropdown__icon {
+		display: inline-flex;
+		height: ${tokens.sizes.xs};
+		width: ${tokens.sizes.xs};
+		fill: currentColor;
+		transition: transform 0.2s ease-out;
 
-	[aria-expanded='true'] & {
-		transform: rotate(-180deg);
-	}
+		[aria-expanded='true'] & {
+			transform: rotate(-180deg);
+		}
 
-	[role='menuitem'] & {
-		margin-left: auto;
-		transform: rotate(-90deg);
-	}
+		[role='menuitem'] & {
+			margin-left: auto;
+			transform: rotate(-90deg);
+		}
 
-	[role='menuitem'][aria-expanded='true'] & {
-		transform: rotate(90deg);
+		[role='menuitem'][aria-expanded='true'] & {
+			transform: rotate(90deg);
+		}
 	}
 `;
 

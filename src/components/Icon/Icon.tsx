@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { StyledProps } from 'styled-components';
 import { BoxProps } from 'reakit';
-import SVG, { Props as InlineSVGProps } from 'react-inlinesvg';
 import icons from '../../icons';
 
 import tokens from '../../tokens';
@@ -31,41 +30,31 @@ export type IconName =
 	| 'warning';
 
 export type IconProps = BoxProps &
-	StyledProps<any> &
-	Omit<InlineSVGProps, 'src'> & {
+	StyledProps<any> & {
 		/** The name of the icon  */
 		name: IconName;
 	};
 
-const SSVG = styled(SVG)<IconProps & { preserveColors: boolean }>(
-	({ preserveColors }) => `
-	width: ${tokens.sizes.l};
-	height: ${tokens.sizes.l};
-
-	circle,
-	path,
-	rect {
-		${preserveColors ? '' : 'fill: currentColor;'}
-	}
-`,
-);
-
-// TODO https://medium.com/@allalmohamedlamine/react-best-way-of-importing-svg-the-how-and-why-f7c968272dd9
 const Icon: React.FC<IconProps> = React.forwardRef(
 	({ className, name, ...rest }: IconProps, ref) => {
 		if (!Object.keys(icons).find(iconName => iconName === name)) {
 			return null;
 		}
-		return (
-			<SSVG
-				aria-hidden
-				{...rest}
-				src={icons[name]}
-				className={`icon ${className || ''}`}
-				ref={ref}
-			/>
+		// @ts-ignore
+		const SVG = styled(icons[name].ReactComponent)<IconProps & { preserveColors: boolean }>(
+			({ preserveColors }) => `
+			width: ${tokens.sizes.l};
+			height: ${tokens.sizes.l};
+		
+			circle,
+			path,
+			rect {
+				${preserveColors ? '' : 'fill: currentColor;'}
+			}
+		`,
 		);
+		return <SVG aria-hidden {...rest} className={`icon ${className || ''}`} ref={ref} />;
 	},
 );
 
-export default Icon;
+export default React.memo(Icon);

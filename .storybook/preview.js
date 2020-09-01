@@ -7,19 +7,6 @@ import 'focus-outline-manager';
 import light, { dark } from '../src/themes';
 import ThemeProvider from '../src/components/ThemeProvider';
 
-const RowDiv = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-`;
-
-addDecorator((storyFn, ...rest) => (
-	<RowDiv>
-		<ThemeProvider.GlobalStyle />
-		{storyFn()}
-	</RowDiv>
-));
-
 export const globalTypes = {
 	theme: {
 		name: 'Theme',
@@ -43,6 +30,7 @@ const withThemeProvider = (Story, context) => {
 	const theme = getTheme(context.globals.theme);
 	return (
 		<ThemeProvider theme={theme}>
+			<ThemeProvider.GlobalStyle />
 			<Story {...context} />
 		</ThemeProvider>
 	);

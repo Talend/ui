@@ -5,6 +5,7 @@ import Form from './components/Form';
 import HeaderBar from './components/HeaderBar';
 import Icon from './components/Icon';
 import InlineMessage from './components/InlineMessage';
+import Layout from './components/Layout';
 import Link from './components/Link';
 import Loading from './components/Loading';
 import Modal from './components/Modal';
@@ -27,6 +28,7 @@ export {
 	Icon,
 	InlineMessage,
 	Link,
+	Layout,
 	Loading,
 	Modal,
 	Switch,
