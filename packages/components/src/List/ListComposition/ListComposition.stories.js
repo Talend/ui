@@ -691,7 +691,7 @@ storiesOf('Data/List/List Composition', module)
 				<IconsProvider />
 				<h1>List with selectable items + an ActionBar</h1>
 				<pre>
-				{`<List.Manager
+					{`<List.Manager
  	id="my-list"
  	collection={collection}
 >
@@ -706,7 +706,7 @@ storiesOf('Data/List/List Composition', module)
 	</List.VList>
 </List.Manager>
 `}
-			</pre>
+				</pre>
 				<section style={{ height: '50vh' }}>
 					<List.Manager id="my-list" collection={simpleCollection}>
 						<List.Toolbar>
@@ -746,7 +746,7 @@ storiesOf('Data/List/List Composition', module)
 				<h1>List with selectable items + total number of items</h1>
 				<p>The number of selected items is available in the right toolbar</p>
 				<pre>
-				{`<List.Manager
+					{`<List.Manager
  	id="my-list"
  	collection={collection}
 >
@@ -765,7 +765,7 @@ storiesOf('Data/List/List Composition', module)
 	</List.VList>
 </List.Manager>
 `}
-			</pre>
+				</pre>
 				<section style={{ height: '50vh' }}>
 					<List.Manager id="my-list" collection={simpleCollection}>
 						<List.Toolbar>
