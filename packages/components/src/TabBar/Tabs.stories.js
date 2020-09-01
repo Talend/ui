@@ -20,6 +20,7 @@ const tabProps = {
 			icon: {
 				name: 'talend-empty-calendar',
 			},
+			badgeLabel: 87,
 		},
 		{
 			key: '3',

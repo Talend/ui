@@ -30,3 +30,8 @@
 :global(.dropdown) + :global(.tab-content) {
 	padding-top: $padding-large;
 }
+
+:global(.tc-tab-bar-item) .label {
+	margin-left: 5px;
+}
+

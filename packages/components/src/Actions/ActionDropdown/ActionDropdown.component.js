@@ -15,6 +15,7 @@ import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
+import Label from 'react-bootstrap/lib/Label';
 
 export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
 
@@ -75,6 +76,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 		>
 			{item.icon && <Icon key="icon" name={item.icon} />}
 			{!item.hideLabel && item.label}
+			{item.badgeLabel && <Label bsStyle="info">{item.badgeLabel}</Label>}
 		</Renderers.MenuItem>
 	);
 }

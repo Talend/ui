@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import Label from 'react-bootstrap/lib/Label';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -167,6 +168,7 @@ function TabBar(props) {
 								{item.label}
 							</React.Fragment>
 						</TooltipTrigger>
+						{item.badgeLabel && <Label bsStyle="info">{item.badgeLabel}</Label>}
 					</NavItem>
 				))}
 			</Nav>
