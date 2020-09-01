@@ -246,6 +246,7 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar>
 							<ActionBar
 								selected={2}
+								hideCount
 								multiSelectActions={{
 									left: [
 										{

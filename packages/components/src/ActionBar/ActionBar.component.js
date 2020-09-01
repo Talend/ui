@@ -164,12 +164,12 @@ Count.propTypes = {
 	selected: PropTypes.number,
 };
 
-function defineComponentLeft(parentComponentLeft, selected, hideSelected) {
+function defineComponentLeft(parentComponentLeft, selected, hideCount) {
 	if (parentComponentLeft) {
 		return parentComponentLeft;
 	}
 
-	if (!hideSelected && selected > 0) {
+	if (!hideCount && selected > 0) {
 		return {
 			'before-actions': <Count selected={selected} />,
 		};
@@ -190,7 +190,7 @@ export function ActionBar(props) {
 	const componentsLeft = defineComponentLeft(
 		props.components.left,
 		props.selected,
-		props.hideSelected,
+		props.hideCount,
 	);
 	const componentsCenter = props.components.center;
 	const componentsRight = props.components.right;
@@ -225,7 +225,7 @@ export function ActionBar(props) {
 
 ActionBar.propTypes = {
 	selected: PropTypes.number,
-	hideSelected: PropTypes.bool,
+	hideCount: PropTypes.bool,
 	children: PropTypes.node,
 	className: PropTypes.string,
 	getComponent: PropTypes.func,

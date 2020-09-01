@@ -627,6 +627,7 @@ storiesOf('Data/List/List', module)
 		const selectedItemsProps = cloneDeep(props);
 		selectedItemsProps.toolbar.actionBar = {
 			selected: 1,
+			hideCount: true,
 			multiSelectActions: {
 				left: [
 					{
