@@ -229,48 +229,6 @@ storiesOf('Data/List/List Composition', module)
 			</section>
 		</div>
 	))
-	.add('Selectable items + total items', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
-			simpleCollection,
-			[1, 2],
-			'id',
-		);
-
-		return (
-			<div className="virtualized-list">
-				<IconsProvider />
-				<h1>List with selectable items</h1>
-				<p>The number of selected items is available in the right toolbar</p>
-				<section style={{ height: '50vh' }}>
-					<List.Manager id="my-list" collection={simpleCollection}>
-						<List.Toolbar>
-							<ActionBar
-								selected={2}
-								hideCount
-								multiSelectActions={{
-									left: [
-										{
-											id: 'remove-items',
-											icon: 'talend-trash',
-											label: 'Delete',
-										},
-									],
-								}}
-							/>
-							<List.Toolbar.Right>
-								<List.ItemsNumber totalItems={simpleCollection.length} selected={2} label="users" />
-							</List.Toolbar.Right>
-						</List.Toolbar>
-						<CustomList
-							isSelected={isSelected}
-							onToggleAll={onToggleAll}
-							selectionToggle={(_, group) => onToggleItem(group)}
-						/>
-					</List.Manager>
-				</section>
-			</div>
-		);
-	})
 	.add('Text Filter: uncontrolled', () => (
 		<div className="virtualized-list">
 			<IconsProvider />
@@ -711,6 +669,123 @@ storiesOf('Data/List/List Composition', module)
 
 				<section style={{ height: '50vh' }}>
 					<List.Manager id="my-list" collection={simpleCollection}>
+						<CustomList
+							isSelected={isSelected}
+							onToggleAll={onToggleAll}
+							selectionToggle={(_, group) => onToggleItem(group)}
+						/>
+					</List.Manager>
+				</section>
+			</div>
+		);
+	})
+	.add('Selectable items + ActionBar', () => {
+		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+			simpleCollection,
+			[1, 2],
+			'id',
+		);
+
+		return (
+			<div className="virtualized-list">
+				<IconsProvider />
+				<h1>List with selectable items + an ActionBar</h1>
+				<pre>
+				{`<List.Manager
+ 	id="my-list"
+ 	collection={collection}
+>
+	<List.Toolbar>
+		<ActionBar
+			selected={2}
+			multiSelectActions={{...}}
+		/>
+	</List.Toolbar>
+	<List.VList id="my-vlist" type="TABLE">
+		...
+	</List.VList>
+</List.Manager>
+`}
+			</pre>
+				<section style={{ height: '50vh' }}>
+					<List.Manager id="my-list" collection={simpleCollection}>
+						<List.Toolbar>
+							<ActionBar
+								selected={2}
+								multiSelectActions={{
+									left: [
+										{
+											id: 'remove-items',
+											icon: 'talend-trash',
+											label: 'Delete',
+										},
+									],
+								}}
+							/>
+						</List.Toolbar>
+						<CustomList
+							isSelected={isSelected}
+							onToggleAll={onToggleAll}
+							selectionToggle={(_, group) => onToggleItem(group)}
+						/>
+					</List.Manager>
+				</section>
+			</div>
+		);
+	})
+	.add('Selectable items + total items', () => {
+		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+			simpleCollection,
+			[1, 2],
+			'id',
+		);
+
+		return (
+			<div className="virtualized-list">
+				<IconsProvider />
+				<h1>List with selectable items + total number of items</h1>
+				<p>The number of selected items is available in the right toolbar</p>
+				<pre>
+				{`<List.Manager
+ 	id="my-list"
+ 	collection={collection}
+>
+	<List.Toolbar>
+		<ActionBar
+			selected={2}
+			hideCount		<== the number of selected items must be hidden in the ActionBar
+			multiSelectActions={{...}}
+		/>
+		<List.Toolbar.Right>
+			<List.ItemsNumber totalItems="100" selected="2" label="users" />
+		</List.Toolbar.Right>
+	</List.Toolbar>
+	<List.VList id="my-vlist" type="TABLE">
+		...
+	</List.VList>
+</List.Manager>
+`}
+			</pre>
+				<section style={{ height: '50vh' }}>
+					<List.Manager id="my-list" collection={simpleCollection}>
+						<List.Toolbar>
+							<ActionBar
+								selected={2}
+								hideCount
+								multiSelectActions={{
+									left: [
+										{
+											id: 'remove-items',
+											icon: 'talend-trash',
+											label: 'Delete',
+										},
+									],
+								}}
+							/>
+							<List.Toolbar.Right>
+								<List.ItemsNumber totalItems={simpleCollection.length} selected={2} label="users" />
+							</List.Toolbar.Right>
+						</List.Toolbar>
 						<CustomList
 							isSelected={isSelected}
 							onToggleAll={onToggleAll}
