@@ -23,8 +23,9 @@ describe('ItemsNumber', () => {
 			const wrapper = mount(
 				<ListContext.Provider value={defaultContext}>
 					<ItemsNumber {...props} />
-				</ListContext.Provider>);
-	
+				</ListContext.Provider>,
+			);
+
 			// then
 			expect(wrapper.html()).toMatchSnapshot();
 		});
@@ -33,8 +34,9 @@ describe('ItemsNumber', () => {
 			const wrapper = mount(
 				<ListContext.Provider value={defaultContext}>
 					<ItemsNumber {...props} label="bananas" />
-				</ListContext.Provider>);
-	
+				</ListContext.Provider>,
+			);
+
 			// then
 			expect(wrapper.html()).toMatchSnapshot();
 		});
@@ -43,8 +45,9 @@ describe('ItemsNumber', () => {
 			const wrapper = mount(
 				<ListContext.Provider value={defaultContext}>
 					<ItemsNumber {...props} selected="11" />
-				</ListContext.Provider>);
-	
+				</ListContext.Provider>,
+			);
+
 			// then
 			expect(wrapper.html()).toMatchSnapshot();
 		});
