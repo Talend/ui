@@ -10,23 +10,23 @@ export type ButtonProps = ReakitButtonProps & {
 	icon?: IconName;
 	/** If the button is small or not */
 	small?: boolean;
-	/** If the button should not display children */
-	hideLabel?: boolean;
+	/** If the button should not display text */
+	hideText?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = React.forwardRef(
-	({ className, icon, small, hideLabel, children, ...rest }: ButtonProps, ref) => (
+	({ className, icon, small, hideText, children, ...rest }: ButtonProps, ref) => (
 		<S.Button
 			ref={ref}
 			{...rest}
 			className={`
 				btn ${className ? className : ''} ${icon ? 'btn--has-icon' : ''} ${
-				hideLabel ? '' : 'btn--has-label'
+				hideText ? '' : 'btn--has-text'
 			} ${small ? `btn--small` : ''}
 			`}
 		>
 			{icon && <Icon className="btn__icon" name={icon} />}
-			<span className={`btn__text ${hideLabel ? 'btn__text--hidden' : ''}`}>{children}</span>
+			<span className={`btn__text ${hideText ? 'btn__text--hidden' : ''}`}>{children}</span>
 		</S.Button>
 	),
 );

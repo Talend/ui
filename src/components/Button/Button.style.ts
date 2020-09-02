@@ -27,8 +27,11 @@ export const Button = styled(ReakitButton)(
 	}
 
 	&.btn--small {
-		padding: ${tokens.space.none} ${tokens.space.s};
 		min-height: ${tokens.sizes.xl};
+	
+		&.btn--has-text {
+			padding: ${tokens.space.none} ${tokens.space.s};
+		}
 	}
 	
 	.btn__icon {
