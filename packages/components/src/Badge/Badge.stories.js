@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
 import Badge from './Badge.component';
+import FilterBar from '../FilterBar';
+import Action from '../Actions/Action';
 import IconsProvider from '../IconsProvider';
 
 const defaultStyle = {
@@ -24,6 +26,7 @@ const icons = {
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-clock': talendIcons['talend-clock'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-search': talendIcons['talend-search'],
 };
 
 const dropdownProps = {
@@ -46,6 +49,37 @@ const dropdownProps = {
 			onClick: action('document 2 click'),
 		},
 	],
+};
+
+const withComponents = {
+	id: 'context-dropdown-custom-items',
+	label: 'custom items',
+	getComponent: key => {
+		if (key === 'Action') {
+			return Action;
+		} else if (key === 'FilterBar') {
+			return FilterBar;
+		}
+		throw new Error('Component not found');
+	},
+	components: {
+		itemsDropdown: [
+			{
+				component: 'Action',
+				label: 'First item',
+				'data-feature': 'actiondropdown.items',
+			},
+			{
+				divider: true,
+			},
+			{
+				component: 'FilterBar',
+				label: 'Second item',
+				'data-feature': 'actiondropdown.items',
+				onFilter: action('onFilter'),
+			},
+		],
+	},
 };
 
 function onDelete(name) {
@@ -206,6 +240,8 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 					<Badge display={Badge.SIZES.large} category="Cat" dropdown={dropdownProps} />
 					<br />
 					<Badge display={Badge.SIZES.small} category="Cat" dropdown={dropdownProps} />
+					<br />
+					<Badge display={Badge.SIZES.large} category="Cat" dropdown={withComponents} />
 				</div>
 				<div style={columnStyle}>
 					<span>As Link</span>
