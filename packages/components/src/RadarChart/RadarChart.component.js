@@ -1,16 +1,14 @@
 import React from 'react';
-export { Radar } from 'recharts';
+export { Radar, PolarAngleAxis } from 'recharts';
 import {
 	RadarChart as RechartsRadarChart,
 	PolarGrid,
-	PolarAngleAxis,
 	PolarRadiusAxis
 } from 'recharts';
 import PropTypes from 'prop-types';
 
 export function RadarChart({
 														children,
-														clicker,
 														cx,
 														cy,
 														data,
@@ -35,7 +33,6 @@ export function RadarChart({
 			data={data}
 		>
       <PolarGrid />
-      <PolarAngleAxis dataKey={dataKey} onClick={clicker} />
       <PolarRadiusAxis domain={domain} tick={tick} tickLine={tickLine} />
 			{ children }
     </RechartsRadarChart>
@@ -43,8 +40,8 @@ export function RadarChart({
 }
 
 // Not used yet
-export function RadarAxisLabel({ onClick }) {
-	return <button onClick={onClick} />;
+export function RadarAxisLabel() {
+
 }
 
 RadarAxisLabel.propTypes = {
@@ -53,7 +50,6 @@ RadarAxisLabel.propTypes = {
 
 RadarChart.propTypes = {
 	children: PropTypes.node.isRequired,
-	clicker: PropTypes.func,
 	cx: PropTypes.number,
 	cy: PropTypes.number,
 	data: PropTypes.array.isRequired,
