@@ -42,7 +42,9 @@ describe('ItemsNumber', () => {
 			);
 
 			// then
-			expect(wrapper.find('div#list-items-number').text()).toEqual(`${newProps.totalItems} ${newProps.label}`);
+			expect(wrapper.find('div#list-items-number').text()).toEqual(
+				`${newProps.totalItems} ${newProps.label}`,
+			);
 		});
 		it('should render total number of items + number of selected items', () => {
 			// given
@@ -59,7 +61,9 @@ describe('ItemsNumber', () => {
 			);
 
 			// then
-			expect(wrapper.find('div#list-items-number').text()).toEqual(`${newProps.selected}/${newProps.totalItems} items`);
+			expect(wrapper.find('div#list-items-number').text()).toEqual(
+				`${newProps.selected}/${newProps.totalItems} items`,
+			);
 		});
 	});
 });

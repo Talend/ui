@@ -10,16 +10,16 @@ function ItemsNumber(props) {
 		<div className="tc-items-number" id={id}>
 			{selected
 				? t('LIST_TOOLBAR_NUMBER_OF_SELECTED_ITEMS', {
-					defaultValue: '{{count}}/{{total}} {{itemsLabel}}',
-					count: selected,
-					total: totalItems,
-					itemsLabel,
-			  })
-			: t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
-					defaultValue: '{{count}} {{itemsLabel}}',
-					count: totalItems,
-					itemsLabel,
-			  })}
+						defaultValue: '{{count}}/{{total}} {{itemsLabel}}',
+						count: selected,
+						total: totalItems,
+						itemsLabel,
+				  })
+				: t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
+						defaultValue: '{{count}} {{itemsLabel}}',
+						count: totalItems,
+						itemsLabel,
+				  })}
 		</div>
 	);
 }

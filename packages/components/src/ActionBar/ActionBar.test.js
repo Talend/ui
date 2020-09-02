@@ -17,10 +17,7 @@ describe('ActionBar', () => {
 		// when
 		const actionBar = <ActionBar {...props} />;
 		const wrapper = mount(actionBar);
-		wrapper
-			.find(Action)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Action).at(0).simulate('click');
 
 		// then
 		expect(onClickMock).toHaveBeenCalled();
@@ -60,7 +57,7 @@ describe('ActionBar', () => {
 		const props = {
 			selected: 12,
 			multiSelectActions: {
-				left: [{ id:'remove-items', label: 'Delete', icon: 'talend-trash' }],
+				left: [{ id: 'remove-items', label: 'Delete', icon: 'talend-trash' }],
 			},
 		};
 
@@ -79,7 +76,7 @@ describe('ActionBar', () => {
 			selected: 12,
 			hideCount: true,
 			multiSelectActions: {
-				left: [{ id:'remove-items', label: 'Delete', icon: 'talend-trash' }],
+				left: [{ id: 'remove-items', label: 'Delete', icon: 'talend-trash' }],
 			},
 		};
 
