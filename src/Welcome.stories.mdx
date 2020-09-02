@@ -1,14 +1,77 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import Welcome from './Welcome.svg';
+
+import { Card, Grid } from './docs';
+
+import DesignTokens from './docs/images/design-tokens.svg';
+import Documentation from './docs/images/documentation.svg';
+import Themes from './docs/images/themes.svg';
+
+import Welcome from './Welcome';
 
 <Meta title="Welcome" />
 
-<img src={Welcome} />
+<Welcome />
 
 <center>
-<h1>Welcome</h1>
-
-Dive into the single source of truth for building Talend products.
-
-Coral is a series of assets and components documentation used to create unified user experiences at Talend.
+	<h1>Welcome</h1>
+	<p>
+		Dive into the single source of truth for building Talend products.
+		<br />
+		Coral is a series of assets and components documentation used to create unified user experiences
+		at Talend.
+	</p>
 </center>
+
+<Grid>
+	<Card
+		icon={<img src={DesignTokens} alt="" />}
+		title="Design tokens"
+		text="Using variables to ensure better consistency across different platforms."
+		link={<a iconRight="arrowRight">Discover</a>}
+	/>
+	<Card
+		icon={<img src={Documentation} alt="" />}
+		title="Documentation"
+		text="The guidelines for each components from design specs to their usage."
+		link={<a iconRight="arrowRight">Learn more</a>}
+	/>
+	<Card
+		icon={<img src={Themes} alt="" />}
+		title="Themes"
+		text="With Coral it's possible to easily switch themes starting by the dark mode."
+		link={<a iconRight="arrowRight">See more</a>}
+	/>
+</Grid>
+
+## Coral goals
+
+<Grid columns={2} as="dl">
+	<div>
+		<dt>Scalable</dt>
+		<dd>
+			Building an interface is easier by using components that are already implemented and
+			documented in Coral.
+		</dd>
+	</div>
+	<div>
+		<dt>Documented</dt>
+		<dd>
+			No matter of which team you are from, you should find all the information related to Talend
+			here.
+		</dd>
+	</div>
+	<div>
+		<dt>Accessible</dt>
+		<dd>
+			At Talend, we believe that for an inclusive experience our products should be accessible for
+			everyone.
+		</dd>
+	</div>
+	<div>
+		<dt>Playful</dt>
+		<dd>
+			With Coral, it’s easy to play in real-time with the component to test wording, translation or
+			even the responsive.
+		</dd>
+	</div>
+</Grid>

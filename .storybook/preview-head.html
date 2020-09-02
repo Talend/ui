@@ -1,5 +1,6 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700;800');
+	@import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;600;700&display=swap');
 	@import url('https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css');
 
 	html {
@@ -23,12 +24,30 @@
 		width: 100%;
 	}
 
-	.sbdocs-h1,
-	.sbdocs-h2,
-	.sbdocs-h3,
-	.sbdocs-h4,
-	.sbdocs-h5,
-	.sbdocs-h6 {
-		font-family: 'Gelasio', serif !important;
+	.sbdocs .sbdocs-h1,
+	.sbdocs .sbdocs-h2,
+	.sbdocs .sbdocs-h3,
+	.sbdocs .sbdocs-h4,
+	.sbdocs .sbdocs-h5,
+	.sbdocs .sbdocs-h6 {
+		font-family: 'Gelasio', serif;
+		font-weight: bold;
+		border: none;
+	}
+
+	.sbdocs .sbdocs-h1 {
+		font-size: 3.8rem;
+	}
+
+	.sbdocs .sbdocs-h2 {
+		font-size: 2.4rem;
+	}
+
+	.sbdocs-div > dt {
+		font-size: 1.6rem;
+		font-weight: 600;
+	}
+	.sbdocs-div > dd {
+		font-size: 1.4rem;
 	}
 </style>
