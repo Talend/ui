@@ -8,7 +8,7 @@ import { Col, Row } from '../../../docs';
 
 # Tooltip
 
-Tooltip appears on mouse hover in order to identify or define relevant information about elements.
+Tooltips provide helpful, additional content for their paired elements on hover. They are contextual and specific to the element and don't provide the big picture. 
 
 <Preview>
   <Story name="top">
@@ -65,10 +65,20 @@ Tooltip appears on mouse hover in order to identify or define relevant informati
 | font-size | 1.2rem   |
 
 ## Content
+Tooltips with obvious or redundant text are not beneficial to users. If you can’t think of particularly helpful content, don’t offer a tooltip. Otherwise, you’ll just add information pollution to your UI and waste the time of users.
 
-- Tooltip should not include clickable content.
-- The tooltip content shouldn't be longer than 3 or 4 lines to make it easy to read. If you need more space to display the message please use a popover.
-- Tooltip should not display icons or images, only text.
+### Do
+- Use tooltips consistently throughout your site.
+- Try to make the text as short as possible and include the most critical or meaningful info to make reading easier. Add a popup to display detailed info.
+- If the tooltip has more than one sentence, use punctuations/periods.
+
+### Don't
+- Don't use tooltips for simple actions users perform regularly.
+- Avoid tooltips which are complete duplicates of what is stated clearly in the UI.
+- Don't use tooltips for information that is valid to task completion, for example field or password requirements. Such info essential to a frictionless user experience should always be present on the screen
+- Don't use period at the end of a tooltip even if it's a complete sentence in order not to overload the interface.
+
+<hr />
 
 ## Usage
 
