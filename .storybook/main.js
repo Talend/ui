@@ -21,7 +21,4 @@ module.exports = {
 		},
 		'@storybook/addon-links',
 	],
-	typescript: {
-		reactDocgen: 'react-docgen-typescript',
-	},
 };

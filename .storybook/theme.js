@@ -15,7 +15,7 @@ export default create({
 
 	// Typography
 	fontBase: '"Open Sans", sans-serif',
-	fontCode: 'monospace',
+	fontCode: '"Inconsolata", monospace',
 
 	// Text colors
 	textColor: '#202020',

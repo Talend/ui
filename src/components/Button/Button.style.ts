@@ -36,10 +36,6 @@ export const Button = styled(ReakitButton)(
 	
 	.btn__icon {
 		margin: 0;
-		
-		path {
-			fill: currentColor;
-		}
 
 		+ .btn__text {
 			margin-left: 1rem; 
