@@ -1,5 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
+import { Use } from '../../../docs';
 import Tooltip from '../.';
 import Button from '../../Button';
 import { Col, Row } from '../../../docs';
@@ -67,16 +68,24 @@ Tooltips provide helpful, additional content for their paired elements on hover.
 ## Content
 Tooltips with obvious or redundant text are not beneficial to users. If you can’t think of particularly helpful content, don’t offer a tooltip. Otherwise, you’ll just add information pollution to your UI and waste the time of users.
 
-### Do
-- Use tooltips consistently throughout your site.
-- Try to make the text as short as possible and include the most critical or meaningful info to make reading easier. Add a popup to display detailed info.
-- If the tooltip has more than one sentence, use punctuations/periods.
+<Use>
+	<Use.Do>
+  <ul>
+<li>Use tooltips consistently throughout your site.</li>
+<li>Try to make the text as short as possible and include the most critical or meaningful info to make reading easier. Add a popup to display detailed info.</li>
+<li>If the tooltip has more than one sentence, use punctuations/periods.</li>
+  </ul>
+  </Use.Do>
+	<Use.Dont>
+  <ul>
+<li>Don't use tooltips for simple actions users perform regularly.</li>
+<li>Avoid tooltips which are complete duplicates of what is stated clearly in the UI.</li>
+<li>Don't use tooltips for information that is valid to task completion, for example field or password requirements. Such info essential to a frictionless user experience should always be present on the screen.</li>
+<li>Don't use period at the end of a tooltip even if it's a complete sentence in order not to overload the interface.</li>
+  </ul>
+  </Use.Dont>
+</Use>
 
-### Don't
-- Don't use tooltips for simple actions users perform regularly.
-- Avoid tooltips which are complete duplicates of what is stated clearly in the UI.
-- Don't use tooltips for information that is valid to task completion, for example field or password requirements. Such info essential to a frictionless user experience should always be present on the screen
-- Don't use period at the end of a tooltip even if it's a complete sentence in order not to overload the interface.
 
 <hr />
 
