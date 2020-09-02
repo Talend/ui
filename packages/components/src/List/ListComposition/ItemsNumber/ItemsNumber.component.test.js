@@ -12,8 +12,6 @@ describe('ItemsNumber', () => {
 	};
 
 	const defaultContext = {
-		sortParams: {},
-		setSortParams: jest.fn(),
 		t: getDefaultT(),
 	};
 
@@ -27,29 +25,41 @@ describe('ItemsNumber', () => {
 			);
 
 			// then
-			expect(wrapper.html()).toMatchSnapshot();
+			expect(wrapper.find('div#list-items-number').text()).toEqual(`${props.totalItems} items`);
 		});
 		it('should render total number of items + customized title', () => {
+			// given
+			const newProps = {
+				...props,
+				label: 'bananas',
+			};
+
 			// when
 			const wrapper = mount(
 				<ListContext.Provider value={defaultContext}>
-					<ItemsNumber {...props} label="bananas" />
+					<ItemsNumber {...newProps} label="bananas" />
 				</ListContext.Provider>,
 			);
 
 			// then
-			expect(wrapper.html()).toMatchSnapshot();
+			expect(wrapper.find('div#list-items-number').text()).toEqual(`${newProps.totalItems} ${newProps.label}`);
 		});
 		it('should render total number of items + number of selected items', () => {
+			// given
+			const newProps = {
+				...props,
+				selected: 11,
+			};
+
 			// when
 			const wrapper = mount(
 				<ListContext.Provider value={defaultContext}>
-					<ItemsNumber {...props} selected="11" />
+					<ItemsNumber {...newProps} selected="11" />
 				</ListContext.Provider>,
 			);
 
 			// then
-			expect(wrapper.html()).toMatchSnapshot();
+			expect(wrapper.find('div#list-items-number').text()).toEqual(`${newProps.selected}/${newProps.totalItems} items`);
 		});
 	});
 });

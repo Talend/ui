@@ -88,7 +88,6 @@ function Toolbar({
 			{actionBar && (
 				<Renderer.ActionBar
 					{...actionBarProps}
-					hideSelected={!!itemsNumber}
 					className="list-action-bar"
 				>
 					<ActionBar.Content right>

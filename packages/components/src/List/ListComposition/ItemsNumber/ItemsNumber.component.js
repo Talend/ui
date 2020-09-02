@@ -9,17 +9,17 @@ function ItemsNumber(props) {
 	return (
 		<div className="tc-items-number" id={id}>
 			{selected
-				? t('TOTAL_NUMBER_OF_SELECTED_ITEMS', {
-						defaultValue: '{{selected}}/{{totalItems}} {{itemsLabel}}',
-						selected,
-						totalItems,
-						itemsLabel,
-				  })
-				: t('TOTAL_NUMBER_OF_ITEMS', {
-						defaultValue: '{{totalItems}} {{itemsLabel}}',
-						totalItems,
-						itemsLabel,
-				  })}
+				? t('LIST_TOOLBAR_NUMBER_OF_SELECTED_ITEMS', {
+					defaultValue: '{{count}}/{{total}} {{itemsLabel}}',
+					count: selected,
+					total: totalItems,
+					itemsLabel,
+			  })
+			: t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
+					defaultValue: '{{count}} {{itemsLabel}}',
+					count: totalItems,
+					itemsLabel,
+			  })}
 		</div>
 	);
 }
