@@ -1,4 +1,5 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Use } from '../../../docs';
 import Tag from '../';
 
 <Meta title="Components/Tag" component={Tag} />
@@ -14,34 +15,39 @@ The Tag component is useful to emphasize information to the user, works best wit
 ### Variations
 
 <Preview>
-    <Story name="Default">
-        <Tag>Example</Tag>
+	<Story name="Default">
+		<Tag>Example</Tag>
 	</Story>
-    <Story name="Information">
-        <Tag.Information>Example</Tag.Information>
+	<Story name="Information">
+		<Tag.Information>Example</Tag.Information>
 	</Story>
-    <Story name="Success">
-        <Tag.Success>Example</Tag.Success>
+	<Story name="Success">
+		<Tag.Success>Example</Tag.Success>
 	</Story>
-    <Story name="Warning">
-        <Tag.Warning>Example</Tag.Warning>
+	<Story name="Warning">
+		<Tag.Warning>Example</Tag.Warning>
 	</Story>
-    <Story name="Destructive">
-        <Tag.Destructive>Example</Tag.Destructive>
+	<Story name="Destructive">
+		<Tag.Destructive>Example</Tag.Destructive>
 	</Story>
- </Preview>
+</Preview>
 
 ## States
 
 ### Default
 
 <Preview>
-    <Story name="Ellipsis">
-        <Tag>Lorem ipsum dolor sit amet</Tag>
+	<Story name="Ellipsis">
+		<Tag>Lorem ipsum dolor sit amet</Tag>
 	</Story>
- </Preview>
+</Preview>
 
 ## Content
+
+<Use>
+	<Use.Do></Use.Do>
+	<Use.Dont></Use.Dont>
+</Use>
 
 ## Interaction
 
@@ -50,32 +56,32 @@ The Tag component is useful to emphasize information to the user, works best wit
 ## Usage
 
 <Preview>
-  <Story
-    name="usage"
-    args={{
-      children: 'Lorem ipsum',
-    }}
-    argTypes={{
-        variant: {
-            description: 'Tag variation',
-            control: {
-              type: 'select',
-              options: ['', 'Information', 'Success', 'Warning', 'Destructive'],
-            }
-        },
-    }}
-  >
-    {({ variant, ...rest }) => {
-        const Component = Tag[variant] || Tag;
-        return <Component {...rest} />;
-    }}
-  </Story>
+	<Story
+		name="usage"
+		args={{
+			children: 'Lorem ipsum',
+		}}
+		argTypes={{
+			variant: {
+				description: 'Tag variation',
+				control: {
+					type: 'select',
+					options: ['', 'Information', 'Success', 'Warning', 'Destructive'],
+				},
+			},
+		}}
+	>
+		{({ variant, ...rest }) => {
+			const Component = Tag[variant] || Tag;
+			return <Component {...rest} />;
+		}}
+	</Story>
 </Preview>
 
 <Props story="usage" />
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 07/30/2020 | Fabien Rassinier  | Init page   |
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 07/30/2020 | Fabien Rassinier | Init page   |
