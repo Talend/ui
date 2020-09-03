@@ -117,6 +117,9 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 				<div style={columnStyle}>
 					<span>Badge with ellipsis</span>
 				</div>
+				<div style={columnStyle}>
+					<span>Badge with Dropdown</span>
+				</div>
 			</div>
 			<hr />
 			<div style={defaultStyle} id="newVisual">
@@ -236,12 +239,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onSelect('B')}
 						{...onDelete('A')}
 					/>
-					<br />
-					<Badge display={Badge.SIZES.large} category="Cat" dropdown={dropdownProps} />
-					<br />
-					<Badge display={Badge.SIZES.small} category="Cat" dropdown={dropdownProps} />
-					<br />
-					<Badge display={Badge.SIZES.large} category="Cat" dropdown={withComponents} />
 				</div>
 				<div style={columnStyle}>
 					<span>As Link</span>
@@ -274,17 +271,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onSelect('B')}
 						{...onDelete('A')}
 						icon="talend-clock"
-					/>
-					<span>Dropdown</span>
-					<Badge
-						display={Badge.SIZES.large}
-						category="Cat"
-						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr }}
-					/>
-					<Badge
-						display={Badge.SIZES.small}
-						category="Cat"
-						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr }}
 					/>
 					<span>Read only</span>
 					<Badge label={longStr} display={Badge.SIZES.large} category={longStr} />
@@ -333,6 +319,25 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onDelete('A')}
 					/>
 				</div>
+				<div style={columnStyle}>
+					<Badge display={Badge.SIZES.large} category="Cat" dropdown={dropdownProps} />
+					<br />
+					<Badge display={Badge.SIZES.small} category="Cat" dropdown={dropdownProps} />
+					<br />
+					<Badge display={Badge.SIZES.large} category="Cat" dropdown={withComponents} />
+					<br />
+					<Badge
+						display={Badge.SIZES.large}
+						category="Cat"
+						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr }}
+					/>
+					<br />
+					<Badge
+						display={Badge.SIZES.small}
+						category="Cat"
+						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr }}
+					/>
+				</div>
 			</div>
 			<hr />
 		</section>
@@ -355,6 +360,9 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 				</div>
 				<div style={columnStyle}>
 					<span>Badge with ellipsis</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Badge with Dropdown</span>
 				</div>
 			</div>
 			<hr />
@@ -610,6 +618,42 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						disabled
 					/>
 				</div>
+				<div style={columnStyle}>
+					<Badge
+						display={Badge.SIZES.large}
+						category="Cat"
+						dropdown={{ ...dropdownProps, disabled: true }}
+						disabled
+					/>
+					<br />
+					<Badge
+						display={Badge.SIZES.small}
+						category="Cat"
+						dropdown={{ ...dropdownProps, disabled: true }}
+						disabled
+					/>
+					<br />
+					<Badge
+						display={Badge.SIZES.large}
+						category="Cat"
+						dropdown={{ ...withComponents, disabled: true }}
+						disabled
+					/>
+					<br />
+					<Badge
+						display={Badge.SIZES.large}
+						category="Cat"
+						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr, disabled: true }}
+						disabled
+					/>
+					<br />
+					<Badge
+						display={Badge.SIZES.small}
+						category="Cat"
+						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr, disabled: true }}
+						disabled
+					/>
+				</div>
 			</div>
 			<hr />
 		</section>
@@ -633,6 +677,9 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 				<div style={columnStyle}>
 					<span>Edit mode with ellipsis</span>
 				</div>
+                <div style={columnStyle}>
+                    <span>Badge with Dropdown</span>
+                </div>
 			</div>
 			<hr />
 			<div style={defaultStyle} id="newVisualWhiteEnabled">
@@ -662,6 +709,14 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onDelete('A')}
 					/>
 				</div>
+                <div style={columnStyle}>
+                    <Badge
+                        display={Badge.SIZES.small}
+                        category="Cat"
+                        dropdown={dropdownProps}
+                        white
+                    />
+                </div>
 			</div>
 			<hr />
 			<div style={defaultStyle} id="newVisualWhiteDisabled">
@@ -700,6 +755,15 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						disabled
 					/>
 				</div>
+                <div style={columnStyle}>
+                    <Badge
+                        display={Badge.SIZES.small}
+                        category="Cat"
+                        dropdown={{ ...dropdownProps, disabled: true }}
+                        disabled
+                        white
+                    />
+                </div>
 			</div>
 			<hr />
 		</section>
