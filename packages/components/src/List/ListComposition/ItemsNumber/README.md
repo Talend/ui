@@ -22,7 +22,7 @@ Plural is managed by the default label. For customized label, plural must be man
     <List.Toolbar.Right>
         <List.ItemsNumber
             totalItems={totalRowCount}
-		    selected={selectedIds.length}
+            selected={selectedIds.length}
         />
     </List.Toolbar.Right>
 </List.Toolbar>
