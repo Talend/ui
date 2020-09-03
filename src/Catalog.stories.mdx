@@ -1,0 +1,166 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
+
+<Meta title="Component catalog" />
+
+## Buttons
+
+<Preview>
+	<Story name="Buttons">
+		<Button.Primary icon="datagrid">Primary button</Button.Primary>
+		<Button.Destructive icon="datagrid">Destructive button</Button.Destructive>
+		<Button.Secondary icon="datagrid">Secondary button</Button.Secondary>
+		<Button.Ghost icon="datagrid">Ghost button</Button.Ghost>
+		<Button.Icon icon="datagrid">Datagrid</Button.Icon>
+	</Story>
+</Preview>
+
+## Toggles
+
+<Preview>
+	<Story name="Toggles">
+		<Toggle icon="datagrid">Toggle button</Toggle>
+		<Toggle icon="datagrid" disabled>
+			Toggle button
+		</Toggle>
+	</Story>
+</Preview>
+
+## Dropdowns
+
+<Preview>
+	<Story name="Dropdowns">
+		<Dropdown
+			as={Button.Primary}
+			aria-label="Custom menu"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Primary Dropdown
+		</Dropdown>
+		<Dropdown
+			as={Button.Destructive}
+			aria-label="Custom menu"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Destructive Dropdown
+		</Dropdown>
+		<Dropdown
+			as={Button.Secondary}
+			aria-label="Custom menu"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Secondary Dropdown
+		</Dropdown>
+		<Dropdown
+			as={Button.Ghost}
+			aria-label="Custom menu"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Ghost Dropdown
+		</Dropdown>
+	</Story>
+</Preview>
+
+## Links
+
+<Preview>
+	<Story name="Links">
+		<Link>Link</Link>
+	</Story>
+</Preview>
+
+## Forms
+
+<Preview>
+	<Story name="Forms">
+		<Form>
+			<Form.Fieldset legend="Form fields">
+				<Form.Text label="Input" />
+				<Form.InputGroup label="Amount" prefix="$" suffix=".00">
+					<Form.Number label="Amount without decimal" min="1" step="1" />
+				</Form.InputGroup>
+				<Form.File label="File" />
+				<Form.Password label="Password" />
+				<Form.Datalist label="Datalist" values={['foo', 'bar']} />
+				<Form.Search label="Search" />
+				<Form.Textarea label="Textarea" />
+				<Form.Select label="Select" values={['', 'foo', 'bar']} value="foo" />
+				<Form.Select label="Select multiple" values={['foo', 'bar']} multiple value={['foo']} />
+				<Form.Checkbox label="Checkbox" checked />
+				<Form.Radio label="Radio" checked />
+				<Form.Switch label="Switch" checked />
+			</Form.Fieldset>
+			<Form.Buttons>
+				<Button.Secondary type="reset">Reset</Button.Secondary>
+				<Button.Primary type="submit">Submit</Button.Primary>
+			</Form.Buttons>
+		</Form>
+	</Story>
+</Preview>
+
+## Tags
+
+<Preview>
+	<Story name="Tags">
+		<Tag>Example</Tag>
+		<Tag.Information>Example</Tag.Information>
+		<Tag.Success>Example</Tag.Success>
+		<Tag.Warning>Example</Tag.Warning>
+		<Tag.Destructive>Example</Tag.Destructive>
+	</Story>
+</Preview>
+
+## Inline Messages
+
+<Preview>
+	<Story name="InlineMessages">
+		<InlineMessage.Information
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+		<InlineMessage.Success
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+		<InlineMessage.Warning
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+		<InlineMessage.Destructive
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+	</Story>
+</Preview>

@@ -35,25 +35,34 @@ export type IconProps = BoxProps &
 		name: IconName;
 	};
 
+const SVG = styled.svg<IconProps & { preserveColors: boolean }>(
+	({ preserveColors }) => `
+	width: ${tokens.sizes.l};
+	height: ${tokens.sizes.l};
+
+	circle,
+	path,
+	rect {
+		${preserveColors ? '' : 'fill: currentColor;'}
+	}
+`,
+);
+
 const Icon: React.FC<IconProps> = React.forwardRef(
 	({ className, name, ...rest }: IconProps, ref) => {
 		if (!Object.keys(icons).find(iconName => iconName === name)) {
 			return null;
 		}
-		// @ts-ignore
-		const SVG = styled(icons[name].ReactComponent)<IconProps & { preserveColors: boolean }>(
-			({ preserveColors }) => `
-			width: ${tokens.sizes.l};
-			height: ${tokens.sizes.l};
-		
-			circle,
-			path,
-			rect {
-				${preserveColors ? '' : 'fill: currentColor;'}
-			}
-		`,
+		return (
+			<SVG
+				// @ts-ignore
+				as={icons[name].ReactComponent}
+				aria-hidden
+				{...rest}
+				className={`icon ${className || ''}`}
+				ref={ref}
+			/>
 		);
-		return <SVG aria-hidden {...rest} className={`icon ${className || ''}`} ref={ref} />;
 	},
 );
 

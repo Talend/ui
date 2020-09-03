@@ -9,7 +9,7 @@ export type InlineMessageProps = {
 
 export const InlineMessage = styled.div<InlineMessageProps>(
 	({ small, withBackground, theme }) => `
-	${withBackground ? 'display: inline;' : ''}
+	display: ${withBackground ? 'inline-flex' : 'inline'};
 	margin-right: 0.5rem;
 	${
 		withBackground
