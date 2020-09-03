@@ -19,7 +19,7 @@ const Default = () => {
 		<div>
 			<div className={theme('tc-column-chooser-header-title')}>
 				{t('COLUMN_CHOOSER_HEADER_TITLE', {
-					defaultValue: 'Modify columns',
+					defaultValue: 'Select columns to display',
 				})}
 			</div>
 			<div id="selected-columns-text">{selectedColumns}</div>
