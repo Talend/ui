@@ -24,6 +24,23 @@
 			height: $svg-sm-size;
 			font-size: $svg-sm-size;
 		}
+
+		&-label {
+			display: inline-block;
+			max-width:20rem;
+			white-space:nowrap;
+			overflow:hidden;
+			text-overflow:ellipsis;
+			vertical-align: top;
+		}
+
+		&-counters {
+			margin-left: $padding-smaller;
+		}
+
+		& > button {
+			max-width: initial;
+		}
 	}
 }
 
@@ -31,7 +48,4 @@
 	padding-top: $padding-large;
 }
 
-:global(.tc-tab-bar-item) .label {
-	margin-left: 5px;
-}
 

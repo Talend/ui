@@ -150,25 +150,34 @@ function TabBar(props) {
 				)}
 				ref={tabBarRef}
 			>
-				{items.map(({ icon, ...item }) => (
+				{items.map(({ icon, badge, ...item }) => (
 					<NavItem
-						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
+						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
 						{...item}
 						eventKey={item.key}
 						componentClass="button"
 					>
-						<TooltipTrigger label={item.label} tooltipPlacement={tooltipPlacement}>
-							<React.Fragment>
+						<TooltipTrigger label={badge && badge.label ? `${badge.label} ${item.label}` : item.label} tooltipPlacement={tooltipPlacement}>
+							<span>
 								{icon && (
 									<Icon
 										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
 										{...icon}
 									/>
 								)}
-								{item.label}
-							</React.Fragment>
+								<span className={classnames(theme['tc-tab-bar-item-label'])}>
+									{item.label}
+								</span>
+								{badge && (
+									<Label
+										className={classnames(theme['tc-tab-bar-item-counters'], 'tc-tab-bar-item-counters', badge.className)}
+										bsStyle={badge.bsStyle || 'default'}
+									>
+										{(!isNaN(badge.label) && badge.label >= 1000) ? '999+' : badge.label}
+									</Label>
+								)}
+							</span>
 						</TooltipTrigger>
-						{item.badgeLabel && <Label bsStyle="info">{item.badgeLabel}</Label>}
 					</NavItem>
 				))}
 			</Nav>

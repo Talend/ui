@@ -20,7 +20,9 @@ const tabProps = {
 			icon: {
 				name: 'talend-empty-calendar',
 			},
-			badgeLabel: 87,
+			badge: {
+				label: 85,
+			},
 		},
 		{
 			key: '3',
@@ -28,6 +30,10 @@ const tabProps = {
 			'data-feature': 'action.3',
 			icon: {
 				name: 'talend-user-circle',
+			},
+			badge: {
+				label: '1105',
+				bsStyle: 'danger',
 			},
 		},
 		{
@@ -41,6 +47,10 @@ const tabProps = {
 		{
 			key: '5',
 			label: 'Tab5',
+			badge: {
+				label: '975',
+				bsStyle: 'warning',
+			},
 			'data-feature': 'action.5',
 		},
 		{
@@ -57,6 +67,10 @@ const tabProps = {
 			'data-feature': 'action.7',
 			icon: {
 				name: 'talend-star',
+			},
+			badge: {
+				label: '5275',
+				bsStyle: 'success',
 			},
 		},
 		{
