@@ -4,7 +4,6 @@ import { Col, Row } from '../../../docs';
 import { Use } from '../../../docs';
 import Button from '../';
 import btnZoning from './images/buttons-zoning.jpg';
-import btnBehaviors from './images/buttons-behaviors.jpg';
 import btnOrder from './images/buttons-order.jpg';
 
 <Meta title="Components/Button" component={Button} />
@@ -88,64 +87,15 @@ Buttons are clickable items used for actions. They can have different style depe
 
 ## Sizes
 
-Cobalt support two buttons sizes: **default** and **small**.
-
-### Default
-
-| Attribute                      | Variable      |
-| ------------------------------ | ------------- |
-| height                         | 3.4rem        |
-| padding-left; padding-right    | \$large       |
-| border                         | solid, 0.1rem |
-| border-radius                  | rectRadius    |
-| _ (if icon) _ icon-size        | 1.4rem        |
-| _ (if icon) _ margin-right     | \$smaller     |
-| _ (for dropdown) _ icon-size   | 0.8rem        |
-| _ (for dropdown) _ margin-left | \$smaller     |
-
-### Small
+Coral support two buttons sizes: **default** and **small**.
 
 The small size is available for primary, secondary and ghost buttons — but shouldn't be use for buttons with icons or dropdown buttons.
-
-| Attribute                   | Variable      |
-| --------------------------- | ------------- |
-| height                      | 2.8rem        |
-| padding-left; padding-right | \$small       |
-| border                      | solid, 0.1rem |
-| border-radius               | rectRadius    |
 
 ### Icon buttons
 
 Icon buttons has two sizes: **large** and **small**. They can also be used as dropdown but without the caret icon.
 
-| Large                | Variable      | Small         | Variable      |
-| -------------------- | ------------- | ------------- | ------------- |
-| icon-size            | 2.4 rem       | icon-size     | 1.6rem        |
-| **If circle border** |
-| size                 | 2.4 rem       | size          | 1.6rem        |
-| border               | solid, 0.2rem | border        | solid, 0.2rem |
-| icon-size            | solid, 1.2rem | icon-size     | solid, 0.8rem |
-| border-radius        | rectCircle    | border-radius | rectCircle    |
-
-## Colors
-
-## Fonts
-
-| Property          | font-size | font-weight | colors      |
-| ----------------- | --------- | ----------- | ----------- |
-| Primary           | 1.4rem    | semi-bold   | \$white     |
-| Secondary & Ghost | 1.4rem    | semi-bold   | \$st-tropaz |
-| Small             | 1.4rem    | semi-bold   | \$variable  |
-
-## States
-
-<img src={btnBehaviors} alt="behaviors image for buttons" className="full" class="full" />
-
-|              | Primary                                              | Destructive                                          | Secondary                                        | Ghost                                     | Icon                          |
-| ------------ | ---------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------ | ----------------------------------------- | ----------------------------- |
-| **Hover**    | background-color: shade (\$st-tropaz, 20%)           | background-color: shade (\$chestunut-red, 20%)       | background-color: tint (\$st-tropaz, 10%)        | background-color: tint (\$st-tropaz, 10%) | color: tint (\$variable, 20%) |
-| **Pressed**  | background-color: shade (\$st-tropaz, 40%)           | background-color: shade (\$chestunut-red, 40%)       | background-color: tint (\$st-tropaz, 30%         | background-color: tint (\$st-tropaz, 30%) | color: tint (\$variable, 40%) |
-| **Disabled** | background-color: $alto; color: $black opacity 0.54; | background-color: $alto; color: $black opacity 0.54; | border-color: $alto; color: $black opacity 0.54; | color: \$black opacity 0.54;              | color: \$black opacity 0.54;  |
+<hr />
 
 ## Content
 
@@ -194,24 +144,13 @@ In case of button with icon inside, the spinner will replace the icon as long as
 
 ## Skeleton
 
-| Attribute        | Variable             |
-| ---------------- | -------------------- |
-| height           | 3.4rem               |
-| width            | 8rem                 |
-| border-radius    | rectRadius           |
-| background-color | shade (\$black, 25%) |
-
 // TODO add demo
 
 ## Accessibility
 
-Classic behaviors expected:
-
 - Press <kbd>TABS</kbd> to focus on the button
 
 - Press <kbd>SPACE</kbd> or <kbd>ENTER</kbd> to activate the button
-
-For more information, please go to accessibility page
 
 ## Usage
 
@@ -241,12 +180,6 @@ For more information, please go to accessibility page
 </Preview>
 
 <Props story="usage" />
-
-### Buttons order
-
-<img src={btnOrder} alt="button order in a page" className="full" class="full" />
-
-When using multiple buttons, **the primary button appears to the right** and any secondary buttons appear to the left.
 
 ## Changelog
 
