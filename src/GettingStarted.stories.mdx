@@ -11,5 +11,40 @@ Check it out on [Sketch Cloud](https://www.sketch.com/team/QDZb/libraries).
 ## For developers
 
 ```sh
-npm i -S @talend/coral
+npm i -S react react-dom react-i18next styled-components @talend/coral
+```
+
+Or, use CDN versions:
+
+```html
+CDN<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Example using CDN versions</title>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script
+			crossorigin
+			src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+		></script>
+		<script
+			crossorigin
+			src="https://unpkg.com/styled-components/dist/styled-components.min.js"
+		></script>
+		<script crossorigin src="https://talend-coral.surge.sh/TalendCoral.min.js"></script>
+		<script>
+			const { Button, ThemeProvider, themes: defaultTheme } = TalendCoral;
+			const App = React.createElement(
+				ThemeProvider,
+				{ theme: defaultTheme },
+				React.createElement(Button, {}, 'My first button'),
+			);
+			ReactDOM.render(App, document.getElementById('root'));
+		</script>
+	</body>
+</html>
 ```
