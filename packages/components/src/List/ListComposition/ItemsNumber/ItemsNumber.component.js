@@ -8,12 +8,14 @@ function ItemsNumber(props) {
 	return (
 		<div className="tc-items-number" id={id}>
 			{selected
-				? labelSelected || t('LIST_TOOLBAR_NUMBER_OF_SELECTED_ITEMS', {
+				? labelSelected ||
+				  t('LIST_TOOLBAR_NUMBER_OF_SELECTED_ITEMS', {
 						defaultValue: '{{count}}/{{total}} items',
 						count: selected,
 						total: totalItems,
 				  })
-				: label ||t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
+				: label ||
+				  t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
 						defaultValue: '{{count}} items',
 						count: totalItems,
 				  })}

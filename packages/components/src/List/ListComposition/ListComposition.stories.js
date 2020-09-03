@@ -221,7 +221,10 @@ storiesOf('Data/List/List Composition', module)
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
 						<List.Toolbar.Right>
-							<List.ItemsNumber totalItems={simpleCollection.length} label={`${simpleCollection.length} users`} />
+							<List.ItemsNumber
+								totalItems={simpleCollection.length}
+								label={`${simpleCollection.length} users`}
+							/>
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
@@ -783,11 +786,12 @@ storiesOf('Data/List/List Composition', module)
 								}}
 							/>
 							<List.Toolbar.Right>
-								<List.ItemsNumber 
+								<List.ItemsNumber
 									totalItems={simpleCollection.length}
 									selected={2}
 									label={`${simpleCollection.length} users`}
-									labelSelected={`2/${simpleCollection.length} users`} />
+									labelSelected={`2/${simpleCollection.length} users`}
+								/>
 							</List.Toolbar.Right>
 						</List.Toolbar>
 						<CustomList

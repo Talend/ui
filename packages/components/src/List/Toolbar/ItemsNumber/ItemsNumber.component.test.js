@@ -25,9 +25,7 @@ describe('ItemsNumber', () => {
 		const wrapper = mount(<ItemsNumber {...newProps} />);
 
 		// then
-		expect(wrapper.find('div#list-items-number').text()).toEqual(
-			`${newProps.totalItems} bananas`,
-		);
+		expect(wrapper.find('div#list-items-number').text()).toEqual(`${newProps.totalItems} bananas`);
 	});
 	it('should render total number of items + number of selected items with default label', () => {
 		// given
