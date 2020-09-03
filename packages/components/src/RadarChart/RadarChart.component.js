@@ -39,13 +39,23 @@ export function RadarChart({
 	);
 }
 
-// Not used yet
-export function RadarAxisLabel() {
-
+// Not currently used
+function RadarAxisLabel(payload, x, y, textAnchor, index) {
+	return (
+  	<text x={x} y={y} textAnchor={textAnchor} data-axis-index={index} role="button" >
+    	{payload.value}
+    </text>
+  );
 }
 
-RadarAxisLabel.propTypes = {
-	onClick: PropTypes.func,
+export function customizedTick(props) {
+	const { payload, x, y, index, textAnchor } = props;
+
+	return (
+  	<text x={x} y={y} textAnchor={textAnchor} data-axis-index={index} role="button" >
+    	{payload.value}
+    </text>
+  );
 };
 
 RadarChart.propTypes = {
