@@ -32,7 +32,7 @@ const RowCheckbox = ({
 				checked={checked}
 				data-feature={dataFeature}
 				aria-describedby={describedby}
-				id={`${id}-checkbox-${label}`}
+				id={`${id}-checkbox-${label.replace(/\s+/, '-')}`}
 				label={label}
 				onChange={onChangeCheckbox}
 			/>
