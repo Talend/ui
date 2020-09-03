@@ -24,7 +24,7 @@ const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => (
 			dataFeature="column-chooser.select.all"
 			description={getDescription(value, t)}
 			label={t('CHECKBOX_VISIBILITY_LABEL', {
-				defaultValue: 'Columns',
+				defaultValue: 'Select All',
 			})}
 			onChange={onChange}
 			checked={value}
