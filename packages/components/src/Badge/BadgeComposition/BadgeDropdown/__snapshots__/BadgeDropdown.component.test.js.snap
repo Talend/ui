@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BadgeIcon should default render 1`] = `
+exports[`BadgeDropdown should render a dropdown 1`] = `
 <div class="dropdown btn-group btn-group-link">
   <button aria-label="Label"
           id="context-dropdown-related-items"
