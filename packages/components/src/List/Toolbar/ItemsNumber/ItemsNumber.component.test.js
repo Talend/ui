@@ -18,7 +18,7 @@ describe('ItemsNumber', () => {
 		// given
 		const newProps = {
 			...props,
-			label: 'bananas',
+			label: `${props.totalItems} bananas`,
 		};
 
 		// when
@@ -26,10 +26,10 @@ describe('ItemsNumber', () => {
 
 		// then
 		expect(wrapper.find('div#list-items-number').text()).toEqual(
-			`${newProps.totalItems} ${newProps.label}`,
+			`${newProps.totalItems} bananas`,
 		);
 	});
-	it('should render total number of items + number of selected items', () => {
+	it('should render total number of items + number of selected items with default label', () => {
 		// given
 		const newProps = {
 			...props,
@@ -42,6 +42,24 @@ describe('ItemsNumber', () => {
 		// then
 		expect(wrapper.find('div#list-items-number').text()).toEqual(
 			`${newProps.selected}/${newProps.totalItems} items`,
+		);
+	});
+
+	it('should render total number of items + number of selected items with customized label', () => {
+		// given
+		const newProps = {
+			...props,
+			selected: 11,
+			label: '42 bananas',
+			labelSelected: '11/42 bananas',
+		};
+
+		// when
+		const wrapper = mount(<ItemsNumber {...newProps} />);
+
+		// then
+		expect(wrapper.find('div#list-items-number').text()).toEqual(
+			`${newProps.selected}/${newProps.totalItems} bananas`,
 		);
 	});
 });

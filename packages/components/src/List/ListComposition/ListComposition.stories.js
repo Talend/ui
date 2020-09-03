@@ -208,7 +208,7 @@ storiesOf('Data/List/List Composition', module)
 >
 	<List.Toolbar>
 		<List.Toolbar.Right>
-			<List.ItemsNumber totalItems="100" label="users" />
+			<List.ItemsNumber totalItems="100" label="100 users" />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -221,7 +221,7 @@ storiesOf('Data/List/List Composition', module)
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
 						<List.Toolbar.Right>
-							<List.ItemsNumber totalItems={simpleCollection.length} label="users" />
+							<List.ItemsNumber totalItems={simpleCollection.length} label={`${simpleCollection.length} users`} />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
@@ -757,7 +757,7 @@ storiesOf('Data/List/List Composition', module)
 			multiSelectActions={{...}}
 		/>
 		<List.Toolbar.Right>
-			<List.ItemsNumber totalItems="100" selected="2" label="users" />
+			<List.ItemsNumber totalItems="100" selected="2" label="100 users" labelSelected="2/100 users" />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -783,7 +783,11 @@ storiesOf('Data/List/List Composition', module)
 								}}
 							/>
 							<List.Toolbar.Right>
-								<List.ItemsNumber totalItems={simpleCollection.length} selected={2} label="users" />
+								<List.ItemsNumber 
+									totalItems={simpleCollection.length}
+									selected={2}
+									label={`${simpleCollection.length} users`}
+									labelSelected={`2/${simpleCollection.length} users`} />
 							</List.Toolbar.Right>
 						</List.Toolbar>
 						<CustomList

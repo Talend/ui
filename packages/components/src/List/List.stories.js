@@ -613,7 +613,7 @@ storiesOf('Data/List/List', module)
 		const customProps = cloneDeep(props);
 		customProps.toolbar.itemsNumber = {
 			totalItems: customProps.list.items.length,
-			label: 'users',
+			label: `${customProps.list.items.length} users`,
 		};
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
@@ -820,7 +820,8 @@ storiesOf('Data/List/List', module)
 		selectedItemsProps.list.itemProps = itemPropsForItems;
 		selectedItemsProps.toolbar.itemsNumber = {
 			totalItems: selectedItemsProps.list.items.length,
-			label: 'books',
+			label: `${selectedItemsProps.list.items.length} books`,
+			labelSelected: `${selectedItemsProps.toolbar.actionBar.selected}/${selectedItemsProps.list.items.length} books`,
 		};
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">

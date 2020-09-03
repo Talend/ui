@@ -31,22 +31,44 @@ describe('ItemsNumber', () => {
 			// given
 			const newProps = {
 				...props,
-				label: 'bananas',
+				label: `${props.totalItems} bananas`,
 			};
 
 			// when
 			const wrapper = mount(
 				<ListContext.Provider value={defaultContext}>
-					<ItemsNumber {...newProps} label="bananas" />
+					<ItemsNumber {...newProps} />
 				</ListContext.Provider>,
 			);
 
 			// then
 			expect(wrapper.find('div#list-items-number').text()).toEqual(
-				`${newProps.totalItems} ${newProps.label}`,
+				`${newProps.totalItems} bananas`,
 			);
 		});
 		it('should render total number of items + number of selected items', () => {
+			// given
+			const newProps = {
+				...props,
+				selected: 11,
+				label: `${props.totalItems} bananas`,
+				labelSelected: `11/${props.totalItems} bananas`
+			};
+
+			// when
+			const wrapper = mount(
+				<ListContext.Provider value={defaultContext}>
+					<ItemsNumber {...newProps} />
+				</ListContext.Provider>,
+			);
+
+			// then
+			expect(wrapper.find('div#list-items-number').text()).toEqual(
+				`${newProps.selected}/${newProps.totalItems} bananas`,
+			);
+		});
+
+		it('should render total number of items + number of selected items with default label', () => {
 			// given
 			const newProps = {
 				...props,
@@ -56,7 +78,7 @@ describe('ItemsNumber', () => {
 			// when
 			const wrapper = mount(
 				<ListContext.Provider value={defaultContext}>
-					<ItemsNumber {...newProps} selected="11" />
+					<ItemsNumber {...newProps} />
 				</ListContext.Provider>,
 			);
 
