@@ -52,7 +52,7 @@ describe('ItemsNumber', () => {
 				...props,
 				selected: 11,
 				label: `${props.totalItems} bananas`,
-				labelSelected: `11/${props.totalItems} bananas`
+				labelSelected: `11/${props.totalItems} bananas`,
 			};
 
 			// when
