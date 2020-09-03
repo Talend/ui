@@ -114,8 +114,6 @@ $tc-badge-disabled-opacity: 0.62;
 			flex-grow: 0;
 			flex-shrink: 0;
 			padding: 0;
-			background: transparent;
-			box-shadow: none;
 			padding-left: $padding-smaller;
 			text-transform: none;
 			color: black;
@@ -129,7 +127,6 @@ $tc-badge-disabled-opacity: 0.62;
 
 			svg {
 				color: $slate-gray;
-				display: block;
 				margin: $padding-smaller;
 
 				&:hover {

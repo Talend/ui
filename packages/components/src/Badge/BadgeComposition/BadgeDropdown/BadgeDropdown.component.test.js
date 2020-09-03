@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import BadgeDropdown from './BadgeDropdown.component';
 
-describe('BadgeIcon', () => {
-	it('should default render', () => {
+describe('BadgeDropdown', () => {
+	it('should render a dropdown', () => {
 		// given
 		const dropdownProps = {
 			id: 'context-dropdown-related-items',
