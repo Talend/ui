@@ -124,10 +124,12 @@ function TabBar(props) {
 	let tabMenu;
 	if (responsive && showDropdown) {
 		const selectedItem = items.find(item => item.key === selectedKey) || items[0];
+
 		tabMenu = (
 			<ActionDropdown
 				id={id}
 				className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
+				badge={selectedItem.badge}
 				label={selectedItem.label}
 				icon={selectedItem.icon && selectedItem.icon.name}
 				onSelect={(event, { key }) => handleSelect(key, event)}
@@ -170,7 +172,7 @@ function TabBar(props) {
 								</span>
 								{badge && (
 									<Label
-										className={classnames(theme['tc-tab-bar-item-counters'], 'tc-tab-bar-item-counters', badge.className)}
+										className={classnames(theme['tc-tab-bar-item-badge'], 'tc-tab-bar-item-badge', badge.className)}
 										bsStyle={badge.bsStyle || 'default'}
 									>
 										{(!isNaN(badge.label) && badge.label >= 1000) ? '999+' : badge.label}
@@ -214,6 +216,11 @@ TabBar.propTypes = {
 			key: PropTypes.any.isRequired,
 			label: PropTypes.string.isRequired,
 			icon: PropTypes.object,
+			badge: PropTypes.shape({
+				className: PropTypes.string,
+				label: PropTypes.string,
+				bsStyle: PropTypes.string,
+			}),
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,

@@ -34,7 +34,7 @@
 			vertical-align: top;
 		}
 
-		&-counters {
+		&-badge {
 			margin-left: $padding-smaller;
 		}
 
@@ -47,5 +47,3 @@
 :global(.dropdown) + :global(.tab-content) {
 	padding-top: $padding-large;
 }
-
-

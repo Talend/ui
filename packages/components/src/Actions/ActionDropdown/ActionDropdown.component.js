@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
+import Label from 'react-bootstrap/lib/Label';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
@@ -15,7 +16,6 @@ import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import Label from 'react-bootstrap/lib/Label';
 
 export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
 
@@ -62,6 +62,7 @@ InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
 function renderMutableMenuItem(item, index, getComponent) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
+
 	if (item.divider) {
 		return <Renderers.MenuItem key={index} divider />;
 	}
@@ -76,7 +77,14 @@ function renderMutableMenuItem(item, index, getComponent) {
 		>
 			{item.icon && <Icon key="icon" name={item.icon} />}
 			{!item.hideLabel && item.label}
-			{item.badgeLabel && <Label bsStyle="info">{item.badgeLabel}</Label>}
+			{item.badge && (
+				<Label
+					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
+					bsStyle={item.badge.bsStyle || 'default'}
+				>
+					{(!isNaN(item.badge.label) && item.badge.label >= 1000) ? '999+' : item.badge.label}
+				</Label>
+			)}
 		</Renderers.MenuItem>
 	);
 }
@@ -180,6 +188,7 @@ class ActionDropdown extends React.Component {
 			hideLabel,
 			icon,
 			items = [],
+			badge,
 			label,
 			link,
 			onSelect,
@@ -202,6 +211,14 @@ class ActionDropdown extends React.Component {
 				<span className="tc-dropdown-button-title-label" key="label">
 					{label}
 				</span>
+			),
+			badge && (
+				<Label
+					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
+					bsStyle={badge.bsStyle || 'default'}
+				>
+					{(!isNaN(badge.label) && badge.label >= 1000) ? '999+' : badge.label}
+				</Label>
 			),
 			<Icon
 				key="caret"
@@ -292,6 +309,11 @@ ActionDropdown.propTypes = {
 		),
 		ImmutablePropTypes.list,
 	]),
+	badge: PropTypes.shape({
+		className: PropTypes.string,
+		label: PropTypes.string,
+		bsStyle: PropTypes.string,
+	}),
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	loading: PropTypes.bool,
