@@ -124,12 +124,12 @@ function TabBar(props) {
 	let tabMenu;
 	if (responsive && showDropdown) {
 		const selectedItem = items.find(item => item.key === selectedKey) || items[0];
-
 		tabMenu = (
 			<ActionDropdown
 				id={id}
 				className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
 				badge={selectedItem.badge}
+				tooltipLabel={selectedItem.badge && selectedItem.badge.label ? `${selectedItem.badge.label} ${selectedItem.label}` : selectedItem.label}
 				label={selectedItem.label}
 				icon={selectedItem.icon && selectedItem.icon.name}
 				onSelect={(event, { key }) => handleSelect(key, event)}

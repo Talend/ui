@@ -62,17 +62,19 @@ InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
 function renderMutableMenuItem(item, index, getComponent) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
-
 	if (item.divider) {
 		return <Renderers.MenuItem key={index} divider />;
 	}
+
+	const title = item.title || item.label;
+
 	return (
 		<Renderers.MenuItem
 			{...item}
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}
-			title={item.title || item.label}
+			title={item.badge && item.badge.label ? `${item.badge.label} ${title}` : title}
 			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item')}
 		>
 			{item.icon && <Icon key="icon" name={item.icon} />}
