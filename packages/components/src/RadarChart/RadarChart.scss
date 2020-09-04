@@ -1,0 +1,5 @@
+.tc-radar-chart {
+  :global(.recharts-polar-grid-concentric-polygon:not(:last-child)) {
+    display: none;
+  }
+}
