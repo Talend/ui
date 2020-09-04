@@ -124,11 +124,11 @@ exports[`ColumnChooser should render with default props 1`] = `
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
           <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Very-long name long name long name long name long name"
+            <label for="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
                    data-feature="column-chooser.select.disable"
             >
               <input type="checkbox"
-                     id="my-id-body-checkbox-Very-long name long name long name long name long name"
+                     id="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
                      data-checked="2"
                      aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
                      checked
