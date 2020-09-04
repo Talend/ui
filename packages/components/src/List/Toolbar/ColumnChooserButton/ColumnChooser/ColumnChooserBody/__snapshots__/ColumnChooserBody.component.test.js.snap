@@ -10,17 +10,17 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
     <div class="tc-column-chooser-body theme-tc-column-chooser-body">
       <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
         <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-          <label for="body-context-id-body-checkbox-Columns"
+          <label for="body-context-id-body-checkbox-Select-All"
                  data-feature="column-chooser.select.all.disable"
           >
             <input type="checkbox"
-                   id="body-context-id-body-checkbox-Columns"
+                   id="body-context-id-body-checkbox-Select-All"
                    data-checked="2"
                    aria-describedby="body-context-id-body-hide all the columns"
                    checked
             >
             <span>
-              Columns
+              Select All
             </span>
           </label>
         </div>

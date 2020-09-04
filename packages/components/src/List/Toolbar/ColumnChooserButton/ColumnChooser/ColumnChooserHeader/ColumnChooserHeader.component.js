@@ -13,13 +13,13 @@ const Default = () => {
 	const { columns, t } = useColumnChooserContext();
 	const selectedColumns = t('SELECT_COLUMNS', {
 		count: columns.filter(isVisible).length,
-		defaultValue: `{{count}}/${columns.length} selected column`,
+		defaultValue: `{{count}}/${columns.length} selected`,
 	});
 	return (
 		<div>
 			<div className={theme('tc-column-chooser-header-title')}>
 				{t('COLUMN_CHOOSER_HEADER_TITLE', {
-					defaultValue: 'Modify columns',
+					defaultValue: 'Select columns to display',
 				})}
 			</div>
 			<div id="selected-columns-text">{selectedColumns}</div>
