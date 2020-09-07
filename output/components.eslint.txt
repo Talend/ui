@@ -263,8 +263,8 @@
   13:3  error  Arrow function should not return assignment  no-return-assign
 
 /home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.component.js
-  59:5  warning  React Hook useEffect has missing dependencies: 'responsive' and 'showTabBarAndTest'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
-  79:5  warning  React Hook useEffect has a missing dependency: 'responsive'. Either include it or remove the dependency array                            react-hooks/exhaustive-deps
+  61:5  warning  React Hook useEffect has missing dependencies: 'responsive' and 'showTabBarAndTest'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  81:5  warning  React Hook useEffect has a missing dependency: 'responsive'. Either include it or remove the dependency array                            react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/Table/Body/TableBody.js
   4:22  error  Unexpected use of file extension "js" for "../Row/TableRow.js"  import/extensions
