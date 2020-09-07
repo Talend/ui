@@ -135,11 +135,11 @@ $tc-badge-disabled-opacity: 0.62;
 					color: $lochmara;
 				}
 			}
-            &:hover,
-            &:focus,
-            &:global(.ally-focus-within) {
-              outline: none;
-            }
+			&:hover,
+			&:focus,
+			&:global(.ally-focus-within) {
+				outline: none;
+			}
 		}
 	}
 
