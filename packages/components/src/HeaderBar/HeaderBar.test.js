@@ -152,7 +152,7 @@ describe('HeaderBar', () => {
 			.dive()
 			.find('withI18nextTranslation(Intercom)');
 		expect(intercomTrigger.length).toBe(1);
-		expect(intercomTrigger.prop('className')).toEqual('btn btn-link');
+		expect(intercomTrigger.prop('className')).toEqual('tc-header-bar-intercom-default-component btn btn-link');
 		expect(intercomTrigger.prop('id')).toEqual('my-intercom');
 		expect(intercomTrigger.prop('config')).toEqual({
 			app_id: 'e19c98d',
