@@ -137,7 +137,7 @@ Badge.propTypes = {
 	selected: PropTypes.bool,
 	style: PropTypes.object,
 	white: PropTypes.bool,
-	color: PropTypes.oneOf(Object.values(TYPES)),
+	type: PropTypes.oneOf(Object.values(TYPES)),
 };
 
 Badge.SIZES = SIZES;

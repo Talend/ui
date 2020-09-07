@@ -4,8 +4,6 @@ import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
 import Badge from './Badge.component';
-import FilterBar from '../FilterBar';
-import Action from '../Actions/Action';
 import IconsProvider from '../IconsProvider';
 
 const defaultStyle = {
@@ -25,61 +23,6 @@ const columnStyle = {
 const icons = {
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-clock': talendIcons['talend-clock'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-search': talendIcons['talend-search'],
-};
-
-const dropdownProps = {
-	id: 'context-dropdown-related-items',
-	label: 'Label',
-	items: [
-		{
-			id: 'context-dropdown-item-document-1',
-			label: 'document 1',
-			'data-feature': 'actiondropdown.items',
-			onClick: action('document 1 click'),
-		},
-		{
-			divider: true,
-		},
-		{
-			id: 'context-dropdown-item-document-2',
-			label: 'document 2',
-			'data-feature': 'actiondropdown.items',
-			onClick: action('document 2 click'),
-		},
-	],
-};
-
-const withComponents = {
-	id: 'context-dropdown-custom-items',
-	label: 'custom items',
-	getComponent: key => {
-		if (key === 'Action') {
-			return Action;
-		} else if (key === 'FilterBar') {
-			return FilterBar;
-		}
-		throw new Error('Component not found');
-	},
-	components: {
-		itemsDropdown: [
-			{
-				component: 'Action',
-				label: 'First item',
-				'data-feature': 'actiondropdown.items',
-			},
-			{
-				divider: true,
-			},
-			{
-				component: 'FilterBar',
-				label: 'Second item',
-				'data-feature': 'actiondropdown.items',
-				onFilter: action('onFilter'),
-			},
-		],
-	},
 };
 
 function onDelete(name) {
@@ -116,9 +59,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 				</div>
 				<div style={columnStyle}>
 					<span>Badge with ellipsis</span>
-				</div>
-				<div style={columnStyle}>
-					<span>Badge with Dropdown</span>
 				</div>
 			</div>
 			<hr />
@@ -230,7 +170,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onSelect('B')}
 						{...onDelete('A')}
 					/>
-					<br />
 					<Badge
 						label="Label"
 						display={Badge.SIZES.small}
@@ -319,25 +258,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onDelete('A')}
 					/>
 				</div>
-				<div style={columnStyle}>
-					<Badge display={Badge.SIZES.large} category="Cat" dropdown={dropdownProps} />
-					<br />
-					<Badge display={Badge.SIZES.small} category="Cat" dropdown={dropdownProps} />
-					<br />
-					<Badge display={Badge.SIZES.large} category="Cat" dropdown={withComponents} />
-					<br />
-					<Badge
-						display={Badge.SIZES.large}
-						category="Cat"
-						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr }}
-					/>
-					<br />
-					<Badge
-						display={Badge.SIZES.small}
-						category="Cat"
-						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr }}
-					/>
-				</div>
 			</div>
 			<hr />
 		</section>
@@ -360,9 +280,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 				</div>
 				<div style={columnStyle}>
 					<span>Badge with ellipsis</span>
-				</div>
-				<div style={columnStyle}>
-					<span>Badge with Dropdown</span>
 				</div>
 			</div>
 			<hr />
@@ -618,42 +535,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						disabled
 					/>
 				</div>
-				<div style={columnStyle}>
-					<Badge
-						display={Badge.SIZES.large}
-						category="Cat"
-						dropdown={{ ...dropdownProps, disabled: true }}
-						disabled
-					/>
-					<br />
-					<Badge
-						display={Badge.SIZES.small}
-						category="Cat"
-						dropdown={{ ...dropdownProps, disabled: true }}
-						disabled
-					/>
-					<br />
-					<Badge
-						display={Badge.SIZES.large}
-						category="Cat"
-						dropdown={{ ...withComponents, disabled: true }}
-						disabled
-					/>
-					<br />
-					<Badge
-						display={Badge.SIZES.large}
-						category="Cat"
-						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr, disabled: true }}
-						disabled
-					/>
-					<br />
-					<Badge
-						display={Badge.SIZES.small}
-						category="Cat"
-						dropdown={{ ...dropdownProps, label: longStr, tooltipLabel: longStr, disabled: true }}
-						disabled
-					/>
-				</div>
 			</div>
 			<hr />
 		</section>
@@ -676,9 +557,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 				</div>
 				<div style={columnStyle}>
 					<span>Edit mode with ellipsis</span>
-				</div>
-				<div style={columnStyle}>
-					<span>Badge with Dropdown</span>
 				</div>
 			</div>
 			<hr />
@@ -708,9 +586,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onSelect('B')}
 						{...onDelete('A')}
 					/>
-				</div>
-				<div style={columnStyle}>
-					<Badge display={Badge.SIZES.small} category="Cat" dropdown={dropdownProps} white />
 				</div>
 			</div>
 			<hr />
@@ -748,15 +623,6 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 						{...onSelect('B')}
 						{...onDelete('A')}
 						disabled
-					/>
-				</div>
-				<div style={columnStyle}>
-					<Badge
-						display={Badge.SIZES.small}
-						category="Cat"
-						dropdown={{ ...dropdownProps, disabled: true }}
-						disabled
-						white
 					/>
 				</div>
 			</div>
@@ -856,7 +722,8 @@ storiesOf('Navigation/Badge', module).add('default', () => (
 			</div>
 		</section>
 	</React.Fragment>
-)).add('colored', () => (
+))
+.add('colored', () => (
 	<>
 		<IconsProvider defaultIcons={icons} />
 		{Object.entries(Badge.TYPES).map(([name, value]) => (

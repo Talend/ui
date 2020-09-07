@@ -25,17 +25,18 @@ $tc-badge-disabled-opacity: 0.62;
 		background-color: $background-color;
 		color: $color;
 
-		.tc-badge-category,
-		.tc-badge-separator,
-		:global(.btn-link) {
-			color: inherit;
+		.tc-badge-separator {
+			background-color: $color;
 		}
-		.tc-badge-label {
-			.tc-badge-label-text,
-			.tc-badge-label-text-with-categ,
-			.tc-badge-label-icon {
-				color: inherit;
-			}
+
+		.tc-badge-category,
+		:global(.btn-link),
+		:global(.tc-svg-icon),
+		.tc-badge-delete-icon svg,
+		.tc-badge-label-text,
+		.tc-badge-label-text-with-categ,
+		.tc-badge-label-icon {
+			color: inherit;
 		}
 	}
 }
