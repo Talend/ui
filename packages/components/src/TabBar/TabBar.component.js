@@ -130,7 +130,11 @@ function TabBar(props) {
 				id={id}
 				className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
 				badge={selectedItem.badge}
-				tooltipLabel={selectedItem.badge && selectedItem.badge.label ? `${selectedItem.badge.label} ${selectedItem.label}` : selectedItem.label}
+				tooltipLabel={
+					selectedItem.badge && selectedItem.badge.label
+						? `${selectedItem.badge.label} ${selectedItem.label}`
+						: selectedItem.label
+				}
 				label={selectedItem.label}
 				icon={selectedItem.icon && selectedItem.icon.name}
 				onSelect={(event, { key }) => handleSelect(key, event)}
@@ -160,7 +164,10 @@ function TabBar(props) {
 						eventKey={item.key}
 						componentClass="button"
 					>
-						<TooltipTrigger label={badge && badge.label ? `${badge.label} ${item.label}` : item.label} tooltipPlacement={tooltipPlacement}>
+						<TooltipTrigger
+							label={badge && badge.label ? `${badge.label} ${item.label}` : item.label}
+							tooltipPlacement={tooltipPlacement}
+						>
 							<span>
 								{icon && (
 									<Icon
@@ -168,12 +175,14 @@ function TabBar(props) {
 										{...icon}
 									/>
 								)}
-								<span className={classnames(theme['tc-tab-bar-item-label'])}>
-									{item.label}
-								</span>
+								<span className={classnames(theme['tc-tab-bar-item-label'])}>{item.label}</span>
 								{badge && (
 									<Label
-										className={classnames(theme['tc-tab-bar-item-badge'], 'tc-tab-bar-item-badge', badge.className)}
+										className={classnames(
+											theme['tc-tab-bar-item-badge'],
+											'tc-tab-bar-item-badge',
+											badge.className,
+										)}
 										bsStyle={badge.bsStyle || 'default'}
 									>
 										{getTabBarBadgeLabel(badge.label)}

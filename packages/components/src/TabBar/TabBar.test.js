@@ -68,10 +68,7 @@ describe('TabBar component', () => {
 		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		wrapper
-			.find('button')
-			.first()
-			.simulate('click');
+		wrapper.find('button').first().simulate('click');
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
