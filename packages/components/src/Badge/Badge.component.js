@@ -13,12 +13,12 @@ const SIZES = {
 	small: 'small',
 };
 
-const COLORS = {
-	VALID_FILTER: 'valid-filter',
-	INVALID_FILTER: 'invalid-filter',
-	EMPTY_FILTER: 'empty-filter',
-	PATTERN_FILTER: 'pattern-filter',
-	VALUE_FILTER: 'value-filter',
+const TYPES = {
+	VALID: 'valid',
+	INVALID: 'invalid',
+	EMPTY: 'empty',
+	PATTERN: 'patterns',
+	VALUE: 'value',
 };
 
 const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete }) => (
@@ -79,7 +79,7 @@ function Badge({
 	selected = false,
 	style,
 	white,
-	color,
+	type,
 }) {
 	const displayClass =
 		display === SIZES.small ? 'tc-badge-display-small' : 'tc-badge-display-large';
@@ -90,7 +90,7 @@ function Badge({
 		'tc-badge-readonly': !onDelete,
 		'tc-badge-aslink': aslink,
 		'tc-badge-edit': onDelete && onSelect,
-		[`tc-badge-${color}`]: !!color,
+		[`tc-badge--${type}`]: !!type,
 	});
 	const badgeClasses = theme('tc-badge-button', {
 		'tc-badge-white': white,
@@ -137,9 +137,9 @@ Badge.propTypes = {
 	selected: PropTypes.bool,
 	style: PropTypes.object,
 	white: PropTypes.bool,
-	color: PropTypes.oneOf(Object.values(COLORS)),
+	color: PropTypes.oneOf(Object.values(TYPES)),
 };
 
 Badge.SIZES = SIZES;
-Badge.COLORS = COLORS;
+Badge.TYPES = TYPES;
 export default Badge;

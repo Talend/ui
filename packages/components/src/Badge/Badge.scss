@@ -278,23 +278,23 @@ $tc-badge-disabled-opacity: 0.62;
 		}
 	}
 
-	&-valid-filter {
+	&--valid{
 		@include colored-badge(adjust_color($rio-grande, $alpha: -0.7), darken($rio-grande, 30%));
 	}
 
-	&-invalid-filter {
+	&--invalid{
 		@include colored-badge(adjust_color($chestnut-rose, $alpha: -0.7), darken($chestnut-rose, 30%));
 	}
 
-	&-empty-filter {
+	&--empty {
 		@include colored-badge($alto, $dove-gray);
 	}
 
-	&-pattern-filter {
+	&--pattern {
 		@include colored-badge(adjust_color($jaffa, $alpha: -0.7), darken($jaffa, 30%));
 	}
 
-	&-value-filter {
+	&--value{
 		@include colored-badge(adjust_color($lochmara, $alpha: -0.7), darken($lochmara, 30%));
 	}
 }
