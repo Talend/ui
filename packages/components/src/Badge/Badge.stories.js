@@ -761,13 +761,13 @@ storiesOf('Navigation/Badge', module)
 	.add('colored', () => (
 		<>
 			<IconsProvider defaultIcons={icons} />
-			{Object.entries(Badge.COLORS).map(([name, value]) => (
+			{Object.entries(Badge.TYPES).map(([name, value]) => (
 				<div>
 					{name}
 					<Badge
 						label="Label"
 						display={Badge.SIZES.small}
-						color={value}
+						type={value}
 						category="Category"
 						{...onSelect('A')}
 						{...onDelete('A')}

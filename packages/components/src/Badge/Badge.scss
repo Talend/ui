@@ -278,12 +278,12 @@ $tc-badge-disabled-opacity: 0.62;
 		}
 	}
 
-	&--valid{
-		@include colored-badge(adjust_color($rio-grande, $alpha: -0.7), darken($rio-grande, 30%));
+	&--valid {
+		@include colored-badge(tint($rio-grande, 70%), shade($rio-grande, 30%));
 	}
 
-	&--invalid{
-		@include colored-badge(adjust_color($chestnut-rose, $alpha: -0.7), darken($chestnut-rose, 30%));
+	&--invalid {
+		@include colored-badge(tint($chestnut-rose, 70%), shade($chestnut-rose, 30%));
 	}
 
 	&--empty {
@@ -291,10 +291,10 @@ $tc-badge-disabled-opacity: 0.62;
 	}
 
 	&--pattern {
-		@include colored-badge(adjust_color($jaffa, $alpha: -0.7), darken($jaffa, 30%));
+		@include colored-badge(tint($jaffa, 70%), shade($jaffa, 30%));
 	}
 
-	&--value{
-		@include colored-badge(adjust_color($lochmara, $alpha: -0.7), darken($lochmara, 30%));
+	&--value {
+		@include colored-badge(tint($lochmara, 70%), shade($lochmara, 30%));
 	}
 }

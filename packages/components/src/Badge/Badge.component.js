@@ -17,7 +17,7 @@ const TYPES = {
 	VALID: 'valid',
 	INVALID: 'invalid',
 	EMPTY: 'empty',
-	PATTERN: 'patterns',
+	PATTERN: 'pattern',
 	VALUE: 'value',
 };
 
