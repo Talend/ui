@@ -1,12 +1,6 @@
 > sass-lint -v -q
 
 
-src/Badge/Badge.scss
-  282:26  error  Function 'adjust_color' should be written in lowercase with hyphens  function-name-format
-  286:26  error  Function 'adjust_color' should be written in lowercase with hyphens  function-name-format
-  294:26  error  Function 'adjust_color' should be written in lowercase with hyphens  function-name-format
-  298:26  error  Function 'adjust_color' should be written in lowercase with hyphens  function-name-format
-
 src/CollapsiblePanel/CollapsiblePanel.scss
   139:5  error  Mixins should come before declarations  mixins-before-declarations
 
@@ -37,5 +31,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 18 problems (17 errors, 1 warning)
+✖ 14 problems (13 errors, 1 warning)
 
