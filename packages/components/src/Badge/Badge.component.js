@@ -84,6 +84,7 @@ function Badge({
 		'tc-badge-readonly': !onDelete,
 		'tc-badge-aslink': aslink,
 		'tc-badge-edit': onDelete && onSelect,
+		'tc-badge-dropdown': dropdown,
 	});
 	const badgeClasses = theme('tc-badge-button', {
 		'tc-badge-white': white,
