@@ -229,7 +229,21 @@ exports[`Drawer should render with tabs 1`] = `
               role="tab"
               tabIndex={-1}
             >
-              Tab 1
+              <span
+                aria-describedby={42}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+              >
+                <span
+                  className="theme-tc-tab-bar-item-label"
+                >
+                  Tab 1
+                </span>
+              </span>
             </button>
           </li>
           <li
@@ -246,7 +260,21 @@ exports[`Drawer should render with tabs 1`] = `
               onKeyDown={[Function]}
               role="tab"
             >
-              Tab 2
+              <span
+                aria-describedby={42}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+              >
+                <span
+                  className="theme-tc-tab-bar-item-label"
+                >
+                  Tab 2
+                </span>
+              </span>
             </button>
           </li>
         </ul>

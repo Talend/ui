@@ -16,6 +16,7 @@ import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
+import getTabBarBadgeLabel from '../../utils/getTabBarBadgeLabel';
 
 export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
 
@@ -84,7 +85,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
 					bsStyle={item.badge.bsStyle || 'default'}
 				>
-					{(!isNaN(item.badge.label) && item.badge.label >= 1000) ? '999+' : item.badge.label}
+					{getTabBarBadgeLabel(item.badge.label)}
 				</Label>
 			)}
 		</Renderers.MenuItem>
@@ -219,7 +220,7 @@ class ActionDropdown extends React.Component {
 					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
 					bsStyle={badge.bsStyle || 'default'}
 				>
-					{(!isNaN(badge.label) && badge.label >= 1000) ? '999+' : badge.label}
+					{getTabBarBadgeLabel(badge.label)}
 				</Label>
 			),
 			<Icon
