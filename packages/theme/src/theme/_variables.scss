@@ -16,7 +16,7 @@ $gray: lighten($gray-base, 33.5%) !default; // #555
 $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 85%) !default; // #bfbfbf
 
-$brand-primary: $st-tropaz !default;
+$brand-primary: $regal-blue;
 $brand-primary-lighter: tint($brand-primary, 25) !default;
 $brand-primary-light: tint($brand-primary, 12) !default;
 $brand-primary-dark: shade($brand-primary, 12) !default;
