@@ -44,6 +44,7 @@ hs_err_pid*
 
 # Talend web apps build directory
 build/
+dist/
 i18n/
 tmp/
 lib/
