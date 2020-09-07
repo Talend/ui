@@ -129,6 +129,32 @@ $tc-badge-disabled-opacity: 0.62;
 				}
 			}
 		}
+
+		.tc-badge-dropdown {
+			display: flex;
+			flex-grow: 0;
+			flex-shrink: 0;
+			padding: 0;
+			padding-left: $padding-smaller;
+			text-transform: none;
+			color: black;
+
+			span {
+				max-width: 16rem;
+				display: block;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			svg {
+				color: $slate-gray;
+				margin: $padding-smaller;
+
+				&:hover {
+					color: $lochmara;
+				}
+			}
+		}
 	}
 
 	&.tc-badge-display-large {
@@ -170,6 +196,18 @@ $tc-badge-disabled-opacity: 0.62;
 			.tc-badge-delete-icon {
 				height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
 				min-height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+
+				svg {
+					height: $tc-badge-large-delete-icon-size;
+					width: $tc-badge-large-delete-icon-size;
+				}
+			}
+
+			.tc-badge-dropdown {
+				height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+				min-height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+				font-size: $tc-badge-large-label-font-size;
+				font-weight: $tc-badge-large-label-with-categ-font-weight;
 
 				svg {
 					height: $tc-badge-large-delete-icon-size;
@@ -218,6 +256,18 @@ $tc-badge-disabled-opacity: 0.62;
 			.tc-badge-delete-icon {
 				height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
 				min-height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+
+				svg {
+					height: $tc-badge-small-delete-icon-size;
+					width: $tc-badge-small-delete-icon-size;
+				}
+			}
+
+			.tc-badge-dropdown {
+				height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+				min-height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+				font-size: $tc-badge-small-label-font-size;
+				font-weight: $tc-badge-small-label-with-categ-font-weight;
 
 				svg {
 					height: $tc-badge-small-delete-icon-size;
