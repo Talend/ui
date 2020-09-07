@@ -97,7 +97,7 @@ const BadgeFaceted = ({
 	};
 
 	return (
-		<Badge id={id} className={theme('tc-badge-faceted')} display={size} color={badgeOperator.color}>
+		<Badge id={id} className={theme('tc-badge-faceted')} display={size}>
 			<BadgeComposition.Category category={labelCategory} label={labelCategory} />
 			<BadgeOperatorOverlay
 				id={id}

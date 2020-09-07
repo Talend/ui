@@ -1,5 +1,3 @@
-import { Badge } from '@talend/react-components/lib';
-
 const operatorNames = {
 	contains: 'contains',
 	containsIgnoreCase: 'containsIgnoreCase',
@@ -12,14 +10,13 @@ const operatorNames = {
 	lessThanOrEquals: 'lessThanOrEquals',
 };
 
-const standardOperators = (t, useColors) => ({
+const standardOperators = t => ({
 	[operatorNames.notEquals]: {
 		label: t('OPERATOR_NOT_EQUALS_LABEL', {
 			defaultValue: 'Not equal to',
 		}),
 		name: 'notEquals',
 		iconName: 'not-equal',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 	[operatorNames.equals]: {
 		label: t('OPERATOR_EQUALS_LABEL', {
@@ -27,7 +24,6 @@ const standardOperators = (t, useColors) => ({
 		}),
 		name: 'equals',
 		iconName: 'equal',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 	[operatorNames.contains]: {
 		label: t('OPERATOR_CONTAINS_LABEL', {
@@ -35,7 +31,6 @@ const standardOperators = (t, useColors) => ({
 		}),
 		name: 'contains',
 		iconName: 'contains',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 	[operatorNames.containsIgnoreCase]: {
 		label: t('OPERATOR_CONTAINS_LABEL', {
@@ -43,14 +38,12 @@ const standardOperators = (t, useColors) => ({
 		}),
 		name: 'containsIgnoreCase',
 		iconName: 'contains',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 	[operatorNames.in]: {
 		label: t('OPERATOR_IN_LABEL', {
 			defaultValue: 'In',
 		}),
 		name: 'in',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 	[operatorNames.greaterThan]: {
 		label: t('OPERATOR_GREATER_THAN_LABEL', {
@@ -58,7 +51,6 @@ const standardOperators = (t, useColors) => ({
 		}),
 		name: 'greaterThan',
 		iconName: 'greater-than',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 	[operatorNames.greaterThanOrEquals]: {
 		label: t('OPERATOR_GREATER_THAN_OR_EQUAL_LABEL', {
@@ -66,7 +58,6 @@ const standardOperators = (t, useColors) => ({
 		}),
 		name: 'greaterThanOrEquals',
 		iconName: 'greater-than-equal',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 	[operatorNames.lessThan]: {
 		label: t('OPERATOR_LESS_THAN_LABEL', {
@@ -74,7 +65,6 @@ const standardOperators = (t, useColors) => ({
 		}),
 		name: 'lessThan',
 		iconName: 'less-than',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 	[operatorNames.lessThanOrEquals]: {
 		label: t('OPERATOR_LESS_THAN_OR_EQUAL_LABEL', {
@@ -82,18 +72,17 @@ const standardOperators = (t, useColors) => ({
 		}),
 		name: 'lessThanOrEquals',
 		iconName: 'less-than-equal',
-		color: useColors ? Badge.COLORS.VALUE_FILTER : undefined,
 	},
 });
 
-const createOperatorsDict = (t, operators, useColors) => {
+const createOperatorsDict = (t, operators) => {
 	if (operators) {
 		return {
-			...standardOperators(t, useColors),
+			...standardOperators(t),
 			...operators,
 		};
 	}
-	return standardOperators(t, useColors);
+	return standardOperators(t);
 };
 const getOperatorsFromDict = (operatorsDictionary, operatorsKeys) =>
 	operatorsKeys
