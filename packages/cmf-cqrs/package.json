@@ -34,7 +34,7 @@
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^5.18.0",
+    "@talend/react-cmf": "^5.19.0",
     "@talend/scripts-core": "^6.3.0",
     "@talend/scripts-preset-react-lib": "^6.3.0",
     "enzyme": "^3.9.0",
@@ -53,5 +53,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.18.0"
+  "version": "5.19.0"
 }
