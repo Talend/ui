@@ -85,27 +85,29 @@ function AppGuidedTour({
 							defaultValue: 'Welcome to {{appName}}',
 						}),
 						body: () => {
-							return welcomeStepBody || (
-								<div>
-									{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
-										defaultValue: `If you're new, you may want to take a quick tour of the tool now.
+							return (
+								welcomeStepBody || (
+									<div>
+										{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
+											defaultValue: `If you're new, you may want to take a quick tour of the tool now.
 										 If not, you can replay the tour from the user menu.`,
-									})}
-									{demoContentSteps && (
-										<form>
-											<Toggle
-												id="app-guided-tour__import-demo-content-toggle"
-												label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
-													defaultValue: 'Import demo content',
-												})}
-												onChange={event => {
-													setImportDemoContent(event.target.checked);
-												}}
-												checked={importDemoContent}
-											/>
-										</form>
-									)}
-								</div>
+										})}
+										{demoContentSteps && (
+											<form>
+												<Toggle
+													id="app-guided-tour__import-demo-content-toggle"
+													label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
+														defaultValue: 'Import demo content',
+													})}
+													onChange={event => {
+														setImportDemoContent(event.target.checked);
+													}}
+													checked={importDemoContent}
+												/>
+											</form>
+										)}
+									</div>
+								)
 							);
 						},
 					},
