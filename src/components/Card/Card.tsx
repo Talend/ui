@@ -14,7 +14,7 @@ const Card = styled.div.attrs({
 	color: ${theme.colors.textColor};
 	background-color: ${theme.colors.backgroundColor};
     border-radius: 6px;
-    box-shadow: 0px 0px 3rem -2rem ${tokens.colors.gray900};
+    box-shadow: 0px 0px 3rem -2rem ${tokens.colors.moodyPurple};
 
 	@media only screen and (min-width: 468px) {
 		margin: auto;
