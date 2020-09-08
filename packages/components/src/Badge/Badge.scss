@@ -353,7 +353,7 @@ $tc-badge-disabled-opacity: 0.62;
 		.tc-badge-button {
 			&:not(.tc-badge-disabled) {
 				&:global(.ally-focus-within) {
-					border-color: rgba($lochmara, 1);
+					border-color: $lochmara;
 				}
 			}
 		}
