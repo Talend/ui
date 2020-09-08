@@ -25,6 +25,7 @@ function AppGuidedTour({
 	onRequestOpen,
 	onImportDemoContent,
 	onRequestClose,
+	welcomeStepBody = null,
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
@@ -83,28 +84,32 @@ function AppGuidedTour({
 							appName,
 							defaultValue: 'Welcome to {{appName}}',
 						}),
-						body: () => (
-							<div>
-								{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
-									defaultValue: `If you're new, you may want to take a quick tour of the tool now.
+						body: () => {
+							return (
+								welcomeStepBody || (
+									<div>
+										{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
+											defaultValue: `If you're new, you may want to take a quick tour of the tool now.
 										 If not, you can replay the tour from the user menu.`,
-								})}
-								{demoContentSteps && (
-									<form>
-										<Toggle
-											id="app-guided-tour__import-demo-content-toggle"
-											label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
-												defaultValue: 'Import demo content',
-											})}
-											onChange={event => {
-												setImportDemoContent(event.target.checked);
-											}}
-											checked={importDemoContent}
-										/>
-									</form>
-								)}
-							</div>
-						),
+										})}
+										{demoContentSteps && (
+											<form>
+												<Toggle
+													id="app-guided-tour__import-demo-content-toggle"
+													label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
+														defaultValue: 'Import demo content',
+													})}
+													onChange={event => {
+														setImportDemoContent(event.target.checked);
+													}}
+													checked={importDemoContent}
+												/>
+											</form>
+										)}
+									</div>
+								)
+							);
+						},
 					},
 				},
 				importDemoContent && {
@@ -127,6 +132,7 @@ AppGuidedTour.propTypes = {
 	appName: PropTypes.string.isRequired,
 	localStorageKey: PropTypes.string,
 	steps: GuidedTour.propTypes.steps,
+	welcomeStepBody: PropTypes.node,
 	demoContentSteps: Stepper.propTypes.steps,
 	onRequestOpen: PropTypes.func.isRequired,
 	onImportDemoContent: PropTypes.func,
