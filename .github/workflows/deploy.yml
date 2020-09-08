@@ -1,4 +1,4 @@
-name: Upload UMD to S3
+name: Upload to CDN
 
 on:
   push:
@@ -9,14 +9,28 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - run: npm install
-    - uses: jakejarvis/s3-sync-action@master
+    - name: Checkout
+      uses: actions/checkout@master
+    
+    - name: Build
+      run: npm install
+
+    - name: Upload to S3
+      uses: jakejarvis/s3-sync-action@master
       with:
         args: --follow-symlinks --delete
       env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}/@talend/design-system
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
         SOURCE_DIR: 'dist'
+       
+    - name: Invalidate CloudFront
+      uses: chetan/invalidate-cloudfront-action@master
+      env:
+        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+        PATHS: '/@talend/design-system'
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
