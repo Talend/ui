@@ -22,6 +22,22 @@ $tc-badge-small-padding: 0.8rem;
 
 $tc-badge-disabled-opacity: 0.62;
 
+@mixin colored-badge($background-color, $color) {
+	.tc-badge-button {
+		background-color: $background-color;
+		color: $color;
+
+		.tc-badge-separator {
+			background-color: $color;
+		}
+
+		[class^='tc-badge-'],
+		.tc-badge-delete-icon svg {
+			color: inherit;
+		}
+	}
+}
+
 .tc-badge {
 	display: inline-flex;
 	max-width: 23.5rem;
@@ -313,6 +329,26 @@ $tc-badge-disabled-opacity: 0.62;
 		.tc-badge-button {
 			opacity: $tc-badge-disabled-opacity;
 		}
+	}
+
+	&--valid {
+		@include colored-badge(tint($rio-grande, 70%), shade($rio-grande, 30%));
+	}
+
+	&--invalid {
+		@include colored-badge(tint($chestnut-rose, 70%), shade($chestnut-rose, 30%));
+	}
+
+	&--empty {
+		@include colored-badge($alto, $dove-gray);
+	}
+
+	&--pattern {
+		@include colored-badge(tint($jaffa, 70%), shade($jaffa, 30%));
+	}
+
+	&--value {
+		@include colored-badge(tint($lochmara, 70%), shade($lochmara, 30%));
 	}
 
 	&-dropdown {

@@ -190,17 +190,12 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 
 function Intercom({ id, config, tooltipPlacement }) {
 	return (
-		<li
-			role="presentation"
-			className={theme('tc-header-bar-intercom', 'tc-header-bar-action', 'separated')}
-		>
-			<ActionIntercom
-				className="btn btn-link"
-				id={id}
-				config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
-				tooltipPlacement={tooltipPlacement}
-			/>
-		</li>
+		<ActionIntercom
+			className={theme('tc-header-bar-intercom-default-component', 'btn', 'btn-link')}
+			id={id}
+			config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
+			tooltipPlacement={tooltipPlacement}
+		/>
 	);
 }
 
@@ -259,7 +254,14 @@ function HeaderBar(props) {
 						t={props.t}
 					/>
 				)}
-				{intercom}
+				{intercom && (
+					<li
+						role="presentation"
+						className={theme('tc-header-bar-intercom', 'tc-header-bar-action', 'separated')}
+					>
+						{intercom}
+					</li>
+				)}
 				{props.help && (
 					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
 				)}
