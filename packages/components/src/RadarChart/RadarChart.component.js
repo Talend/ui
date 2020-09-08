@@ -1,13 +1,15 @@
 import React from 'react';
-export { Radar, PolarAngleAxis } from 'recharts';
 import {
 	RadarChart as RechartsRadarChart,
 	PolarGrid,
-	PolarRadiusAxis
+	PolarRadiusAxis,
+	Dot as RechartsDot,
 } from 'recharts';
 import PropTypes from 'prop-types';
 import radarChartCssModule from './RadarChart.scss';
 import { getTheme } from '../theme';
+
+export { Radar, PolarAngleAxis } from 'recharts';
 
 const theme = getTheme(radarChartCssModule);
 
@@ -27,21 +29,19 @@ const theme = getTheme(radarChartCssModule);
  * @param {number} width the width of the chart container
  */
 export function RadarChart({
-														children,
-														className,
-														cx,
-														cy,
-														data,
-														domain,
-														height,
-														innerRadius,
-														outerRadius,
-														tick,
-														tickLine,
-														width
-													})
-	{
-		console.log(children)
+	children,
+	className,
+	cx,
+	cy,
+	data,
+	domain,
+	height,
+	innerRadius,
+	outerRadius,
+	tick,
+	tickLine,
+	width,
+}) {
 	return (
 		<RechartsRadarChart
 			className={theme('tc-radar-chart', className)}
@@ -53,26 +53,12 @@ export function RadarChart({
 			height={height}
 			data={data}
 		>
-      <PolarGrid />
-      <PolarRadiusAxis domain={domain} tick={tick} axisLine={tickLine} />
-			{ children }
-    </RechartsRadarChart>
+			<PolarGrid />
+			<PolarRadiusAxis domain={domain} tick={tick} axisLine={tickLine} />
+			{children}
+		</RechartsRadarChart>
 	);
 }
-
-/**
- * This function provides a custom clickable axis label with a data link to the inde of the chart data
- * @param {Object} props the current props of the PolarAngleAxis element
- */
-export function customizedTick(props) {
-	const { payload, x, y, index, textAnchor } = props;
-
-	return (
-  	<text x={x} y={y} textAnchor={textAnchor} data-axis-index={index} role="button" >
-    	{payload.value}
-    </text>
-  );
-};
 
 RadarChart.propTypes = {
 	children: PropTypes.node.isRequired,
@@ -86,13 +72,13 @@ RadarChart.propTypes = {
 	outerRadius: PropTypes.number,
 	tick: PropTypes.bool,
 	tickLine: PropTypes.bool,
-	width: PropTypes.number
+	width: PropTypes.number,
 };
 
 RadarChart.defaultProps = {
 	cx: 200,
 	cy: 120,
-	height: 230,
+	height: 240,
 	innerRadius: 0,
 	outerRadius: 100,
 	tick: false,
@@ -100,4 +86,63 @@ RadarChart.defaultProps = {
 	width: 400,
 };
 
+/**
+ * This function provides a custom clickable axis label with a data link to the index of the chart data
+ * @param {Object} props the current props of the PolarAngleAxis
+ */
+export function LabelWithClick(props) {
+	const { activeAxis, className, index, textAnchor, payload, x, y } = props;
+	let selectedClass = '';
+
+	if (activeAxis === index) {
+		selectedClass = theme('tc-radar-chart-label--selected', className);
+	}
+
+	return (
+		<text
+			x={x}
+			y={y + 3}
+			textAnchor={textAnchor}
+			data-axis-index={index}
+			role="button"
+			className={selectedClass}
+		>
+			{payload.value}
+		</text>
+	);
+}
+
+LabelWithClick.propTypes = {
+	activeAxis: PropTypes.number,
+	className: PropTypes.string,
+	index: PropTypes.number,
+	textAnchor: PropTypes.string,
+	payload: PropTypes.object,
+	x: PropTypes.number,
+	y: PropTypes.number,
+};
+
+/**
+ * This function provides a custom dot with a data link to the index of the chart data
+ * @param {Object} props the current props of the Radar
+ */
+export function Dot(props) {
+	const { activeAxis, index } = props;
+	let newR = 4;
+
+	if (activeAxis === index) {
+		newR = 4;
+	} else {
+		newR = 2;
+	}
+	return <RechartsDot {...props} fillOpacity={1} r={newR} />;
+}
+
+Dot.propTypes = {
+	activeAxis: PropTypes.number,
+	index: PropTypes.number,
+};
+
 RadarChart.displayName = 'RadarChart';
+LabelWithClick.displayName = 'LabelWithClick';
+Dot.displayName = 'Dot';

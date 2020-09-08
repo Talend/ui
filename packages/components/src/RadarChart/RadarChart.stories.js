@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Radar, RadarChart, PolarAngleAxis, customizedTick } from './RadarChart.component';
+import { Radar, RadarChart, PolarAngleAxis, Dot, LabelWithClick} from './RadarChart.component';
 
 const ExampleDataSingle = [
     { axis: 'Validity', A: 4 },
-    { axis: 'Social curation', A: 3 },
+    { axis: 'Popularity', A: 3 },
     { axis: 'Completeness', A: 2 },
     { axis: 'Discoverability', A: 1 },
     { axis: 'other', A: 1 }
@@ -12,7 +12,7 @@ const ExampleDataSingle = [
 
 const ExampleDataMultiple = [
     { axis: 'Validity', A: 4, B: 2 },
-    { axis: 'Social curation', A: 3, B: 5 },
+    { axis: 'Popularity', A: 3, B: 5 },
     { axis: 'Completeness', A: 2, B: 1 },
     { axis: 'Discoverability', A: 1, B: 3 },
     { axis: 'other', A: 1, B: 3 }
@@ -20,15 +20,16 @@ const ExampleDataMultiple = [
 
 const ExampleDataClickable = [
     { axis: 'Validity', A: 4 },
-    { axis: 'Social curation', A: 3 },
+    { axis: 'Popularity', A: 3 },
     { axis: 'Completeness', A: 2 },
     { axis: 'Discoverability', A: 1 },
 ];
 
 const chartDomain = [0, 5];
+const activeAxis = 2;
 
 /**
- * A click function provided by the host app
+ * Click functions provided by the host app
  */
 const onClick = function () {
   document.getElementById('clickMessage').innerHTML = "Good job! You clicked " + event.target.innerHTML + ".";
@@ -47,9 +48,9 @@ stories
 					name="Trust score"
 					dataKey="A"
           dot={true}
-					stroke="#599d85"
-					fill="#599d85"
-					fillOpacity={0.2}
+					stroke="#19426c"
+					fill="#19426c"
+					fillOpacity={0.1}
 				/>
 			</RadarChart>
 		</div>
@@ -63,40 +64,62 @@ stories
 				<Radar
 					name="Trust score 2019"
 					dataKey="A"
-          dot={true}
-					stroke="#599d85"
-					fill="#599d85"
-					fillOpacity={0.2}
+          dot={false}
+					stroke="#19426c"
+					fill="#19426c"
+					fillOpacity={0.1}
 				/>
         <Radar
 					name="Trust score 2020"
 					dataKey="B"
-          dot={true}
-					stroke="#6c599d"
-					fill="#6c599d"
-					fillOpacity={0.2}
+          dot={false}
+					stroke="#EA8330"
+					fill="#EA8330"
+					fillOpacity={0.1}
 				/>
 			</RadarChart>
 		</div>
 	))
   .add('Radar Chart Clickable', () => (
 		<div>
-			<h2>Single Object</h2>
+			<h2>Clickable labels</h2>
       <p>A radar chart with clickable axis labels</p>
 			<RadarChart data={ExampleDataClickable} domain={chartDomain}>
-        <PolarAngleAxis dataKey="axis" tick={customizedTick} onClick={onClick} />
+        <PolarAngleAxis dataKey="axis" tick={<LabelWithClick activeAxis={2} />} onClick={onClick} />
 				<Radar
 					name="Trust score"
 					dataKey="A"
-          dot={true}
-					stroke="#599d85"
-					fill="#599d85"
-					fillOpacity={0.2}
+          dot={false}
+					stroke="#19426c"
+					fill="#19426c"
+					fillOpacity={0.1}
 				/>
 			</RadarChart>
 
       <div>
         <p id="clickMessage">You haven't clicked anything yet.</p>
+      </div>
+		</div>
+	))
+  .add('Radar Chart Custom Dot', () => (
+		<div>
+			<h2>Custom dot element</h2>
+      <p>A radar chart with custom dots</p>
+			<RadarChart data={ExampleDataClickable} domain={chartDomain}>
+        <PolarAngleAxis dataKey="axis" />
+				<Radar
+					dataKey="A"
+          dot={<Dot activeAxis={2} />}
+          fill="#19426c"
+					fillOpacity={0.1}
+          isAnimationActive={false}
+          name="Trust score"
+					stroke="#19426c"
+				/>
+			</RadarChart>
+
+      <div>
+        <p id="clickMessage"></p>
       </div>
 		</div>
 	))
