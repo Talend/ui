@@ -29,13 +29,8 @@ $tc-badge-disabled-opacity: 0.62;
 			background-color: $color;
 		}
 
-		.tc-badge-category,
-		:global(.btn-link),
-		:global(.tc-svg-icon),
-		.tc-badge-delete-icon svg,
-		.tc-badge-label-text,
-		.tc-badge-label-text-with-categ,
-		.tc-badge-label-icon {
+		[class^="tc-badge-"],
+		.tc-badge-delete-icon svg {
 			color: inherit;
 		}
 	}
