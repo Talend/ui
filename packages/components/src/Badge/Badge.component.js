@@ -13,6 +13,14 @@ const SIZES = {
 	small: 'small',
 };
 
+const TYPES = {
+	VALID: 'valid',
+	INVALID: 'invalid',
+	EMPTY: 'empty',
+	PATTERN: 'pattern',
+	VALUE: 'value',
+};
+
 const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, dropdown }) => (
 	<React.Fragment>
 		{category && <BadgeLib.Category label={category} />}
@@ -73,6 +81,7 @@ function Badge({
 	selected = false,
 	style,
 	white,
+	type,
 	dropdown,
 }) {
 	const displayClass =
@@ -84,6 +93,7 @@ function Badge({
 		'tc-badge-readonly': !onDelete,
 		'tc-badge-aslink': aslink,
 		'tc-badge-edit': onDelete && onSelect,
+		[`tc-badge--${type}`]: !!type,
 	});
 	const badgeClasses = theme('tc-badge-button', {
 		'tc-badge-white': white,
@@ -131,8 +141,10 @@ Badge.propTypes = {
 	selected: PropTypes.bool,
 	style: PropTypes.object,
 	white: PropTypes.bool,
+	type: PropTypes.oneOf(Object.values(TYPES)),
 	dropdown: PropTypes.object,
 };
 
 Badge.SIZES = SIZES;
+Badge.TYPES = TYPES;
 export default Badge;
