@@ -1,7 +1,6 @@
 $tc-badge-large-label-font-size: 1.4rem !default;
 $tc-badge-large-label-font-weight: normal !default;
-$tc-badge-large-label-with-categ-font-weight: $font-weight-bold !default;
-$tc-badge-large-label-dropdown-font-weight: $font-weight-semi-bold !default;
+$tc-badge-large-label-with-categ-font-weight: $font-weight-semi-bold !default;
 $tc-badge-large-height: 2.4rem !default;
 $tc-badge-large-vertical-padding: ($tc-badge-large-height - $tc-badge-large-label-font-size * $line-height-base) / 2 !default;
 $tc-badge-large-margin: $padding-smaller !default;
@@ -11,8 +10,7 @@ $tc-badge-large-padding: $padding-small;
 
 $tc-badge-small-label-font-size: 1.2rem !default;
 $tc-badge-small-label-font-weight: normal !default;
-$tc-badge-small-label-with-categ-font-weight: $font-weight-bold !default;
-$tc-badge-small-label-dropdown-font-weight: $font-weight-semi-bold !default;
+$tc-badge-small-label-with-categ-font-weight: $font-weight-semi-bold !default;
 $tc-badge-small-height: 2rem !default;
 $tc-badge-small-vertical-padding: ($tc-badge-small-height - $tc-badge-small-label-font-size * $line-height-base) / 2 !default;
 $tc-badge-small-margin: $padding-smaller !default;
@@ -209,7 +207,7 @@ $tc-badge-disabled-opacity: 0.62;
 				height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
 				min-height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
 				font-size: $tc-badge-large-label-font-size;
-				font-weight: $tc-badge-large-label-dropdown-font-weight;
+				font-weight: $tc-badge-large-label-with-categ-font-weight;
 
 				svg {
 					height: $tc-badge-large-delete-icon-size;
@@ -269,7 +267,7 @@ $tc-badge-disabled-opacity: 0.62;
 				height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
 				min-height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
 				font-size: $tc-badge-small-label-font-size;
-				font-weight: $tc-badge-small-label-dropdown-font-weight;
+				font-weight: $tc-badge-small-label-with-categ-font-weight;
 
 				svg {
 					height: $tc-badge-small-delete-icon-size;
