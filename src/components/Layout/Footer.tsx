@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 export type FooterProps = {
-	children?: any;
+	children?: ReactElement[];
 };
 
 const SFooter = styled.div`
@@ -14,7 +14,7 @@ const Header: React.FC<FooterProps> = ({ children, ...rest }) => {
 	return (
 		<SFooter {...rest}>
 			<ul className="footer__links">
-				{children.map((link, index) => (
+				{children?.map((link: ReactElement, index: number) => (
 					<li className="footer__links-item" key={index}>
 						{React.cloneElement(link, { className: 'footer__link' })}
 					</li>

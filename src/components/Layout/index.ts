@@ -1,6 +1,10 @@
 import Layout from './Layout';
 import Footer from './Footer';
 
-Layout.Footer = Footer;
+const LayoutComponent = Layout as typeof Layout & {
+	Footer: typeof Footer;
+};
 
-export default Layout;
+LayoutComponent.Footer = Footer;
+
+export default LayoutComponent;

@@ -3,9 +3,26 @@ import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
 
 import * as S from './Switch.style';
 
-function Switch({ label, value, values, checked, disabled, readOnly, ...rest }) {
+export type SwitchProps = {
+	label: string;
+	value?: string;
+	values?: any[];
+	checked?: boolean;
+	disabled?: boolean;
+	readOnly?: boolean;
+};
+
+const Switch: React.FC<SwitchProps> = ({
+	label,
+	value,
+	values,
+	checked,
+	disabled,
+	readOnly,
+	...rest
+}: SwitchProps) => {
 	const radio = useRadioState({
-		state: value || values[0],
+		state: value || (values && values[0]),
 		loop: false,
 		unstable_virtual: true,
 	});
@@ -13,7 +30,7 @@ function Switch({ label, value, values, checked, disabled, readOnly, ...rest }) 
 	const containerRef = useRef();
 	const switchIndicator = useRef();
 
-	let radioWidths = [];
+	let radioWidths: number[] = [];
 
 	useEffect(() => {
 		radioWidths = radio.items.map(item => {
@@ -51,7 +68,7 @@ function Switch({ label, value, values, checked, disabled, readOnly, ...rest }) 
 	return (
 		<S.Switch values={values} readOnly={readOnly} disabled={disabled}>
 			<RadioGroup {...rest} {...radio} ref={containerRef} aria-label={label} disabled={disabled}>
-				{values.map((v, i) => {
+				{values.map((v: string, i: number) => {
 					const isChecked = radio.state === v;
 					return (
 						<Radio {...radio} value={v} as="button" key={i} data-checked={isChecked}>
@@ -65,6 +82,6 @@ function Switch({ label, value, values, checked, disabled, readOnly, ...rest }) 
 			</RadioGroup>
 		</S.Switch>
 	);
-}
+};
 
 export default Switch;

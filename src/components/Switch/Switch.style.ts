@@ -3,7 +3,7 @@ import { shade } from 'polished';
 
 import tokens from '../../tokens';
 
-export const Switch = styled.div(
+export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: boolean }>(
 	({ theme, values, disabled, readOnly }) => `
 	div {
 		position: relative;

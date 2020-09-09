@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import useMedia from 'react-use/lib/useMedia';
 import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit/Disclosure';
 
@@ -8,7 +8,11 @@ import tokens from '../../tokens';
 
 const HeaderBar = S.HeaderBar;
 
-const Content = ({ children }) => {
+export type ContentProps = {
+	children: ReactElement;
+};
+
+const Content: React.FC<ContentProps> = ({ children }: ContentProps) => {
 	const isWide = useMedia(`(min-width: ${tokens.breakpoints.l})`);
 	const disclosure = useDisclosureState({
 		animated: 250,
