@@ -45,7 +45,7 @@ describe('RadarChart', () => {
 			domain: [0, 5],
 			dataKey: 'axis',
 			activeAxis: 2,
-			func: true,
+			clickMock: jest.fn(),
 		};
 
 		// when
@@ -54,7 +54,7 @@ describe('RadarChart', () => {
 				<PolarAngleAxis
 					dataKey="axis"
 					tick={<LabelWithClick activeAxis={props.activeAxis} />}
-					onClick={props.func}
+					onClick={props.clickMock}
 				/>
 				<Radar
 					name="Trust score"
@@ -67,7 +67,14 @@ describe('RadarChart', () => {
 			</RadarChart>,
 		);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		// when
+		wrapper
+			.find('.recharts-polar-angle-axis-tick')
+			.at(0)
+			.simulate('click');
+
+		// then
+		expect(props.clickMock).toHaveBeenCalled();
 	});
 	it('should render a chart with custom dots', () => {
 		const props = {
