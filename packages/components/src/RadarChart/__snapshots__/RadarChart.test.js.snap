@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadarChart should render a RadarChart 1`] = `
+<RadarChart
+  cx={200}
+  cy={120}
+  data={
+    Array [
+      Object {
+        "A": 4,
+        "axis": "Validity",
+      },
+      Object {
+        "A": 3,
+        "axis": "Social curation",
+      },
+      Object {
+        "A": 2,
+        "axis": "Completeness",
+      },
+      Object {
+        "A": 1,
+        "axis": "Discoverability",
+      },
+      Object {
+        "A": 1,
+        "axis": "other",
+      },
+    ]
+  }
+  domain={
+    Array [
+      0,
+      5,
+    ]
+  }
+  height={240}
+  innerRadius={0}
+  outerRadius={100}
+  tick={false}
+  tickLine={false}
+  width={400}
+>
+  <PolarAngleAxis
+    allowDuplicatedCategory={true}
+    angleAxisId={0}
+    axisLine={true}
+    cx={0}
+    cy={0}
+    dataKey="axis"
+    domain={
+      Array [
+        0,
+        "auto",
+      ]
+    }
+    hide={false}
+    orientation="outer"
+    scale="auto"
+    tick={true}
+    tickLine={true}
+    type="category"
+  />
+  <Radar
+    activeDot={true}
+    angleAxisId={0}
+    animationBegin={0}
+    animationDuration={1500}
+    animationEasing="ease"
+    dataKey="A"
+    dot={true}
+    fill="#19426c"
+    fillOpacity={0.1}
+    hide={false}
+    isAnimationActive={true}
+    legendType="rect"
+    name="Trust score"
+    radiusAxisId={0}
+    stroke="#19426c"
+  />
+</RadarChart>
+`;
+
+exports[`RadarChart should render a chart with custom dots 1`] = `
+<RadarChart
+  cx={200}
+  cy={120}
+  data={
+    Array [
+      Object {
+        "A": 4,
+        "axis": "Validity",
+      },
+      Object {
+        "A": 3,
+        "axis": "Social curation",
+      },
+      Object {
+        "A": 2,
+        "axis": "Completeness",
+      },
+      Object {
+        "A": 1,
+        "axis": "Discoverability",
+      },
+      Object {
+        "A": 1,
+        "axis": "other",
+      },
+    ]
+  }
+  domain={
+    Array [
+      0,
+      5,
+    ]
+  }
+  height={240}
+  innerRadius={0}
+  outerRadius={100}
+  tick={false}
+  tickLine={false}
+  width={400}
+>
+  <PolarAngleAxis
+    allowDuplicatedCategory={true}
+    angleAxisId={0}
+    axisLine={true}
+    cx={0}
+    cy={0}
+    dataKey="axis"
+    domain={
+      Array [
+        0,
+        "auto",
+      ]
+    }
+    hide={false}
+    orientation="outer"
+    scale="auto"
+    tick={true}
+    tickLine={true}
+    type="category"
+  />
+  <Radar
+    activeDot={true}
+    angleAxisId={0}
+    animationBegin={0}
+    animationDuration={1500}
+    animationEasing="ease"
+    dataKey="A"
+    dot={
+      <Dot
+        activeAxis={2}
+      />
+    }
+    fill="#19426c"
+    fillOpacity={0.1}
+    hide={false}
+    isAnimationActive={false}
+    legendType="rect"
+    name="Trust score"
+    radiusAxisId={0}
+    stroke="#19426c"
+  />
+</RadarChart>
+`;
