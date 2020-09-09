@@ -745,8 +745,8 @@ describe('cmfConnect', () => {
 		it('should check that component will not be rendered if renderIf equals false', () => {
 			const context = mock.context();
 			const CMFConnected = cmfConnect({})(Button);
-			const mounted = mount(<CMFConnected store={context.store} label={'text'} renderIf={false} />);
-			expect(mounted.html()).toBeNull();
+			const mounted = mount(<CMFConnected store={context.store} label="text" renderIf={false} />);
+			expect(mounted.html()).toBe('');
 		});
 
 		it('should not spread propTypes and defaultProps of wrappedComponent to the CMFContainer', () => {

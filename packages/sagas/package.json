@@ -40,11 +40,11 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/scripts-core": "7.0.0-alpha.18",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.18",
+    "@talend/scripts-core": "7.0.0-alpha.19",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.19",
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "publishConfig": {
     "access": "public"

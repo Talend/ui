@@ -30,7 +30,7 @@ module.exports = {
 	immutable: '^3.8.1',
 	immutablediff: '^0.4.4',
 	invariant: '^2.2.2',
-	lodash: '^4.17.4',
+	lodash: '^4.17.15',
 	'prop-types': '^15.5.10',
 	react: REACT_VERSION,
 	'react-dom': REACT_VERSION,
@@ -54,7 +54,7 @@ module.exports = {
 	reselect: '^2.5.4',
 	'@sentry/browser': '^5.11.1',
 	slugify: '^1.1.0',
-	uuid: '^3.0.1', // prefer bson-objectid
+	uuid: '^7.0.3', // prefer bson-objectid
 	tv4: '^1.3.0',
 	'timezone-support': '^1.5.5',
 
@@ -92,10 +92,10 @@ module.exports = {
 	'@babel/plugin-proposal-export-default-from': '^7.8.3',
 	'@babel/preset-env': '^7.8.3',
 	'@babel/preset-react': '^7.8.3',
-	enzyme: '^3.9.0',
+	enzyme: '^3.11.0',
 	'enzyme-adapter-react-15': '^1.3.1',
 	'enzyme-adapter-react-16': '^1.11.2',
-	'enzyme-to-json': '^3.3.5',
+	'enzyme-to-json': '^3.5.0',
 	eslint: '^4.0.0',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
@@ -105,7 +105,7 @@ module.exports = {
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2', // this is integrated in jest 23
 	'jest-environment-jsdom': JEST_VERSION,
-	jsdom: '^11.11.0',
+	jsdom: '^16.2.2',
 	prettier: '^2.0.4',
 	'react-storybook-cmf': '^0.4.0',
 	'react-storybook-addon-props-combinations': '^1.1.0',
@@ -116,12 +116,12 @@ module.exports = {
 
 	// webpack
 	'babel-loader': '^8.0.6',
-	'copy-webpack-plugin': '^4.6.0',
+	'copy-webpack-plugin': '^5.1.1',
 	'css-loader': '^1.0.1',
 	'extract-text-webpack-plugin': 'next',
 	'file-loader': '^2.0.0',
 	'webfonts-loader': '^4.2.1',
-	'node-sass': '^4.7.2',
+	'node-sass': '^4.13.1',
 	'postcss-loader': '^3.0.0',
 	'sass-loader': '^7.1.0',
 	'style-loader': '^0.23.0',
