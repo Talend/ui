@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useTooltipState } from 'reakit/Tooltip';
 
 import * as S from './Tooltip.style';

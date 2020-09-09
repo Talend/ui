@@ -1,10 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 import {
 	Tooltip as ReakitTooltip,
 	TooltipArrow as ReakitTooltipArrow,
 	TooltipReference as ReakitTooltipReference,
 } from 'reakit/Tooltip';
+
 import tokens from '../../tokens';
 
 export const Tooltip = styled(ReakitTooltip)(
