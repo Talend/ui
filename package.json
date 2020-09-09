@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "npm run build",
     "build": "npm run build:lib && npm run build:lib:umd && npm run build:lib:umd:min",
     "build:lib": "talend-scripts build:ts:lib",
-    "build:lib:umd": "talend-scripts build:lib --env.umd=TalendCoral",
-    "build:lib:umd:min": "talend-scripts build:lib --env.umd=TalendCoral --env.optimize=true",
+    "build:lib:umd": "talend-scripts build:lib --env.umd=TalendDesignSystem",
+    "build:lib:umd:min": "talend-scripts build:lib --env.umd=TalendDesignSystem --env.optimize=true",
     "start": "npm run storybook",
     "test": "talend-scripts test",
     "storybook": "start-storybook -p 6006",
