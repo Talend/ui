@@ -1,4 +1,6 @@
 ![Coral](https://raw.githubusercontent.com/Talend/design-system/master/.storybook/logo.svg)
-![Dive into the single source of truth for building Talend products](https://raw.githubusercontent.com/Talend/design-system/master/src/Welcome.svg)
+
+<hr />
 
 ![Chromatic](https://github.com/Talend/design-system/workflows/Chromatic/badge.svg)
+![Upload to CDN](https://github.com/Talend/design-system/workflows/Upload%20to%20CDN/badge.svg)
