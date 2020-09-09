@@ -9,11 +9,11 @@ import * as S from './Layout.style';
 import tokens from '../../tokens';
 
 export type LayoutProps = {
-	header?: React.ReactElement<any>;
-	nav?: React.ReactElement<any>;
-	main?: React.ReactElement<any>;
-	aside?: React.ReactElement<any>;
-	footer?: React.ReactElement<any>;
+	header?: React.ReactElement;
+	nav?: React.ReactElement;
+	main?: React.ReactElement;
+	aside?: React.ReactElement;
+	footer?: React.ReactElement;
 };
 
 const Layout: React.FC<LayoutProps> = ({
@@ -39,7 +39,7 @@ const Layout: React.FC<LayoutProps> = ({
 	);
 	return (
 		<>
-			<SkipLinks nav={nav} main={main} />
+			<SkipLinks nav={!!nav} main={!!main} />
 			<S.Layout className="layout" {...rest}>
 				{header && <S.Header className="layout__header">{header}</S.Header>}
 				{nav || aside ? (
