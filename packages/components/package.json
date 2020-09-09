@@ -74,8 +74,8 @@
     "@talend/bootstrap-theme": "^5.18.0",
     "@talend/icons": "^5.18.0",
     "@talend/locales-tui": "^5.6.0",
-    "@talend/scripts-core": "7.0.0-alpha.12",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.12",
+    "@talend/scripts-core": "7.0.0-alpha.18",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.18",
     "autoprefixer": "^7.1.4",
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^5.2.0",
@@ -96,7 +96,6 @@
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^16.13.1",
     "sass-lint": "^1.13.1",
-    "sass-loader": "^7.3.1",
     "storybook-addon-i18next": "^1.2.1",
     "style-loader": "^0.23.0"
   },

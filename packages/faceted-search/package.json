@@ -50,8 +50,8 @@
     "@talend/icons": "^5.14.0-alpha.0",
     "@talend/react-components": "^5.14.0-alpha.0",
     "@talend/react-forms": "^5.14.0-alpha.0",
-    "@talend/scripts-core": "7.0.0-alpha.12",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.12",
+    "@talend/scripts-core": "7.0.0-alpha.18",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.18",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
     "enzyme": "^3.9.0",
@@ -63,7 +63,6 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
-    "sass-loader": "^7.3.1",
     "style-loader": "^0.23.0"
   },
   "peerDependencies": {

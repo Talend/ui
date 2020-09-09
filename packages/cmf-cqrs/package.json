@@ -35,8 +35,8 @@
   },
   "devDependencies": {
     "@talend/react-cmf": "^5.18.0",
-    "@talend/scripts-core": "7.0.0-alpha.12",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.12",
+    "@talend/scripts-core": "7.0.0-alpha.18",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.18",
     "enzyme": "^3.9.0",
     "mock-socket": "^7.0.0",
     "prop-types": "^15.5.10",
