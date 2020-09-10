@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import CaretSVG from '../../../../icons/caret.svg';
+import icons from '../../../../icons';
 
 import tokens from '../../../../tokens';
 
@@ -34,7 +34,7 @@ export const FieldWrapper = styled.div(
 					mask-repeat: no-repeat;
 					mask-position: center;
 					background-color: ${theme.colors.inputPlaceholderColor};
-					mask-image: url(${CaretSVG});
+					mask-image: url(${icons.caret.default});
 					pointer-events: none;
 				}
 	
