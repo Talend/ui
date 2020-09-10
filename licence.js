@@ -1,5 +1,4 @@
-const licenceTemplate =
-    `============================================================================
+const licenceTemplate = `============================================================================
     
      Copyright (C) 2006-${new Date().getFullYear()} Talend Inc. - www.talend.com
     

@@ -1,26 +1,7 @@
 {
-  "extends": "airbnb",
-  "parser": "babel-eslint",
-  "rules": {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
-    "no-tabs": "off",
-    "indent": ["error", "tab"],
-    "react/prefer-es6-class": 0,
-    "react/jsx-indent": ["error", "tab"],
-    "react/jsx-indent-props": ["error", "tab"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-    "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
-  },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "jasmine": true
-  },
-  "globals": {
-    "jest": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
-  }
+	"extends": "./node_modules/@talend/scripts-config-eslint/.eslintrc",
+	"parser": "@typescript-eslint/parser",
+	"rules": {
+		"react/prop-types": "off"
+	}
 }

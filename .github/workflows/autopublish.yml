@@ -1,0 +1,72 @@
+name: React Flow Designer Auto Publish
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build_and_publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
+
+      - name: Get latest published version
+        id: published-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: |
+          npmVersion="$(yarn info @talend/react-flow-designer version | sed -n 2p)"
+          echo "Last published version is $npmVersion"
+          echo "::set-output name=published_version::$npmVersion"
+
+      - name: Get package.json version
+        id: current-version
+        run: |
+          localVersion="$(cat package.json | jq -r ".version")"
+          echo "Local version is $localVersion"
+          echo "::set-output name=current_version::$localVersion"
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        id: rfd-yarn-cache # use this to check for `cache-hit` (`steps.rfd-yarn-cache.outputs.cache-hit != 'true'`)
+        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install
+        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version # && steps.rfd-yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Publish
+        id: publish
+        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version
+        run: |
+          yarn publish --non-interactive
+          echo "::set-output name=published::done"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Create a Release
+        if: steps.publish.outputs.published
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: talend/react-flow-designer.v${{ steps.current-version.outputs.current_version }}
+          body: Please update this message with the CHANGELOG content corresponding to this version

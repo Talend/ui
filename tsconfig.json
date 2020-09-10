@@ -1,0 +1,12 @@
+{
+  "extends": "./node_modules/@talend/scripts-config-typescript/tsconfig.json",
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "declaration": true,
+    "allowJs": false,
+    "incremental": true,
+    "jsx": "react",
+    "module": "CommonJs",
+    "typeRoots": ["src/customTypings/index.d", "node_modules/@types"]
+  }
+}

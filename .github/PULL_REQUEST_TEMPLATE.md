@@ -1,25 +1,20 @@
+**What is the problem this PR is trying to solve?**
+
+**What is the chosen solution to this problem?**
+
 **Please check if the PR fulfills these requirements**
 
-- [ ] The commit(s) message(s) follows our
-  [guidelines](https://github.com/talend/tools/blob/master/tools-root-github/CONTRIBUTING.md#commit-message-format)
-- [ ] Tests for the changes have been added (for bug fixes / features)
-- [ ] Docs have been added / updated (for bug fixes / features)
+-   [ ] The PR commit message follows our [guidelines](https://github.com/talend/tools/blob/master/tools-root-github/CONTRIBUTING.md#commit-message-format)
+-   [ ] Tests for the changes have been added (for bug fixes / features)
+-   [ ] Docs have been added / updated (for bug fixes / features)
+-   [ ] Related design / discussions / pages, if any, are all linked or available in the PR
 
-**What is the current behavior?** (You can also link to an open issue here)
+<!-- You can add more checkboxes here -->
 
+**[ ] This PR introduces a breaking change**
 
+<!-- if the PR introduces a breaking change, add the description here. So when you merge this PR, add this description into the [breaking change wiki](https://github.com/Talend/ui/wiki/BREAKING-CHANGE) in the next version -->
 
-**What is the new behavior?**
+<!-- **Original Template** -->
 
-
-
-**Does this PR introduce a breaking change?**
-
-- [ ] Yes
-- [ ] No
-
-If this PR contains a breaking change, please describe the impact and migration
-path for existing applications: ...
-
-
-**Other information**:
+<!-- https://github.com/Talend/tools/blob/master/tools-root-github/.github/PULL_REQUEST_TEMPLATE.md -->

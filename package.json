@@ -5,34 +5,39 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "build": "talend-scripts build:lib",
-    "clean": "npm run clean:lib && npm run clean:coverage",
-    "clean:lib": "rimraf ./lib",
-    "clean:coverage": "rimraf ./coverage",
-    "flow": "flow",
-    "lint": "npm run lint:es",
-    "lint:es": "eslint --config .eslintrc src/**",
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js",
-    "test": "talend-scripts test --silent"
+    "build": "talend-scripts build:ts:lib",
+    "lint": "talend-scripts lint:es",
+    "test": "talend-scripts test --silent",
+    "prepublishOnly": "yarn test",
+    "prepare": "yarn build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/react-flow-designer.git"
   },
-  "author": "Axel Cateland <acateland@talend.com>",
+  "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/preset-flow": "^7.7.4",
-    "@talend/scripts-core": "^6.4.1",
-    "@talend/scripts-preset-react-lib": "^6.4.1",
-    "coveralls": "3.1.0",
-    "enzyme": "^3.11.0",
-    "flow-bin": "^0.41.0",
-    "flow-typed": "^2.0.0",
+    "@talend/scripts-config-jest": "^6.4.2",
+    "@talend/scripts-core": "^6.4.2",
+    "@talend/scripts-preset-react-lib": "^6.4.2",
+    "@types/d3-drag": "^1.2.3",
+    "@types/d3-scale": "^2.2.0",
+    "@types/d3-shape": "^1.3.2",
+    "@types/d3-zoom": "^1.7.4",
+    "@types/enzyme": "^3.10.5",
+    "@types/invariant": "^2.2.33",
+    "@types/lodash": "^4.14.149",
+    "@types/react": "^16.9.32",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-test-renderer": "^16.9.2",
+    "@types/redux-mock-store": "^1.0.2",
+    "@types/redux-thunk": "^2.1.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "i18next": "^15.1.3",
-    "immutable": "3.8.1",
+    "immutable": "^3.8.2",
+    "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
-    "raf": "^3.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-i18next": "^10.10.0",
@@ -40,12 +45,12 @@
     "react-test-renderer": "^16.13.1",
     "redux": "3.6.0",
     "redux-mock-store": "1.2.1",
-    "redux-thunk": "2.1.0",
-    "reselect": "2.5.4",
-    "rimraf": "2.5.4"
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
   },
   "peerDependencies": {
     "immutable": "3",
+    "lodash": "4",
     "react": "15 || ^16.0.0",
     "react-dom": "15 || ^16.0.0",
     "react-redux": "4",
@@ -60,9 +65,13 @@
     "d3-selection": "1.0.3",
     "d3-shape": "1.0.3",
     "d3-zoom": "1.0.2",
+    "enzyme": "^3.11.0",
     "invariant": "2.2.4",
-    "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
     "react-immutable-proptypes": "2.2.0"
-  }
+  },
+  "files": [
+    "/lib",
+    "/src"
+  ]
 }

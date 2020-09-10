@@ -6,8 +6,9 @@ jest.mock('react-i18next', () => ({
 			t: (key, options) =>
 				(options.defaultValue || '').replace(/{{(\w+)}}/g, (_, k) => options[k]),
 		};
-		Component.displayName = `withI18nextTranslation(${Component.displayName ||
-			Component.name})`;
+		Component.displayName = `withI18nextTranslation(${
+			Component.displayName || Component.name
+		})`;
 		return Component;
 	},
 	setI18n: () => {},
