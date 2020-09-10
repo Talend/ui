@@ -14,10 +14,11 @@ import ActionBar from './ActionBar';
 import ActionList from './ActionList';
 import AppGuidedTour from './AppGuidedTour';
 import AppLoader from './AppLoader';
+import Badge from './Badge';
 import Notification from './Notification';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
-import Badge from './Badge';
+import i18n from './i18n';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
@@ -135,6 +136,7 @@ const BootstrapTable = bootstrap.Table;
 
 export {
 	AboutDialog,
+	// PLOP: PR cursor to go over the components
 	Action,
 	Actions,
 	ActionBar,
@@ -166,6 +168,7 @@ export {
 	HeaderBar,
 	HeaderTitle,
 	HttpError,
+	i18n,
 	Icon,
 	IconsProvider,
 	Inject,
@@ -184,7 +187,9 @@ export {
 	RichError,
 	RichLayout,
 	SidePanel,
+	Skeleton,
 	Status,
+	Stepper,
 	InlineMessage,
 	SubHeaderBar,
 	TabBar,
@@ -195,7 +200,8 @@ export {
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
-	getTranslated,
+	// TODO 6.0: remove from here
+	getTranslated, // TODO 6.0: remove the TranslateWrapper folder
 	I18N_DOMAIN_COMPONENTS,
 	CIRCULAR_PROGRESS_SIZE,
 	// bootstrap
@@ -254,9 +260,7 @@ export {
 	ResponsiveEmbed,
 	Row,
 	SafeAnchor,
-	Skeleton,
 	SplitButton,
-	Stepper,
 	Tab,
 	TabContainer,
 	TabContent,
