@@ -4,7 +4,7 @@ import logo from './logo.svg';
 export default create({
 	base: 'light',
 
-	colorPrimary: '#19426c',
+	colorPrimary: '#0675C1',
 	colorSecondary: '#19426c',
 
 	// UI
@@ -14,7 +14,7 @@ export default create({
 	appBorderRadius: 4,
 
 	// Typography
-	fontBase: '"Open Sans", sans-serif',
+	fontBase: '"Source Sans Pro", sans-serif',
 	fontCode: '"Inconsolata", monospace',
 
 	// Text colors

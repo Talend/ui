@@ -16,12 +16,16 @@ const SCard = styled.article`
 	}
 	strong {
 		margin-bottom: 0.5rem;
+		font-size: 1.6rem;
+		font-weight: 700;
 	}
 	p {
-		text-align: center;
+		margin-top: 0;
 		margin-bottom: 1rem;
+		text-align: center;
 	}
 	a {
+		font-weight: 600;
 	}
 `;
 
