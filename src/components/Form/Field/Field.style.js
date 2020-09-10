@@ -75,8 +75,8 @@ export const FieldGroup = styled.div(
   
   svg {
   	left: 0;
-	padding: 0 1rem;
-    fill: ${tokens.colors.darkSilver};
+	margin: 0 1rem;
+    fill: ${tokens.colors.gray500};
 	pointer-events: none;
 	
 	+ input {
@@ -95,7 +95,6 @@ export const FieldGroup = styled.div(
     
     svg {
 	  position: static;
-      margin:0;
     }
     
     &:hover {    
