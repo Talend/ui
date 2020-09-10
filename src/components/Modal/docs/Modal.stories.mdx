@@ -1,5 +1,5 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
-
+import { Use } from '../../../docs';
 import Button from '../../Button';
 import Modal from '../';
 
@@ -11,13 +11,35 @@ import Modal from '../';
 
 ## Style
 
+### Sizes
+
+| Attribute                   | Variable     |
+| --------------------------- | ------------ |
+| max-height                  | 80%          |
+| max-width                   | 90rem        |
+
 ## States
 
 ## Content
 
+<Use>
+	<Use.Do>
+  <ul>
+<li> The Modal titles should use sentence case and prioritize keywords.</li>
+
+  </ul>
+  </Use.Do>
+	<Use.Dont>
+  <ul>
+  </ul>
+  </Use.Dont>
+</Use>
+
 ## Interaction
 
 ## Accessibility
+
+- Press <kbd>ESC</kbd> to dismiss the modal. This is equivalent to choosing “Cancel” or an “OK” confirmation.
 
 ## Usage
 
@@ -26,6 +48,17 @@ import Modal from '../';
 		<Modal disclosure={<Button.Primary>Show</Button.Primary>}>Hello !</Modal>
 	</Story>
 </Preview>
+
+### Where to place buttons?
+Buttons are always at the bottom of the dialog box. In case of scroll bar into the body, they should be fixed at the bottom.
+Dismiss actions should be on the left  / Confirmation actions on the right
+
+### Prioritize actions
+One main action should be expected from the user emphasized by the use of a primary button. Secondary buttons can be used for second level actions. 2 primary validation/action buttons cannot be used
+
+### Cancel or close?
+In Confirmation dialog box, close icon cannot be displayed. 
+A Cancel button shall be displayed on the left side. Closing icon can be used only for informative dialog box.
 
 ## Changelog
 
