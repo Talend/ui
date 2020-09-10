@@ -26,71 +26,58 @@ const renderers = {
 };
 const getComponent = key => renderers[key];
 
-describe('getActionComponent', () => {
-	it('should return ActionButton with unknown displayMode and no getComponent', () => {
-		const component = getActionComponent({
-			displayMode: 'unknown',
-		});
-		expect(component).toBe(ActionButton);
-	});
-	it('should return ActionButton without displayMode', () => {
-		const component = getActionComponent({});
-		expect(component).toBe(ActionButton);
-	});
-	it('should return ActionSplitDropdown if displayMode = splitDropdown', () => {
-		const component = getActionComponent({ displayMode: 'splitDropdown' });
-		expect(component).toBe(ActionSplitDropdown);
-	});
-	it('should return ActionDropdown if displayMode = dropdown', () => {
-		const component = getActionComponent({ displayMode: 'dropdown' });
-		expect(component).toBe(ActionDropdown);
-	});
-	it('should return MyActionButton without displayMode', () => {
-		const component = getActionComponent({ getComponent });
-		expect(component.displayName).toBe('MyActionButton');
-	});
-	it('should return MyActionFile if displayMode = file', () => {
-		const component = getActionComponent({ getComponent, displayMode: 'file' });
-		expect(component.displayName).toBe('MyActionFile');
-	});
-	it('should return MyActionSplitDropdown if displayMode = splitDropdown', () => {
-		const component = getActionComponent({ getComponent, displayMode: 'splitDropdown' });
-		expect(component.displayName).toBe('MyActionSplitDropdown');
-	});
-	it('should return MyActionDropdown if displayMode = dropdown', () => {
-		const component = getActionComponent({ getComponent, displayMode: 'dropdown' });
-		expect(component.displayName).toBe('MyActionDropdown');
-	});
-	it('should return MyActionIconToggle if displayMode = iconToggle', () => {
-		const component = getActionComponent({ getComponent, displayMode: 'iconToggle' });
-		expect(component.displayName).toBe('MyActionIconToggle');
-	});
-});
-
 describe('Action', () => {
 	it('should render ActionButton', () => {
 		const wrapper = shallow(<Action label="hello world" />);
 		expect(wrapper.getElement().type).toBe(ActionButton);
 		expect(wrapper.getElement().props.label).toBe('hello world');
 	});
-	it('should render ActionButton', () => {
+	it('should render MyActionButton', () => {
+		const wrapper = shallow(<Action label="hello world" getComponent={getComponent} />);
+		expect(wrapper.getElement().type).toBe(MyActionButton);
+	});
+	it('should render ActionFile', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="file" />);
 		expect(wrapper.getElement().type).toBe(ActionFile);
 		expect(wrapper.getElement().props.label).toBe('hello world');
+	});
+	it('should render MyActionFile', () => {
+		const wrapper = shallow(
+			<Action label="hello world" displayMode="file" getComponent={getComponent} />,
+		);
+		expect(wrapper.getElement().type).toBe(MyActionFile);
 	});
 	it('should render ActionSplitDropdown', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="splitDropdown" />);
 		expect(wrapper.getElement().type).toBe(ActionSplitDropdown);
 		expect(wrapper.getElement().props.label).toBe('hello world');
 	});
+	it('should render MyActionSplitDropdown', () => {
+		const wrapper = shallow(
+			<Action label="hello world" displayMode="splitDropdown" getComponent={getComponent} />,
+		);
+		expect(wrapper.getElement().type).toBe(MyActionSplitDropdown);
+	});
 	it('should render ActionDropdown', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="dropdown" />);
 		expect(wrapper.getElement().type).toBe(ActionDropdown);
 		expect(wrapper.getElement().props.label).toBe('hello world');
 	});
+	it('should render MyActionDropdown', () => {
+		const wrapper = shallow(
+			<Action label="hello world" displayMode="dropdown" getComponent={getComponent} />,
+		);
+		expect(wrapper.getElement().type).toBe(MyActionDropdown);
+	});
 	it('should render ActionIconToggle', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="iconToggle" />);
 		expect(wrapper.getElement().type).toBe(ActionIconToggle);
 		expect(wrapper.getElement().props.label).toBe('hello world');
+	});
+	it('should render MyActionIconToggle ', () => {
+		const wrapper = shallow(
+			<Action label="hello world" displayMode="iconToggle" getComponent={getComponent} />,
+		);
+		expect(wrapper.getElement().type).toBe(MyActionIconToggle);
 	});
 });

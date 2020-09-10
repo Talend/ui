@@ -1,6 +1,9 @@
 import bootstrap from './bootstrap';
 import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 import AboutDialog from './AboutDialog';
+import ActionBar from './ActionBar';
+import ActionIntercom from './ActionIntercom';
+import ActionList from './ActionList';
 import {
 	Action,
 	Actions,
@@ -10,16 +13,16 @@ import {
 	ActionIconToggle,
 	ActionSplitDropdown,
 } from './Actions';
-import ActionBar from './ActionBar';
-import ActionList from './ActionList';
 import AppGuidedTour from './AppGuidedTour';
 import AppLoader from './AppLoader';
+import AppSwitcher from './AppSwitcher';
 import Badge from './Badge';
+import Breadcrumbs from './Breadcrumbs';
+
 import Notification from './Notification';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
 import i18n from './i18n';
-import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
@@ -136,11 +139,11 @@ const BootstrapTable = bootstrap.Table;
 
 export {
 	AboutDialog,
-	// PLOP: PR cursor to go over the components
+	ActionBar,
+	ActionIntercom,
+	ActionList,
 	Action,
 	Actions,
-	ActionBar,
-	ActionList,
 	ActionButton,
 	ActionDropdown,
 	ActionFile,
@@ -148,8 +151,10 @@ export {
 	ActionSplitDropdown,
 	AppGuidedTour,
 	AppLoader,
+	AppSwitcher,
 	Badge,
 	Breadcrumbs,
+	// PLOP: PR cursor to go over the components
 	Checkbox,
 	CircularProgress,
 	CollapsiblePanel,
