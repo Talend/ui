@@ -37,12 +37,12 @@ import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
 import FocusManager from './FocusManager';
 import GridLayout from './GridLayout';
+import GuidedTour from './GuidedTour';
+import HeaderBar from './HeaderBar';
 
 import Notification from './Notification';
-import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
 import i18n from './i18n';
-import GuidedTour from './GuidedTour';
 import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
 import TreeView from './TreeView';
@@ -182,11 +182,11 @@ export {
 	FilterBar,
 	FocusManager,
 	GridLayout,
-	// PLOP: PR cursor to go over the components
-	Checkbox,
 	GuidedTour,
 	HeaderBar,
-	HeaderTitle,
+	// PLOP: PR cursor to go over the components
+	Checkbox,
+	HeaderTitle, // TODO move that to RichLayout for  6.0
 	HttpError,
 	i18n,
 	Icon,
