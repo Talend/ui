@@ -2,6 +2,10 @@
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.test.js
+  3:18  error  getActionComponent not found in './Action.component'  import/named
+  3:18  error  'getActionComponent' is defined but never used        @typescript-eslint/no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
   142:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
@@ -342,8 +346,8 @@
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/index.js
-  21:18  error  Missing file extension for "./i18n"        import/extensions
-  21:18  error  Unable to resolve path to module './i18n'  import/no-unresolved
+  25:18  error  Missing file extension for "./i18n"        import/extensions
+  25:18  error  Unable to resolve path to module './i18n'  import/no-unresolved
 
-✖ 166 problems (144 errors, 22 warnings)
+✖ 168 problems (146 errors, 22 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
