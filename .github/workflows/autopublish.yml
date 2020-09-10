@@ -50,8 +50,6 @@ jobs:
       - name: Install
         if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version # && steps.rfd-yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Publish
         id: publish

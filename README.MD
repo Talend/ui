@@ -19,10 +19,11 @@ Redux as a state manager.
 ### How to use it
 
 #### Use the rendering component
+
 ```js
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';node
+import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
 import { DatastreamDesigner } from './datastream_designer/';
@@ -30,12 +31,13 @@ import { DatastreamDesigner } from './datastream_designer/';
 const store = configureStore();
 
 render(
-  <Provider store={store}>
-    <DatastreamDesigner />
-  </Provider>,
-  document.getElementById('app')
+	<Provider store={store}>
+		<DatastreamDesigner />
+	</Provider>,
+	document.getElementById('app'),
 );
 ```
+
 #### integrate the reducer into your redux data store
 
 ```js
@@ -45,13 +47,12 @@ import { routerReducer } from 'react-router-redux';
 import { datastreamDesignerReducer } from '../datastream_designer/';
 
 const rootReducer = combineReducers({
-    routing: routerReducer,
-    datastream: datastreamDesignerReducer,
+	routing: routerReducer,
+	datastream: datastreamDesignerReducer,
 });
 
 export default rootReducer;
 ```
-
 
 the datastream_designer module expose its components, reducers, and action type constants.
 
@@ -60,25 +61,28 @@ Action type constants are exposed for the sake of listening to them and add new 
 Exemple a reducer listening for 'DATASTREAM_DESIGNER_NODE_SELECTED' could trigger a form so you can edit the node data.
 
 ## Redux API
+
 the idea is to reduce the surface api of the redux action, encouraging batching multiple transformation in a transaction
+
 ### Graph
-- Graph
-  - transaction [List<Action<Node|Link|Port>>]
-- Node
-  - add NodeRecord
-  - update NodeRecord
-  - delete NodeRecord
-  - moveStart nodeId Position
-  - move nodeId Vector
-  - moveEnd nodeId Position
-- Link
-  - add LinkRecord
-  - update LinkRecord
-  - delete LinkRecord
-- Port
-  - add PortRecord
-  - update PortRecord
-  - delete PortRecord
+
+-   Graph
+    -   transaction [List<Action<Node|Link|Port>>]
+-   Node
+    -   add NodeRecord
+    -   update NodeRecord
+    -   delete NodeRecord
+    -   moveStart nodeId Position
+    -   move nodeId Vector
+    -   moveEnd nodeId Position
+-   Link
+    -   add LinkRecord
+    -   update LinkRecord
+    -   delete LinkRecord
+-   Port
+    -   add PortRecord
+    -   update PortRecord
+    -   delete PortRecord
 
 each of those action are intended to be used with the apply function
 
@@ -87,6 +91,7 @@ Each of those action are backed by the graph API wich check graph integrity, if 
 special action for movement are kept for optimisation purpose, nothing prevent the user to update position via the `update` action
 
 #### deprecate
+
 removeNode
 removeNodeData
 setNodeData
@@ -102,9 +107,21 @@ startMoveNodeTo
 ## Element API
 
 ### Node
+
 ### Link
+
 ### Port
+
 ### Graph
+
 ### Data
+
 ### Size
+
 ### Position
+
+## Versioning and publication
+
+The package is **automatically** published on npm as soon as a **pull request is merged on the master with a different version**.
+
+DISCLAIMER: **We don't control the version**, you have to ensure you don't have an old version compared to the master, and you need to follow [semantic versioning](https://semver.org/) to upgrade the version when needed.
