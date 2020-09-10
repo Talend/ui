@@ -12,6 +12,7 @@ import TooltipTrigger from '../TooltipTrigger';
 import css from './CollapsiblePanel.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
+// TODO 6.0: do not export those constants
 export const TYPE_STATUS = 'status';
 export const TYPE_ACTION = 'action';
 export const TYPE_BADGE = 'badge';
@@ -283,4 +284,5 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
+CollapsiblePanel.displayModes = displayModes;
 export default CollapsiblePanel;

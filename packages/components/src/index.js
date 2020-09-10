@@ -1,5 +1,4 @@
 import bootstrap from './bootstrap';
-import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 import AboutDialog from './AboutDialog';
 import ActionBar from './ActionBar';
 import ActionIntercom from './ActionIntercom';
@@ -18,15 +17,17 @@ import AppLoader from './AppLoader';
 import AppSwitcher from './AppSwitcher';
 import Badge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
-
-import Notification from './Notification';
-import HeaderBar from './HeaderBar';
-import HttpError from './HttpError';
-import i18n from './i18n';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
+import { ModelViewer, RecordsViewer } from './DataViewer';
+import {
+	InputDatePicker,
+	InputDateRangePicker,
+	InputDateTimePicker,
+	InputTimePicker,
+} from './DateTimePickers';
 import Dialog from './Dialog';
 import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
@@ -34,8 +35,13 @@ import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import FocusManager from './FocusManager';
 import GridLayout from './GridLayout';
-import Tile from './GridLayout/Tile';
+
+import Notification from './Notification';
+import HeaderBar from './HeaderBar';
+import HttpError from './HttpError';
+import i18n from './i18n';
 import GuidedTour from './GuidedTour';
 import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
@@ -58,7 +64,6 @@ import Stepper from './Stepper';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
-import getTranslated from './TranslateWrapper';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
@@ -66,8 +71,12 @@ import Inject from './Inject';
 import ResourceList from './ResourceList';
 import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
-import { ModelViewer, RecordsViewer } from './DataViewer';
 import { InlineMessage } from './InlineMessage';
+
+// TODO 6.0: remove those imports
+import Tile from './GridLayout/Tile';
+import getTranslated from './TranslateWrapper';
+import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 
 const {
 	Alert,
@@ -154,12 +163,16 @@ export {
 	AppSwitcher,
 	Badge,
 	Breadcrumbs,
-	// PLOP: PR cursor to go over the components
-	Checkbox,
 	CircularProgress,
 	CollapsiblePanel,
 	ConfirmDialog,
 	Datalist,
+	ModelViewer,
+	RecordsViewer,
+	InputDatePicker,
+	InputDateRangePicker,
+	InputDateTimePicker,
+	InputTimePicker,
 	Dialog,
 	DraggableComponent,
 	Drawer,
@@ -167,8 +180,10 @@ export {
 	Emphasis,
 	Enumeration,
 	FilterBar,
+	FocusManager,
 	GridLayout,
-	Tile,
+	// PLOP: PR cursor to go over the components
+	Checkbox,
 	GuidedTour,
 	HeaderBar,
 	HeaderTitle,
@@ -182,11 +197,9 @@ export {
 	List,
 	ListView,
 	Loader,
-	ModelViewer,
 	Notification,
 	ObjectViewer,
 	Progress,
-	RecordsViewer,
 	ResourceList,
 	ResourcePicker,
 	RichError,
@@ -206,6 +219,7 @@ export {
 	VirtualizedList,
 	WithDrawer,
 	// TODO 6.0: remove from here
+	Tile,
 	getTranslated, // TODO 6.0: remove the TranslateWrapper folder
 	I18N_DOMAIN_COMPONENTS,
 	CIRCULAR_PROGRESS_SIZE,

@@ -47,6 +47,7 @@ export function buildDistanceInWordsLocale(t) {
 let language;
 let locale;
 
+// TODO 6.0 move DateFnsLocale folder under i18n folder
 export default function getLocale(t) {
 	const currentlanguage = getCurrentLanguage();
 	if (language !== currentlanguage) {
