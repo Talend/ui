@@ -12,8 +12,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
     
-    - name: Build
+    - name: Install
       run: npm install
+
+    - name: Build
+      run: npm run build
 
     - name: Upload to S3
       uses: jakejarvis/s3-sync-action@master
