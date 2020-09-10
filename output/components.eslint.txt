@@ -7,7 +7,7 @@
   3:18  error  'getActionComponent' is defined but never used        @typescript-eslint/no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
-  142:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
+  143:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/Tree.component.js
   4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4                                             import/no-cycle
@@ -346,8 +346,8 @@
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/index.js
-  25:18  error  Missing file extension for "./i18n"        import/extensions
-  25:18  error  Unable to resolve path to module './i18n'  import/no-unresolved
+  44:18  error  Missing file extension for "./i18n"        import/extensions
+  44:18  error  Unable to resolve path to module './i18n'  import/no-unresolved
 
 ✖ 168 problems (146 errors, 22 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
