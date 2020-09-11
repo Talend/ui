@@ -30,23 +30,21 @@ import ModalZoning from './images/zoning-modal.png';
 | --------------------------- | ------------ |
 | horizontal                  | centered     |
 | vertical                    | centered     |
- 
+
 ## States
 
 ## Content
 
 <Use>
 	<Use.Do>
-  <ul>
-<li> The Modal titles should use sentence case and prioritize keywords.</li>
-
-  </ul>
-  </Use.Do>
+		<ul>
+			<li> The Modal titles should use sentence case and prioritize keywords.</li>
+		</ul>
+	</Use.Do>
 	<Use.Dont>
-  <ul>
-  <li>Avoid long content in order to not have a scrollbar</li>
+		<ul><li>Avoid long content in order to not have a scrollbar</li>
   </ul>
-  </Use.Dont>
+	</Use.Dont>
 </Use>
 
 ## Interaction
@@ -59,19 +57,29 @@ import ModalZoning from './images/zoning-modal.png';
 
 <Preview>
 	<Story name="default">
-		<Modal disclosure={<Button.Primary>Show</Button.Primary>}>Hello !</Modal>
+		<Modal disclosure={<Button.Primary>Show</Button.Primary>} title="Send invitation email">
+			Invitation email will be send to this address: <strong>test@email.com</strong>
+			<br />Do you want to send this email now?
+			<Modal.Buttons>
+				<Button.Secondary>Cancel</Button.Secondary>
+				<Button.Primary>Send</Button.Primary>
+			</Modal.Buttons>
+		</Modal>
 	</Story>
 </Preview>
 
 ### Where to place buttons?
+
 Buttons are always at the bottom of the dialog box. In case of scroll bar into the body, they should be fixed at the bottom.
-Dismiss actions should be on the left  / Confirmation actions on the right
+Dismiss actions should be on the left / Confirmation actions on the right
 
 ### Prioritize actions
+
 One main action should be expected from the user emphasized by the use of a primary button. Secondary buttons can be used for second level actions. 2 primary validation/action buttons cannot be used
 
 ### Cancel or close?
-In Confirmation dialog box, close icon cannot be displayed. 
+
+In Confirmation dialog box, close icon cannot be displayed.
 A Cancel button shall be displayed on the left side. Closing icon can be used only for informative dialog box.
 
 ## Changelog

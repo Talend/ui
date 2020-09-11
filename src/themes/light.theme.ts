@@ -49,6 +49,10 @@ const theme: DefaultTheme = {
 		inputBorderDisabledColor: colors.gray300,
 		inputBorderReadOnlyColor: colors.gray300,
 
+		modalBackground: colors.gray50,
+		modalHeadingBackground: colors.gray0,
+		modalHeadingBorderColor: colors.gray75,
+
 		tagDefaultColor: colors.gray700,
 		tagDefaultBackgroundColor: colors.gray75,
 		tagInformationColor: colors.lochmara700,
