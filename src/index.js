@@ -17,7 +17,6 @@ import Toggle from './components/Toggle';
 import Tooltip from './components/Tooltip';
 
 import icons from './icons';
-import templates from './templates';
 import themes from './themes';
 import tokens from './tokens';
 
@@ -40,7 +39,6 @@ export {
 	Toggle,
 	Tooltip,
 	icons,
-	templates,
 	themes,
 	tokens,
 };
