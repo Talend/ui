@@ -31,7 +31,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "^5.18.0",
+    "@talend/bootstrap-theme": "^6.0.0-alpha.10",
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
