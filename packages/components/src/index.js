@@ -39,15 +39,15 @@ import FocusManager from './FocusManager';
 import GridLayout from './GridLayout';
 import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
-import Rich from './RichTooltip';
-
-import Notification from './Notification';
 import HttpError from './HttpError';
 import i18n from './i18n';
-import ListView from './ListView';
-import TreeView from './TreeView';
+import Rich from './RichTooltip';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
+
+import Notification from './Notification';
+import ListView from './ListView';
+import TreeView from './TreeView';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
@@ -185,13 +185,13 @@ export {
 	GridLayout,
 	GuidedTour,
 	HeaderBar,
-	Rich,
-	// PLOP: PR cursor to go over the components
-	Checkbox,
 	HttpError,
+	Rich,
 	i18n,
 	Icon,
 	IconsProvider,
+	// PLOP: PR cursor to go over the components
+	Checkbox,
 	Inject,
 	JSONSchemaRenderer,
 	Layout,
