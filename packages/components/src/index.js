@@ -50,10 +50,10 @@ import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
 import ListView from './ListView';
+import Loader from './Loader';
 
 import Notification from './Notification';
 import TreeView from './TreeView';
-import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import ResourcePicker from './ResourcePicker';
@@ -196,9 +196,9 @@ export {
 	Layout,
 	List,
 	ListView,
+	Loader,
 	// PLOP: PR cursor to go over the components
 	Checkbox,
-	Loader,
 	Notification,
 	ObjectViewer,
 	Progress,
