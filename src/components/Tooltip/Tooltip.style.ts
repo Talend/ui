@@ -15,6 +15,7 @@ export const Tooltip = styled(ReakitTooltip)(
 	font-size:${tokens.fontSizes.small};
 	color: ${theme.colors.tooltipColor};
 	background: ${theme.colors.tooltipBackgroundColor};
+	border: 1px solid ${theme.colors.tooltipBackgroundColor};
 	border-radius: ${tokens.radii.rectRadius};
 	z-index: ${tokens.zIndices.tooltips};
 `,
