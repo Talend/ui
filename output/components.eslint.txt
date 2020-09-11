@@ -1,4 +1,7 @@
 
+/home/travis/build/Talend/ui/packages/components/src/AboutDialog/AboutModal.stories.js
+  4:25  error  Useless path segments for "./", should be "."  import/no-useless-path-segments
+
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
@@ -149,6 +152,9 @@
 /home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.component.js
   122:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
+/home/travis/build/Talend/ui/packages/components/src/GridLayout/Dashboard.stories.js
+  11:24  error  Useless path segments for "./", should be "."  import/no-useless-path-segments
+
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Tile/Tile.component.js
   27:4  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
 
@@ -163,7 +169,7 @@
   270:4   error    Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  jsx-a11y/accessible-emoji
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.stories.js
-  78:32  error  'brand' is missing in props validation  react/prop-types
+  77:32  error  'brand' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionFilter.hook.js
   27:65  warning  React Hook useMemo has unnecessary dependencies: 'filterFunctions' and 'textFilter'. Either exclude them or remove the dependency array. Outer scope values like 'textFilter' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
@@ -349,5 +355,5 @@
   43:18  error  Missing file extension for "./i18n"        import/extensions
   43:18  error  Unable to resolve path to module './i18n'  import/no-unresolved
 
-✖ 168 problems (146 errors, 22 warnings)
-  7 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 170 problems (148 errors, 22 warnings)
+  9 errors and 0 warnings potentially fixable with the `--fix` option.
