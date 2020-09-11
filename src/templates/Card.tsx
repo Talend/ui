@@ -11,7 +11,6 @@ import Datachaos from '../images/datachaos.png';
 
 const SWrapper = styled.div(
 	({ theme }) => `
-	width: 100vw;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;

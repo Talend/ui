@@ -10,9 +10,9 @@ import tokens from '../../tokens';
 export const Tooltip = styled(ReakitTooltip)(
 	({ theme }) => `
 	max-width: 25rem;
-	padding-left: ${tokens.space.s};
-	padding-right: ${tokens.space.s};
-	font-size: 1.2rem;
+	padding: ${tokens.space.none} ${tokens.space.s};
+	font-family: ${tokens.fonts.sansSerif};
+	font-size:${tokens.fontSizes.small};
 	color: ${theme.colors.tooltipColor};
 	background: ${theme.colors.tooltipBackgroundColor};
 	border-radius: ${tokens.radii.rectRadius};
@@ -24,8 +24,10 @@ export const TooltipReference = styled(ReakitTooltipReference)``;
 
 export const TooltipArrow = styled(ReakitTooltipArrow)(
 	({ theme }) => `
+	color: ${theme.colors.tooltipBackgroundColor};
+
 	svg {
-		fill: ${theme.colors.tooltipBackgroundColor};
+		fill: currentColor;
 	}
 `,
 );

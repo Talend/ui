@@ -106,7 +106,6 @@ const FileField = styled.div(
 			
 			svg {
 				position: static;
-				margin:0;
 				width: ${tokens.sizes.l};
 				
 				path {
