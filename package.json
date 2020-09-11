@@ -30,7 +30,7 @@
     "polished": "^3.6.5",
     "react-i18next": "^11.7.0",
     "react-use": "^15.3.3",
-    "reakit": "^1.2.0"
+    "reakit": "next"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
