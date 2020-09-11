@@ -2905,6 +2905,23 @@
   dependencies:
     "@babel/types" "^7.3.4"
 
+"@talend/bootstrap-theme@^5.18.0":
+  version "5.19.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-5.19.0.tgz#af3f08f1945a729f41a2743a4801a9a4b936e783"
+  integrity sha512-NjPkti3cMFwaoBtcUo2vNT4lyCWyC2L+A8xryXhN/6QIfgGw8AtnS2sFh6e3Ohx0822nxkEwneqw244I0Q/cEA==
+  dependencies:
+    bootstrap-sass "3.4.1"
+
+"@talend/html-webpack-plugin@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@talend/html-webpack-plugin/-/html-webpack-plugin-1.1.0.tgz#7665ca9140c81277ded25b8328fd3508f758b9ce"
+  integrity sha512-iVXGta9LexjQWOOaLsgYpDZeBAUmR6Jjplujrw/FIpl2FyDXBduATQdqqPAz1lueU2Hj4wBNSWLEKIprDapPrg==
+
+"@talend/icons@^5.0.0":
+  version "5.19.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-5.19.0.tgz#56cac8d01de73ae6e318a3bb08e4fab2bab9bf90"
+  integrity sha512-eSsrZ4kt2tNgXxXYs4v/82D6COdb3s4D+LfluJl3FrNf1q3zXXXl+gyqOKRraDZ3uHCxOz+2dLPOUaQ0PKnjow==
+
 "@talend/json-schema-form-core@1.0.0-alpha.4":
   version "1.0.0-alpha.4"
   resolved "https://registry.yarnpkg.com/@talend/json-schema-form-core/-/json-schema-form-core-1.0.0-alpha.4.tgz#ac4e865eef72db2dd5e0c012b3048cc1a6697404"
@@ -2939,6 +2956,17 @@
     react-router-redux "^4.0.8"
     redux-saga "^0.15.4"
 
+"@talend/react-cmf-webpack-plugin@>=3.4.0":
+  version "5.19.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf-webpack-plugin/-/react-cmf-webpack-plugin-5.19.0.tgz#23a4be54811d1038624a553e552ad25221c0e878"
+  integrity sha512-cxJDY4reWQ+OWX3S2IZ8xKYU9gFohgvb9H9kEqwMPHz4wEaPK6sXheFqJLduqTY+gGN/zf9gXf613zgW7JK1JA==
+  dependencies:
+    "@talend/react-cmf" "^5.19.0"
+    chokidar "^2.0.2"
+    deepmerge "^1.5.1"
+    lodash "^4.17.4"
+    mkdirp "^0.5.1"
+
 "@talend/react-cmf@^1.6.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-1.13.0.tgz#d2d907667a4388d36d1cc734a1e93f2dc182cc4b"
@@ -2971,6 +2999,87 @@
     redux-storage-engine-localstorage "^1.1.4"
     redux-thunk "^2.2.0"
 
+"@talend/react-cmf@^5.19.0":
+  version "5.19.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.19.0.tgz#e53fcc0d0e6521cbe40302660ef2a54228b85052"
+  integrity sha512-El/xejY6Yee2lrjxA0t/CctfecvfUWFUFqhWbOeifwV8OB5Uq5H6d4Yh5tHE2e9IC7umlaioc+mu4U+9bm11Xw==
+  dependencies:
+    "@sentry/browser" "^5.11.1"
+    deepmerge "^1.5.1"
+    hoist-non-react-statics "2.5.5"
+    immutable "^3.8.1"
+    invariant "^2.2.2"
+    jsonpath "^1.0.0"
+    lodash "^4.17.4"
+    mkdirp "^1.0.4"
+    path-to-regexp "^2.0.0"
+    prop-types "^15.5.10"
+    react-immutable-proptypes "^2.1.0"
+    react-redux "^5.0.7"
+    redux "^3.7.2"
+    redux-batched-actions "^0.2.0"
+    redux-batched-subscribe "^0.1.6"
+    redux-saga "^0.15.4"
+    redux-storage "^4.1.2"
+    redux-storage-decorator-filter "^1.1.8"
+    redux-storage-decorator-immutablejs "^1.0.4"
+    redux-storage-engine-localstorage "^1.1.4"
+    redux-thunk "^2.2.0"
+    uuid "^7.0.3"
+
+"@talend/react-components@^5.0.0":
+  version "5.19.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-5.19.0.tgz#2a1ca8dd81552b122d1174358a9beda871a4b023"
+  integrity sha512-i9l62/dBOdvzVBNlb/Z0dvC45Ju+2RJuQ9EUnLaKETeIRdrmfNu61/OxBcHQU67h/3cblC8O0Ox8GjjGLKP4VA==
+  dependencies:
+    ally.js "^1.4.1"
+    classnames "^2.2.5"
+    d3-shape "1.2.0"
+    date-fns "^1.27.2"
+    date-fns-timezone "^0.1.4"
+    focus-outline-manager "^1.0.2"
+    immutable "^3.8.1"
+    invariant "^2.2.2"
+    keycode "^2.2.0"
+    lodash "^4.17.4"
+    memoize-one "^5.0.0"
+    rc-slider "8.6.3"
+    rc-tooltip "3.7.3"
+    react-autowhatever "10.2.0"
+    react-bootstrap "0.32.4"
+    react-css-transition "^0.7.4"
+    react-debounce-input "3.2.0"
+    react-dnd "^2.5.4"
+    react-dnd-html5-backend "^2.5.4"
+    react-draggable "^3.3.0"
+    react-grid-layout "0.16.6"
+    react-immutable-proptypes "^2.1.0"
+    react-popper "^1.3.7"
+    react-transition-group "^2.3.1"
+    react-use "^13.27.0"
+    react-virtualized "9.21.0"
+    reactour "^1.13.4"
+    simplebar "^4.2.2"
+    simplebar-react "^1.2.2"
+    simulant "^0.2.2"
+    styled-components "^4.1.3"
+    timezone-support "^1.5.5"
+    uuid "^3.0.1"
+
+"@talend/scripts-config-babel@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-6.5.0.tgz#8224d1d5f63101e31a32ef1bac3086aedea4d55c"
+  integrity sha512-MksUg8NANB2yHm+plQ1XSymmN90rBqFy5M8hU5boV7+6FnHWHjIoXfivz0WKbAqnUiP5nWRlq6Bk+d3g+pD/MQ==
+  dependencies:
+    "@babel/core" "^7.8.7"
+    "@babel/plugin-proposal-class-properties" "^7.8.3"
+    "@babel/plugin-proposal-export-default-from" "^7.8.3"
+    "@babel/plugin-proposal-export-namespace-from" "^7.8.3"
+    "@babel/plugin-transform-object-assign" "^7.8.3"
+    "@babel/preset-env" "^7.8.7"
+    "@babel/preset-react" "^7.8.3"
+    babel-core "^7.0.0-bridge.0"
+
 "@talend/scripts-config-babel@^7.0.0-alpha.20":
   version "7.0.0-alpha.20"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-7.0.0-alpha.20.tgz#b35aef1369ccfc9e83ce49248e997320406cffae"
@@ -2987,6 +3096,22 @@
     "@talend/babel-plugin-transform-ui-imports" "^0.0.1"
     babel-core "^7.0.0-bridge.0"
 
+"@talend/scripts-config-eslint@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-eslint/-/scripts-config-eslint-6.5.0.tgz#ab8ad6ebf6c18956b6cd53fb59e3320e46566602"
+  integrity sha512-O72AGLl0UmmsWESzZwgeFIapAMdmmsTuSKis5EDAjGxW3R3gWcafMUYJuRuU+FxRBqZtfxrbno66UAZHQYUPWg==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^2.23.0"
+    babel-eslint "^10.1.0"
+    eslint "^6.5.1"
+    eslint-config-airbnb-typescript "^6.1.0"
+    eslint-config-prettier "^6.10.0"
+    eslint-plugin-angular "^4.0.1"
+    eslint-plugin-import "^2.20.1"
+    eslint-plugin-jsx-a11y "^6.2.3"
+    eslint-plugin-react "^7.19.0"
+    eslint-plugin-react-hooks "^2.5.0"
+
 "@talend/scripts-config-eslint@^7.0.0-alpha.20":
   version "7.0.0-alpha.20"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-eslint/-/scripts-config-eslint-7.0.0-alpha.20.tgz#2a8397ad7b332ab2a98e9b3d0bbe970aa929e12b"
@@ -3002,6 +3127,24 @@
     eslint-plugin-jsx-a11y "^6.2.3"
     eslint-plugin-react "^7.19.0"
     eslint-plugin-react-hooks "^2.5.0"
+
+"@talend/scripts-config-jest@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-jest/-/scripts-config-jest-6.5.0.tgz#b2a89f3d63f7b95964828d29cb1837280a00a914"
+  integrity sha512-ylifsZ12AMDviZcDO6sdA92+H9equDCUb4prdGVJmkEuuXO6s93v9QRUbR638XGlmZMRBG3jvYCse1jW/+rcIw==
+  dependencies:
+    "@talend/scripts-config-babel" "^6.5.0"
+    "@types/jest" "^25.1.4"
+    babel-jest "^25.1.0"
+    core-js "^3.6.4"
+    enzyme-adapter-react-16 "^1.15.1"
+    jest "^25.1.0"
+    jest-environment-jsdom "^25.1.0"
+    jest-environment-jsdom-global "^1.2.1"
+    jest-serializer-html "^7.0.0"
+    raf "^3.4.1"
+    regenerator-runtime "^0.13.3"
+    ts-jest "^25.2.1"
 
 "@talend/scripts-config-jest@^7.0.0-alpha.20":
   version "7.0.0-alpha.20"
@@ -3020,6 +3163,44 @@
     raf "^3.4.1"
     regenerator-runtime "^0.13.3"
     ts-jest "^25.2.1"
+
+"@talend/scripts-config-react-webpack@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-6.5.0.tgz#b247a3e12f42a2e5af4ce269dc8c5d6c22dca835"
+  integrity sha512-jO8hOcw+nj79my55wLB97jttum1+ZOHqLU5OVsmyY6UIXAInL7vC3SOw5DJlEdv2/ywhkJB0IJnfZVPY0loldg==
+  dependencies:
+    "@talend/html-webpack-plugin" "^1.1.0"
+    "@talend/react-cmf-webpack-plugin" ">=3.4.0"
+    "@talend/scripts-config-babel" "^6.5.0"
+    autoprefixer "^9.7.4"
+    babel-loader "^8.0.6"
+    cache-loader "^4.1.0"
+    clean-webpack-plugin "^3.0.0"
+    copy-webpack-plugin "6.0.3"
+    core-js "^3.6.4"
+    css-loader "^3.4.2"
+    file-loader "^5.1.0"
+    fork-ts-checker-webpack-plugin "^4.0.5"
+    html-loader "^0.5.5"
+    html-webpack-plugin "^3.2.0"
+    mini-css-extract-plugin "^0.9.0"
+    node-sass "^4.13.1"
+    optimize-css-assets-webpack-plugin "^5.0.3"
+    postcss-loader "^3.0.0"
+    postcss-safe-parser "^4.0.2"
+    regenerator-runtime "^0.13.3"
+    resolve-url-loader "^3.1.0"
+    sass-loader "^8.0.2"
+    script-ext-html-webpack-plugin "^2.1.4"
+    source-map-loader "^0.2.4"
+    style-loader "^1.1.3"
+    terser-webpack-plugin "^2.3.7"
+    ts-loader "^6.2.1"
+    url-loader "^3.0.0"
+    webpack "^4.42.0"
+    webpack-cli "^3.3.11"
+    webpack-dev-server "^3.10.3"
+    whatwg-fetch "^3.0.0"
 
 "@talend/scripts-config-react-webpack@^7.0.0-alpha.20":
   version "7.0.0-alpha.20"
@@ -3061,6 +3242,13 @@
     webpack-dev-server "^3.10.3"
     whatwg-fetch "^3.0.0"
 
+"@talend/scripts-config-typescript@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-6.5.0.tgz#e8ff18edf020cf0a2f712968a09001e8a7ac9090"
+  integrity sha512-7X5s4TNl4TZqHMYXYv85mQ67gz5VuMMSXx3fowvhIcpbk9EY5Y5ntajPXTYGbtWqjS555fyFMAhGE13W/zjUhg==
+  dependencies:
+    typescript "^3.8.3"
+
 "@talend/scripts-config-typescript@^7.0.0-alpha.20":
   version "7.0.0-alpha.20"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-7.0.0-alpha.20.tgz#b38f9769e69f794eb86f995d3bb386a781fc28ab"
@@ -3086,6 +3274,24 @@
     which "^2.0.1"
     yargs "^15.3.0"
 
+"@talend/scripts-core@^6.3.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-6.5.0.tgz#ce0aa97b8e2e39fcb70c48bba26d455c680e3938"
+  integrity sha512-Z7ylr+7qDLlzpg+GB38iLbIqrpqYBP3NLOAohIL4eJM4HVpzGJ3AIjsWBcC3aIIZKUi+k5rMlW/TJIp38bqDAw==
+  dependencies:
+    "@babel/cli" "^7.8.3"
+    "@babel/core" "^7.8.7"
+    cpx2 "^2.0.0"
+    cross-spawn "^7.0.1"
+    lodash.get "^4.4.2"
+    lodash.template "^4.5.0"
+    rimraf "^3.0.2"
+    webpack-bundle-analyzer "^3.6.1"
+    webpack-cli "^3.3.11"
+    webpack-merge "^4.2.2"
+    which "^2.0.1"
+    yargs "^15.3.0"
+
 "@talend/scripts-preset-react-lib@7.0.0-alpha.20":
   version "7.0.0-alpha.20"
   resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-7.0.0-alpha.20.tgz#9e2f498eed972b63f922960301b0bd0355597b04"
@@ -3096,6 +3302,17 @@
     "@talend/scripts-config-jest" "^7.0.0-alpha.20"
     "@talend/scripts-config-react-webpack" "^7.0.0-alpha.20"
     "@talend/scripts-config-typescript" "^7.0.0-alpha.20"
+
+"@talend/scripts-preset-react-lib@^6.3.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-6.5.0.tgz#09f26e96304b9387721c892b20a880ba0737cd8f"
+  integrity sha512-qf0HUIaVG+XjqraBI0OUNTi9gkI1LwuLjDNKCbb/rjD7YtheJo5d3d14e1Zue2EIdaraek/pR9bDwmVlIYp5SA==
+  dependencies:
+    "@talend/scripts-config-babel" "^6.5.0"
+    "@talend/scripts-config-eslint" "^6.5.0"
+    "@talend/scripts-config-jest" "^6.5.0"
+    "@talend/scripts-config-react-webpack" "^6.5.0"
+    "@talend/scripts-config-typescript" "^6.5.0"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -4744,6 +4961,11 @@ babel-runtime@6.x, babel-runtime@^6.11.6, babel-runtime@^6.26.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.11.0"
 
+balanced-match@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.4.2.tgz#cb3f3e3c732dc0f01ee70b403f302e61d7709838"
+  integrity sha1-yz8+PHMtwPAe5wtAPzAuYddwmDg=
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
@@ -5214,7 +5436,7 @@ cacache@^13.0.1:
     ssri "^7.0.0"
     unique-filename "^1.1.1"
 
-cacache@^15.0.5:
+cacache@^15.0.4, cacache@^15.0.5:
   version "15.0.5"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-15.0.5.tgz#69162833da29170d6732334643c60e005f5f17d0"
   integrity sha512-lloiL22n7sOjEEXdL8NAjTgv9a1u43xICE9/203qonkZUCj5X1UEWIdf2/Y0d6QcCtMzbKQyhrcDbdvlZTs/+A==
@@ -6140,6 +6362,23 @@ copy-to-clipboard@^3.0.8, copy-to-clipboard@^3.2.0:
   dependencies:
     toggle-selection "^1.0.6"
 
+copy-webpack-plugin@6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-6.0.3.tgz#2b3d2bfc6861b96432a65f0149720adbd902040b"
+  integrity sha512-q5m6Vz4elsuyVEIUXr7wJdIdePWTubsqVbEMvf1WQnHGv0Q+9yPRu7MtYFPt+GBOXRav9lvIINifTQ1vSCs+eA==
+  dependencies:
+    cacache "^15.0.4"
+    fast-glob "^3.2.4"
+    find-cache-dir "^3.3.1"
+    glob-parent "^5.1.1"
+    globby "^11.0.1"
+    loader-utils "^2.0.0"
+    normalize-path "^3.0.0"
+    p-limit "^3.0.1"
+    schema-utils "^2.7.0"
+    serialize-javascript "^4.0.0"
+    webpack-sources "^1.4.3"
+
 copy-webpack-plugin@^5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-5.1.2.tgz#8a889e1dcafa6c91c6cd4be1ad158f1d3823bae2"
@@ -6194,6 +6433,10 @@ core-js@^1.0.0:
   integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
 
 core-js@^2.4.0, core-js@^2.5.7, core-js@^2.6.5:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
+
+core-js@^2.6.10:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
@@ -6649,10 +6892,49 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+d3-array@^1.2.0:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
+  integrity sha512-KHW6M86R+FUPYGb3R5XiYjXPq7VzwxZ22buHhAEVG5ztoEcZZMLov530mmccaqA1GghZArjQV46fuc8kUqhhHw==
+
+d3-collection@1:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/d3-collection/-/d3-collection-1.0.7.tgz#349bd2aa9977db071091c13144d5e4f16b5b310e"
+  integrity sha512-ii0/r5f4sjKNTfh84Di+DpztYwqKhEyUlKoPrzUFfeSkWxjW49xU2QzO9qrPrNkpdI0XJkfzvmTu8V2Zylln6A==
+
+d3-color@1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.4.1.tgz#c52002bf8846ada4424d55d97982fef26eb3bc8a"
+  integrity sha512-p2sTHSLCJI2QKunbGb7ocOh7DgTAn8IrLx21QRc/BSnodXM4sv6aLQlnfpvehFMLZEfBc6g9pH9SWQccFYfJ9Q==
+
+d3-format@1:
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/d3-format/-/d3-format-1.4.5.tgz#374f2ba1320e3717eb74a9356c67daee17a7edb4"
+  integrity sha512-J0piedu6Z8iB6TbIGfZgDzfXxUFN3qQRMofy2oPdXzQibYGqPB/9iMcxr/TGalU+2RsyDO+U4f33id8tbnSRMQ==
+
+d3-interpolate@1, d3-interpolate@^1.3.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-1.4.0.tgz#526e79e2d80daa383f9e0c1c1c7dcc0f0583e987"
+  integrity sha512-V9znK0zc3jOPV4VD2zZn0sDhZU3WAE2bmlxdIwwQPPzPjvyLkd8B3JUVdS1IDUFDkWZ72c9qnv1GK2ZagTZ8EA==
+  dependencies:
+    d3-color "1"
+
 d3-path@1:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/d3-path/-/d3-path-1.0.9.tgz#48c050bb1fe8c262493a8caf5524e3e9591701cf"
   integrity sha512-VLaYcn81dtHVTjEHd8B+pbe9yHWpXKZUC87PzoFmsFrJqgFwDe/qxfp5MlfsfM1V5E/iVt0MmEbWQ7FVIXh/bg==
+
+d3-scale@^2.1.0:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/d3-scale/-/d3-scale-2.2.2.tgz#4e880e0b2745acaaddd3ede26a9e908a9e17b81f"
+  integrity sha512-LbeEvGgIb8UMcAa0EATLNX0lelKWGYDQiPdHj+gLblGVhGLyNbaCn3EvrJf0A3Y/uOOU5aD6MTh5ZFCdEwGiCw==
+  dependencies:
+    d3-array "^1.2.0"
+    d3-collection "1"
+    d3-format "1"
+    d3-interpolate "1"
+    d3-time "1"
+    d3-time-format "2"
 
 d3-shape@1.2.0:
   version "1.2.0"
@@ -6661,7 +6943,32 @@ d3-shape@1.2.0:
   dependencies:
     d3-path "1"
 
-d@1, d@^1.0.1:
+d3-shape@^1.2.0:
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/d3-shape/-/d3-shape-1.3.7.tgz#df63801be07bc986bc54f63789b4fe502992b5d7"
+  integrity sha512-EUkvKjqPFUAZyOlhY5gzCxCeI0Aep04LwIRpsZ/mLFelJiUfnK56jo5JMDSE7yyP2kLSb6LtF+S5chMk7uqPqw==
+  dependencies:
+    d3-path "1"
+
+d3-time-format@2:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/d3-time-format/-/d3-time-format-2.3.0.tgz#107bdc028667788a8924ba040faf1fbccd5a7850"
+  integrity sha512-guv6b2H37s2Uq/GefleCDtbe0XZAuy7Wa49VGkPVPMfLL9qObgBST3lEHJBMUp8S7NdLQAGIvr2KXk8Hc98iKQ==
+  dependencies:
+    d3-time "1"
+
+d3-time@1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/d3-time/-/d3-time-1.1.0.tgz#b1e19d307dae9c900b7e5b25ffc5dcc249a8a0f1"
+  integrity sha512-Xh0isrZ5rPYYdqhAVk8VLnMEidhz5aP7htAADH6MfzgmmicPkTo8LhkLxci61/lCB7n7UmE3bN0leRt+qvkLxA==
+
+d@1:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/d/-/d-1.0.0.tgz#754bb5bfe55451da69a58b94d45f4c5b0462d58f"
+  dependencies:
+    es5-ext "^0.10.9"
+
+d@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/d/-/d-1.0.1.tgz#8698095372d58dbee346ffd0c7093f99f8f9eb5a"
   integrity sha512-m62ShEObQ39CfralilEQRjH6oAMtNCV1xJyEx5LpRYUVN+EviphDgUc/F3hnYbADmkiNs67Y+3ylmlG7Lnu+FA==
@@ -6784,6 +7091,11 @@ decamelize@^1.1.0, decamelize@^1.1.2, decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
+
+decimal.js-light@^2.4.1:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/decimal.js-light/-/decimal.js-light-2.5.0.tgz#ca7faf504c799326df94b0ab920424fdfc125348"
+  integrity sha512-b3VJCbd2hwUpeRGG3Toob+CRo8W22xplipNhP3tN7TSVB/cyMX71P1vM2Xjc9H74uV6dS2hDDmo/rHq8L87Upg==
 
 decimal.js@^10.2.0:
   version "10.2.0"
@@ -7483,7 +7795,7 @@ enzyme-to-json@^3.5.0:
     lodash "^4.17.15"
     react-is "^16.12.0"
 
-enzyme@^3.11.0:
+enzyme@^3.11.0, enzyme@^3.9.0:
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.11.0.tgz#71d680c580fe9349f6f5ac6c775bc3e6b7a79c28"
   integrity sha512-Dw8/Gs4vRjxY6/6i9wU0V+utmQO9kvh9XLnz3LIudviOnVYDEe2ec+0k+NQoMamn1VrjKgCUOWj5jG/5M5M0Qw==
@@ -7616,7 +7928,7 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-es5-ext@^0.10.35, es5-ext@^0.10.46, es5-ext@^0.10.50, es5-ext@~0.10.14:
+es5-ext@^0.10.35, es5-ext@^0.10.46, es5-ext@^0.10.50, es5-ext@^0.10.9, es5-ext@~0.10.14:
   version "0.10.53"
   resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.53.tgz#93c5a3acfdbef275220ad72644ad02ee18368de1"
   integrity sha512-Xs2Stw6NiNHWypzRTY1MtaG/uJlwCk8kH81920ma8mvN8Xq1gsfhZvpkImLQArw8AHnv8MT2I45J3c0R8slE+Q==
@@ -12153,7 +12465,7 @@ lodash.unset@^4.1.0:
   resolved "https://registry.yarnpkg.com/lodash.unset/-/lodash.unset-4.5.2.tgz#370d1d3e85b72a7e1b0cdf2d272121306f23e4ed"
   integrity sha1-Nw0dPoW3Kn4bDN8tJyEhMG8j5O0=
 
-lodash@^4.0.0, lodash@^4.0.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.0.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10, lodash@~4.17.4:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -12379,6 +12691,11 @@ material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
   integrity sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==
+
+math-expression-evaluator@^1.2.14:
+  version "1.2.22"
+  resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.22.tgz#c14dcb3d8b4d150e5dcea9c68c8dad80309b0d5e"
+  integrity sha512-L0j0tFVZBQQLeEjmWOvDLoRciIY8gQGWahvkztXUal8jH8R5Rlqo9GCvgqvXcy9LQhEWdQCVvzqAbxgYNt4blQ==
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -13749,7 +14066,7 @@ p-limit@^2.0.0, p-limit@^2.2.0, p-limit@^2.2.1, p-limit@^2.3.0:
   dependencies:
     p-try "^2.0.0"
 
-p-limit@^3.0.2:
+p-limit@^3.0.1, p-limit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-3.0.2.tgz#1664e010af3cadc681baafd3e2a437be7b0fb5fe"
   integrity sha512-iwqZSOoWIW+Ew4kAGUlN16J4M7OB3ysMLSZtnhmqx7njIHFPlxWBX8xo3lVTyFVq6mI/lL9qt2IsN1sHwaxJkg==
@@ -15261,7 +15578,7 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@^16.13.1, react-dom@^16.8.3:
+react-dom@^16.13.1, react-dom@^16.8.3, react-dom@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -15494,6 +15811,16 @@ react-resizable@1.x:
     prop-types "15.x"
     react-draggable "^4.0.3"
 
+react-resize-detector@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-2.3.0.tgz#57bad1ae26a28a62a2ddb678ba6ffdf8fa2b599c"
+  integrity sha512-oCAddEWWeFWYH5FAcHdBYcZjAw9fMzRUK9sWSx6WvSSOPVRxcHd5zTIGy/mOus+AhN/u6T4TMiWxvq79PywnJQ==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
+    prop-types "^15.6.0"
+    resize-observer-polyfill "^1.5.0"
+
 react-router-redux@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-4.0.8.tgz#227403596b5151e182377dab835b5d45f0f8054e"
@@ -15536,6 +15863,16 @@ react-sizeme@^2.5.2, react-sizeme@^2.6.7:
     invariant "^2.2.4"
     shallowequal "^1.1.0"
     throttle-debounce "^2.1.0"
+
+react-smooth@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-smooth/-/react-smooth-1.0.5.tgz#94ae161d7951cdd893ccb7099d031d342cb762ad"
+  integrity sha512-eW057HT0lFgCKh8ilr0y2JaH2YbNcuEdFpxyg7Gf/qDKk9hqGMyXryZJ8iMGJEuKH0+wxS0ccSsBBB3W8yCn8w==
+  dependencies:
+    lodash "~4.17.4"
+    prop-types "^15.6.0"
+    raf "^3.4.0"
+    react-transition-group "^2.5.0"
 
 react-storybook-addon-props-combinations@^1.1.0:
   version "1.1.0"
@@ -15592,7 +15929,7 @@ react-transition-group@^1.0.0:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react-transition-group@^2.0.0, react-transition-group@^2.2.0, react-transition-group@^2.3.1:
+react-transition-group@^2.0.0, react-transition-group@^2.2.0, react-transition-group@^2.3.1, react-transition-group@^2.5.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
   integrity sha512-+HzNTCHpeQyl4MJ/bdE0u6XRMe9+XG/+aL4mCxVN4DnPBQ0/5bfHWPDuOZUzYdMj94daZaZdCCc1Dzt9R/xSSg==
@@ -15643,7 +15980,7 @@ react-virtualized@9.21.0:
     prop-types "^15.6.0"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.13.1, react@^16.8.3:
+react@^16.13.1, react@^16.8.3, react@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
@@ -15935,6 +16272,30 @@ recast@~0.11.12:
     private "~0.1.5"
     source-map "~0.5.0"
 
+recharts-scale@^0.4.2:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/recharts-scale/-/recharts-scale-0.4.3.tgz#040b4f638ed687a530357292ecac880578384b59"
+  integrity sha512-t8p5sccG9Blm7c1JQK/ak9O8o95WGhNXD7TXg/BW5bYbVlr6eCeRBNpgyigD4p6pSSMehC5nSvBUPj6F68rbFA==
+  dependencies:
+    decimal.js-light "^2.4.1"
+
+recharts@^1.8.5:
+  version "1.8.5"
+  resolved "https://registry.yarnpkg.com/recharts/-/recharts-1.8.5.tgz#ca94a3395550946334a802e35004ceb2583fdb12"
+  integrity sha512-tM9mprJbXVEBxjM7zHsIy6Cc41oO/pVYqyAsOHLxlJrbNBuLs0PHB3iys2M+RqCF0//k8nJtZF6X6swSkWY3tg==
+  dependencies:
+    classnames "^2.2.5"
+    core-js "^2.6.10"
+    d3-interpolate "^1.3.0"
+    d3-scale "^2.1.0"
+    d3-shape "^1.2.0"
+    lodash "^4.17.5"
+    prop-types "^15.6.0"
+    react-resize-detector "^2.3.0"
+    react-smooth "^1.0.5"
+    recharts-scale "^0.4.2"
+    reduce-css-calc "^1.3.0"
+
 rechoir@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
@@ -15972,6 +16333,22 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
+
+reduce-css-calc@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/reduce-css-calc/-/reduce-css-calc-1.3.0.tgz#747c914e049614a4c9cfbba629871ad1d2927716"
+  integrity sha1-dHyRTgSWFKTJz7umKYca0dKSdxY=
+  dependencies:
+    balanced-match "^0.4.2"
+    math-expression-evaluator "^1.2.14"
+    reduce-function-call "^1.0.1"
+
+reduce-function-call@^1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.3.tgz#60350f7fb252c0a67eb10fd4694d16909971300f"
+  integrity sha512-Hl/tuV2VDgWgCSEeWMLwxLZqX7OK59eU1guxXsRKTAyeYimivsKdtcV4fu3r710tpG5GmDKDhQ0HSZLExnNmyQ==
+  dependencies:
+    balanced-match "^1.0.0"
 
 reduce-reducers@^0.1.0:
   version "0.1.5"
@@ -16320,7 +16697,7 @@ reselect@^2.5.4:
   resolved "https://registry.yarnpkg.com/reselect/-/reselect-2.5.4.tgz#b7d23fdf00b83fa7ad0279546f8dbbbd765c7047"
   integrity sha1-t9I/3wC4P6etAnlUb427vXZccEc=
 
-resize-observer-polyfill@^1.5.1:
+resize-observer-polyfill@^1.5.0, resize-observer-polyfill@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==

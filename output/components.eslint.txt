@@ -224,6 +224,17 @@
   347:2  error  defaultProp "minimumPercentage" has no corresponding propTypes declaration  react/default-props-match-prop-types
   348:2  error  defaultProp "display" has no corresponding propTypes declaration            react/default-props-match-prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/RadarChart/RadarChart.stories.js
+   29:7    error    'activeAxis' is assigned a value but never used                                                   @typescript-eslint/no-unused-vars
+   34:17   warning  Unexpected unnamed function                                                                       func-names
+   35:55   error    Strings must use singlequote                                                                      @typescript-eslint/quotes
+   35:55   error    Unexpected string concatenation                                                                   prefer-template
+   35:107  error    Strings must use singlequote                                                                      @typescript-eslint/quotes
+   50:11   error    Value must be omitted for boolean attributes                                                      react/jsx-boolean-value
+   79:5    error    The closing bracket must be aligned with the line containing the opening tag (expected column 9)  react/jsx-closing-bracket-location
+  122:9    error    Empty components are self-closing                                                                 react/self-closing-comp
+  125:4    error    Missing semicolon                                                                                 @typescript-eslint/semi
+
 /home/travis/build/Talend/ui/packages/components/src/ResourceList/Resource/Resource.component.js
   52:3   error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
   52:3   error  Non-interactive elements should not be assigned mouse or keyboard event listeners               jsx-a11y/no-noninteractive-element-interactions
@@ -330,4 +341,5 @@
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.component.js
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-✖ 155 problems (134 errors, 21 warnings)
+✖ 164 problems (142 errors, 22 warnings)
+  7 errors and 0 warnings potentially fixable with the `--fix` option.
