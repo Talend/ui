@@ -1,7 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import PieChartIcon from './PieChartIcon.component';
-import PieChartButton from './PieChartButton.component';
 import PieChart from './PieChart.component';
 
 describe('PieChart', () => {

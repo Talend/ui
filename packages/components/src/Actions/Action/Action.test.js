@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Action, { getActionComponent } from './Action.component';
+import Action from './Action.component';
 import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';
 import ActionDropdown from '../ActionDropdown';

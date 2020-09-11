@@ -40,7 +40,7 @@ import GridLayout from './GridLayout';
 import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
-import i18n from './i18n';
+import i18n from './i18n/index';
 import Rich from './RichTooltip';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
@@ -56,6 +56,7 @@ import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
 import PieChart from './PieChart';
 import Progress from './Progress';
+import RadarChart from './RadarChart';
 
 import TreeView from './TreeView';
 import ResourcePicker from './ResourcePicker';
@@ -205,6 +206,7 @@ export {
 	// TODO 6.0: export OverlayTrigger here. For now there is already an OverlayTrigger from react-bootstrap
 	PieChart,
 	Progress,
+	RadarChart,
 	// PLOP: PR cursor to go over the components
 	Checkbox,
 	ResourceList,
