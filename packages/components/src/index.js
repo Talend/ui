@@ -57,9 +57,10 @@ import ObjectViewer from './ObjectViewer';
 import PieChart from './PieChart';
 import Progress from './Progress';
 import RadarChart from './RadarChart';
+import ResourceList from './ResourceList';
 
-import TreeView from './TreeView';
 import ResourcePicker from './ResourcePicker';
+import TreeView from './TreeView';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
 import Table from './Table';
@@ -72,7 +73,6 @@ import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
-import ResourceList from './ResourceList';
 
 // TODO 6.0: remove those imports
 import Tile from './GridLayout/Tile';
@@ -207,9 +207,9 @@ export {
 	PieChart,
 	Progress,
 	RadarChart,
+	ResourceList,
 	// PLOP: PR cursor to go over the components
 	Checkbox,
-	ResourceList,
 	ResourcePicker,
 	SidePanel,
 	Skeleton,

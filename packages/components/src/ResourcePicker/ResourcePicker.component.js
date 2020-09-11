@@ -2,7 +2,7 @@ import React from 'react';
 
 import { getTheme } from '../theme';
 
-import ResourceList from '../ResourceList/ResourceList.component';
+import ResourceList from '../ResourceList';
 
 import cssModule from './ResourcePicker.scss';
 import ResourceListPropTypes from '../ResourceList/ResourceList.propTypes';
