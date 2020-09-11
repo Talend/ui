@@ -1,5 +1,6 @@
 import Button from './components/Button';
 import Card from './components/Card';
+import Combobox from './components/Combobox';
 import Dropdown from './components/Dropdown';
 import Form from './components/Form';
 import HeaderBar from './components/HeaderBar';
@@ -16,12 +17,14 @@ import Toggle from './components/Toggle';
 import Tooltip from './components/Tooltip';
 
 import icons from './icons';
+import templates from './templates';
 import themes from './themes';
 import tokens from './tokens';
 
 export {
 	Button,
 	Card,
+	Combobox,
 	Dropdown,
 	Form,
 	HeaderBar,
@@ -37,6 +40,7 @@ export {
 	Toggle,
 	Tooltip,
 	icons,
+	templates,
 	themes,
 	tokens,
 };
