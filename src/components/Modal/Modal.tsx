@@ -11,7 +11,7 @@ export type ModalProps = DialogProps & {
 
 const Modal: React.FC<ModalProps> = React.forwardRef(
 	({ disclosure, children, icon, title, subtitle, ...props }: ModalProps, ref) => {
-		const dialog = useDialogState();
+		const dialog = useDialogState({ animated: true });
 		return (
 			<>
 				{disclosure && (
@@ -36,7 +36,6 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
 	},
 );
 
-const useModalState = useDialogState;
 const ModalDisclosure = React.forwardRef((props, ref) => (
 	<S.DialogDisclosure {...props} ref={ref} />
 ));
@@ -47,13 +46,13 @@ const ModalDialog = ({ children, ...rest }) => (
 );
 
 const ModalComponent = Modal as typeof Modal & {
-	useDialogState: typeof useModalState;
+	useDialogState: typeof useDialogState;
 	Disclosure: typeof ModalDisclosure;
 	Dialog: typeof ModalDialog;
 	Buttons: typeof S.DialogButtons;
 };
 
-ModalComponent.useDialogState = useModalState;
+ModalComponent.useDialogState = initialState => useDialogState({ animated: true, ...initialState });
 ModalComponent.Disclosure = ModalDisclosure;
 ModalComponent.Dialog = ModalDialog;
 ModalComponent.Buttons = S.DialogButtons;
