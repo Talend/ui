@@ -1,13 +1,6 @@
 
-/home/travis/build/Talend/ui/packages/components/src/AboutDialog/AboutModal.stories.js
-  4:25  error  Useless path segments for "./", should be "."  import/no-useless-path-segments
-
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.test.js
-  3:18  error  getActionComponent not found in './Action.component'  import/named
-  3:18  error  'getActionComponent' is defined but never used        @typescript-eslint/no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
   143:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
@@ -152,9 +145,6 @@
 /home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.component.js
   122:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
-/home/travis/build/Talend/ui/packages/components/src/GridLayout/Dashboard.stories.js
-  11:24  error  Useless path segments for "./", should be "."  import/no-useless-path-segments
-
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Tile/Tile.component.js
   27:4  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
 
@@ -229,25 +219,17 @@
 /home/travis/build/Talend/ui/packages/components/src/OverlayTrigger/OverlayTrigger.component.js
   39:3  error  defaultProp "preventScrolling" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/PieChart/PieChart.test.js
-  3:8  error  'PieChartIcon' is defined but never used    @typescript-eslint/no-unused-vars
-  4:8  error  'PieChartButton' is defined but never used  @typescript-eslint/no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/PieChart/PieChartIcon.component.js
   346:2  error  defaultProp "labelIndex" has no corresponding propTypes declaration         react/default-props-match-prop-types
   347:2  error  defaultProp "minimumPercentage" has no corresponding propTypes declaration  react/default-props-match-prop-types
   348:2  error  defaultProp "display" has no corresponding propTypes declaration            react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/RadarChart/RadarChart.stories.js
-   29:7    error    'activeAxis' is assigned a value but never used                                                   @typescript-eslint/no-unused-vars
-   34:17   warning  Unexpected unnamed function                                                                       func-names
-   35:55   error    Strings must use singlequote                                                                      @typescript-eslint/quotes
-   35:55   error    Unexpected string concatenation                                                                   prefer-template
-   35:107  error    Strings must use singlequote                                                                      @typescript-eslint/quotes
-   50:11   error    Value must be omitted for boolean attributes                                                      react/jsx-boolean-value
-   79:5    error    The closing bracket must be aligned with the line containing the opening tag (expected column 9)  react/jsx-closing-bracket-location
-  122:9    error    Empty components are self-closing                                                                 react/self-closing-comp
-  125:4    error    Missing semicolon                                                                                 @typescript-eslint/semi
+   29:7   error    'activeAxis' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   34:17  warning  Unexpected unnamed function                      func-names
+   36:3   error    Unexpected string concatenation                  prefer-template
+   51:6   error    Value must be omitted for boolean attributes     react/jsx-boolean-value
+  127:5   error    Empty components are self-closing                react/self-closing-comp
 
 /home/travis/build/Talend/ui/packages/components/src/ResourceList/Resource/Resource.component.js
   52:3   error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
@@ -356,8 +338,8 @@
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/index.js
-  43:18  error  Missing file extension for "./i18n"        import/extensions
-  43:18  error  Unable to resolve path to module './i18n'  import/no-unresolved
+  43:18  error  Missing file extension for "./i18n/index"        import/extensions
+  43:18  error  Unable to resolve path to module './i18n/index'  import/no-unresolved
 
-✖ 172 problems (150 errors, 22 warnings)
-  9 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 162 problems (140 errors, 22 warnings)
+  3 errors and 0 warnings potentially fixable with the `--fix` option.
