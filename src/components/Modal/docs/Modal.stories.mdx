@@ -4,7 +4,6 @@ import Button from '../../Button';
 import Modal from '../';
 import ModalZoning from './images/zoning-modal.png';
 
-
 <Meta title="Components/Modal" />
 
 # Modal
@@ -13,23 +12,22 @@ import ModalZoning from './images/zoning-modal.png';
 
 <img src={ModalZoning} alt="zoning image for modal" className="full" class="full" />
 
-
 ## Style
 
 ### Sizes
 
-| Attribute                   | Variable     |
-| --------------------------- | ------------ |
-| max-height                  | 80%          |
-| min-width                   | 40rem        |
-| max-width                   | 90rem        |
+| Attribute  | Variable |
+| ---------- | -------- |
+| max-height | 80%      |
+| min-width  | 40rem    |
+| max-width  | 90rem    |
 
 ### Placement
 
-| Attribute                   | Variable     |
-| --------------------------- | ------------ |
-| horizontal                  | centered     |
-| vertical                    | centered     |
+| Attribute  | Variable |
+| ---------- | -------- |
+| horizontal | centered |
+| vertical   | centered |
 
 ## States
 
@@ -42,8 +40,9 @@ import ModalZoning from './images/zoning-modal.png';
 		</ul>
 	</Use.Do>
 	<Use.Dont>
-		<ul><li>Avoid long content in order to not have a scrollbar</li>
-  </ul>
+		<ul>
+			<li>Avoid long content in order to not have a scrollbar</li>
+		</ul>
 	</Use.Dont>
 </Use>
 
@@ -57,13 +56,13 @@ import ModalZoning from './images/zoning-modal.png';
 
 <Preview>
 	<Story name="default">
-		<Modal disclosure={<Button.Primary>Show</Button.Primary>} title="Send invitation email">
+		<Modal
+			disclosure={<Button.Primary>Send invitation email</Button.Primary>}
+			title="Send invitation email"
+		>
 			Invitation email will be send to this address: <strong>test@email.com</strong>
-			<br />Do you want to send this email now?
-			<Modal.Buttons>
-				<Button.Secondary>Cancel</Button.Secondary>
-				<Button.Primary>Send</Button.Primary>
-			</Modal.Buttons>
+			<br />
+			Do you want to send this email now?
 		</Modal>
 	</Story>
 </Preview>

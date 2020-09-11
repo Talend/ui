@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDialogState, DialogProps } from 'reakit/Dialog';
 
+import Button from '../Button';
 import Icon from '../Icon';
 
 import * as S from './Modal.style';
@@ -9,9 +10,25 @@ export type ModalProps = DialogProps & {
 	disclosure?: string;
 };
 
+const useModalState = initialState => useDialogState({ animated: true, ...initialState });
+
 const Modal: React.FC<ModalProps> = React.forwardRef(
-	({ disclosure, children, icon, title, subtitle, ...props }: ModalProps, ref) => {
-		const dialog = useDialogState({ animated: true });
+	(
+		{ disclosure, children, icon, title, subtitle, onClose, onValidate, ...props }: ModalProps,
+		ref,
+	) => {
+		const dialog = useModalState();
+
+		function onCloseHandler() {
+			dialog.hide();
+			onClose();
+		}
+
+		function onValidateHandler() {
+			onValidate();
+			dialog.hide();
+		}
+
 		return (
 			<>
 				{disclosure && (
@@ -29,6 +46,10 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
 							</div>
 						</S.DialogHeading>
 						{children}
+						<S.DialogButtons>
+							<Button.Secondary onClick={onCloseHandler}>Cancel</Button.Secondary>
+							<Button.Primary onClick={onValidateHandler}>Validate</Button.Primary>
+						</S.DialogButtons>
 					</S.Dialog>
 				</S.DialogBackdrop>
 			</>
@@ -39,6 +60,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
 const ModalDisclosure = React.forwardRef((props, ref) => (
 	<S.DialogDisclosure {...props} ref={ref} />
 ));
+
 const ModalDialog = ({ children, ...rest }) => (
 	<S.DialogBackdrop {...rest}>
 		<S.Dialog {...rest}>{children}</S.Dialog>
@@ -49,12 +71,14 @@ const ModalComponent = Modal as typeof Modal & {
 	useDialogState: typeof useDialogState;
 	Disclosure: typeof ModalDisclosure;
 	Dialog: typeof ModalDialog;
+	Heading: typeof S.DialogHeading;
 	Buttons: typeof S.DialogButtons;
 };
 
-ModalComponent.useDialogState = initialState => useDialogState({ animated: true, ...initialState });
+ModalComponent.useDialogState = useModalState;
 ModalComponent.Disclosure = ModalDisclosure;
 ModalComponent.Dialog = ModalDialog;
+ModalComponent.Heading = S.DialogHeading;
 ModalComponent.Buttons = S.DialogButtons;
 
 export default ModalComponent;
