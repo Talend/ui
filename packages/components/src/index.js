@@ -44,6 +44,7 @@ import i18n from './i18n';
 import Rich from './RichTooltip';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
+import Inject from './Inject';
 
 import Notification from './Notification';
 import ListView from './ListView';
@@ -67,7 +68,6 @@ import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
-import Inject from './Inject';
 import ResourceList from './ResourceList';
 import { InlineMessage } from './InlineMessage';
 
@@ -190,9 +190,9 @@ export {
 	i18n,
 	Icon,
 	IconsProvider,
+	Inject,
 	// PLOP: PR cursor to go over the components
 	Checkbox,
-	Inject,
 	JSONSchemaRenderer,
 	Layout,
 	List,
