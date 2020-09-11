@@ -2,12 +2,17 @@ import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import { Use } from '../../../docs';
 import Button from '../../Button';
 import Modal from '../';
+import ModalZoning from './images/zoning-modal.png';
+
 
 <Meta title="Components/Modal" />
 
 # Modal
 
 ## Zoning
+
+<img src={ModalZoning} alt="zoning image for modal" className="full" class="full" />
+
 
 ## Style
 
@@ -16,8 +21,16 @@ import Modal from '../';
 | Attribute                   | Variable     |
 | --------------------------- | ------------ |
 | max-height                  | 80%          |
+| min-width                   | 40rem        |
 | max-width                   | 90rem        |
 
+### Placement
+
+| Attribute                   | Variable     |
+| --------------------------- | ------------ |
+| horizontal                  | centered     |
+| vertical                    | centered     |
+ 
 ## States
 
 ## Content
@@ -31,6 +44,7 @@ import Modal from '../';
   </Use.Do>
 	<Use.Dont>
   <ul>
+  <li>Avoid long content in order to not have a scrollbar</li>
   </ul>
   </Use.Dont>
 </Use>
