@@ -229,6 +229,10 @@
 /home/travis/build/Talend/ui/packages/components/src/OverlayTrigger/OverlayTrigger.component.js
   39:3  error  defaultProp "preventScrolling" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/PieChart/PieChart.test.js
+  3:8  error  'PieChartIcon' is defined but never used    @typescript-eslint/no-unused-vars
+  4:8  error  'PieChartButton' is defined but never used  @typescript-eslint/no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/PieChart/PieChartIcon.component.js
   346:2  error  defaultProp "labelIndex" has no corresponding propTypes declaration         react/default-props-match-prop-types
   347:2  error  defaultProp "minimumPercentage" has no corresponding propTypes declaration  react/default-props-match-prop-types
@@ -355,5 +359,5 @@
   43:18  error  Missing file extension for "./i18n"        import/extensions
   43:18  error  Unable to resolve path to module './i18n'  import/no-unresolved
 
-✖ 170 problems (148 errors, 22 warnings)
+✖ 172 problems (150 errors, 22 warnings)
   9 errors and 0 warnings potentially fixable with the `--fix` option.
