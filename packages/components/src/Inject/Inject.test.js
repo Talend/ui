@@ -246,7 +246,7 @@ describe('Inject.getReactElement', () => {
 
 describe('NotFoundComponent', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Inject.NotFoundComponent error="MyError" />);
+		const wrapper = shallow(<Inject.NotFound error="MyError" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

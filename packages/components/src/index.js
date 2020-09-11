@@ -51,11 +51,13 @@ import Layout from './Layout';
 import List from './List';
 import ListView from './ListView';
 import Loader from './Loader';
-
+import MultiSelect from './MultiSelect';
 import Notification from './Notification';
-import TreeView from './TreeView';
 import ObjectViewer from './ObjectViewer';
+import PieChart from './PieChart';
 import Progress from './Progress';
+
+import TreeView from './TreeView';
 import ResourcePicker from './ResourcePicker';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
@@ -197,11 +199,14 @@ export {
 	List,
 	ListView,
 	Loader,
-	// PLOP: PR cursor to go over the components
-	Checkbox,
+	MultiSelect,
 	Notification,
 	ObjectViewer,
+	// TODO 6.0: export OverlayTrigger here. For now there is already an OverlayTrigger from react-bootstrap
+	PieChart,
 	Progress,
+	// PLOP: PR cursor to go over the components
+	Checkbox,
 	ResourceList,
 	ResourcePicker,
 	SidePanel,
