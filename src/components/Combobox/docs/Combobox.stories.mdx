@@ -1,0 +1,40 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import Combobox from '../';
+
+<Meta title="Components/Combobox" component={Combobox} />
+
+# Combobox
+
+Combobox is used to pick an item using rich preview.
+
+export const userListCache = {};
+
+export function createUserList(term = '') {
+	if (userListCache[term]) {
+		return {
+			read() {
+				return userListCache[term];
+			},
+		};
+	}
+	const promise = fetch(`https://jsonplaceholder.typicode.com/users?q=${term}`)
+		.then(response => response.json())
+		.then(data => {
+			userListCache[term] = data;
+			return data;
+		});
+	return {
+		read() {
+			if (userListCache[term]) {
+				return userListCache[term];
+			}
+			throw promise;
+		},
+	};
+}
+
+<Canvas>
+	<Story name="usage">
+		<Combobox initialValue="" getList={term => createUserList(term)} />
+	</Story>
+</Canvas>
