@@ -39,11 +39,11 @@ import FocusManager from './FocusManager';
 import GridLayout from './GridLayout';
 import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
+import Rich from './RichTooltip';
 
 import Notification from './Notification';
 import HttpError from './HttpError';
 import i18n from './i18n';
-import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
@@ -69,12 +69,13 @@ import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
 import ResourceList from './ResourceList';
-import RichLayout from './RichTooltip/RichLayout';
-import RichError from './RichTooltip/RichError';
 import { InlineMessage } from './InlineMessage';
 
 // TODO 6.0: remove those imports
 import Tile from './GridLayout/Tile';
+import HeaderTitle from './HeaderTitle';
+import RichLayout from './RichTooltip/RichLayout';
+import RichError from './RichTooltip/RichError';
 import getTranslated from './TranslateWrapper';
 import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 
@@ -184,9 +185,9 @@ export {
 	GridLayout,
 	GuidedTour,
 	HeaderBar,
+	Rich,
 	// PLOP: PR cursor to go over the components
 	Checkbox,
-	HeaderTitle, // TODO move that to RichLayout for  6.0
 	HttpError,
 	i18n,
 	Icon,
@@ -202,8 +203,6 @@ export {
 	Progress,
 	ResourceList,
 	ResourcePicker,
-	RichError,
-	RichLayout,
 	SidePanel,
 	Skeleton,
 	Status,
@@ -219,6 +218,9 @@ export {
 	VirtualizedList,
 	WithDrawer,
 	// TODO 6.0: remove from here
+	RichError,
+	RichLayout,
+	HeaderTitle,
 	Tile,
 	getTranslated, // TODO 6.0: remove the TranslateWrapper folder
 	I18N_DOMAIN_COMPONENTS,
