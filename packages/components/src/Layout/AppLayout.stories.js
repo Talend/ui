@@ -10,8 +10,6 @@ import SidePanel from '../SidePanel';
 import SubHeaderBar from '../SubHeaderBar';
 import List from '../List/ListComposition';
 
-import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from './constants';
-
 const actions = [
 	{
 		label: 'Preparations',
@@ -113,14 +111,14 @@ function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = con
  */
 function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
 	layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent);
-	apps.forEach(app => {
+	Layout.TALEND_T7_THEME_APPS.forEach(app => {
 		const decoratedPropsWithTheme = {
 			...layoutStoryProps,
 			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
 		};
 		stories.add(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
 			<div className={appStyle[app]}>
-				<div className={TALEND_T7_THEME_CLASSNAME}>
+				<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
 					<Layout {...decoratedPropsWithTheme}>{layoutStoryContent}</Layout>
 				</div>
 			</div>

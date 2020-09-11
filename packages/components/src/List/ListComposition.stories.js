@@ -2,13 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { simpleCollection } from './collection';
-import IconsProvider from '../../IconsProvider';
-import ActionBar from '../../ActionBar';
+import { simpleCollection } from './ListComposition/collection';
+import IconsProvider from '../IconsProvider';
+import ActionBar from '../ActionBar';
 import List from '.';
-import useCollectionSelection from './Manager/hooks/useCollectionSelection.hook';
-import { headerDictionary } from '../../VirtualizedList/utils/dictionary';
-import { headerType as headerResizableType } from '../../VirtualizedList/HeaderResizable';
+import { headerDictionary } from '../VirtualizedList/utils/dictionary';
+import { headerType as headerResizableType } from '../VirtualizedList/HeaderResizable';
 
 const titleProps = rowData => ({
 	onClick: action('onTitleClick'),
@@ -658,7 +657,7 @@ storiesOf('Data/List/List Composition', module)
 		</div>
 	))
 	.add('Selectable items', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[],
 			'id',
@@ -683,7 +682,7 @@ storiesOf('Data/List/List Composition', module)
 		);
 	})
 	.add('Selectable items + ActionBar', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[1, 2],
 			'id',
@@ -737,7 +736,7 @@ storiesOf('Data/List/List Composition', module)
 		);
 	})
 	.add('Selectable items + total items', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[1, 2],
 			'id',

@@ -8,7 +8,7 @@ import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import { InputDateTimePicker } from '../DateTimePickers';
 import IconsProvider from '../IconsProvider';
-import GridLayout from './Grid.component';
+import GridLayout from './';
 
 const icons = {
 	'talend-filter': talendIcons['talend-filter'],

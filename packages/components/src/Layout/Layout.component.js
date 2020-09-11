@@ -8,12 +8,13 @@ import TwoColumns from './TwoColumns';
 import SkipLinks from './SkipLinks';
 
 import theme from './Layout.scss';
-import {
-	DISPLAY_MODES,
-	DISPLAY_MODE_ONE_COLUMN,
-	DISPLAY_MODE_TWO_COLUMNS,
-	TALEND_T7_THEME_CLASSNAME,
-} from './constants';
+
+const DISPLAY_MODES = {
+	ONE_COLUMN: 'OneColumn',
+	TWO_COLUMNS: 'TwoColumns',
+};
+const TALEND_T7_THEME_APPS = ['portal', 'tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
+const TALEND_T7_THEME_CLASSNAME = 't7';
 
 /**
  * The Layout component is a container
@@ -51,10 +52,10 @@ function Layout({
 	let Component;
 	let skipLinkNavigationId;
 	switch (mode) {
-		case DISPLAY_MODE_ONE_COLUMN:
+		case DISPLAY_MODES.ONE_COLUMN:
 			Component = OneColumn;
 			break;
-		case DISPLAY_MODE_TWO_COLUMNS:
+		case DISPLAY_MODES.TWO_COLUMNS:
 			Component = TwoColumns;
 			skipLinkNavigationId = '#tc-layout-side-menu';
 			break;
@@ -104,7 +105,7 @@ Layout.propTypes = {
 	content: Inject.getReactElement.propTypes,
 	footer: Inject.getReactElement.propTypes,
 	subHeader: Inject.getReactElement.propTypes,
-	mode: PropTypes.oneOf(DISPLAY_MODES),
+	mode: PropTypes.oneOf([DISPLAY_MODES.ONE_COLUMN, DISPLAY_MODES.TWO_COLUMNS]),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	hasTheme: PropTypes.bool,
@@ -112,4 +113,7 @@ Layout.propTypes = {
 	getComponent: PropTypes.func,
 };
 
+Layout.DISPLAY_MODES = DISPLAY_MODES;
+Layout.TALEND_T7_THEME_APPS = TALEND_T7_THEME_APPS;
+Layout.TALEND_T7_THEME_CLASSNAME = TALEND_T7_THEME_CLASSNAME;
 export default Layout;

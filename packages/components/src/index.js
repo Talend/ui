@@ -45,13 +45,14 @@ import Rich from './RichTooltip';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import Inject from './Inject';
-
-import Notification from './Notification';
-import ListView from './ListView';
-import TreeView from './TreeView';
+import { InlineMessage } from './InlineMessage';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
+import ListView from './ListView';
+
+import Notification from './Notification';
+import TreeView from './TreeView';
 import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
@@ -69,7 +70,6 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import ResourceList from './ResourceList';
-import { InlineMessage } from './InlineMessage';
 
 // TODO 6.0: remove those imports
 import Tile from './GridLayout/Tile';
@@ -191,12 +191,13 @@ export {
 	Icon,
 	IconsProvider,
 	Inject,
-	// PLOP: PR cursor to go over the components
-	Checkbox,
+	InlineMessage,
 	JSONSchemaRenderer,
 	Layout,
 	List,
 	ListView,
+	// PLOP: PR cursor to go over the components
+	Checkbox,
 	Loader,
 	Notification,
 	ObjectViewer,
@@ -207,7 +208,6 @@ export {
 	Skeleton,
 	Status,
 	Stepper,
-	InlineMessage,
 	SubHeaderBar,
 	TabBar,
 	Table,

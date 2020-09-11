@@ -9,8 +9,7 @@ import IconsProvider from '../IconsProvider';
 import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
 import AppSwitcher from '../AppSwitcher';
-
-import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../Layout/constants';
+import Layout from '../Layout';
 
 const props = {
 	brand: {
@@ -280,14 +279,14 @@ decoratedStories
 
 const appStyle = require('../../stories/config/themes.scss');
 
-apps.forEach(app => {
+Layout.TALEND_T7_THEME_APPS.forEach(app => {
 	const headerProps = Immutable.fromJS(props).toJS();
 	if (app.toLocaleLowerCase() === 'portal') {
 		headerProps.logo.isFull = true;
 	}
 	decoratedStories.add(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
 		<div className={appStyle[app]}>
-			<div className={TALEND_T7_THEME_CLASSNAME}>
+			<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
 				<div role="banner">
 					<HeaderBar {...headerProps} />
 				</div>
