@@ -2,6 +2,9 @@
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/AppSwitcher/AppSwitcher.component.js
+  40:10  error  Elements with the ARIA role "heading" must have the following attributes defined: aria-level  jsx-a11y/role-has-required-aria-props
+
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
   142:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
@@ -125,20 +128,6 @@
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/HeaderInput.component.js
   89:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
 
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/Item.component.js
-   49:18  error  'item.index' is missing in props validation                  react/prop-types
-   72:64  error  'searchCriteria.toLowerCase' is missing in props validation  react/prop-types
-   81:72  error  'searchCriteria.length' is missing in props validation       react/prop-types
-   85:54  error  'searchCriteria.length' is missing in props validation       react/prop-types
-   95:62  error  'item.className' is missing in props validation              react/prop-types
-  103:38  error  'item.className' is missing in props validation              react/prop-types
-  106:15  error  'item.index' is missing in props validation                  react/prop-types
-  120:21  error  'item.isSelected' is missing in props validation             react/prop-types
-  124:11  error  'item.icon' is missing in props validation                   react/prop-types
-  125:34  error  'item.icon' is missing in props validation                   react/prop-types
-  125:39  error  'item.icon.title' is missing in props validation             react/prop-types
-  127:23  error  'item.icon' is missing in props validation                   react/prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
   147:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
 
@@ -188,7 +177,6 @@
   100:3  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                                                                                                                               jsx-a11y/click-events-have-key-events
   107:4  error  `tabIndex` should only be declared on interactive elements                                                                                                                                                                                                                                                   jsx-a11y/no-noninteractive-tabindex
   192:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
-  254:8  error  onMouseOut must be accompanied by onBlur for accessibility                                                                                                                                                                                                                                                   jsx-a11y/mouse-events-have-key-events
 
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.stories.js
   34:29  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
@@ -211,10 +199,15 @@
   24:18  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/convertDate.js
-  36:2  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-  37:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-  53:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-  56:4  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  36:2   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  36:13  error  'elem' is defined but never used                                                                                                                                           @typescript-eslint/no-unused-vars
+  37:3   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  37:15  error  'key' is defined but never used                                                                                                                                            @typescript-eslint/no-unused-vars
+  37:20  error  'value' is defined but never used                                                                                                                                          @typescript-eslint/no-unused-vars
+  53:3   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  53:14  error  'schemaField' is defined but never used                                                                                                                                    @typescript-eslint/no-unused-vars
+  56:4   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  56:15  error  'DATASCHEMATYPE' is defined but never used                                                                                                                                 @typescript-eslint/no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/OverlayTrigger/OverlayTrigger.component.js
   39:3  error  defaultProp "preventScrolling" has no corresponding propTypes declaration  react/default-props-match-prop-types
@@ -249,10 +242,13 @@
   254:24  error    'collection.filter' is missing in props validation                                                                       react/prop-types
   255:13  error    'collection' is missing in props validation                                                                              react/prop-types
   256:3   warning  React Hook React.useMemo has a missing dependency: 'props.collection'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  265:20  error    'renderAs' is missing in props validation                                                                                react/prop-types
+  265:30  error    'renderAs.name' is missing in props validation                                                                           react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
-  75:5  warning  React Hook useLayoutEffect has missing dependencies: 'large' and 'minimised'. Either include them or remove the dependency array. If 'setWidth' needs the current value of 'large', you can also switch to useReducer instead of useState and read 'large' in the reducer  react-hooks/exhaustive-deps
-  83:5  warning  React Hook useEffect has a missing dependency: 'animation'. Either include it or remove the dependency array                                                                                                                                                               react-hooks/exhaustive-deps
+   75:5  warning  React Hook useLayoutEffect has missing dependencies: 'large' and 'minimised'. Either include them or remove the dependency array. If 'setWidth' needs the current value of 'large', you can also switch to useReducer instead of useState and read 'large' in the reducer  react-hooks/exhaustive-deps
+   83:5  warning  React Hook useEffect has a missing dependency: 'animation'. Either include it or remove the dependency array                                                                                                                                                               react-hooks/exhaustive-deps
+  112:3  error    The attribute aria-expanded is not supported by the role navigation                                                                                                                                                                                                        jsx-a11y/role-supports-aria-props
 
 /home/travis/build/Talend/ui/packages/components/src/Slider/Slider.component.js
   306:2  error  defaultProp "min" defined for isRequired propType  react/default-props-match-prop-types
@@ -341,5 +337,5 @@
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.component.js
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-✖ 164 problems (142 errors, 22 warnings)
+✖ 160 problems (138 errors, 22 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
