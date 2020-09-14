@@ -64,10 +64,10 @@ import Skeleton from './Skeleton';
 import Slider from './Slider';
 import Status from './Status';
 import Stepper from './Stepper';
+import SubHeaderBar from './SubHeaderBar';
 
 import TreeView from './TreeView';
 import Table from './Table';
-import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -215,9 +215,9 @@ export {
 	Slider,
 	Status,
 	Stepper,
+	SubHeaderBar,
 	// PLOP: PR cursor to go over the components
 	Checkbox,
-	SubHeaderBar,
 	TabBar,
 	Table,
 	Toggle,
