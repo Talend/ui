@@ -308,9 +308,6 @@
   131:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
   142:13  error  'children' is missing in props validation                                                                                                                            react/prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
-  4:8  error  'Container' is defined but never used  @typescript-eslint/no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.component.js
   129:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
@@ -389,5 +386,5 @@
   43:18  error  Missing file extension for "./i18n/index"        import/extensions
   43:18  error  Unable to resolve path to module './i18n/index'  import/no-unresolved
 
-✖ 202 problems (180 errors, 22 warnings)
+✖ 201 problems (179 errors, 22 warnings)
   3 errors and 0 warnings potentially fixable with the `--fix` option.
