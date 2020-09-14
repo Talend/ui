@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
-import { Status, getbsStyleFromStatus } from '../Status';
+import Status from '../Status';
 import TooltipTrigger from '../TooltipTrigger';
 
 import css from './CollapsiblePanel.scss';
@@ -219,7 +219,7 @@ function CollapsiblePanel(props) {
 		[css['default-panel']]: !theme,
 		[css[theme]]: !!theme,
 		[css.open]: expanded,
-		[css[getbsStyleFromStatus(status) || status]]: !!status,
+		[css[Status.getBsStyleFromStatus(status) || status]]: !!status,
 		status,
 	});
 

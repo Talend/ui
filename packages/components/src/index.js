@@ -59,14 +59,15 @@ import RadarChart from './RadarChart';
 import ResourceList from './ResourceList';
 import ResourcePicker from './ResourcePicker';
 import Rich from './RichTooltip';
+import SidePanel from './SidePanel';
+import Skeleton from './Skeleton';
+import Slider from './Slider';
+import Status from './Status';
+import Stepper from './Stepper';
 
 import TreeView from './TreeView';
-import Skeleton from './Skeleton';
-import SidePanel from './SidePanel';
 import Table from './Table';
-import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
-import Stepper from './Stepper';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -209,12 +210,13 @@ export {
 	ResourceList,
 	ResourcePicker,
 	Rich,
-	// PLOP: PR cursor to go over the components
-	Checkbox,
 	SidePanel,
 	Skeleton,
+	Slider,
 	Status,
 	Stepper,
+	// PLOP: PR cursor to go over the components
+	Checkbox,
 	SubHeaderBar,
 	TabBar,
 	Table,

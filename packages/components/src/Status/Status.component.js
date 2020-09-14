@@ -139,3 +139,5 @@ Status.propTypes = {
 Status.defaultProps = {
 	actions: [],
 };
+
+Status.getBsStyleFromStatus = getbsStyleFromStatus;

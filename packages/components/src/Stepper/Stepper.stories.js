@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Action from '../Actions/Action';
 import IconsProvider from '../IconsProvider';
-import Stepper, { LOADING_STEP_STATUSES } from './Stepper.component';
+import Stepper from './Stepper.component';
 
 const stories = storiesOf('Messaging & Communication/Stepper', module);
 const title = 'Sample processing...';
@@ -30,15 +30,15 @@ stories
 	))
 	.add('Stepper default', () => {
 		const steps = [
-			{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS },
+			{ label: 'Fetch Sample', status: Stepper.LOADING_STEP_STATUSES.SUCCESS },
 			{
 				label: 'Global Quality',
-				status: LOADING_STEP_STATUSES.LOADING,
+				status: Stepper.LOADING_STEP_STATUSES.LOADING,
 			},
-			{ label: 'Flattening', status: LOADING_STEP_STATUSES.LOADING },
+			{ label: 'Flattening', status: Stepper.LOADING_STEP_STATUSES.LOADING },
 			{
 				label: 'Column Quality',
-				status: LOADING_STEP_STATUSES.PENDING,
+				status: Stepper.LOADING_STEP_STATUSES.PENDING,
 			},
 		];
 		return <Stepper steps={steps} title={title} />;
@@ -47,18 +47,18 @@ stories
 		const steps = [
 			{
 				label: 'Fetch Sample',
-				status: LOADING_STEP_STATUSES.SUCCESS,
+				status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 				message: { label: 'Everything is fine 🔥🐶' },
 			},
 			{
 				label: 'Global Quality',
-				status: LOADING_STEP_STATUSES.FAILURE,
+				status: Stepper.LOADING_STEP_STATUSES.FAILURE,
 				message: { label: "We couldn't connect to the remote engine" },
 			},
-			{ label: 'Flattening', status: LOADING_STEP_STATUSES.ABORTED },
+			{ label: 'Flattening', status: Stepper.LOADING_STEP_STATUSES.ABORTED },
 			{
 				label: 'Column Quality',
-				status: LOADING_STEP_STATUSES.ABORTED,
+				status: Stepper.LOADING_STEP_STATUSES.ABORTED,
 			},
 		];
 		return <Stepper steps={steps} title={title} renderActions={renderActions} />;
@@ -71,20 +71,20 @@ stories
 	.add('Stepper successful without transition', () => (
 		<Stepper
 			title={title}
-			steps={[{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS }]}
+			steps={[{ label: 'Fetch Sample', status: Stepper.LOADING_STEP_STATUSES.SUCCESS }]}
 		/>
 	))
 	.add('Stepper successful with transition', () => {
 		const defaultSteps = [
-			{ label: 'Fetch Sample', status: LOADING_STEP_STATUSES.SUCCESS },
+			{ label: 'Fetch Sample', status: Stepper.LOADING_STEP_STATUSES.SUCCESS },
 			{
 				label: 'Global Quality',
-				status: LOADING_STEP_STATUSES.SUCCESS,
+				status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 			},
-			{ label: 'Flattening', status: LOADING_STEP_STATUSES.SUCCESS },
+			{ label: 'Flattening', status: Stepper.LOADING_STEP_STATUSES.SUCCESS },
 			{
 				label: 'Column Quality',
-				status: LOADING_STEP_STATUSES.LOADING,
+				status: Stepper.LOADING_STEP_STATUSES.LOADING,
 			},
 		];
 
@@ -95,19 +95,19 @@ stories
 				setSteps([
 					{
 						label: 'Fetch Sample',
-						status: LOADING_STEP_STATUSES.SUCCESS,
+						status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 					},
 					{
 						label: 'Global Quality',
-						status: LOADING_STEP_STATUSES.SUCCESS,
+						status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 					},
 					{
 						label: 'Flattening',
-						status: LOADING_STEP_STATUSES.SUCCESS,
+						status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 					},
 					{
 						label: 'Column Quality',
-						status: LOADING_STEP_STATUSES.LOADING,
+						status: Stepper.LOADING_STEP_STATUSES.LOADING,
 					},
 				]);
 			};
@@ -116,19 +116,19 @@ stories
 				setSteps([
 					{
 						label: 'Fetch Sample',
-						status: LOADING_STEP_STATUSES.SUCCESS,
+						status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 					},
 					{
 						label: 'Global Quality',
-						status: LOADING_STEP_STATUSES.SUCCESS,
+						status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 					},
 					{
 						label: 'Flattening',
-						status: LOADING_STEP_STATUSES.SUCCESS,
+						status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 					},
 					{
 						label: 'Column Quality',
-						status: LOADING_STEP_STATUSES.SUCCESS,
+						status: Stepper.LOADING_STEP_STATUSES.SUCCESS,
 					},
 				]);
 			};
