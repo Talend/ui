@@ -383,8 +383,8 @@
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/index.js
-  43:18  error  Missing file extension for "./i18n/index"        import/extensions
-  43:18  error  Unable to resolve path to module './i18n/index'  import/no-unresolved
+  44:18  error  Missing file extension for "./i18n/index"        import/extensions
+  44:18  error  Unable to resolve path to module './i18n/index'  import/no-unresolved
 
 ✖ 201 problems (179 errors, 22 warnings)
   3 errors and 0 warnings potentially fixable with the `--fix` option.
