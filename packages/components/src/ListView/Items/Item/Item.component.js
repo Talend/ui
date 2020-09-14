@@ -4,7 +4,7 @@ import { withTranslation } from 'react-i18next';
 import ItemPropTypes from './Item.propTypes';
 import Action from '../../../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import { Checkbox } from '../../../Toggle';
+import Checkbox from '../../../Checkbox';
 
 class Item extends Component {
 	componentDidUpdate(prevProps) {

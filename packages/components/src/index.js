@@ -17,6 +17,7 @@ import AppLoader from './AppLoader';
 import AppSwitcher from './AppSwitcher';
 import Badge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
+import Checkbox from './Checkbox';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
@@ -65,21 +66,21 @@ import Slider from './Slider';
 import Status from './Status';
 import Stepper from './Stepper';
 import SubHeaderBar from './SubHeaderBar';
+import TabBar from './TabBar';
+import Toggle from './Toggle';
+import TooltipTrigger from './TooltipTrigger';
 
 import TreeView from './TreeView';
-import Table from './Table';
-import TabBar from './TabBar';
-import Toggle, { Checkbox } from './Toggle';
-import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 
 // TODO 6.0: remove those imports
-import Tile from './GridLayout/Tile';
 import HeaderTitle from './HeaderTitle';
 import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
+import Table from './Table'; // TODO 6.0: remove the component
+import Tile from './GridLayout/Tile';
 import getTranslated from './TranslateWrapper';
 import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 
@@ -168,6 +169,7 @@ export {
 	AppSwitcher,
 	Badge,
 	Breadcrumbs,
+	Checkbox,
 	CircularProgress,
 	CollapsiblePanel,
 	ConfirmDialog,
@@ -216,12 +218,10 @@ export {
 	Status,
 	Stepper,
 	SubHeaderBar,
-	// PLOP: PR cursor to go over the components
-	Checkbox,
 	TabBar,
-	Table,
 	Toggle,
 	TooltipTrigger,
+	// PLOP: PR cursor to go over the components
 	TreeView,
 	Typeahead,
 	VirtualizedList,
@@ -230,6 +230,7 @@ export {
 	RichError,
 	RichLayout,
 	HeaderTitle,
+	Table,
 	Tile,
 	getTranslated, // TODO 6.0: remove the TranslateWrapper folder
 	I18N_DOMAIN_COMPONENTS,
