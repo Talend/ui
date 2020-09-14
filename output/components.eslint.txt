@@ -246,6 +246,17 @@
   255:13  error    'collection' is missing in props validation                                                                              react/prop-types
   256:3   warning  React Hook React.useMemo has a missing dependency: 'props.collection'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.stories.js
+  121:4   error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  121:55  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  122:4   error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  122:55  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  161:16  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  163:10  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  164:10  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  202:15  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  225:15  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
   75:5  warning  React Hook useLayoutEffect has missing dependencies: 'large' and 'minimised'. Either include them or remove the dependency array. If 'setWidth' needs the current value of 'large', you can also switch to useReducer instead of useState and read 'large' in the reducer  react-hooks/exhaustive-deps
   83:5  warning  React Hook useEffect has a missing dependency: 'animation'. Either include it or remove the dependency array                                                                                                                                                               react-hooks/exhaustive-deps
@@ -341,5 +352,5 @@
   43:18  error  Missing file extension for "./i18n/index"        import/extensions
   43:18  error  Unable to resolve path to module './i18n/index'  import/no-unresolved
 
-✖ 162 problems (140 errors, 22 warnings)
+✖ 171 problems (149 errors, 22 warnings)
   3 errors and 0 warnings potentially fixable with the `--fix` option.
