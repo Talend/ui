@@ -72,5 +72,8 @@
     "websocket-driver": "^0.7.3",
     "webpack-dev-middleware": "^3.7.2",
     "elliptic": "^6.5.2"
+  },
+  "dependencies": {
+    "dot-prop": "^5.2.0"
   }
 }
