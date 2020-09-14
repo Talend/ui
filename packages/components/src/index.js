@@ -41,7 +41,6 @@ import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
 import i18n from './i18n/index';
-import Rich from './RichTooltip';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import Inject from './Inject';
@@ -58,8 +57,9 @@ import PieChart from './PieChart';
 import Progress from './Progress';
 import RadarChart from './RadarChart';
 import ResourceList from './ResourceList';
-
 import ResourcePicker from './ResourcePicker';
+import Rich from './RichTooltip';
+
 import TreeView from './TreeView';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
@@ -189,7 +189,6 @@ export {
 	GuidedTour,
 	HeaderBar,
 	HttpError,
-	Rich,
 	i18n,
 	Icon,
 	IconsProvider,
@@ -208,9 +207,10 @@ export {
 	Progress,
 	RadarChart,
 	ResourceList,
+	ResourcePicker,
+	Rich,
 	// PLOP: PR cursor to go over the components
 	Checkbox,
-	ResourcePicker,
 	SidePanel,
 	Skeleton,
 	Status,
