@@ -113,7 +113,7 @@
   7:23  error  Unexpected use of file extension "js" for "./DraggableComponent.js"  import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
-  279:43  error  'footerActions' is already declared in the upper scope  no-shadow
+  273:43  error  'footerActions' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
   252:33  error  Unary operator '++' used  no-plusplus
