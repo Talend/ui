@@ -3,7 +3,7 @@ import uuid from 'uuid';
 import flow from 'lodash/flow';
 
 const getAttribute = badgeDefinitionRaw => get(badgeDefinitionRaw, 'attribute');
-const createBadgeId = attribute => `${attribute}-${uuid()}`;
+const createBadgeId = attribute => `${attribute}-${uuid.v4()}`;
 const getOperators = badgeDefinitionRaw => get(badgeDefinitionRaw, 'operators');
 const getType = badgeDefinitionRaw => get(badgeDefinitionRaw, 'type');
 const getLabel = badgeDefinitionRaw => get(badgeDefinitionRaw, 'label');

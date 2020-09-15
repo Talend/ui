@@ -58,7 +58,6 @@ const VERSIONS = require('./dependencies');
 const REACT_VERSION_PEER = '^16.8.6';
 
 const files = [
-	path.join(__dirname, '../npm-audit/package.json'),
 	path.join(__dirname, '../packages/cmf/package.json'),
 	path.join(__dirname, '../packages/cmf-cqrs/package.json'),
 	path.join(__dirname, '../packages/cmf-webpack-plugin/package.json'),
@@ -73,7 +72,6 @@ const files = [
 	path.join(__dirname, '../packages/icons/package.json'),
 	path.join(__dirname, '../packages/router/package.json'),
 	path.join(__dirname, '../packages/sagas/package.json'),
-	path.join(__dirname, '../packages/scripts/package.json'),
 	path.join(__dirname, '../packages/storybook-cmf/package.json'),
 	path.join(__dirname, '../packages/theme/package.json'),
 ];

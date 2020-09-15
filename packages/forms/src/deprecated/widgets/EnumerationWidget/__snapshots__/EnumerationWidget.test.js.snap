@@ -312,7 +312,7 @@ exports[`EnumerationWidget delete all 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -331,7 +331,7 @@ exports[`EnumerationWidget delete all 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -400,7 +400,7 @@ exports[`EnumerationWidget delete all 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -419,7 +419,7 @@ exports[`EnumerationWidget delete all 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -892,7 +892,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   >
                     <Button
                       active={false}
-                      aria-describedby={42}
+                      aria-describedby="42"
                       aria-label="Abort"
                       block={false}
                       bsClass="btn"
@@ -910,7 +910,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       role="link"
                     >
                       <button
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Abort"
                         className="btn-icon-only btn btn-link"
                         disabled={false}
@@ -1368,7 +1368,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -1387,7 +1387,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -1456,7 +1456,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -1475,7 +1475,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -1941,7 +1941,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -1960,7 +1960,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -2029,7 +2029,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -2048,7 +2048,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -2560,7 +2560,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -2579,7 +2579,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -2648,7 +2648,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -2667,7 +2667,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -3187,7 +3187,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Validate"
                                         block={false}
                                         bsClass="btn"
@@ -3205,7 +3205,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Validate"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -3270,7 +3270,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Abort"
                                         block={false}
                                         bsClass="btn"
@@ -3288,7 +3288,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Abort"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -3647,7 +3647,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                   >
                     <Button
                       active={false}
-                      aria-describedby={42}
+                      aria-describedby="42"
                       aria-label="Abort"
                       block={false}
                       bsClass="btn"
@@ -3665,7 +3665,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       role="link"
                     >
                       <button
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Abort"
                         className="btn-icon-only btn btn-link"
                         disabled={false}
@@ -4135,7 +4135,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -4154,7 +4154,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -4223,7 +4223,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -4242,7 +4242,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -4743,7 +4743,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -4762,7 +4762,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -4831,7 +4831,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -4850,7 +4850,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -5320,7 +5320,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Loading (in progress)"
                                         block={false}
                                         bsClass="btn"
@@ -5338,7 +5338,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Loading (in progress)"
                                           className="btn-icon-only theme-btn-disabled btn btn-link"
                                           disabled={true}
@@ -5717,7 +5717,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                   >
                     <Button
                       active={false}
-                      aria-describedby={42}
+                      aria-describedby="42"
                       aria-label="Remove selected values"
                       block={false}
                       bsClass="btn"
@@ -5735,7 +5735,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                       role="link"
                     >
                       <button
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Remove selected values"
                         className="btn-icon-only btn btn-link"
                         disabled={false}
@@ -6260,7 +6260,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Edit"
                                         block={false}
                                         bsClass="btn"
@@ -6278,7 +6278,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -6342,7 +6342,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Remove value"
                                         block={false}
                                         bsClass="btn"
@@ -6360,7 +6360,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -6767,7 +6767,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -6786,7 +6786,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -6855,7 +6855,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -6874,7 +6874,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -7437,7 +7437,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Edit"
                                         block={false}
                                         bsClass="btn"
@@ -7455,7 +7455,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -7519,7 +7519,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Remove value"
                                         block={false}
                                         bsClass="btn"
@@ -7537,7 +7537,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -7715,7 +7715,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Edit"
                                         block={false}
                                         bsClass="btn"
@@ -7733,7 +7733,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -7797,7 +7797,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Remove value"
                                         block={false}
                                         bsClass="btn"
@@ -7815,7 +7815,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -8161,7 +8161,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -8180,7 +8180,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -8249,7 +8249,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -8268,7 +8268,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -8816,7 +8816,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -8835,7 +8835,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -8907,7 +8907,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                     tooltipPlacement="top"
                   >
                     <DropdownButton
-                      aria-describedby={42}
+                      aria-describedby="42"
                       aria-label="Import values from a file"
                       bsStyle="link"
                       btooltipPlacement="bottom"
@@ -8969,7 +8969,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               className="dropdown btn-group btn-group-link"
                             >
                               <DropdownToggle
-                                aria-describedby={42}
+                                aria-describedby="42"
                                 aria-label="Import values from a file"
                                 bsClass="dropdown-toggle"
                                 bsRole="toggle"
@@ -8994,7 +8994,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               >
                                 <Button
                                   active={false}
-                                  aria-describedby={42}
+                                  aria-describedby="42"
                                   aria-expanded={false}
                                   aria-haspopup={true}
                                   aria-label="Import values from a file"
@@ -9017,7 +9017,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                   role="button"
                                 >
                                   <button
-                                    aria-describedby={42}
+                                    aria-describedby="42"
                                     aria-expanded={false}
                                     aria-haspopup={true}
                                     aria-label="Import values from a file"
@@ -9242,7 +9242,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -9261,7 +9261,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -9791,7 +9791,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Loading (in progress)"
                         block={false}
                         bsClass="btn"
@@ -9810,7 +9810,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Loading (in progress)"
                           className="btn-icon-only theme-btn-disabled btn btn-link"
                           disabled={true}
@@ -10358,7 +10358,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Edit"
                                         block={false}
                                         bsClass="btn"
@@ -10376,7 +10376,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -10440,7 +10440,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Remove value"
                                         block={false}
                                         bsClass="btn"
@@ -10458,7 +10458,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -10634,7 +10634,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Edit"
                                         block={false}
                                         bsClass="btn"
@@ -10652,7 +10652,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -10716,7 +10716,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Remove value"
                                         block={false}
                                         bsClass="btn"
@@ -10734,7 +10734,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -11220,7 +11220,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Search for specific values"
                         block={false}
                         bsClass="btn"
@@ -11239,7 +11239,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Search for specific values"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -11310,7 +11310,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     tooltipPlacement="top"
                   >
                     <DropdownButton
-                      aria-describedby={42}
+                      aria-describedby="42"
                       aria-label="Import values from a file"
                       bsStyle="link"
                       btooltipPlacement="bottom"
@@ -11371,7 +11371,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               className="dropdown btn-group btn-group-link"
                             >
                               <DropdownToggle
-                                aria-describedby={42}
+                                aria-describedby="42"
                                 aria-label="Import values from a file"
                                 bsClass="dropdown-toggle"
                                 bsRole="toggle"
@@ -11395,7 +11395,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               >
                                 <Button
                                   active={false}
-                                  aria-describedby={42}
+                                  aria-describedby="42"
                                   aria-expanded={false}
                                   aria-haspopup={true}
                                   aria-label="Import values from a file"
@@ -11417,7 +11417,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   role="button"
                                 >
                                   <button
-                                    aria-describedby={42}
+                                    aria-describedby="42"
                                     aria-expanded={false}
                                     aria-haspopup={true}
                                     aria-label="Import values from a file"
@@ -11635,7 +11635,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     >
                       <Button
                         active={false}
-                        aria-describedby={42}
+                        aria-describedby="42"
                         aria-label="Add item"
                         block={false}
                         bsClass="btn"
@@ -11654,7 +11654,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         role="link"
                       >
                         <button
-                          aria-describedby={42}
+                          aria-describedby="42"
                           aria-label="Add item"
                           className="btn-icon-only btn btn-link"
                           disabled={false}
@@ -12222,7 +12222,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Edit"
                                         block={false}
                                         bsClass="btn"
@@ -12240,7 +12240,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -12304,7 +12304,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Remove value"
                                         block={false}
                                         bsClass="btn"
@@ -12322,7 +12322,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -12498,7 +12498,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Edit"
                                         block={false}
                                         bsClass="btn"
@@ -12516,7 +12516,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
@@ -12580,7 +12580,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <Button
                                         active={false}
-                                        aria-describedby={42}
+                                        aria-describedby="42"
                                         aria-label="Remove value"
                                         block={false}
                                         bsClass="btn"
@@ -12598,7 +12598,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="link"
                                       >
                                         <button
-                                          aria-describedby={42}
+                                          aria-describedby="42"
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}

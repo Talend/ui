@@ -1,6 +1,7 @@
 
 /home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.js
-  55:2  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  55:2   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  55:13  error  'step' is defined but never used                                                                                                                                           @typescript-eslint/no-unused-vars
 
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.component.js
   89:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
@@ -8,4 +9,7 @@
 /home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
   127:3  error  defaultProp "state" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
+  11:57  error  'notifications' is missing in props validation  react/prop-types
+
+✖ 5 problems (5 errors, 0 warnings)
