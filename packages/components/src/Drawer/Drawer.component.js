@@ -3,7 +3,7 @@ import React from 'react';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 // import { CSSTransition, transit } from 'react-css-transition';
-import { Transition } from 'react-transition-group';
+import {Transition} from 'react-transition-group';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
@@ -16,37 +16,31 @@ import theme from './Drawer.scss';
 const DEFAULT_TRANSITION_DURATION = 350;
 
 const STYLES = {
-	entering: { transform: 'translateX(0%)' },
-	entered:  { transform: 'translateX(100%)' },
-	exiting:  { transform: 'translateX(100%)' },
-	exited:  { transform: 'translateX(0%)' },
+	entering: { transform: 'translateX(100%)' },
+	entered: { transform: 'translateX(0%)' },
+	exiting: { transform: 'translateX(100%)' },
+	exited: { transform: 'translateX(100%)' },
 };
 
 function DrawerAnimation(props) {
-	// const [state, setState] = React.useState({ transitioned: false });
-
-	// const handleTransitionComplete = () => {
-	// 	props.onTransitionComplete();
-	// 	setState({ transitioned: true });
-	// };
 	const { children, withTransition, ...rest } = props;
 	const timeout = withTransition ? DEFAULT_TRANSITION_DURATION : 0;
 	const defaultStyle = {
 		transition: `transform ${timeout}ms ease-in-out`,
-		transform: 'translateX(0%)',
+		transform: 'translateX(100%)',
 	};
 
 	return (
-		<Transition timeout={timeout}>
+		<Transition
+			in
+			appear
+			timeout={timeout}
+		>
 			{transitionState => {
 				const style = { ...defaultStyle, ...STYLES[transitionState] };
 				return React.cloneElement(children, { ...rest, style });
 			}}
 		</Transition>
-			// onTransitionComplete={handleTransitionComplete}
-			// defaultStyle={{ transform: 'translateX(100%)' }}
-			// enterStyle={{ transform: transit('translateX(0%)', transitionDuration, 'ease-in-out') }}
-			// leaveStyle={{ transform: transit('translateX(100%)', transitionDuration, 'ease-in-out') }}
 	);
 }
 
