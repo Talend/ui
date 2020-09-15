@@ -164,7 +164,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 BreadcrumbsComponent.defaultProps = {
-	id: `${uuid.v4()}`,
+	id: uuid.v4(),
 	items: [],
 	maxItems: DEFAULT_MAX_ITEMS,
 	t: getDefaultT(),
