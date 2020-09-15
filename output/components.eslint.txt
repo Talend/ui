@@ -405,8 +405,8 @@
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
 /home/travis/build/Talend/ui/packages/components/src/index.js
-  44:18  error  Missing file extension for "./i18n/index"        import/extensions
-  44:18  error  Unable to resolve path to module './i18n/index'  import/no-unresolved
+  44:18  error  Missing file extension for "./i18n"        import/extensions
+  44:18  error  Unable to resolve path to module './i18n'  import/no-unresolved
 
 ✖ 215 problems (193 errors, 22 warnings)
   8 errors and 0 warnings potentially fixable with the `--fix` option.
