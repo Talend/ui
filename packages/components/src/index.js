@@ -69,10 +69,10 @@ import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import Toggle from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
-
 import TreeView from './TreeView';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
+
 import WithDrawer from './WithDrawer';
 
 // TODO 6.0: remove those imports
@@ -221,10 +221,10 @@ export {
 	TabBar,
 	Toggle,
 	TooltipTrigger,
-	// PLOP: PR cursor to go over the components
 	TreeView,
 	Typeahead,
 	VirtualizedList,
+	// PLOP: PR cursor to go over the components
 	WithDrawer,
 	// TODO 6.0: remove from here
 	RichError,
