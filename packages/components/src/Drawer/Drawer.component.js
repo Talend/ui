@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-// import { CSSTransition, transit } from 'react-css-transition';
 import {Transition} from 'react-transition-group';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -18,7 +17,7 @@ const DEFAULT_TRANSITION_DURATION = 350;
 const STYLES = {
 	entering: { transform: 'translateX(100%)' },
 	entered: { transform: 'translateX(0%)' },
-	exiting: { transform: 'translateX(100%)' },
+	exiting: { transform: 'translateX(0%)' },
 	exited: { transform: 'translateX(100%)' },
 };
 
@@ -59,10 +58,9 @@ function DrawerContainer({ stacked, className, children, withTransition = true, 
 		theme['tc-drawer'],
 		className,
 		'tc-drawer',
-		// {
-		// 	[theme['tc-drawer-transition']]: withTransition,
-		// 	'tc-drawer-transition': withTransition,
-		// },
+		{
+			'tc-drawer-transition': withTransition,
+		},
 		{
 			[theme['drawer-stacked']]: stacked,
 			stacked,
