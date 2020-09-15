@@ -968,7 +968,7 @@ exports[`Items should render with nested items 1`] = `
                               >
                                 <Button
                                   active={false}
-                                  aria-describedby={42}
+                                  aria-describedby="42"
                                   aria-label="Expand Lorem ipsum dolor Parent"
                                   block={false}
                                   bsClass="btn"
@@ -986,7 +986,7 @@ exports[`Items should render with nested items 1`] = `
                                   role={null}
                                 >
                                   <button
-                                    aria-describedby={42}
+                                    aria-describedby="42"
                                     aria-label="Expand Lorem ipsum dolor Parent"
                                     className="btn-icon-only btn btn-link"
                                     disabled={false}
