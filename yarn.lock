@@ -2925,45 +2925,6 @@
     react-router-redux "^4.0.8"
     redux-saga "^0.15.4"
 
-"@talend/react-cmf-webpack-plugin@>=3.4.0":
-  version "5.19.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf-webpack-plugin/-/react-cmf-webpack-plugin-5.19.0.tgz#23a4be54811d1038624a553e552ad25221c0e878"
-  integrity sha512-cxJDY4reWQ+OWX3S2IZ8xKYU9gFohgvb9H9kEqwMPHz4wEaPK6sXheFqJLduqTY+gGN/zf9gXf613zgW7JK1JA==
-  dependencies:
-    "@talend/react-cmf" "^5.19.0"
-    chokidar "^2.0.2"
-    deepmerge "^1.5.1"
-    lodash "^4.17.4"
-    mkdirp "^0.5.1"
-
-"@talend/react-cmf@^5.19.0":
-  version "5.19.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.19.0.tgz#e53fcc0d0e6521cbe40302660ef2a54228b85052"
-  integrity sha512-El/xejY6Yee2lrjxA0t/CctfecvfUWFUFqhWbOeifwV8OB5Uq5H6d4Yh5tHE2e9IC7umlaioc+mu4U+9bm11Xw==
-  dependencies:
-    "@sentry/browser" "^5.11.1"
-    deepmerge "^1.5.1"
-    hoist-non-react-statics "2.5.5"
-    immutable "^3.8.1"
-    invariant "^2.2.2"
-    jsonpath "^1.0.0"
-    lodash "^4.17.4"
-    mkdirp "^1.0.4"
-    path-to-regexp "^2.0.0"
-    prop-types "^15.5.10"
-    react-immutable-proptypes "^2.1.0"
-    react-redux "^5.0.7"
-    redux "^3.7.2"
-    redux-batched-actions "^0.2.0"
-    redux-batched-subscribe "^0.1.6"
-    redux-saga "^0.15.4"
-    redux-storage "^4.1.2"
-    redux-storage-decorator-filter "^1.1.8"
-    redux-storage-decorator-immutablejs "^1.0.4"
-    redux-storage-engine-localstorage "^1.1.4"
-    redux-thunk "^2.2.0"
-    uuid "^7.0.3"
-
 "@talend/scripts-config-babel@^6.5.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-6.5.0.tgz#8224d1d5f63101e31a32ef1bac3086aedea4d55c"
@@ -19025,11 +18986,6 @@ uuid@^3.0.1, uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
-
-uuid@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
-  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 v8-compile-cache@^2.0.3, v8-compile-cache@^2.1.1:
   version "2.1.1"
