@@ -177,6 +177,19 @@
 /home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionSort.hook.js
   33:61  warning  React Hook useMemo has unnecessary dependencies: 'sortFunctions' and 'sortParams'. Either exclude them or remove the dependency array. Outer scope values like 'sortParams' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition.stories.js
+  50:49  error  ["resizable"] is better written in dot notation  dot-notation
+  58:49  error  ["resizable"] is better written in dot notation  dot-notation
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
+  57:34  error  Caution: `VirtualizedList` also has a named export `cellDictionary`. Check if you meant to write `import {cellDictionary} from '../../VirtualizedList'` instead      import/no-named-as-default-member
+  58:36  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '../../VirtualizedList'` instead  import/no-named-as-default-member
+  97:29  error  Caution: `VirtualizedList` also has a named export `cellDictionary`. Check if you meant to write `import {cellDictionary} from '../../VirtualizedList'` instead      import/no-named-as-default-member
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.test.js
+  115:23  error  Caution: `VirtualizedList` also has a named export `cellDictionary`. Check if you meant to write `import {cellDictionary} from '../../VirtualizedList'` instead  import/no-named-as-default-member
+  128:21  error  Caution: `VirtualizedList` also has a named export `cellDictionary`. Check if you meant to write `import {cellDictionary} from '../../VirtualizedList'` instead  import/no-named-as-default-member
+
 /home/travis/build/Talend/ui/packages/components/src/ListView/Header/HeaderInput.component.js
   68:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
 
@@ -382,9 +395,18 @@
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.component.js
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.stories.js
+  429:25  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  687:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  687:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
+  697:11  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  697:44  error  ["icon"] is better written in dot notation                                                                                                       dot-notation
+  703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
+
 /home/travis/build/Talend/ui/packages/components/src/index.js
   44:18  error  Missing file extension for "./i18n/index"        import/extensions
   44:18  error  Unable to resolve path to module './i18n/index'  import/no-unresolved
 
-✖ 201 problems (179 errors, 22 warnings)
-  3 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 215 problems (193 errors, 22 warnings)
+  8 errors and 0 warnings potentially fixable with the `--fix` option.
