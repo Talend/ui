@@ -284,5 +284,5 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-CollapsiblePanel.displayModes = displayModes;
+CollapsiblePanel.displayModes = { TYPE_STATUS, TYPE_ACTION, TYPE_BADGE };
 export default CollapsiblePanel;
