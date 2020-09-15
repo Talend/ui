@@ -18,13 +18,14 @@ before_install:
 matrix:
   fast_finish: true
   include:
-    - language: node_js
-      env: NAME=test_react_16 REACT_VERSION="^16.0.0"
-      node_js:
-        - '14'
-      script:
-        - yarn test
-        - yarn test:extra
+    # to use with the next major release of react
+    # - language: node_js
+    #   env: NAME=test_react_16 REACT_VERSION="^16.0.0"
+    #   node_js:
+    #     - '14'
+    #   script:
+    #     - yarn test
+    #     - yarn test:extra
 
     - language: node_js
       node_js:
