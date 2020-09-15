@@ -25,12 +25,12 @@
     "@talend/scripts": "^0.16.1"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "5.19.0",
-    "@talend/icons": "5.19.0",
-    "@talend/react-cmf": "5.19.0",
-    "@talend/react-components": "5.19.0",
-    "@talend/react-containers": "5.19.0",
-    "@talend/react-forms": "5.19.0",
+    "@talend/bootstrap-theme": "5.20.0",
+    "@talend/icons": "5.20.0",
+    "@talend/react-cmf": "5.20.0",
+    "@talend/react-components": "5.20.0",
+    "@talend/react-containers": "5.20.0",
+    "@talend/react-forms": "5.20.0",
     "@talend/react-cmf-router": "^3.2.1",
     "bootstrap-sass": "3.4.1",
     "bson-objectid": "^1.1.5",
@@ -57,6 +57,6 @@
     "redux-saga": "^0.15.4",
     "redux-thunk": "^2.2.0",
     "reselect": "^2.5.4",
-    "uuid": "^7.0.3"
+    "uuid": "^3.4.0"
   }
 }
