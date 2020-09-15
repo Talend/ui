@@ -539,7 +539,7 @@ exports[`ListView field render should render no items message 1`] = `
               >
                 <Button
                   active={false}
-                  aria-describedby={42}
+                  aria-describedby="42"
                   aria-label="Search for specific values"
                   block={false}
                   bsClass="btn"
@@ -557,7 +557,7 @@ exports[`ListView field render should render no items message 1`] = `
                   role="link"
                 >
                   <button
-                    aria-describedby={42}
+                    aria-describedby="42"
                     aria-label="Search for specific values"
                     className="btn-icon-only btn btn-link"
                     disabled={false}

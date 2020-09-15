@@ -5,7 +5,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
   aria-label="Add File"
   className="theme-tc-split-dropdown"
   data-feature="action.add"
-  id={42}
+  id="42"
   onClick={[MockFunction]}
   title={
     <span>
@@ -35,7 +35,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
   aria-label="Add File"
   className="theme-tc-split-dropdown"
   data-feature="action.add"
-  id={42}
+  id="42"
   onClick={[MockFunction]}
   title={
     <span>
@@ -79,7 +79,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
   aria-label="Add File"
   className="theme-tc-split-dropdown"
   data-feature="action.add"
-  id={42}
+  id="42"
   onClick={[MockFunction]}
   title={
     <span>
@@ -120,7 +120,7 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
   aria-label="Add File"
   className="theme-tc-split-dropdown"
   data-feature="action.add"
-  id={42}
+  id="42"
   onClick={[MockFunction]}
   title={
     <span>

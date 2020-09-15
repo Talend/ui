@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RowCheckBox should render a checked checkbox input by default 1`] = `
+<div class="checkbox tc-toggle theme-tc-toggle checkbox">
+  <label for="some-id-checkbox-column-label"
+         data-feature="my-feature.enable"
+  >
+    <input type="checkbox"
+           id="some-id-checkbox-column-label"
+           data-checked="0"
+           aria-describedby="some-id-this is my checkbox"
+    >
+    <span>
+      column-label
+    </span>
+  </label>
+</div>
 <div id="some-id-this is my checkbox"
      class="sr-only"
 >
