@@ -41,7 +41,7 @@ import GridLayout from './GridLayout';
 import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
-import i18n from './i18n/index';
+import i18n from './i18n';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import Inject from './Inject';
