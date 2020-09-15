@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import {Transition} from 'react-transition-group';
+import { Transition } from 'react-transition-group';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
@@ -30,11 +30,7 @@ function DrawerAnimation(props) {
 	};
 
 	return (
-		<Transition
-			in
-			appear
-			timeout={timeout}
-		>
+		<Transition in appear timeout={timeout}>
 			{transitionState => {
 				const style = { ...defaultStyle, ...STYLES[transitionState] };
 				return React.cloneElement(children, { ...rest, style });
