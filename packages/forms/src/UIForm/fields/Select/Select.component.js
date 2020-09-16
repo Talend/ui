@@ -5,6 +5,8 @@ import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
+import { extractDataAttributes } from '../../utils/properties';
+
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
 		return Array.prototype.slice
@@ -26,7 +28,7 @@ export default function Select({
 	value,
 	valueIsUpdating,
 }) {
-	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
+	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title, ...rest } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
@@ -62,6 +64,7 @@ export default function Select({
 				aria-invalid={!isValid}
 				aria-required={schema.required}
 				aria-describedby={`${descriptionId} ${errorId}`}
+				{...extractDataAttributes(rest)}
 			>
 				{placeholder ? (
 					<option disabled value="">
