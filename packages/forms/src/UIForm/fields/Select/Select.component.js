@@ -28,7 +28,15 @@ export default function Select({
 	value,
 	valueIsUpdating,
 }) {
-	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title, ...rest } = schema;
+	const {
+		autoFocus,
+		description,
+		disabled = false,
+		placeholder,
+		readOnly = false,
+		title,
+		...rest
+	} = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
