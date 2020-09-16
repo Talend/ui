@@ -11,7 +11,9 @@ import { TitleColumn } from './CellTitle';
 import { BooleanColumn } from './CellBoolean';
 import { LabelColumn } from './CellLabel';
 import { IconTextColumn } from './CellIconText';
+
 import { listTypes, SORT_BY, SELECTION_MODE } from './utils/constants';
+import * as rowUtils from './utils/gridrow';
 
 // For compatibility
 VirtualizedList.Content = Content;
@@ -29,6 +31,8 @@ VirtualizedList.IconText = IconTextColumn;
 
 VirtualizedList.cellDictionary = cellDictionary;
 VirtualizedList.headerDictionary = headerDictionary;
+
+VirtualizedList.rowUtils = rowUtils;
 
 VirtualizedList.LIST_TYPES = listTypes;
 VirtualizedList.SORT_BY = SORT_BY;

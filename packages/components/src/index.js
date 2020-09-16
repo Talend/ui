@@ -224,7 +224,6 @@ export {
 	TreeView,
 	Typeahead,
 	VirtualizedList,
-	// PLOP: PR cursor to go over the components
 	WithDrawer,
 	// TODO 6.0: remove from here
 	RichError,
