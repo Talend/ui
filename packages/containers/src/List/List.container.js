@@ -37,7 +37,7 @@ const ConnectedCellTitle = cmfConnect({
 	withDispatch: true,
 	withDispatchActionCreator: true,
 	withComponentId: true,
-})(VirtualizedList.cellDictionary.title.cellRenderer());
+})(VirtualizedList.cellDictionary.title.cellRenderer);
 export const connectedCellDictionary = {
 	title: {
 		...VirtualizedList.cellDictionary.title,
