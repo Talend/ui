@@ -4,7 +4,7 @@ import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
 import cssModule from '../../ColumnChooser.scss';
 import { getTheme } from '../../../../../../theme';
-import { Checkbox } from '../../../../../../Toggle';
+import Checkbox from '../../../../../../Checkbox';
 
 const theme = getTheme(cssModule);
 

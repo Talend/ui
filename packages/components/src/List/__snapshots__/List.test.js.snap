@@ -621,7 +621,7 @@ exports[`List should render 1`] = `
                         role={null}
                       >
                         <NavDropdown
-                          id={42}
+                          id="42"
                           key=".0"
                           onSelect={[Function]}
                           title={5}
@@ -629,14 +629,14 @@ exports[`List should render 1`] = `
                           <Uncontrolled(Dropdown)
                             className=""
                             componentClass="li"
-                            id={42}
+                            id="42"
                             onSelect={[Function]}
                           >
                             <Dropdown
                               bsClass="dropdown"
                               className=""
                               componentClass="li"
-                              id={42}
+                              id="42"
                               onSelect={[Function]}
                               onToggle={[Function]}
                             >
@@ -646,7 +646,7 @@ exports[`List should render 1`] = `
                                 <DropdownToggle
                                   bsClass="dropdown-toggle"
                                   bsRole="toggle"
-                                  id={42}
+                                  id="42"
                                   key=".0"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
@@ -658,7 +658,7 @@ exports[`List should render 1`] = `
                                     aria-haspopup={true}
                                     className="dropdown-toggle"
                                     componentClass="a"
-                                    id={42}
+                                    id="42"
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                     role="button"
@@ -668,7 +668,7 @@ exports[`List should render 1`] = `
                                       aria-haspopup={true}
                                       className="dropdown-toggle"
                                       href="#"
-                                      id={42}
+                                      id="42"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                       role="button"
@@ -685,7 +685,7 @@ exports[`List should render 1`] = `
                                   bsClass="dropdown-menu"
                                   bsRole="menu"
                                   key=".1"
-                                  labelledBy={42}
+                                  labelledBy="42"
                                   onClose={[Function]}
                                   onSelect={[Function]}
                                   pullRight={false}
@@ -696,7 +696,7 @@ exports[`List should render 1`] = `
                                     onRootClose={[Function]}
                                   >
                                     <ul
-                                      aria-labelledby={42}
+                                      aria-labelledby="42"
                                       className="dropdown-menu"
                                       role="menu"
                                     >

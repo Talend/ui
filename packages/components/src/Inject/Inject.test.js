@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Action } from '../index';
 
-import Inject, { NotFoundComponent } from './Inject.component';
+import Inject from './Inject.component';
 
 const error = { message: 'MyError' };
 
@@ -246,7 +246,7 @@ describe('Inject.getReactElement', () => {
 
 describe('NotFoundComponent', () => {
 	it('should render', () => {
-		const wrapper = shallow(<NotFoundComponent error="MyError" />);
+		const wrapper = shallow(<Inject.NotFound error="MyError" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

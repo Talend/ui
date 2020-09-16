@@ -1,11 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Icon, Action, ActionBar } from '../index';
-import Container, {
-	SubHeaderBar,
-	SubHeaderBarActions,
-	CustomInject,
-} from './SubHeaderBar.component';
+import SubHeaderBar from './SubHeaderBar.component';
 import Skeleton from '../Skeleton';
 
 function getComponent(name) {
@@ -28,7 +24,7 @@ describe('SubHeaderBarActions', () => {
 			className: 'myClassName',
 		};
 		const wrapper = shallow(
-			<SubHeaderBarActions {...props}>
+			<SubHeaderBar.Content {...props}>
 				<Action
 					label="action1"
 					bsStyle="link"
@@ -44,7 +40,7 @@ describe('SubHeaderBarActions', () => {
 					hideLabel
 				/>
 				<Icon name="talend-bell" />
-			</SubHeaderBarActions>,
+			</SubHeaderBar.Content>,
 		);
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
 		expect(wrapper.find(ActionBar.Content).get(0).props.center).toBeTruthy();
@@ -59,7 +55,7 @@ describe('SubHeaderBarActions', () => {
 			className: 'myClassName',
 		};
 		const wrapper = shallow(
-			<SubHeaderBarActions {...props}>
+			<SubHeaderBar.Content {...props}>
 				<Action
 					label="action1"
 					bsStyle="link"
@@ -75,7 +71,7 @@ describe('SubHeaderBarActions', () => {
 					hideLabel
 				/>
 				<Icon name="talend-bell" />
-			</SubHeaderBarActions>,
+			</SubHeaderBar.Content>,
 		);
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
 		expect(wrapper.find(ActionBar.Content).get(0).props.right).toBeTruthy();
@@ -169,12 +165,12 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(CustomInject)).toHaveLength(3);
-		expect(wrapper.find(CustomInject).get(0).props.foo).toBe('bar');
-		expect(wrapper.find(CustomInject).get(1).props.foo).toBe('baz');
-		expect(wrapper.find(CustomInject).get(2).props.foo).toBe('bat');
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
-		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
+		expect(wrapper.find(SubHeaderBar.Inject)).toHaveLength(3);
+		expect(wrapper.find(SubHeaderBar.Inject).get(0).props.foo).toBe('bar');
+		expect(wrapper.find(SubHeaderBar.Inject).get(1).props.foo).toBe('baz');
+		expect(wrapper.find(SubHeaderBar.Inject).get(2).props.foo).toBe('bat');
+		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(1);
+		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
 	});
 	it('should render SubHeaderBarActions (default + right)', () => {
 		const props = {
@@ -183,9 +179,9 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
-		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
-		expect(wrapper.find(SubHeaderBarActions).get(1).props.right).toBeTruthy();
+		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(2);
+		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
+		expect(wrapper.find(SubHeaderBar.Content).get(1).props.right).toBeTruthy();
 	});
 	it('should render SubHeaderBarActions (default + center)', () => {
 		const props = {
@@ -194,9 +190,9 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
-		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
-		expect(wrapper.find(SubHeaderBarActions).get(1).props.center).toBeTruthy();
+		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(2);
+		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
+		expect(wrapper.find(SubHeaderBar.Content).get(1).props.center).toBeTruthy();
 	});
 	it('should render SubHeaderBarActions (default)', () => {
 		const props = {
@@ -204,8 +200,8 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
-		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
+		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(1);
+		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
 	});
 
 	it('Should render SubHeader component if right actions are in loading state', () => {
@@ -215,13 +211,8 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
-		expect(
-			wrapper
-				.find(SubHeaderBarActions)
-				.at(1)
-				.find(Skeleton),
-		).toHaveLength(1);
+		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(2);
+		expect(wrapper.find(SubHeaderBar.Content).at(1).find(Skeleton)).toHaveLength(1);
 	});
 });
 
@@ -233,10 +224,10 @@ describe('CustomInject', () => {
 			left: true,
 			extra: 'foo',
 		};
-		const wrapper = shallow(<CustomInject {...props} />);
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
-		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
-		expect(wrapper.find(SubHeaderBarActions).get(0).props.children).toBeDefined();
+		const wrapper = shallow(<SubHeaderBar.Inject {...props} />);
+		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(1);
+		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
+		expect(wrapper.find(SubHeaderBar.Content).get(0).props.children).toBeDefined();
 		expect(wrapper.find('Inject')).toHaveLength(1);
 		expect(wrapper.find('Inject').get(0).props).toEqual({
 			extra: props.extra,
@@ -252,8 +243,8 @@ describe('CustomInject', () => {
 			nowrap: true,
 			extra: 'foo',
 		};
-		const wrapper = shallow(<CustomInject {...props} />);
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(0);
+		const wrapper = shallow(<SubHeaderBar.Inject {...props} />);
+		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(0);
 		expect(wrapper.find('Inject')).toHaveLength(1);
 		expect(wrapper.find('Inject').get(0).props).toEqual({
 			extra: props.extra,

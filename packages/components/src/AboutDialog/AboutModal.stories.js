@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import AboutDialog from './AboutDialog.component';
+import AboutDialog from '.';
 import IconsProvider from '../IconsProvider';
-import { getColumnHeaders } from './AboutDialogTable.component';
 
 const props = {
 	show: true,
@@ -44,7 +43,7 @@ const services = [
 	name,
 }));
 
-const { name, version } = getColumnHeaders();
+const { name, version } = AboutDialog.Table.getColumnHeaders();
 
 storiesOf('Layout/Modals/AboutModal', module)
 	.addDecorator(story => (

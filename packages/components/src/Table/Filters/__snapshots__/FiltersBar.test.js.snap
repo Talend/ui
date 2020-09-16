@@ -5,7 +5,7 @@ exports[`two-filters 1`] = `
   className="tc-table-filters-bar theme-tc-table-filters-bar"
 >
   <button
-    aria-describedby={42}
+    aria-describedby="42"
     aria-label="Toggle filter"
     className="tc-string-filter tc-filter theme-tc-filter name-filter btn-icon-only btn btn-link"
     disabled={false}

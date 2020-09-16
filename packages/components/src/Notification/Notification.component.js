@@ -35,9 +35,9 @@ CloseButtonComponent.propTypes = {
 CloseButtonComponent.defaultProps = {
 	t: getDefaultT(),
 };
-export const CloseButton = withTranslation(I18N_DOMAIN_COMPONENTS)(CloseButtonComponent);
+const CloseButton = withTranslation(I18N_DOMAIN_COMPONENTS)(CloseButtonComponent);
 
-export function MessageAction({ action }) {
+function MessageAction({ action }) {
 	return (
 		!!action && (
 			<Action
@@ -53,7 +53,7 @@ export function MessageAction({ action }) {
 	);
 }
 
-export function Message({ notification }) {
+function Message({ notification }) {
 	const { title, message, action } = notification;
 	const messages = Array.isArray(message) ? message : [message];
 	const titleClass = classNames(theme['tc-notification-title'], 'tc-notification-title');
@@ -72,7 +72,7 @@ export function Message({ notification }) {
 	);
 }
 
-export function TimerBar({ type, autoLeaveError }) {
+function TimerBar({ type, autoLeaveError }) {
 	if (type === 'error' && !autoLeaveError) {
 		return null;
 	}
@@ -81,7 +81,7 @@ export function TimerBar({ type, autoLeaveError }) {
 	);
 }
 
-export function Notification({ notification, leaveFn, ...props }) {
+function Notification({ notification, leaveFn, ...props }) {
 	const isError = notification.type === 'error';
 	const classes = classNames(theme['tc-notification'], 'tc-notification', {
 		[theme['tc-notification-info']]: !notification.type || notification.type === 'info',

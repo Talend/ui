@@ -2,13 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { simpleCollection } from './collection';
-import IconsProvider from '../../IconsProvider';
-import ActionBar from '../../ActionBar';
+import { simpleCollection } from './ListComposition/collection';
+import IconsProvider from '../IconsProvider';
+import ActionBar from '../ActionBar';
 import List from '.';
-import useCollectionSelection from './Manager/hooks/useCollectionSelection.hook';
-import { headerDictionary } from '../../VirtualizedList/utils/dictionary';
-import { headerType as headerResizableType } from '../../VirtualizedList/HeaderResizable';
 
 const titleProps = rowData => ({
 	onClick: action('onTitleClick'),
@@ -50,7 +47,7 @@ function CustomListResizable(props) {
 				dataKey="id"
 				resizable
 				width={400}
-				headerRenderer={headerDictionary[headerResizableType]}
+				headerRenderer={List.VList.headerDictionary['resizable']}
 			/>
 			<List.VList.Title
 				label="Name"
@@ -58,7 +55,7 @@ function CustomListResizable(props) {
 				columnData={titleProps}
 				resizable
 				width={400}
-				headerRenderer={headerDictionary[headerResizableType]}
+				headerRenderer={List.VList.headerDictionary['resizable']}
 			/>
 			<List.VList.Badge
 				label="Tag"
@@ -450,8 +447,7 @@ storiesOf('Data/List/List Composition', module)
 			<p>You can change the sorting criteria by adding the component in the toolbar</p>
 			<p>
 				You can add the resizing column by adding the properties resizable, a width and use the
-				headerRenderer "headerResizableType" (note: the last column don't need to have the
-				headerRenderer)
+				headerRenderer "'resizable'" (note: the last column don't need to have the headerRenderer)
 			</p>
 			<pre>
 				{`
@@ -471,7 +467,7 @@ storiesOf('Data/List/List Composition', module)
 			dataKey="id"
 			resizable
 			width={400}
-			headerRenderer={headerDictionary[headerResizableType]}
+			headerRenderer={List.VList.headerDictionary['resizable']}
 		/>
 		<List.VList.Title
 			label="Name"
@@ -479,7 +475,7 @@ storiesOf('Data/List/List Composition', module)
 			columnData={titleProps}
 			resizable
 			width={400}
-			headerRenderer={headerDictionary[headerResizableType]}
+			headerRenderer={List.VList.headerDictionary['resizable']}
 		/>
 		<List.VList.Badge
 			label="Tag"
@@ -658,7 +654,7 @@ storiesOf('Data/List/List Composition', module)
 		</div>
 	))
 	.add('Selectable items', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[],
 			'id',
@@ -683,7 +679,7 @@ storiesOf('Data/List/List Composition', module)
 		);
 	})
 	.add('Selectable items + ActionBar', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[1, 2],
 			'id',
@@ -737,7 +733,7 @@ storiesOf('Data/List/List Composition', module)
 		);
 	})
 	.add('Selectable items + total items', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[1, 2],
 			'id',

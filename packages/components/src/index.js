@@ -1,6 +1,8 @@
 import bootstrap from './bootstrap';
-import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 import AboutDialog from './AboutDialog';
+import ActionBar from './ActionBar';
+import ActionIntercom from './ActionIntercom';
+import ActionList from './ActionList';
 import {
 	Action,
 	Actions,
@@ -10,19 +12,23 @@ import {
 	ActionIconToggle,
 	ActionSplitDropdown,
 } from './Actions';
-import ActionBar from './ActionBar';
-import ActionList from './ActionList';
 import AppGuidedTour from './AppGuidedTour';
 import AppLoader from './AppLoader';
-import Notification from './Notification';
-import HeaderBar from './HeaderBar';
-import HttpError from './HttpError';
+import AppSwitcher from './AppSwitcher';
 import Badge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
+import Checkbox from './Checkbox';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
+import { ModelViewer, RecordsViewer } from './DataViewer';
+import {
+	InputDatePicker,
+	InputDateRangePicker,
+	InputDateTimePicker,
+	InputTimePicker,
+} from './DateTimePickers';
 import Dialog from './Dialog';
 import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
@@ -30,40 +36,53 @@ import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import FocusManager from './FocusManager';
 import GridLayout from './GridLayout';
-import Tile from './GridLayout/Tile';
 import GuidedTour from './GuidedTour';
-import HeaderTitle from './HeaderTitle';
-import ListView from './ListView';
-import TreeView from './TreeView';
+import HeaderBar from './HeaderBar';
+import HttpError from './HttpError';
+import i18n from './i18n';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
+import Inject from './Inject';
+import { InlineMessage } from './InlineMessage';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
+import ListView from './ListView';
 import Loader from './Loader';
+import MultiSelect from './MultiSelect';
+import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
+import PieChart from './PieChart';
 import Progress from './Progress';
+import RadarChart from './RadarChart';
+import ResourceList from './ResourceList';
 import ResourcePicker from './ResourcePicker';
-import Skeleton from './Skeleton';
+import Rich from './RichTooltip';
 import SidePanel from './SidePanel';
-import Table from './Table';
-import { Status } from './Status';
-import SubHeaderBar from './SubHeaderBar';
+import Skeleton from './Skeleton';
+import Slider from './Slider';
+import Status from './Status';
 import Stepper from './Stepper';
+import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
-import Toggle, { Checkbox } from './Toggle';
+import Toggle from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
-import getTranslated from './TranslateWrapper';
+import TreeView from './TreeView';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
+
 import WithDrawer from './WithDrawer';
-import Inject from './Inject';
-import ResourceList from './ResourceList';
+
+// TODO 6.0: remove those imports
+import HeaderTitle from './HeaderTitle';
 import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
-import { ModelViewer, RecordsViewer } from './DataViewer';
-import { InlineMessage } from './InlineMessage';
+import Table from './Table'; // TODO 6.0: remove the component
+import Tile from './GridLayout/Tile';
+import getTranslated from './TranslateWrapper';
+import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 
 const {
 	Alert,
@@ -135,10 +154,11 @@ const BootstrapTable = bootstrap.Table;
 
 export {
 	AboutDialog,
+	ActionBar,
+	ActionIntercom,
+	ActionList,
 	Action,
 	Actions,
-	ActionBar,
-	ActionList,
 	ActionButton,
 	ActionDropdown,
 	ActionFile,
@@ -146,6 +166,7 @@ export {
 	ActionSplitDropdown,
 	AppGuidedTour,
 	AppLoader,
+	AppSwitcher,
 	Badge,
 	Breadcrumbs,
 	Checkbox,
@@ -153,6 +174,12 @@ export {
 	CollapsiblePanel,
 	ConfirmDialog,
 	Datalist,
+	ModelViewer,
+	RecordsViewer,
+	InputDatePicker,
+	InputDateRangePicker,
+	InputDateTimePicker,
+	InputTimePicker,
 	Dialog,
 	DraggableComponent,
 	Drawer,
@@ -160,42 +187,51 @@ export {
 	Emphasis,
 	Enumeration,
 	FilterBar,
+	FocusManager,
 	GridLayout,
-	Tile,
 	GuidedTour,
 	HeaderBar,
-	HeaderTitle,
 	HttpError,
+	i18n,
 	Icon,
 	IconsProvider,
 	Inject,
+	InlineMessage,
 	JSONSchemaRenderer,
 	Layout,
 	List,
 	ListView,
 	Loader,
-	ModelViewer,
+	MultiSelect,
 	Notification,
 	ObjectViewer,
+	// TODO 6.0: export OverlayTrigger here. For now there is already an OverlayTrigger from react-bootstrap
+	PieChart,
 	Progress,
-	RecordsViewer,
+	RadarChart,
 	ResourceList,
 	ResourcePicker,
-	RichError,
-	RichLayout,
+	Rich,
 	SidePanel,
+	Skeleton,
+	Slider,
 	Status,
-	InlineMessage,
+	Stepper,
 	SubHeaderBar,
 	TabBar,
-	Table,
 	Toggle,
 	TooltipTrigger,
 	TreeView,
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
-	getTranslated,
+	// TODO 6.0: remove from here
+	RichError,
+	RichLayout,
+	HeaderTitle,
+	Table,
+	Tile,
+	getTranslated, // TODO 6.0: remove the TranslateWrapper folder
 	I18N_DOMAIN_COMPONENTS,
 	CIRCULAR_PROGRESS_SIZE,
 	// bootstrap
@@ -254,9 +290,7 @@ export {
 	ResponsiveEmbed,
 	Row,
 	SafeAnchor,
-	Skeleton,
 	SplitButton,
-	Stepper,
 	Tab,
 	TabContainer,
 	TabContent,

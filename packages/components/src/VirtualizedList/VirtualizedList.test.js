@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import VirtualizedList from './VirtualizedList.component';
-import { listTypes } from './utils/constants';
+import VirtualizedList from '.';
 import collection from './collection';
 
-const { TABLE } = listTypes;
+const { TABLE } = VirtualizedList.LIST_TYPES;
 
 const contentFields = [
 	<VirtualizedList.Content

@@ -8,8 +8,7 @@ import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import { InputDateTimePicker } from '../DateTimePickers';
 import IconsProvider from '../IconsProvider';
-import GridLayout from './Grid.component';
-import Tile from './Tile/index';
+import GridLayout from '.';
 
 const icons = {
 	'talend-filter': talendIcons['talend-filter'],
@@ -22,7 +21,7 @@ export const customSkeletonConf = [
 ];
 
 function TdsTileContent({ id }) {
-	const { displayMode = 'chart', setDisplayMode } = Tile.useTileContext();
+	const { displayMode = 'chart', setDisplayMode } = GridLayout.Tile.useTileContext();
 
 	const submitAction = {
 		label: 'Click me',
@@ -67,7 +66,7 @@ function TdsTileContent({ id }) {
 }
 
 function ViewSelector() {
-	const { displayMode, setDisplayMode } = Tile.useTileContext();
+	const { displayMode, setDisplayMode } = GridLayout.Tile.useTileContext();
 
 	const addItemAction = {
 		label: 'Add item',
@@ -101,17 +100,17 @@ function ChartTile({ tile, id }) {
 	// tile.header.actions construct the action depending of the tile header props
 
 	return (
-		<Tile.Container>
+		<GridLayout.Tile.Container>
 			{tile.header ? (
-				<Tile.Header>
+				<GridLayout.Tile.Header>
 					{tile.header.label}
 					<ViewSelector />
-				</Tile.Header>
+				</GridLayout.Tile.Header>
 			) : null}
-			<Tile.Body>
+			<GridLayout.Tile.Body>
 				<TdsTileContent id={id} />
-			</Tile.Body>
-		</Tile.Container>
+			</GridLayout.Tile.Body>
+		</GridLayout.Tile.Container>
 	);
 }
 
@@ -119,18 +118,18 @@ function TileWithAction({ tile }) {
 	// tile.header.actions construct the action depending of the tile header props
 
 	return (
-		<Tile.Container>
-			<Tile.Header>{tile.header.label}</Tile.Header>
-			<Tile.Body>
+		<GridLayout.Tile.Container>
+			<GridLayout.Tile.Header>{tile.header.label}</GridLayout.Tile.Header>
+			<GridLayout.Tile.Body>
 				Quisque a gravida velit. Aenean molestie quam sed arcu fermentum semper. Curabitur et ligula
 				viverra, hendrerit urna ac, hendrerit urna. Sed ornare urna justo, nec tincidunt ipsum
 				ultrices vitae. Morbi vel ligula orci. Suspendisse condimentum porttitor tempor. Sed eu leo
 				nunc.
-			</Tile.Body>
-			<Tile.Footer>
+			</GridLayout.Tile.Body>
+			<GridLayout.Tile.Footer>
 				<Action label="Submit" />
-			</Tile.Footer>
-		</Tile.Container>
+			</GridLayout.Tile.Footer>
+		</GridLayout.Tile.Container>
 	);
 }
 

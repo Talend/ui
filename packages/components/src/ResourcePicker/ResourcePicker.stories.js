@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import ResourcePicker, { TOOLBAR_OPTIONS } from '.';
+import ResourcePicker from '.';
 import IconsProvider from '../IconsProvider';
 
 const collection = [
@@ -118,8 +118,8 @@ const name = {
 const sort = {
 	onChange: action('Sort option changed'),
 	orders: {
-		[TOOLBAR_OPTIONS.SORT_OPTIONS.DATE]: TOOLBAR_OPTIONS.ORDERS.ASC,
-		[TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]: TOOLBAR_OPTIONS.ORDERS.DESC,
+		[ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.DATE]: ResourcePicker.TOOLBAR_OPTIONS.ORDERS.ASC,
+		[ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]: ResourcePicker.TOOLBAR_OPTIONS.ORDERS.DESC,
 	},
 };
 const state = {
@@ -158,9 +158,10 @@ storiesOf('Form/Controls/ResourcePicker', module)
 						name,
 						sort: {
 							onChange: action('Sort option changed'),
-							types: [TOOLBAR_OPTIONS.SORT_OPTIONS.NAME],
+							types: [ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.NAME],
 							orders: {
-								[TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]: TOOLBAR_OPTIONS.ORDERS.DESC,
+								[ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]:
+									ResourcePicker.TOOLBAR_OPTIONS.ORDERS.DESC,
 							},
 						},
 						state: { types: [] },
@@ -198,7 +199,7 @@ storiesOf('Form/Controls/ResourcePicker', module)
 					state,
 					sort: {
 						...sort,
-						types: [TOOLBAR_OPTIONS.SORT_OPTIONS.DATE],
+						types: [ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.DATE],
 					},
 				}}
 			/>
@@ -221,7 +222,7 @@ storiesOf('Form/Controls/ResourcePicker', module)
 					sort,
 					state: {
 						...state,
-						types: [TOOLBAR_OPTIONS.STATE_FILTERS.CERTIFIED],
+						types: [ResourcePicker.TOOLBAR_OPTIONS.STATE_FILTERS.CERTIFIED],
 					},
 				}}
 			/>

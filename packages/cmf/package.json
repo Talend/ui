@@ -47,7 +47,7 @@
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "^2.2.0",
-    "uuid": "^7.0.3"
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "@sentry/browser": "^5.11.1",

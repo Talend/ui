@@ -10,7 +10,7 @@ describe('GenerateId', () => {
 			const generatedId = generateDescriptionId(id);
 
 			// then
-			expect(generatedId).toBe(42);
+			expect(generatedId).toBe('42');
 		});
 
 		it('should return the generated id', () => {
@@ -34,7 +34,7 @@ describe('GenerateId', () => {
 			const generatedId = generateErrorId(id);
 
 			// then
-			expect(generatedId).toBe(42);
+			expect(generatedId).toBe('42');
 		});
 
 		it('should return the generated id', () => {
@@ -58,7 +58,7 @@ describe('GenerateId', () => {
 			const generatedId = generateId(id, 'my-suffix');
 
 			// then
-			expect(generatedId).toBe(42);
+			expect(generatedId).toBe('42');
 		});
 
 		it('should return the generated id', () => {
