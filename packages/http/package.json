@@ -23,8 +23,8 @@
     "lint:es": "talend-scripts lint:es"
   },
   "devDependencies": {
-    "@talend/scripts-core": "7.0.0-alpha.20",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.20",
+    "@talend/scripts-core": "7.0.0-alpha.21",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.21",
     "enzyme": "^3.9.0",
     "fetch-mock": "^9.3.1",
     "node-fetch": "^2.6.0",
