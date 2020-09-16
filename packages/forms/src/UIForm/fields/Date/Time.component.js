@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { InputTimePicker } from '@talend/react-components/lib/DateTimePickers';
+import DateTimePickers from '@talend/react-components/lib/DateTimePickers';
 
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+
+const InputTimePicker = DateTimePickers.InputTimePicker;
 
 function TimeWidget({
 	errorMessage,

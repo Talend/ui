@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { InputDateTimePicker } from '@talend/react-components/lib/DateTimePickers';
+import DateTimePickers from '@talend/react-components/lib/DateTimePickers';
 
 import { convertDate, isoStrToDate } from './Date.utils';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+
+const InputDateTimePicker = DateTimePickers.InputDateTimePicker;
 
 export default function DateTimeWidget(props) {
 	const {
