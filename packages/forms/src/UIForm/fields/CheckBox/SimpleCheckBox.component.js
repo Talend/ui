@@ -14,7 +14,7 @@ export default function SimpleCheckBox({
 	onFinish,
 	schema,
 	value,
-	index
+	index,
 }) {
 	const { autoFocus } = schema;
 
