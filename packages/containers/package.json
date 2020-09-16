@@ -33,7 +33,7 @@
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.15",
     "memoize-one": "^5.0.0",
     "react-bootstrap": "0.32.4",
     "react-immutable-proptypes": "^2.1.0",

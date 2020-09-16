@@ -877,7 +877,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.10.4"
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/polyfill@^7.0.0", "@babel/polyfill@^7.8.3", "@babel/polyfill@^7.8.4":
+"@babel/polyfill@^7.8.3", "@babel/polyfill@^7.8.4":
   version "7.11.5"
   resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.11.5.tgz#df550b2ec53abbc2ed599367ec59e64c7a707bb5"
   integrity sha512-FunXnE0Sgpd61pKSj2OSOs1D44rKTD3pGOfGilZ6LGrrIH0QEtJlTjqOqdF8Bs98JmjfGhni2BBkTfv9KcKJ9g==
@@ -2905,18 +2905,6 @@
   dependencies:
     "@babel/types" "^7.3.4"
 
-"@talend/bootstrap-theme@^5.18.0":
-  version "5.19.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-5.19.0.tgz#af3f08f1945a729f41a2743a4801a9a4b936e783"
-  integrity sha512-NjPkti3cMFwaoBtcUo2vNT4lyCWyC2L+A8xryXhN/6QIfgGw8AtnS2sFh6e3Ohx0822nxkEwneqw244I0Q/cEA==
-  dependencies:
-    bootstrap-sass "3.4.1"
-
-"@talend/icons@^5.0.0":
-  version "5.19.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-5.19.0.tgz#56cac8d01de73ae6e318a3bb08e4fab2bab9bf90"
-  integrity sha512-eSsrZ4kt2tNgXxXYs4v/82D6COdb3s4D+LfluJl3FrNf1q3zXXXl+gyqOKRraDZ3uHCxOz+2dLPOUaQ0PKnjow==
-
 "@talend/json-schema-form-core@1.0.0-alpha.4":
   version "1.0.0-alpha.4"
   resolved "https://registry.yarnpkg.com/@talend/json-schema-form-core/-/json-schema-form-core-1.0.0-alpha.4.tgz#ac4e865eef72db2dd5e0c012b3048cc1a6697404"
@@ -2962,38 +2950,6 @@
     lodash "^4.17.4"
     mkdirp "^0.5.1"
 
-"@talend/react-cmf@^1.6.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-1.13.0.tgz#d2d907667a4388d36d1cc734a1e93f2dc182cc4b"
-  integrity sha512-dpP0iJvbhr9Qa8dXl0fhRcv8Cqd5WFWQsDnh34RmYrKijnwEG9YMaN6kczeFprffNX+xAV9t1obALaGggI/hyw==
-  dependencies:
-    "@babel/polyfill" "^7.0.0"
-    ajv "^6.2.1"
-    bson-objectid "^1.1.5"
-    classnames "^2.2.5"
-    deepmerge "^1.5.1"
-    hoist-non-react-statics "2.5.5"
-    immutable "^3.8.1"
-    invariant "^2.2.2"
-    jsonpath "^1.0.0"
-    lodash "^4.17.4"
-    mkdirp "^0.5.1"
-    path-to-regexp "^2.0.0"
-    prop-types "^15.5.10"
-    react-immutable-proptypes "^2.1.0"
-    react-redux "^5.0.7"
-    react-router "^3.2.0"
-    react-router-redux "^4.0.8"
-    redux "^3.7.2"
-    redux-batched-actions "^0.2.0"
-    redux-batched-subscribe "^0.1.6"
-    redux-saga "^0.15.4"
-    redux-storage "^4.1.2"
-    redux-storage-decorator-filter "^1.1.8"
-    redux-storage-decorator-immutablejs "^1.0.4"
-    redux-storage-engine-localstorage "^1.1.4"
-    redux-thunk "^2.2.0"
-
 "@talend/react-cmf@^5.19.0":
   version "5.19.0"
   resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.19.0.tgz#e53fcc0d0e6521cbe40302660ef2a54228b85052"
@@ -3021,45 +2977,6 @@
     redux-storage-engine-localstorage "^1.1.4"
     redux-thunk "^2.2.0"
     uuid "^7.0.3"
-
-"@talend/react-components@^5.0.0":
-  version "5.19.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-5.19.0.tgz#2a1ca8dd81552b122d1174358a9beda871a4b023"
-  integrity sha512-i9l62/dBOdvzVBNlb/Z0dvC45Ju+2RJuQ9EUnLaKETeIRdrmfNu61/OxBcHQU67h/3cblC8O0Ox8GjjGLKP4VA==
-  dependencies:
-    ally.js "^1.4.1"
-    classnames "^2.2.5"
-    d3-shape "1.2.0"
-    date-fns "^1.27.2"
-    date-fns-timezone "^0.1.4"
-    focus-outline-manager "^1.0.2"
-    immutable "^3.8.1"
-    invariant "^2.2.2"
-    keycode "^2.2.0"
-    lodash "^4.17.4"
-    memoize-one "^5.0.0"
-    rc-slider "8.6.3"
-    rc-tooltip "3.7.3"
-    react-autowhatever "10.2.0"
-    react-bootstrap "0.32.4"
-    react-css-transition "^0.7.4"
-    react-debounce-input "3.2.0"
-    react-dnd "^2.5.4"
-    react-dnd-html5-backend "^2.5.4"
-    react-draggable "^3.3.0"
-    react-grid-layout "0.16.6"
-    react-immutable-proptypes "^2.1.0"
-    react-popper "^1.3.7"
-    react-transition-group "^2.3.1"
-    react-use "^13.27.0"
-    react-virtualized "9.21.0"
-    reactour "^1.13.4"
-    simplebar "^4.2.2"
-    simplebar-react "^1.2.2"
-    simulant "^0.2.2"
-    styled-components "^4.1.3"
-    timezone-support "^1.5.5"
-    uuid "^3.0.1"
 
 "@talend/scripts-config-babel@^7.0.0-alpha.20":
   version "7.0.0-alpha.20"
@@ -5164,11 +5081,6 @@ bser@2.1.1:
   integrity sha512-gQxTNE/GAfIIrmHLUE3oJyp5FO6HRBfhjnw4/wMmA63ZGDJnWBmgY/lyQBpnDUkGmAhbSe39tx2d/iTOAfglwQ==
   dependencies:
     node-int64 "^0.4.0"
-
-bson-objectid@^1.1.5:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/bson-objectid/-/bson-objectid-1.3.1.tgz#11e4ce4c3419161fd388113781bb62c1dfbce34b"
-  integrity sha512-eQBNQXsisEAXlwiSy8zRNZdW2xDBJaEVkTPbodYR9hGxxtE548Qq7ilYOd8WAQ86xF7NRUdiWSQ1pa/TkKiE2A==
 
 btoa-lite@^1.0.0:
   version "1.0.0"
@@ -7651,7 +7563,7 @@ enzyme-to-json@^3.5.0:
     lodash "^4.17.15"
     react-is "^16.12.0"
 
-enzyme@^3.11.0, enzyme@^3.9.0:
+enzyme@^3.11.0:
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.11.0.tgz#71d680c580fe9349f6f5ac6c775bc3e6b7a79c28"
   integrity sha512-Dw8/Gs4vRjxY6/6i9wU0V+utmQO9kvh9XLnz3LIudviOnVYDEe2ec+0k+NQoMamn1VrjKgCUOWj5jG/5M5M0Qw==
@@ -15434,7 +15346,7 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@^16.13.1, react-dom@^16.8.3, react-dom@^16.8.6:
+react-dom@^16.13.1, react-dom@^16.8.3:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -15836,7 +15748,7 @@ react-virtualized@9.21.0:
     prop-types "^15.6.0"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.13.1, react@^16.8.3, react@^16.8.6:
+react@^16.13.1, react@^16.8.3:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
