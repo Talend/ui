@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Loader from './Loader.component';
-import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
+import Loader from '.';
 
 const containerStyle = {
 	display: 'flex',
@@ -18,6 +17,6 @@ const decoratedStories = storiesOf(
 ).addDecorator(story => <div style={containerStyle}>{story()}</div>);
 
 decoratedStories
-	.add('small', () => <Loader size={SIZE.small} />)
+	.add('small', () => <Loader size={Loader.SIZE.small} />)
 	.add('default', () => <Loader />)
-	.add('large', () => <Loader size={SIZE.large} />);
+	.add('large', () => <Loader size={Loader.SIZE.large} />);

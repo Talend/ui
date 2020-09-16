@@ -2,9 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import Slider, {SLIDER_MODE} from './Slider.component';
+import Slider from './Slider.component';
 import IconsProvider from '../IconsProvider';
-// import SLIDER_MODE from './Slider.component';
 
 const icons = [
 	'talend-activity',
@@ -80,17 +79,14 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 			</div>
 			<div style={delimiterStyle}>
 				<p>With value</p>
-				<Slider
-					onChange={action('onChange')}
-					value={10}
-				/>
+				<Slider onChange={action('onChange')} value={10} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>Greater than usage</p>
 				<Slider
 					max={10}
 					min={0}
-					mode={SLIDER_MODE.GREATER_THAN}
+					mode={Slider.MODES.GREATER_THAN}
 					onChange={action('onChange')}
 					value={3}
 				/>
@@ -100,7 +96,7 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 				<Slider
 					max={10}
 					min={0}
-					mode={SLIDER_MODE.EQUALS}
+					mode={Slider.MODES.EQUALS}
 					onChange={action('onChange')}
 					value={5}
 				/>
@@ -151,7 +147,7 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 					onChange={action('onChange')}
 					min={0}
 					max={100}
-					mode={SLIDER_MODE.EXCLUSIVE}
+					mode={Slider.MODES.EXCLUSIVE}
 					value={[25, 75]}
 					allowCross={false}
 				/>

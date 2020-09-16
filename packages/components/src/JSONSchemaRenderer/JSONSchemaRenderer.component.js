@@ -8,7 +8,7 @@ import css from './JSONSchemaRenderer.scss';
 
 const CLASS_NAME = 'json-schema-renderer';
 
-export const RendererProptypes = {
+const RendererProptypes = {
 	propertyKey: PropTypes.string.isRequired,
 	title: PropTypes.string,
 };
@@ -66,7 +66,7 @@ TextRenderer.propTypes = {
 	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-export function PasswordRenderer({ propertyKey, title }) {
+function PasswordRenderer({ propertyKey, title }) {
 	return [
 		<dt key={`${propertyKey}_key`}>{title || propertyKey}</dt>,
 		<dd key={`${propertyKey}_value`}>{'\u2022'.repeat(5)}</dd>,
@@ -120,7 +120,7 @@ function isHidden(uiSchema, element) {
 	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'hidden';
 }
 
-export function isPassword(uiSchema, element) {
+function isPassword(uiSchema, element) {
 	return get(uiSchema, [element, 'ui:widget'], '') === 'password';
 }
 

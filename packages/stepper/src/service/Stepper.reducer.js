@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 import get from 'lodash/get';
 import invariant from 'invariant';
-import { isStepsLoading } from '@talend/react-components/lib/Stepper';
+import Stepper from '@talend/react-components/lib/Stepper';
 import {
 	LOADING_STEP_STATUSES,
 	initialState,
@@ -106,7 +106,7 @@ function handleEvent(state, action) {
 	const loadingKey = getStepperKey(action);
 	const loadingResource = get(state, [loadingKey], {});
 	const steps = get(loadingResource, 'steps', []);
-	if (!isStepsLoading(steps)) {
+	if (!Stepper.isStepsLoading(steps)) {
 		return state;
 	}
 	const isErrorTriggered = !!steps.find(step => isInStepAttribute(step.failureOn, action.event));

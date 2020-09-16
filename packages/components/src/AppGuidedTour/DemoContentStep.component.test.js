@@ -1,14 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { LOADING_STEP_STATUSES } from '../Stepper';
+import Stepper from '../Stepper';
 import DemoContentStep from './DemoContentStep.component';
 
 describe('DemOContentStep', () => {
 	it('should show the demo content step', () => {
 		const wrapper = shallow(
 			<DemoContentStep
-				demoContentSteps={[{ label: 'Importing dataset', status: LOADING_STEP_STATUSES.FAILURE }]}
+				demoContentSteps={[
+					{ label: 'Importing dataset', status: Stepper.LOADING_STEP_STATUSES.FAILURE },
+				]}
 			/>,
 		);
 

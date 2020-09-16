@@ -2,11 +2,21 @@
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/AppGuidedTour/AppGuidedTour.component.js
+  34:3   error  Caution: `Stepper` also has a named export `isStepsLoading`. Check if you meant to write `import {isStepsLoading} from '../Stepper'` instead    import/no-named-as-default-member
+  35:57  error  Caution: `Stepper` also has a named export `isAllSuccessful`. Check if you meant to write `import {isAllSuccessful} from '../Stepper'` instead  import/no-named-as-default-member
+
+/home/travis/build/Talend/ui/packages/components/src/AppGuidedTour/AppGuidedTour.test.js
+  71:43  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from '../Stepper'` instead  import/no-named-as-default-member
+
+/home/travis/build/Talend/ui/packages/components/src/AppGuidedTour/DemoContentStep.component.test.js
+  12:44  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from '../Stepper'` instead  import/no-named-as-default-member
+
 /home/travis/build/Talend/ui/packages/components/src/AppSwitcher/AppSwitcher.component.js
   40:10  error  Elements with the ARIA role "heading" must have the following attributes defined: aria-level  jsx-a11y/role-has-required-aria-props
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
-  142:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
+  143:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/Tree.component.js
   4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4                                             import/no-cycle
@@ -148,13 +158,26 @@
   270:4   error    Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  jsx-a11y/accessible-emoji
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.stories.js
-  78:32  error  'brand' is missing in props validation  react/prop-types
+  77:32  error  'brand' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionFilter.hook.js
   27:65  warning  React Hook useMemo has unnecessary dependencies: 'filterFunctions' and 'textFilter'. Either exclude them or remove the dependency array. Outer scope values like 'textFilter' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionSort.hook.js
   33:61  warning  React Hook useMemo has unnecessary dependencies: 'sortFunctions' and 'sortParams'. Either exclude them or remove the dependency array. Outer scope values like 'sortParams' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition.stories.js
+  50:49  error  ["resizable"] is better written in dot notation  dot-notation
+  58:49  error  ["resizable"] is better written in dot notation  dot-notation
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
+  57:34  error  Caution: `VirtualizedList` also has a named export `cellDictionary`. Check if you meant to write `import {cellDictionary} from '../../VirtualizedList'` instead      import/no-named-as-default-member
+  58:36  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '../../VirtualizedList'` instead  import/no-named-as-default-member
+  97:29  error  Caution: `VirtualizedList` also has a named export `cellDictionary`. Check if you meant to write `import {cellDictionary} from '../../VirtualizedList'` instead      import/no-named-as-default-member
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.test.js
+  115:23  error  Caution: `VirtualizedList` also has a named export `cellDictionary`. Check if you meant to write `import {cellDictionary} from '../../VirtualizedList'` instead  import/no-named-as-default-member
+  128:21  error  Caution: `VirtualizedList` also has a named export `cellDictionary`. Check if you meant to write `import {cellDictionary} from '../../VirtualizedList'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Header/HeaderInput.component.js
   68:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
@@ -218,15 +241,11 @@
   348:2  error  defaultProp "display" has no corresponding propTypes declaration            react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/RadarChart/RadarChart.stories.js
-   29:7    error    'activeAxis' is assigned a value but never used                                                   @typescript-eslint/no-unused-vars
-   34:17   warning  Unexpected unnamed function                                                                       func-names
-   35:55   error    Strings must use singlequote                                                                      @typescript-eslint/quotes
-   35:55   error    Unexpected string concatenation                                                                   prefer-template
-   35:107  error    Strings must use singlequote                                                                      @typescript-eslint/quotes
-   50:11   error    Value must be omitted for boolean attributes                                                      react/jsx-boolean-value
-   79:5    error    The closing bracket must be aligned with the line containing the opening tag (expected column 9)  react/jsx-closing-bracket-location
-  122:9    error    Empty components are self-closing                                                                 react/self-closing-comp
-  125:4    error    Missing semicolon                                                                                 @typescript-eslint/semi
+   29:7   error    'activeAxis' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   34:17  warning  Unexpected unnamed function                      func-names
+   36:3   error    Unexpected string concatenation                  prefer-template
+   51:6   error    Value must be omitted for boolean attributes     react/jsx-boolean-value
+  127:5   error    Empty components are self-closing                react/self-closing-comp
 
 /home/travis/build/Talend/ui/packages/components/src/ResourceList/Resource/Resource.component.js
   52:3   error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
@@ -245,23 +264,58 @@
   265:20  error    'renderAs' is missing in props validation                                                                                react/prop-types
   265:30  error    'renderAs.name' is missing in props validation                                                                           react/prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.stories.js
+  121:4   error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  121:55  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  122:4   error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  122:55  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  161:16  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  163:10  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  164:10  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  202:15  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+  225:15  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
+
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
    75:5  warning  React Hook useLayoutEffect has missing dependencies: 'large' and 'minimised'. Either include them or remove the dependency array. If 'setWidth' needs the current value of 'large', you can also switch to useReducer instead of useState and read 'large' in the reducer  react-hooks/exhaustive-deps
    83:5  warning  React Hook useEffect has a missing dependency: 'animation'. Either include it or remove the dependency array                                                                                                                                                               react-hooks/exhaustive-deps
   112:3  error    The attribute aria-expanded is not supported by the role navigation                                                                                                                                                                                                        jsx-a11y/role-supports-aria-props
 
-/home/travis/build/Talend/ui/packages/components/src/Slider/Slider.component.js
-  306:2  error  defaultProp "min" defined for isRequired propType  react/default-props-match-prop-types
-  307:2  error  defaultProp "max" defined for isRequired propType  react/default-props-match-prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/Stepper/Stepper.component.js
-  171:5  warning  React Hook useEffect has missing dependencies: 'children' and 'transitionState'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  177:5  warning  React Hook useEffect has missing dependencies: 'children' and 'transitionState'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/home/travis/build/Talend/ui/packages/components/src/Stepper/Stepper.component.test.js
+  11:38  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  12:40  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  13:36  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  14:40  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  32:14  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  36:14  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  39:36  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  40:40  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/Stepper/Stepper.stories.js
-  142:13  error  'children' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
-  4:8  error  'Container' is defined but never used  @typescript-eslint/no-unused-vars
+   33:37  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   36:13  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   38:35  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   41:13  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   50:13  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   55:13  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   58:35  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   61:13  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   74:45  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   79:37  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   82:13  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   84:35  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   87:13  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+   98:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  102:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  106:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  110:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  119:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  123:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  127:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  131:15  error  Caution: `Stepper` also has a named export `LOADING_STEP_STATUSES`. Check if you meant to write `import {LOADING_STEP_STATUSES} from './Stepper.component'` instead  import/no-named-as-default-member
+  142:13  error  'children' is missing in props validation                                                                                                                            react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.component.js
   129:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
@@ -337,5 +391,14 @@
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.component.js
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-✖ 160 problems (138 errors, 22 warnings)
-  7 errors and 0 warnings potentially fixable with the `--fix` option.
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.stories.js
+  429:25  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  687:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  687:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
+  697:11  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  697:44  error  ["icon"] is better written in dot notation                                                                                                       dot-notation
+  703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
+
+✖ 209 problems (187 errors, 22 warnings)
+  8 errors and 0 warnings potentially fixable with the `--fix` option.

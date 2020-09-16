@@ -13,6 +13,7 @@ const noFormat = value => value;
 /**
  * Options for controlling slider operator display mode
  */
+// TODO 6.0: do not export, it's attache to the component now
 export const SLIDER_MODE = {
 	GREATER_THAN: 'greaterThan',
 	EQUALS: 'equals',
@@ -224,8 +225,8 @@ class Slider extends React.Component {
 		captionActions: PropTypes.array,
 		captionIcons: PropTypes.array,
 		captionTextStepNumber: PropTypes.number,
-		min: PropTypes.number.isRequired,
-		max: PropTypes.number.isRequired,
+		min: PropTypes.number,
+		max: PropTypes.number,
 		step: PropTypes.number,
 		mode: PropTypes.string,
 		captionsFormat: PropTypes.func,
@@ -309,4 +310,5 @@ Slider.defaultProps = {
 	captionsFormat: noFormat,
 };
 
+Slider.MODES = SLIDER_MODE;
 export default Slider;

@@ -4,12 +4,12 @@ import {
 	PolarGrid,
 	PolarRadiusAxis,
 	Dot as RechartsDot,
+	Radar,
+	PolarAngleAxis,
 } from 'recharts';
 import PropTypes from 'prop-types';
 import radarChartCssModule from './RadarChart.scss';
 import { getTheme } from '../theme';
-
-export { Radar, PolarAngleAxis } from 'recharts';
 
 const theme = getTheme(radarChartCssModule);
 
@@ -59,7 +59,7 @@ export function RadarChart({
 		</RechartsRadarChart>
 	);
 }
-
+RadarChart.displayName = 'RadarChart';
 RadarChart.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
@@ -90,6 +90,7 @@ RadarChart.defaultProps = {
  * This function provides a custom clickable axis label with a data link to the index of the chart data
  * @param {Object} props the current props of the PolarAngleAxis
  */
+// TODO 6.0: remove this export
 export function LabelWithClick(props) {
 	const { activeAxis, className, index, textAnchor, payload, x, y } = props;
 	let selectedClass = '';
@@ -111,7 +112,7 @@ export function LabelWithClick(props) {
 		</text>
 	);
 }
-
+LabelWithClick.displayName = 'LabelWithClick';
 LabelWithClick.propTypes = {
 	activeAxis: PropTypes.number,
 	className: PropTypes.string,
@@ -126,6 +127,7 @@ LabelWithClick.propTypes = {
  * This function provides a custom dot with a data link to the index of the chart data
  * @param {Object} props the current props of the Radar
  */
+// TODO 6.0: remove this export
 export function Dot(props) {
 	const { activeAxis, index } = props;
 	let newR = 4;
@@ -137,12 +139,16 @@ export function Dot(props) {
 	}
 	return <RechartsDot {...props} fillOpacity={1} r={newR} />;
 }
-
+Dot.displayName = 'Dot';
 Dot.propTypes = {
 	activeAxis: PropTypes.number,
 	index: PropTypes.number,
 };
 
-RadarChart.displayName = 'RadarChart';
-LabelWithClick.displayName = 'LabelWithClick';
-Dot.displayName = 'Dot';
+// TODO 6.0: remove those exports
+export { Radar, PolarAngleAxis };
+
+RadarChart.LabelWithClick = LabelWithClick;
+RadarChart.Dot = Dot;
+RadarChart.Radar = Radar;
+RadarChart.PolarAngleAxis = PolarAngleAxis;

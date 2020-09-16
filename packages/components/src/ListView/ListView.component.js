@@ -9,8 +9,8 @@ import HeaderInput from './Header/HeaderInput.component';
 import Items from './Items/Items.component';
 import theme from './ListView.scss';
 
-export const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
-export const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
+const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
+const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 
 function listviewClasses() {
 	return classNames(theme['tc-listview'], 'tc-listview');

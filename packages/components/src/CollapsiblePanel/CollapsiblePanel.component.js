@@ -6,12 +6,13 @@ import { useTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
-import { Status, getbsStyleFromStatus } from '../Status';
+import Status from '../Status';
 import TooltipTrigger from '../TooltipTrigger';
 
 import css from './CollapsiblePanel.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
+// TODO 6.0: do not export those constants
 export const TYPE_STATUS = 'status';
 export const TYPE_ACTION = 'action';
 export const TYPE_BADGE = 'badge';
@@ -218,7 +219,7 @@ function CollapsiblePanel(props) {
 		[css['default-panel']]: !theme,
 		[css[theme]]: !!theme,
 		[css.open]: expanded,
-		[css[getbsStyleFromStatus(status) || status]]: !!status,
+		[css[Status.getBsStyleFromStatus(status) || status]]: !!status,
 		status,
 	});
 
@@ -283,4 +284,5 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
+CollapsiblePanel.displayModes = { TYPE_STATUS, TYPE_ACTION, TYPE_BADGE };
 export default CollapsiblePanel;

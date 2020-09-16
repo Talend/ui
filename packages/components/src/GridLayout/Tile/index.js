@@ -3,7 +3,7 @@ import Body from './Body/TileBody.component';
 import Header from './Header/TileHeader.component';
 import Footer from './Footer/TileFooter.component';
 import Skeleton from './Skeleton/SkeletonTile.component';
-import { useTileContext } from './context';
+import { TileContext, useTileContext } from './context';
 
 export default {
 	Body,
@@ -12,4 +12,5 @@ export default {
 	Container,
 	Skeleton,
 	useTileContext,
+	context: TileContext,
 };

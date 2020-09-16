@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Radar, RadarChart, PolarAngleAxis, Dot, LabelWithClick } from './RadarChart.component';
+import RadarChart from '.';
 
 describe('RadarChart', () => {
 	it('should render a RadarChart', () => {
@@ -19,8 +19,8 @@ describe('RadarChart', () => {
 		// when
 		const wrapper = mount(
 			<RadarChart data={props.data} domain={props.domain}>
-				<PolarAngleAxis dataKey={props.dataKey} />
-				<Radar
+				<RadarChart.PolarAngleAxis dataKey={props.dataKey} />
+				<RadarChart.Radar
 					name="Trust score"
 					dataKey="A"
 					dot
@@ -51,12 +51,12 @@ describe('RadarChart', () => {
 		// when
 		const wrapper = mount(
 			<RadarChart data={props.data} domain={props.domain}>
-				<PolarAngleAxis
+				<RadarChart.PolarAngleAxis
 					dataKey="axis"
-					tick={<LabelWithClick activeAxis={props.activeAxis} />}
+					tick={<RadarChart.LabelWithClick activeAxis={props.activeAxis} />}
 					onClick={props.clickMock}
 				/>
-				<Radar
+				<RadarChart.Radar
 					name="Trust score"
 					dataKey="A"
 					dot={false}
@@ -68,10 +68,7 @@ describe('RadarChart', () => {
 		);
 
 		// when
-		wrapper
-			.find('.recharts-polar-angle-axis-tick')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.recharts-polar-angle-axis-tick').at(0).simulate('click');
 
 		// then
 		expect(props.clickMock).toHaveBeenCalled();
@@ -93,10 +90,10 @@ describe('RadarChart', () => {
 		// when
 		const wrapper = mount(
 			<RadarChart data={props.data} domain={props.domain}>
-				<PolarAngleAxis dataKey={props.dataKey} />
-				<Radar
+				<RadarChart.PolarAngleAxis dataKey={props.dataKey} />
+				<RadarChart.Radar
 					dataKey="A"
-					dot={<Dot activeAxis={props.activeAxis} />}
+					dot={<RadarChart.Dot activeAxis={props.activeAxis} />}
 					fill="#19426c"
 					fillOpacity={0.1}
 					isAnimationActive={false}
