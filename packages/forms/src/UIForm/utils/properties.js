@@ -76,12 +76,11 @@ export function mutateValue(properties, schema, value) {
  * @return {object} Only the data-* properties with '.index' suffix if available.
  */
 export function extractDataAttributes(props, index) {
-    const dataProps = {};
-    Object.keys(props).forEach(propName => {
-        if (propName.startsWith('data-')) {
+	const dataProps = {};
+	Object.keys(props).forEach(propName => {
+		if (propName.startsWith('data-')) {
 			dataProps[propName] = `${props[propName]}${index !== undefined ? `.${index}` : ''}`;
-        }
-    });
-    return dataProps;
+		}
+	});
+	return dataProps;
 }
-
