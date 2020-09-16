@@ -1,13 +1,15 @@
-import {
-	isAllSuccessful,
-	isStepsLoading,
-	isErrorInSteps,
-} from '@talend/react-components/lib/Stepper';
+import Stepper from '@talend/react-components/lib/Stepper';
 import stepperReducer from './service/Stepper.reducer';
 import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
 import { getStepsForResource, isResourceLoading } from './service/Stepper.selectors';
-import Stepper from './containers/Stepper.connect';
+import StepperContainer from './containers/Stepper.connect';
 import { STATE_KEY, LOADING_STEP_STATUSES } from './Stepper.constants';
+
+const {
+	isAllSuccessful,
+	isStepsLoading,
+	isErrorInSteps,
+} = Stepper;
 
 const cmfModule = {
 	id: 'dataset-stepper',
@@ -28,7 +30,7 @@ export const StepperSelectors = {
 };
 
 export const StepperComponents = {
-	Stepper,
+	Stepper: StepperContainer,
 };
 
 export const StepperUtils = {

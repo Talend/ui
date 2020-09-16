@@ -15,8 +15,8 @@
   "devDependencies": {
 
     "@talend/react-components": "5.1.1",
-    "@talend/scripts-core": "7.0.0-alpha.21",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.21"
+    "@talend/scripts-core": "7.0.0-alpha.22",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.22"
   },
   "peerDependencies": {
     "@talend/react-components": ">2.3.0"
