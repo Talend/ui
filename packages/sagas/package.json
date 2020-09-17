@@ -41,8 +41,8 @@
   },
   "devDependencies": {
     "@talend/react-cmf": "^6.0.0-alpha.10",
-    "@talend/scripts-core": "7.0.0-alpha.22",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.22",
+    "@talend/scripts-core": "7.0.0-alpha.23",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.23",
     "immutable": "^3.8.1",
     "prop-types": "^15.5.10",
     "react": "^16.13.1",

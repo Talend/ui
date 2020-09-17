@@ -7,7 +7,7 @@
   "scripts": {
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env.production",
     "build-react": "node scripts/react.js",
-    "build-webfont": "webpack --progress",
+    "build-webfont": "webpack",
     "docs": "node ./scripts/docs.js",
     "prepare": "rimraf ./dist && npm run build-react && npm run build-webfont && npm run build-umd",
     "test": "echo no test",
