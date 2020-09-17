@@ -39,7 +39,7 @@
     "postcss-loader": "^3.0.0",
     "rimraf": "^2.6.2",
     "sass-lint": "^1.13.1",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^8.0",
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.2",
     "webpack": "^4.19.0",
