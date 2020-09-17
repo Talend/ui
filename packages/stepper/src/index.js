@@ -5,11 +5,7 @@ import { getStepsForResource, isResourceLoading } from './service/Stepper.select
 import StepperContainer from './containers/Stepper.connect';
 import { STATE_KEY, LOADING_STEP_STATUSES } from './Stepper.constants';
 
-const {
-	isAllSuccessful,
-	isStepsLoading,
-	isErrorInSteps,
-} = Stepper;
+const { isAllSuccessful, isStepsLoading, isErrorInSteps } = Stepper;
 
 const cmfModule = {
 	id: 'dataset-stepper',
