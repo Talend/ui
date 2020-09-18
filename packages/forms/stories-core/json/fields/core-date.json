@@ -45,7 +45,8 @@
       "widget": "date",
       "options": {
         "dateFormat": "DD/MM/YYYY"
-      }
+      },
+      "data-test": "simple.date"
     },
     {
       "key": "dateAsIsoString",
