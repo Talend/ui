@@ -2894,9 +2894,9 @@
     loader-utils "^1.2.3"
 
 "@talend/babel-plugin-import-from-index@^1.4.0-alpha.1":
-  version "1.4.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-1.4.0-alpha.3.tgz#3080169e513f3598540d78e382df5c3d2939698a"
-  integrity sha512-N0KWoiawNQ4HKokb3+63YPV6x69tka5YEJsPAvn5XYoSSNflV05Lai+exXnbGhb8HkmBOL3ffmIWjXTmafoP2A==
+  version "1.4.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-1.4.0-alpha.4.tgz#ae08662946d309649e02b342e509addb7954fa3f"
+  integrity sha512-UofeKVMkxXEW3Gb1VNqfUiWGGabISEiI+YUlSaxV8XoUaEFDg6aATKi5MD+rqPwMZL6Mbb/yVgKOcVGojyhVqA==
 
 "@talend/babel-plugin-transform-ui-imports@^0.0.1":
   version "0.0.1"
