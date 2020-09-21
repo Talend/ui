@@ -9,6 +9,6 @@ Object {
     "x": 0,
     "y": 0,
   },
-  "type": "FLOWDESINGER.FLOW_SET_ZOOM",
+  "type": "FLOWDESIGNER.FLOW_SET_ZOOM",
 }
 `;

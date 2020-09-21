@@ -3,6 +3,8 @@ import {
 	FLOWDESIGNER_FLOW_RESET,
 	FLOWDESIGNER_FLOW_LOAD,
 	FLOWDESIGNER_FLOW_SET_ZOOM,
+	FLOWDESIGNER_FLOW_ZOOM_IN,
+	FLOWDESIGNER_FLOW_ZOOM_OUT,
 } from '../constants/flowdesigner.constants';
 
 /**
@@ -39,4 +41,18 @@ export function setZoom(transform: { k: number; x: number; y: number }) {
 		};
 	}
 	return null;
+}
+
+export function zoomIn(scale: number) {
+	return {
+		type: FLOWDESIGNER_FLOW_ZOOM_IN,
+		scale,
+	};
+}
+
+export function zoomOut(scale: number) {
+	return {
+		type: FLOWDESIGNER_FLOW_ZOOM_OUT,
+		scale,
+	};
 }
