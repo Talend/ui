@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ResourcePicker from '@talend/react-components/lib/ResourcePicker';
+import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { CHANGE, FILTER } from './constants';
 
-class ResourcePickerField extends Component {
+class ResourcePicker extends Component {
 	constructor(props) {
 		super(props);
 
@@ -186,7 +186,7 @@ class ResourcePickerField extends Component {
 				label={schema.title}
 				required={schema.required}
 			>
-				<ResourcePicker
+				<ResourcePickerComponent
 					{...this.props}
 					{...this.state}
 					toolbar={toolbar}
@@ -202,10 +202,10 @@ class ResourcePickerField extends Component {
 	}
 }
 
-ResourcePickerField.displayName = 'ResourcePicker field';
+ResourcePicker.displayName = 'ResourcePicker field';
 
 if (process.env.NODE_ENV !== 'production') {
-	ResourcePickerField.propTypes = {
+	ResourcePicker.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
