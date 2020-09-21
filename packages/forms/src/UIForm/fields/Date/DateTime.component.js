@@ -6,8 +6,6 @@ import { convertDate, isoStrToDate } from './Date.utils';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-const InputDateTimePicker = DateTimePickers.InputDateTimePicker;
-
 export default function DateTimeWidget(props) {
 	const {
 		errorMessage,
@@ -61,7 +59,7 @@ export default function DateTimeWidget(props) {
 			required={!!schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			<InputDateTimePicker
+			<DateTimePickers.InputDateTimePicker
 				id={id}
 				autoFocus={schema.autoFocus}
 				disabled={schema.disabled || valueIsUpdating}

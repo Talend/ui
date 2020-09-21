@@ -8,7 +8,6 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 
 const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
 
-const InputDatePicker = DateTimePickers.InputDatePicker;
 
 function DateWidget(props) {
 	const {
@@ -63,7 +62,7 @@ function DateWidget(props) {
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			<InputDatePicker
+			<DateTimePickers.InputDatePicker
 				autoFocus={schema.autoFocus}
 				dateFormat={options.dateFormat}
 				disabled={schema.disabled || valueIsUpdating}
