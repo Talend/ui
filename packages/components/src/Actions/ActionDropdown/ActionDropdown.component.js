@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import get from 'lodash/get';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
 import Label from 'react-bootstrap/lib/Label';
@@ -68,6 +69,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 	}
 
 	const title = item.title || item.label;
+	const badgeLabel = get(item, 'badge.label', '');
 
 	return (
 		<Renderers.MenuItem
@@ -75,7 +77,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}
-			title={item.badge && item.badge.label ? `${item.badge.label} ${title}` : title}
+			title={badgeLabel ? `${badgeLabel} ${title}` : title}
 			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item')}
 		>
 			{item.icon && <Icon key="icon" name={item.icon} />}
