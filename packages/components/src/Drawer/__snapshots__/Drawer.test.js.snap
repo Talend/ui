@@ -230,7 +230,7 @@ exports[`Drawer should render with tabs 1`] = `
               tabIndex={-1}
             >
               <span
-                aria-describedby={42}
+                aria-describedby="42"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -261,7 +261,7 @@ exports[`Drawer should render with tabs 1`] = `
               role="tab"
             >
               <span
-                aria-describedby={42}
+                aria-describedby="42"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
