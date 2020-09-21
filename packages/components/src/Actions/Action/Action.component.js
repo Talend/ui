@@ -25,7 +25,7 @@ const DISPLAY_MODE_ICON_TOGGLE = 'iconToggle';
  * @param {ActionProps} - props should contains displayMode and renderers
  * @return {Component} the component to be used
  */
-export function getActionComponent({ displayMode, getComponent }) {
+function getActionComponent({ displayMode, getComponent }) {
 	const Renderers = Inject.getAll(getComponent, {
 		ActionFile,
 		ActionDropdown,

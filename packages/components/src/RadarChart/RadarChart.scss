@@ -1,0 +1,10 @@
+.tc-radar-chart {
+	:global(.recharts-polar-grid-concentric-polygon:not(:last-child)) {
+		display: none;
+	}
+}
+
+.tc-radar-chart-label--selected {
+	fill: $regal-blue;
+	font-weight: 600;
+}

@@ -47,7 +47,8 @@
     {
       "key": "standard",
       "title": "Check if you are happy (standard)",
-      "data-feature": "my.custom.feature"
+      "data-feature": "my.custom.feature",
+      "data-test": "checkbox.standard"
     },
     {
       "key": "autofocused",
@@ -62,7 +63,8 @@
     {
       "key": "multipleChoices",
       "title": "Select multiple values",
-      "errorMessage": "Please select at least an option"
+      "errorMessage": "Please select at least an option",
+      "data-test": "checkbox.multiple"
     },
     {
       "key": "customMultipleChoices",

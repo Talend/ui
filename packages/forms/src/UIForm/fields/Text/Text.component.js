@@ -6,7 +6,7 @@ import get from 'lodash/get';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-import { convertValue } from '../../utils/properties';
+import { convertValue, extractDataAttributes } from '../../utils/properties';
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
@@ -19,6 +19,7 @@ export default function Text(props) {
 		readOnly = false,
 		title,
 		type,
+		...rest
 	} = schema;
 
 	if (type === 'hidden') {
@@ -63,6 +64,7 @@ export default function Text(props) {
 				aria-invalid={!isValid}
 				aria-required={get(schema, 'required')}
 				aria-describedby={`${descriptionId} ${errorId}`}
+				{...extractDataAttributes(rest)}
 			/>
 		</FieldTemplate>
 	);

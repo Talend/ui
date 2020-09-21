@@ -54,6 +54,7 @@ export default function CheckBoxes(props) {
 					}
 					schema={schema}
 					value={value && value.includes(item.value)}
+					index={index}
 				/>
 			))}
 		</FieldTemplate>

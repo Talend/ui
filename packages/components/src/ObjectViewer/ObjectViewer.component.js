@@ -7,7 +7,7 @@ import List from './List';
 
 import { checkDataSchemaToConvert, convertDate } from './convertDate';
 
-export const DISPLAY_MODES = {
+const DISPLAY_MODES = {
 	FLAT: 'flat',
 	TABLE: 'table',
 	TREE: 'tree',
@@ -53,6 +53,7 @@ ObjectViewer.propTypes = {
 	dataSchema: PropTypes.arrayOf(PropTypes.object),
 };
 
+ObjectViewer.DISPLAY_MODES = DISPLAY_MODES;
 ObjectViewer.Table = Table;
 ObjectViewer.Tree = JSONLike;
 ObjectViewer.List = List;

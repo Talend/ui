@@ -154,15 +154,14 @@ import CellTitle from 'react-talend-components/lib/VirtualizedList/CellTitle'; /
 You can now make the column resizable via the header.
 
 ```javascript
-import { headerDictionary } from '../src/VirtualizedList/utils/dictionary';
-import { headerType as headerResizableType } from '../src/VirtualizedList/HeaderResizable';
+import VirtualizedList from '../src/VirtualizedList';
 
 <VirtualizedList.Content
 	label="Name"
 	dataKey="name"
 	width={myWidth}
 	columnData={titleProps}
-	headerRenderer={headerDictionary[headerResizableType]}
+	headerRenderer={VirtualizedList.headerDictionary.resizable}
 	resizable
 />;
 ```
@@ -170,16 +169,16 @@ import { headerType as headerResizableType } from '../src/VirtualizedList/Header
 You must give a width to every column even the one not resizable, and the amount of all the sizes must be equals to the width of your vList.
 Also you need to add the resizable header to headerRenderer props.
 
-| Props | Type | Description |
-|---|---|
-| headerRenderer | func | HeaderResizable which allow dragging |
-| resizable | bool | make the column resizable |
-| width | number | initial width of the column |
+| Props          | Type   | Description                          |
+| -------------- | ------ | ------------------------------------ |
+| headerRenderer | func   | HeaderResizable which allow dragging |
+| resizable      | bool   | make the column resizable            |
+| width          | number | initial width of the column          |
 
 You can also customize the render of the HeaderResizable component.
 
 ```javascript
-import { HeaderResizable } from  '../src/VirtualizedList/HeaderResizable.component';
+import { HeaderResizable } from '../src/VirtualizedList/HeaderResizable.component';
 
 const CustomRenderResizableWidthRenderProps = props => (
 	<HeaderResizable {...props}>
@@ -189,15 +188,15 @@ const CustomRenderResizableWidthRenderProps = props => (
 	</HeaderResizable>
 );
 
-------------------------------------------------------------------------------------
-
-<VirtualizedList.Content
-	dataKey="name"
-	label="NameÎ"
-	headerRenderer={CustomRenderResizableWidthRenderProps}
-	resizable
-	width={myWidth}
-/>
+------------------------------------------------------------------------------------(
+	<VirtualizedList.Content
+		dataKey="name"
+		label="NameÎ"
+		headerRenderer={CustomRenderResizableWidthRenderProps}
+		resizable
+		width={myWidth}
+	/>
+);
 ```
 
 Be careful the default export of HeaderResizable is a function returning a class component.

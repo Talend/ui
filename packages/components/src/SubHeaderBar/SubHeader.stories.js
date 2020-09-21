@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { Label } from 'react-bootstrap';
 import IconsProvider from '../IconsProvider';
 import FilterBar from '../FilterBar';
-import { SubHeaderBar } from './SubHeaderBar.component';
+import SubHeaderBar from './SubHeaderBar.component';
 
 const viewProps = {
 	title: 'My Long Title is Long Long Lé Long La La La Lé Long Long Long Long',

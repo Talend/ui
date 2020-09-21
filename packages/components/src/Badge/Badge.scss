@@ -1,6 +1,6 @@
 $tc-badge-large-label-font-size: 1.4rem !default;
 $tc-badge-large-label-font-weight: normal !default;
-$tc-badge-large-label-with-categ-font-weight: $font-weight-bold !default;
+$tc-badge-large-label-with-categ-font-weight: $font-weight-semi-bold !default;
 $tc-badge-large-height: 2.4rem !default;
 $tc-badge-large-vertical-padding: ($tc-badge-large-height - $tc-badge-large-label-font-size * $line-height-base) / 2 !default;
 $tc-badge-large-margin: $padding-smaller !default;
@@ -10,7 +10,7 @@ $tc-badge-large-padding: $padding-small;
 
 $tc-badge-small-label-font-size: 1.2rem !default;
 $tc-badge-small-label-font-weight: normal !default;
-$tc-badge-small-label-with-categ-font-weight: $font-weight-bold !default;
+$tc-badge-small-label-with-categ-font-weight: $font-weight-semi-bold !default;
 $tc-badge-small-height: 2rem !default;
 $tc-badge-small-vertical-padding: ($tc-badge-small-height - $tc-badge-small-label-font-size * $line-height-base) / 2 !default;
 $tc-badge-small-margin: $padding-smaller !default;
@@ -19,6 +19,22 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 $tc-badge-small-padding: 0.8rem;
 
 $tc-badge-disabled-opacity: 0.62;
+
+@mixin colored-badge($background-color, $color) {
+	.tc-badge-button {
+		background-color: $background-color;
+		color: $color;
+
+		.tc-badge-separator {
+			background-color: $color;
+		}
+
+		[class^='tc-badge-'],
+		.tc-badge-delete-icon svg {
+			color: inherit;
+		}
+	}
+}
 
 .tc-badge {
 	display: inline-flex;
@@ -132,6 +148,11 @@ $tc-badge-disabled-opacity: 0.62;
 				&:hover {
 					color: $lochmara;
 				}
+			}
+			&:hover,
+			&:focus,
+			&:global(.ally-focus-within) {
+				outline: none;
 			}
 		}
 	}
@@ -305,6 +326,36 @@ $tc-badge-disabled-opacity: 0.62;
 	&-disabled {
 		.tc-badge-button {
 			opacity: $tc-badge-disabled-opacity;
+		}
+	}
+
+	&--valid {
+		@include colored-badge(tint($rio-grande, 70%), shade($rio-grande, 30%));
+	}
+
+	&--invalid {
+		@include colored-badge(tint($chestnut-rose, 70%), shade($chestnut-rose, 30%));
+	}
+
+	&--empty {
+		@include colored-badge($alto, $dove-gray);
+	}
+
+	&--pattern {
+		@include colored-badge(tint($jaffa, 70%), shade($jaffa, 30%));
+	}
+
+	&--value {
+		@include colored-badge(tint($lochmara, 70%), shade($lochmara, 30%));
+	}
+
+	&-dropdown {
+		.tc-badge-button {
+			&:not(.tc-badge-disabled) {
+				&:global(.ally-focus-within) {
+					border-color: $lochmara;
+				}
+			}
 		}
 	}
 }
