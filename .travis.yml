@@ -54,8 +54,8 @@ matrix:
         - yarn install
         # - cd packages/faceted-search && yarn install
         - yarn test:demo
-        - .travis/after_success_umd.sh
         - .travis/after_success_static.sh
+        - .travis/after_success_umd.sh
         - .travis/after_success_demo.sh
         - .travis/after_success_deploy.sh
 
