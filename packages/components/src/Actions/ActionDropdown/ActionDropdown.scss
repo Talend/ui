@@ -29,6 +29,10 @@ $tc-dropdown-button-right-padding: 0.8rem;
 		a svg {
 			margin: 0 $padding-smaller;
 		}
+
+		&-badge {
+			margin-left: $padding-smaller;
+		}
 	}
 
 	&-loader {

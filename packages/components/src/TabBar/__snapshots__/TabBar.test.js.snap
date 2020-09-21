@@ -1,5 +1,102 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TabBar component should render with badges 1`] = `
+<Uncontrolled(TabContainer)
+  activeKey="3"
+  className="tabs-classname"
+  id="my-tabs"
+  onKeyDown={[Function]}
+  onSelect={[Function]}
+>
+  <div>
+    <Nav
+      bsClass="nav"
+      bsStyle="tabs"
+      className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
+      justified={false}
+      pullLeft={false}
+      pullRight={false}
+      stacked={false}
+    >
+      <NavItem
+        active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
+        componentClass="button"
+        data-feature="action.1"
+        disabled={false}
+        eventKey="1"
+        label="Tab1"
+      >
+        <TooltipTrigger
+          label="967 Tab1"
+          tooltipPlacement="top"
+        >
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab1
+            </span>
+            <Label
+              bsClass="label"
+              bsStyle="default"
+              className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge custom-class-name"
+            >
+              967
+            </Label>
+          </span>
+        </TooltipTrigger>
+      </NavItem>
+      <NavItem
+        active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
+        componentClass="button"
+        data-feature="action.2"
+        disabled={false}
+        eventKey="2"
+        label="Tab2"
+      >
+        <TooltipTrigger
+          label="1287 Tab2"
+          tooltipPlacement="top"
+        >
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab2
+            </span>
+            <Label
+              bsClass="label"
+              bsStyle="info"
+              className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge"
+            >
+              999+
+            </Label>
+          </span>
+        </TooltipTrigger>
+      </NavItem>
+    </Nav>
+    <TabContent
+      animation={true}
+      bsClass="tab"
+      componentClass="div"
+      mountOnEnter={false}
+      unmountOnExit={false}
+    >
+      <TabPane
+        bsClass="tab-pane"
+        eventKey="1"
+      />
+      <TabPane
+        bsClass="tab-pane"
+        eventKey="2"
+      />
+    </TabContent>
+  </div>
+</Uncontrolled(TabContainer)>
+`;
+
 exports[`TabBar component should render with selected children from item definition 1`] = `
 <Uncontrolled(TabContainer)
   activeKey="3"
@@ -31,9 +128,13 @@ exports[`TabBar component should render with selected children from item definit
           label="Tab1"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab1
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab1
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
       <NavItem
@@ -49,9 +150,13 @@ exports[`TabBar component should render with selected children from item definit
           label="Tab2"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab2
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab2
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
       <NavItem
@@ -67,9 +172,13 @@ exports[`TabBar component should render with selected children from item definit
           label="Tab3"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab3
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab3
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
       <NavItem
@@ -85,9 +194,13 @@ exports[`TabBar component should render with selected children from item definit
           label="Tab4"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab4
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab4
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
       <NavItem
@@ -103,9 +216,13 @@ exports[`TabBar component should render with selected children from item definit
           label="Tab5"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab5
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab5
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
     </Nav>
@@ -197,9 +314,13 @@ exports[`TabBar component should render with selected children managed by user 1
           label="Tab1"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab1
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab1
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
       <NavItem
@@ -215,9 +336,13 @@ exports[`TabBar component should render with selected children managed by user 1
           label="Tab2"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab2
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab2
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
       <NavItem
@@ -233,9 +358,13 @@ exports[`TabBar component should render with selected children managed by user 1
           label="Tab3"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab3
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab3
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
       <NavItem
@@ -251,9 +380,13 @@ exports[`TabBar component should render with selected children managed by user 1
           label="Tab4"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab4
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab4
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
       <NavItem
@@ -269,9 +402,13 @@ exports[`TabBar component should render with selected children managed by user 1
           label="Tab5"
           tooltipPlacement="top"
         >
-          <React.Fragment>
-            Tab5
-          </React.Fragment>
+          <span>
+            <span
+              className="theme-tc-tab-bar-item-label"
+            >
+              Tab5
+            </span>
+          </span>
         </TooltipTrigger>
       </NavItem>
     </Nav>
