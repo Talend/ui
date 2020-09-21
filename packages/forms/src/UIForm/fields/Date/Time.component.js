@@ -5,8 +5,6 @@ import DateTimePickers from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-const InputTimePicker = DateTimePickers.InputTimePicker;
-
 function TimeWidget({
 	errorMessage,
 	id,
@@ -51,7 +49,7 @@ function TimeWidget({
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			<InputTimePicker
+			<DateTimePickers.InputTimePicker
 				id={id}
 				autoFocus={schema.autoFocus}
 				disabled={schema.disabled || valueIsUpdating}
