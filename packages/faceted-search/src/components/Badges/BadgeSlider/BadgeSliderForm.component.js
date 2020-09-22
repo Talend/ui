@@ -1,11 +1,11 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Action from '@talend/react-components/lib/Actions/Action';
+import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';
-import Slider, { SLIDER_MODE } from '@talend/react-components/lib/Slider';
+import Slider from '@talend/react-components/lib/Slider';
 import Text from '@talend/react-forms/lib/UIForm/fields/Text';
 import { getTheme } from '@talend/react-components/lib/theme';
-import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
+import RichTooltip from '@talend/react-components/lib/RichTooltip';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeSlider.scss';
@@ -15,9 +15,9 @@ const theme = getTheme(cssModule);
 const getSliderMode = ({ name }) => {
 	switch (name) {
 		case 'greaterThan':
-			return SLIDER_MODE.GREATER_THAN;
+			return Slider.MODES.GREATER_THAN;
 		case 'equals':
-			return SLIDER_MODE.EQUALS;
+			return Slider.MODES.EQUALS;
 		default:
 			return null;
 	}
@@ -85,7 +85,7 @@ const BadgeSliderForm = ({
 
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
-			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
+			<RichTooltip.RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
 				<div className={theme('tc-badge-slider-form-body-row')}>
 					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (
@@ -130,8 +130,8 @@ const BadgeSliderForm = ({
 					step={step}
 					hideTooltip
 				/>
-			</RichLayout.Body>
-			<RichLayout.Footer id={`${id}-badge-footer`}>
+			</RichTooltip.RichLayout.Body>
+			<RichTooltip.RichLayout.Footer id={`${id}-badge-footer`}>
 				<span className={theme('tc-badge-slider-form-error')}>{error}</span>
 				<Action
 					type="submit"
@@ -140,7 +140,7 @@ const BadgeSliderForm = ({
 					bsStyle="info"
 					disabled={!!error}
 				/>
-			</RichLayout.Footer>
+			</RichTooltip.RichLayout.Footer>
 		</form>
 	);
 };
