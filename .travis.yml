@@ -52,7 +52,7 @@ matrix:
       script:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
         - yarn install
-        - cd packages/router && yarn install && yarn test:demo && cd "$TRAVIS_BUILD_DIR"
+        - cd packages/router && yarn install && cd "$TRAVIS_BUILD_DIR"
         - cd packages/faceted-search && yarn install && yarn test:demo && cd "$TRAVIS_BUILD_DIR"
         - yarn test:demo
         - .travis/after_success_static.sh
