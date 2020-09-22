@@ -35,6 +35,14 @@ mkdir -p .static/@talend/icons/dist
 cp -R packages/icons/dist/* .static/@talend/icons/dist
 echo "✓ Copy icons UMD to .static"
 
+mkdir -p .static/@talend/react-cmf-router/dist
+cp -R packages/router/dist/* .static/@talend/react-cmf-router/dist
+echo "✓ Copy router UMD to .static"
+
+mkdir -p .static/@talend/react-sagas/dist
+cp -R packages/sagas/dist/* .static/@talend/react-sagas/dist
+echo "✓ Copy sagas UMD to .static"
+
 mkdir -p .static/@talend/react-stepper/dist
 cp -R packages/stepper/dist/* .static/@talend/react-stepper/dist
 echo "✓ Copy stepper UMD to .static"
