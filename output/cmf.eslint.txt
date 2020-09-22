@@ -3,15 +3,4 @@
   17:3   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
   17:20  error  'current' is defined but never used                                                                                                                                        @typescript-eslint/no-unused-vars
 
-/home/travis/build/Talend/ui/packages/cmf/src/index.js
-  47:1  error  Parsing error: Unexpected token
-
-  45 | 	actions,
-  46 | 	cmfConnect,
-> 47 | <<<<<<< HEAD
-     | ^
-  48 | 	constants,
-  49 | =======
-  50 | >>>>>>> d29e178ab... feat(cmf): move to default cmf
-
-✖ 3 problems (3 errors, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
