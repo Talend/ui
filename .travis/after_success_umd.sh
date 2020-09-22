@@ -3,32 +3,38 @@
 echo "cp UMD"
 cd "$TRAVIS_BUILD_DIR"
 
-cp -R packages/cmf/dist/* .static
+mkdir -p .static/@talend/react-cmf/dist
+cp -R packages/cmf/dist/* .static/@talend/react-cmf/dist
 echo "✓ Copy cmf UMD to .static"
 
-cp -R packages/cmf-cqrs/dist/* .static
+mkdir -p .static/@talend/react-cmf-cqrs/dist
+cp -R packages/cmf-cqrs/dist/* .static/@talend/react-cmf-cqrs/dist
 echo "✓ Copy cmf-cqrs UMD to .static"
 
-cp -R packages/components/dist/* .static
+mkdir -p .static/@talend/react-components/dist
+cp -R packages/components/dist/* .static/@talend/react-components/dist
 echo "✓ Copy components UMD to .static"
 
-cp -R packages/containers/dist/* .static
+mkdir -p .static/@talend/react-containers/dist
+cp -R packages/containers/dist/* .static/@talend/react-containers/dist
 echo "✓ Copy containers UMD to .static"
 
-cp -R packages/datagrid/dist/* .static
+mkdir -p .static/@talend/react-datagrid/dist
+cp -R packages/datagrid/dist/* .static/@talend/react-datagrid/dist
 echo "✓ Copy datagrid UMD to .static"
 
-cp -R packages/faceted-search/dist/* .static
+mkdir -p .static/@talend/react-faceted-search/dist
+cp -R packages/faceted-search/dist/* .static/@talend/react-faceted-search/dist
 echo "✓ Copy faceted-search UMD to .static"
 
-cp -R packages/forms/dist/* .static
+mkdir -p .static/@talend/react-forms/dist
+cp -R packages/forms/dist/* .static/@talend/react-forms/dist
 echo "✓ Copy forms UMD to .static"
 
-cp -R packages/icons/dist/* .static
+mkdir -p .static/@talend/icons/dist
+cp -R packages/icons/dist/* .static/@talend/icons/dist
 echo "✓ Copy icons UMD to .static"
 
-cp -R packages/stepper/dist/* .static
+mkdir -p .static/@talend/react-stepper/dist
+cp -R packages/stepper/dist/* .static/@talend/react-stepper/dist
 echo "✓ Copy stepper UMD to .static"
-
-cp -R packages/theme/dist/* .static
-echo "✓ Copy theme UMD to .static"
