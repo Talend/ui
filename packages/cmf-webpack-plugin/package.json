@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/react-cmf": "^6.0.0-alpha.10",
+    "@talend/react-cmf": "^6.0.0-alpha.11",
     "chokidar": "^2.0.2",
     "deepmerge": "^1.5.1",
     "lodash": "^4.17.15",
@@ -43,5 +43,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.0.0-alpha.10"
+  "version": "6.0.0-alpha.11"
 }
