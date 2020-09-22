@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import Label from 'react-bootstrap/lib/Label';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -13,6 +15,7 @@ import classnames from 'classnames';
 import Icon from '../Icon';
 import TooltipTrigger from '../TooltipTrigger';
 import { ActionDropdown } from '../Actions';
+import getTabBarBadgeLabel from '../utils/getTabBarBadgeLabel';
 
 import theme from './TabBar.scss';
 
@@ -123,10 +126,13 @@ function TabBar(props) {
 	let tabMenu;
 	if (responsive && showDropdown) {
 		const selectedItem = items.find(item => item.key === selectedKey) || items[0];
+		const badgeLabel = get(selectedItem, 'badge.label', '');
 		tabMenu = (
 			<ActionDropdown
 				id={id}
 				className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
+				badge={selectedItem.badge}
+				tooltipLabel={badgeLabel ? `${badgeLabel} ${selectedItem.label}` : selectedItem.label}
 				label={selectedItem.label}
 				icon={selectedItem.icon && selectedItem.icon.name}
 				onSelect={(event, { key }) => handleSelect(key, event)}
@@ -149,23 +155,38 @@ function TabBar(props) {
 				)}
 				ref={tabBarRef}
 			>
-				{items.map(({ icon, ...item }) => (
+				{items.map(({ icon, badge, ...item }) => (
 					<NavItem
-						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
+						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
 						{...item}
 						eventKey={item.key}
 						componentClass="button"
 					>
-						<TooltipTrigger label={item.label} tooltipPlacement={tooltipPlacement}>
-							<React.Fragment>
+						<TooltipTrigger
+							label={badge && badge.label ? `${badge.label} ${item.label}` : item.label}
+							tooltipPlacement={tooltipPlacement}
+						>
+							<span>
 								{icon && (
 									<Icon
 										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
 										{...icon}
 									/>
 								)}
-								{item.label}
-							</React.Fragment>
+								<span className={classnames(theme['tc-tab-bar-item-label'])}>{item.label}</span>
+								{badge && (
+									<Label
+										className={classnames(
+											theme['tc-tab-bar-item-badge'],
+											'tc-tab-bar-item-badge',
+											badge.className,
+										)}
+										bsStyle={badge.bsStyle || 'default'}
+									>
+										{getTabBarBadgeLabel(badge.label)}
+									</Label>
+								)}
+							</span>
 						</TooltipTrigger>
 					</NavItem>
 				))}
@@ -203,6 +224,11 @@ TabBar.propTypes = {
 			key: PropTypes.any.isRequired,
 			label: PropTypes.string.isRequired,
 			icon: PropTypes.object,
+			badge: PropTypes.shape({
+				className: PropTypes.string,
+				label: PropTypes.string,
+				bsStyle: PropTypes.string,
+			}),
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,

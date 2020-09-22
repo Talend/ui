@@ -7,6 +7,7 @@ import noop from 'lodash/noop';
 import Skeleton from '@talend/react-components/lib/Skeleton';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { extractDataAttributes } from '../../utils/properties';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './File.scss';
@@ -189,6 +190,7 @@ class FileWidget extends React.Component {
 								placeholder={placeholder}
 								tabIndex="-1"
 								autoComplete="off"
+								{...extractDataAttributes(schema)}
 							/>
 						</React.Fragment>
 					)}
