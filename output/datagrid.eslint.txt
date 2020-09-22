@@ -2,4 +2,20 @@
 /home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultValueRenderer.component.js
   66:4  error  onMouseOver must be accompanied by onFocus for accessibility  jsx-a11y/mouse-events-have-key-events
 
-✖ 1 problem (1 error, 0 warnings)
+/home/travis/build/Talend/ui/packages/datagrid/src/containers/DataGrid/DataGrid.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/datagrid/src/containers/DataGrid/DataGrid.connect.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/datagrid/src/containers/datagrid.container.stories.js
+  6:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+  8:17  error  Unable to resolve path to module '@talend/react-cmf'           import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/datagrid/src/register.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/datagrid/src/register.test.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+✖ 7 problems (7 errors, 0 warnings)
