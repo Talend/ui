@@ -18,8 +18,8 @@ echo "✓ Copy containers UMD to .static"
 cp -R packages/datagrid/dist/* .static
 echo "✓ Copy datagrid UMD to .static"
 
-# cp -R packages/faceted-search/dist/* .static
-# echo "✓ Copy faceted-search UMD to .static"
+cp -R packages/faceted-search/dist/* .static
+echo "✓ Copy faceted-search UMD to .static"
 
 cp -R packages/forms/dist/* .static
 echo "✓ Copy forms UMD to .static"

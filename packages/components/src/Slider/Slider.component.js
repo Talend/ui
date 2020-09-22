@@ -310,5 +310,4 @@ Slider.defaultProps = {
 	captionsFormat: noFormat,
 };
 
-Slider.MODES = SLIDER_MODE;
 export default Slider;

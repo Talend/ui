@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import isNaN from 'lodash/isNaN';
 import classNames from 'classnames';
 import { getTheme } from '@talend/react-components/lib/theme';
-import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
+import RichTooltip from '@talend/react-components/lib/RichTooltip';
 import FilterBar from '@talend/react-components/lib/FilterBar';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 import Icon from '@talend/react-components/lib/Icon';
@@ -118,7 +118,7 @@ const AddFacetPopoverHeader = ({
 	t,
 	isFocusable,
 }) => (
-	<RichLayout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
+	<RichTooltip.RichLayout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
 		{!isNull(category) && (
 			<div className={theme('tc-add-facet-popover-category')}>
 				<Button
@@ -148,7 +148,7 @@ const AddFacetPopoverHeader = ({
 			value={filterValue}
 			disabled={!isFocusable}
 		/>
-	</RichLayout.Header>
+	</RichTooltip.RichLayout.Header>
 );
 
 AddFacetPopoverHeader.propTypes = {
@@ -284,7 +284,7 @@ const AddFacetPopover = ({
 							t={t}
 						/>
 
-						<RichLayout.Body id={`${addFacetId}-${category}-body`}>
+						<RichTooltip.RichLayout.Body id={`${addFacetId}-${category}-body`}>
 							<div className={theme('tc-add-facet-popover-row-container')}>
 								{filterValue !== '' && !screen.rows.length && (
 									<span className={theme('tc-add-facet-popover-filter-empty')}>
@@ -316,7 +316,7 @@ const AddFacetPopover = ({
 									),
 								)}
 							</div>
-						</RichLayout.Body>
+						</RichTooltip.RichLayout.Body>
 					</div>
 				))}
 			</div>

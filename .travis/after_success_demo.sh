@@ -22,13 +22,8 @@ echo "✓ Copy stepper showcase to .static"
 cp -R packages/forms/storybook-static/* .static/forms
 echo "✓ Copy forms showcase to .static"
 
-# echo "📦 Build Faceted-Search storybook because it's not included in lerna"
-# cd packages/faceted-search
-# npm i
-# npm run test:demo
-# cd "$TRAVIS_BUILD_DIR"
-# cp -R packages/faceted-search/storybook-static/* .static/faceted-search
-# echo "✓ Copy faceted-search showcase to .static"
+cp -R packages/faceted-search/storybook-static/* .static/faceted-search
+echo "✓ Copy faceted-search showcase to .static"
 
 cp -R packages/icons/docs/index.html .static/icons
 echo "✓ Copy icons showcase to .static"
