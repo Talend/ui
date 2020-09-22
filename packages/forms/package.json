@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepare": "talend-scripts build:lib && talend-scripts build:lib:umd",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:umd",
+    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",

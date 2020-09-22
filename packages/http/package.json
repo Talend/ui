@@ -18,7 +18,7 @@
   "mainSrc": "src/index.ts",
   "scripts": {
     "prepare": "talend-scripts build:lib && talend-scripts build:lib:umd",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:umd",
+    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "lint:es": "talend-scripts lint:es"
