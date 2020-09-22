@@ -44,10 +44,6 @@ export {
 	App,
 	actions,
 	cmfConnect,
-<<<<<<< HEAD
-	constants,
-=======
->>>>>>> d29e178ab... feat(cmf): move to default cmf
 	Dispatcher,
 	ErrorBoundary,
 	Inject,
