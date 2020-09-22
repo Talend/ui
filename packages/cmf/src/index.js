@@ -44,12 +44,13 @@ export {
 	App,
 	actions,
 	cmfConnect,
+<<<<<<< HEAD
 	constants,
+=======
+>>>>>>> d29e178ab... feat(cmf): move to default cmf
 	Dispatcher,
 	ErrorBoundary,
 	Inject,
-	middlewares,
-	onError,
 	sagas,
 	selectors,
 	// DEPRECATED
@@ -82,8 +83,12 @@ export default {
 	bootstrap,
 	component,
 	connect: cmfConnect,
+	constants,
 	expression,
 	expressions,
+	middlewares,
+	module: cmfModule,
+	onError,
 	registerInternals,
 	registry,
 	router: {
@@ -92,5 +97,6 @@ export default {
 	saga: sagas,
 	sagas,
 	selectors,
+	settings,
 	localStorage,
 };
