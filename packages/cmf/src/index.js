@@ -17,6 +17,7 @@ import matchPath from './matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
 import localStorage from './localStorage';
+import onError from './onError';
 
 // DEPRECATED APIs
 import action from './action';
@@ -25,11 +26,14 @@ import reducers from './reducers';
 import registry from './registry';
 import RegistryProvider from './RegistryProvider';
 import store from './store';
-import getErrorMiddleware from './middlewares/error';
-import httpMiddleware from './middlewares/http';
+import middlewares from './middlewares';
 import componentState from './componentState';
+import constants from './constant';
 
 const Dispatcher = ConnectedDispatcher;
+const getErrorMiddleware = middlewares.error;
+const httpMiddleware = middlewares.http;
+
 
 function registerInternals(context) {
 	actionCreator.register('cmf.saga.start', actions.saga.start, context);
@@ -41,9 +45,12 @@ export {
 	App,
 	actions,
 	cmfConnect,
+	constants,
 	Dispatcher,
 	ErrorBoundary,
 	Inject,
+	middlewares,
+	onError,
 	sagas,
 	selectors,
 	// DEPRECATED
