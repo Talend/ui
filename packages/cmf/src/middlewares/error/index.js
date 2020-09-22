@@ -25,3 +25,5 @@ export default function getErrorMiddleware(url) {
 		}
 	};
 }
+
+getErrorMiddleware.URL_REQUIRED_MESSAGE = URL_REQUIRED_MESSAGE;
