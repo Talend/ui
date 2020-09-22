@@ -118,7 +118,10 @@ const AddFacetPopoverHeader = ({
 	t,
 	isFocusable,
 }) => (
-	<RichTooltip.RichLayout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
+	<RichTooltip.RichLayout.Header
+		className={theme('tc-add-facet-popover-header')}
+		id={`${id}-header`}
+	>
 		{!isNull(category) && (
 			<div className={theme('tc-add-facet-popover-category')}>
 				<Button

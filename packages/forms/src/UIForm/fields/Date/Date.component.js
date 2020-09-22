@@ -9,7 +9,6 @@ import { extractDataAttributes } from '../../utils/properties';
 
 const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
 
-
 function DateWidget(props) {
 	const {
 		errorMessage,

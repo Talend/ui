@@ -3,7 +3,7 @@ import React from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
 import Inject from '@talend/react-components/lib/Inject';
-import {Action} from '@talend/react-components/lib/Actions';
+import { Action } from '@talend/react-components/lib/Actions';
 
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';

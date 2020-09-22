@@ -85,7 +85,10 @@ const BadgeSliderForm = ({
 
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
-			<RichTooltip.RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
+			<RichTooltip.RichLayout.Body
+				id={`${id}-badge-body`}
+				className={theme('tc-badge-slider-form-body')}
+			>
 				<div className={theme('tc-badge-slider-form-body-row')}>
 					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (

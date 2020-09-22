@@ -36,7 +36,6 @@ const Dispatcher = ConnectedDispatcher;
 const getErrorMiddleware = middlewares.error;
 const httpMiddleware = middlewares.http;
 
-
 function registerInternals(context) {
 	actionCreator.register('cmf.saga.start', actions.saga.start, context);
 	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);

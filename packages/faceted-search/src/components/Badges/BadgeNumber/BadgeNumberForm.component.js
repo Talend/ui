@@ -25,7 +25,10 @@ const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 
 	return (
 		<form className={theme('tc-badge-number-form')} id={`${id}-number`} onSubmit={onSubmit}>
-			<RichTooltip.RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-number-form-body')}>
+			<RichTooltip.RichLayout.Body
+				id={`${id}-badge-body`}
+				className={theme('tc-badge-number-form-body')}
+			>
 				<Text
 					id={`${id}-input`}
 					onChange={onChangeText}

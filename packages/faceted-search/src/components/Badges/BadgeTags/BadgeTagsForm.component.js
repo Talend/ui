@@ -113,7 +113,10 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 					id={`${badgeTagsFormId}-form`}
 					onSubmit={onSubmit}
 				>
-					<RichTooltip.RichLayout.Body id={badgeTagsFormId} className={theme('fs-badge-tags-form-body')}>
+					<RichTooltip.RichLayout.Body
+						id={badgeTagsFormId}
+						className={theme('fs-badge-tags-form-body')}
+					>
 						{!visibleTags.length && (
 							<span className={theme('fs-badge-tags-form-empty')}>
 								{t('FIND_TAG_NO_RESULT', {
