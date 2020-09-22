@@ -3,8 +3,4 @@
   17:3   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
   17:20  error  'current' is defined but never used                                                                                                                                        @typescript-eslint/no-unused-vars
 
-/home/travis/build/Talend/ui/packages/cmf/src/index.js
-  29:25  error  Missing file extension for "./middlewares"        import/extensions
-  29:25  error  Unable to resolve path to module './middlewares'  import/no-unresolved
-
-✖ 4 problems (4 errors, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
