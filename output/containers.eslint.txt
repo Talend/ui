@@ -1,15 +1,274 @@
 
+/home/travis/build/Talend/ui/packages/containers/src/AboutDialog/AboutDialog.connect.js
+  1:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/AboutDialog/AboutDialog.container.js
+  5:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/AboutDialog/AboutDialog.sagas.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/AboutDialog/AboutDialog.sagas.test.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Action/Action.connect.js
+  1:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Action/Action.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionButton/ActionButton.connect.js
+  3:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionButton/ActionButton.test.js
+  4:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionDropdown/ActionDropdown.connect.js
+  4:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionDropdown/ActionDropdown.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionFile/ActionFile.connect.js
+  3:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionFile/ActionFile.test.js
+  4:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionIconToggle/ActionIconToggle.connect.js
+  3:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionIconToggle/ActionIconToggle.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.connect.js
+  3:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Actions/Actions.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Actions/Actions.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.connect.js
+  4:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
 /home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.js
+   1:17  error  Unable to resolve path to module '@talend/react-cmf'                                                                                                                       import/no-unresolved
   55:2   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
   55:13  error  'step' is defined but never used                                                                                                                                           @typescript-eslint/no-unused-vars
 
+/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.test.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'               import/no-unresolved
+  2:22  error  Unable to resolve path to module '@talend/react-cmf/lib/registry'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Badge/Badge.component.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Breadcrumbs/Breadcrumbs.connect.js
+  2:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.component.js
-  89:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+   3:33  error  Unable to resolve path to module '@talend/react-cmf'                                                                                                                                                                                                                                                         import/no-unresolved
+  89:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.saga.test.js
+  3:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.sagas.js
+  2:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.js
+  20:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.test.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.connect.js
+  1:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.container.js
+  6:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
+  4:39  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
+  3:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.test.js
+  3:23  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.js
+  4:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.test.js
+  3:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.container.js
+  6:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/FilterBar/FilterBar.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/FilterBar/FilterBar.container.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
+  4:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/GuidedTour/GuidedTour.connect.js
+  2:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/GuidedTour/GuidedTour.container.js
+  4:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/HeaderBar/HeaderBar.connect.js
+  1:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/HeaderBar/HeaderBar.container.js
+  5:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/HeaderBar/HeaderBar.sagas.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/HeaderBar/HeaderBar.sagas.test.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/List/List.connect.js
+  3:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
-  124:3  error  defaultProp "state" has no corresponding propTypes declaration  react/default-props-match-prop-types
+   10:33  error  Unable to resolve path to module '@talend/react-cmf'            import/no-unresolved
+  124:3   error  defaultProp "state" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/containers/src/List/List.sagas.test.js
+  5:29  error  Missing file extension for "../../../cmf/lib/mock"        import/extensions
+  5:29  error  Unable to resolve path to module '../../../cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/List/selector.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/List/selector.test.js
+  1:23  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+  2:17  error  Unable to resolve path to module '@talend/react-cmf'           import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.container.js
+  5:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.sagas.js
+  3:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
-  11:57  error  'notifications' is missing in props validation  react/prop-types
+   3:33  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+  11:57  error  'notifications' is missing in props validation                 react/prop-types
 
-✖ 5 problems (5 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.container.js
+  7:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/PieChartButton/PieChartButton.connect.js
+  5:36  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.container.js
+  3:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
+  4:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
+  5:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.test.js
+  5:41  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
+  3:33  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
+  3:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.test.js
+  4:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Slider/Slider.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Slider/Slider.container.js
+  2:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.container.js
+  6:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/TabBar/TabBar.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.container.js
+  3:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.test.js
+  3:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.connect.js
+  1:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
+  4:44  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/actionAPI.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/actionAPI.test.js
+  1:18  error  Unable to resolve path to module '@talend/react-cmf/lib/mock'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/index.js
+  3:28  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/register.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/register.test.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/renderers.js
+  1:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
+
+✖ 96 problems (96 errors, 0 warnings)
