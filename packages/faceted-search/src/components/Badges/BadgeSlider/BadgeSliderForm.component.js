@@ -13,7 +13,6 @@ import cssModule from './BadgeSlider.scss';
 const theme = getTheme(cssModule);
 
 const getSliderMode = ({ name }) => {
-	console.error('LOL', JSON.stringify(Slider, null, 2));
 	switch (name) {
 		case 'greaterThan':
 			return Slider.MODES.GREATER_THAN;
