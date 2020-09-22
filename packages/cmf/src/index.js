@@ -7,6 +7,7 @@ import actionCreator from './actionCreator';
 
 import bootstrap from './bootstrap';
 import cmfConnect from './cmfConnect';
+import cmfModule from './cmfModule';
 import component from './component';
 import ConnectedDispatcher from './Dispatcher';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
@@ -16,6 +17,7 @@ import Inject from './Inject.component';
 import matchPath from './matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
+import settings from './settings';
 import localStorage from './localStorage';
 import onError from './onError';
 
