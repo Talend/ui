@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
-import Text from '@talend/react-forms/lib/UIForm/fields/Text';
+import UIForm from '@talend/react-forms';
 import { getTheme } from '@talend/react-components/lib/theme';
 import RichTooltip from '@talend/react-components/lib/RichTooltip';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
@@ -29,7 +29,7 @@ const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 				id={`${id}-badge-body`}
 				className={theme('tc-badge-number-form-body')}
 			>
-				<Text
+				<UIForm.fields.Text
 					id={`${id}-input`}
 					onChange={onChangeText}
 					onFinish={() => {}}

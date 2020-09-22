@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';
 import Slider from '@talend/react-components/lib/Slider';
-import Text from '@talend/react-forms/lib/UIForm/fields/Text';
+import UIForm from '@talend/react-forms';
 import { getTheme } from '@talend/react-components/lib/theme';
 import RichTooltip from '@talend/react-components/lib/RichTooltip';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
@@ -92,7 +92,7 @@ const BadgeSliderForm = ({
 				<div className={theme('tc-badge-slider-form-body-row')}>
 					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (
-						<Text
+						<UIForm.fields.Text
 							id={`${id}-input`}
 							onChange={(_, { value: v }) => {
 								setInput(v);
