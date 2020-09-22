@@ -62,7 +62,6 @@
     "recharts": "^1.8.5",
     "simplebar": "^4.2.2",
     "simplebar-react": "^1.2.2",
-    "simulant": "^0.2.2",
     "timezone-support": "^1.5.5",
     "uuid": "^3.4.0"
   },
