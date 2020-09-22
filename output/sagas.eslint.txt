@@ -1,8 +1,0 @@
-
-/home/travis/build/Talend/ui/packages/sagas/src/pending/pending.js
-  3:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/sagas/src/pending/pending.test.js
-  3:17  error  Unable to resolve path to module '@talend/react-cmf'  import/no-unresolved
-
-✖ 2 problems (2 errors, 0 warnings)
