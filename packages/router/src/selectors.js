@@ -1,4 +1,4 @@
-import match from '@talend/react-cmf/lib/matchPath';
+import cmf from '@talend/react-cmf';
 
 /**
  * getLocation selector return the location from the redux state object.
@@ -25,5 +25,5 @@ export function getPath(state) {
  * @param {Object} options matchPath options.
  */
 export function matchPath(state, options) {
-	return match(getPath(state), options);
+	return cmf.router.matchPath(getPath(state), options);
 }

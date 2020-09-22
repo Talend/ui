@@ -7,6 +7,7 @@ import actionCreator from './actionCreator';
 
 import bootstrap from './bootstrap';
 import cmfConnect from './cmfConnect';
+import cmfModule from './cmfModule';
 import component from './component';
 import ConnectedDispatcher from './Dispatcher';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
@@ -18,6 +19,7 @@ import sagas from './sagas';
 import selectors from './selectors';
 import localStorage from './localStorage';
 import onError from './onError';
+import settings from './settings';
 
 // DEPRECATED APIs
 import action from './action';
@@ -45,6 +47,7 @@ export {
 	App,
 	actions,
 	cmfConnect,
+	cmfModule,
 	constants,
 	Dispatcher,
 	ErrorBoundary,
@@ -53,6 +56,7 @@ export {
 	onError,
 	sagas,
 	selectors,
+	settings,
 	// DEPRECATED
 	componentState,
 	getErrorMiddleware,
