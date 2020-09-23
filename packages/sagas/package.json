@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "6.0.0-alpha.11",
+  "version": "6.0.0-alpha.12",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -39,7 +39,7 @@
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^6.0.0-alpha.11",
+    "@talend/react-cmf": "^6.0.0-alpha.12",
     "@talend/scripts-core": "7.0.0-alpha.26",
     "@talend/scripts-preset-react-lib": "7.0.0-alpha.26",
     "immutable": "^3.8.1",
