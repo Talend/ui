@@ -12,14 +12,14 @@ import cmfRouterMiddleware from './middleware';
 import { REGISTRY_HOOK_PREFIX } from './route';
 
 const mergeConfig = {
-	history: cmf.merge.getUnique,
-	sagaRouterConfig: cmf.merge.mergeObjects,
-	routerFunctions: cmf.merge.mergeObjects,
-	startOnAction: cmf.merge.getUnique,
+	history: cmf.module.merge.getUnique,
+	sagaRouterConfig: cmf.module.merge.mergeObjects,
+	routerFunctions: cmf.module.merge.mergeObjects,
+	startOnAction: cmf.module.merge.getUnique,
 };
 
 function mergeRouterConfig(...configs) {
-	return configs.reduce(cmf.merge.getReduceConfig(mergeConfig), {});
+	return configs.reduce(cmf.module.merge.getReduceConfig(mergeConfig), {});
 }
 
 function getModule(...args) {
