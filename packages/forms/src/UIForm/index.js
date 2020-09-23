@@ -1,4 +1,3 @@
-
 import * as FormTemplate from './FormTemplate';
 import Message from './Message';
 import callTrigger from './trigger';
