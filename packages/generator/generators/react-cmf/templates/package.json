@@ -31,7 +31,7 @@
     "@talend/react-components": "5.20.0",
     "@talend/react-containers": "5.20.0",
     "@talend/react-forms": "5.20.0",
-    "@talend/react-cmf-router": "^3.2.1",
+    "@talend/react-cmf-router": "^3.4.0-alpha-1",
     "bootstrap-sass": "3.4.1",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",

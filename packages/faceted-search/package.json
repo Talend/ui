@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@talend/daikon-tql-client": "^1.2.0",
+
     "classnames": "^2.2.5",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
@@ -62,7 +63,9 @@
     "node-sass": "^4.13.1",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
+    "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
+    "react-hook-form": "^5.7.0",
     "react-i18next": "^10.11.4",
     "style-loader": "^0.23.0"
   },
@@ -72,7 +75,6 @@
     "@talend/react-components": "^6.0.0-alpha.11",
     "@talend/react-forms": "^6.0.0-alpha.11",
     "i18next": "^15.1.3",
-    "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-i18next": "^10.10.0"
   },
