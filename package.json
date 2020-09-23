@@ -5,6 +5,8 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
+    "prepublishOnly": "lerna exec -- yarn prepublishOnly",
+    "prepare": "lerna exec -- yarn prepare",
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "build": "lerna exec -- yarn",
@@ -73,5 +75,8 @@
     "webpack-dev-middleware": "^3.7.2",
     "elliptic": "^6.5.2",
     "sass-loader": "^8.0.2"
+  },
+  "dependencies": {
+    "dot-prop": "^5.2.0"
   }
 }

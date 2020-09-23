@@ -17,15 +17,15 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
   "scripts": {
-    "prepare": "talend-scripts build:lib && talend-scripts build:lib:umd",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd",
+    "prepare": "talend-scripts build:lib",
+    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "lint:es": "talend-scripts lint:es"
   },
   "devDependencies": {
-    "@talend/scripts-core": "7.0.0-alpha.25",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.25",
+    "@talend/scripts-core": "7.0.0-alpha.26",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.26",
     "enzyme": "^3.9.0",
     "fetch-mock": "^9.3.1",
     "node-fetch": "^2.6.0",

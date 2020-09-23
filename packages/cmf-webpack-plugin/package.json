@@ -4,8 +4,8 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "prepare": "talend-scripts build:lib && talend-scripts build:lib:umd",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd",
+    "prepare": "talend-scripts build:lib",
+    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
     "test:cov": "npm run test",
@@ -37,8 +37,8 @@
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "@talend/scripts-core": "7.0.0-alpha.25",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.25"
+    "@talend/scripts-core": "7.0.0-alpha.26",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.26"
   },
   "publishConfig": {
     "access": "public"

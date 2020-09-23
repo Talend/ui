@@ -5,6 +5,7 @@
   "style": "build/octicons.css",
   "license": "Apache-2.0",
   "scripts": {
+    "prepublishOnly": "echo no prepublishOnly",
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env.production",
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
