@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
   <g>
-    <polygon points="2 16 2 0 14 8"/>
+    <polygon class="ti-foreground" points="2 16 2 0 14 8"/>
   </g>
 </svg>
