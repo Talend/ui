@@ -22,13 +22,17 @@
 			}
 
 			.tc-badge-value-unit {
-				cursor: pointer;
 				font-size: 3.2rem;
 				font-weight: $font-weight-semi-bold;
 				width: 5rem;
 				height: 4.7rem;
-				padding-top: 0.2rem;
 				margin-bottom: 0;
+				border: none;
+				background: none;
+				padding: {
+					left: 0;
+					top: 0.2rem;
+				}
 			}
 
 			:global(.form-group) {

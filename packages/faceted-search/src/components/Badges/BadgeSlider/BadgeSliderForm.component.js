@@ -105,7 +105,7 @@ const BadgeSliderForm = ({
 							value={input}
 						/>
 					) : (
-						<span className={theme('tc-badge-value-unit')} onClick={() => setEditing(true)}>
+						<button className={theme('tc-badge-value-unit')} onClick={() => setEditing(true)}>
 							<span className="sr-only">
 								{t('FACETED_SEARCH_VALUES_COUNT', {
 									defaultValue: 'Edit directly',
@@ -113,7 +113,7 @@ const BadgeSliderForm = ({
 							</span>
 							{value}
 							{unit}
-						</span>
+						</button>
 					)}
 				</div>
 				<Slider
