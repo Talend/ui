@@ -190,17 +190,12 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 
 function Intercom({ id, config, tooltipPlacement }) {
 	return (
-		<li
-			role="presentation"
-			className={theme('tc-header-bar-intercom', 'tc-header-bar-action', 'separated')}
-		>
-			<ActionIntercom
-				className="btn btn-link"
-				id={id}
-				config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
-				tooltipPlacement={tooltipPlacement}
-			/>
-		</li>
+		<ActionIntercom
+			className={theme('tc-header-bar-intercom-default-component', 'btn', 'btn-link')}
+			id={id}
+			config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
+			tooltipPlacement={tooltipPlacement}
+		/>
 	);
 }
 
@@ -223,6 +218,15 @@ function HeaderBar(props) {
 
 	const AppSwitcherComponent =
 		props.AppSwitcher || Inject.get(props.getComponent, 'AppSwitcher', AppSwitcher);
+
+	let intercom;
+	const { Intercom: CustomIntercom } = props;
+	if (CustomIntercom) {
+		intercom = <CustomIntercom />;
+	} else if (props.intercom) {
+		console.warn('Deprecated: use @talend/ui-ee/Intercom');
+		intercom = <Components.Intercom getComponent={props.getComponent} {...props.intercom} />;
+	}
 
 	return (
 		<nav className={theme('tc-header-bar', 'navbar')}>
@@ -250,8 +254,13 @@ function HeaderBar(props) {
 						t={props.t}
 					/>
 				)}
-				{props.intercom && (
-					<Components.Intercom getComponent={props.getComponent} {...props.intercom} />
+				{intercom && (
+					<li
+						role="presentation"
+						className={theme('tc-header-bar-intercom', 'tc-header-bar-action', 'separated')}
+					>
+						{intercom}
+					</li>
 				)}
 				{props.help && (
 					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
@@ -358,6 +367,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 	HeaderBar.propTypes = {
 		AppSwitcher: PropTypes.func,
+		Intercom: PropTypes.func,
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape({
 			isSeparated: PropTypes.bool,

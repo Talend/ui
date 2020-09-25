@@ -5,11 +5,6 @@ import { useTranslation } from 'react-i18next';
 import GuidedTour from '../GuidedTour';
 import Toggle from '../Toggle';
 import Stepper from '../Stepper';
-import {
-	isAllSuccessful,
-	isStepsLoading,
-	SHOW_COMPLETED_TRANSITION_TIMER,
-} from '../Stepper/Stepper.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import DemoContentStep from './DemoContentStep.component';
 
@@ -25,6 +20,7 @@ function AppGuidedTour({
 	onRequestOpen,
 	onImportDemoContent,
 	onRequestClose,
+	welcomeStepBody = null,
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
@@ -33,8 +29,10 @@ function AppGuidedTour({
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isNavigationDisabled =
-		importDemoContent && currentStep === DEMO_CONTENT_STEP_ID && isStepsLoading(demoContentSteps);
-	const isImportSuccessFul = demoContentSteps?.length && isAllSuccessful(demoContentSteps);
+		importDemoContent &&
+		currentStep === DEMO_CONTENT_STEP_ID &&
+		Stepper.isStepsLoading(demoContentSteps);
+	const isImportSuccessFul = demoContentSteps?.length && Stepper.isAllSuccessful(demoContentSteps);
 
 	useEffect(() => {
 		if (!isAlreadyViewed) {
@@ -47,7 +45,7 @@ function AppGuidedTour({
 		if (isImportSuccessFul) {
 			timeoutId = setTimeout(() => {
 				setCurrentStep(prev => (prev === DEMO_CONTENT_STEP_ID ? DEMO_CONTENT_STEP_ID + 1 : prev));
-			}, SHOW_COMPLETED_TRANSITION_TIMER);
+			}, Stepper.SHOW_COMPLETED_TRANSITION_TIMER);
 		}
 		return () => clearTimeout(timeoutId);
 	}, [isImportSuccessFul]);
@@ -83,28 +81,32 @@ function AppGuidedTour({
 							appName,
 							defaultValue: 'Welcome to {{appName}}',
 						}),
-						body: () => (
-							<div>
-								{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
-									defaultValue: `If you're new, you may want to take a quick tour of the tool now.
+						body: () => {
+							return (
+								welcomeStepBody || (
+									<div>
+										{t('GUIDED_TOUR_WELCOME_STEP_BODY', {
+											defaultValue: `If you're new, you may want to take a quick tour of the tool now.
 										 If not, you can replay the tour from the user menu.`,
-								})}
-								{demoContentSteps && (
-									<form>
-										<Toggle
-											id="app-guided-tour__import-demo-content-toggle"
-											label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
-												defaultValue: 'Import demo content',
-											})}
-											onChange={event => {
-												setImportDemoContent(event.target.checked);
-											}}
-											checked={importDemoContent}
-										/>
-									</form>
-								)}
-							</div>
-						),
+										})}
+										{demoContentSteps && (
+											<form>
+												<Toggle
+													id="app-guided-tour__import-demo-content-toggle"
+													label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
+														defaultValue: 'Import demo content',
+													})}
+													onChange={event => {
+														setImportDemoContent(event.target.checked);
+													}}
+													checked={importDemoContent}
+												/>
+											</form>
+										)}
+									</div>
+								)
+							);
+						},
 					},
 				},
 				importDemoContent && {
@@ -127,6 +129,7 @@ AppGuidedTour.propTypes = {
 	appName: PropTypes.string.isRequired,
 	localStorageKey: PropTypes.string,
 	steps: GuidedTour.propTypes.steps,
+	welcomeStepBody: PropTypes.node,
 	demoContentSteps: Stepper.propTypes.steps,
 	onRequestOpen: PropTypes.func.isRequired,
 	onImportDemoContent: PropTypes.func,

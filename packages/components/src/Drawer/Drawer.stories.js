@@ -254,7 +254,7 @@ for (let index = 0; index < 20; index++) {
 }
 storiesOf('Layout/Drawer', module)
 	.add('Layout 1 column', () => (
-		<Layout header={header} mode="OneColumns" drawers={drawers}>
+		<Layout header={header} mode="OneColumn" drawers={drawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
 			<IconsProvider defaultIcons={icons} />

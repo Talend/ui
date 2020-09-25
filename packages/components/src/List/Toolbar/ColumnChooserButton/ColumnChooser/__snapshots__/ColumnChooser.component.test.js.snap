@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ColumnChooser should render with default props 1`] = `
+<header id="column-chooser-header"
+        class="theme-header tc-tooltip-header tc-column-chooser-header theme-tc-column-chooser-header"
+>
+  <div>
+    <div class="tc-column-chooser-header-title theme-tc-column-chooser-header-title">
+      Select columns to display
+    </div>
+    <div id="selected-columns-text">
+      5/6 selected
+    </div>
+  </div>
+</header>
 <form class="theme-filter tc-column-chooser-filter theme-tc-column-chooser-filter theme-navbar"
       role="search"
 >
@@ -37,16 +49,16 @@ exports[`ColumnChooser should render with default props 1`] = `
       <div class="tc-column-chooser-body theme-tc-column-chooser-body">
         <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
           <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Columns"
+            <label for="my-id-body-checkbox-Select-All"
                    data-feature="column-chooser.select.all.enable"
             >
               <input type="checkbox"
-                     id="my-id-body-checkbox-Columns"
+                     id="my-id-body-checkbox-Select-All"
                      data-checked="0"
                      aria-describedby="my-id-body-display all the columns"
               >
               <span>
-                Columns
+                Select All
               </span>
             </label>
           </div>
@@ -124,11 +136,11 @@ exports[`ColumnChooser should render with default props 1`] = `
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
           <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Very long name long name long name long name long name"
+            <label for="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
                    data-feature="column-chooser.select.disable"
             >
               <input type="checkbox"
-                     id="my-id-body-checkbox-Very long name long name long name long name long name"
+                     id="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
                      data-checked="2"
                      aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
                      checked

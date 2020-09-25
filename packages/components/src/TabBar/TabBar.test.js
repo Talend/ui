@@ -68,10 +68,7 @@ describe('TabBar component', () => {
 		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		wrapper
-			.find('button')
-			.first()
-			.simulate('click');
+		wrapper.find('button').first().simulate('click');
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
@@ -103,5 +100,35 @@ describe('TabBar component', () => {
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[4]);
+	});
+
+	it('should render with badges', () => {
+		const props = {
+			...tabProps,
+			items: [
+				{
+					key: '1',
+					label: 'Tab1',
+					badge: {
+						label: 967,
+						className: 'custom-class-name',
+					},
+					'data-feature': 'action.1',
+				},
+				{
+					key: '2',
+					label: 'Tab2',
+					badge: {
+						label: '1287',
+						bsStyle: 'info',
+					},
+					'data-feature': 'action.2',
+				},
+			],
+		};
+
+		const wrapper = shallow(<TabBar {...props}>I'm the content</TabBar>);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

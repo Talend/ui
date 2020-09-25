@@ -115,7 +115,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
     role="progressbar"
   >
     <div
-      aria-describedby={42}
+      aria-describedby="42"
       className="theme-progress-percent"
       onBlur={[Function]}
       onClick={[Function]}

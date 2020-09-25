@@ -1,5 +1,6 @@
 
 /home/travis/build/Talend/ui/packages/cmf/src/cmfModule.js
-  17:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  17:3   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  17:20  error  'current' is defined but never used                                                                                                                                        @typescript-eslint/no-unused-vars
 
-✖ 1 problem (1 error, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)

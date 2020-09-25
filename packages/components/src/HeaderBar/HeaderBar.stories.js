@@ -6,10 +6,10 @@ import { makeDecorator } from '@storybook/addons';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 
 import IconsProvider from '../IconsProvider';
+import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
 import AppSwitcher from '../AppSwitcher';
-
-import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../Layout/constants';
+import Layout from '../Layout';
 
 const props = {
 	brand: {
@@ -75,6 +75,26 @@ const infoStyle = stylesheet => ({
 
 function AppSwitcherComponent() {
 	return <AppSwitcher {...props.brand} />;
+}
+
+function IntercomComponent() {
+	const style = {
+		color: 'white',
+		margin: '0 10px',
+		width: '3.2rem',
+		height: '3.2rem',
+		borderRadius: '50%',
+		background: 'green',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+	};
+
+	return (
+		<div style={style}>
+			<Icon name="talend-bubbles" />
+		</div>
+	);
 }
 
 const withIcons = makeDecorator({
@@ -252,18 +272,21 @@ decoratedStories
 	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } })
 	.add('Custom AppSwitcher', () => <HeaderBar AppSwitcher={AppSwitcherComponent} />, {
 		info: { styles: infoStyle },
+	})
+	.add('Custom Intercom', () => <HeaderBar Intercom={IntercomComponent} />, {
+		info: { styles: infoStyle },
 	});
 
 const appStyle = require('../../stories/config/themes.scss');
 
-apps.forEach(app => {
+Layout.TALEND_T7_THEME_APPS.forEach(app => {
 	const headerProps = Immutable.fromJS(props).toJS();
 	if (app.toLocaleLowerCase() === 'portal') {
 		headerProps.logo.isFull = true;
 	}
 	decoratedStories.add(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
 		<div className={appStyle[app]}>
-			<div className={TALEND_T7_THEME_CLASSNAME}>
+			<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
 				<div role="banner">
 					<HeaderBar {...headerProps} />
 				</div>

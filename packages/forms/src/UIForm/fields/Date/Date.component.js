@@ -5,6 +5,7 @@ import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { convertDate, isoStrToDate } from './Date.utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { extractDataAttributes } from '../../utils/properties';
 
 const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
 
@@ -76,6 +77,7 @@ function DateWidget(props) {
 				aria-invalid={!isValid}
 				aria-required={schema.required}
 				aria-describedby={`${descriptionId} ${errorId}`}
+				{...extractDataAttributes(schema)}
 			/>
 		</FieldTemplate>
 	);

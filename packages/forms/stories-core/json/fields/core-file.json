@@ -20,7 +20,8 @@
       "key": "file",
       "title": "Upload file",
       "placeholder": "Select a file to upload",
-      "widget": "file"
+      "widget": "file",
+      "data-test": "simple.file"
     },
     {
       "key": "file2",

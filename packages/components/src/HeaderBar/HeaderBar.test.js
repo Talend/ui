@@ -42,6 +42,16 @@ describe('HeaderBar', () => {
 		expect(element).not.toBeUndefined();
 	});
 
+	it('should render custom Intercom component', () => {
+		function Intercom() {
+			return null;
+		}
+
+		const wrapper = mount(<HeaderBarComponent Intercom={Intercom} />);
+		const element = wrapper.find(Intercom);
+		expect(element).not.toBeUndefined();
+	});
+
 	it('should render search', () => {
 		const search = {
 			id: 'search',
@@ -142,7 +152,7 @@ describe('HeaderBar', () => {
 			.dive()
 			.find('withI18nextTranslation(Intercom)');
 		expect(intercomTrigger.length).toBe(1);
-		expect(intercomTrigger.prop('className')).toEqual('btn btn-link');
+		expect(intercomTrigger.prop('className')).toContain('tc-header-bar-intercom-default-component');
 		expect(intercomTrigger.prop('id')).toEqual('my-intercom');
 		expect(intercomTrigger.prop('config')).toEqual({
 			app_id: 'e19c98d',

@@ -17,6 +17,7 @@ const context = {
 	get: () => {},
 };
 
+// TODO 6.0: do not export this
 export function getIconHREF(name) {
 	if (context.ids.indexOf(name) !== -1) {
 		return `#${name}`;
@@ -71,4 +72,5 @@ IconsProvider.propTypes = {
 	getIconHref: PropTypes.func, // eslint-disable-line react/forbid-prop-types
 };
 
+IconsProvider.getIconHREF = getIconHREF;
 export default IconsProvider;

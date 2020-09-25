@@ -3,16 +3,16 @@
 exports[`SelectAllColumnsCheckbox should render by default 1`] = `
 <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
   <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-    <label for="select-all-id-checkbox-Columns"
+    <label for="select-all-id-checkbox-Select-All"
            data-feature="column-chooser.select.all.enable"
     >
       <input type="checkbox"
-             id="select-all-id-checkbox-Columns"
+             id="select-all-id-checkbox-Select-All"
              data-checked="0"
              aria-describedby="select-all-id-display all the columns"
       >
       <span>
-        Columns
+        Select All
       </span>
     </label>
   </div>

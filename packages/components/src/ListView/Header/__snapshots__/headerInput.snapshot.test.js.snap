@@ -13,7 +13,7 @@ exports[`Header should render filter header 1`] = `
     type="text"
   />
   <button
-    aria-describedby={42}
+    aria-describedby="42"
     aria-label="Abort"
     className="btn-icon-only btn btn-link"
     disabled={false}

@@ -39,7 +39,7 @@ tests
 
 # Build and distribution folders
 build
-dist
+
 
 __mocks__
 .storybook
