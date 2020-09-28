@@ -116,7 +116,6 @@ LabelWithClick.displayName = 'LabelWithClick';
 LabelWithClick.propTypes = {
 	activeAxis: PropTypes.number,
 	className: PropTypes.string,
-	dataFeature: PropTypes.string,
 	index: PropTypes.number,
 	textAnchor: PropTypes.string,
 	payload: PropTypes.object,
