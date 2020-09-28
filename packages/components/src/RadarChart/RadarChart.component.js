@@ -107,6 +107,7 @@ export function LabelWithClick(props) {
 			data-axis-index={index}
 			role="button"
 			className={selectedClass}
+			{...rest}
 		>
 			{payload.value}
 		</text>
