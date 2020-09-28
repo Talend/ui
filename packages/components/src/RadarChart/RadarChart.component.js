@@ -105,7 +105,6 @@ export function LabelWithClick(props) {
 			y={y + 3}
 			textAnchor={textAnchor}
 			data-axis-index={index}
-			data-feature={dataFeature}
 			role="button"
 			className={selectedClass}
 		>
