@@ -11,5 +11,4 @@ describe('IconsProvider', () => {
 		const symbols = wrapper.find('symbol');
 		expect(symbols.filter(symbol => symbol.props().id === 'custom')).not.toBeUndefined();
 	});
-
 });
