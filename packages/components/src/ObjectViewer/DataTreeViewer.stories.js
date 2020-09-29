@@ -9,7 +9,6 @@ import Icon from '../Icon';
 import IconsProvider from '../IconsProvider';
 import TooltipTrigger from '../TooltipTrigger';
 
-
 const schema = new Map();
 schema.set('business_id', 'integer').set('name', 'CAFE_NAME').set('rating', 'integer');
 const veryLongDatasetLabel =

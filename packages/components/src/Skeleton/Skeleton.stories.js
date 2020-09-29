@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import Skeleton from './Skeleton.component';
 import IconsProvider from '../IconsProvider';
 
-
 storiesOf('Design Principles/Loading Feedback/Skeleton', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">

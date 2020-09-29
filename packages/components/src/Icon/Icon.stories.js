@@ -5,7 +5,7 @@ import IconsProvider from '../IconsProvider';
 import Icon from './Icon.component';
 
 // todo build it base on the icons info
-const icons = {}
+const icons = {};
 
 storiesOf('Messaging & Communication/Icon', module)
 	.add('default use svg', () => (

@@ -53,7 +53,6 @@ CellWithHello.propTypes = {
 	cellData: PropTypes.string,
 };
 
-
 const selected = [
 	{
 		id: 2,
