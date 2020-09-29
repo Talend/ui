@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const DEFAULT_BUNDLES = [
-	'/all.svg',
-];
+const DEFAULT_BUNDLES = ['/all.svg'];
 
 // TODO 6.0: do not export this
 export function getIconHREF(name) {
@@ -18,9 +16,11 @@ function isFetching(url) {
 
 function hasBundle(url) {
 	const results = document.querySelectorAll('.tc-iconsprovider');
-	return Array.prototype.slice.call(results).filter(e => {
-		return e.getAttribute('data-url') === url;
-	}).length >= 1;
+	return (
+		Array.prototype.slice.call(results).filter(e => {
+			return e.getAttribute('data-url') === url;
+		}).length >= 1
+	);
 }
 
 function addBundle(response) {
@@ -52,14 +52,18 @@ function addBundle(response) {
 function IconsProvider({ bundles = DEFAULT_BUNDLES }) {
 	React.useEffect(() => {
 		if (Array.isArray(bundles)) {
-			bundles.filter(url => {
-				return !hasBundle(url) && !isFetching(url);
-			}).forEach(url => {
-				FETCHING.urls.push(url);
-				fetch(url).then(addBundle).finally(() => {
-					FETCHING.urls.splice(FETCHING.urls.indexOf(url), 1);
+			bundles
+				.filter(url => {
+					return !hasBundle(url) && !isFetching(url);
+				})
+				.forEach(url => {
+					FETCHING.urls.push(url);
+					fetch(url)
+						.then(addBundle)
+						.finally(() => {
+							FETCHING.urls.splice(FETCHING.urls.indexOf(url), 1);
+						});
 				});
-			});
 		}
 	}, [bundles]);
 	return null;
