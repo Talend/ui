@@ -143,3 +143,7 @@ function merge(...configs) {
 }
 
 export default merge;
+
+merge.getReduceConfig = getReduceConfig;
+merge.getUnique = getUnique;
+merge.mergeObjects = mergeObjects;
