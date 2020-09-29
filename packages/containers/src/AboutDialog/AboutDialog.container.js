@@ -12,6 +12,7 @@ export const DEFAULT_STATE = new Map({
 
 class AboutDialog extends React.Component {
 	static displayName = 'Container(AboutDialog)';
+
 	static propTypes = {
 		icon: PropTypes.string,
 		copyrights: PropTypes.string,

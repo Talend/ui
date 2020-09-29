@@ -73,8 +73,14 @@ EnumerationComponent.propTypes = {
 		onSelectItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
 		onLoadData: PropTypes.func,
-		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
-		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+		actionsDefault: PropTypes.oneOfType([
+			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+			PropTypes.func,
+		]),
+		actionsEdit: PropTypes.oneOfType([
+			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+			PropTypes.func,
+		]),
 	}).isRequired,
 	onInputChange: PropTypes.func.isRequired,
 	onAddKeyDown: PropTypes.func,

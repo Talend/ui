@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { captureException, withScope, init } from '@sentry/browser';
+import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
@@ -139,13 +139,18 @@ function onJSError(event) {
  * init Sentry lib
  * @return {[type]} [description]
  */
-function setupSentry() {
+function setupSentry(options = {}) {
+	if (process.env.NODE_ENV !== 'production') {
+		delete ref.SENTRY_DSN;
+	}
+
 	if (!ref.SENTRY_DSN) {
 		return;
 	}
+
 	window.removeEventListener('error', onJSError);
 	try {
-		init({ dsn: ref.SENTRY_DSN });
+		init({ dsn: ref.SENTRY_DSN, ...options });
 	} catch (error) {
 		// eslint-disable-next-line no-console
 		console.error(error);
@@ -170,7 +175,12 @@ function bootstrap(options, store) {
 	ref.serverURL = opt.reportURL;
 	if (opt.SENTRY_DSN) {
 		ref.SENTRY_DSN = opt.SENTRY_DSN;
-		setupSentry();
+		setupSentry(opt.sentry);
+		if (ref.SENTRY_DSN && opt.onSentryScope) {
+			configureScope(scope => {
+				opt.onSentryScope(scope);
+			});
+		}
 	}
 }
 
@@ -209,7 +219,9 @@ function middleware() {
 		try {
 			return next(action);
 		} catch (error) {
-			report(error, { tags: [{ key: 'redux-action-type', value: get(action, 'type', 'UNKNOWN') }] });
+			report(error, {
+				tags: [{ key: 'redux-action-type', value: get(action, 'type', 'UNKNOWN') }],
+			});
 			// eslint-disable-next-line no-console
 			console.error(error);
 			return undefined;

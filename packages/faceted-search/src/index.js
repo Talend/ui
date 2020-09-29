@@ -5,6 +5,7 @@ import {
 	BasicSearch,
 } from './components';
 import * as constants from './constants';
+import dictionaryHelpers from './dictionary/helpers.dictionary';
 
 const components = {
 	Icon,
@@ -13,4 +14,8 @@ const components = {
 	BasicSearch,
 };
 
-export default { ...components, constants };
+const helpers = {
+	dictionary: dictionaryHelpers,
+};
+
+export default { ...components, constants, helpers };

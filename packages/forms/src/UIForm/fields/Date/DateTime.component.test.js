@@ -41,9 +41,9 @@ describe('DateTime widget', () => {
 		// when
 		const wrapper = mount(
 			<DateTimeWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -61,14 +61,14 @@ describe('DateTime widget', () => {
 		const onFinish = jest.fn();
 		const wrapper = mount(
 			<DateTimeWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				options={{ dafeFormat: 'DD/MM/YYYY' }}
 				schema={schema}
-				value={'15/02/2018'}
+				value="15/02/2018"
 			/>,
 		);
 		expect(onFinish).not.toBeCalled();
@@ -86,9 +86,9 @@ describe('DateTime widget', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<DateTimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -119,9 +119,9 @@ describe('DateTime widget', () => {
 			};
 			const wrapper = mount(
 				<DateTimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -156,9 +156,9 @@ describe('DateTime widget', () => {
 			};
 			const wrapper = shallow(
 				<DateTimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -192,9 +192,9 @@ describe('DateTime widget', () => {
 			};
 			const wrapper = mount(
 				<DateTimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
@@ -224,14 +224,14 @@ describe('DateTime widget', () => {
 			const onFinish = jest.fn();
 			const wrapper = mount(
 				<DateTimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
 					schema={schema}
-					value={'15/02/2018'}
+					value="15/02/2018"
 				/>,
 			);
 			expect(onFinish).not.toBeCalled();
@@ -254,14 +254,14 @@ describe('DateTime widget', () => {
 			const onFinish = jest.fn();
 			const wrapper = mount(
 				<DateTimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
 					schema={schema}
-					value={'15/02/2018'}
+					value="15/02/2018"
 				/>,
 			);
 			expect(onFinish).not.toBeCalled();

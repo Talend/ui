@@ -63,7 +63,15 @@ export function* deleteResourceValidate(
 	const safePath = get(action, 'data.model.resourcePath', resourcePath);
 	const resourceCollectionId = get(action, 'data.model.collectionId', collectionId);
 	const resourceLocator = getResourceLocator(resourceCollectionId || safeType, safePath);
-	const resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, safeId);
+
+	let resource;
+
+	if (get(action, 'data.model.resource')) {
+		resource = get(action, 'data.model.resource');
+	} else {
+		resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, safeId);
+	}
+
 	const safeResourceUri = get(
 		action,
 		'data.model.resourceUri',

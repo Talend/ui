@@ -1,0 +1,22 @@
+.tc-app-switcher {
+	:global(.tc-svg-icon:first-child) {
+		height: $svg-lg-size;
+		width: $svg-lg-size;
+	}
+}
+
+.tc-app-switcher-action {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	white-space: nowrap;
+
+	&.separated:not(:last-child):after {
+		content: ' ';
+		display: block;
+		width: 1px;
+		height: $font-size-large;
+		background-color: $white;
+	}
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import { ActionSplitDropdown } from './ActionSplitDropdown.component';
+import ActionSplitDropdown from './ActionSplitDropdown.component';
 
 const items = [
 	{

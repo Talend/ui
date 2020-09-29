@@ -5,14 +5,13 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/",
+    "prepare": "talend-scripts build:lib",
     "start": "echo nothing to start",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
     "test:demo": "jsdoc -c docs.json && cd website && yarn",
-    "lint:es": "eslint --config ../../.eslintrc --ext .js src",
-    "lint": "npm run lint:es"
+    "lint:es": "talend-scripts lint:es"
   },
   "keywords": [
     "react",
@@ -33,15 +32,14 @@
     "cmf-settings": "./scripts/cmf-settings.js"
   },
   "dependencies": {
-    "@sentry/browser": "^5.7.1",
-    "bson-objectid": "^1.1.5",
+    "@sentry/browser": "^5.11.1",
     "deepmerge": "^1.5.1",
     "hoist-non-react-statics": "2.5.5",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "jsonpath": "^1.0.0",
-    "lodash": "^4.17.4",
-    "mkdirp": "^0.5.1",
+    "lodash": "^4.17.15",
+    "mkdirp": "^1.0.4",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
     "react-immutable-proptypes": "^2.1.0",
@@ -54,32 +52,19 @@
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/plugin-transform-object-assign": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.7.1",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.7.1",
+    "@talend/scripts-core": "^6.3.0",
+    "@talend/scripts-preset-react-lib": "^6.3.0",
+    "enzyme": "^3.11.0",
     "jest-in-case": "^1.0.2",
-    "jsdoc": "^3.4.1",
+    "jsdoc": "^3.6.4",
     "node-fetch": "^1.7.3",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-test-renderer": "^16.8.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "redux-mock-store": "^1.2.3",
     "redux-saga-tester": "^1.0.345"
   },
@@ -87,23 +72,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/__snapshots__/**"
-    ],
-    "roots": [
-      "src",
-      "scripts",
-      "__tests__"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/../../test-setup.js"
-    ]
-  },
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.22.0"
+  "version": "5.22.0"
 }

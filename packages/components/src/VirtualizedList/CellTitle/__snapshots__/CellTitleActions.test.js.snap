@@ -29,19 +29,22 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
       link={true}
       onClick={[MockFunction]}
     />
+    <Action
+      data-feature="list.item.copy"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-files-o"
+      id="copy"
+      label="copy"
+      link={true}
+      onClick={[MockFunction]}
+    />
     <withI18nextTranslation(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
       id="my-actions-ellispsis-actions"
       items={
         Array [
-          Object {
-            "data-feature": "list.item.copy",
-            "icon": "talend-files-o",
-            "id": "copy",
-            "label": "copy",
-            "onClick": [MockFunction],
-          },
           Object {
             "data-feature": "list.item.params",
             "icon": "talend-cog",
@@ -60,7 +63,7 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
       }
       label="Open menu"
       link={true}
-      noCaret={true}
+      t={[Function]}
     />
   </div>
 </div>
@@ -116,11 +119,6 @@ exports[`CellTitleActions should display all actions on LARGE display mode 1`] =
     getComponent={[MockFunction]}
     hideLabel={true}
     link={true}
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
   />
 </div>
 `;
@@ -163,11 +161,6 @@ exports[`CellTitleActions should display all actions when there are only few (< 
       getComponent={[MockFunction]}
       hideLabel={true}
       link={true}
-      renderers={
-        Object {
-          "Action": [Function],
-        }
-      }
     />
   </div>
 </div>
@@ -189,6 +182,16 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
       icon="talend-pencil"
       id="edit"
       label="edit"
+      link={true}
+      onClick={[MockFunction]}
+    />
+    <Action
+      data-feature="list.item.delete"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-trash"
+      id="delete"
+      label="delete"
       link={true}
       onClick={[MockFunction]}
     />
@@ -223,13 +226,6 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
       items={
         Array [
           Object {
-            "data-feature": "list.item.delete",
-            "icon": "talend-trash",
-            "id": "delete",
-            "label": "delete",
-            "onClick": [MockFunction],
-          },
-          Object {
             "data-feature": "list.item.copy",
             "icon": "talend-files-o",
             "id": "copy",
@@ -254,7 +250,7 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
       }
       label="Open menu"
       link={true}
-      noCaret={true}
+      t={[Function]}
     />
   </div>
 </div>
@@ -376,7 +372,7 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
       }
       label="Open menu"
       link={true}
-      noCaret={true}
+      t={[Function]}
     />
   </div>
 </div>
@@ -391,32 +387,24 @@ exports[`CellTitleActions should render all type of actions 1`] = `
   <div
     className="cell-title-actions theme-cell-title-actions"
   >
-    <Action
-      data-feature="list.item.monitor"
-      getComponent={[MockFunction]}
-      hideLabel={true}
-      icon="talend-line-charts"
-      id="monitoring"
-      label="monitor something"
-      link={true}
-      onClick={[MockFunction]}
-    />
-    <Action
-      data-feature="list.item.edit"
-      getComponent={[MockFunction]}
-      hideLabel={true}
-      icon="talend-pencil"
-      id="edit"
-      label="edit"
-      link={true}
-      onClick={[MockFunction]}
-    />
-    <withI18nextTranslation(ActionDropdown)
-      className="cell-title-actions-menu theme-cell-title-actions-menu"
-      hideLabel={true}
-      id="my-actions-ellispsis-actions"
-      items={
+    <Actions
+      actions={
         Array [
+          Object {
+            "data-feature": "list.item.monitor",
+            "hideLabel": true,
+            "icon": "talend-line-charts",
+            "id": "monitoring",
+            "label": "monitor something",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.edit",
+            "icon": "talend-pencil",
+            "id": "edit",
+            "label": "edit",
+            "onClick": [MockFunction],
+          },
           Object {
             "data-feature": "list.item.delete",
             "icon": "talend-trash",
@@ -433,9 +421,9 @@ exports[`CellTitleActions should render all type of actions 1`] = `
           },
         ]
       }
-      label="Open menu"
+      getComponent={[MockFunction]}
+      hideLabel={true}
       link={true}
-      noCaret={true}
     />
   </div>
   <Actions
@@ -461,11 +449,6 @@ exports[`CellTitleActions should render all type of actions 1`] = `
     getComponent={[MockFunction]}
     hideLabel={true}
     link={true}
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
   />
 </div>
 `;
@@ -499,11 +482,6 @@ exports[`CellTitleActions should render persistent actions 1`] = `
     getComponent={[MockFunction]}
     hideLabel={true}
     link={true}
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
   />
 </div>
 `;

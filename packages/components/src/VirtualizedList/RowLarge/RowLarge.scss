@@ -19,13 +19,19 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		display: flex;
 		align-items: center;
 
-		:global(.tc-list-title) {
-			width: 100%;
-			flex-grow: 1;
-			flex-shrink: 1;
-		}
-		:global(.cell-title-actions) {
-			background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-large-hover-bg 20px);
+		:global {
+			.tc-list-title {
+				width: 100%;
+				flex-grow: 1;
+				flex-shrink: 1;
+			}
+
+			.cell-title-actions {
+				background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-large-hover-bg 20px);
+				.btn-link {
+					padding: 0 $padding-smaller;
+				}
+			}
 		}
 	}
 

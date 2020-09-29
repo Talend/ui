@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Items should render 1`] = `
-<ItemsComponent
+<withI18nextTranslation(ItemsComponent)
   getItemHeight={[Function]}
   isSwitchBox={false}
   items={
@@ -280,46 +280,34 @@ exports[`Items should render 1`] = `
                         }
                       }
                       measure={[Function]}
+                      t={[Function]}
                     >
-                      <Item
-                        i18n={Object {}}
-                        isSwitchBox={false}
-                        item={
-                          Object {
-                            "label": "Lorem ipsum dolor sit amet 0",
-                          }
-                        }
-                        measure={[Function]}
-                        t={[Function]}
-                        tReady={true}
+                      <div
+                        className="checkbox"
+                        role="option"
                       >
-                        <div
-                          className="checkbox"
-                          role="option"
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor sit amet 0"
+                          label="Lorem ipsum dolor sit amet 0"
+                          onChange={[Function]}
                         >
-                          <Checkbox
-                            aria-label="Select Lorem ipsum dolor sit amet 0"
-                            label="Lorem ipsum dolor sit amet 0"
-                            onChange={[Function]}
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
                           >
-                            <div
-                              className="checkbox tc-toggle theme-tc-toggle checkbox"
-                            >
-                              <label>
-                                <input
-                                  aria-label="Select Lorem ipsum dolor sit amet 0"
-                                  data-checked={0}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
-                                <span>
-                                  Lorem ipsum dolor sit amet 0
-                                </span>
-                              </label>
-                            </div>
-                          </Checkbox>
-                        </div>
-                      </Item>
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                data-checked={0}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 0
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
                     </withI18nextTranslation(Item)>
                   </div>
                 </CellMeasurer>
@@ -384,50 +372,37 @@ exports[`Items should render 1`] = `
                         }
                       }
                       measure={[Function]}
+                      t={[Function]}
                     >
-                      <Item
-                        i18n={Object {}}
-                        isSwitchBox={false}
-                        item={
-                          Object {
-                            "checked": true,
-                            "label": "Lorem ipsum dolor sit amet 1",
-                          }
-                        }
-                        measure={[Function]}
-                        t={[Function]}
-                        tReady={true}
+                      <div
+                        aria-selected={true}
+                        className="checkbox"
+                        role="option"
                       >
-                        <div
-                          aria-selected={true}
-                          className="checkbox"
-                          role="option"
+                        <Checkbox
+                          aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                          checked={true}
+                          label="Lorem ipsum dolor sit amet 1"
+                          onChange={[Function]}
                         >
-                          <Checkbox
-                            aria-label="Deselect Lorem ipsum dolor sit amet 1"
-                            checked={true}
-                            label="Lorem ipsum dolor sit amet 1"
-                            onChange={[Function]}
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
                           >
-                            <div
-                              className="checkbox tc-toggle theme-tc-toggle checkbox"
-                            >
-                              <label>
-                                <input
-                                  aria-label="Deselect Lorem ipsum dolor sit amet 1"
-                                  checked={true}
-                                  data-checked={2}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
-                                <span>
-                                  Lorem ipsum dolor sit amet 1
-                                </span>
-                              </label>
-                            </div>
-                          </Checkbox>
-                        </div>
-                      </Item>
+                            <label>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                data-checked={2}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 1
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
                     </withI18nextTranslation(Item)>
                   </div>
                 </CellMeasurer>
@@ -491,46 +466,34 @@ exports[`Items should render 1`] = `
                         }
                       }
                       measure={[Function]}
+                      t={[Function]}
                     >
-                      <Item
-                        i18n={Object {}}
-                        isSwitchBox={false}
-                        item={
-                          Object {
-                            "label": "Lorem ipsum dolor sit amet 2",
-                          }
-                        }
-                        measure={[Function]}
-                        t={[Function]}
-                        tReady={true}
+                      <div
+                        className="checkbox"
+                        role="option"
                       >
-                        <div
-                          className="checkbox"
-                          role="option"
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor sit amet 2"
+                          label="Lorem ipsum dolor sit amet 2"
+                          onChange={[Function]}
                         >
-                          <Checkbox
-                            aria-label="Select Lorem ipsum dolor sit amet 2"
-                            label="Lorem ipsum dolor sit amet 2"
-                            onChange={[Function]}
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
                           >
-                            <div
-                              className="checkbox tc-toggle theme-tc-toggle checkbox"
-                            >
-                              <label>
-                                <input
-                                  aria-label="Select Lorem ipsum dolor sit amet 2"
-                                  data-checked={0}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
-                                <span>
-                                  Lorem ipsum dolor sit amet 2
-                                </span>
-                              </label>
-                            </div>
-                          </Checkbox>
-                        </div>
-                      </Item>
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                data-checked={0}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 2
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
                     </withI18nextTranslation(Item)>
                   </div>
                 </CellMeasurer>
@@ -541,11 +504,11 @@ exports[`Items should render 1`] = `
       </div>
     </Component>
   </div>
-</ItemsComponent>
+</withI18nextTranslation(ItemsComponent)>
 `;
 
 exports[`Items should render with nested items 1`] = `
-<ItemsComponent
+<withI18nextTranslation(ItemsComponent)
   getItemHeight={[Function]}
   isSwitchBox={false}
   items={
@@ -845,46 +808,34 @@ exports[`Items should render with nested items 1`] = `
                         }
                       }
                       measure={[Function]}
+                      t={[Function]}
                     >
-                      <Item
-                        i18n={Object {}}
-                        isSwitchBox={false}
-                        item={
-                          Object {
-                            "label": "Lorem ipsum dolor default",
-                          }
-                        }
-                        measure={[Function]}
-                        t={[Function]}
-                        tReady={true}
+                      <div
+                        className="checkbox"
+                        role="option"
                       >
-                        <div
-                          className="checkbox"
-                          role="option"
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor default"
+                          label="Lorem ipsum dolor default"
+                          onChange={[Function]}
                         >
-                          <Checkbox
-                            aria-label="Select Lorem ipsum dolor default"
-                            label="Lorem ipsum dolor default"
-                            onChange={[Function]}
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
                           >
-                            <div
-                              className="checkbox tc-toggle theme-tc-toggle checkbox"
-                            >
-                              <label>
-                                <input
-                                  aria-label="Select Lorem ipsum dolor default"
-                                  data-checked={0}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
-                                <span>
-                                  Lorem ipsum dolor default
-                                </span>
-                              </label>
-                            </div>
-                          </Checkbox>
-                        </div>
-                      </Item>
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor default"
+                                data-checked={0}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor default
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
                     </withI18nextTranslation(Item)>
                   </div>
                 </CellMeasurer>
@@ -958,155 +909,120 @@ exports[`Items should render with nested items 1`] = `
                         }
                       }
                       measure={[Function]}
+                      t={[Function]}
                     >
-                      <Item
-                        i18n={Object {}}
-                        isSwitchBox={false}
-                        item={
-                          Object {
-                            "checked": true,
-                            "children": Array [
-                              Object {
-                                "label": "Lorem ipsum dolor sit amet 0",
-                              },
-                              Object {
-                                "checked": true,
-                                "label": "Lorem ipsum dolor sit amet 1",
-                              },
-                              Object {
-                                "label": "Lorem ipsum dolor sit amet 2",
-                              },
-                            ],
-                            "label": "Lorem ipsum dolor Parent",
-                          }
-                        }
-                        measure={[Function]}
-                        t={[Function]}
-                        tReady={true}
+                      <div
+                        aria-selected={true}
+                        className="checkbox switch-nested"
+                        role="option"
                       >
-                        <div
-                          aria-selected={true}
-                          className="checkbox switch-nested"
-                          role="option"
+                        <Checkbox
+                          aria-label="Deselect Lorem ipsum dolor Parent"
+                          checked={true}
+                          label="Lorem ipsum dolor Parent"
+                          onChange={[Function]}
                         >
-                          <Checkbox
-                            aria-label="Deselect Lorem ipsum dolor Parent"
-                            checked={true}
-                            label="Lorem ipsum dolor Parent"
-                            onChange={[Function]}
-                          >
-                            <div
-                              className="checkbox tc-toggle theme-tc-toggle checkbox"
-                            >
-                              <label>
-                                <input
-                                  aria-label="Deselect Lorem ipsum dolor Parent"
-                                  checked={true}
-                                  data-checked={2}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
-                                <span>
-                                  Lorem ipsum dolor Parent
-                                </span>
-                              </label>
-                            </div>
-                          </Checkbox>
                           <div
-                            className="checkbox-nested-expand"
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
                           >
-                            <Action
+                            <label>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor Parent"
+                                checked={true}
+                                data-checked={2}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor Parent
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                        <div
+                          className="checkbox-nested-expand"
+                        >
+                          <Action
+                            bsStyle="link"
+                            hideLabel={true}
+                            icon="talend-caret-down"
+                            label="Expand Lorem ipsum dolor Parent"
+                            onClick={[Function]}
+                          >
+                            <withI18nextTranslation(ActionButton)
+                              available={true}
                               bsStyle="link"
+                              disabled={false}
                               hideLabel={true}
                               icon="talend-caret-down"
+                              inProgress={false}
                               label="Expand Lorem ipsum dolor Parent"
+                              loading={false}
                               onClick={[Function]}
+                              t={[Function]}
+                              tooltipPlacement="top"
                             >
-                              <withI18nextTranslation(ActionButton)
-                                bsStyle="link"
-                                hideLabel={true}
-                                icon="talend-caret-down"
+                              <TooltipTrigger
                                 label="Expand Lorem ipsum dolor Parent"
-                                onClick={[Function]}
+                                tooltipPlacement="top"
                               >
-                                <ActionButton
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  aria-describedby="42"
+                                  aria-label="Expand Lorem ipsum dolor Parent"
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="link"
+                                  className="btn-icon-only"
                                   disabled={false}
-                                  hideLabel={true}
-                                  i18n={Object {}}
-                                  icon="talend-caret-down"
-                                  inProgress={false}
-                                  label="Expand Lorem ipsum dolor Parent"
-                                  loading={false}
+                                  key=".0"
+                                  onBlur={[Function]}
                                   onClick={[Function]}
-                                  t={[Function]}
-                                  tReady={true}
-                                  tooltipPlacement="top"
+                                  onFocus={[Function]}
+                                  onKeyPress={[Function]}
+                                  onMouseDown={[Function]}
+                                  onMouseOut={[Function]}
+                                  onMouseOver={[Function]}
+                                  role={null}
                                 >
-                                  <TooltipTrigger
-                                    label="Expand Lorem ipsum dolor Parent"
-                                    tooltipPlacement="top"
+                                  <button
+                                    aria-describedby="42"
+                                    aria-label="Expand Lorem ipsum dolor Parent"
+                                    className="btn-icon-only btn btn-link"
+                                    disabled={false}
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyPress={[Function]}
+                                    onMouseDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
+                                    role={null}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      aria-describedby={42}
-                                      aria-label="Expand Lorem ipsum dolor Parent"
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="link"
-                                      className="btn-icon-only"
-                                      disabled={false}
-                                      key=".0"
-                                      onBlur={[Function]}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onKeyPress={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOut={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
+                                    <Icon
+                                      key="icon"
+                                      name="talend-caret-down"
                                     >
-                                      <button
-                                        aria-describedby={42}
-                                        aria-label="Expand Lorem ipsum dolor Parent"
-                                        className="btn-icon-only btn btn-link"
-                                        disabled={false}
-                                        onBlur={[Function]}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onKeyPress={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOut={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
+                                        name="talend-caret-down"
+                                        title={null}
                                       >
-                                        <Icon
-                                          key="icon"
-                                          name="talend-caret-down"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            className="theme-tc-svg-icon tc-svg-icon"
-                                            focusable="false"
-                                            name="talend-caret-down"
-                                            title={null}
-                                          >
-                                            <use
-                                              xlinkHref="#talend-caret-down"
-                                            />
-                                          </svg>
-                                        </Icon>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </ActionButton>
-                              </withI18nextTranslation(ActionButton)>
-                            </Action>
-                          </div>
+                                        <use
+                                          xlinkHref="#talend-caret-down"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
+                              </TooltipTrigger>
+                            </withI18nextTranslation(ActionButton)>
+                          </Action>
                         </div>
-                      </Item>
+                      </div>
                     </withI18nextTranslation(Item)>
                   </div>
                 </CellMeasurer>
@@ -1117,11 +1033,11 @@ exports[`Items should render with nested items 1`] = `
       </div>
     </Component>
   </div>
-</ItemsComponent>
+</withI18nextTranslation(ItemsComponent)>
 `;
 
 exports[`Items should render with provided id 1`] = `
-<ItemsComponent
+<withI18nextTranslation(ItemsComponent)
   getItemHeight={[Function]}
   id="my-widget"
   isSwitchBox={false}
@@ -1403,52 +1319,39 @@ exports[`Items should render with provided id 1`] = `
                       }
                       key="my-widget-1-item"
                       measure={[Function]}
+                      t={[Function]}
                     >
-                      <Item
-                        i18n={Object {}}
+                      <div
+                        className="checkbox"
                         id="my-widget-1-item"
-                        isSwitchBox={false}
-                        item={
-                          Object {
-                            "label": "Lorem ipsum dolor sit amet 0",
-                          }
-                        }
-                        measure={[Function]}
-                        t={[Function]}
-                        tReady={true}
+                        role="option"
                       >
-                        <div
-                          className="checkbox"
-                          id="my-widget-1-item"
-                          role="option"
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor sit amet 0"
+                          id="checkbox-my-widget-1-item"
+                          label="Lorem ipsum dolor sit amet 0"
+                          onChange={[Function]}
                         >
-                          <Checkbox
-                            aria-label="Select Lorem ipsum dolor sit amet 0"
-                            id="checkbox-my-widget-1-item"
-                            label="Lorem ipsum dolor sit amet 0"
-                            onChange={[Function]}
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
                           >
-                            <div
-                              className="checkbox tc-toggle theme-tc-toggle checkbox"
+                            <label
+                              htmlFor="checkbox-my-widget-1-item"
                             >
-                              <label
-                                htmlFor="checkbox-my-widget-1-item"
-                              >
-                                <input
-                                  aria-label="Select Lorem ipsum dolor sit amet 0"
-                                  data-checked={0}
-                                  id="checkbox-my-widget-1-item"
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
-                                <span>
-                                  Lorem ipsum dolor sit amet 0
-                                </span>
-                              </label>
-                            </div>
-                          </Checkbox>
-                        </div>
-                      </Item>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                data-checked={0}
+                                id="checkbox-my-widget-1-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 0
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
                     </withI18nextTranslation(Item)>
                   </div>
                 </CellMeasurer>
@@ -1515,56 +1418,42 @@ exports[`Items should render with provided id 1`] = `
                       }
                       key="my-widget-2-item"
                       measure={[Function]}
+                      t={[Function]}
                     >
-                      <Item
-                        i18n={Object {}}
+                      <div
+                        aria-selected={true}
+                        className="checkbox"
                         id="my-widget-2-item"
-                        isSwitchBox={false}
-                        item={
-                          Object {
-                            "checked": true,
-                            "label": "Lorem ipsum dolor sit amet 1",
-                          }
-                        }
-                        measure={[Function]}
-                        t={[Function]}
-                        tReady={true}
+                        role="option"
                       >
-                        <div
-                          aria-selected={true}
-                          className="checkbox"
-                          id="my-widget-2-item"
-                          role="option"
+                        <Checkbox
+                          aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                          checked={true}
+                          id="checkbox-my-widget-2-item"
+                          label="Lorem ipsum dolor sit amet 1"
+                          onChange={[Function]}
                         >
-                          <Checkbox
-                            aria-label="Deselect Lorem ipsum dolor sit amet 1"
-                            checked={true}
-                            id="checkbox-my-widget-2-item"
-                            label="Lorem ipsum dolor sit amet 1"
-                            onChange={[Function]}
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
                           >
-                            <div
-                              className="checkbox tc-toggle theme-tc-toggle checkbox"
+                            <label
+                              htmlFor="checkbox-my-widget-2-item"
                             >
-                              <label
-                                htmlFor="checkbox-my-widget-2-item"
-                              >
-                                <input
-                                  aria-label="Deselect Lorem ipsum dolor sit amet 1"
-                                  checked={true}
-                                  data-checked={2}
-                                  id="checkbox-my-widget-2-item"
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
-                                <span>
-                                  Lorem ipsum dolor sit amet 1
-                                </span>
-                              </label>
-                            </div>
-                          </Checkbox>
-                        </div>
-                      </Item>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                data-checked={2}
+                                id="checkbox-my-widget-2-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 1
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
                     </withI18nextTranslation(Item)>
                   </div>
                 </CellMeasurer>
@@ -1630,52 +1519,39 @@ exports[`Items should render with provided id 1`] = `
                       }
                       key="my-widget-3-item"
                       measure={[Function]}
+                      t={[Function]}
                     >
-                      <Item
-                        i18n={Object {}}
+                      <div
+                        className="checkbox"
                         id="my-widget-3-item"
-                        isSwitchBox={false}
-                        item={
-                          Object {
-                            "label": "Lorem ipsum dolor sit amet 2",
-                          }
-                        }
-                        measure={[Function]}
-                        t={[Function]}
-                        tReady={true}
+                        role="option"
                       >
-                        <div
-                          className="checkbox"
-                          id="my-widget-3-item"
-                          role="option"
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor sit amet 2"
+                          id="checkbox-my-widget-3-item"
+                          label="Lorem ipsum dolor sit amet 2"
+                          onChange={[Function]}
                         >
-                          <Checkbox
-                            aria-label="Select Lorem ipsum dolor sit amet 2"
-                            id="checkbox-my-widget-3-item"
-                            label="Lorem ipsum dolor sit amet 2"
-                            onChange={[Function]}
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
                           >
-                            <div
-                              className="checkbox tc-toggle theme-tc-toggle checkbox"
+                            <label
+                              htmlFor="checkbox-my-widget-3-item"
                             >
-                              <label
-                                htmlFor="checkbox-my-widget-3-item"
-                              >
-                                <input
-                                  aria-label="Select Lorem ipsum dolor sit amet 2"
-                                  data-checked={0}
-                                  id="checkbox-my-widget-3-item"
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
-                                <span>
-                                  Lorem ipsum dolor sit amet 2
-                                </span>
-                              </label>
-                            </div>
-                          </Checkbox>
-                        </div>
-                      </Item>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                data-checked={0}
+                                id="checkbox-my-widget-3-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 2
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
                     </withI18nextTranslation(Item)>
                   </div>
                 </CellMeasurer>
@@ -1686,5 +1562,5 @@ exports[`Items should render with provided id 1`] = `
       </div>
     </Component>
   </div>
-</ItemsComponent>
+</withI18nextTranslation(ItemsComponent)>
 `;

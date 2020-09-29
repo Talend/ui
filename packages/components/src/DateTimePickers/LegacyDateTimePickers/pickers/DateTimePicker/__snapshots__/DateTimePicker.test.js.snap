@@ -18,6 +18,7 @@ exports[`DateTimePicker should render 1`] = `
     onSelectMonthYear={[Function]}
     onSelectTime={[Function]}
     onTitleClick={[Function]}
+    t={[Function]}
   />
   <div
     className="theme-footer theme-date-padding"

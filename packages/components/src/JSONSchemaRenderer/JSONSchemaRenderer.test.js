@@ -2,10 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import JSONSchemaRenderer, {
-	InvalidSchemaException,
-	UnkownTypeException,
-} from './JSONSchemaRenderer.component';
+import JSONSchemaRenderer from './JSONSchemaRenderer.component';
 
 describe('JSONSchemaRenderer', () => {
 	it('should render the empty properties list', () => {
@@ -66,12 +63,7 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(
-			wrapper
-				.find('dd')
-				.first()
-				.text(),
-		).toEqual(hiddenPassword);
+		expect(wrapper.find('dd').first().text()).toEqual(hiddenPassword);
 	});
 
 	it('should not render hidden fields', () => {
@@ -218,17 +210,12 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt')).toHaveLength(1);
-		expect(
-			wrapper
-				.find('dt')
-				.first()
-				.text(),
-		).toBe('a');
+		expect(wrapper.find('dt').first().text()).toBe('a');
 	});
 
 	it('should throw an exception in case of invalid schema', () => {
 		const wrapper = () => shallow(<JSONSchemaRenderer schema={{}} />);
-		expect(wrapper).toThrow(InvalidSchemaException);
+		expect(wrapper).toThrow('Invalid Schema');
 	});
 
 	it('should throw an exception in case of unkown type', () => {
@@ -245,6 +232,6 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = () => shallow(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper).toThrow(UnkownTypeException);
+		expect(wrapper).toThrow('Unknown type: unknown');
 	});
 });

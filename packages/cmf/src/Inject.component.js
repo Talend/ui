@@ -20,6 +20,7 @@ function MyComponent(props) {
  */
 
 function NotFoundComponent({ error }) {
+	// eslint-disable-next-line no-console
 	console.error(error);
 	return <div className="alert alert-danger">{error.message}</div>;
 }

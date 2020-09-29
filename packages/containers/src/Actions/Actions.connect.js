@@ -18,7 +18,7 @@ function mapStateToProps(state, { actionIds, names, actions }) {
 }
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionIds;
 	delete props.names;
 	return props;

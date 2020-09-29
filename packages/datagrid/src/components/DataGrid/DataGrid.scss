@@ -63,8 +63,16 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	/* ==== BODY ==== */
+	:global(.ag-root-wrapper-body) {
+		height: 100%;
+	}
+
 	:global(.ag-pinned-left-cols-viewport) {
 		font-family: inherit;
+	}
+
+	:global(.ag-horizontal-left-spacer) {
+		overflow-x: hidden;
 	}
 
 	:global(.ag-body-viewport) {

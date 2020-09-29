@@ -1,9 +1,11 @@
-/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { extractDataAttributes } from '../../utils/properties';
 
 export default function Radios({
 	id,
@@ -15,7 +17,7 @@ export default function Radios({
 	value,
 	valueIsUpdating,
 }) {
-	const { autoFocus, description, disabled = false, inline, title } = schema;
+	const { autoFocus, description, disabled = false, inline, title, ...rest } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const radioClassNames = classNames({
@@ -23,8 +25,12 @@ export default function Radios({
 		'radio-inline': inline,
 		disabled,
 	});
+
 	return (
 		<FieldTemplate
+			id={id}
+			hint={schema.hint}
+			className={schema.className}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
@@ -46,11 +52,12 @@ export default function Radios({
 								name={id}
 								onBlur={event => onFinish(event, { schema })}
 								onChange={event => onChange(event, { schema, value: option.value })}
-								type={'radio'}
+								type="radio"
 								value={option.value}
 								// eslint-disable-next-line jsx-a11y/aria-proptypes
 								aria-invalid={!isValid}
 								aria-describedby={`${descriptionId} ${errorId}`}
+								{...extractDataAttributes(rest, index)}
 							/>
 							<span>{option.name}</span>
 						</label>
@@ -68,10 +75,12 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			className: PropTypes.string,
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			inline: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -79,6 +88,12 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				className: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		valueIsUpdating: PropTypes.bool,

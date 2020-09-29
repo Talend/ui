@@ -8,6 +8,13 @@ if (!getI18n()) {
 	setI18n(createInstance({}, () => {}));
 }
 
+export function getI18nInstance() {
+	if (!getI18n()) {
+		return createInstance({}, () => {});
+	}
+	return i18next;
+}
+
 export default function getDefaultT() {
 	const i18n = getI18n();
 	if (i18n) {

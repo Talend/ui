@@ -49,6 +49,12 @@ describe('Typeahead', () => {
 		},
 	];
 
+	const flatItems = [
+		{ name: 'First item ', value: 'item-1' },
+		{ name: 'Second item ', value: 'item-2' },
+		{ name: 'Third item ', value: 'item-3' },
+	];
+
 	const noHeaderItems = [
 		{
 			suggestions: [
@@ -78,7 +84,6 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-
 			// then
 			expect(typeaheadInstance.find('Action').length).toBe(0);
 		});
@@ -110,10 +115,7 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance
-				.find('Button.tc-typeahead-toggle')
-				.at(0)
-				.simulate('click');
+			typeaheadInstance.find('Button.tc-typeahead-toggle').at(0).simulate('click');
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -170,10 +172,7 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance
-				.find('Item')
-				.at(0)
-				.simulate('mouseDown');
+			typeaheadInstance.find('Item').at(0).simulate('click');
 
 			// then
 			expect(onSelect).toBeCalled();
@@ -210,5 +209,61 @@ describe('Typeahead', () => {
 
 		// then
 		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(2);
+	});
+
+	describe('render flatItems', () => {
+		it('should render empty if provided collection is null', () => {
+			// given
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: null,
+				multiSection: false,
+			};
+			const typeahead = <Typeahead {...props} />;
+
+			// when
+			const typeaheadInstance = mount(typeahead);
+
+			// then
+			expect(typeaheadInstance.find('Item').length).toBe(0);
+		});
+		it('should render empty if provided collection is undefined', () => {
+			// given
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: undefined,
+				multiSection: false,
+			};
+			const typeahead = <Typeahead {...props} />;
+
+			// when
+			const typeaheadInstance = mount(typeahead);
+
+			// then
+			expect(typeaheadInstance.find('Item').length).toBe(0);
+		});
+		it('should render Items with data-feature attribute if provided collection is flat', () => {
+			// given
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: flatItems,
+				dataFeature: 'smtg',
+				multiSection: false,
+			};
+			const typeahead = <Typeahead {...props} />;
+
+			// when
+			const typeaheadInstance = mount(typeahead);
+			// then
+			expect(typeaheadInstance.find('li>div').at(0).prop('data-feature')).toEqual('smtg.item-1');
+			expect(typeaheadInstance.find('li>div').at(1).prop('data-feature')).toEqual('smtg.item-2');
+			expect(typeaheadInstance.find('li>div').at(2).prop('data-feature')).toEqual('smtg.item-3');
+		});
 	});
 });

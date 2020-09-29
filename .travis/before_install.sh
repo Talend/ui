@@ -24,10 +24,7 @@ if [[ $TRAVIS_BRANCH == 'master' ]]; then
 	git config --global user.name "Talend travis ci"
 	git config --global push.default simple
 
-	# git remote set-url origin "https://github.com/Talend/ui.git"
-	# git fetch --unshallow
 	git fetch --tags
 	git branch -u origin/$TRAVIS_BRANCH
 	git fsck --full #debug
-	#git tag --list #debug
 fi

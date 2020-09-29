@@ -13,7 +13,6 @@ exports[`Toggle should pass extra props to input 1`] = `
       data-checked={0}
       disabled={false}
       id="id"
-      intermediate={false}
       onChange={[Function]}
       type="checkbox"
     />
@@ -36,7 +35,6 @@ exports[`Toggle should render a Checkbox 1`] = `
       data-checked={0}
       disabled={false}
       id="id"
-      intermediate={false}
       onChange={[Function]}
       type="checkbox"
     />
@@ -59,7 +57,6 @@ exports[`Toggle should render a Toggle 1`] = `
       data-checked={0}
       disabled={false}
       id="id"
-      intermediate={false}
       onChange={[Function]}
       type="checkbox"
     />
@@ -82,7 +79,6 @@ exports[`Toggle should render a Toggle with label 1`] = `
       data-checked={0}
       disabled={false}
       id="id"
-      intermediate={false}
       onChange={[Function]}
       type="checkbox"
     />
@@ -106,7 +102,6 @@ exports[`Toggle should render a autoFocused Toggle 1`] = `
       data-checked={0}
       disabled={false}
       id="id"
-      intermediate={false}
       onChange={[Function]}
       type="checkbox"
     />
@@ -130,7 +125,6 @@ exports[`Toggle should render a checked Toggle 1`] = `
       data-checked={2}
       disabled={false}
       id="id"
-      intermediate={false}
       onChange={[Function]}
       type="checkbox"
     />
@@ -153,7 +147,6 @@ exports[`Toggle should render a disabled Toggle 1`] = `
       data-checked={0}
       disabled={true}
       id="id"
-      intermediate={false}
       onChange={[Function]}
       type="checkbox"
     />
@@ -177,7 +170,6 @@ exports[`Toggle should render an intermediate Toggle 1`] = `
       data-checked={1}
       disabled={false}
       id="id"
-      intermediate={true}
       onChange={[Function]}
       type="checkbox"
     />

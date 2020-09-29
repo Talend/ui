@@ -5,7 +5,7 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom render
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  <withI18nextTranslation(FormatValueComponent)
+  <FormatValueComponent
     value=" loreum "
   />
 </div>
@@ -16,7 +16,7 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom render
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  <withI18nextTranslation(FormatValueComponent)
+  <FormatValueComponent
     value=" loreum "
   />
 </div>
@@ -90,7 +90,7 @@ exports[`#DefaultValueRenderer should render the leading/trailing special charac
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  <withI18nextTranslation(FormatValueComponent)
+  <FormatValueComponent
     value=" loreum "
   />
 </div>

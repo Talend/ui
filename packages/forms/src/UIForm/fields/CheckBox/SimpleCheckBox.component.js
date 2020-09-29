@@ -1,7 +1,8 @@
-/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import { extractDataAttributes } from '../../utils/properties';
 
 export default function SimpleCheckBox({
 	describedby,
@@ -13,6 +14,7 @@ export default function SimpleCheckBox({
 	onFinish,
 	schema,
 	value,
+	index,
 }) {
 	const { autoFocus } = schema;
 
@@ -32,7 +34,7 @@ export default function SimpleCheckBox({
 		<div className={classnames('checkbox', { disabled })}>
 			<label data-feature={getDataFeature()}>
 				<input
-					id={id}
+					id={`${id}${index !== undefined ? `-${index}` : ''}`}
 					autoFocus={autoFocus}
 					disabled={disabled}
 					onChange={event => {
@@ -46,6 +48,7 @@ export default function SimpleCheckBox({
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-describedby={describedby}
+					{...extractDataAttributes(schema, index)}
 				/>
 				<span className="control-label" htmlFor={id}>
 					{label}
@@ -70,6 +73,7 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 		}),
 		value: PropTypes.bool,
+		index: PropTypes.number,
 	};
 }
 

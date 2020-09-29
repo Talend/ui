@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -20,6 +20,10 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
+const dateTimeISOStringRegexp = new RegExp(
+	/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.*)?(Z)?$/, // eslint-disable-line max-len
+);
+
 const dateTimeRegexp = new RegExp(
 	/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z)?$/, // eslint-disable-line max-len
 );
@@ -28,7 +32,7 @@ const dateRegexp = new RegExp(
 );
 const timeRegexp = new RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/);
 
-export function NativeValue({ data, edit, className, onChange, jsonpath }) {
+export function NativeValue({ data, edit, className, onChange, jsonpath, wrap, isValueOverflown }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -42,7 +46,10 @@ export function NativeValue({ data, edit, className, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(className, theme.native, theme[type]);
+	const lineValueClasses = classNames(className, theme.native, theme[type], {
+		[`${theme['wrap-string']}`]: wrap,
+		[theme['shrink-value']]: isValueOverflown,
+	});
 
 	return <span className={lineValueClasses}>{display}</span>;
 }
@@ -53,6 +60,8 @@ NativeValue.propTypes = {
 	className: PropTypes.string,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
+	wrap: PropTypes.bool,
+	isValueOverflown: PropTypes.bool,
 };
 NativeValue.defaultProps = {
 	className: theme.value,
@@ -119,21 +128,11 @@ export class LineItem extends React.Component {
 			icon,
 			type,
 			value,
+			isValueOverflown,
 		} = this.props;
 		const isSelectedLine = this.isSelected();
 
-		const lineChildren = [
-			getName(name),
-			value,
-			type && (
-				<div key="type" className={`tc-object-viewer-line-type ${theme.type}`}>
-					({type})
-				</div>
-			),
-			badge,
-			tag,
-		];
-
+		const lineClass = classNames(theme.line, { [theme['full-width']]: isValueOverflown });
 		return (
 			<li // eslint-disable-line jsx-a11y/no-static-element-interactions
 				id={id}
@@ -155,10 +154,23 @@ export class LineItem extends React.Component {
 					this.ref = ref;
 				}}
 			>
-				<div key="line" className={theme.line}>
+				<div key="line" className={lineClass}>
 					{icon}
-					<div key="line-main" className={theme['line-main']}>
-						{lineChildren}
+					<div
+						key="line-main"
+						className={classNames(theme['line-main'], {
+							[theme['shrink-value']]: isValueOverflown,
+						})}
+					>
+						{getName(name)}
+						{value}
+						{type && (
+							<div key="type" className={`tc-object-viewer-line-type ${theme.type}`}>
+								({type})
+							</div>
+						)}
+						{badge}
+						{tag}
 					</div>
 				</div>
 				{children}
@@ -186,6 +198,7 @@ LineItem.propTypes = {
 	tag: PropTypes.node,
 	type: PropTypes.string,
 	value: PropTypes.node,
+	isValueOverflown: PropTypes.bool,
 };
 
 /**
@@ -221,6 +234,8 @@ export function getDataInfo(data, tupleLabel) {
 			info.type = 'date';
 		} else if (timeRegexp.test(data)) {
 			info.type = 'time';
+		} else if (dateTimeISOStringRegexp.test(data)) {
+			info.type = 'datetime';
 		}
 	}
 
@@ -319,7 +334,7 @@ function UntranslatedComplexItem(props) {
 				<Action
 					key="toggle"
 					className={classNames(theme.toggle, 'tc-object-viewer-toggle')}
-					icon={'talend-caret-down'}
+					icon="talend-caret-down"
 					iconTransform={isOpened ? undefined : 'rotate-270'}
 					id={id && `${id}-toggle`}
 					onClick={e => {
@@ -403,6 +418,17 @@ export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedC
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
 
+	const [lineItemWidth, setLineItemWidth] = useState(false);
+	const [nativeValueWrap, setNativeValueWrap] = useState(false);
+
+	const lineItemRef = useCallback(node => {
+		if (node) {
+			if (node.ref.offsetParent.offsetWidth < node.ref.scrollWidth) {
+				setLineItemWidth(true);
+			}
+		}
+	}, []);
+
 	if (tupleLabel) {
 		COMPLEX_TYPES.push(tupleLabel);
 	}
@@ -419,6 +445,7 @@ export function Item(props) {
 	if (isNativeType) {
 		return (
 			<LineItem
+				ref={lineItemRef}
 				{...props}
 				value={
 					<NativeValue
@@ -428,10 +455,32 @@ export function Item(props) {
 						onEdit={props.onEdit}
 						onChange={props.onChange}
 						className={props.nativeValueClassName}
+						wrap={nativeValueWrap}
+						isValueOverflown={lineItemWidth}
 					/>
 				}
 				type={props.showType ? info.type : null}
 				tag={tag}
+				isValueOverflown={lineItemWidth}
+				// icon is shown when LineItem value is a long field and needs to be wrapped
+				icon={
+					lineItemWidth && (
+						<Action
+							key="toggle"
+							className={classNames(theme.chevron, { [theme['chevron-filled']]: nativeValueWrap })}
+							icon="talend-chevron-left"
+							iconTransform={nativeValueWrap ? 'rotate-90' : 'rotate-270'}
+							onClick={e => {
+								e.stopPropagation();
+								setNativeValueWrap(val => !val);
+							}}
+							label=""
+							aria-hidden
+							tabIndex="-1"
+							link
+						/>
+					)
+				}
 			/>
 		);
 	}

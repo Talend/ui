@@ -62,6 +62,25 @@ describe('useCollectionSelection', () => {
 		expect(selectedIds).toEqual([1, 4]);
 	});
 
+	it('should set initial selection list with unloaded items', () => {
+		// given
+		const caseCollection = [...collection, null];
+		const initialSelectedIds = [1, 4];
+
+		// when
+		const wrapper = mount(
+			<SelectionComponent
+				collection={caseCollection}
+				initialSelectedIds={initialSelectedIds}
+				idKey="number"
+			/>,
+		);
+
+		// then
+		const selectedIds = wrapper.find('#mainChild').prop('selectedIds');
+		expect(selectedIds).toEqual([1, 4]);
+	});
+
 	it('should filter selected items according to the existing collection', () => {
 		// given
 		const initialSelectedIds = [1, 4];
@@ -96,6 +115,29 @@ describe('useCollectionSelection', () => {
 		expect(isSelected(collection[2])).toBe(false);
 		expect(isSelected(collection[3])).toBe(false);
 		expect(isSelected(collection[4])).toBe(true);
+	});
+
+	it('should provide a function to check an item selection that supports unloaded items', () => {
+		// given
+		const initialSelectedIds = [1, 4];
+
+		// when
+		const wrapper = mount(
+			<SelectionComponent
+				collection={[...collection, null]}
+				initialSelectedIds={initialSelectedIds}
+				idKey="number"
+			/>,
+		);
+
+		// then
+		const isSelected = wrapper.find('#mainChild').prop('isSelected');
+		expect(isSelected(collection[0])).toBe(false);
+		expect(isSelected(collection[1])).toBe(true);
+		expect(isSelected(collection[2])).toBe(false);
+		expect(isSelected(collection[3])).toBe(false);
+		expect(isSelected(collection[4])).toBe(true);
+		expect(isSelected(collection[6])).toBe(false);
 	});
 
 	it('should set new item selection', () => {
@@ -151,6 +193,25 @@ describe('useCollectionSelection', () => {
 
 		// then
 		allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
+		expect(allIsSelected).toBe(false);
+	});
+
+	it('should provide the "select all" status with unloaded items', () => {
+		// given
+		const caseCollection = [...collection, null];
+		const selection = [0, 1, 2, 3, 4];
+
+		// when
+		const wrapper = mount(
+			<SelectionComponent
+				collection={caseCollection}
+				initialSelectedIds={selection}
+				idKey="number"
+			/>,
+		);
+
+		// then
+		const allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
 		expect(allIsSelected).toBe(false);
 	});
 

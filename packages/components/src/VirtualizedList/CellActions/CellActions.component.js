@@ -15,6 +15,7 @@ class CellActions extends React.Component {
 	shouldComponentUpdate(nextProps) {
 		return this.props.cellData !== nextProps.cellData;
 	}
+
 	render() {
 		return (
 			<div

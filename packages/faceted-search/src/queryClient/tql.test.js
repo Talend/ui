@@ -18,7 +18,7 @@ describe('createTqlQuery', () => {
 				attribute: 'name',
 				operator: {
 					label: 'Equal',
-					name: 'equal',
+					name: 'equals',
 					iconName: 'equal',
 				},
 				value: 'another-badge\n\n',
@@ -95,7 +95,7 @@ describe('createTqlQuery', () => {
 					attribute: 'name',
 					operator: {
 						label: 'Equal',
-						name: 'equal',
+						name: 'equals',
 						iconName: 'equal',
 					},
 					value: 'another-badge\n\n',
@@ -224,7 +224,7 @@ describe('createTqlQuery', () => {
 					attribute: 'name',
 					operator: {
 						label: 'Not equals',
-						name: 'notEqual',
+						name: 'notEquals',
 						iconName: 'not-equal',
 					},
 					value: 'product name',
@@ -256,7 +256,7 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual('(price > 2298.23)');
 	});
-	it('should return an unequal tql query when value is using the greaterThanOrEqual operator', () => {
+	it('should return an unequal tql query when value is using the greaterThanOrEquals operator', () => {
 		// Given
 		const badgeNotEqual = [
 			{
@@ -264,7 +264,7 @@ describe('createTqlQuery', () => {
 					attribute: 'price',
 					operator: {
 						label: 'Greater than or equal',
-						name: 'greaterThanOrEqual',
+						name: 'greaterThanOrEquals',
 						iconName: 'greater-than-equal',
 					},
 					value: 12.9823,
@@ -296,7 +296,7 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual('(price < 20938.20938)');
 	});
-	it('should return an unequal tql query when value is using the lessThanOrEqual operator', () => {
+	it('should return an unequal tql query when value is using the lessThanOrEquals operator', () => {
 		// Given
 		const badgeNotEqual = [
 			{
@@ -304,7 +304,7 @@ describe('createTqlQuery', () => {
 					attribute: 'price',
 					operator: {
 						label: 'Less than or equal',
-						name: 'lessThanOrEqual',
+						name: 'lessThanOrEquals',
 						iconName: 'less-than-equal',
 					},
 					value: 20982309892.23,
@@ -324,7 +324,7 @@ describe('createTqlQuery', () => {
 					attribute: 'price',
 					operator: {
 						label: 'Equal',
-						name: 'equal',
+						name: 'equals',
 						iconName: 'equal',
 					},
 					value: NaN,
@@ -344,7 +344,7 @@ describe('createTqlQuery', () => {
 					attribute: 'price',
 					operator: {
 						label: 'Equal',
-						name: 'equal',
+						name: 'equals',
 						iconName: 'equal',
 					},
 					value: 0,
@@ -364,7 +364,7 @@ describe('createTqlQuery', () => {
 					attribute: 'price',
 					operator: {
 						label: 'Equal',
-						name: 'equal',
+						name: 'equals',
 						iconName: 'equal',
 					},
 					value: -12098029830,
@@ -384,7 +384,7 @@ describe('createTqlQuery', () => {
 					attribute: 'price',
 					operator: {
 						label: 'Equal',
-						name: 'equal',
+						name: 'equals',
 						iconName: 'equal',
 					},
 					value: 293820983098.23,
@@ -395,5 +395,25 @@ describe('createTqlQuery', () => {
 		const result = createTqlQuery(badge);
 		// Then
 		expect(result).toEqual('(price = 293820983098.23)');
+	});
+	it('should return an containsIgnoreCase tql query when value is using the containsIgnoreCase operator', () => {
+		// Given
+		const badgeContainsIgnoreCase = [
+			{
+				properties: {
+					attribute: 'Title',
+					operator: {
+						label: 'Contains',
+						name: 'containsIgnoreCase',
+						iconName: 'contains',
+					},
+					value: 'Dataset Title',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgeContainsIgnoreCase);
+		// Then
+		expect(result).toEqual("(Title containsIgnoreCase 'Dataset Title')");
 	});
 });

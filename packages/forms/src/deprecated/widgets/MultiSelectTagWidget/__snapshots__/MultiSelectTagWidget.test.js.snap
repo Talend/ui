@@ -16,7 +16,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
   <div
     className="theme-wrapper form-control"
   >
-    <withI18nextTranslation(Badge)
+    <Badge
       label="Foo"
       onDelete={[Function]}
       selected={false}
@@ -82,6 +82,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
         aria-selected={true}
         className="theme-item-highlighted tc-typeahead-item-highlighted"
         id="react-autowhatever-42--item-0"
+        onClick={[Function]}
         onMouseDown={[Function]}
         role="option"
       >
@@ -158,6 +159,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
           aria-selected={true}
           className="theme-item-highlighted tc-typeahead-item-highlighted"
           id="react-autowhatever-42-section-0-item-0"
+          onClick={[Function]}
           onMouseDown={[Function]}
           role="option"
         >

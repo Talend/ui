@@ -1,9 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Button } from 'react-bootstrap';
-import ResourceComponent from '@talend/react-components/lib/ResourcePicker/Resource';
-import StateFilter from '@talend/react-components/lib/ResourcePicker/Toolbar/StateFilter';
-import SortOptions from '@talend/react-components/lib/ResourcePicker/Toolbar/SortOptions';
 
 import ResourcePicker from './ResourcePicker.component';
 
@@ -80,9 +77,9 @@ describe('ResourcePicker field', () => {
 	it('should render simple select', done => {
 		const wrapper = mount(
 			<ResourcePicker
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn(
@@ -105,9 +102,9 @@ describe('ResourcePicker field', () => {
 	it('should render simple select with wanted sort and filter', done => {
 		const wrapper = mount(
 			<ResourcePicker
-				id={'mySelect'}
+				id="mySelect"
 				isValid
-				errorMessage={'My Error Message'}
+				errorMessage="My Error Message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn(
@@ -151,10 +148,7 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: {
 				description: 'ResourcePicker me',
@@ -203,14 +197,8 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find(ResourceComponent)
-			.at(1)
-			.simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
+		wrapper.find('.resource-item').at(1).simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
 			value: ['0', '1'],
@@ -242,14 +230,8 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
 		expect(onChangeUnselect.mock.calls.length).toBe(2);
 	});
 
@@ -267,14 +249,8 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
 		expect(onChangeUnselect.mock.calls.length).toBe(1);
 	});
 
@@ -292,14 +268,8 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
 		expect(onChangeUnselect.mock.calls.length).toBe(2);
 	});
 
@@ -308,14 +278,8 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper
-			.find(ResourceComponent)
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find(ResourceComponent)
-			.at(1)
-			.simulate('click');
+		wrapper.find('.resource-item').at(0).simulate('click');
+		wrapper.find('.resource-item').at(1).simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
 			value: '1',
@@ -331,11 +295,7 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper
-				.find(StateFilter)
-				.find(Button)
-				.at(0)
-				.simulate('click');
+			wrapper.find('.tc-resource-picker-state-filters').find(Button).at(0).simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -360,11 +320,7 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper
-				.find(StateFilter)
-				.find(Button)
-				.at(1)
-				.simulate('click');
+			wrapper.find('.tc-resource-picker-state-filters').find(Button).at(1).simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -389,11 +345,7 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper
-				.find(StateFilter)
-				.find(Button)
-				.at(2)
-				.simulate('click');
+			wrapper.find('.tc-resource-picker-state-filters').find(Button).at(2).simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -436,12 +388,7 @@ describe('ResourcePicker field', () => {
 			});
 
 			expect(
-				wrapper
-					.find('FieldTemplate')
-					.shallow()
-					.children()
-					.at(1)
-					.prop('toolbar').name.value,
+				wrapper.find('FieldTemplate').shallow().children().at(1).prop('toolbar').name.value,
 			).toBe('test');
 		});
 	});
@@ -452,11 +399,7 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper
-				.find(SortOptions)
-				.find(Button)
-				.at(0)
-				.simulate('click');
+			wrapper.find('.tc-resource-picker-sort-options').find(Button).at(0).simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -484,11 +427,7 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper
-				.find(SortOptions)
-				.find(Button)
-				.at(1)
-				.simulate('click');
+			wrapper.find('.tc-resource-picker-sort-options').find(Button).at(1).simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),

@@ -166,8 +166,10 @@ function trigger(req) {
 
 module.exports = function addRoutes(app) {
 	app.get('/api/v1/forms/:formId', (req, res) => {
-		// eslint-disable-next-line global-require
 		res.json(forms[req.params.formId]);
+	});
+	app.post('/api/v1/forms', (req, res) => {
+		res.json({ body: req.body });
 	});
 	app.post('/api/v1/application/action', (req, res) => {
 		const result = trigger(req);

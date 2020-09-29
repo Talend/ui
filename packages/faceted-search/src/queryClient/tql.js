@@ -35,13 +35,14 @@ const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
  */
 const getTqlClassOperatorsDictionary = query => ({
 	contains: query.contains,
-	equal: query.equal,
+	containsIgnoreCase: query.containsIgnoreCase,
+	equals: query.equal,
 	in: query.in,
-	notEqual: query.unequal,
+	notEquals: query.unequal,
 	greaterThan: query.greaterThan,
-	greaterThanOrEqual: query.greaterThanOrEqual,
+	greaterThanOrEquals: query.greaterThanOrEqual,
 	lessThan: query.lessThan,
-	lessThanOrEqual: query.lessThanOrEqual,
+	lessThanOrEquals: query.lessThanOrEqual,
 });
 
 const formatValue = value => {

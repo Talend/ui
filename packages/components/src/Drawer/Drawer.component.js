@@ -90,14 +90,12 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 	}
 
 	const ActionComponent = Inject.get(getComponent, 'Action', Action);
-	const enhancedCancelAction = Object.assign(
-		{
-			icon: 'talend-cross',
-			hideLabel: true,
-			link: true,
-		},
-		onCancelAction,
-	);
+	const enhancedCancelAction = {
+		icon: 'talend-cross',
+		hideLabel: true,
+		link: true,
+		...onCancelAction,
+	};
 	return (
 		<ActionComponent
 			{...enhancedCancelAction}
@@ -213,7 +211,9 @@ function DrawerContent({ children, className, ...rest }) {
 			className={classnames('tc-drawer-content', theme['tc-drawer-content'], className)}
 			{...rest}
 		>
-			{children}
+			<div className={classnames('tc-drawer-content-wrapper', theme['tc-drawer-content-wrapper'])}>
+				{children}
+			</div>
 		</div>
 	);
 }
@@ -234,7 +234,7 @@ DrawerFooter.propTypes = {
 };
 
 export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = {}) {
-	const enhancedFooterActions = Object.assign({}, omit(footerActions, 'actions'));
+	const enhancedFooterActions = { ...omit(footerActions, 'actions') };
 	enhancedFooterActions.actions = {};
 	['left', 'center', 'right'].forEach(item => {
 		enhancedFooterActions.actions[item] = [
@@ -274,7 +274,10 @@ function Drawer({
 	let activeTabItem = [];
 	let customTabs;
 	if (tabs && tabs.items.length > 0) {
-		customTabs = Object.assign({}, tabs);
+		customTabs = {
+			...tabs,
+			items: tabs.items && tabs.items.map(({ footerActions, ...item }) => item),
+		};
 
 		if (selectedTabKey) {
 			customTabs.selectedKey = selectedTabKey;
@@ -332,7 +335,7 @@ Drawer.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
-	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
+	footerActions: PropTypes.shape(ActionBar.propTypes),
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,

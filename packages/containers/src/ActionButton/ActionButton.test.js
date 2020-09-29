@@ -37,26 +37,14 @@ describe('CMF(Container(ActionButton))', () => {
 			actionId: 'menu:article',
 			extra: 'foo',
 			onClick: () => {},
+			label: 'click',
 		};
 		const context = mock.context();
 		const wrapper = shallow(<ContainerActionButton {...props} />, {
 			context,
 		});
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.getElement().props).toEqual(props);
 		expect(wrapper.find(ActionButton).length).toBe(1);
-	});
-
-	it('should render without onClick', () => {
-		const props = {
-			actionId: 'menu:article',
-			extra: 'foo',
-		};
-		const context = mock.context();
-		const wrapper = shallow(<ContainerActionButton {...props} />, {
-			context,
-		});
-		expect(wrapper.getElement().props).toEqual(props);
 	});
 
 	it('should dispatch one action when it clicks', () => {

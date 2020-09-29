@@ -63,8 +63,8 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
-		const wrapperMounted = mount(<ActionBar.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionBar {...props} />);
+		const wrapperMounted = mount(<ActionBar {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 		const switchActions = wrapperMounted.find(ActionBar.SwitchActions).first();
@@ -82,7 +82,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionBar {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
@@ -96,7 +96,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = mount(<ActionBar.WrappedComponent {...props} />).find('nav');
+		const wrapper = mount(<ActionBar {...props} />).find('nav');
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
@@ -111,7 +111,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionBar {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
@@ -130,7 +130,7 @@ describe('ActionBar', () => {
 				},
 			};
 			// when
-			const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
+			const wrapper = shallow(<ActionBar {...props} />);
 			// then
 			expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 		},
@@ -146,7 +146,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionBar {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
@@ -157,7 +157,7 @@ describe('ActionBar', () => {
 				left: [btnGroupAction],
 			},
 		};
-		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
+		const wrapper = shallow(<ActionBar {...props} />);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 });
@@ -194,7 +194,7 @@ describe('ActionBar.SwitchActions', () => {
 		const wrapper = shallow(
 			<ActionBar.SwitchActions
 				actions={actions}
-				getComponent={'whatever'}
+				getComponent="whatever"
 				components={components}
 				left
 			/>,

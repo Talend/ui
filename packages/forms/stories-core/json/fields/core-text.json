@@ -29,7 +29,8 @@
   "uiSchema": [
     {
       "key": "text",
-      "title": "Simple text"
+      "title": "Simple text",
+      "data-test": "simple.text"
     },
     {
       "key": "number",

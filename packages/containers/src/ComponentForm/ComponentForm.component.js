@@ -87,8 +87,10 @@ export class TCompForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props.state.get('properties') !== nextProps.state.get('properties')) {
-			this.setState({ properties: nextProps.state.get('properties').toJS() });
+		const nextProperties = nextProps.state.get('properties', Map());
+
+		if (this.props.state.get('properties') !== nextProperties) {
+			this.setState({ properties: nextProperties.toJS() });
 		}
 	}
 
@@ -103,6 +105,7 @@ export class TCompForm extends React.Component {
 			this.props.dispatch({
 				type: TCompForm.ON_DEFINITION_URL_CHANGED,
 				...this.props,
+				properties: this.state.properties,
 			});
 		}
 	}
@@ -172,7 +175,6 @@ export class TCompForm extends React.Component {
 		);
 		this.setState({
 			properties: this.props.state.getIn(['initialState', 'properties']).toJS(),
-			dirty: false,
 		});
 	}
 
@@ -206,7 +208,7 @@ export class TCompForm extends React.Component {
 			if (response) {
 				return <p className="danger">{response.get('statusText')}</p>;
 			}
-			return <Form loading />;
+			return <Form loading displayMode={this.props.displayMode} />;
 		}
 
 		const props = {
@@ -217,7 +219,7 @@ export class TCompForm extends React.Component {
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
 			onReset: this.onReset,
-			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
+			widgets: { ...tcompFieldsWidgets, ...this.props.widgets },
 			updating: this.state.updating,
 		};
 

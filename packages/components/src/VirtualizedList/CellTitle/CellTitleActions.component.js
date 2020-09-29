@@ -14,7 +14,7 @@ import Action from '../../Actions/Action/Action.component';
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 const { LARGE } = listTypes;
 
-const MAX_DIRECT_NB_ICON = 3;
+const MAX_DIRECT_NB_ICON = 4;
 
 function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
@@ -25,7 +25,7 @@ function renderActionsGroup(getComponent) {
 		<Actions
 			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
-			key={'large-display-actions'}
+			key="large-display-actions"
 			actions={actions}
 			hideLabel
 			link
@@ -56,13 +56,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 	// few actions : display them
 	if (hasFewActions) {
 		actionsBlocs.push(
-			<Actions
-				getComponent={getComponent}
-				key={'direct-actions'}
-				actions={actions}
-				hideLabel
-				link
-			/>,
+			<Actions getComponent={getComponent} key="direct-actions" actions={actions} hideLabel link />,
 		);
 	} else {
 		// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
@@ -103,20 +97,19 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 		actionsBlocs.push(
 			<ActionDropdown
 				id={`${id}-ellispsis-actions`}
-				key={'ellipsis-actions'}
+				key="ellipsis-actions"
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 				items={remainingActions}
 				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
 				hideLabel
 				link
-				noCaret
 			/>,
 		);
 	}
 
 	return (
 		<div
-			key={'cell-title-actions'}
+			key="cell-title-actions"
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
 		>
 			{actionsBlocs}
@@ -130,7 +123,7 @@ function getPersistentActions(actions, getComponent) {
 	}
 	return (
 		<Actions
-			key={'persistent-actions'}
+			key="persistent-actions"
 			getComponent={getComponent}
 			className={classNames('persistent-actions', theme['persistent-actions'])}
 			actions={actions}

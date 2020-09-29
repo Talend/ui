@@ -10,7 +10,7 @@ describe('TextArea field text display mode', () => {
 
 	it('should render textarea', () => {
 		// when
-		const wrapper = shallow(<TextArea id={'myForm'} schema={schema} value={'toto'} />);
+		const wrapper = shallow(<TextArea id="myForm" schema={schema} value="toto" />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -24,7 +24,7 @@ describe('TextArea field text display mode', () => {
 		};
 
 		// when
-		const wrapper = shallow(<TextArea id={'myForm'} schema={schemaWithRows} value={'toto'} />);
+		const wrapper = shallow(<TextArea id="myForm" schema={schemaWithRows} value="toto" />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

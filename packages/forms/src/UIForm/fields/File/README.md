@@ -25,10 +25,12 @@ This widget allows you to render a file input.
 |---|---|---|
 | widget | `file` | `file` |
 | title | The title to display above field |  |
+| accept | File type specifier list to allow | |
 | autoFocus | Focus on input on render | `false` |
 | disabled | Disable the input | `false` |
 | placeholder | Text to display as placeholder |  |
 | readOnly | Set the input as non modifiable | `false` |
+| triggers | List of trigger types |
 
 ```json
 [
@@ -36,10 +38,14 @@ This widget allows you to render a file input.
     "key": "file",
     "widget": "file",
     "title": "Upload file",
+    "accept": ".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel",
     "autoFocus": false,
     "disabled": false,
     "placeholder": "Select a file to upload",
-    "readOnly": false
+    "readOnly": false,
+    "triggers": [
+      { "action": "generatePresignedURL", "onEvent": "change" }
+    ]
   }
 ]
 ```

@@ -289,7 +289,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 0,
-    "loading": false,
+    "loaded": undefined,
   },
   Object {
     "data.field0": Object {
@@ -353,7 +353,7 @@ Array [
       "value": "",
     },
     "index.index": 1,
-    "loading": false,
+    "loaded": undefined,
   },
 ]
 `;
@@ -422,7 +422,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 0,
-    "loading": false,
+    "loaded": undefined,
   },
   Object {
     "data.field0": Object {
@@ -486,7 +486,7 @@ Array [
       "value": "",
     },
     "index.index": 1,
-    "loading": false,
+    "loaded": undefined,
   },
 ]
 `;
@@ -555,7 +555,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 10,
-    "loading": false,
+    "loaded": undefined,
   },
   Object {
     "data.field0": Object {
@@ -619,7 +619,7 @@ Array [
       "value": "",
     },
     "index.index": 11,
-    "loading": false,
+    "loaded": undefined,
   },
 ]
 `;

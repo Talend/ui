@@ -17,6 +17,7 @@ exports[`CalendarPicker should render 1`] = `
     onSelectDate={[Function]}
     onSelectMonthYear={[Function]}
     onTitleClick={[Function]}
+    t={[Function]}
   />
   <div
     className="theme-footer theme-date-padding"

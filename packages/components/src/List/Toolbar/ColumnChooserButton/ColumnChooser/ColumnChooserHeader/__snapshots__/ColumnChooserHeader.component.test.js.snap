@@ -6,10 +6,10 @@ exports[`ColumnChooserHeader should render by default 1`] = `
 >
   <div>
     <div class="tc-column-chooser-header-title theme-tc-column-chooser-header-title">
-      Modify columns
+      Select columns to display
     </div>
     <div id="selected-columns-text">
-      5/6 selected column
+      5/6 selected
     </div>
   </div>
 </header>

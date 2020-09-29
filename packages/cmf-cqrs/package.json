@@ -4,15 +4,13 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "prepublish": "npm run build",
-    "build": "rimraf ./lib &&  babel -d lib ./src/ --ignore **/*.test.js",
+    "prepare": "talend-scripts build:lib",
     "start": "echo nothing to start",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-cmf-cqrs",
-    "lint:es": "eslint --config ../../.eslintrc --ext .js src",
-    "lint": "npm run lint:es"
+    "lint:es": "talend-scripts lint:es"
   },
   "repository": {
     "type": "git",
@@ -31,57 +29,29 @@
   },
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
+    "@babel/polyfill": "^7.8.3",
     "immutable": "^3.8.1",
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "@babel/preset-react": "^7.0.0",
-    "@talend/react-cmf": "^4.22.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.7.1",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "jest": "^24.7.1",
+    "@talend/react-cmf": "^5.22.0",
+    "@talend/scripts-core": "^6.3.0",
+    "@talend/scripts-preset-react-lib": "^6.3.0",
+    "enzyme": "^3.11.0",
     "mock-socket": "^7.0.0",
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "redux-mock-store": "^1.2.3",
-    "rimraf": "^2.6.2"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "redux-mock-store": "^1.2.3"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^4.22.0",
+    "@talend/react-cmf": "^5.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/**/index.js",
-      "!**/node_modules/**",
-      "!**/__snapshots__/**"
-    ],
-    "roots": [
-      "src"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/../../test-setup.js"
-    ]
-  },
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.22.0"
+  "version": "5.22.0"
 }

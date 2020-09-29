@@ -101,7 +101,7 @@ function noOp() {}
 };
  <Action {...props} />
  */
-export function ActionButton(props) {
+function ActionButton(props) {
 	const {
 		bsStyle,
 		buttonRef,
@@ -213,18 +213,7 @@ export function ActionButton(props) {
 				tooltipPlacement={tooltipPlacement}
 				className={tooltipClassName}
 			>
-				{btnIsDisabled ? (
-					<span
-						className={classNames(
-							theme['tc-action-disabled-btn-container'],
-							'tc-action-disabled-btn-container',
-						)}
-					>
-						{btn}
-					</span>
-				) : (
-					btn
-				)}
+				{btn}
 			</TooltipTrigger>
 		);
 	}

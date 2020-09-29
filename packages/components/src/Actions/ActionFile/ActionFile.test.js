@@ -24,7 +24,7 @@ describe('ActionFile', () => {
 
 	it('should render a div with a input[type="file"] with some classname on it', () => {
 		// when
-		const wrapper = shallow(<ActionFile {...myAction} className={'testClassName'} />);
+		const wrapper = shallow(<ActionFile {...myAction} className="testClassName" />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -42,10 +42,7 @@ describe('ActionFile', () => {
 
 		// when
 		// when
-		wrapper
-			.find('input')
-			.first()
-			.simulate('change', mockEvent);
+		wrapper.find('input').first().simulate('change', mockEvent);
 
 		// then
 		expect(myAction.onChange).toHaveBeenCalled();
@@ -61,10 +58,7 @@ describe('ActionFile', () => {
 
 		// when
 		// when
-		wrapper
-			.find('input')
-			.first()
-			.simulate('change', mockEvent);
+		wrapper.find('input').first().simulate('change', mockEvent);
 
 		// then
 		expect(myAction.onChange).not.toHaveBeenCalled();
@@ -117,7 +111,7 @@ describe('ActionFile', () => {
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = shallow(<ActionFile iconTransform={'rotate-180'} {...myAction} />);
+		const wrapper = shallow(<ActionFile iconTransform="rotate-180" {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

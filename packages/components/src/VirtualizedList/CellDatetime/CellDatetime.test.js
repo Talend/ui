@@ -34,6 +34,19 @@ describe('CellDatetime', () => {
 		});
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should render CellDatetime with no date', () => {
+		// when
+		const columnData = {
+			mode: 'ago',
+		};
+
+		const wrapper = shallow(<CellDatetimeComponent columnData={columnData} />);
+		// then
+		const cellValue = wrapper.find('.cell-datetime-container').text();
+		expect(cellValue).toEqual('');
+	});
+
 	it('should format with "ago"', () => {
 		// when
 		const columnData = {

@@ -20,11 +20,8 @@ function DateTimeRangeManager(props) {
 	const [state, setState] = useState(initialState);
 
 	useEffect(() => {
-		if (
-			!isEqual(state.startDateTime, props.startDateTime) ||
-			!isEqual(state.endDateTime, props.endDateTime)
-		) {
-			setState({ startDateTime: props.startDateTime, endDateTime: props.endDateTime });
+		if (!isEqual(state.startDateTime, startDateTime) || !isEqual(state.endDateTime, endDateTime)) {
+			setState({ startDateTime, endDateTime });
 		}
 	}, [startDateTime, endDateTime]);
 

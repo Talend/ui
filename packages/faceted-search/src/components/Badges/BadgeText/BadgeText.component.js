@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 
 import { BadgeFaceted } from '../BadgeFaceted';
-import { BadgeTextArea } from './BadgeTextArea.component';
+import { BadgeTextForm } from './BadgeTextForm.component';
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 
 const createDefaultOperators = t => [
 	{
-		label: t('FACETED_SEARCH_DOES_NOT_CONTAINS', { defaultValue: 'Does not contains' }),
-		name: 'notEqual',
+		label: t('FACETED_SEARCH_DOES_NOT_CONTAIN', { defaultValue: 'Does not contain' }),
+		name: 'notEquals',
 		iconName: 'not-equal',
 	},
 	{
 		label: t('FACETED_SEARCH_EQUAL', { defaultValue: 'Equal' }),
-		name: 'equal',
+		name: 'equals',
 		iconName: 'equal',
 	},
 	{
@@ -26,14 +26,15 @@ const createDefaultOperators = t => [
 
 const BadgeText = ({
 	id,
-	label,
 	initialOperatorOpened,
 	initialValueOpened,
+	label,
 	operator,
 	operators,
 	size,
-	value,
 	t,
+	value,
+	category,
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
@@ -53,11 +54,12 @@ const BadgeText = ({
 			value={value || ''}
 		>
 			{({ onSubmitBadge, onChangeValue, badgeValue }) => (
-				<BadgeTextArea
+				<BadgeTextForm
 					id={badgeTextId}
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
+					feature={category || label}
 					t={t}
 				/>
 			)}
@@ -66,15 +68,16 @@ const BadgeText = ({
 };
 
 BadgeText.propTypes = {
-	label: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
 	initialOperatorOpened: PropTypes.bool,
 	initialValueOpened: PropTypes.bool,
+	label: PropTypes.string.isRequired,
 	operator: operatorPropTypes,
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
-	value: PropTypes.string,
 	t: PropTypes.func.isRequired,
+	value: PropTypes.string,
+	category: PropTypes.string,
 };
 
 // eslint-disable-next-line import/prefer-default-export

@@ -5,13 +5,14 @@ exports[`ActionFile should apply transformation on icon 1`] = `
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
-    id={42}
+    id="42"
     onChange={[Function]}
     type="file"
   />
   <label
     className="btn btn-default theme-btn-file"
-    htmlFor={42}
+    data-feature="action.feature"
+    htmlFor="42"
   >
     <Icon
       name="talend-caret-down"
@@ -31,16 +32,18 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
   <input
     className="theme-action-file-input sr-only"
     disabled={true}
-    id={42}
+    id="42"
     onChange={[Function]}
     type="file"
   />
   <label
     className="btn btn-default theme-btn-file disabled"
-    htmlFor={42}
+    data-feature="action.feature"
+    htmlFor="42"
   >
     <withI18nextTranslation(CircularProgress)
       size="small"
+      t={[Function]}
     />
     <span>
       Click me
@@ -56,13 +59,14 @@ exports[`ActionFile should display a disabled Icon 1`] = `
   <input
     className="theme-action-file-input sr-only"
     disabled={true}
-    id={42}
+    id="42"
     onChange={[Function]}
     type="file"
   />
   <label
     className="btn btn-default theme-btn-file disabled"
-    htmlFor={42}
+    data-feature="action.feature"
+    htmlFor="42"
   >
     <Icon
       name="talend-caret-down"
@@ -81,13 +85,14 @@ exports[`ActionFile should pass all props to the Button 1`] = `
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
-    id={42}
+    id="42"
     onChange={[Function]}
     type="file"
   />
   <label
     className="btn btn-default theme-btn-file"
-    htmlFor={42}
+    data-feature="action.feature"
+    htmlFor="42"
   >
     <Icon
       name="talend-caret-down"
@@ -104,13 +109,14 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
-    id={42}
+    id="42"
     onChange={[Function]}
     type="file"
   />
   <label
     className="btn btn-default theme-btn-file"
-    htmlFor={42}
+    data-feature="action.feature"
+    htmlFor="42"
   >
     <Icon
       name="talend-caret-down"
@@ -129,13 +135,14 @@ exports[`ActionFile should render a div with a input[type="file"] with some clas
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
-    id={42}
+    id="42"
     onChange={[Function]}
     type="file"
   />
   <label
     className="btn btn-default theme-btn-file"
-    htmlFor={42}
+    data-feature="action.feature"
+    htmlFor="42"
   >
     <Icon
       name="talend-caret-down"
@@ -152,14 +159,15 @@ exports[`ActionFile should render action with html property name = props.name if
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
-    id={42}
+    id="42"
     name="custom_name"
     onChange={[Function]}
     type="file"
   />
   <label
     className="btn btn-default theme-btn-file"
-    htmlFor={42}
+    data-feature="action.feature"
+    htmlFor="42"
   >
     <Icon
       name="talend-caret-down"
@@ -176,13 +184,14 @@ exports[`ActionFile should reverse icon/label 1`] = `
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
-    id={42}
+    id="42"
     onChange={[Function]}
     type="file"
   />
   <label
     className="btn btn-default theme-btn-file"
-    htmlFor={42}
+    data-feature="action.feature"
+    htmlFor="42"
   >
     <span>
       Click me

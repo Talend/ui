@@ -9,164 +9,110 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
   role="listitem"
   tabIndex="0"
 >
-  <LoadingCollapsiblePanel>
+  <Memo(LoadingCollapsiblePanel)>
     <div
       className="theme-loading-collapsible-panel"
     >
       <span>
-        <withI18nextTranslation(Skeleton)
+        <Skeleton
           size="small"
           type="circle"
         >
-          <Skeleton
-            heartbeat={true}
-            i18n={Object {}}
-            size="small"
-            t={[Function]}
-            tReady={true}
-            type="circle"
-          >
-            <span
-              aria-label="circle (loading)"
-              className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
+          <span
+            aria-label="circle (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
               }
-            />
-          </Skeleton>
-        </withI18nextTranslation(Skeleton)>
-        <withI18nextTranslation(Skeleton)
+            }
+          />
+        </Skeleton>
+        <Skeleton
           size="xlarge"
           type="text"
         >
-          <Skeleton
-            heartbeat={true}
-            i18n={Object {}}
-            size="xlarge"
-            t={[Function]}
-            tReady={true}
-            type="text"
-          >
-            <span
-              aria-label="text (loading)"
-              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
+          <span
+            aria-label="text (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
               }
-            />
-          </Skeleton>
-        </withI18nextTranslation(Skeleton)>
+            }
+          />
+        </Skeleton>
       </span>
       <span>
-        <withI18nextTranslation(Skeleton)
+        <Skeleton
           size="small"
           type="circle"
         >
-          <Skeleton
-            heartbeat={true}
-            i18n={Object {}}
-            size="small"
-            t={[Function]}
-            tReady={true}
-            type="circle"
-          >
-            <span
-              aria-label="circle (loading)"
-              className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
+          <span
+            aria-label="circle (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
               }
-            />
-          </Skeleton>
-        </withI18nextTranslation(Skeleton)>
-        <withI18nextTranslation(Skeleton)
+            }
+          />
+        </Skeleton>
+        <Skeleton
           size="medium"
           type="text"
         >
-          <Skeleton
-            heartbeat={true}
-            i18n={Object {}}
-            size="medium"
-            t={[Function]}
-            tReady={true}
-            type="text"
-          >
-            <span
-              aria-label="text (loading)"
-              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
+          <span
+            aria-label="text (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
               }
-            />
-          </Skeleton>
-        </withI18nextTranslation(Skeleton)>
+            }
+          />
+        </Skeleton>
       </span>
       <span>
-        <withI18nextTranslation(Skeleton)
+        <Skeleton
           size="small"
           type="text"
         >
-          <Skeleton
-            heartbeat={true}
-            i18n={Object {}}
-            size="small"
-            t={[Function]}
-            tReady={true}
-            type="text"
-          >
-            <span
-              aria-label="text (loading)"
-              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
+          <span
+            aria-label="text (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
               }
-            />
-          </Skeleton>
-        </withI18nextTranslation(Skeleton)>
+            }
+          />
+        </Skeleton>
       </span>
       <span>
-        <withI18nextTranslation(Skeleton)
+        <Skeleton
           size="medium"
           type="text"
         >
-          <Skeleton
-            heartbeat={true}
-            i18n={Object {}}
-            size="medium"
-            t={[Function]}
-            tReady={true}
-            type="text"
-          >
-            <span
-              aria-label="text (loading)"
-              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
+          <span
+            aria-label="text (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
               }
-            />
-          </Skeleton>
-        </withI18nextTranslation(Skeleton)>
+            }
+          />
+        </Skeleton>
       </span>
     </div>
-  </LoadingCollapsiblePanel>
+  </Memo(LoadingCollapsiblePanel)>
 </div>
 `;
 
@@ -185,7 +131,7 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
   }
   tabIndex="0"
 >
-  <withI18nextTranslation(CollapsiblePanel)
+  <CollapsiblePanel
     content={
       Array [
         Object {

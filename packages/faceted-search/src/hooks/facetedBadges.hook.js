@@ -5,6 +5,7 @@ const BADGES_ACTIONS_KEYS = {
 	ADD_BADGE: 'ADD_BADGE',
 	UPDATE_BADGE: 'UPDATE_BADGE',
 	DELETE_BADGE: 'DELETE_BADGE',
+	DELETE_ALL_BADGES: 'DELETE_ALL_BADGES',
 	CLOSE_INIT_OPENED: 'CLOSE_INIT_OPENED',
 };
 
@@ -19,6 +20,7 @@ export const BADGES_ACTIONS = {
 		},
 	}),
 	delete: badgeId => ({ type: BADGES_ACTIONS_KEYS.DELETE_BADGE, payload: { badgeId } }),
+	deleteAll: () => ({ type: BADGES_ACTIONS_KEYS.DELETE_ALL_BADGES }),
 	closeInitialOpened: badgeId => ({
 		type: BADGES_ACTIONS_KEYS.CLOSE_INIT_OPENED,
 		payload: { badgeId },
@@ -36,6 +38,8 @@ const reducer = (state, { type, payload }) => {
 			};
 		case BADGES_ACTIONS_KEYS.DELETE_BADGE:
 			return { ...state, badges: deleteBadge(payload.badgeId)(state.badges) };
+		case BADGES_ACTIONS_KEYS.DELETE_ALL_BADGES:
+			return { ...state, badges: [] };
 		case BADGES_ACTIONS_KEYS.CLOSE_INIT_OPENED:
 			return { ...state, badges: closeInitOpenedBadge(payload.badgeId)(state.badges) };
 		default:

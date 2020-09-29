@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourceList component should render ResourceList in filtered mode 1`] = `
+<div
+  className="tc-resource-list theme-tc-resource-list"
+>
+  <Toolbar
+    state={
+      Object {
+        "certified": true,
+        "favorites": true,
+      }
+    }
+  />
+  <div
+    className="tc-resource-list-items theme-tc-resource-list-items filtered theme-filtered"
+  >
+    <VirtualizedList
+      collection={
+        Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "flags": Array [
+              "CERTIFIED",
+              "FAVORITE",
+            ],
+            "icon": "talend-file-xls-o",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+          Object {
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 1,
+            "modified": "2016-09-22",
+            "name": "Title with lot of actions",
+          },
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 2,
+            "modified": "2016-09-22",
+            "name": "Title with persistant actions",
+          },
+        ]
+      }
+      defaultHeight={250}
+      noRowsRenderer={[Function]}
+      rowHeight={100}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
+      }
+      selectionMode="MULTI"
+      type="resource"
+    />
+  </div>
+</div>
+`;
+
+exports[`ResourceList component should render ResourceList with render as Custom Resource 1`] = `
+<div
+  className="tc-resource-list theme-tc-resource-list"
+>
+  <div
+    className="tc-resource-list-items theme-tc-resource-list-items"
+  >
+    <VirtualizedList
+      collection={
+        Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "flags": Array [
+              "CERTIFIED",
+              "FAVORITE",
+            ],
+            "icon": "talend-file-xls-o",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+          Object {
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 1,
+            "modified": "2016-09-22",
+            "name": "Title with lot of actions",
+          },
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 2,
+            "modified": "2016-09-22",
+            "name": "Title with persistant actions",
+          },
+        ]
+      }
+      defaultHeight={250}
+      noRowsRenderer={[Function]}
+      rowHeight={100}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
+      }
+      selectionMode="MULTI"
+      type="resource"
+    />
+  </div>
+</div>
+`;
+
+exports[`ResourceList component should render ResourceList with some Resources 1`] = `
+<div
+  className="tc-resource-list theme-tc-resource-list"
+>
+  <Toolbar />
+  <div
+    className="tc-resource-list-items theme-tc-resource-list-items"
+  >
+    <VirtualizedList
+      collection={
+        Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "flags": Array [
+              "CERTIFIED",
+              "FAVORITE",
+            ],
+            "icon": "talend-file-xls-o",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+          Object {
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 1,
+            "modified": "2016-09-22",
+            "name": "Title with lot of actions",
+          },
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 2,
+            "modified": "2016-09-22",
+            "name": "Title with persistant actions",
+          },
+        ]
+      }
+      defaultHeight={250}
+      inProgress={true}
+      noRowsRenderer={[Function]}
+      rowHeight={100}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
+      }
+      selectionMode="MULTI"
+      type="resource"
+    />
+  </div>
+</div>
+`;
+
+exports[`ResourceList component should render ResourceList without any Resource 1`] = `
+<div
+  className="tc-resource-list theme-tc-resource-list"
+>
+  <Toolbar />
+  <div
+    className="tc-resource-list-items theme-tc-resource-list-items"
+  >
+    <VirtualizedList
+      collection={Array []}
+      defaultHeight={250}
+      noRowsRenderer={[Function]}
+      rowHeight={100}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
+      }
+      selectionMode="MULTI"
+      type="resource"
+    />
+  </div>
+</div>
+`;
+
+exports[`ResourceList component should render ResourceList without toolbar 1`] = `
+<div
+  className="tc-resource-list theme-tc-resource-list"
+>
+  <div
+    className="tc-resource-list-items theme-tc-resource-list-items"
+  >
+    <VirtualizedList
+      collection={
+        Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "flags": Array [
+              "CERTIFIED",
+              "FAVORITE",
+            ],
+            "icon": "talend-file-xls-o",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+          Object {
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 1,
+            "modified": "2016-09-22",
+            "name": "Title with lot of actions",
+          },
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 2,
+            "modified": "2016-09-22",
+            "name": "Title with persistant actions",
+          },
+        ]
+      }
+      defaultHeight={250}
+      noRowsRenderer={[Function]}
+      rowHeight={100}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
+      }
+      selectionMode="MULTI"
+      type="resource"
+    />
+  </div>
+</div>
+`;

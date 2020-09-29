@@ -5,4 +5,10 @@ import InputDateRangePicker from './InputDateRangePicker';
 import InputTimePicker from './InputTimePicker';
 
 export default InputDateTimePicker;
-export { DateTime, InputDatePicker, InputDateRangePicker, InputDateTimePicker, InputTimePicker };
+export {
+	/* TODO 6.0: remove DateTime export */ DateTime,
+	InputDatePicker,
+	InputDateRangePicker,
+	InputDateTimePicker,
+	InputTimePicker,
+};

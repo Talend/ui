@@ -11,7 +11,6 @@ describe('getCurrentLanguage', () => {
 		i18next.language = originalLang;
 	});
 	it('should return the locale', () => {
-		expect(i18next.language).toBe('en');
 		expect(getCurrentLanguage()).toBe('en');
 
 		i18next.language = 'fr';

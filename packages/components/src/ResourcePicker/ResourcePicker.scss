@@ -1,16 +1,32 @@
+$tc-resource-picker-toolbar-height: 3.5rem !default;
 $tc-resource-picker-height: 25rem !default;
 
 .tc-resource-picker {
-	.tc-resource-picker-list-container {
-		height: $tc-resource-picker-height;
-
-		&.filtered {
-			:global(.flags-container) {
-				opacity: 1;
+	:global {
+		.tc-resource-list {
+			&-items {
+				height: $tc-resource-picker-height;
+				margin-top: 0;
 			}
 		}
-	}
-	:global(.tc-list-list) {
-		padding: 0;
+
+		.tc-resource-list-toolbar {
+			height: $tc-resource-picker-toolbar-height;
+
+			form {
+				margin-top: 0;
+			}
+
+			> * {
+				margin-left: 0;
+			}
+		}
+
+		.resource-item {
+			border-bottom: 0.1rem solid $gallery;
+			.tc-svg-icon {
+				color: $dove-gray;
+			}
+		}
 	}
 }

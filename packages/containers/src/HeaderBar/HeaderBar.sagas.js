@@ -33,10 +33,8 @@ export function* fetchProducts(action) {
  * @param {Object} action
  */
 export function handleOpenProduct(action) {
-	if ('url' in action.payload) {
-		const opened = window.open(action.payload.url, '_blank');
-		// security fix:
-		opened.opener = null;
+	if ('url' in action.payload && !/^javascript:/.test(action.payload.url.toLowerCase())) {
+		window.location.assign(action.payload.url);
 	}
 }
 

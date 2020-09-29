@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import Action from '../Actions/Action';
-import TreeViewItem from './TreeViewItem/';
+import TreeViewItem from './TreeViewItem';
 
 import theme from './TreeView.scss';
 import withTreeGesture from '../Gesture/withTreeGesture';

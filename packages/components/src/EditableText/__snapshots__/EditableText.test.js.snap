@@ -53,7 +53,7 @@ exports[`EditableText should render inProgress 1`] = `
 `;
 
 exports[`EditableText should render skeleton 1`] = `
-<withI18nextTranslation(Skeleton)
+<Skeleton
   size="large"
   type="text"
 />

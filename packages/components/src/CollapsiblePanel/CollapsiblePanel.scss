@@ -130,14 +130,11 @@ $tc-skeleton-background-color: #dfdfdf !default;
 			justify-content: space-between;
 			flex-basis: 100%;
 			overflow: hidden;
-			text-decoration: none;
-			text-transform: none;
 			font-size: 1.4rem;
 			width: 100%;
 			padding-right: $padding-smaller;
 			> * {
 				padding: 0;
-				letter-spacing: 0;
 				text-decoration: none;
 				@include col-style;
 				display: flex;
@@ -273,7 +270,6 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	}
 
 	.title {
-		text-transform: none;
 		font-weight: bold;
 		overflow: hidden;
 		text-overflow: ellipsis;

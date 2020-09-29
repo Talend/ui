@@ -120,7 +120,7 @@ function ArrayItem(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	ArrayItem.propTypes = {
-		renderItem: PropTypes.func.isRequired,
+		renderItem: PropTypes.func,
 		disabled: PropTypes.bool,
 		readOnly: PropTypes.bool,
 		id: PropTypes.string,

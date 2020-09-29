@@ -4,7 +4,7 @@
  */
 
 /* eslint-disable prefer-rest-params */
-/* eslint-disable no-console*/
+/* eslint-disable no-console */
 
 /**
  * display a deprecated message on the first call of a function.

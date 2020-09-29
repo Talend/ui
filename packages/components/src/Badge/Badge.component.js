@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { withTranslation } from 'react-i18next';
 
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import getDefaultT from '../translate';
 import badgeCssModule from './Badge.scss';
 import { getTheme } from '../theme';
 
@@ -16,7 +13,15 @@ const SIZES = {
 	small: 'small',
 };
 
-const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, t }) => (
+const TYPES = {
+	VALID: 'valid',
+	INVALID: 'invalid',
+	EMPTY: 'empty',
+	PATTERN: 'pattern',
+	VALUE: 'value',
+};
+
+const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, dropdown }) => (
 	<React.Fragment>
 		{category && <BadgeLib.Category label={category} />}
 		{category && <BadgeLib.Separator />}
@@ -24,7 +29,8 @@ const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, t
 			{icon && <BadgeLib.Icon name={icon} />}
 		</BadgeLib.Label>
 		{icon && onDelete && <BadgeLib.Separator iconSeparator />}
-		{onDelete && <BadgeLib.DeleteAction id={id} onClick={onDelete} disabled={disabled} t={t} />}
+		{dropdown && <BadgeLib.Dropdown id={id} props={dropdown} />}
+		{onDelete && <BadgeLib.DeleteAction id={id} onClick={onDelete} disabled={disabled} />}
 	</React.Fragment>
 );
 
@@ -36,7 +42,7 @@ DefaultBadge.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string,
 	onDelete: PropTypes.func,
-	t: PropTypes.func.isRequired,
+	dropdown: PropTypes.object,
 };
 
 const BadgeType = ({ disabled, onSelect, children, ...rest }) => {
@@ -60,22 +66,23 @@ BadgeType.propTypes = {
 	onSelect: PropTypes.func,
 };
 
-export function Badge({
+function Badge({
 	aslink,
 	category,
 	className,
 	children,
-	disabled,
+	disabled = false,
 	display = SIZES.large,
 	icon,
 	id,
 	label,
 	onDelete,
 	onSelect,
-	selected,
+	selected = false,
 	style,
-	t,
 	white,
+	type,
+	dropdown,
 }) {
 	const displayClass =
 		display === SIZES.small ? 'tc-badge-display-small' : 'tc-badge-display-large';
@@ -86,6 +93,8 @@ export function Badge({
 		'tc-badge-readonly': !onDelete,
 		'tc-badge-aslink': aslink,
 		'tc-badge-edit': onDelete && onSelect,
+		[`tc-badge--${type}`]: !!type,
+		'tc-badge-dropdown': dropdown,
 	});
 	const badgeClasses = theme('tc-badge-button', {
 		'tc-badge-white': white,
@@ -108,7 +117,7 @@ export function Badge({
 						id={id}
 						label={label}
 						onDelete={onDelete}
-						t={t}
+						dropdown={dropdown}
 					/>
 				) : (
 					children
@@ -132,16 +141,11 @@ Badge.propTypes = {
 	onSelect: PropTypes.func,
 	selected: PropTypes.bool,
 	style: PropTypes.object,
-	t: PropTypes.func.isRequired,
 	white: PropTypes.bool,
+	type: PropTypes.oneOf(Object.values(TYPES)),
+	dropdown: PropTypes.object,
 };
 
-Badge.defaultProps = {
-	selected: false,
-	disabled: false,
-	t: getDefaultT(),
-};
-
-const TranslatedBadge = withTranslation(I18N_DOMAIN_COMPONENTS)(Badge);
-TranslatedBadge.SIZES = SIZES;
-export default TranslatedBadge;
+Badge.SIZES = SIZES;
+Badge.TYPES = TYPES;
+export default Badge;

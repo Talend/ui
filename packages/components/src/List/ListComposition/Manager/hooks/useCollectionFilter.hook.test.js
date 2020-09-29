@@ -105,7 +105,7 @@ describe('useCollectionFilter', () => {
 		const wrapper = mount(
 			<FilterComponent
 				collection={collection}
-				initialTextFilter={'four'}
+				initialTextFilter="four"
 				filterFunctions={filterFunctions}
 			/>,
 		);

@@ -49,12 +49,14 @@ class RowCollapsiblePanel extends React.Component {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
 	}
+
 	onToggle(event) {
 		const { parent, index } = this.props;
 		if (parent.props.onRowClick) {
 			parent.props.onRowClick({ event, rowData: { ...getRowData(parent, index), index } });
 		}
 	}
+
 	render() {
 		const { className, index, onKeyDown, parent, style } = this.props;
 

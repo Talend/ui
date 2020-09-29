@@ -76,10 +76,18 @@ describe('JSONLike', () => {
 		};
 		const birthData = {
 			completeDateTime: '1985-03-01T12:19:58Z',
+			completeDateISOStringTime: '2014-09-03T08:56:13.000Z',
 			justDate: '1985-03-01',
 			justTime: '12:19:58',
 			notCompliantString: '1985-03-01 12:19:58Z',
 		};
+
+		it(`${birthData.completeDateISOStringTime} should have a type "datetime"`, () => {
+			expect(getDataInfo(birthData.completeDateISOStringTime)).toEqual({
+				type: 'datetime',
+				keys: Object.keys(birthData.completeDateISOStringTime),
+			});
+		});
 
 		it(`${birthData.completeDateTime} should have a type "datetime"`, () => {
 			expect(getDataInfo(birthData.completeDateTime)).toEqual({
@@ -102,9 +110,7 @@ describe('JSONLike', () => {
 			});
 		});
 
-		it(`${
-			birthData.notCompliantString
-		} should have a type "string" as it does not meet any of datetime, date or time regexp`, () => {
+		it(`${birthData.notCompliantString} should have a type "string" as it does not meet any of datetime, date or time regexp`, () => {
 			expect(getDataInfo(birthData.notCompliantString)).toEqual({
 				type: 'string',
 				keys: Object.keys(birthData.notCompliantString),
@@ -196,12 +202,7 @@ describe('JSONLike', () => {
 				/>,
 			);
 
-			expect(
-				wrapper
-					.find('TooltipTrigger+#injected')
-					.at(0)
-					.text(),
-			).toEqual('hello world');
+			expect(wrapper.find('TooltipTrigger+#injected').at(0).text()).toEqual('hello world');
 		});
 
 		it("should toggle item but don't trigger form submit", () => {

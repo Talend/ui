@@ -8,28 +8,14 @@ import ActionDropdown from '../ActionDropdown';
 import ActionIconToggle from '../ActionIconToggle';
 import Inject from '../../Inject';
 
+const DISPLAY_MODE_FILE = 'file';
+const DISPLAY_MODE_DROPDOWN = 'dropdown';
+const DISPLAY_MODE_SPLIT_DROPDOWN = 'splitDropdown';
+const DISPLAY_MODE_ICON_TOGGLE = 'iconToggle';
+
 /**
  * @typedef {(Object|Function)} Component
  */
-
-/**
- * @typedef {Object} ActionProps
- * @property {TYPE_DROPDOWN | TYPE_SPLIT_DROPDOWN | TYPE_ICON_TOGGLE | TYPE_FILE} displayMode
- * @property {Object.<String, Component>} renderers
- */
-
-function noOp() {}
-
-export function wrapOnClick(action) {
-	const { model, onClick, ...rest } = action;
-	const eventHandler = onClick || noOp;
-
-	return event =>
-		eventHandler(event, {
-			action: { ...rest },
-			model,
-		});
-}
 
 /**
  * Internal: should not be used outside
@@ -39,7 +25,7 @@ export function wrapOnClick(action) {
  * @param {ActionProps} - props should contains displayMode and renderers
  * @return {Component} the component to be used
  */
-export function getActionComponent({ displayMode, getComponent }) {
+function getActionComponent({ displayMode, getComponent }) {
 	const Renderers = Inject.getAll(getComponent, {
 		ActionFile,
 		ActionDropdown,
@@ -50,13 +36,13 @@ export function getActionComponent({ displayMode, getComponent }) {
 
 	/* eslint-disable no-use-before-define */
 	switch (displayMode) {
-		case Action.DISPLAY_MODE_FILE:
+		case DISPLAY_MODE_FILE:
 			return Renderers.ActionFile;
-		case Action.DISPLAY_MODE_DROPDOWN:
+		case DISPLAY_MODE_DROPDOWN:
 			return Renderers.ActionDropdown;
-		case Action.DISPLAY_MODE_SPLIT_DROPDOWN:
+		case DISPLAY_MODE_SPLIT_DROPDOWN:
 			return Renderers.ActionSplitDropdown;
-		case Action.DISPLAY_MODE_ICON_TOGGLE:
+		case DISPLAY_MODE_ICON_TOGGLE:
 			return Renderers.ActionIconToggle;
 		default:
 			return Inject.get(getComponent, displayMode, Renderers.ActionButton);
@@ -80,10 +66,10 @@ function Action({ displayMode, getComponent, ...props }) {
 	return <ActionComponent {...props} />;
 }
 
-Action.DISPLAY_MODE_FILE = 'file';
-Action.DISPLAY_MODE_DROPDOWN = 'dropdown';
-Action.DISPLAY_MODE_SPLIT_DROPDOWN = 'splitDropdown';
-Action.DISPLAY_MODE_ICON_TOGGLE = 'iconToggle';
+Action.DISPLAY_MODE_FILE = DISPLAY_MODE_FILE;
+Action.DISPLAY_MODE_DROPDOWN = DISPLAY_MODE_DROPDOWN;
+Action.DISPLAY_MODE_SPLIT_DROPDOWN = DISPLAY_MODE_SPLIT_DROPDOWN;
+Action.DISPLAY_MODE_ICON_TOGGLE = DISPLAY_MODE_ICON_TOGGLE;
 
 Action.displayName = 'Action';
 

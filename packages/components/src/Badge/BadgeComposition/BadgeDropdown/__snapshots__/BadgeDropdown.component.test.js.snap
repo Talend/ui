@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeDropdown should render a dropdown 1`] = `
+<div class="dropdown btn-group btn-group-link">
+  <button aria-label="Label"
+          id="context-dropdown-related-items"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button tc-badge-dropdown theme-tc-badge-dropdown dropdown-toggle btn btn-link"
+  >
+    <span class="tc-dropdown-button-title-label">
+      Label
+    </span>
+    <svg name="talend-caret-down"
+         class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
+         focusable="false"
+         aria-hidden="true"
+    >
+      <use xlink:href="#talend-caret-down">
+      </use>
+    </svg>
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="context-dropdown-related-items"
+  >
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a id="context-dropdown-item-document-1"
+         label="document 1"
+         data-feature="actiondropdown.items"
+         title="document 1"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 1
+      </a>
+    </li>
+    <li role="separator"
+        class="divider"
+    >
+    </li>
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a id="context-dropdown-item-document-2"
+         label="document 2"
+         data-feature="actiondropdown.items"
+         title="document 2"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;

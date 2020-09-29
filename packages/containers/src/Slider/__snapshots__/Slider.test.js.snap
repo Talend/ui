@@ -17,5 +17,6 @@ exports[`Filter container should render 1`] = `
       "id": "filter",
     }
   }
+  step={1}
 />
 `;

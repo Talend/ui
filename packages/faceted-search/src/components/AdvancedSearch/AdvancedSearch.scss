@@ -8,13 +8,6 @@ $error-color: #ba4d51;
 	width: inherit;
 	height: inherit;
 
-	// Buttons basic / advanced are in absolute position,
-	// relative to the faceted toolbar.
-	// This padding is here to give them space.
-	> form {
-		padding-right: 18rem;
-	}
-
 	.adv-search-filter-icon {
 		position: absolute;
 		color: $dark-silver;
@@ -57,7 +50,7 @@ $error-color: #ba4d51;
 	&-buttons {
 		display: flex;
 		position: absolute;
-		right: 20.5rem;
+		right: 2.5rem;
 		align-items: center;
 		justify-content: center;
 		height: $faceted-advanced-search-height;

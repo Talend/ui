@@ -12,20 +12,30 @@ import { getTheme } from '../theme';
 const theme = getTheme(pieChartCssModule);
 export const PIECHART_CONSTANTS = {
 	MIN_SIZE: 20,
-	MAX_SIZE: 50,
+	MAX_SIZE: 100,
 	MAX_PERCENT: 100,
 	BASE_INNER_RADIUS: 6,
 	BASE_OUTER_RADIUS: 9,
 	BASE_PAD_ANGLE: 0.2,
 	INNER_RADIUS_PER_PIXEL: 0.4,
 	OUTER_RADIUS_PER_PIXEL: 0.45,
-	PAD_ANGLE_PER_PIXEL: 0.0033,
+	PAD_ANGLE_PER_PIXEL: 0.0013,
+};
+
+export const PIECHART_SIZES = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+	LARGE: 'large',
+	XLARGE: 'xlarge',
+	XXLARGE: 'xxlarge',
 };
 
 const displaySizes = {
 	small: 20,
 	medium: 35,
 	large: 50,
+	xlarge: 80,
+	xxlarge: 100,
 };
 
 // we need just one instance of this, it's just a generator
@@ -58,33 +68,6 @@ function getShowedValue(model, index) {
  */
 function sortElements(a, b) {
 	return b.percentageShown - a.percentageShown;
-}
-
-/**
- * This function check if the type is a number & check with min/max
- * @param {object} props list of component props
- * @param {string} propName current prop name
- * @param {string} componentName component name
- */
-export function propTypeCheckSize(props, propName, componentName) {
-	if (props[propName] == null) {
-		return null;
-	}
-	if (typeof props[propName] !== 'number') {
-		return new Error(
-			`Invalid type of ${propName} supplied to ${componentName} : ${typeof props[
-				propName
-			]}. Validation failed.`,
-		);
-	} else if (
-		props[propName] < PIECHART_CONSTANTS.MIN_SIZE ||
-		props[propName] > PIECHART_CONSTANTS.MAX_SIZE
-	) {
-		return new Error(
-			`Invalid prop ${propName} supplied to ${componentName} : ${props[propName]}. Validation failed.`,
-		);
-	}
-	return null;
 }
 
 /**
@@ -333,7 +316,7 @@ export function PieChartIconComponent({
 }
 
 export const pieChartIconPropTypes = {
-	display: PropTypes.oneOf(['small', 'medium', 'large']),
+	display: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'xxlarge']),
 	hideLabel: PropTypes.bool,
 	labelIndex: PropTypes.number,
 	loading: PropTypes.bool,
@@ -346,11 +329,12 @@ export const pieChartIconPropTypes = {
 				'lightning-yellow',
 				'dove-gray',
 				'silver-chalice',
+				'jaffa',
 			]),
 			percentage: PropTypes.number.isRequired,
 		}).isRequired,
 	),
-	size: propTypeCheckSize,
+	size: PropTypes.string,
 };
 
 PieChartIconComponent.propTypes = {

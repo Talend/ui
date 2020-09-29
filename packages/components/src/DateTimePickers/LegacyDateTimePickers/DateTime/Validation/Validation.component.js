@@ -66,7 +66,6 @@ function Validation({ t }) {
 			<button
 				name="action-datepicker-validate"
 				className="btn btn-primary"
-				role="button"
 				type="submit"
 				aria-label={t('DATEPICKER_VALIDATE_DESC', {
 					defaultValue: 'Validate the date picker value',

@@ -56,6 +56,10 @@ export function handleBody(response) {
 		methodBody = 'json';
 	}
 
+	if (contentType && contentType.includes('application/zip')) {
+		methodBody = 'blob';
+	}
+
 	return response[methodBody]().then(data => ({ data, response }));
 }
 

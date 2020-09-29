@@ -13,6 +13,7 @@ exports[`Action Icon Toggle should render 1`] = `
       "type": "TOGGLE-MY-AWESOME-ACTION",
     }
   }
+  tick={false}
   tooltipPlacement="top"
 />
 `;

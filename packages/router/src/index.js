@@ -2,8 +2,7 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import cmf from '@talend/react-cmf';
-import { getReduceConfig, mergeObjects, getUnique } from '@talend/react-cmf/lib/cmfModule.merge';
-import { fork } from 'redux-saga/effects';
+import { fork, takeLatest } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
 import expressions from './expressions';
 import sagaRouter from './sagaRouter';
@@ -13,13 +12,14 @@ import cmfRouterMiddleware from './middleware';
 import { REGISTRY_HOOK_PREFIX } from './route';
 
 const mergeConfig = {
-	history: getUnique,
-	sagaRouterConfig: mergeObjects,
-	routerFunctions: mergeObjects,
+	history: cmf.module.merge.getUnique,
+	sagaRouterConfig: cmf.module.merge.mergeObjects,
+	routerFunctions: cmf.module.merge.mergeObjects,
+	startOnAction: cmf.module.merge.getUnique,
 };
 
 function mergeRouterConfig(...configs) {
-	return configs.reduce(getReduceConfig(mergeConfig), {});
+	return configs.reduce(cmf.module.merge.getReduceConfig(mergeConfig), {});
 }
 
 function getModule(...args) {
@@ -33,10 +33,21 @@ function getModule(...args) {
 			return acc;
 		}, registry);
 	}
+
 	function* saga() {
+		let routerStarted = false;
 		yield fork(documentTitle);
 		if (options.sagaRouterConfig) {
-			yield fork(sagaRouter, history, options.sagaRouterConfig);
+			if (options.startOnAction) {
+				yield takeLatest(options.startOnAction, function* startRouter() {
+					if (!routerStarted) {
+						yield fork(sagaRouter, history, options.sagaRouterConfig);
+						routerStarted = true;
+					}
+				});
+			} else {
+				yield fork(sagaRouter, history, options.sagaRouterConfig);
+			}
 		}
 	}
 	const middlewares = [routerMiddleware(history), cmfRouterMiddleware];

@@ -3,10 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
 import Component from '@talend/react-components/lib/List';
-import CellTitleRenderer, {
-	cellType as cellTitleType,
-} from '@talend/react-components/lib/VirtualizedList/CellTitle';
-import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle/CellTitle.component';
+import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
@@ -40,10 +37,10 @@ const ConnectedCellTitle = cmfConnect({
 	withDispatch: true,
 	withDispatchActionCreator: true,
 	withComponentId: true,
-})(CellTitle);
+})(VirtualizedList.cellDictionary.title.cellRenderer);
 export const connectedCellDictionary = {
-	[cellTitleType]: {
-		...CellTitleRenderer,
+	title: {
+		...VirtualizedList.cellDictionary.title,
 		cellRenderer: props => <ConnectedCellTitle {...props} />,
 	},
 };
@@ -93,6 +90,7 @@ export function getItems(context, props) {
 
 class List extends React.Component {
 	static displayName = 'Container(List)';
+
 	static propTypes = {
 		actions: PropTypes.shape({
 			title: PropTypes.string,
@@ -195,7 +193,7 @@ class List extends React.Component {
 	render() {
 		const state = this.props.state.toJS();
 		const items = getItems(this.context, this.props);
-		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
+		const props = { ...omit(this.props, cmfConnect.INJECTED_PROPS) };
 		if (!props.displayMode) {
 			props.displayMode = state.displayMode;
 		}
@@ -300,10 +298,7 @@ class List extends React.Component {
 				props.toolbar.filter.onToggle = (event, data) => {
 					this.props.dispatch({
 						type: Constants.LIST_TOGGLE_FILTER,
-						payload: Object.assign({}, data, {
-							filterDocked: state.filterDocked,
-							searchQuery: state.searchQuery,
-						}),
+						payload: { ...data, filterDocked: state.filterDocked, searchQuery: state.searchQuery },
 						collectionId: props.collectionId,
 						event,
 					});

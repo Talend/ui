@@ -2,6 +2,7 @@
 
 exports[`SubHeaderBar container should render 1`] = `
 <SubHeaderBar
+  onGoBack={[Function]}
   t={[Function]}
 />
 `;

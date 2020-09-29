@@ -18,7 +18,7 @@ const Right = ({ children }) => (
 );
 
 Right.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
 function ListToolbar(props) {

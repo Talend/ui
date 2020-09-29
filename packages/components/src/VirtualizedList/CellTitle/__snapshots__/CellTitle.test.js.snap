@@ -58,6 +58,7 @@ exports[`CellTitle actions should NOT render the actions when cell is disabled 1
           "title": "my awesome title",
         }
       }
+      t={[Function]}
     />
   </React.Fragment>
 </div>
@@ -116,6 +117,7 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
           "title": "my awesome title",
         }
       }
+      t={[Function]}
     />
   </React.Fragment>
 </div>
@@ -153,6 +155,7 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
           "title": "my awesome title",
         }
       }
+      t={[Function]}
     />
   </React.Fragment>
 </div>
@@ -212,6 +215,7 @@ exports[`CellTitle actions should render the actions 1`] = `
           "title": "my awesome title",
         }
       }
+      t={[Function]}
     />
   </React.Fragment>
 </div>
@@ -248,6 +252,7 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
           "title": "my awesome title",
         }
       }
+      t={[Function]}
     />
   </React.Fragment>
 </div>
@@ -284,6 +289,7 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
           "title": "my awesome title",
         }
       }
+      t={[Function]}
     />
   </React.Fragment>
 </div>
@@ -333,6 +339,7 @@ exports[`CellTitle icon should render icon with tooltip when iconLabelKey is pro
           "title": "my awesome title",
         }
       }
+      t={[Function]}
     />
   </React.Fragment>
 </div>
@@ -378,6 +385,7 @@ exports[`CellTitle should render title selector component 1`] = `
           "title": "my awesome title",
         }
       }
+      t={[Function]}
     />
   </React.Fragment>
 </div>

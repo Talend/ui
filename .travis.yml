@@ -21,34 +21,31 @@ matrix:
     - language: node_js
       env: NAME=test_react_16 REACT_VERSION="^16.0.0"
       node_js:
-        - '11.10'
+        - '14'
       script:
         - yarn test
         - yarn test:extra
 
     - language: node_js
       node_js:
-        - '11.10'
+        - '14'
       env: NAME=analysis
       before_script:
-        - yarn global add prettier
+        - yarn global add prettier@2.0.4
         - .travis/before_script_icons.sh
       script:
+        - git branch
         - yarn install
         - yarn install-router
       after_success:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Analysis skipped."; travis_terminate 0; fi
         - .travis/after_success_prettier.sh
-        - (yarn audit --json | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/audit.json
-        - (yarn run audit-router | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/router.json
-        - (yarn run audit-scripts | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/scripts.json
-        - (yarn run audit-html | awk '{if(NR>1)print}') | grep "{" 1> npm-audit/html-webpack-plugin.json
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
 
     - language: node_js
       node_js:
-        - '11.10'
+        - '14'
       env: NAME=demo
       before_script:
         - yarn global add surge

@@ -7,7 +7,7 @@ export default function SkeletonTile() {
 	return (
 		<Tile>
 			<TileBody>
-				<Skeleton width={'100%'} height={'100%'} />
+				<Skeleton width="100%" height="100%" />
 			</TileBody>
 		</Tile>
 	);

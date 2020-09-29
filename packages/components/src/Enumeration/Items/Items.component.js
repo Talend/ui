@@ -32,9 +32,13 @@ class Items extends React.PureComponent {
 
 		switch (item.displayMode) {
 			case DISPLAY_MODE_EDIT: {
+				let actions = this.props.itemsProp.actionsEdit;
+				if (typeof actions === 'function') {
+					actions = actions(itemWithIndex);
+				}
 				itemWithIndex.itemProps = {
 					key: this.props.itemsProp.key,
-					actions: this.props.itemsProp.actionsEdit,
+					actions,
 					onSubmitItem: this.props.itemsProp.onSubmitItem,
 					onAbortItem: this.props.itemsProp.onAbortItem,
 					onChangeItem: this.props.itemsProp.onChangeItem,
@@ -51,9 +55,13 @@ class Items extends React.PureComponent {
 				);
 			}
 			default: {
+				let actions = this.props.itemsProp.actionsDefault;
+				if (typeof actions === 'function') {
+					actions = actions(itemWithIndex);
+				}
 				const itemPropDefault = {
 					key: this.props.itemsProp.key,
-					actions: this.props.itemsProp.actionsDefault,
+					actions,
 					onSelectItem: this.props.itemsProp.onSelectItem,
 				};
 				itemWithIndex.itemProps = itemPropDefault;
@@ -108,7 +116,7 @@ class Items extends React.PureComponent {
 		const actions = this.props.itemsProp && this.props.itemsProp.actionsDefault;
 		return (
 			<div
-				test-id={'enumeration-items-list'}
+				test-id="enumeration-items-list"
 				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
 				onScroll={this.scrollEnumeration}
 				style={calculateListHeight ? { height: `${calculateListHeight(this.props.items)}px` } : {}}

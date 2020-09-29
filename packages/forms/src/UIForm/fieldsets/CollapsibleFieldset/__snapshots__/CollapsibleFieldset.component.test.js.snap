@@ -4,12 +4,12 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <withI18nextTranslation(CollapsiblePanel)
+  <CollapsiblePanel
     expanded={false}
     header={
       Array [
         Object {
-          "label": "Basic",
+          "label": "Jimmy, Somsanith",
         },
         Array [],
       ]
@@ -17,41 +17,26 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
     id="my-fieldset"
     onToggle={[Function]}
   >
+    <div>
+      <p
+        className="help-block"
+        id="my-fieldset-description"
+      >
+        This is description
+      </p>
+    </div>
     <Widget
       id="my-fieldset"
       schema={
         Object {
           "key": Array [
-            "age",
-          ],
-          "schema": Object {
-            "type": "number",
-          },
-          "title": "Age",
-          "type": "number",
-        }
-      }
-      value={
-        Object {
-          "firstname": "Jimmy",
-          "isClosed": true,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={Object {}}
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        Object {
-          "key": Array [
-            "address",
+            "firstname",
           ],
           "schema": Object {
             "type": "string",
           },
-          "title": "Adress",
-          "type": "text",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={
@@ -63,7 +48,30 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
       }
       widgets={Object {}}
     />
-  </withI18nextTranslation(CollapsiblePanel)>
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "lastname",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "LastName",
+          "type": "string",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": true,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+  </CollapsiblePanel>
 </fieldset>
 `;
 
@@ -71,7 +79,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <withI18nextTranslation(CollapsiblePanel)
+  <CollapsiblePanel
     expanded={true}
     header={
       Array [
@@ -84,41 +92,26 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
     id="my-fieldset"
     onToggle={[Function]}
   >
+    <div>
+      <p
+        className="help-block"
+        id="my-fieldset-description"
+      >
+        This is description
+      </p>
+    </div>
     <Widget
       id="my-fieldset"
       schema={
         Object {
           "key": Array [
-            "age",
-          ],
-          "schema": Object {
-            "type": "number",
-          },
-          "title": "Age",
-          "type": "number",
-        }
-      }
-      value={
-        Object {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={Object {}}
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        Object {
-          "key": Array [
-            "address",
+            "firstname",
           ],
           "schema": Object {
             "type": "string",
           },
-          "title": "Adress",
-          "type": "text",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={
@@ -130,7 +123,30 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       }
       widgets={Object {}}
     />
-  </withI18nextTranslation(CollapsiblePanel)>
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "lastname",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "LastName",
+          "type": "string",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+  </CollapsiblePanel>
 </fieldset>
 `;
 
@@ -138,7 +154,82 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
 <fieldset
   className="form-group theme-collapsible-panel collapsible-panel"
 >
-  <withI18nextTranslation(CollapsiblePanel)
+  <CollapsiblePanel
+    expanded={true}
+    header={
+      Array [
+        Object {
+          "label": "Jimmy, Somsanith",
+        },
+        Array [],
+      ]
+    }
+    id="my-fieldset"
+    onToggle={[Function]}
+  >
+    <div>
+      <p
+        className="help-block"
+        id="my-fieldset-description"
+      >
+        This is description
+      </p>
+    </div>
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "firstname",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "FirstName",
+          "type": "string",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "lastname",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "LastName",
+          "type": "string",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+  </CollapsiblePanel>
+</fieldset>
+`;
+
+exports[`CollapsibleFieldset should render without value 1`] = `
+<fieldset
+  className="form-group theme-collapsible-panel collapsible-panel"
+>
+  <CollapsiblePanel
     expanded={true}
     header={
       Array [
@@ -151,52 +242,56 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
     id="my-fieldset"
     onToggle={[Function]}
   >
+    <div>
+      <p
+        className="help-block"
+        id="my-fieldset-description"
+      >
+        This is description
+      </p>
+    </div>
     <Widget
       id="my-fieldset"
       schema={
         Object {
           "key": Array [
-            "age",
-          ],
-          "schema": Object {
-            "type": "number",
-          },
-          "title": "Age",
-          "type": "number",
-        }
-      }
-      value={
-        Object {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={Object {}}
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        Object {
-          "key": Array [
-            "address",
+            "firstname",
           ],
           "schema": Object {
             "type": "string",
           },
-          "title": "Adress",
-          "type": "text",
+          "title": "FirstName",
+          "type": "string",
         }
       }
       value={
         Object {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
+          "isClosed": undefined,
         }
       }
       widgets={Object {}}
     />
-  </withI18nextTranslation(CollapsiblePanel)>
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "lastname",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "LastName",
+          "type": "string",
+        }
+      }
+      value={
+        Object {
+          "isClosed": undefined,
+        }
+      }
+      widgets={Object {}}
+    />
+  </CollapsiblePanel>
 </fieldset>
 `;

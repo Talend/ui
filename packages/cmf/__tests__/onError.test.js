@@ -1,22 +1,18 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import { captureException, withScope, init } from '@sentry/browser';
+import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
 
-
-jest.mock('@sentry/browser', () => {
-	return {
-		captureException: jest.fn(),
-		withScope: jest.fn(),
-		init: jest.fn(config => {
-			if (config.dsn === 'fail') {
-				throw new Error('mock fail');
-			}
-		}),
-	};
-});
+jest.mock('@sentry/browser', () => ({
+	captureException: jest.fn(),
+	configureScope: jest.fn(),
+	init: jest.fn(config => {
+		if (config.dsn === 'fail') {
+			throw new Error('mock fail');
+		}
+	}),
+	withScope: jest.fn(),
+}));
 
 window.addEventListener = jest.fn();
 window.removeEventListener = jest.fn();
@@ -39,6 +35,13 @@ describe('onError', () => {
 		onError.bootstrap(config, store);
 		jest.clearAllMocks();
 	});
+
+	beforeEach(() => {
+		process.env.NODE_ENV = 'production';
+	});
+	afterEach(() => {
+		delete process.env.NODE_ENV;
+	});
 	describe('bootstrap', () => {
 		it('should call add event listener on window', () => {
 			// because of the reset after bootstrap we recall bootstrap
@@ -53,6 +56,28 @@ describe('onError', () => {
 			const action = store.dispatch.mock.calls[0][0];
 			expect(action.type).toBe('POST');
 			expect(action.body).toContain('My error listener');
+		});
+		it('should call onSentryScope within configureScope', () => {
+			const fakeScope = {
+				setUser: jest.fn(),
+				setTag: jest.fn(),
+			};
+			configureScope.mockImplementation(cb => cb(fakeScope));
+			const parameters = {
+				id: 'user-42',
+			};
+			config = {
+				onError: {
+					SENTRY_DSN: '123',
+					onSentryScope: scope => {
+						scope.setUser(parameters);
+						scope.setTag('tenant', 'tenant-id');
+					},
+				},
+			};
+			onError.bootstrap(config, store);
+			expect(fakeScope.setUser).toHaveBeenCalledWith(parameters);
+			expect(fakeScope.setTag).toHaveBeenCalledWith('tenant', 'tenant-id');
 		});
 	});
 	describe('getReportInfo', () => {
@@ -125,7 +150,7 @@ describe('onError', () => {
 			const next = jest.fn();
 			const action = {
 				type: 'FOO',
-				'sensitive': true,
+				sensitive: true,
 			};
 			mid(next)(action);
 			const info = onError.getReportInfo(new Error('my'));
@@ -166,6 +191,23 @@ describe('onError', () => {
 		});
 	});
 	describe('sentry', () => {
+		it('should ignore sentry in developpement environnement', () => {
+			process.env.NODE_ENV = 'developpement';
+			expect(init).not.toHaveBeenCalled();
+			expect(window.removeEventListener).not.toHaveBeenCalled();
+			config = {
+				onError: {
+					SENTRY_DSN: 'http://app@sentry.io/project',
+					onSentryScope: jest.fn(),
+				},
+			};
+			onError.bootstrap(config, store);
+			expect(init).not.toHaveBeenCalled();
+			expect(window.removeEventListener).not.toHaveBeenCalled();
+			expect(onError.hasReportFeature()).toBe(false);
+			expect(config.onError.onSentryScope).not.toHaveBeenCalled();
+		});
+
 		it('bootstrap should support SENTRY_DSN key', () => {
 			expect(init).not.toHaveBeenCalled();
 			expect(window.removeEventListener).not.toHaveBeenCalled();
@@ -178,7 +220,31 @@ describe('onError', () => {
 			expect(init).toHaveBeenCalledWith({ dsn: config.onError.SENTRY_DSN });
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
+			expect(onError.hasReportFeature()).toBe(true);
 		});
+
+		it('bootstrap should extend the Sentry option', () => {
+			expect(init).not.toHaveBeenCalled();
+			expect(window.removeEventListener).not.toHaveBeenCalled();
+			config = {
+				onError: {
+					SENTRY_DSN: 'http://app@sentry.io/project',
+					sentry: {
+						release: '42',
+						environnement: 'production',
+					},
+				},
+			};
+			onError.bootstrap(config, store);
+			expect(init).toHaveBeenCalledWith({
+				dsn: config.onError.SENTRY_DSN,
+				release: config.onError.sentry.release,
+				environnement: config.onError.sentry.environnement,
+			});
+			const onJSError = window.addEventListener.mock.calls[0][1];
+			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
+		});
+
 		it('should support init throw', () => {
 			config = {
 				onError: {
@@ -212,6 +278,7 @@ describe('onError', () => {
 			onError.report(error);
 			expect(captureException).toHaveBeenCalledWith(error);
 		});
+
 		it('report should call withScope with options.tags', () => {
 			config = {
 				onError: {
@@ -219,7 +286,7 @@ describe('onError', () => {
 				},
 			};
 			onError.bootstrap(config, store);
-			const options = { tags: [{ key: 'tag', value: 'value' }]};
+			const options = { tags: [{ key: 'tag', value: 'value' }] };
 			const error = new Error('foo');
 			const setTag = jest.fn();
 			onError.report(error, options);

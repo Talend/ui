@@ -14,6 +14,7 @@ $tc-circle-editable-text-size: 16px !default;
 }
 
 .tc-editable-text {
+	width: 100%;
 	:global(.tc-editable-text-wording-wrapper) {
 		@include ellipsis;
 	}
@@ -26,10 +27,6 @@ $tc-circle-editable-text-size: 16px !default;
 		display: flex;
 		align-items: center;
 		max-width: 90rem;
-
-		:global(.tc-action-disabled-btn-container) {
-			height: 19px;
-		}
 	}
 
 	&-wording {

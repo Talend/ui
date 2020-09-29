@@ -55,13 +55,17 @@ const testHook = hook => {
 describe('useColumnChooserManager', () => {
 	let columnChooserHook;
 	beforeEach(() =>
-		testHook(() => (columnChooserHook = useColumnChooserManager(initialColumns, lockedLeftItems))),
+		testHook(() => {
+			columnChooserHook = useColumnChooserManager(initialColumns, lockedLeftItems);
+		}),
 	);
 	it('should have no columns defined', () => {
 		// given nothing
 		let hookWithNoValue;
 		// when mounting component
-		testHook(() => (hookWithNoValue = useColumnChooserManager()));
+		testHook(() => {
+			hookWithNoValue = useColumnChooserManager();
+		});
 		expect(hookWithNoValue.columns).toEqual([]);
 	});
 	it('should have some columns with the first two left locked', () => {
@@ -69,12 +73,12 @@ describe('useColumnChooserManager', () => {
 		// when mounting before each
 		// then
 		expect(columnChooserHook.columns).toEqual([
-			{ label: 'Id', locked: true, order: 1, visible: true },
-			{ label: 'Name', locked: true, order: 2, visible: true },
-			{ label: 'Author', order: 3, visible: true },
-			{ label: 'Modified', order: 4, visible: true },
-			{ label: 'Icon', order: 5, visible: true },
-			{ label: 'Created', order: 6, visible: true },
+			{ key: 'id', label: 'Id', locked: true, order: 1, visible: true },
+			{ key: 'name', label: 'Name', locked: true, order: 2, visible: true },
+			{ key: 'author', label: 'Author', order: 3, visible: true },
+			{ key: 'modified', label: 'Modified', order: 4, visible: true },
+			{ key: 'icon', label: 'Icon', order: 5, visible: true },
+			{ key: 'created', label: 'Created', order: 6, visible: true },
 		]);
 	});
 	it('should change the visible property of the third column', () => {

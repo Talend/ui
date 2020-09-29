@@ -9,6 +9,7 @@ exports[`Layout should render layout with footer component 1`] = `
   >
     <withI18nextTranslation(SkipLinks)
       mainId="#tc-layout-main"
+      t={[Function]}
     />
   </div>
   <header

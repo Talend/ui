@@ -1,7 +1,11 @@
+/* eslint-disable jsx-a11y/no-autofocus */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+
+import { extractDataAttributes } from '../../utils/properties';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
@@ -24,7 +28,15 @@ export default function Select({
 	value,
 	valueIsUpdating,
 }) {
-	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
+	const {
+		autoFocus,
+		description,
+		disabled = false,
+		placeholder,
+		readOnly = false,
+		title,
+		...rest
+	} = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
@@ -60,10 +72,13 @@ export default function Select({
 				aria-invalid={!isValid}
 				aria-required={schema.required}
 				aria-describedby={`${descriptionId} ${errorId}`}
+				{...extractDataAttributes(rest)}
 			>
-				<option disabled value={placeholder ? '' : undefined}>
-					{placeholder}
-				</option>
+				{placeholder ? (
+					<option disabled value="">
+						{placeholder}
+					</option>
+				) : null}
 				{schema.titleMap &&
 					schema.titleMap.map((option, index) => {
 						const optionProps = {
@@ -90,6 +105,11 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
+			schema: PropTypes.shape({
+				type: PropTypes.string,
+				uniqueItems: PropTypes.bool,
+			}),
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({

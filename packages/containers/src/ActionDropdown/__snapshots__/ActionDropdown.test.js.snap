@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container(ActionDropdown) should render 1`] = `<withI18nextTranslation(ActionDropdown) />`;
+exports[`Container(ActionDropdown) should render 1`] = `
+<withI18nextTranslation(ActionDropdown)
+  t={[Function]}
+/>
+`;
 
 exports[`Container(ActionDropdown) should render with items 1`] = `
 <withI18nextTranslation(ActionDropdown)
@@ -19,5 +23,6 @@ exports[`Container(ActionDropdown) should render with items 1`] = `
       },
     ]
   }
+  t={[Function]}
 />
 `;

@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import Skeleton from '../../Skeleton';
 import EditableText from '../../EditableText';
-import theme from './TitleSubHeader.scss';
+import titleSubHeaderCssModule from './TitleSubHeader.scss';
 import Icon from '../../Icon';
 import Inject from '../../Inject';
 import getDefaultT from '../../translate';
 import TooltipTrigger from '../../TooltipTrigger';
+import { getTheme } from '../../theme';
+
+const theme = getTheme(titleSubHeaderCssModule);
 
 function TitleSubHeader({
 	title,
@@ -46,24 +48,13 @@ function TitleSubHeader({
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div
-			className={classNames(theme['tc-subheader-details'], 'tc-subheader-details', {
-				[theme['tc-subheader-details-blink']]: inProgress,
+			className={theme('tc-subheader-details', {
 				'tc-subheader-details-blink': inProgress,
 			})}
 		>
-			{iconId && (
-				<Icon
-					name={iconId}
-					className={classNames(theme['tc-subheader-details-icon'], 'tc-subheader-details-icon')}
-				/>
-			)}
-			<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
-				<div
-					className={classNames(
-						theme['tc-subheader-details-text-title'],
-						'tc-subheader-details-text-title',
-					)}
-				>
+			{iconId && <Icon name={iconId} className={theme('tc-subheader-details-icon')} />}
+			<div className={theme('tc-subheader-details-text')}>
+				<div className={theme('tc-subheader-details-text-title')}>
 					{editable ? (
 						<InjectedEditableText
 							text={title}
@@ -77,14 +68,7 @@ function TitleSubHeader({
 						/>
 					) : (
 						<TooltipTrigger label={title} tooltipPlacement="bottom">
-							<h1
-								className={classNames(
-									theme['tc-subheader-details-text-title-wording'],
-									'tc-subheader-details-text-title-wording',
-								)}
-							>
-								{title}
-							</h1>
+							<h1 className={theme('tc-subheader-details-text-title-wording')}>{title}</h1>
 						</TooltipTrigger>
 					)}
 				</div>
@@ -94,14 +78,19 @@ function TitleSubHeader({
 	);
 }
 
-function SubTitle({ subTitleLoading, subTitle }) {
+function DefaultSubTitle({ subTitle }) {
+	return <small className={theme('tc-subheader-details-text-subtitle')}>{subTitle}</small>;
+}
+
+DefaultSubTitle.propTypes = {
+	subTitle: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+};
+
+function SubTitle({ subTitleLoading, subTitle, subTitleAs: SubTitleAs = DefaultSubTitle }) {
 	if (subTitleLoading) {
 		return (
 			<Skeleton
-				className={classNames(
-					theme['tc-subheader-details-loading-subtitle'],
-					'tc-subheader-details-loading-subtitle',
-				)}
+				className={theme('tc-subheader-details-loading-subtitle')}
 				type={Skeleton.TYPES.text}
 				size={Skeleton.SIZES.large}
 			/>
@@ -109,16 +98,7 @@ function SubTitle({ subTitleLoading, subTitle }) {
 	}
 
 	if (subTitle) {
-		return (
-			<small
-				className={classNames(
-					theme['tc-subheader-details-text-subtitle'],
-					'tc-subheader-details-text-subtitle',
-				)}
-			>
-				{subTitle}
-			</small>
-		);
+		return <SubTitleAs subTitle={subTitle} />;
 	}
 
 	return null;
@@ -127,6 +107,7 @@ function SubTitle({ subTitleLoading, subTitle }) {
 SubTitle.propTypes = {
 	subTitle: PropTypes.node,
 	subTitleLoading: PropTypes.bool,
+	subTitleAs: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 TitleSubHeader.propTypes = {

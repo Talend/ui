@@ -4,7 +4,7 @@ const path = require('path');
 const mkdirp = require('mkdirp');
 const babel = require('@babel/core');
 
-const defaultOptions = require('../../../babel.config')();
+const defaultOptions = require('@talend/scripts-config-babel/.babelrc.json');
 const src = require('../src');
 const info = require('../src/info').info;
 const extract = require('../src/extract');

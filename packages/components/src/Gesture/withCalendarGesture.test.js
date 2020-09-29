@@ -73,7 +73,7 @@ describe('withCalendarGesture', () => {
 	describe('LEFT keydown', () => {
 		it('should focus on previous day in same week', () => {
 			// given
-			const wrapper = mount(<DayCalendarWithGesture />);
+			const wrapper = mount(<DayCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -83,11 +83,12 @@ describe('withCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('13');
+			wrapper.detach();
 		});
 
 		it('should focus on previous day in the week before', () => {
 			// given
-			const wrapper = mount(<DayCalendarWithGesture />);
+			const wrapper = mount(<DayCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -97,12 +98,15 @@ describe('withCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('11');
+			wrapper.detach();
 		});
 
 		it('should focus on previous day in the month before', () => {
 			// given
 			const goToPreviousMonth = jest.fn();
-			const wrapper = mount(<DayCalendarWithGesture goToPreviousMonth={goToPreviousMonth} />);
+			const wrapper = mount(<DayCalendarWithGesture goToPreviousMonth={goToPreviousMonth} />, {
+				attachTo: document.body,
+			});
 			expect(goToPreviousMonth).not.toBeCalled();
 
 			// when
@@ -114,13 +118,14 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToPreviousMonth).toBeCalled();
 			expect(document.activeElement.innerHTML).toBe('28'); // 2018-02-28
+			wrapper.detach();
 		});
 	});
 
 	describe('RIGHT keydown', () => {
 		it('should focus on next day in same week', () => {
 			// given
-			const wrapper = mount(<DayCalendarWithGesture />);
+			const wrapper = mount(<DayCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -130,11 +135,12 @@ describe('withCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('15');
+			wrapper.detach();
 		});
 
 		it('should focus on next day in the week after', () => {
 			// given
-			const wrapper = mount(<DayCalendarWithGesture />);
+			const wrapper = mount(<DayCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -144,12 +150,15 @@ describe('withCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('19');
+			wrapper.detach();
 		});
 
 		it('should focus on next day in the month after', () => {
 			// given
 			const goToNextMonth = jest.fn();
-			const wrapper = mount(<DayCalendarWithGesture goToNextMonth={goToNextMonth} />);
+			const wrapper = mount(<DayCalendarWithGesture goToNextMonth={goToNextMonth} />, {
+				attachTo: document.body,
+			});
 			expect(goToNextMonth).not.toBeCalled();
 
 			// when
@@ -161,13 +170,14 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToNextMonth).toBeCalled();
 			expect(document.activeElement.innerHTML).toBe('1'); // 2018-04-01
+			wrapper.detach();
 		});
 	});
 
 	describe('UP keydown', () => {
 		it('should focus on previous week', () => {
 			// given
-			const wrapper = mount(<DayCalendarWithGesture />);
+			const wrapper = mount(<DayCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -177,12 +187,15 @@ describe('withCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('7'); // 2018-03-07
+			wrapper.detach();
 		});
 
 		it('should focus on previous week in the month before', () => {
 			// given
 			const goToPreviousMonth = jest.fn();
-			const wrapper = mount(<DayCalendarWithGesture goToPreviousMonth={goToPreviousMonth} />);
+			const wrapper = mount(<DayCalendarWithGesture goToPreviousMonth={goToPreviousMonth} />, {
+				attachTo: document.body,
+			});
 			expect(goToPreviousMonth).not.toBeCalled();
 
 			// when
@@ -194,13 +207,14 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToPreviousMonth).toBeCalled();
 			expect(document.activeElement.innerHTML).toBe('27'); // 2018-02-27
+			wrapper.detach();
 		});
 	});
 
 	describe('DOWN keydown', () => {
 		it('should focus on next week', () => {
 			// given
-			const wrapper = mount(<DayCalendarWithGesture />);
+			const wrapper = mount(<DayCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -210,12 +224,15 @@ describe('withCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('21'); // 2018-03-21
+			wrapper.detach();
 		});
 
 		it('should focus on next week in the month after', () => {
 			// given
 			const goToNextMonth = jest.fn();
-			const wrapper = mount(<DayCalendarWithGesture goToNextMonth={goToNextMonth} />);
+			const wrapper = mount(<DayCalendarWithGesture goToNextMonth={goToNextMonth} />, {
+				attachTo: document.body,
+			});
 			expect(goToNextMonth).not.toBeCalled();
 
 			// when
@@ -227,13 +244,14 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToNextMonth).toBeCalled();
 			expect(document.activeElement.innerHTML).toBe('4'); // 2018-04-04
+			wrapper.detach();
 		});
 	});
 
 	describe('HOME keydown', () => {
 		it('should focus on first day of the month', () => {
 			// given
-			const wrapper = mount(<DayCalendarWithGesture />);
+			const wrapper = mount(<DayCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -243,13 +261,14 @@ describe('withCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('1'); // 2018-03-01
+			wrapper.detach();
 		});
 	});
 
 	describe('END keydown', () => {
 		it('should focus on last day of the month', () => {
 			// given
-			const wrapper = mount(<DayCalendarWithGesture />);
+			const wrapper = mount(<DayCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -259,6 +278,7 @@ describe('withCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('31'); // 2018-03-31
+			wrapper.detach();
 		});
 	});
 
@@ -266,7 +286,9 @@ describe('withCalendarGesture', () => {
 		it('should go to previous month and focus on the same day', () => {
 			// given
 			const goToPreviousMonth = jest.fn();
-			const wrapper = mount(<DayCalendarWithGesture goToPreviousMonth={goToPreviousMonth} />);
+			const wrapper = mount(<DayCalendarWithGesture goToPreviousMonth={goToPreviousMonth} />, {
+				attachTo: document.body,
+			});
 			expect(goToPreviousMonth).not.toBeCalled();
 
 			// when
@@ -278,12 +300,15 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToPreviousMonth).toBeCalled();
 			expect(document.activeElement.innerHTML).toBe('14'); // 2018-02-14
+			wrapper.detach();
 		});
 
 		it('should go to previous month and focus on the last day if same day does not exist', () => {
 			// given
 			const goToPreviousMonth = jest.fn();
-			const wrapper = mount(<DayCalendarWithGesture goToPreviousMonth={goToPreviousMonth} />);
+			const wrapper = mount(<DayCalendarWithGesture goToPreviousMonth={goToPreviousMonth} />, {
+				attachTo: document.body,
+			});
 			expect(goToPreviousMonth).not.toBeCalled();
 
 			// when
@@ -295,6 +320,7 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToPreviousMonth).toBeCalled();
 			expect(document.activeElement.innerHTML).toBe('28'); // 2018-02-28
+			wrapper.detach();
 		});
 	});
 
@@ -302,7 +328,9 @@ describe('withCalendarGesture', () => {
 		it('should go to next month and focus on the same day', () => {
 			// given
 			const goToNextMonth = jest.fn();
-			const wrapper = mount(<DayCalendarWithGesture goToNextMonth={goToNextMonth} />);
+			const wrapper = mount(<DayCalendarWithGesture goToNextMonth={goToNextMonth} />, {
+				attachTo: document.body,
+			});
 			expect(goToNextMonth).not.toBeCalled();
 
 			// when
@@ -314,12 +342,15 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToNextMonth).toBeCalled();
 			expect(document.activeElement.innerHTML).toBe('14'); // 2018-04-14
+			wrapper.detach();
 		});
 
 		it('should go to next month and focus on the last day if same day does not exist', () => {
 			// given
 			const goToNextMonth = jest.fn();
-			const wrapper = mount(<DayCalendarWithGesture goToNextMonth={goToNextMonth} />);
+			const wrapper = mount(<DayCalendarWithGesture goToNextMonth={goToNextMonth} />, {
+				attachTo: document.body,
+			});
 			expect(goToNextMonth).not.toBeCalled();
 
 			// when
@@ -331,6 +362,7 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToNextMonth).toBeCalled();
 			expect(document.activeElement.innerHTML).toBe('30'); // 2018-04-30
+			wrapper.detach();
 		});
 	});
 });
@@ -346,7 +378,7 @@ describe('withMonthCalendarGesture', () => {
 	describe('LEFT keydown', () => {
 		it('should focus on previous month in the same set of months', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -356,11 +388,12 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('APR');
+			wrapper.detach();
 		});
 
 		it('should focus on the previous month in the previous set of months', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -370,11 +403,12 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('MAR');
+			wrapper.detach();
 		});
 
 		it('should block focus on first month', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -384,13 +418,14 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('JAN');
+			wrapper.detach();
 		});
 	});
 
 	describe('RIGHT keydown', () => {
 		it('should focus on next month in the same set of months', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -400,11 +435,12 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('JUN');
+			wrapper.detach();
 		});
 
 		it('should focus on the next month in the next set of months', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -414,11 +450,12 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('JULY');
+			wrapper.detach();
 		});
 
 		it('should block focus on last month', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -428,13 +465,14 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('DEC');
+			wrapper.detach();
 		});
 	});
 
 	describe('UP keydown', () => {
 		it('should focus on previous set of month', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -444,11 +482,12 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('FEB');
+			wrapper.detach();
 		});
 
 		it('should block focus when there is no previous set of month', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 			// when
 			wrapper
 				.find('button')
@@ -457,13 +496,14 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('JAN');
+			wrapper.detach();
 		});
 	});
 
 	describe('DOWN keydown', () => {
 		it('should focus on next set of month', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -473,11 +513,12 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('AUG');
+			wrapper.detach();
 		});
 
 		it('should block focus when there is no following set of month', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -487,13 +528,14 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('DEC');
+			wrapper.detach();
 		});
 	});
 
 	describe('HOME keydown', () => {
 		it('should focus on first month', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -503,13 +545,14 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('JAN');
+			wrapper.detach();
 		});
 	});
 
 	describe('END keydown', () => {
 		it('should focus on last month', () => {
 			// given
-			const wrapper = mount(<MonthCalendarWithGesture />);
+			const wrapper = mount(<MonthCalendarWithGesture />, { attachTo: document.body });
 
 			// when
 			wrapper
@@ -519,6 +562,7 @@ describe('withMonthCalendarGesture', () => {
 
 			// then
 			expect(document.activeElement.innerHTML).toBe('DEC');
+			wrapper.detach();
 		});
 	});
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { ActionButton } from './ActionButton.component';
+import ActionButton from './ActionButton.component';
 
 const myAction = {
 	label: 'Click me',
@@ -212,7 +212,7 @@ describe('Action', () => {
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = shallow(<ActionButton iconTransform={'rotate-180'} {...myAction} />);
+		const wrapper = shallow(<ActionButton iconTransform="rotate-180" {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

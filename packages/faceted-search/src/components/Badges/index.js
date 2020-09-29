@@ -1,4 +1,5 @@
 import { BadgeText } from './BadgeText';
+import { BadgeSlider } from './BadgeSlider';
 import { BadgeOverlay } from './BadgeOverlay';
 
-export { BadgeText, BadgeOverlay };
+export { BadgeText, BadgeSlider, BadgeOverlay };

@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import Label from 'react-bootstrap/lib/Label';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -13,6 +15,7 @@ import classnames from 'classnames';
 import Icon from '../Icon';
 import TooltipTrigger from '../TooltipTrigger';
 import { ActionDropdown } from '../Actions';
+import getTabBarBadgeLabel from '../utils/getTabBarBadgeLabel';
 
 import theme from './TabBar.scss';
 
@@ -84,7 +87,10 @@ function TabBar(props) {
 			if (event) {
 				event.preventDefault();
 			}
-			onSelect(event, props.items.find(({ key }) => selectedKey === key));
+			onSelect(
+				event,
+				props.items.find(({ key }) => selectedKey === key),
+			);
 		}
 	}
 
@@ -104,7 +110,7 @@ function TabBar(props) {
 		}
 	}
 
-	const { className, id, items, selectedKey, children, generateChildId } = props;
+	const { className, id, items, selectedKey, children, generateChildId, tooltipPlacement } = props;
 	const hasChildren = children || items.some(item => item.children);
 	const tabContent = hasChildren && (
 		<Tab.Content>
@@ -117,25 +123,77 @@ function TabBar(props) {
 		</Tab.Content>
 	);
 
+	let tabMenu;
 	if (responsive && showDropdown) {
 		const selectedItem = items.find(item => item.key === selectedKey) || items[0];
-		return (
-			<React.Fragment>
-				<ActionDropdown
-					className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
-					label={selectedItem.label}
-					icon={selectedItem.icon && selectedItem.icon.name}
-					onSelect={(event, { key }) => handleSelect(key, event)}
-					items={items.map(item => ({
-						...item,
-						icon: item.icon && item.icon.name,
-					}))}
-					link
-				/>
-				{tabContent}
-			</React.Fragment>
+		const badgeLabel = get(selectedItem, 'badge.label', '');
+		tabMenu = (
+			<ActionDropdown
+				id={id}
+				className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
+				badge={selectedItem.badge}
+				tooltipLabel={badgeLabel ? `${badgeLabel} ${selectedItem.label}` : selectedItem.label}
+				label={selectedItem.label}
+				icon={selectedItem.icon && selectedItem.icon.name}
+				onSelect={(event, { key }) => handleSelect(key, event)}
+				items={items.map(item => ({
+					...item,
+					icon: item.icon && item.icon.name,
+				}))}
+				link
+			/>
+		);
+	} else {
+		tabMenu = (
+			<Nav
+				bsStyle="tabs"
+				className={classnames(
+					theme['tc-tab-bar'],
+					'tc-tab-bar',
+					responsive && theme['tc-tab-bar-responsive'],
+					responsive && 'tc-tab-bar-responsive',
+				)}
+				ref={tabBarRef}
+			>
+				{items.map(({ icon, badge, ...item }) => (
+					<NavItem
+						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
+						{...item}
+						eventKey={item.key}
+						componentClass="button"
+					>
+						<TooltipTrigger
+							label={badge && badge.label ? `${badge.label} ${item.label}` : item.label}
+							tooltipPlacement={tooltipPlacement}
+						>
+							<span>
+								{icon && (
+									<Icon
+										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
+										{...icon}
+									/>
+								)}
+								<span className={classnames(theme['tc-tab-bar-item-label'])}>{item.label}</span>
+								{badge && (
+									<Label
+										className={classnames(
+											theme['tc-tab-bar-item-badge'],
+											'tc-tab-bar-item-badge',
+											badge.className,
+										)}
+										bsStyle={badge.bsStyle || 'default'}
+									>
+										{getTabBarBadgeLabel(badge.label)}
+									</Label>
+								)}
+							</span>
+						</TooltipTrigger>
+					</NavItem>
+				))}
+			</Nav>
 		);
 	}
+
 	return (
 		<Tab.Container
 			id={id}
@@ -146,37 +204,7 @@ function TabBar(props) {
 			generateChildId={generateChildId}
 		>
 			<div ref={tabBarContainerRef}>
-				<Nav
-					bsStyle="tabs"
-					className={classnames(
-						theme['tc-tab-bar'],
-						'tc-tab-bar',
-						responsive && theme['tc-tab-bar-responsive'],
-						responsive && 'tc-tab-bar-responsive',
-					)}
-					ref={tabBarRef}
-				>
-					{items.map(({ icon, ...item }) => (
-						<NavItem
-							className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
-							{...item}
-							eventKey={item.key}
-							componentClass="button"
-						>
-							<TooltipTrigger label={item.label} tooltipPlacement={props.tooltipPlacement}>
-								<React.Fragment>
-									{icon && (
-										<Icon
-											className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
-											{...icon}
-										/>
-									)}
-									{item.label}
-								</React.Fragment>
-							</TooltipTrigger>
-						</NavItem>
-					))}
-				</Nav>
+				{tabMenu}
 				{tabContent}
 			</div>
 		</Tab.Container>
@@ -195,7 +223,12 @@ TabBar.propTypes = {
 			id: PropTypes.string,
 			key: PropTypes.any.isRequired,
 			label: PropTypes.string.isRequired,
-			icon: PropTypes.string,
+			icon: PropTypes.object,
+			badge: PropTypes.shape({
+				className: PropTypes.string,
+				label: PropTypes.string,
+				bsStyle: PropTypes.string,
+			}),
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,

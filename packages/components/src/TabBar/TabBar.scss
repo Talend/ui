@@ -24,5 +24,26 @@
 			height: $svg-sm-size;
 			font-size: $svg-sm-size;
 		}
+
+		&-label {
+			display: inline-block;
+			max-width: 20rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			vertical-align: top;
+		}
+
+		&-badge {
+			margin-left: $padding-smaller;
+		}
+
+		& > button {
+			max-width: initial;
+		}
 	}
+}
+
+:global(.dropdown) + :global(.tab-content) {
+	padding-top: $padding-large;
 }

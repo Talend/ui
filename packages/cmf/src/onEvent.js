@@ -28,13 +28,11 @@ function getOnEventActionCreatorHandler(instance, config, currentHandler) {
 
 function getOnEventDispatchHandler(instance, config, currentHandler) {
 	return function onEventDispatch(...args) {
-		const payload = Object.assign(
-			{
-				event: serializeEvent(args[0]),
-				data: args[1],
-			},
-			config,
-		);
+		const payload = {
+			event: serializeEvent(args[0]),
+			data: args[1],
+			...config,
+		};
 		instance.props.dispatch(payload);
 		if (currentHandler) {
 			currentHandler(...args);

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import get from 'lodash/get';
+import has from 'lodash/has';
 import { withTranslation } from 'react-i18next';
 import FieldTemplate from '../FieldTemplate';
 import getDefaultT from '../../../translate';
@@ -40,6 +41,7 @@ class Datalist extends Component {
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
 	}
+
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection
@@ -61,7 +63,18 @@ class Datalist extends Component {
 			};
 		}
 
-		const payloadWithSchema = { ...payload, schema: mergedSchema };
+		let payloadWithSchema = {
+			...payload,
+			schema: { ...mergedSchema },
+		};
+
+		if (this.hasTitleMap()) {
+			payloadWithSchema = {
+				...payloadWithSchema,
+				schema: { ...payloadWithSchema.schema, titleMap: this.getTitleMap() },
+			};
+		}
+
 		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
@@ -112,6 +125,14 @@ class Datalist extends Component {
 		return titleMap.concat(additionalOptions);
 	}
 
+	hasTitleMap() {
+		return (
+			has(this.state, 'titleMap') ||
+			has(this.props, 'schema.options.titleMap') ||
+			has(this.props, 'schema.titleMap')
+		);
+	}
+
 	addCustomValue(value, isMultiSection) {
 		if (isMultiSection) {
 			return {
@@ -138,6 +159,8 @@ class Datalist extends Component {
 		const errorId = generateErrorId(this.props.id);
 		return (
 			<FieldTemplate
+				hint={this.props.schema.hint}
+				className={this.props.schema.className}
 				description={this.props.schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
@@ -151,6 +174,7 @@ class Datalist extends Component {
 				<DataListComponent
 					{...props}
 					{...this.state}
+					dataFeature={this.props.schema.dataFeature}
 					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || this.props.valueIsUpdating}
@@ -191,6 +215,7 @@ if (process.env.NODE_ENV !== 'production') {
 		resolveName: PropTypes.func,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
+				enum: PropTypes.array,
 				type: PropTypes.string,
 			}),
 			triggers: PropTypes.arrayOf(
@@ -199,12 +224,14 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 			autoFocus: PropTypes.bool,
+			dataFeature: PropTypes.string,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			restricted: PropTypes.bool,
+			className: PropTypes.string,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -212,6 +239,12 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				className: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 			options: PropTypes.shape({
 				isMultiSection: PropTypes.bool,
 				titleMap: PropTypes.arrayOf(

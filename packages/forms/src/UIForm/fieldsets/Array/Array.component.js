@@ -151,7 +151,6 @@ export default class ArrayWidget extends React.Component {
 }
 
 ArrayWidget.defaultProps = {
-	items: [],
 	value: [],
 	templates: {},
 	widgets: {},
@@ -164,8 +163,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
-		templates: PropTypes.object.isRequired,
-		value: PropTypes.array.isRequired,
-		widgets: PropTypes.object.isRequired,
+		templates: PropTypes.object,
+		value: PropTypes.array,
+		widgets: PropTypes.object,
 	};
 }

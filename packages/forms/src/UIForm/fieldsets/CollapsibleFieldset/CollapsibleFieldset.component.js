@@ -1,18 +1,68 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Actions } from '@talend/react-components/lib/Actions';
-import { useTranslation } from 'react-i18next';
-import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
+import CollapsiblePanel from '@talend/react-components/lib/CollapsiblePanel';
+import get from 'lodash/get';
 import Widget from '../../Widget';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
+import { generateDescriptionId } from '../../Message/generateId';
 
 import theme from './CollapsibleFieldset.scss';
 
-function defaultTitle(_, schema) {
+/**
+ * @return {Arary<string>} itemkey
+ * @param {Array<string>} key within an array
+ */
+function getDrillKey(key) {
+	let stopped = false;
+
+	return key.reduceRight((acc, value) => {
+		if (stopped) {
+			return acc;
+		}
+		if (typeof value === 'number') {
+			// finished
+			stopped = true;
+			return acc;
+		}
+		acc.splice(0, 0, value);
+		return acc;
+	}, []);
+}
+
+export function defaultTitle(formData, schema, options) {
+	const title = (schema.items || []).reduce((acc, item) => {
+		let value;
+		if (item.key) {
+			const lastKey = getDrillKey(item.key);
+			value = get(formData, lastKey.join('.'));
+		}
+		if (item.items) {
+			const sub = defaultTitle(formData, item, options);
+			if (sub) {
+				acc.push(sub);
+			}
+		}
+		if (item.titleMap && item.titleMap.length > 0) {
+			const mappedValue = item.titleMap.find(map => map.value === value);
+			if (mappedValue) {
+				acc.push(mappedValue.name);
+			}
+		} else if (value) {
+			acc.push(value);
+		}
+		return acc;
+	}, []);
+	if (title.length > 0) {
+		return title.join(options?.separator || schema.options?.separator || ', ');
+	}
 	return schema.title;
 }
 
+/**
+ * createCollapsibleFieldset create a widget with a title function
+ * @param {function} title the function called by the component to compute the title
+ * @return {function} CollapsibleFieldset react component
+ */
 export default function createCollapsibleFieldset(title = defaultTitle) {
 	function CollapsibleFieldset(props) {
 		function toggle(event) {
@@ -29,22 +79,31 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		}
 
 		const { id, schema, value, actions, ...restProps } = props;
-		const { t } = useTranslation(I18N_DOMAIN_FORMS);
 		const { items } = schema;
-		const iconTransform = !props.value.isClosed ? 'flip-vertical' : null;
-		const expandLabel = t('FIELDSET_EXPAND', { defaultValue: 'Expand' });
-		const collapseLabel = t('FIELDSET_COLLAPSE', { defaultValue: 'Collapse' });
-		const displayAction = actions.map(action => {
-			return { ...action, displayMode: TYPE_ACTION };
-		});
+		const displayAction = actions.map(action => ({
+			...action,
+			displayMode: CollapsiblePanel.displayModes.TYPE_ACTION,
+		}));
 
 		return (
-			<fieldset className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}>
-				<CollapsiblePanel id={`${id}`}
-				                  header={[{ label: title(value, schema) }, displayAction]}
-				                  onToggle={toggle}
-				                  expanded={!value.isClosed}
+			<fieldset
+				className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}
+			>
+				<CollapsiblePanel
+					id={`${id}`}
+					header={[{ label: title(value, schema) }, displayAction]}
+					onToggle={toggle}
+					expanded={!value.isClosed}
 				>
+					{schema.description ? (
+						<div>
+							<p key="description" className="help-block" id={generateDescriptionId(id)}>
+								{schema.description}
+							</p>
+						</div>
+					) : (
+						''
+					)}
 					{items.map((itemSchema, index) => (
 						<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
 					))}
@@ -65,6 +124,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			onChange: PropTypes.func.isRequired,
 			schema: PropTypes.shape({
 				items: PropTypes.array.isRequired,
+				description: PropTypes.string,
 			}).isRequired,
 			value: PropTypes.object,
 			actions: PropTypes.array,

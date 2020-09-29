@@ -11,7 +11,7 @@ import callTrigger from '@talend/react-forms/lib/UIForm/trigger';
 export default class MultiSelectField extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { selected: props.value };
+		this.state = {};
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onTriggerResult = this.onTriggerResult.bind(this);
 		this.onChange = this.onChange.bind(this);
@@ -20,13 +20,6 @@ export default class MultiSelectField extends React.Component {
 
 	componentDidMount() {
 		this.onTrigger({ type: 'didMount' });
-	}
-
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.value !== this.props.value) {
-			// reset selected
-			this.setState({ selected: nextProps.value });
-		}
 	}
 
 	onTrigger(event) {
@@ -38,6 +31,7 @@ export default class MultiSelectField extends React.Component {
 			onResponse: data => this.setState(data),
 		});
 	}
+
 	onTriggerResult(event, trigger) {
 		return this.props.onTrigger(event, {
 			trigger,
@@ -143,6 +137,7 @@ if (process.env.NODE_ENV !== 'production') {
 			key: PropTypes.array,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(

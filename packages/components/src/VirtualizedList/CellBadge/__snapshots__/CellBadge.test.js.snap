@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CellActions should render 1`] = `
-<withI18nextTranslation(Badge)
+exports[`CellBadge should render 1`] = `
+<Badge
   id="25"
   label="streaming"
   selected={true}

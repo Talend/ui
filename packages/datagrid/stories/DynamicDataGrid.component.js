@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 import DataGrid from '../src/components/';
 import serializer from '../src/components/DatasetSerializer';
 import sample from './sample.json';
-import { getComponent } from './datagrid.component';
+import getComponent from './getComponent';
 
 const ADD_ITEMS_NUMBER = 4;
 const LOADING_ITEM = {
-	loading: true,
+	loaded: false,
 	value: {},
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import bsonObjectid from 'bson-objectid';
+import uuid from 'uuid';
 import omit from 'lodash/omit';
 import expression from '../src/expression';
 import mock from '../src/mock';
@@ -17,8 +17,7 @@ import cmfConnect, {
 } from '../src/cmfConnect';
 import component from '../src/component';
 
-jest.mock('bson-objectid');
-bsonObjectid.mockImplementation(() => 42);
+jest.mock('uuid', () => ({ v4: () => '42' }));
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
@@ -747,7 +746,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			const CMFConnected = cmfConnect({})(Button);
 			const mounted = mount(<CMFConnected store={context.store} label={'text'} renderIf={false} />);
-			expect(mounted.html()).toBeNull();
+			expect(mounted.html()).toBe('');
 		});
 
 		it('should not spread propTypes and defaultProps of wrappedComponent to the CMFContainer', () => {

@@ -26,7 +26,7 @@ export function mapStateToProps(state, { actionId, actionIds } = {}) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	if (props.actionId) {
 		delete props.actionId;
 	}
@@ -38,7 +38,7 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 }
 
 export function ContainerActionSplitDropdown(props) {
-	let newProps = Object.assign({}, props);
+	let newProps = { ...props };
 
 	newProps = {
 		...getOnClick(newProps, props),

@@ -13,7 +13,7 @@ describe('Text field text display mode', () => {
 			operator: '>=',
 			value: '666',
 		};
-		const wrapper = shallow(<TextMode id={'myForm'} schema={schema} value={value} />);
+		const wrapper = shallow(<TextMode id="myForm" schema={schema} value={value} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

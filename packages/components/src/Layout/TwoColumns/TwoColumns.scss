@@ -17,6 +17,7 @@ $tc-layout-header-height: $navbar-height !default;
 .sidemenu {
 	flex-shrink: 0;
 	flex-grow: 0;
+	min-width: 0;
 	> * {
 		height: 100%;
 	}

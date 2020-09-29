@@ -38,11 +38,17 @@ function RandomSizeSkeleton() {
 function LargeInnerRowLoading({ columns, rows }) {
 	return (
 		<div className={theme['loading-large-column-wrapper']}>
-			{Array(columns).fill(
-				<div className={theme['loading-inner-column']}>
-					{Array(rows).fill(<RandomSizeSkeleton />)}
-				</div>,
-			)}
+			{Array(columns)
+				.fill(0)
+				.map((_, index) => (
+					<div key={index} className={theme['loading-inner-column']}>
+						{Array(rows)
+							.fill(0)
+							.map((__, innerIndex) => (
+								<RandomSizeSkeleton key={innerIndex} />
+							))}
+					</div>
+				))}
 		</div>
 	);
 }
@@ -165,7 +171,7 @@ RowLarge.propTypes = {
 	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 RowLarge.defaultProps = {
 	t: getDefaultT(),

@@ -101,5 +101,6 @@ exports[`RowLarge should render large row 1`] = `
       "background": "red",
     }
   }
+  t={[Function]}
 />
 `;

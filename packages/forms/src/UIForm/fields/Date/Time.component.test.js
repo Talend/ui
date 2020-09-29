@@ -14,13 +14,13 @@ describe('Time component', () => {
 	it('should render an InputTimePicker', () => {
 		const wrapper = shallow(
 			<TimeWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'12:34'}
+				value="12:34"
 			/>,
 		);
 
@@ -31,13 +31,13 @@ describe('Time component', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<TimeWidget
-				id={'myForm'}
+				id="myForm"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}
-				value={'12:00'}
+				value="12:00"
 			/>,
 		);
 		expect(onFinish).not.toBeCalled();
@@ -55,9 +55,9 @@ describe('Time component', () => {
 			const onChange = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -77,14 +77,14 @@ describe('Time component', () => {
 			// then
 			expect(onChange).toBeCalledWith(event, { schema, value: '12:34' });
 		});
-		it('should call onChange with null value when there is error', () => {
+		it('should call onChange with previous value when there is error', () => {
 			// given
 			const onChange = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -101,16 +101,21 @@ describe('Time component', () => {
 			wrapper.find('InputTimePicker').simulate('change', event, payload);
 
 			// then
-			expect(onChange).toBeCalledWith(event, { schema, value: null });
+			expect(onChange).toBeCalledWith(event, { schema, value: 'ddd' });
+
+			// check that component highlighted as invalid
+			const fieldTemplateProps = wrapper.find('FieldTemplate').props();
+			expect(fieldTemplateProps.isValid).toBeFalsy();
+			expect(fieldTemplateProps.errorMessage).toEqual('Time is invalid');
 		});
 		it('should not throw any error message', () => {
 			// given
 			const onChange = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -138,9 +143,9 @@ describe('Time component', () => {
 			const onFinish = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					schema={schema}
@@ -165,9 +170,9 @@ describe('Time component', () => {
 			const onFinish = jest.fn();
 			const wrapper = shallow(
 				<TimeWidget
-					id={'myForm'}
+					id="myForm"
 					isValid={false}
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					schema={schema}

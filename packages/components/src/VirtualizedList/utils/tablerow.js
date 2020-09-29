@@ -18,8 +18,8 @@ export function insertSelectionConfiguration(props) {
 		const toggleColumn = (
 			<Column
 				id={internalIds.rowSelector}
-				label={''}
-				dataKey={''}
+				label=""
+				dataKey=""
 				disableSort
 				width={35}
 				flexShrink={0}
@@ -56,6 +56,8 @@ export function toColumns({ id, theme, children, columnsWidths, getRowState }) {
 		const columnWidth = getColumnWidth(field.props.dataKey, columnsWidths);
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
 		const colProps = {
+			// ...createColumnWidthProps(columnWidth),
+			width: -1,
 			...field.props,
 			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName, {
 				'tc-header-resizable': columnWidth && columnWidth.resizable,

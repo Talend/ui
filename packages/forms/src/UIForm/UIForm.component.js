@@ -20,6 +20,7 @@ import theme from './UIForm.scss';
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
+
 	constructor(props) {
 		super(props);
 		const { jsonSchema, uiSchema } = props;
@@ -40,15 +41,16 @@ export class UIFormComponent extends React.Component {
 		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
+		const languageId = props.id || '@talend';
 		if (props.language != null) {
 			Object.assign(language, props.language);
-			// Force update of language @talend even if already set
-			tv4.addLanguage('@talend', language);
-			tv4.language('@talend');
+			// Force update of language by id even if already set
+			tv4.addLanguage(languageId, language);
+			tv4.language(languageId);
 		}
-		if (!tv4.language('@talend')) {
-			tv4.addLanguage('@talend', language);
-			tv4.language('@talend'); // set it
+		if (!tv4.language(languageId)) {
+			tv4.addLanguage(languageId, language);
+			tv4.language(languageId); // set it
 		}
 		const allFormats = Object.assign(customFormats(props.t), props.customFormats);
 		tv4.addFormat(allFormats);
@@ -299,6 +301,7 @@ export class UIFormComponent extends React.Component {
 			this.state.mergedSchema.map((nextSchema, index) => (
 				<Widget
 					id={this.props.id}
+					idSeparator={this.props.idSeparator}
 					key={index}
 					onChange={this.onChange}
 					onFinish={this.onFinish}

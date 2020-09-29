@@ -1,27 +1,28 @@
-> eslint --config ../../.eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
+  64:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/CollapsibleFieldset.js
-  82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.js
+  94:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
-   4:10  error  'Actions' is defined but never used                                                                                        no-unused-vars
-  34:9   error  'iconTransform' is assigned a value but never used                                                                         no-unused-vars
-  35:9   error  'expandLabel' is assigned a value but never used                                                                           no-unused-vars
-  36:9   error  'collapseLabel' is assigned a value but never used                                                                         no-unused-vars
-  37:47  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  43:23  error  Property should be placed on a new line                                                                                    react/jsx-first-prop-new-line
-  44:2   error  Mixed spaces and tabs                                                                                                      no-mixed-spaces-and-tabs
-  44:23  error  Expected indentation of 5 tab characters but found 4                                                                       react/jsx-indent-props
-  45:2   error  Mixed spaces and tabs                                                                                                      no-mixed-spaces-and-tabs
-  45:23  error  Expected indentation of 5 tab characters but found 4                                                                       react/jsx-indent-props
-  46:2   error  Mixed spaces and tabs                                                                                                      no-mixed-spaces-and-tabs
-  46:23  error  Expected indentation of 5 tab characters but found 4                                                                       react/jsx-indent-props
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Enumeration/EnumerationWidget.js
+  255:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.test.js
-  109:55  error  Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/ListView/ListView.component.js
+  55:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
-✖ 14 problems (14 errors, 0 warnings)
-  6 errors, 0 warnings potentially fixable with the `--fix` option.
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.js
+  53:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
+  47:8  error  The attribute aria-invalid is not supported by the role radio. This role is implicit on the element input  jsx-a11y/role-supports-aria-props
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.test.js
+  283:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  287:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/DefaultArrayTemplate.component.js
+  57:4  error  The attribute aria-invalid is not supported by the role list. This role is implicit on the element ol  jsx-a11y/role-supports-aria-props
+
+✖ 9 problems (9 errors, 0 warnings)
+  2 errors and 0 warnings potentially fixable with the `--fix` option.

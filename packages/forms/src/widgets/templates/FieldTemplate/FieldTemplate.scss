@@ -1,0 +1,5 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+.inProgress {
+	@include heartbeat(object-blink);
+}

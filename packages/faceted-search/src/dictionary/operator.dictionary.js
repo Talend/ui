@@ -1,27 +1,28 @@
 const operatorNames = {
 	contains: 'contains',
-	equal: 'equal',
-	notEqual: 'notEqual',
+	containsIgnoreCase: 'containsIgnoreCase',
+	equals: 'equals',
+	notEquals: 'notEquals',
 	in: 'in',
 	greaterThan: 'greaterThan',
-	greaterThanOrEqual: 'greaterThanOrEqual',
+	greaterThanOrEquals: 'greaterThanOrEquals',
 	lessThan: 'lessThan',
-	lessThanOrEqual: 'lessThanOrEqual',
+	lessThanOrEquals: 'lessThanOrEquals',
 };
 
 const standardOperators = t => ({
-	[operatorNames.notEqual]: {
+	[operatorNames.notEquals]: {
 		label: t('OPERATOR_NOT_EQUALS_LABEL', {
-			defaultValue: 'Not equals',
+			defaultValue: 'Not equal to',
 		}),
-		name: 'notEqual',
+		name: 'notEquals',
 		iconName: 'not-equal',
 	},
-	[operatorNames.equal]: {
+	[operatorNames.equals]: {
 		label: t('OPERATOR_EQUALS_LABEL', {
-			defaultValue: 'Equals',
+			defaultValue: 'Equal to',
 		}),
-		name: 'equal',
+		name: 'equals',
 		iconName: 'equal',
 	},
 	[operatorNames.contains]: {
@@ -29,6 +30,13 @@ const standardOperators = t => ({
 			defaultValue: 'Contains',
 		}),
 		name: 'contains',
+		iconName: 'contains',
+	},
+	[operatorNames.containsIgnoreCase]: {
+		label: t('OPERATOR_CONTAINS_LABEL', {
+			defaultValue: 'Contains',
+		}),
+		name: 'containsIgnoreCase',
 		iconName: 'contains',
 	},
 	[operatorNames.in]: {
@@ -44,11 +52,11 @@ const standardOperators = t => ({
 		name: 'greaterThan',
 		iconName: 'greater-than',
 	},
-	[operatorNames.greaterThanOrEqual]: {
+	[operatorNames.greaterThanOrEquals]: {
 		label: t('OPERATOR_GREATER_THAN_OR_EQUAL_LABEL', {
-			defaultValue: 'Greater than or equal',
+			defaultValue: 'Greater than or equal to',
 		}),
-		name: 'greaterThanOrEqual',
+		name: 'greaterThanOrEquals',
 		iconName: 'greater-than-equal',
 	},
 	[operatorNames.lessThan]: {
@@ -58,11 +66,11 @@ const standardOperators = t => ({
 		name: 'lessThan',
 		iconName: 'less-than',
 	},
-	[operatorNames.lessThanOrEqual]: {
+	[operatorNames.lessThanOrEquals]: {
 		label: t('OPERATOR_LESS_THAN_OR_EQUAL_LABEL', {
-			defaultValue: 'Less than or equal',
+			defaultValue: 'Less than or equal to',
 		}),
-		name: 'lessThanOrEqual',
+		name: 'lessThanOrEquals',
 		iconName: 'less-than-equal',
 	},
 });
@@ -77,7 +85,9 @@ const createOperatorsDict = (t, operators) => {
 	return standardOperators(t);
 };
 const getOperatorsFromDict = (operatorsDictionary, operatorsKeys) =>
-	operatorsKeys.map(operatorKey => operatorsDictionary[operatorKey]);
+	operatorsKeys
+		.map(operatorKey => operatorsDictionary[operatorKey])
+		.filter(element => element !== undefined);
 
 // eslint-disable-next-line import/prefer-default-export
-export { createOperatorsDict, getOperatorsFromDict };
+export { operatorNames, createOperatorsDict, getOperatorsFromDict };

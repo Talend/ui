@@ -15,6 +15,20 @@ import {
 import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
+function getItems(items, dataFeature) {
+	if (!items) {
+		return [];
+	}
+	if (!dataFeature) {
+		return items;
+	}
+
+	return items.map(item => ({
+		'data-feature': `${dataFeature}.${item.value}`,
+		...item,
+	}));
+}
+
 /**
  * Show suggestions for search bar
  * @example
@@ -81,6 +95,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
+			onClick: rest.onClick,
 			onKeyDown: rest.onKeyDown,
 			placeholder: rest.placeholder,
 			readOnly: rest.readOnly,
@@ -124,9 +139,10 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...sectionProps,
 		...themeProps,
 		...inputProps,
-		items: rest.items || [],
+		items: getItems(rest.items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
-			onMouseDown: rest.onSelect,
+			onMouseDown: event => event.preventDefault(),
+			onClick: rest.onSelect,
 			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
 		}),
 	};
@@ -175,11 +191,13 @@ Typeahead.propTypes = {
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
+	onClick: PropTypes.func,
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,
 
 	// suggestions
+	dataFeature: PropTypes.string,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,

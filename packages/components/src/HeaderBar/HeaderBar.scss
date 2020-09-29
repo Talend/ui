@@ -1,4 +1,7 @@
+$tc-headerbar-logo-width: 6rem !default;
+$tc-headerbar-logo-full-width: 8.5rem !default;
 $background-color-on-hover: shade($brand-primary, 30);
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -6,6 +9,18 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 	to {
 		opacity: 1;
+	}
+}
+
+// tmp change Talend logo colors until rebranding is done
+:global {
+	#talend-logo-square path {
+		&.ti-foreground {
+			fill: $regal-blue;
+		}
+		&.ti-background {
+			fill: $white;
+		}
 	}
 }
 
@@ -38,9 +53,19 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-action {
-			height: 100%;
 			list-style: none;
+			display: flex;
+			align-items: center;
+			height: 100%;
 			white-space: nowrap;
+
+			&.separated:not(:last-child):after {
+				content: ' ';
+				display: block;
+				width: 1px;
+				height: $font-size-large;
+				background-color: $white;
+			}
 
 			:global {
 				.tc-typeahead-item-title,
@@ -48,31 +73,30 @@ $background-color-on-hover: shade($brand-primary, 30);
 					white-space: initial;
 				}
 			}
-
-			&.flex {
-				display: flex;
-				align-items: center;
-			}
 		}
 
-		.tc-header-bar-logo:global(.btn):global(.btn-link) {
-			line-height: $svg-xlg-size;
-			padding: 8px $padding-normal 8px $padding-small;
+		.tc-header-bar-logo {
+			padding: 0;
+			width: $tc-headerbar-logo-width;
 
 			:global(.tc-svg-icon) {
-				height: $svg-xlg-size;
-				vertical-align: top;
-				width: $svg-xlg-size;
+				padding: 0;
+				height: 2.8rem;
+				width: 2.8rem;
 			}
 
-			&.full :global(.tc-svg-icon) {
-				width: 85px;
+			&.full {
+				width: auto;
+
+				:global(.tc-svg-icon) {
+					padding: 0 $padding-normal;
+					width: $tc-headerbar-logo-full-width;
+				}
 			}
 		}
 
 		.tc-header-bar-brand:global(.btn):global(.btn-link) {
 			font-size: $font-size-base;
-			text-transform: uppercase;
 		}
 
 		.tc-header-bar-call-to-action {
@@ -90,30 +114,20 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 	}
 
-	.separated:not(:last-child):after {
-		content: '|';
-		color: $white;
-	}
-
 	.tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
 		fill: $st-tropaz;
 		height: $svg-lg-size;
 		width: $svg-lg-size;
 	}
 
-	.tc-header-bar-brand + :global(.dropdown-menu .tc-svg-icon) {
-		fill: $st-tropaz;
-		height: $svg-md-size;
-		width: $svg-md-size;
+	.tc-header-bar-brand :global(.tc-svg-icon:first-child) {
+		height: $svg-lg-size;
+		width: $svg-lg-size;
 	}
 
 	.tc-header-bar-brand + :global(.dropdown-menu) {
 		min-width: 100%;
 		width: auto;
-	}
-
-	.tc-header-bar-brand :global(.tc-dropdown-button-title-label) {
-		margin-left: $padding-small;
 	}
 
 	:global(.btn):global(.btn-link) {
@@ -170,7 +184,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 	}
 
-	.tc-header-bar-intercom button {
+	.tc-header-bar-intercom-default-component {
 		border-radius: 50%;
 		background: $st-tropaz;
 		min-height: auto;

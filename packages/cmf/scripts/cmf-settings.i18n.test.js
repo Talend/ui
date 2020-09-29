@@ -70,21 +70,12 @@ const {
 
 describe('i18n scripts', () => {
 	describe('#getNameSpacesByLocale', () => {
-		it('should get initiailized i18next with the locales', () => {
+		it('should get initialized i18next with the locales', () => {
 			expect(
 				getNameSpacesByLocale([{ name: 'ns1', path: 'src/{{namespace}}/{{locale}}' }], 'fr'),
 			).toEqual({
 				ns1: { key1: 'bar', oldKey: 'bar' },
 			});
-		});
-	});
-
-	describe('#getI18Next', () => {
-		// we have mock i18next
-		it('should get i18next mock', () => {
-			expect(
-				getI18Next(['fr'], [{ name: 'ns1', path: 'src/{{namespace}}/{{locale}}' }]).isMock,
-			).toBe(true);
 		});
 	});
 
@@ -107,7 +98,12 @@ describe('i18n scripts', () => {
 			const localizedJSON = getLocalesFromNamespaceInFolder('root', namespace);
 
 			expect(localizedJSON).toEqual(
-				new Map([['KEY2', 'key2'], ['KEY1', 'key1'], ['KEY3', 'key3'], ['KEY4', 'key4']]),
+				new Map([
+					['KEY2', 'key2'],
+					['KEY1', 'key1'],
+					['KEY3', 'key3'],
+					['KEY4', 'key4'],
+				]),
 			);
 		});
 	});
@@ -128,7 +124,15 @@ describe('i18n scripts', () => {
 			const filePath = './src/{{namespace}}/{{locale}}';
 			const namespace = 'ns1';
 
-			updateLocale(new Map([['key2', 'test'], ['key1', 'foo']]), locale, namespace, filePath);
+			updateLocale(
+				new Map([
+					['key2', 'test'],
+					['key1', 'foo'],
+				]),
+				locale,
+				namespace,
+				filePath,
+			);
 			expect(writeFileSync).toHaveBeenCalledWith(
 				getPathFromPattern(filePath, namespace, locale),
 				JSON.stringify(
@@ -149,7 +153,16 @@ describe('i18n scripts', () => {
 			const filePath = './src/{{namespace}}/{{locale}}';
 			const namespace = 'ns1';
 
-			updateLocale(new Map([['key2', 'test'], ['key1', 'foo']]), locale, namespace, filePath, true);
+			updateLocale(
+				new Map([
+					['key2', 'test'],
+					['key1', 'foo'],
+				]),
+				locale,
+				namespace,
+				filePath,
+				true,
+			);
 			expect(writeFileSync).toHaveBeenCalledWith(
 				getPathFromPattern(filePath, namespace, locale),
 				JSON.stringify(
@@ -191,7 +204,15 @@ describe('i18n scripts', () => {
 			const filePath = './src/{{namespace}}/{{locale}}';
 			const namespace = 'ns1';
 
-			updateLocale(new Map([['key1', 'foo'], ['newKey', 'new']]), namespace, locale, filePath);
+			updateLocale(
+				new Map([
+					['key1', 'foo'],
+					['newKey', 'new'],
+				]),
+				namespace,
+				locale,
+				filePath,
+			);
 
 			expect(writeFileSync).toHaveBeenCalledWith(
 				getPathFromPattern(filePath, locale, namespace),
@@ -300,7 +321,12 @@ describe('i18n scripts', () => {
 			};
 			const locale = getLocalesFromNamespace(json, namespace);
 
-			expect(locale).toEqual(new Map([['KEY1', 'foo'], ['KEY2', 'bar']]));
+			expect(locale).toEqual(
+				new Map([
+					['KEY1', 'foo'],
+					['KEY2', 'bar'],
+				]),
+			);
 		});
 
 		it('should parse a JSON with a key without namespace', () => {

@@ -43,9 +43,7 @@ function getPathFromPattern(pattern, namespace, locale) {
 function manageEmptyNamespace(i18n) {
 	if (!i18n.key.split(NAMESPACE_SEPARATOR)[1]) {
 		throw new Error(
-			`The key '${
-				i18n.key
-			}' doesn't have namespace defined. if a key doesn't have a namespace defined, it will not be extracted.`,
+			`The key '${i18n.key}' doesn't have namespace defined. if a key doesn't have a namespace defined, it will not be extracted.`,
 		);
 	}
 }
@@ -138,17 +136,16 @@ function parseSettings(i18next, settings, locale) {
 function saveSettings(i18next, settings, locale, destination) {
 	const translatedSetting = parseSettings(i18next, settings, locale);
 
-	mkdirp(path.dirname(destination), () => {
-		const basename = `${path.basename(
-			destination,
-			path.extname(destination),
-		)}.${locale}${path.extname(destination)}`;
-		const filePath = path.join(path.dirname(destination), basename);
-		const file = fs.createWriteStream(filePath);
-		file.write(JSON.stringify(translatedSetting) + String.fromCharCode(10));
-		file.end();
-		getLogger()('Settings created:', `${filePath}  settings has been created`);
-	});
+	mkdirp.sync(path.dirname(destination));
+	const basename = `${path.basename(
+		destination,
+		path.extname(destination),
+	)}.${locale}${path.extname(destination)}`;
+	const filePath = path.join(path.dirname(destination), basename);
+	const file = fs.createWriteStream(filePath);
+	file.write(JSON.stringify(translatedSetting) + String.fromCharCode(10));
+	file.end();
+	getLogger()('Settings created:', `${filePath}  settings has been created`);
 }
 
 /**

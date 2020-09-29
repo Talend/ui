@@ -5,6 +5,10 @@ import Popover from 'react-bootstrap/lib/Popover';
 import Button from 'react-bootstrap/lib/Button';
 import Icon from '@talend/react-components/lib/Icon';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
+import { getTheme } from '@talend/react-components/lib/theme';
+import cssModule from './BadgeOverlay.scss';
+
+const theme = getTheme(cssModule);
 
 const getChildren = (children, setOverlayOpened) => {
 	if (typeof children === 'function') {
@@ -30,15 +34,17 @@ const getLabel = labels => {
 const BadgeOverlay = ({
 	children,
 	className,
+	hasAddButton = false,
 	iconName,
-	initialOpened = false,
 	id,
+	initialOpened = false,
 	label,
 	onChange,
 	onHide,
 	opened = false,
 	placement = 'bottom',
 	rootClose = true,
+	t,
 }) => {
 	const [overlayOpened, setOverlayOpened] = useState(initialOpened);
 	const [buttonRef, setButtonRef] = useState(null);
@@ -68,8 +74,13 @@ const BadgeOverlay = ({
 			type="button"
 			ref={target => setButtonRef(target)}
 			onClick={changeOpened}
+			className={theme({ 'tc-badge-link-plus': hasAddButton })}
 		>
-			{iconName ? <Icon name={`talend-${iconName}`} key="icon" /> : getLabel(label)}
+			{iconName && (
+				<Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />
+			)}
+			{hasAddButton && <span>{t('BASIC_SEARCH_ADD_FILTER', { defaultValue: 'Add filter' })}</span>}
+			{!iconName && getLabel(label)}
 		</Button>
 	);
 
@@ -105,6 +116,7 @@ BadgeOverlay.propTypes = {
 		PropTypes.arrayOf(PropTypes.element),
 		PropTypes.func,
 	]).isRequired,
+	t: PropTypes.func.isRequired,
 	className: PropTypes.string,
 	iconName: PropTypes.string,
 	initialOpened: PropTypes.bool,
@@ -115,6 +127,7 @@ BadgeOverlay.propTypes = {
 	opened: PropTypes.bool,
 	placement: PropTypes.string,
 	rootClose: PropTypes.bool,
+	hasAddButton: PropTypes.bool,
 };
 
 // eslint-disable-next-line import/prefer-default-export

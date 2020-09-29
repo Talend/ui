@@ -17,6 +17,7 @@ describe('BadgeNumberForm', () => {
 		const props = {
 			id: 'customId',
 			onSubmit: jest.fn(),
+			feature: 'price',
 			t: getDefaultT(),
 		};
 		// When
@@ -36,6 +37,7 @@ describe('BadgeNumberForm', () => {
 			id: 'customId',
 			onSubmit,
 			value: 'i230982903',
+			feature: 'price',
 			t: getDefaultT(),
 		};
 		// When
@@ -45,12 +47,7 @@ describe('BadgeNumberForm', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(
-			wrapper
-				.find('input[type="number"]')
-				.first()
-				.props().value,
-		).toEqual('i230982903');
+		expect(wrapper.find('input[type="number"]').first().props().value).toEqual('i230982903');
 
 		const submitButton = wrapper.find('button[type="submit"]').first();
 		submitButton.simulate('submit');

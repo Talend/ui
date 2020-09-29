@@ -19,7 +19,7 @@ export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgr
 			<TooltipTrigger
 				label={text}
 				tooltipPlacement="bottom"
-				className={'tc-editable-text-wording-wrapper'}
+				className="tc-editable-text-wording-wrapper"
 			>
 				<ComponentClass
 					className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}

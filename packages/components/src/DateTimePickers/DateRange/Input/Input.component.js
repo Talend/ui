@@ -8,7 +8,7 @@ import InputSizer from '../../shared/InputSizer';
 
 const OMIT_INPUT_PROPS = ['date', 'onChange', 'onFocus', 'label'];
 
-function Input(props, ref) {
+const Input = forwardRef((props, ref) => {
 	const { date, onChange, onFocus, label } = props;
 	const { inputManagement } = useContext(DateRangeContext);
 	const { placeholder } = inputManagement;
@@ -37,11 +37,11 @@ function Input(props, ref) {
 			</InputSizer>
 		</div>
 	);
-}
+});
 
 Input.displayName = 'DateRange.Input';
 Input.propTypes = {
-	id: PropTypes.string.required,
+	id: PropTypes.string.isRequired,
 	date: PropTypes.shape({
 		textInput: PropTypes.string,
 	}),
@@ -50,4 +50,4 @@ Input.propTypes = {
 	label: PropTypes.string,
 };
 
-export default forwardRef(Input);
+export default Input;

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import Actions from './../Actions/Actions.component';
-import CircularProgress from './../CircularProgress/CircularProgress.component';
-import Icon from './../Icon/Icon.component';
+import Actions from '../Actions/Actions.component';
+import CircularProgress from '../CircularProgress/CircularProgress.component';
+import Icon from '../Icon/Icon.component';
 import Skeleton from '../Skeleton';
 
 import css from './Status.scss';
@@ -65,7 +65,7 @@ function renderIcon(status, icon, progress) {
 			if (icon) {
 				return <Icon name={icon} />;
 			}
-			return <CircularProgress size={'small'} percent={progress} />;
+			return <CircularProgress size="small" percent={progress} />;
 
 		case STATUS.SKELETON:
 			return (
@@ -128,13 +128,16 @@ Status.propTypes = {
 		STATUS.FAILED,
 		STATUS.CANCELED,
 		STATUS.WARNING,
+		STATUS.SKELETON,
 	]),
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 	icon: PropTypes.string,
 	actions: Actions.propTypes.actions,
-	progress: PropTypes.number,
+	progress: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 Status.defaultProps = {
 	actions: [],
 };
+
+Status.getBsStyleFromStatus = getbsStyleFromStatus;

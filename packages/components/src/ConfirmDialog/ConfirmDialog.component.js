@@ -70,10 +70,11 @@ function ConfirmDialog({
 			progress={progress}
 			closeButton={false}
 			actionbar={{ actions }}
-			children={children}
 			onHide={onHideHandler}
 			{...props}
-		/>
+		>
+			{children}
+		</Dialog>
 	);
 }
 

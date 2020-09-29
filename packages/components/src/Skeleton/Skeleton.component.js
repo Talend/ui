@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Icon from '../Icon';
 import skeletonCssModule from './Skeleton.scss';
 import { getTheme } from '../theme';
@@ -46,7 +46,16 @@ function getTranslatedType(t, type) {
  * @param {number} props.height height to override size's height
  * @param {string} props.className classes to apply on skeleton
  */
-function Skeleton({ heartbeat, type, size, width, height, name, className, t }) {
+function Skeleton({
+	heartbeat = true,
+	type = TYPES.text,
+	size = SIZES.medium,
+	width,
+	height,
+	name,
+	className,
+}) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const classes = theme(
 		'tc-skeleton',
 		`tc-skeleton-${type}`,
@@ -68,24 +77,16 @@ function Skeleton({ heartbeat, type, size, width, height, name, className, t }) 
 
 Skeleton.propTypes = {
 	heartbeat: PropTypes.bool,
-	type: PropTypes.oneOf([TYPES.button, TYPES.circle, TYPES.icon, TYPES.text]).isRequired,
+	type: PropTypes.oneOf([TYPES.button, TYPES.circle, TYPES.icon, TYPES.text]),
 	size: PropTypes.oneOf([SIZES.small, SIZES.medium, SIZES.large, SIZES.xlarge]),
-	width: PropTypes.number,
-	height: PropTypes.number,
+	width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	name: PropTypes.string,
 	className: PropTypes.string,
-	t: PropTypes.func,
-};
-
-Skeleton.defaultProps = {
-	type: TYPES.text,
-	size: SIZES.medium,
-	heartbeat: true,
 };
 
 Skeleton.displayName = 'Skeleton';
-const TranslatedSkeleton = withTranslation(I18N_DOMAIN_COMPONENTS)(Skeleton);
-TranslatedSkeleton.TYPES = TYPES;
-TranslatedSkeleton.SIZES = SIZES;
+Skeleton.TYPES = TYPES;
+Skeleton.SIZES = SIZES;
 
-export default TranslatedSkeleton;
+export default Skeleton;

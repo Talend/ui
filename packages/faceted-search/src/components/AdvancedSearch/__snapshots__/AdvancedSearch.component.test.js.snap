@@ -25,7 +25,7 @@ exports[`AdvancedSearch should render by default 1`] = `
     >
     <div class="adv-search-buttons theme-adv-search-buttons">
       <button aria-label="Cancel"
-              data-feature="faceted-advanced-search.cancel"
+              data-feature="filter.advanced.clear"
               name="action-cancel-title"
               aria-describedby="42"
               type="button"
@@ -41,7 +41,7 @@ exports[`AdvancedSearch should render by default 1`] = `
         </svg>
       </button>
       <button aria-label="Submit"
-              data-feature="faceted-advanced-search.submit"
+              data-feature="filter.advanced.apply"
               name="action-submit-title"
               type="submit"
               aria-describedby="42"
@@ -86,7 +86,7 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
     >
     <div class="adv-search-buttons theme-adv-search-buttons">
       <button aria-label="Cancel"
-              data-feature="faceted-advanced-search.cancel"
+              data-feature="filter.advanced.clear"
               name="action-cancel-title"
               aria-describedby="42"
               type="button"
@@ -102,7 +102,7 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
         </svg>
       </button>
       <button aria-label="Submit"
-              data-feature="faceted-advanced-search.submit"
+              data-feature="filter.advanced.apply"
               name="action-submit-title"
               type="submit"
               aria-describedby="42"

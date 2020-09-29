@@ -2,7 +2,7 @@
 
 
 src/theme/_buttons.scss
-  15:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
 src/theme/_dropdowns.scss
   41:28  warning  Space expected around operator  space-around-operator
@@ -16,13 +16,13 @@ src/theme/_forms.scss
   285:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   298:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   365:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  406:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  405:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_labels.scss
   42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/theme/_navbar.scss
-  18:6  warning  Expected indentation of 4 tabs but found 5  indentation
+  16:6  warning  Expected indentation of 4 tabs but found 5  indentation
 
 src/theme/_navbar.search.scss
   7:11  error  A value of `0` is not allowed. `none` must be used  border-zero

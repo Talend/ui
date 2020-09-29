@@ -54,7 +54,7 @@ class ComponentWithGesture extends React.Component {
 describe('List Gesture HOC', () => {
 	function testFocus({ elementIndex, expectedActiveIndex, keyCode }) {
 		// given
-		const wrapper = mount(<ComponentWithGesture />);
+		const wrapper = mount(<ComponentWithGesture />, { attachTo: document.body });
 		const event = { keyCode };
 		const element = wrapper.find(`#item-${elementIndex}`);
 
@@ -63,6 +63,7 @@ describe('List Gesture HOC', () => {
 
 		// then
 		expect(document.activeElement.getAttribute('id')).toBe(`item-${expectedActiveIndex}`);
+		wrapper.detach();
 	}
 
 	cases('focus', testFocus, [

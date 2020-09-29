@@ -1,7 +1,8 @@
 import Immutable, { fromJS } from 'immutable';
 import omit from 'lodash/omit';
+import cloneDeep from 'lodash/cloneDeep';
 
-import { QUALITY_KEY } from '../../constants/';
+import { QUALITY_KEY } from '../../constants';
 import {
 	convertSample,
 	getCellValue,
@@ -259,6 +260,22 @@ describe('#getRowData', () => {
 		const rowData = getRowData();
 
 		expect(rowData).toEqual([]);
+	});
+
+	it('should return the loaded state', () => {
+		const clonedSample = cloneDeep(sample);
+		clonedSample.data[0].loaded = false;
+		const rowData = getRowData(clonedSample);
+
+		expect(rowData[0].loaded).toBe(false);
+	});
+
+	it('should return the loaded state', () => {
+		const clonedSample = cloneDeep(sample);
+		clonedSample.data[0].loaded = true;
+		const rowData = getRowData(clonedSample);
+
+		expect(rowData[0].loaded).toBe(true);
 	});
 });
 

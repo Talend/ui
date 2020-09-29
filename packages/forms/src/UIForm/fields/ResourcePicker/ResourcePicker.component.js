@@ -85,7 +85,7 @@ class ResourcePicker extends Component {
 		}
 
 		const value = multi ? selected : selected[0];
-		this.setState({ filters: { ...this.state.filters, selected } });
+		this.setState(oldState => ({ filters: { ...oldState.filters, selected } }));
 		this.onChange(event, value);
 		this.onTrigger(event, CHANGE, { value });
 	}
@@ -219,9 +219,18 @@ if (process.env.NODE_ENV !== 'production') {
 				type: PropTypes.string,
 			}),
 			description: PropTypes.string,
+			options: PropTypes.shape({
+				filters: PropTypes.array,
+				sort: PropTypes.array,
+			}),
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			triggers: PropTypes.arrayOf(
+				PropTypes.shape({
+					onEvent: PropTypes.string,
+				}),
+			),
 			multi: PropTypes.bool,
 		}),
 	};

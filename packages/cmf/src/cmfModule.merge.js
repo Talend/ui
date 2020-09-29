@@ -1,3 +1,4 @@
+import React from 'react';
 import { spawn } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
 
@@ -8,22 +9,25 @@ export function mergeObjects(obj1, obj2) {
 	if (!obj1) {
 		return obj2;
 	}
-	return Object.keys(obj2).reduce((acc, key) => {
-		if (obj2[key] === undefined) {
-			throw new TypeError(`${key} value is undefined. You may have a bad import here`);
-		}
-		if (obj1[key] !== undefined && obj1[key] !== obj2[key]) {
-			// eslint-disable-next-line no-console
-			console.warn(`override detected ${key}`);
-		}
-		return {
-			...acc,
-			[key]: obj2[key],
-		};
-	}, Object.assign({}, obj1));
+	return Object.keys(obj2).reduce(
+		(acc, key) => {
+			if (obj2[key] === undefined) {
+				throw new TypeError(`${key} value is undefined. You may have a bad import here`);
+			}
+			if (obj1[key] !== undefined && obj1[key] !== obj2[key]) {
+				// eslint-disable-next-line no-console
+				console.warn(`override detected ${key}`);
+			}
+			return {
+				...acc,
+				[key]: obj2[key],
+			};
+		},
+		{ ...obj1 },
+	);
 }
 
-export function mergeFns(fn1, fn2) {
+function mergeFns(fn1, fn2) {
 	if (!fn2) {
 		return fn1;
 	}
@@ -52,7 +56,7 @@ export function getUnique(obj1, obj2, name) {
 	return obj2;
 }
 
-export function mergeSaga(saga, newSaga) {
+function mergeSaga(saga, newSaga) {
 	assertValueTypeOf(saga, 'function');
 	assertValueTypeOf(newSaga, 'function');
 
@@ -68,7 +72,7 @@ export function mergeSaga(saga, newSaga) {
 	return saga;
 }
 
-export function mergeArrays(preReducer, newPreReducer) {
+function mergeArrays(preReducer, newPreReducer) {
 	if (preReducer && newPreReducer) {
 		return [].concat(preReducer).concat(newPreReducer);
 	}
@@ -78,12 +82,26 @@ export function mergeArrays(preReducer, newPreReducer) {
 	return preReducer;
 }
 
+function composeComponents(RootComponent, NestedRootComponent) {
+	if (!RootComponent) {
+		return NestedRootComponent;
+	}
+	// eslint-disable-next-line react/prop-types
+	return ({ children }) => (
+		<RootComponent>
+			<NestedRootComponent>{children}</NestedRootComponent>
+		</RootComponent>
+	);
+}
+
 const MERGE_FNS = {
 	id: () => undefined,
 	modules: () => undefined,
+	init: () => undefined,
 	onError: getUnique,
+	root: getUnique,
 	appId: getUnique,
-	RootComponent: getUnique,
+	RootComponent: composeComponents,
 	AppLoader: getUnique,
 	saga: mergeSaga,
 	httpMiddleware: getUnique,
@@ -125,3 +143,7 @@ function merge(...configs) {
 }
 
 export default merge;
+
+merge.getReduceConfig = getReduceConfig;
+merge.getUnique = getUnique;
+merge.mergeObjects = mergeObjects;

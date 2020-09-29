@@ -11,13 +11,11 @@ $list-item-reverse-color: $brand-primary !default;
 $toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-minwidth: 200px !default;
-$tc-side-panel-large-minwidth: 250px !default;
-$tc-side-panel-docked-width: 60px !default;
-$tc-side-panel-labels-width: 135px !default;
-$tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: $svg-lg-size;
 $toggle-button-padding: $padding-small;
+
+$docked-width: 6rem;
+$large-docked-width: 7rem;
 
 .tc-side-panel {
 	display: flex;
@@ -26,10 +24,8 @@ $toggle-button-padding: $padding-small;
 	background: $list-item-reverse-color;
 	overflow: hidden;
 
-	&,
-	> ul {
-		min-width: $tc-side-panel-minwidth;
-		transition: 0.2s min-width ease-out;
+	&.animate {
+		transition: 0.2s width ease-out;
 	}
 
 	.action-list-container {
@@ -38,6 +34,7 @@ $toggle-button-padding: $padding-small;
 
 		:global .tc-action-list-item {
 			.btn.btn-link {
+				font-size: 1.6rem;
 				height: $list-item-height;
 				padding-left: $padding-large;
 				> span {
@@ -99,17 +96,17 @@ $toggle-button-padding: $padding-small;
 	}
 
 	&.docked {
-		&,
-		> ul {
-			min-width: $tc-side-panel-docked-width;
-			width: $tc-side-panel-docked-width;
-		}
+		:global {
+			.btn.btn-link {
+				padding: $padding-normal;
 
-		:global(.btn.btn-link) {
-			padding: $padding-normal;
-
-			> span {
-				opacity: 0;
+				> span {
+					opacity: 0;
+				}
+			}
+			.tc-action-list {
+				width: $docked-width;
+				min-width: auto;
 			}
 		}
 
@@ -127,11 +124,6 @@ $toggle-button-padding: $padding-small;
 	}
 
 	&.large {
-		&,
-		> ul {
-			min-width: $tc-side-panel-large-minwidth;
-		}
-
 		.toggle-btn {
 			padding-left: 0;
 
@@ -153,6 +145,12 @@ $toggle-button-padding: $padding-small;
 		}
 
 		&.docked {
+			:global {
+				.tc-action-list {
+					width: $large-docked-width;
+					min-width: auto;
+				}
+			}
 			.toggle-btn {
 				height: $toggle-height;
 				vertical-align: center;
@@ -161,12 +159,6 @@ $toggle-button-padding: $padding-small;
 					height: $toggle-height;
 					padding: 0;
 				}
-			}
-			&,
-			> ul,
-			:global(.tc-action-list-item) {
-				min-width: $tc-side-panel-large-docked-width;
-				width: $tc-side-panel-large-docked-width;
 			}
 		}
 	}

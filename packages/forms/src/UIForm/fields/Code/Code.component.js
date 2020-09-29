@@ -167,6 +167,7 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			options: PropTypes.object,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 			type: PropTypes.string,
 		}),

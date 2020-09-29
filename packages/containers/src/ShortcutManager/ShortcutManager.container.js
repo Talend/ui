@@ -12,6 +12,7 @@ import { cmfConnect } from '@talend/react-cmf';
  */
 class ShortcutManager extends React.Component {
 	static displayName = 'Container(ShortcutManager)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
 	};

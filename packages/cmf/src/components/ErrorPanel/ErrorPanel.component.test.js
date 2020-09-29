@@ -8,10 +8,6 @@ import Component from './ErrorPanel.component';
 global.window.URL.createObjectURL = jest.fn();
 
 describe('Component ErrorPanel', () => {
-	it('should render a div', () => {
-		const wrapper = shallow(<Component />);
-		expect(wrapper.type()).toBe('div');
-	});
 	it('should render the error', () => {
 		const error = {
 			name: 'Error',

@@ -8,9 +8,9 @@ mkdir .static
 mkdir .static/cmf
 mkdir .static/components
 mkdir .static/containers
+mkdir .static/faceted-search
 mkdir .static/forms
 mkdir .static/icons
-mkdir .static/logging
 mkdir .static/theme
 mkdir .static/datagrid
 mkdir .static/stepper

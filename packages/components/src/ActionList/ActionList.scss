@@ -3,11 +3,14 @@
 /// @group Custom widgets
 ////
 
-$tc-action-list-item-width: 200px !default;
-$tc-action-list-item-icons-size: 20px !default;
-$tc-action-list-item-border-size: 2px !default;
+$tc-action-list-item-width: 20rem !default;
+$tc-action-list-item-icons-size: 2rem !default;
+$tc-action-list-item-border-size: 0.2rem !default;
 
 .tc-action-list {
+	display: inline-block;
+	min-width: $tc-action-list-item-width;
+
 	.tc-action-list-item {
 		:global {
 			.tc-svg-icon {
@@ -19,13 +22,11 @@ $tc-action-list-item-border-size: 2px !default;
 			.btn.btn-link {
 				padding: $padding-normal;
 				text-overflow: inherit;
-				text-transform: uppercase;
+				text-transform: none;
 
 				> span {
 					margin-left: $padding-normal;
 					vertical-align: middle;
-					text-overflow: ellipsis;
-					overflow: hidden;
 					transition: 0.1s opacity ease-out;
 				}
 			}

@@ -91,7 +91,8 @@ const schema = {
 	uiSchema: [
 		{
 			key: 'arrayOfObjects',
-			itemTitle: 'arrayOfObjects',
+			title: 'Array of objects',
+			itemTitle: 'Array element',
 			items: [
 				{
 					key: 'arrayOfObjects[].string',
@@ -189,10 +190,13 @@ const schema = {
 	},
 };
 
-const errors = schema.uiSchema.reduce((acc, current) => ({
-	...acc,
-	[current.key.split('.').join(',')]: 'There is an error',
-}), {});
+const errors = schema.uiSchema.reduce(
+	(acc, current) => ({
+		...acc,
+		[current.key.split('.').join(',')]: 'There is an error',
+	}),
+	{},
+);
 
 function story() {
 	return (

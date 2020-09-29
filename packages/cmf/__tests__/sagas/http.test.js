@@ -173,6 +173,18 @@ describe('handleBody', () => {
 		});
 	});
 
+	it('should manage the body of the response like a blob', done => {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/zip');
+
+		const blob = jest.fn(() => Promise.resolve());
+
+		handleBody({ blob, headers }).then(() => {
+			expect(blob).toHaveBeenCalled();
+			done();
+		});
+	});
+
 	it('should manage the body of the response like a text', done => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'text/plain');

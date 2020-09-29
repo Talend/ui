@@ -37,10 +37,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 
@@ -57,10 +57,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...multiSectionProps}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -90,14 +90,14 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
 				titleMap={[
 					{ name: 'A', value: 'a' },
 					{ name: 'B', value: 'b' },
 				]}
-				value={'a'}
+				value="a"
 			/>,
 		);
 
@@ -123,10 +123,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -150,10 +150,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -176,10 +176,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -202,10 +202,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'fooo'}
+				value="fooo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -224,10 +224,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -251,10 +251,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 				restricted
 			/>,
 		);
@@ -278,10 +278,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 				restricted
 			/>,
 		);
@@ -304,19 +304,16 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		expect(wrapper.find(Typeahead).props().items).toEqual(null);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('input').at(0).simulate('focus');
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual([
@@ -335,10 +332,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
@@ -349,10 +346,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().value).toBe('newValue');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('keydown', { which: keycode.codes.esc });
+		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.esc });
 
 		// then
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
@@ -365,19 +359,16 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('keydown', { which: keycode.codes.down });
+		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.down });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items.length).toBe(4);
@@ -391,10 +382,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -417,10 +408,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -443,11 +434,11 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				restricted
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -468,10 +459,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -492,10 +483,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
@@ -504,12 +495,7 @@ describe('Datalist component', () => {
 		wrapper.setProps({ value: 'bar' });
 
 		// then
-		expect(
-			wrapper
-				.update()
-				.find(Typeahead)
-				.props().value,
-		).toBe('bar');
+		expect(wrapper.update().find(Typeahead).props().value).toBe('bar');
 	});
 
 	it('should set new mapping and suggestions on titleMap props change', () => {
@@ -519,10 +505,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const instance = wrapper.instance();
@@ -559,10 +545,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foobar'}
+				value="foobar"
 			/>,
 		);
 
@@ -583,10 +569,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...sectionProps}
-				value={'foobar'}
+				value="foobar"
 			/>,
 		);
 
@@ -612,6 +598,30 @@ describe('Datalist component', () => {
 		instance.onFocus(event);
 		expect(onFocus).toHaveBeenCalledWith(event);
 		expect(event.target.select).toHaveBeenCalled();
+		expect(instance.updateSuggestions).toHaveBeenCalled();
+		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
+	});
+
+	it('should update suggestions when clicking on the datalist', () => {
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				errorMessage="This should be correct"
+				onChange={jest.fn()}
+				{...props}
+				value="foobar"
+			/>,
+		);
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.updateSelectedIndexes = jest.fn();
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('click');
+
+		// then
 		expect(instance.updateSuggestions).toHaveBeenCalled();
 		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
 	});

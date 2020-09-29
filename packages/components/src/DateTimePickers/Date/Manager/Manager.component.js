@@ -89,9 +89,10 @@ ContextualManager.propTypes = {
 	children: PropTypes.node,
 	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
-	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
-	useUTC: PropTypes.bool,
+	required: PropTypes.bool,
 	timezone: PropTypes.string,
+	useUTC: PropTypes.bool,
+	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 };
 
 ContextualManager.defaultProps = {

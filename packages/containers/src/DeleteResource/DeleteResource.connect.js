@@ -10,12 +10,18 @@ export function mapStateToProps(state, ownProps) {
 		resourceId = get(ownProps, `params.${ownProps.routerParamAttribute || 'id'}`);
 		props.resourceId = resourceId;
 	}
-	const collectionId = ownProps.collectionId || ownProps.resourceType;
-	if (collectionId) {
-		props.resource = state.cmf.collections
-			.get(collectionId, new Immutable.Map())
-			.find(currentResource => currentResource.get('id') === resourceId);
+
+	if (ownProps.resource) {
+		props.resource = ownProps.resource;
+	} else {
+		const collectionId = ownProps.collectionId || ownProps.resourceType;
+		if (collectionId) {
+			props.resource = state.cmf.collections
+				.get(collectionId, new Immutable.Map())
+				.find(currentResource => currentResource.get('id') === resourceId);
+		}
 	}
+
 	return props;
 }
 

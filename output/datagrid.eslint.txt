@@ -1,10 +1,5 @@
-> eslint --config ../../.eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+/home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultValueRenderer.component.js
+  66:4  error  onMouseOver must be accompanied by onFocus for accessibility  jsx-a11y/mouse-events-have-key-events
 
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
-  107:4  warning  Unexpected console statement  no-console
-  180:4  warning  Unexpected console statement  no-console
-
-✖ 2 problems (0 errors, 2 warnings)
-
+✖ 1 problem (1 error, 0 warnings)

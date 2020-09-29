@@ -15,6 +15,7 @@ export const DEFAULT_STATE = new Map({
  */
 class SidePanel extends React.Component {
 	static displayName = 'Container(SidePanel)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
 	};
@@ -31,14 +32,11 @@ class SidePanel extends React.Component {
 
 	render() {
 		const { state = DEFAULT_STATE } = this.props;
-		const props = Object.assign(
-			{},
-			{
-				docked: state.get('docked'),
-				onToggleDock: this.onToggleDock,
-			},
-			omit(this.props, cmfConnect.INJECTED_PROPS),
-		);
+		const props = {
+			docked: state.get('docked'),
+			onToggleDock: this.onToggleDock,
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
+		};
 		return <Component {...props} />;
 	}
 }

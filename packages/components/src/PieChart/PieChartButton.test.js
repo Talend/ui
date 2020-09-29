@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { PIECHART_SIZES } from './PieChartIcon.component';
 import PieChartButton, { decorateWithOverlay, wrapMouseEvent } from './PieChartButton.component';
 
 describe('PieChartButton', () => {
@@ -27,12 +28,19 @@ describe('PieChartButton', () => {
 			},
 		];
 		it('should render a PieChartButton', () => {
-			const wrapper = shallow(<PieChartButton display="small" model={pieChartData} />);
+			const wrapper = shallow(
+				<PieChartButton display={PIECHART_SIZES.SMALL} model={pieChartData} />,
+			);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 		it('should render nothing', () => {
 			const wrapper = shallow(
-				<PieChartButton available={false} display="medium" labelIndex={2} model={pieChartData} />,
+				<PieChartButton
+					available={false}
+					display={PIECHART_SIZES.MEDIUM}
+					labelIndex={2}
+					model={pieChartData}
+				/>,
 			);
 
 			expect(wrapper.getElement()).toBeNull();
@@ -41,7 +49,12 @@ describe('PieChartButton', () => {
 			const onClick = jest.fn();
 			const event = {};
 			const wrapper = shallow(
-				<PieChartButton label="my label" display="small" model={pieChartData} onClick={onClick} />,
+				<PieChartButton
+					label="my label"
+					display={PIECHART_SIZES.SMALL}
+					model={pieChartData}
+					onClick={onClick}
+				/>,
 			);
 
 			wrapper
@@ -61,7 +74,7 @@ describe('PieChartButton', () => {
 			const overlayComponent = <div>I am an overlay</div>;
 			const wrapper = shallow(
 				<PieChartButton
-					display="medium"
+					display={PIECHART_SIZES.MEDIUM}
 					labelIndex={2}
 					model={pieChartData}
 					overlayComponent={overlayComponent}
@@ -79,7 +92,7 @@ describe('PieChartButton', () => {
 			const myOverlayRef = jest.fn();
 			mount(
 				<PieChartButton
-					display="medium"
+					display={PIECHART_SIZES.MEDIUM}
 					labelIndex={2}
 					model={pieChartData}
 					overlayComponent={overlayComponent}

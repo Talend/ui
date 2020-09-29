@@ -2,11 +2,10 @@ import React from 'react';
 import Tour from 'reactour';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import getDefaultT from '../translate';
 
 import theme from './GuidedTour.scss';
 
@@ -30,8 +29,9 @@ function formatSteps(steps) {
 	});
 }
 
-function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...rest }) {
-	if (!tReady || !steps.length) {
+function GuidedTour({ className, disableAllInteractions, steps, ...rest }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	if (!steps.length) {
 		return null;
 	}
 
@@ -49,12 +49,8 @@ function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...re
 			disableInteraction
 			highlightedMaskClassName="tc-guided-tour__highlighted-mask"
 			lastStepNextButton={
-				<Action
-					bsStyle={'info'}
-					label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })}
-				/>
+				<Action bsStyle="info" label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />
 			}
-			maskClassName="tc-guided-tour__mask"
 			maskSpace={10}
 			rounded={4}
 			showNavigationNumber={false}
@@ -70,31 +66,26 @@ GuidedTour.displayName = 'GuidedTour';
 
 GuidedTour.defaultProps = {
 	steps: [],
-	t: getDefaultT(),
 };
 
-if (process.env.NODE_ENV !== 'production') {
-	GuidedTour.propTypes = {
-		className: PropTypes.string,
-		steps: PropTypes.arrayOf(
-			PropTypes.shape({
-				selector: PropTypes.string,
-				content: PropTypes.shape({
-					header: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
-					body: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func]).isRequired,
-				}).isRequired,
-				position: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center']),
-				action: PropTypes.func,
-				style: PropTypes.object,
-				stepInteraction: PropTypes.bool,
-			}),
-		).isRequired,
-		isOpen: PropTypes.bool,
-		onRequestClose: PropTypes.func,
-		disableAllInteractions: PropTypes.bool,
-		t: PropTypes.func,
-		tReady: PropTypes.bool,
-	};
-}
+GuidedTour.propTypes = {
+	className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+	steps: PropTypes.arrayOf(
+		PropTypes.shape({
+			selector: PropTypes.string,
+			content: PropTypes.shape({
+				header: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
+				body: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func]).isRequired,
+			}).isRequired,
+			position: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center']),
+			action: PropTypes.func,
+			style: PropTypes.object,
+			stepInteraction: PropTypes.bool,
+		}),
+	).isRequired,
+	isOpen: PropTypes.bool,
+	onRequestClose: PropTypes.func,
+	disableAllInteractions: PropTypes.bool,
+};
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(GuidedTour);
+export default GuidedTour;

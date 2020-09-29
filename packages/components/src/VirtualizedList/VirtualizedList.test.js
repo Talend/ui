@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import VirtualizedList from './VirtualizedList.component';
-import { listTypes } from './utils/constants';
+import VirtualizedList from '.';
 import collection from './collection';
 
-const { TABLE } = listTypes;
+const { TABLE } = VirtualizedList.LIST_TYPES;
 
 const contentFields = [
 	<VirtualizedList.Content
@@ -41,13 +40,13 @@ describe('VirtualizedList', () => {
 			<VirtualizedList
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isSelected={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={TABLE}
 			>
 				{contentFields}
@@ -64,13 +63,13 @@ describe('VirtualizedList', () => {
 			<span>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list-id'}
+					id="my-list-id"
 					isSelected={jest.fn()}
 					rowHeight={50}
 					selectionToggle={jest.fn()}
 					sort={jest.fn()}
-					sortBy={'name'}
-					sortDirection={'DESC'}
+					sortBy="name"
+					sortDirection="DESC"
 					type={TABLE}
 				>
 					{contentFields}
@@ -88,7 +87,7 @@ describe('VirtualizedList', () => {
 			<VirtualizedList
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
@@ -97,8 +96,8 @@ describe('VirtualizedList', () => {
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={TABLE}
 			>
 				{contentFields}
@@ -113,7 +112,7 @@ describe('VirtualizedList', () => {
 			<VirtualizedList
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				inProgress
@@ -122,8 +121,8 @@ describe('VirtualizedList', () => {
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={TABLE}
 			>
 				{contentFields}

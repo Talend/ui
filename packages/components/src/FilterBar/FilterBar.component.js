@@ -44,9 +44,12 @@ function FilterInput(props) {
 		autoFocus,
 		placeholder,
 		value,
+		disabled,
 		t,
 		...rest
 	} = props;
+
+	const placeholderLabel = placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' });
 
 	const inputProps = {
 		'data-test': rest['data-test'],
@@ -54,10 +57,11 @@ function FilterInput(props) {
 		name: 'search',
 		type: 'search',
 		value,
-		placeholder,
+		placeholder: placeholderLabel,
 		autoComplete: 'off',
+		disabled,
 		className: classNames(theme.search),
-		'aria-label': placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' }),
+		'aria-label': placeholderLabel,
 		onBlur:
 			onBlur &&
 			(event => {
@@ -95,6 +99,7 @@ FilterInput.propTypes = {
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	'data-test': PropTypes.string,
+	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 
@@ -132,7 +137,7 @@ export class FilterBarComponent extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
-		if (!this.state.value) {
+		if (!this.state.value && this.props.onToggle) {
 			this.props.onToggle(event);
 		}
 	}
@@ -193,6 +198,7 @@ export class FilterBarComponent extends React.Component {
 						})}
 					/>
 					<FilterInput
+						disabled={this.props.disabled}
 						data-test={this.props['data-test']}
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
@@ -247,7 +253,8 @@ FilterBarComponent.propTypes = {
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	tooltipPlacement: PropTypes.string,
-	t: PropTypes.func.isRequired,
+	disabled: PropTypes.bool,
+	t: PropTypes.func,
 };
 
 FilterBarComponent.defaultProps = {
@@ -256,7 +263,7 @@ FilterBarComponent.defaultProps = {
 	docked: true,
 	navbar: true,
 	focus: false,
-	placeholder: 'Filter',
+	disabled: false,
 	t: getDefaultT(),
 	className: '',
 };

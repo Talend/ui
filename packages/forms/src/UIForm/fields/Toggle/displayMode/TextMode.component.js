@@ -28,8 +28,8 @@ TextModeToggle.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	TextModeToggle.propTypes = {
 		className: PropTypes.string,
-		value: PropTypes.bool.required,
-		id: PropTypes.string.required,
+		value: PropTypes.bool,
+		id: PropTypes.string.isRequired,
 		schema: PropTypes.shape({
 			required: PropTypes.bool,
 			description: PropTypes.string,

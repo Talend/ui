@@ -24,7 +24,7 @@ describe('CellTitle', () => {
 		// when
 		const wrapper = shallow(
 			<CellTitle
-				cellData={'my awesome title'}
+				cellData="my awesome title"
 				columnData={columnData}
 				getComponent={jest.fn()}
 				rowData={rowData}
@@ -53,7 +53,7 @@ describe('CellTitle', () => {
 		// when
 		const wrapper = mount(
 			<CellTitle
-				cellData={'my awesome title'}
+				cellData="my awesome title"
 				columnData={columnData}
 				getComponent={jest.fn()}
 				rowData={rowData}
@@ -62,12 +62,7 @@ describe('CellTitle', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('button')
-				.at(0)
-				.prop('data-feature'),
-		).toBe('list.click.1');
+		expect(wrapper.find('button').at(0).prop('data-feature')).toBe('list.click.1');
 	});
 
 	it('should render without active class if no onClick on the title', () => {
@@ -89,7 +84,7 @@ describe('CellTitle', () => {
 		// when
 		const wrapper = shallow(
 			<CellTitle
-				cellData={'my awesome title'}
+				cellData="my awesome title"
 				columnData={columnData}
 				getComponent={jest.fn()}
 				rowData={rowData}
@@ -118,7 +113,7 @@ describe('CellTitle', () => {
 			// when
 			const wrapper = shallow(
 				<CellTitle
-					cellData={'my awesome title'}
+					cellData="my awesome title"
 					columnData={columnData}
 					getComponent={jest.fn()}
 					rowData={rowData}
@@ -144,7 +139,7 @@ describe('CellTitle', () => {
 			// when
 			const wrapper = shallow(
 				<CellTitle
-					cellData={'my awesome title'}
+					cellData="my awesome title"
 					columnData={columnData}
 					getComponent={jest.fn()}
 					rowData={noIconRowData}
@@ -168,7 +163,7 @@ describe('CellTitle', () => {
 			};
 			const wrapper = shallow(
 				<CellTitle
-					cellData={'my awesome title'}
+					cellData="my awesome title"
 					columnData={columnData}
 					getComponent={jest.fn()}
 					rowData={withTooltipLableRowData}
@@ -207,7 +202,7 @@ describe('CellTitle', () => {
 			// when
 			const wrapper = shallow(
 				<CellTitle
-					cellData={'my awesome title'}
+					cellData="my awesome title"
 					columnData={columnData}
 					getComponent={jest.fn()}
 					rowData={rowData}
@@ -229,7 +224,7 @@ describe('CellTitle', () => {
 			// when
 			const wrapper = shallow(
 				<CellTitle
-					cellData={'my awesome title'}
+					cellData="my awesome title"
 					columnData={columnData}
 					getComponent={jest.fn()}
 					rowData={rowData}
@@ -253,7 +248,7 @@ describe('CellTitle', () => {
 			// when
 			const wrapper = shallow(
 				<CellTitle
-					cellData={'my awesome title'}
+					cellData="my awesome title"
 					columnData={columnData}
 					getComponent={jest.fn()}
 					rowData={rowData}
@@ -279,7 +274,7 @@ describe('CellTitle', () => {
 			// when
 			const wrapper = shallow(
 				<CellTitle
-					cellData={'my awesome title'}
+					cellData="my awesome title"
 					columnData={columnData}
 					getComponent={jest.fn()}
 					rowData={noActionsRowData}

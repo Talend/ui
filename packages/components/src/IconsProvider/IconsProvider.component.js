@@ -13,6 +13,7 @@ const context = {
 	get: () => { },
 };
 
+// TODO 6.0: do not export this
 export function getIconHREF(name) {
 	if (context.ids.indexOf(name) !== -1) {
 		return `#${name}`;
@@ -101,4 +102,5 @@ IconsProvider.propTypes = {
 	bundles: PropTypes.arrayOf(PropTypes.string),
 };
 
+IconsProvider.getIconHREF = getIconHREF;
 export default IconsProvider;

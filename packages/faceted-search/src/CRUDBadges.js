@@ -21,11 +21,13 @@ const setBadgeValue = ({ properties, metadata }) => badge => ({
 
 const setBadge = (newProperties, newMetadata) => getIndexFn => badges => {
 	const index = getIndexFn(badges);
-	const newBadge = setBadgeValue({ properties: newProperties, metadata: newMetadata })(
-		getBadge(index)(badges),
-	);
-	// eslint-disable-next-line no-param-reassign
-	badges[index] = newBadge;
+	if (index >= 0) {
+		const newBadge = setBadgeValue({ properties: newProperties, metadata: newMetadata })(
+			getBadge(index)(badges),
+		);
+		// eslint-disable-next-line no-param-reassign
+		badges[index] = newBadge;
+	}
 	return badges;
 };
 const spliceBadge = getIndexFn => badges => {

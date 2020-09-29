@@ -166,7 +166,7 @@ function List({
 			{injected('after-toolbar')}
 			{selectAllCheckbox && <SelectAll {...selectAllCheckbox} />}
 			{injected('before-list-wrapper')}
-			<div className={'tc-list-display-virtualized'}>
+			<div className="tc-list-display-virtualized">
 				{injected('before-list')}
 				<ListToVirtualizedList
 					id={id}

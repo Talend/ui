@@ -67,16 +67,21 @@ function HomeSplash(props) {
 	const langPart = `${language ? `${language}/` : ''}`;
 	const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
-
 	return (
 		<SplashContainer>
 			<Logo img_src={`${baseUrl}img/react.png`} />
 			<div className="inner">
 				<ProjectTitle siteConfig={siteConfig} />
 				<PromoSection>
-					<Button siteConfig={siteConfig} href="#try">Try It Out</Button>
-					<Button siteConfig={siteConfig} href={docUrl('getting-started')}>Getting started</Button>
-					<Button siteConfig={siteConfig} href={docUrl('examples')}>Examples</Button>
+					<Button siteConfig={siteConfig} href="#try">
+						Try It Out
+					</Button>
+					<Button siteConfig={siteConfig} href={docUrl('getting-started')}>
+						Getting started
+					</Button>
+					<Button siteConfig={siteConfig} href={docUrl('examples')}>
+						Examples
+					</Button>
 				</PromoSection>
 			</div>
 		</SplashContainer>
@@ -98,14 +103,13 @@ function FeatureCallout() {
 	return (
 		<div className="productShowcaseSection paddingBottom" style={{ textAlign: 'center' }}>
 			<h2>Feature Callout</h2>
-			<MarkdownBlock>{
-`**React**: for rendering
+			<MarkdownBlock>
+				{`**React**: for rendering
 
 **Redux** to centralize state
 
 **Saga** to manage effects
-`
-			}
+`}
 			</MarkdownBlock>
 		</div>
 	);
@@ -160,14 +164,14 @@ yo talend:react-cmf
 					content: 'Control all your components without code.',
 					image: `${baseUrl}img/settings.svg`,
 					imageAlign: 'top',
-					imageLink: '/docs/core-settings',
+					imageLink: '/cmf/docs/core-settings',
 				},
 				{
 					title: 'Registry for DI',
 					content: 'You can use dependency injection every where',
 					image: `${baseUrl}img/di.svg`,
 					imageAlign: 'top',
-					imageLink: '/docs/core-registry',
+					imageLink: '/cmf/docs/core-registry',
 				},
 			]}
 		</Block>

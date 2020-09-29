@@ -1,8 +1,0 @@
-{
-  "components/iframe.html?selectedKind=ConfirmDialog&selectedStory=default": [
-    {
-      "name": "ConfirmDialog-default",
-      "selector": ".modal-content"
-    }
-  ]
-}

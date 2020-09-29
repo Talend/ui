@@ -81,7 +81,7 @@ function call(expression, context, payload) {
  * @deprecated the context will be replaced by the payload
  */
 function getProps(props, attrs, context, payload = {}) {
-	const newProps = Object.assign({}, props, payload);
+	const newProps = { ...props, ...payload };
 	attrs.forEach(attr => {
 		const value = props[attr];
 		if (typeof value === 'string' || typeof value === 'object') {
@@ -137,7 +137,7 @@ function mapStateToProps(state, ownProps, ctx = {}) {
  * @param {object} props any props object
  */
 function mergeProps(props) {
-	const newProps = Object.assign({}, props);
+	const newProps = { ...props };
 	forIn(newProps, (value, key) => {
 		const match = regexExpression.exec(key);
 		if (match) {

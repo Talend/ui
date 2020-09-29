@@ -6,12 +6,14 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
   descriptionId="myForm-description"
   errorId="myForm-error"
   errorMessage="My error message"
+  id="myForm"
   isValid={true}
   label="My checkboxes title"
 >
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
     id="myForm"
+    index={0}
     isValid={true}
     label="My foo title"
     onChange={[Function]}
@@ -42,6 +44,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
     id="myForm"
+    index={1}
     isValid={true}
     label="My bar title"
     onChange={[Function]}
@@ -72,6 +75,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
     id="myForm"
+    index={2}
     isValid={true}
     label="My lol title"
     onChange={[Function]}
@@ -108,12 +112,14 @@ exports[`CheckBoxes field should render checkboxes with no values 1`] = `
   descriptionId="myForm-description"
   errorId="myForm-error"
   errorMessage="My error message"
+  id="myForm"
   isValid={true}
   label="My checkboxes title"
 >
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
     id="myForm"
+    index={0}
     isValid={true}
     label="My foo title"
     onChange={[Function]}
@@ -144,6 +150,7 @@ exports[`CheckBoxes field should render checkboxes with no values 1`] = `
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
     id="myForm"
+    index={1}
     isValid={true}
     label="My bar title"
     onChange={[Function]}
@@ -174,6 +181,7 @@ exports[`CheckBoxes field should render checkboxes with no values 1`] = `
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
     id="myForm"
+    index={2}
     isValid={true}
     label="My lol title"
     onChange={[Function]}
@@ -210,6 +218,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
   descriptionId="myForm-description"
   errorId="myForm-error"
   errorMessage="My error message"
+  id="myForm"
   isValid={true}
   label="My checkboxes title"
 >
@@ -217,6 +226,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
     describedby="myForm-description myForm-error"
     disabled={true}
     id="myForm"
+    index={0}
     isValid={true}
     label="My foo title"
     onChange={[Function]}
@@ -249,6 +259,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
     describedby="myForm-description myForm-error"
     disabled={true}
     id="myForm"
+    index={1}
     isValid={true}
     label="My bar title"
     onChange={[Function]}
@@ -281,6 +292,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
     describedby="myForm-description myForm-error"
     disabled={true}
     id="myForm"
+    index={2}
     isValid={true}
     label="My lol title"
     onChange={[Function]}

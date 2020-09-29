@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import VirtualizedList, { SORT_BY, cellDictionary, headerDictionary } from '../../VirtualizedList';
-import { cellType as titleCellType } from '../../VirtualizedList/CellTitle';
-import CellActions from '../../VirtualizedList/CellActions';
+import VirtualizedList from '../../VirtualizedList';
 
 function adaptOnSort(onChange) {
 	if (!onChange) {
 		return null;
 	}
 	return function onSortChange({ sortBy, sortDirection }) {
-		return onChange(null, { field: sortBy, isDescending: sortDirection === SORT_BY.DESC });
+		return onChange(null, {
+			field: sortBy,
+			isDescending: sortDirection === VirtualizedList.SORT_BY.DESC,
+		});
 	};
 }
 
@@ -53,8 +54,8 @@ export function ListToVirtualizedList(props) {
 	}
 
 	// Allow to override or add new cell renderer from outside
-	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
-	const listHeaderDictionary = { ...headerDictionary, ...props.headerDictionary };
+	const listCellDictionary = { ...VirtualizedList.cellDictionary, ...props.cellDictionary };
+	const listHeaderDictionary = { ...VirtualizedList.headerDictionary, ...props.headerDictionary };
 	return (
 		<VirtualizedList
 			collection={props.items}
@@ -72,7 +73,9 @@ export function ListToVirtualizedList(props) {
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
-			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
+			sortDirection={
+				sort && sort.isDescending ? VirtualizedList.SORT_BY.DESC : VirtualizedList.SORT_BY.ASC
+			}
 			type={props.displayMode.toUpperCase()}
 		>
 			{props.columns
@@ -87,11 +90,11 @@ export function ListToVirtualizedList(props) {
 						...column,
 					};
 					if (titleProps && column.key === titleProps.key) {
-						Object.assign(cProps, listCellDictionary[titleCellType], {
+						Object.assign(cProps, listCellDictionary.title, {
 							columnData: { ...titleProps, 'data-feature': column['data-feature'] },
 						});
 					} else if (supposedActions[column.key]) {
-						Object.assign(cProps, CellActions);
+						Object.assign(cProps, VirtualizedList.cellDictionary.actions);
 					} else if (column.type && listCellDictionary[column.type]) {
 						Object.assign(cProps, listCellDictionary[column.type], {
 							columnData: column.data,
@@ -127,6 +130,7 @@ ListToVirtualizedList.propTypes = {
 		isSelected: PropTypes.func,
 		onRowClick: PropTypes.func,
 		onToggle: PropTypes.func,
+		onToggleAll: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
@@ -139,8 +143,9 @@ ListToVirtualizedList.propTypes = {
 	}),
 	titleProps: PropTypes.shape({
 		actionsKey: PropTypes.string,
-		presistentActionsKey: PropTypes.string,
 		key: PropTypes.string,
+		onClick: PropTypes.func,
+		persistentActionsKey: PropTypes.string,
 	}),
 	rowRenderers: PropTypes.object,
 };

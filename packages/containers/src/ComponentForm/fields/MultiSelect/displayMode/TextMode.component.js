@@ -3,10 +3,9 @@ import React from 'react';
 import Badge from '@talend/react-components/lib/Badge';
 import { TextMode as FieldTemplate } from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
 import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
-import { getRowData } from '@talend/react-components/lib/VirtualizedList/utils/gridrow';
 
 function renderItem(props) {
-	const item = getRowData(props.parent, props.index);
+	const item = VirtualizedList.rowUtils.getRowData(props.parent, props.index);
 	return <Badge style={props.style} key={props.index} label={item.name} selected />;
 }
 renderItem.height = 35;

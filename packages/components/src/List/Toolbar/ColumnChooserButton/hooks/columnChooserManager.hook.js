@@ -33,6 +33,7 @@ const extractColumnValues = column => ({
 	visible: !column.hidden,
 	label: column.label,
 	order: column.order,
+	key: column.key,
 });
 
 /**
@@ -81,7 +82,7 @@ const updateVisibilityAttr = changeColumnChooserAttribute('visible');
 
 /** *******************************************************************************
  * HOOK ENTRY POINT
- *********************************************************************************/
+ ******************************************************************************** */
 
 /**
  * Manage the state of each row representing a column for the ColumnChooser overlay.

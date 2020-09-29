@@ -74,7 +74,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, .
 				key={FIRST}
 				eventKey={FIRST}
 				id={id && `${id}-nav-to-first`}
-				className={'btn-link'}
+				className="btn-link"
 				disabled={startIndex <= 1}
 				aria-label={t('LIST_PAGINATION_GOTO_FIRST_PAGE', {
 					defaultValue: 'Go to first page.',
@@ -86,7 +86,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, .
 				key={PREV}
 				eventKey={PREV}
 				id={id && `${id}-nav-to-prev`}
-				className={'btn-link'}
+				className="btn-link"
 				disabled={startIndex <= 1}
 				aria-label={t('LIST_PAGINATION_GOTO_PREVIOUS_PAGE', {
 					defaultValue: 'Go to previous page. Current page: {{currentPage}}.',
@@ -102,7 +102,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, .
 				key={NEXT}
 				eventKey={NEXT}
 				id={id && `${id}-nav-to-next`}
-				className={'btn-link'}
+				className="btn-link"
 				disabled={startIndex + itemsPerPage > totalResults}
 				aria-label={t('LIST_PAGINATION_GOTO_NEXT_PAGE', {
 					defaultValue: 'Go to next page. Current page: {{currentPage}}.',
@@ -115,7 +115,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, .
 				key={LAST}
 				eventKey={LAST}
 				id={id && `${id}-nav-to-last`}
-				className={'btn-link'}
+				className="btn-link"
 				disabled={startIndex + itemsPerPage > totalResults}
 				aria-label={t('LIST_PAGINATION_GOTO_LAST_PAGE', {
 					defaultValue: 'Go to last page.',
@@ -146,7 +146,7 @@ Pagination.propTypes = {
 	totalResults: PropTypes.number.isRequired,
 	itemsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
 	onChange: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 Pagination.defaultProps = {

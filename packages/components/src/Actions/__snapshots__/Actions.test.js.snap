@@ -10,29 +10,22 @@ exports[`Actions should render actions 1`] = `
 >
   <Action
     bsStyle="primary"
-    hideLabel={false}
     icon="fa fa-asterisk"
     label="Preparations"
-    link={false}
     onClick={[MockFunction]}
   />
   <Action
-    hideLabel={false}
     icon="fa fa-file-excel-o"
     label="Datasets"
-    link={false}
     onClick={[MockFunction]}
   />
   <Action
-    hideLabel={false}
     icon="fa fa-star"
     label="Favorites"
-    link={false}
     onClick={[MockFunction]}
   />
   <Action
     displayMode="dropdown"
-    hideLabel={false}
     icon="fa fa-file-excel-o"
     id="dropdown-id"
     items={
@@ -48,11 +41,9 @@ exports[`Actions should render actions 1`] = `
       ]
     }
     label="related items"
-    link={false}
   />
   <Action
     displayMode="splitDropdown"
-    hideLabel={false}
     id="split-dropdown-id"
     items={
       Array [
@@ -67,7 +58,6 @@ exports[`Actions should render actions 1`] = `
       ]
     }
     label="add file"
-    link={false}
     onClick={[MockFunction]}
   />
 </ButtonGroup>
@@ -83,21 +73,18 @@ exports[`Actions should render actions with "link" theme 1`] = `
 >
   <Action
     bsStyle="primary"
-    hideLabel={false}
     icon="fa fa-asterisk"
     label="Preparations"
     link={true}
     onClick={[MockFunction]}
   />
   <Action
-    hideLabel={false}
     icon="fa fa-file-excel-o"
     label="Datasets"
     link={true}
     onClick={[MockFunction]}
   />
   <Action
-    hideLabel={false}
     icon="fa fa-star"
     label="Favorites"
     link={true}
@@ -105,7 +92,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
   />
   <Action
     displayMode="dropdown"
-    hideLabel={false}
     icon="fa fa-file-excel-o"
     id="dropdown-id"
     items={
@@ -125,7 +111,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
   />
   <Action
     displayMode="splitDropdown"
-    hideLabel={false}
     id="split-dropdown-id"
     items={
       Array [
@@ -237,21 +222,18 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     hideLabel={true}
     icon="fa fa-asterisk"
     label="Preparations"
-    link={false}
     onClick={[MockFunction]}
   />
   <Action
     hideLabel={true}
     icon="fa fa-file-excel-o"
     label="Datasets"
-    link={false}
     onClick={[MockFunction]}
   />
   <Action
     hideLabel={true}
     icon="fa fa-star"
     label="Favorites"
-    link={false}
     onClick={[MockFunction]}
   />
   <Action
@@ -272,7 +254,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       ]
     }
     label="related items"
-    link={false}
   />
   <Action
     displayMode="splitDropdown"
@@ -291,7 +272,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       ]
     }
     label="add file"
-    link={false}
     onClick={[MockFunction]}
   />
 </ButtonGroup>

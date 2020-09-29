@@ -1,4 +1,4 @@
-$tc-action-bar-background-color: $concrete !default;
+$tc-action-bar-background-color: $wild-sand !default;
 $tc-action-bar-margin: $padding-small $padding-large $padding-small 0 !default;
 
 .tc-actionbar-container {
@@ -55,7 +55,6 @@ $tc-action-bar-margin: $padding-small $padding-large $padding-small 0 !default;
 
 	:global(.btn-icon-text) {
 		margin: $padding-small $padding-normal $padding-small 0;
-		text-transform: capitalize;
 
 		&:global(.separated):after {
 			content: '|';

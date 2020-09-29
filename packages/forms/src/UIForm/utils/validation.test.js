@@ -202,6 +202,59 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({ [schema.key]: 'Missing required property: firstname' });
 		});
+		it('should escape if no key and continue on deep validation', () => {
+			const schema = {
+				widget: 'columns',
+				items: [
+					{
+						placeholder: 'key',
+						widget: 'text',
+						title: 'Key',
+						key: ['columns', 0, 'key'],
+						required: true,
+						schema: {
+							title: 'Key',
+							type: 'string',
+						},
+						type: 'text',
+					},
+					{
+						widget: 'text',
+						title: 'Value',
+						key: ['columns', 0, 'value'],
+						schema: {
+							title: 'Value',
+							type: 'string',
+						},
+						type: 'text',
+					},
+				],
+				schema: {
+					type: 'object',
+					properties: {
+						value: {
+							title: 'Value',
+							type: 'string',
+						},
+						key: {
+							title: 'Key',
+							type: 'string',
+						},
+					},
+				},
+			};
+			const value = '';
+			const properties = { columns: [{ key: '', value: 'value' }] };
+
+			// when
+			const errors = validateSimple(schema, value, properties, undefined, true);
+
+			// then
+			expect(errors).toEqual({
+				'columns,0,key': 'Missing required property: key',
+				'columns,0,value': null,
+			});
+		});
 	});
 
 	describe('#validateSingle', () => {

@@ -12,7 +12,8 @@ const getSelectBadgeLabel = (value, t) => {
 		if (checkedCheckboxes.length > 3) {
 			return t('FACETED_SEARCH_VALUES_COUNT', {
 				count: checkedCheckboxes.length,
-				defaultValue: '{{count}} values',
+				defaultValue: '{{count}} value',
+				defaultValue_plural: '{{count}} values',
 			});
 		} else if (!checkedCheckboxes.length) {
 			return labelAll;
@@ -32,6 +33,7 @@ export const BadgeCheckboxes = ({
 	operators,
 	size,
 	value,
+	category,
 	values,
 	t,
 }) => {
@@ -60,6 +62,7 @@ export const BadgeCheckboxes = ({
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
 					checkboxValues={values}
+					feature={category || label}
 					t={t}
 				/>
 			)}
@@ -75,6 +78,7 @@ BadgeCheckboxes.propTypes = {
 	operator: operatorPropTypes,
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
+	category: PropTypes.string,
 	value: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.arrayOf(

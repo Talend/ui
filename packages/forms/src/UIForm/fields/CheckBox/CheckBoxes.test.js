@@ -22,9 +22,9 @@ describe('CheckBoxes field', () => {
 		// when
 		const wrapper = shallow(
 			<CheckBoxes
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
@@ -40,9 +40,9 @@ describe('CheckBoxes field', () => {
 		// when
 		const wrapper = shallow(
 			<CheckBoxes
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
@@ -63,9 +63,9 @@ describe('CheckBoxes field', () => {
 		// when
 		const wrapper = shallow(
 			<CheckBoxes
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
@@ -83,9 +83,9 @@ describe('CheckBoxes field', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<CheckBoxes
-					id={'myForm'}
+					id="myForm"
 					isValid
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -95,10 +95,7 @@ describe('CheckBoxes field', () => {
 			const event = { target: { checked: true } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(2)
-				.simulate('change', event);
+			wrapper.find('input').at(2).simulate('change', event);
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });
@@ -109,9 +106,9 @@ describe('CheckBoxes field', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<CheckBoxes
-					id={'myForm'}
+					id="myForm"
 					isValid
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -120,10 +117,7 @@ describe('CheckBoxes field', () => {
 			const event = { target: { checked: true } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(2)
-				.simulate('change', event);
+			wrapper.find('input').at(2).simulate('change', event);
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['lol'] });
@@ -135,9 +129,9 @@ describe('CheckBoxes field', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<CheckBoxes
-					id={'myForm'}
+					id="myForm"
 					isValid
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -147,10 +141,7 @@ describe('CheckBoxes field', () => {
 			const event = { target: { checked: false } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(0)
-				.simulate('change', event);
+			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['bar'] });
@@ -162,9 +153,9 @@ describe('CheckBoxes field', () => {
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<CheckBoxes
-					id={'myForm'}
+					id="myForm"
 					isValid
-					errorMessage={'My error message'}
+					errorMessage="My error message"
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
@@ -174,10 +165,7 @@ describe('CheckBoxes field', () => {
 			const event = { target: { checked: false } };
 
 			// when
-			wrapper
-				.find('input')
-				.at(0)
-				.simulate('change', event);
+			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: undefined });
@@ -190,9 +178,9 @@ describe('CheckBoxes field', () => {
 		const onFinish = jest.fn();
 		const wrapper = mount(
 			<CheckBoxes
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}
@@ -202,10 +190,7 @@ describe('CheckBoxes field', () => {
 		const event = { target: { checked: true } };
 
 		// when
-		wrapper
-			.find('input')
-			.at(2)
-			.simulate('change', event);
+		wrapper.find('input').at(2).simulate('change', event);
 
 		// then
 		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });

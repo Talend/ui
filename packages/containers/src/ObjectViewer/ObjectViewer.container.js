@@ -73,6 +73,7 @@ export function editWrapper(prevState, data) {
 
 class ObjectViewer extends React.Component {
 	static displayName = 'CMFContainer(ObjectViewer)';
+
 	static propTypes = {
 		id: PropTypes.string,
 		data: get(Component, 'propTypes.data', PropTypes.any),

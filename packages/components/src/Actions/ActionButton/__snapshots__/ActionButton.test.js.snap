@@ -42,6 +42,7 @@ exports[`Action should display a Progress indicator if set 1`] = `
 >
   <withI18nextTranslation(CircularProgress)
     size="small"
+    t={[Function]}
   />
   <span>
     Click me
@@ -157,7 +158,7 @@ exports[`Action should render a button with a overlay component 1`] = `
 `;
 
 exports[`Action should render a button with loading state 1`] = `
-<withI18nextTranslation(Skeleton)
+<Skeleton
   type="button"
 />
 `;
@@ -181,6 +182,7 @@ exports[`Action should render a button without an overlay component if inProgres
 >
   <withI18nextTranslation(CircularProgress)
     size="small"
+    t={[Function]}
   />
   <span>
     Click me
@@ -201,12 +203,12 @@ exports[`Action should render a link button with loading state 1`] = `
   onMouseDown={[Function]}
   role="link"
 >
-  <withI18nextTranslation(Skeleton)
+  <Skeleton
     className="theme-tc-action-button-skeleton-circle tc-action-button-skeleton-circle"
     size="small"
     type="circle"
   />
-  <withI18nextTranslation(Skeleton)
+  <Skeleton
     size="medium"
     type="text"
   />

@@ -2,22 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-grid-layout/css/styles.css';
 import { Responsive, WidthProvider } from 'react-grid-layout';
+
 import Tile from './Tile';
 import { SKELETON_TILE_CONF } from './Tile/Skeleton/SkeletonTile.component';
-import './Grid.scss';
+
+import css from './Grid.scss';
+import { getTheme } from '../theme';
+
+const theme = getTheme(css);
 
 // eslint-disable-next-line new-cap
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 
-const columns = {
+const DEFAULT_COLUMNS = {
 	s: 2,
 	m: 4,
 	l: 6,
 	xl: 12,
 };
 
-const breakpoints = {
+const DEFAULT_BREAKPOINTS = {
 	s: 479,
 	m: 768,
 	l: 1024,
@@ -29,6 +34,7 @@ const noOp = () => {};
 function Grid({
 	children,
 	isResizable = false,
+	isDraggable = true,
 	onLayoutChange = noOp,
 	onBreakpointChange = noOp,
 	onDragStop = noOp,
@@ -37,10 +43,14 @@ function Grid({
 	skeletonConfiguration,
 	compactType = 'vertical',
 	verticalCompact = true,
+	columns = DEFAULT_COLUMNS,
+	breakpoints = DEFAULT_BREAKPOINTS,
 }) {
 	return (
 		<ResponsiveGridLayout
-			className="layout"
+			className={theme('layout', {
+				draggable: isDraggable,
+			})}
 			onLayoutChange={onLayoutChange}
 			onDragStop={onDragStop}
 			onResizeStop={onResizeStop}
@@ -53,10 +63,11 @@ function Grid({
 			isResizable={isResizable}
 			useCSSTransforms={false}
 			verticalCompact={verticalCompact}
+			isDraggable={isDraggable}
 		>
 			{isLoading
 				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
-						<div className={'skeleton-tile'} key={tile.key} data-grid={tile['data-grid']}>
+						<div className="skeleton-tile" key={tile.key} data-grid={tile['data-grid']}>
 							<Tile.Skeleton />
 						</div>
 				  ))
@@ -69,11 +80,24 @@ Grid.propTypes = {
 	children: PropTypes.node,
 	compactType: PropTypes.string,
 	isResizable: PropTypes.bool,
+	isDraggable: PropTypes.bool,
 	onLayoutChange: PropTypes.func,
 	onBreakpointChange: PropTypes.func,
 	onDragStop: PropTypes.func,
 	onResizeStop: PropTypes.func,
 	isLoading: PropTypes.bool,
+	columns: PropTypes.shape({
+		s: PropTypes.number,
+		m: PropTypes.number,
+		l: PropTypes.number,
+		xl: PropTypes.number,
+	}),
+	breakpoints: PropTypes.shape({
+		s: PropTypes.number,
+		m: PropTypes.number,
+		l: PropTypes.number,
+		xl: PropTypes.number,
+	}),
 	skeletonConfiguration: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,

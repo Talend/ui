@@ -61,7 +61,7 @@ export default [
 		story: () => <LayoutDrawer loading title="Form in loading in drawer" />,
 	},
 	{
-		name: 'skeleton-srawer-stacked',
+		name: 'skeleton-drawer-stacked',
 		story: () => <LayoutDrawer loading title="Form in loading in drawer" stacked />,
 	},
 ];

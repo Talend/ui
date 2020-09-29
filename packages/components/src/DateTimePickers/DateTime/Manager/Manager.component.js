@@ -22,21 +22,28 @@ function ContextualManager(props) {
 	const initialState = extractParts(props.value, getDateOptions());
 	const [state, setState] = useState(initialState);
 
-	useEffect(() => {
-		if (props.value !== state.datetime) {
-			const nextState = extractParts(props.value, getDateOptions());
-			setState(nextState);
-		}
-	}, [props.value]);
-
 	function onChange(event, payload) {
 		if (props.onChange) {
 			const { datetime, textInput, errors, errorMessage } = payload;
 			props.onChange(event, { datetime, textInput, errors, errorMessage });
 		}
 	}
+
+	useEffect(() => {
+		if (props.value !== state.datetime) {
+			const nextState = extractParts(props.value, getDateOptions());
+			setState(nextState);
+			// Triggering onChange will propagate the error to the outside world when the
+			// new input is invalid and different then the default dateTime input.
+			if (nextState.errors && nextState.errors.length > 0) {
+				onChange(null, nextState);
+			}
+		}
+	}, [props.value]);
+
 	function onDateChange(event, payload) {
-		const newState = updatePartsOnDateChange(payload, state.time, getDateOptions());
+		const time = state.time || props.defaultTimeValue;
+		const newState = updatePartsOnDateChange(payload, time, getDateOptions());
 		const nextState = {
 			...state,
 			...newState,
@@ -69,11 +76,14 @@ function ContextualManager(props) {
 ContextualManager.displayName = 'DateTime.Manager';
 ContextualManager.propTypes = {
 	children: PropTypes.node,
+	dateFormat: PropTypes.string,
+	defaultTimeValue: PropTypes.string,
 	onChange: PropTypes.func,
 	required: PropTypes.bool,
-	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	timezone: PropTypes.string,
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 };
 
 ContextualManager.defaultProps = {

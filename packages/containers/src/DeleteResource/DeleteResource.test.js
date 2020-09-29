@@ -75,5 +75,10 @@ describe('Connected DeleteResource', () => {
 				state.cmf.collections.get('foo').get(0),
 			);
 		});
+
+		it('should return the props.resource from the own props', () => {
+			const resource = {};
+			expect(mapStateToProps(state, { resource }).resource).toBe(resource);
+		});
 	});
 });

@@ -12,22 +12,31 @@ exports[`Notification should render error 1`] = `
 >
   <withI18nextTranslation(CloseButtonComponent)
     data-feature="close-notification-error"
+    leaveFn={[MockFunction]}
     notification={
       Object {
         "message": "foo",
+        "onClick": [MockFunction],
+        "onMouseEnter": [MockFunction],
+        "onMouseOut": [MockFunction],
         "type": "error",
       }
     }
+    t={[Function]}
   />
   <Message
     notification={
       Object {
         "message": "foo",
+        "onClick": [MockFunction],
+        "onMouseEnter": [MockFunction],
+        "onMouseOut": [MockFunction],
         "type": "error",
       }
     }
   />
   <TimerBar
+    autoLeaveError={false}
     type="error"
   />
 </div>

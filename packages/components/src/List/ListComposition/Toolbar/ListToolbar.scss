@@ -1,5 +1,5 @@
 $tc-list-toolbar-display-color: $silver !default;
-$tc-list-toolbar-background-color: $concrete !default;
+$tc-list-toolbar-background-color: $wild-sand !default;
 
 $tc-toolbar-height: 7rem;
 
@@ -26,7 +26,11 @@ $tc-toolbar-height: 7rem;
 	&-right {
 		align-items: center;
 		display: flex;
-		margin-left: auto;
+		margin: {
+			left: auto;
+			top: 0;
+			bottom: 0;
+		}
 	}
 
 	&-separated {

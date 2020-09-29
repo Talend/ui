@@ -33,7 +33,7 @@ import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
-import bsonObjectid from 'bson-objectid';
+import { v4 as uuidv4 } from 'uuid';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
@@ -67,7 +67,7 @@ export function getStateToProps({
 	mapStateToProps,
 	WrappedComponent,
 }) {
-	const props = Object.assign({}, defaultProps);
+	const props = { ...defaultProps };
 
 	const cmfProps = getStateProps(
 		state,
@@ -220,9 +220,7 @@ export default function cmfConnect({
 			displayNameWarning = false;
 			// eslint-disable-next-line no-console
 			console.warn(
-				`${
-					WrappedComponent.name
-				} has no displayName. Please read https://jira.talendforge.org/browse/TUI-302`,
+				`${WrappedComponent.name} has no displayName. Please read https://jira.talendforge.org/browse/TUI-302`,
 			);
 		}
 		function getState(state, id = 'default') {
@@ -242,16 +240,21 @@ export default function cmfConnect({
 		}
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
+
 			static propTypes = {
 				...cmfConnect.propTypes,
 			};
+
 			static contextTypes = {
 				store: PropTypes.object,
 				registry: PropTypes.object,
 				router: PropTypes.object,
 			};
+
 			static WrappedComponent = WrappedComponent;
+
 			static getState = getState;
+
 			static setStateAction = function setStateAction(state, id = 'default', type) {
 				if (typeof state !== 'function') {
 					return getSetStateAction(state, id, type);
@@ -264,7 +267,7 @@ export default function cmfConnect({
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
 				this.getOnEventProps = this.getOnEventProps.bind(this);
-				this.id = bsonObjectid().toString();
+				this.id = uuidv4();
 			}
 
 			componentDidMount() {
@@ -317,7 +320,7 @@ export default function cmfConnect({
 			}
 
 			dispatchActionCreator(actionCreatorId, event, data, context) {
-				const extendedContext = Object.assign({}, this.context, context);
+				const extendedContext = { ...this.context, ...context };
 				this.props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 

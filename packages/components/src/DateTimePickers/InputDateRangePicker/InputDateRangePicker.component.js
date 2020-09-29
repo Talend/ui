@@ -16,7 +16,7 @@ import getDefaultT from '../../translate';
 
 import theme from './InputDateRangePicker.scss';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange'];
+const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange', 't'];
 
 export default function InputDateRangePicker(props) {
 	const popoverId = `date-range-picker-${props.id}`;
@@ -71,51 +71,49 @@ export default function InputDateRangePicker(props) {
 								handlers.onKeyDown(event, inputRef.current);
 							}}
 						>
-							{[
-								<DateRange.Input
-									{...inputProps}
-									id={`${props.id}-start-input`}
-									date={startDate}
-									onChange={onStartChange}
-									onFocus={() => setInputRef(startDateInputRef)}
-									label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
-									ref={startDateInputRef}
-								/>,
-								<span className={theme.arrow}>
-									<Icon name="talend-arrow-right" className={theme.icon} />
-								</span>,
-								<DateRange.Input
-									{...inputProps}
-									id={`${props.id}-end-input`}
-									date={endDate}
-									onChange={onEndChange}
-									onFocus={() => setInputRef(endDateInputRef)}
-									label={props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
-									ref={endDateInputRef}
-								/>,
-								handlers.showPicker && inputRef && (
-									<Popper
-										key="popper"
-										modifiers={{
-											hide: {
-												enabled: false,
-											},
-											preventOverflow: {
-												enabled: false,
-											},
-										}}
-										placement={handlers.getPopperPlacement(inputRef.current)}
-										positionFixed
-										referenceElement={inputRef.current}
-									>
-										{({ ref, style }) => (
-											<div id={popoverId} className={theme.popper} style={style} ref={ref}>
-												<DateRange.Picker {...props} focusedInput={getFocusedInput()} />
-											</div>
-										)}
-									</Popper>
-								),
-							].filter(Boolean)}
+							<DateRange.Input
+								{...inputProps}
+								id={`${props.id}-start-input`}
+								date={startDate}
+								onChange={onStartChange}
+								onFocus={() => setInputRef(startDateInputRef)}
+								label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
+								ref={startDateInputRef}
+							/>
+							<span className={classnames(theme.arrow, 'arrow')}>
+								<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
+							</span>
+							<DateRange.Input
+								{...inputProps}
+								id={`${props.id}-end-input`}
+								date={endDate}
+								onChange={onEndChange}
+								onFocus={() => setInputRef(endDateInputRef)}
+								label={props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
+								ref={endDateInputRef}
+							/>
+							{handlers.showPicker && inputRef && (
+								<Popper
+									key="popper"
+									modifiers={{
+										hide: {
+											enabled: false,
+										},
+										preventOverflow: {
+											enabled: false,
+										},
+									}}
+									placement={handlers.getPopperPlacement(inputRef.current)}
+									positionFixed
+									referenceElement={inputRef.current}
+								>
+									{({ ref, style }) => (
+										<div id={popoverId} className={theme.popper} style={style} ref={ref}>
+											<DateRange.Picker {...props} focusedInput={getFocusedInput()} />
+										</div>
+									)}
+								</Popper>
+							)}
 						</FocusManager>
 					);
 				}}
@@ -137,5 +135,5 @@ InputDateRangePicker.propTypes = {
 	onBlur: PropTypes.func,
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };

@@ -4,14 +4,15 @@ import startOfDay from 'date-fns/start_of_day';
 import DateTimePicker from './DateTimePicker.component';
 import DateTimeView from '../../views/DateTimeView';
 import MonthYearView from '../../views/MonthYearView';
+import dateMock from '../../../../../../../mocks/dateMock';
 
 describe('DateTimePicker', () => {
 	afterEach(() => {
-		global.dateMock.restore();
+		dateMock.restore();
 	});
 
 	it('should render', () => {
-		global.dateMock.mock(new Date(2018, 5, 12));
+		dateMock.mock(new Date(2018, 5, 12));
 		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -19,7 +20,7 @@ describe('DateTimePicker', () => {
 
 	it('should initialize calendar view to current date', () => {
 		// given
-		global.dateMock.mock(new Date(2016, 4, 12));
+		dateMock.mock(new Date(2016, 4, 12));
 
 		// when
 		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
@@ -235,10 +236,7 @@ describe('DateTimePicker', () => {
 			wrapper.setState({ isDateTimeView: false });
 
 			// when
-			wrapper
-				.find({ label: 'Today' })
-				.at(0)
-				.simulate('click');
+			wrapper.find({ label: 'Today' }).at(0).simulate('click');
 
 			// then
 			expect(wrapper.state('isDateTimeView')).toBe(true);

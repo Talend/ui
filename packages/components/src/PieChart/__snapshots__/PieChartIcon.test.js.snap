@@ -84,13 +84,13 @@ exports[`PieChart snapshots render should render a Skeleton when the state is lo
   aria-label="Loading chart"
   className="tc-pie-chart-loading theme-tc-pie-chart-loading"
 >
-  <withI18nextTranslation(Skeleton)
+  <Skeleton
     className="tc-pie-chart-loading-circle theme-tc-pie-chart-loading-circle"
     height={20}
     type="circle"
     width={20}
   />
-  <withI18nextTranslation(Skeleton)
+  <Skeleton
     size="small"
     type="text"
   />

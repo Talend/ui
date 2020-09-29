@@ -28,7 +28,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn('onChange')}
 				onFinish={jest.fn('onFinish')}
 				onTrigger={jest.fn('onTrigger')}
@@ -45,7 +45,7 @@ describe('Widget component', () => {
 	it('should wrapper widget into a tooltip trigger', () => {
 		const wrapper = shallow(
 			<Widget
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn('onChange')}
 				onFinish={jest.fn('onFinish')}
 				onTrigger={jest.fn('onTrigger')}
@@ -62,14 +62,14 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn('onChange')}
 				onFinish={jest.fn('onFinish')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
 				schema={schema}
 				errors={errors}
-				displayMode={'text'}
+				displayMode="text"
 			/>,
 		);
 
@@ -103,7 +103,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
@@ -127,14 +127,14 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
 				schema={customWidgetSchema}
 				errors={errors}
 				widgets={customWidgets}
-				displayMode={'text'}
+				displayMode="text"
 			/>,
 		);
 
@@ -152,7 +152,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
@@ -169,7 +169,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
@@ -233,14 +233,14 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn('onChange')}
 				onFinish={jest.fn('onFinish')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
 				schema={schema}
 				errors={errors}
-				displayMode={'text'}
+				displayMode="text"
 				updating={[schema.key.join('.')]}
 			/>,
 		);

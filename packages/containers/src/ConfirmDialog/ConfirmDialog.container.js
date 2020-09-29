@@ -11,11 +11,15 @@ export const DEFAULT_STATE = new Map({
 	show: false,
 });
 
+// This uses old react context, so no way to switch to stateless function instead of class
+// eslint-disable-next-line react/prefer-stateless-function
 class ConfirmDialog extends React.Component {
 	static displayName = 'CMFContainer(ConfirmDialog)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
 	};
+
 	static contextTypes = {
 		store: PropTypes.object,
 		registry: PropTypes.object,

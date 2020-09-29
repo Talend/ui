@@ -5,7 +5,7 @@ import Immutable, { fromJS } from 'immutable';
 import DataGrid from '../src/components/';
 import { NAMESPACE_DATA, NAMESPACE_INDEX, COLUMN_INDEX } from '../src/constants';
 import sample from './sample.json';
-import { getComponent } from './datagrid.component';
+import getComponent from './getComponent';
 
 export function getRowData(sampleData, startIndex = 0) {
 	if (!sample) {

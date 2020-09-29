@@ -187,11 +187,11 @@ exports[`InputDateTimePicker should render 1`] = `
             }
           >
             <FocusManager
-              className="theme-time-picker"
+              className="theme-time-picker time-picker"
               divRef={
                 Object {
                   "current": <div
-                    class="theme-time-picker"
+                    class="theme-time-picker time-picker"
                     tabindex="-1"
                   >
                     <input
@@ -207,7 +207,7 @@ exports[`InputDateTimePicker should render 1`] = `
                     <span
                       style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                     >
-                      15:27:00
+                      HH:mm:ss
                     </span>
                   </div>,
                 }
@@ -218,7 +218,7 @@ exports[`InputDateTimePicker should render 1`] = `
               onKeyDown={[Function]}
             >
               <div
-                className="theme-time-picker"
+                className="theme-time-picker time-picker"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -244,8 +244,7 @@ exports[`InputDateTimePicker should render 1`] = `
                   key="input"
                 >
                   <InputSizer
-                    inputText="15:27:00"
-                    placeholder="HH:mm:ss"
+                    inputText="HH:mm:ss"
                   >
                     <DebounceInput
                       autoComplete="off"
@@ -309,7 +308,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         }
                       }
                     >
-                      15:27:00
+                      HH:mm:ss
                     </span>
                   </InputSizer>
                 </Time.Input>

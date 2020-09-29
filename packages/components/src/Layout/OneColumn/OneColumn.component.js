@@ -26,7 +26,7 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 			id="tc-layout-main"
 			tabIndex="-1"
 			className={container}
-			{...omit(props, 'getComponents')}
+			{...omit(props, 'getComponent')}
 		>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}

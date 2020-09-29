@@ -8,7 +8,7 @@ describe('Toggle field in text mode', () => {
 
 	it('should render the Toggle', () => {
 		// when
-		const wrapper = shallow(<Toggle id={'myForm'} schema={schema} value />);
+		const wrapper = shallow(<Toggle id="myForm" schema={schema} value />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

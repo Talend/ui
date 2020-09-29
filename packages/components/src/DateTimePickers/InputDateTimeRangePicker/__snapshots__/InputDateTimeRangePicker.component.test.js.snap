@@ -1,0 +1,1447 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputDateTimeRangePicker should render 1`] = `
+<InputDateTimeRangePicker
+  dateFormat="YYYY-MM-DD"
+  endDateTime="2019-12-11 23:59:59"
+  id="my-picker"
+  startDateTime="2019-12-01 00:00:00"
+  t={[Function]}
+  useSeconds={true}
+>
+  <DateTimeRange.Manager
+    endDateTime="2019-12-11 23:59:59"
+    startDateTime="2019-12-01 00:00:00"
+  >
+    <div
+      className="theme-range-picker range-picker"
+    >
+      <div>
+        <label
+          className="control-label"
+          htmlFor="my-picker"
+        >
+          From
+        </label>
+        <InputDateTimePickerSwitch
+          dateFormat="YYYY-MM-DD"
+          endDate="2019-12-11 23:59:59"
+          id="my-picker-start"
+          onChange={[Function]}
+          t={[Function]}
+          useSeconds={true}
+          value="2019-12-01 00:00:00"
+        >
+          <InputDateTimePicker
+            dateFormat="YYYY-MM-DD"
+            endDate="2019-12-11 23:59:59"
+            id="my-picker-start"
+            onChange={[Function]}
+            required={true}
+            t={[Function]}
+            useSeconds={true}
+            useUTC={false}
+            value="2019-12-01 00:00:00"
+          >
+            <DateTime.Manager
+              dateFormat="YYYY-MM-DD"
+              id="my-picker-start"
+              onChange={[Function]}
+              useSeconds={true}
+              useUTC={false}
+              value="2019-12-01 00:00:00"
+            >
+              <div
+                className="theme-date-time-picker"
+              >
+                <InputDatePicker
+                  dateFormat="YYYY-MM-DD"
+                  endDate="2019-12-11 23:59:59"
+                  id="my-picker-start-date-picker"
+                  onChange={[Function]}
+                  required={true}
+                  useUTC={false}
+                  value="2019-12-01"
+                >
+                  <Date.Manager
+                    dateFormat="YYYY-MM-DD"
+                    onChange={[Function]}
+                    useUTC={false}
+                    value="2019-12-01"
+                  >
+                    <FocusManager
+                      className="theme-date-picker date-picker"
+                      divRef={
+                        Object {
+                          "current": <div
+                            class="theme-date-picker date-picker"
+                            tabindex="-1"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="form-control"
+                              id="my-picker-start-date-picker-input"
+                              placeholder="YYYY-MM-DD"
+                              style="width: 47px;"
+                              type="text"
+                              value="2019-12-01"
+                            />
+                            <span
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                            >
+                              YYYY-MM-DD
+                            </span>
+                          </div>,
+                        }
+                      }
+                      onClick={[Function]}
+                      onFocusIn={[Function]}
+                      onFocusOut={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className="theme-date-picker date-picker"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={-1}
+                      >
+                        <Date.Input
+                          id="my-picker-start-date-picker-input"
+                          inputRef={
+                            Object {
+                              "current": <input
+                                autocomplete="off"
+                                class="form-control"
+                                id="my-picker-start-date-picker-input"
+                                placeholder="YYYY-MM-DD"
+                                style="width: 47px;"
+                                type="text"
+                                value="2019-12-01"
+                              />,
+                            }
+                          }
+                          key="input"
+                        >
+                          <InputSizer
+                            inputText="YYYY-MM-DD"
+                          >
+                            <DebounceInput
+                              autoComplete="off"
+                              className="form-control"
+                              debounceTimeout={300}
+                              element="input"
+                              forceNotifyByEnter={true}
+                              forceNotifyOnBlur={true}
+                              id="my-picker-start-date-picker-input"
+                              inputRef={
+                                Object {
+                                  "current": <input
+                                    autocomplete="off"
+                                    class="form-control"
+                                    id="my-picker-start-date-picker-input"
+                                    placeholder="YYYY-MM-DD"
+                                    style="width: 47px;"
+                                    type="text"
+                                    value="2019-12-01"
+                                  />,
+                                }
+                              }
+                              minLength={0}
+                              onChange={[Function]}
+                              placeholder="YYYY-MM-DD"
+                              style={
+                                Object {
+                                  "width": 47,
+                                }
+                              }
+                              type="text"
+                              value="2019-12-01"
+                            >
+                              <input
+                                autoComplete="off"
+                                className="form-control"
+                                id="my-picker-start-date-picker-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="YYYY-MM-DD"
+                                style={
+                                  Object {
+                                    "width": 47,
+                                  }
+                                }
+                                type="text"
+                                value="2019-12-01"
+                              />
+                            </DebounceInput>
+                            <span
+                              style={
+                                Object {
+                                  "fontSize": "1.6rem",
+                                  "fontWeight": 400,
+                                  "position": "absolute",
+                                  "visibility": "hidden",
+                                }
+                              }
+                            >
+                              YYYY-MM-DD
+                            </span>
+                          </InputSizer>
+                        </Date.Input>
+                      </div>
+                    </FocusManager>
+                  </Date.Manager>
+                </InputDatePicker>
+                <InputTimePicker
+                  id="my-picker-start-time-picker"
+                  onChange={[Function]}
+                  useSeconds={true}
+                  value="00:00:00"
+                >
+                  <Time.Manager
+                    onChange={[Function]}
+                    useSeconds={true}
+                    value="00:00:00"
+                  >
+                    <FocusManager
+                      className="theme-time-picker time-picker"
+                      divRef={
+                        Object {
+                          "current": <div
+                            class="theme-time-picker time-picker"
+                            tabindex="-1"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="form-control theme-time-picker-input"
+                              id="my-picker-start-time-picker-input"
+                              maxlength="8"
+                              placeholder="HH:mm:ss"
+                              style="width: 47px;"
+                              type="text"
+                              value="00:00:00"
+                            />
+                            <span
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                            >
+                              HH:mm:ss
+                            </span>
+                          </div>,
+                        }
+                      }
+                      onClick={[Function]}
+                      onFocusIn={[Function]}
+                      onFocusOut={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className="theme-time-picker time-picker"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={-1}
+                      >
+                        <Time.Input
+                          id="my-picker-start-time-picker-input"
+                          inputRef={
+                            Object {
+                              "current": <input
+                                autocomplete="off"
+                                class="form-control theme-time-picker-input"
+                                id="my-picker-start-time-picker-input"
+                                maxlength="8"
+                                placeholder="HH:mm:ss"
+                                style="width: 47px;"
+                                type="text"
+                                value="00:00:00"
+                              />,
+                            }
+                          }
+                          key="input"
+                        >
+                          <InputSizer
+                            inputText="HH:mm:ss"
+                          >
+                            <DebounceInput
+                              autoComplete="off"
+                              className="form-control theme-time-picker-input"
+                              debounceTimeout={300}
+                              element="input"
+                              forceNotifyByEnter={true}
+                              forceNotifyOnBlur={true}
+                              id="my-picker-start-time-picker-input"
+                              inputRef={
+                                Object {
+                                  "current": <input
+                                    autocomplete="off"
+                                    class="form-control theme-time-picker-input"
+                                    id="my-picker-start-time-picker-input"
+                                    maxlength="8"
+                                    placeholder="HH:mm:ss"
+                                    style="width: 47px;"
+                                    type="text"
+                                    value="00:00:00"
+                                  />,
+                                }
+                              }
+                              maxLength={8}
+                              minLength={0}
+                              onChange={[Function]}
+                              placeholder="HH:mm:ss"
+                              style={
+                                Object {
+                                  "width": 47,
+                                }
+                              }
+                              type="text"
+                              value="00:00:00"
+                            >
+                              <input
+                                autoComplete="off"
+                                className="form-control theme-time-picker-input"
+                                id="my-picker-start-time-picker-input"
+                                maxLength={8}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="HH:mm:ss"
+                                style={
+                                  Object {
+                                    "width": 47,
+                                  }
+                                }
+                                type="text"
+                                value="00:00:00"
+                              />
+                            </DebounceInput>
+                            <span
+                              style={
+                                Object {
+                                  "fontSize": "1.6rem",
+                                  "fontWeight": 400,
+                                  "position": "absolute",
+                                  "visibility": "hidden",
+                                }
+                              }
+                            >
+                              HH:mm:ss
+                            </span>
+                          </InputSizer>
+                        </Time.Input>
+                      </div>
+                    </FocusManager>
+                  </Time.Manager>
+                </InputTimePicker>
+              </div>
+            </DateTime.Manager>
+          </InputDateTimePicker>
+        </InputDateTimePickerSwitch>
+      </div>
+      <span
+        className="theme-arrow arrow"
+      >
+        <Icon
+          className="theme-icon icon"
+          name="talend-arrow-right"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon theme-icon icon"
+            focusable="false"
+            name="talend-arrow-right"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-arrow-right"
+            />
+          </svg>
+        </Icon>
+      </span>
+      <div>
+        <label
+          className="control-label"
+          htmlFor="my-picker"
+        >
+          To
+        </label>
+        <InputDateTimePickerSwitch
+          dateFormat="YYYY-MM-DD"
+          id="my-picker-end"
+          onChange={[Function]}
+          startDate="2019-12-01 00:00:00"
+          t={[Function]}
+          useSeconds={true}
+          value="2019-12-11 23:59:59"
+        >
+          <InputDateTimePicker
+            dateFormat="YYYY-MM-DD"
+            id="my-picker-end"
+            onChange={[Function]}
+            required={true}
+            startDate="2019-12-01 00:00:00"
+            t={[Function]}
+            useSeconds={true}
+            useUTC={false}
+            value="2019-12-11 23:59:59"
+          >
+            <DateTime.Manager
+              dateFormat="YYYY-MM-DD"
+              id="my-picker-end"
+              onChange={[Function]}
+              useSeconds={true}
+              useUTC={false}
+              value="2019-12-11 23:59:59"
+            >
+              <div
+                className="theme-date-time-picker"
+              >
+                <InputDatePicker
+                  dateFormat="YYYY-MM-DD"
+                  id="my-picker-end-date-picker"
+                  onChange={[Function]}
+                  required={true}
+                  startDate="2019-12-01 00:00:00"
+                  useUTC={false}
+                  value="2019-12-11"
+                >
+                  <Date.Manager
+                    dateFormat="YYYY-MM-DD"
+                    onChange={[Function]}
+                    useUTC={false}
+                    value="2019-12-11"
+                  >
+                    <FocusManager
+                      className="theme-date-picker date-picker"
+                      divRef={
+                        Object {
+                          "current": <div
+                            class="theme-date-picker date-picker"
+                            tabindex="-1"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="form-control"
+                              id="my-picker-end-date-picker-input"
+                              placeholder="YYYY-MM-DD"
+                              style="width: 47px;"
+                              type="text"
+                              value="2019-12-11"
+                            />
+                            <span
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                            >
+                              YYYY-MM-DD
+                            </span>
+                          </div>,
+                        }
+                      }
+                      onClick={[Function]}
+                      onFocusIn={[Function]}
+                      onFocusOut={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className="theme-date-picker date-picker"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={-1}
+                      >
+                        <Date.Input
+                          id="my-picker-end-date-picker-input"
+                          inputRef={
+                            Object {
+                              "current": <input
+                                autocomplete="off"
+                                class="form-control"
+                                id="my-picker-end-date-picker-input"
+                                placeholder="YYYY-MM-DD"
+                                style="width: 47px;"
+                                type="text"
+                                value="2019-12-11"
+                              />,
+                            }
+                          }
+                          key="input"
+                        >
+                          <InputSizer
+                            inputText="YYYY-MM-DD"
+                          >
+                            <DebounceInput
+                              autoComplete="off"
+                              className="form-control"
+                              debounceTimeout={300}
+                              element="input"
+                              forceNotifyByEnter={true}
+                              forceNotifyOnBlur={true}
+                              id="my-picker-end-date-picker-input"
+                              inputRef={
+                                Object {
+                                  "current": <input
+                                    autocomplete="off"
+                                    class="form-control"
+                                    id="my-picker-end-date-picker-input"
+                                    placeholder="YYYY-MM-DD"
+                                    style="width: 47px;"
+                                    type="text"
+                                    value="2019-12-11"
+                                  />,
+                                }
+                              }
+                              minLength={0}
+                              onChange={[Function]}
+                              placeholder="YYYY-MM-DD"
+                              style={
+                                Object {
+                                  "width": 47,
+                                }
+                              }
+                              type="text"
+                              value="2019-12-11"
+                            >
+                              <input
+                                autoComplete="off"
+                                className="form-control"
+                                id="my-picker-end-date-picker-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="YYYY-MM-DD"
+                                style={
+                                  Object {
+                                    "width": 47,
+                                  }
+                                }
+                                type="text"
+                                value="2019-12-11"
+                              />
+                            </DebounceInput>
+                            <span
+                              style={
+                                Object {
+                                  "fontSize": "1.6rem",
+                                  "fontWeight": 400,
+                                  "position": "absolute",
+                                  "visibility": "hidden",
+                                }
+                              }
+                            >
+                              YYYY-MM-DD
+                            </span>
+                          </InputSizer>
+                        </Date.Input>
+                      </div>
+                    </FocusManager>
+                  </Date.Manager>
+                </InputDatePicker>
+                <InputTimePicker
+                  id="my-picker-end-time-picker"
+                  onChange={[Function]}
+                  useSeconds={true}
+                  value="23:59:59"
+                >
+                  <Time.Manager
+                    onChange={[Function]}
+                    useSeconds={true}
+                    value="23:59:59"
+                  >
+                    <FocusManager
+                      className="theme-time-picker time-picker"
+                      divRef={
+                        Object {
+                          "current": <div
+                            class="theme-time-picker time-picker"
+                            tabindex="-1"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="form-control theme-time-picker-input"
+                              id="my-picker-end-time-picker-input"
+                              maxlength="8"
+                              placeholder="HH:mm:ss"
+                              style="width: 47px;"
+                              type="text"
+                              value="23:59:59"
+                            />
+                            <span
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                            >
+                              HH:mm:ss
+                            </span>
+                          </div>,
+                        }
+                      }
+                      onClick={[Function]}
+                      onFocusIn={[Function]}
+                      onFocusOut={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className="theme-time-picker time-picker"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={-1}
+                      >
+                        <Time.Input
+                          id="my-picker-end-time-picker-input"
+                          inputRef={
+                            Object {
+                              "current": <input
+                                autocomplete="off"
+                                class="form-control theme-time-picker-input"
+                                id="my-picker-end-time-picker-input"
+                                maxlength="8"
+                                placeholder="HH:mm:ss"
+                                style="width: 47px;"
+                                type="text"
+                                value="23:59:59"
+                              />,
+                            }
+                          }
+                          key="input"
+                        >
+                          <InputSizer
+                            inputText="HH:mm:ss"
+                          >
+                            <DebounceInput
+                              autoComplete="off"
+                              className="form-control theme-time-picker-input"
+                              debounceTimeout={300}
+                              element="input"
+                              forceNotifyByEnter={true}
+                              forceNotifyOnBlur={true}
+                              id="my-picker-end-time-picker-input"
+                              inputRef={
+                                Object {
+                                  "current": <input
+                                    autocomplete="off"
+                                    class="form-control theme-time-picker-input"
+                                    id="my-picker-end-time-picker-input"
+                                    maxlength="8"
+                                    placeholder="HH:mm:ss"
+                                    style="width: 47px;"
+                                    type="text"
+                                    value="23:59:59"
+                                  />,
+                                }
+                              }
+                              maxLength={8}
+                              minLength={0}
+                              onChange={[Function]}
+                              placeholder="HH:mm:ss"
+                              style={
+                                Object {
+                                  "width": 47,
+                                }
+                              }
+                              type="text"
+                              value="23:59:59"
+                            >
+                              <input
+                                autoComplete="off"
+                                className="form-control theme-time-picker-input"
+                                id="my-picker-end-time-picker-input"
+                                maxLength={8}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="HH:mm:ss"
+                                style={
+                                  Object {
+                                    "width": 47,
+                                  }
+                                }
+                                type="text"
+                                value="23:59:59"
+                              />
+                            </DebounceInput>
+                            <span
+                              style={
+                                Object {
+                                  "fontSize": "1.6rem",
+                                  "fontWeight": 400,
+                                  "position": "absolute",
+                                  "visibility": "hidden",
+                                }
+                              }
+                            >
+                              HH:mm:ss
+                            </span>
+                          </InputSizer>
+                        </Time.Input>
+                      </div>
+                    </FocusManager>
+                  </Time.Manager>
+                </InputTimePicker>
+              </div>
+            </DateTime.Manager>
+          </InputDateTimePicker>
+        </InputDateTimePickerSwitch>
+      </div>
+    </div>
+  </DateTimeRange.Manager>
+</InputDateTimeRangePicker>
+`;
+
+exports[`InputDateTimeRangePicker should render with default time 1`] = `
+<InputDateTimeRangePicker
+  dateFormat="YYYY-MM-DD"
+  defaultTimeEnd={
+    Object {
+      "hours": "12",
+      "minutes": "24",
+    }
+  }
+  defaultTimeStart={
+    Object {
+      "hours": "00",
+      "minutes": "00",
+    }
+  }
+  id="my-picker"
+  t={[Function]}
+>
+  <DateTimeRange.Manager>
+    <div
+      className="theme-range-picker range-picker"
+    >
+      <div>
+        <label
+          className="control-label"
+          htmlFor="my-picker"
+        >
+          From
+        </label>
+        <InputDateTimePickerSwitch
+          dateFormat="YYYY-MM-DD"
+          defaultTimeEnd={
+            Object {
+              "hours": "12",
+              "minutes": "24",
+            }
+          }
+          defaultTimeStart={
+            Object {
+              "hours": "00",
+              "minutes": "00",
+            }
+          }
+          defaultTimeValue={
+            Object {
+              "hours": "00",
+              "minutes": "00",
+            }
+          }
+          id="my-picker-start"
+          onChange={[Function]}
+          t={[Function]}
+        >
+          <InputDateTimePicker
+            dateFormat="YYYY-MM-DD"
+            defaultTimeEnd={
+              Object {
+                "hours": "12",
+                "minutes": "24",
+              }
+            }
+            defaultTimeStart={
+              Object {
+                "hours": "00",
+                "minutes": "00",
+              }
+            }
+            defaultTimeValue={
+              Object {
+                "hours": "00",
+                "minutes": "00",
+              }
+            }
+            id="my-picker-start"
+            onChange={[Function]}
+            required={true}
+            t={[Function]}
+            useSeconds={false}
+            useUTC={false}
+          >
+            <DateTime.Manager
+              dateFormat="YYYY-MM-DD"
+              defaultTimeValue={
+                Object {
+                  "hours": "00",
+                  "minutes": "00",
+                }
+              }
+              id="my-picker-start"
+              onChange={[Function]}
+              useSeconds={false}
+              useUTC={false}
+            >
+              <div
+                className="theme-date-time-picker"
+              >
+                <InputDatePicker
+                  dateFormat="YYYY-MM-DD"
+                  id="my-picker-start-date-picker"
+                  onChange={[Function]}
+                  required={true}
+                  useUTC={false}
+                >
+                  <Date.Manager
+                    dateFormat="YYYY-MM-DD"
+                    onChange={[Function]}
+                    useUTC={false}
+                  >
+                    <FocusManager
+                      className="theme-date-picker date-picker"
+                      divRef={
+                        Object {
+                          "current": <div
+                            class="theme-date-picker date-picker"
+                            tabindex="-1"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="form-control"
+                              id="my-picker-start-date-picker-input"
+                              placeholder="YYYY-MM-DD"
+                              style="width: 47px;"
+                              type="text"
+                              value=""
+                            />
+                            <span
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                            >
+                              YYYY-MM-DD
+                            </span>
+                          </div>,
+                        }
+                      }
+                      onClick={[Function]}
+                      onFocusIn={[Function]}
+                      onFocusOut={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className="theme-date-picker date-picker"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={-1}
+                      >
+                        <Date.Input
+                          id="my-picker-start-date-picker-input"
+                          inputRef={
+                            Object {
+                              "current": <input
+                                autocomplete="off"
+                                class="form-control"
+                                id="my-picker-start-date-picker-input"
+                                placeholder="YYYY-MM-DD"
+                                style="width: 47px;"
+                                type="text"
+                                value=""
+                              />,
+                            }
+                          }
+                          key="input"
+                        >
+                          <InputSizer
+                            inputText="YYYY-MM-DD"
+                          >
+                            <DebounceInput
+                              autoComplete="off"
+                              className="form-control"
+                              debounceTimeout={300}
+                              element="input"
+                              forceNotifyByEnter={true}
+                              forceNotifyOnBlur={true}
+                              id="my-picker-start-date-picker-input"
+                              inputRef={
+                                Object {
+                                  "current": <input
+                                    autocomplete="off"
+                                    class="form-control"
+                                    id="my-picker-start-date-picker-input"
+                                    placeholder="YYYY-MM-DD"
+                                    style="width: 47px;"
+                                    type="text"
+                                    value=""
+                                  />,
+                                }
+                              }
+                              minLength={0}
+                              onChange={[Function]}
+                              placeholder="YYYY-MM-DD"
+                              style={
+                                Object {
+                                  "width": 47,
+                                }
+                              }
+                              type="text"
+                              value=""
+                            >
+                              <input
+                                autoComplete="off"
+                                className="form-control"
+                                id="my-picker-start-date-picker-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="YYYY-MM-DD"
+                                style={
+                                  Object {
+                                    "width": 47,
+                                  }
+                                }
+                                type="text"
+                                value=""
+                              />
+                            </DebounceInput>
+                            <span
+                              style={
+                                Object {
+                                  "fontSize": "1.6rem",
+                                  "fontWeight": 400,
+                                  "position": "absolute",
+                                  "visibility": "hidden",
+                                }
+                              }
+                            >
+                              YYYY-MM-DD
+                            </span>
+                          </InputSizer>
+                        </Date.Input>
+                      </div>
+                    </FocusManager>
+                  </Date.Manager>
+                </InputDatePicker>
+                <InputTimePicker
+                  id="my-picker-start-time-picker"
+                  onChange={[Function]}
+                  useSeconds={false}
+                >
+                  <Time.Manager
+                    onChange={[Function]}
+                    useSeconds={false}
+                  >
+                    <FocusManager
+                      className="theme-time-picker time-picker"
+                      divRef={
+                        Object {
+                          "current": <div
+                            class="theme-time-picker time-picker"
+                            tabindex="-1"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="form-control theme-time-picker-input"
+                              id="my-picker-start-time-picker-input"
+                              maxlength="5"
+                              placeholder="HH:mm"
+                              style="width: 47px;"
+                              type="text"
+                              value=""
+                            />
+                            <span
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                            >
+                              HH:mm
+                            </span>
+                          </div>,
+                        }
+                      }
+                      onClick={[Function]}
+                      onFocusIn={[Function]}
+                      onFocusOut={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className="theme-time-picker time-picker"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={-1}
+                      >
+                        <Time.Input
+                          id="my-picker-start-time-picker-input"
+                          inputRef={
+                            Object {
+                              "current": <input
+                                autocomplete="off"
+                                class="form-control theme-time-picker-input"
+                                id="my-picker-start-time-picker-input"
+                                maxlength="5"
+                                placeholder="HH:mm"
+                                style="width: 47px;"
+                                type="text"
+                                value=""
+                              />,
+                            }
+                          }
+                          key="input"
+                        >
+                          <InputSizer
+                            inputText="HH:mm"
+                          >
+                            <DebounceInput
+                              autoComplete="off"
+                              className="form-control theme-time-picker-input"
+                              debounceTimeout={300}
+                              element="input"
+                              forceNotifyByEnter={true}
+                              forceNotifyOnBlur={true}
+                              id="my-picker-start-time-picker-input"
+                              inputRef={
+                                Object {
+                                  "current": <input
+                                    autocomplete="off"
+                                    class="form-control theme-time-picker-input"
+                                    id="my-picker-start-time-picker-input"
+                                    maxlength="5"
+                                    placeholder="HH:mm"
+                                    style="width: 47px;"
+                                    type="text"
+                                    value=""
+                                  />,
+                                }
+                              }
+                              maxLength={5}
+                              minLength={0}
+                              onChange={[Function]}
+                              placeholder="HH:mm"
+                              style={
+                                Object {
+                                  "width": 47,
+                                }
+                              }
+                              type="text"
+                              value=""
+                            >
+                              <input
+                                autoComplete="off"
+                                className="form-control theme-time-picker-input"
+                                id="my-picker-start-time-picker-input"
+                                maxLength={5}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="HH:mm"
+                                style={
+                                  Object {
+                                    "width": 47,
+                                  }
+                                }
+                                type="text"
+                                value=""
+                              />
+                            </DebounceInput>
+                            <span
+                              style={
+                                Object {
+                                  "fontSize": "1.6rem",
+                                  "fontWeight": 400,
+                                  "position": "absolute",
+                                  "visibility": "hidden",
+                                }
+                              }
+                            >
+                              HH:mm
+                            </span>
+                          </InputSizer>
+                        </Time.Input>
+                      </div>
+                    </FocusManager>
+                  </Time.Manager>
+                </InputTimePicker>
+              </div>
+            </DateTime.Manager>
+          </InputDateTimePicker>
+        </InputDateTimePickerSwitch>
+      </div>
+      <span
+        className="theme-arrow arrow"
+      >
+        <Icon
+          className="theme-icon icon"
+          name="talend-arrow-right"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon theme-icon icon"
+            focusable="false"
+            name="talend-arrow-right"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-arrow-right"
+            />
+          </svg>
+        </Icon>
+      </span>
+      <div>
+        <label
+          className="control-label"
+          htmlFor="my-picker"
+        >
+          To
+        </label>
+        <InputDateTimePickerSwitch
+          dateFormat="YYYY-MM-DD"
+          defaultTimeEnd={
+            Object {
+              "hours": "12",
+              "minutes": "24",
+            }
+          }
+          defaultTimeStart={
+            Object {
+              "hours": "00",
+              "minutes": "00",
+            }
+          }
+          defaultTimeValue={
+            Object {
+              "hours": "12",
+              "minutes": "24",
+            }
+          }
+          id="my-picker-end"
+          onChange={[Function]}
+          t={[Function]}
+        >
+          <InputDateTimePicker
+            dateFormat="YYYY-MM-DD"
+            defaultTimeEnd={
+              Object {
+                "hours": "12",
+                "minutes": "24",
+              }
+            }
+            defaultTimeStart={
+              Object {
+                "hours": "00",
+                "minutes": "00",
+              }
+            }
+            defaultTimeValue={
+              Object {
+                "hours": "12",
+                "minutes": "24",
+              }
+            }
+            id="my-picker-end"
+            onChange={[Function]}
+            required={true}
+            t={[Function]}
+            useSeconds={false}
+            useUTC={false}
+          >
+            <DateTime.Manager
+              dateFormat="YYYY-MM-DD"
+              defaultTimeValue={
+                Object {
+                  "hours": "12",
+                  "minutes": "24",
+                }
+              }
+              id="my-picker-end"
+              onChange={[Function]}
+              useSeconds={false}
+              useUTC={false}
+            >
+              <div
+                className="theme-date-time-picker"
+              >
+                <InputDatePicker
+                  dateFormat="YYYY-MM-DD"
+                  id="my-picker-end-date-picker"
+                  onChange={[Function]}
+                  required={true}
+                  useUTC={false}
+                >
+                  <Date.Manager
+                    dateFormat="YYYY-MM-DD"
+                    onChange={[Function]}
+                    useUTC={false}
+                  >
+                    <FocusManager
+                      className="theme-date-picker date-picker"
+                      divRef={
+                        Object {
+                          "current": <div
+                            class="theme-date-picker date-picker"
+                            tabindex="-1"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="form-control"
+                              id="my-picker-end-date-picker-input"
+                              placeholder="YYYY-MM-DD"
+                              style="width: 47px;"
+                              type="text"
+                              value=""
+                            />
+                            <span
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                            >
+                              YYYY-MM-DD
+                            </span>
+                          </div>,
+                        }
+                      }
+                      onClick={[Function]}
+                      onFocusIn={[Function]}
+                      onFocusOut={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className="theme-date-picker date-picker"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={-1}
+                      >
+                        <Date.Input
+                          id="my-picker-end-date-picker-input"
+                          inputRef={
+                            Object {
+                              "current": <input
+                                autocomplete="off"
+                                class="form-control"
+                                id="my-picker-end-date-picker-input"
+                                placeholder="YYYY-MM-DD"
+                                style="width: 47px;"
+                                type="text"
+                                value=""
+                              />,
+                            }
+                          }
+                          key="input"
+                        >
+                          <InputSizer
+                            inputText="YYYY-MM-DD"
+                          >
+                            <DebounceInput
+                              autoComplete="off"
+                              className="form-control"
+                              debounceTimeout={300}
+                              element="input"
+                              forceNotifyByEnter={true}
+                              forceNotifyOnBlur={true}
+                              id="my-picker-end-date-picker-input"
+                              inputRef={
+                                Object {
+                                  "current": <input
+                                    autocomplete="off"
+                                    class="form-control"
+                                    id="my-picker-end-date-picker-input"
+                                    placeholder="YYYY-MM-DD"
+                                    style="width: 47px;"
+                                    type="text"
+                                    value=""
+                                  />,
+                                }
+                              }
+                              minLength={0}
+                              onChange={[Function]}
+                              placeholder="YYYY-MM-DD"
+                              style={
+                                Object {
+                                  "width": 47,
+                                }
+                              }
+                              type="text"
+                              value=""
+                            >
+                              <input
+                                autoComplete="off"
+                                className="form-control"
+                                id="my-picker-end-date-picker-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="YYYY-MM-DD"
+                                style={
+                                  Object {
+                                    "width": 47,
+                                  }
+                                }
+                                type="text"
+                                value=""
+                              />
+                            </DebounceInput>
+                            <span
+                              style={
+                                Object {
+                                  "fontSize": "1.6rem",
+                                  "fontWeight": 400,
+                                  "position": "absolute",
+                                  "visibility": "hidden",
+                                }
+                              }
+                            >
+                              YYYY-MM-DD
+                            </span>
+                          </InputSizer>
+                        </Date.Input>
+                      </div>
+                    </FocusManager>
+                  </Date.Manager>
+                </InputDatePicker>
+                <InputTimePicker
+                  id="my-picker-end-time-picker"
+                  onChange={[Function]}
+                  useSeconds={false}
+                >
+                  <Time.Manager
+                    onChange={[Function]}
+                    useSeconds={false}
+                  >
+                    <FocusManager
+                      className="theme-time-picker time-picker"
+                      divRef={
+                        Object {
+                          "current": <div
+                            class="theme-time-picker time-picker"
+                            tabindex="-1"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="form-control theme-time-picker-input"
+                              id="my-picker-end-time-picker-input"
+                              maxlength="5"
+                              placeholder="HH:mm"
+                              style="width: 47px;"
+                              type="text"
+                              value=""
+                            />
+                            <span
+                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                            >
+                              HH:mm
+                            </span>
+                          </div>,
+                        }
+                      }
+                      onClick={[Function]}
+                      onFocusIn={[Function]}
+                      onFocusOut={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <div
+                        className="theme-time-picker time-picker"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={-1}
+                      >
+                        <Time.Input
+                          id="my-picker-end-time-picker-input"
+                          inputRef={
+                            Object {
+                              "current": <input
+                                autocomplete="off"
+                                class="form-control theme-time-picker-input"
+                                id="my-picker-end-time-picker-input"
+                                maxlength="5"
+                                placeholder="HH:mm"
+                                style="width: 47px;"
+                                type="text"
+                                value=""
+                              />,
+                            }
+                          }
+                          key="input"
+                        >
+                          <InputSizer
+                            inputText="HH:mm"
+                          >
+                            <DebounceInput
+                              autoComplete="off"
+                              className="form-control theme-time-picker-input"
+                              debounceTimeout={300}
+                              element="input"
+                              forceNotifyByEnter={true}
+                              forceNotifyOnBlur={true}
+                              id="my-picker-end-time-picker-input"
+                              inputRef={
+                                Object {
+                                  "current": <input
+                                    autocomplete="off"
+                                    class="form-control theme-time-picker-input"
+                                    id="my-picker-end-time-picker-input"
+                                    maxlength="5"
+                                    placeholder="HH:mm"
+                                    style="width: 47px;"
+                                    type="text"
+                                    value=""
+                                  />,
+                                }
+                              }
+                              maxLength={5}
+                              minLength={0}
+                              onChange={[Function]}
+                              placeholder="HH:mm"
+                              style={
+                                Object {
+                                  "width": 47,
+                                }
+                              }
+                              type="text"
+                              value=""
+                            >
+                              <input
+                                autoComplete="off"
+                                className="form-control theme-time-picker-input"
+                                id="my-picker-end-time-picker-input"
+                                maxLength={5}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="HH:mm"
+                                style={
+                                  Object {
+                                    "width": 47,
+                                  }
+                                }
+                                type="text"
+                                value=""
+                              />
+                            </DebounceInput>
+                            <span
+                              style={
+                                Object {
+                                  "fontSize": "1.6rem",
+                                  "fontWeight": 400,
+                                  "position": "absolute",
+                                  "visibility": "hidden",
+                                }
+                              }
+                            >
+                              HH:mm
+                            </span>
+                          </InputSizer>
+                        </Time.Input>
+                      </div>
+                    </FocusManager>
+                  </Time.Manager>
+                </InputTimePicker>
+              </div>
+            </DateTime.Manager>
+          </InputDateTimePicker>
+        </InputDateTimePickerSwitch>
+      </div>
+    </div>
+  </DateTimeRange.Manager>
+</InputDateTimeRangePicker>
+`;

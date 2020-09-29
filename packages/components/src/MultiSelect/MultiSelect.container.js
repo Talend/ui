@@ -13,7 +13,7 @@ import { ItemOption } from './ItemOption.component';
 import { ItemView } from './ItemView.component';
 import Dropdown from './Dropdown.container';
 import { SELECT_ALL_VALUE, CREATE_NEW_VALUE } from './constants';
-import { ActionButton } from '../Actions/ActionButton/ActionButton.component';
+import { ActionButton } from '../Actions';
 import Icon from '../Icon';
 
 function initSelectedMap(selected) {
@@ -35,13 +35,16 @@ function isIn(element, container) {
 
 class MultiSelect extends React.Component {
 	static displayName = 'MultiSelect';
+
 	static theme = theme;
+
 	static defaultProps = {
 		itemOptionRender: ItemOption,
 		itemViewRender: ItemView,
 		selected: [],
 		options: [],
 	};
+
 	static propTypes = {
 		id: PropTypes.string.isRequired,
 		name: PropTypes.string,

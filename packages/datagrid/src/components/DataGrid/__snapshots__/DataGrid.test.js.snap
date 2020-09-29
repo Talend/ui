@@ -210,7 +210,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
             "value": "10880464",
           },
           "index.index": 0,
-          "loading": false,
+          "loaded": undefined,
         },
         Object {
           "data.field0": Object {
@@ -274,7 +274,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
             "value": "",
           },
           "index.index": 1,
-          "loading": false,
+          "loaded": undefined,
         },
       ]
     }
@@ -291,7 +291,7 @@ exports[`#DataGrid should render one Skeleton is InProgress 1`] = `
 <div
   className="theme-td-grid-loading theme-td-grid td-grid"
 >
-  <withI18nextTranslation(Skeleton)
+  <Skeleton
     name="talend-table"
     type="icon"
   />

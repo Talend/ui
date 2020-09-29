@@ -1,6 +1,8 @@
 import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
+import { withI18next } from 'storybook-addon-i18next';
+import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import createSagaMiddleware from 'redux-saga';
 import withCMF from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
@@ -8,6 +10,7 @@ import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
+import i18n from './../../../.storybook/i18n';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
 import {
@@ -17,6 +20,13 @@ import {
 import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
 
+const languages = {};
+Object.keys(tuiLocales).forEach(key => languages[key] = key);
+
+addDecorator(withI18next({
+	i18n,
+	languages,
+}));
 addDecorator(withCMF);
 addDecorator(withA11y);
 

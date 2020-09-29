@@ -29,7 +29,7 @@ exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
       </div>
     </span>
   </button>
-  <withI18nextTranslation(QualityBarComponent)
+  <QualityBar
     empty={33}
     invalid={33}
     valid={34}

@@ -2,8 +2,14 @@
 
 exports[`SidePanel should render 1`] = `
 <withI18nextTranslation(SidePanel)
+  actions={Array []}
+  dockable={true}
   docked={false}
+  large={false}
+  minimised={false}
   onToggleDock={[Function]}
+  reverse={false}
+  t={[Function]}
 />
 `;
 
@@ -15,7 +21,12 @@ exports[`SidePanel should render provided actions as string 1`] = `
       "menu:demo",
     ]
   }
+  dockable={true}
   docked={false}
+  large={false}
+  minimised={false}
   onToggleDock={[Function]}
+  reverse={false}
+  t={[Function]}
 />
 `;

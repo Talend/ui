@@ -68,12 +68,13 @@ class FilterBar extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
+		const props = {
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
 			docked: this.props.docked != null ? this.props.docked : state.get(DOCKED_ATTR),
 			value: this.props.value ? this.props.value : state.get(QUERY_ATTR, ''),
 			onToggle: this.onToggle,
 			onFilter: this.onFilter,
-		});
+		};
 		return <Component {...props} />;
 	}
 }

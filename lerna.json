@@ -1,6 +1,6 @@
 {
   "lerna": "2.5.1",
-  "version": "4.22.0",
+  "version": "5.22.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
@@ -9,13 +9,13 @@
     "packages/cmf-webpack-plugin",
     "packages/components",
     "packages/containers",
+    "packages/datagrid",
     "packages/forms",
     "packages/generator",
     "packages/icons",
     "packages/sagas",
+    "packages/stepper",
     "packages/storybook-cmf",
-    "packages/theme",
-    "packages/datagrid",
-    "packages/stepper"
+    "packages/theme"
   ]
 }

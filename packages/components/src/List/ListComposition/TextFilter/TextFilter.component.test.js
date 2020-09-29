@@ -46,40 +46,28 @@ describe('TextFilter', () => {
 			textFilter: '',
 			setTextFilter: jest.fn(),
 		};
+		const event = { target: { value: 'my-filter-value' } };
 
 		// when
 		let wrapper;
 		act(() => {
 			wrapper = mount(
 				<ListContext.Provider value={context}>
-					<TextFilter id="myTextFilter" initialDocked />
+					<TextFilter id="myTextFilter" initialDocked debounceTimeout={0} />
 				</ListContext.Provider>,
 			);
 
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('onToggle')();
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('onFilter')({}, 'my-filter-value');
+			wrapper.find('button#myTextFilter').simulate('click');
 		});
 		wrapper.update();
+		wrapper.find('input').at(0).simulate('change', event);
 
 		// then
-		expect(
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('docked'),
-		).toBe(false);
 		expect(context.setTextFilter).toHaveBeenCalledWith('my-filter-value');
 	});
 
-	it('should call the change callbacks when they are provided (controlled mode)', () => {
+	it('should call the toggle callback when they are provided (controlled mode)', () => {
 		// given
-		const onChange = jest.fn();
 		const onToggle = jest.fn();
 
 		// when
@@ -87,23 +75,39 @@ describe('TextFilter', () => {
 		act(() => {
 			wrapper = mount(
 				<ListContext.Provider value={defaultContext}>
-					<TextFilter id="myTextFilter" onChange={onChange} onToggle={onToggle} />
+					<TextFilter id="myTextFilter" initialDocked onToggle={onToggle} />
 				</ListContext.Provider>,
 			);
 
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('onToggle')();
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('onFilter')({}, 'my-filter-value');
+			wrapper.find('button#myTextFilter').simulate('click');
 		});
+		wrapper.update();
 
 		// then
 		expect(onToggle).toHaveBeenCalled();
-		expect(onChange).toHaveBeenCalledWith({}, 'my-filter-value');
+	});
+
+	it('should call the callback on change (controlled mode)', () => {
+		// given
+		const onChange = jest.fn();
+		const event = { target: { value: 'my-filter-value' } };
+		const wrapper = mount(
+			<ListContext.Provider value={defaultContext}>
+				<TextFilter
+					id="myTextFilter"
+					initialDocked={false}
+					onChange={onChange}
+					debounceTimeout={0}
+					value="lol"
+				/>
+			</ListContext.Provider>,
+		);
+
+		// when
+		wrapper.find('input').at(0).simulate('change', event);
+
+		// then
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), 'my-filter-value');
 	});
 
 	it('should not be docked when text filter is not empty', () => {
@@ -123,43 +127,24 @@ describe('TextFilter', () => {
 				</ListContext.Provider>,
 			);
 
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('onToggle')();
+			wrapper.find('button#myTextFilter').simulate('click');
 		});
 		wrapper.update();
 
 		// then
-		expect(
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('docked'),
-		).toBe(false);
-		expect(
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('value'),
-		).toBe('my-filter-value');
+		expect(wrapper.find('button#myTextFilter').length).toBe(0);
+		expect(wrapper.find('input').length).toBe(1);
+		expect(wrapper.find('input').at(0).prop('value')).toBe('my-filter-value');
 
 		// when
 		act(() => {
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('onToggle')();
+			wrapper.find('input').simulate('blur'); // blur with no input value toggles the search
 		});
 		wrapper.update();
 
 		// then
-		expect(
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('docked'),
-		).toBe(false);
+		expect(wrapper.find('button#myTextFilter').length).toBe(0);
+		expect(wrapper.find('input').length).toBe(1);
 	});
 
 	it('should be docked when text filter is empty', () => {
@@ -178,37 +163,22 @@ describe('TextFilter', () => {
 					<TextFilter id="myTextFilter" initialDocked />
 				</ListContext.Provider>,
 			);
-
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('onToggle')();
+			wrapper.find('button#myTextFilter').simulate('click');
 		});
 		wrapper.update();
 
 		// then
-		expect(
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('docked'),
-		).toBe(false);
+		expect(wrapper.find('button#myTextFilter').length).toBe(0);
+		expect(wrapper.find('input').length).toBe(1);
 
 		// when
 		act(() => {
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('onToggle')();
+			wrapper.find('input').simulate('blur'); // blur with no input value toggles the search
 		});
 		wrapper.update();
 
 		// then
-		expect(
-			wrapper
-				.find('FilterBar')
-				.at(0)
-				.prop('docked'),
-		).toBe(true);
+		expect(wrapper.find('button#myTextFilter').length).toBe(1);
+		expect(wrapper.find('input').length).toBe(0);
 	});
 });

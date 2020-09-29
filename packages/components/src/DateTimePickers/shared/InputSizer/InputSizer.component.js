@@ -36,7 +36,7 @@ function InputSizer({ placeholder, inputText, children }) {
 }
 
 InputSizer.propTypes = {
-	placeholder: PropTypes.string.isRequired,
+	placeholder: PropTypes.string,
 	inputText: PropTypes.string,
 	children: PropTypes.func.isRequired,
 };

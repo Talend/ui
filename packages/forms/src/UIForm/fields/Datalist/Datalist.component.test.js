@@ -37,11 +37,17 @@ const schemaMultiSection = {
 		titleMap: [
 			{
 				title: 'test1',
-				suggestions: [{ name: 'Foo2', value: 'foo2' }, { name: 'Lol', value: 'lol' }],
+				suggestions: [
+					{ name: 'Foo2', value: 'foo2' },
+					{ name: 'Lol', value: 'lol' },
+				],
 			},
 			{
 				title: 'test2',
-				suggestions: [{ name: 'Foo', value: 'foo' }, { name: 'Bar', value: 'bar' }],
+				suggestions: [
+					{ name: 'Foo', value: 'foo' },
+					{ name: 'Bar', value: 'bar' },
+				],
 			},
 		],
 	},
@@ -56,15 +62,15 @@ describe('Datalist component', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<Datalist.WrappedComponent
-				id={'my-datalist'}
+			<Datalist
+				id="my-datalist"
 				isValid
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn()}
 				schema={schema}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 
@@ -75,15 +81,15 @@ describe('Datalist component', () => {
 	it('should render with multisection', () => {
 		// when
 		const wrapper = shallow(
-			<Datalist.WrappedComponent
-				id={'my-datalist'}
+			<Datalist
+				id="my-datalist"
 				isValid
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn()}
 				schema={schemaMultiSection}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 
@@ -105,7 +111,7 @@ describe('Datalist component', () => {
 					},
 				},
 			};
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 			const selectedValue = { label: 'Bar', value: 'bar' };
 			const event = { type: 'change' };
 			wrapper.instance().onChange(event, selectedValue);
@@ -129,7 +135,7 @@ describe('Datalist component', () => {
 				onTrigger: jest.fn(),
 				schema,
 			};
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 			const selectedValue = { label: 'Bar', value: 'bar' };
 			const event = { type: 'change' };
 			wrapper.instance().setState({
@@ -148,6 +154,12 @@ describe('Datalist component', () => {
 					...schema.schema,
 					enum: ['my', 'title', 'map'],
 				},
+
+				titleMap: [
+					{ name: 'my_name', value: 'my' },
+					{ name: 'title_name', value: 'title' },
+					{ name: 'map_name', value: 'map' },
+				],
 			};
 			expect(props.onChange).toBeCalledWith(event, {
 				schema: generatedSchema,
@@ -174,7 +186,7 @@ describe('Datalist component', () => {
 			};
 			const event = { type: 'change' };
 			const payload = undefined;
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 			wrapper.instance().onChange(event, payload);
 			// then
 			expect(props.onChange).toHaveBeenCalledWith(event, { schema: props.schema });
@@ -182,23 +194,15 @@ describe('Datalist component', () => {
 	});
 
 	describe('onFocus', () => {
-		it('should call onTrigger when triggers has onEvent="focus"', done => {
+		it('should call onTrigger when triggers has onEvent="focus"', async () => {
 			// given
 			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 			const props = {
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
-				onTrigger: jest.fn(
-					event =>
-						new Promise(resolve => {
-							// hack: to be sure we catch the setState after the promise
-							setTimeout(() => {
-								expect(event.target.state.isLoading).toBe(false);
-								done();
-							}, 0);
-							return resolve(data);
-						}),
-				),
+				onTrigger: jest.fn(() => {
+					return new Promise(resolve => resolve(data));
+				}),
 				schema: {
 					type: 'string',
 					schema: {
@@ -211,23 +215,53 @@ describe('Datalist component', () => {
 					],
 				},
 			};
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 			const event = { type: 'focus', target: wrapper.instance() };
 
 			// when
-			wrapper
-				.find(DatalistComponent)
-				.props()
-				.onFocus(event);
+			wrapper.find(DatalistComponent).props().onFocus(event);
 
 			// then
-			expect(props.onTrigger).toBeCalledWith(event, {
+			await expect(props.onTrigger).toBeCalledWith(event, {
 				trigger: props.schema.triggers[0],
 				schema: props.schema,
 				errors: props.errors,
 				properties: props.properties,
 			});
-			expect(wrapper.state('isLoading')).toBe(true);
+			await expect(wrapper.state('isLoading')).toBe(true);
+			await expect(wrapper.state('isLoading')).toBe(false);
+		});
+
+		it('should call get titleMap from trigger and send it in onChange', async () => {
+			// given
+			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
+			const props = {
+				onChange: jest.fn(),
+				onFinish: jest.fn(),
+				onTrigger: jest.fn(() => {
+					return new Promise(resolve => resolve(data));
+				}),
+				schema: {
+					type: 'string',
+					schema: {
+						type: 'string',
+					},
+					triggers: [
+						{
+							onEvent: 'focus',
+						},
+					],
+				},
+			};
+
+			const wrapper = shallow(<Datalist {...props} />);
+			const event = { type: 'focus', target: wrapper.instance() };
+			await wrapper.find(DatalistComponent).props().onFocus(event);
+			await expect(props.onTrigger).toHaveBeenCalled();
+			await wrapper.instance().onChange(event, undefined);
+			await expect(props.onChange).toHaveBeenCalledWith(event, {
+				schema: { ...props.schema, titleMap: data.titleMap },
+			});
 		});
 	});
 
@@ -241,7 +275,7 @@ describe('Datalist component', () => {
 				schema,
 				value: '',
 			};
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 			const options = wrapper.instance().getTitleMap();
 
 			// then
@@ -260,9 +294,12 @@ describe('Datalist component', () => {
 				onTrigger: jest.fn(),
 				schema,
 			};
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 			wrapper.setState({
-				titleMap: [{ name: 'Hello', value: 'hello' }, { name: 'World', value: 'world' }],
+				titleMap: [
+					{ name: 'Hello', value: 'hello' },
+					{ name: 'World', value: 'world' },
+				],
 			});
 			const options = wrapper.instance().getTitleMap();
 
@@ -283,7 +320,7 @@ describe('Datalist component', () => {
 				value: 'hello',
 				resolveName: value => `${value}_name`,
 			};
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 
 			// then
 			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
@@ -303,7 +340,7 @@ describe('Datalist component', () => {
 				schema: { ...schema, restricted: false },
 				value: '',
 			};
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 
 			// then
 			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
@@ -342,7 +379,7 @@ describe('Datalist component', () => {
 			};
 
 			// when
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 
 			// then
 			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
@@ -367,7 +404,7 @@ describe('Datalist component', () => {
 				schema,
 				value: 'hello',
 			};
-			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+			const wrapper = shallow(<Datalist {...props} />);
 
 			// then
 			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([

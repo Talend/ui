@@ -1,0 +1,62 @@
+@mixin radio-toolbar-input($color, $opacity) {
+	transition: 0.2s ease-out;
+	color: $color;
+	opacity: $opacity;
+}
+
+.tc-label-toggle {
+	display: inline-flex;
+	background-color: $gallery;
+	border-radius: $padding-larger;
+	margin-right: $padding-small;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25) inset;
+
+	&.tc-radio-disabled {
+		opacity: 0.54;
+		label:hover {
+			cursor: not-allowed;
+			&:not(.tc-radio-selected) {
+				background-color: $gallery;
+				color: $black;
+			}
+		}
+		input[type='radio'] {
+			cursor: not-allowed;
+		}
+	}
+
+	input[type='radio'] {
+		position: fixed;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	label {
+		background-color: $gallery;
+		padding: 0 8px;
+		border-radius: $padding-larger;
+		color: $black;
+		font-weight: $font-weight-semi-bold;
+		margin: 2px 0;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $scooter;
+			color: $white;
+		}
+
+		&:first-of-type {
+			margin: 2px 0 2px 2px;
+		}
+
+		&:last-of-type {
+			margin: 2px 2px 2px 0;
+		}
+
+		&.tc-radio-selected {
+			@include radio-toolbar-input($white, 1);
+			background-color: $lochmara;
+			font-weight: $font-weight-semi-bold;
+		}
+	}
+}

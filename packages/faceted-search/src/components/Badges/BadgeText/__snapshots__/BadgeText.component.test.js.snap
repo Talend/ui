@@ -14,13 +14,13 @@ exports[`BadgeText should mount a default badge 1`] = `
     <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
       <div class="tc-badge-operator-button theme-tc-badge-operator-button">
         <button id="myId-badge-text-operator-action-overlay"
-                aria-label="Does not contains"
+                aria-label="Does not contain"
                 type="button"
                 aria-describedby="42"
                 class="btn btn-link"
         >
           <svg name="talend-not-equal"
-               class="theme-tc-svg-icon tc-svg-icon"
+               class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
                focusable="false"
                aria-hidden="true"
           >
@@ -44,6 +44,7 @@ exports[`BadgeText should mount a default badge 1`] = `
     <button role="button"
             aria-label="Remove filter"
             id="tc-badge-delete-myId-badge-text"
+            data-feature="filter.remove"
             aria-describedby="42"
             type="button"
             class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"

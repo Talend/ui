@@ -1,129 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CellBoolean should render a falsy value 1`] = `
-<VirtualizedList(CellBoolean)
-  cellData={false}
-  i18n={
-    Object {
-      "changeLanguage": [Function],
-      "getFixedT": [Function],
-      "hasResourceBundle": [Function],
-      "init": [Function],
-      "isInitialized": true,
-      "isMock": true,
-      "language": "en",
-      "languages": Array [
-        "en",
-      ],
-      "loadNamespaces": [Function],
-      "off": [Function],
-      "on": [Function],
-      "options": Object {},
-      "reportNamespaces": ReportNamespaces {
-        "usedNamespaces": Object {
-          "tui-components": true,
-        },
-      },
-      "services": Object {
-        "backendConnector": Object {},
-        "resourceStore": Object {
-          "data": Object {},
-        },
-      },
-      "store": Object {
-        "data": Object {},
-        "off": [Function],
-        "on": [Function],
-      },
-      "t": [Function],
-    }
-  }
-  t={[Function]}
-  tReady={true}
-/>
-`;
-
-exports[`CellBoolean should render a truthy value 1`] = `
-<VirtualizedList(CellBoolean)
-  cellData={true}
-  i18n={
-    Object {
-      "changeLanguage": [Function],
-      "getFixedT": [Function],
-      "hasResourceBundle": [Function],
-      "init": [Function],
-      "isInitialized": true,
-      "isMock": true,
-      "language": "en",
-      "languages": Array [
-        "en",
-      ],
-      "loadNamespaces": [Function],
-      "off": [Function],
-      "on": [Function],
-      "options": Object {},
-      "reportNamespaces": ReportNamespaces {
-        "usedNamespaces": Object {
-          "tui-components": true,
-        },
-      },
-      "services": Object {
-        "backendConnector": Object {},
-        "resourceStore": Object {
-          "data": Object {},
-        },
-      },
-      "store": Object {
-        "data": Object {},
-        "off": [Function],
-        "on": [Function],
-      },
-      "t": [Function],
-    }
-  }
-  t={[Function]}
-  tReady={true}
-/>
-`;
-
-exports[`CellBoolean should render an empty cell 1`] = `
-<VirtualizedList(CellBoolean)
-  i18n={
-    Object {
-      "changeLanguage": [Function],
-      "getFixedT": [Function],
-      "hasResourceBundle": [Function],
-      "init": [Function],
-      "isInitialized": true,
-      "isMock": true,
-      "language": "en",
-      "languages": Array [
-        "en",
-      ],
-      "loadNamespaces": [Function],
-      "off": [Function],
-      "on": [Function],
-      "options": Object {},
-      "reportNamespaces": ReportNamespaces {
-        "usedNamespaces": Object {
-          "tui-components": true,
-        },
-      },
-      "services": Object {
-        "backendConnector": Object {},
-        "resourceStore": Object {
-          "data": Object {},
-        },
-      },
-      "store": Object {
-        "data": Object {},
-        "off": [Function],
-        "on": [Function],
-      },
-      "t": [Function],
-    }
-  }
-  t={[Function]}
-  tReady={true}
-/>
+exports[`CellBoolean should render an check icon for a truthy value in icon mode 1`] = `
+<div class="cell-boolean-container theme-cell-boolean-container">
+  <svg name="talend-check-circle"
+       class="theme-tc-svg-icon tc-svg-icon"
+       focusable="false"
+       aria-hidden="true"
+       title="Required"
+  >
+    <use xlink:href="#talend-check-circle">
+    </use>
+  </svg>
+</div>
 `;

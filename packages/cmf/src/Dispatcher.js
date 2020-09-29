@@ -22,6 +22,7 @@ function myfunc(event, props, context) {
  */
 export class Dispatcher extends React.Component {
 	static displayName = 'Dispatcher';
+
 	static propTypes = {
 		children: PropTypes.node.isRequired,
 		stopPropagation: PropTypes.bool,

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
+import TooltipTrigger from '../../TooltipTrigger';
 import { Action } from '../../Actions';
 import Icon from '../../Icon';
 import Badge from '../../Badge';
@@ -32,7 +33,15 @@ export function getItemIcon(iconName = 'talend-folder', isOpened) {
  */
 function TreeViewIcon({ icon, isOpened }) {
 	if (typeof icon === 'object') {
-		return <Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />;
+		return icon.tooltipLabel ? (
+			<TooltipTrigger label={icon.tooltipLabel} tooltipPlacement={icon.tooltipPlacement || 'top'}>
+				<span>
+					<Icon name={icon.name} className={classNames(css['tc-treeview-img'], icon.className)} />
+				</span>
+			</TooltipTrigger>
+		) : (
+			<Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />
+		);
 	}
 
 	return (
@@ -40,7 +49,7 @@ function TreeViewIcon({ icon, isOpened }) {
 	);
 }
 TreeViewIcon.propTypes = {
-	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(Icon.propTypes)]),
+	icon: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.shape(Icon.propTypes)]),
 	isOpened: PropTypes.bool,
 };
 
@@ -66,7 +75,7 @@ class TreeViewItem extends React.Component {
 			name: PropTypes.string.isRequired,
 			isOpened: PropTypes.bool,
 			children: PropTypes.arrayOf(PropTypes.object),
-			icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+			icon: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.object]),
 			actions: PropTypes.arrayOf(
 				PropTypes.shape({
 					action: PropTypes.func,
@@ -259,7 +268,7 @@ class TreeViewItem extends React.Component {
 							link
 						/>
 					) : null}
-					<TreeViewIcon key="icon" icon={icon} isOpened={showOpenedFolder} />
+					{icon !== false && <TreeViewIcon key="icon" icon={icon} isOpened={showOpenedFolder} />}
 					<span
 						key="label"
 						className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}

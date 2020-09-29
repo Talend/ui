@@ -8,10 +8,6 @@ $tc-status-space-btn-icon-label: 5px !default;
 	align-items: center;
 	height: 100%;
 
-	&-label {
-		text-transform: uppercase;
-	}
-
 	&-icon {
 		> svg {
 			width: $tc-status-icon-size;

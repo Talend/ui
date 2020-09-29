@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModelViewerLeaf should render ModelViewerLeaf 1`] = `
+<span
+  className="theme-tc-model-leaf tc-model-leaf"
+>
+  <button
+    aria-label="Select myDataKey ($)"
+    className="theme-tc-model-leaf-button tc-model-leaf-button"
+    onClick={[Function]}
+    title="toto"
+  />
+  <SimpleTextKeyValue
+    displayTypes={false}
+    formattedKey="toto"
+    separator=" "
+    typesRenderer={[Function]}
+    value=""
+  />
+  <span
+    className="theme-tc-model-leaf-options tc-model-leaf-options"
+  />
+</span>
+`;
+
+exports[`ModelViewerLeaf should render ModelViewerLeaf highlighted 1`] = `
+<span
+  className="theme-tc-model-leaf tc-model-leaf"
+>
+  <button
+    aria-label="Select myDataKey ($)"
+    className="theme-tc-model-leaf-button-highlighted tc-model-leaf-button-highlighted theme-tc-model-leaf-button tc-model-leaf-button"
+    onClick={[Function]}
+    title=" (typeSem)*"
+  />
+  <SimpleTextKeyValue
+    displayTypes={false}
+    separator=" "
+    typesRenderer={[Function]}
+    value="(typeSem)*"
+  />
+  <span
+    className="theme-tc-model-leaf-options tc-model-leaf-options"
+  />
+</span>
+`;
+
+exports[`ModelViewerLeaf should render ModelViewerLeaf with additional data 1`] = `
+<span
+  className="theme-tc-model-leaf tc-model-leaf"
+>
+  <button
+    aria-label="Select myDataKey ($)"
+    className="theme-tc-model-leaf-button-highlighted tc-model-leaf-button-highlighted theme-tc-model-leaf-button tc-model-leaf-button"
+    onClick={[Function]}
+    title=" (typeSem)*"
+  />
+  <SimpleTextKeyValue
+    displayTypes={false}
+    separator=" "
+    typesRenderer={[Function]}
+    value="(typeSem)*"
+  />
+  <span
+    className="theme-tc-model-leaf-options tc-model-leaf-options"
+  >
+    <div>
+      Render some data, can use value 
+      Object {
+        "dqType": "typeSem",
+      }
+    </div>
+  </span>
+</span>
+`;

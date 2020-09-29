@@ -1,5 +1,10 @@
 import Toggle from './Toggle.component';
+import LabelToggle from './LabelToggle/LabelToggle.component';
+import Checkbox from '../Checkbox';
+
+Toggle.Label = LabelToggle;
 
 export default Toggle;
 
-export function Checkbox(params) { return new Toggle({ className: 'checkbox', ...params }); }
+// TODO 6.0: remove this export, it is attached to Toggle component
+export { Checkbox };

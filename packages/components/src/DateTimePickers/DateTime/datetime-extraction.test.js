@@ -76,6 +76,20 @@ describe('Date extraction', () => {
 				errorMessage: null,
 			});
 		});
+
+		it('should return error for string without time', () => {
+			// given
+			const value = '2015-09-15';
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractParts(value, options);
+
+			// then
+			expect(parts.date).toEqual('2015-09-15');
+			expect(parts.time).toBeFalsy();
+			expect(parts.errors[0].code).toEqual('INVALID_TIME_EMPTY');
+		});
 	});
 
 	describe('extractPartsFromDateTime', () => {

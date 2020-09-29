@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export default function useCollectionSelection(
 	collection = [],
@@ -7,22 +7,26 @@ export default function useCollectionSelection(
 ) {
 	const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
 
-	function filterSelectionFromCollection(selection) {
-		return collection
-			.filter(item => selection.includes(item[idKey]))
-			.map(item => item[idKey]);
-	}
+	const filterSelectionFromCollection = useCallback(
+		selection =>
+			collection.filter(item => item && selection.includes(item[idKey])).map(item => item[idKey]),
+		[idKey, collection],
+	);
 
 	useEffect(() => {
-		if (selectedIds.length === 0) {
-			return;
-		}
-
-		const filteredSelection = filterSelectionFromCollection(selectedIds);
-		setSelectedIds(filteredSelection);
-	}, [collection]);
+		setSelectedIds(oldIds => {
+			if (oldIds.length === 0) {
+				return oldIds;
+			}
+			return filterSelectionFromCollection(oldIds);
+		});
+	}, [collection, filterSelectionFromCollection]);
 
 	function isSelected(item) {
+		if (!item) {
+			return false;
+		}
+
 		const itemId = item[idKey];
 		return selectedIds.some(itemKey => itemKey === itemId);
 	}
@@ -43,7 +47,7 @@ export default function useCollectionSelection(
 		if (collection.length === selectedIds.length) {
 			setSelectedIds([]);
 		} else {
-			setSelectedIds(collection.map(item => item[idKey]));
+			setSelectedIds(collection.filter(item => !!item).map(item => item[idKey]));
 		}
 	}
 
@@ -53,5 +57,6 @@ export default function useCollectionSelection(
 		selectedIds,
 		onToggleAll,
 		onToggleItem,
+		setSelectedIds,
 	};
 }

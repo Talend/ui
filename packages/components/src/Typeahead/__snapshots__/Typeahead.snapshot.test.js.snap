@@ -76,6 +76,7 @@ exports[`Typeahead injection should use render props to inject extra components 
           <li
             aria-selected={false}
             id="react-autowhatever-my-search--item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -99,6 +100,7 @@ exports[`Typeahead injection should use render props to inject extra components 
           <li
             aria-selected={false}
             id="react-autowhatever-my-search--item-1"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -213,6 +215,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -260,6 +263,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-1"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -347,6 +351,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-1-item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -540,6 +545,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -570,6 +576,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-1"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -628,6 +635,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-1-item-0"
+            onMouseDown={[Function]}
             role="option"
             style={Object {}}
           >
@@ -723,6 +731,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
         <li
           aria-selected={false}
           id="react-autowhatever-my-search--item-0"
+          onMouseDown={[Function]}
           role="option"
           style={Object {}}
         >
@@ -747,6 +756,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
         <li
           aria-selected={false}
           id="react-autowhatever-my-search--item-1"
+          onMouseDown={[Function]}
           role="option"
           style={Object {}}
         >
@@ -914,7 +924,7 @@ exports[`Typeahead should pass input extra props 1`] = `
 
 exports[`Typeahead with toggle should render button 1`] = `
 <button
-  aria-describedby={42}
+  aria-describedby="42"
   aria-label="Toggle search bar"
   className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
   disabled={false}

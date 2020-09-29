@@ -9,8 +9,8 @@
     "url": "github:Talend/<%= props.name %>"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.6.0",
     "eslint": "^4.0.0",
     "eslint-config-airbnb": "^11.1.0",

@@ -4,7 +4,7 @@ import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
 import cssModule from '../../ColumnChooser.scss';
 import { getTheme } from '../../../../../../theme';
-import { Checkbox } from '../../../../../../Toggle';
+import Checkbox from '../../../../../../Checkbox';
 
 const theme = getTheme(cssModule);
 
@@ -32,7 +32,7 @@ const RowCheckbox = ({
 				checked={checked}
 				data-feature={dataFeature}
 				aria-describedby={describedby}
-				id={`${id}-checkbox-${label}`}
+				id={`${id}-checkbox-${label.replace(/\s+/g, '-')}`}
 				label={label}
 				onChange={onChangeCheckbox}
 			/>

@@ -1,18 +1,35 @@
 import merge from './cmfModule.merge';
 
-function find(options, buff = {}) {
+async function getModule(module) {
+	const { init, ...syncModule } = module;
+	if (init) {
+		const asyncModule = await init();
+		return {
+			...syncModule,
+			...asyncModule,
+		};
+	}
+	return syncModule;
+}
+
+async function find(options, buff = []) {
 	if (options.modules) {
-		return options.modules.reduce((acc, current) => {
+		for await (const current of options.modules) {
 			if (!current.id) {
 				throw new Error('a cmf.module must have an id');
 			}
-			if (!acc[current.id]) {
-				// eslint-disable-next-line no-param-reassign
-				acc[current.id] = current;
+
+			if (buff.some(({ id }) => current.id === id)) {
+				// eslint-disable-next-line no-console
+				console.warn(
+					`cmf.bootstrap: 2 modules have the same id ${current.id}. This duplicated module will be skipped.`,
+				);
+			} else {
+				const module = await getModule(current);
+				buff.push(module);
+				await find(module, buff);
 			}
-			find(current, buff);
-			return acc;
-		}, buff);
+		}
 	}
 	return buff;
 }
@@ -21,7 +38,9 @@ function find(options, buff = {}) {
  * This function find all modules then it merge all configurations
  * @return {Object} the configuration for cmf.bootstrap
  */
-export default function mergeModulesAndApp(options) {
-	const modules = find(options);
-	return merge(...Object.values(modules), options);
+export default async function mergeModulesAndApp(options) {
+	const modules = await find(options);
+	return merge(...modules, options);
 }
+
+mergeModulesAndApp.merge = merge;

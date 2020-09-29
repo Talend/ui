@@ -28,3 +28,19 @@
 .updating {
 	@include heartbeat(object-blink);
 }
+
+.field-template-title {
+	display: flex;
+	align-items: center;
+
+	:global {
+		.btn {
+			padding: 0;
+			margin-left: 5px;
+		}
+
+		.tc-svg-icon {
+			fill: #1476be;
+		}
+	}
+}

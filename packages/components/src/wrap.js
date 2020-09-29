@@ -39,7 +39,7 @@ function isNotBlackListedAttr(attr) {
 export default function wrap(Component, key) {
 	const Wrapper = ({ getComponent, components, text, ...props }) => {
 		const injected = Inject.all(getComponent, components);
-		const newprops = Object.assign({}, omit(props, OMIT_PROPS));
+		const newprops = { ...omit(props, OMIT_PROPS) };
 		if (COMPONENT_EXCEPTIONS[key] && COMPONENT_EXCEPTIONS[key](props)) {
 			return <Component {...newprops} />;
 		}

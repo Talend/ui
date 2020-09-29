@@ -11,7 +11,10 @@ const sidepanel = {
 };
 
 const list = {
-	columns: [{ key: 'id', label: 'Id' }, { key: 'label', label: 'Name' }],
+	columns: [
+		{ key: 'id', label: 'Id' },
+		{ key: 'label', label: 'Name' },
+	],
 	titleProps: {
 		key: 'label',
 	},
@@ -22,7 +25,10 @@ const actions = {};
 const toolbar = {
 	sort: {
 		field: 'id',
-		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'label', name: 'Name' },
+		],
 	},
 	filter: {
 		placeholder: 'find an object',
@@ -107,8 +113,9 @@ describe('Component HomeListView', () => {
 				header={<div>hello app</div>}
 				sidepanel={<div>hello sidepanel</div>}
 				list={<div>hello list</div>}
-				children={children}
-			/>,
+			>
+				{children}
+			</Component>,
 		);
 		expect(wrapper.props().drawers).toMatchSnapshot();
 	});

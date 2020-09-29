@@ -9,19 +9,19 @@ function reload() {
 	location.reload(true);
 }
 
-function ErrorPanel(props) {
+function ErrorPanel({ error = {} }) {
 	const [url, setURL] = React.useState();
 	useEffect(() => {
-		setURL(onError.createObjectURL(props.error));
+		setURL(onError.createObjectURL(error));
 		return () => {
 			onError.revokeObjectURL(url);
 		};
-	}, [props.error]);
+	}, [error, url]);
 	const HAS_REPORT = onError.hasReportFeature();
 	return (
 		<div>
 			<p className="error-title">
-				{props.error.name}: {props.error.message}
+				{error.name}: {error.message}
 			</p>
 			{HAS_REPORT && <p>The error report has been sent.</p>}
 			<p>From here you can either refresh or contact the support.</p>
@@ -54,9 +54,6 @@ ErrorPanel.propTypes = {
 		message: PropTypes.string,
 		stack: PropTypes.string,
 	}).isRequired,
-};
-ErrorPanel.defaultProps = {
-	error: {},
 };
 
 export default ErrorPanel;

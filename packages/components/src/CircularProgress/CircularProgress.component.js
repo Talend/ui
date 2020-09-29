@@ -75,8 +75,8 @@ CircularProgress.propTypes = {
 	className: PropTypes.string,
 	size: PropTypes.oneOf(Object.keys(SIZE).map(key => SIZE[key])),
 	light: PropTypes.bool,
-	percent: PropTypes.number,
-	t: PropTypes.func.isRequired,
+	percent: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	t: PropTypes.func,
 };
 
 CircularProgress.defaultProps = {

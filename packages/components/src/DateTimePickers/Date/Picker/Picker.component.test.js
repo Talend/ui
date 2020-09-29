@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 
 import { DateContext } from '../Context';
 import Picker from './Picker.component';
+import CalendarPicker from '../../pickers/CalendarPicker';
 
 describe('Date.Picker', () => {
 	it('should render', () => {
@@ -25,7 +26,7 @@ describe('Date.Picker', () => {
 		);
 
 		// then
-		expect(wrapper.find('CalendarPicker').props()).toMatchObject({
+		expect(wrapper.find(CalendarPicker).props()).toMatchObject({
 			manageFocus: true,
 			onSubmit: managerValue.pickerManagement.onSubmit,
 			other: 'custom props',
@@ -54,7 +55,7 @@ describe('Date.Picker', () => {
 		expect(managerValue.pickerManagement.onSubmit).not.toBeCalled();
 
 		// when
-		wrapper.find('CalendarPicker').prop('onSubmit')();
+		wrapper.find(CalendarPicker).prop('onSubmit')();
 
 		// then
 		expect(managerValue.pickerManagement.onSubmit).toBeCalled();

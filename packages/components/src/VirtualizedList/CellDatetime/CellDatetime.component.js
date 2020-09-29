@@ -14,7 +14,7 @@ const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
 export function computeValue(cellData, columnData, t) {
 	try {
-		if (columnData.mode === 'ago') {
+		if (cellData && columnData.mode === 'ago') {
 			return distanceInWordsToNow(cellData, {
 				addSuffix: true,
 				locale: getLocale(t),
@@ -37,6 +37,7 @@ export class CellDatetimeComponent extends React.Component {
 			this.props.cellData !== nextProps.cellData || this.props.columnData !== nextProps.columnData
 		);
 	}
+
 	render() {
 		const { cellData, columnData, t } = this.props;
 		const cell = (
@@ -63,7 +64,7 @@ export class CellDatetimeComponent extends React.Component {
 CellDatetimeComponent.displayName = 'VirtualizedList(CellDatetime)';
 CellDatetimeComponent.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
-	cellData: PropTypes.number,
+	cellData: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	// Column data
 	columnData: PropTypes.shape({
 		mode: PropTypes.string.isRequired,

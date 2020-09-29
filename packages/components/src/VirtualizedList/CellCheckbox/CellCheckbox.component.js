@@ -37,7 +37,7 @@ class CellCheckbox extends React.Component {
 							checked={cellData}
 							disabled={disabled}
 						/>
-						<span className={'tc-cell-checkbox'}>
+						<span className="tc-cell-checkbox">
 							<span className="sr-only">{label}</span>
 						</span>
 					</label>

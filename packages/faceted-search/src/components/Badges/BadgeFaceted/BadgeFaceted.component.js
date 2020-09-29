@@ -14,6 +14,7 @@ import { useBadgeOverlayFlow, OVERLAY_FLOW_ACTIONS } from '../../../hooks/badgeO
 import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';
 
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
+import { USAGE_TRACKING_TAGS } from '../../../constants';
 
 const theme = getTheme(cssModule);
 
@@ -33,12 +34,16 @@ const BadgeFaceted = ({
 	size = Badge.SIZES.large,
 	t,
 }) => {
+	const openValueJustAfterSelectionOfType = operators.length < 2 && initialOperatorOpened;
 	const [
 		overlayState,
 		overlayDispatch,
 		onChangeOperatorOverlay,
 		onChangeValueOverlay,
-	] = useBadgeOverlayFlow(initialOperatorOpened, initialValueOpened);
+	] = useBadgeOverlayFlow(
+		openValueJustAfterSelectionOfType ? false : initialOperatorOpened,
+		openValueJustAfterSelectionOfType ? true : initialValueOpened,
+	);
 
 	const { dispatch } = useBadgeFacetedContext();
 	const [badgeOperator, setBadgeOperator] = useState(operator);
@@ -49,6 +54,11 @@ const BadgeFaceted = ({
 		if (foundOperator) {
 			setBadgeOperator(foundOperator);
 		}
+		dispatch(
+			BADGES_ACTIONS.update(badgeId, {
+				operator: foundOperator,
+			}),
+		);
 		overlayDispatch(OVERLAY_FLOW_ACTIONS.openValue);
 		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
 	};
@@ -80,6 +90,12 @@ const BadgeFaceted = ({
 		overlayDispatch(OVERLAY_FLOW_ACTIONS.openValue);
 		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
 	};
+
+	const onHideSubmitBadge = (...args) => {
+		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
+		onSubmitBadge(...args);
+	};
+
 	return (
 		<Badge id={id} className={theme('tc-badge-faceted')} display={size}>
 			<BadgeComposition.Category category={labelCategory} label={labelCategory} />
@@ -93,21 +109,24 @@ const BadgeFaceted = ({
 				onClick={onChangeOperator}
 				operators={operators}
 				size={size}
+				t={t}
 			/>
 			<BadgeOverlay
 				id={id}
 				className={theme('tc-badge-faceted-overlay')}
 				hideLabel={false}
 				label={labelValue}
-				onHide={onSubmitBadge}
+				onHide={onHideSubmitBadge}
 				opened={overlayState.valueOpened}
 				onChange={onChangeValueOverlay}
+				t={t}
 			>
 				{children({ onSubmitBadge, onChangeValue, badgeValue })}
 			</BadgeOverlay>
 			<BadgeComposition.DeleteAction
 				id={id}
 				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
+				dataFeature={USAGE_TRACKING_TAGS.BADGE_REMOVE}
 				onClick={onDeleteBadge}
 				t={t}
 			/>

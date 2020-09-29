@@ -167,7 +167,6 @@ $tf-filterwidget-shadow-color: $shadow !default;
 .ArrayFieldTemplate::before {
 	content: attr(data-content);
 	display: inline-block;
-	text-transform: uppercase;
 	margin: 0 0 $padding-normal 0;
 	font-size: $font-size-small;
 	margin-left: $padding-large;

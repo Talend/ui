@@ -22,9 +22,9 @@ describe('BasicSearch', () => {
 		},
 		metadata: {
 			badgeId: 'name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b',
-			badges_per_facet: 'N',
+			badgePerFacet: 'N',
 			isInCreation: true,
-			entities_per_badge: '1',
+			entitiesPerBadge: '1',
 			operators: ['contains', '='],
 		},
 	};
@@ -42,8 +42,8 @@ describe('BasicSearch', () => {
 			type: 'text',
 		},
 		metadata: {
-			badges_per_facet: 'N',
-			entities_per_badge: '1',
+			badgePerFacet: 'N',
+			entitiesPerBadge: '1',
 			operators: ['contains', '='],
 		},
 	};
@@ -128,5 +128,25 @@ describe('BasicSearch', () => {
 		expect(onSubmit.mock.calls.length).toBe(1);
 		expect(onSubmit.mock.calls[0][0]).toEqual({});
 		expect(onSubmit.mock.calls[0][1]).toEqual(props.badgesFaceted.badges);
+	});
+
+	it('should remove all badges on clear button click', () => {
+		// Given
+		const props = {
+			badgesDefinitions,
+			badgesFaceted,
+			onSubmit: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<FacetedManager id="manager-id">
+				<BasicSearch {...props} />
+			</FacetedManager>,
+		);
+
+		// Then
+		expect(wrapper.find('.tc-badge').length).toBe(1);
+		wrapper.find('.tc-basic-search-clear-button').at(0).simulate('click');
+		expect(wrapper.find('.tc-badge').length).toBe(0);
 	});
 });

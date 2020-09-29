@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
+import ItemsNumber from './ItemsNumber';
 import ActionBar from '../../ActionBar';
 import ColumnChooserButton from './ColumnChooserButton';
 import DisplayModeToggle from './DisplayModeToggle';
@@ -60,6 +61,7 @@ function Toolbar({
 	filter,
 	getComponent,
 	id,
+	itemsNumber,
 	pagination,
 	sort,
 	t,
@@ -87,6 +89,17 @@ function Toolbar({
 				<Renderer.ActionBar {...actionBarProps} className="list-action-bar">
 					<ActionBar.Content right>
 						<ul>
+							{injected('before-itemsnumber')}
+							{itemsNumber && (
+								<li className="separated">
+									<ItemsNumber
+										id={id && `${id}-items-number`}
+										{...itemsNumber}
+										selected={actionBar.selected}
+										t={t}
+									/>
+								</li>
+							)}
 							{injected('before-filter')}
 							{filter && (
 								<li className="separated">
@@ -153,6 +166,7 @@ Toolbar.propTypes = {
 	]),
 	pagination: PropTypes.shape(Pagination.propTypes),
 	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
+	itemsNumber: PropTypes.shape(omit(ItemsNumber.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 	getComponent: PropTypes.func,
 	components: PropTypes.object,

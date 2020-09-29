@@ -10,12 +10,10 @@ export function mapStateToProps(state, ownProps) {
 		props.sourceData = state.cmf.collections.getIn(ownProps.source.split('.'));
 	}
 	if (ownProps.nameAttr && ownProps.tree) {
-		props.tree = Object.assign(
-			{
-				nameAttr: ownProps.nameAttr,
-			},
-			ownProps.tree,
-		);
+		props.tree = {
+			nameAttr: ownProps.nameAttr,
+			...ownProps.tree,
+		};
 	}
 	const filterState = state.cmf.components.getIn([FILTER_NAME, ownProps.id]);
 	if (filterState) {

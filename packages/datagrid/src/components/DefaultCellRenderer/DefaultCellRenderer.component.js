@@ -25,7 +25,7 @@ function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }
 
 	const plainValue = convertValue(value);
 
-	if (data.loading) {
+	if (data.loaded === false) {
 		content = <Skeleton key="1" />;
 	} else {
 		content = [

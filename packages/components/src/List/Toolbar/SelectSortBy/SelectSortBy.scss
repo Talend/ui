@@ -11,18 +11,6 @@ $tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
 		color: $tc-list-toolbar-display-color;
 		font-size: 1em;
 		margin: 0;
-		letter-spacing: 0;
-	}
-
-	&:global(.navbar-nav) li {
-		a[role='menuitem'],
-		a:global(.dropdown-toggle) {
-			text-transform: lowercase;
-			display: inline-block;
-			&::first-letter {
-				text-transform: uppercase;
-			}
-		}
 	}
 
 	:global(.tc-list-toolbar-order-chooser) {
@@ -53,8 +41,4 @@ $tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
 			}
 		}
 	}
-}
-
-.sort-by-items {
-	text-transform: capitalize;
 }

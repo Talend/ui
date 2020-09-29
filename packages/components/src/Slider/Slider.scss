@@ -85,5 +85,31 @@ $tc-slider-line-height: 24px;
 				box-shadow: $tc-slider-thumb-shadow-focused;
 			}
 		}
+
+		&--track-greater-than,
+		&--track-exclusive {
+			:global {
+				.rc-slider-rail {
+					background-color: $brand-primary;
+				}
+				.rc-slider-track {
+					background-color: $alto;
+				}
+			}
+		}
+
+		&--track-equals {
+			:global {
+				.rc-slider-rail,
+				.rc-slider-track {
+					background-color: $alto;
+				}
+
+				.rc-slider-handle {
+					box-shadow: $tc-slider-thumb-shadow;
+					background-color: $brand-primary;
+				}
+			}
+		}
 	}
 }

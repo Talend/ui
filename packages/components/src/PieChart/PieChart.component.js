@@ -12,18 +12,20 @@ import TooltipTrigger from '../TooltipTrigger';
  * @param {string} label the label to show on the tooltip
  * @param {string} tooltipPlacement the tooltip placement
  */
-export function decorateWithTooltip(tooltip, label, tooltipPlacement, Component, props) {
+function decorateWithTooltip(tooltip, label, tooltipPlacement, Component, props) {
 	if (!tooltip || !label) {
 		return <Component {...props} />;
 	}
 	return (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-			<Component {...props} />
+			<span>
+				<Component {...props} />
+			</span>
 		</TooltipTrigger>
 	);
 }
 
-export function getPieChartComponent(onClick) {
+function getPieChartComponent(onClick) {
 	return onClick ? PieChartButton : PieChartIcon;
 }
 

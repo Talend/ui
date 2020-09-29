@@ -10,6 +10,15 @@ import theme from './Slider.scss';
 import Action from '../Actions/Action';
 
 const noFormat = value => value;
+/**
+ * Options for controlling slider operator display mode
+ */
+// TODO 6.0: do not export, it's attache to the component now
+export const SLIDER_MODE = {
+	GREATER_THAN: 'greaterThan',
+	EQUALS: 'equals',
+	EXCLUSIVE: 'exclusive',
+};
 
 /**
  * this function check if we have icons to display
@@ -59,7 +68,7 @@ export function renderActions(actions, value, min, max, onChange, disabled) {
 	const captions = getCaptionsValue(actions.length, min, max);
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
-		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
+		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="actions">
 			{actions.map((action, index) => (
 				<Action
 					{...action}
@@ -89,13 +98,14 @@ function renderIcons(icons, value, min, max) {
 	if (isIconsAvailables(icons)) {
 		const position = getSelectedIconPosition(icons, value, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="icons">
 				{icons.map((icon, index) => (
 					<div
 						className={classnames(
 							theme['tc-slider-captions-element'],
 							'tc-slider-captions-element',
 						)}
+						key={index}
 					>
 						<Icon
 							name={icon}
@@ -124,7 +134,7 @@ function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 	if (captionTextStepNumber > 1) {
 		const captions = getCaptionsValue(captionTextStepNumber, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="captions">
 				{captions.map((caption, index) => (
 					<div
 						className={classnames(
@@ -176,22 +186,25 @@ function getCaption(
  * Function to set the tooltip
  * @param {function} captionsFormat the function to format the caption
  */
-function getHandle(captionsFormat) {
-	function Handle(props) {
+function getHandle(captionsFormat, getTooltipContainer, hideTooltip) {
+	// https://github.com/react-component/slider/issues/502
+	function Handle({ dragging, ...rest }) {
 		return (
 			<Tooltip
 				prefixCls="rc-slider-tooltip"
-				overlay={captionsFormat(props.value)}
-				visible
+				overlay={captionsFormat(rest.value)}
+				getTooltipContainer={getTooltipContainer}
+				visible={!hideTooltip}
 				placement="top"
-				key={props.index}
+				key={rest.index}
 			>
-				<RcSlider.Handle {...props} />
+				<RcSlider.Handle dragging={dragging.toString()} {...rest} />
 			</Tooltip>
 		);
 	}
 
 	Handle.propTypes = {
+		dragging: PropTypes.bool,
 		value: PropTypes.number.isRequired,
 		index: PropTypes.number.isRequired,
 	};
@@ -205,22 +218,26 @@ class Slider extends React.Component {
 
 	static propTypes = {
 		id: PropTypes.string,
-		value: PropTypes.oneOf([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+		value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 		onChange: PropTypes.func.isRequired,
+		getTooltipContainer: PropTypes.func,
 		onAfterChange: PropTypes.func,
 		captionActions: PropTypes.array,
 		captionIcons: PropTypes.array,
 		captionTextStepNumber: PropTypes.number,
-		min: PropTypes.number.isRequired,
-		max: PropTypes.number.isRequired,
+		min: PropTypes.number,
+		max: PropTypes.number,
+		step: PropTypes.number,
+		mode: PropTypes.string,
 		captionsFormat: PropTypes.func,
 		disabled: PropTypes.bool,
+		hideTooltip: PropTypes.bool,
 	};
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			handle: getHandle(props.captionsFormat),
+			handle: getHandle(props.captionsFormat, props.getTooltipContainer, props.hideTooltip),
 		};
 	}
 
@@ -234,6 +251,8 @@ class Slider extends React.Component {
 			captionsFormat,
 			min,
 			max,
+			step,
+			mode,
 			onChange,
 			disabled,
 			...rest
@@ -242,14 +261,27 @@ class Slider extends React.Component {
 		const Component = Array.isArray(value) ? Range : RcSlider;
 		return (
 			<div>
-				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
+				<div className={classnames(theme['tc-slider'], 'tc-slider')} key="slider">
 					<Component
 						id={id}
 						value={value}
 						min={min}
 						max={max}
+						step={step}
 						handle={noValue ? undefined : this.state.handle}
-						className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+						className={classnames(
+							theme['tc-slider-rc-slider'],
+							{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
+							{ [theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE },
+							{
+								[theme['tc-slider-rc-slider--track-greater-than']]:
+									mode === SLIDER_MODE.GREATER_THAN,
+							},
+							'tc-slider-rc-slider',
+							{ 'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS },
+							{ 'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE },
+							{ 'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN },
+						)}
 						onChange={onChange}
 						disabled={disabled}
 						{...rest}
@@ -274,7 +306,9 @@ class Slider extends React.Component {
 Slider.defaultProps = {
 	min: 0,
 	max: 100,
+	step: 1,
 	captionsFormat: noFormat,
 };
 
+Slider.MODES = SLIDER_MODE;
 export default Slider;

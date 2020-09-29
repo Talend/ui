@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
 import Message from '../../Message';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import getDefaultT from '../../../translate';
 
 import theme from './DefaultArrayTemplate.scss';
 
 function DefaultArrayTemplate(props) {
+	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const {
 		canReorder,
 		errorMessage,
@@ -22,7 +22,6 @@ function DefaultArrayTemplate(props) {
 		onReorder,
 		renderItem,
 		schema,
-		t,
 		value,
 		valueIsUpdating,
 		options = {},
@@ -41,7 +40,7 @@ function DefaultArrayTemplate(props) {
 				<Action
 					id={`${id || 'tf-array'}-btn`}
 					className={classNames(theme['tf-array-add'], 'tf-array-add')}
-					bsStyle={'info'}
+					bsStyle="info"
 					onClick={onAdd}
 					disabled={valueIsUpdating || schema.disabled}
 					label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'Add' })}
@@ -85,7 +84,6 @@ function DefaultArrayTemplate(props) {
 }
 
 DefaultArrayTemplate.defaultProps = {
-	t: getDefaultT(),
 	isCloseable: false,
 };
 
@@ -105,9 +103,8 @@ if (process.env.NODE_ENV !== 'production') {
 		options: PropTypes.shape({
 			btnLabel: PropTypes.string,
 		}),
-		t: PropTypes.func.isRequired,
 		isCloseable: PropTypes.bool,
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_FORMS)(DefaultArrayTemplate);
+export default DefaultArrayTemplate;
