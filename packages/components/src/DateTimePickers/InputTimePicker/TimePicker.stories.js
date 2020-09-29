@@ -1,20 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 import IconsProvider from '../../IconsProvider';
 
 import InputTimePicker from './InputTimePicker.component';
 import TimePicker from '../pickers/TimePicker';
 
-const icons = {
-	'talend-info-circle': talendIcons['talend-info-circle'],
-};
-
 storiesOf('Form/Controls/DatePicker/Time', module)
 	.addDecorator(story => (
 		<>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<form
 				onSubmit={event => {
 					event.persist();

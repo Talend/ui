@@ -1,9 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import icons from '@talend/icons/dist/react';
 
 import IconsProvider from '../IconsProvider';
 import Icon from './Icon.component';
+
+// todo build it base on the icons info
+const icons = {}
 
 storiesOf('Messaging & Communication/Icon', module)
 	.add('default use svg', () => (

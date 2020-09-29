@@ -2,27 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
 
 const APPS_WITH_SIDEPANEL = ['tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
-
-const icons = {
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-download': talendIcons['talend-download'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-opener': talendIcons['talend-opener'],
-	'talend-world': talendIcons['talend-world'],
-	'talend-user-circle': talendIcons['talend-user-circle'],
-	'talend-group-circle': talendIcons['talend-group-circle'],
-	'talend-roles': talendIcons['talend-roles'],
-	'talend-license': talendIcons['talend-license'],
-	'talend-projects': talendIcons['talend-projects'],
-	'talend-activity': talendIcons['talend-activity'],
-};
 
 const actions = [
 	{
@@ -118,7 +102,7 @@ const stories = storiesOf('Navigation/SidePanel', module);
 stories
 	.addDecorator(story => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			{story()}
 		</div>
 	))

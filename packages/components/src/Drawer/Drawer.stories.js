@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Nav, NavItem, Tab } from 'react-bootstrap';
 
-import talendIcons from '@talend/icons/dist/react';
 import Drawer from './Drawer.component';
 
 import ActionBar from '../ActionBar';
@@ -13,18 +12,6 @@ import Layout from '../Layout';
 import SidePanel from '../SidePanel';
 
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
-
-const icons = {
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-	'talend-check': talendIcons['talend-check'],
-	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-pencil': talendIcons['talend-pencil'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-opener': talendIcons['talend-opener'],
-};
 
 const actions = [
 	{
@@ -257,35 +244,35 @@ storiesOf('Layout/Drawer', module)
 		<Layout header={header} mode="OneColumn" drawers={drawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.add('Layout 2 columns', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.add('with editable header', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.add('with long editable header', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={longEditableDrawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.add('Default with no transition', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.add('stacked drawers', () => {
@@ -313,7 +300,7 @@ storiesOf('Layout/Drawer', module)
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={stackedDrawers}>
 				<span>zone with drawer</span>
 				{fiftyRows}
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -329,7 +316,7 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -358,7 +345,7 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -413,7 +400,7 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -443,7 +430,7 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	});

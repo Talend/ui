@@ -1,5 +1,4 @@
 import React from 'react';
-import talendIcons from '@talend/icons/dist/react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '../IconsProvider';
@@ -274,7 +273,7 @@ const icons = {
 storiesOf('Form/Controls/ActionBar', module)
 	.add('default', () => (
 		<nav>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<p>No Selected, Layout: Left Space Right</p>
 			<div id="default">
 				<ActionBar {...basicProps} selected={0} />
@@ -308,7 +307,7 @@ storiesOf('Form/Controls/ActionBar', module)
 	))
 	.add('custom', () => (
 		<nav>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<div id="default">
 				<ActionBar>
 					<ActionBar.Content tag="a" left href="#/foo/bar">
