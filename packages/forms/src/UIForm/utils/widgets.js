@@ -9,6 +9,7 @@ import { CheckBox, CheckBoxes, TextModeCheckBox } from '../fields/CheckBox';
 import Code, { CodeTextMode } from '../fields/Code';
 import Datalist, { DatalistTextMode } from '../fields/Datalist';
 import { DateWidget, DateTimeWidget, TimeWidget } from '../fields/Date';
+import Enumeration from '../fields/Enumeration';
 import File from '../fields/File';
 import KeyValue from '../fields/KeyValue';
 import Comparator, { TextModeComparator } from '../fields/Comparator';
@@ -72,6 +73,7 @@ const widgets = {
 	datalist: Datalist,
 	date: DateWidget,
 	datetime: DateTimeWidget,
+	enumeration: Enumeration,
 	time: TimeWidget,
 	keyValue: KeyValue,
 	listView: ListView,
