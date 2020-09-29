@@ -1,16 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const DEFAULT_BUNDLES = [
-	'/all.svg',
-];
+const DEFAULT_BUNDLES = ['/all.svg'];
 
 const talendIcons = {};
 
 const context = {
 	ids: [],
 	// default no op for testing (case of Icon call without IconsProvider)
-	get: () => { },
+	get: () => {},
 };
 
 // TODO 6.0: do not export this
@@ -34,9 +32,11 @@ function isFetching(url) {
 
 function hasBundle(url) {
 	const results = document.querySelectorAll('.tc-iconsprovider');
-	return Array.prototype.slice.call(results).filter(e => {
-		return e.getAttribute('data-url') === url;
-	}).length >= 1;
+	return (
+		Array.prototype.slice.call(results).filter(e => {
+			return e.getAttribute('data-url') === url;
+		}).length >= 1
+	);
 }
 
 function addBundle(response) {
@@ -65,21 +65,30 @@ function addBundle(response) {
  * @example
 <IconsProvider />
  */
-function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = talendIcons, icons = {}, getIconHref = () => { } }) {
+function IconsProvider({
+	bundles = DEFAULT_BUNDLES,
+	defaultIcons = talendIcons,
+	icons = {},
+	getIconHref = () => {},
+}) {
 	const iconset = Object.assign({}, defaultIcons, icons);
 	const ids = Object.keys(iconset);
 	context.ids = ids;
 	context.get = getIconHref;
 	React.useEffect(() => {
 		if (Array.isArray(bundles)) {
-			bundles.filter(url => {
-				return !hasBundle(url) && !isFetching(url);
-			}).forEach(url => {
-				FETCHING.urls.push(url);
-				fetch(url).then(addBundle).finally(() => {
-					FETCHING.urls.splice(FETCHING.urls.indexOf(url), 1);
+			bundles
+				.filter(url => {
+					return !hasBundle(url) && !isFetching(url);
+				})
+				.forEach(url => {
+					FETCHING.urls.push(url);
+					fetch(url)
+						.then(addBundle)
+						.finally(() => {
+							FETCHING.urls.splice(FETCHING.urls.indexOf(url), 1);
+						});
 				});
-			});
 		}
 	}, []);
 	return (
