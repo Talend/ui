@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+- [Fixed](https://github.com/Talend/ui/pull/2972): Don't reopen the value tooltip for badges with default operators
+
 ## [0.12.1]
 
 - [Fixed](https://github.com/Talend/ui/pull/2919): Fallback to default for slider facet
