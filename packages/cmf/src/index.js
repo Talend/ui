@@ -17,9 +17,9 @@ import Inject from './Inject.component';
 import matchPath from './matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
+import settings from './settings';
 import localStorage from './localStorage';
 import onError from './onError';
-import settings from './settings';
 
 // DEPRECATED APIs
 import action from './action';

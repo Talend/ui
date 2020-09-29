@@ -30,13 +30,15 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@talend/react-cmf": "^6.0.0-alpha.10",
     "immutable": "^3.8.1",
+    "redux-saga": "^0.15.4"
+  },
+  "peerDependencies": {
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "redux-saga": "^0.15.4"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@talend/react-cmf": "^6.0.0-alpha.12",

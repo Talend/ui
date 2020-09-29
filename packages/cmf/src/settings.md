@@ -18,7 +18,7 @@ import connect from 'react-redux';
 
 export default function withSettings(MyComponent) {
   function mapStateToProps(state, ownProps) {
-    return cmf.settingsAPI.mapStateToProps(state, ownProps, MyComponent.displayName, ownProps.componentId);
+    return cmf.settings.mapStateToProps(state, ownProps, MyComponent.displayName, ownProps.componentId);
   }
   return connect(mapStateToProps)(MyComponent);
 }

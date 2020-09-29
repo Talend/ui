@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+- [Added](https://github.com/Talend/ui/pull/2932): Pointer cursor on the slider facet value
+
 ## [0.12.1]
 
 - [Fixed](https://github.com/Talend/ui/pull/2919): Fallback to default for slider facet
