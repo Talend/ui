@@ -3,9 +3,25 @@ import React from 'react';
 
 const DEFAULT_BUNDLES = ['/all.svg'];
 
+const talendIcons = {};
+
+const context = {
+	ids: [],
+	// default no op for testing (case of Icon call without IconsProvider)
+	get: () => { },
+};
+
 // TODO 6.0: do not export this
 export function getIconHREF(name) {
-	return `#${name}`;
+	if (context.ids.indexOf(name) !== -1) {
+		return `#${name}`;
+	}
+	let href = context.get(name);
+	if (!href) {
+		// backward compatibility for test
+		href = `#${name}`;
+	}
+	return href;
 }
 
 const FETCHING = { urls: [] };
@@ -49,7 +65,11 @@ function addBundle(response) {
  * @example
 <IconsProvider />
  */
-function IconsProvider({ bundles = DEFAULT_BUNDLES }) {
+function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = talendIcons, icons = {}, getIconHref = () => { } }) {
+	const iconset = {...defaultIcons, ...icons };
+	const ids = Object.keys(iconset);
+	context.ids = ids;
+	context.get = getIconHref;
 	React.useEffect(() => {
 		if (Array.isArray(bundles)) {
 			bundles
@@ -66,13 +86,22 @@ function IconsProvider({ bundles = DEFAULT_BUNDLES }) {
 				});
 		}
 	}, [bundles]);
-	return null;
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">
+			{ids.map((id, index) => (
+				<symbol key={index} id={id}>
+					{iconset[id]}
+				</symbol>
+			))}
+		</svg>
+	);
 }
 
 IconsProvider.displayName = 'IconsProvider';
-IconsProvider.getIconHREF = getIconHREF;
+IconsProvider.context = context;
 IconsProvider.propTypes = {
 	bundles: PropTypes.arrayOf(PropTypes.string),
 };
 
+IconsProvider.getIconHREF = getIconHREF;
 export default IconsProvider;
