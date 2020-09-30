@@ -1,10 +1,12 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import objectId from 'uuid/v4';
-import CMF_CONST from '@talend/react-cmf/lib/constant';
-import onError from '@talend/react-cmf/lib/onError';
+import cmf from '@talend/react-cmf';
 import Notification from './Notification.connect';
 import Constants from './Notification.constants';
 import { pushError } from './Notification.actions';
+
+const CMF_CONST = cmf.constants;
+const onError = cmf.onError;
 
 const DEFAULT_COMPONENT_ID = 'Notification';
 

@@ -42,3 +42,5 @@ export default async function mergeModulesAndApp(options) {
 	const modules = await find(options);
 	return merge(...modules, options);
 }
+
+mergeModulesAndApp.merge = merge;

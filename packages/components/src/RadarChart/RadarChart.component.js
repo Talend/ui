@@ -92,7 +92,7 @@ RadarChart.defaultProps = {
  */
 // TODO 6.0: remove this export
 export function LabelWithClick(props) {
-	const { activeAxis, className, index, textAnchor, payload, x, y } = props;
+	const { activeAxis, className, index, payload, y, ...rest } = props;
 	let selectedClass = '';
 
 	if (activeAxis === index) {
@@ -100,14 +100,7 @@ export function LabelWithClick(props) {
 	}
 
 	return (
-		<text
-			x={x}
-			y={y + 3}
-			textAnchor={textAnchor}
-			data-axis-index={index}
-			role="button"
-			className={selectedClass}
-		>
+		<text {...rest} y={y + 3} data-axis-index={index} role="button" className={selectedClass}>
 			{payload.value}
 		</text>
 	);
@@ -117,9 +110,7 @@ LabelWithClick.propTypes = {
 	activeAxis: PropTypes.number,
 	className: PropTypes.string,
 	index: PropTypes.number,
-	textAnchor: PropTypes.string,
 	payload: PropTypes.object,
-	x: PropTypes.number,
 	y: PropTypes.number,
 };
 

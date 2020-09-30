@@ -18,10 +18,11 @@
 import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
 import cmf from '@talend/react-cmf';
-import { mergeCSRFToken } from '@talend/react-cmf/lib/middlewares/http/csrfHandling';
 
 import flatten from './flatten';
 import defaultRegistry from './defaultRegistry';
+
+const mergeCSRFToken = cmf.middlewares.http.csrf.mergeCSRFToken;
 
 const DEFAULT_HEADERS = {
 	'Content-Type': 'application/json',
