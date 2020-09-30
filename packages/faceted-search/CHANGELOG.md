@@ -26,6 +26,7 @@ Types of changes
 
 ## [unreleased]
 
+- [Fixed](https://github.com/Talend/ui/pull/2972): Don't reopen the value tooltip for badges with default operators
 - [Added](https://github.com/Talend/ui/pull/2932): Pointer cursor on the slider facet value
 
 ## [0.12.1]
