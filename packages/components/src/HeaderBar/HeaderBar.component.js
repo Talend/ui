@@ -238,7 +238,6 @@ function HeaderBar(props) {
 					{...props.brand}
 					{...props.products}
 					isSeparated={!!props.env}
-					getComponent={props.getComponent}
 				/>
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
