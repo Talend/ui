@@ -8,7 +8,7 @@ const talendIcons = {};
 const context = {
 	ids: [],
 	// default no op for testing (case of Icon call without IconsProvider)
-	get: () => { },
+	get: () => {},
 };
 
 // TODO 6.0: do not export this
@@ -65,8 +65,13 @@ function addBundle(response) {
  * @example
 <IconsProvider />
  */
-function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = talendIcons, icons = {}, getIconHref = () => { } }) {
-	const iconset = {...defaultIcons, ...icons };
+function IconsProvider({
+	bundles = DEFAULT_BUNDLES,
+	defaultIcons = talendIcons,
+	icons = {},
+	getIconHref = () => {},
+}) {
+	const iconset = { ...defaultIcons, ...icons };
 	const ids = Object.keys(iconset);
 	context.ids = ids;
 	context.get = getIconHref;
