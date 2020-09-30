@@ -76,6 +76,8 @@ const BadgeFaceted = ({
 				{
 					value: badgeValue,
 					operator: badgeOperator,
+					initialOperatorOpened: false,
+					initialValueOpened: false,
 				},
 				{ isInCreation: false },
 			),
