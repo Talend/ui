@@ -71,20 +71,20 @@ function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = talendIcons, 
 	context.ids = ids;
 	context.get = getIconHref;
 	React.useEffect(() => {
-		if (Array.isArray(bundles)) {
-			bundles
-				.filter(url => {
-					return !hasBundle(url) && !isFetching(url);
-				})
-				.forEach(url => {
-					FETCHING.urls.push(url);
-					fetch(url)
-						.then(addBundle)
-						.finally(() => {
-							FETCHING.urls.splice(FETCHING.urls.indexOf(url), 1);
-						});
-				});
+		if (!Array.isArray(bundles)) {
+			return;
 		}
+		bundles.filter(url => {
+				return !hasBundle(url) && !isFetching(url);
+			})
+			.forEach(url => {
+				FETCHING.urls.push(url);
+				fetch(url)
+					.then(addBundle)
+					.finally(() => {
+						FETCHING.urls.splice(FETCHING.urls.indexOf(url), 1);
+					});
+			});
 	}, [bundles]);
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">
@@ -100,6 +100,9 @@ function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = talendIcons, 
 IconsProvider.displayName = 'IconsProvider';
 IconsProvider.context = context;
 IconsProvider.propTypes = {
+	defaultIcons: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	icons: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	getIconHref: PropTypes.func, // eslint-disable-line react/forbid-prop-types
 	bundles: PropTypes.arrayOf(PropTypes.string),
 };
 
