@@ -79,7 +79,8 @@ function IconsProvider({
 		if (!Array.isArray(bundles)) {
 			return;
 		}
-		bundles.filter(url => {
+		bundles
+			.filter(url => {
 				return !hasBundle(url) && !isFetching(url);
 			})
 			.forEach(url => {
