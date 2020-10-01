@@ -21,6 +21,11 @@ module.exports = (env = {}) => ({
 		fs: 'empty',
 	},
 	externals: {
-		react: 'React',
+		react : {
+			commonjs: 'react',
+		    commonjs2: 'react',
+			amd: 'react',
+			root: 'React'
+		  }
 	},
 });

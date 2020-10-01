@@ -1,15 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { filters } from '@talend/icons/dist/react';
-import { getIconHref as getIcon } from '@talend/icons/dist/info';
+import iconsModule from '@talend/icons';
 
-let talendIcons = {};
-
-if (!process.env.ICON_BUNDLE) {
-	console.warn('WARNING ICON_BUNDLE will be the default in the next major release');
-	// eslint-disable-next-line global-require
-	talendIcons = require('@talend/icons/dist/react').default;
-}
+const talendIcons = iconsModule.react.default;
 
 const context = {
 	ids: [],
@@ -25,7 +18,7 @@ export function getIconHREF(name) {
 	let href = context.get(name);
 	if (!href) {
 		if (process.env.ICON_BUNDLE) {
-			href = getIcon(name);
+			href = iconsModule.info.getIconHREF(name);
 		} else {
 			// backward compatibility for test
 			href = `#${name}`;
@@ -55,9 +48,9 @@ function IconsProvider({ defaultIcons = talendIcons, icons = {}, getIconHref = (
 					{iconset[id]}
 				</symbol>
 			))}
-			{Object.keys(filters).map((id, index) => (
+			{Object.keys(iconsModule.react.filters).map((id, index) => (
 				<svg key={`svg-filter-${index}`} id={id}>
-					{filters[id]}
+					{iconsModule.react.filters[id]}
 				</svg>
 			))}
 		</svg>

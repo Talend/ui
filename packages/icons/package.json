@@ -1,7 +1,7 @@
 {
   "name": "@talend/icons",
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
-  "main": "index.js",
+  "main": "dist/TalendIcons.js",
   "style": "build/octicons.css",
   "license": "Apache-2.0",
   "scripts": {
