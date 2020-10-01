@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import iconsModule from '@talend/icons';
+import { react as talendIcons, info  } from '@talend/icons';
 
-const talendIcons = iconsModule.react.default;
 
 const context = {
 	ids: [],
@@ -18,7 +17,7 @@ export function getIconHREF(name) {
 	let href = context.get(name);
 	if (!href) {
 		if (process.env.ICON_BUNDLE) {
-			href = iconsModule.info.getIconHREF(name);
+			href = info.getIconHREF(name);
 		} else {
 			// backward compatibility for test
 			href = `#${name}`;
@@ -48,9 +47,9 @@ function IconsProvider({ defaultIcons = talendIcons, icons = {}, getIconHref = (
 					{iconset[id]}
 				</symbol>
 			))}
-			{Object.keys(iconsModule.react.filters).map((id, index) => (
+			{Object.keys(talendIcons.filters).map((id, index) => (
 				<svg key={`svg-filter-${index}`} id={id}>
-					{iconsModule.react.filters[id]}
+					{talendIcons.filters[id]}
 				</svg>
 			))}
 		</svg>
