@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env = {}) => ({
 	mode: env.production ? 'production': 'development',
@@ -27,6 +28,9 @@ module.exports = (env = {}) => ({
 		],
 	},
 	plugins: [
+		new CopyPlugin([
+			{from: 'umd.dependencies.json', to: `TalendIcons${env.production ? '.min': ''}.js.dependencies.json`}
+		]),
 	],
 	node: {
 		fs: 'empty',
