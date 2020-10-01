@@ -10,6 +10,7 @@ const info = require('../src/info').info;
 const extract = require('../src/extract');
 
 const dist = path.join(__dirname, '../dist/');
+const srcPath = path.join(__dirname, '../src/');
 mkdirp.sync(path.join(dist, 'svg-bundle'));
 
 function transform(lib, output) {
@@ -45,6 +46,7 @@ function transform(lib, output) {
 
 	const code = babel.transformSync(buff.join('\n'), options);
 	fs.writeFileSync(path.join(dist, output), code.code);
+	fs.writeFileSync(path.join(srcPath, output), buff.join('\n'));
 }
 
 function createSvgBundles() {
