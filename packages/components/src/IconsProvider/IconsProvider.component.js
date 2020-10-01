@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { react as talendIcons, info  } from '@talend/icons';
-
+import { react as talendIcons, info } from '@talend/icons';
 
 const context = {
 	ids: [],
