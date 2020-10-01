@@ -3,8 +3,4 @@ import react, { filters } from './react';
 
 export { info } from '../dist/info';
 
-export {
-    react,
-    filters,
-};
-
+export { react, filters };
