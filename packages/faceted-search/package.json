@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@talend/daikon-tql-client": "^1.2.0",
-
     "classnames": "^2.2.5",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
@@ -52,8 +51,8 @@
     "@talend/react-cmf": "^6.0.0-alpha.11",
     "@talend/react-components": "^6.0.0-alpha.11",
     "@talend/react-forms": "^6.0.0-alpha.11",
-    "@talend/scripts-core": "7.0.0-alpha.26",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.26",
+    "@talend/scripts-core": "7.0.0-alpha.29",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.29",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
     "enzyme": "^3.9.0",

@@ -13,10 +13,9 @@
     "url": "github:Talend/ui"
   },
   "devDependencies": {
-
     "@talend/react-components": "5.1.1",
-    "@talend/scripts-core": "7.0.0-alpha.26",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.26"
+    "@talend/scripts-core": "7.0.0-alpha.29",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.29"
   },
   "peerDependencies": {
     "@talend/react-components": ">2.3.0"
