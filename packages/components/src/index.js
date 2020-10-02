@@ -72,8 +72,8 @@ import TooltipTrigger from './TooltipTrigger';
 import TreeView from './TreeView';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
-
 import WithDrawer from './WithDrawer';
+import getTheme from './theme';
 
 // TODO 6.0: remove those imports
 import HeaderTitle from './HeaderTitle';
@@ -226,6 +226,7 @@ export {
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
+	getTheme,
 	// TODO 6.0: remove from here
 	RichError,
 	RichLayout,
