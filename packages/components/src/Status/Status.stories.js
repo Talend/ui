@@ -14,7 +14,7 @@ const cancelAction = {
 
 const deleteAction = {
 	label: 'delete',
-	icon: 'talend-cross',
+	icon: 'talend-errro',
 	onClick: action('onDelete'),
 	bsSize: 'small',
 };
@@ -22,7 +22,7 @@ const deleteAction = {
 const myStatus = {
 	status: 'successful',
 	label: 'Successful',
-	icon: 'talend-check',
+	icon: 'talend-check-circle',
 	actions: [deleteAction],
 };
 
@@ -61,11 +61,11 @@ storiesOf('Messaging & Communication/Status', module).add('default', () => (
 		<h3>
 			Status is <code>failed</code>
 		</h3>
-		<Status {...myStatus} status="failed" label="Failed" icon="talend-cross" />
+		<Status {...myStatus} status="failed" label="Failed" icon="talend-error" />
 		<h3>
 			Status is <code>canceled</code>
 		</h3>
-		<Status {...myStatus} status="canceled" label="Canceled" icon="talend-cross" />
+		<Status {...myStatus} status="canceled" label="Canceled" icon="talend-block" />
 		<h3>Status without actions</h3>
 		<Status {...{ ...myStatus, actions: [] }} />
 		<h3>

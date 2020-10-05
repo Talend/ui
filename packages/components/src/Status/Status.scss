@@ -1,4 +1,4 @@
-$tc-status-icon-size: $svg-sm-size !default;
+$tc-status-icon-size: $svg-md-size !default;
 $tc-status-action-min-size: 23px !default;
 $tc-status-space-btn-icon-label: 5px !default;
 
@@ -16,27 +16,51 @@ $tc-status-space-btn-icon-label: 5px !default;
 		}
 
 		&.info {
-			color: $brand-info;
+			color: $lochmara;
 		}
 
 		&.success {
-			color: $brand-success;
+			color: $rio-grande500;
 		}
 
 		&.danger {
-			color: $brand-danger;
+			color: $coral;
 		}
 
 		&.muted {
-			color: $gray;
+			color: $gray500;
 		}
 
 		&.warning {
-			color: $brand-warning;
+			color: $jaffa;
 		}
 
 		&.skeleton {
 			color: $gray;
+		}
+	}
+
+	&-label {
+		font-weight: 700;
+
+		&.info {
+			color: $lochmara700;
+		}
+
+		&.success {
+			color: $rio-grande700;
+		}
+
+		&.danger {
+			color: $coral700;
+		}
+
+		&.muted {
+			color: $gray700;
+		}
+
+		&.warning {
+			color: $jaffa700;
 		}
 	}
 

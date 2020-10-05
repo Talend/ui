@@ -105,10 +105,16 @@ export function Status({ status, label, icon, actions, progress }) {
 		css[getbsStyleFromStatus(status)],
 	);
 
+	const labelClassNames = classNames(
+		css['tc-status-label'],
+		'tc-status-label',
+		css[getbsStyleFromStatus(status)],
+	);
+
 	return (
 		<div role="status" className={rootClassnames}>
 			<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
-			<span className={classNames(css['tc-status-label'], 'tc-status-label')}>
+			<span className={labelClassNames}>
 				{renderLabel(status, label)}
 			</span>
 			<Actions
