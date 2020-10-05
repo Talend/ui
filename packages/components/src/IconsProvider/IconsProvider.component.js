@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { react as talendIcons, info } from '@talend/icons';
+import { react as talendIcons, info, filters } from '@talend/icons';
 
 const context = {
 	ids: [],
@@ -46,9 +46,9 @@ function IconsProvider({ defaultIcons = talendIcons, icons = {}, getIconHref = (
 					{iconset[id]}
 				</symbol>
 			))}
-			{Object.keys(talendIcons.filters).map((id, index) => (
+			{Object.keys(filters).map((id, index) => (
 				<svg key={`svg-filter-${index}`} id={id}>
-					{talendIcons.filters[id]}
+					{filters[id]}
 				</svg>
 			))}
 		</svg>
