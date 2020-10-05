@@ -41,10 +41,10 @@
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/icons": "^5.22.0",
+    "@talend/icons": "^5.23.0",
     "@talend/locales-tui": "^5.6.0",
-    "@talend/react-components": "^5.22.0",
-    "@talend/react-storybook-cmf": "^5.22.0",
+    "@talend/react-components": "^5.23.0",
+    "@talend/react-storybook-cmf": "^5.23.0",
     "@talend/scripts-core": "^6.3.0",
     "@talend/scripts-preset-react-lib": "^6.3.0",
     "babel-loader": "^8.0.6",
@@ -74,5 +74,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.22.0"
+  "version": "5.23.0"
 }
