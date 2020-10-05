@@ -9,6 +9,8 @@ $tc-status-space-btn-icon-label: 5px !default;
 	height: 100%;
 
 	&-icon {
+		display: flex;
+
 		> svg {
 			width: $tc-status-icon-size;
 			height: $tc-status-icon-size;
