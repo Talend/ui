@@ -114,9 +114,7 @@ export function Status({ status, label, icon, actions, progress }) {
 	return (
 		<div role="status" className={rootClassnames}>
 			<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
-			<span className={labelClassNames}>
-				{renderLabel(status, label)}
-			</span>
+			<span className={labelClassNames}>{renderLabel(status, label)}</span>
 			<Actions
 				actions={actions}
 				className={classNames(css['tc-status-actions'], 'tc-status-actions')}
