@@ -1,0 +1,21 @@
+$quality-bar-width: 100%;
+$quality-bar-height: 5px;
+$quality-bar-hover-height: 8px;
+
+.tc-ratio-bar-lines {
+	width: 100%;
+	height: 100%;
+	border-radius: 1px;
+}
+
+.tc-ratio-bar {
+	.tc-ratio-bar-line-empty {
+		@extend .tc-ratio-bar-lines;
+		background-color: $silver;
+	}
+
+	.tc-ratio-bar-line-filled {
+		@extend .tc-ratio-bar-lines;
+		background-color: $brand-primary;
+	}
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '../theme';
 import qualityBarTheme from './QualityBar.scss';
-import { RatioBarLine } from './RatioBar.component';
+import { RatioBarLine } from '../RatioBar/RatioBarComposition.component';
 
 const theme = getTheme(qualityBarTheme);
 
@@ -26,7 +26,7 @@ function formatNumber(value = '') {
 	return parts.join('.');
 }
 
-export function InvalidLine({ value, percentage, t }) {
+export function QualityInvalidLine({ value, percentage, t }) {
 	return (
 		<RatioBarLine
 			percentage={percentage}
@@ -38,13 +38,13 @@ export function InvalidLine({ value, percentage, t }) {
 				value: formatNumber(value),
 			})}
 			value={value}
-			className={theme('ds-quality-bar-line-invalid')}
+			className={theme('tc-ratio-bar-line-quality-invalid')}
 		/>
 	);
 }
-InvalidLine.propTypes = qualityBarLinePropTypes;
+QualityInvalidLine.propTypes = qualityBarLinePropTypes;
 
-export function ValidLine({ value, percentage, t }) {
+export function QualityValidLine({ value, percentage, t }) {
 	return (
 		<RatioBarLine
 			percentage={percentage}
@@ -56,13 +56,13 @@ export function ValidLine({ value, percentage, t }) {
 				value: formatNumber(value),
 			})}
 			value={value}
-			className={theme('ds-quality-bar-line-valid')}
+			className={theme('tc-ratio-bar-line-quality-valid')}
 		/>
 	);
 }
-ValidLine.propTypes = qualityBarLinePropTypes;
+QualityValidLine.propTypes = qualityBarLinePropTypes;
 
-export function EmptyLine({ value, percentage, t }) {
+export function QualityEmptyLine({ value, percentage, t }) {
 	return (
 		<RatioBarLine
 			percentage={percentage}
@@ -74,8 +74,8 @@ export function EmptyLine({ value, percentage, t }) {
 				value: formatNumber(value),
 			})}
 			value={value}
-			className={theme('ds-quality-bar-line-empty')}
+			className={theme('tc-ratio-bar-line-quality-empty')}
 		/>
 	);
 }
-EmptyLine.propTypes = qualityBarLinePropTypes;
+QualityEmptyLine.propTypes = qualityBarLinePropTypes;
