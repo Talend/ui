@@ -1,4 +1,3 @@
-import { QualityBar, QualityBarLine } from './QualityBar.component';
+import { RatioBar } from './RatioBar.component';
 
-export default QualityBar;
-export { QualityBar, QualityBarLine };
+export default RatioBar;
