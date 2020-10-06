@@ -2,13 +2,17 @@ $tc-status-icon-size: $svg-md-size !default;
 $tc-status-action-min-size: 23px !default;
 $tc-status-space-btn-icon-label: 5px !default;
 
-$lochmara700: #034673;
-$rio-grande500: #6ec01e;
-$rio-grande700: #427312;
-$coral700: #994143;
-$jaffa700: #8c4e1c;
-$gray500: #797979;
-$gray700: #4d4d4d;
+$tc-status-info-icon-color: $lochmara !default;
+$tc-status-success-icon-color: $rio-grande500 !default;
+$tc-status-danger-icon-color: $coral !default;
+$tc-status-muted-icon-color: $gray500 !default;
+$tc-status-warning-icon-color: $jaffa !default;
+
+$tc-status-info-label-color: $lochmara700 !default;
+$tc-status-success-label-color: $rio-grande700 !default;
+$tc-status-danger-label-color: $coral700 !default;
+$tc-status-muted-label-color: $gray700 !default;
+$tc-status-warning-label-color: $jaffa700 !default;
 
 .tc-status {
 	position: relative;
@@ -26,23 +30,23 @@ $gray700: #4d4d4d;
 		}
 
 		&.info {
-			color: $lochmara;
+			color: $tc-status-info-icon-color;
 		}
 
 		&.success {
-			color: $rio-grande500;
+			color: $tc-status-success-icon-color;
 		}
 
 		&.danger {
-			color: $coral;
+			color: $tc-status-danger-icon-color;
 		}
 
 		&.muted {
-			color: $gray500;
+			color: $tc-status-muted-icon-color;
 		}
 
 		&.warning {
-			color: $jaffa;
+			color: $tc-status-warning-icon-color;
 		}
 
 		&.skeleton {
@@ -54,23 +58,23 @@ $gray700: #4d4d4d;
 		font-weight: 600;
 
 		&.info {
-			color: $lochmara700;
+			color: $tc-status-info-label-color;
 		}
 
 		&.success {
-			color: $rio-grande700;
+			color: $tc-status-success-label-color;
 		}
 
 		&.danger {
-			color: $coral700;
+			color: $tc-status-danger-label-color;
 		}
 
 		&.muted {
-			color: $gray700;
+			color: $tc-status-muted-label-color;
 		}
 
 		&.warning {
-			color: $jaffa700;
+			color: $tc-status-warning-label-color;
 		}
 	}
 
