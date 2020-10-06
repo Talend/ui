@@ -14,7 +14,7 @@ const cancelAction = {
 
 const deleteAction = {
 	label: 'delete',
-	icon: 'talend-errro',
+	icon: 'talend-cross',
 	onClick: action('onDelete'),
 	bsSize: 'small',
 };

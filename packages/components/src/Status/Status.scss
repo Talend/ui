@@ -2,6 +2,14 @@ $tc-status-icon-size: $svg-md-size !default;
 $tc-status-action-min-size: 23px !default;
 $tc-status-space-btn-icon-label: 5px !default;
 
+$lochmara700: #034673;
+$rio-grande500: #6ec01e;
+$rio-grande700: #427312;
+$coral700: #994143;
+$jaffa700: #8c4e1c;
+$gray500: #797979;
+$gray700: #4d4d4d;
+
 .tc-status {
 	position: relative;
 	display: flex;
@@ -43,7 +51,7 @@ $tc-status-space-btn-icon-label: 5px !default;
 	}
 
 	&-label {
-		font-weight: 700;
+		font-weight: 600;
 
 		&.info {
 			color: $lochmara700;
