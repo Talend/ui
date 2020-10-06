@@ -9,10 +9,15 @@ $quality-bar-hover-height: 8px;
 }
 
 .tc-ratio-bar {
+	padding: $padding-small 0;
 	display: flex;
 	height: $quality-bar-hover-height;
 	width: $quality-bar-width;
 	align-items: center;
+
+	&-counter {
+		padding-left: $padding-smaller;
+	}
 
 	.tc-ratio-bar-line {
 		height: $quality-bar-height;
@@ -40,6 +45,6 @@ $quality-bar-hover-height: 8px;
 
 	.tc-ratio-bar-line-filled {
 		@extend .tc-ratio-bar-lines;
-		background-color: $lochmara;
+		background-color: $regal-blue;
 	}
 }
