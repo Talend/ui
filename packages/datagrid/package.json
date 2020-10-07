@@ -29,9 +29,8 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@ag-grid-community/client-side-row-model": "^22.1.1",
-    "@ag-grid-community/core": "^22.1.1",
-    "@ag-grid-community/react": "^22.1.2",
+    "ag-grid-community": "^24.0.0",
+    "ag-grid-react": "^24.0.0",
     "classnames": "^2.2.5",
     "keycode": "^2.2.0",
     "lodash": "^4.17.15"
