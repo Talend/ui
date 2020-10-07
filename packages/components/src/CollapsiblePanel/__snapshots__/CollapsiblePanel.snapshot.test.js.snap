@@ -40,7 +40,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                   />
                 </span>
                 <span
-                  className="theme-tc-status-label tc-status-label"
+                  className="theme-tc-status-label tc-status-label theme-info"
                 >
                   inProgress
                 </span>
@@ -260,7 +260,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                   />
                 </span>
                 <span
-                  className="theme-tc-status-label tc-status-label"
+                  className="theme-tc-status-label tc-status-label theme-info"
                 >
                   inProgress
                 </span>
@@ -479,7 +479,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                   />
                 </span>
                 <span
-                  className="theme-tc-status-label tc-status-label"
+                  className="theme-tc-status-label tc-status-label theme-info"
                 >
                   inProgress
                 </span>
