@@ -158,7 +158,7 @@ export function DotWithClick(props) {
 			fillOpacity={1}
 			r={radius}
 			role="button"
-			tabIndex="0"
+			tabIndex={0}
 			stroke={fill}
 			strokeOpacity={0}
 			strokeWidth={strokeRadius}
