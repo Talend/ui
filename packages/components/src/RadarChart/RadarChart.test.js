@@ -68,10 +68,7 @@ describe('RadarChart', () => {
 		);
 
 		// when
-		wrapper
-			.find('.recharts-polar-angle-axis-tick')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.recharts-polar-angle-axis-tick').at(0).simulate('click');
 
 		// then
 		expect(props.clickMock).toHaveBeenCalled();
@@ -107,10 +104,7 @@ describe('RadarChart', () => {
 		);
 
 		// when
-		wrapper
-			.find('.recharts-dot')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.recharts-dot').at(0).simulate('click');
 
 		// then
 		expect(props.clickMock).toHaveBeenCalled();
