@@ -7,7 +7,7 @@ const ExampleDataSingle = [
 	{ axis: 'Popularity', A: 3 },
 	{ axis: 'Completeness', A: 2 },
 	{ axis: 'Discoverability', A: 1 },
-	{ axis: 'other', A: 1 },
+	{ axis: 'Usage', A: 1 },
 ];
 
 const ExampleDataMultiple = [
@@ -15,7 +15,7 @@ const ExampleDataMultiple = [
 	{ axis: 'Popularity', A: 3, B: 5 },
 	{ axis: 'Completeness', A: 2, B: 1 },
 	{ axis: 'Discoverability', A: 1, B: 3 },
-	{ axis: 'other', A: 1, B: 3 },
+	{ axis: 'Usage', A: 1, B: 3 },
 ];
 
 const ExampleDataClickable = [
@@ -23,6 +23,7 @@ const ExampleDataClickable = [
 	{ axis: 'Popularity', A: 3 },
 	{ axis: 'Completeness', A: 2 },
 	{ axis: 'Discoverability', A: 1 },
+	{ axis: 'Usage', A: 1 },
 ];
 
 const chartDomain = [0, 5];
@@ -34,6 +35,10 @@ const activeAxis = 2;
 const onClick = function () {
 	document.getElementById('clickMessage').innerHTML =
 		'Good job! You clicked ' + event.target.innerHTML + '.';
+};
+const onClickDot = function () {
+	document.getElementById('clickMessage').innerHTML =
+		'Good job! You clicked an axis dot.';
 };
 
 const stories = storiesOf('Data/Dataviz/RadarChart', module);
@@ -81,7 +86,7 @@ stories
 			</RadarChart>
 		</div>
 	))
-	.add('Radar Chart Clickable', () => (
+	.add('Radar Chart Clickable Label', () => (
 		<div>
 			<h2>Clickable labels</h2>
 			<p>A radar chart with clickable axis labels</p>
@@ -92,17 +97,38 @@ stories
 					onClick={onClick}
 				/>
 				<RadarChart.Radar
-					name="Trust score"
 					dataKey="A"
 					dot={false}
-					stroke="#19426c"
 					fill="#19426c"
 					fillOpacity={0.1}
+					name="Trust score"
+					stroke="#19426c"
 				/>
 			</RadarChart>
 
 			<div>
 				<p id="clickMessage">You haven't clicked anything yet.</p>
+			</div>
+		</div>
+	))
+	.add('Radar Chart Clickable Dot', () => (
+		<div>
+			<h2>Clickable dot</h2>
+			<p>A radar chart with clickable dots</p>
+			<RadarChart data={ExampleDataClickable} domain={chartDomain}>
+				<RadarChart.PolarAngleAxis dataKey="axis" />
+				<RadarChart.Radar
+					dataKey="A"
+					dot={<RadarChart.DotWithClick activeAxis={2} onClick={onClickDot} />}
+					fill="#19426c"
+					fillOpacity={0.1}
+					name="Trust score"
+					stroke="#19426c"
+				/>
+			</RadarChart>
+
+			<div>
+				<p id="clickMessage"></p>
 			</div>
 		</div>
 	))
@@ -117,7 +143,6 @@ stories
 					dot={<RadarChart.Dot activeAxis={2} />}
 					fill="#19426c"
 					fillOpacity={0.1}
-					isAnimationActive={false}
 					name="Trust score"
 					stroke="#19426c"
 				/>
