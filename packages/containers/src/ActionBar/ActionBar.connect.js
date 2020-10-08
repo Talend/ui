@@ -37,7 +37,7 @@ export function mapStateToProps(state, { actionIds }) {
 	return props;
 }
 
-function mergeProps(stateProps, dispatchProps, ownProps) {
+export function mergeProps(stateProps, dispatchProps, ownProps) {
 	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionIds;
 	return props;
