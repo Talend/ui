@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import RadarChart from '.';
 
 const ExampleDataSingle = [
@@ -28,18 +29,6 @@ const ExampleDataClickable = [
 
 const chartDomain = [0, 5];
 const activeAxis = 2;
-
-/**
- * Click functions provided by the host app
- */
-const onClick = function () {
-	document.getElementById('clickMessage').innerHTML =
-		'Good job! You clicked ' + event.target.innerHTML + '.';
-};
-const onClickDot = function () {
-	document.getElementById('clickMessage').innerHTML =
-		'Good job! You clicked an axis dot.';
-};
 
 const stories = storiesOf('Data/Dataviz/RadarChart', module);
 stories
@@ -94,7 +83,7 @@ stories
 				<RadarChart.PolarAngleAxis
 					dataKey="axis"
 					tick={<RadarChart.LabelWithClick activeAxis={2} />}
-					onClick={onClick}
+					onClick={action('Axis label was clicked')}
 				/>
 				<RadarChart.Radar
 					dataKey="A"
@@ -119,7 +108,7 @@ stories
 				<RadarChart.PolarAngleAxis dataKey="axis" />
 				<RadarChart.Radar
 					dataKey="A"
-					dot={<RadarChart.DotWithClick activeAxis={2} onClick={onClickDot} />}
+					dot={<RadarChart.DotWithClick activeAxis={2} onClick={action('Axis dot was clicked')} />}
 					fill="#19426c"
 					fillOpacity={0.1}
 					name="Trust score"
