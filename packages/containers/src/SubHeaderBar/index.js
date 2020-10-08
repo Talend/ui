@@ -1,8 +1,5 @@
 import SubHeaderBar from './SubHeaderBar.connect';
-import { getComponentState } from './SubHeaderBar.selectors';
+import * as SubHeaderBarSelectors from './SubHeaderBar.selectors';
 
-SubHeaderBar.selectors = {
-	getComponentState,
-};
-
+SubHeaderBar.selectors = SubHeaderBarSelectors;
 export default SubHeaderBar;
