@@ -18,6 +18,10 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 		vertical-align: middle;
 	}
 
+	.badge {
+		margin-left: $padding-small;
+	}
+
 	.icon + .edit-form,
 	span + .edit-form {
 		padding-left: $padding-normal;

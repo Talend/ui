@@ -151,6 +151,39 @@ describe('CellTitle', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
+		it('should render badge between icon and title selector if getBadge function is provided in title props', () => {
+			const columnData = {
+				id: 'my-title',
+				iconKey: 'icon',
+				getBadge: item => {
+					if (item.isDeleted) {
+						return {
+							bsStyle: 'info',
+							label: 'Deleted',
+						};
+					}
+
+					return null;
+				},
+			};
+
+			const rowDataForBadge = {
+				...rowData,
+				isDeleted: true,
+			};
+
+			const wrapper = shallow(
+				<CellTitle
+					cellData="my awesome title"
+					columnData={columnData}
+					getComponent={jest.fn()}
+					rowData={rowDataForBadge}
+					rowIndex={1}
+				/>
+			);
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
 		it('should render icon with tooltip when iconLabelKey is provided and the rowData has tooltip label value', () => {
 			const columnData = {
 				id: 'my-title',

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import random from 'lodash/random';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -66,6 +67,20 @@ const titleProps = {
 const titlePropsWithTooltipLabel = {
 	...titleProps,
 	iconLabelKey: 'iconTooltipLabel',
+};
+
+const titlePropsWithBadge = {
+	...titleProps,
+	getBadge: item => {
+		if (item.isDeleted) {
+			return {
+				bsStyle: ['info', 'warning', 'danger', 'default'][random(3)],
+				label: 'Deleted',
+			};
+		}
+
+		return null;
+	},
 };
 
 const fewTitleActions = [
@@ -316,12 +331,17 @@ for (let i = collection.length; i < 100; i += 1) {
 	});
 }
 
-const collectionWithTooltupLabel = collection.map(item => {
+const collectionWithTooltipLabel = collection.map(item => {
 	if (item.icon) {
 		return { ...item, iconTooltipLabel: 'My tooltip label' };
 	}
 	return item;
 });
+
+const collectionWithBadgeInCellTitle = collection.map(item => ({
+	...item,
+	isDeleted: true,
+}));
 
 const collapsibleListCollection = [
 	{
@@ -878,12 +898,45 @@ storiesOf('Data/List/VirtualizedList', module)
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collectionWithTooltupLabel} id="my-list">
+				<VirtualizedList collection={collectionWithTooltipLabel} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title
 						label="Name"
 						dataKey="name"
 						columnData={titlePropsWithTooltipLabel}
+					/>
+					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
+					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Text label="Author" dataKey="author" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > with badges in cell title', () => (
+		<div>
+			<h1>Virtualized List</h1>
+			<p>
+				Badge is shown between title icon and title selector
+				To enable it need to pass <b>getBadge</b> function in title props, and return badge props from it based on some criteria in rowData
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collectionWithBadgeInCellTitle} id="my-list">
+					<VirtualizedList.Text label="Id" dataKey="id" />
+					<VirtualizedList.Title
+						label="Name"
+						dataKey="name"
+						columnData={titlePropsWithBadge}
 					/>
 					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
@@ -931,7 +984,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
-					collection={collectionWithTooltupLabel}
+					collection={collectionWithTooltipLabel}
 					id="my-list"
 					type="custom"
 					rowHeight={116}

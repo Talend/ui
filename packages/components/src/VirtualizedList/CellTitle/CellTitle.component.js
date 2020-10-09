@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import Label from 'react-bootstrap/lib/Label';
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
 import CellTitleSelector from './CellTitleSelector.component';
@@ -45,7 +46,7 @@ class CellTitle extends React.Component {
 			actionsKey,
 			persistentActionsKey,
 			displayModeKey,
-
+			getBadge,
 			getRowState,
 
 			iconKey,
@@ -73,6 +74,8 @@ class CellTitle extends React.Component {
 				</TooltipTrigger>
 			);
 		}
+
+		const badge = getBadge ? getBadge(rowData) : null;
 
 		const defaultTitle = (
 			<React.Fragment>
@@ -109,6 +112,11 @@ class CellTitle extends React.Component {
 				})}
 			>
 				{icon}
+				{badge &&  (
+					<Label className={theme.badge} bsStyle={badge.bsStyle || 'info'}>
+						{badge.label}
+					</Label>
+				)}
 				{disabled ? (
 					<TooltipTrigger label={tooltip} tooltipPlacement="top">
 						<span id={titleId} className={theme['main-title']} title={cellData}>

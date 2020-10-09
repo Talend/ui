@@ -295,6 +295,56 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
 </div>
 `;
 
+exports[`CellTitle icon should render badge between icon and title selector if getBadge function is provided in title props 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <Icon
+    className="theme-icon"
+    name="talend-file-o"
+  />
+  <Label
+    bsClass="label"
+    bsStyle="info"
+    className="theme-badge"
+  >
+    Deleted
+  </Label>
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={Object {}}
+      displayMode="text"
+      id="my-title-1-title-cell"
+      rowData={
+        Object {
+          "icon": "talend-file-o",
+          "id": 1,
+          "isDeleted": true,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "icon": "talend-file-o",
+          "id": 1,
+          "isDeleted": true,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;
+
 exports[`CellTitle icon should render icon with tooltip when iconLabelKey is provided and the rowData has tooltip label value 1`] = `
 <div
   className="theme-tc-list-title tc-list-title"
