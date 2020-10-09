@@ -112,7 +112,7 @@ class CellTitle extends React.Component {
 				})}
 			>
 				{icon}
-				{badge &&  (
+				{badge && (
 					<Label className={theme.badge} bsStyle={badge.bsStyle || 'info'}>
 						{badge.label}
 					</Label>

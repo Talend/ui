@@ -179,7 +179,7 @@ describe('CellTitle', () => {
 					getComponent={jest.fn()}
 					rowData={rowDataForBadge}
 					rowIndex={1}
-				/>
+				/>,
 			);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});

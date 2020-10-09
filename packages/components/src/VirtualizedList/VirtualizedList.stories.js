@@ -926,18 +926,15 @@ storiesOf('Data/List/VirtualizedList', module)
 		<div>
 			<h1>Virtualized List</h1>
 			<p>
-				Badge is shown between title icon and title selector
-				To enable it need to pass <b>getBadge</b> function in title props, and return badge props from it based on some criteria in rowData
+				Badge is shown between title icon and title selector To enable it need to pass{' '}
+				<b>getBadge</b> function in title props, and return badge props from it based on some
+				criteria in rowData
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collectionWithBadgeInCellTitle} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title
-						label="Name"
-						dataKey="name"
-						columnData={titlePropsWithBadge}
-					/>
+					<VirtualizedList.Title label="Name" dataKey="name" columnData={titlePropsWithBadge} />
 					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
