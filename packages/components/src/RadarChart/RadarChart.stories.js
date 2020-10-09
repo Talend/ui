@@ -94,10 +94,6 @@ stories
 					stroke="#19426c"
 				/>
 			</RadarChart>
-
-			<div>
-				<p id="clickMessage">You haven't clicked anything yet.</p>
-			</div>
 		</div>
 	))
 	.add('Radar Chart Clickable Dot', () => (
@@ -115,10 +111,6 @@ stories
 					stroke="#19426c"
 				/>
 			</RadarChart>
-
-			<div>
-				<p id="clickMessage"></p>
-			</div>
 		</div>
 	))
 	.add('Radar Chart Custom Dot', () => (
