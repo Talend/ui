@@ -350,18 +350,8 @@
    98:3  error  defaultProp "level" defined for isRequired propType  react/default-props-match-prop-types
   209:4  error  'item.hidden' is missing in props validation         react/prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.js
-  53:28  error  'icon.tooltipPlacement' is missing in props validation  react/prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellBoolean/CellBoolean.component.js
   63:2  error  defaultProp "columnData" defined for isRequired propType  react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.component.js
-  23:22  error  'columnData.selectionMode' is missing in props validation  react/prop-types
-  23:47  error  'columnData.getRowState' is missing in props validation    react/prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellDatetime/CellDatetime.component.js
-  53:35  error  'columnData.tooltipPlacement' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
   171:3  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
@@ -392,13 +382,13 @@
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.stories.js
-  429:25  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
-  687:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
-  687:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
-  697:11  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
-  697:44  error  ["icon"] is better written in dot notation                                                                                                       dot-notation
-  703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
-  703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
+  449:25  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  707:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  707:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
+  717:11  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  717:44  error  ["icon"] is better written in dot notation                                                                                                       dot-notation
+  723:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
+  723:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 209 problems (187 errors, 22 warnings)
+✖ 205 problems (183 errors, 22 warnings)
   8 errors and 0 warnings potentially fixable with the `--fix` option.
