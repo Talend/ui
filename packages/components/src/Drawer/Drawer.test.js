@@ -368,7 +368,7 @@ describe('Drawer', () => {
 	it('should render cancelActionComponent with passed in className', () => {
 		const wrapper = mount(cancelActionComponent({ className: 'btn-inverse' }));
 		expect(wrapper.find('Action').prop('className')).toEqual(
-			'tc-drawer-close-action theme-tc-drawer-close-action btn-inverse',
+			'tc-drawer-close-action theme-tc-drawer-close-action',
 		);
 	});
 });
