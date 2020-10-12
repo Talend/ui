@@ -20,8 +20,9 @@ stories
 			<section>
 				<header>Ratio Bar</header>
 				<div>
-					<RatioBar amount={10} total={12} />
 					<RatioBar amount={0} total={12} />
+					<RatioBar amount={10} total={12} />
+					<RatioBar total={12} />
 					<RatioBar amount={12} total={12} />
 					<RatioBar amount={532} total={1000} />
 				</div>

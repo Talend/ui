@@ -32,7 +32,7 @@ function getEmptyValues(amount, total) {
 }
 
 function getLabel(amount, total) {
-	if (!amount) {
+	if (!amount && amount !== 0) {
 		return (
 			<div className={theme('tc-ratio-bar-counter')}>
 				<Trans i18nKey="tui-components:NA">
