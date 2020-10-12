@@ -6,8 +6,8 @@
   "scripts": {
     "build": "npm run build:lib && npm run build:lib:umd && npm run build:lib:umd:min",
     "build:lib": "talend-scripts build:ts:lib",
-    "build:lib:umd": "talend-scripts build:lib --env.umd=TalendDesignSystem",
-    "build:lib:umd:min": "talend-scripts build:lib --env.umd=TalendDesignSystem --env.optimize=true",
+    "build:lib:umd": "talend-scripts build:lib:umd",
+    "build:lib:umd:min": "talend-scripts build:lib:umd --env.optimize=true",
     "start": "npm run storybook",
     "test": "talend-scripts test",
     "storybook": "start-storybook -p 6006",
@@ -26,40 +26,40 @@
   },
   "homepage": "https://github.com/Talend/design-system#readme",
   "dependencies": {
-    "i18next": "^19.6.3",
-    "polished": "^3.6.5",
-    "react-i18next": "^11.7.0",
-    "react-use": "^15.3.3",
+    "i18next": "^19.8.2",
+    "polished": "^4.0.2",
+    "react-i18next": "^11.7.3",
+    "react-use": "^15.3.4",
     "reakit": "next"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@storybook/addon-essentials": "6.1.0-alpha.6",
-    "@storybook/addon-links": "6.1.0-alpha.6",
-    "@storybook/addons": "6.1.0-alpha.6",
-    "@storybook/react": "6.1.0-alpha.6",
-    "@storybook/theming": "6.1.0-alpha.6",
+    "@babel/core": "^7.11.6",
+    "@storybook/addon-essentials": " 6.1.0-alpha.22",
+    "@storybook/addon-links": " 6.1.0-alpha.22",
+    "@storybook/addons": " 6.1.0-alpha.22",
+    "@storybook/react": " 6.1.0-alpha.22",
+    "@storybook/theming": " 6.1.0-alpha.22",
     "@svgr/webpack": "^5.4.0",
-    "@talend/scripts-core": "6.5.0",
-    "@talend/scripts-preset-react-lib": "6.5.0",
-    "@types/react": "^16.9.46",
+    "@talend/scripts-core": "6.6.1",
+    "@talend/scripts-preset-react-lib": "6.6.1",
+    "@types/react": "^16.9.52",
     "@types/react-dom": "^16.9.8",
     "@types/react-is": "^16.7.1",
-    "@types/styled-components": "^5.1.2",
+    "@types/styled-components": "^5.1.4",
     "focus-outline-manager": "^1.0.2",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
     "storybook-chroma": "^4.0.2",
     "storybook-docs-toc": "^1.0.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.0"
   },
   "peerDependencies": {
     "focus-outline-manager": "^1.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.0"
   },
   "resolutions": {
     "core-js": "3"

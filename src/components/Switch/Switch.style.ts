@@ -26,7 +26,9 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
 		font-size: ${tokens.fontSizes.small};
     	opacity: ${tokens.opacity.disabled};
 		user-select: none; 		
-    	cursor: pointer;
+		cursor: pointer;
+		background: none;
+		border: none;
 		z-index: 2;
 	}
 	
