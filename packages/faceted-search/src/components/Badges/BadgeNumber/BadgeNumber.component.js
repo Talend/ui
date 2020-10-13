@@ -51,7 +51,7 @@ const BadgeNumber = ({
 	value,
 	category,
 	readOnly,
-	removable
+	removable,
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
