@@ -8,7 +8,7 @@
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack --progress",
     "docs": "node ./scripts/docs.js",
-    "prepare": "rimraf ./dist && npm run build-react && npm run build-webfont",
+    "prepare": "rimraf ./dist && npm run build-react",
     "test": "echo no test",
     "test:cov": "echo no test",
     "test:demo": "node ./scripts/docs.js",
