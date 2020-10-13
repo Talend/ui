@@ -114,7 +114,7 @@ const BadgeFaceted = ({
 						opened={overlayState.operatorOpened}
 						onClick={onChangeOperator}
 						operators={operators}
-            readOnly={readOnly}
+						readOnly={readOnly}
 						size={size}
 						t={t}
 					/>
