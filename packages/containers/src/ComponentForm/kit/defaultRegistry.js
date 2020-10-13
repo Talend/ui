@@ -16,9 +16,10 @@
 
 import clonedeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
-import { removeError, addError, getError } from '@talend/react-forms/lib/UIForm/utils/errors';
-import { mutateValue } from '@talend/react-forms/lib/UIForm/utils/properties';
+import Form from '@talend/react-forms';
 
+const { removeError, addError, getError } = Form.UIForm.utils.errors;
+const { mutateValue } = Form.UIForm.utils.properties;
 /**
  * Change errors on the target input
  * Add the error if trigger results in an error

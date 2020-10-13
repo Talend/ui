@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Badge from '@talend/react-components/lib/Badge';
-import { TextMode as FieldTemplate } from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
+import Form from '@talend/react-forms';
 import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 
 function renderItem(props) {
@@ -21,6 +21,8 @@ export default function MultiSelectTextMode(props) {
 		name: names[index],
 		value: nextVal,
 	}));
+	const FieldTemplate = Form.UIForm.FieldTemplate.TextModeTemplate;
+
 	return (
 		<FieldTemplate id={props.id} label={props.schema.title}>
 			<div style={{ height: 300 }}>
