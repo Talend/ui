@@ -102,20 +102,24 @@ const BadgeFaceted = ({
 
 	return (
 		<Badge id={id} className={theme('tc-badge-faceted')} display={size}>
-			<BadgeComposition.Category category={labelCategory} label={labelCategory} />
-			<BadgeOperatorOverlay
-				id={id}
-				onChangeOverlay={onChangeOperatorOverlay}
-				onHideOverlay={onHideOverlayOperator}
-				operatorLabel={badgeOperator.label}
-				operatorIconName={badgeOperator.iconName}
-				opened={overlayState.operatorOpened}
-				onClick={onChangeOperator}
-				operators={operators}
-				readOnly={readOnly}
-				size={size}
-				t={t}
-			/>
+			{labelCategory && (
+				<>
+					<BadgeComposition.Category category={labelCategory} label={labelCategory} />
+					<BadgeOperatorOverlay
+						id={id}
+						onChangeOverlay={onChangeOperatorOverlay}
+						onHideOverlay={onHideOverlayOperator}
+						operatorLabel={badgeOperator.label}
+						operatorIconName={badgeOperator.iconName}
+						opened={overlayState.operatorOpened}
+						onClick={onChangeOperator}
+						operators={operators}
+            readOnly={readOnly}
+						size={size}
+						t={t}
+					/>
+				</>
+			)}
 			<BadgeOverlay
 				id={id}
 				className={theme('tc-badge-faceted-overlay')}
