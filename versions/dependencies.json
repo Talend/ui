@@ -31,7 +31,7 @@
   "i18next-parser": "^0.13.0",
   "react-dnd": "^2.5.4",
   "react-draggable": "^3.3.0",
-  "react-hook-form": "^5.7.0",
+  "react-hook-form": "^6.9.2",
   "react-i18next": "^10.11.4",
   "react-popper": "^1.3.7",
   "react-redux": "^5.0.7",

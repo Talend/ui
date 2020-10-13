@@ -11,6 +11,7 @@ import HeaderBar from '../HeaderBar';
 import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from '../SidePanel';
+import { ActionButton } from '../Actions';
 
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
@@ -185,6 +186,13 @@ function scrollableContent() {
 	return content;
 }
 
+const titleActions = () => (
+	<div>
+		<ActionButton {...actions[0]} hideLabel link></ActionButton>
+		<ActionButton {...actions[1]} hideLabel link></ActionButton>
+	</div>
+);
+
 const drawers = [
 	<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
 		<h1>Hello drawer 1</h1>
@@ -203,7 +211,12 @@ const editableDrawers = [
 		<h1>Hello drawer 1</h1>
 		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
-	<Drawer editableTitle title="Im drawer 20" footerActions={{ ...basicProps, selected: 0 }}>
+	<Drawer
+		renderTitleActions={titleActions}
+		editableTitle
+		title="Im drawer 20"
+		footerActions={{ ...basicProps, selected: 0 }}
+	>
 		<h1>Hello drawer 2</h1>
 		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
@@ -218,6 +231,7 @@ const longEditableDrawers = [
 	</Drawer>,
 	<Drawer
 		editableTitle
+		renderTitleActions={titleActions}
 		title="Im drawer 20 here in the long title header header header"
 		footerActions={{ ...basicProps, selected: 0 }}
 		onCancelAction={onCancelAction}
