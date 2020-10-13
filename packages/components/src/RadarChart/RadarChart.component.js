@@ -136,10 +136,48 @@ Dot.propTypes = {
 	index: PropTypes.number,
 };
 
+/**
+ * This function provides a clickable axis dot element
+ * @param {Object} props the current props of the Radar
+ */
+// TODO 6.0: remove this export
+export function DotWithClick(props) {
+	const { activeAxis, fill, index, onClick, ...rest } = props;
+	const STATE = {
+		DEFAULT_RADIUS: 2,
+		DEFAULT_STROKE_WIDTH: 12,
+		ACTIVE_RADIUS: 4,
+		ACTIVE_STROKE_WIDTH: 8,
+	};
+
+	return (
+		<RechartsDot
+			{...rest}
+			fill={fill}
+			fillOpacity={1}
+			onClick={onClick}
+			r={activeAxis === index ? STATE.ACTIVE_RADIUS : STATE.DEFAULT_RADIUS}
+			role="button"
+			stroke={fill}
+			strokeOpacity={0}
+			strokeWidth={activeAxis === index ? STATE.ACTIVE_STROKE_WIDTH : STATE.DEFAULT_STROKE_WIDTH}
+			tabIndex={0}
+		/>
+	);
+}
+DotWithClick.displayName = 'DotWithClick';
+DotWithClick.propTypes = {
+	activeAxis: PropTypes.number,
+	fill: PropTypes.string,
+	index: PropTypes.number,
+	onClick: PropTypes.func,
+};
+
 // TODO 6.0: remove those exports
 export { Radar, PolarAngleAxis };
 
 RadarChart.LabelWithClick = LabelWithClick;
 RadarChart.Dot = Dot;
+RadarChart.DotWithClick = DotWithClick;
 RadarChart.Radar = Radar;
 RadarChart.PolarAngleAxis = PolarAngleAxis;

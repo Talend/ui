@@ -2,7 +2,7 @@
 
 exports[`Drawer render drawer content with extra className 1`] = `
 <div
-  className="tc-drawer-content theme-tc-drawer-content extraClass"
+  className="tc-drawer-content theme-tc-drawer-content extraClass theme-extraClass"
 >
   <div
     className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
@@ -32,7 +32,7 @@ exports[`Drawer should not render if no children 1`] = `null`;
 
 exports[`Drawer should render 1`] = `
 <div
-  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
+  className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"
@@ -72,7 +72,7 @@ exports[`Drawer should render 1`] = `
 
 exports[`Drawer should render stacked 1`] = `
 <div
-  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition theme-drawer-stacked stacked"
+  className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition theme-drawer-stacked theme-theme-drawer-stacked stacked theme-stacked"
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"
@@ -112,7 +112,7 @@ exports[`Drawer should render stacked 1`] = `
 
 exports[`Drawer should render using custom className 1`] = `
 <div
-  className="theme-tc-drawer my-custom-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
+  className="my-custom-drawer theme-my-custom-drawer tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"
@@ -152,7 +152,7 @@ exports[`Drawer should render using custom className 1`] = `
 
 exports[`Drawer should render using custom styles 1`] = `
 <div
-  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
+  className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
   style={
     Object {
       "top": 45,
@@ -197,7 +197,7 @@ exports[`Drawer should render using custom styles 1`] = `
 
 exports[`Drawer should render with tabs 1`] = `
 <div
-  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
+  className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"
@@ -420,7 +420,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
 
 exports[`Drawer should render without tc-drawer-transition class 1`] = `
 <div
-  className="theme-tc-drawer tc-drawer"
+  className="tc-drawer theme-tc-drawer"
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"

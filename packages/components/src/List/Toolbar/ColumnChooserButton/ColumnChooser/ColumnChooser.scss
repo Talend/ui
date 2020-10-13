@@ -30,6 +30,7 @@ $tc-height: 4rem;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
+		max-height: 6 * $tc-height;
 	}
 
 	&-footer {
