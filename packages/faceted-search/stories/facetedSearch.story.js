@@ -1,10 +1,16 @@
 import React from 'react';
-import { times } from 'lodash';
+import times from 'lodash/times';
+import set from 'lodash/set';
+import cloneDeep from 'lodash/cloneDeep';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { useTranslation } from 'react-i18next';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import FacetedSearch from '../src';
 import { FacetedSearchIcon } from '../src/components/FacetedSearchIcon';
+import { BadgeFacetedProvider } from '../src/components/context/badgeFaceted.context';
+import { BadgesGenerator } from '../src/components/BadgesGenerator';
+import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dictionary';
 
 import {
 	badgeConnectionType,
@@ -23,7 +29,15 @@ import {
 	badgePriceAsCustomAttribute,
 } from './badgesDefinitions.story';
 
-const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice, badgeValid, badgeEmpty, badgeInvalid];
+const badgesDefinitions = [
+	badgeName,
+	badgeConnectionType,
+	badgeTags,
+	badgePrice,
+	badgeValid,
+	badgeEmpty,
+	badgeInvalid,
+];
 const lotsOfBadgesDefinitions = [];
 let i = 0;
 while (i < 50) {
@@ -182,6 +196,26 @@ storiesOf('FacetedSearch', module)
 			</FacetedSearch.Faceted>
 		</div>
 	))
+	.add('read only', () => {
+		const { t } = useTranslation();
+		const badgesDictionary = createBadgesDict();
+		return (
+			<div>
+				<IconsProvider />
+				<BadgeFacetedProvider value={{}}>
+					<BadgesGenerator
+						badges={[
+							set(cloneDeep(badgesFaceted.badges[0]), 'properties.readOnly', true),
+							set(cloneDeep(badgesFaceted.badges[0]), 'properties.removable', false),
+						]}
+						badgesDictionary={badgesDictionary}
+						getBadgeFromDict={getBadgesFromDict}
+						t={t}
+					/>
+				</BadgeFacetedProvider>
+			</div>
+		);
+	})
 	.add('basic search with lots of badges definitions', () => (
 		<div style={{ height: '5.5rem' }}>
 			<IconsProvider />

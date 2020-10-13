@@ -30,6 +30,8 @@ const BadgeFaceted = ({
 	initialValueOpened,
 	operator,
 	operators,
+	readOnly,
+	removable = true,
 	value,
 	size = Badge.SIZES.large,
 	t,
@@ -110,6 +112,7 @@ const BadgeFaceted = ({
 				opened={overlayState.operatorOpened}
 				onClick={onChangeOperator}
 				operators={operators}
+				readOnly={readOnly}
 				size={size}
 				t={t}
 			/>
@@ -121,17 +124,20 @@ const BadgeFaceted = ({
 				onHide={onHideSubmitBadge}
 				opened={overlayState.valueOpened}
 				onChange={onChangeValueOverlay}
+				readOnly={readOnly}
 				t={t}
 			>
 				{children({ onSubmitBadge, onChangeValue, badgeValue })}
 			</BadgeOverlay>
-			<BadgeComposition.DeleteAction
-				id={id}
-				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
-				dataFeature={USAGE_TRACKING_TAGS.BADGE_REMOVE}
-				onClick={onDeleteBadge}
-				t={t}
-			/>
+			{removable && (
+				<BadgeComposition.DeleteAction
+					id={id}
+					label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
+					dataFeature={USAGE_TRACKING_TAGS.BADGE_REMOVE}
+					onClick={onDeleteBadge}
+					t={t}
+				/>
+			)}
 		</Badge>
 	);
 };
@@ -148,6 +154,8 @@ BadgeFaceted.propTypes = {
 	operators: operatorsPropTypes.isRequired,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
 	value: PropTypes.any,
+	readOnly: PropTypes.bool,
+	removable: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 

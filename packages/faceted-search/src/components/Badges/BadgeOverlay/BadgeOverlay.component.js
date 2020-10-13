@@ -43,6 +43,7 @@ const BadgeOverlay = ({
 	onHide,
 	opened = false,
 	placement = 'bottom',
+	readOnly,
 	rootClose = true,
 	t,
 }) => {
@@ -74,6 +75,7 @@ const BadgeOverlay = ({
 			type="button"
 			ref={target => setButtonRef(target)}
 			onClick={changeOpened}
+			disabled={readOnly}
 			className={theme({ 'tc-badge-link-plus': hasAddButton })}
 		>
 			{iconName && (
@@ -128,6 +130,7 @@ BadgeOverlay.propTypes = {
 	placement: PropTypes.string,
 	rootClose: PropTypes.bool,
 	hasAddButton: PropTypes.bool,
+	readOnly: PropTypes.bool,
 };
 
 // eslint-disable-next-line import/prefer-default-export
