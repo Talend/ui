@@ -126,15 +126,10 @@
   269:43  error  'footerActions' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
-<<<<<<< HEAD
-  239:33  error  Unary operator '++' used  no-plusplus
-  296:35  error  Unary operator '++' used  no-plusplus
-=======
-  191:3   error  Empty components are self-closing  react/self-closing-comp
-  192:3   error  Empty components are self-closing  react/self-closing-comp
-  266:33  error  Unary operator '++' used           no-plusplus
-  323:35  error  Unary operator '++' used           no-plusplus
->>>>>>> master
+  178:3   error  Empty components are self-closing  react/self-closing-comp
+  179:3   error  Empty components are self-closing  react/self-closing-comp
+  253:33  error  Unary operator '++' used           no-plusplus
+  310:35  error  Unary operator '++' used           no-plusplus
 
 /home/travis/build/Talend/ui/packages/components/src/EditableText/EditableText.test.js
   12:3  error  Arrow function should not return assignment  no-return-assign
