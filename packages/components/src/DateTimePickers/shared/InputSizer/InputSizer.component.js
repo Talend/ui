@@ -15,12 +15,12 @@ const placeholderSizerStyle = {
 	fontStyle: 'oblique',
 };
 
-function InputSizer({ placeholder, inputText, children }) {
+function InputSizer({ placeholder, inputText, children, minWidth }) {
 	const [width, setWidth] = useState(0);
 	const sizerRef = useRef(null);
 
 	useEffect(() => {
-		setWidth(sizerRef.current.getBoundingClientRect().width);
+		setWidth(minWidth || sizerRef.current.getBoundingClientRect().width);
 	});
 
 	const style = inputText ? inputTextSizerStyle : placeholderSizerStyle;

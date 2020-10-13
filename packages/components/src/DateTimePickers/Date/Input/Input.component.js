@@ -6,9 +6,10 @@ import InputSizer from '../../shared/InputSizer';
 
 export default function Input(props) {
 	const { value, inputManagement } = useContext(DateContext);
+    const { minWidth } = props;
 
 	return (
-		<InputSizer inputText={inputManagement.placeholder}>
+		<InputSizer inputText={inputManagement.placeholder} minWidth={minWidth}>
 			{width => (
 				<DebounceInput
 					autoComplete="off"

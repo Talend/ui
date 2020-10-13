@@ -75,6 +75,20 @@ storiesOf('Form/Controls/DatePicker/Date', module)
 			/>
 		</div>
 	))
+	.add('min width', () => (
+    		<div>
+    			<p>
+    				Date picker a minimal width for the input
+    			</p>
+    			<InputDatePicker
+    				id="my-date-picker"
+    				name="date"
+    				onChange={action('onChange')}
+    				dateFormat="DD/MM/YYYY"
+    				minWidth={250}
+    			/>
+    		</div>
+    	))
 	.add('Container overflow', () => (
 		<div style={{ height: 300, overflow: 'auto', border: 'solid', marginTop: 100 }}>
 			<div
