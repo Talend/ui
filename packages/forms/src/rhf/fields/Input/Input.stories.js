@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { useForm, FormContext } from 'react-hook-form/dist/react-hook-form.ie11';
+import { useForm, FormProvider } from 'react-hook-form/dist/index.ie11';
 import { action } from '@storybook/addon-actions';
 import Input from '.';
 
@@ -15,7 +15,7 @@ export default {
 export const States = () => {
 	const rhf = useForm();
 	return (
-		<FormContext {...rhf}>
+		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input id="name" type="text" name="default" label="Default" defaultValue="Jimmy" />
 				<Input
@@ -38,7 +38,7 @@ export const States = () => {
 					Submit
 				</button>
 			</form>
-		</FormContext>
+		</FormProvider>
 	);
 };
 
@@ -46,7 +46,7 @@ export const Types = () => {
 	const rhf = useForm();
 
 	return (
-		<FormContext {...rhf}>
+		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input id="text" type="text" name="text" label="Text" />
 				<Input id="number" type="number" name="number" label="Number" />
@@ -55,7 +55,7 @@ export const Types = () => {
 					Submit
 				</button>
 			</form>
-		</FormContext>
+		</FormProvider>
 	);
 };
 
@@ -63,14 +63,14 @@ export const DefaultValue = () => {
 	const rhf = useForm();
 
 	return (
-		<FormContext {...rhf}>
+		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input id="defaultValue" type="text" name="name" label="Name" defaultValue="Jimmy" />
 				<button type="submit" className="btn btn-primary">
 					Submit
 				</button>
 			</form>
-		</FormContext>
+		</FormProvider>
 	);
 };
 
@@ -78,7 +78,7 @@ export const Description = () => {
 	const rhf = useForm();
 
 	return (
-		<FormContext {...rhf}>
+		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input
 					id="description"
@@ -91,7 +91,7 @@ export const Description = () => {
 					Submit
 				</button>
 			</form>
-		</FormContext>
+		</FormProvider>
 	);
 };
 
@@ -99,7 +99,7 @@ export const Validation = () => {
 	const rhf = useForm({ mode: 'onBlur' });
 
 	return (
-		<FormContext {...rhf}>
+		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input
 					id="required"
@@ -125,6 +125,6 @@ export const Validation = () => {
 					Submit
 				</button>
 			</form>
-		</FormContext>
+		</FormProvider>
 	);
 };
