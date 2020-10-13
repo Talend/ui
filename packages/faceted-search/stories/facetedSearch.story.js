@@ -1,5 +1,7 @@
 import React from 'react';
-import { times } from 'lodash';
+import times from 'lodash/times';
+import set from 'lodash/set';
+import cloneDeep from 'lodash/cloneDeep';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
@@ -23,7 +25,15 @@ import {
 	badgePriceAsCustomAttribute,
 } from './badgesDefinitions.story';
 
-const badgesDefinitions = [badgeName, badgeConnectionType, badgeTags, badgePrice, badgeValid, badgeEmpty, badgeInvalid];
+const badgesDefinitions = [
+	badgeName,
+	badgeConnectionType,
+	badgeTags,
+	badgePrice,
+	badgeValid,
+	badgeEmpty,
+	badgeInvalid,
+];
 const lotsOfBadgesDefinitions = [];
 let i = 0;
 while (i < 50) {
@@ -145,7 +155,6 @@ storiesOf('FacetedSearch', module)
 	))
 	.add('default', () => (
 		<div>
-			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				{currentFacetedMode =>
 					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
@@ -164,7 +173,6 @@ storiesOf('FacetedSearch', module)
 	))
 	.add('initialized', () => (
 		<div>
-			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				{currentFacetedMode =>
 					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
@@ -182,9 +190,20 @@ storiesOf('FacetedSearch', module)
 			</FacetedSearch.Faceted>
 		</div>
 	))
+	.add('without label or operator button', () => (
+		<div>
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={badgesDefinitions}
+					badgesFaceted={set(cloneDeep(badgesFaceted), 'badges[0].properties.label', '')}
+					onSubmit={action('onSubmit')}
+					callbacks={callbacks}
+				/>
+			</FacetedSearch.Faceted>
+		</div>
+	))
 	.add('basic search with lots of badges definitions', () => (
 		<div style={{ height: '5.5rem' }}>
-			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={lotsOfBadgesDefinitions}
@@ -196,7 +215,6 @@ storiesOf('FacetedSearch', module)
 	))
 	.add('basic search with badge with very long name', () => (
 		<div style={{ height: '5.5rem' }}>
-			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeWithVeryLongName, badgeConnectionType, badgeName, badgePrice]}
@@ -208,7 +226,6 @@ storiesOf('FacetedSearch', module)
 	))
 	.add('basic search in a badge with a lot of values', () => (
 		<div style={{ height: '5.5rem' }}>
-			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeEnumWithLotOfValues]}
@@ -220,7 +237,6 @@ storiesOf('FacetedSearch', module)
 	))
 	.add('basic search with badges categories', () => (
 		<div style={{ height: '5.5rem' }}>
-			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[
@@ -241,7 +257,6 @@ storiesOf('FacetedSearch', module)
 	))
 	.add('basic search with a empty label badge', () => (
 		<div style={{ height: '5.5rem' }}>
-			<IconsProvider />
 			<FacetedSearch.Faceted id="my-faceted-search">
 				<FacetedSearch.BasicSearch
 					badgesDefinitions={[badgeName, badgeEmptyLabel]}
