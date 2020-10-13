@@ -2,25 +2,6 @@
 # yarn lockfile v1
 
 
-"@ag-grid-community/client-side-row-model@^22.1.1":
-  version "22.1.1"
-  resolved "https://registry.yarnpkg.com/@ag-grid-community/client-side-row-model/-/client-side-row-model-22.1.1.tgz#9ac111319559b19dfaf20ea158020cddc6848365"
-  integrity sha512-lLqYuYHngb8pC5wSnBRYzszBDeTxRkz6TmxpVP8CHYM3QSqe2xUTp8KFkzO+RrlySB7uCCx1ym0bOR4vRkkaAw==
-  dependencies:
-    "@ag-grid-community/core" "~22.1.1"
-
-"@ag-grid-community/core@^22.1.1", "@ag-grid-community/core@~22.1.1":
-  version "22.1.1"
-  resolved "https://registry.yarnpkg.com/@ag-grid-community/core/-/core-22.1.1.tgz#5b30fe9de4e309c92540dfb218ddb97db319d88a"
-  integrity sha512-x9dLUnsIsa+3bsweYKM8UWN42b7i5FDMvGpabAlOS0jAcJRs6krZUBK8XyZwzCc2vELuoBQ6VrKG5RWCN2phjg==
-
-"@ag-grid-community/react@^22.1.2":
-  version "22.1.2"
-  resolved "https://registry.yarnpkg.com/@ag-grid-community/react/-/react-22.1.2.tgz#1bf188177f5c8d12371aa20539d66d66a29960dd"
-  integrity sha512-rouYVp1NFq4hwBMmazMQ5sxcmwImcBOQC2YVn5/39uoP8+3UHTNcimMbKviAN+jMQgIHDlBTTBgjDAH9mMKmQg==
-  dependencies:
-    prop-types "^15.6.2"
-
 "@babel/cli@^7.8.3":
   version "7.11.6"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.11.6.tgz#1fcbe61c2a6900c3539c06ee58901141f3558482"
@@ -3739,6 +3720,18 @@ adjust-sourcemap-loader@2.0.0:
     loader-utils "1.2.3"
     object-path "0.11.4"
     regex-parser "2.2.10"
+
+ag-grid-community@^24.0.0:
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-24.0.0.tgz#793a3c4a28e5148c5c8c8c6ff68e8f3c4ee6ca3d"
+  integrity sha512-TNNqTp918PCRicH/vE8fs1pu/hbWMc9Iem7gCjGsjlabBrGhMxCq7tYiBtguERuxdszbSImznjampnc0NvOoFg==
+
+ag-grid-react@^24.0.0:
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-24.0.0.tgz#35874d549c658f5ac9d5711b652a4e3e09875607"
+  integrity sha512-Yp91jA4I/BO90UtUV6hSdhDV+J1OhClM6iu/aXHIhCHxt+aSfUg1i1ZUCGvgW8R2zxR4WtwDV2CRPsbAhxFdMw==
+  dependencies:
+    prop-types "^15.6.2"
 
 agent-base@4, agent-base@^4.3.0:
   version "4.3.0"

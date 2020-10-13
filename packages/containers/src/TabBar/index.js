@@ -1,9 +1,6 @@
 import TabBar from './TabBar.connect';
-import { getSelectedKey, getComponentState } from './TabBar.selectors';
+import * as TabBarSelectors from './TabBar.selectors';
 
-TabBar.selectors = {
-	getSelectedKey,
-	getComponentState,
-};
+TabBar.selectors = TabBarSelectors;
 
 export default TabBar;
