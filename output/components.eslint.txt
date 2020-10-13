@@ -159,9 +159,6 @@
   177:4   error    Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  jsx-a11y/accessible-emoji
   270:4   error    Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  jsx-a11y/accessible-emoji
 
-/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.stories.js
-  77:32  error  'brand' is missing in props validation  react/prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionFilter.hook.js
   27:65  warning  React Hook useMemo has unnecessary dependencies: 'filterFunctions' and 'textFilter'. Either exclude them or remove the dependency array. Outer scope values like 'textFilter' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
@@ -400,5 +397,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 209 problems (188 errors, 21 warnings)
+✖ 208 problems (187 errors, 21 warnings)
   9 errors and 0 warnings potentially fixable with the `--fix` option.
