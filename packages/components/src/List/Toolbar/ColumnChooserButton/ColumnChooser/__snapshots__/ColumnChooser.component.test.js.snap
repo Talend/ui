@@ -68,135 +68,137 @@ exports[`ColumnChooser should render with default props 1`] = `
             display all the columns
           </div>
         </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Id"
-                   data-feature="column-chooser.select.disable"
-            >
-              <input type="checkbox"
-                     id="my-id-body-checkbox-Id"
-                     data-checked="2"
-                     aria-describedby="my-id-body-display the column Id"
-                     checked
+        <div class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list">
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Id"
+                     data-feature="column-chooser.select.disable"
               >
-              <span>
-                Id
-              </span>
-            </label>
-          </div>
-          <div id="my-id-body-display the column Id"
-               class="sr-only"
-          >
-            display the column Id
-          </div>
-        </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Name"
-                   data-feature="column-chooser.select.disable"
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Id"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Id"
+                       checked
+                >
+                <span>
+                  Id
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Id"
+                 class="sr-only"
             >
-              <input type="checkbox"
-                     id="my-id-body-checkbox-Name"
-                     data-checked="2"
-                     aria-describedby="my-id-body-display the column Name"
-                     checked
+              display the column Id
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Name"
+                     data-feature="column-chooser.select.disable"
               >
-              <span>
-                Name
-              </span>
-            </label>
-          </div>
-          <div id="my-id-body-display the column Name"
-               class="sr-only"
-          >
-            display the column Name
-          </div>
-        </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Author"
-                   data-feature="column-chooser.select.disable"
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Name"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Name"
+                       checked
+                >
+                <span>
+                  Name
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Name"
+                 class="sr-only"
             >
-              <input type="checkbox"
-                     id="my-id-body-checkbox-Author"
-                     data-checked="2"
-                     aria-describedby="my-id-body-display the column Author"
-                     checked
+              display the column Name
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Author"
+                     data-feature="column-chooser.select.disable"
               >
-              <span>
-                Author
-              </span>
-            </label>
-          </div>
-          <div id="my-id-body-display the column Author"
-               class="sr-only"
-          >
-            display the column Author
-          </div>
-        </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
-                   data-feature="column-chooser.select.disable"
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Author"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Author"
+                       checked
+                >
+                <span>
+                  Author
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Author"
+                 class="sr-only"
             >
-              <input type="checkbox"
-                     id="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
-                     data-checked="2"
-                     aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
-                     checked
+              display the column Author
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
+                     data-feature="column-chooser.select.disable"
               >
-              <span>
-                Very long name long name long name long name long name
-              </span>
-            </label>
-          </div>
-          <div id="my-id-body-display the column Very long name long name long name long name long name"
-               class="sr-only"
-          >
-            display the column Very long name long name long name long name long name
-          </div>
-        </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Icon"
-                   data-feature="column-chooser.select.enable"
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
+                       checked
+                >
+                <span>
+                  Very long name long name long name long name long name
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Very long name long name long name long name long name"
+                 class="sr-only"
             >
-              <input type="checkbox"
-                     id="my-id-body-checkbox-Icon"
-                     data-checked="0"
-                     aria-describedby="my-id-body-display the column Icon"
+              display the column Very long name long name long name long name long name
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Icon"
+                     data-feature="column-chooser.select.enable"
               >
-              <span>
-                Icon
-              </span>
-            </label>
-          </div>
-          <div id="my-id-body-display the column Icon"
-               class="sr-only"
-          >
-            display the column Icon
-          </div>
-        </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
-            <label for="my-id-body-checkbox-Created"
-                   data-feature="column-chooser.select.disable"
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Icon"
+                       data-checked="0"
+                       aria-describedby="my-id-body-display the column Icon"
+                >
+                <span>
+                  Icon
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Icon"
+                 class="sr-only"
             >
-              <input type="checkbox"
-                     id="my-id-body-checkbox-Created"
-                     data-checked="2"
-                     aria-describedby="my-id-body-display the column Created"
-                     checked
-              >
-              <span>
-                Created
-              </span>
-            </label>
+              display the column Icon
+            </div>
           </div>
-          <div id="my-id-body-display the column Created"
-               class="sr-only"
-          >
-            display the column Created
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Created"
+                     data-feature="column-chooser.select.disable"
+              >
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Created"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Created"
+                       checked
+                >
+                <span>
+                  Created
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Created"
+                 class="sr-only"
+            >
+              display the column Created
+            </div>
           </div>
         </div>
       </div>
