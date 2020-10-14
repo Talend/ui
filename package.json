@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/Talend/design-system#readme",
   "dependencies": {
+    "figma-js": "^1.13.0",
     "i18next": "^19.8.2",
     "polished": "^4.0.2",
     "react-i18next": "^11.7.3",
