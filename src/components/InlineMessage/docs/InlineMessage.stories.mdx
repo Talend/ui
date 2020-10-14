@@ -5,7 +5,6 @@ import Icon from '../../Icon';
 import icons from '../../../icons';
 import InlineMessage from '../';
 import Link from '../../Link';
-import MessageLine from './images/inlinemessage-multipleline.jpg';
 import theme from '../../../themes';
 import { Col, FigmaImage, Row } from '../../../docs';
 
@@ -229,20 +228,8 @@ It can be additional information related to system status, it can be a required 
 	/>
 </ColorPalette>
 
-| Attribute        | Variable                         |
-| ---------------- | -------------------------------- |
-| background-color | tint(\$color, 95)                |
-| box-shadow       | tint(\$color, 75) 0 1px 2px 0px  |
-| icon             | \$color depending on the context |
-| font             | \$black                          |
 
-## Fonts
 
-| Property        | font-size | font-weight | color      |
-| --------------- | --------- | ----------- | ---------- |
-| **title**       | 1.4rem    | semi-bold   | \$black    |
-| **description** | 1.4rem    | regular     | \$black    |
-| **link**        | 1.4rem    | semi-bold   | \$lochmara |
 
 ## States
 
@@ -306,8 +293,6 @@ Please refer to the hyperlink guidelines for more information.
 ### **Multiple line**
 
 The text should adapt the surrounding layout. Depending on the context, if the text is too long it should automatically wraps the line.
-
-<img src={MessageLine} alt="multiple line case for inline messages" className="full" class="full" />
 
 ## Changelog
 
