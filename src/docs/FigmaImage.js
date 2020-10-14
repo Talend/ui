@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as Figma from 'figma-js';
 
 const client = Figma.Client({
-	personalAccessToken: process.env.FIGMA_ACCESS_TOKEN,
+	personalAccessToken: process.env.STORYBOOK_FIGMA_ACCESS_TOKEN,
 });
 
 const Figure = styled.figure`
