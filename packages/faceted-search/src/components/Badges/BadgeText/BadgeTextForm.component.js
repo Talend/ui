@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Action } from '@talend/react-components/lib/Actions';
-import UIForm from '@talend/react-forms';
+import Action from '@talend/react-components/lib/Actions/Action';
+import Text from '@talend/react-forms/lib/UIForm/fields/Text';
 import { getTheme } from '@talend/react-components/lib/theme';
-import RichTooltip from '@talend/react-components/lib/RichTooltip';
+import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeText.scss';
@@ -26,23 +26,23 @@ const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 
 	return (
 		<form className={theme('tc-badge-text-form')} id={`${id}-text-area`} onSubmit={onSubmit}>
-			<RichTooltip.RichLayout.Body id={id} className={theme('tc-badge-text-form-body')}>
-				<UIForm.fields.Text
+			<RichLayout.Body id={id} className={theme('tc-badge-text-form-body')}>
+				<Text
 					id={`${id}-text`}
 					onChange={onChangeText}
 					onFinish={() => {}}
 					schema={schema}
 					value={value}
 				/>
-			</RichTooltip.RichLayout.Body>
-			<RichTooltip.RichLayout.Footer id={id}>
+			</RichLayout.Body>
+			<RichLayout.Footer id={id}>
 				<Action
 					type="submit"
 					data-feature={applyDataFeature}
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
 				/>
-			</RichTooltip.RichLayout.Footer>
+			</RichLayout.Footer>
 		</form>
 	);
 };

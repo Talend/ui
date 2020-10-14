@@ -1,7 +1,7 @@
 import React, { useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '@talend/react-components/lib/theme';
-import { ActionButton } from '@talend/react-components/lib/Actions';
+import ActionButton from '@talend/react-components/lib/Actions/ActionButton';
 import get from 'lodash/get';
 
 import { AddFacetPopover } from '../AddFacetPopover';

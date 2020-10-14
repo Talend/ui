@@ -1,11 +1,11 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Action } from '@talend/react-components/lib/Actions';
+import Action from '@talend/react-components/lib/Actions/Action';
 import Icon from '@talend/react-components/lib/Icon';
-import Slider from '@talend/react-components/lib/Slider';
-import UIForm from '@talend/react-forms';
+import Slider, { SLIDER_MODE } from '@talend/react-components/lib/Slider';
+import Text from '@talend/react-forms/lib/UIForm/fields/Text';
 import { getTheme } from '@talend/react-components/lib/theme';
-import RichTooltip from '@talend/react-components/lib/RichTooltip';
+import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeSlider.scss';
@@ -15,9 +15,9 @@ const theme = getTheme(cssModule);
 const getSliderMode = ({ name }) => {
 	switch (name) {
 		case 'greaterThan':
-			return Slider.MODES.GREATER_THAN;
+			return SLIDER_MODE.GREATER_THAN;
 		case 'equals':
-			return Slider.MODES.EQUALS;
+			return SLIDER_MODE.EQUALS;
 		default:
 			return null;
 	}
@@ -85,14 +85,11 @@ const BadgeSliderForm = ({
 
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
-			<RichTooltip.RichLayout.Body
-				id={`${id}-badge-body`}
-				className={theme('tc-badge-slider-form-body')}
-			>
+			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
 				<div className={theme('tc-badge-slider-form-body-row')}>
 					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (
-						<UIForm.fields.Text
+						<Text
 							id={`${id}-input`}
 							onChange={(_, { value: v }) => {
 								setInput(v);
@@ -134,8 +131,8 @@ const BadgeSliderForm = ({
 					step={step}
 					hideTooltip
 				/>
-			</RichTooltip.RichLayout.Body>
-			<RichTooltip.RichLayout.Footer id={`${id}-badge-footer`}>
+			</RichLayout.Body>
+			<RichLayout.Footer id={`${id}-badge-footer`}>
 				<span className={theme('tc-badge-slider-form-error')}>{error}</span>
 				<Action
 					type="submit"
@@ -144,7 +141,7 @@ const BadgeSliderForm = ({
 					bsStyle="info"
 					disabled={!!error}
 				/>
-			</RichTooltip.RichLayout.Footer>
+			</RichLayout.Footer>
 		</form>
 	);
 };
