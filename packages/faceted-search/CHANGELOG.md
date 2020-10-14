@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+- [Added](https://github.com/Talend/ui/pull/2997): Handle badges without labels
+
 ## [0.13.0]
 
 - [Fixed](https://github.com/Talend/ui/pull/2972): Don't reopen the value tooltip for badges with default operators
