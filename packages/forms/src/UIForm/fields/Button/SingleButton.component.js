@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Action from '@talend/react-components/lib/Actions/Action';
+import { Action } from '@talend/react-components/lib/Actions';
 import Inject from '@talend/react-components/lib/Inject';
 import classNames from 'classnames';
 
