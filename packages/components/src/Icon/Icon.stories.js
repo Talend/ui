@@ -5,21 +5,24 @@ import IconsProvider from '../IconsProvider';
 import Icon from './Icon.component';
 
 // todo build it base on the icons info
-const icons = {};
 
 storiesOf('Messaging & Communication/Icon', module)
 	.add('default use svg', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider />
-			<p>We have {Object.keys(icons).length.toString()} svg icons registred:</p>
-			<ul>
-				{Object.keys(icons).map((icon, index) => (
-					<li key={index}>
-						<Icon name={icon} /> : <strong>{icon}</strong>
-					</li>
-				))}
-			</ul>
+			<IconsProvider>
+				<p>
+					We have {Object.keys(IconsProvider.getAllIconIds()).length.toString()} svg icons
+					registred:
+				</p>
+				<ul>
+					{IconsProvider.getAllIconIds().map((icon, index) => (
+						<li key={index}>
+							<Icon name={icon} /> : <strong>{icon}</strong>
+						</li>
+					))}
+				</ul>
+			</IconsProvider>
 		</div>
 	))
 	.add('fontawesome', () => (

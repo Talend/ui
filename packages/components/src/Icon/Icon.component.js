@@ -37,6 +37,12 @@ const TRANSFORMS = Object.keys(SVG_TRANSFORMS);
  <Icon name="fa-bars"></Icon>
  */
 function Icon({ className, name, title, transform, onClick, ...props }) {
+	const containerRef = React.useRef(null);
+	React.useEffect(() => {
+		if (containerRef && containerRef.current) {
+			IconsProvider.injectIcon(name, containerRef.current);
+		}
+	}, [containerRef, name]);
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -64,10 +70,9 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		SVG_TRANSFORMS[transform],
 	);
 	const iconElement = (
-		<svg name={name} className={classname} {...accessibility} {...props}>
-			<use xlinkHref={IconsProvider.getIconHREF(name)} />
-		</svg>
+		<svg name={name} className={classname} ref={containerRef} {...accessibility} {...props} />
 	);
+
 	if (!onClick) {
 		return iconElement;
 	}
