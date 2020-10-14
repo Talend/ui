@@ -16,15 +16,15 @@ function getMetadata(url) {
 	const parsedUrl = new URL(url);
 	return {
 		projectId: parsedUrl.pathname.split('/')[2],
-		nodeId: parsedUrl.searchParams.get("node-id"), 
+		nodeId: parsedUrl.searchParams.get('node-id'),
 	};
 }
 
-const FigmaImage = ({ src, alt, ...rest }) => {
+const FigmaImage = ({ src, alt = '', ...rest }) => {
 	const [data, setData] = React.useState();
 
 	React.useEffect(() => {
-		const { projectId, nodeId } = getMetadata(src); 
+		const { projectId, nodeId } = getMetadata(src);
 		client
 			.fileImages(projectId, {
 				ids: [nodeId],
