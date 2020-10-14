@@ -27,6 +27,7 @@ Types of changes
 ## [unreleased]
 
 - [Added](https://github.com/Talend/ui/pull/2997): Handle badges without labels
+- [Added](https://github.com/Talend/ui/pull/3000): Added complies/wordComplies pattern operators support
 
 ## [0.13.0]
 
