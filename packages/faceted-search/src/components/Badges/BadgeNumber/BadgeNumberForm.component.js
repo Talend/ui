@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import Action from '@talend/react-components/lib/Actions/Action';
-import Text from '@talend/react-forms/lib/UIForm/fields/Text';
+import { Action } from '@talend/react-components/lib/Actions';
+import UIForm from '@talend/react-forms';
 import { getTheme } from '@talend/react-components/lib/theme';
-import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
+import RichTooltip from '@talend/react-components/lib/RichTooltip';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeNumber.scss';
@@ -25,23 +25,26 @@ const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 
 	return (
 		<form className={theme('tc-badge-number-form')} id={`${id}-number`} onSubmit={onSubmit}>
-			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-number-form-body')}>
-				<Text
+			<RichTooltip.RichLayout.Body
+				id={`${id}-badge-body`}
+				className={theme('tc-badge-number-form-body')}
+			>
+				<UIForm.fields.Text
 					id={`${id}-input`}
 					onChange={onChangeText}
 					onFinish={() => {}}
 					schema={schema}
 					value={value}
 				/>
-			</RichLayout.Body>
-			<RichLayout.Footer id={`${id}-badge-footer`}>
+			</RichTooltip.RichLayout.Body>
+			<RichTooltip.RichLayout.Footer id={`${id}-badge-footer`}>
 				<Action
 					type="submit"
 					data-feature={applyDataFeature}
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
 				/>
-			</RichLayout.Footer>
+			</RichTooltip.RichLayout.Footer>
 		</form>
 	);
 };

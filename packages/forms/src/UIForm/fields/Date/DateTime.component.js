@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { InputDateTimePicker } from '@talend/react-components/lib/DateTimePickers';
+import DateTimePickers from '@talend/react-components/lib/DateTimePickers';
 
 import { convertDate, isoStrToDate } from './Date.utils';
 import FieldTemplate from '../FieldTemplate';
@@ -59,7 +59,7 @@ export default function DateTimeWidget(props) {
 			required={!!schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			<InputDateTimePicker
+			<DateTimePickers.InputDateTimePicker
 				id={id}
 				autoFocus={schema.autoFocus}
 				disabled={schema.disabled || valueIsUpdating}

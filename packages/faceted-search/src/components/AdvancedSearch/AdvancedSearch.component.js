@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
-import Action from '@talend/react-components/lib/Actions/Action';
+import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';
 import CircularProgress from '@talend/react-components/lib/CircularProgress';
 import FormControl from 'react-bootstrap/lib/FormControl';
