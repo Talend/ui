@@ -74,7 +74,9 @@ describe('RadarChart', () => {
 		expect(props.clickMock).toHaveBeenCalledWith(
 			expect.objectContaining({
 				index: 0,
-			}), 0, expect.any(Object)
+			}),
+			0,
+			expect.any(Object),
 		);
 	});
 	it('should render a chart with clickable dots', () => {
@@ -114,7 +116,7 @@ describe('RadarChart', () => {
 		expect(props.clickMock).toHaveBeenCalledWith(
 			expect.objectContaining({
 				index: 0,
-			})
+			}),
 		);
 	});
 	it('should render a chart with custom dots', () => {
