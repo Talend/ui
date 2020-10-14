@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import DateTimePickers from '@talend/react-components/lib/DateTimePickers';
+import { InputTimePicker } from '@talend/react-components/lib/DateTimePickers';
 
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -49,7 +49,7 @@ function TimeWidget({
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			<DateTimePickers.InputTimePicker
+			<InputTimePicker
 				id={id}
 				autoFocus={schema.autoFocus}
 				disabled={schema.disabled || valueIsUpdating}
