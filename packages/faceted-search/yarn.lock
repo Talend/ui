@@ -1932,7 +1932,7 @@
     babel-eslint "^10.1.0"
     requireindex "~1.1.0"
 
-"@talend/icons@^6.0.0-alpha.21", "@talend/icons@^6.0.0-y.0":
+"@talend/icons@^6.0.0-alpha.22", "@talend/icons@^6.0.0-y.0":
   version "6.0.0-y.0"
   resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-6.0.0-y.0.tgz#b912200fa4cc1bfbf6decad8abe65aea384fbc39"
   integrity sha512-t6BA2SKTKAL/rkVZd9JrCMuOAmaoNgfoJTKBtXWTqWt6Jjv9DDjmqVeWvDf21Zva2rM93dqnzstooSry2M4ciw==
@@ -1987,7 +1987,7 @@
     redux-thunk "^2.2.0"
     uuid "^7.0.3"
 
-"@talend/react-components@^6.0.0-alpha.21":
+"@talend/react-components@^6.0.0-alpha.22":
   version "6.0.0-y.0"
   resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-6.0.0-y.0.tgz#fd0cd21309608c1aafe7bb660146c21b43eb9485"
   integrity sha512-C47NhH4f9kCjEnlRb1lxKlKLtzcc0vk6SJu+pBK6ICV70y0lYsMiZzGS+yWA9bo7J6IMO7HELe+JqvP+B3GfLQ==
