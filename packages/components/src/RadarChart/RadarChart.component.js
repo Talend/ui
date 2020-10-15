@@ -76,14 +76,14 @@ RadarChart.propTypes = {
 };
 
 RadarChart.defaultProps = {
-	cx: 200,
-	cy: 120,
-	height: 240,
+	cx: 210,
+	cy: 140,
+	height: 250,
 	innerRadius: 0,
 	outerRadius: 100,
 	tick: false,
 	tickLine: false,
-	width: 400,
+	width: 420,
 };
 
 /**
@@ -100,7 +100,7 @@ export function LabelWithClick(props) {
 	}
 
 	return (
-		<text {...rest} y={y + 3} data-axis-index={index} role="button" className={selectedClass}>
+		<text {...rest} y={y} data-axis-index={index} role="button" className={selectedClass}>
 			{payload.value}
 		</text>
 	);
