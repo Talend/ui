@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';
 import Slider from '@talend/react-components/lib/Slider';
-import UIForm from '@talend/react-forms';
 import { getTheme } from '@talend/react-components/lib/theme';
-import RichTooltip from '@talend/react-components/lib/RichTooltip';
+import { Rich } from '@talend/react-components';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeSlider.scss';
@@ -72,39 +71,32 @@ const BadgeSliderForm = ({
 	const isErroneous = useMemo(() => getValidator(decimal, min, max), [decimal, min, max]);
 
 	useEffect(() => onChange(null, value), [onChange, value]);
-	const schema = {
-		autoFocus: true,
-		disabled: false,
-		type: 'number',
-		schema: {
-			minimum: min,
-			maximum: max,
-			step,
-		},
-	};
 
 	return (
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
-			<RichTooltip.RichLayout.Body
-				id={`${id}-badge-body`}
-				className={theme('tc-badge-slider-form-body')}
-			>
+			<Rich.Layout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
 				<div className={theme('tc-badge-slider-form-body-row')}>
 					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
 					{editing ? (
-						<UIForm.fields.Text
+						<input
 							id={`${id}-input`}
-							onChange={(_, { value: v }) => {
+							autoFocus
+							className="form-control"
+							min={min}
+							max={max}
+							step={step}
+							onChange={event => {
+								const v = event.target.value;
 								setInput(v);
 								setValue(!isErroneous(v) ? v : defaultValue);
 							}}
-							onFinish={() => {
+							onBlur={() => {
 								setInput(value);
 								setValue(value);
 								setSlider(value);
 								setEditing(false);
 							}}
-							schema={schema}
+							type="number"
 							value={input}
 						/>
 					) : (
@@ -134,8 +126,8 @@ const BadgeSliderForm = ({
 					step={step}
 					hideTooltip
 				/>
-			</RichTooltip.RichLayout.Body>
-			<RichTooltip.RichLayout.Footer id={`${id}-badge-footer`}>
+			</Rich.Layout.Body>
+			<Rich.Layout.Footer id={`${id}-badge-footer`}>
 				<span className={theme('tc-badge-slider-form-error')}>{error}</span>
 				<Action
 					type="submit"
@@ -144,7 +136,7 @@ const BadgeSliderForm = ({
 					bsStyle="info"
 					disabled={!!error}
 				/>
-			</RichTooltip.RichLayout.Footer>
+			</Rich.Layout.Footer>
 		</form>
 	);
 };

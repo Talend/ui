@@ -71,7 +71,13 @@ describe('RadarChart', () => {
 		wrapper.find('.recharts-polar-angle-axis-tick').at(0).simulate('click');
 
 		// then
-		expect(props.clickMock).toHaveBeenCalled();
+		expect(props.clickMock).toHaveBeenCalledWith(
+			expect.objectContaining({
+				index: 0,
+			}),
+			0,
+			expect.any(Object),
+		);
 	});
 	it('should render a chart with clickable dots', () => {
 		const props = {
@@ -107,7 +113,11 @@ describe('RadarChart', () => {
 		wrapper.find('.recharts-dot').at(0).simulate('click');
 
 		// then
-		expect(props.clickMock).toHaveBeenCalled();
+		expect(props.clickMock).toHaveBeenCalledWith(
+			expect.objectContaining({
+				index: 0,
+			}),
+		);
 	});
 	it('should render a chart with custom dots', () => {
 		const props = {

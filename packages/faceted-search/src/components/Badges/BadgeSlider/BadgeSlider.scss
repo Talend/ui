@@ -35,29 +35,24 @@
 				}
 			}
 
-			:global(.form-group) {
-				padding-top: 0;
-				margin-bottom: 0;
+			input {
+				font-size: 3.2rem;
+				font-weight: $font-weight-semi-bold;
+				width: 5rem;
+				color: $dove-gray;
+				box-shadow: none;
+				height: 4.7rem;
 
-				input {
-					font-size: 3.2rem;
-					font-weight: $font-weight-semi-bold;
-					width: 5rem;
-					color: $dove-gray;
-					box-shadow: none;
-					height: 4.7rem;
-
-					-moz-appearance: textfield;
-					&[type='number']::-webkit-inner-spin-button,
-					&[type='number']::-webkit-outer-spin-button {
-						-webkit-appearance: none;
-						margin: 0;
-					}
+				-moz-appearance: textfield;
+				&[type='number']::-webkit-inner-spin-button,
+				&[type='number']::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
 				}
+			}
 
-				> div {
-					display: none;
-				}
+			> div {
+				display: none;
 			}
 		}
 	}

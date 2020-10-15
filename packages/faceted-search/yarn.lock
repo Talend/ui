@@ -9010,11 +9010,6 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
 
-json-logic-js@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/json-logic-js/-/json-logic-js-1.2.2.tgz#e5c382aa6df25df485edead339869396c533afe8"
-  integrity sha1-5cOCqm3yXfSF7erTOYaTlsUzr+g=
-
 json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
@@ -9086,11 +9081,6 @@ jsonpath@^1.0.0:
     esprima "1.2.2"
     static-eval "2.0.2"
     underscore "1.7.0"
-
-jsonschema@^1.2.0:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/jsonschema/-/jsonschema-1.2.6.tgz#52b0a8e9dc06bbae7295249d03e4b9faee8a0c0b"
-  integrity sha512-SqhURKZG07JyKKeo/ir24QnS4/BV7a6gQy93bUSe4lUdNp0QNpIz2c9elWJQ9dpc5cQYY6cvCzgRwy0MQCLyqA==
 
 jsprim@^1.2.2:
   version "1.4.1"
@@ -9423,11 +9413,6 @@ lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
-
-lodash.topath@^4.5.2:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/lodash.topath/-/lodash.topath-4.5.2.tgz#3616351f3bba61994a0931989660bd03254fd009"
-  integrity sha1-NhY1Hzu6YZlKCTGYlmC9AyVP0Ak=
 
 lodash.uniq@^4.5.0:
   version "4.5.0"
@@ -10360,11 +10345,6 @@ object.values@^1.1.0, object.values@^1.1.1:
     es-abstract "^1.17.0-next.1"
     function-bind "^1.1.1"
     has "^1.0.3"
-
-objectpath@^1.2.1:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/objectpath/-/objectpath-1.2.2.tgz#743d3d15bae909c1087a0036295d9102936521b4"
-  integrity sha512-ie+GY5tJsKt7daHH6qGROf3JqxfD2XhfBPLY+HQrVuRY8MQE1ySKVSqQ/TQz/Dx7jDwuy3etQALDE1cRJAC0cg==
 
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
@@ -11950,16 +11930,6 @@ react-is@^16.12.0, react-is@^16.13.1, react-is@^16.3.2, react-is@^16.6.0, react-
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-jsonschema-form@0.51.0:
-  version "0.51.0"
-  resolved "https://registry.yarnpkg.com/react-jsonschema-form/-/react-jsonschema-form-0.51.0.tgz#955ccf9e63a37d91fcddb714bfc1215cda1cef79"
-  integrity sha512-FrGMMtf3gpYl1QsZexmBU0zvxaNzogY6wWMA7/dWcb0It+g7eRS1HF4mXRzSuUXPsiM+2nbomrMplRdzdm/PBw==
-  dependencies:
-    jsonschema "^1.2.0"
-    lodash.topath "^4.5.2"
-    prop-types "^15.5.8"
-    setimmediate "^1.0.5"
 
 react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -14373,11 +14343,6 @@ tunnel-agent@^0.6.0:
   integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
   dependencies:
     safe-buffer "^5.0.1"
-
-tv4@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/tv4/-/tv4-1.3.0.tgz#d020c846fadd50c855abb25ebaecc68fc10f7963"
-  integrity sha1-0CDIRvrdUMhVq7JeuuzGj8EPeWM=
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
