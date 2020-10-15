@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Action } from '@talend/react-components/lib/Actions';
 import FilterBar from '@talend/react-components/lib/FilterBar';
-import RichTooltip from '@talend/react-components/lib/RichTooltip';
+import { Rich } from '@talend/react-components';
 import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
 import cssModule from './BadgeCheckboxes.scss';
@@ -96,7 +96,7 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, fe
 				id={`${badgeCheckBoxesFormId}-form`}
 				onSubmit={onSubmit}
 			>
-				<RichTooltip.RichLayout.Body
+				<Rich.Layout.Body
 					id={badgeCheckBoxesFormId}
 					className={theme('fs-badge-checkbox-form-body')}
 				>
@@ -109,15 +109,15 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, fe
 							checked={checkbox.checked}
 						/>
 					))}
-				</RichTooltip.RichLayout.Body>
-				<RichTooltip.RichLayout.Footer id={id} className={theme('fs-badge-checkbox-form-footer')}>
+				</Rich.Layout.Body>
+				<Rich.Layout.Footer id={id} className={theme('fs-badge-checkbox-form-footer')}>
 					<Action
 						data-feature={applyDataFeature}
 						type="submit"
 						label={t('APPLY', { defaultValue: 'Apply' })}
 						bsStyle="info"
 					/>
-				</RichTooltip.RichLayout.Footer>
+				</Rich.Layout.Footer>
 			</form>
 		</React.Fragment>
 	);
