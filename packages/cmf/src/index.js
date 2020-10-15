@@ -21,7 +21,7 @@ import settings from './settings';
 import localStorage from './localStorage';
 import onError from './onError';
 import reduxStorage from './reduxstorage';
-import mock from './mock';
+import * as mock from './mock';
 
 // DEPRECATED APIs
 import action from './action';
