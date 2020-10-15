@@ -97,7 +97,7 @@ const BadgeSliderForm = ({
 								setEditing(false);
 							}}
 							type="number"
-							value={value}
+							value={input}
 						/>
 					) : (
 						<button
