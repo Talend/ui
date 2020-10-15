@@ -1906,14 +1906,6 @@
   resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-5.24.0.tgz#49dc4b2ee1d322379413dfb62af5455cebf78190"
   integrity sha512-YEh8WQH3E6poSRkhwLBEMK+Q+5mslFlwjgmTmFychlpKg14EfJjzZjg+SAF2k0NVxd5yVrEXZXZvvjwqPn529g==
 
-"@talend/json-schema-form-core@1.0.0-alpha.4":
-  version "1.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@talend/json-schema-form-core/-/json-schema-form-core-1.0.0-alpha.4.tgz#ac4e865eef72db2dd5e0c012b3048cc1a6697404"
-  integrity sha512-Op/noZshFzBY2CyMWQl+tpyDyYRr0cq+R6nEV0v+0V+8qsSVCt6PbAzSxliTmcgAIceiI6rzlBNiW0hPy9oxaw==
-  dependencies:
-    objectpath "^1.2.1"
-    tv4 "^1.3.0"
-
 "@talend/react-cmf-webpack-plugin@>=3.4.0":
   version "5.13.0"
   resolved "https://registry.yarnpkg.com/@talend/react-cmf-webpack-plugin/-/react-cmf-webpack-plugin-5.13.0.tgz#45fa62f02f2f7b40e065ff38e35a995f39fa30b7"
@@ -1989,25 +1981,6 @@
     simplebar-react "^1.2.2"
     styled-components "^4.1.3"
     timezone-support "^1.5.5"
-    uuid "^3.4.0"
-
-"@talend/react-forms@^5.24.0":
-  version "5.24.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-5.24.0.tgz#abf01284221c2fa80777581606ba58cdd1c6f5b7"
-  integrity sha512-Qx72Tu1wqxeAFI1wFrHhuzCk6KY0nveYP2pfV9g1vx3Rc20lSDyogjRRGoGdikGZd037InhyflkKeiTMxyrlew==
-  dependencies:
-    "@talend/json-schema-form-core" "1.0.0-alpha.4"
-    ajv "^6.2.1"
-    classnames "^2.2.5"
-    json-logic-js "^1.2.2"
-    keycode "^2.2.0"
-    lodash "^4.17.15"
-    memoize-one "^5.0.0"
-    react-autowhatever "10.2.0"
-    react-bootstrap "0.32.4"
-    react-hook-form "^5.7.0"
-    react-jsonschema-form "0.51.0"
-    tv4 "^1.3.0"
     uuid "^3.4.0"
 
 "@talend/scripts-config-babel@^6.7.0":
@@ -2788,7 +2761,7 @@ ajv-keywords@^3.1.0, ajv-keywords@^3.4.1:
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.5.1.tgz#b83ca89c5d42d69031f424cad49aada0236c6957"
   integrity sha512-KWcq3xN8fDjSB+IMoh2VaXVhRI0BBGxoYp3rx7Pkb6z0cFjYR9Q9l4yZqqals0/zsioCmocC5H6UvsGD4MoIBA==
 
-ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.2.1, ajv@^6.5.5:
+ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.5.5:
   version "6.12.3"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.3.tgz#18c5af38a111ddeb4f2697bd78d68abc1cabd706"
   integrity sha512-4K0cK3L1hsqk9xIb2z9vs/XU+PGJZ9PNpJRDS9YLzmNdX6jmVPfamLvTJr0aDAusnHyCHO6MjzlkAsgtqp9teA==
@@ -8936,11 +8909,6 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
 
-json-logic-js@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/json-logic-js/-/json-logic-js-1.2.2.tgz#e5c382aa6df25df485edead339869396c533afe8"
-  integrity sha1-5cOCqm3yXfSF7erTOYaTlsUzr+g=
-
 json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
@@ -9012,11 +8980,6 @@ jsonpath@^1.0.0:
     esprima "1.2.2"
     static-eval "2.0.2"
     underscore "1.7.0"
-
-jsonschema@^1.2.0:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/jsonschema/-/jsonschema-1.2.6.tgz#52b0a8e9dc06bbae7295249d03e4b9faee8a0c0b"
-  integrity sha512-SqhURKZG07JyKKeo/ir24QnS4/BV7a6gQy93bUSe4lUdNp0QNpIz2c9elWJQ9dpc5cQYY6cvCzgRwy0MQCLyqA==
 
 jsprim@^1.2.2:
   version "1.4.1"
@@ -9349,11 +9312,6 @@ lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
-
-lodash.topath@^4.5.2:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/lodash.topath/-/lodash.topath-4.5.2.tgz#3616351f3bba61994a0931989660bd03254fd009"
-  integrity sha1-NhY1Hzu6YZlKCTGYlmC9AyVP0Ak=
 
 lodash.uniq@^4.5.0:
   version "4.5.0"
@@ -10293,11 +10251,6 @@ object.values@^1.1.0, object.values@^1.1.1:
     es-abstract "^1.17.0-next.1"
     function-bind "^1.1.1"
     has "^1.0.3"
-
-objectpath@^1.2.1:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/objectpath/-/objectpath-1.2.2.tgz#743d3d15bae909c1087a0036295d9102936521b4"
-  integrity sha512-ie+GY5tJsKt7daHH6qGROf3JqxfD2XhfBPLY+HQrVuRY8MQE1ySKVSqQ/TQz/Dx7jDwuy3etQALDE1cRJAC0cg==
 
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
@@ -11832,11 +11785,6 @@ react-helmet-async@^1.0.2:
     react-fast-compare "^3.0.1"
     shallowequal "^1.1.0"
 
-react-hook-form@^5.7.0:
-  version "5.7.2"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-5.7.2.tgz#a84e259e5d37dd30949af4f79c4dac31101b79ac"
-  integrity sha512-bJvY348vayIvEUmSK7Fvea/NgqbT2racA2IbnJz/aPlQ3GBtaTeDITH6rtCa6y++obZzG6E3Q8VuoXPir7QYUg==
-
 react-hotkeys@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-hotkeys/-/react-hotkeys-2.0.0.tgz#a7719c7340cbba888b0e9184f806a9ec0ac2c53f"
@@ -11872,16 +11820,6 @@ react-is@^16.12.0, react-is@^16.13.1, react-is@^16.3.2, react-is@^16.6.0, react-
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-jsonschema-form@0.51.0:
-  version "0.51.0"
-  resolved "https://registry.yarnpkg.com/react-jsonschema-form/-/react-jsonschema-form-0.51.0.tgz#955ccf9e63a37d91fcddb714bfc1215cda1cef79"
-  integrity sha512-FrGMMtf3gpYl1QsZexmBU0zvxaNzogY6wWMA7/dWcb0It+g7eRS1HF4mXRzSuUXPsiM+2nbomrMplRdzdm/PBw==
-  dependencies:
-    jsonschema "^1.2.0"
-    lodash.topath "^4.5.2"
-    prop-types "^15.5.8"
-    setimmediate "^1.0.5"
 
 react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -14312,11 +14250,6 @@ tunnel-agent@^0.6.0:
   integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
   dependencies:
     safe-buffer "^5.0.1"
-
-tv4@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/tv4/-/tv4-1.3.0.tgz#d020c846fadd50c855abb25ebaecc68fc10f7963"
-  integrity sha1-0CDIRvrdUMhVq7JeuuzGj8EPeWM=
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"

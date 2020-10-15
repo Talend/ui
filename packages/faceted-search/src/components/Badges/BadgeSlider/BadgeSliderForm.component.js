@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';
 import Slider from '@talend/react-components/lib/Slider';
-import UIForm from '@talend/react-forms';
 import { getTheme } from '@talend/react-components/lib/theme';
 import { Rich } from '@talend/react-components';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
