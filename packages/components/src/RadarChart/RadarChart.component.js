@@ -155,7 +155,7 @@ export function DotWithClick(props) {
 			{...rest}
 			fill={fill}
 			fillOpacity={1}
-			onClick={onClick}
+			onClick={params => onClick({ ...params, index })}
 			r={activeAxis === index ? STATE.ACTIVE_RADIUS : STATE.DEFAULT_RADIUS}
 			role="button"
 			stroke={fill}
