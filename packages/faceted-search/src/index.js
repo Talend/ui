@@ -3,6 +3,7 @@ import {
 	FacetedSearch as Faceted,
 	AdvancedSearch,
 	BasicSearch,
+	badgeDefinitionTypes,
 } from './components';
 import * as constants from './constants';
 import dictionaryHelpers from './dictionary/helpers.dictionary';
@@ -19,4 +20,4 @@ const helpers = {
 	dictionary: dictionaryHelpers,
 };
 
-export default { ...components, constants, helpers, queryClient };
+export default { ...components, badgeDefinitionTypes, constants, helpers, queryClient };
