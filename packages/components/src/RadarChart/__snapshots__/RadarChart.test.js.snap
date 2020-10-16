@@ -2,8 +2,8 @@
 
 exports[`RadarChart should render a RadarChart 1`] = `
 <RadarChart
-  cx={200}
-  cy={120}
+  cx={210}
+  cy={140}
   data={
     Array [
       Object {
@@ -34,12 +34,12 @@ exports[`RadarChart should render a RadarChart 1`] = `
       5,
     ]
   }
-  height={240}
+  height={250}
   innerRadius={0}
   outerRadius={100}
   tick={false}
   tickLine={false}
-  width={400}
+  width={420}
 >
   <PolarAngleAxis
     allowDuplicatedCategory={true}
@@ -83,8 +83,8 @@ exports[`RadarChart should render a RadarChart 1`] = `
 
 exports[`RadarChart should render a chart with custom dots 1`] = `
 <RadarChart
-  cx={200}
-  cy={120}
+  cx={210}
+  cy={140}
   data={
     Array [
       Object {
@@ -115,12 +115,12 @@ exports[`RadarChart should render a chart with custom dots 1`] = `
       5,
     ]
   }
-  height={240}
+  height={250}
   innerRadius={0}
   outerRadius={100}
   tick={false}
   tickLine={false}
-  width={400}
+  width={420}
 >
   <PolarAngleAxis
     allowDuplicatedCategory={true}
