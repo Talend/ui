@@ -39,10 +39,30 @@ const TRANSFORMS = Object.keys(SVG_TRANSFORMS);
 function Icon({ className, name, title, transform, onClick, ...props }) {
 	const containerRef = React.useRef(null);
 	React.useEffect(() => {
-		if (containerRef && containerRef.current) {
+		if (containerRef && containerRef.current && !name.startsWith('remote-')) {
 			IconsProvider.injectIcon(name, containerRef.current);
 		}
 	}, [containerRef, name]);
+	React.useEffect(() => {
+		if (name.startsWith('remote-')) {
+			fetch(name.replace('remote-', ''))
+				.then(response => {
+					if (response.status === 200 && response.ok) {
+						response.text().then(content => {
+							if (content.startsWith('<svg')) {
+								if (containerRef && containerRef.current) {
+									containerRef.current.appendChild(content);
+								}
+							}
+						});
+					}
+					console.error(new Error(`IconResponseError: ${response.status}`));
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		}
+	}, [name]);
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
