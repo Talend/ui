@@ -70,11 +70,7 @@ exports[`three-columns-with-sorters 1`] = `
           focusable="false"
           name="none-icon"
           title={null}
-        >
-          <use
-            xlinkHref="#none-icon"
-          />
-        </svg>
+        />
       </button>
     </th>
     <th
@@ -99,11 +95,7 @@ exports[`three-columns-with-sorters 1`] = `
           focusable="false"
           name="none-icon"
           title={null}
-        >
-          <use
-            xlinkHref="#none-icon"
-          />
-        </svg>
+        />
       </button>
     </th>
     <th
@@ -128,11 +120,7 @@ exports[`three-columns-with-sorters 1`] = `
           focusable="false"
           name="none-icon"
           title={null}
-        >
-          <use
-            xlinkHref="#none-icon"
-          />
-        </svg>
+        />
       </button>
     </th>
   </tr>

@@ -19,10 +19,6 @@ exports[`render-sort-header 1`] = `
     focusable="false"
     name="none-icon"
     title={null}
-  >
-    <use
-      xlinkHref="#none-icon"
-    />
-  </svg>
+  />
 </button>
 `;

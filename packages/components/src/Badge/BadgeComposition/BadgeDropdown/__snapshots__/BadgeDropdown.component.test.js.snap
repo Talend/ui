@@ -18,8 +18,6 @@ exports[`BadgeDropdown should render a dropdown 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-caret-down">
-      </use>
     </svg>
   </button>
   <ul role="menu"

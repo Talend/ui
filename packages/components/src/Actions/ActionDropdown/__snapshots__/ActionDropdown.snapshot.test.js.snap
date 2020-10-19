@@ -36,8 +36,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-caret-down">
-      </use>
     </svg>
   </button>
   <ul role="menu"
@@ -59,8 +57,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-icon">
-          </use>
         </svg>
         document 1
       </a>
@@ -99,8 +95,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-caret-down">
-      </use>
     </svg>
   </button>
   <ul role="menu"
@@ -122,8 +116,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-icon">
-          </use>
         </svg>
         document 1
       </a>
@@ -167,8 +159,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-caret-down">
-      </use>
     </svg>
   </button>
   <ul role="menu"
@@ -190,8 +180,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-icon">
-          </use>
         </svg>
         document 1
       </a>
@@ -233,8 +221,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-caret-down">
-      </use>
     </svg>
   </button>
   <ul role="menu"
@@ -256,8 +242,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-icon">
-          </use>
         </svg>
         document 1
       </a>
@@ -298,8 +282,6 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
            focusable="false"
            aria-hidden="true"
       >
-        <use xlink:href="#talend-icon">
-        </use>
       </svg>
     </a>
   </li>
@@ -335,8 +317,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-caret-down">
-      </use>
     </svg>
   </button>
   <ul role="menu"
@@ -358,8 +338,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-icon">
-          </use>
         </svg>
         document 1
       </a>
@@ -427,8 +405,6 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
            focusable="false"
            aria-hidden="true"
       >
-        <use xlink:href="#talend-icon">
-        </use>
       </svg>
       document 1
     </a>

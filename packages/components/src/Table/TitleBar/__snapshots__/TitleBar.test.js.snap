@@ -33,11 +33,7 @@ exports[`title-bar 1`] = `
         focusable="false"
         name="talend-search"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-search"
-        />
-      </svg>
+      />
     </button>
     <div
       className="checkbox tc-toggle theme-tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
