@@ -432,7 +432,7 @@ describe('createTqlQuery', () => {
 		// When
 		const result = createTqlQuery(badge);
 		// Then
-		expect(result).toEqual('(name complies \'[aaa]\')');
+		expect(result).toEqual("(name complies '[aaa]')");
 	});
 	it('should handle a word pattern operator', () => {
 		// Given
@@ -450,6 +450,6 @@ describe('createTqlQuery', () => {
 		// When
 		const result = createTqlQuery(badge);
 		// Then
-		expect(result).toEqual('(name wordComplies \'[word]\')');
+		expect(result).toEqual("(name wordComplies '[word]')");
 	});
 });
