@@ -26,6 +26,7 @@ Types of changes
 
 ## [unreleased]
 
+- [Added](https://github.com/Talend/ui/pull/2994): Read only support
 - [Added](https://github.com/Talend/ui/pull/2997): Handle badges without labels
 
 ## [0.13.0]

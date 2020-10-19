@@ -21,6 +21,7 @@ const BadgeOperatorOverlay = ({
 	operatorIconName,
 	operatorLabel,
 	operators,
+	readOnly,
 	size,
 	t,
 }) => {
@@ -57,6 +58,7 @@ const BadgeOperatorOverlay = ({
 				onHide={onHide}
 				opened={opened}
 				t={t}
+				readOnly={readOnly}
 			>
 				{setOverlayOpened => (
 					<BadgeOperatorPopover
@@ -79,6 +81,7 @@ BadgeOperatorOverlay.propTypes = {
 	operatorIconName: PropTypes.string,
 	operatorLabel: PropTypes.string,
 	operators: operatorsPropTypes.isRequired,
+	readOnly: PropTypes.bool,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
 	t: PropTypes.func.isRequired,
 };
