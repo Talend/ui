@@ -1,6 +1,6 @@
-$quality-bar-width: 100%;
-$quality-bar-height: 5px;
-$quality-bar-hover-height: 8px;
+$ratio-bar-width: 100%;
+$ratio-bar-height: 5px;
+$ratio-bar-hover-height: 8px;
 
 .tc-ratio-bar-lines {
 	width: 100%;
@@ -11,8 +11,8 @@ $quality-bar-hover-height: 8px;
 .tc-ratio-bar {
 	padding: $padding-small 0;
 	display: flex;
-	height: $quality-bar-hover-height;
-	width: $quality-bar-width;
+	height: $ratio-bar-hover-height;
+	width: $ratio-bar-width;
 	align-items: center;
 
 	&-counter {
@@ -20,12 +20,12 @@ $quality-bar-hover-height: 8px;
 	}
 
 	.tc-ratio-bar-line {
-		height: $quality-bar-height;
+		height: $ratio-bar-height;
 		margin: 0 1px;
 		transition: height 0.3s;
 		min-width: 4px;
 		&:hover {
-			height: $quality-bar-hover-height;
+			height: $ratio-bar-hover-height;
 		}
 		&-grow {
 			flex-grow: 1;

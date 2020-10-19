@@ -42,7 +42,7 @@ export function RatioBarLine({ percentage, tooltipLabel, className, value }) {
 RatioBarLine.propTypes = {
 	percentage: PropTypes.number.isRequired,
 	value: PropTypes.number.isRequired,
-	tooltipLabel: PropTypes.string.isRequired,
+	tooltipLabel: PropTypes.string,
 	className: PropTypes.string.isRequired,
 };
 

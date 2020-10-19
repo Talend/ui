@@ -62,6 +62,6 @@ export function RatioBar({ amount, total }) {
 }
 
 RatioBar.propTypes = {
-	amount: PropTypes.number.isRequired,
+	amount: PropTypes.number,
 	total: PropTypes.number.isRequired,
 };

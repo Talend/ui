@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '../theme';
-import qualityBarTheme from './QualityBar.scss';
+import qualityBarTheme from './QualityRatioBar.scss';
 import { RatioBarLine } from '../RatioBar/RatioBarComposition.component';
 
 const theme = getTheme(qualityBarTheme);
