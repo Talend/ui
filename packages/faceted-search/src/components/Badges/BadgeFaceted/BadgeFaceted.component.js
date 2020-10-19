@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
-import BadgeComposition from '@talend/react-components/lib/Badge/BadgeComposition';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { BadgeOperatorOverlay } from '../BadgeOperator';
@@ -30,6 +29,8 @@ const BadgeFaceted = ({
 	initialValueOpened,
 	operator,
 	operators,
+	readOnly,
+	removable = true,
 	value,
 	size = Badge.SIZES.large,
 	t,
@@ -102,7 +103,7 @@ const BadgeFaceted = ({
 		<Badge id={id} className={theme('tc-badge-faceted')} display={size}>
 			{labelCategory && (
 				<>
-					<BadgeComposition.Category category={labelCategory} label={labelCategory} />
+					<Badge.Category category={labelCategory} label={labelCategory} />
 					<BadgeOperatorOverlay
 						id={id}
 						onChangeOverlay={onChangeOperatorOverlay}
@@ -112,6 +113,7 @@ const BadgeFaceted = ({
 						opened={overlayState.operatorOpened}
 						onClick={onChangeOperator}
 						operators={operators}
+						readOnly={readOnly}
 						size={size}
 						t={t}
 					/>
@@ -125,17 +127,20 @@ const BadgeFaceted = ({
 				onHide={onHideSubmitBadge}
 				opened={overlayState.valueOpened}
 				onChange={onChangeValueOverlay}
+				readOnly={readOnly}
 				t={t}
 			>
 				{children({ onSubmitBadge, onChangeValue, badgeValue })}
 			</BadgeOverlay>
-			<BadgeComposition.DeleteAction
-				id={id}
-				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
-				dataFeature={USAGE_TRACKING_TAGS.BADGE_REMOVE}
-				onClick={onDeleteBadge}
-				t={t}
-			/>
+			{removable && (
+				<Badge.DeleteAction
+					id={id}
+					label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
+					dataFeature={USAGE_TRACKING_TAGS.BADGE_REMOVE}
+					onClick={onDeleteBadge}
+					t={t}
+				/>
+			)}
 		</Badge>
 	);
 };
@@ -152,6 +157,8 @@ BadgeFaceted.propTypes = {
 	operators: operatorsPropTypes.isRequired,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
 	value: PropTypes.any,
+	readOnly: PropTypes.bool,
+	removable: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 

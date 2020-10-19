@@ -38,6 +38,8 @@ export const BadgeTags = ({
 	value,
 	category,
 	callbacks,
+	readOnly,
+	removable,
 	t,
 }) => {
 	const [tagsValues, setTagsValues] = useState([]);
@@ -74,6 +76,8 @@ export const BadgeTags = ({
 			labelValue={badgeLabel}
 			operator={currentOperator}
 			operators={operators}
+			readOnly={readOnly}
+			removable={removable}
 			size={size}
 			t={t}
 			value={value || []}
@@ -115,4 +119,6 @@ BadgeTags.propTypes = {
 	]),
 	callbacks: callbacksPropTypes,
 	t: PropTypes.func.isRequired,
+	readOnly: PropTypes.bool,
+	removable: PropTypes.bool,
 };
