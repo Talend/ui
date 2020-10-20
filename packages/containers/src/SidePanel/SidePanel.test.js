@@ -187,6 +187,12 @@ describe('SidePanel.mapStateToProps', () => {
 					itemRoute: '/usual/path',
 					isMatching: false,
 				},
+				{
+					name: 'Subset path starting with hash',
+					currentRoute: '/a/usual#lol',
+					itemRoute: '/a/usual',
+					isMatching: true,
+				},
 			],
 		);
 

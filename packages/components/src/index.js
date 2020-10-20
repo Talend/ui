@@ -59,7 +59,7 @@ import Progress from './Progress';
 import RadarChart from './RadarChart';
 import ResourceList from './ResourceList';
 import ResourcePicker from './ResourcePicker';
-import Rich from './RichTooltip';
+import Rich from './Rich';
 import SidePanel from './SidePanel';
 import Skeleton from './Skeleton';
 import Slider from './Slider';
@@ -77,8 +77,8 @@ import getTheme from './theme';
 
 // TODO 6.0: remove those imports
 import HeaderTitle from './HeaderTitle';
-import RichLayout from './RichTooltip/RichLayout';
-import RichError from './RichTooltip/RichError';
+import RichLayout from './Rich/RichLayout';
+import RichError from './Rich/RichError';
 import Table from './Table'; // TODO 6.0: remove the component
 import Tile from './GridLayout/Tile';
 import getTranslated from './TranslateWrapper';

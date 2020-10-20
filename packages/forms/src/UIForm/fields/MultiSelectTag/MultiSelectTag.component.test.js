@@ -6,6 +6,8 @@ import Typeahead from '@talend/react-components/lib/Typeahead';
 import keycode from 'keycode';
 import MultiSelectTag from './MultiSelectTag.component';
 
+jest.mock('ally.js/style/_style');
+
 describe('MultiSelectTag field', () => {
 	const props = {
 		id: 'my-select-tag',
@@ -23,7 +25,10 @@ describe('MultiSelectTag field', () => {
 			required: true,
 			restricted: false,
 			title: 'Tags',
-			titleMap: [{ name: 'toto', value: 'titi' }, { name: 'tata', value: 'tutu' }],
+			titleMap: [
+				{ name: 'toto', value: 'titi' },
+				{ name: 'tata', value: 'tutu' },
+			],
 		},
 		value: ['aze', 'tutu'],
 	};
@@ -149,10 +154,7 @@ describe('MultiSelectTag field', () => {
 		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
 
 		// when
-		wrapper
-			.find('Button.tc-badge-delete-icon')
-			.at(0)
-			.simulate('click');
+		wrapper.find('Button.tc-badge-delete-icon').at(0).simulate('click');
 
 		// then
 		const payload = { schema: props.schema, value: props.value.slice(1) };
@@ -189,10 +191,7 @@ describe('MultiSelectTag field', () => {
 		const event = { type: 'focus', target: wrapper.instance() };
 
 		// when
-		wrapper
-			.find('FieldTemplate')
-			.find(Typeahead)
-			.prop('onFocus')(event);
+		wrapper.find('FieldTemplate').find(Typeahead).prop('onFocus')(event);
 
 		// then
 		expect(triggerProps.onTrigger).toBeCalledWith(event, {
@@ -213,11 +212,7 @@ describe('MultiSelectTag field', () => {
 		const wrapper = shallow(<MultiSelectTag {...nameResolverProps} />);
 
 		// when
-		const firstLabel = wrapper
-			.find('FieldTemplate')
-			.find(Badge)
-			.first()
-			.prop('label');
+		const firstLabel = wrapper.find('FieldTemplate').find(Badge).first().prop('label');
 
 		// then
 		expect(firstLabel).toBe('aze_name');

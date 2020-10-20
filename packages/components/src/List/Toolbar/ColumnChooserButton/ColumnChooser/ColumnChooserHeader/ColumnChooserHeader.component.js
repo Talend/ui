@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useColumnChooserContext } from '../columnChooser.context';
-import RichLayout from '../../../../../RichTooltip/RichLayout';
+import RichLayout from '../../../../../Rich/RichLayout';
 import cssModule from '../ColumnChooser.scss';
 import { getTheme } from '../../../../../theme';
 
