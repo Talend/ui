@@ -21,7 +21,7 @@ import cmf from '@talend/react-cmf';
 
 import flatten from './flatten';
 import defaultRegistry from './defaultRegistry';
-console.log(Object.keys(cmf));
+
 const mergeCSRFToken = cmf.middlewares.http.csrf.mergeCSRFToken;
 
 const DEFAULT_HEADERS = {
