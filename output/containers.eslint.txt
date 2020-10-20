@@ -1,44 +1,72 @@
 
+/home/travis/build/Talend/ui/packages/containers/src/Action/Action.test.js
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
 /home/travis/build/Talend/ui/packages/containers/src/ActionButton/ActionButton.test.js
-  3:1  error  '@talend/react-components/lib/Actions/ActionButton' import too deep. No more than /lib/Actions  @talend/import-depth
+  4:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
 
 /home/travis/build/Talend/ui/packages/containers/src/ActionDropdown/ActionDropdown.test.js
-  4:1  error  '@talend/react-components/lib/Actions/ActionDropdown' import too deep. No more than /lib/Actions  @talend/import-depth
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
 
 /home/travis/build/Talend/ui/packages/containers/src/ActionFile/ActionFile.test.js
-  3:1  error  '@talend/react-components/lib/Actions/ActionFile' import too deep. No more than /lib/Actions  @talend/import-depth
+  4:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionIconToggle/ActionIconToggle.test.js
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+/home/travis/build/Talend/ui/packages/containers/src/Actions/Actions.test.js
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
 
 /home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.js
   55:2   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
   55:13  error  'step' is defined but never used                                                                                                                                           @typescript-eslint/no-unused-vars
 
+/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.test.js
+  2:1  error  '@talend/react-cmf/lib/registry' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.component.js
-   5:1  error  '@talend/react-forms/lib/UIForm/utils/properties' import too deep. No more than /lib/UIForm                                                                                                                                                                                                                  @talend/import-depth
-  89:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+  88:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/MultiSelect.component.js
-  4:1  error  '@talend/react-forms/lib/UIForm/fields/FieldTemplate' import too deep. No more than /lib/UIForm  @talend/import-depth
-  5:1  error  '@talend/react-forms/lib/UIForm/Message/generateId' import too deep. No more than /lib/UIForm    @talend/import-depth
-  9:1  error  '@talend/react-forms/lib/UIForm/trigger' import too deep. No more than /lib/UIForm               @talend/import-depth
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.js
+  23:1  error  Expected 1 empty line after import statement not followed by another import  import/newline-after-import
+  24:1  error  Unexpected console statement                                                 no-console
 
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/displayMode/TextMode.component.js
-  4:1  error  '@talend/react-forms/lib/UIForm/fields/FieldTemplate' import too deep. No more than /lib/UIForm  @talend/import-depth
+/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
+  4:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
 
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/NameResolver/NameResolver.component.js
-  3:1  error  '@talend/react-forms/lib/UIForm//utils/properties' import too deep. No more than /lib/UIForm  @talend/import-depth
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/index.js
-  2:1  error  '@talend/react-forms/lib/UIForm/fields/Datalist' import too deep. No more than /lib/UIForm        @talend/import-depth
-  3:1  error  '@talend/react-forms/lib/UIForm/fields/MultiSelectTag' import too deep. No more than /lib/UIForm  @talend/import-depth
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/defaultRegistry.js
-  19:1  error  '@talend/react-forms/lib/UIForm/utils/errors' import too deep. No more than /lib/UIForm      @talend/import-depth
-  20:1  error  '@talend/react-forms/lib/UIForm/utils/properties' import too deep. No more than /lib/UIForm  @talend/import-depth
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.test.js
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
   124:3  error  defaultProp "state" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
-/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
-  11:57  error  'notifications' is missing in props validation  react/prop-types
+/home/travis/build/Talend/ui/packages/containers/src/List/selector.test.js
+  1:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
 
-✖ 18 problems (18 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
+   3:1   error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+  11:57  error  'notifications' is missing in props validation                                react/prop-types
+
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.test.js
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.test.js
+  5:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.test.js
+  4:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+/home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.test.js
+  3:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+/home/travis/build/Talend/ui/packages/containers/src/actionAPI.test.js
+  1:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
+✖ 25 problems (25 errors, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
