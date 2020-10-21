@@ -53,8 +53,8 @@
   "devDependencies": {
     "@sentry/browser": "^5.11.1",
     "@talend/babel-plugin-import-from-lib": "^0.0.0",
-    "@talend/scripts-core": "7.0.0-alpha.38",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.38",
+    "@talend/scripts-core": "7.0.0-alpha.41",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.41",
     "enzyme": "^3.11.0",
     "immutable": "^3.8.1",
     "jest-in-case": "^1.0.2",

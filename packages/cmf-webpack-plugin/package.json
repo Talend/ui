@@ -37,8 +37,8 @@
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "@talend/scripts-core": "7.0.0-alpha.38",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.38"
+    "@talend/scripts-core": "7.0.0-alpha.41",
+    "@talend/scripts-preset-react-lib": "7.0.0-alpha.41"
   },
   "publishConfig": {
     "access": "public"
