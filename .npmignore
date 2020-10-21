@@ -1,0 +1,5 @@
+.github
+.idea
+.storybook
+node_modules
+src
