@@ -3,6 +3,8 @@ import React from 'react';
 import omit from 'lodash/omit';
 import { withTranslation } from 'react-i18next';
 
+import CoralHeaderBar from '@talend/design-system/lib/components/HeaderBar';
+
 import Inject from '../Inject';
 import Action from '../Actions/Action';
 import ActionIntercom from '../ActionIntercom';
@@ -229,7 +231,7 @@ function HeaderBar(props) {
 	}
 
 	return (
-		<nav className={theme('tc-header-bar', 'navbar')}>
+		<CoralHeaderBar className={theme('tc-header-bar', 'navbar')}>
 			<ul className={theme('tc-header-bar-actions', 'navbar-nav')}>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
@@ -271,7 +273,7 @@ function HeaderBar(props) {
 					<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
 				)}
 			</ul>
-		</nav>
+		</CoralHeaderBar>
 	);
 }
 

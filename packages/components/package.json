@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@talend/bootstrap-theme": "^6.0.0-alpha.36",
+    "@talend/design-system": "^1.0.0-beta.2",
     "@talend/icons": "^6.0.0-alpha.36",
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
