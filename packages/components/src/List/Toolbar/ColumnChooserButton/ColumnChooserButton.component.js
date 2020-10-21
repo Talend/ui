@@ -46,7 +46,7 @@ export default function ColumnChooserButton({
 				show={opened}
 				target={buttonRef}
 			>
-				<Popover id={`${id}-popover`}>
+				<Popover id={`${id}-popover`} style={{ overflow: 'hidden' }}>
 					{!children ? (
 						<ColumnChooser
 							columnsFromList={columns}
