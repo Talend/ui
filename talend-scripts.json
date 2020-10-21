@@ -1,3 +1,7 @@
 {
-  "preset": "@talend/scripts-preset-react-lib"
+  "preset": "@talend/scripts-preset-react-lib",
+  "copy": [
+    { "from": "src/icons", "to": "icons" },
+    { "from": "src/images", "to": "images" }
+  ]
 }
