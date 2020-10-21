@@ -37,32 +37,36 @@ const TRANSFORMS = Object.keys(SVG_TRANSFORMS);
  <Icon name="fa-bars"></Icon>
  */
 function Icon({ className, name, title, transform, onClick, ...props }) {
-	const containerRef = React.useRef(null);
+	const isRemote = name.startsWith('remote-');
+	const imgSrc = name.replace('remote-', '').replace('src-', '');
+	const [contentType, setContentType] = React.useState();
+	const [content, setContent] = React.useState();
 	React.useEffect(() => {
-		if (containerRef && containerRef.current && !name.startsWith('remote-')) {
-			IconsProvider.injectIcon(name, containerRef.current);
-		}
-	}, [containerRef, name]);
-	React.useEffect(() => {
-		if (name.startsWith('remote-')) {
-			fetch(name.replace('remote-', ''))
+		if (isRemote) {
+			fetch(imgSrc, {
+				headers: {
+					Accept: 'image/svg+xml',
+				},
+			})
 				.then(response => {
 					if (response.status === 200 && response.ok) {
-						response.text().then(content => {
-							if (content.startsWith('<svg')) {
-								if (containerRef && containerRef.current) {
-									containerRef.current.appendChild(content);
-								}
-							}
+						response.text().then(data => {
+							setContentType(response.headers.get('Content-Type'));
+							setContent(data);
 						});
+					} else {
+						console.error(
+							new Error(
+								`IconResponseError: status=${response.status} ok=${response.ok} url=${imgSrc}`,
+							),
+						);
 					}
-					console.error(new Error(`IconResponseError: ${response.status}`));
 				})
 				.catch(error => {
-					console.error(error);
+					console.error('IconResponseError', imgSrc, error);
 				});
 		}
-	}, [name]);
+	}, [imgSrc, isRemote]);
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -89,16 +93,42 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		className,
 		SVG_TRANSFORMS[transform],
 	);
-	const iconElement = (
-		<svg name={name} className={classname} ref={containerRef} {...accessibility} {...props} />
-	);
 
+	let iconElement = (
+		<svg
+			name={name}
+			className={classname}
+			ref={ref => {
+				if (!ref) {
+					return;
+				}
+				if (isRemote && content && content.includes('svg')) {
+					// eslint-disable-next-line no-param-reassign
+					ref.innerHTML = content;
+				} else if (!content && !isRemote) {
+					IconsProvider.injectIcon(name, ref);
+				}
+			}}
+			{...accessibility}
+			{...props}
+		/>
+	);
+	if (content && contentType && !content.includes('svg') && isRemote) {
+		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
+		iconElement = (
+			<img
+				alt="icon"
+				src={name.replace('remote-', '')}
+				className={classNames}
+				aria-hidden
+				{...props}
+			/>
+		);
+	}
 	if (!onClick) {
 		return iconElement;
 	}
 	return (
-		// eslint doesn't recognizes the xlinkHref mention
-		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
 			{iconElement}
 		</button>
