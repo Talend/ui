@@ -3,7 +3,13 @@ import React from 'react';
 import omit from 'lodash/omit';
 import { withTranslation } from 'react-i18next';
 
+import CoralButton from '@talend/design-system/lib/components/Button';
+import CoralDropdown from '@talend/design-system/lib/components/Dropdown';
 import CoralHeaderBar from '@talend/design-system/lib/components/HeaderBar';
+import CoralIcon from '@talend/design-system/lib/components/Icon';
+import CoralLink from '@talend/design-system/lib/components/Link';
+import CoralTooltip from '@talend/design-system/lib/components/Tooltip';
+import { VisuallyHidden as ReakitVisuallyHidden } from 'reakit';
 
 import Inject from '../Inject';
 import Action from '../Actions/Action';
@@ -15,7 +21,8 @@ import getDefaultT from '../translate';
 import { getTheme } from '../theme';
 import AppSwitcher from '../AppSwitcher';
 
-import headerBarCssModule from './HeaderBar.scss';
+// FIXME
+const headerBarCssModule = {};
 
 const theme = getTheme(headerBarCssModule);
 
@@ -27,17 +34,17 @@ function Logo({ isFull, getComponent, t, ...props }) {
 	});
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
-		<li role="presentation" className={itemClassName}>
-			<Renderers.Action
-				bsStyle="link"
-				className={actionClassName}
-				hideLabel
-				label={t('HEADERBAR_GO_PORTAL', { defaultValue: 'Go to Portal' })}
-				icon={icon}
-				tooltipPlacement="bottom"
-				{...props}
-			/>
-		</li>
+		<CoralHeaderBar.Logo>
+			<CoralTooltip
+				title={t('HEADERBAR_GO_PORTAL', { defaultValue: 'Go to Portal' })}
+				placement="bottom"
+			>
+				<CoralLink {...props} className={actionClassName}>
+					<CoralIcon name="talend" preserveColors />
+					<ReakitVisuallyHidden>Talend</ReakitVisuallyHidden>
+				</CoralLink>
+			</CoralTooltip>
+		</CoralHeaderBar.Logo>
 	);
 }
 
@@ -97,9 +104,9 @@ function Help({ getComponent, t, ...props }) {
 	const Renderers = Inject.getAll(getComponent, { Action });
 
 	return (
-		<li role="presentation" className={className}>
-			<Renderers.Action {...global} />
-		</li>
+		<CoralHeaderBar.Item className={className}>
+			<CoralLink {...global}>{global.label}</CoralLink>
+		</CoralHeaderBar.Item>
 	);
 }
 
@@ -143,16 +150,22 @@ function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 	});
 
 	return (
-		<li role="presentation" className={className}>
-			<Renderers.ActionDropdown
-				bsStyle="link"
-				icon="talend-user-circle"
-				pullRight
-				label={displayName}
+		<CoralHeaderBar.Item className={className}>
+			<CoralDropdown
+				icon="user"
 				aria-label={ariaLabel}
-				{...rest}
-			/>
-		</li>
+				items={rest.items.map((item, index) => {
+					const Item = item.onClick ? CoralButton : CoralLink;
+					return (
+						<Item key={index} {...item}>
+							{item.label}
+						</Item>
+					);
+				})}
+			>
+				{displayName}
+			</CoralDropdown>
+		</CoralHeaderBar.Item>
 	);
 }
 
@@ -230,49 +243,55 @@ function HeaderBar(props) {
 		intercom = <Components.Intercom getComponent={props.getComponent} {...props.intercom} />;
 	}
 
+	console.log(props);
+
 	return (
 		<CoralHeaderBar className={theme('tc-header-bar', 'navbar')}>
-			<ul className={theme('tc-header-bar-actions', 'navbar-nav')}>
+			<CoralHeaderBar.ContentLeft className={theme('tc-header-bar-actions', 'navbar-nav')}>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
 				<AppSwitcherComponent {...props.brand} {...props.products} isSeparated={!!props.env} />
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
-			</ul>
-			<ul className={theme('tc-header-bar-actions', 'navbar-nav', 'right')}>
-				{props.callToAction && (
-					<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
-				)}
-				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
-				{props.notification && (
-					<Components.AppNotification
-						getComponent={props.getComponent}
-						{...props.notification}
-						t={props.t}
-					/>
-				)}
-				{intercom && (
-					<li
-						role="presentation"
-						className={theme('tc-header-bar-intercom', 'tc-header-bar-action', 'separated')}
-					>
-						{intercom}
-					</li>
-				)}
-				{props.help && (
-					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
-				)}
-				{!props.user && props.information && (
-					<Components.Information
-						getComponent={props.getComponent}
-						{...props.information}
-						t={props.t}
-					/>
-				)}
-				{props.user && (
-					<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
-				)}
-			</ul>
+			</CoralHeaderBar.ContentLeft>
+			<CoralHeaderBar.ContentRight>
+				<ul className={theme('tc-header-bar-actions', 'navbar-nav', 'right')}>
+					{props.callToAction && (
+						<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
+					)}
+					{props.search && (
+						<Components.Search getComponent={props.getComponent} {...props.search} />
+					)}
+					{props.notification && (
+						<Components.AppNotification
+							getComponent={props.getComponent}
+							{...props.notification}
+							t={props.t}
+						/>
+					)}
+					{intercom && (
+						<li
+							role="presentation"
+							className={theme('tc-header-bar-intercom', 'tc-header-bar-action', 'separated')}
+						>
+							{intercom}
+						</li>
+					)}
+					{props.help && (
+						<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
+					)}
+					{!props.user && props.information && (
+						<Components.Information
+							getComponent={props.getComponent}
+							{...props.information}
+							t={props.t}
+						/>
+					)}
+					{props.user && (
+						<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
+					)}
+				</ul>
+			</CoralHeaderBar.ContentRight>
 		</CoralHeaderBar>
 	);
 }

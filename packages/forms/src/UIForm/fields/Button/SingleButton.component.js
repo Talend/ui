@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Action } from '@talend/react-components/lib/Actions';
 import Inject from '@talend/react-components/lib/Inject';
+import CoralButton from '@talend/design-system/lib/components/Button';
 import classNames from 'classnames';
 
 export default class SingleButton extends React.Component {
@@ -29,15 +30,15 @@ export default class SingleButton extends React.Component {
 		const { type = 'button', title, label, inProgress, ...props } = schema;
 		const Renderer = Inject.getAll(getComponent, { Action });
 		return (
-			<Renderer.Action
+			<CoralButton.Primary
 				{...props}
 				id={id}
-				className={classNames('btn', className)}
-				label={label || title}
 				onClick={this.onClick}
 				type={type}
 				inProgress={this.state.inProgress || inProgress}
-			/>
+			>
+				{label || title}
+			</CoralButton.Primary>
 		);
 	}
 }

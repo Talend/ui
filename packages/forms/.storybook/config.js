@@ -5,6 +5,8 @@ import { withI18next } from 'storybook-addon-i18next';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
+import ThemeProvider from '@talend/design-system/lib/components/ThemeProvider';
+
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import i18n from '../../../.storybook/i18n';
 
@@ -36,6 +38,8 @@ addDecorator(
 );
 addDecorator(withA11y);
 addDecorator(withFormLayout);
+addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+
 configure(
 	[
 		require.context('../src', true, /\.stories\.js$/),

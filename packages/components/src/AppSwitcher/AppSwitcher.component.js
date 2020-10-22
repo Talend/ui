@@ -1,14 +1,22 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+
+import CoralDropdown from '@talend/design-system/lib/components/Dropdown';
+import CoralHeaderBar from '@talend/design-system/lib/components/HeaderBar';
+import CoralLink from '@talend/design-system/lib/components/Link';
+import CoralTooltip from '@talend/design-system/lib/components/Tooltip';
+
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
 import Inject from '../Inject';
 
-import AppSwitcherCSSModule from './AppSwitcher.scss';
+// import AppSwitcherCSSModule from './AppSwitcher.scss';
 import { getTheme } from '../theme';
+
+const AppSwitcherCSSModule = {};
 
 const theme = getTheme(AppSwitcherCSSModule);
 
@@ -35,7 +43,30 @@ export default function AppSwitcher({ label, isSeparated, onClick, getComponent,
 		clickAction = onClick;
 	}
 
+	console.log('AppSwitcher', props);
+
 	return (
+		<CoralHeaderBar.Brand className={className}>
+			<CoralTooltip title="Change for another Talend app" placement="bottom">
+				{props.product ? (
+					<CoralDropdown
+						icon="talend"
+						aria-label="Apps switcher"
+						items={props.items.map(item => (
+							<CoralLink key={item.key} iconBefore="talend" href="#">
+								{item.label}
+							</CoralLink>
+						))}
+					>
+						{label}
+					</CoralDropdown>
+				) : (
+					<CoralLink>{label}</CoralLink>
+				)}
+			</CoralTooltip>
+		</CoralHeaderBar.Brand>
+	);
+	/*
 		<li role="presentation" className={className}>
 			<span role="heading">
 				<ActionComponent
@@ -49,7 +80,7 @@ export default function AppSwitcher({ label, isSeparated, onClick, getComponent,
 				/>
 			</span>
 		</li>
-	);
+	);*/
 }
 
 AppSwitcher.propTypes = {

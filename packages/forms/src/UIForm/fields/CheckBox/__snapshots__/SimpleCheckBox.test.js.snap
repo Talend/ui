@@ -1,51 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SimpleCheckBox field should render disabled input 1`] = `
-<div
+<Checkbox
+  aria-describedby="myForm-description myForm-error"
+  aria-invalid={true}
+  autoFocus={true}
+  checked={true}
   className="checkbox"
->
-  <label>
-    <input
-      aria-describedby="myForm-description myForm-error"
-      aria-invalid={true}
-      autoFocus={true}
-      checked={true}
-      data-checked={2}
-      id="myForm"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <span
-      className="control-label"
-      htmlFor="myForm"
-    >
-      My checkbox custom label
-    </span>
-  </label>
-</div>
+  data-checked={2}
+  id="myForm"
+  label="My checkbox custom label"
+  onChange={[Function]}
+/>
 `;
 
 exports[`SimpleCheckBox field should render input 1`] = `
-<div
+<Checkbox
+  aria-describedby="myForm-description myForm-error"
+  aria-invalid={true}
+  autoFocus={true}
+  checked={true}
   className="checkbox"
->
-  <label>
-    <input
-      aria-describedby="myForm-description myForm-error"
-      aria-invalid={true}
-      autoFocus={true}
-      checked={true}
-      data-checked={2}
-      id="myForm"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <span
-      className="control-label"
-      htmlFor="myForm"
-    >
-      My checkbox custom label
-    </span>
-  </label>
-</div>
+  data-checked={2}
+  id="myForm"
+  label="My checkbox custom label"
+  onChange={[Function]}
+/>
 `;

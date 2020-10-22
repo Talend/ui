@@ -3,6 +3,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger } from 'react-bootstrap';
 
+import CoralToggle from '@talend/design-system/lib/components/Toggle';
+import CoralTooltip from '@talend/design-system/lib/components/Tooltip';
+
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
 import getPropsFrom from '../../utils/getPropsFrom';
@@ -31,8 +34,8 @@ function ActionIconToggle(props) {
 	});
 
 	return (
-		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-			<Button
+		<CoralTooltip title={label} placement={tooltipPlacement}>
+			<CoralToggle
 				{...getPropsFrom(Button, rest)}
 				id={id}
 				className={cn}
@@ -42,8 +45,8 @@ function ActionIconToggle(props) {
 				ref={buttonRef}
 			>
 				<Icon name={icon} transform={iconTransform} />
-			</Button>
-		</TooltipTrigger>
+			</CoralToggle>
+		</CoralTooltip>
 	);
 }
 

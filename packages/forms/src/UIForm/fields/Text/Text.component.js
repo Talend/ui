@@ -3,6 +3,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import get from 'lodash/get';
+import CoralForm from '@talend/design-system/lib/components/Form';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
@@ -28,45 +29,33 @@ export default function Text(props) {
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
+	const Component = CoralForm[type.charAt(0).toUpperCase() + type.slice(1)];
+
 	return (
-		<FieldTemplate
-			hint={schema.hint}
-			className={schema.className}
-			description={description}
-			descriptionId={descriptionId}
-			errorId={errorId}
-			errorMessage={errorMessage}
-			id={id}
-			isValid={isValid}
+		<Component
 			label={title}
-			labelAfter
 			required={schema.required}
-			valueIsUpdating={valueIsUpdating}
-		>
-			<input
-				id={id}
-				autoComplete={autoComplete}
-				autoFocus={autoFocus}
-				className="form-control"
-				disabled={disabled || valueIsUpdating}
-				onBlur={event => onFinish(event, { schema })}
-				onChange={event =>
-					onChange(event, { schema, value: convertValue(type, event.target.value) })
-				}
-				placeholder={placeholder}
-				readOnly={readOnly}
-				type={type}
-				value={value}
-				min={get(schema, 'schema.minimum')}
-				max={get(schema, 'schema.maximum')}
-				step={get(schema, 'schema.step')}
-				// eslint-disable-next-line jsx-a11y/aria-proptypes
-				aria-invalid={!isValid}
-				aria-required={get(schema, 'required')}
-				aria-describedby={`${descriptionId} ${errorId}`}
-				{...extractDataAttributes(rest)}
-			/>
-		</FieldTemplate>
+
+			id={id}
+			autoComplete={autoComplete}
+			autoFocus={autoFocus}
+			disabled={disabled || valueIsUpdating}
+			onBlur={event => onFinish(event, { schema })}
+			onChange={event =>
+				onChange(event, { schema, value: convertValue(type, event.target.value) })
+			}
+			placeholder={placeholder}
+			readOnly={readOnly}
+			type={type}
+			value={value}
+			min={get(schema, 'schema.minimum')}
+			max={get(schema, 'schema.maximum')}
+			step={get(schema, 'schema.step')}
+			// eslint-disable-next-line jsx-a11y/aria-proptypes
+			aria-invalid={!isValid}
+			aria-required={get(schema, 'required')}
+			aria-describedby={`${descriptionId} ${errorId}`}
+		/>
 	);
 }
 

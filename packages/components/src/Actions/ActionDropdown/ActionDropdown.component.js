@@ -9,6 +9,11 @@ import Label from 'react-bootstrap/lib/Label';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
+
+import CButton from '@talend/design-system/lib/components/Button';
+import CDropdown from '@talend/design-system/lib/components/Dropdown';
+import CTooltip from '@talend/design-system/lib/components/Tooltip';
+
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -208,7 +213,7 @@ class ActionDropdown extends React.Component {
 			...rest
 		} = this.props;
 
-		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
+		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton: CDropdown });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 		const title = [
 			icon && <Icon name={icon} key="icon" />,
@@ -249,45 +254,47 @@ class ActionDropdown extends React.Component {
 				onSelect={onItemSelect}
 				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
 				aria-label={tooltipLabel || label}
+				items={[
+					!children && !items.length && !items.size && !loading && !components && (
+						<Renderers.MenuItem key="empty" disabled>
+							{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
+						</Renderers.MenuItem>
+					),
+					injected('beforeItemsDropdown'),
+					...items.map(({ label, ...item }, index) => (
+						<CButton key={index} {...item}>
+							{label}
+						</CButton>
+					)),
+					loading && (
+						<Renderers.MenuItem
+							key={items ? items.length + 1 : 0}
+							header
+							className={classNames(
+								theme['tc-dropdown-item'],
+								'tc-dropdown-item',
+								theme['tc-dropdown-loader'],
+								'tc-dropdown-loader',
+							)}
+						>
+							<CircularProgress />
+						</Renderers.MenuItem>
+					),
+					injected('itemsDropdown'),
+					children,
+					injected('afterItemsDropdown'),
+				].filter(Boolean)}
 				{...omit(rest, 'tReady')}
-				onToggle={this.onToggle}
-				ref={ref => {
-					this.ref = ref;
-				}}
-				noCaret
 			>
-				{!children && !items.length && !items.size && !loading && !components && (
-					<Renderers.MenuItem key="empty" disabled>
-						{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
-					</Renderers.MenuItem>
-				)}
-				{injected('beforeItemsDropdown')}
-				{items.map((item, key) => getMenuItem(item, key, getComponent))}
-				{loading && (
-					<Renderers.MenuItem
-						key={items ? items.length + 1 : 0}
-						header
-						className={classNames(
-							theme['tc-dropdown-item'],
-							'tc-dropdown-item',
-							theme['tc-dropdown-loader'],
-							'tc-dropdown-loader',
-						)}
-					>
-						<CircularProgress />
-					</Renderers.MenuItem>
-				)}
-				{injected('itemsDropdown')}
-				{children}
-				{injected('afterItemsDropdown')}
+				{title}
 			</Renderers.DropdownButton>
 		);
 
 		if (hideLabel || tooltipLabel) {
 			return (
-				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+				<CTooltip title={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 					{dropdown}
-				</TooltipTrigger>
+				</CTooltip>
 			);
 		}
 		return dropdown;

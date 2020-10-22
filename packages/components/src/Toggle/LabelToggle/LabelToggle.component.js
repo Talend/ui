@@ -1,4 +1,7 @@
 import React from 'react';
+
+import CoralSwitch from '@talend/design-system/lib/components/Switch';
+
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import get from 'lodash/get';
@@ -35,30 +38,7 @@ function LabelToggle({ id, values, name, value, onChange, disabled, autoFocus = 
 	const autoFocusValue = getAutoFocusValue(autoFocus, values, value);
 
 	return (
-		<div className={theme('tc-label-toggle', { 'tc-radio-disabled': disabled })}>
-			{values.map(button => (
-				<label
-					data-feature={button.dataFeature}
-					key={button.value}
-					htmlFor={getButtonId(button.value)}
-					className={theme({
-						'tc-radio-selected': value === button.value,
-					})}
-				>
-					<input
-						id={getButtonId(button.value)}
-						type="radio"
-						value={button.value}
-						checked={value === button.value}
-						name={name}
-						disabled={disabled}
-						onChange={e => handleChange(e)}
-						autoFocus={autoFocusValue === button.value}
-					/>
-					<span>{button.label}</span>
-				</label>
-			))}
-		</div>
+		<CoralSwitch values={values.map(button => button.label)} />
 	);
 }
 

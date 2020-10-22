@@ -1,0 +1,20 @@
+{
+  "doc": "Textarea/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Text",
+    "properties": {
+      "text": {
+        "type": "string"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "text",
+      "title": "Simple text",
+      "widget": "textarea"
+    }
+  ],
+  "properties": {}
+}

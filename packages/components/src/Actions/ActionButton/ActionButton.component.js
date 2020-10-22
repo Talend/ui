@@ -5,6 +5,7 @@ import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 
 import CoralButton from '@talend/design-system/lib/components/Button';
+import CoralTooltip from '@talend/design-system/lib/components/Tooltip';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -210,13 +211,13 @@ function ActionButton(props) {
 
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
-			<TooltipTrigger
-				label={tooltipLabel || label}
-				tooltipPlacement={tooltipPlacement}
+			<CoralTooltip
+				title={tooltipLabel || label}
+				placement={tooltipPlacement}
 				className={tooltipClassName}
 			>
 				{btn}
-			</TooltipTrigger>
+			</CoralTooltip>
 		);
 	}
 	return btn;
