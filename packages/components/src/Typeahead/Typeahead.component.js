@@ -177,6 +177,7 @@ Typeahead.propTypes = {
 	onToggle: PropTypes.func,
 	docked: PropTypes.bool,
 	icon: PropTypes.shape({
+		tooltipPlacement: PropTypes.string,
 		name: PropTypes.string,
 		title: PropTypes.string,
 		bsStyle: PropTypes.string,
