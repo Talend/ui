@@ -9,7 +9,14 @@ import { useCollectionSort } from './hooks/useCollectionSort.hook';
 import { useCollectionFilter } from './hooks/useCollectionFilter.hook';
 import theme from '../List.scss';
 
-function Manager({ initialDisplayMode, initialSortParams, visibleColumnsKeys, children, t, ...rest }) {
+function Manager({
+	initialDisplayMode,
+	initialSortParams,
+	visibleColumnsKeys,
+	children,
+	t,
+	...rest
+}) {
 	let collection = rest.collection;
 
 	const [displayMode, setDisplayMode] = useState(initialDisplayMode || displayModesOptions[0]);
@@ -22,7 +29,10 @@ function Manager({ initialDisplayMode, initialSortParams, visibleColumnsKeys, ch
 	collection = sortedCollection;
 
 	// Filter by text
-	const { filteredCollection, textFilter, setTextFilter } = useCollectionFilter(collection, visibleColumnsKeys);
+	const { filteredCollection, textFilter, setTextFilter } = useCollectionFilter(
+		collection,
+		visibleColumnsKeys,
+	);
 	collection = filteredCollection;
 
 	const contextValues = {
