@@ -239,6 +239,16 @@
   347:2  error  defaultProp "minimumPercentage" has no corresponding propTypes declaration  react/default-props-match-prop-types
   348:2  error  defaultProp "display" has no corresponding propTypes declaration            react/default-props-match-prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/QualityBar/QualityBar.stories.js
+  15:6  error  Empty components are self-closing  react/self-closing-comp
+  17:6  error  Empty components are self-closing  react/self-closing-comp
+  19:6  error  Empty components are self-closing  react/self-closing-comp
+  21:6  error  Empty components are self-closing  react/self-closing-comp
+  23:6  error  Empty components are self-closing  react/self-closing-comp
+  25:6  error  Empty components are self-closing  react/self-closing-comp
+  27:6  error  Empty components are self-closing  react/self-closing-comp
+  29:6  error  Empty components are self-closing  react/self-closing-comp
+
 /home/travis/build/Talend/ui/packages/components/src/RadarChart/RadarChart.stories.js
    31:7  error  'activeAxis' is assigned a value but never used  @typescript-eslint/no-unused-vars
    45:6  error  Value must be omitted for boolean attributes     react/jsx-boolean-value
@@ -397,5 +407,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 208 problems (187 errors, 21 warnings)
-  9 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 216 problems (195 errors, 21 warnings)
+  17 errors and 0 warnings potentially fixable with the `--fix` option.
