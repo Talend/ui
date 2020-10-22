@@ -4,7 +4,7 @@ import ColumnChooserRow from '../ColumnChooserRow';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import ColumnChooserTable from '../ColumnChooserTable';
 import { useColumnChooserContext } from '../columnChooser.context';
-import RichLayout from '../../../../../Rich/RichLayout';
+import RichLayout from '../../../../../Rich/Layout';
 import cssModule from '../ColumnChooser.scss';
 import { getTheme } from '../../../../../theme';
 

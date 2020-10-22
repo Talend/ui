@@ -1,11 +1,9 @@
-import RichLayout from './RichLayout';
-import RichError from './RichError';
-import HeaderTitle from '../HeaderTitle';
+import Layout from './Layout';
+import Error from './Error';
+import HeaderTitle from './HeaderTitle';
 
-// TODO 6.0: move HeaderTitle folder in RichTooltip folder
-// TODO 6.0: rename RichTooltip folder into Rich
 export default {
-	Error: RichError,
+	Error,
 	HeaderTitle,
-	Layout: RichLayout,
+	Layout,
 };

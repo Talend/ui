@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ActionButton from '../../../../../Actions/ActionButton';
 import { useColumnChooserContext } from '../columnChooser.context';
-import RichLayout from '../../../../../Rich/RichLayout';
+import RichLayout from '../../../../../Rich/Layout';
 import cssModule from '../ColumnChooser.scss';
 import { getTheme } from '../../../../../theme';
 
