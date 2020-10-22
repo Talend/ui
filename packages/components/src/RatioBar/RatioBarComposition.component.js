@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TooltipTrigger from '../TooltipTrigger';
 import { getTheme } from '../theme';
-import qualityBarTheme from './RatioBar.scss';
+import ratioBarTheme from './RatioBar.scss';
 
-const theme = getTheme(qualityBarTheme);
+const theme = getTheme(ratioBarTheme);
 const minPercentage = 5;
 
 export function RatioBarLine({ percentage, tooltipLabel, className, value }) {

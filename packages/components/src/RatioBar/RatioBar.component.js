@@ -4,9 +4,9 @@ import { Trans } from 'react-i18next';
 import { RatioBarComposition } from './RatioBarComposition.component';
 import { EmptyLine, FilledLine } from './RatioBarLines.component';
 import { getTheme } from '../theme';
-import qualityBarTheme from './RatioBar.scss';
+import ratioBarTheme from './RatioBar.scss';
 
-const theme = getTheme(qualityBarTheme);
+const theme = getTheme(ratioBarTheme);
 
 function getFilledValues(amount, total) {
 	if (!amount || amount < 0) {

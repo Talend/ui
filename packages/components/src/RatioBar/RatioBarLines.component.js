@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '../theme';
 import { RatioBarLine } from './RatioBarComposition.component';
-import qualityBarTheme from './RatioBar.scss';
+import ratioBarTheme from './RatioBar.scss';
 
-const theme = getTheme(qualityBarTheme);
+const theme = getTheme(ratioBarTheme);
 
 const ratioBarLinePropTypes = {
 	value: PropTypes.number.isRequired,
