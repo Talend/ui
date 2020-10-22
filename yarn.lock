@@ -3034,9 +3034,9 @@
     semver "^6.3.0"
 
 "@talend/module-to-cdn@^3.12.0":
-  version "3.12.2"
-  resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-3.12.2.tgz#40bca38c1ddedbfe60c1712995868acef28fc6f4"
-  integrity sha512-AQwL1BS5n3o828mkD3luJsRHe4o3uJFBHX2eK0FLVVN/6a6mgYmXWya/BsdoEUGn1PkmHKjjw3BvI4tv0N9naA==
+  version "3.12.3"
+  resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-3.12.3.tgz#dd4e4626655bc70d5abb80cbd4dd4885db544c3f"
+  integrity sha512-iF+vPDVqUBcB/Lz25mkJI/1qM0cNBMNcVQ8L25y1pS4obpMyrpNBSdqffRIVCxZWHaaP8KRyw7Na3pMBBCshQA==
   dependencies:
     axios "^0.20.0"
     axios-retry "^3.1.9"
