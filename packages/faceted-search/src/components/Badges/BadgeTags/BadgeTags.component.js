@@ -40,6 +40,7 @@ export const BadgeTags = ({
 	callbacks,
 	readOnly,
 	removable,
+	displayType,
 	t,
 }) => {
 	const [tagsValues, setTagsValues] = useState([]);
@@ -69,6 +70,7 @@ export const BadgeTags = ({
 	return (
 		<BadgeFaceted
 			badgeId={id}
+			displayType={displayType}
 			id={badgeTagsId}
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
@@ -121,4 +123,5 @@ BadgeTags.propTypes = {
 	t: PropTypes.func.isRequired,
 	readOnly: PropTypes.bool,
 	removable: PropTypes.bool,
+	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 };
