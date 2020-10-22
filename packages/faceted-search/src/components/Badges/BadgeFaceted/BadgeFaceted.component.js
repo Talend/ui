@@ -21,7 +21,7 @@ const findOperatorByName = name => operator => name === operator.name;
 
 const BadgeFaceted = ({
 	badgeId,
-  displayType,
+	displayType,
 	children,
 	id,
 	labelCategory,
@@ -149,7 +149,7 @@ const BadgeFaceted = ({
 BadgeFaceted.propTypes = {
 	badgeId: PropTypes.string.isRequired,
 	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
-  labelCategory: PropTypes.string.isRequired,
+	labelCategory: PropTypes.string.isRequired,
 	children: PropTypes.func.isRequired,
 	id: PropTypes.string.isRequired,
 	initialOperatorOpened: PropTypes.bool,
