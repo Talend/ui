@@ -36,19 +36,15 @@ export default function AppSwitcher({ label, isSeparated, onClick, getComponent,
 	}
 
 	return (
-		<li role="presentation" className={className}>
-			<span role="heading">
-				<ActionComponent
-					bsStyle="link"
-					className={theme('tc-app-switcher')}
-					tooltipPlacement="bottom"
-					label={label}
-					aria-label={ariaLabel}
-					onClick={clickAction}
-					{...props}
-				/>
-			</span>
-		</li>
+		<ActionComponent
+			bsStyle="link"
+			className={theme('tc-app-switcher')}
+			tooltipPlacement="bottom"
+			label={label}
+			aria-label={ariaLabel}
+			onClick={clickAction}
+			{...props}
+		/>
 	);
 }
 
