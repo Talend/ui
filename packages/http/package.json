@@ -1,6 +1,6 @@
 {
   "name": "@talend/http",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HTTP helper",
   "license": "Apache-2.0",
   "repository": {
