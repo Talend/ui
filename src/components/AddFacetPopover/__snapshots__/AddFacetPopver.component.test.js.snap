@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddFacetPopover should render the html output 1`] = `
+<div id="my id-add-facet-popover"
+     class="tc-add-facet-popover theme-tc-add-facet-popover"
+>
+  <div id="my id-add-facet-popover"
+       class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+       style="height: 0px;"
+  >
+    <div class="tc-add-facet-popover-screen theme-tc-add-facet-popover-screen">
+      <header id="my id-add-facet-popover-null-header"
+              class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
+      >
+        <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+              role="search"
+        >
+          <div class="form-group">
+            <svg name="talend-search"
+                 class="theme-tc-svg-icon tc-svg-icon theme-search-icon"
+                 focusable="false"
+                 aria-hidden="true"
+            >
+              <use xlink:href="#talend-search">
+              </use>
+            </svg>
+            <input name="search"
+                   placeholder="Find a filter"
+                   autocomplete="off"
+                   aria-label="Find a filter"
+                   role="searchbox"
+                   type="search"
+                   id="my id-add-facet-popover-null-filter-input"
+                   class="theme-search form-control"
+                   value
+            >
+          </div>
+        </form>
+      </header>
+      <div id="my id-add-facet-popover-null-body"
+           class="theme-body tc-tooltip-body"
+      >
+        <div id="my id-add-facet-popover-null-body-content"
+             class="theme-content tc-tooltip-content"
+        >
+          <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

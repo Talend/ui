@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdvancedSearch should render by default 1`] = `
+<div id="some-id-adv-search"
+     class="adv-search theme-adv-search"
+>
+  <form id="some-id-adv-search-form">
+    <svg name="talend-filter"
+         class="theme-tc-svg-icon tc-svg-icon adv-search-filter-icon theme-adv-search-filter-icon"
+         focusable="false"
+         aria-hidden="true"
+    >
+      <use xlink:href="#talend-filter">
+      </use>
+    </svg>
+    <input name="advanced-search-faceted"
+           placeholder="Enter your query"
+           autocomplete="off"
+           aria-label="Advanced Faceted Search"
+           role="search"
+           type="search"
+           id="some-id-form"
+           class="adv-search-input theme-adv-search-input form-control"
+           value
+    >
+    <div class="adv-search-buttons theme-adv-search-buttons">
+      <button aria-label="Cancel"
+              data-feature="filter.advanced.clear"
+              name="action-cancel-title"
+              aria-describedby="42"
+              type="button"
+              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
+      >
+        <svg name="talend-cross"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+          <use xlink:href="#talend-cross">
+          </use>
+        </svg>
+      </button>
+      <button aria-label="Submit"
+              data-feature="filter.advanced.apply"
+              name="action-submit-title"
+              type="submit"
+              aria-describedby="42"
+              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
+      >
+        <svg name="talend-check"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+          <use xlink:href="#talend-check">
+          </use>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`AdvancedSearch should render with an explicit error 1`] = `
+<div id="some-id-adv-search"
+     class="adv-search theme-adv-search"
+>
+  <form id="some-id-adv-search-form">
+    <svg name="talend-filter"
+         class="theme-tc-svg-icon tc-svg-icon adv-search-filter-icon theme-adv-search-filter-icon"
+         focusable="false"
+         aria-hidden="true"
+    >
+      <use xlink:href="#talend-filter">
+      </use>
+    </svg>
+    <input name="advanced-search-faceted"
+           placeholder="Enter your query"
+           autocomplete="off"
+           aria-label="Advanced Faceted Search"
+           role="search"
+           type="search"
+           id="some-id-form"
+           class="adv-search-input theme-adv-search-input has-error theme-has-error form-control"
+           value
+    >
+    <div class="adv-search-buttons theme-adv-search-buttons">
+      <button aria-label="Cancel"
+              data-feature="filter.advanced.clear"
+              name="action-cancel-title"
+              aria-describedby="42"
+              type="button"
+              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
+      >
+        <svg name="talend-cross"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+          <use xlink:href="#talend-cross">
+          </use>
+        </svg>
+      </button>
+      <button aria-label="Submit"
+              data-feature="filter.advanced.apply"
+              name="action-submit-title"
+              type="submit"
+              aria-describedby="42"
+              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
+      >
+        <svg name="talend-check"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+          <use xlink:href="#talend-check">
+          </use>
+        </svg>
+      </button>
+    </div>
+  </form>
+  <p aria-live="assertive"
+     class="adv-search-error theme-adv-search-error"
+     id="some-id-adv-search-error"
+     role="status"
+  >
+    my Explicit Error
+  </p>
+</div>
+`;

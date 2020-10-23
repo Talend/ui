@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasicSearch should render the default html output with no badges 1`] = `
+<div id="manager-id-basic-search"
+     class="tc-basic-search theme-tc-basic-search"
+>
+  <div class="tc-basic-search-content theme-tc-basic-search-content">
+    <div>
+      <button id="manager-id-basic-search-action-overlay"
+              aria-label="Add filter"
+              type="button"
+              aria-describedby="42"
+              class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
+      >
+        <svg name="talend-plus-circle"
+             class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+          <use xlink:href="#talend-plus-circle">
+          </use>
+        </svg>
+        <span>
+          Add filter
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BasicSearch should render the default html output with some badges 1`] = `
+<div id="manager-id-basic-search"
+     class="tc-basic-search theme-tc-basic-search"
+>
+  <div class="tc-basic-search-content theme-tc-basic-search-content">
+    <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
+      <div id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+           class="tc-badge-button theme-tc-badge-button"
+      >
+        <span aria-label="Name"
+              class="tc-badge-category theme-tc-badge-category"
+              aria-describedby="42"
+        >
+          Name
+        </span>
+        <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
+          <div class="tc-badge-operator-button theme-tc-badge-operator-button">
+            <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
+                    aria-label="Equals"
+                    type="button"
+                    aria-describedby="42"
+                    class="btn btn-link"
+            >
+              <svg name="talend-equal"
+                   class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+                   focusable="false"
+                   aria-hidden="true"
+              >
+                <use xlink:href="#talend-equal">
+                </use>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
+          <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
+                  aria-label="hello"
+                  type="button"
+                  class="btn btn-link"
+          >
+            <span>
+              hello
+            </span>
+          </button>
+        </div>
+        <button role="button"
+                aria-label="Remove filter"
+                id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+                data-feature="filter.remove"
+                aria-describedby="42"
+                type="button"
+                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+        >
+          <svg name="talend-cross"
+               class="theme-tc-svg-icon tc-svg-icon"
+               focusable="false"
+               aria-hidden="true"
+          >
+            <use xlink:href="#talend-cross">
+            </use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div>
+      <button id="manager-id-basic-search-action-overlay"
+              aria-label="Add filter"
+              type="button"
+              aria-describedby="42"
+              class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
+      >
+        <svg name="talend-plus-circle"
+             class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+          <use xlink:href="#talend-plus-circle">
+          </use>
+        </svg>
+        <span>
+          Add filter
+        </span>
+      </button>
+    </div>
+  </div>
+  <button role="link"
+          aria-label="Remove all filters"
+          data-feature="filter.basic.clear"
+          aria-describedby="42"
+          type="button"
+          class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
+  >
+    <svg name="talend-trash"
+         class="theme-tc-svg-icon tc-svg-icon"
+         focusable="false"
+         aria-hidden="true"
+    >
+      <use xlink:href="#talend-trash">
+      </use>
+    </svg>
+    <span>
+    </span>
+  </button>
+</div>
+`;

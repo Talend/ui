@@ -1,0 +1,23 @@
+.tc-badge-text-form {
+	:global(.tc-tooltip-body) {
+		margin: 0;
+		padding: 2rem;
+		width: 100%;
+	}
+
+	&-body {
+		width: inherit;
+	}
+
+	:global(.tc-tooltip-content) {
+		flex-direction: column;
+	}
+
+	:global(.tc-tooltip-footer) {
+		justify-content: flex-end;
+	}
+
+	:global(textarea.form-control) {
+		resize: none;
+	}
+}

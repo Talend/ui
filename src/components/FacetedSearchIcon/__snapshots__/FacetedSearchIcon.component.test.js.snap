@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FacetedSearchIcon should render by default 1`] = `
+<button data-feature="filter.expand"
+        aria-label="Show faceted search"
+        aria-pressed="false"
+        aria-describedby="42"
+        type="button"
+        class="faceted-search-icon theme-faceted-search-icon tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+>
+  <svg name="talend-filter"
+       class="theme-tc-svg-icon tc-svg-icon"
+       focusable="false"
+       aria-hidden="true"
+  >
+    <use xlink:href="#talend-filter">
+    </use>
+  </svg>
+</button>
+`;
+
+exports[`FacetedSearchIcon should render the button in loading mode 1`] = `
+<span class="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-large theme-tc-skeleton-circle-large tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      aria-label="circle (loading)"
+>
+</span>
+`;

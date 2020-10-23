@@ -1,0 +1,52 @@
+$toolbar-height: 5.5rem;
+
+.tc-faceted-toolbar {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	min-height: $toolbar-height;
+	position: relative;
+	width: 100%;
+
+	&-buttons {
+		background: $alto;
+		border-radius: $padding-large $padding-large $padding-large $padding-large;
+		display: flex;
+		margin-right: $padding-large;
+		position: absolute;
+		margin-top: $padding-normal;
+		right: 0;
+		top: 0;
+
+		&-basic,
+		&-advanced {
+			&.tc-button-selected {
+				background: $st-tropaz;
+				border-radius: $padding-large;
+				color: white;
+			}
+			background: $alto;
+			color: black;
+			min-height: 2.5rem;
+			height: 2.5rem;
+			font-size: 1rem;
+			> span {
+				height: inherit;
+			}
+			&:active,
+			&:focus,
+			&:hover {
+				background: $st-tropaz;
+			}
+		}
+
+		&-advanced,
+		&-advanced.tc-button-selected {
+			border-radius: 0 $padding-large $padding-large 0;
+		}
+		&-basic,
+		&-basic.tc-button-selected {
+			border-radius: $padding-large 0 0 $padding-large;
+		}
+	}
+}

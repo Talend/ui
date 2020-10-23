@@ -1,0 +1,71 @@
+.tc-badge-slider-form {
+	:global(.tc-tooltip-body) {
+		margin: 0;
+		padding: 2rem;
+		width: 100%;
+	}
+
+	&-body {
+		width: inherit;
+
+		&-row {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+
+			svg {
+				width: 3.2rem;
+				height: 3.2rem;
+				margin-right: 1.4rem;
+			}
+
+			.tc-badge-value-unit {
+				font-size: 3.2rem;
+				font-weight: $font-weight-semi-bold;
+				width: 5rem;
+				height: 4.7rem;
+				margin-bottom: 0;
+				border: none;
+				background: none;
+				padding: {
+					left: 0;
+					top: 0.2rem;
+				}
+			}
+
+			input {
+				font-size: 3.2rem;
+				font-weight: $font-weight-semi-bold;
+				width: 5rem;
+				color: $dove-gray;
+				box-shadow: none;
+				height: 4.7rem;
+
+				-moz-appearance: textfield;
+				&[type='number']::-webkit-inner-spin-button,
+				&[type='number']::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
+			}
+
+			> div {
+				display: none;
+			}
+		}
+	}
+
+	:global(.tc-tooltip-content) {
+		flex-direction: column;
+	}
+
+	:global(.tc-tooltip-footer) {
+		justify-content: space-between;
+
+		.tc-badge-slider-form-error {
+			color: $brand-danger;
+		}
+	}
+}
