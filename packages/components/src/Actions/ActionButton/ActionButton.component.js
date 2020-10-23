@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
+
+import { OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
+
+import CoralButton from '@talend/design-system/lib/components/Button';
+import CoralTooltip from '@talend/design-system/lib/components/Tooltip';
+
 import { withTranslation } from 'react-i18next';
 
-import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
@@ -137,7 +141,7 @@ function ActionButton(props) {
 		return <Skeleton type="button" />;
 	}
 
-	const buttonProps = getPropsFrom(Button, rest);
+	const buttonProps = getPropsFrom(CoralButton, rest);
 	const buttonContent = getContent(props);
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
@@ -172,7 +176,7 @@ function ActionButton(props) {
 		buttonProps.rel = 'noopener noreferrer';
 	}
 	let btn = (
-		<Button
+		<CoralButton
 			onMouseDown={!overlayComponent ? rMouseDown : null}
 			onClick={!overlayComponent ? rClick : null}
 			onMouseEnter={!overlayComponent ? rMouseEnter : null}
@@ -186,7 +190,7 @@ function ActionButton(props) {
 			{...buttonProps}
 		>
 			{buttonContent}
-		</Button>
+		</CoralButton>
 	);
 	if (hasPopup) {
 		btn = (
@@ -208,13 +212,13 @@ function ActionButton(props) {
 
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
-			<TooltipTrigger
-				label={tooltipLabel || label}
-				tooltipPlacement={tooltipPlacement}
+			<CoralTooltip
+				title={tooltipLabel || label}
+				placement={tooltipPlacement}
 				className={tooltipClassName}
 			>
 				{btn}
-			</TooltipTrigger>
+			</CoralTooltip>
 		);
 	}
 	return btn;
