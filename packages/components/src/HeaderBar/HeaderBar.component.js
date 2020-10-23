@@ -21,8 +21,7 @@ import getDefaultT from '../translate';
 import { getTheme } from '../theme';
 import AppSwitcher from '../AppSwitcher';
 
-// FIXME
-const headerBarCssModule = {};
+import headerBarCssModule from './HeaderBar.scss';
 
 const theme = getTheme(headerBarCssModule);
 
@@ -243,11 +242,9 @@ function HeaderBar(props) {
 		intercom = <Components.Intercom getComponent={props.getComponent} {...props.intercom} />;
 	}
 
-	console.log(props);
-
 	return (
-		<CoralHeaderBar className={theme('tc-header-bar', 'navbar')}>
-			<CoralHeaderBar.ContentLeft className={theme('tc-header-bar-actions', 'navbar-nav')}>
+		<CoralHeaderBar className={theme('tc-header-bar')}>
+			<CoralHeaderBar.ContentLeft className={theme('tc-header-bar-actions')}>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
@@ -255,7 +252,7 @@ function HeaderBar(props) {
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</CoralHeaderBar.ContentLeft>
 			<CoralHeaderBar.ContentRight>
-				<ul className={theme('tc-header-bar-actions', 'navbar-nav', 'right')}>
+				<ul className={theme('tc-header-bar-actions')}>
 					{props.callToAction && (
 						<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
 					)}
@@ -272,7 +269,7 @@ function HeaderBar(props) {
 					{intercom && (
 						<li
 							role="presentation"
-							className={theme('tc-header-bar-intercom', 'tc-header-bar-action', 'separated')}
+							className={theme('tc-header-bar-intercom', 'tc-header-bar-action')}
 						>
 							{intercom}
 						</li>

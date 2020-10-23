@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
 import classnames from 'classnames';
-import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
@@ -46,59 +45,9 @@ export default function InputDatePicker(props) {
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
-	const datePicker = [
-		<DatePicker.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
-		handlers.showPicker && (
-			<Popper
-				key="popper"
-				modifiers={{
-					hide: {
-						enabled: false,
-					},
-					preventOverflow: {
-						enabled: false,
-					},
-				}}
-				placement={handlers.getPopperPlacement(inputRef.current)}
-				positionFixed
-				referenceElement={inputRef.current}
-			>
-				{({ ref, style }) => (
-					<div
-						id={popoverId}
-						className={theme.popper}
-						style={style}
-						ref={ref}
-						onMouseDown={onMouseDown}
-					>
-						<DatePicker.Picker {...props} />
-					</div>
-				)}
-			</Popper>
-		),
-		!props.hideTimezone && props.timezone && <TimeZone key="timezone" timezone={props.timezone} />,
-	].filter(Boolean);
+
 	return (
-		<DatePicker.Manager
-			value={props.value}
-			dateFormat={props.dateFormat}
-			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
-			useUTC={props.useUTC}
-			timezone={props.timezone}
-		>
-			<FocusManager
-				className={classnames(theme['date-picker'], 'date-picker')}
-				divRef={containerRef}
-				onClick={handlers.onClick}
-				onFocusIn={handlers.onFocus}
-				onFocusOut={handlers.onBlur}
-				onKeyDown={event => {
-					handlers.onKeyDown(event, inputRef.current);
-				}}
-			>
-				{datePicker}
-			</FocusManager>
-		</DatePicker.Manager>
+		<div />
 	);
 }
 InputDatePicker.displayName = 'InputDatePicker';
