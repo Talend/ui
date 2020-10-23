@@ -48,7 +48,6 @@ Input.propTypes = {
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
 	label: PropTypes.string,
-    minWidth: PropTypes.number,
 };
 
 export default Input;
