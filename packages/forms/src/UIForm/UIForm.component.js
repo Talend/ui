@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import tv4 from 'tv4';
 import { withTranslation } from 'react-i18next';
 
+import ThemeProvider from '@talend/design-system/lib/components/ThemeProvider';
+
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
@@ -335,23 +337,25 @@ export class UIFormComponent extends React.Component {
 		};
 
 		return (
-			<form
-				acceptCharset={this.props.acceptCharset}
-				action={this.props.action}
-				autoComplete={this.props.autoComplete}
-				className={classNames('tf-uiform', theme.uiform, this.props.className)}
-				encType={this.props.encType}
-				id={this.props.id}
-				method={this.props.method}
-				name={this.props.name}
-				noValidate={this.props.noHtml5Validate}
-				onReset={this.props.onReset}
-				onSubmit={this.onSubmit}
-				target={this.props.target}
-				ref={this.setFormRef}
-			>
-				{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
-			</form>
+			<ThemeProvider>
+				<form
+					acceptCharset={this.props.acceptCharset}
+					action={this.props.action}
+					autoComplete={this.props.autoComplete}
+					className={classNames('tf-uiform', theme.uiform, this.props.className)}
+					encType={this.props.encType}
+					id={this.props.id}
+					method={this.props.method}
+					name={this.props.name}
+					noValidate={this.props.noHtml5Validate}
+					onReset={this.props.onReset}
+					onSubmit={this.onSubmit}
+					target={this.props.target}
+					ref={this.setFormRef}
+				>
+					{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
+				</form>
+			</ThemeProvider>
 		);
 	}
 }
