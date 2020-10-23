@@ -33,31 +33,29 @@ function Logo({ isFull, getComponent, t, ...props }) {
 	});
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
-		<CoralHeaderBar.Logo>
-			<CoralTooltip
-				title={t('HEADERBAR_GO_PORTAL', { defaultValue: 'Go to Portal' })}
-				placement="bottom"
-			>
-				<CoralLink {...props} className={actionClassName}>
-					<CoralIcon name="talend" preserveColors />
-					<ReakitVisuallyHidden>Talend</ReakitVisuallyHidden>
-				</CoralLink>
-			</CoralTooltip>
-		</CoralHeaderBar.Logo>
+		<CoralTooltip
+			title={t('HEADERBAR_GO_PORTAL', { defaultValue: 'Go to Portal' })}
+			placement="bottom"
+		>
+			<CoralLink {...props} className={actionClassName}>
+				<CoralIcon name="talend" preserveColors />
+				<ReakitVisuallyHidden>Talend</ReakitVisuallyHidden>
+			</CoralLink>
+		</CoralTooltip>
 	);
 }
 
 function Environment({ getComponent, ...props }) {
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
 	return (
-		<li role="presentation" className={theme('tc-header-bar-action')}>
+		<CoralHeaderBar.Item className={theme('tc-header-bar-action')}>
 			<Renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-environment"
 				tooltipPlacement="bottom"
 				{...props}
 			/>
-		</li>
+		</CoralHeaderBar.Item>
 	);
 }
 
@@ -71,9 +69,9 @@ function CallToAction({ getComponent, ...props }) {
 	const className = theme('tc-header-bar-action', 'tc-header-bar-call-to-action', 'separated');
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
-		<li role="presentation" className={className}>
+		<CoralHeaderBar.Item role="presentation" className={className} freeze>
 			<Renderers.Action {...actionProps} />
-		</li>
+		</CoralHeaderBar.Item>
 	);
 }
 
@@ -83,11 +81,11 @@ function Search({ getComponent, icon, ...props }) {
 	const a11yIcon = icon && { ...icon, role: 'search' };
 
 	return (
-		<li role="presentation" className={className}>
+		<CoralHeaderBar.Item className={className}>
 			<form className="navbar-form navbar-right">
 				<Renderers.Typeahead {...props} role="searchbox" icon={a11yIcon} />
 			</form>
-		</li>
+		</CoralHeaderBar.Item>
 	);
 }
 
@@ -121,19 +119,19 @@ function Information({ getComponent, t, ...props }) {
 	const Renderers = Inject.getAll(getComponent, { Action, ActionDropdown });
 
 	return (
-		<li role="presentation" className={className}>
+		<CoralHeaderBar.Item className={className}>
 			{props.items && props.items.length ? (
 				<Renderers.ActionDropdown pullRight noCaret hideLabel {...global} />
 			) : (
 				<Renderers.Action hideLabel {...global} />
 			)}
-		</li>
+		</CoralHeaderBar.Item>
 	);
 }
 
 function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 	const className = theme('tc-header-bar-action', 'tc-header-bar-user', 'separated');
-	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
+	const Renderers = Inject.getAll(getComponent, { ActionDropdown: CoralDropdown });
 
 	function getDisplayName(params) {
 		if (params.firstName && params.lastName) {
@@ -149,9 +147,10 @@ function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 	});
 
 	return (
-		<CoralHeaderBar.Item className={className}>
-			<CoralDropdown
+		<CoralHeaderBar.Item>
+			<Renderers.ActionDropdown
 				icon="user"
+				className={className}
 				aria-label={ariaLabel}
 				items={rest.items.map((item, index) => {
 					const Item = item.onClick ? CoralButton : CoralLink;
@@ -163,7 +162,7 @@ function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 				})}
 			>
 				{displayName}
-			</CoralDropdown>
+			</Renderers.ActionDropdown>
 		</CoralHeaderBar.Item>
 	);
 }
@@ -244,50 +243,47 @@ function HeaderBar(props) {
 
 	return (
 		<CoralHeaderBar className={theme('tc-header-bar')}>
-			<CoralHeaderBar.ContentLeft className={theme('tc-header-bar-actions')}>
+			<CoralHeaderBar.Logo>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
-				<AppSwitcherComponent {...props.brand} {...props.products} isSeparated={!!props.env} />
+			</CoralHeaderBar.Logo>
+			<CoralHeaderBar.Brand>
+				<AppSwitcherComponent {...props.brand} {...props.products} />
+			</CoralHeaderBar.Brand>
+			<CoralHeaderBar.ContentLeft>
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</CoralHeaderBar.ContentLeft>
 			<CoralHeaderBar.ContentRight>
-				<ul className={theme('tc-header-bar-actions')}>
-					{props.callToAction && (
-						<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
-					)}
-					{props.search && (
-						<Components.Search getComponent={props.getComponent} {...props.search} />
-					)}
-					{props.notification && (
-						<Components.AppNotification
-							getComponent={props.getComponent}
-							{...props.notification}
-							t={props.t}
-						/>
-					)}
-					{intercom && (
-						<li
-							role="presentation"
-							className={theme('tc-header-bar-intercom', 'tc-header-bar-action')}
-						>
-							{intercom}
-						</li>
-					)}
-					{props.help && (
-						<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
-					)}
-					{!props.user && props.information && (
-						<Components.Information
-							getComponent={props.getComponent}
-							{...props.information}
-							t={props.t}
-						/>
-					)}
-					{props.user && (
-						<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
-					)}
-				</ul>
+				{props.callToAction && (
+					<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
+				)}
+				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
+				{props.notification && (
+					<Components.AppNotification
+						getComponent={props.getComponent}
+						{...props.notification}
+						t={props.t}
+					/>
+				)}
+				{intercom && (
+					<CoralHeaderBar.Item className={theme('tc-header-bar-intercom', 'tc-header-bar-action')}>
+						{intercom}
+					</CoralHeaderBar.Item>
+				)}
+				{props.help && (
+					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
+				)}
+				{!props.user && props.information && (
+					<Components.Information
+						getComponent={props.getComponent}
+						{...props.information}
+						t={props.t}
+					/>
+				)}
+				{props.user && (
+					<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
+				)}
 			</CoralHeaderBar.ContentRight>
 		</CoralHeaderBar>
 	);
