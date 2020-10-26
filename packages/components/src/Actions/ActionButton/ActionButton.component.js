@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
 
 import CoralButton from '@talend/design-system/lib/components/Button';
+import CoralLink from '@talend/design-system/lib/components/Link';
 import CoralTooltip from '@talend/design-system/lib/components/Tooltip';
 
 import { withTranslation } from 'react-i18next';
@@ -175,8 +176,25 @@ function ActionButton(props) {
 	if (buttonProps.target === '_blank') {
 		buttonProps.rel = 'noopener noreferrer';
 	}
+	let Component = link || buttonProps.href ? CoralLink : CoralButton;
+
+	switch (style) {
+		case 'primary':
+			Component = CoralButton.Primary;
+			break;
+		case 'success':
+			Component = CoralButton.Secondary;
+			break;
+		case 'danger':
+			Component = CoralButton.Destructive;
+			break;
+		case 'info':
+			Component = CoralButton.Ghost;
+			break;
+	}
+
 	let btn = (
-		<CoralButton
+		<Component
 			onMouseDown={!overlayComponent ? rMouseDown : null}
 			onClick={!overlayComponent ? rClick : null}
 			onMouseEnter={!overlayComponent ? rMouseEnter : null}
@@ -190,7 +208,7 @@ function ActionButton(props) {
 			{...buttonProps}
 		>
 			{buttonContent}
-		</CoralButton>
+		</Component>
 	);
 	if (hasPopup) {
 		btn = (

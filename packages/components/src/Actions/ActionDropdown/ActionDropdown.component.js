@@ -7,11 +7,13 @@ import classNames from 'classnames';
 import { Iterable } from 'immutable';
 import Label from 'react-bootstrap/lib/Label';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
+import CoralDropdown from '@talend/design-system/lib/components/Dropdown';
+import CoralTooltip from '@talend/design-system/lib/components/Tooltip';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
-import TooltipTrigger from '../../TooltipTrigger';
+import Action from '../Action';
 import Icon from '../../Icon';
 import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
@@ -32,7 +34,7 @@ function InjectDropdownMenuItem({
 	onKeyDown,
 	...rest
 }) {
-	const Renderers = Inject.getAll(getComponent, { MenuItem });
+	const Renderers = Inject.getAll(getComponent, { MenuItem: Action });
 	if (divider) {
 		return <Renderers.MenuItem {...menuItemProps} divider />;
 	}
@@ -63,9 +65,9 @@ InjectDropdownMenuItem.propTypes = {
 InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
 function renderMutableMenuItem(item, index, getComponent) {
-	const Renderers = Inject.getAll(getComponent, { MenuItem });
+	const Renderers = Inject.getAll(getComponent, { MenuItem: Action });
 	if (item.divider) {
-		return <Renderers.MenuItem key={index} divider />;
+		return <React.Fragment key={index} />;
 	}
 
 	const title = item.title || item.label;
@@ -208,7 +210,7 @@ class ActionDropdown extends React.Component {
 			...rest
 		} = this.props;
 
-		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
+		const Renderers = Inject.getAll(getComponent, { MenuItem: Action, DropdownButton: CoralDropdown });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 		const title = [
 			icon && <Icon name={icon} key="icon" />,
@@ -255,39 +257,46 @@ class ActionDropdown extends React.Component {
 					this.ref = ref;
 				}}
 				noCaret
+				items={[]
+					.concat(
+						!children && !items.length && !items.size && !loading && !components && (
+							<Renderers.MenuItem key="empty" disabled>
+								{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
+							</Renderers.MenuItem>
+						),
+					)
+					.concat(injected('beforeItemsDropdown'))
+					.concat((items.toArray ? items.toArray() : items).map((item, key) => getMenuItem(item, key, getComponent)))
+					.concat(
+						loading && (
+							<Renderers.MenuItem
+								key={items ? items.length + 1 : 0}
+								header
+								className={classNames(
+									theme['tc-dropdown-item'],
+									'tc-dropdown-item',
+									theme['tc-dropdown-loader'],
+									'tc-dropdown-loader',
+								)}
+							>
+								<CircularProgress />
+							</Renderers.MenuItem>
+						),
+					)
+					.concat(injected('itemsDropdown'))
+					.concat(children)
+					.concat(injected('afterItemsDropdown'))
+					.filter(Boolean)}
 			>
-				{!children && !items.length && !items.size && !loading && !components && (
-						<Renderers.MenuItem key="empty" disabled>
-							{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
-						</Renderers.MenuItem>
-				)}
-				{injected('beforeItemsDropdown')}
-				{items.map((item, key) => getMenuItem(item, key, getComponent))}
-				{loading && (
-				<Renderers.MenuItem
-				key={items ? items.length + 1 : 0}
-				header
-				className={classNames(
-					theme['tc-dropdown-item'],
-					'tc-dropdown-item',
-					theme['tc-dropdown-loader'],
-					'tc-dropdown-loader',
-				)}
-				>
-				<CircularProgress />
-				</Renderers.MenuItem>
-				)}
-				{injected('itemsDropdown')}
-				{children}
-				{injected('afterItemsDropdown')}
+				{label}
 			</Renderers.DropdownButton>
 		);
 
 		if (hideLabel || tooltipLabel) {
 			return (
-				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+				<CoralTooltip title={tooltipLabel || label} placement={tooltipPlacement}>
 					{dropdown}
-				</TooltipTrigger>
+				</CoralTooltip>
 			);
 		}
 		return dropdown;
