@@ -39,7 +39,7 @@ InputSizer.propTypes = {
 	placeholder: PropTypes.string,
 	inputText: PropTypes.string,
 	children: PropTypes.func.isRequired,
-    minWidth: PropTypes.number,
+	minWidth: PropTypes.number,
 };
 
 export default InputSizer;
