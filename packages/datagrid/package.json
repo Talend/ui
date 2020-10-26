@@ -30,9 +30,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/icons": "^6.0.0-alpha.38",
-    "@talend/react-cmf": "^6.0.0-alpha.38",
-    "@talend/react-components": "^6.0.0-alpha.38",
+    "@talend/icons": "^6.0.0-alpha.39",
+    "@talend/react-cmf": "^6.0.0-alpha.39",
+    "@talend/react-components": "^6.0.0-alpha.39",
     "ag-grid-community": "^24.0.0",
     "ag-grid-react": "^24.0.0",
     "classnames": "^2.2.5",
@@ -46,7 +46,7 @@
     "@talend/icons": "^6.0.0-alpha.34",
     "@talend/locales-tui": "^5.6.0",
     "@talend/react-components": "6.0.0-alpha.34",
-    "@talend/react-storybook-cmf": "^6.0.0-alpha.38",
+    "@talend/react-storybook-cmf": "^6.0.0-alpha.39",
     "@talend/scripts-core": "7.0.0-alpha.41",
     "@talend/scripts-preset-react-lib": "7.0.0-alpha.41",
     "babel-loader": "^8.0.6",
@@ -74,5 +74,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.0.0-alpha.38"
+  "version": "6.0.0-alpha.39"
 }
