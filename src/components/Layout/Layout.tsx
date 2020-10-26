@@ -1,12 +1,9 @@
 import React from 'react';
-import useMedia from 'react-use/lib/useMedia';
 
-import Button from '../Button';
 import SkipLinks from './SkipLinks';
+import Main from './Main';
 
 import * as S from './Layout.style';
-
-import tokens from '../../tokens';
 
 export type LayoutProps = {
 	header?: React.ReactElement;
@@ -24,19 +21,8 @@ const Layout: React.FC<LayoutProps> = ({
 	footer,
 	...rest
 }: LayoutProps) => {
-	const [isNavCollapsed, collapseNav] = React.useState(false);
 	const [asideVisibility, setAsideVisibility] = React.useState(true);
-	const isWide = useMedia(`(min-width: ${tokens.breakpoints.l})`);
 
-	React.useEffect(() => {
-		collapseNav(!isWide);
-	}, [isWide]);
-
-	const Main = () => (
-		<S.Main id="main" className="layout__main">
-			{main}
-		</S.Main>
-	);
 	return (
 		<>
 			<SkipLinks nav={!!nav} main={!!main} />
@@ -44,37 +30,21 @@ const Layout: React.FC<LayoutProps> = ({
 				{header && <S.Header className="layout__header">{header}</S.Header>}
 				{nav || aside ? (
 					<S.LayoutGroup className="layout__group">
-						{nav && (
-							<S.Nav
-								isNavCollapsed={isNavCollapsed}
-								id="nav"
-								className="layout__nav"
-								aria-label="Main Navigation"
-							>
-								<Button.Icon
-									icon="opener"
-									className={`nav__button ${isNavCollapsed ? 'nav__button--colapsed' : ''}`}
-									onClick={() => collapseNav(prevState => !prevState)}
-								>
-									Collapse menu
-								</Button.Icon>
-								{nav}
-							</S.Nav>
-						)}
+						{nav}
 						{aside && asideVisibility ? (
 							<S.AsideOverlay
 								className="layout__overlay"
 								onClick={() => setAsideVisibility(() => false)}
 							>
-								<Main />
+								<Main>{main}</Main>
 								<S.Aside>{aside}</S.Aside>
 							</S.AsideOverlay>
 						) : (
-							<Main />
+							<Main>{main}</Main>
 						)}
 					</S.LayoutGroup>
 				) : (
-					<Main />
+					<Main>{main}</Main>
 				)}
 				{footer && <S.Footer className="layout__footer">{footer}</S.Footer>}
 			</S.Layout>

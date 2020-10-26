@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledProps } from 'styled-components';
 import * as ReactIs from 'react-is';
 import { BoxProps } from 'reakit/Box';
-import { useMenuState, MenuSeparator } from 'reakit/Menu';
+import { useMenuState } from 'reakit/Menu';
 
 import Button from '../Button';
 
@@ -34,7 +34,7 @@ const Dropdown: React.FC<DropdownProps> = React.forwardRef(
 							{items.map((item: React.ReactElement<any>, index: number) =>
 								ReactIs.isFragment(item) &&
 								React.Children.toArray(item.props.children).length === 0 ? (
-									<MenuSeparator />
+									<S.MenuSeparator />
 								) : (
 									<S.MenuItem {...menu} {...item.props} key={index}>
 										{itemProps => React.cloneElement(item, itemProps)}

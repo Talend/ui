@@ -1,0 +1,50 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { FigmaImage } from '../../../docs';
+import { Use } from '../../../docs';
+import Menu from '../';
+
+<Meta title="Components/Menu" component={Menu} />
+
+# Menu
+
+## Usage
+
+<Preview>
+	<Story
+		name="usage"
+		height="20rem"
+		args={{
+			variant: '',
+			children: 'Lorem ipsum',
+		}}
+		argTypes={{
+			variant: {
+				description: 'Menu variation',
+				control: {
+					type: 'select',
+					options: ['', 'TAPID', 'TAPIT', 'MDM', 'TDI', 'TDP', 'TDS', 'TMC', 'TPD'],
+				},
+			},
+		}}
+	>
+		{props => {
+			return (
+				<Menu {...props}>
+					<Menu.Item>Item A</Menu.Item>
+					<Menu.Item active>Item B</Menu.Item>
+					<Menu.Item>Item C</Menu.Item>
+					<Menu.Item>Item D</Menu.Item>
+				</Menu>
+			);
+		}}
+	</Story>
+</Preview>
+
+<Props story="usage" />
+
+## Changelog
+
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 10/26/2020 | Fabien Rassinier | Init page   |

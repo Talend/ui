@@ -6,14 +6,9 @@ export const Button = styled(ReakitButton)(
 	({ theme }) => `
 	display: inline-flex;
 	align-items: center;
-	padding: ${tokens.space.none} ${tokens.space.l};
-	min-height: ${tokens.sizes.xxl};
 	font-family: ${tokens.fonts.sansSerif};
-	color: ${theme.colors.textColor};
 	background: ${tokens.colors.transparent};
-	border: ${tokens.borders.normal};
-	border-radius: ${tokens.radii.rectRadius};
-	transition: all 0.2s;
+	border: none;
 	cursor: pointer;
 
 	&[aria-disabled='true'] {

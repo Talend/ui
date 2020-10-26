@@ -9,6 +9,7 @@ import InlineMessage from './components/InlineMessage';
 import Layout from './components/Layout';
 import Link from './components/Link';
 import Loading from './components/Loading';
+import Menu from './components/Menu';
 import Modal from './components/Modal';
 import Switch from './components/Switch';
 import Tag from './components/Tag';
@@ -32,6 +33,7 @@ export {
 	Link,
 	Layout,
 	Loading,
+	Menu,
 	Modal,
 	Switch,
 	Tag,

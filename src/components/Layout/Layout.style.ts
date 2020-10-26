@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 import tokens from '../../tokens';
@@ -21,11 +20,9 @@ export const Layout = styled.div<LayoutProps>(
 );
 
 export const Header = styled.header.attrs({
-	role: 'main',
+	role: 'banner',
 })`
 	min-height: 4.8rem;
-	color: ${tokens.colors.gray0};
-	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
 `;
 
 export const LayoutGroup = styled.div<LayoutProps>(
@@ -39,32 +36,8 @@ export const LayoutGroup = styled.div<LayoutProps>(
 export const Nav = styled.nav.attrs({
 	role: 'navigation',
 })<{ isNavCollapsed: boolean }>(
-	({ isNavCollapsed }) => `
+	() => `
 	display: flex;
-	flex-direction: column;
-	flex: 0 1 ${isNavCollapsed ? '6rem' : '20rem'};
-	max-width: ${isNavCollapsed ? '6rem' : 'auto'};
-	color: ${tokens.colors.gray0};
-	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
-	transition: flex-basis .3s;
-
-	.nav__button {
-		flex: 0;
-		align-self: start;
-		margin: 1.5rem;
-		color: ${tokens.colors.gray0};
-		border: none;
-		
-		.btn__icon {
-			transition: transform 0.2s;
-		}
-
-		&--colapsed {
-			.btn__icon {
-				transform: rotate(-180deg);
-			}
-		}
-	}
 `,
 );
 
@@ -93,23 +66,21 @@ export const AsideOverlay = styled.div`
 	flex: 1;
 
 	main {
-		&::before {
+		&:before,
+		&:after {
 			content: '';
 			position: absolute;
 			top: 0;
 			bottom: 0;
 			left: 0;
 			right: 0;
+		}
+
+		&::before {
 			pointer-events: none;
 		}
 
 		&::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
 			background: ${transparentize(0.3, tokens.colors.gray900)};
 			cursor: pointer;
 		}

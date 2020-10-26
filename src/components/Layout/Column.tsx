@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 export type ColumnProps = {
-	children?: any;
+	heading?: any;
+	body?: any;
+	footer?: any;
 };
 
 const SColumn = styled.div`

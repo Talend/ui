@@ -1,9 +1,9 @@
 import React from 'react';
-import Menu from '../../components/Layout/Menu';
+import Menu from '../../components/Menu';
 
 export default function MenuExample() {
 	return (
-		<Menu>
+		<Menu variant="TDI">
 			<Menu.Item iconBefore="information" href="#A" active>
 				Link A
 			</Menu.Item>

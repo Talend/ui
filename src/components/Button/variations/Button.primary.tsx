@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button, { ButtonProps } from '../Button';
+import ButtonBase from './Button.base';
+import { ButtonProps } from '../Button';
 
-const ButtonPrimary: React.FC<ButtonProps> = styled(Button)(
+const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase)(
 	({ theme }) => `
 	color: ${theme.colors.buttonPrimaryColor};
 	background-color: ${theme.colors.buttonPrimaryBackgroundColor};

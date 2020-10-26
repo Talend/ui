@@ -2,6 +2,7 @@ import {
 	Menu as ReakitMenu,
 	MenuButton as ReakitMenuButton,
 	MenuItem as ReakitMenuItem,
+	MenuSeparator as ReakitMenuSeparator,
 } from 'reakit/Menu';
 import styled from 'styled-components';
 import Icon from '../Icon';
@@ -57,6 +58,11 @@ export const AnimatedMenu = styled.div(
 	}
 `,
 );
+
+export const MenuSeparator = styled(ReakitMenuSeparator)`
+	margin: 0;
+	width: 100%;
+`;
 
 export const MenuItem = styled(ReakitMenuItem)(
 	({ theme }) => `
