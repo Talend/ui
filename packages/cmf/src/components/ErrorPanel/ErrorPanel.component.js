@@ -12,11 +12,12 @@ function reload() {
 function ErrorPanel({ error = {} }) {
 	const [url, setURL] = React.useState();
 	useEffect(() => {
-		setURL(onError.createObjectURL(error));
+		const newUrl = onError.createObjectURL(error);
+		setURL(newUrl);
 		return () => {
-			onError.revokeObjectURL(url);
+			onError.revokeObjectURL(newUrl);
 		};
-	}, [error, url]);
+	}, [error]);
 	const HAS_REPORT = onError.hasReportFeature();
 	return (
 		<div>

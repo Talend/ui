@@ -117,6 +117,31 @@ describe('#handleHttpResponse', () => {
 			done();
 		});
 	});
+
+	it('should handle the response with an error http code', async () => {
+		await expect(
+			handleHttpResponse(
+				new Response('', {
+					status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
+				}),
+			),
+		).rejects.toThrow(`${HTTP_STATUS.INTERNAL_SERVER_ERROR}`);
+	});
+
+	it('should return response in error from handle request', async () => {
+		expect.assertions(2);
+
+		try {
+			await handleHttpResponse(
+				new Response('', {
+					status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
+				}),
+			);
+		} catch (e) {
+			expect(e.response instanceof Response).toBe(true);
+			expect(e.response.status).toEqual(500);
+		}
+	});
 });
 
 describe('#encodePayload', () => {

@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import Action from '@talend/react-components/lib/Actions/Action';
-import Text from '@talend/react-forms/lib/UIForm/fields/Text';
+import { Action } from '@talend/react-components/lib/Actions';
 import { getTheme } from '@talend/react-components/lib/theme';
-import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
+import { Rich } from '@talend/react-components';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeNumber.scss';
@@ -12,36 +11,29 @@ const theme = getTheme(cssModule);
 
 const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
-	const onChangeText = (event, entity) => {
-		onChange(event, entity.value);
-	};
-
-	const schema = {
-		autoFocus: true,
-		disabled: false,
-		type: 'number',
-		placeholder: t('TYPE_HERE', { defaultValue: 'Type here' }),
-	};
+	const onChangeText = event => onChange(event, event.target.value);
 
 	return (
 		<form className={theme('tc-badge-number-form')} id={`${id}-number`} onSubmit={onSubmit}>
-			<RichLayout.Body id={`${id}-badge-body`} className={theme('tc-badge-number-form-body')}>
-				<Text
+			<Rich.Layout.Body id={`${id}-badge-body`} className={theme('tc-badge-number-form-body')}>
+				<input
 					id={`${id}-input`}
+					autoFocus
+					className="form-control"
+					placeholder={t('TYPE_HERE', { defaultValue: 'Type here' })}
 					onChange={onChangeText}
-					onFinish={() => {}}
-					schema={schema}
+					type="number"
 					value={value}
 				/>
-			</RichLayout.Body>
-			<RichLayout.Footer id={`${id}-badge-footer`}>
+			</Rich.Layout.Body>
+			<Rich.Layout.Footer id={`${id}-badge-footer`}>
 				<Action
 					type="submit"
 					data-feature={applyDataFeature}
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
 				/>
-			</RichLayout.Footer>
+			</Rich.Layout.Footer>
 		</form>
 	);
 };

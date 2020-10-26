@@ -26,6 +26,8 @@ const getSelectBadgeLabel = (value, t) => {
 // eslint-disable-next-line import/prefer-default-export
 export const BadgeCheckboxes = ({
 	id,
+	readOnly,
+	removable,
 	label,
 	initialOperatorOpened,
 	initialValueOpened,
@@ -35,6 +37,7 @@ export const BadgeCheckboxes = ({
 	value,
 	category,
 	values,
+	displayType,
 	t,
 }) => {
 	const currentOperators = useMemo(() => operators, [operators]);
@@ -44,6 +47,7 @@ export const BadgeCheckboxes = ({
 	return (
 		<BadgeFaceted
 			badgeId={id}
+			displayType={displayType}
 			id={badgeCheckboxesId}
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
@@ -51,6 +55,8 @@ export const BadgeCheckboxes = ({
 			labelValue={badgeLabel}
 			operator={currentOperator}
 			operators={currentOperators}
+			readOnly={readOnly}
+			removable={removable}
 			size={size}
 			t={t}
 			value={value || []}
@@ -89,6 +95,9 @@ BadgeCheckboxes.propTypes = {
 			}),
 		),
 	]),
+	readOnly: PropTypes.bool,
+	removable: PropTypes.bool,
 	values: PropTypes.array,
 	t: PropTypes.func.isRequired,
+	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 };
