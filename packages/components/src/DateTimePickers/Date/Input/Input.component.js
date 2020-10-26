@@ -30,7 +30,7 @@ function Input(props) {
 Input.displayName = 'Date.Input';
 
 Input.propTypes = {
-    minWidth: PropTypes.number,
+	minWidth: PropTypes.number,
 };
 
 export default Input;
