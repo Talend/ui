@@ -1,14 +1,11 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
+import CoralLayout from '@talend/design-system/lib/components/Layout';
 import ThemeProvider from '@talend/design-system/lib/components/ThemeProvider';
 
 import Inject from '../Inject';
 import TabBar from '../TabBar';
-import OneColumn from './OneColumn';
-import TwoColumns from './TwoColumns';
-import SkipLinks from './SkipLinks';
 
 import theme from './Layout.scss';
 
@@ -49,23 +46,6 @@ function Layout({
 	getComponent,
 	...rest
 }) {
-	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
-	const headerCSS = classnames('tc-layout-header', theme.header);
-	const footerCSS = classnames('tc-layout-footer', theme.footer);
-	let Component;
-	let skipLinkNavigationId;
-	switch (mode) {
-		case DISPLAY_MODES.ONE_COLUMN:
-			Component = OneColumn;
-			break;
-		case DISPLAY_MODES.TWO_COLUMNS:
-			Component = TwoColumns;
-			skipLinkNavigationId = '#tc-layout-side-menu';
-			break;
-		default:
-			Component = OneColumn;
-	}
-
 	const safeDrawers = Inject.getReactElement(getComponent, drawers);
 	const safeHeader = Inject.getReactElement(getComponent, header);
 	const safeSubHeader = Inject.getReactElement(getComponent, subHeader);
@@ -74,36 +54,19 @@ function Layout({
 
 	return (
 		<ThemeProvider>
-			<div id={id} className={appCSS}>
-				<div className={theme['skip-links']}>
-					<SkipLinks navigationId={skipLinkNavigationId} mainId="#tc-layout-main" />
-				</div>
-				{safeHeader && (
-					<header key="banner" role="banner" className={headerCSS}>
+			<CoralLayout
+				id={id}
+				header={
+					<>
 						{safeHeader}
-					</header>
-				)}
-				{safeSubHeader && (
-					<div key="subheader" className="subheader">
 						{safeSubHeader}
-					</div>
-				)}
-				<Component
-					key="main"
-					drawers={safeDrawers}
-					tabs={tabs}
-					getComponent={getComponent}
-					{...rest}
-				>
-					{safeContent}
-					{children}
-				</Component>
-				{safeFooter && (
-					<footer key="footer" role="contentinfo" className={footerCSS}>
-						{safeFooter}
-					</footer>
-				)}
-			</div>
+					</>
+				}
+				nav={rest.one}
+				main={children || safeContent}
+				aside={safeDrawers}
+				footer={safeFooter}
+			/>
 		</ThemeProvider>
 	);
 }

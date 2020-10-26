@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState, useLayoutEffect, useEffect } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
-
+import Menu from '@talend/design-system/lib/components/Menu';
 import 'simplebar';
 import 'simplebar/dist/simplebar.css';
 
@@ -11,7 +11,9 @@ import '../translate';
 import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
-import theme from './SidePanel.scss';
+// import theme from './SidePanel.scss';
+
+const theme = {};
 
 const DOCKED_MIN_WIDTH = '6rem';
 const LARGE_DOCKED_MIN_WIDTH = '7rem';
@@ -66,12 +68,12 @@ function SidePanel({
 	const ref = React.createRef();
 
 	useLayoutEffect(() => {
-		if (docked || minimised) {
+		/*if (docked || minimised) {
 			setWidth(large ? LARGE_DOCKED_MIN_WIDTH : DOCKED_MIN_WIDTH);
 		} else if (ref) {
 			const actionList = ref.current.querySelector('.tc-action-list');
 			setWidth(actionList.offsetWidth);
-		}
+		}*/
 	}, [ref, docked]);
 
 	useEffect(() => {
@@ -109,6 +111,15 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
+		<Menu id={id} className={navCSS} ref={ref}>
+				{actions.map(({ icon, label, ...rest }, index) => (
+					<Menu.Item key={index} iconBefore={icon} {...rest}>
+						{label}
+					</Menu.Item>
+				))}
+		</Menu>
+	);
+	/*
 		<nav
 			id={id}
 			className={navCSS}
@@ -153,6 +164,7 @@ function SidePanel({
 			{injected('actions')}
 		</nav>
 	);
+ */
 }
 
 SidePanel.displayName = 'SidePanel';
