@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import DebounceInput from 'react-debounce-input';
 
 import { DateContext } from '../Context';
 import InputSizer from '../../shared/InputSizer';
 
-export default function Input(props) {
+function Input(props) {
 	const { value, inputManagement } = useContext(DateContext);
 	const { minWidth } = props;
 
@@ -27,3 +28,9 @@ export default function Input(props) {
 }
 
 Input.displayName = 'Date.Input';
+
+Input.propTypes = {
+    minWidth: PropTypes.number,
+};
+
+export default Input;
