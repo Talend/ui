@@ -6,7 +6,7 @@ import Typeahead from '@talend/react-components/lib/Typeahead';
 import keycode from 'keycode';
 import MultiSelectTag from './MultiSelectTag.component';
 
-jest.mock('ally.js/style/_style');
+jest.mock('ally.js');
 
 describe('MultiSelectTag field', () => {
 	const props = {

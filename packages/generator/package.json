@@ -7,6 +7,8 @@
     "prepublishOnly": "echo no prepublishOnly",
     "prepare": "echo nothing to prepare",
     "start": "echo nothing to start",
+    "prepublishOnly": "echo nothing to prepublishOnly",
+    "prepare": "echo nothing to prepare",
     "prepublish": "echo nothing to prepublish",
     "test:cov": "istanbul cover _mocha",
     "test:demo": "echo nothing to demo in generator-talend",

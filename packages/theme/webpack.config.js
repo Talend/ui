@@ -11,6 +11,7 @@ module.exports = () => {
 			path: path.resolve(__dirname, './dist'),
 			library: 'TalendBootstrapTheme',
 			libraryTarget: 'umd',
+			globalObject: 'this',
 		},
 		module: {
 			rules: [

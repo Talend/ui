@@ -6,6 +6,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "talend-scripts build:lib",
     "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "test": "talend-scripts test",
@@ -43,11 +44,9 @@
   "devDependencies": {
     "@talend/scripts-core": "7.0.0-alpha.41",
     "@talend/scripts-preset-react-lib": "7.0.0-alpha.41",
-    "immutable": "^3.8.1",
     "prop-types": "^15.5.10",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "redux-saga": "^0.15.4"
+    "react-dom": "^16.13.1"
   },
   "publishConfig": {
     "access": "public"
