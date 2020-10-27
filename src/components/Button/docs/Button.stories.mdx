@@ -1,9 +1,8 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
-import { Col, FigmaImage, Row } from '../../../docs';
+import { FigmaImage } from '../../../docs';
 import { Use } from '../../../docs';
 import Button from '../';
-import btnOrder from './images/buttons-order.jpg';
 
 <Meta title="Components/Button" component={Button} />
 
@@ -13,7 +12,10 @@ Buttons are clickable items used for actions. They can have different style depe
 
 ## Zoning
 
-<FigmaImage src="https://www.figma.com/file/2Sw2IvUHZ9F2srJ3L8AWxr/%F0%9F%93%90-Zoning?node-id=12%3A64" alt="zoning image for buttons" />
+<FigmaImage
+	src="https://www.figma.com/file/2Sw2IvUHZ9F2srJ3L8AWxr/%F0%9F%93%90-Zoning?node-id=12%3A64"
+	alt="zoning image for buttons"
+/>
 
 ## Style
 
@@ -25,7 +27,10 @@ The small size is available for primary, secondary and ghost buttons — but sho
 
 Icon buttons has also two sizes: **default** and **small**. They can be used as dropdown but without the caret icon.
 
-<FigmaImage src="https://www.figma.com/file/nLfALGpsfnvwlmm3Kix2TU/%F0%9F%A7%A9-Schema?node-id=4%3A57" alt="buttons sizes illustration"  />
+<FigmaImage
+	src="https://www.figma.com/file/nLfALGpsfnvwlmm3Kix2TU/%F0%9F%A7%A9-Schema?node-id=4%3A57"
+	alt="buttons sizes illustration"
+/>
 
 ### Variations
 
@@ -42,6 +47,9 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Primary>
 	</Story>
+</Preview>
+
+<Preview>
 	<Story name="destructive">
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
 		<Button.Destructive small onClick={action('clicked')}>
@@ -54,6 +62,9 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Destructive>
 	</Story>
+</Preview>
+
+<Preview>
 	<Story name="secondary">
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
 		<Button.Secondary small onClick={action('clicked')}>
@@ -66,6 +77,9 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Secondary>
 	</Story>
+</Preview>
+
+<Preview>
 	<Story name="ghost">
 		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
 		<Button.Ghost small onClick={action('clicked')}>
@@ -78,6 +92,9 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Ghost>
 	</Story>
+</Preview>
+
+<Preview>
 	<Story name="icon">
 		<Button.Icon onClick={action('clicked')} icon={'plus'}>
 			Basic Button
@@ -120,7 +137,6 @@ In case of button with icon inside, the spinner will replace the icon as long as
 
 // TODO add demo
 
-
 ## Content
 
 The word/words on buttons should be accurate, specific, and explicit—not vague. Use OK sparingly—replace it with the specific action whenever possible. Users usually click OK to confirm the action they want to do. Name that action instead.
@@ -128,17 +144,30 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 <Use>
 	<Use.Do>
 		<ul>
-			<li>Always start with an action verb: something happens when you click a button. Say what happens with a verb. Navigation buttons are an example of an exception to using an action verb. These often use Next and Back.</li>
-			<li>Choose specific words over vague words: “Try it now” for example is a common CTA, but doesn’t really tell the user what will happen next. It might be too vague. Use your judgement according to what the user should be doing when they click the button.</li>
-			<li>Choose words that logically align with the preceding content: if your headline says "Sign up for awesome deals!" then your button text should also say "Sign up".</li>
+			<li>
+				Always start with an action verb: something happens when you click a button. Say what
+				happens with a verb. Navigation buttons are an example of an exception to using an action
+				verb. These often use Next and Back.
+			</li>
+			<li>
+				Choose specific words over vague words: “Try it now” for example is a common CTA, but
+				doesn’t really tell the user what will happen next. It might be too vague. Use your
+				judgement according to what the user should be doing when they click the button.
+			</li>
+			<li>
+				Choose words that logically align with the preceding content: if your headline says "Sign up
+				for awesome deals!" then your button text should also say "Sign up".
+			</li>
 		</ul>
-  </Use.Do>
+	</Use.Do>
 	<Use.Dont>
 		<ul>
 			<li>Don’t use more than 3 words in a button: keep it short and simple.</li>
-			<li>Don't use Yes and No for buttons. Say what action really happens when the user clicks.</li>
+			<li>
+				Don't use Yes and No for buttons. Say what action really happens when the user clicks.
+			</li>
 		</ul>
-  </Use.Dont>
+	</Use.Dont>
 </Use>
 
 ## Usage
@@ -170,14 +199,11 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 
 <Props story="usage" />
 
-
-
 ## Accessibility
 
 - Press <kbd>TABS</kbd> to focus on the button
 
 - Press <kbd>SPACE</kbd> or <kbd>ENTER</kbd> to activate the button
-
 
 ## Changelog
 
