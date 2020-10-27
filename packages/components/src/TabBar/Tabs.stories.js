@@ -98,7 +98,7 @@ const rightProps = {
 	right: (
 		<ActionButton
 			className="btn-inverse"
-			label={'Add'}
+			label="Add"
 			bsStyle="info"
 			icon="talend-plus-circle"
 			onClick={action('add')}
