@@ -10,7 +10,6 @@ const info = require('../src/info').info;
 const extract = require('../src/extract');
 
 const dist = path.join(__dirname, '../dist/');
-const srcPath = path.join(__dirname, '../src/');
 mkdirp.sync(path.join(dist, 'svg-bundle'));
 
 function transform(lib, output) {
