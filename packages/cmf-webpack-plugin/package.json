@@ -4,6 +4,7 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
+    "prepublishOnly": "echo nothing to prepublishOnly",
     "prepare": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
@@ -36,7 +37,7 @@
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^6.3.0",
+    "@talend/scripts-core": "^6.8.1",
     "@talend/scripts-preset-react-lib": "^6.3.0"
   },
   "publishConfig": {
