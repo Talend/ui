@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { RatioBarComposition } from '../RatioBar/RatioBarComposition.component';
+import RatioBar from '../RatioBar';
 import {
 	QualityEmptyLine,
 	QualityInvalidLine,
@@ -50,11 +50,11 @@ export function QualityBar({ invalid, valid, empty, digits = 1 }) {
 	);
 
 	return (
-		<RatioBarComposition>
+		<RatioBar.Composition>
 			<QualityInvalidLine value={invalid} percentage={invalidPercentage} t={t} />
 			<QualityEmptyLine value={empty} percentage={emptyPercentage} t={t} />
 			<QualityValidLine value={valid} percentage={validPercentage} t={t} />
-		</RatioBarComposition>
+		</RatioBar.Composition>
 	);
 }
 
