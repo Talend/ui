@@ -39,16 +39,16 @@ const tabProps = {
 };
 
 const rightProps = {
-    ...tabProps,
-    right : (
-    <ActionButton
-        className="btn-inverse"
-        label={'Add'}
-        bsStyle="info"
-        icon="talend-plus-circle"
-        onClick={()=> {}}
-    />
-    ),
+	...tabProps,
+	right: (
+		<ActionButton
+			className="btn-inverse"
+			label={'Add'}
+			bsStyle="info"
+			icon="talend-plus-circle"
+			onClick={() => {}}
+		/>
+	),
 };
 
 describe('TabBar component', () => {
@@ -63,14 +63,14 @@ describe('TabBar component', () => {
 	});
 
 	it('should render with right children', () => {
-        // given
+		// given
 
-        // when
-        const wrapper = shallow(<TabBar {...rightProps}>I'm the content</TabBar>);
+		// when
+		const wrapper = shallow(<TabBar {...rightProps}>I'm the content</TabBar>);
 
-        // then
-        expect(wrapper.getElement()).toMatchSnapshot();
-    });
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 
 	it('should render with selected children from item definition', () => {
 		// given

@@ -94,16 +94,16 @@ const tabProps = {
 };
 
 const rightProps = {
-    ...tabProps,
-    right : (
-    <ActionButton
-        className="btn-inverse"
-        label={"Add"}
-        bsStyle="info"
-        icon="talend-plus-circle"
-        onClick={action('add')}
-    />
-    ),
+	...tabProps,
+	right: (
+		<ActionButton
+			className="btn-inverse"
+			label={'Add'}
+			bsStyle="info"
+			icon="talend-plus-circle"
+			onClick={action('add')}
+		/>
+	),
 };
 
 function generateChildId(key, kind) {

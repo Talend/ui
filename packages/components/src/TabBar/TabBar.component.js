@@ -110,7 +110,16 @@ function TabBar(props) {
 		}
 	}
 
-	const { className, id, items, selectedKey, children, generateChildId, tooltipPlacement, right } = props;
+	const {
+		className,
+		id,
+		items,
+		selectedKey,
+		children,
+		generateChildId,
+		tooltipPlacement,
+		right,
+	} = props;
 	const hasChildren = children || items.some(item => item.children);
 	const tabContent = hasChildren && (
 		<Tab.Content>
@@ -205,9 +214,9 @@ function TabBar(props) {
 		>
 			<div ref={tabBarContainerRef}>
 				<div className={classnames(theme['tc-tab-bar-menu'], 'tc-tab-bar-menu')}>
-                    {tabMenu}
-                    {right}
-                </div>
+					{tabMenu}
+					{right}
+				</div>
 				{tabContent}
 			</div>
 		</Tab.Container>
