@@ -11,7 +11,6 @@ import '../translate';
 import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
-// import theme from './SidePanel.scss';
 
 const theme = {};
 
@@ -60,6 +59,7 @@ function SidePanel({
 	dockable,
 	onToggleDock,
 	t,
+	...rest
 }) {
 	const [dockState, setDockState] = useState(dockedProp);
 	const docked = onToggleDock ? dockedProp : dockState;
@@ -111,9 +111,9 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<Menu id={id} className={navCSS} ref={ref}>
-				{actions.map(({ icon, label, ...rest }, index) => (
-					<Menu.Item key={index} iconBefore={icon} {...rest}>
+		<Menu id={id} className={navCSS} ref={ref} {...rest}>
+				{actions.map(({ icon, label, ...action }, index) => (
+					<Menu.Item key={index} iconBefore={icon} {...action}>
 						{label}
 					</Menu.Item>
 				))}

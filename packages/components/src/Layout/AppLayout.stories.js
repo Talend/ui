@@ -114,6 +114,7 @@ function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryCont
 	Layout.TALEND_T7_THEME_APPS.forEach(app => {
 		const decoratedPropsWithTheme = {
 			...layoutStoryProps,
+			variant: app,
 			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
 		};
 		stories.add(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (

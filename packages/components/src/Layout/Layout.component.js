@@ -7,13 +7,11 @@ import ThemeProvider from '@talend/design-system/lib/components/ThemeProvider';
 import Inject from '../Inject';
 import TabBar from '../TabBar';
 
-import theme from './Layout.scss';
-
 const DISPLAY_MODES = {
 	ONE_COLUMN: 'OneColumn',
 	TWO_COLUMNS: 'TwoColumns',
 };
-const TALEND_T7_THEME_APPS = ['portal', 'tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
+const TALEND_T7_THEME_APPS = ['TAPID', 'TAPIT', 'TDP', 'TDS', 'TPD', 'TMC', 'TDI', 'MDM'];
 const TALEND_T7_THEME_CLASSNAME = 't7';
 
 /**
@@ -56,13 +54,14 @@ function Layout({
 		<ThemeProvider>
 			<CoralLayout
 				id={id}
+				hasScreenHeight
 				header={
 					<>
 						{safeHeader}
 						{safeSubHeader}
 					</>
 				}
-				nav={rest.one}
+				nav={rest.one ? React.cloneElement(rest.one, { variant: rest.variant }) : undefined}
 				main={children || safeContent}
 				aside={safeDrawers}
 				footer={safeFooter}
