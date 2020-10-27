@@ -32,9 +32,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "^6.0.0-ds-alpha.0",
+    "@talend/bootstrap-theme": "^6.0.0-ds-alpha.3",
     "@talend/design-system": "^1.0.0-beta.3",
-    "@talend/icons": "^6.0.0-ds-alpha.0",
+    "@talend/icons": "^6.0.0-ds-alpha.3",
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
@@ -115,5 +115,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.0.0-ds-alpha.0"
+  "version": "6.0.0-ds-alpha.3"
 }
