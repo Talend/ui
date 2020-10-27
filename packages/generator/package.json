@@ -4,11 +4,9 @@
   "main": "generators/app/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "echo no prepublishOnly",
-    "prepare": "echo nothing to prepare",
-    "start": "echo nothing to start",
     "prepublishOnly": "echo nothing to prepublishOnly",
     "prepare": "echo nothing to prepare",
+    "start": "echo nothing to start",
     "prepublish": "echo nothing to prepublish",
     "test:cov": "istanbul cover _mocha",
     "test:demo": "echo nothing to demo in generator-talend",
@@ -55,5 +53,5 @@
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   },
-  "version": "6.0.0-alpha.39"
+  "version": "6.0.0-alpha.40"
 }
