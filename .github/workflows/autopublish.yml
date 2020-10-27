@@ -1,0 +1,56 @@
+name: Faceted Search Auto Publish
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build_and_publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Get package.json version
+        id: current-version
+        run: |
+          localVersion="$(cat package.json | jq -r ".version")"
+          echo "Local version is $localVersion"
+          echo "::set-output name=current_version::$localVersion"
+
+      - name: Check if package.json version is already published
+        id: check-already-published
+        run: |
+          alreadyPublished="$(yarn info @talend/react-faceted-search versions | sed -n "/'${{ steps.current-version.outputs.current_version }}'/ p" | wc -l)"
+          echo "Is local version already published ? $alreadyPublished"
+          echo "::set-output name=already-published::$alreadyPublished"
+
+      - name: Install
+        if: ${{ steps.check-already-published.outputs.already-published == 0 }}
+        run: yarn install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Publish
+        id: publish
+        if: ${{ steps.check-already-published.outputs.already-published == 0 }}
+        run: |
+          yarn publish --non-interactive
+          echo "::set-output name=published::done"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Create a Release
+        if: steps.publish.outputs.published
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.current-version.outputs.current_version }}
+          body: Please update this message with the CHANGELOG content corresponding to this version

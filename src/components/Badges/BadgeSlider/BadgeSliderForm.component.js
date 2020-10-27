@@ -80,7 +80,7 @@ const BadgeSliderForm = ({
 					{editing ? (
 						<input
 							id={`${id}-input`}
-							autoFocus
+							autoFocus // eslint-disable-line jsx-a11y/no-autofocus
 							className="form-control"
 							min={min}
 							max={max}
