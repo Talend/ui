@@ -46,7 +46,7 @@ function transform(lib, output) {
 
 	const code = babel.transformSync(buff.join('\n'), options);
 	fs.writeFileSync(path.join(dist, output), code.code);
-	fs.writeFileSync(path.join(dist, output.replace('.js', '.es6.js')), buff.join('\n'));
+	fs.writeFileSync(path.join(dist, output.replace('.js', '.esm.js')), buff.join('\n'));
 }
 
 function createSvgBundles() {
