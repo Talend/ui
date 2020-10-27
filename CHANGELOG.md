@@ -30,6 +30,7 @@ Types of changes
 - [Added](https://github.com/Talend/ui/pull/2997): Handle badges without labels
 - [Added](https://github.com/Talend/ui/pull/3000): Added complies/wordComplies pattern operators support
 - [Added](https://github.com/Talend/ui/pull/3013): Added colored badge support
+- [Fixed] (https://github.com/Talend/ui-faceted-search/pull/4): External changes to `badgesFaceted` state are ignored
 
 ## [0.13.0]
 

@@ -237,6 +237,35 @@ storiesOf('FacetedSearch', module)
 			</div>
 		);
 	})
+	.add('with external state', () => {
+		const [state, setState] = React.useState(badgesFaceted);
+		const onSubmit = React.useCallback(
+			(_, badges) => setState(previousState => ({ ...previousState, badges })),
+			[setState],
+		);
+
+		return (
+			<div>
+				<button onClick={() => setState(badgesFaceted)}>Reset state</button>
+				<FacetedSearch.Faceted id="my-faceted-search">
+					{currentFacetedMode =>
+						(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+							<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+						)) ||
+						(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+							<FacetedSearch.BasicSearch
+								badgesDefinitions={badgesDefinitions}
+								badgesFaceted={state}
+								onSubmit={onSubmit}
+								callbacks={callbacks}
+							/>
+						))
+					}
+				</FacetedSearch.Faceted>
+			</div>
+		);
+	})
+
 	.add('without label or operator button', () => (
 		<div>
 			<FacetedSearch.Faceted id="my-faceted-search">

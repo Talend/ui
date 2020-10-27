@@ -7,6 +7,7 @@ export const BADGES_ACTIONS_KEYS = {
 	DELETE_BADGE: 'DELETE_BADGE',
 	DELETE_ALL_BADGES: 'DELETE_ALL_BADGES',
 	CLOSE_INIT_OPENED: 'CLOSE_INIT_OPENED',
+	RESET_STATE: 'RESET_STATE',
 };
 
 export const BADGES_ACTIONS = {
@@ -25,6 +26,7 @@ export const BADGES_ACTIONS = {
 		type: BADGES_ACTIONS_KEYS.CLOSE_INIT_OPENED,
 		payload: { badgeId },
 	}),
+	resetState: state => ({ type: BADGES_ACTIONS_KEYS.RESET_STATE, payload: state }),
 };
 
 const reducer = (state, { type, payload }) => {
@@ -34,7 +36,11 @@ const reducer = (state, { type, payload }) => {
 		case BADGES_ACTIONS_KEYS.UPDATE_BADGE:
 			return {
 				...state,
-				badges: updateBadge(payload.badgeId, payload.properties, payload.metadata)(state.badges),
+				badges: updateBadge(
+					payload.badgeId,
+					payload.properties,
+					payload.metadata,
+				)(state.badges),
 			};
 		case BADGES_ACTIONS_KEYS.DELETE_BADGE:
 			return { ...state, badges: deleteBadge(payload.badgeId)(state.badges) };
@@ -42,6 +48,8 @@ const reducer = (state, { type, payload }) => {
 			return { ...state, badges: [] };
 		case BADGES_ACTIONS_KEYS.CLOSE_INIT_OPENED:
 			return { ...state, badges: closeInitOpenedBadge(payload.badgeId)(state.badges) };
+		case BADGES_ACTIONS_KEYS.RESET_STATE:
+			return payload;
 		default:
 			return state;
 	}
@@ -49,10 +57,18 @@ const reducer = (state, { type, payload }) => {
 
 export const useFacetedBadges = (externalState, setExternalState) => {
 	const [state, dispatch] = useReducer(reducer, !externalState ? { badges: [] } : externalState);
+
 	useEffect(() => {
 		if (setExternalState) {
 			setExternalState(state);
 		}
 	}, [setExternalState, state]);
+
+	useEffect(() => {
+		if (externalState) {
+			dispatch(BADGES_ACTIONS.resetState(externalState));
+		}
+	}, [externalState]);
+
 	return [state, dispatch];
 };
