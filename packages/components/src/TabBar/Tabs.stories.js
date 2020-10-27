@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
+import { ActionButton } from '../Actions';
 import TabBar from './TabBar.component';
 import IconsProvider from '../IconsProvider';
 
@@ -92,6 +93,19 @@ const tabProps = {
 	selectedKey: '2',
 };
 
+const rightProps = {
+    ...tabProps,
+    right : (
+    <ActionButton
+        className="btn-inverse"
+        label={"Add"}
+        bsStyle="info"
+        icon="talend-plus-circle"
+        onClick={action('add')}
+    />
+    ),
+};
+
 function generateChildId(key, kind) {
 	if (kind === 'tab') {
 		return `my-custom-id-${key}`;
@@ -138,6 +152,9 @@ stories
 			<div id="default">
 				<TabBar {...tabProps}>{renderContent()}</TabBar>
 			</div>
+			<div id="with right children">
+                <TabBar {...rightProps}>{renderContent()}</TabBar>
+            </div>
 			<h3>Default TabBar with too small container</h3>
 			<div id="default-smaller" style={{ width: '30rem', border: '1px solid' }}>
 				<TabBar {...tabProps}>{renderContent()}</TabBar>

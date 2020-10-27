@@ -2,6 +2,7 @@ import React from 'react';
 import keycode from 'keycode';
 import { shallow, mount } from 'enzyme';
 import TabBar from './TabBar.component';
+import { ActionButton } from '../Actions';
 
 const tabProps = {
 	id: 'my-tabs',
@@ -37,6 +38,19 @@ const tabProps = {
 	selectedKey: '3',
 };
 
+const rightProps = {
+    ...tabProps,
+    right : (
+    <ActionButton
+        className="btn-inverse"
+        label={'Add'}
+        bsStyle="info"
+        icon="talend-plus-circle"
+        onClick={()=> {}}
+    />
+    ),
+};
+
 describe('TabBar component', () => {
 	it('should render with selected children managed by user', () => {
 		// given
@@ -47,6 +61,16 @@ describe('TabBar component', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should render with right children', () => {
+        // given
+
+        // when
+        const wrapper = shallow(<TabBar {...rightProps}>I'm the content</TabBar>);
+
+        // then
+        expect(wrapper.getElement()).toMatchSnapshot();
+    });
 
 	it('should render with selected children from item definition', () => {
 		// given

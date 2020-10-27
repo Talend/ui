@@ -110,7 +110,7 @@ function TabBar(props) {
 		}
 	}
 
-	const { className, id, items, selectedKey, children, generateChildId, tooltipPlacement } = props;
+	const { className, id, items, selectedKey, children, generateChildId, tooltipPlacement, right } = props;
 	const hasChildren = children || items.some(item => item.children);
 	const tabContent = hasChildren && (
 		<Tab.Content>
@@ -204,7 +204,10 @@ function TabBar(props) {
 			generateChildId={generateChildId}
 		>
 			<div ref={tabBarContainerRef}>
-				{tabMenu}
+				<div className={classnames(theme['tc-tab-bar-menu'], 'tc-tab-bar-menu')}>
+                    {tabMenu}
+                    {right}
+				</div>
 				{tabContent}
 			</div>
 		</Tab.Container>
@@ -235,6 +238,7 @@ TabBar.propTypes = {
 	responsive: PropTypes.bool,
 	selectedKey: PropTypes.any,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	right: PropTypes.node,
 };
 
 TabBar.defaultProps = {
