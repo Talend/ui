@@ -8,6 +8,8 @@ const operatorNames = {
 	greaterThanOrEquals: 'greaterThanOrEquals',
 	lessThan: 'lessThan',
 	lessThanOrEquals: 'lessThanOrEquals',
+	complies: 'complies',
+	wordComplies: 'wordComplies',
 };
 
 const standardOperators = t => ({
@@ -72,6 +74,20 @@ const standardOperators = t => ({
 		}),
 		name: 'lessThanOrEquals',
 		iconName: 'less-than-equal',
+	},
+	[operatorNames.complies]: {
+		label: t('OPERATOR_COMPLIES_LABEL', {
+			defaultValue: 'Matches character based pattern',
+		}),
+		name: 'complies',
+		iconName: 'between',
+	},
+	[operatorNames.wordComplies]: {
+		label: t('OPERATOR_WORD_COMPLIES_LABEL', {
+			defaultValue: 'Matches word based pattern',
+		}),
+		name: 'wordComplies',
+		iconName: 'between',
 	},
 });
 

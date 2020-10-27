@@ -21,6 +21,7 @@ const findOperatorByName = name => operator => name === operator.name;
 
 const BadgeFaceted = ({
 	badgeId,
+	displayType,
 	children,
 	id,
 	labelCategory,
@@ -100,7 +101,7 @@ const BadgeFaceted = ({
 	};
 
 	return (
-		<Badge id={id} className={theme('tc-badge-faceted')} display={size}>
+		<Badge id={id} className={theme('tc-badge-faceted')} display={size} type={displayType}>
 			{labelCategory && (
 				<>
 					<Badge.Category category={labelCategory} label={labelCategory} />
@@ -147,6 +148,7 @@ const BadgeFaceted = ({
 
 BadgeFaceted.propTypes = {
 	badgeId: PropTypes.string.isRequired,
+	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 	labelCategory: PropTypes.string.isRequired,
 	children: PropTypes.func.isRequired,
 	id: PropTypes.string.isRequired,

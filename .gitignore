@@ -49,3 +49,4 @@ dist/
 tmp/
 lib/
 storybook-static/
+dist/

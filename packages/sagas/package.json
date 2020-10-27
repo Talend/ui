@@ -31,7 +31,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^6.0.0-alpha.39",
+    "@talend/react-cmf": "6.0.0-alpha.39",
     "immutable": "^3.8.1",
     "redux-saga": "^0.15.4"
   },
@@ -41,7 +41,6 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^6.0.0-alpha.12",
     "@talend/scripts-core": "7.0.0-alpha.41",
     "@talend/scripts-preset-react-lib": "7.0.0-alpha.41",
     "immutable": "^3.8.1",

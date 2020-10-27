@@ -6,6 +6,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { useTranslation } from 'react-i18next';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
+import Badge from '@talend/react-components/lib/Badge';
 import FacetedSearch from '../src';
 import { FacetedSearchIcon } from '../src/components/FacetedSearchIcon';
 import { BadgeFacetedProvider } from '../src/components/context/badgeFaceted.context';
@@ -186,6 +187,25 @@ storiesOf('FacetedSearch', module)
 						<FacetedSearch.BasicSearch
 							badgesDefinitions={badgesDefinitions}
 							badgesFaceted={badgesFaceted}
+							onSubmit={action('onSubmit')}
+							callbacks={callbacks}
+						/>
+					))
+				}
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('colored', () => (
+		<div>
+			<FacetedSearch.Faceted id="my-faceted-search">
+				{currentFacetedMode =>
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+						<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+					)) ||
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+						<FacetedSearch.BasicSearch
+							badgesDefinitions={badgesDefinitions}
+							badgesFaceted={set(cloneDeep(badgesFaceted), 'badges[0].properties.displayType', Badge.TYPES.VALUE)}
 							onSubmit={action('onSubmit')}
 							callbacks={callbacks}
 						/>

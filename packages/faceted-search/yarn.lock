@@ -1913,7 +1913,7 @@
   resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-1.4.4.tgz#4b872553d213ad9d9c79977278c401baaa92e6ef"
   integrity sha512-NByIAbncrHYAoP8pprTeYY5vnHnIPElHeyCbHGfomtdugCj6dtDihbsQ8Ry/ZKMrOvMbqqWPVIMsouU7vzcnkQ==
 
-"@talend/bootstrap-theme@^6.0.0-alpha.36":
+"@talend/bootstrap-theme@^6.0.0-alpha.39":
   version "6.0.0-y.0"
   resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-6.0.0-y.0.tgz#af67c85f0fdaa2378cdd6a8d879a896c21872ec5"
   integrity sha512-aPF4w3ra+3dSkHQDoFoOq/D5vrKUW26xf+SYs+KBhW7Z+VR3SZNkrgwsupWvksnXgnmzRvqbu4OyX0VQTknFRw==
@@ -1945,12 +1945,12 @@
     babel-eslint "^10.1.0"
     requireindex "~1.1.0"
 
-"@talend/icons@6.0.0-alpha.36":
-  version "6.0.0-alpha.36"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-6.0.0-alpha.36.tgz#7f81fd5268193a00d760779709156cbd6e11ec89"
-  integrity sha512-Hw+fJ/mx686ki+/l8BDJ8veMRR58vKGbOxkPoKpZOpFzjXyO9/3wZ32P6byHDjt+YvynUB0li1vJ+YYOjpd9ig==
+"@talend/icons@6.0.0-alpha.39":
+  version "6.0.0-alpha.39"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-6.0.0-alpha.39.tgz#8877471bd489a3003a7278b2b1fe8032a13a7a4f"
+  integrity sha512-3hn6haYBMVmDZ9RPv5M4jNQChqUfPQSiAieu3kDkE4sJxSYDNrsMOq6aU9pZteounueoiCMinxbEJ1UmW1mttQ==
 
-"@talend/icons@^6.0.0-alpha.36":
+"@talend/icons@^6.0.0-alpha.39":
   version "6.0.0-y.0"
   resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-6.0.0-y.0.tgz#b912200fa4cc1bfbf6decad8abe65aea384fbc39"
   integrity sha512-t6BA2SKTKAL/rkVZd9JrCMuOAmaoNgfoJTKBtXWTqWt6Jjv9DDjmqVeWvDf21Zva2rM93dqnzstooSry2M4ciw==
@@ -2005,13 +2005,13 @@
     redux-thunk "^2.2.0"
     uuid "^3.4.0"
 
-"@talend/react-components@6.0.0-alpha.36":
-  version "6.0.0-alpha.36"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-6.0.0-alpha.36.tgz#89f9bf12b0ced74c2936866379cb2ea32c9a3181"
-  integrity sha512-en59moHRUazJ3DXn9Qx8L53mHFpTAzFqCbrgg8MF/VWJRBANkF+KzEnhJt7GlNdtdlbLEZNkpTHS9BUxFGOSvA==
+"@talend/react-components@6.0.0-alpha.39":
+  version "6.0.0-alpha.39"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-6.0.0-alpha.39.tgz#e471a98914d7016e4542fcaf7d9d04431b108ec9"
+  integrity sha512-Xu7X0BerHhCWhJOLoGUMpGEEBJSfCCIF6kkKXg4b5upE95JifasiWWzhckcMBFFYsYMGby4t7RZb1RFiHbJfHA==
   dependencies:
-    "@talend/bootstrap-theme" "^6.0.0-alpha.36"
-    "@talend/icons" "^6.0.0-alpha.36"
+    "@talend/bootstrap-theme" "^6.0.0-alpha.39"
+    "@talend/icons" "^6.0.0-alpha.39"
     ally.js "^1.4.1"
     classnames "^2.2.5"
     d3-shape "1.2.0"

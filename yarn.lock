@@ -1043,7 +1043,7 @@
     globals "^11.1.0"
     lodash "^4.17.19"
 
-"@babel/types@^7.0.0", "@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.11.0", "@babel/types@^7.11.5", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.3.4", "@babel/types@^7.4.4", "@babel/types@^7.7.0", "@babel/types@^7.9.5":
+"@babel/types@^7.0.0", "@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.11.0", "@babel/types@^7.11.5", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.7.0", "@babel/types@^7.9.5":
   version "7.11.5"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.11.5.tgz#d9de577d01252d77c6800cee039ee64faf75662d"
   integrity sha512-bvM7Qz6eKnJVFIn+1LPtjlBFPVN5jNDc1XmN15vWe7Q3DPBufWWsLiIvUu7xW87uTG6QoggpIDnUgLQvPheU+Q==
@@ -2989,13 +2989,6 @@
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-1.4.4.tgz#4b872553d213ad9d9c79977278c401baaa92e6ef"
   integrity sha512-NByIAbncrHYAoP8pprTeYY5vnHnIPElHeyCbHGfomtdugCj6dtDihbsQ8Ry/ZKMrOvMbqqWPVIMsouU7vzcnkQ==
-
-"@talend/babel-plugin-import-from-lib@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-lib/-/babel-plugin-import-from-lib-0.0.0.tgz#3893c47014d4bce3277944a022409a758a8ed04b"
-  integrity sha512-CoGO/qV276IA/yx1QGW0oOCrFPrKBb1txyP0lpIOmx7h9CE6VB/Z4Fcv6Y4+EhHB/xjHMPtweazw6xpV+xHmbg==
-  dependencies:
-    "@babel/types" "^7.3.4"
 
 "@talend/dynamic-cdn-webpack-plugin@^5.4.0":
   version "5.4.0"

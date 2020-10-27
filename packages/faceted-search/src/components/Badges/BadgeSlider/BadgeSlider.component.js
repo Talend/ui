@@ -37,6 +37,7 @@ const BadgeSlider = ({
 	category,
 	defaultValue = 0,
 	unit = '',
+	displayType,
 	...rest
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
@@ -48,6 +49,7 @@ const BadgeSlider = ({
 	return (
 		<BadgeFaceted
 			badgeId={id}
+			displayType={displayType}
 			id={badgeTextId}
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
@@ -90,6 +92,7 @@ BadgeSlider.propTypes = {
 	category: PropTypes.string,
 	defaultValue: PropTypes.number,
 	unit: PropTypes.string,
+	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 };
 
 // eslint-disable-next-line import/prefer-default-export
