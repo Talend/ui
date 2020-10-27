@@ -11,13 +11,23 @@ import btnOrder from './images/buttons-order.jpg';
 
 Buttons are clickable items used for actions. They can have different style depending on the needs.
 
-## Style
-
 ## Zoning
 
 <FigmaImage src="https://www.figma.com/file/2Sw2IvUHZ9F2srJ3L8AWxr/%F0%9F%93%90-Zoning?node-id=12%3A64" alt="zoning image for buttons" />
 
-## Variations
+## Style
+
+### Sizes
+
+Coral support two buttons sizes: **default** and **small**.
+
+The small size is available for primary, secondary and ghost buttons — but shouldn't be use for buttons with icons or dropdown buttons.
+
+Icon buttons has also two sizes: **default** and **small**. They can be used as dropdown but without the caret icon.
+
+<FigmaImage src="https://www.figma.com/file/nLfALGpsfnvwlmm3Kix2TU/%F0%9F%A7%A9-Schema?node-id=4%3A57" alt="buttons sizes illustration"  />
+
+### Variations
 
 <Preview>
 	<Story name="primary">
@@ -84,38 +94,7 @@ Buttons are clickable items used for actions. They can have different style depe
 	</Story>
 </Preview>
 
-## Sizes
-
-Coral support two buttons sizes: **default** and **small**.
-
-The small size is available for primary, secondary and ghost buttons — but shouldn't be use for buttons with icons or dropdown buttons.
-
-### Icon buttons
-
-Icon buttons has two sizes: **large** and **small**. They can also be used as dropdown but without the caret icon.
-
-<hr />
-
-## Content
-
-The word/words on the button should be accurate, specific, and explicit—not vague. Don’t use Yes and No for buttons. Say what action really happens when the user clicks. Use OK sparingly—replace it with the specific action whenever possible. Users usually click OK to confirm the action they want to do. Name that action instead.
-
-<Use>
-	<Use.Do>
-  <ul>
-<li>Always start with an action verb: something happens when you click or tap a button. Say what happens with a verb. Navigation buttons are an example of an exception to using an action verb. These often use Next and Back.</li>
-<li>Choose specific words over vague words: “Try it now” for example is a common CTA, but doesn’t really tell the user what will happen next. It might be too vague. Use your judgement according to what the user should be doing when they click the button.</li>
-<li>Choose words that logically align with the preceding content: if your headline says "Sign up for awesome deals!" then your button text should also say "Sign up".</li>
-  </ul>
-  </Use.Do>
-	<Use.Dont>
-  <ul>
-<li>For UI writing, don’t use more than 3 words in a button: keep it short and simple. For mobile screens, very few characters will fit.</li>
-  </ul>
-  </Use.Dont>
-</Use>
-
-## Interaction
+## Interactions
 
 - **Buttons should all have a tooltip on hover displaying the description**
 
@@ -141,15 +120,25 @@ In case of button with icon inside, the spinner will replace the icon as long as
 
 // TODO add demo
 
-## Skeleton
 
-// TODO add demo
+## Content
 
-## Accessibility
+The word/words on the button should be accurate, specific, and explicit—not vague. Don’t use Yes and No for buttons. Say what action really happens when the user clicks. Use OK sparingly—replace it with the specific action whenever possible. Users usually click OK to confirm the action they want to do. Name that action instead.
 
-- Press <kbd>TABS</kbd> to focus on the button
-
-- Press <kbd>SPACE</kbd> or <kbd>ENTER</kbd> to activate the button
+<Use>
+	<Use.Do>
+  <ul>
+<li>Always start with an action verb: something happens when you click or tap a button. Say what happens with a verb. Navigation buttons are an example of an exception to using an action verb. These often use Next and Back.</li>
+<li>Choose specific words over vague words: “Try it now” for example is a common CTA, but doesn’t really tell the user what will happen next. It might be too vague. Use your judgement according to what the user should be doing when they click the button.</li>
+<li>Choose words that logically align with the preceding content: if your headline says "Sign up for awesome deals!" then your button text should also say "Sign up".</li>
+  </ul>
+  </Use.Do>
+	<Use.Dont>
+  <ul>
+<li>For UI writing, don’t use more than 3 words in a button: keep it short and simple. For mobile screens, very few characters will fit.</li>
+  </ul>
+  </Use.Dont>
+</Use>
 
 ## Usage
 
@@ -179,6 +168,15 @@ In case of button with icon inside, the spinner will replace the icon as long as
 </Preview>
 
 <Props story="usage" />
+
+
+
+## Accessibility
+
+- Press <kbd>TABS</kbd> to focus on the button
+
+- Press <kbd>SPACE</kbd> or <kbd>ENTER</kbd> to activate the button
+
 
 ## Changelog
 

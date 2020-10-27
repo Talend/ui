@@ -15,15 +15,45 @@ import { Col, FigmaImage, Row } from '../../../docs';
 Inline Message highlights information necessary to display for the user in many different contexts.
 It can be additional information related to system status, it can be a required action to complete the current task.
 
-## Style
 
 ## Zoning
 
 <FigmaImage src="https://www.figma.com/file/2Sw2IvUHZ9F2srJ3L8AWxr/%F0%9F%93%90-Zoning?node-id=12%3A96" alt="zoning image for inline messages" />
 
-## Variations
+## Style
 
-### Default
+### Icons
+
+<IconGallery>
+	{['cross', 'warning', 'check', 'information'].map((iconName, index) => (
+		<IconItem key={index} name={iconName}>
+			<Icon name={iconName} />
+		</IconItem>
+	))}
+</IconGallery>
+
+### Colors
+
+<ColorPalette>
+	<ColorItem
+		title="theme.color.palette"
+		subtitle="Inline message colors"
+		colors={{
+			Error: tokens.colors.coral500,
+			Warning: tokens.colors.jaffa500,
+			Success: tokens.colors.rioGrande500,
+			Information: tokens.colors.lochmara,
+		}}
+	/>
+</ColorPalette>
+
+### Text
+
+The text should adapt the surrounding layout. Depending on the context, if the text is too long it should automatically wraps the line.
+
+### Variations
+
+**Default**
 
 <Preview>
 	<Story name="information">
@@ -64,7 +94,7 @@ It can be additional information related to system status, it can be a required 
 	</Story>
 </Preview>
 
-### Small
+**Small**
 
 <Preview>
 	<Story name="informationSmall">
@@ -109,7 +139,7 @@ It can be additional information related to system status, it can be a required 
 	</Story>
 </Preview>
 
-### With background
+**With background**
 
 <Preview>
 	<Story name="informationWithBg">
@@ -154,7 +184,7 @@ It can be additional information related to system status, it can be a required 
 	</Story>
 </Preview>
 
-### Small with background
+**Small with background**
 
 <Preview>
 	<Story name="informationSmallWithBg">
@@ -203,39 +233,19 @@ It can be additional information related to system status, it can be a required 
 	</Story>
 </Preview>
 
-## Sizes
+## Interactions
 
-| Attribute                 | Variable      |
-| ------------------------- | ------------- |
-| icon                      | \$svg-md-size |
-| height                    | 2.5rem        |
-| padding-left and right    | \$smaller     |
-| border-radius             | rectRadius    |
-| _ (if link) _ margin-left | \$small       |
+Inline messages are non clickable, except if there is a link. In that case, only the link will be clickable.
+Please refer to the hyperlink guidelines for more information.
 
-## Colors
+## Content
 
-<ColorPalette>
-	<ColorItem
-		title="theme.color.palette"
-		subtitle="Inline message colors"
-		colors={{
-			Error: tokens.colors.coral500,
-			Warning: tokens.colors.jaffa500,
-			Success: tokens.colors.rioGrande500,
-			Information: tokens.colors.lochmara,
-		}}
-	/>
-</ColorPalette>
+- Be clear and conversational
+- Use direct language
+- Get right to the point
 
 
-
-
-## States
-
-_Non applicable_
-
-## Code
+## Usage
 
 <Preview>
 	<Story
@@ -265,34 +275,11 @@ _Non applicable_
 
 <Props story="basic" />
 
-## Content
-
-- Be clear and conversational
-- Use direct language
-- Get right to the point
-
-## Interaction
-
-Inline messages are non clickable, except if there is a link. In that case, only the link will be clickable.
-Please refer to the hyperlink guidelines for more information.
 
 ## Accessibility
 
-## Usage
+_To do_
 
-### **Icon usage**
-
-<IconGallery>
-	{['cross', 'warning', 'check', 'information'].map((iconName, index) => (
-		<IconItem key={index} name={iconName}>
-			<Icon name={iconName} />
-		</IconItem>
-	))}
-</IconGallery>
-
-### **Multiple line**
-
-The text should adapt the surrounding layout. Depending on the context, if the text is too long it should automatically wraps the line.
 
 ## Changelog
 
