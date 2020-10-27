@@ -21,7 +21,7 @@ const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 			<Rich.Layout.Body id={id} className={theme('tc-badge-text-form-body')}>
 				<input
 					id={`${id}-text`}
-					autoFocus
+					autoFocus // eslint-disable-line jsx-a11y/no-autofocus
 					className="form-control"
 					onChange={onChangeText}
 					placeholder={t('TYPE_HERE', { defaultValue: 'Type here' })}

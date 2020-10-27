@@ -34,6 +34,7 @@ const getLabel = labels => {
 const BadgeOverlay = ({
 	children,
 	className,
+	dataFeature,
 	hasAddButton = false,
 	iconName,
 	id,
@@ -77,6 +78,7 @@ const BadgeOverlay = ({
 			onClick={changeOpened}
 			disabled={readOnly}
 			className={theme({ 'tc-badge-link-plus': hasAddButton })}
+			data-feature={dataFeature}
 		>
 			{iconName && (
 				<Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />
@@ -120,6 +122,7 @@ BadgeOverlay.propTypes = {
 	]).isRequired,
 	t: PropTypes.func.isRequired,
 	className: PropTypes.string,
+	dataFeature: PropTypes.string,
 	iconName: PropTypes.string,
 	initialOpened: PropTypes.bool,
 	id: PropTypes.string.isRequired,

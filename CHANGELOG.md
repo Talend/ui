@@ -26,10 +26,14 @@ Types of changes
 
 ## [unreleased]
 
+## [0.14.0]
+
 - [Added](https://github.com/Talend/ui/pull/2994): Read only support
 - [Added](https://github.com/Talend/ui/pull/2997): Handle badges without labels
 - [Added](https://github.com/Talend/ui/pull/3000): Added complies/wordComplies pattern operators support
 - [Added](https://github.com/Talend/ui/pull/3013): Added colored badge support
+- [Added](https://github.com/Talend/ui-faceted-search/pull/4): Hide "add filter" and "remove all" buttons when not relevant
+- [Fixed](https://github.com/Talend/ui-faceted-search/pull/5): External changes to `badgesFaceted` state are ignored
 
 ## [0.13.0]
 
