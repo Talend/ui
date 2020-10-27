@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "homepage": "https://github.com/Talend/design-system#readme",
   "dependencies": {
     "figma-js": "^1.13.0",
-    "i18next": "^19.8.2",
+    "i18next": "^19.8.3",
     "polished": "^4.0.3",
     "react-i18next": "^11.7.3",
     "react-use": "^15.3.4",
@@ -41,8 +41,8 @@
     "@storybook/react": "6.1.0-alpha.27",
     "@storybook/theming": "6.1.0-alpha.27",
     "@svgr/webpack": "^5.4.0",
-    "@talend/scripts-core": "6.7.0",
-    "@talend/scripts-preset-react-lib": "6.7.0",
+    "@talend/scripts-core": "6.8.1",
+    "@talend/scripts-preset-react-lib": "6.8.1",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/react-is": "^16.7.1",
@@ -58,8 +58,8 @@
   },
   "peerDependencies": {
     "focus-outline-manager": "^1.0.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "styled-components": "^5.2.0"
   },
   "resolutions": {
