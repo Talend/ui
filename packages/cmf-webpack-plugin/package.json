@@ -6,7 +6,6 @@
   "scripts": {
     "prepublishOnly": "echo nothing to prepublishOnly",
     "prepare": "talend-scripts build:lib",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
     "test:cov": "npm run test",

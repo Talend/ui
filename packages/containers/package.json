@@ -7,7 +7,6 @@
   "scripts": {
     "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "talend-scripts build:lib",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "start": "start-storybook -p 6007",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",

@@ -19,7 +19,6 @@
   "scripts": {
     "prepublishOnly": "echo nothing to prepublishOnly",
     "prepare": "talend-scripts build:lib",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "test": "talend-scripts test",
     "test:demo": "echo nothing to demo",
     "lint:es": "talend-scripts lint:es"

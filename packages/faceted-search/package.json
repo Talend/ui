@@ -38,9 +38,9 @@
     "classnames": "^2.2.5",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.4",
     "react-bootstrap": "0.32.4",
-    "uuid": "^3.4.0"
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^5.3.1",

@@ -8,7 +8,6 @@
   "scripts": {
     "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "talend-scripts build:lib",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
