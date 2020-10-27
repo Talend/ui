@@ -19,7 +19,7 @@ function getLogo(name: string) {
 }
 
 const SNav = styled.nav<{ isCollapsed: boolean; variant: string }>(
-	({ isCollapsed, theme, variant }) => `
+	({ isCollapsed, theme, variant = '' }) => `
 		position: relative;		
 		flex: 0 1 ${isCollapsed ? '6rem' : '20rem'};
 		max-width: ${isCollapsed ? '6rem' : 'auto'};
