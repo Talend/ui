@@ -153,8 +153,8 @@ stories
 				<TabBar {...tabProps}>{renderContent()}</TabBar>
 			</div>
 			<div id="with right children">
-                <TabBar {...rightProps}>{renderContent()}</TabBar>
-            </div>
+				<TabBar {...rightProps}>{renderContent()}</TabBar>
+			</div>
 			<h3>Default TabBar with too small container</h3>
 			<div id="default-smaller" style={{ width: '30rem', border: '1px solid' }}>
 				<TabBar {...tabProps}>{renderContent()}</TabBar>

@@ -207,7 +207,7 @@ function TabBar(props) {
 				<div className={classnames(theme['tc-tab-bar-menu'], 'tc-tab-bar-menu')}>
                     {tabMenu}
                     {right}
-				</div>
+                </div>
 				{tabContent}
 			</div>
 		</Tab.Container>
