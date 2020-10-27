@@ -334,6 +334,12 @@
   62:5  warning  React Hook useEffect has missing dependencies: 'responsive' and 'showTabBarAndTest'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   82:5  warning  React Hook useEffect has a missing dependency: 'responsive'. Either include it or remove the dependency array                            react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.test.js
+  46:10  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
+/home/travis/build/Talend/ui/packages/components/src/TabBar/Tabs.stories.js
+  101:10  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+
 /home/travis/build/Talend/ui/packages/components/src/Table/Body/TableBody.js
   4:22  error  Unexpected use of file extension "js" for "../Row/TableRow.js"  import/extensions
 
@@ -407,5 +413,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 216 problems (195 errors, 21 warnings)
-  17 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 218 problems (197 errors, 21 warnings)
+  19 errors and 0 warnings potentially fixable with the `--fix` option.
