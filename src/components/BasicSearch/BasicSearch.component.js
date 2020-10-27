@@ -71,6 +71,8 @@ const BasicSearch = ({
 	};
 	const basicSearchId = `${id}-basic-search`;
 	const badgeFacetedContextValue = { state, dispatch, onSubmit };
+	// removable = undefined means badge can be removed (backward compatible change)
+	const hasRemovableBadge = state.badges.some(badge => badge.properties.removable !== false);
 
 	return (
 		<div id={basicSearchId} className={css('tc-basic-search')}>
@@ -85,37 +87,41 @@ const BasicSearch = ({
 						t={t}
 					/>
 				</BadgeFacetedProvider>
-				<BadgeOverlay
-					id={basicSearchId}
-					iconName="plus-circle"
-					label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
-					t={t}
-					hideLabel
-					hasAddButton
-				>
-					{setOverlayOpened => (
-						<AddFacetPopover
-							badges={state.badges}
-							badgesDefinitions={badges}
-							id={basicSearchId}
-							initialFilterValue={initialFilterValue}
-							onClick={onClickOverlayRow(setOverlayOpened)}
-							t={t}
-						/>
-					)}
-				</BadgeOverlay>
+				{badgesDefinitions.length > 0 && (
+					<BadgeOverlay
+						id={basicSearchId}
+						iconName="plus-circle"
+						dataFeature={USAGE_TRACKING_TAGS.BASIC_ADD}
+						label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
+						t={t}
+						hideLabel
+						hasAddButton
+					>
+						{setOverlayOpened => (
+							<AddFacetPopover
+								badges={state.badges}
+								badgesDefinitions={badges}
+								id={basicSearchId}
+								initialFilterValue={initialFilterValue}
+								onClick={onClickOverlayRow(setOverlayOpened)}
+								t={t}
+							/>
+						)}
+					</BadgeOverlay>
+				)}
 			</div>
 
-			{state.badges.length > 0 && (
+			{hasRemovableBadge && (
 				<ActionButton
 					className={css('tc-basic-search-clear-button')}
-					tooltipLabel={t('FACETED_SEARCH_BASIC_CLEAR', { defaultValue: 'Remove all filters' })}
+					tooltipLabel={t('FACETED_SEARCH_BASIC_CLEAR', {
+						defaultValue: 'Remove all filters',
+					})}
 					data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
 					icon="talend-trash"
 					onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
 					link
 					label=""
-					disabled={state.badges.length === 0}
 				/>
 			)}
 		</div>

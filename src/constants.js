@@ -10,6 +10,7 @@ const USAGE_TRACKING_TAGS = {
 	ADVANCED_APPLY: 'filter.advanced.apply',
 	ADVANCED_CLEAR: 'filter.advanced.clear',
 	BASIC: 'filter.basic',
+	BASIC_ADD: 'filter.basic.add',
 	BASIC_CLEAR: 'filter.basic.clear',
 	COLLAPSE: 'filter.collapse',
 	EXPAND: 'filter.expand',

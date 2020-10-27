@@ -9,6 +9,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
       <button id="manager-id-basic-search-action-overlay"
               aria-label="Add filter"
               type="button"
+              data-feature="filter.basic.add"
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
@@ -97,6 +98,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
       <button id="manager-id-basic-search-action-overlay"
               aria-label="Add filter"
               type="button"
+              data-feature="filter.basic.add"
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
