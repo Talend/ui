@@ -41,7 +41,7 @@ module.exports = ({ config }) => {
 				{
 					loader: 'sass-loader',
 					options: {
-						data: SASS_DATA,
+						prependData: SASS_DATA,
 					},
 				},
 			],
@@ -61,7 +61,7 @@ module.exports = ({ config }) => {
 				{
 					loader: 'sass-loader',
 					options: {
-						data: SASS_DATA,
+						prependData: SASS_DATA,
 					},
 				},
 			],
