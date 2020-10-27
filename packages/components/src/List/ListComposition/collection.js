@@ -285,6 +285,7 @@ for (let i = 0; i < 100; i += 1) {
 			icon: 'talend-list',
 			label: 'list',
 		},
+		iconAndTextWithGetter: 'icon from getter',
 		name: `Title with icon and actions ${i}`,
 		isValid: [true, false, undefined][random(2)],
 		tag: 'test',
