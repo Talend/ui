@@ -13,28 +13,19 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/tables';
 @import './tables';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/forms';
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap/buttons';
-// @import './buttons';
-// @import './hyperlinks';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/buttons';
 @import './animation';
 
 // Components
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/component-animations';
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns';
-// @import './dropdowns';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/button-groups';
-@import './button-groups';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/input-groups';
-@import './input-groups';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/labels';
 @import './labels';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/navs';
 @import './navs';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/navbar';
-@import './navbar';
-@import './navbar.button';
-@import './navbar.dropdown';
-@import './navbar.search';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs';
 @import './breadcrumbs';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/pagination';
@@ -55,7 +46,6 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/modals';
 @import './modals';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/tooltip';
-@import './tooltip';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/popovers';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/carousel';
 
