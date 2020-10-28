@@ -9,7 +9,6 @@ module.exports = () => {
 		output: {
 			filename: 'bootstrap.js',
 			path: path.resolve(__dirname, './dist'),
-			publicPath: '/dist',
 			library: 'TalendBootstrapTheme',
 			libraryTarget: 'umd',
 			globalObject: 'this',

@@ -157,9 +157,84 @@ class InputDateTimePicker extends React.Component {
 
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
+		const dateTimePicker = [
+			<DateTime.Input
+				{...inputProps}
+				id={`${this.props.id}-input`}
+				key="input"
+				inputRef={ref => {
+					this.inputRef = ref;
+				}}
+			/>,
+			this.state.showPicker && (
+				<Popper
+					key="popper"
+					modifiers={{
+						hide: {
+							enabled: false,
+						},
+						preventOverflow: {
+							enabled: false,
+						},
+					}}
+					placement={this.getPopperPlacement()}
+					positionFixed
+					referenceElement={this.inputRef}
+				>
+					{({ ref, style }) => (
+						<div
+							id={this.popoverId}
+							className={theme.popper}
+							style={style}
+							ref={ref}
+							onMouseDown={onMouseDown}
+						>
+							<DateTime.Picker />
+							{this.props.formMode && <DateTime.Validation />}
+						</div>
+					)}
+				</Popper>
+			),
+		].filter(Boolean);
 
 		return (
-			<div />
+			<DateTime.Manager
+				dateFormat={this.props.dateFormat}
+				formMode={this.props.formMode}
+				id={this.props.id}
+				required={this.props.required}
+				selectedDateTime={this.props.selectedDateTime}
+				useSeconds={this.props.useSeconds}
+				useTime={this.props.useTime}
+				useUTC={this.props.useUTC}
+				onChange={this.onChange}
+			>
+				<DateTimeContext.Consumer>
+					{({ formManagement }) => (
+						<FocusManager
+							divRef={ref => {
+								this.containerRef = ref;
+							}}
+							onClick={this.onClick}
+							onFocusIn={this.onFocus}
+							onFocusOut={event => {
+								this.onBlur(event, formManagement);
+							}}
+							onKeyDown={event => {
+								this.onKeyDown(event, formManagement);
+							}}
+						>
+							{this.props.formMode ? (
+								<form key="form" onSubmit={formManagement.onSubmit}>
+									{dateTimePicker}
+								</form>
+							) : (
+								dateTimePicker
+							)}
+						</FocusManager>
+					)}
+				</DateTimeContext.Consumer>
+			</DateTime.Manager>
 		);
 	}
 }

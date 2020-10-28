@@ -37,6 +37,7 @@ const BadgeText = ({
 	category,
 	readOnly,
 	removable,
+	displayType,
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
@@ -44,6 +45,7 @@ const BadgeText = ({
 	return (
 		<BadgeFaceted
 			badgeId={id}
+			displayType={displayType}
 			id={badgeTextId}
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
@@ -84,6 +86,7 @@ BadgeText.propTypes = {
 	category: PropTypes.string,
 	readOnly: PropTypes.bool,
 	removable: PropTypes.bool,
+	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 };
 
 // eslint-disable-next-line import/prefer-default-export

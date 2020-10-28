@@ -10,7 +10,6 @@
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
     "docs": "node ./scripts/docs.js",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "rimraf ./dist && npm run build-react && npm run build-webfont && npm run build-umd",
     "test": "echo no test",
     "test:cov": "echo no test",

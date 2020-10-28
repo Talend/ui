@@ -1,6 +1,7 @@
 import { Query } from '@talend/daikon-tql-client';
 import isEmpty from 'lodash/isEmpty';
 import flow from 'lodash/flow';
+import { operatorNames } from '../dictionary/operator.dictionary';
 
 const getBadgeQueryValues = ({ properties }) => [
 	properties.attribute,
@@ -34,15 +35,17 @@ const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
  * @param {Query} query instance of Query class
  */
 const getTqlClassOperatorsDictionary = query => ({
-	contains: query.contains,
-	containsIgnoreCase: query.containsIgnoreCase,
-	equals: query.equal,
-	in: query.in,
-	notEquals: query.unequal,
-	greaterThan: query.greaterThan,
-	greaterThanOrEquals: query.greaterThanOrEqual,
-	lessThan: query.lessThan,
-	lessThanOrEquals: query.lessThanOrEqual,
+	[operatorNames.contains]: query.contains,
+	[operatorNames.containsIgnoreCase]: query.containsIgnoreCase,
+	[operatorNames.equals]: query.equal,
+	[operatorNames.in]: query.in,
+	[operatorNames.notEquals]: query.unequal,
+	[operatorNames.greaterThan]: query.greaterThan,
+	[operatorNames.greaterThanOrEquals]: query.greaterThanOrEqual,
+	[operatorNames.lessThan]: query.lessThan,
+	[operatorNames.lessThanOrEquals]: query.lessThanOrEqual,
+	[operatorNames.complies]: query.complies,
+	[operatorNames.wordComplies]: query.wordComplies,
 });
 
 const formatValue = value => {
