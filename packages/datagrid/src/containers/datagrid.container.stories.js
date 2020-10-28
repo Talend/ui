@@ -3,9 +3,8 @@ import get from 'lodash/get';
 import { storiesOf } from '@storybook/react';
 
 import withCMF from '@talend/react-storybook-cmf';
-import { mock } from '@talend/react-cmf';
 import { IconsProvider } from '@talend/react-components';
-import api from '@talend/react-cmf';
+import api, { mock } from '@talend/react-cmf';
 
 import DataGrid from '.';
 import register from '../register';
