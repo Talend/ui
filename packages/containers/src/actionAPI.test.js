@@ -1,4 +1,4 @@
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import { routerAPI } from '@talend/react-cmf-router';
 
 import action, { getActionsProps } from './actionAPI';
@@ -9,7 +9,7 @@ describe('actionAPI.getActionsProps', () => {
 	});
 
 	it('should return props for one action', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const model = { model: true };
 		context.store.dispatch = jest.fn();
 		const props = action.getProps(context, 'menu:demo', model);
@@ -23,7 +23,7 @@ describe('actionAPI.getActionsProps', () => {
 	});
 
 	it('should return props for one action using action creator', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const model = { model: true };
 		context.store.dispatch = jest.fn();
 		context.registry['actionCreator:action-creator'] = jest.fn();
@@ -39,7 +39,7 @@ describe('actionAPI.getActionsProps', () => {
 	});
 
 	it('should return props for multiple actions', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const model = { model: {} };
 		context.store.dispatch = jest.fn();
 		const props = action.getProps(context, ['menu:demo', 'menu:article'], model);
@@ -64,7 +64,7 @@ describe('actionAPI.getActionsProps', () => {
 	});
 
 	it('should return props for multiple object actions', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const model = { model: {} };
 		const a1 = {
 			label: 'A1',

@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import { storiesOf } from '@storybook/react';
 
 import withCMF from '@talend/react-storybook-cmf';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import { IconsProvider } from '@talend/react-components';
 import api from '@talend/react-cmf';
 
@@ -85,7 +85,7 @@ sample.data = [
 		})),
 ];
 
-const cmfState = mock.state();
+const cmfState = mock.store.state();
 cmfState.cmf.collections = cmfState.cmf.collections.set('sample', sample);
 cmfState.cmf.collections = cmfState.cmf.collections.set('sampleRenderer', sampleRenderer);
 if (!cmfState.cmf.settings.props) {

@@ -3,8 +3,7 @@ import React from 'react';
 import { all, fork } from 'redux-saga/effects';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import api, { store, RegistryProvider } from '@talend/react-cmf';
-import mock from '@talend/react-cmf/lib/mock';
+import api, { store, RegistryProvider, mock } from '@talend/react-cmf';
 
 function* initSagaMiddleWare() {
 	yield all([fork(api.sagas.component.handle)]);
@@ -23,7 +22,7 @@ class CMFStory extends React.Component {
 			state = props.state;
 		}
 		if (!state) {
-			state = mock.state();
+			state = mock.store.state();
 		}
 
 		let middlewares = this.props.middleware;

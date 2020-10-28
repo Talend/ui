@@ -1,20 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import cases from 'jest-in-case';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import SidePanel from './SidePanel.container';
 import { mapStateToProps, mergeProps } from './SidePanel.connect';
 import { ACTION_TYPE_LINK } from './constants';
 
 describe('SidePanel', () => {
 	it('should render', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const sidepanel = shallow(<SidePanel />, { context });
 		expect(sidepanel.getElement()).toMatchSnapshot();
 	});
 	it('should render provided actions as string', () => {
 		const actions = ['menu:article', 'menu:demo'];
-		const context = mock.context();
+		const context = mock.store.context();
 		const sidepanel = shallow(<SidePanel actions={actions} />, { context });
 		expect(sidepanel.getElement()).toMatchSnapshot();
 	});
@@ -23,7 +23,7 @@ describe('SidePanel', () => {
 describe('SidePanel.mapStateToProps', () => {
 	let state;
 	beforeEach(() => {
-		state = mock.state();
+		state = mock.store.state();
 		state.routing = {
 			locationBeforeTransitions: {
 				pathname: '/test',

@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
+    "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
