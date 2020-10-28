@@ -24,6 +24,11 @@ function CustomList(props) {
 			<List.VList.Text label="Id" dataKey="id" />
 			<List.VList.Title label="Name" dataKey="name" columnData={titleProps} />
 			<List.VList.IconText label="IconText" dataKey="iconAndText" />
+			<List.VList.IconText
+				label="IconText"
+				columnData={{ getIcon: () => 'talend-tdp-colored' }}
+				dataKey="iconAndTextWithGetter"
+			/>
 			<List.VList.Boolean label="Valid" dataKey="isValid" />
 			<List.VList.Boolean
 				label="ValidWithIcon"
