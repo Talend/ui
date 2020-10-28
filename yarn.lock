@@ -3029,10 +3029,10 @@
     mkdirp "^1.0.4"
     semver "^7.3.2"
 
-"@talend/react-cmf-router@^3.2.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.3.1.tgz#98981dd6c5c302ad9704c6d06f4d8c686a881b5c"
-  integrity sha512-DW+0Lqa0JWzV8UFC1FUtAnQ3M/GUA0Cp6ufk2ixJ/XYfE/xAwT2nPghw0M5AMWcBTETG0hbHentiL54LPF+/Jw==
+"@talend/react-cmf-router@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.4.0.tgz#bd33e55e19bc08c0b4b654e5208e7d98dfd5184f"
+  integrity sha512-8CTIjcisFHaQfcpaeqoT9834pWnZwOH+GWAtckkZrDvjTbZkaRE/iQiQPpOAxWv2cWY54aiUGIb0eb0vpYEg3A==
   dependencies:
     "@babel/polyfill" "^7.8.4"
     lodash "^4.17.15"
