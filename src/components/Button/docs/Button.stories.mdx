@@ -34,6 +34,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 
 ### Variations
 
+**Primary**
 <Preview>
 	<Story name="primary">
 		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
@@ -49,6 +50,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Preview>
 
+**Destructive**
 <Preview>
 	<Story name="destructive">
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
@@ -64,6 +66,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Preview>
 
+**Secondary**
 <Preview>
 	<Story name="secondary">
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
@@ -79,6 +82,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Preview>
 
+**Tertiary**
 <Preview>
 	<Story name="ghost">
 		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
@@ -94,6 +98,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Preview>
 
+**Icon button**
 <Preview>
 	<Story name="icon">
 		<Button.Icon onClick={action('clicked')} icon={'plus'}>
@@ -111,8 +116,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Preview>
 
-- **Buttons should all have a tooltip on hover displaying the description**
-
+**Buttons should all have a tooltip on hover displaying the description**
 <Preview>
 	<Story name="basic">
 		<Button onClick={action('clicked')}>Basic Button</Button>
@@ -130,7 +134,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 
 ## Interactions
 
-- **Buttons has a loading states**
+**Buttons has a loading states**
 
 When the user clicks on the button, a spinner will appear on the left of the label. No actions will be possible until it's loading.
 In case of button with icon inside, the spinner will replace the icon as long as it's loading.
