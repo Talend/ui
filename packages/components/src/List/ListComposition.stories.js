@@ -52,7 +52,7 @@ function CustomListResizable(props) {
 				dataKey="id"
 				resizable
 				width={400}
-				headerRenderer={List.VList.headerDictionary['resizable']}
+				headerRenderer={List.VList.headerDictionary.resizable}
 			/>
 			<List.VList.Title
 				label="Name"
@@ -60,7 +60,7 @@ function CustomListResizable(props) {
 				columnData={titleProps}
 				resizable
 				width={400}
-				headerRenderer={List.VList.headerDictionary['resizable']}
+				headerRenderer={List.VList.headerDictionary.resizable}
 			/>
 			<List.VList.Badge
 				label="Tag"
