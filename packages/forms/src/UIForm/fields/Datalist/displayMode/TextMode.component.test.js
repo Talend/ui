@@ -32,8 +32,6 @@ const schemaWithGroups = {
 	},
 };
 
-jest.mock('ally.js/style/_style');
-
 describe('Datalist component in text display mode', () => {
 	it('should render', () => {
 		// when
