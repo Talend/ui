@@ -16,7 +16,7 @@ export function getIconHREF(name) {
 	let href = context.get(name);
 	if (!href) {
 		if (process.env.ICON_BUNDLE) {
-			href = info.getIconHREF(name);
+			href = info.getIconHref(name);
 		} else {
 			// backward compatibility for test
 			href = `#${name}`;

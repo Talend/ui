@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ActionButton } from '@talend/react-components/lib/Actions';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import Connected, {
 	mapStateToProps,
@@ -39,7 +39,7 @@ describe('CMF(Container(ActionButton))', () => {
 			onClick: () => {},
 			label: 'click',
 		};
-		const context = mock.context();
+		const context = mock.store.context();
 		const wrapper = shallow(<ContainerActionButton {...props} />, {
 			context,
 		});
@@ -62,7 +62,7 @@ describe('CMF(Container(ActionButton))', () => {
 				id: 42,
 			},
 		};
-		const context = mock.context();
+		const context = mock.store.context();
 		const wrapper = shallow(<ContainerActionButton {...props} />, {
 			context,
 		});
@@ -84,7 +84,7 @@ describe('CMF(Container(ActionButton))', () => {
 			extra: 'foo',
 			actionCreator: 'foo',
 		};
-		const context = mock.context();
+		const context = mock.store.context();
 		const wrapper = shallow(<ContainerActionButton {...props} />, {
 			context,
 		});

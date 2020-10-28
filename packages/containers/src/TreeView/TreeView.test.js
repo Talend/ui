@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import Immutable from 'immutable';
 import TreeView, {
 	DEFAULT_STATE,
@@ -15,8 +15,8 @@ describe('TreeView', () => {
 	let data;
 
 	beforeEach(() => {
-		context = mock.context();
-		state = mock.state();
+		context = mock.store.context();
+		state = mock.store.state();
 		data = new Immutable.List([
 			new Immutable.Map({ id: 1, name: 'foo', children: [] }),
 			new Immutable.Map({ id: 2, name: 'bar', children: [] }),
@@ -162,7 +162,7 @@ describe('TreeView', () => {
 
 describe('mapStateToProps', () => {
 	it('should return props', () => {
-		const state = mock.state();
+		const state = mock.store.state();
 		const data = new Immutable.Map({
 			foo: new Immutable.Map({
 				bar: new Immutable.List([new Immutable.Map({ foo: 'bar' })]),

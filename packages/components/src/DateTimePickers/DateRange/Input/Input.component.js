@@ -9,7 +9,7 @@ import InputSizer from '../../shared/InputSizer';
 const OMIT_INPUT_PROPS = ['date', 'onChange', 'onFocus', 'label'];
 
 const Input = forwardRef((props, ref) => {
-	const { date, onChange, onFocus, label } = props;
+	const { date, onChange, onFocus, label, minWidth } = props;
 	const { inputManagement } = useContext(DateRangeContext);
 	const { placeholder } = inputManagement;
 
@@ -18,7 +18,7 @@ const Input = forwardRef((props, ref) => {
 			<label htmlFor={props.id} className="control-label">
 				{label}
 			</label>
-			<InputSizer inputText={placeholder}>
+			<InputSizer inputText={placeholder} minWidth={minWidth}>
 				{width => (
 					<DebounceInput
 						autoComplete="off"
@@ -48,6 +48,7 @@ Input.propTypes = {
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
 	label: PropTypes.string,
+	minWidth: PropTypes.number,
 };
 
 export default Input;

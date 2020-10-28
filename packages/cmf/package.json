@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
+    "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
@@ -57,8 +57,8 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^6.8.1",
-    "@talend/scripts-preset-react-lib": "^6.8.1",
+    "@talend/scripts-core": "^6.8.2",
+    "@talend/scripts-preset-react-lib": "^6.8.2",
     "enzyme": "^3.11.0",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.4",
