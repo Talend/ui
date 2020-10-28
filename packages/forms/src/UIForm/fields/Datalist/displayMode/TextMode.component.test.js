@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import DatalistTextMode from './TextMode.component';
 
+jest.mock('ally.js');
+
 const schema = {
 	title: 'My List',
 	titleMap: [

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
-import UIForm from '@talend/react-forms/lib/UIForm';
 import omit from 'lodash/omit';
 import get from 'lodash/get';
 import { Map } from 'immutable';
@@ -60,7 +59,7 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	const parentKey = schema.key.slice();
 	const key = parentKey.pop();
 	const nameKey = `$${key}_name`;
-	const parentValue = UIForm.utils.properties.getValue(properties, { key: parentKey });
+	const parentValue = Form.UIForm.utils.properties.getValue(properties, { key: parentKey });
 
 	if (names.some(name => name !== undefined)) {
 		parentValue[nameKey] = valueIsArray ? names : names[0];

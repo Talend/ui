@@ -20,6 +20,8 @@ import selectors from './selectors';
 import settings from './settings';
 import localStorage from './localStorage';
 import onError from './onError';
+import reduxStorage from './reduxstorage';
+import * as mock from './mock';
 
 // DEPRECATED APIs
 import action from './action';
@@ -49,6 +51,8 @@ export {
 	Dispatcher,
 	ErrorBoundary,
 	Inject,
+	mock,
+	reduxStorage,
 	sagas,
 	selectors,
 	// DEPRECATED
