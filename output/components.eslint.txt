@@ -278,6 +278,12 @@
   202:15  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
   225:15  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
 
+/home/travis/build/Talend/ui/packages/components/src/Rich/Layout/RichLayout.stories.js
+   9:25  error  Missing file extension for "../../HeaderTitle"        import/extensions
+   9:25  error  Unable to resolve path to module '../../HeaderTitle'  import/no-unresolved
+  10:23  error  Missing file extension for "../RichError"             import/extensions
+  10:23  error  Unable to resolve path to module '../RichError'       import/no-unresolved
+
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
    75:5  warning  React Hook useLayoutEffect has missing dependencies: 'large' and 'minimised'. Either include them or remove the dependency array. If 'setWidth' needs the current value of 'large', you can also switch to useReducer instead of useState and read 'large' in the reducer  react-hooks/exhaustive-deps
    83:5  warning  React Hook useEffect has a missing dependency: 'animation'. Either include it or remove the dependency array                                                                                                                                                               react-hooks/exhaustive-deps
@@ -329,16 +335,6 @@
 /home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.component.js
   62:5  warning  React Hook useEffect has missing dependencies: 'responsive' and 'showTabBarAndTest'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   82:5  warning  React Hook useEffect has a missing dependency: 'responsive'. Either include it or remove the dependency array                            react-hooks/exhaustive-deps
-
-/home/travis/build/Talend/ui/packages/components/src/Table/Body/TableBody.js
-  4:22  error  Unexpected use of file extension "js" for "../Row/TableRow.js"  import/extensions
-
-/home/travis/build/Talend/ui/packages/components/src/Table/Table.stories.js
-  279:2  error  Assignment to property of function parameter 'column'      no-param-reassign
-  315:2  error  Assignment to property of function parameter 'column'      no-param-reassign
-  316:2  error  Assignment to property of function parameter 'column'      no-param-reassign
-  388:2  error  'initialState' PropType is defined but prop is never used  react/no-unused-prop-types
-  393:2  error  'draggable' PropType is defined but prop is never used     react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Toggle/LabelToggle/LabelToggle.component.js
   56:7  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
@@ -403,5 +399,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 214 problems (193 errors, 21 warnings)
+✖ 212 problems (191 errors, 21 warnings)
   15 errors and 0 warnings potentially fixable with the `--fix` option.
