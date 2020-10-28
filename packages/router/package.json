@@ -1,13 +1,13 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "3.3.1",
+  "version": "3.4.0",
   "description": "",
   "main": "lib/index.js",
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
     "prepare": "talend-scripts build:lib",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
+    "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
