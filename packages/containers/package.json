@@ -51,7 +51,7 @@
     "@talend/icons": "^5.26.0",
     "@talend/locales-tui": "^5.6.0",
     "@talend/react-cmf": "^5.26.0",
-    "@talend/react-cmf-router": "^3.2.1",
+    "@talend/react-cmf-router": "^3.4.0",
     "@talend/react-components": "^5.26.0",
     "@talend/react-forms": "^5.26.0",
     "@talend/react-storybook-cmf": "^5.26.0",
