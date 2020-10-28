@@ -1,5 +1,6 @@
 import Stepper from '@talend/react-components/lib/Stepper';
 import stepperReducer from './service/Stepper.reducer';
+import { getStepperKey } from './service/Stepper.utils';
 import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
 import { getStepsForResource, isResourceLoading } from './service/Stepper.selectors';
 import StepperContainer from './containers/Stepper.connect';
@@ -33,6 +34,7 @@ export const StepperUtils = {
 	isAllSuccessful,
 	isErrorInSteps,
 	isStepsLoading,
+	getStepperKey,
 };
 
 export const StepperConstants = {

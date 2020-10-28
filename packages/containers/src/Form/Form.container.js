@@ -8,7 +8,8 @@ import classnames from 'classnames';
 let DefaultArrayFieldTemplate = () => null;
 if (process.env.FORM_MOZ) {
 	// eslint-disable-next-line global-require
-	DefaultArrayFieldTemplate = require('@talend/react-forms/lib/deprecated/templates/ArrayFieldTemplate');
+	DefaultArrayFieldTemplate = require('@talend/react-forms').deprecated.templates
+		.ArrayFieldTemplate;
 }
 
 export const DEFAULT_STATE = new Immutable.Map({});
