@@ -6,6 +6,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepublishOnly": "echo no prepublishOnly",
+    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "rimraf ./dist && webpack -p",
     "start": "webpack-dev-server --port 1337",
     "test": "echo no test for @talend/bootstrap-theme",

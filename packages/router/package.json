@@ -6,6 +6,7 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
+    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "talend-scripts build:lib && talend-scripts build:lib:umd && talend-scripts build:lib:umd --prod",
     "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "start": "echo nothing to start",
