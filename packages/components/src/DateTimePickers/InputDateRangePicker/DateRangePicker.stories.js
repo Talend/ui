@@ -38,6 +38,15 @@ storiesOf('Form/Controls/DatePicker/Date Range', module)
 			onChange={action('onChange')}
 		/>
 	))
+	.add('Input with minWidth', () => (
+		<InputDateRangePicker
+			id="my-date-picker"
+			name="daterange"
+			onBlur={action('onBlur')}
+			onChange={action('onChange')}
+			minWidth={250}
+		/>
+	))
 	.add('Picker', () => (
 		<div style={{ border: '1px solid black', width: 320 }}>
 			<DateManager id="simple" onChange={action('onChange', { depth: 3 })}>
