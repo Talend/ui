@@ -68,7 +68,7 @@ module.exports = ({ config }) => {
 		},
 	);
 	config.plugins = config.plugins.concat(
-		new CopyPlugin([{ from: path.join(iconsDist, 'svg-bundle') }]),
+		new CopyPlugin({ patterns: [{ from: path.join(iconsDist, 'svg-bundle') }] }),
 		new webpack.DefinePlugin({
 			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
 		}),
