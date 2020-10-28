@@ -23,10 +23,6 @@ mkdir -p .static/@talend/react-datagrid/dist
 cp -R packages/datagrid/dist/* .static/@talend/react-datagrid/dist
 echo "✓ Copy datagrid UMD to .static"
 
-mkdir -p .static/@talend/react-faceted-search/dist
-cp -R packages/faceted-search/dist/* .static/@talend/react-faceted-search/dist
-echo "✓ Copy faceted-search UMD to .static"
-
 mkdir -p .static/@talend/react-forms/dist
 cp -R packages/forms/dist/* .static/@talend/react-forms/dist
 echo "✓ Copy forms UMD to .static"

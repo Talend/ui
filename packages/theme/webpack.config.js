@@ -12,6 +12,7 @@ module.exports = () => {
 			publicPath: '/dist',
 			library: 'TalendBootstrapTheme',
 			libraryTarget: 'umd',
+			globalObject: 'this',
 		},
 		module: {
 			rules: [

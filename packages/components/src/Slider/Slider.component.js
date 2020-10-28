@@ -13,8 +13,7 @@ const noFormat = value => value;
 /**
  * Options for controlling slider operator display mode
  */
-// TODO 6.0: do not export, it's attache to the component now
-export const SLIDER_MODE = {
+const SLIDER_MODE = {
 	GREATER_THAN: 'greaterThan',
 	EQUALS: 'equals',
 	EXCLUSIVE: 'exclusive',
@@ -310,4 +309,5 @@ Slider.defaultProps = {
 	captionsFormat: noFormat,
 };
 
+Slider.MODES = SLIDER_MODE;
 export default Slider;

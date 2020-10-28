@@ -59,6 +59,7 @@ import Progress from './Progress';
 import RadarChart from './RadarChart';
 import ResourceList from './ResourceList';
 import ResourcePicker from './ResourcePicker';
+import RatioBar from './RatioBar';
 import Rich from './Rich';
 import SidePanel from './SidePanel';
 import Skeleton from './Skeleton';

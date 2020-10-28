@@ -1,6 +1,3 @@
 {
-  "preset": "@talend/scripts-preset-react-lib",
-  "webpack": {
-    "debug":true
-  }
+  "preset": "@talend/scripts-preset-react-lib"
 }

@@ -6,7 +6,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepare": "talend-scripts build:lib",
-    "prepublishOnly": "talend-scripts build:lib && talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
@@ -33,16 +32,22 @@
     "cmf-settings": "./scripts/cmf-settings.js"
   },
   "dependencies": {
+    "@sentry/browser": "^5.11.1",
     "deepmerge": "^1.5.1",
     "hoist-non-react-statics": "2.5.5",
+    "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "jsonpath": "^1.0.0",
+    "lodash": "^4.17.15",
     "mkdirp": "^1.0.4",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
     "react-immutable-proptypes": "^2.1.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
     "redux-batched-actions": "^0.2.0",
     "redux-batched-subscribe": "^0.1.6",
+    "redux-saga": "^0.15.4",
     "redux-storage": "^4.1.2",
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-decorator-immutablejs": "^1.0.4",
@@ -51,34 +56,21 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@sentry/browser": "^5.11.1",
-    "@talend/babel-plugin-import-from-lib": "^0.0.0",
-    "@talend/scripts-core": "7.0.0-alpha.41",
-    "@talend/scripts-preset-react-lib": "7.0.0-alpha.41",
+    "@talend/scripts-core": "^6.8.2",
+    "@talend/scripts-preset-react-lib": "^6.8.2",
     "enzyme": "^3.11.0",
-    "immutable": "^3.8.1",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.4",
-    "lodash": "^4.17.15",
     "node-fetch": "^1.7.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-redux": "^5.0.7",
     "react-test-renderer": "^16.13.1",
-    "redux": "^3.7.2",
     "redux-mock-store": "^1.2.3",
-    "redux-saga": "^0.15.4",
     "redux-saga-tester": "^1.0.345"
   },
   "peerDependencies": {
-    "@sentry/browser": "^5.11.1",
-    "immutable": "^3.8.1",
-    "lodash": "^4.17.15",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "redux-saga": "^0.15.4"
+    "react-dom": "^16.8.6"
   },
   "publishConfig": {
     "access": "public"
