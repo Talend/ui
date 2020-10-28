@@ -6,7 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = () => {
 	return {
 		entry: './src/index.js',
-		devtool: 'source-map',
 		output: {
 			filename: 'bootstrap.js',
 			path: path.resolve(__dirname, './dist'),
