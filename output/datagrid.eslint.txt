@@ -2,4 +2,9 @@
 /home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultValueRenderer.component.js
   66:4  error  onMouseOver must be accompanied by onFocus for accessibility  jsx-a11y/mouse-events-have-key-events
 
-✖ 1 problem (1 error, 0 warnings)
+/home/travis/build/Talend/ui/packages/datagrid/src/containers/datagrid.container.stories.js
+  6:22  error  '/home/travis/build/Talend/ui/node_modules/@talend/react-cmf/lib/index.js' imported multiple times  import/no-duplicates
+  8:17  error  '/home/travis/build/Talend/ui/node_modules/@talend/react-cmf/lib/index.js' imported multiple times  import/no-duplicates
+
+✖ 3 problems (3 errors, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
