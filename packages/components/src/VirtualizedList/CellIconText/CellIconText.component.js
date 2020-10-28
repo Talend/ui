@@ -52,7 +52,6 @@ CellIconText.propTypes = {
 		}),
 		PropTypes.string,
 	]),
-	rowData: PropTypes.object,
 	columnData: PropTypes.shape({
 		getIcon: PropTypes.func,
 	}).isRequired,

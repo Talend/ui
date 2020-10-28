@@ -1,7 +1,7 @@
 import React from 'react';
 import { Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import { store } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import Container, { DEFAULT_STATE } from './ACKDispatcher.container';
 import Connected, { mapStateToProps } from './ACKDispatcher.connect';
@@ -31,7 +31,7 @@ describe('Container ACKDispatcher', () => {
 		expect(instance.shouldComponentUpdate({ acks: Map({ 123: {} }) })).toBe(true);
 	});
 	it('should render call process acks', () => {
-		const registry = store.registry();
+		const registry = mock.store.registry();
 		const mocked = jest.fn();
 
 		function myActionCreator() {
@@ -58,7 +58,7 @@ describe('Container ACKDispatcher', () => {
 				data: { foo: 'baz' },
 			}),
 		});
-		const registry = store.registry();
+		const registry = mock.store.registry();
 		const mocked = jest.fn();
 
 		function myActionCreator() {
@@ -87,7 +87,7 @@ describe('Container ACKDispatcher', () => {
 			};
 		}
 
-		const registry = store.registry();
+		const registry = mock.store.registry();
 		registry['actionCreator:myActionCreator'] = myActionCreator;
 		const wrapper = shallow(<Container dispatch={dispatch} acks={Map()} />, {
 			context: { registry },
@@ -124,7 +124,7 @@ describe('Container ACKDispatcher', () => {
 				data: { foo: 'baz' },
 			}),
 		});
-		const registry = store.registry();
+		const registry = mock.store.registry();
 		const mocked = jest.fn();
 
 		function myActionCreator() {
