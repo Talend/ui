@@ -3150,7 +3150,7 @@
   dependencies:
     typescript "^3.8.3"
 
-"@talend/scripts-core@^6.8.1":
+"@talend/scripts-core@^6.8.2":
   version "6.8.2"
   resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-6.8.2.tgz#8c5f74631e39a9b4d4c8add6b6d54178f722ec8d"
   integrity sha512-O/wHwxVn66VFoHmYKOlP/xU3EdXSsoixvwRiOM8BP4PsoVGZ151Dh66IfNgr3sv4lfAAmKnf2MubFOQzRTQrEA==
@@ -3168,7 +3168,7 @@
     which "^2.0.1"
     yargs "^15.3.0"
 
-"@talend/scripts-preset-react-lib@^6.3.0", "@talend/scripts-preset-react-lib@^6.8.1":
+"@talend/scripts-preset-react-lib@^6.8.2":
   version "6.8.2"
   resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-6.8.2.tgz#d6835b29ba29134644bc683c75430c0aedd55f28"
   integrity sha512-nXUndxMvnEkMBAC6H6M4ZQKsemdKpm/UsR6wqsD8RWJIoocsNZySeaY6bYc0CD3aZL7Ys3UrCyMbooLkrHhNvA==
