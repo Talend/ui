@@ -69,3 +69,15 @@ exports[`Icon should support extra props 1`] = `
   />
 </svg>
 `;
+
+exports[`Icon should support remote svg 1`] = `
+<Icon
+  name="remote-/assets/icons/my-icon.svg"
+/>
+`;
+
+exports[`Icon should support remote svg 2`] = `
+<Icon
+  name="remote-/assets/icons/my-icon.svg"
+/>
+`;
