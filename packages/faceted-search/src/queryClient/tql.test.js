@@ -416,4 +416,40 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual("(Title containsIgnoreCase 'Dataset Title')");
 	});
+	it('should handle a pattern operator', () => {
+		// Given
+		const badge = [
+			{
+				properties: {
+					attribute: 'name',
+					operator: {
+						name: 'complies',
+					},
+					value: '[aaa]',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badge);
+		// Then
+		expect(result).toEqual("(name complies '[aaa]')");
+	});
+	it('should handle a word pattern operator', () => {
+		// Given
+		const badge = [
+			{
+				properties: {
+					attribute: 'name',
+					operator: {
+						name: 'wordComplies',
+					},
+					value: '[word]',
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badge);
+		// Then
+		expect(result).toEqual("(name wordComplies '[word]')");
+	});
 });

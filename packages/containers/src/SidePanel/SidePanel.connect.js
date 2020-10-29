@@ -43,7 +43,7 @@ function isBasePathOf(actionPath, currentPath) {
 	if (currentPath.length < length) {
 		return false;
 	}
-	return actionPath === currentPath.slice(0, length) && currentPath[length] === '/';
+	return actionPath === currentPath.slice(0, length) && ['/', '#'].includes(currentPath[length]);
 }
 
 /**
@@ -139,7 +139,7 @@ function getActions(state, ownProps, currentRoute) {
 
 export function mapStateToProps(state, ownProps) {
 	const props = {};
-	const currentRoute = routerAPI.selectors.getPath(state);
+	const currentRoute = routerAPI.selectors.getPath(state, true /* with hash */);
 	props.actions = getActions(state, ownProps, currentRoute);
 	if (ownProps.actions) {
 		props.selected = getSelectedAction(currentRoute, props.actions);

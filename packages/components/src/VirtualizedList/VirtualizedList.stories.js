@@ -396,7 +396,7 @@ function CollapsiblePanels(props) {
 					}}
 					onScroll={action('onScroll')}
 					id="my-list"
-					type={VirtualizedList.listTypes.COLLAPSIBLE_PANEL}
+					type={VirtualizedList.LIST_TYPES.COLLAPSIBLE_PANEL}
 				/>
 			</section>
 		</div>
@@ -712,7 +712,7 @@ storiesOf('Data/List/VirtualizedList', module)
 					collection={collection}
 					id="my-list"
 					rowHeight={135}
-					type={VirtualizedList.listTypes.LARGE}
+					type={VirtualizedList.LIST_TYPES.LARGE}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
@@ -749,7 +749,7 @@ storiesOf('Data/List/VirtualizedList', module)
 					onRowDoubleClick={action('doubleClick')}
 					rowHeight={135}
 					selectionToggle={action('selectionToggle')}
-					type={VirtualizedList.listTypes.LARGE}
+					type={VirtualizedList.LIST_TYPES.LARGE}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
@@ -785,7 +785,7 @@ storiesOf('Data/List/VirtualizedList', module)
 					isActive={item => item.id === 6}
 					onRowClick={action('onRowClick')}
 					rowHeight={135}
-					type={VirtualizedList.listTypes.LARGE}
+					type={VirtualizedList.LIST_TYPES.LARGE}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />

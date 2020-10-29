@@ -37,6 +37,7 @@ export const BadgeCheckboxes = ({
 	value,
 	category,
 	values,
+	displayType,
 	t,
 }) => {
 	const currentOperators = useMemo(() => operators, [operators]);
@@ -46,6 +47,7 @@ export const BadgeCheckboxes = ({
 	return (
 		<BadgeFaceted
 			badgeId={id}
+			displayType={displayType}
 			id={badgeCheckboxesId}
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
@@ -97,4 +99,5 @@ BadgeCheckboxes.propTypes = {
 	removable: PropTypes.bool,
 	values: PropTypes.array,
 	t: PropTypes.func.isRequired,
+	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 };

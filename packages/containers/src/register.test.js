@@ -1,13 +1,21 @@
 import cmf from '@talend/react-cmf';
 import { registerAllContainers } from './register';
 
-jest.mock('@talend/react-cmf', () => ({
-	component: {
-		registerMany: () => {},
-	},
-	cmfConnect: () => component => component,
-	componentState: {},
-}));
+jest.mock('@talend/react-cmf', () => {
+	const original = jest.requireActual('@talend/react-cmf');
+	return {
+		...original, // Pass down all the exported objects
+		default: {
+			...original.default,
+			component: {
+				registerMany: () => {},
+			},
+			cmfConnect: () => component => component,
+			componentState: {},
+		},
+		__esModule: true,
+	};
+});
 
 jest.mock('@talend/react-cmf-router', () => ({
 	routerAPI: {

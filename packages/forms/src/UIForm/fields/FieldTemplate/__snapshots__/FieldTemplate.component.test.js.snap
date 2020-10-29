@@ -45,6 +45,7 @@ exports[`FieldTemplate should render invalid className 1`] = `
 
 exports[`FieldTemplate should render with hint 1`] = `
 <OverlayTrigger
+  defaultOverlayShown={false}
   overlayComponent={
     <span>
       Tooltip content, which helps to understand what is the purpose of this field
@@ -52,7 +53,12 @@ exports[`FieldTemplate should render with hint 1`] = `
   }
   overlayId="myAwesomeField-hint-overlay"
   overlayPlacement="top"
-  preventScrolling={false}
+  trigger={
+    Array [
+      "hover",
+      "focus",
+    ]
+  }
 >
   <Button
     active={false}

@@ -41,7 +41,7 @@ module.exports = ({ config }) => {
 				{
 					loader: 'sass-loader',
 					options: {
-						data: SASS_DATA,
+						prependData: SASS_DATA,
 					},
 				},
 			],
@@ -61,14 +61,14 @@ module.exports = ({ config }) => {
 				{
 					loader: 'sass-loader',
 					options: {
-						data: SASS_DATA,
+						prependData: SASS_DATA,
 					},
 				},
 			],
 		},
 	);
 	config.plugins = config.plugins.concat(
-		new CopyPlugin([{ from: path.join(iconsDist, 'svg-bundle') }]),
+		new CopyPlugin({ patterns: [{ from: path.join(iconsDist, 'svg-bundle') }] }),
 		new webpack.DefinePlugin({
 			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
 		}),

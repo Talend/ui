@@ -66,7 +66,9 @@ export async function handleBody(response) {
  */
 export async function handleHttpResponse(response) {
 	if (!testHTTPCode.isSuccess(response.status)) {
-		throw new Error(response);
+		const error = new Error(response.status);
+		error.response = response;
+		throw error;
 	}
 	if (response.status === HTTP_STATUS.NO_CONTENT) {
 		return {

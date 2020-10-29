@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components/lib/Actions';
 import Connected, {
 	mapStateToProps,
@@ -66,7 +66,7 @@ describe('Container(ActionDropdown)', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render with items', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const actionIds = ['menu:article'];
 		const items = [{ label: 'Foo', actionCreator: 'menu:item' }];
 		const wrapper = shallow(

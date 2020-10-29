@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import Immutable from 'immutable';
 
 import Component from './SelectObject.component';
@@ -9,7 +9,7 @@ import Connected, { mapStateToProps } from './SelectObject.connect';
 
 describe('Component SelectObject', () => {
 	it('should render', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const item = new Immutable.Map({ id: '1', name: 'foo' });
 		const props = {
 			id: 'my-tree',
@@ -33,17 +33,17 @@ describe('Component SelectObject', () => {
 
 describe('Container SelectObject', () => {
 	it('should render', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const wrapper = shallow(<Container />, { context });
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should propagate extra props', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const wrapper = shallow(<Container extra="foo" />, { context });
 		expect(wrapper.props().extra).toBe('foo');
 	});
 	it('should default props with Tree map the selectedId and onTreeClick', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const tree = {};
 		const item = new Immutable.Map({ id: '1', name: 'foo' });
 		const sourceData = new Immutable.List([item]);
@@ -67,7 +67,7 @@ describe('Container SelectObject', () => {
 		});
 	});
 	it('should set selectedId props to the only matched item if nothing selected', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const tree = {};
 		const item1 = new Immutable.Map({ id: '1', name: 'foo' });
 		const item2 = new Immutable.Map({ id: '2', name: 'bar' });
@@ -368,7 +368,7 @@ describe('Connected SelectObject', () => {
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
 	it('should map state to props', () => {
-		const state = mock.state();
+		const state = mock.store.state();
 		const data = new Immutable.List([
 			new Immutable.Map({ label: 'foo' }),
 			new Immutable.Map({ label: 'bar' }),

@@ -28,3 +28,5 @@ export { default as SubHeaderBar } from './SubHeaderBar';
 export { default as EditableText } from './EditableText';
 export { default as Typeahead } from './Typeahead';
 export { default as TabBar } from './TabBar';
+export { default as Slider } from './Slider';
+export { default as ComponentForm } from './ComponentForm';

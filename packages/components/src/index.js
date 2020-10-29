@@ -56,9 +56,11 @@ import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
 import PieChart from './PieChart';
 import Progress from './Progress';
+import QualityBar from './QualityBar';
 import RadarChart from './RadarChart';
 import ResourceList from './ResourceList';
 import ResourcePicker from './ResourcePicker';
+import RatioBar from './RatioBar';
 import Rich from './RichTooltip';
 import SidePanel from './SidePanel';
 import Skeleton from './Skeleton';
@@ -208,7 +210,9 @@ export {
 	// TODO 6.0: export OverlayTrigger here. For now there is already an OverlayTrigger from react-bootstrap
 	PieChart,
 	Progress,
+	QualityBar,
 	RadarChart,
+	RatioBar,
 	ResourceList,
 	ResourcePicker,
 	Rich,
