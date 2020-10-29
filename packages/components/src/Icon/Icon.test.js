@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
 import Icon from './Icon.component';
@@ -51,25 +50,37 @@ describe('Icon', () => {
 		const wrapper = shallow(<Icon name="svg-dd" className="custom-class" data-custom="hello" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should support remote svg', () => {
-		// mock jest
-		const mockSuccessResponse = {
-			status: 200,
-			ok: true,
-		};
-		const mockJsonPromise = Promise.resolve(mockSuccessResponse); // 2
-		const mockFetchPromise = Promise.resolve({
-			text: () => mockJsonPromise,
+	it('should support remote svg', async () => {
+		const cache = {};
+		const mockIconResponseText = new Promise(resolve => {
+			cache.resolve = () => {
+				resolve('<svg><g><path d=""/></g></svg>');
+				return Promise.resolve({});
+			};
+		});
+		const mockFetchPromise = new Promise(resolve => {
+			cache.first = () => {
+				resolve({
+					status: 200,
+					ok: true,
+					headers: {
+						get: () => 'image/svg+xml',
+					},
+					text: () => mockIconResponseText,
+				});
+				return Promise.resolve({});
+			};
 		});
 		jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 		// test first render
 		const wrapper = mount(<Icon name="remote-/assets/icons/my-icon.svg" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
-		wrapper.update();
 
-		// act(() => {
-		// 	ReactDOM.render(<Icon name="remote-/assets/icons/my-icon.svg" />, container);
-		// });
+		await act(async () => {
+			await cache.first();
+			await cache.resolve();
+			wrapper.update();
+		});
 
 		// expect(container.querySelector('svg')).toMatchSnapshot();
 		// act(() => {
@@ -80,6 +91,9 @@ describe('Icon', () => {
 		expect(global.fetch).toHaveBeenCalledWith('/assets/icons/my-icon.svg', {
 			headers: { Accept: 'image/svg+xml' },
 		});
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const instance = wrapper.children().getElement();
+		const ref = {};
+		instance.ref(ref);
+		expect(ref.innerHTML).toMatchSnapshot();
 	});
 });

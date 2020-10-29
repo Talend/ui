@@ -26,18 +26,6 @@ export function getIconHREF(name) {
 }
 
 /**
- * clone the icon with the id and add it to the container
- * @param {string} id
- * @param {Element} container
- */
-function injectIcon(id, container) {
-	const element = document.querySelector(`.tc-iconsprovider #${id}`);
-	if (element) {
-		container.appendChild(element.children[0].cloneNode(true));
-	}
-}
-
-/**
  * If you want to use Icon with SVG you have to load this
  * component in your app.
  * If you don't pass any props you will have our default
@@ -76,5 +64,4 @@ IconsProvider.propTypes = {
 };
 
 IconsProvider.getIconHREF = getIconHREF;
-IconsProvider.injectIcon = injectIcon;
 export default IconsProvider;

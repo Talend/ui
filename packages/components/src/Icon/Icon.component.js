@@ -3,7 +3,6 @@ import React from 'react';
 import classnames from 'classnames';
 
 import theme from './Icon.scss';
-import IconsProvider from '../IconsProvider';
 
 const FA_TRANSFORMS = {
 	spin: 'fa-spin',
@@ -104,8 +103,6 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 				if (isRemote && content && content.includes('svg')) {
 					// eslint-disable-next-line no-param-reassign
 					ref.innerHTML = content;
-				} else if (!content && !isRemote) {
-					IconsProvider.injectIcon(name, ref);
 				}
 			}}
 			{...accessibility}

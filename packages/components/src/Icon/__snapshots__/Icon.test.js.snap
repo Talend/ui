@@ -77,7 +77,10 @@ exports[`Icon should support remote svg 1`] = `
 `;
 
 exports[`Icon should support remote svg 2`] = `
-<Icon
-  name="remote-/assets/icons/my-icon.svg"
-/>
+<svg>
+  <g>
+    <path d>
+    </path>
+  </g>
+</svg>
 `;
