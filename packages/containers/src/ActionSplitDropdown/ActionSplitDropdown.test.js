@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import Connected, {
 	mapStateToProps,
 	ContainerActionSplitDropdown,
@@ -12,7 +12,7 @@ describe('Connect(CMF(Container(ActionSplitDropdown)))', () => {
 		expect(Connected.WrappedComponent).toBe(ContainerActionSplitDropdown);
 	});
 	it('should map state to props', () => {
-		const state = mock.state();
+		const state = mock.store.state();
 		const actionId = 'menu:article';
 		const actionIds = ['menu:items'];
 		const props = mapStateToProps(state, { actionId, actionIds });
@@ -27,7 +27,7 @@ describe('Connect(CMF(Container(ActionSplitDropdown)))', () => {
 
 describe('Container(ActionSplitDropdown)', () => {
 	it('should render', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const wrapper = shallow(
 			<ContainerActionSplitDropdown
 				foo="extra"
