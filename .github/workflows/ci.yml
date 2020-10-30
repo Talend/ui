@@ -1,32 +1,32 @@
 name: Faceted search CI
 
 on:
-  pull_request:
-    branches: [master, develop, main]
+    pull_request:
+        branches: [master, develop, main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Build and test
+    build:
+        runs-on: ubuntu-latest
+        name: Build and test
 
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v2
+        steps:
+            - name: Checkout sources
+              uses: actions/checkout@v2
 
-      - name: Use Node.js 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
+            - name: Use Node.js 14
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14
+                  registry-url: 'https://registry.npmjs.org/'
+                  scope: '@talend'
 
-      - name: Install
-        run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+            - name: Install
+              run: yarn install --frozen-lockfile
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - name: Test
-        run: yarn test
+            - name: Test
+              run: yarn test
 
-      - name: Lint
-        run: yarn lint:es
+            - name: Lint
+              run: yarn lint:es
