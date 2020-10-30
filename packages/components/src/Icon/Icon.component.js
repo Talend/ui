@@ -40,6 +40,7 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 	const imgSrc = name.replace('remote-', '').replace('src-', '');
 	const [contentType, setContentType] = React.useState();
 	const [content, setContent] = React.useState();
+	const ref = React.useRef();
 	React.useEffect(() => {
 		if (isRemote) {
 			fetch(imgSrc, {
@@ -66,6 +67,15 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 				});
 		}
 	}, [imgSrc, isRemote]);
+	React.useEffect(() => {
+		if (!ref) {
+			return;
+		}
+		if (isRemote && content && content.includes('svg') && !content.includes('script')) {
+			// eslint-disable-next-line no-param-reassign
+			ref.current.innerHTML = content;
+		}
+	}, [isRemote, ref, content]);
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -93,21 +103,7 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		SVG_TRANSFORMS[transform],
 	);
 	let iconElement = (
-		<svg
-			name={name}
-			className={classname}
-			ref={ref => {
-				if (!ref) {
-					return;
-				}
-				if (isRemote && content && content.includes('svg')) {
-					// eslint-disable-next-line no-param-reassign
-					ref.innerHTML = content;
-				}
-			}}
-			{...accessibility}
-			{...props}
-		>
+		<svg name={name} className={classname} ref={ref} {...accessibility} {...props}>
 			{isRemote ? undefined : <use xlinkHref={`#${name}`} />}
 		</svg>
 	);
