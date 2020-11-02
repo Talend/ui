@@ -37,7 +37,7 @@ export default class MultiSelectTag extends React.Component {
 			itemsList: theme.items,
 		};
 
-        this.onBlur = this.onBlur.bind(this);
+		this.onBlur = this.onBlur.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
