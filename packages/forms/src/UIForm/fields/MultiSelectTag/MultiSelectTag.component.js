@@ -91,9 +91,9 @@ export default class MultiSelectTag extends React.Component {
 	}
 
 	onBlur(event) {
-	    if (this.props.onBlur) {
-	        this.props.onBlur(event);
-	    }
+		if (this.props.onBlur) {
+			this.props.onBlur(event);
+		}
 	}
 
 	/**
