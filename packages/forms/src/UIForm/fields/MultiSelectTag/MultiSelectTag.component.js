@@ -37,6 +37,7 @@ export default class MultiSelectTag extends React.Component {
 			itemsList: theme.items,
 		};
 
+        this.onBlur = this.onBlur.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
@@ -87,6 +88,10 @@ export default class MultiSelectTag extends React.Component {
 			default:
 				break;
 		}
+	}
+
+	onBlur(event) {
+		this.props.onBlur && this.props.onBlur(event);
 	}
 
 	/**
@@ -255,6 +260,7 @@ export default class MultiSelectTag extends React.Component {
 							onFocus={this.onFocus}
 							onKeyDown={this.onKeyDown}
 							onSelect={this.onAddTag}
+							onBlur={this.onBlur}
 							placeholder={schema.placeholder}
 							readOnly={schema.readOnly || false}
 							theme={this.theme}
@@ -280,6 +286,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		errors: PropTypes.object,
 		resolveName: PropTypes.func,
+		onBlur: PropTypes.func,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func.isRequired,

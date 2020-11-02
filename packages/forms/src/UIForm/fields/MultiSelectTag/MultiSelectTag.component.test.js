@@ -217,4 +217,20 @@ describe('MultiSelectTag field', () => {
 		// then
 		expect(firstLabel).toBe('aze_name');
 	});
+
+	it('should call onBlur when blurring the input', () => {
+    		// given
+            const onBlur = jest.fn();
+    		const propsWithBlur = {...props, onBlur: onBlur}
+    		const wrapper = mount(<MultiSelectTag {...propsWithBlur} />);
+
+    		// when
+    		wrapper
+    			.find('input')
+    			.at(0)
+    			.simulate('blur');
+
+    		// then
+    		expect(onBlur).toHaveBeenCalled();
+    	});
 });
