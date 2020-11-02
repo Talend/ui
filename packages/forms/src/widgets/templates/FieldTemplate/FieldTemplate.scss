@@ -3,3 +3,11 @@
 .inProgress {
 	@include heartbeat(object-blink);
 }
+
+:global(.form-group.required) {
+	:global {
+		.control-label:after {
+			content: '*';
+		}
+    }
+}
