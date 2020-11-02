@@ -8,7 +8,7 @@ function FieldTemplate(props) {
 	const groupsClassNames = classNames('form-group', {
 		'has-error': props.error,
 		[theme.inProgress]: props.inProgress,
-        required: props.required,
+		required: props.required,
 	});
 
 	return (
