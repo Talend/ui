@@ -69,6 +69,12 @@ storiesOf('Messaging & Communication/Icon', module)
 			</ul>
 		</div>
 	))
+	.add('remote svg', () => (
+		<div>
+			<p>You can use Icon with a name starting with remote-. For example here we</p>
+			<Icon name="remote-/svg/svg/brands/azure.svg" />
+		</div>
+	))
 	.add('svg transform', () => (
 		<div>
 			<IconsProvider />
