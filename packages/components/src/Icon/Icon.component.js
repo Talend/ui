@@ -68,10 +68,7 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 	}, [imgSrc, isRemote]);
 
 	React.useEffect(() => {
-		if (!ref) {
-			return;
-		}
-		if (isRemoteSVG) {
+		if (ref.current && isRemoteSVG) {
 			// eslint-disable-next-line no-param-reassign
 			ref.current.innerHTML = content;
 		}
