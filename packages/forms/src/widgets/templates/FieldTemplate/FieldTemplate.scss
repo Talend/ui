@@ -4,10 +4,6 @@
 	@include heartbeat(object-blink);
 }
 
-:global(.form-group.required) {
-	:global {
-		.control-label:after {
-			content: '*';
-		}
-	}
+:global(.form-group.required .control-label):after {
+	content: '*';
 }
