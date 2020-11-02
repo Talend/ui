@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { tint } from 'polished';
+
 import Menu, { MenuProps } from '../Menu';
+
 import tokens from '../../../tokens';
 
 import * as S from '../Menu.style';

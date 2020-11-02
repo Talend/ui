@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import Link from '../Link';
 import { transparentize } from 'polished';
 
 import Button from '../Button';
+import Link from '../Link';
 
 import tokens from '../../tokens';
 
