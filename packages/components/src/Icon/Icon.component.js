@@ -38,7 +38,6 @@ const TRANSFORMS = Object.keys(SVG_TRANSFORMS);
 function Icon({ className, name, title, transform, onClick, ...props }) {
 	const isRemote = name.startsWith('remote-');
 	const imgSrc = name.replace('remote-', '').replace('src-', '');
-	const [contentType, setContentType] = React.useState();
 	const [content, setContent] = React.useState();
 	const ref = React.useRef();
 	const isRemoteSVG = isRemote && content && content.includes('svg') && !content.includes('script');
@@ -52,7 +51,6 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 				.then(response => {
 					if (response.status === 200 && response.ok) {
 						response.text().then(data => {
-							setContentType(response.headers.get('Content-Type'));
 							setContent(data);
 						});
 					} else {
