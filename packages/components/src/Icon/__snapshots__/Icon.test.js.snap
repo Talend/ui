@@ -77,10 +77,16 @@ exports[`Icon should support remote svg 1`] = `
 `;
 
 exports[`Icon should support remote svg 2`] = `
-<svg>
-  <g>
-    <path d>
-    </path>
-  </g>
+<svg name="remote-/assets/icons/my-icon.svg"
+     class="theme-tc-svg-icon tc-svg-icon"
+     focusable="false"
+     aria-hidden="true"
+>
+  <svg>
+    <g>
+      <path d>
+      </path>
+    </g>
+  </svg>
 </svg>
 `;

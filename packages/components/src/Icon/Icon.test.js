@@ -4,18 +4,6 @@ import { act } from 'react-dom/test-utils';
 
 import Icon from './Icon.component';
 
-let container;
-
-beforeEach(() => {
-	container = document.createElement('div');
-	document.body.appendChild(container);
-});
-
-afterEach(() => {
-	document.body.removeChild(container);
-	container = null;
-});
-
 describe('Icon', () => {
 	it('should render fontawesome', () => {
 		const wrapper = shallow(<Icon name="fa-bars" />);
@@ -82,18 +70,10 @@ describe('Icon', () => {
 			wrapper.update();
 		});
 
-		// expect(container.querySelector('svg')).toMatchSnapshot();
-		// act(() => {
-		// 	setTimeout(() => {}, 1);
-		// });
-		// expect(container.querySelector('svg')).toMatchSnapshot();
 		expect(global.fetch).toHaveBeenCalledTimes(1);
 		expect(global.fetch).toHaveBeenCalledWith('/assets/icons/my-icon.svg', {
 			headers: { Accept: 'image/svg+xml' },
 		});
-		const instance = wrapper.children().getElement();
-		const ref = {};
-		instance.ref(ref);
-		expect(ref.innerHTML).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 });

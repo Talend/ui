@@ -41,6 +41,7 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 	const [contentType, setContentType] = React.useState();
 	const [content, setContent] = React.useState();
 	const ref = React.useRef();
+	const isRemoteSVG = isRemote && content && content.includes('svg') && !content.includes('script');
 	React.useEffect(() => {
 		if (isRemote) {
 			fetch(imgSrc, {
@@ -67,15 +68,16 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 				});
 		}
 	}, [imgSrc, isRemote]);
+
 	React.useEffect(() => {
 		if (!ref) {
 			return;
 		}
-		if (isRemote && content && content.includes('svg') && !content.includes('script')) {
+		if (isRemoteSVG) {
 			// eslint-disable-next-line no-param-reassign
 			ref.current.innerHTML = content;
 		}
-	}, [isRemote, ref, content]);
+	}, [isRemoteSVG, ref, content]);
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -107,7 +109,7 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 			{isRemote ? undefined : <use xlinkHref={`#${name}`} />}
 		</svg>
 	);
-	if (content && contentType && !content.includes('svg') && isRemote) {
+	if (isRemote && content && !isRemoteSVG) {
 		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
 		iconElement = (
 			<img
