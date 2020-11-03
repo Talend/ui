@@ -246,7 +246,8 @@ storiesOf('Data/List/List Composition', module)
 >
 	<List.Toolbar>
 		<List.Toolbar.Right>
-			<List.TextFilter id="my-list-textFilter" />
+			<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
+			<List.ColumnChooser />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -256,10 +257,15 @@ storiesOf('Data/List/List Composition', module)
 `}
 			</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection}>
+				<List.Manager
+					id="my-list"
+					collection={simpleCollection}
+					initialVisibleColumns={['id', 'name']}
+				>
 					<List.Toolbar>
 						<List.Toolbar.Right>
-							<List.TextFilter id="my-list-textFilter" />
+							<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
+							<List.ColumnChooser />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />

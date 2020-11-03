@@ -7,7 +7,7 @@ import LazyLoadingList from './LazyLoadingList.component';
 import { ListContext } from '../context';
 
 describe('LazyLoadingList', () => {
-	const defaultContext = { collection: [] };
+	const defaultContext = { collection: [], setColumns: jest.fn()  };
 
 	it('should render lazy loading list component', () => {
 		// when

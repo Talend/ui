@@ -1,4 +1,5 @@
 import useLocalStorage from 'react-use/lib/useLocalStorage';
+import ColumnChooser from './ColumnChooser';
 import DisplayMode from './DisplayMode';
 import ItemsNumber from './ItemsNumber';
 import LazyLoadingList from './LazyLoadingList';
@@ -20,6 +21,7 @@ export default {
 	Manager,
 	SortBy,
 	TextFilter,
+	ColumnChooser,
 	Toolbar,
 	VList,
 };

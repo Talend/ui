@@ -12,6 +12,7 @@ describe('TextFilter', () => {
 	const defaultContext = {
 		textFilter: '',
 		setTextFilter: jest.fn(),
+		setFilteredColumns: jest.fn(),
 		t: getDefaultT(),
 	};
 

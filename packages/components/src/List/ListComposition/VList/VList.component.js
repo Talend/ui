@@ -7,13 +7,20 @@ import { DISPLAY_MODE, SORT } from '../constants';
 
 import theme from '../List.scss';
 
-function VList(props) {
+function VList({ children, ...rest }) {
 	const {
 		displayMode = DISPLAY_MODE.TABLE,
 		collection,
+		visibleColumns,
 		setSortParams,
 		sortParams,
+		setColumns,
 	} = useListContext();
+
+	React.useEffect(() => {
+		setColumns(children?.filter(column => column.props?.dataKey).map(column => column.props));
+	}, []);
+
 	return (
 		<div className={theme.vlist}>
 			<VirtualizedList
@@ -24,8 +31,12 @@ function VList(props) {
 				sort={({ sortBy, sortDirection }) =>
 					setSortParams({ sortBy, isDescending: sortDirection === SORT.DESC })
 				}
-				{...props}
-			/>
+				{...rest}
+			>
+				{visibleColumns
+					? children.filter(column => visibleColumns.includes(column.props?.dataKey))
+					: children}
+			</VirtualizedList>
 		</div>
 	);
 }

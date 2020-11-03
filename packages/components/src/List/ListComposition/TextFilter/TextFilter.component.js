@@ -4,12 +4,16 @@ import { useListContext } from '../context';
 import FilterBar from '../../../FilterBar';
 
 function TextFilter(props) {
-	const { docked, initialDocked, onChange, onToggle, value, ...restProps } = props;
-	const { textFilter, setTextFilter } = useListContext();
+	const { docked, applyOn, initialDocked, onChange, onToggle, value, ...restProps } = props;
+	const { textFilter, setTextFilter, setFilteredColumns } = useListContext();
 	const [dockedState, setDocked] = useState(initialDocked);
 
 	const isToggleControlled = onToggle;
 	const isFilterControlled = onChange;
+
+	React.useEffect(() => {
+		setFilteredColumns(applyOn);
+	}, [applyOn]);
 
 	const onFilterFunction = isFilterControlled ? onChange : (_, val) => setTextFilter(val);
 	const onToggleUncontrolled = () => {
@@ -39,6 +43,7 @@ TextFilter.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	TextFilter.propTypes = {
 		docked: PropTypes.bool,
+		applyOn: PropTypes.arrayOf(PropTypes.string),
 		initialDocked: PropTypes.bool,
 		onChange: PropTypes.func,
 		onToggle: PropTypes.func,
