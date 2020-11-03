@@ -4,14 +4,14 @@ import { getStepperKey } from './service/Stepper.utils';
 import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
 import { getStepsForResource, isResourceLoading } from './service/Stepper.selectors';
 import StepperContainer from './containers/Stepper.connect';
-import { STATE_KEY, LOADING_STEP_STATUSES } from './Stepper.constants';
+import * as constants from './Stepper.constants';
 
 const { isAllSuccessful, isStepsLoading, isErrorInSteps } = Stepper;
 
 const cmfModule = {
 	id: 'dataset-stepper',
 	reducer: {
-		[STATE_KEY]: stepperReducer,
+		[constants.STATE_KEY]: stepperReducer,
 	},
 };
 
@@ -37,8 +37,6 @@ export const StepperUtils = {
 	getStepperKey,
 };
 
-export const StepperConstants = {
-	LOADING_STEP_STATUSES,
-};
+export const StepperConstants = constants;
 
 export default cmfModule;
