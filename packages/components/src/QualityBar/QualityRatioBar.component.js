@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '../theme';
 import qualityBarTheme from './QualityRatioBar.scss';
-import { RatioBarLine } from '../RatioBar/RatioBarComposition.component';
+import RatioBar from '../RatioBar';
 
 const theme = getTheme(qualityBarTheme);
 
@@ -28,7 +28,7 @@ function formatNumber(value = '') {
 
 export function QualityInvalidLine({ value, percentage, t }) {
 	return (
-		<RatioBarLine
+		<RatioBar.Line
 			percentage={percentage}
 			tooltipLabel={t('INVALID_VALUES', {
 				defaultValue: '{{value}} invalid value ({{percentage}}%)',
@@ -46,7 +46,7 @@ QualityInvalidLine.propTypes = qualityBarLinePropTypes;
 
 export function QualityValidLine({ value, percentage, t }) {
 	return (
-		<RatioBarLine
+		<RatioBar.Line
 			percentage={percentage}
 			tooltipLabel={t('VALID_VALUES', {
 				defaultValue: '{{value}} valid value ({{percentage}}%)',
@@ -64,7 +64,7 @@ QualityValidLine.propTypes = qualityBarLinePropTypes;
 
 export function QualityEmptyLine({ value, percentage, t }) {
 	return (
-		<RatioBarLine
+		<RatioBar.Line
 			percentage={percentage}
 			tooltipLabel={t('EMPTY_VALUES', {
 				defaultValue: '{{value}} empty value ({{percentage}}%)',

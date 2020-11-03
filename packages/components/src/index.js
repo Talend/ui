@@ -60,7 +60,7 @@ import QualityBar from './QualityBar';
 import RadarChart from './RadarChart';
 import ResourceList from './ResourceList';
 import ResourcePicker from './ResourcePicker';
-import RatioBar, { RatioBarLine, RatioBarComposition } from './RatioBar';
+import RatioBar from './RatioBar';
 import Rich from './RichTooltip';
 import SidePanel from './SidePanel';
 import Skeleton from './Skeleton';
@@ -213,8 +213,6 @@ export {
 	QualityBar,
 	RadarChart,
 	RatioBar,
-	RatioBarLine,
-	RatioBarComposition,
 	ResourceList,
 	ResourcePicker,
 	Rich,

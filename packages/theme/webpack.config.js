@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -7,8 +8,10 @@ module.exports = () => {
 		entry: './src/index.js',
 		output: {
 			filename: 'bootstrap.js',
-			path: `${__dirname}/dist`,
-			publicPath: '/dist',
+			path: path.resolve(__dirname, './dist'),
+			library: 'TalendBootstrapTheme',
+			libraryTarget: 'umd',
+			globalObject: 'this',
 		},
 		module: {
 			rules: [
