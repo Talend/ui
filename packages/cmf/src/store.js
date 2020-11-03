@@ -76,7 +76,6 @@ function getReducer(appReducer) {
 	let reducerObject = {};
 	if (appReducer) {
 		if (typeof appReducer === 'object') {
-			// TODO LOOP RECUSIVLY
 			reducerObject = { ...appReducer };
 		} else if (typeof appReducer === 'function') {
 			reducerObject = { app: appReducer };
