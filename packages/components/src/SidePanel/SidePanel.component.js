@@ -110,14 +110,15 @@ function SidePanel({
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse menu' });
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
+	const Component = reverse ? Menu.Reversed : Menu;
 	return (
-		<Menu id={id} className={navCSS} ref={ref} {...rest}>
+		<Component id={id} className={navCSS} ref={ref} {...rest}>
 				{actions.map(({ icon, label, ...action }, index) => (
 					<Menu.Item key={index} iconBefore={icon} {...action}>
 						{label}
 					</Menu.Item>
 				))}
-		</Menu>
+		</Component>
 	);
 	/*
 		<nav

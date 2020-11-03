@@ -23,6 +23,11 @@ addDecorator(
 );
 addDecorator(withA11y);
 
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+addDecorator(storyFn => (
+	<ThemeProvider>
+		<ThemeProvider.GlobalStyle />
+		{storyFn()}
+	</ThemeProvider>
+));
 
 configure([require.context('../src', true, /\.stories\.js$/)], module);
