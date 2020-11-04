@@ -5,6 +5,8 @@ import ItemPropTypes from './Item.propTypes';
 import Action from '../../../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import Checkbox from '../../../Checkbox';
+import Icon from '../../../Icon';
+import TooltipTrigger from '../../../TooltipTrigger';
 
 class Item extends Component {
 	componentDidUpdate(prevProps) {
@@ -66,6 +68,13 @@ class Item extends Component {
 					label={searchCriteria ? getSearchedLabel(item.label) : item.label}
 					aria-label={ariaLabel}
 				/>
+				{item.icon && (
+					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+						<span>
+							<Icon {...item.icon} aria-hidden="false" />
+						</span>
+					</TooltipTrigger>
+				)}
 				{children && (
 					<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })}>
 						<Action

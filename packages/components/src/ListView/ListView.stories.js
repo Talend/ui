@@ -113,6 +113,24 @@ const withNestedItems = {
 	showToggleAll: false,
 };
 
+const withIconProps = {
+	...props,
+	items: [
+		{	label: 'Lorem',
+			icon: {
+				name: 'talend-warning',
+				title: 'A warning',
+			},
+		},
+		{	label: 'Ipsum',
+			icon: {
+				name: 'talend-world',
+				title: 'The world',
+			},
+		},
+	],
+}
+
 storiesOf('Form/Controls/ListView', module)
 	.addDecorator(story => (
 		<div>
@@ -179,6 +197,11 @@ storiesOf('Form/Controls/ListView', module)
 			</div>
 		);
 	})
+	.add('with icon', () => (
+		<div id="listview-with-icon">
+			<ListView {...withIconProps} />
+		</div>
+	))
 	.add('without toggleAll', () => {
 		const withoutToggleALLProps = { ...props };
 		withoutToggleALLProps.showToggleAll = false;
