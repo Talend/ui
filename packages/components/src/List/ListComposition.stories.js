@@ -347,7 +347,10 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
+								options={[
+									{ key: 'id', label: 'Id' },
+									{ key: 'name', label: 'Name' },
+								]}
 							/>
 						</List.Toolbar.Right>
 					</List.Toolbar>
@@ -388,7 +391,10 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
+								options={[
+									{ key: 'id', label: 'Id' },
+									{ key: 'name', label: 'Name' },
+								]}
 							/>
 							<List.DisplayMode id="my-list-displayMode" initialDisplayMode="large" />
 						</List.Toolbar.Right>
@@ -429,7 +435,10 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+								options={[
+									{ key: 'name', label: 'Name' },
+									{ key: 'id', label: 'Id' },
+								]}
 								value={{ sortBy: 'name', isDescending: false }}
 								onChange={action('onSortChange')}
 							/>
@@ -499,7 +508,10 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
+								options={[
+									{ key: 'id', label: 'Id' },
+									{ key: 'name', label: 'Name' },
+								]}
 							/>
 						</List.Toolbar.Right>
 					</List.Toolbar>
@@ -550,7 +562,10 @@ storiesOf('Data/List/List Composition', module)
 							<List.TextFilter id="my-list-textFilter" />
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+								options={[
+									{ key: 'name', label: 'Name' },
+									{ key: 'id', label: 'Id' },
+								]}
 								initialValue={{ sortBy: 'id', isDescending: true }}
 							/>
 							<List.DisplayMode id="my-list-displayMode" />
