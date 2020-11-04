@@ -108,7 +108,7 @@
 					width: $navbar-brand-logo-height;
 					background-repeat: no-repeat;
 					@if ($appKey != '') {
-						background-image: #{'url(~@talend/icons/src/svg/products/' + $appKey + '-colored.svg)'};
+						background-image: #{'url(~@talend/icons/src/svg/products/' + $appKey + '-positive.svg)'};
 					}
 				}
 			}
