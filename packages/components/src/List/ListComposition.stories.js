@@ -246,7 +246,7 @@ storiesOf('Data/List/List Composition', module)
 >
 	<List.Toolbar>
 		<List.Toolbar.Right>
-			<List.TextFilter id="my-list-textFilter" />
+			<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -259,7 +259,7 @@ storiesOf('Data/List/List Composition', module)
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
 						<List.Toolbar.Right>
-							<List.TextFilter id="my-list-textFilter" />
+							<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />

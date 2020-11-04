@@ -22,15 +22,23 @@ function Manager({ initialDisplayMode, initialSortParams, children, t, ...rest }
 	collection = sortedCollection;
 
 	// Filter by text
-	const { filteredCollection, textFilter, setTextFilter } = useCollectionFilter(collection);
+	const {
+		filteredCollection,
+		textFilter,
+		setTextFilter,
+		filteredColumns,
+		setFilteredColumns,
+	} = useCollectionFilter(collection);
 	collection = filteredCollection;
 
 	const contextValues = {
 		collection,
 		displayMode,
+		filteredColumns,
 		setDisplayMode,
 		setSortParams,
 		setTextFilter,
+		setFilteredColumns,
 		sortParams,
 		t,
 		textFilter,
