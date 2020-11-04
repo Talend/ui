@@ -42,7 +42,9 @@ export function filter(collection, textFilter, filterFunctions, visibleColumns) 
 	);
 }
 
-export const filterCollection = (textFilter, filterFunctions = {}, visibleColumns) => (collection = []) =>
+export const filterCollection = (textFilter, filterFunctions = {}, visibleColumns) => (
+	collection = [],
+) =>
 	useCallback(filter(collection, textFilter, filterFunctions, visibleColumns), [
 		collection,
 		textFilter,
