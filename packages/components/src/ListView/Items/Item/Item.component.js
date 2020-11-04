@@ -71,7 +71,7 @@ class Item extends Component {
 				{item.icon && (
 					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
 						<span>
-							<Icon {...item.icon} aria-hidden="false" />
+							<Icon {...item.icon} />
 						</span>
 					</TooltipTrigger>
 				)}

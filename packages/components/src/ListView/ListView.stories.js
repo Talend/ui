@@ -197,7 +197,7 @@ storiesOf('Form/Controls/ListView', module)
 			</div>
 		);
 	})
-	.add('with icon', () => (
+	.add('with icons', () => (
 		<div id="listview-with-icon">
 			<ListView {...withIconProps} />
 		</div>

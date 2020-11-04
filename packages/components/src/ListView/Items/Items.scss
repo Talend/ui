@@ -18,7 +18,7 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 				margin-left: $padding-smaller;
 				display: flex;
 			}
-			:global(.tc-svg-icon) {
+			.tc-svg-icon {
 				height: $row-height;
 				width: $row-height;
 				margin-top: $padding-small;
