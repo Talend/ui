@@ -5,8 +5,13 @@ import { mount } from 'enzyme';
 import { useCollectionFilter } from './useCollectionFilter.hook';
 
 const Div = () => <div />;
-function FilterComponent({ collection, initialTextFilter, initialVisibleColumns, filterFunctions,
-							 initialFilteredColumns }) {
+function FilterComponent({
+	collection,
+	initialTextFilter,
+	filterFunctions,
+	initialVisibleColumns,
+	initialFilteredColumns,
+}) {
 	const hookReturn = useCollectionFilter(
 		collection,
 		initialTextFilter,

@@ -44,9 +44,12 @@ export function filter(collection, textFilter, filterFunctions, visibleColumns, 
 	);
 }
 
-export const filterCollection = (textFilter, filterFunctions = {}, visibleColumns, filteredColumns) => (
-	collection = [],
-) =>
+export const filterCollection = (
+	textFilter,
+	filterFunctions = {},
+	visibleColumns,
+	filteredColumns,
+) => (collection = []) =>
 	useCallback(filter(collection, textFilter, filterFunctions, visibleColumns, filteredColumns), [
 		collection,
 		textFilter,
@@ -60,13 +63,18 @@ export const useCollectionFilter = (
 	initialTextFilter,
 	filterFunctions = {},
 	initialVisibleColumns,
-	initialFilteredColumns
+	initialFilteredColumns,
 ) => {
 	const [filteredColumns, setFilteredColumns] = useState(initialFilteredColumns);
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 
 	return {
-		filteredCollection: filterCollection(textFilter, filterFunctions, initialVisibleColumns, filteredColumns)(collection),
+		filteredCollection: filterCollection(
+			textFilter,
+			filterFunctions,
+			initialVisibleColumns,
+			filteredColumns,
+		)(collection),
 		filteredColumns,
 		textFilter,
 		setFilteredColumns,
