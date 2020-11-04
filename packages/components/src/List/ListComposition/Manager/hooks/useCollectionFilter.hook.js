@@ -1,6 +1,17 @@
 import { useCallback, useState } from 'react';
 import isNil from 'lodash/isNil';
 
+function normalizeInput(text) {
+	return (
+		text
+			.toString()
+			.toLocaleLowerCase()
+			// @see https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript/37511463#37511463
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+	);
+}
+
 /**
  * By default, filter is case insensitive and without accents
  * @param value Raw cell value
@@ -8,16 +19,7 @@ import isNil from 'lodash/isNil';
  * @returns {boolean} if input matches cell content
  */
 function defaultFilterFunction(value, textFilter) {
-	const filteredValue = isNil(value) ? '' : value;
-	return (
-		filteredValue
-			.toString()
-			.toLocaleLowerCase()
-			// @see https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript/37511463#37511463
-			.normalize('NFD')
-			.replace(/[\u0300-\u036f]/g, '')
-			.includes(textFilter)
-	);
+	return !isNil(value) && normalizeInput(value).includes(textFilter);
 }
 
 export function filter(collection, textFilter, filterFunctions) {
@@ -25,11 +27,11 @@ export function filter(collection, textFilter, filterFunctions) {
 		return collection;
 	}
 
-	const lowerTextFilter = textFilter.toLocaleLowerCase();
+	const normalizedTextFilter = normalizeInput(textFilter);
 	return collection.filter(item =>
 		Object.entries(item).find(([key, value]) => {
 			const filterFunction = filterFunctions[key] || defaultFilterFunction;
-			return filterFunction(value, lowerTextFilter);
+			return filterFunction(value, normalizedTextFilter);
 		}),
 	);
 }
