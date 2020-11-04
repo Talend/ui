@@ -7,7 +7,7 @@ import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
 
-const APPS_WITH_SIDEPANEL = ['tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
+const APPS_WITH_SIDEPANEL = ['tdi', 'tdp', 'tds', 'tpd', 'tmc', 'mdm'];
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],

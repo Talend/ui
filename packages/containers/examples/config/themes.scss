@@ -1,6 +1,6 @@
-.tdc {
+.tdi {
 	:global {
-		@import '~@talend/bootstrap-theme/src/theme/variations/tdc';
+		@import '~@talend/bootstrap-theme/src/theme/variations/tdi';
 	}
 }
 
@@ -16,15 +16,9 @@
 	}
 }
 
-.tfd {
+.tpd {
 	:global {
-		@import '~@talend/bootstrap-theme/src/theme/variations/tfd';
-	}
-}
-
-.tic {
-	:global {
-		@import '~@talend/bootstrap-theme/src/theme/variations/tic';
+		@import '~@talend/bootstrap-theme/src/theme/variations/tpd';
 	}
 }
 

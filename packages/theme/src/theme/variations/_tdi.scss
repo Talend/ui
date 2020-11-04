@@ -1,0 +1,5 @@
+.t7 {
+	$brand-primary-t7: #5da288 !default;
+	$brand-secondary-t7: #508f8d !default;
+	@include layout-colors($brand-primary-t7, $brand-secondary-t7, 'tdi');
+}
