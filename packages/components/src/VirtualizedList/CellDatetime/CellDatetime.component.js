@@ -67,6 +67,7 @@ CellDatetimeComponent.propTypes = {
 	cellData: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	// Column data
 	columnData: PropTypes.shape({
+		tooltipPlacement: PropTypes.string,
 		mode: PropTypes.string.isRequired,
 		pattern: PropTypes.string,
 	}).isRequired,

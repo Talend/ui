@@ -22,7 +22,7 @@ function defaultFilterFunction(value, textFilter) {
 	return !isNil(value) && normalizeInput(value).includes(textFilter);
 }
 
-export function filter(collection, textFilter, filterFunctions, filteredColumns) {
+export function filter(collection, textFilter, filterFunctions, visibleColumns, filteredColumns) {
 	if (!textFilter) {
 		return collection;
 	}
@@ -30,7 +30,10 @@ export function filter(collection, textFilter, filterFunctions, filteredColumns)
 	const normalizedTextFilter = normalizeInput(textFilter);
 	return collection.filter(item =>
 		Object.entries(item).find(([key, value]) => {
-			if (filteredColumns && Array.isArray(filteredColumns) && !filteredColumns.includes(key)) {
+			if (
+				(visibleColumns && Array.isArray(visibleColumns) && !visibleColumns.includes(key)) ||
+				(filteredColumns && Array.isArray(filteredColumns) && !filteredColumns.includes(key))
+			) {
 				return false;
 			}
 			if (filterFunctions[key]) {
@@ -41,26 +44,29 @@ export function filter(collection, textFilter, filterFunctions, filteredColumns)
 	);
 }
 
-export const filterCollection = (textFilter, filterFunctions = {}, filteredColumns) => (
+export const filterCollection = (textFilter, filterFunctions = {}, visibleColumns, filteredColumns) => (
 	collection = [],
 ) =>
-	useCallback(filter(collection, textFilter, filterFunctions, filteredColumns), [
+	useCallback(filter(collection, textFilter, filterFunctions, visibleColumns, filteredColumns), [
 		collection,
 		textFilter,
 		filterFunctions,
+		visibleColumns,
+		filteredColumns,
 	]);
 
 export const useCollectionFilter = (
 	collection = [],
 	initialTextFilter,
 	filterFunctions = {},
-	initialFilteredColumns,
+	initialVisibleColumns,
+	initialFilteredColumns
 ) => {
 	const [filteredColumns, setFilteredColumns] = useState(initialFilteredColumns);
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 
 	return {
-		filteredCollection: filterCollection(textFilter, filterFunctions, filteredColumns)(collection),
+		filteredCollection: filterCollection(textFilter, filterFunctions, initialVisibleColumns, filteredColumns)(collection),
 		filteredColumns,
 		textFilter,
 		setFilteredColumns,

@@ -5,16 +5,13 @@ import { mount } from 'enzyme';
 import { useCollectionFilter } from './useCollectionFilter.hook';
 
 const Div = () => <div />;
-function FilterComponent({
-	collection,
-	initialTextFilter,
-	filterFunctions,
-	initialFilteredColumns,
-}) {
+function FilterComponent({ collection, initialTextFilter, initialVisibleColumns, filterFunctions,
+							 initialFilteredColumns }) {
 	const hookReturn = useCollectionFilter(
 		collection,
 		initialTextFilter,
 		filterFunctions,
+		initialVisibleColumns,
 		initialFilteredColumns,
 	);
 	return <Div id="mainChild" {...hookReturn} />;
@@ -23,6 +20,7 @@ FilterComponent.propTypes = {
 	collection: PropTypes.array,
 	initialTextFilter: PropTypes.string,
 	filterFunctions: PropTypes.object,
+	initialVisibleColumns: PropTypes.arrayOf(PropTypes.string),
 	initialFilteredColumns: PropTypes.arrayOf(PropTypes.string),
 };
 
@@ -194,5 +192,20 @@ describe('useCollectionFilter', () => {
 		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
 		expect(filteredCollection).toHaveLength(1);
 		expect(filteredCollection[0].firstName).toEqual('Carly');
+	});
+
+	it('should filter taking into account only object fields that are visible in list columns (if visible columns are provided)', () => {
+		// when
+		const wrapper = mount(
+			<FilterComponent
+				collection={collection}
+				initialTextFilter={collection[0].lastName}
+				initialVisibleColumns={['firstName', 'number']}
+			/>,
+		);
+
+		// then
+		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
+		expect(filteredCollection).toHaveLength(0);
 	});
 });
