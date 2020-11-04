@@ -116,20 +116,22 @@ const withNestedItems = {
 const withIconProps = {
 	...props,
 	items: [
-		{	label: 'Lorem',
+		{
+			label: 'Lorem',
 			icon: {
 				name: 'talend-warning',
 				title: 'A warning',
 			},
 		},
-		{	label: 'Ipsum',
+		{
+			label: 'Ipsum',
 			icon: {
 				name: 'talend-world',
 				title: 'The world',
 			},
 		},
 	],
-}
+};
 
 storiesOf('Form/Controls/ListView', module)
 	.addDecorator(story => (
