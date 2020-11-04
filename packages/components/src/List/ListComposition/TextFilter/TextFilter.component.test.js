@@ -9,12 +9,16 @@ import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 
 describe('TextFilter', () => {
-	const defaultContext = {
-		textFilter: '',
-		setTextFilter: jest.fn(),
-		setFilteredColumns: jest.fn(),
-		t: getDefaultT(),
-	};
+	let defaultContext;
+
+	beforeEach(() => {
+		defaultContext = {
+			textFilter: '',
+			setTextFilter: jest.fn(),
+			setFilteredColumns: jest.fn(),
+			t: getDefaultT(),
+		};
+	});
 
 	it('should render text filter component', () => {
 		// when
