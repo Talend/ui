@@ -3,10 +3,7 @@ import isNil from 'lodash/isNil';
 
 function defaultFilterFunction(value, textFilter) {
 	const filteredValue = isNil(value) ? '' : value;
-	return filteredValue
-		.toString()
-		.toLowerCase()
-		.includes(textFilter);
+	return filteredValue.toString().toLowerCase().includes(textFilter);
 }
 
 export function filter(collection, textFilter, filterFunctions, filteredColumns) {
@@ -35,7 +32,12 @@ export const filterCollection = (textFilter, filterFunctions = {}, filteredColum
 		filterFunctions,
 	]);
 
-export const useCollectionFilter = (collection = [], initialTextFilter, filterFunctions = {}, initialFilteredColumns) => {
+export const useCollectionFilter = (
+	collection = [],
+	initialTextFilter,
+	filterFunctions = {},
+	initialFilteredColumns,
+) => {
 	const [filteredColumns, setFilteredColumns] = useState(initialFilteredColumns);
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 

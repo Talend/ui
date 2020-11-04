@@ -67,7 +67,12 @@ describe('List Manager', () => {
 	it('should propagate filter', () => {
 		// given
 		const wrapper = mount(
-			<ListManager collection={[{ id: 0, name: 'toto' }, { id: 1, name: 'tata' }]}>
+			<ListManager
+				collection={[
+					{ id: 0, name: 'toto' },
+					{ id: 1, name: 'tata' },
+				]}
+			>
 				<ContextTestConsumer />
 			</ListManager>,
 		);
@@ -95,7 +100,10 @@ describe('List Manager', () => {
 		// given
 		const wrapper = mount(
 			<ListManager
-				collection={[{ dataKey: 'id', label: 'ID' }, { dataKey: 'name', label: 'Name' }]}
+				collection={[
+					{ dataKey: 'id', label: 'ID' },
+					{ dataKey: 'name', label: 'Name' },
+				]}
 			>
 				<ContextTestConsumer />
 			</ListManager>,
@@ -118,7 +126,12 @@ describe('List Manager', () => {
 	it('should propagate sort', () => {
 		// given
 		const wrapper = mount(
-			<ListManager collection={[{ id: 0, name: 'toto' }, { id: 1, name: 'tata' }]}>
+			<ListManager
+				collection={[
+					{ id: 0, name: 'toto' },
+					{ id: 1, name: 'tata' },
+				]}
+			>
 				<ContextTestConsumer />
 			</ListManager>,
 		);
