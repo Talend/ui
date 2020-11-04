@@ -286,9 +286,11 @@ We want testing experience to be easy so CMF provides some mocks for you.
 ```javascript
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import MyComponent from './My.component';
+
+const { Provider, store } = mock;
 
 describe('App', () => {
 	it('should render the app container', () => {

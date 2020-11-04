@@ -5,7 +5,7 @@ import { withI18next } from 'storybook-addon-i18next';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import createSagaMiddleware from 'redux-saga';
 import withCMF from '@talend/react-storybook-cmf';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
