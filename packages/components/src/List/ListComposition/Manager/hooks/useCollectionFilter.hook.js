@@ -29,18 +29,18 @@ export function filter(collection, textFilter, filterFunctions, visibleColumns, 
 
 	const normalizedTextFilter = normalizeInput(textFilter);
 	return collection.filter(item =>
-		Object.entries(item).find(([key, value]) => {
-			if (
-				(visibleColumns && Array.isArray(visibleColumns) && !visibleColumns.includes(key)) ||
-				(filteredColumns && Array.isArray(filteredColumns) && !filteredColumns.includes(key))
-			) {
-				return false;
-			}
-			if (filterFunctions[key]) {
-				return filterFunctions[key](value, textFilter);
-			}
-			return defaultFilterFunction(value, normalizedTextFilter);
-		}),
+		Object.entries(item)
+			.filter(([key]) => {
+				if (visibleColumns && Array.isArray(visibleColumns)) return visibleColumns.includes(key);
+				if (filteredColumns && Array.isArray(filteredColumns)) return filteredColumns.includes(key);
+				return true;
+			})
+			.find(([key, value]) => {
+				if (filterFunctions[key]) {
+					return filterFunctions[key](value, textFilter);
+				}
+				return defaultFilterFunction(value, normalizedTextFilter);
+			}),
 	);
 }
 
