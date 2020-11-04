@@ -31,6 +31,8 @@ function Manager({
 	// Filter by text
 	const { filteredCollection, textFilter, setTextFilter } = useCollectionFilter(
 		collection,
+		undefined,
+		undefined,
 		visibleColumns,
 	);
 	collection = filteredCollection;
