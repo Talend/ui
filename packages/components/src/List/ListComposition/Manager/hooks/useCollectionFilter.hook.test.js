@@ -6,7 +6,12 @@ import { useCollectionFilter } from './useCollectionFilter.hook';
 
 const Div = () => <div />;
 function FilterComponent({ collection, initialTextFilter, visibleColumnsKeys, filterFunctions }) {
-	const hookReturn = useCollectionFilter(collection, visibleColumnsKeys, initialTextFilter, filterFunctions);
+	const hookReturn = useCollectionFilter(
+		collection,
+		visibleColumnsKeys,
+		initialTextFilter,
+		filterFunctions,
+	);
 	return <Div id="mainChild" {...hookReturn} />;
 }
 FilterComponent.propTypes = {

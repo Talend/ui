@@ -3,10 +3,7 @@ import isNil from 'lodash/isNil';
 
 function defaultFilterFunction(value, textFilter) {
 	const filteredValue = isNil(value) ? '' : value;
-	return filteredValue
-		.toString()
-		.toLowerCase()
-		.includes(textFilter);
+	return filteredValue.toString().toLowerCase().includes(textFilter);
 }
 
 export function filter(collection, textFilter, filterFunctions, visibleColumnsKeys) {
@@ -17,7 +14,11 @@ export function filter(collection, textFilter, filterFunctions, visibleColumnsKe
 	const lowerTextFilter = textFilter.toLowerCase();
 	return collection.filter(item =>
 		Object.entries(item).find(([key, value]) => {
-			if (visibleColumnsKeys && Array.isArray(visibleColumnsKeys) && !visibleColumnsKeys.includes(key)) {
+			if (
+				visibleColumnsKeys &&
+				Array.isArray(visibleColumnsKeys) &&
+				!visibleColumnsKeys.includes(key)
+			) {
 				return false;
 			}
 
@@ -27,7 +28,9 @@ export function filter(collection, textFilter, filterFunctions, visibleColumnsKe
 	);
 }
 
-export const filterCollection = (textFilter, filterFunctions = {}, visibleColumnsKeys) => (collection = []) =>
+export const filterCollection = (textFilter, filterFunctions = {}, visibleColumnsKeys) => (
+	collection = [],
+) =>
 	useMemo(() => filter(collection, textFilter, filterFunctions, visibleColumnsKeys), [
 		collection,
 		textFilter,
@@ -35,11 +38,20 @@ export const filterCollection = (textFilter, filterFunctions = {}, visibleColumn
 		visibleColumnsKeys,
 	]);
 
-export const useCollectionFilter = (collection = [], visibleColumnsKeys, initialTextFilter, filterFunctions = {}) => {
+export const useCollectionFilter = (
+	collection = [],
+	visibleColumnsKeys,
+	initialTextFilter,
+	filterFunctions = {},
+) => {
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 
 	return {
-		filteredCollection: filterCollection(textFilter, filterFunctions, visibleColumnsKeys)(collection),
+		filteredCollection: filterCollection(
+			textFilter,
+			filterFunctions,
+			visibleColumnsKeys,
+		)(collection),
 		textFilter,
 		setTextFilter,
 	};
