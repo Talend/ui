@@ -13,7 +13,7 @@ const DISPLAY_MODES = {
 	ONE_COLUMN: 'OneColumn',
 	TWO_COLUMNS: 'TwoColumns',
 };
-const TALEND_T7_THEME_APPS = ['portal', 'tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
+const TALEND_T7_THEME_APPS = ['portal', 'tdc', 'tdp', 'tds', 'tfd', 'tmc', 'mdm'];
 const TALEND_T7_THEME_CLASSNAME = 't7';
 
 /**
