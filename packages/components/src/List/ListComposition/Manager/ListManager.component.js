@@ -12,7 +12,7 @@ import theme from '../List.scss';
 function Manager({
 	initialDisplayMode,
 	initialSortParams,
-	visibleColumnsKeys,
+	visibleColumns,
 	children,
 	t,
 	...rest
@@ -31,7 +31,7 @@ function Manager({
 	// Filter by text
 	const { filteredCollection, textFilter, setTextFilter } = useCollectionFilter(
 		collection,
-		visibleColumnsKeys,
+		visibleColumns,
 	);
 	collection = filteredCollection;
 
@@ -57,7 +57,7 @@ Manager.defaultProps = {
 };
 Manager.propTypes = {
 	children: PropTypes.node,
-	visibleColumnsKeys: PropTypes.arrayOf(PropTypes.string),
+	visibleColumns: PropTypes.arrayOf(PropTypes.string),
 	collection: PropTypes.array,
 	id: PropTypes.string.isRequired,
 	initialDisplayMode: PropTypes.oneOf(displayModesOptions),

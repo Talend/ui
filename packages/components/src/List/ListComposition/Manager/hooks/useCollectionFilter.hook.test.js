@@ -5,18 +5,18 @@ import { mount } from 'enzyme';
 import { useCollectionFilter } from './useCollectionFilter.hook';
 
 const Div = () => <div />;
-function FilterComponent({ collection, initialTextFilter, visibleColumnsKeys, filterFunctions }) {
+function FilterComponent({ collection, initialTextFilter, visibleColumns, filterFunctions }) {
 	const hookReturn = useCollectionFilter(
 		collection,
-		visibleColumnsKeys,
 		initialTextFilter,
 		filterFunctions,
+		visibleColumns,
 	);
 	return <Div id="mainChild" {...hookReturn} />;
 }
 FilterComponent.propTypes = {
 	collection: PropTypes.array,
-	visibleColumnsKeys: PropTypes.arrayOf(PropTypes.string),
+	visibleColumns: PropTypes.arrayOf(PropTypes.string),
 	initialTextFilter: PropTypes.string,
 	filterFunctions: PropTypes.object,
 };
@@ -128,7 +128,7 @@ describe('useCollectionFilter', () => {
 			<FilterComponent
 				collection={collection}
 				initialTextFilter={collection[0].lastName}
-				visibleColumnsKeys={['firstName', 'number']}
+				visibleColumns={['firstName', 'number']}
 			/>,
 		);
 

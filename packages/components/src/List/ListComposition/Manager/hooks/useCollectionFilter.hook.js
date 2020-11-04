@@ -6,7 +6,7 @@ function defaultFilterFunction(value, textFilter) {
 	return filteredValue.toString().toLowerCase().includes(textFilter);
 }
 
-export function filter(collection, textFilter, filterFunctions, visibleColumnsKeys) {
+export function filter(collection, textFilter, filterFunctions, visibleColumns) {
 	if (!textFilter) {
 		return collection;
 	}
@@ -15,9 +15,9 @@ export function filter(collection, textFilter, filterFunctions, visibleColumnsKe
 	return collection.filter(item =>
 		Object.entries(item).find(([key, value]) => {
 			if (
-				visibleColumnsKeys &&
-				Array.isArray(visibleColumnsKeys) &&
-				!visibleColumnsKeys.includes(key)
+				visibleColumns &&
+				Array.isArray(visibleColumns) &&
+				!visibleColumns.includes(key)
 			) {
 				return false;
 			}
@@ -28,21 +28,21 @@ export function filter(collection, textFilter, filterFunctions, visibleColumnsKe
 	);
 }
 
-export const filterCollection = (textFilter, filterFunctions = {}, visibleColumnsKeys) => (
+export const filterCollection = (textFilter, filterFunctions = {}, visibleColumns) => (
 	collection = [],
 ) =>
-	useMemo(() => filter(collection, textFilter, filterFunctions, visibleColumnsKeys), [
+	useMemo(() => filter(collection, textFilter, filterFunctions, visibleColumns), [
 		collection,
 		textFilter,
 		filterFunctions,
-		visibleColumnsKeys,
+		visibleColumns,
 	]);
 
 export const useCollectionFilter = (
 	collection = [],
-	visibleColumnsKeys,
 	initialTextFilter,
 	filterFunctions = {},
+	visibleColumns,
 ) => {
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 
@@ -50,7 +50,7 @@ export const useCollectionFilter = (
 		filteredCollection: filterCollection(
 			textFilter,
 			filterFunctions,
-			visibleColumnsKeys,
+			visibleColumns,
 		)(collection),
 		textFilter,
 		setTextFilter,
