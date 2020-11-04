@@ -30,8 +30,10 @@ export function filter(collection, textFilter, filterFunctions) {
 	const normalizedTextFilter = normalizeInput(textFilter);
 	return collection.filter(item =>
 		Object.entries(item).find(([key, value]) => {
-			const filterFunction = filterFunctions[key] || defaultFilterFunction;
-			return filterFunction(value, normalizedTextFilter);
+			if (filterFunctions[key]) {
+				return filterFunctions[key](value, textFilter);
+			}
+			return defaultFilterFunction(value, normalizedTextFilter);
 		}),
 	);
 }
