@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import Combobox from '../';
 
 <Meta title="Components/Combobox" component={Combobox} />
@@ -34,8 +34,8 @@ export function createUserList(term = '') {
 	};
 }
 
-<Canvas>
+<Preview>
 	<Story name="usage">
 		<Combobox initialValue="" getList={term => createUserList(term)} />
 	</Story>
-</Canvas>
+</Preview>
