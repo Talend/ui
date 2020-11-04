@@ -33,5 +33,14 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 18 problems (12 errors, 6 warnings)
+src/theme/_visual-helpers.scss
+   88:72  error  Variable 'appKey' should be written in lowercase with hyphens  variable-name-format
+  103:23  error  Variable 'appKey' should be written in lowercase with hyphens  variable-name-format
+  103:46  error  Variable 'appKey' should be written in lowercase with hyphens  variable-name-format
+  110:11  error  Variable 'appKey' should be written in lowercase with hyphens  variable-name-format
+  111:68  error  Variable 'appKey' should be written in lowercase with hyphens  variable-name-format
+  162:9   error  Variable 'appKey' should be written in lowercase with hyphens  variable-name-format
+  164:60  error  Variable 'appKey' should be written in lowercase with hyphens  variable-name-format
+
+✖ 25 problems (19 errors, 6 warnings)
 
