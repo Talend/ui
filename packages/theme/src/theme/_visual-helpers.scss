@@ -85,7 +85,7 @@
 /// @access public
 /// @param {Color} $brand-primary - primary color of product
 /// @param {Color} $brand-secondary [$brand-primary] - secondary color of product
-/// @param {String} app-key - app key used by the icon as prefix in its name
+/// @param {String} $app-key - app key used by the icon as prefix in its name
 @mixin layout-colors($brand-primary, $brand-secondary: $brand-primary, $app-key: '') {
 	$logo-size: 31rem !default;
 
