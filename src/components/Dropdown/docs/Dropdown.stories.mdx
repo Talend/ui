@@ -1,5 +1,6 @@
 import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
-import { FigmaImage } from '../../../docs';
+import { FigmaImage, Use } from '../../../docs';
+
 import Button from '../../Button';
 import Link from '../../Link';
 import Dropdown from '../';
@@ -45,9 +46,15 @@ This rule is not applicable for the header-bar dropdowns.
 
 ## Content
 
-**Keep menu items to a single line of text as much as possible**
-
-If not, when the label is too long for the available horizontal space, they wrap to form another line.
+<Use>
+	<Use.Do>
+		<ul>
+			<li>
+				Keep menu items to a single line of text as much as possible. If not, when the label is too long for the available horizontal space, it wraps to form another line.
+			</li>
+    </ul>
+	</Use.Do>
+</Use>
 
 ## Usage
 
