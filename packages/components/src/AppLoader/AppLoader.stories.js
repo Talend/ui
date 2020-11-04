@@ -5,6 +5,7 @@ import AppLoader from './AppLoader.component';
 import APP_LOADER from './constant';
 
 const stories = storiesOf('Design Principles/Loading Feedback/AppLoader', module);
+
 stories.add('default', () => (
 	<div>
 		<style>
@@ -15,6 +16,7 @@ stories.add('default', () => (
 		<AppLoader />
 	</div>
 ));
+
 [
 	'api-designer',
 	'api-tester',
@@ -27,7 +29,7 @@ stories.add('default', () => (
 	'tmc',
 	'tpd',
 ].forEach(app =>
-	stories.add(`[${app.toLocaleUpperCase()}] app loader`, () => (
+	stories.add(app, () => (
 		<div>
 			<style>
 				{APP_LOADER.getLoaderStyle(

@@ -85,7 +85,8 @@
 /// @access public
 /// @param {Color} $brand-primary - primary color of product
 /// @param {Color} $brand-secondary [$brand-primary] - secondary color of product
-@mixin layout-colors($brand-primary, $brand-secondary: $brand-primary, $appKey: '') {
+/// @param {String} app-key - app key used by the icon as prefix in its name
+@mixin layout-colors($brand-primary, $brand-secondary: $brand-primary, $app-key: '') {
 	$logo-size: 31rem !default;
 
 	[role='banner'] {
@@ -100,15 +101,15 @@
 				align-items: center;
 
 				&:before {
-					$background: if ($appKey == '', 'none', $appKey);
+					$background: if ($app-key == '', 'none', $app-key);
 					display: block;
 					content: '';
 					margin-right: $padding-small;
 					height: $navbar-brand-logo-height;
 					width: $navbar-brand-logo-height;
 					background-repeat: no-repeat;
-					@if ($appKey != '') {
-						background-image: #{'url(~@talend/icons/src/svg/products/' + $appKey + '-positive.svg)'};
+					@if ($app-key != '') {
+						background-image: #{'url(~@talend/icons/src/svg/products/' + $app-key + '-positive.svg)'};
 					}
 				}
 			}
@@ -159,9 +160,9 @@
 			height: $logo-size;
 			width: $logo-size;
 			background-repeat: no-repeat;
-			@if ($appKey != '') {
+			@if ($app-key != '') {
 				background-color: rgba(255, 255, 255, 0.1);
-				mask-image: #{'url(~@talend/icons/src/svg/products/' + $appKey + '-negative.svg)'};
+				mask-image: #{'url(~@talend/icons/src/svg/products/' + $app-key + '-negative.svg)'};
 			}
 		}
 
