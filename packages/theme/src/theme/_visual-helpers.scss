@@ -101,7 +101,6 @@
 				align-items: center;
 
 				&:before {
-					$background: if ($app-key == '', 'none', $app-key);
 					display: block;
 					content: '';
 					margin-right: $padding-small;
