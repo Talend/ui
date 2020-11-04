@@ -5,6 +5,7 @@ module.exports = {
 		'../src/Status.stories.mdx',
 		'../src/Catalog.stories.mdx',
 		'../src/tokens/docs/*.stories.mdx',
+		'../src/content/docs/*.stories.mdx',
 		'../src/themes/docs/Light.stories.mdx',
 		'../src/themes/docs/*.stories.mdx',
 		'../src/components/**/*.stories.mdx',
