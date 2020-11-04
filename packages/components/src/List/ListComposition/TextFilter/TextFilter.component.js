@@ -10,7 +10,7 @@ function TextFilter(props) {
 
 	React.useEffect(() => {
 		setFilteredColumns(applyOn);
-	}, [applyOn]);
+	}, [applyOn, setFilteredColumns]);
 
 	const isToggleControlled = onToggle;
 	const isFilterControlled = onChange;
