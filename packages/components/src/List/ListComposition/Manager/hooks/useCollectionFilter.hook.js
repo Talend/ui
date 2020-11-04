@@ -1,12 +1,25 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import isNil from 'lodash/isNil';
 
+function normalizeInput(text) {
+	return (
+		text
+			.toString()
+			.toLocaleLowerCase()
+			// @see https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript/37511463#37511463
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+	);
+}
+
+/**
+ * By default, filter is case insensitive and without accents
+ * @param value Raw cell value
+ * @param textFilter User input using for filtering
+ * @returns {boolean} if input matches cell content
+ */
 function defaultFilterFunction(value, textFilter) {
-	const filteredValue = isNil(value) ? '' : value;
-	return filteredValue
-		.toString()
-		.toLowerCase()
-		.includes(textFilter);
+	return !isNil(value) && normalizeInput(value).includes(textFilter);
 }
 
 export function filter(collection, textFilter, filterFunctions) {
@@ -14,17 +27,19 @@ export function filter(collection, textFilter, filterFunctions) {
 		return collection;
 	}
 
-	const lowerTextFilter = textFilter.toLowerCase();
+	const normalizedTextFilter = normalizeInput(textFilter);
 	return collection.filter(item =>
 		Object.entries(item).find(([key, value]) => {
-			const filterFunction = filterFunctions[key] || defaultFilterFunction;
-			return filterFunction(value, lowerTextFilter);
+			if (filterFunctions[key]) {
+				return filterFunctions[key](value, textFilter);
+			}
+			return defaultFilterFunction(value, normalizedTextFilter);
 		}),
 	);
 }
 
 export const filterCollection = (textFilter, filterFunctions = {}) => (collection = []) =>
-	useMemo(() => filter(collection, textFilter, filterFunctions), [
+	useCallback(filter(collection, textFilter, filterFunctions), [
 		collection,
 		textFilter,
 		filterFunctions,
