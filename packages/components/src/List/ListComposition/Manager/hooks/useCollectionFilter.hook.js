@@ -14,11 +14,7 @@ export function filter(collection, textFilter, filterFunctions, visibleColumns) 
 	const lowerTextFilter = textFilter.toLowerCase();
 	return collection.filter(item =>
 		Object.entries(item).find(([key, value]) => {
-			if (
-				visibleColumns &&
-				Array.isArray(visibleColumns) &&
-				!visibleColumns.includes(key)
-			) {
+			if (visibleColumns && Array.isArray(visibleColumns) && !visibleColumns.includes(key)) {
 				return false;
 			}
 
@@ -47,11 +43,7 @@ export const useCollectionFilter = (
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 
 	return {
-		filteredCollection: filterCollection(
-			textFilter,
-			filterFunctions,
-			visibleColumns,
-		)(collection),
+		filteredCollection: filterCollection(textFilter, filterFunctions, visibleColumns)(collection),
 		textFilter,
 		setTextFilter,
 	};
