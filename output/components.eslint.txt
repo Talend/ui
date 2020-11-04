@@ -350,18 +350,8 @@
    98:3  error  defaultProp "level" defined for isRequired propType  react/default-props-match-prop-types
   209:4  error  'item.hidden' is missing in props validation         react/prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.js
-  53:28  error  'icon.tooltipPlacement' is missing in props validation  react/prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellBoolean/CellBoolean.component.js
   63:2  error  defaultProp "columnData" defined for isRequired propType  react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.component.js
-  23:22  error  'columnData.selectionMode' is missing in props validation  react/prop-types
-  23:47  error  'columnData.getRowState' is missing in props validation    react/prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellDatetime/CellDatetime.component.js
-  53:35  error  'columnData.tooltipPlacement' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
   171:3  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
@@ -400,5 +390,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 213 problems (193 errors, 20 warnings)
+✖ 209 problems (189 errors, 20 warnings)
   15 errors and 0 warnings potentially fixable with the `--fix` option.

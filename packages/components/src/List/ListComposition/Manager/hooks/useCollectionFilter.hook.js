@@ -22,7 +22,7 @@ function defaultFilterFunction(value, textFilter) {
 	return !isNil(value) && normalizeInput(value).includes(textFilter);
 }
 
-export function filter(collection, textFilter, filterFunctions) {
+export function filter(collection, textFilter, filterFunctions, visibleColumns) {
 	if (!textFilter) {
 		return collection;
 	}
@@ -30,6 +30,10 @@ export function filter(collection, textFilter, filterFunctions) {
 	const normalizedTextFilter = normalizeInput(textFilter);
 	return collection.filter(item =>
 		Object.entries(item).find(([key, value]) => {
+			if (visibleColumns && Array.isArray(visibleColumns) && !visibleColumns.includes(key)) {
+				return false;
+			}
+
 			if (filterFunctions[key]) {
 				return filterFunctions[key](value, textFilter);
 			}
@@ -38,18 +42,26 @@ export function filter(collection, textFilter, filterFunctions) {
 	);
 }
 
-export const filterCollection = (textFilter, filterFunctions = {}) => (collection = []) =>
-	useCallback(filter(collection, textFilter, filterFunctions), [
+export const filterCollection = (textFilter, filterFunctions = {}, visibleColumns) => (
+	collection = [],
+) =>
+	useCallback(filter(collection, textFilter, filterFunctions, visibleColumns), [
 		collection,
 		textFilter,
 		filterFunctions,
+		visibleColumns,
 	]);
 
-export const useCollectionFilter = (collection = [], initialTextFilter, filterFunctions = {}) => {
+export const useCollectionFilter = (
+	collection = [],
+	initialTextFilter,
+	filterFunctions = {},
+	visibleColumns,
+) => {
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 
 	return {
-		filteredCollection: filterCollection(textFilter, filterFunctions)(collection),
+		filteredCollection: filterCollection(textFilter, filterFunctions, visibleColumns)(collection),
 		textFilter,
 		setTextFilter,
 	};
