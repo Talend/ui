@@ -76,6 +76,54 @@ describe('useCollectionFilter', () => {
 		expect(filteredCollection[2].firstName).toEqual('Carly');
 	});
 
+	it('should filter with provided initial text filter using case insensitive and no accents', () => {
+		// when
+		const wrapper = mount(
+			<FilterComponent
+				collection={[
+					{ firstName: 'Léa' },
+					{ firstName: 'Léo' },
+					{ firstName: 'Léon' },
+					{ firstName: 'Lee-Roy' },
+					{ firstName: 'Louis' },
+				]}
+				initialTextFilter="le"
+			/>,
+		);
+
+		// then
+		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
+		expect(filteredCollection).toHaveLength(4);
+		expect(filteredCollection[0].firstName).toEqual('Léa');
+		expect(filteredCollection[1].firstName).toEqual('Léo');
+		expect(filteredCollection[2].firstName).toEqual('Léon');
+		expect(filteredCollection[3].firstName).toEqual('Lee-Roy');
+	});
+
+	it('should filter with provided initial text filter using case insensitive and no diacritics', () => {
+		// when
+		const wrapper = mount(
+			<FilterComponent
+				collection={[
+					{ firstName: 'Léa' },
+					{ firstName: 'Léo' },
+					{ firstName: 'Léon' },
+					{ firstName: 'Lee-Roy' },
+					{ firstName: 'Louis' },
+				]}
+				initialTextFilter="lē"
+			/>,
+		);
+
+		// then
+		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
+		expect(filteredCollection).toHaveLength(4);
+		expect(filteredCollection[0].firstName).toEqual('Léa');
+		expect(filteredCollection[1].firstName).toEqual('Léo');
+		expect(filteredCollection[2].firstName).toEqual('Léon');
+		expect(filteredCollection[3].firstName).toEqual('Lee-Roy');
+	});
+
 	it('should filter with new text filter set', () => {
 		// given
 		const wrapper = mount(<FilterComponent collection={collection} />);
