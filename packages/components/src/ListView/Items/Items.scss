@@ -16,6 +16,13 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 		:global {
 			.checkbox {
 				margin-left: $padding-smaller;
+				display: flex;
+			}
+			.tc-svg-icon {
+				height: $row-height;
+				width: $row-height;
+				margin-top: $padding-small;
+				margin-left: $padding-smaller;
 			}
 
 			.checkbox-nested {
