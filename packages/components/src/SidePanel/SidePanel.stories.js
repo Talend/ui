@@ -240,7 +240,7 @@ const appStyle = require('../../stories/config/themes.scss');
 	));
 });
 
-stories.add('🎨 [Portal] reverse', () => (
+stories.add('[Portal] reverse', () => (
 	<div className={appStyle.portal}>
 		<h1>SidePanel</h1>
 		<p>

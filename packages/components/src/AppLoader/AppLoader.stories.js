@@ -28,12 +28,12 @@ stories.add('default', () => (
 	{ key: 'tds', value: 'Data Stewardship' },
 	{ key: 'tmc', value: 'Management Console' },
 	{ key: 'tpd', value: 'Pipeline Designer' },
-].forEach(app =>
-	stories.add(`[${app}] AppLoader`, () => (
+].forEach(({ key, value }) =>
+	stories.add(`[${value}] AppLoader`, () => (
 		<div>
 			<style>
 				{APP_LOADER.getLoaderStyle(
-					`url(${require(`@talend/icons/src/svg/products/${app}-positive.svg`)})`,
+					`url(${require(`@talend/icons/src/svg/products/${key}-positive.svg`)})`,
 				)}
 			</style>
 			<AppLoader />
