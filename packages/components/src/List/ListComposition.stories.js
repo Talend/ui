@@ -240,8 +240,11 @@ storiesOf('Data/List/List Composition', module)
 			<h1>Text Filter</h1>
 			<p>You can filter the dataset with the text by adding the component and let it work itself</p>
 			<p>
-				Note that here we manually restrict the filter scope to column with dataKeys equal to{' '}
-				<code>name</code> and <code>description</code>, but it's optional!
+				You can manually restrict the filter scope to specific columns, by passing the dataKey, here
+				it equals to <code>name</code> and <code>description</code>, but it's optional.
+			</p>
+			<p>
+				Note that the Column Chooser will impact the results, we can filter only on what we see!
 			</p>
 			<pre>
 				{`<List.Manager
@@ -251,6 +254,7 @@ storiesOf('Data/List/List Composition', module)
 	<List.Toolbar>
 		<List.Toolbar.Right>
 			<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
+			<List.ColumnChooser />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -260,10 +264,15 @@ storiesOf('Data/List/List Composition', module)
 `}
 			</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection}>
+				<List.Manager
+					id="my-list"
+					collection={simpleCollection}
+					initialVisibleColumns={['id', 'name']}
+				>
 					<List.Toolbar>
 						<List.Toolbar.Right>
 							<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
+							<List.ColumnChooser />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />

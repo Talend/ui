@@ -20,6 +20,7 @@ function Manager({
 	let collection = rest.collection;
 
 	const [displayMode, setDisplayMode] = useState(initialDisplayMode || displayModesOptions[0]);
+	const [columns, setColumns] = useState([]);
 	const [visibleColumns, setVisibleColumns] = useState(initialVisibleColumns);
 
 	// Sort items
@@ -42,11 +43,13 @@ function Manager({
 	const contextValues = {
 		collection,
 		displayMode,
+		columns,
 		visibleColumns,
 		filteredColumns,
 		setDisplayMode,
 		setSortParams,
 		setTextFilter,
+		setColumns,
 		setVisibleColumns,
 		setFilteredColumns,
 		sortParams,
