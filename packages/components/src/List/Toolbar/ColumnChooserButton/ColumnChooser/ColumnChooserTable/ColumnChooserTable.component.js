@@ -5,10 +5,10 @@ import { columnsPropTypes } from '../../columnChooser.propTypes';
 
 const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 	columns.map(column => (
-		<ColumnChooserRow key={column.label}>
+		<ColumnChooserRow key={column.key}>
 			<ColumnChooserRow.Checkbox
 				checked={column.visible}
-				id={id}
+				id={id || column.key}
 				dataFeature="column-chooser.select"
 				description={t('CHECKBOX_DISPLAY_COLUMN_DESCRIPTION', {
 					defaultValue: 'display the column {{label}}',
