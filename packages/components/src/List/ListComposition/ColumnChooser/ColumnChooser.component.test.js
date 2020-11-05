@@ -12,7 +12,10 @@ describe('ColumnChooser', () => {
 
 	beforeEach(() => {
 		defaultContext = {
-			columns: [{ dataKey: 'foo', label: 'Foo' }, { dataKey: 'bar', label: 'Bar' }],
+			columns: [
+				{ dataKey: 'foo', label: 'Foo' },
+				{ dataKey: 'bar', label: 'Bar' },
+			],
 			setVisibleColumns: jest.fn(),
 			t: getDefaultT(),
 		};
@@ -40,7 +43,10 @@ describe('ColumnChooser', () => {
 		const onSubmit = wrapper.find(ColumnChooserButton).prop('onSubmit');
 
 		// when
-		onSubmit(null, [{ key: 'foo', hidden: true }, { key: 'bar', hidden: false }]);
+		onSubmit(null, [
+			{ key: 'foo', hidden: true },
+			{ key: 'bar', hidden: false },
+		]);
 
 		// then
 		expect(defaultContext.setVisibleColumns).toBeCalledWith(['bar']);
