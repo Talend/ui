@@ -8,7 +8,7 @@ const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 		<ColumnChooserRow key={column.key}>
 			<ColumnChooserRow.Checkbox
 				checked={column.visible}
-				id={id || column.key}
+				id={id}
 				dataFeature="column-chooser.select"
 				description={t('CHECKBOX_DISPLAY_COLUMN_DESCRIPTION', {
 					defaultValue: 'display the column {{label}}',
