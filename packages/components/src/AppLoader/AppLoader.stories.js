@@ -18,18 +18,18 @@ stories.add('default', () => (
 ));
 
 [
-	'api-designer',
-	'api-tester',
-	'component-kit',
-	'mdm',
-	'tdc',
-	'tdi',
-	'tdp',
-	'tds',
-	'tmc',
-	'tpd',
+	{ key: 'api-designer', value: 'API Designer' },
+	{ key: 'api-tester', value: 'API tester' },
+	{ key: 'component-kit', value: 'Component kit' },
+	{ key: 'mdm', value: 'Master Data Management' },
+	{ key: 'tdc', value: 'Data Catalog' },
+	{ key: 'tdi', value: 'Data Inventory' },
+	{ key: 'tdp', value: 'Data Preparation' },
+	{ key: 'tds', value: 'Data Stewardship' },
+	{ key: 'tmc', value: 'Management Console' },
+	{ key: 'tpd', value: 'Pipeline Designer' },
 ].forEach(app =>
-	stories.add(app, () => (
+	stories.add(`[${app}] AppLoader`, () => (
 		<div>
 			<style>
 				{APP_LOADER.getLoaderStyle(
