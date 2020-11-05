@@ -42,6 +42,7 @@ const rightProps = {
 	...tabProps,
 	right: (
 		<ActionButton
+		    id="rightButton"
 			className="btn-inverse"
 			label="Add"
 			bsStyle="info"
@@ -66,10 +67,10 @@ describe('TabBar component', () => {
 		// given
 
 		// when
-		const wrapper = shallow(<TabBar {...rightProps}>I'm the content</TabBar>);
+		const wrapper = mount(<TabBar {...rightProps}>I'm the content</TabBar>);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('button[id="rightButton"]').length).toBe(1);
 	});
 
 	it('should render with selected children from item definition', () => {
