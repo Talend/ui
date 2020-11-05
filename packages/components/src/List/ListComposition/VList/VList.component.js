@@ -20,7 +20,9 @@ function VList({ children, ...rest }) {
 
 	React.useEffect(() => {
 		if (Array.isArray(children)) {
-			setColumns(children.filter(column => column.props?.dataKey).map(column => column.props));
+			setColumns([
+				...new Set(children.filter(column => column.props?.dataKey).map(column => column.props)),
+			]);
 		}
 	}, [children, setColumns]);
 
