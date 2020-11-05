@@ -42,7 +42,7 @@ const rightProps = {
 	...tabProps,
 	right: (
 		<ActionButton
-		    id="rightButton"
+			id="rightButton"
 			className="btn-inverse"
 			label="Add"
 			bsStyle="info"
