@@ -4,7 +4,7 @@ import { useListContext } from '../context';
 import ColumnChooserButton from '../../Toolbar/ColumnChooserButton';
 
 function ColumnChooser(props) {
-	const { columns = [], visibleColumns, setVisibleColumns } = useListContext();
+	const { columns, visibleColumns, setVisibleColumns } = useListContext();
 
 	return (
 		<ColumnChooserButton

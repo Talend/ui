@@ -108,7 +108,7 @@ describe('List Manager', () => {
 				<ContextTestConsumer />
 			</ListManager>,
 		);
-		expect(wrapper.find(TestConsumer).prop('columns')).toBeUndefined();
+		expect(wrapper.find(TestConsumer).prop('columns')).toEqual([]);
 
 		const columns = ['id', 'name'];
 
@@ -120,7 +120,7 @@ describe('List Manager', () => {
 		wrapper.update();
 
 		// then
-		expect(wrapper.find(TestConsumer).prop('columns')).toBe(columns);
+		expect(wrapper.find(TestConsumer).prop('columns')).toEqual(columns);
 	});
 
 	it('should propagate filtered column list', () => {
