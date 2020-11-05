@@ -240,9 +240,10 @@ storiesOf('Data/List/List Composition', module)
 			<h1>Text Filter</h1>
 			<p>You can filter the dataset with the text by adding the component and let it work itself</p>
 			<p>
-				Note that here we manually restrict the filter scope to column with dataKeys equal to{' '}
-				<code>name</code> and <code>description</code>, but it's optional!
+				You can manually restrict the filter scope to specific columns, by passing the dataKey, here it equals to{' '}
+				<code>name</code> and <code>description</code>, but it's optional.
 			</p>
+			<p>Note that the Column Chooser will impact the results, we can filter only on what we see!</p>
 			<pre>
 				{`<List.Manager
  	id="my-list"
@@ -251,6 +252,7 @@ storiesOf('Data/List/List Composition', module)
 	<List.Toolbar>
 		<List.Toolbar.Right>
 			<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
+			<List.ColumnChooser />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -260,10 +262,15 @@ storiesOf('Data/List/List Composition', module)
 `}
 			</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection}>
+				<List.Manager
+					id="my-list"
+					collection={simpleCollection}
+					initialVisibleColumns={['id', 'name']}
+				>
 					<List.Toolbar>
 						<List.Toolbar.Right>
 							<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
+							<List.ColumnChooser />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
@@ -347,10 +354,7 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[
-									{ key: 'id', label: 'Id' },
-									{ key: 'name', label: 'Name' },
-								]}
+								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
 							/>
 						</List.Toolbar.Right>
 					</List.Toolbar>
@@ -391,10 +395,7 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[
-									{ key: 'id', label: 'Id' },
-									{ key: 'name', label: 'Name' },
-								]}
+								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
 							/>
 							<List.DisplayMode id="my-list-displayMode" initialDisplayMode="large" />
 						</List.Toolbar.Right>
@@ -435,10 +436,7 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[
-									{ key: 'name', label: 'Name' },
-									{ key: 'id', label: 'Id' },
-								]}
+								options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
 								value={{ sortBy: 'name', isDescending: false }}
 								onChange={action('onSortChange')}
 							/>
@@ -508,10 +506,7 @@ storiesOf('Data/List/List Composition', module)
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[
-									{ key: 'id', label: 'Id' },
-									{ key: 'name', label: 'Name' },
-								]}
+								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
 							/>
 						</List.Toolbar.Right>
 					</List.Toolbar>
@@ -562,10 +557,7 @@ storiesOf('Data/List/List Composition', module)
 							<List.TextFilter id="my-list-textFilter" />
 							<List.SortBy
 								id="my-list-sortBy"
-								options={[
-									{ key: 'name', label: 'Name' },
-									{ key: 'id', label: 'Id' },
-								]}
+								options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
 								initialValue={{ sortBy: 'id', isDescending: true }}
 							/>
 							<List.DisplayMode id="my-list-displayMode" />
