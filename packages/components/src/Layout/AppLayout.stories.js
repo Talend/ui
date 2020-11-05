@@ -118,7 +118,7 @@ function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryCont
 		{ key: 'tds', value: 'Data Stewardship' },
 		{ key: 'tmc', value: 'Management Console' },
 		{ key: 'tpd', value: 'Pipeline Designer' },
-	].forEach(({key, value}) => {
+	].forEach(({ key, value }) => {
 		const decoratedPropsWithTheme = {
 			...layoutStoryProps,
 			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
