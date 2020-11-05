@@ -239,6 +239,10 @@ storiesOf('Data/List/List Composition', module)
 			<IconsProvider />
 			<h1>Text Filter</h1>
 			<p>You can filter the dataset with the text by adding the component and let it work itself</p>
+			<p>
+				Note that here we manually restrict the filter scope to column with dataKeys equal to{' '}
+				<code>name</code> and <code>description</code>, but it's optional!
+			</p>
 			<pre>
 				{`<List.Manager
  	id="my-list"
@@ -246,7 +250,7 @@ storiesOf('Data/List/List Composition', module)
 >
 	<List.Toolbar>
 		<List.Toolbar.Right>
-			<List.TextFilter id="my-list-textFilter" />
+			<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -259,7 +263,7 @@ storiesOf('Data/List/List Composition', module)
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
 						<List.Toolbar.Right>
-							<List.TextFilter id="my-list-textFilter" />
+							<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />

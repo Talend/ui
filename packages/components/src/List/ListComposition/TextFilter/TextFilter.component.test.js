@@ -9,11 +9,16 @@ import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 
 describe('TextFilter', () => {
-	const defaultContext = {
-		textFilter: '',
-		setTextFilter: jest.fn(),
-		t: getDefaultT(),
-	};
+	let defaultContext;
+
+	beforeEach(() => {
+		defaultContext = {
+			textFilter: '',
+			setTextFilter: jest.fn(),
+			setFilteredColumns: jest.fn(),
+			t: getDefaultT(),
+		};
+	});
 
 	it('should render text filter component', () => {
 		// when
@@ -64,6 +69,18 @@ describe('TextFilter', () => {
 
 		// then
 		expect(context.setTextFilter).toHaveBeenCalledWith('my-filter-value');
+	});
+
+	it('should deal with columns on which apply filter', () => {
+		// when
+		mount(
+			<ListContext.Provider value={defaultContext}>
+				<TextFilter id="myTextFilter" applyOn={['foo']} />
+			</ListContext.Provider>,
+		);
+
+		// then
+		expect(defaultContext.setFilteredColumns).toHaveBeenCalledWith(['foo']);
 	});
 
 	it('should call the toggle callback when they are provided (controlled mode)', () => {

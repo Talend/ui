@@ -22,47 +22,62 @@ function defaultFilterFunction(value, textFilter) {
 	return !isNil(value) && normalizeInput(value).includes(textFilter);
 }
 
-export function filter(collection, textFilter, filterFunctions, visibleColumns) {
+export function filter(collection, textFilter, filterFunctions, visibleColumns, filteredColumns) {
 	if (!textFilter) {
 		return collection;
 	}
 
 	const normalizedTextFilter = normalizeInput(textFilter);
 	return collection.filter(item =>
-		Object.entries(item).find(([key, value]) => {
-			if (visibleColumns && Array.isArray(visibleColumns) && !visibleColumns.includes(key)) {
-				return false;
-			}
-
-			if (filterFunctions[key]) {
-				return filterFunctions[key](value, textFilter);
-			}
-			return defaultFilterFunction(value, normalizedTextFilter);
-		}),
+		Object.entries(item)
+			.filter(([key]) => {
+				if (visibleColumns && Array.isArray(visibleColumns)) return visibleColumns.includes(key);
+				if (filteredColumns && Array.isArray(filteredColumns)) return filteredColumns.includes(key);
+				return true;
+			})
+			.find(([key, value]) => {
+				if (filterFunctions[key]) {
+					return filterFunctions[key](value, textFilter);
+				}
+				return defaultFilterFunction(value, normalizedTextFilter);
+			}),
 	);
 }
 
-export const filterCollection = (textFilter, filterFunctions = {}, visibleColumns) => (
-	collection = [],
-) =>
-	useCallback(filter(collection, textFilter, filterFunctions, visibleColumns), [
+export const filterCollection = (
+	textFilter,
+	filterFunctions = {},
+	visibleColumns,
+	filteredColumns,
+) => (collection = []) =>
+	useCallback(filter(collection, textFilter, filterFunctions, visibleColumns, filteredColumns), [
 		collection,
 		textFilter,
 		filterFunctions,
 		visibleColumns,
+		filteredColumns,
 	]);
 
 export const useCollectionFilter = (
 	collection = [],
 	initialTextFilter,
 	filterFunctions = {},
-	visibleColumns,
+	initialVisibleColumns,
+	initialFilteredColumns,
 ) => {
+	const [filteredColumns, setFilteredColumns] = useState(initialFilteredColumns);
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 
 	return {
-		filteredCollection: filterCollection(textFilter, filterFunctions, visibleColumns)(collection),
+		filteredCollection: filterCollection(
+			textFilter,
+			filterFunctions,
+			initialVisibleColumns,
+			filteredColumns,
+		)(collection),
+		filteredColumns,
 		textFilter,
+		setFilteredColumns,
 		setTextFilter,
 	};
 };

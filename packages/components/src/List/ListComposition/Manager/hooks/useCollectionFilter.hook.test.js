@@ -5,20 +5,28 @@ import { mount } from 'enzyme';
 import { useCollectionFilter } from './useCollectionFilter.hook';
 
 const Div = () => <div />;
-function FilterComponent({ collection, initialTextFilter, visibleColumns, filterFunctions }) {
+function FilterComponent({
+	collection,
+	initialTextFilter,
+	filterFunctions,
+	initialVisibleColumns,
+	initialFilteredColumns,
+}) {
 	const hookReturn = useCollectionFilter(
 		collection,
 		initialTextFilter,
 		filterFunctions,
-		visibleColumns,
+		initialVisibleColumns,
+		initialFilteredColumns,
 	);
 	return <Div id="mainChild" {...hookReturn} />;
 }
 FilterComponent.propTypes = {
 	collection: PropTypes.array,
-	visibleColumns: PropTypes.arrayOf(PropTypes.string),
 	initialTextFilter: PropTypes.string,
 	filterFunctions: PropTypes.object,
+	initialVisibleColumns: PropTypes.arrayOf(PropTypes.string),
+	initialFilteredColumns: PropTypes.arrayOf(PropTypes.string),
 };
 
 const collection = [
@@ -145,6 +153,27 @@ describe('useCollectionFilter', () => {
 		expect(filteredCollection[2].firstName).toEqual('Carly');
 	});
 
+	it('should filter with limited column list', () => {
+		// given
+		const wrapper = mount(
+			<FilterComponent collection={collection} initialFilteredColumns={['lastName']} />,
+		);
+
+		let filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
+		expect(filteredCollection).toBe(collection);
+
+		// when
+		act(() => {
+			wrapper.find('#mainChild').prop('setTextFilter')('l');
+		});
+		wrapper.update();
+
+		// then
+		filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
+		expect(filteredCollection).toHaveLength(1);
+		expect(filteredCollection[0].lastName).toEqual('Silva');
+	});
+
 	it('should filter with custom filter function', () => {
 		// given
 		const filterFunctions = {
@@ -176,7 +205,7 @@ describe('useCollectionFilter', () => {
 			<FilterComponent
 				collection={collection}
 				initialTextFilter={collection[0].lastName}
-				visibleColumns={['firstName', 'number']}
+				initialVisibleColumns={['firstName', 'number']}
 			/>,
 		);
 
