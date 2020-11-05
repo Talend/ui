@@ -22,7 +22,7 @@ function VList({ children, ...rest }) {
 		if (Array.isArray(children)) {
 			setColumns(children.filter(column => column.props?.dataKey).map(column => column.props));
 		}
-	}, []);
+	});
 
 	return (
 		<div className={theme.vlist}>
