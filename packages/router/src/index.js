@@ -82,4 +82,4 @@ const routerAPI = {
 	matchPath: cmf.router.matchPath,
 };
 
-export { routerAPI, route };
+export { routerAPI, route, sagaRouter };
