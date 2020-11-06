@@ -4,6 +4,12 @@ import deepmerge from 'deepmerge';
 import { assertValueTypeOf } from './assert';
 
 export function deepMerge(obj1, obj2) {
+	if (!obj2) {
+		return obj1;
+	}
+	if (!obj1) {
+		return obj2;
+	}
 	return deepmerge.all([obj1, obj2]);
 }
 
