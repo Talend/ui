@@ -1,6 +1,6 @@
 import React from 'react';
 import { spawn } from 'redux-saga/effects';
-import deepmerge from 'deepmerge';
+import _merge from 'lodash/merge';
 import { assertValueTypeOf } from './assert';
 
 export function deepMerge(obj1, obj2) {
@@ -10,7 +10,7 @@ export function deepMerge(obj1, obj2) {
 	if (!obj1) {
 		return obj2;
 	}
-	return deepmerge.all([obj1, obj2]);
+	return _merge(obj1, obj2);
 }
 
 export function mergeObjects(obj1, obj2) {
