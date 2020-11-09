@@ -1,5 +1,5 @@
 import * as FormTemplate from './FormTemplate';
-import * as FieldTemplate from './fields/FieldTemplate';
+import FieldTemplate from './fields/FieldTemplate';
 import Message from './Message';
 import callTrigger from './trigger';
 import utils from './utils';

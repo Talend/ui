@@ -9,7 +9,7 @@ import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 import documentTitle from './sagas/documentTitle';
 import cmfRouterMiddleware from './middleware';
-import { REGISTRY_HOOK_PREFIX } from './route';
+import route, { REGISTRY_HOOK_PREFIX } from './route';
 
 const mergeConfig = {
 	history: cmf.module.merge.getUnique,
@@ -82,4 +82,4 @@ const routerAPI = {
 	matchPath: cmf.router.matchPath,
 };
 
-export { routerAPI };
+export { routerAPI, route, sagaRouter };

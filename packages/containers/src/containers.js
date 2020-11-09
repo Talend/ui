@@ -12,6 +12,7 @@ export { default as Badge } from './Badge';
 export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as ConfirmDialog } from './ConfirmDialog';
 export { default as FilterBar } from './FilterBar';
+export { default as Form } from './Form';
 export { default as GuidedTour } from './GuidedTour';
 export { default as HeaderBar } from './HeaderBar';
 export { default as HomeListView } from './HomeListView';
