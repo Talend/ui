@@ -9,74 +9,78 @@ exports[`TabBar component should render with badges 1`] = `
   onSelect={[Function]}
 >
   <div>
-    <Nav
-      bsClass="nav"
-      bsStyle="tabs"
-      className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
-      justified={false}
-      pullLeft={false}
-      pullRight={false}
-      stacked={false}
+    <div
+      className="theme-tc-tab-bar-menu tc-tab-bar-menu"
     >
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.1"
-        disabled={false}
-        eventKey="1"
-        label="Tab1"
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
       >
-        <TooltipTrigger
-          label="967 Tab1"
-          tooltipPlacement="top"
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.1"
+          disabled={false}
+          eventKey="1"
+          label="Tab1"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab1
+          <TooltipTrigger
+            label="967 Tab1"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab1
+              </span>
+              <Label
+                bsClass="label"
+                bsStyle="default"
+                className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge custom-class-name"
+              >
+                967
+              </Label>
             </span>
-            <Label
-              bsClass="label"
-              bsStyle="default"
-              className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge custom-class-name"
-            >
-              967
-            </Label>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.2"
-        disabled={false}
-        eventKey="2"
-        label="Tab2"
-      >
-        <TooltipTrigger
-          label="1287 Tab2"
-          tooltipPlacement="top"
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.2"
+          disabled={false}
+          eventKey="2"
+          label="Tab2"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab2
+          <TooltipTrigger
+            label="1287 Tab2"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab2
+              </span>
+              <Label
+                bsClass="label"
+                bsStyle="info"
+                className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge"
+              >
+                999+
+              </Label>
             </span>
-            <Label
-              bsClass="label"
-              bsStyle="info"
-              className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge"
-            >
-              999+
-            </Label>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-    </Nav>
+          </TooltipTrigger>
+        </NavItem>
+      </Nav>
+    </div>
     <TabContent
       animation={true}
       bsClass="tab"
@@ -106,126 +110,130 @@ exports[`TabBar component should render with selected children from item definit
   onSelect={[Function]}
 >
   <div>
-    <Nav
-      bsClass="nav"
-      bsStyle="tabs"
-      className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
-      justified={false}
-      pullLeft={false}
-      pullRight={false}
-      stacked={false}
+    <div
+      className="theme-tc-tab-bar-menu tc-tab-bar-menu"
     >
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.1"
-        disabled={false}
-        eventKey="1"
-        label="Tab1"
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
       >
-        <TooltipTrigger
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.1"
+          disabled={false}
+          eventKey="1"
           label="Tab1"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab1
+          <TooltipTrigger
+            label="Tab1"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab1
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.2"
-        disabled={false}
-        eventKey="2"
-        label="Tab2"
-      >
-        <TooltipTrigger
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.2"
+          disabled={false}
+          eventKey="2"
           label="Tab2"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab2
+          <TooltipTrigger
+            label="Tab2"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab2
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.3"
-        disabled={false}
-        eventKey="3"
-        label="Tab3"
-      >
-        <TooltipTrigger
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.3"
+          disabled={false}
+          eventKey="3"
           label="Tab3"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab3
+          <TooltipTrigger
+            label="Tab3"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab3
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.4"
-        disabled={false}
-        eventKey="4"
-        label="Tab4"
-      >
-        <TooltipTrigger
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.4"
+          disabled={false}
+          eventKey="4"
           label="Tab4"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab4
+          <TooltipTrigger
+            label="Tab4"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab4
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.5"
-        disabled={false}
-        eventKey="5"
-        label="Tab5"
-      >
-        <TooltipTrigger
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.5"
+          disabled={false}
+          eventKey="5"
           label="Tab5"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab5
+          <TooltipTrigger
+            label="Tab5"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab5
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-    </Nav>
+          </TooltipTrigger>
+        </NavItem>
+      </Nav>
+    </div>
     <TabContent
       animation={true}
       bsClass="tab"
@@ -292,126 +300,130 @@ exports[`TabBar component should render with selected children managed by user 1
   onSelect={[Function]}
 >
   <div>
-    <Nav
-      bsClass="nav"
-      bsStyle="tabs"
-      className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
-      justified={false}
-      pullLeft={false}
-      pullRight={false}
-      stacked={false}
+    <div
+      className="theme-tc-tab-bar-menu tc-tab-bar-menu"
     >
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.1"
-        disabled={false}
-        eventKey="1"
-        label="Tab1"
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
       >
-        <TooltipTrigger
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.1"
+          disabled={false}
+          eventKey="1"
           label="Tab1"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab1
+          <TooltipTrigger
+            label="Tab1"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab1
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.2"
-        disabled={false}
-        eventKey="2"
-        label="Tab2"
-      >
-        <TooltipTrigger
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.2"
+          disabled={false}
+          eventKey="2"
           label="Tab2"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab2
+          <TooltipTrigger
+            label="Tab2"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab2
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.3"
-        disabled={false}
-        eventKey="3"
-        label="Tab3"
-      >
-        <TooltipTrigger
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.3"
+          disabled={false}
+          eventKey="3"
           label="Tab3"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab3
+          <TooltipTrigger
+            label="Tab3"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab3
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.4"
-        disabled={false}
-        eventKey="4"
-        label="Tab4"
-      >
-        <TooltipTrigger
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.4"
+          disabled={false}
+          eventKey="4"
           label="Tab4"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab4
+          <TooltipTrigger
+            label="Tab4"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab4
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-      <NavItem
-        active={false}
-        className="theme-tc-tab-bar-item tc-tab-bar-item"
-        componentClass="button"
-        data-feature="action.5"
-        disabled={false}
-        eventKey="5"
-        label="Tab5"
-      >
-        <TooltipTrigger
+          </TooltipTrigger>
+        </NavItem>
+        <NavItem
+          active={false}
+          className="theme-tc-tab-bar-item tc-tab-bar-item"
+          componentClass="button"
+          data-feature="action.5"
+          disabled={false}
+          eventKey="5"
           label="Tab5"
-          tooltipPlacement="top"
         >
-          <span>
-            <span
-              className="theme-tc-tab-bar-item-label"
-            >
-              Tab5
+          <TooltipTrigger
+            label="Tab5"
+            tooltipPlacement="top"
+          >
+            <span>
+              <span
+                className="theme-tc-tab-bar-item-label"
+              >
+                Tab5
+              </span>
             </span>
-          </span>
-        </TooltipTrigger>
-      </NavItem>
-    </Nav>
+          </TooltipTrigger>
+        </NavItem>
+      </Nav>
+    </div>
     <TabContent
       animation={true}
       bsClass="tab"
