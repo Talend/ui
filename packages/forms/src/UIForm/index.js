@@ -1,6 +1,5 @@
 import * as FormTemplate from './FormTemplate';
 import FieldTemplate from './fields/FieldTemplate';
-import fieldsets from './fieldsets';
 import Message from './Message';
 import callTrigger from './trigger';
 import utils from './utils';
@@ -26,6 +25,5 @@ UIForm.Widget = Widget;
 UIForm.customFormats = customFormats;
 UIForm.lang = lang;
 UIForm.merge = merge;
-UIForm.fieldsets = fieldsets;
 
 export default UIForm;

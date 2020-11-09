@@ -7,11 +7,14 @@ import * as validation from './validation';
 import condition from './condition';
 import templates from './templates';
 import widgets from './widgets';
-import createCollapsibleFieldset from '../fieldsets/CollapsibleFieldset';
+import createCollapsibleFieldset, { defaultTitle } from '../fieldsets/CollapsibleFieldset';
 
 export default {
 	array,
-	createCollapsibleFieldset,
+	collapsible: {
+		createCollapsibleFieldset,
+		defaultTitle,
+	},
 	errors,
 	properties,
 	propTypes,
