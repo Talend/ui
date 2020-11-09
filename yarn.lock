@@ -3042,6 +3042,45 @@
     react-router-redux "^4.0.8"
     redux-saga "^0.15.4"
 
+"@talend/react-cmf-webpack-plugin@>=3.4.0":
+  version "5.28.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf-webpack-plugin/-/react-cmf-webpack-plugin-5.28.0.tgz#b47fa496fd435c2f5fbd1a87c54e117f6249ce9f"
+  integrity sha512-VbU1Fp3NNgDRho2XQsTZebZ2VNvP20xmKuPhjCFFTJWR5EUic6tt4Ge6Mr4Jf1sW0+TVdMasaBlCaTfk2+6uSw==
+  dependencies:
+    "@talend/react-cmf" "^5.28.0"
+    chokidar "^2.0.2"
+    deepmerge "^1.5.1"
+    lodash "^4.17.15"
+    mkdirp "^0.5.1"
+
+"@talend/react-cmf@^5.28.0":
+  version "5.28.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.28.0.tgz#8950ce38b034e3626af6825c20ac12ff50060418"
+  integrity sha512-O0pnIZs5Xjvu1I4/bu/i4vc/OXbhpGHEPZ55q4fMhypc94lGhaKBGXbC6OXmNROXxNs9/LNTITOLm9UfZoIkCg==
+  dependencies:
+    "@sentry/browser" "^5.11.1"
+    deepmerge "^1.5.1"
+    hoist-non-react-statics "2.5.5"
+    immutable "^3.8.1"
+    invariant "^2.2.2"
+    jsonpath "^1.0.0"
+    lodash "^4.17.15"
+    mkdirp "^1.0.4"
+    path-to-regexp "^2.0.0"
+    prop-types "^15.5.10"
+    react-immutable-proptypes "^2.1.0"
+    react-redux "^5.0.7"
+    redux "^3.7.2"
+    redux-batched-actions "^0.2.0"
+    redux-batched-subscribe "^0.1.6"
+    redux-saga "^0.15.4"
+    redux-storage "^4.1.2"
+    redux-storage-decorator-filter "^1.1.8"
+    redux-storage-decorator-immutablejs "^1.0.4"
+    redux-storage-engine-localstorage "^1.1.4"
+    redux-thunk "^2.2.0"
+    uuid "^3.4.0"
+
 "@talend/scripts-config-babel@^6.8.2":
   version "6.8.2"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-6.8.2.tgz#50b742fb903b5eb2dd5c1f7610e0e74af2e4c5cb"
