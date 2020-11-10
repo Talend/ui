@@ -54,6 +54,7 @@ export default function CheckBoxes(props) {
 					}
 					schema={schema}
 					value={value && value.includes(item.value)}
+					index={index}
 				/>
 			))}
 		</FieldTemplate>
@@ -95,3 +96,4 @@ CheckBoxes.defaultProps = {
 	isValid: true,
 	schema: {},
 };
+CheckBoxes.SimpleCheckBox = SimpleCheckBox;

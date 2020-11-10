@@ -2,13 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { simpleCollection } from './collection';
-import IconsProvider from '../../IconsProvider';
-import ActionBar from '../../ActionBar';
+import { simpleCollection } from './ListComposition/collection';
+import IconsProvider from '../IconsProvider';
+import ActionBar from '../ActionBar';
 import List from '.';
-import useCollectionSelection from './Manager/hooks/useCollectionSelection.hook';
-import { headerDictionary } from '../../VirtualizedList/utils/dictionary';
-import { headerType as headerResizableType } from '../../VirtualizedList/HeaderResizable';
 
 const titleProps = rowData => ({
 	onClick: action('onTitleClick'),
@@ -27,6 +24,11 @@ function CustomList(props) {
 			<List.VList.Text label="Id" dataKey="id" />
 			<List.VList.Title label="Name" dataKey="name" columnData={titleProps} />
 			<List.VList.IconText label="IconText" dataKey="iconAndText" />
+			<List.VList.IconText
+				label="IconText"
+				columnData={{ getIcon: () => 'talend-tdp-colored' }}
+				dataKey="iconAndTextWithGetter"
+			/>
 			<List.VList.Boolean label="Valid" dataKey="isValid" />
 			<List.VList.Boolean
 				label="ValidWithIcon"
@@ -50,7 +52,7 @@ function CustomListResizable(props) {
 				dataKey="id"
 				resizable
 				width={400}
-				headerRenderer={headerDictionary[headerResizableType]}
+				headerRenderer={List.VList.headerDictionary.resizable}
 			/>
 			<List.VList.Title
 				label="Name"
@@ -58,7 +60,7 @@ function CustomListResizable(props) {
 				columnData={titleProps}
 				resizable
 				width={400}
-				headerRenderer={headerDictionary[headerResizableType]}
+				headerRenderer={List.VList.headerDictionary.resizable}
 			/>
 			<List.VList.Badge
 				label="Tag"
@@ -237,6 +239,13 @@ storiesOf('Data/List/List Composition', module)
 			<IconsProvider />
 			<h1>Text Filter</h1>
 			<p>You can filter the dataset with the text by adding the component and let it work itself</p>
+			<p>
+				You can manually restrict the filter scope to specific columns, by passing the dataKey, here
+				it equals to <code>name</code> and <code>description</code>, but it's optional.
+			</p>
+			<p>
+				Note that the Column Chooser will impact the results, we can filter only on what we see!
+			</p>
 			<pre>
 				{`<List.Manager
  	id="my-list"
@@ -244,7 +253,8 @@ storiesOf('Data/List/List Composition', module)
 >
 	<List.Toolbar>
 		<List.Toolbar.Right>
-			<List.TextFilter id="my-list-textFilter" />
+			<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
+			<List.ColumnChooser />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -254,10 +264,15 @@ storiesOf('Data/List/List Composition', module)
 `}
 			</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection}>
+				<List.Manager
+					id="my-list"
+					collection={simpleCollection}
+					initialVisibleColumns={['id', 'name']}
+				>
 					<List.Toolbar>
 						<List.Toolbar.Right>
-							<List.TextFilter id="my-list-textFilter" />
+							<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
+							<List.ColumnChooser />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
@@ -450,8 +465,7 @@ storiesOf('Data/List/List Composition', module)
 			<p>You can change the sorting criteria by adding the component in the toolbar</p>
 			<p>
 				You can add the resizing column by adding the properties resizable, a width and use the
-				headerRenderer "headerResizableType" (note: the last column don't need to have the
-				headerRenderer)
+				headerRenderer "'resizable'" (note: the last column don't need to have the headerRenderer)
 			</p>
 			<pre>
 				{`
@@ -471,7 +485,7 @@ storiesOf('Data/List/List Composition', module)
 			dataKey="id"
 			resizable
 			width={400}
-			headerRenderer={headerDictionary[headerResizableType]}
+			headerRenderer={List.VList.headerDictionary['resizable']}
 		/>
 		<List.VList.Title
 			label="Name"
@@ -479,7 +493,7 @@ storiesOf('Data/List/List Composition', module)
 			columnData={titleProps}
 			resizable
 			width={400}
-			headerRenderer={headerDictionary[headerResizableType]}
+			headerRenderer={List.VList.headerDictionary['resizable']}
 		/>
 		<List.VList.Badge
 			label="Tag"
@@ -658,7 +672,7 @@ storiesOf('Data/List/List Composition', module)
 		</div>
 	))
 	.add('Selectable items', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[],
 			'id',
@@ -683,7 +697,7 @@ storiesOf('Data/List/List Composition', module)
 		);
 	})
 	.add('Selectable items + ActionBar', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[1, 2],
 			'id',
@@ -737,7 +751,7 @@ storiesOf('Data/List/List Composition', module)
 		);
 	})
 	.add('Selectable items + total items', () => {
-		const { isSelected, onToggleAll, onToggleItem } = useCollectionSelection(
+		const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 			simpleCollection,
 			[1, 2],
 			'id',

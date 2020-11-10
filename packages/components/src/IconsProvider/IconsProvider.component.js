@@ -1,15 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { filters } from '@talend/icons/dist/react';
-import { getIconHref as getIcon } from '@talend/icons/dist/info';
-
-let talendIcons = {};
-
-if (!process.env.ICON_BUNDLE) {
-	console.warn('WARNING ICON_BUNDLE will be the default in the next major release');
-	// eslint-disable-next-line global-require
-	talendIcons = require('@talend/icons/dist/react').default;
-}
+import { react as talendIcons, info, filters } from '@talend/icons';
 
 const context = {
 	ids: [],
@@ -17,6 +8,7 @@ const context = {
 	get: () => {},
 };
 
+// TODO 6.0: do not export this
 export function getIconHREF(name) {
 	if (context.ids.indexOf(name) !== -1) {
 		return `#${name}`;
@@ -24,7 +16,7 @@ export function getIconHREF(name) {
 	let href = context.get(name);
 	if (!href) {
 		if (process.env.ICON_BUNDLE) {
-			href = getIcon(name);
+			href = info.getIconHref(name);
 		} else {
 			// backward compatibility for test
 			href = `#${name}`;
@@ -71,4 +63,5 @@ IconsProvider.propTypes = {
 	getIconHref: PropTypes.func, // eslint-disable-line react/forbid-prop-types
 };
 
+IconsProvider.getIconHREF = getIconHREF;
 export default IconsProvider;

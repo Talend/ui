@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
+import { ActionButton } from '../Actions';
 import TabBar from './TabBar.component';
 import IconsProvider from '../IconsProvider';
 
@@ -20,6 +21,9 @@ const tabProps = {
 			icon: {
 				name: 'talend-empty-calendar',
 			},
+			badge: {
+				label: 85,
+			},
 		},
 		{
 			key: '3',
@@ -27,6 +31,10 @@ const tabProps = {
 			'data-feature': 'action.3',
 			icon: {
 				name: 'talend-user-circle',
+			},
+			badge: {
+				label: '1105',
+				bsStyle: 'danger',
 			},
 		},
 		{
@@ -40,6 +48,10 @@ const tabProps = {
 		{
 			key: '5',
 			label: 'Tab5',
+			badge: {
+				label: '975',
+				bsStyle: 'warning',
+			},
 			'data-feature': 'action.5',
 		},
 		{
@@ -56,6 +68,10 @@ const tabProps = {
 			'data-feature': 'action.7',
 			icon: {
 				name: 'talend-star',
+			},
+			badge: {
+				label: '5275',
+				bsStyle: 'success',
 			},
 		},
 		{
@@ -75,6 +91,19 @@ const tabProps = {
 	],
 	onSelect: action('onSelect'),
 	selectedKey: '2',
+};
+
+const rightProps = {
+	...tabProps,
+	right: (
+		<ActionButton
+			className="btn-inverse"
+			label="Add"
+			bsStyle="info"
+			icon="talend-plus-circle"
+			onClick={action('add')}
+		/>
+	),
 };
 
 function generateChildId(key, kind) {
@@ -122,6 +151,9 @@ stories
 			<h3>Default TabBar</h3>
 			<div id="default">
 				<TabBar {...tabProps}>{renderContent()}</TabBar>
+			</div>
+			<div id="with right children">
+				<TabBar {...rightProps}>{renderContent()}</TabBar>
 			</div>
 			<h3>Default TabBar with too small container</h3>
 			<div id="default-smaller" style={{ width: '30rem', border: '1px solid' }}>

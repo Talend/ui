@@ -7,12 +7,7 @@ import talendIcons from '@talend/icons/dist/react';
 import { SortIndicator } from 'react-virtualized';
 
 import IconsProvider from '../IconsProvider';
-import VirtualizedList, { listTypes } from '.';
-
-import { headerDictionary } from './utils/dictionary';
-import { headerType as headerResizableType } from './HeaderResizable';
-import { HeaderResizable } from './HeaderResizable/HeaderResizable.component';
-import { headerType as headerIconType } from './HeaderIcon';
+import VirtualizedList from '.';
 
 function MyCustomRow(props) {
 	return (
@@ -424,13 +419,14 @@ function CollapsiblePanels(props) {
 					}}
 					onScroll={action('onScroll')}
 					id="my-list"
-					type={listTypes.COLLAPSIBLE_PANEL}
+					type={VirtualizedList.LIST_TYPES.COLLAPSIBLE_PANEL}
 				/>
 			</section>
 		</div>
 	);
 }
 
+const HeaderResizable = VirtualizedList.headerDictionary.resizable;
 const CustomRenderResizableWidthRenderProps = props => (
 	<HeaderResizable {...props}>
 		<button onClick={action('custom action')}>{props.label}</button>
@@ -688,7 +684,7 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Text
 						dataKey="description"
 						disableSort
-						headerRenderer={headerDictionary[headerResizableType]}
+						headerRenderer={VirtualizedList.headerDictionary['resizable']}
 						label="Description"
 						resizable
 						width={650}
@@ -698,13 +694,13 @@ storiesOf('Data/List/VirtualizedList', module)
 							iconName: 'talend-badge',
 						}}
 						label="Author"
-						{...headerDictionary[headerIconType]}
+						{...VirtualizedList.headerDictionary['icon']}
 						dataKey="author"
 						width={80}
 					/>
 					<VirtualizedList.Datetime
 						dataKey="created"
-						headerRenderer={headerDictionary[headerResizableType]}
+						headerRenderer={VirtualizedList.headerDictionary['resizable']}
 						label="Created"
 						resizable
 						width={100}
@@ -739,7 +735,7 @@ storiesOf('Data/List/VirtualizedList', module)
 					collection={collection}
 					id="my-list"
 					rowHeight={135}
-					type={listTypes.LARGE}
+					type={VirtualizedList.LIST_TYPES.LARGE}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
@@ -776,7 +772,7 @@ storiesOf('Data/List/VirtualizedList', module)
 					onRowDoubleClick={action('doubleClick')}
 					rowHeight={135}
 					selectionToggle={action('selectionToggle')}
-					type={listTypes.LARGE}
+					type={VirtualizedList.LIST_TYPES.LARGE}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
@@ -812,7 +808,7 @@ storiesOf('Data/List/VirtualizedList', module)
 					isActive={item => item.id === 6}
 					onRowClick={action('onRowClick')}
 					rowHeight={135}
-					type={listTypes.LARGE}
+					type={VirtualizedList.LIST_TYPES.LARGE}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />

@@ -16,12 +16,14 @@ const Default = () => {
 	return (
 		<React.Fragment>
 			<SelectAllColumnsCheckbox id={bodyId} onChange={onSelectAll} value={selectAll} t={t} />
-			<ColumnChooserTable
-				id={bodyId}
-				columns={columns}
-				onChangeCheckbox={onChangeVisibility}
-				t={t}
-			/>
+			<div className={theme('tc-column-chooser-columns-list')}>
+				<ColumnChooserTable
+					id={bodyId}
+					columns={columns}
+					onChangeCheckbox={onChangeVisibility}
+					t={t}
+				/>
+			</div>
 		</React.Fragment>
 	);
 };

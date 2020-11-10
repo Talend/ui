@@ -1,3 +1,5 @@
+// TODO 6.0: remove this file, constants are attached to Layout
+
 export const DISPLAY_MODE_ONE_COLUMN = 'OneColumn';
 export const DISPLAY_MODE_TWO_COLUMNS = 'TwoColumns';
 

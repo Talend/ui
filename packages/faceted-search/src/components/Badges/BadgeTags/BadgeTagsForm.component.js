@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import Action from '@talend/react-components/lib/Actions/Action';
+import { Action } from '@talend/react-components/lib/Actions';
 import FilterBar from '@talend/react-components/lib/FilterBar';
-import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
+import RichTooltip from '@talend/react-components/lib/RichTooltip';
 import Loader from '@talend/react-components/lib/Loader';
 import { CIRCULAR_PROGRESS_SIZE } from '@talend/react-components/lib/constants';
 import { Checkbox } from '@talend/react-components/lib/Toggle';
@@ -113,7 +113,10 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 					id={`${badgeTagsFormId}-form`}
 					onSubmit={onSubmit}
 				>
-					<RichLayout.Body id={badgeTagsFormId} className={theme('fs-badge-tags-form-body')}>
+					<RichTooltip.RichLayout.Body
+						id={badgeTagsFormId}
+						className={theme('fs-badge-tags-form-body')}
+					>
 						{!visibleTags.length && (
 							<span className={theme('fs-badge-tags-form-empty')}>
 								{t('FIND_TAG_NO_RESULT', {
@@ -131,8 +134,8 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 								checked={checkbox.checked}
 							/>
 						))}
-					</RichLayout.Body>
-					<RichLayout.Footer id={id} className={theme('fs-badge-tags-form-footer')}>
+					</RichTooltip.RichLayout.Body>
+					<RichTooltip.RichLayout.Footer id={id} className={theme('fs-badge-tags-form-footer')}>
 						<div>
 							{value.length > 0 && (
 								<Action
@@ -154,7 +157,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 							bsStyle="info"
 							disabled={value.length === 0}
 						/>
-					</RichLayout.Footer>
+					</RichTooltip.RichLayout.Footer>
 				</form>
 			)}
 		</React.Fragment>

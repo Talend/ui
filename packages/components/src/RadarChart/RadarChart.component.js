@@ -4,12 +4,12 @@ import {
 	PolarGrid,
 	PolarRadiusAxis,
 	Dot as RechartsDot,
+	Radar,
+	PolarAngleAxis,
 } from 'recharts';
 import PropTypes from 'prop-types';
 import radarChartCssModule from './RadarChart.scss';
 import { getTheme } from '../theme';
-
-export { Radar, PolarAngleAxis } from 'recharts';
 
 const theme = getTheme(radarChartCssModule);
 
@@ -59,7 +59,7 @@ export function RadarChart({
 		</RechartsRadarChart>
 	);
 }
-
+RadarChart.displayName = 'RadarChart';
 RadarChart.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
@@ -76,22 +76,23 @@ RadarChart.propTypes = {
 };
 
 RadarChart.defaultProps = {
-	cx: 200,
-	cy: 120,
-	height: 240,
+	cx: 210,
+	cy: 140,
+	height: 250,
 	innerRadius: 0,
 	outerRadius: 100,
 	tick: false,
 	tickLine: false,
-	width: 400,
+	width: 420,
 };
 
 /**
  * This function provides a custom clickable axis label with a data link to the index of the chart data
  * @param {Object} props the current props of the PolarAngleAxis
  */
+// TODO 6.0: remove this export
 export function LabelWithClick(props) {
-	const { activeAxis, className, index, textAnchor, payload, x, y } = props;
+	const { activeAxis, className, index, payload, y, ...rest } = props;
 	let selectedClass = '';
 
 	if (activeAxis === index) {
@@ -99,26 +100,17 @@ export function LabelWithClick(props) {
 	}
 
 	return (
-		<text
-			x={x}
-			y={y + 3}
-			textAnchor={textAnchor}
-			data-axis-index={index}
-			role="button"
-			className={selectedClass}
-		>
+		<text {...rest} y={y} data-axis-index={index} role="button" className={selectedClass}>
 			{payload.value}
 		</text>
 	);
 }
-
+LabelWithClick.displayName = 'LabelWithClick';
 LabelWithClick.propTypes = {
 	activeAxis: PropTypes.number,
 	className: PropTypes.string,
 	index: PropTypes.number,
-	textAnchor: PropTypes.string,
 	payload: PropTypes.object,
-	x: PropTypes.number,
 	y: PropTypes.number,
 };
 
@@ -126,6 +118,7 @@ LabelWithClick.propTypes = {
  * This function provides a custom dot with a data link to the index of the chart data
  * @param {Object} props the current props of the Radar
  */
+// TODO 6.0: remove this export
 export function Dot(props) {
 	const { activeAxis, index } = props;
 	let newR = 4;
@@ -137,12 +130,54 @@ export function Dot(props) {
 	}
 	return <RechartsDot {...props} fillOpacity={1} r={newR} />;
 }
-
+Dot.displayName = 'Dot';
 Dot.propTypes = {
 	activeAxis: PropTypes.number,
 	index: PropTypes.number,
 };
 
-RadarChart.displayName = 'RadarChart';
-LabelWithClick.displayName = 'LabelWithClick';
-Dot.displayName = 'Dot';
+/**
+ * This function provides a clickable axis dot element
+ * @param {Object} props the current props of the Radar
+ */
+// TODO 6.0: remove this export
+export function DotWithClick(props) {
+	const { activeAxis, fill, index, onClick, ...rest } = props;
+	const STATE = {
+		DEFAULT_RADIUS: 2,
+		DEFAULT_STROKE_WIDTH: 12,
+		ACTIVE_RADIUS: 4,
+		ACTIVE_STROKE_WIDTH: 8,
+	};
+
+	return (
+		<RechartsDot
+			{...rest}
+			fill={fill}
+			fillOpacity={1}
+			onClick={params => onClick({ ...params, index })}
+			r={activeAxis === index ? STATE.ACTIVE_RADIUS : STATE.DEFAULT_RADIUS}
+			role="button"
+			stroke={fill}
+			strokeOpacity={0}
+			strokeWidth={activeAxis === index ? STATE.ACTIVE_STROKE_WIDTH : STATE.DEFAULT_STROKE_WIDTH}
+			tabIndex={0}
+		/>
+	);
+}
+DotWithClick.displayName = 'DotWithClick';
+DotWithClick.propTypes = {
+	activeAxis: PropTypes.number,
+	fill: PropTypes.string,
+	index: PropTypes.number,
+	onClick: PropTypes.func,
+};
+
+// TODO 6.0: remove those exports
+export { Radar, PolarAngleAxis };
+
+RadarChart.LabelWithClick = LabelWithClick;
+RadarChart.Dot = Dot;
+RadarChart.DotWithClick = DotWithClick;
+RadarChart.Radar = Radar;
+RadarChart.PolarAngleAxis = PolarAngleAxis;

@@ -4,6 +4,7 @@
  */
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
+import { nestedCombineReducers } from 'nested-combine-reducers';
 import thunk from 'redux-thunk';
 import invariant from 'invariant';
 
@@ -85,7 +86,8 @@ function getReducer(appReducer) {
 	if (!reducerObject.cmf) {
 		reducerObject.cmf = cmfReducers;
 	}
-	return enableBatching(preApplyReducer(combineReducers(reducerObject)));
+
+	return enableBatching(preApplyReducer(nestedCombineReducers(reducerObject, combineReducers)));
 }
 
 /**

@@ -53,7 +53,8 @@
   "uiSchema": [
     {
       "key": "simpleChoiceList",
-      "title": "Simple choice list"
+      "title": "Simple choice list",
+      "data-test": "simple.list"
     },
     {
       "key": "choiceListWithTitles",

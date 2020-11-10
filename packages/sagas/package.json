@@ -1,11 +1,12 @@
 {
   "name": "@talend/react-sagas",
-  "version": "5.20.0",
+  "version": "5.29.0",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
@@ -30,7 +31,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^5.20.0",
+    "@talend/react-cmf": "^5.29.0",
     "immutable": "^3.8.1",
     "redux-saga": "^0.15.4"
   },
@@ -40,8 +41,8 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^6.3.0",
-    "@talend/scripts-preset-react-lib": "^6.3.0",
+    "@talend/scripts-core": "^6.8.2",
+    "@talend/scripts-preset-react-lib": "^6.8.2",
     "prop-types": "^15.5.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

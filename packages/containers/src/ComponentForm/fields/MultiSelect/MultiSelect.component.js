@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import MultiSelect from '@talend/react-components/lib/MultiSelect';
-import FieldTemplate from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
-import {
-	generateDescriptionId,
-	generateErrorId,
-} from '@talend/react-forms/lib/UIForm/Message/generateId';
-import callTrigger from '@talend/react-forms/lib/UIForm/trigger';
+import Form from '@talend/react-forms';
 
 export default class MultiSelectField extends React.Component {
 	constructor(props) {
@@ -23,7 +18,7 @@ export default class MultiSelectField extends React.Component {
 	}
 
 	onTrigger(event) {
-		callTrigger(event, {
+		Form.UIForm.callTrigger(event, {
 			eventNames: [event.type],
 			triggersDefinitions: this.props.schema.triggers,
 			onTrigger: this.onTriggerResult,
@@ -82,11 +77,13 @@ export default class MultiSelectField extends React.Component {
 	}
 
 	render() {
+		const { generateDescriptionId, generateErrorId } = Form.UIForm.Message.utils;
 		const { id, isValid, errorMessage, schema } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const errorMsg = errorMessage || this.getChildrenErrorMessage();
 		const isDeepValid = isValid && !errorMsg;
+		const FieldTemplate = Form.UIForm.FieldTemplate.DefaultModeTemplate;
 
 		return (
 			<FieldTemplate

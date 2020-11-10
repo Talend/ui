@@ -26,10 +26,14 @@ $tc-height: 4rem;
 	}
 
 	&-body {
-		overflow-y: auto;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
+	}
+
+	&-columns-list {
+		overflow-y: auto;
+		max-height: 5 * $tc-height;
 	}
 
 	&-footer {

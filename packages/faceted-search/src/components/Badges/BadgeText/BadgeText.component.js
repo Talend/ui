@@ -35,6 +35,9 @@ const BadgeText = ({
 	t,
 	value,
 	category,
+	readOnly,
+	removable,
+	displayType,
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
@@ -42,6 +45,7 @@ const BadgeText = ({
 	return (
 		<BadgeFaceted
 			badgeId={id}
+			displayType={displayType}
 			id={badgeTextId}
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
@@ -49,6 +53,8 @@ const BadgeText = ({
 			labelValue={value || t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' })}
 			operator={currentOperator}
 			operators={currentOperators}
+			readOnly={readOnly}
+			removable={removable}
 			size={size}
 			t={t}
 			value={value || ''}
@@ -78,6 +84,9 @@ BadgeText.propTypes = {
 	t: PropTypes.func.isRequired,
 	value: PropTypes.string,
 	category: PropTypes.string,
+	readOnly: PropTypes.bool,
+	removable: PropTypes.bool,
+	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 };
 
 // eslint-disable-next-line import/prefer-default-export

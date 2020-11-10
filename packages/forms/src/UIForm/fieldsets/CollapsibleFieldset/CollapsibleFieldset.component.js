@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import CollapsiblePanel, { TYPE_ACTION } from '@talend/react-components/lib/CollapsiblePanel';
+import CollapsiblePanel from '@talend/react-components/lib/CollapsiblePanel';
 import get from 'lodash/get';
 import Widget from '../../Widget';
 import { generateDescriptionId } from '../../Message/generateId';
@@ -82,7 +82,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		const { items } = schema;
 		const displayAction = actions.map(action => ({
 			...action,
-			displayMode: TYPE_ACTION,
+			displayMode: CollapsiblePanel.displayModes.TYPE_ACTION,
 		}));
 
 		return (

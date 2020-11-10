@@ -15,7 +15,18 @@ describe('selectors.router.getLocation', () => {
 });
 
 describe('selectors.router.getPath', () => {
-	it('try to find the collection if collectionPath is a string', () => {
+	it('should get the pathname', () => {
 		expect(router.getPath(state)).toEqual(state.routing.locationBeforeTransitions.pathname);
+	});
+	it('should get the pathname with hash based routing', () => {
+		const hashState = {
+			routing: {
+				locationBeforeTransitions: {
+					pathname: 'foo/bar',
+					hash: '#toto',
+				},
+			},
+		};
+		expect(router.getPath(hashState, true)).toEqual('foo/bar#toto');
 	});
 });

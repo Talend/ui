@@ -26,6 +26,16 @@ Types of changes
 
 ## [unreleased]
 
+- [Added](https://github.com/Talend/ui/pull/2994): Read only support
+- [Added](https://github.com/Talend/ui/pull/2997): Handle badges without labels
+- [Added](https://github.com/Talend/ui/pull/3000): Added complies/wordComplies pattern operators support
+- [Added](https://github.com/Talend/ui/pull/3013): Added colored badge support
+
+## [0.13.0]
+
+- [Fixed](https://github.com/Talend/ui/pull/2972): Don't reopen the value tooltip for badges with default operators
+- [Added](https://github.com/Talend/ui/pull/2932): Pointer cursor on the slider facet value
+
 ## [0.12.1]
 
 - [Fixed](https://github.com/Talend/ui/pull/2919): Fallback to default for slider facet

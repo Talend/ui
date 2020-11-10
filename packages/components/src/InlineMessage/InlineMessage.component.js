@@ -21,7 +21,7 @@ import { getTheme } from '../theme';
 	};
  <InlineMessage {...props}/>
  */
-
+// TODO 6.0: do not export this
 export const TYPES = {
 	INFO: 'info',
 	SUCCESSFUL: 'success',
@@ -29,7 +29,7 @@ export const TYPES = {
 	ERROR: 'error',
 };
 
-export const getbsStyleFromType = type => {
+const getbsStyleFromType = type => {
 	const typesMap = {
 		[TYPES.INFO]: 'info',
 		[TYPES.SUCCESSFUL]: 'success',
@@ -75,6 +75,8 @@ export function InlineMessage({ type, title, description, icon, link, withBackgr
 		</div>
 	);
 }
+
+InlineMessage.TYPES = TYPES;
 
 InlineMessage.displayName = 'InlineMessage';
 

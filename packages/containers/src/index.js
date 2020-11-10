@@ -1,25 +1,10 @@
-import omit from 'lodash/omit';
-import * as allComponents from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';
-import * as containers from './containers';
-
-const components = Object.keys(allComponents).reduce((acc, key) => {
-	if (!acc[key] && typeof allComponents[key] === 'function') {
-		const options = {};
-		if (['ActionList', 'Layout', 'RichLayout', 'Dialog'].includes(key)) {
-			options.withComponentRegistry = true;
-		}
-		if (!allComponents[key].displayName) {
-			allComponents[key].displayName = key;
-		}
-		// eslint-disable-next-line no-param-reassign
-		acc[key] = cmfConnect(options)(allComponents[key]);
-	}
-	return acc;
-}, omit(containers, ['actionAPI']));
+import * as allComponents from '@talend/react-components';
+import cmfModule from './cmfModule';
 
 export * from './containers';
 export { default as actionAPI } from './actionAPI';
+export * from './register';
 
 export const Layout = cmfConnect({
 	omitCMFProps: true,
@@ -42,8 +27,4 @@ export const TooltipTrigger = cmfConnect({
 	omitCMFProps: true,
 })(allComponents.TooltipTrigger);
 
-// cmfModule
-export default {
-	id: 'containers',
-	components,
-};
+export default cmfModule;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import Container from './ActionBar.connect';
 
@@ -78,16 +78,11 @@ const actionIds = {
 describe('Container ActionBar', () => {
 	it('should pass the props', () => {
 		const props = { actions };
-		const wrapper = shallow(
-			<Container {...props} />,
-			{ context: mock.context() }
-		);
+		const wrapper = shallow(<Container {...props} />, { context: mock.store.context() });
 		expect(wrapper.props()).toMatchSnapshot();
 	});
 	it('should compute props using CMF with array of string', () => {
-		const wrapper = shallow(
-			<Container actionIds={actionIds} />
-		, { context: mock.context() });
+		const wrapper = shallow(<Container actionIds={actionIds} />, { context: mock.store.context() });
 		expect(wrapper.props()).toMatchSnapshot();
 	});
 });

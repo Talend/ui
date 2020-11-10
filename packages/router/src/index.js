@@ -2,7 +2,6 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import cmf from '@talend/react-cmf';
-import { getReduceConfig, mergeObjects, getUnique } from '@talend/react-cmf/lib/cmfModule.merge';
 import { fork, takeLatest } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
 import expressions from './expressions';
@@ -10,17 +9,17 @@ import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 import documentTitle from './sagas/documentTitle';
 import cmfRouterMiddleware from './middleware';
-import { REGISTRY_HOOK_PREFIX } from './route';
+import route, { REGISTRY_HOOK_PREFIX } from './route';
 
 const mergeConfig = {
-	history: getUnique,
-	sagaRouterConfig: mergeObjects,
-	routerFunctions: mergeObjects,
-	startOnAction: getUnique,
+	history: cmf.module.merge.getUnique,
+	sagaRouterConfig: cmf.module.merge.mergeObjects,
+	routerFunctions: cmf.module.merge.mergeObjects,
+	startOnAction: cmf.module.merge.getUnique,
 };
 
 function mergeRouterConfig(...configs) {
-	return configs.reduce(getReduceConfig(mergeConfig), {});
+	return configs.reduce(cmf.module.merge.getReduceConfig(mergeConfig), {});
 }
 
 function getModule(...args) {
@@ -83,4 +82,4 @@ const routerAPI = {
 	matchPath: cmf.router.matchPath,
 };
 
-export { routerAPI };
+export { routerAPI, route, sagaRouter };

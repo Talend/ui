@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { store } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import Immutable from 'immutable';
 
 import { DeleteResource } from './DeleteResource.container';
 import Connected, { mapStateToProps } from './DeleteResource.connect';
 
-const state = store.state();
+const state = mock.store.state();
 const settings = {};
 state.cmf = {
 	settings,

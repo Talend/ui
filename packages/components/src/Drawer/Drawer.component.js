@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
+import noop from 'lodash/noop';
 import { Transition } from 'react-transition-group';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -9,9 +10,11 @@ import Action from '../Actions/Action';
 import TabBar from '../TabBar';
 import Inject from '../Inject';
 import EditableText from '../EditableText';
+import { getTheme } from '../theme';
 
 import theme from './Drawer.scss';
 
+const css = getTheme(theme);
 const DEFAULT_TRANSITION_DURATION = 350;
 
 const STYLES = {
@@ -50,8 +53,7 @@ DrawerAnimation.defaultProps = {
 };
 
 function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {
-	const drawerContainerClasses = classnames(
-		theme['tc-drawer'],
+	const drawerContainerClasses = css(
 		className,
 		'tc-drawer',
 		{
@@ -93,11 +95,7 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 	return (
 		<ActionComponent
 			{...enhancedCancelAction}
-			className={classnames(
-				'tc-drawer-close-action',
-				theme['tc-drawer-close-action'],
-				enhancedCancelAction.className,
-			)}
+			className={css('tc-drawer-close-action', enhancedCancelAction.className)}
 			tooltipClassName={theme['drawer-close-action-tooltip']}
 		/>
 	);
@@ -130,6 +128,7 @@ function DrawerTitle({
 	onEdit,
 	onSubmit,
 	onCancel,
+	renderTitleActions = noop,
 	...props
 }) {
 	const [isEditMode, setIsEditMode] = React.useState(false);
@@ -157,8 +156,8 @@ function DrawerTitle({
 	}
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
-		<div className={classnames('tc-drawer-header', theme['tc-drawer-header'])}>
-			<div className={classnames('tc-drawer-header-title', theme['tc-drawer-header-title'])}>
+		<div className={css('tc-drawer-header')}>
+			<div className={css('tc-drawer-header-title')}>
 				{!editable ? (
 					<h1 title={title}>{title}</h1>
 				) : (
@@ -175,13 +174,10 @@ function DrawerTitle({
 					/>
 				)}
 				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
+				{renderTitleActions()}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
-			<div
-				className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
-			>
-				{children}
-			</div>
+			<div className={css('tc-drawer-header-with-tabs')}>{children}</div>
 		</div>
 	);
 }
@@ -192,6 +188,7 @@ DrawerTitle.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	children: PropTypes.node,
 	getComponent: PropTypes.func,
+	renderTitleActions: PropTypes.func,
 	editable: PropTypes.bool,
 	inProgress: PropTypes.bool,
 	onEdit: PropTypes.func,
@@ -201,13 +198,8 @@ DrawerTitle.propTypes = {
 
 function DrawerContent({ children, className, ...rest }) {
 	return (
-		<div
-			className={classnames('tc-drawer-content', theme['tc-drawer-content'], className)}
-			{...rest}
-		>
-			<div className={classnames('tc-drawer-content-wrapper', theme['tc-drawer-content-wrapper'])}>
-				{children}
-			</div>
+		<div className={css('tc-drawer-content', className)} {...rest}>
+			<div className={css('tc-drawer-content-wrapper')}>{children}</div>
 		</div>
 	);
 }
@@ -218,9 +210,7 @@ DrawerContent.propTypes = {
 };
 
 function DrawerFooter({ children }) {
-	return (
-		<div className={classnames('tc-drawer-footer', theme['tc-drawer-footer'])}>{children}</div>
-	);
+	return <div className={css('tc-drawer-footer')}>{children}</div>;
 }
 
 DrawerFooter.propTypes = {
@@ -257,6 +247,7 @@ function Drawer({
 	getComponent,
 	selectedTabKey,
 	editableTitle,
+	renderTitleActions,
 }) {
 	if (!children) {
 		return null;
@@ -288,30 +279,23 @@ function Drawer({
 			withTransition={withTransition}
 		>
 			<DrawerTitle
+				renderTitleActions={renderTitleActions}
 				editable={editableTitle}
 				title={title}
 				onCancelAction={onCancelAction}
 				getComponent={getComponent}
 			/>
 			{tabs && (
-				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
-					<TabBarComponent
-						{...customTabs}
-						className={classnames('tc-drawer-tabs', theme['tc-drawer-tabs'])}
-					/>
+				<div className={css('tc-drawer-tabs-container')}>
+					<TabBarComponent {...customTabs} className={css('tc-drawer-tabs')} />
 				</div>
 			)}
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>{children}</DrawerContent>
-				<div
-					className={classnames(
-						'tc-drawer-actionbar-container',
-						theme['tc-drawer-actionbar-container'],
-					)}
-				>
+				<div className={css('tc-drawer-actionbar-container')}>
 					<ActionBar
 						{...combinedFooterActions(onCancelAction, footerActions, activeTabItem)}
-						className={classnames('tc-drawer-actionbar', theme['tc-drawer-actionbar'])}
+						className={css('tc-drawer-actionbar')}
 					/>
 				</div>
 			</div>
@@ -333,6 +317,7 @@ Drawer.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,
+	renderTitleActions: PropTypes.func,
 	getComponent: PropTypes.func,
 	selectedTabKey: PropTypes.string,
 };

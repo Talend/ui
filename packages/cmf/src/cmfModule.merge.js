@@ -1,6 +1,17 @@
 import React from 'react';
 import { spawn } from 'redux-saga/effects';
+import _merge from 'lodash/merge';
 import { assertValueTypeOf } from './assert';
+
+export function deepMerge(obj1, obj2) {
+	if (!obj2) {
+		return obj1;
+	}
+	if (!obj1) {
+		return obj2;
+	}
+	return _merge(obj1, obj2);
+}
 
 export function mergeObjects(obj1, obj2) {
 	if (!obj2) {
@@ -109,7 +120,7 @@ const MERGE_FNS = {
 	enhancer: mergeFns,
 	middlewares: mergeArrays,
 	storeCallback: mergeFns,
-	reducer: mergeObjects,
+	reducer: deepMerge,
 	preloadedState: getUnique,
 	settingsURL: getUnique,
 	registry: mergeObjects,
@@ -143,3 +154,7 @@ function merge(...configs) {
 }
 
 export default merge;
+
+merge.getReduceConfig = getReduceConfig;
+merge.getUnique = getUnique;
+merge.mergeObjects = mergeObjects;

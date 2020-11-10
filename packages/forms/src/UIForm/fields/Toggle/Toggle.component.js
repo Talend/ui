@@ -3,6 +3,7 @@ import React from 'react';
 import Toggle from '@talend/react-components/lib/Toggle';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { extractDataAttributes } from '../../utils/properties';
 
 function ToggleWidget(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
@@ -34,6 +35,7 @@ function ToggleWidget(props) {
 				aria-invalid={!isValid}
 				aria-required={schema.required}
 				aria-describedby={`${descriptionId} ${errorId}`}
+				{...extractDataAttributes(schema)}
 			/>
 		</FieldTemplate>
 	);

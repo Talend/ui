@@ -34,4 +34,4 @@ const createBadgesDict = badges => {
 
 const getBadgesFromDict = (badges, badgeKey) => badges[badgeKey];
 
-export { createBadgesDict, getBadgesFromDict };
+export { createBadgesDict, getBadgesFromDict, standardBadgeTypeNames };

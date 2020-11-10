@@ -5,11 +5,6 @@ import { useTranslation } from 'react-i18next';
 import GuidedTour from '../GuidedTour';
 import Toggle from '../Toggle';
 import Stepper from '../Stepper';
-import {
-	isAllSuccessful,
-	isStepsLoading,
-	SHOW_COMPLETED_TRANSITION_TIMER,
-} from '../Stepper/Stepper.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import DemoContentStep from './DemoContentStep.component';
 
@@ -34,8 +29,10 @@ function AppGuidedTour({
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isNavigationDisabled =
-		importDemoContent && currentStep === DEMO_CONTENT_STEP_ID && isStepsLoading(demoContentSteps);
-	const isImportSuccessFul = demoContentSteps?.length && isAllSuccessful(demoContentSteps);
+		importDemoContent &&
+		currentStep === DEMO_CONTENT_STEP_ID &&
+		Stepper.isStepsLoading(demoContentSteps);
+	const isImportSuccessFul = demoContentSteps?.length && Stepper.isAllSuccessful(demoContentSteps);
 
 	useEffect(() => {
 		if (!isAlreadyViewed) {
@@ -48,7 +45,7 @@ function AppGuidedTour({
 		if (isImportSuccessFul) {
 			timeoutId = setTimeout(() => {
 				setCurrentStep(prev => (prev === DEMO_CONTENT_STEP_ID ? DEMO_CONTENT_STEP_ID + 1 : prev));
-			}, SHOW_COMPLETED_TRANSITION_TIMER);
+			}, Stepper.SHOW_COMPLETED_TRANSITION_TIMER);
 		}
 		return () => clearTimeout(timeoutId);
 	}, [isImportSuccessFul]);

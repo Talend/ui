@@ -11,7 +11,7 @@ exports[`Status should render a label 1`] = `
     
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-success"
   >
     Successful
   </span>
@@ -76,7 +76,7 @@ exports[`Status should render a label with Icon 1`] = `
     />
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-success"
   >
     Successful
   </span>
@@ -141,7 +141,7 @@ exports[`Status should render a label with Icon without actions 1`] = `
     />
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-success"
   >
     Successful
   </span>
@@ -182,7 +182,7 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     </svg>
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-info"
   >
     In Progress
   </span>
@@ -262,7 +262,7 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     </svg>
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-info"
   >
     In Progress
   </span>
@@ -331,7 +331,7 @@ exports[`Status should render a label with a skeleton 1`] = `
     />
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-skeleton"
   >
     <span
       aria-label="text (loading)"

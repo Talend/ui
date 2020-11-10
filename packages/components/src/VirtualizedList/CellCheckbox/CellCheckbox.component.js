@@ -53,6 +53,8 @@ CellCheckbox.propTypes = {
 	cellData: PropTypes.bool,
 	// The custom props passed to <VirtualizedList.Content columnData={}>.
 	columnData: PropTypes.shape({
+		selectionMode: PropTypes.string,
+		getRowState: PropTypes.func,
 		// The List id. This is used as the checkbox id prefix.
 		id: PropTypes.string,
 		// The checkbox label.

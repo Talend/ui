@@ -1,9 +1,6 @@
 import FilterBar from './FilterBar.connect';
-import { getComponentState, getQuery } from './FilterBar.selectors';
+import * as FilterBarSelectors from './FilterBar.selectors';
 
-FilterBar.selectors = {
-	getComponentState,
-	getQuery,
-};
+FilterBar.selectors = FilterBarSelectors;
 
 export default FilterBar;

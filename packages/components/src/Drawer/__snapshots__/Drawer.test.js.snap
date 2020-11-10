@@ -2,7 +2,7 @@
 
 exports[`Drawer render drawer content with extra className 1`] = `
 <div
-  className="tc-drawer-content theme-tc-drawer-content extraClass"
+  className="tc-drawer-content theme-tc-drawer-content extraClass theme-extraClass"
 >
   <div
     className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
@@ -210,46 +210,78 @@ exports[`Drawer should render with tabs 1`] = `
         id="my-tabs"
         onKeyDown={[Function]}
       >
-        <ul
-          className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
-          role="tablist"
+        <div
+          className="theme-tc-tab-bar-menu tc-tab-bar-menu"
         >
-          <li
-            className="theme-tc-tab-bar-item tc-tab-bar-item"
-            role="presentation"
+          <ul
+            className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
+            role="tablist"
           >
-            <button
-              aria-controls="my-tabs-pane-1"
-              aria-selected={false}
-              href="#"
-              id="my-tabs-tab-1"
-              label="Tab 1"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="tab"
-              tabIndex={-1}
+            <li
+              className="theme-tc-tab-bar-item tc-tab-bar-item"
+              role="presentation"
             >
-              Tab 1
-            </button>
-          </li>
-          <li
-            className="theme-tc-tab-bar-item tc-tab-bar-item active"
-            role="presentation"
-          >
-            <button
-              aria-controls="my-tabs-pane-2"
-              aria-selected={true}
-              href="#"
-              id="my-tabs-tab-2"
-              label="Tab 2"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="tab"
+              <button
+                aria-controls="my-tabs-pane-1"
+                aria-selected={false}
+                href="#"
+                id="my-tabs-tab-1"
+                label="Tab 1"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="tab"
+                tabIndex={-1}
+              >
+                <span
+                  aria-describedby="42"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                >
+                  <span
+                    className="theme-tc-tab-bar-item-label"
+                  >
+                    Tab 1
+                  </span>
+                </span>
+              </button>
+            </li>
+            <li
+              className="theme-tc-tab-bar-item tc-tab-bar-item active"
+              role="presentation"
             >
-              Tab 2
-            </button>
-          </li>
-        </ul>
+              <button
+                aria-controls="my-tabs-pane-2"
+                aria-selected={true}
+                href="#"
+                id="my-tabs-tab-2"
+                label="Tab 2"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="tab"
+              >
+                <span
+                  aria-describedby="42"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                >
+                  <span
+                    className="theme-tc-tab-bar-item-label"
+                  >
+                    Tab 2
+                  </span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div
@@ -392,7 +424,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
 
 exports[`Drawer should render without tc-drawer-transition class 1`] = `
 <div
-  className="theme-tc-drawer tc-drawer"
+  className="tc-drawer theme-tc-drawer"
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"

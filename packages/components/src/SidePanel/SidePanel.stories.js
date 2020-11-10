@@ -7,8 +7,6 @@ import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
 
-import { TALEND_T7_THEME_CLASSNAME } from '../Layout/constants';
-
 const APPS_WITH_SIDEPANEL = ['tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
 
 const icons = {
@@ -230,7 +228,7 @@ const appStyle = require('../../stories/config/themes.scss');
 APPS_WITH_SIDEPANEL.forEach(app => {
 	stories.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
 		<div className={appStyle[app]}>
-			<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
+			<div className={Layout.TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
 				<SidePanel id="context" actions={actions} tooltipPlacement="top" />
 			</div>
 		</div>
@@ -243,7 +241,7 @@ stories.add('🎨 [Portal] reverse', () => (
 		<p>
 			Keep sidePanel reverse style even if <em>t7</em> styles are applied.
 		</p>
-		<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
+		<div className={Layout.TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
 			<SidePanel id="context" actions={actions} tooltipPlacement="top" reverse />
 		</div>
 	</div>

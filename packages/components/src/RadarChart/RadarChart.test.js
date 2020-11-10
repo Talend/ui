@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Radar, RadarChart, PolarAngleAxis, Dot, LabelWithClick } from './RadarChart.component';
+import RadarChart from '.';
 
 describe('RadarChart', () => {
 	it('should render a RadarChart', () => {
@@ -19,8 +19,8 @@ describe('RadarChart', () => {
 		// when
 		const wrapper = mount(
 			<RadarChart data={props.data} domain={props.domain}>
-				<PolarAngleAxis dataKey={props.dataKey} />
-				<Radar
+				<RadarChart.PolarAngleAxis dataKey={props.dataKey} />
+				<RadarChart.Radar
 					name="Trust score"
 					dataKey="A"
 					dot
@@ -51,12 +51,12 @@ describe('RadarChart', () => {
 		// when
 		const wrapper = mount(
 			<RadarChart data={props.data} domain={props.domain}>
-				<PolarAngleAxis
+				<RadarChart.PolarAngleAxis
 					dataKey="axis"
-					tick={<LabelWithClick activeAxis={props.activeAxis} />}
+					tick={<RadarChart.LabelWithClick activeAxis={props.activeAxis} />}
 					onClick={props.clickMock}
 				/>
-				<Radar
+				<RadarChart.Radar
 					name="Trust score"
 					dataKey="A"
 					dot={false}
@@ -68,13 +68,56 @@ describe('RadarChart', () => {
 		);
 
 		// when
-		wrapper
-			.find('.recharts-polar-angle-axis-tick')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.recharts-polar-angle-axis-tick').at(0).simulate('click');
 
 		// then
-		expect(props.clickMock).toHaveBeenCalled();
+		expect(props.clickMock).toHaveBeenCalledWith(
+			expect.objectContaining({
+				index: 0,
+			}),
+			0,
+			expect.any(Object),
+		);
+	});
+	it('should render a chart with clickable dots', () => {
+		const props = {
+			data: [
+				{ axis: 'Validity', A: 4 },
+				{ axis: 'Social curation', A: 3 },
+				{ axis: 'Completeness', A: 2 },
+				{ axis: 'Discoverability', A: 1 },
+				{ axis: 'Usage', A: 1 },
+			],
+			domain: [0, 5],
+			dataKey: 'axis',
+			activeAxis: 2,
+			clickMock: jest.fn(),
+		};
+
+		// when
+		const wrapper = mount(
+			<RadarChart data={props.data} domain={props.domain}>
+				<RadarChart.PolarAngleAxis dataKey={props.dataKey} />
+				<RadarChart.Radar
+					dataKey="A"
+					dot={<RadarChart.DotWithClick activeAxis={2} onClick={props.clickMock} />}
+					fill="#19426c"
+					fillOpacity={0.1}
+					name="Trust score"
+					stroke="#19426c"
+				/>
+			</RadarChart>,
+		);
+
+		// when
+		wrapper.find('.recharts-dot').at(0).simulate('click');
+
+		// then
+		expect(props.clickMock).toHaveBeenCalledWith(
+			expect.objectContaining({
+				index: 0,
+			}),
+		);
 	});
 	it('should render a chart with custom dots', () => {
 		const props = {
@@ -93,10 +136,10 @@ describe('RadarChart', () => {
 		// when
 		const wrapper = mount(
 			<RadarChart data={props.data} domain={props.domain}>
-				<PolarAngleAxis dataKey={props.dataKey} />
-				<Radar
+				<RadarChart.PolarAngleAxis dataKey={props.dataKey} />
+				<RadarChart.Radar
 					dataKey="A"
-					dot={<Dot activeAxis={props.activeAxis} />}
+					dot={<RadarChart.Dot activeAxis={props.activeAxis} />}
 					fill="#19426c"
 					fillOpacity={0.1}
 					isAnimationActive={false}

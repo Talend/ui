@@ -5,6 +5,7 @@ import React from 'react';
 import classNames from 'classnames';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { extractDataAttributes } from '../../utils/properties';
 
 export default function Radios({
 	id,
@@ -16,7 +17,7 @@ export default function Radios({
 	value,
 	valueIsUpdating,
 }) {
-	const { autoFocus, description, disabled = false, inline, title } = schema;
+	const { autoFocus, description, disabled = false, inline, title, ...rest } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const radioClassNames = classNames({
@@ -56,6 +57,7 @@ export default function Radios({
 								// eslint-disable-next-line jsx-a11y/aria-proptypes
 								aria-invalid={!isValid}
 								aria-describedby={`${descriptionId} ${errorId}`}
+								{...extractDataAttributes(rest, index)}
 							/>
 							<span>{option.name}</span>
 						</label>
