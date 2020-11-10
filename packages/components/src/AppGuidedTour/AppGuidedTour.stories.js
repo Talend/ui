@@ -36,6 +36,7 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 			]}
 			onRequestOpen={() => {}}
 			onRequestClose={() => {}}
+			lastStepNextButtonDataFeature="HEHEEE"
 			{...(withDemoContent ? demoContentProps : {})}
 		/>
 	);

@@ -3,7 +3,6 @@ import React from 'react';
 import classnames from 'classnames';
 
 import theme from './Icon.scss';
-import IconsProvider from '../IconsProvider';
 
 const FA_TRANSFORMS = {
 	spin: 'fa-spin',
@@ -39,8 +38,9 @@ const TRANSFORMS = Object.keys(SVG_TRANSFORMS);
 function Icon({ className, name, title, transform, onClick, ...props }) {
 	const isRemote = name.startsWith('remote-');
 	const imgSrc = name.replace('remote-', '').replace('src-', '');
-	const [contentType, setContentType] = React.useState();
 	const [content, setContent] = React.useState();
+	const ref = React.useRef();
+	const isRemoteSVG = isRemote && content && content.includes('svg') && !content.includes('script');
 	React.useEffect(() => {
 		if (isRemote) {
 			fetch(imgSrc, {
@@ -51,7 +51,6 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 				.then(response => {
 					if (response.status === 200 && response.ok) {
 						response.text().then(data => {
-							setContentType(response.headers.get('Content-Type'));
 							setContent(data);
 						});
 					} else {
@@ -67,6 +66,13 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 				});
 		}
 	}, [imgSrc, isRemote]);
+
+	React.useEffect(() => {
+		if (ref.current && isRemoteSVG) {
+			// eslint-disable-next-line no-param-reassign
+			ref.current.innerHTML = content;
+		}
+	}, [isRemoteSVG, ref, content]);
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -95,25 +101,11 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 	);
 
 	let iconElement = (
-		<svg
-			name={name}
-			className={classname}
-			ref={ref => {
-				if (!ref) {
-					return;
-				}
-				if (isRemote && content && content.includes('svg')) {
-					// eslint-disable-next-line no-param-reassign
-					ref.innerHTML = content;
-				} else if (!content && !isRemote) {
-					IconsProvider.injectIcon(name, ref);
-				}
-			}}
-			{...accessibility}
-			{...props}
-		/>
+		<svg name={name} className={classname} ref={ref} {...accessibility} {...props}>
+			{isRemote ? undefined : <use xlinkHref={`#${name}`} />}
+		</svg>
 	);
-	if (content && contentType && !content.includes('svg') && isRemote) {
+	if (isRemote && content && !isRemoteSVG) {
 		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
 		iconElement = (
 			<img

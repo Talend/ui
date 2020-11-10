@@ -855,7 +855,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.12.1"
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/polyfill@^7.8.3", "@babel/polyfill@^7.8.4":
+"@babel/polyfill@^7.8.3":
   version "7.12.1"
   resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.12.1.tgz#1f2d6371d1261bbd961f3c5d5909150e12d0bd96"
   integrity sha512-X0pi0V6gxLi6lFZpGmeNa4zxtwEmCs42isWLNjZZDE0Y8yVfgu0T2OAHlzBbdYlqbW/YXVvoBHpATEM+goCj8g==
@@ -3029,12 +3029,11 @@
     mkdirp "^1.0.4"
     semver "^7.3.2"
 
-"@talend/react-cmf-router@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.4.0.tgz#bd33e55e19bc08c0b4b654e5208e7d98dfd5184f"
-  integrity sha512-8CTIjcisFHaQfcpaeqoT9834pWnZwOH+GWAtckkZrDvjTbZkaRE/iQiQPpOAxWv2cWY54aiUGIb0eb0vpYEg3A==
+"@talend/react-cmf-router@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.5.0.tgz#10a6505b42cc798c68591566ee342c9c0ee26f41"
+  integrity sha512-DgdVMuxvRR5cYwEP4TWEbqjxRNrOEjMmoy68uVkrqIJ+znnxBN03JtR7/yAqPJwbXmbRqcHb7zSguwFdwd6vXA==
   dependencies:
-    "@babel/polyfill" "^7.8.4"
     lodash "^4.17.15"
     path-to-regexp "^2.0.0"
     prop-types "^15.5.10"
@@ -13241,6 +13240,11 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+nested-combine-reducers@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/nested-combine-reducers/-/nested-combine-reducers-1.2.2.tgz#376f15fb8bed582db1f78312f8fe6b35105534cb"
+  integrity sha512-PL4SmE7sNRyoxjy0f4HjNcrN2OnLffubem6qNOUOX9Qfv+xi8jvZWk26AH9gWnNVcWVdLdakyr4BOCtNRg87tA==
 
 nested-object-assign@^1.0.3:
   version "1.0.3"

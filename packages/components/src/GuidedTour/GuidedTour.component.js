@@ -29,7 +29,13 @@ function formatSteps(steps) {
 	});
 }
 
-function GuidedTour({ className, disableAllInteractions, steps, ...rest }) {
+function GuidedTour({
+	className,
+	disableAllInteractions,
+	steps,
+	lastStepNextButtonDataFeature,
+	...rest
+}) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	if (!steps.length) {
 		return null;
@@ -49,7 +55,11 @@ function GuidedTour({ className, disableAllInteractions, steps, ...rest }) {
 			disableInteraction
 			highlightedMaskClassName="tc-guided-tour__highlighted-mask"
 			lastStepNextButton={
-				<Action bsStyle="info" label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />
+				<Action
+					bsStyle="info"
+					label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })}
+					data-feature={lastStepNextButtonDataFeature}
+				/>
 			}
 			maskSpace={10}
 			rounded={4}
@@ -86,6 +96,7 @@ GuidedTour.propTypes = {
 	isOpen: PropTypes.bool,
 	onRequestClose: PropTypes.func,
 	disableAllInteractions: PropTypes.bool,
+	lastStepNextButtonDataFeature: PropTypes.string,
 };
 
 export default GuidedTour;

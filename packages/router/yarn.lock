@@ -807,14 +807,6 @@
     "@babel/helper-create-regexp-features-plugin" "^7.8.3"
     "@babel/helper-plugin-utils" "^7.8.3"
 
-"@babel/polyfill@^7.8.4":
-  version "7.8.7"
-  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.8.7.tgz#151ec24c7135481336168c3bd8b8bf0cf91c032f"
-  integrity sha512-LeSfP9bNZH2UOZgcGcZ0PIHUt1ZuHub1L3CVmEyqLxCeDLm4C5Gi8jRH8ZX2PNpDhQCo0z6y/+DIs2JlliXW8w==
-  dependencies:
-    core-js "^2.6.5"
-    regenerator-runtime "^0.13.4"
-
 "@babel/preset-env@^7.8.7":
   version "7.9.5"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.9.5.tgz#8ddc76039bc45b774b19e2fc548f6807d8a8919f"
@@ -1279,10 +1271,10 @@
     lodash "^4.17.15"
     mkdirp "^0.5.1"
 
-"@talend/react-cmf@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.1.1.tgz#17092ed7becfc2374cb492456ac1c4bd6c776478"
-  integrity sha512-I28lKETHeVsZzveLt8+dJcyno7Td3thmpVY2vZEbhV+jD7gRqFqRWmvw+1X1VsMVaaqSPl5EE8ps+PYWJSqKkw==
+"@talend/react-cmf@^5.26.0":
+  version "5.26.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.26.0.tgz#f16df723e97f20ca7a686f4d09286b864dcc31d8"
+  integrity sha512-iytsfER3nuUjfNEBGMmw4lB6E0vHvvjVLqAV8PU31wpIvLiYJmH2VEj1bsIG5NopwJ93DNKv+J1Vvka3p50bzA==
   dependencies:
     "@sentry/browser" "^5.11.1"
     deepmerge "^1.5.1"
@@ -1290,7 +1282,7 @@
     immutable "^3.8.1"
     invariant "^2.2.2"
     jsonpath "^1.0.0"
-    lodash "^4.17.4"
+    lodash "^4.17.15"
     mkdirp "^1.0.4"
     path-to-regexp "^2.0.0"
     prop-types "^15.5.10"
@@ -1305,12 +1297,12 @@
     redux-storage-decorator-immutablejs "^1.0.4"
     redux-storage-engine-localstorage "^1.1.4"
     redux-thunk "^2.2.0"
-    uuid "^7.0.3"
+    uuid "^3.4.0"
 
-"@talend/react-cmf@^5.26.0":
-  version "5.26.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.26.0.tgz#f16df723e97f20ca7a686f4d09286b864dcc31d8"
-  integrity sha512-iytsfER3nuUjfNEBGMmw4lB6E0vHvvjVLqAV8PU31wpIvLiYJmH2VEj1bsIG5NopwJ93DNKv+J1Vvka3p50bzA==
+"@talend/react-cmf@^5.27.0":
+  version "5.27.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.27.0.tgz#5d201c1fa7bcd8cfe60224973d7a7c71dd571353"
+  integrity sha512-S1IOOVMUSfMHakj824aoaa/TTNTSfYxSpOpJNh30qAK4DqhX3XQZTaI8Pk5lXb1wu94uakaR2/57opUYWVGcWQ==
   dependencies:
     "@sentry/browser" "^5.11.1"
     deepmerge "^1.5.1"
@@ -3357,7 +3349,7 @@ core-js@^1.0.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
   integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
 
-core-js@^2.4.0, core-js@^2.6.5:
+core-js@^2.4.0:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
   integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
@@ -7179,7 +7171,7 @@ lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.3
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
-lodash@^4.15.0, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.2.1:
+lodash@^4.15.0, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.2.1:
   version "4.17.19"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
@@ -11266,11 +11258,6 @@ uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
-
-uuid@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
-  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 v8-compile-cache@2.0.3:
   version "2.0.3"

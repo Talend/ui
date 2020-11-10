@@ -57,3 +57,24 @@ exports[`Icon should support extra props 1`] = `
   title={null}
 />
 `;
+
+exports[`Icon should support remote svg 1`] = `
+<Icon
+  name="remote-/assets/icons/my-icon.svg"
+/>
+`;
+
+exports[`Icon should support remote svg 2`] = `
+<svg name="remote-/assets/icons/my-icon.svg"
+     class="theme-tc-svg-icon tc-svg-icon"
+     focusable="false"
+     aria-hidden="true"
+>
+  <svg>
+    <g>
+      <path d>
+      </path>
+    </g>
+  </svg>
+</svg>
+`;

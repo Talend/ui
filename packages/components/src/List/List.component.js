@@ -4,10 +4,11 @@ import classNames from 'classnames';
 import omit from 'lodash/omit';
 
 import Toolbar from './Toolbar';
-import SelectAll from './Toolbar/SelectAll';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 import Inject from '../Inject';
+
+const SelectAll = Toolbar.SelectAll;
 
 function ListToolbar({
 	id,
@@ -194,5 +195,6 @@ List.propTypes = {
 List.defaultProps = {
 	displayMode: 'table',
 };
+List.Toolbar = Toolbar;
 
 export default List;

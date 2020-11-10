@@ -210,74 +210,78 @@ exports[`Drawer should render with tabs 1`] = `
         id="my-tabs"
         onKeyDown={[Function]}
       >
-        <ul
-          className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
-          role="tablist"
+        <div
+          className="theme-tc-tab-bar-menu tc-tab-bar-menu"
         >
-          <li
-            className="theme-tc-tab-bar-item tc-tab-bar-item"
-            role="presentation"
+          <ul
+            className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
+            role="tablist"
           >
-            <button
-              aria-controls="my-tabs-pane-1"
-              aria-selected={false}
-              href="#"
-              id="my-tabs-tab-1"
-              label="Tab 1"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="tab"
-              tabIndex={-1}
+            <li
+              className="theme-tc-tab-bar-item tc-tab-bar-item"
+              role="presentation"
             >
-              <span
-                aria-describedby="42"
-                onBlur={[Function]}
+              <button
+                aria-controls="my-tabs-pane-1"
+                aria-selected={false}
+                href="#"
+                id="my-tabs-tab-1"
+                label="Tab 1"
                 onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseOut={[Function]}
-                onMouseOver={[Function]}
+                onKeyDown={[Function]}
+                role="tab"
+                tabIndex={-1}
               >
                 <span
-                  className="theme-tc-tab-bar-item-label"
+                  aria-describedby="42"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
                 >
-                  Tab 1
+                  <span
+                    className="theme-tc-tab-bar-item-label"
+                  >
+                    Tab 1
+                  </span>
                 </span>
-              </span>
-            </button>
-          </li>
-          <li
-            className="theme-tc-tab-bar-item tc-tab-bar-item active"
-            role="presentation"
-          >
-            <button
-              aria-controls="my-tabs-pane-2"
-              aria-selected={true}
-              href="#"
-              id="my-tabs-tab-2"
-              label="Tab 2"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="tab"
+              </button>
+            </li>
+            <li
+              className="theme-tc-tab-bar-item tc-tab-bar-item active"
+              role="presentation"
             >
-              <span
-                aria-describedby="42"
-                onBlur={[Function]}
+              <button
+                aria-controls="my-tabs-pane-2"
+                aria-selected={true}
+                href="#"
+                id="my-tabs-tab-2"
+                label="Tab 2"
                 onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseOut={[Function]}
-                onMouseOver={[Function]}
+                onKeyDown={[Function]}
+                role="tab"
               >
                 <span
-                  className="theme-tc-tab-bar-item-label"
+                  aria-describedby="42"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
                 >
-                  Tab 2
+                  <span
+                    className="theme-tc-tab-bar-item-label"
+                  >
+                    Tab 2
+                  </span>
                 </span>
-              </span>
-            </button>
-          </li>
-        </ul>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div

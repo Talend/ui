@@ -37,6 +37,36 @@ storiesOf('Messaging & Communication/Icon', module)
 			</ul>
 		</div>
 	))
+	.add('extends defaults', () => (
+		<div>
+			<h1>Icon</h1>
+			<IconsProvider icons={newIcons} />
+			<p>Here we are adding a new Icon id</p>
+			<ul>
+				<li>
+					<Icon name="test" /> : <strong>test</strong>
+				</li>
+			</ul>
+		</div>
+	))
+	.add('override defaults', () => (
+		<div>
+			<h1>Icon</h1>
+			<IconsProvider defaultIcons={defaultIcons} />
+			<p>Here we are changing the icon talend-add</p>
+			<ul>
+				<li>
+					<Icon name="talend-add" /> : <strong>talend-add</strong>
+				</li>
+			</ul>
+		</div>
+	))
+	.add('remote svg', () => (
+		<div>
+			<p>You can use Icon with a name starting with remote-. For example here we</p>
+			<Icon name="remote-/svg/svg/brands/azure.svg" />
+		</div>
+	))
 	.add('svg transform', () => (
 		<div>
 			<IconsProvider />
