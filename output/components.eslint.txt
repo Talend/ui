@@ -123,7 +123,7 @@
   7:23  error  Unexpected use of file extension "js" for "./DraggableComponent.js"  import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
-  269:43  error  'footerActions' is already declared in the upper scope  no-shadow
+  264:43  error  'footerActions' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
   191:3   error  Empty components are self-closing  react/self-closing-comp
