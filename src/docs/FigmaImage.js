@@ -21,6 +21,27 @@ function getMetadata(url) {
 }
 
 const FigmaImage = ({ src, alt = '', ...rest }) => {
+	if (!process.env.STORYBOOK_FIGMA_ACCESS_TOKEN) {
+		return (
+			<div
+				style={{
+					height: '5rem',
+					color: 'black',
+					backgroundColor: 'gray',
+					backgroundImage:
+						'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px)',
+					borderRadius: '.4rem',
+					opacity: '.5',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
+				Figma is not configured
+			</div>
+		);
+	}
+
 	const [data, setData] = React.useState();
 
 	React.useEffect(() => {
