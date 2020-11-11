@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import InputZoning from './images/input-select-zoning.jpg';
 
 import Form from '../';
@@ -41,7 +41,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 ### Default
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Form.Select label="Select" values={['', 'foo', 'bar']}/>
     </Story>
@@ -51,11 +51,11 @@ Select lets the user choose one option or multiple options from an options menu.
     <Story name="read-only">
         <Form.Select label="Read-Only Select" readOnly value="foo" values={['', 'foo', 'bar']} />
     </Story>
-</Preview>
+</Canvas>
 
 ### Multiple
 
-<Preview>
+<Canvas>
     <Story name="default multiple">
         <Form.Select label="Select" values={['', 'foo', 'bar']} multiple />
     </Story>
@@ -65,11 +65,11 @@ Select lets the user choose one option or multiple options from an options menu.
     <Story name="read-only multiple">
         <Form.Select label="Read-Only Select" readOnly value={['','bar']} values={['', 'foo', 'bar']} multiple/>
     </Story>
-</Preview>
+</Canvas>
 
 ### With option group
 
-<Preview>
+<Canvas>
     <Story name="default object">
         <Form.Select label="Select" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} />
     </Story>
@@ -79,11 +79,11 @@ Select lets the user choose one option or multiple options from an options menu.
     <Story name="read-only object">
         <Form.Select label="Read-Only Select" readOnly value="foo" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}}/>
     </Story>
-</Preview>
+</Canvas>
 
 ### Multiple with option group
 
-<Preview>
+<Canvas>
     <Story name="default multiple object">
         <Form.Select label="Select" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} multiple />
     </Story>
@@ -93,7 +93,7 @@ Select lets the user choose one option or multiple options from an options menu.
     <Story name="read-only multiple object">
         <Form.Select label="Read-Only Select" readOnly value={['','bar']} values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} multiple />
     </Story>
-</Preview>
+</Canvas>
 
 ## Content
 

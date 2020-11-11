@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Props, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, Use } from '../../../docs';
 import { action } from '@storybook/addon-actions';
 import Link from '../';
@@ -24,25 +24,25 @@ Still need to be convinced? Please, take the time to read [article](https://marc
 
 ### Default
 
-<Preview>
+<Canvas>
 	<Story name="default">
 		<Link href="#">Link example</Link>
 	</Story>
-</Preview>
+</Canvas>
 
 ### With icon
 
-<Preview>
+<Canvas>
 	<Story name="with icon">
 		<Link iconBefore="information" href="#">
 			Link example
 		</Link>
 	</Story>
-</Preview>
+</Canvas>
 
 ### Multi lines
 
-<Preview>
+<Canvas>
 	<Story name="multi lines">
 		<Link iconBefore="information" href="https://www.talend.com" target="_blank">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et
@@ -54,31 +54,31 @@ Still need to be convinced? Please, take the time to read [article](https://marc
 			malesuada fames ac turpis egestas.
 		</Link>
 	</Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 When the link is disabled the whole component is displayed with 0.54 opacity.
 
-<Preview>
+<Canvas>
 	<Story name="disabled">
 		<Link iconBefore="information" href="#" disabled>
 			Link example
 		</Link>
 	</Story>
-</Preview>
+</Canvas>
 
 ### External
 
 When the link targets a new domain, we add an external-link icon right after.
 
-<Preview>
+<Canvas>
 	<Story name="external">
 		<Link href="https://www.talend.com" target="_blank">
 			talend.com
 		</Link>
 	</Story>
-</Preview>
+</Canvas>
 
 The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 
@@ -120,7 +120,7 @@ Press <kbd>ENTER</kbd> to open a link
 
 ## Usage
 
-<Preview>
+<Canvas>
 	<Story
 		name="usage"
 		args={{
@@ -129,7 +129,7 @@ Press <kbd>ENTER</kbd> to open a link
 	>
 		{({ children, ...rest }) => <Link {...rest}>{children}</Link>}
 	</Story>
-</Preview>
+</Canvas>
 
 <Props story="usage" />
 

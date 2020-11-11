@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, Use } from '../../../docs';
 import Form from '../';
 import { Col, Row } from '../../../docs';
@@ -23,25 +23,25 @@ Otherwise, consider checkboxes, toggle switch or a dropdown.
 
 ## States
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Form.Radio label="Radio" />
     </Story>
     <Story name="checked">
         <Form.Radio label="Checked Radio" checked />
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <Form.Radio label="Disabled Radio" disabled />
     </Story>
     <Story name="disabled checked">
         <Form.Radio label="Disabled Checked Radio" disabled checked />
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="read-only">
         <Form.Radio label="Read-Only Radio" readOnly />
     </Story>

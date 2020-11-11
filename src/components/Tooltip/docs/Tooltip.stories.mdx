@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { Use } from '../../../docs';
 import Tooltip from '../.';
@@ -11,7 +11,7 @@ import { Col, Row } from '../../../docs';
 
 Tooltips provide helpful, additional content for their paired elements on hover. They are contextual and specific to the element and don't provide the big picture. 
 
-<Preview>
+<Canvas>
   <Story name="top">
 		<Tooltip title="Relevant information about this basic button" placement="top" visible>
 			<Button onClick={action('clicked')}>Top</Button>
@@ -32,7 +32,7 @@ Tooltips provide helpful, additional content for their paired elements on hover.
 			<Button onClick={action('clicked')}>Right</Button>
 		</Tooltip>
   </Story>
-</Preview>
+</Canvas>
 
 
 ## Content
@@ -62,7 +62,7 @@ Tooltips with obvious or redundant text are not beneficial to users. If you canâ
 
 ## Usage
 
-<Preview>
+<Canvas>
   <Story
     name="usage"
     args={{
@@ -71,7 +71,7 @@ Tooltips with obvious or redundant text are not beneficial to users. If you canâ
   >
     {({ text, ...props }) => <Tooltip {...props}><Button onClick={action('clicked')}>{text}</Button></Tooltip>}
   </Story>
-</Preview>
+</Canvas>
 
 <Props story="usage" />
 

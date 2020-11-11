@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Props, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, Use } from '../../../docs';
 import Tooltip from '../../Tooltip';
 import Toggle from '../';
@@ -22,25 +22,25 @@ The Toggle button component is used to toggle features visibility.
 
 ### Default
 
-<Preview>
+<Canvas>
 	<Story name="Active">
 		<Toggle isActive icon="datagrid" />
 	</Story>
 	<Story name="Inactive">
 		<Toggle icon="datagrid" />
 	</Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
 	<Story name="Disabled Active">
 		<Toggle disabled isActive icon="datagrid" />
 	</Story>
 	<Story name="Disabled Inactive">
 		<Toggle disabled icon="datagrid" />
 	</Story>
-</Preview>
+</Canvas>
 
 ## Content
 
@@ -50,7 +50,7 @@ The Toggle button component is used to toggle features visibility.
 
 ## Usage
 
-<Preview>
+<Canvas>
 	<Story
 		name="usage"
 		args={{
@@ -63,7 +63,7 @@ The Toggle button component is used to toggle features visibility.
 			</Tooltip>
 		)}
 	</Story>
-</Preview>
+</Canvas>
 
 <Props story="usage" />
 

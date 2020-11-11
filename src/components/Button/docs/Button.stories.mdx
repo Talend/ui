@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { FigmaImage, Use } from '../../../docs';
 import Button from '../';
@@ -34,7 +34,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 ### Variations
 
 **Primary**
-<Preview>
+<Canvas>
 	<Story name="primary">
 		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
 		<Button.Primary small onClick={action('clicked')}>
@@ -47,10 +47,10 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Primary>
 	</Story>
-</Preview>
+</Canvas>
 
 **Destructive**
-<Preview>
+<Canvas>
 	<Story name="destructive">
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
 		<Button.Destructive small onClick={action('clicked')}>
@@ -63,10 +63,10 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Destructive>
 	</Story>
-</Preview>
+</Canvas>
 
 **Secondary**
-<Preview>
+<Canvas>
 	<Story name="secondary">
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
 		<Button.Secondary small onClick={action('clicked')}>
@@ -79,10 +79,10 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Secondary>
 	</Story>
-</Preview>
+</Canvas>
 
 **Tertiary**
-<Preview>
+<Canvas>
 	<Story name="ghost">
 		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
 		<Button.Ghost small onClick={action('clicked')}>
@@ -95,10 +95,10 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Ghost>
 	</Story>
-</Preview>
+</Canvas>
 
 **Icon button**
-<Preview>
+<Canvas>
 	<Story name="icon">
 		<Button.Icon onClick={action('clicked')} icon={'plus'}>
 			Basic Button
@@ -113,7 +113,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 			Disabled Focusable Button
 		</Button.Icon>
 	</Story>
-</Preview>
+</Canvas>
 
 **Buttons should all have a tooltip on hover displaying the description**
 <Preview>

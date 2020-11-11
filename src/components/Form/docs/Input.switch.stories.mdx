@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import InputZoning from './images/switch-zoning.jpg';
 import Form from '../';
 import { Col, Row } from '../../../docs';
@@ -104,84 +104,84 @@ Switches are a quick way to view and switch between two states or on-off state i
 
 ### Default
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Form.Switch label="Switch off" />
         <Form.Switch label="Switch on" checked />
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <Form.Switch label="Disabled Switch off" disabled />
         <Form.Switch label="Disabled Switch on" checked disabled />
     </Story>
-</Preview>
+</Canvas>
 
 ### Read-only
 
-<Preview>
+<Canvas>
     <Story name="read-only">
         <Form.Switch label="Read-only Switch off" readOnly />
         <Form.Switch label="Read-only Switch on" checked readOnly />
     </Story>
-</Preview>
+</Canvas>
 
 ### Default with 2 values
 
-<Preview>
+<Canvas>
     <Story name="default with 2 values">
         <Form.Switch label="Switch on" values={['off', 'on']} value="on" />
         <Form.Switch label="Switch off" values={['basic', 'advanced']} />
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled with 2 values
 
-<Preview>
+<Canvas>
     <Story name="disabled with 2 values">
         <Form.Switch label="Switch on" values={['off', 'on']} value="on" disabled />
         <Form.Switch label="Switch off" values={['this is off', 'and of course this is on']} disabled />
     </Story>
-</Preview>
+</Canvas>
 
 ### Read-only with 2 values
 
-<Preview>
+<Canvas>
     <Story name="read-only with 2 values">
         <Form.Switch label="Switch on" values={['off', 'on']} value="on" readOnly />
         <Form.Switch label="Switch off" values={['this is off', 'and of course this is on']} readOnly />
     </Story>
-</Preview>
+</Canvas>
 
 ### Default with 3 values
 
-<Preview>
+<Canvas>
     <Story name="default with 3 values">
         <Form.Switch label="Switch one/two/three" values={['one', 'two', 'three']}  value="two"/>
         <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} />
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled with 3 values
 
-<Preview>
+<Canvas>
     <Story name="disabled with 3 values">
         <Form.Switch label="Switch one/two/three" values={['one', 'two', 'three']}  value="two" disabled />
         <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} disabled />
     </Story>
-</Preview>
+</Canvas>
 
 ### Read-only with 3 values
 
-<Preview>
+<Canvas>
     <Story name="read-only with 3 values">
         <Form.Switch label="Switch one/two/three" values={['one', 'two', 'three']}  value="two" readOnly />
         <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} readOnly />
     </Story>
-</Preview>
+</Canvas>
 
 When the switch is disabled the whole component is displayed with 0.54 opacity
 
