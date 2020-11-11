@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { LinkTo } from '@storybook/addon-links';
 
 import { Card, Grid } from './docs';
 
@@ -27,19 +28,19 @@ import Welcome from './Welcome';
 		icon={<img src={DesignTokens} alt="" />}
 		title="Design tokens"
 		text="Using variables to ensure better consistency across different platforms."
-		link={<a iconRight="arrowRight">Discover</a>}
+		link={<a href="/?path=/docs/design-tokens-design-tokens--page">Discover</a>}
 	/>
 	<Card
 		icon={<img src={Documentation} alt="" />}
 		title="Documentation"
 		text="The guidelines for each components from design specs to their usage."
-		link={<a iconRight="arrowRight">Learn more</a>}
+		link={<a href="/?path=/docs/components-button--primary">Learn more</a>}
 	/>
 	<Card
 		icon={<img src={Themes} alt="" />}
 		title="Themes"
 		text="With Coral it's possible to easily switch themes starting by the dark mode."
-		link={<a iconRight="arrowRight">See more</a>}
+		link={<a href="/?path=/docs/themes-light--page">See more</a>}
 	/>
 </Grid>
 
