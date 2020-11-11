@@ -7,46 +7,62 @@ import Link from '../';
 
 # Link
 
-Links are used for navigation.
+Link is used for navigation. If you use a link for triggering an action on the page, you must consider using a [Button](/?path=/docs/components-button--primary) instead.
+
+Need to be convinced? Please take the time to read [article](https://marcysutton.com/links-vs-buttons-in-modern-web-applications) from Marcy Sutton.
 
 ## Zoning
 
-<FigmaImage src="https://www.figma.com/file/2Sw2IvUHZ9F2srJ3L8AWxr/%F0%9F%93%90-Zoning?node-id=12%3A142" alt="zoning image for links" />
+<FigmaImage
+	src="https://www.figma.com/file/2Sw2IvUHZ9F2srJ3L8AWxr/%F0%9F%93%90-Zoning?node-id=12%3A142"
+	alt="zoning image for links"
+/>
 
 ## States
-
 
 ### Default
 
 <Preview>
-    <Story name="default">
-        <Link href="#">Link example</Link>
+	<Story name="default">
+		<Link href="#">Link example</Link>
 	</Story>
- </Preview>
+</Preview>
 
 ### With icon
 
 <Preview>
-    <Story name="with icon">
-        <Link iconBefore="information" href="#">Link example</Link>
+	<Story name="with icon">
+		<Link iconBefore="information" href="#">
+			Link example
+		</Link>
 	</Story>
- </Preview>
+</Preview>
 
 ### Multi lines
 
 <Preview>
-    <Story name="multi lines">
-        <Link iconBefore="information" href="https://www.talend.com" target="_blank">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique accumsan eleifend. Mauris at nibh aliquet, blandit turpis quis, scelerisque eros. Cras semper risus at felis convallis, ullamcorper rutrum augue ullamcorper. Donec malesuada felis tortor, vel porttitor tortor tincidunt at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Link>
+	<Story name="multi lines">
+		<Link iconBefore="information" href="https://www.talend.com" target="_blank">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et
+			massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci
+			maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique
+			accumsan eleifend. Mauris at nibh aliquet, blandit turpis quis, scelerisque eros. Cras semper
+			risus at felis convallis, ullamcorper rutrum augue ullamcorper. Donec malesuada felis tortor,
+			vel porttitor tortor tincidunt at. Pellentesque habitant morbi tristique senectus et netus et
+			malesuada fames ac turpis egestas.
+		</Link>
 	</Story>
- </Preview>
+</Preview>
 
 ### Disabled
 
 When the link is disabled the whole component is displayed with 0.54 opacity.
 
 <Preview>
-    <Story name="disabled">
-        <Link iconBefore="information" href="#" disabled>Link example</Link>
+	<Story name="disabled">
+		<Link iconBefore="information" href="#" disabled>
+			Link example
+		</Link>
 	</Story>
 </Preview>
 
@@ -55,10 +71,12 @@ When the link is disabled the whole component is displayed with 0.54 opacity.
 When the link targets a new domain, we add an external-link icon right after.
 
 <Preview>
-    <Story name="external">
-        <Link href="https://www.talend.com" target="_blank">talend.com</Link>
+	<Story name="external">
+		<Link href="https://www.talend.com" target="_blank">
+			talend.com
+		</Link>
 	</Story>
- </Preview>
+</Preview>
 
 The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 
@@ -69,9 +87,18 @@ Link labels should be specific and clear enough to increase the likelihood that 
 <Use>
 	<Use.Do>
 		<ul>
-			<li>Use a meaningful link text which communicates to users what they'll exactly find on the other side of the click.</li>
-			<li>Make link text stand alone—it should make sense without any of the surrounding text as users tend to scan UI.</li>
-			<li>Frontload link text with keywords and use the rest of the label text to increase user understanding.</li>
+			<li>
+				Use a meaningful link text which communicates to users what they'll exactly find on the
+				other side of the click.
+			</li>
+			<li>
+				Make link text stand alone—it should make sense without any of the surrounding text as users
+				tend to scan UI.
+			</li>
+			<li>
+				Frontload link text with keywords and use the rest of the label text to increase user
+				understanding.
+			</li>
 		</ul>
 	</Use.Do>
 	<Use.Dont>
@@ -80,7 +107,6 @@ Link labels should be specific and clear enough to increase the likelihood that 
 		</ul>
 	</Use.Dont>
 </Use>
-
 
 ## Interaction
 
@@ -93,20 +119,20 @@ Press <kbd>ENTER</kbd> to open a link
 ## Usage
 
 <Preview>
-  <Story
-    name="usage"
-    args={{
-      children: 'Lorem ipsum',
-    }}
-  >
-    {({ children, ...rest}) => <Link {...rest}>{children}</Link>}
-  </Story>
+	<Story
+		name="usage"
+		args={{
+			children: 'Lorem ipsum',
+		}}
+	>
+		{({ children, ...rest }) => <Link {...rest}>{children}</Link>}
+	</Story>
 </Preview>
 
 <Props story="usage" />
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 07/16/2020 | Monia Huet  | Init page   |
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 07/16/2020 | Monia Huet | Init page   |
