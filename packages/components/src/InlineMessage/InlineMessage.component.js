@@ -21,7 +21,6 @@ import { getTheme } from '../theme';
 	};
  <InlineMessage {...props}/>
  */
-// TODO 6.0: do not export this
 export const TYPES = {
 	INFO: 'info',
 	SUCCESSFUL: 'success',

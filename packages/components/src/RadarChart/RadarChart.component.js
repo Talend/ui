@@ -90,8 +90,7 @@ RadarChart.defaultProps = {
  * This function provides a custom clickable axis label with a data link to the index of the chart data
  * @param {Object} props the current props of the PolarAngleAxis
  */
-// TODO 6.0: remove this export
-export function LabelWithClick(props) {
+function LabelWithClick(props) {
 	const { activeAxis, className, index, payload, y, ...rest } = props;
 	let selectedClass = '';
 
@@ -118,8 +117,7 @@ LabelWithClick.propTypes = {
  * This function provides a custom dot with a data link to the index of the chart data
  * @param {Object} props the current props of the Radar
  */
-// TODO 6.0: remove this export
-export function Dot(props) {
+function Dot(props) {
 	const { activeAxis, index } = props;
 	let newR = 4;
 
@@ -140,8 +138,7 @@ Dot.propTypes = {
  * This function provides a clickable axis dot element
  * @param {Object} props the current props of the Radar
  */
-// TODO 6.0: remove this export
-export function DotWithClick(props) {
+function DotWithClick(props) {
 	const { activeAxis, fill, index, onClick, ...rest } = props;
 	const STATE = {
 		DEFAULT_RADIUS: 2,
@@ -172,9 +169,6 @@ DotWithClick.propTypes = {
 	index: PropTypes.number,
 	onClick: PropTypes.func,
 };
-
-// TODO 6.0: remove those exports
-export { Radar, PolarAngleAxis };
 
 RadarChart.LabelWithClick = LabelWithClick;
 RadarChart.Dot = Dot;

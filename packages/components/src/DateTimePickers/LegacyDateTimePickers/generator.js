@@ -6,7 +6,7 @@ import getYear from 'date-fns/get_year';
 import setDay from 'date-fns/set_day';
 import startOfWeek from 'date-fns/start_of_week';
 import memoize from 'lodash/memoize';
-import getLocale from '../../DateFnsLocale/locale';
+import getLocale from '../../i18n/DateFnsLocale/locale';
 import getDefaultT from '../../translate';
 
 function buildDateFnsLocale(t) {

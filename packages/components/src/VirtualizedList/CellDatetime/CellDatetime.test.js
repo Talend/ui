@@ -4,9 +4,9 @@ import { distanceInWordsToNow, format } from 'date-fns';
 
 import { computeValue, CellDatetimeComponent } from './CellDatetime.component';
 import getDefaultT from '../../translate';
-import getLocale from '../../DateFnsLocale/locale';
+import getLocale from '../../i18n/DateFnsLocale/locale';
 
-jest.mock('../../DateFnsLocale/locale');
+jest.mock('../../i18n/DateFnsLocale/locale');
 
 jest.mock('date-fns', () => ({
 	format: jest.fn(() => '2016-09-22 09:00:00'),

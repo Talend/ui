@@ -1,4 +1,4 @@
-import { getCurrentLanguage } from '../translate';
+import { getCurrentLanguage } from '../../translate';
 import buildFormatLocale from './formatters';
 
 export function buildDistanceInWordsLocale(t) {
