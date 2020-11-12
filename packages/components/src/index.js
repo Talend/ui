@@ -37,6 +37,7 @@ import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
 import FocusManager from './FocusManager';
 import GridLayout from './GridLayout';
+import Gesture from './Gesture';
 import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
@@ -113,6 +114,7 @@ export {
 	Enumeration,
 	FilterBar,
 	FocusManager,
+	Gesture,
 	GridLayout,
 	GuidedTour,
 	HeaderBar,

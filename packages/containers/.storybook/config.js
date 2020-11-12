@@ -21,12 +21,14 @@ import { actionsCreators as actionsCreatorsEditableText } from './editabletext.s
 import { registerAllContainers } from '../src/register';
 
 const languages = {};
-Object.keys(tuiLocales).forEach(key => languages[key] = key);
+Object.keys(tuiLocales).forEach(key => (languages[key] = key));
 
-addDecorator(withI18next({
-	i18n,
-	languages,
-}));
+addDecorator(
+	withI18next({
+		i18n,
+		languages,
+	}),
+);
 addDecorator(withCMF);
 addDecorator(withA11y);
 
@@ -198,7 +200,7 @@ api.expression.register('modelHasLabel', context => {
 
 function loadStories() {
 	Object.keys(examples).forEach(example => {
-		const state = mock.state();
+		const state = mock.store.state();
 		state.routing = {
 			locationBeforeTransitions: {
 				pathname: '/storybook',

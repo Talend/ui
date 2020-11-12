@@ -42,7 +42,7 @@
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
     "@talend/icons": "^6.0.0-alpha.43",
-    "@talend/locales-tui": "^5.6.0",
+    "@talend/locales-tui": "^5.29.0",
     "@talend/react-cmf": "^6.0.0-alpha.43",
     "@talend/react-components": "^6.0.0-alpha.43",
     "@talend/react-storybook-cmf": "^6.0.0-alpha.43",

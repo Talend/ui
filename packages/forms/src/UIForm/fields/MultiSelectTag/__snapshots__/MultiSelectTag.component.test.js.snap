@@ -41,6 +41,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
         }
         items={null}
         multiSection={false}
+        onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}

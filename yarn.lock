@@ -3013,6 +3013,11 @@
     objectpath "^1.2.1"
     tv4 "^1.3.0"
 
+"@talend/locales-tui@^5.29.0":
+  version "5.29.0"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-5.29.0.tgz#fa398c6c4381d8e56f526fead6cd7898776e5d49"
+  integrity sha512-N/1cwMMNsT0PFWDlbwiDFsjxuSiLT4NMSbvTFLN00LUv7l5BiVXZtq5Xiig+G9swa6dy4QzeHJ2rQ1ZNoKNW5A==
+
 "@talend/locales-tui@^5.6.0":
   version "5.26.0"
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-5.26.0.tgz#7ea1309ef8506de808fcaf58098f9979cf20f1c6"
@@ -12917,10 +12922,10 @@ mini-css-extract-plugin@^0.9.0:
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
 
-mini-css-extract-plugin@^1.0.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-1.2.1.tgz#30ea7dee632b3002b0c77aeed447790408cb247e"
-  integrity sha512-G3yw7/TQaPfkuiR73MDcyiqhyP8SnbmLhUbpC76H+wtQxA6wfKhMCQOCb6wnPK0dQbjORAeOILQqEesg4/wF7A==
+mini-css-extract-plugin@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-1.3.0.tgz#bbcba978b68c39f0a9c75822cfb2874f9cf6b018"
+  integrity sha512-4DKmPwFd0XKlwoqvrkLi2X8Mlosh2ey/E/OVAucnPUdzGqrSWHgSqed/p4Ue2Q39JjIvcdSDgmZDO6mir5Ovmw==
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
@@ -13279,6 +13284,11 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+nested-combine-reducers@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/nested-combine-reducers/-/nested-combine-reducers-1.2.2.tgz#376f15fb8bed582db1f78312f8fe6b35105534cb"
+  integrity sha512-PL4SmE7sNRyoxjy0f4HjNcrN2OnLffubem6qNOUOX9Qfv+xi8jvZWk26AH9gWnNVcWVdLdakyr4BOCtNRg87tA==
 
 nested-object-assign@^1.0.3:
   version "1.0.3"
@@ -17767,6 +17777,14 @@ string-length@^3.1.0:
     astral-regex "^1.0.0"
     strip-ansi "^5.2.0"
 
+string-replace-loader@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/string-replace-loader/-/string-replace-loader-2.3.0.tgz#7f29be7d73c94dd92eccd5c5a15651181d7ecd3d"
+  integrity sha512-HYBIHStViMKLZC/Lehxy42OuwsBaPzX/LjcF5mkJlE2SnHXmW6SW6eiHABTXnY8ZCm/REbdJ8qnA0ptmIzN0Ng==
+  dependencies:
+    loader-utils "^1.2.3"
+    schema-utils "^2.6.5"
+
 string-template@~0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/string-template/-/string-template-0.2.1.tgz#42932e598a352d01fc22ec3367d9d84eec6c9add"
@@ -19385,10 +19403,10 @@ wcwidth@^1.0.0:
   dependencies:
     defaults "^1.0.3"
 
-webfonts-loader@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/webfonts-loader/-/webfonts-loader-7.0.1.tgz#0aa004295805c6a92594c0e6cbdcce786af1f595"
-  integrity sha512-PGzea+DftJVoXgKZduL+xsAJ5KfINqkdtSZ9bUQA+/GLrHVD8Yxjw4k1rQE1CWADWA0XqG9VtlTWynC1T6kzsg==
+webfonts-loader@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/webfonts-loader/-/webfonts-loader-7.1.0.tgz#30c82106dc9d83284b5969591bf1873e767de97f"
+  integrity sha512-cVdvFPLHmzHNLNEJpzDNu/iBj++AsPXfJ8NsYCl2zXx7Umdp2gd93yQOESoTQEFSK8lPQXT1CAisFDh3j/2rZg==
   dependencies:
     "@vusion/webfonts-generator" "^0.6.1"
     github-sponsors "^1.0.1"
