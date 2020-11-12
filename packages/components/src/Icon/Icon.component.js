@@ -41,7 +41,10 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 	const imgSrc = name.replace('remote-', '').replace('src-', '');
 	const [content, setContent] = React.useState();
 	const ref = React.useRef();
+	const icons = React.useContext(IconsProvider.reactContext);
+	const isInProvider = ((icons || {}).ids || []).indexOf(name) !== -1;
 	const isRemoteSVG = isRemote && content && content.includes('svg') && !content.includes('script');
+
 	React.useEffect(() => {
 		if (isRemote) {
 			fetch(imgSrc, {
@@ -72,10 +75,10 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		if (ref.current && isRemoteSVG) {
 			// eslint-disable-next-line no-param-reassign
 			ref.current.innerHTML = content;
-		} else if (ref.current && !isRemote) {
+		} else if (ref.current && !isRemote && isInProvider) {
 			IconsProvider.injectIcon(name, ref.current);
 		}
-	}, [isRemoteSVG, ref, content, name, isRemote]);
+	}, [isRemoteSVG, ref, content, name, isRemote, isInProvider]);
 
 	const accessibility = {
 		focusable: 'false', // IE11

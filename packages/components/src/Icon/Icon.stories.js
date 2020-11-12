@@ -23,53 +23,64 @@ storiesOf('Messaging & Communication/Icon', module)
 			<h1>Icon</h1>
 			<IconsProvider>
 				<p>
-					We have {Object.keys(IconsProvider.getAllIconIds()).length.toString()} svg icons
-					registred:
+					The Icon component use the IconsProvider context. So this Icon is re-render when icons are
+					loaded or updated.
 				</p>
-				<ul>
-					{IconsProvider.getAllIconIds().map((icon, index) => (
-						<li key={index}>
-							<Icon name={icon} /> : <strong>{icon}</strong>
-						</li>
-					))}
-				</ul>
+				<Icon name="talend-apache" />
+				<IconsProvider.reactContext.Consumer>
+					{value => (
+						<>
+							<p>We have {value.ids.length.toString()} svg icons registred:</p>
+							<ul>
+								{value.ids.map((icon, index) => (
+									<li key={index}>
+										<Icon name={icon} /> : <strong>{icon}</strong>
+									</li>
+								))}
+							</ul>
+						</>
+					)}
+				</IconsProvider.reactContext.Consumer>
 			</IconsProvider>
 		</div>
 	))
 	.add('fontawesome', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider />
-			<p>You can use font awesome icons if you have loaded the stylesheet</p>
-			<ul>
-				<li>
-					<Icon name="fa-bars" /> : <strong>fa-bars</strong>
-				</li>
-			</ul>
+			<IconsProvider>
+				<p>You can use font awesome icons if you have loaded the stylesheet</p>
+				<ul>
+					<li>
+						<Icon name="fa-bars" /> : <strong>fa-bars</strong>
+					</li>
+				</ul>
+			</IconsProvider>
 		</div>
 	))
 	.add('extends defaults', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider icons={newIcons} />
-			<p>Here we are adding a new Icon id</p>
-			<ul>
-				<li>
-					<Icon name="test" /> : <strong>test</strong>
-				</li>
-			</ul>
+			<IconsProvider icons={newIcons}>
+				<p>Here we are adding a new Icon id</p>
+				<ul>
+					<li>
+						<Icon name="test" /> : <strong>test</strong>
+					</li>
+				</ul>
+			</IconsProvider>
 		</div>
 	))
 	.add('override defaults', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider defaultIcons={defaultIcons} />
-			<p>Here we are changing the icon talend-add</p>
-			<ul>
-				<li>
-					<Icon name="talend-add" /> : <strong>talend-add</strong>
-				</li>
-			</ul>
+			<IconsProvider defaultIcons={defaultIcons}>
+				<p>Here we are changing the icon talend-add</p>
+				<ul>
+					<li>
+						<Icon name="talend-add" /> : <strong>talend-add</strong>
+					</li>
+				</ul>
+			</IconsProvider>
 		</div>
 	))
 	.add('remote svg', () => (
@@ -80,43 +91,44 @@ storiesOf('Messaging & Communication/Icon', module)
 	))
 	.add('svg transform', () => (
 		<div>
-			<IconsProvider />
-			<p>Here we are changing the icon talend-apache</p>
-			<ul>
-				<li>
-					<Icon name="talend-apache" />
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="spin" /> : <strong>spin</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-45" /> : <strong>rotate-45</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-90" /> : <strong>rotate-90</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-135" /> : <strong>rotate-135</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-180" /> : <strong>rotate-180</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-225" /> : <strong>rotate-225</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-270" /> : <strong>rotate-270</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-315" /> : <strong>rotate-315</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="flip-horizontal" /> :{' '}
-					<strong>flip-horizontal</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="flip-vertical" /> : <strong>flip-vertical</strong>
-				</li>
-			</ul>
+			<IconsProvider>
+				<p>Here we are changing the icon talend-apache</p>
+				<ul>
+					<li>
+						<Icon name="talend-apache" />
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="spin" /> : <strong>spin</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-45" /> : <strong>rotate-45</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-90" /> : <strong>rotate-90</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-135" /> : <strong>rotate-135</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-180" /> : <strong>rotate-180</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-225" /> : <strong>rotate-225</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-270" /> : <strong>rotate-270</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-315" /> : <strong>rotate-315</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="flip-horizontal" /> :{' '}
+						<strong>flip-horizontal</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="flip-vertical" /> : <strong>flip-vertical</strong>
+					</li>
+				</ul>
+			</IconsProvider>
 		</div>
 	));

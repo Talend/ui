@@ -120,18 +120,22 @@ function IconsProvider({
 			.filter(url => !hasBundle(url) && FETCHING.indexOf(url) === -1)
 			.forEach(url => {
 				FETCHING.push(url);
-				setFetching(FETCHING);
+				setFetching([].concat(FETCHING));
 				fetch(url)
 					.then(addBundle)
 					.finally(() => {
 						FETCHING.splice(FETCHING.indexOf(url), 1);
-						setFetching(FETCHING);
+						setFetching([].concat(FETCHING));
 					});
 			});
 	}, [bundles, FETCHING]);
 	return (
 		<>
-			<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				focusable="false"
+				className="sr-only tc-iconsprovider"
+			>
 				{ids.map((id, index) => (
 					<symbol key={index} id={id}>
 						{iconset[id]}
