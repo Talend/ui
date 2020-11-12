@@ -4,6 +4,7 @@ import Message from './Message';
 import callTrigger from './trigger';
 import utils from './utils';
 import Widget from './Widget';
+import Fields from './fieldsets'
 
 import customFormats from './customFormats';
 import lang from './lang';
@@ -17,6 +18,7 @@ export { UIForm, triggers };
 
 UIForm.FormTemplate = FormTemplate;
 UIForm.FieldTemplate = FieldTemplate;
+UIForm.Fields = Fields;
 UIForm.Message = Message;
 UIForm.callTrigger = callTrigger;
 UIForm.utils = utils;
