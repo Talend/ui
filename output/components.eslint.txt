@@ -276,10 +276,8 @@
   225:15  error  Caution: `ResourcePicker` also has a named export `TOOLBAR_OPTIONS`. Check if you meant to write `import {TOOLBAR_OPTIONS} from '.'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/Rich/Layout/RichLayout.stories.js
-   9:25  error  Missing file extension for "../../HeaderTitle"        import/extensions
-   9:25  error  Unable to resolve path to module '../../HeaderTitle'  import/no-unresolved
-  10:23  error  Missing file extension for "../RichError"             import/extensions
-  10:23  error  Unable to resolve path to module '../RichError'       import/no-unresolved
+  9:25  error  Missing file extension for "../../HeaderTitle"        import/extensions
+  9:25  error  Unable to resolve path to module '../../HeaderTitle'  import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
    75:5  warning  React Hook useLayoutEffect has missing dependencies: 'large' and 'minimised'. Either include them or remove the dependency array. If 'setWidth' needs the current value of 'large', you can also switch to useReducer instead of useState and read 'large' in the reducer  react-hooks/exhaustive-deps
@@ -386,5 +384,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 207 problems (187 errors, 20 warnings)
+✖ 205 problems (185 errors, 20 warnings)
   15 errors and 0 warnings potentially fixable with the `--fix` option.
