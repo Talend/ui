@@ -24,8 +24,14 @@
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/DefaultArrayTemplate.component.js
   57:4  error  The attribute aria-invalid is not supported by the role list. This role is implicit on the element ol  jsx-a11y/role-supports-aria-props
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/index.js
+   4:8   error  'Fields' is defined but never used           @typescript-eslint/no-unused-vars
+   4:20  error  Missing file extension for "./fields"        import/extensions
+   4:20  error  Unable to resolve path to module './fields'  import/no-unresolved
+  11:2   error  'Fieldset' is not defined                    no-undef
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/index.js
   10:37  error  defaultTitle not found in '../fieldsets/CollapsibleFieldset'  import/named
 
-✖ 10 problems (10 errors, 0 warnings)
+✖ 14 problems (14 errors, 0 warnings)
   2 errors and 0 warnings potentially fixable with the `--fix` option.
