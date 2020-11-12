@@ -66,4 +66,6 @@ DefaultCellRenderer.propTypes = {
 	getComponent: PropTypes.func,
 };
 
+DefaultCellRenderer.theme = theme;
+
 export default DefaultCellRenderer;
