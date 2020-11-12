@@ -225,11 +225,11 @@ const appStyle = require('../../stories/config/themes.scss');
 
 [
 	{ key: 'mdm', value: 'Master Data Management' },
-	{ key: 'tdi', value: 'Data Inventory' },
+	{ key: 'tdc', value: 'Data Inventory' },
 	{ key: 'tdp', value: 'Data Preparation' },
 	{ key: 'tds', value: 'Data Stewardship' },
 	{ key: 'tmc', value: 'Management Console' },
-	{ key: 'tpd', value: 'Pipeline Designer' },
+	{ key: 'tfd', value: 'Pipeline Designer' },
 ].forEach(({ key, value }) => {
 	stories.add(`[${value}] SidePanel`, () => (
 		<div className={appStyle[key]}>

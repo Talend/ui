@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
@@ -22,12 +24,12 @@ stories.add('default', () => (
 	{ key: 'api-tester', value: 'API tester' },
 	{ key: 'component-kit', value: 'Component kit' },
 	{ key: 'mdm', value: 'Master Data Management' },
-	{ key: 'tdc', value: 'Data Catalog' },
-	{ key: 'tdi', value: 'Data Inventory' },
+	{ key: 'datacatalog', value: 'Data Catalog' },
+	{ key: 'tdc', value: 'Data Inventory' },
 	{ key: 'tdp', value: 'Data Preparation' },
 	{ key: 'tds', value: 'Data Stewardship' },
 	{ key: 'tmc', value: 'Management Console' },
-	{ key: 'tpd', value: 'Pipeline Designer' },
+	{ key: 'tfd', value: 'Pipeline Designer' },
 ].forEach(({ key, value }) =>
 	stories.add(`[${value}] AppLoader`, () => (
 		<div>
