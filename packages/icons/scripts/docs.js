@@ -13,6 +13,7 @@ const HTML_TPL = (icons, style) => `
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link rel="stylesheet" href="/theme/dist/bootstrap.css" media="screen">
+		<link rel="stylesheet" href="/icons/dist/talend-icons-webfont.css" media="screen">
 		<style>
 			ul {
 				display: flex;
@@ -83,6 +84,7 @@ const HTML_TPL = (icons, style) => `
 	</head>
 	<body>
 		<h1>Talend SVG icons demo</h1>
+		<p>This icon is displayed using css stylesheet <i class="icon icon-activemq"></i></p>
 		<form class="form-inline">
 			<div class="form-group">
 				<label for="select-size" class="sr-only">Icon size</label>
@@ -116,9 +118,7 @@ const HTML_TPL = (icons, style) => `
 const buff = Object.keys(lib.svgs)
 	.map(
 		key =>
-			`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${
-				lib.svgs[key]
-			}</svg><span>${key}</span></li>`,
+			`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${lib.svgs[key]}</svg><span>${key}</span></li>`,
 	)
 	.concat(Object.keys(lib.filters).map(key => `${lib.filters[key]}`));
 
