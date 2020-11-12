@@ -72,10 +72,10 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		if (ref.current && isRemoteSVG) {
 			// eslint-disable-next-line no-param-reassign
 			ref.current.innerHTML = content;
-		} else if (ref.current && !isRemoteSVG) {
+		} else if (ref.current && !isRemote) {
 			IconsProvider.injectIcon(name, ref.current);
 		}
-	}, [isRemoteSVG, ref, content, name]);
+	}, [isRemoteSVG, ref, content, name, isRemote]);
 
 	const accessibility = {
 		focusable: 'false', // IE11
