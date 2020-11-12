@@ -51,4 +51,21 @@ describe('ColumnChooser', () => {
 		// then
 		expect(defaultContext.setVisibleColumns).toBeCalledWith(['bar']);
 	});
+
+	it('should call props.onSubmit if exist', () => {
+		const onSubmit = jest.fn();
+		const wrapper = mount(
+			<ListContext.Provider value={defaultContext}>
+				<ColumnChooser id="myColumnChooser" onSubmit={onSubmit} />
+			</ListContext.Provider>,
+		);
+		const internalOnSubmit = wrapper.find(ColumnChooserButton).prop('onSubmit');
+
+		internalOnSubmit(null, [
+			{ key: 'foo', hidden: true },
+			{ key: 'bar', hidden: false },
+		]);
+
+		expect(onSubmit).toHaveBeenCalled();
+	});
 });
