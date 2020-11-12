@@ -29,7 +29,7 @@ stories.add('default', () => (
 	{ key: 'tdp', value: 'Data Preparation' },
 	{ key: 'tds', value: 'Data Stewardship' },
 	{ key: 'tmc', value: 'Management Console' },
-	{ key: 'tfd', value: 'Pipeline Designer' },
+	{ key: 'datastreams', value: 'Pipeline Designer' },
 ].forEach(({ key, value }) =>
 	stories.add(`[${value}] AppLoader`, () => (
 		<div>
