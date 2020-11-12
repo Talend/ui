@@ -272,7 +272,7 @@ storiesOf('Data/List/List Composition', module)
 					<List.Toolbar>
 						<List.Toolbar.Right>
 							<List.TextFilter id="my-list-textFilter" applyOn={['name', 'description']} />
-							<List.ColumnChooser />
+							<List.ColumnChooser onSubmit={action('onSubmit')} />
 						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
