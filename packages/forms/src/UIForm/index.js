@@ -4,7 +4,7 @@ import Message from './Message';
 import callTrigger from './trigger';
 import utils from './utils';
 import Widget from './Widget';
-import Fields from './fieldsets'
+import Fields from './fieldsets';
 
 import customFormats from './customFormats';
 import lang from './lang';
