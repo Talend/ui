@@ -78,7 +78,7 @@ function addBundle(response) {
 		return response.text().then(content => {
 			if (content.startsWith('<svg')) {
 				const container = document.createElement('svg');
-				container.setAttribute('class', 'tc-iconsprovider sr-only');
+				container.setAttribute('class', 'tc-iconsprovider');
 				container.setAttribute('focusable', false);
 				container.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 				container.setAttribute('data-url', new URL(response.url).pathname);
