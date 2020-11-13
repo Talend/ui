@@ -2,7 +2,7 @@ import React from 'react';
 import keycode from 'keycode';
 import { Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import Container from './ShortcutManager.container';
 import Connected from './ShortcutManager.connect';
@@ -21,7 +21,7 @@ describe('Shortcut container', () => {
 });
 
 describe('handles routes', () => {
-	const state = mock.state();
+	const state = mock.store.state();
 	state.cmf.settings.props.shortcuts = {
 		redirectMap: {},
 	};
@@ -33,6 +33,7 @@ describe('handles routes', () => {
 	};
 
 	it('should get the redirectMap', () => {
+		const { Provider } = mock;
 		const wrapper = mount(
 			<Provider state={state}>
 				<Connected view="shortcuts" />

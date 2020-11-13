@@ -1,5 +1,4 @@
-import { store } from '@talend/react-cmf/lib/mock';
-import cmf from '@talend/react-cmf';
+import cmf, { mock } from '@talend/react-cmf';
 import { fromJS, List } from 'immutable';
 import { mapStateToProps } from './List.connect';
 import { compare, getSortedResults } from './selector';
@@ -19,14 +18,20 @@ const localConfig = {
 		},
 	],
 	list: {
-		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
+		columns: [
+			{ key: 'id', name: 'ID' },
+			{ key: 'value', name: 'Value' },
+		],
 	},
 };
 
-const state = store.state();
+const state = mock.store.state();
 state.cmf.collections = fromJS({
 	default: {
-		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
+		columns: [
+			{ key: 'id', name: 'ID' },
+			{ key: 'value', name: 'Value' },
+		],
 		items: localConfig.items,
 	},
 });

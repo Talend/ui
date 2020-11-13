@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { store, Provider } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import Immutable, { fromJS } from 'immutable';
 import Container from './Notification.container';
 import Connected, { mergeProps, deleteNotification } from './Notification.connect';
@@ -13,6 +13,7 @@ jest.mock('@talend/react-components/lib/Notification', () => props => (
 
 describe('Container Notification', () => {
 	it('should render', () => {
+		const { Provider } = mock;
 		const wrapper = renderer
 			.create(
 				<Provider>
@@ -58,7 +59,7 @@ describe('Connected Notification', () => {
 
 describe('Notification.pushNotification', () => {
 	it('should add a Notification in the state', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({
 			'Container(Notification)': {
 				Notification: {
@@ -79,7 +80,7 @@ describe('Notification.pushNotification', () => {
 	});
 
 	it('should add a Notification in the state even if the state slot is not yet available', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = new Immutable.Map();
 		const notification = { message: 'hello world' };
 		const newState = pushNotification(state, notification);
@@ -93,7 +94,7 @@ describe('Notification.pushNotification', () => {
 	});
 
 	it('should delete all Notification in the state', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({
 			'Container(Notification)': {
 				Notification: {
@@ -112,7 +113,7 @@ describe('Notification.pushNotification', () => {
 	});
 
 	it('should not change the state if no notification', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({
 			'Container(Notification)': {
 				Notification: {
@@ -125,7 +126,7 @@ describe('Notification.pushNotification', () => {
 	});
 
 	it('should not change the state if notification state is not yet availbale', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({});
 		const newState = pushNotification(state);
 		expect(newState).toBe(state);

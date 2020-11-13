@@ -19,4 +19,4 @@ export function setComponentFormDirtyState(componentId, dirty) {
 	};
 }
 
-export default { setComponentFormDirtyState };
+export default { setComponentFormDirtyState, COMPONENT_FORM_SET_DIRTY };

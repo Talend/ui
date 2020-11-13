@@ -15,13 +15,19 @@ import onError from '../src/onError';
 jest.mock('react-dom', () => ({
 	render: jest.fn(),
 }));
-jest.mock('redux-saga', () => {
-	const run = jest.fn();
-	const middleware = jest.fn(() => ({ reduxSagaMocked: true, run }));
-	middleware.run = run;
-	middleware.clearRun = () => run.mockClear();
-	return middleware;
-});
+jest.mock('redux-saga', () => ({
+	__esModule: true, // this property makes it work
+	default: (() => {
+		const run = jest.fn();
+		const middleware = jest.fn(() => ({ reduxSagaMocked: true, run }));
+		middleware.run = run;
+		middleware.clearRun = () => run.mockClear();
+		return middleware;
+	})(),
+	effects: {
+		spawn: jest.fn(),
+	},
+}));
 jest.mock('../src/onError', () => ({
 	report: jest.fn(),
 	bootstrap: jest.fn(),

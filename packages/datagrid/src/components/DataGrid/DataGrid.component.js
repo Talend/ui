@@ -285,7 +285,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	handleKeyboard({ nextCellPosition, previousCellPosition }) {
-		if (!nextCellPosition) {
+		if (!nextCellPosition || nextCellPosition.rowIndex < 0) {
 			return null;
 		}
 

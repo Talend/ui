@@ -8,6 +8,7 @@ function FieldTemplate(props) {
 	const groupsClassNames = classNames('form-group', {
 		'has-error': props.error,
 		[theme.inProgress]: props.inProgress,
+		required: props.required,
 	});
 
 	return (
@@ -43,6 +44,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		label: PropTypes.string,
 		inProgress: PropTypes.bool,
+		required: PropTypes.bool,
 	};
 }
 

@@ -96,3 +96,4 @@ CheckBoxes.defaultProps = {
 	isValid: true,
 	schema: {},
 };
+CheckBoxes.SimpleCheckBox = SimpleCheckBox;

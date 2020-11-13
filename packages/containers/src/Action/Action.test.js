@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import Action, { mapStateToProps, mergeProps } from './Action.connect';
 
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const wrapper = shallow(<Action actionId="menu:article" extra="foo" />, { context });
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -14,7 +14,7 @@ describe('Action', () => {
 
 describe('Action.mapStateToProps', () => {
 	it('should resolve all action props', () => {
-		const state = mock.state();
+		const state = mock.store.state();
 		state.cmf.settings.actions = {
 			'menu:article': {
 				label: 'foo',

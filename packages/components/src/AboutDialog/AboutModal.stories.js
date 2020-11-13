@@ -54,6 +54,7 @@ storiesOf('Layout/Modals/AboutModal', module)
 		</div>
 	))
 	.add('default', () => <AboutDialog {...props} />)
+	.add('without the version', () => <AboutDialog {...props} version={null} />)
 	.add('loading', () => <AboutDialog loading {...props} />)
 	.add('expanded', () => <AboutDialog expanded {...props} />)
 	.add('expanded with lot of services', () => (

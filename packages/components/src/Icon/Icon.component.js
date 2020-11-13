@@ -3,7 +3,6 @@ import React from 'react';
 import classnames from 'classnames';
 
 import theme from './Icon.scss';
-import IconsProvider from '../IconsProvider';
 
 const FA_TRANSFORMS = {
 	spin: 'fa-spin',
@@ -37,6 +36,43 @@ const TRANSFORMS = Object.keys(SVG_TRANSFORMS);
  <Icon name="fa-bars"></Icon>
  */
 function Icon({ className, name, title, transform, onClick, ...props }) {
+	const isRemote = name.startsWith('remote-');
+	const imgSrc = name.replace('remote-', '').replace('src-', '');
+	const [content, setContent] = React.useState();
+	const ref = React.useRef();
+	const isRemoteSVG = isRemote && content && content.includes('svg') && !content.includes('script');
+	React.useEffect(() => {
+		if (isRemote) {
+			fetch(imgSrc, {
+				headers: {
+					Accept: 'image/svg+xml',
+				},
+			})
+				.then(response => {
+					if (response.status === 200 && response.ok) {
+						response.text().then(data => {
+							setContent(data);
+						});
+					} else {
+						console.error(
+							new Error(
+								`IconResponseError: status=${response.status} ok=${response.ok} url=${imgSrc}`,
+							),
+						);
+					}
+				})
+				.catch(error => {
+					console.error('IconResponseError', imgSrc, error);
+				});
+		}
+	}, [imgSrc, isRemote]);
+
+	React.useEffect(() => {
+		if (ref.current && isRemoteSVG) {
+			// eslint-disable-next-line no-param-reassign
+			ref.current.innerHTML = content;
+		}
+	}, [isRemoteSVG, ref, content]);
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -63,17 +99,27 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		className,
 		SVG_TRANSFORMS[transform],
 	);
-	const iconElement = (
-		<svg name={name} className={classname} {...accessibility} {...props}>
-			<use xlinkHref={IconsProvider.getIconHREF(name)} />
+	let iconElement = (
+		<svg name={name} className={classname} ref={ref} {...accessibility} {...props}>
+			{isRemote ? undefined : <use xlinkHref={`#${name}`} />}
 		</svg>
 	);
+	if (isRemote && content && !isRemoteSVG) {
+		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
+		iconElement = (
+			<img
+				alt="icon"
+				src={name.replace('remote-', '')}
+				className={classNames}
+				aria-hidden
+				{...props}
+			/>
+		);
+	}
 	if (!onClick) {
 		return iconElement;
 	}
 	return (
-		// eslint doesn't recognizes the xlinkHref mention
-		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
 			{iconElement}
 		</button>

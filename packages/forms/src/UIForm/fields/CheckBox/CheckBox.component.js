@@ -67,3 +67,4 @@ CheckBox.defaultProps = {
 	schema: {},
 	value: false,
 };
+CheckBox.SimpleCheckBox = SimpleCheckBox;

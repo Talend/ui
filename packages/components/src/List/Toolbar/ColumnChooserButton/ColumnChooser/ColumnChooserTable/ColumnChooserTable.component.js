@@ -5,7 +5,7 @@ import { columnsPropTypes } from '../../columnChooser.propTypes';
 
 const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 	columns.map(column => (
-		<ColumnChooserRow key={column.label}>
+		<ColumnChooserRow key={column.key}>
 			<ColumnChooserRow.Checkbox
 				checked={column.visible}
 				id={id}

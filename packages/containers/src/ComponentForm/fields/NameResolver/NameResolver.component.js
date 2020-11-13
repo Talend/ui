@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getValue } from '@talend/react-forms/lib/UIForm//utils/properties';
+import Form from '@talend/react-forms';
 
 export default function withNameResolver(WrappedComponent) {
 	function NameResolver(props) {
@@ -10,6 +10,7 @@ export default function withNameResolver(WrappedComponent) {
 			key[key.length - 1] = `$${key[key.length - 1]}_name`;
 
 			const nameSchema = { ...props.schema, key };
+			const { getValue } = Form.UIForm.utils.properties;
 			return getValue(props.properties, nameSchema) || value;
 		}
 

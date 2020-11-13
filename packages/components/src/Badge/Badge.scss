@@ -30,6 +30,7 @@ $tc-badge-disabled-opacity: 0.62;
 		}
 
 		[class^='tc-badge-'],
+		:global(.btn-link),
 		.tc-badge-delete-icon svg {
 			color: inherit;
 		}

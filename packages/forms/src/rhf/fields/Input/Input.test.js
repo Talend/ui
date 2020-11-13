@@ -1,7 +1,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { useForm, FormContext } from 'react-hook-form/dist/react-hook-form.ie11';
+import { useForm, FormProvider } from 'react-hook-form/dist/index.ie11';
 import Input from './RHFInput.component';
 
 /* eslint-disable-next-line react/prop-types */
@@ -9,10 +9,10 @@ function FormWrapper({ children, onSubmit }) {
 	const rhf = useForm({ mode: 'onChange' });
 	return (
 		<form onSubmit={rhf.handleSubmit(onSubmit)}>
-			<FormContext {...rhf}>
+			<FormProvider {...rhf}>
 				{children}
 				<button type="submit">Submit</button>
-			</FormContext>
+			</FormProvider>
 		</form>
 	);
 }
