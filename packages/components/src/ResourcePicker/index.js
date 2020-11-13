@@ -8,6 +8,3 @@ const TOOLBAR_OPTIONS = {
 };
 
 export default ResourcePicker;
-
-// TODO 6.0 remove this export, they are now attached to the component
-export { TOOLBAR_OPTIONS };

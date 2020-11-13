@@ -1,7 +1,7 @@
 /* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }] */
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import route from './route';
 
 describe('loadComponent behavior', () => {
@@ -13,7 +13,7 @@ describe('loadComponent behavior', () => {
 		const obj = { fn: jest.fn() };
 		const component = obj.fn;
 		component.CMFContainer = true;
-		const mockContext = mock.context();
+		const mockContext = mock.store.context();
 		mockContext.registry = {
 			'_.route.component:TestContainer': component,
 		};
@@ -30,7 +30,7 @@ describe('loadComponent behavior', () => {
 		};
 		const Component = () => <div>test</div>;
 		Component.displayName = 'TestContainer';
-		const mockContext = mock.context();
+		const mockContext = mock.store.context();
 		mockContext.registry = {
 			'_.route.component:TestContainer': Component,
 		};
@@ -47,7 +47,7 @@ describe('loadComponent behavior', () => {
 		};
 		const Component = () => <div>test</div>;
 		Component.displayName = 'TestContainer';
-		const mockContext = mock.context();
+		const mockContext = mock.store.context();
 		mockContext.registry = {
 			'_.route.component:TestContainer': Component,
 		};
@@ -72,7 +72,7 @@ describe('loadComponent behavior', () => {
 		const nextState = { params: {} };
 		const replace = jest.fn();
 
-		const mockContext = mock.context();
+		const mockContext = mock.store.context();
 		mockContext.registry = {
 			'_.route.hook:onEnterId': onEnter,
 			'_.route.hook:onLeaveId': onLeave,

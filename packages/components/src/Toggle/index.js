@@ -3,8 +3,6 @@ import LabelToggle from './LabelToggle/LabelToggle.component';
 import Checkbox from '../Checkbox';
 
 Toggle.Label = LabelToggle;
+Toggle.Checkbox = Checkbox;
 
 export default Toggle;
-
-// TODO 6.0: remove this export, it is attached to Toggle component
-export { Checkbox };

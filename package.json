@@ -26,7 +26,6 @@
     "test:html-webpack-plugin": "cd packages/html-webpack-plugin && yarn && yarn test",
     "start": "yarn storybook",
     "start-components": "cd packages/components && yarn start",
-    "start-faceted-search": "cd packages/faceted-search && yarn start",
     "start-containers": "cd packages/containers && yarn start",
     "start-datagrid": "cd packages/datagrid && yarn start",
     "start-stepper": "cd packages/stepper && yarn start",

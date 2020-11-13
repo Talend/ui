@@ -14,8 +14,7 @@ const context = {
 	get: () => {},
 };
 
-// TODO 6.0: do not export this
-export function getIconHREF(name) {
+function getIconHREF(name) {
 	if (context.ids.indexOf(name) !== -1) {
 		return `#${name}`;
 	}

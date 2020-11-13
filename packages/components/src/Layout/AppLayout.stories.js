@@ -111,13 +111,20 @@ function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = con
  */
 function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
 	layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent);
-	Layout.TALEND_T7_THEME_APPS.forEach(app => {
+	[
+		{ key: 'mdm', value: 'Master Data Management' },
+		{ key: 'tdc', value: 'Data Inventory' },
+		{ key: 'tdp', value: 'Data Preparation' },
+		{ key: 'tds', value: 'Data Stewardship' },
+		{ key: 'tmc', value: 'Management Console' },
+		{ key: 'tfd', value: 'Pipeline Designer' },
+	].forEach(({ key, value }) => {
 		const decoratedPropsWithTheme = {
 			...layoutStoryProps,
 			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
 		};
-		stories.add(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
-			<div className={appStyle[app]}>
+		stories.add(`[${value}] ${layoutStoryName} `, () => (
+			<div className={appStyle[key]}>
 				<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
 					<Layout {...decoratedPropsWithTheme}>{layoutStoryContent}</Layout>
 				</div>

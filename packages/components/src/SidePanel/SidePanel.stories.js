@@ -6,8 +6,6 @@ import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
 
-const APPS_WITH_SIDEPANEL = ['tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
-
 const actions = [
 	{
 		label: 'Preparations',
@@ -209,9 +207,16 @@ stories
 
 const appStyle = require('../../stories/config/themes.scss');
 
-APPS_WITH_SIDEPANEL.forEach(app => {
-	stories.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
-		<div className={appStyle[app]}>
+[
+	{ key: 'mdm', value: 'Master Data Management' },
+	{ key: 'tdc', value: 'Data Inventory' },
+	{ key: 'tdp', value: 'Data Preparation' },
+	{ key: 'tds', value: 'Data Stewardship' },
+	{ key: 'tmc', value: 'Management Console' },
+	{ key: 'tfd', value: 'Pipeline Designer' },
+].forEach(({ key, value }) => {
+	stories.add(`[${value}] SidePanel`, () => (
+		<div className={appStyle[key]}>
 			<div className={Layout.TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
 				<SidePanel id="context" actions={actions} tooltipPlacement="top" />
 			</div>
@@ -219,7 +224,7 @@ APPS_WITH_SIDEPANEL.forEach(app => {
 	));
 });
 
-stories.add('🎨 [Portal] reverse', () => (
+stories.add('[Portal] reverse', () => (
 	<div className={appStyle.portal}>
 		<h1>SidePanel</h1>
 		<p>

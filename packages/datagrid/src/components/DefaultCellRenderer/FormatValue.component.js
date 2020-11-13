@@ -166,5 +166,6 @@ export function FormatValueComponent(props) {
 FormatValueComponent.propTypes = {
 	value: PropTypes.string,
 };
+FormatValueComponent.theme = theme;
 
 export default FormatValueComponent;

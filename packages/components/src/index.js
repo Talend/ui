@@ -1,4 +1,3 @@
-import bootstrap from './bootstrap';
 import AboutDialog from './AboutDialog';
 import ActionBar from './ActionBar';
 import ActionIntercom from './ActionIntercom';
@@ -55,6 +54,7 @@ import Loader from './Loader';
 import MultiSelect from './MultiSelect';
 import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
+import OverlayTrigger from './OverlayTrigger';
 import PieChart from './PieChart';
 import Progress from './Progress';
 import QualityBar from './QualityBar';
@@ -62,7 +62,7 @@ import RadarChart from './RadarChart';
 import ResourceList from './ResourceList';
 import ResourcePicker from './ResourcePicker';
 import RatioBar from './RatioBar';
-import Rich from './RichTooltip';
+import Rich from './Rich';
 import SidePanel from './SidePanel';
 import Skeleton from './Skeleton';
 import Slider from './Slider';
@@ -77,83 +77,6 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import getTheme from './theme';
-
-// TODO 6.0: remove those imports
-import HeaderTitle from './HeaderTitle';
-import RichLayout from './RichTooltip/RichLayout';
-import RichError from './RichTooltip/RichError';
-import Table from './Table'; // TODO 6.0: remove the component
-import Tile from './GridLayout/Tile';
-import getTranslated from './TranslateWrapper';
-import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
-
-const {
-	Alert,
-	Breadcrumb,
-	BreadcrumbItem,
-	Button,
-	ButtonGroup,
-	ButtonToolbar,
-	Carousel,
-	CarouselItem,
-	Clearfix,
-	ControlLabel,
-	Col,
-	Collapse,
-	Dropdown,
-	DropdownButton,
-	Fade,
-	Form,
-	FormControl,
-	FormGroup,
-	Glyphicon,
-	Grid,
-	HelpBlock,
-	InputGroup,
-	Jumbotron,
-	Label,
-	ListGroup,
-	ListGroupItem,
-	Media,
-	MenuItem,
-	Modal,
-	ModalBody,
-	ModalFooter,
-	ModalHeader,
-	ModalTitle,
-	Nav,
-	Navbar,
-	NavbarBrand,
-	NavDropdown,
-	NavItem,
-	Overlay,
-	OverlayTrigger,
-	PageHeader,
-	PageItem,
-	Pager,
-	Pagination,
-	Panel,
-	PanelGroup,
-	Popover,
-	ProgressBar,
-	Radio,
-	ResponsiveEmbed,
-	Row,
-	SafeAnchor,
-	SplitButton,
-	Tab,
-	TabContainer,
-	TabContent,
-	TabPane,
-	Tabs,
-	Thumbnail,
-	Tooltip,
-	Well,
-} = bootstrap;
-
-const BootstrapBadge = bootstrap.Badge;
-const BootstrapCheckbox = bootstrap.Checkbox;
-const BootstrapTable = bootstrap.Table;
 
 export {
 	AboutDialog,
@@ -209,7 +132,7 @@ export {
 	MultiSelect,
 	Notification,
 	ObjectViewer,
-	// TODO 6.0: export OverlayTrigger here. For now there is already an OverlayTrigger from react-bootstrap
+	OverlayTrigger,
 	PieChart,
 	Progress,
 	QualityBar,
@@ -232,78 +155,4 @@ export {
 	VirtualizedList,
 	WithDrawer,
 	getTheme,
-	// TODO 6.0: remove from here
-	RichError,
-	RichLayout,
-	HeaderTitle,
-	Table,
-	Tile,
-	getTranslated, // TODO 6.0: remove the TranslateWrapper folder
-	I18N_DOMAIN_COMPONENTS,
-	CIRCULAR_PROGRESS_SIZE,
-	// bootstrap
-	Alert,
-	BootstrapBadge,
-	BootstrapCheckbox,
-	BootstrapTable,
-	Breadcrumb,
-	BreadcrumbItem,
-	Button,
-	ButtonGroup,
-	ButtonToolbar,
-	Carousel,
-	CarouselItem,
-	Clearfix,
-	ControlLabel,
-	Col,
-	Collapse,
-	Dropdown,
-	DropdownButton,
-	Fade,
-	Form,
-	FormControl,
-	FormGroup,
-	Glyphicon,
-	Grid,
-	HelpBlock,
-	InputGroup,
-	Jumbotron,
-	Label,
-	ListGroup,
-	ListGroupItem,
-	Media,
-	MenuItem,
-	Modal,
-	ModalBody,
-	ModalFooter,
-	ModalHeader,
-	ModalTitle,
-	Nav,
-	Navbar,
-	NavbarBrand,
-	NavDropdown,
-	NavItem,
-	Overlay,
-	OverlayTrigger,
-	PageHeader,
-	PageItem,
-	Pager,
-	Pagination,
-	Panel,
-	PanelGroup,
-	Popover,
-	ProgressBar,
-	Radio,
-	ResponsiveEmbed,
-	Row,
-	SafeAnchor,
-	SplitButton,
-	Tab,
-	TabContainer,
-	TabContent,
-	TabPane,
-	Tabs,
-	Thumbnail,
-	Tooltip,
-	Well,
 };

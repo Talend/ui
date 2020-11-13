@@ -172,6 +172,3 @@ SubHeaderBar.Content = SubHeaderBarActions;
 SubHeaderBar.Inject = CustomInject;
 
 export default SubHeaderBar;
-
-// TODO 6.0: remove those imports
-export { SubHeaderBar, SubHeaderBarActions, CustomInject };
