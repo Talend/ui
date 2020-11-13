@@ -73,7 +73,7 @@ stories
 		];
 		return (
 			<Stepper steps={steps} title={title} renderActions={renderActions}>
-				Steppers finished
+				Stepper finished
 			</Stepper>
 		);
 	})
