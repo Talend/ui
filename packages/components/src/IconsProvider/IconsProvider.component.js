@@ -112,6 +112,7 @@ function IconsProvider({
 	const [FETCHING, setFetching] = React.useState([]);
 	context.ids = getAllIconIds().concat(ids);
 	context.get = getIconHref;
+
 	React.useEffect(() => {
 		if (!Array.isArray(bundles)) {
 			return;
@@ -119,13 +120,11 @@ function IconsProvider({
 		bundles
 			.filter(url => !hasBundle(url) && FETCHING.indexOf(url) === -1)
 			.forEach(url => {
-				FETCHING.push(url);
-				setFetching([].concat(FETCHING));
+				setFetching(oldFetching => [...oldFetching, url]);
 				fetch(url)
 					.then(addBundle)
 					.finally(() => {
-						FETCHING.splice(FETCHING.indexOf(url), 1);
-						setFetching([].concat(FETCHING));
+						setFetching(oldFetching => oldFetching.filter(nextUrl => nextUrl !== url));
 					});
 			});
 	}, [bundles, FETCHING]);
