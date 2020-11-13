@@ -1,5 +1,5 @@
 .t7 {
-  $brand-primary-t7: #5d88aa !default;
-  $brand-secondary-t7: #4f7da2 !default;
-  @include layout-colors($brand-primary-t7, $brand-secondary-t7, 'datastreams');
+	$brand-primary-t7: #5d88aa !default;
+	$brand-secondary-t7: #4f7da2 !default;
+	@include layout-colors($brand-primary-t7, $brand-secondary-t7, 'datastreams');
 }
