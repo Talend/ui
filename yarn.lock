@@ -3005,6 +3005,11 @@
   resolved "https://registry.yarnpkg.com/@talend/html-webpack-plugin/-/html-webpack-plugin-1.1.0.tgz#7665ca9140c81277ded25b8328fd3508f758b9ce"
   integrity sha512-iVXGta9LexjQWOOaLsgYpDZeBAUmR6Jjplujrw/FIpl2FyDXBduATQdqqPAz1lueU2Hj4wBNSWLEKIprDapPrg==
 
+"@talend/icons@^5.28.0":
+  version "5.29.3"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-5.29.3.tgz#462b4b59d52464a86c132ddd7703cedd1f0a8f13"
+  integrity sha512-/BUJCyNvyBBDYG8PC4xuz0fAzOrwh21lzfT/zZOVmMDniqKI2C5Q2rHuzoQ9Ij0dGFweGnLJ8KhipOj+qRG2bg==
+
 "@talend/json-schema-form-core@1.0.0-alpha.4":
   version "1.0.0-alpha.4"
   resolved "https://registry.yarnpkg.com/@talend/json-schema-form-core/-/json-schema-form-core-1.0.0-alpha.4.tgz#ac4e865eef72db2dd5e0c012b3048cc1a6697404"
