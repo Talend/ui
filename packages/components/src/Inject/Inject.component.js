@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
  * This is to render an not found component to alert developers
  * @param {object} props container of the error
  */
-// TODO 6.0: do not export this
-export function NotFoundComponent({ error }) {
+function NotFoundComponent({ error }) {
 	return <div className="alert alert-danger">{error}</div>;
 }
 

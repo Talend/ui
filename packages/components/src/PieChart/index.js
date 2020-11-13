@@ -7,6 +7,3 @@ PieChart.Button = PieChartButton;
 PieChart.SIZES = PIECHART_SIZES;
 
 export default PieChart;
-
-// TODO 6.0: remove those exports
-export { PieChartButton, PieChartIcon, PIECHART_SIZES };

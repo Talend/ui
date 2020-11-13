@@ -1,14 +1,16 @@
 import React from 'react';
 import { Drawer, IconsProvider } from '@talend/react-components';
-import {
-	TALEND_T7_THEME_APPS as apps,
-	TALEND_T7_THEME_CLASSNAME,
-} from '@talend/react-components/lib/Layout/constants';
+import Layout from '@talend/react-components/lib/Layout';
 import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable';
 
 import { HomeListView } from '../src';
+
+const {
+	TALEND_T7_THEME_APPS: apps,
+	TALEND_T7_THEME_CLASSNAME,
+} = Layout;
 
 const primary = {
 	label: 'Primary',
