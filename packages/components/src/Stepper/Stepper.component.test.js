@@ -51,7 +51,7 @@ describe('Stepper Component', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
-		it('should render when there is an aborted in the steps', () => {
+		it('should render as ended when there is an aborted step', () => {
 			// given
 			const title = 'Test';
 			const steps = [
