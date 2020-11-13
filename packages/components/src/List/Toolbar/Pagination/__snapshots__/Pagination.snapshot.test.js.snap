@@ -110,11 +110,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         focusable="false"
         name="talend-chevron-end"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -140,11 +136,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         focusable="false"
         name="talend-chevron-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -172,11 +164,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         focusable="false"
         name="talend-chevron-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -196,11 +184,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         focusable="false"
         name="talend-chevron-end"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
 </ul>
@@ -310,11 +294,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         focusable="false"
         name="talend-chevron-end"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -334,11 +314,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         focusable="false"
         name="talend-chevron-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -372,11 +348,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         focusable="false"
         name="talend-chevron-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -402,11 +374,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         focusable="false"
         name="talend-chevron-end"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
 </ul>
@@ -786,11 +754,7 @@ exports[`Pagination should render 1`] = `
         focusable="false"
         name="talend-chevron-end"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -810,11 +774,7 @@ exports[`Pagination should render 1`] = `
         focusable="false"
         name="talend-chevron-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -842,11 +802,7 @@ exports[`Pagination should render 1`] = `
         focusable="false"
         name="talend-chevron-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -866,11 +822,7 @@ exports[`Pagination should render 1`] = `
         focusable="false"
         name="talend-chevron-end"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
 </ul>
@@ -981,11 +933,7 @@ exports[`Pagination should render id if provided 1`] = `
         focusable="false"
         name="talend-chevron-end"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -1006,11 +954,7 @@ exports[`Pagination should render id if provided 1`] = `
         focusable="false"
         name="talend-chevron-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -1039,11 +983,7 @@ exports[`Pagination should render id if provided 1`] = `
         focusable="false"
         name="talend-chevron-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
@@ -1064,11 +1004,7 @@ exports[`Pagination should render id if provided 1`] = `
         focusable="false"
         name="talend-chevron-end"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
 </ul>

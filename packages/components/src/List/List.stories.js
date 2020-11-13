@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-e
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
-import talendIcons from '@talend/icons/dist/react';
 import cloneDeep from 'lodash/cloneDeep';
 
 import List from './List.component';
@@ -52,40 +51,6 @@ function CellWithHello({ cellData }) {
 CellWithHello.displayName = 'VirtualizedList(CellWithHello)';
 CellWithHello.propTypes = {
 	cellData: PropTypes.string,
-};
-
-const icons = {
-	'talend-scheduler': talendIcons['talend-scheduler'],
-	'talend-apache': talendIcons['talend-apache'],
-	'talend-badge': talendIcons['talend-badge'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-chevron-end': talendIcons['talend-chevron-end'],
-	'talend-chevron-left': talendIcons['talend-chevron-left'],
-	'talend-cog': talendIcons['talend-cog'],
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-expanded': talendIcons['talend-expanded'],
-	'talend-file': talendIcons['talend-file'],
-	'talend-file-json-o': talendIcons['talend-file-json-o'],
-	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
-	'talend-files-o': talendIcons['talend-files-o'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-icons': talendIcons['talend-icons'],
-	'talend-pencil': talendIcons['talend-pencil'],
-	'talend-plus': talendIcons['talend-plus'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-search': talendIcons['talend-search'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-table': talendIcons['talend-table'],
-	'talend-tiles': talendIcons['talend-tiles'],
-	'talend-trash': talendIcons['talend-trash'],
-	'talend-warning': talendIcons['talend-warning'],
-	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
-	'talend-locked': talendIcons['talend-locked'],
-	'talend-unlocked': talendIcons['talend-unlocked'],
-	'talend-column-chooser': talendIcons['talend-column-chooser'],
-	'talend-sort-desc': talendIcons['talend-sort-desc'],
-	'talend-sort-asc': talendIcons['talend-sort-asc'],
-	'talend-line-charts': talendIcons['talend-line-charts'],
 };
 
 const selected = [
@@ -594,7 +559,7 @@ const itemsForListWithIcons = [
 storiesOf('Data/List/List', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			{story()}
 		</div>
 	))

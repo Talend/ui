@@ -61,6 +61,21 @@ function createSvgBundles() {
 	bundles.forEach(save);
 }
 
+function createSvgFilters() {
+	const buff = Object.keys(src.filters).map(id => src.filters[id]);
+	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
+	buff.push('</svg>');
+	fs.writeFileSync(path.join(dist, '../dist/svg-bundle/filters.svg'), buff.join(''));
+}
+
+function createAllInOneBundle() {
+	let buff = Object.keys(src.filters).map(id => src.filters[id]);
+	buff = buff.concat(Object.keys(src.svgs).map(id => `<symbol id="talend-${id}">${src.svgs[id]}</symbol>`));
+	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
+	buff.push('</svg>');
+	fs.writeFileSync(path.join(dist, '../dist/svg-bundle/all.svg'), buff.join(''));
+}
+
 function createGetIconHref() {
 	const options = Object.assign({}, defaultOptions, { filename: 'info.js' });
 	const buff = Object.keys(info).map(key => `  "talend-${key}": "${info[key].parent || ''}",`);
@@ -75,6 +90,8 @@ function createGetIconHref() {
 
 createGetIconHref();
 createSvgBundles();
+createSvgFilters();
+createAllInOneBundle();
 transform(src, 'react.js');
 
 const styleSrc = path.join(__dirname, '../src/talendicons.css');

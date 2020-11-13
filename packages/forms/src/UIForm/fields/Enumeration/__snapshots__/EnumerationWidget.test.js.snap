@@ -351,11 +351,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                     focusable="false"
                                     name="talend-search"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-search"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </button>
                             </Button>
@@ -438,11 +434,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                     focusable="false"
                                     name="talend-plus"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-plus"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </button>
                             </Button>
@@ -956,11 +948,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                     focusable="false"
                                     name="talend-search"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-search"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </button>
                             </Button>
@@ -1043,11 +1031,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                     focusable="false"
                                     name="talend-plus"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-plus"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </button>
                             </Button>
@@ -1555,11 +1539,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     focusable="false"
                                     name="talend-search"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-search"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </button>
                             </Button>
@@ -1642,11 +1622,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     focusable="false"
                                     name="talend-plus"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-plus"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </button>
                             </Button>
@@ -2237,11 +2213,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                     focusable="false"
                                     name="talend-search"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-search"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </button>
                             </Button>
@@ -2424,11 +2396,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               focusable="false"
                                               name="talend-download"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-download"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                           <Icon
                                             className="theme-tc-dropdown-caret"
@@ -2441,11 +2409,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               focusable="false"
                                               name="talend-caret-down"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-caret-down"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -2663,11 +2627,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                     focusable="false"
                                     name="talend-plus"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-plus"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </button>
                             </Button>

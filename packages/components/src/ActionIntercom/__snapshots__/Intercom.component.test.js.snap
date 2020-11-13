@@ -11,8 +11,6 @@ exports[`Intercom button should render a button 1`] = `
        focusable="false"
        aria-hidden="true"
   >
-    <use xlink:href="#talend-bubbles">
-    </use>
   </svg>
 </button>
 `;

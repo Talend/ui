@@ -13,8 +13,6 @@ exports[`BadgeDelete should render 1`] = `
        focusable="false"
        aria-hidden="true"
   >
-    <use xlink:href="#talend-cross">
-    </use>
   </svg>
 </button>
 `;

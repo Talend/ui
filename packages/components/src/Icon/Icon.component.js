@@ -3,6 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 import theme from './Icon.scss';
+import IconsProvider from '../IconsProvider';
 
 const FA_TRANSFORMS = {
 	spin: 'fa-spin',
@@ -40,7 +41,10 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 	const imgSrc = name.replace('remote-', '').replace('src-', '');
 	const [content, setContent] = React.useState();
 	const ref = React.useRef();
+	const icons = React.useContext(IconsProvider.reactContext);
+	const isInProvider = ((icons || {}).ids || []).indexOf(name) !== -1;
 	const isRemoteSVG = isRemote && content && content.includes('svg') && !content.includes('script');
+
 	React.useEffect(() => {
 		if (isRemote) {
 			fetch(imgSrc, {
@@ -71,8 +75,11 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		if (ref.current && isRemoteSVG) {
 			// eslint-disable-next-line no-param-reassign
 			ref.current.innerHTML = content;
+		} else if (ref.current && !isRemote && isInProvider) {
+			IconsProvider.injectIcon(name, ref.current);
 		}
-	}, [isRemoteSVG, ref, content]);
+	}, [isRemoteSVG, ref, content, name, isRemote, isInProvider]);
+
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -99,10 +106,9 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		className,
 		SVG_TRANSFORMS[transform],
 	);
+
 	let iconElement = (
-		<svg name={name} className={classname} ref={ref} {...accessibility} {...props}>
-			{isRemote ? undefined : <use xlinkHref={`#${name}`} />}
-		</svg>
+		<svg name={name} className={classname} ref={ref} {...accessibility} {...props} />
 	);
 	if (isRemote && content && !isRemoteSVG) {
 		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);

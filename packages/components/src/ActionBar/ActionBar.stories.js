@@ -1,5 +1,4 @@
 import React from 'react';
-import talendIcons from '@talend/icons/dist/react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconsProvider from '../IconsProvider';
@@ -253,28 +252,10 @@ const appMassActions = {
 	left: [multiFavorite, multiCertify],
 };
 
-const icons = {
-	'talend-badge': talendIcons['talend-badge'],
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-cog': talendIcons['talend-cog'],
-	'talend-pencil': talendIcons['talend-pencil'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-search': talendIcons['talend-search'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-table': talendIcons['talend-table'],
-	'talend-trash': talendIcons['talend-trash'],
-	'talend-upload': talendIcons['talend-upload'],
-	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-elastic': talendIcons['talend-elastic'],
-	'talend-cloud-engine': talendIcons['talend-cloud-engine'],
-	'talend-files-o': talendIcons['talend-files-o'],
-	'talend-file-move': talendIcons['talend-file-move'],
-};
-
 storiesOf('Form/Controls/ActionBar', module)
 	.add('default', () => (
 		<nav>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<p>No Selected, Layout: Left Space Right</p>
 			<div id="default">
 				<ActionBar {...basicProps} selected={0} />
@@ -308,7 +289,7 @@ storiesOf('Form/Controls/ActionBar', module)
 	))
 	.add('custom', () => (
 		<nav>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<div id="default">
 				<ActionBar>
 					<ActionBar.Content tag="a" left href="#/foo/bar">

@@ -34,11 +34,7 @@ exports[`Skip links should render navigation link 1`] = `
                   focusable="false"
                   name="talend-arrow-left"
                   title={null}
-                >
-                  <use
-                    xlinkHref="#talend-arrow-left"
-                  />
-                </svg>
+                />
               </Icon>
             </span>
             <span
@@ -72,11 +68,7 @@ exports[`Skip links should render navigation link 1`] = `
                   focusable="false"
                   name="talend-arrow-left"
                   title={null}
-                >
-                  <use
-                    xlinkHref="#talend-arrow-left"
-                  />
-                </svg>
+                />
               </Icon>
             </span>
             <span
@@ -125,11 +117,7 @@ exports[`Skip links should render only main link 1`] = `
                   focusable="false"
                   name="talend-arrow-left"
                   title={null}
-                >
-                  <use
-                    xlinkHref="#talend-arrow-left"
-                  />
-                </svg>
+                />
               </Icon>
             </span>
             <span

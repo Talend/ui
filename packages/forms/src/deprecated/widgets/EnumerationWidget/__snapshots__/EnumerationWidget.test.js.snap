@@ -356,11 +356,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -444,11 +440,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -934,11 +926,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                             focusable="false"
                             name="talend-cross"
                             title={null}
-                          >
-                            <use
-                              xlinkHref="#talend-cross"
-                            />
-                          </svg>
+                          />
                         </Icon>
                       </button>
                     </Button>
@@ -1412,11 +1400,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -1500,11 +1484,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -1985,11 +1965,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -2073,11 +2049,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -2604,11 +2576,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -2692,11 +2660,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -3229,11 +3193,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                               focusable="false"
                                               name="talend-check"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-check"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -3312,11 +3272,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                               focusable="false"
                                               name="talend-cross"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-cross"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -3689,11 +3645,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                             focusable="false"
                             name="talend-cross"
                             title={null}
-                          >
-                            <use
-                              xlinkHref="#talend-cross"
-                            />
-                          </svg>
+                          />
                         </Icon>
                       </button>
                     </Button>
@@ -4179,11 +4131,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -4267,11 +4215,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -4787,11 +4731,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -4875,11 +4815,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -5759,11 +5695,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                             focusable="false"
                             name="talend-trash"
                             title={null}
-                          >
-                            <use
-                              xlinkHref="#talend-trash"
-                            />
-                          </svg>
+                          />
                         </Icon>
                       </button>
                     </Button>
@@ -6302,11 +6234,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               focusable="false"
                                               name="talend-pencil"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-pencil"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -6384,11 +6312,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               focusable="false"
                                               name="talend-trash"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-trash"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -6811,11 +6735,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -6899,11 +6819,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -7479,11 +7395,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               focusable="false"
                                               name="talend-pencil"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-pencil"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -7561,11 +7473,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               focusable="false"
                                               name="talend-trash"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-trash"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -7757,11 +7665,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               focusable="false"
                                               name="talend-pencil"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-pencil"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -7839,11 +7743,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               focusable="false"
                                               name="talend-trash"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-trash"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -8205,11 +8105,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -8293,11 +8189,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -8860,11 +8752,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -9047,11 +8935,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         focusable="false"
                                         name="talend-download"
                                         title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-download"
-                                        />
-                                      </svg>
+                                      />
                                     </Icon>
                                     <Icon
                                       className="theme-tc-dropdown-caret"
@@ -9064,11 +8948,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         focusable="false"
                                         name="talend-caret-down"
                                         title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-caret-down"
-                                        />
-                                      </svg>
+                                      />
                                     </Icon>
                                   </button>
                                 </Button>
@@ -9286,11 +9166,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -10400,11 +10276,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               focusable="false"
                                               name="talend-pencil"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-pencil"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -10482,11 +10354,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               focusable="false"
                                               name="talend-trash"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-trash"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -10676,11 +10544,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               focusable="false"
                                               name="talend-pencil"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-pencil"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -10758,11 +10622,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               focusable="false"
                                               name="talend-trash"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-trash"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -11264,11 +11124,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               focusable="false"
                               name="talend-search"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-search"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -11446,11 +11302,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         focusable="false"
                                         name="talend-download"
                                         title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-download"
-                                        />
-                                      </svg>
+                                      />
                                     </Icon>
                                     <Icon
                                       className="theme-tc-dropdown-caret"
@@ -11463,11 +11315,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         focusable="false"
                                         name="talend-caret-down"
                                         title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-caret-down"
-                                        />
-                                      </svg>
+                                      />
                                     </Icon>
                                   </button>
                                 </Button>
@@ -11679,11 +11527,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               focusable="false"
                               name="talend-plus"
                               title={null}
-                            >
-                              <use
-                                xlinkHref="#talend-plus"
-                              />
-                            </svg>
+                            />
                           </Icon>
                         </button>
                       </Button>
@@ -12264,11 +12108,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               focusable="false"
                                               name="talend-pencil"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-pencil"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -12346,11 +12186,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               focusable="false"
                                               name="talend-trash"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-trash"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -12540,11 +12376,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               focusable="false"
                                               name="talend-pencil"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-pencil"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>
@@ -12622,11 +12454,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               focusable="false"
                                               name="talend-trash"
                                               title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-trash"
-                                              />
-                                            </svg>
+                                            />
                                           </Icon>
                                         </button>
                                       </Button>

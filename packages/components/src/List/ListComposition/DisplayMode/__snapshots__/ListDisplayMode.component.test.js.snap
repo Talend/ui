@@ -79,11 +79,7 @@ exports[`List DisplayMode should render 1`] = `
                   focusable="false"
                   name="talend-table"
                   title={null}
-                >
-                  <use
-                    xlinkHref="#talend-table"
-                  />
-                </svg>
+                />
               </Icon>
             </button>
           </Button>
@@ -156,11 +152,7 @@ exports[`List DisplayMode should render 1`] = `
                   focusable="false"
                   name="talend-expanded"
                   title={null}
-                >
-                  <use
-                    xlinkHref="#talend-expanded"
-                  />
-                </svg>
+                />
               </Icon>
             </button>
           </Button>
