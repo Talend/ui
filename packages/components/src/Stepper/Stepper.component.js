@@ -39,8 +39,7 @@ export const isErrorInSteps = steps =>
 export const isAllSuccessful = steps =>
 	steps.every(
 		step =>
-			step.status === LOADING_STEP_STATUSES.SUCCESS ||
-			step.status === LOADING_STEP_STATUSES.ABORTED,
+			[LOADING_STEP_STATUSES.SUCCESS, LOADING_STEP_STATUSES.ABORTED].includes(step.status)
 	);
 
 /**
