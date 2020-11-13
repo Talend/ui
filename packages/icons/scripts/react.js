@@ -63,7 +63,7 @@ function createSvgBundles() {
 
 function createSvgFilters() {
 	const buff = Object.keys(src.filters).map(id => src.filters[id]);
-	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false">');
+	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
 	buff.push('</svg>');
 	fs.writeFileSync(path.join(dist, '../dist/svg-bundle/filters.svg'), buff.join(''));
 }
@@ -71,7 +71,7 @@ function createSvgFilters() {
 function createAllInOneBundle() {
 	let buff = Object.keys(src.filters).map(id => src.filters[id]);
 	buff = buff.concat(Object.keys(src.svgs).map(id => `<symbol id="talend-${id}">${src.svgs[id]}</symbol>`));
-	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false">');
+	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
 	buff.push('</svg>');
 	fs.writeFileSync(path.join(dist, '../dist/svg-bundle/all.svg'), buff.join(''));
 }
