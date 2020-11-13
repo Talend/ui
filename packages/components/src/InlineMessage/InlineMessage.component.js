@@ -21,7 +21,7 @@ import { getTheme } from '../theme';
 	};
  <InlineMessage {...props}/>
  */
-export const TYPES = {
+const TYPES = {
 	INFO: 'info',
 	SUCCESSFUL: 'success',
 	WARNING: 'warning',
