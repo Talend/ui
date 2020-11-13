@@ -6,8 +6,8 @@ import { Actions, Action } from '../../Actions';
 import ActionBar from '../../ActionBar';
 import IconsProvider from '../../IconsProvider';
 import CircularProgress from '../../CircularProgress';
-import HeaderTitle from '../../HeaderTitle';
-import RichError from '../RichError';
+import HeaderTitle from '../HeaderTitle';
+import RichError from '../Error';
 import RichLayout from './RichLayout.component';
 import { Pipeline, pipelines, FilteredResourceList } from '../../ResourceList/ResourceList.stories';
 

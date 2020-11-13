@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SubHeaderBar } from '../SubHeaderBar/SubHeaderBar.component';
+import SubHeaderBar from '../SubHeaderBar';
 
 import Layout from './Layout.component';
 
