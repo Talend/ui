@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [1.0.1]
+
+### Fixed
+
+-   [Rich Layout import for tag facet](https://github.com/Talend/ui-faceted-search/pull/10)
+
 ## [1.0.0]
 
 ### Breaking Change
