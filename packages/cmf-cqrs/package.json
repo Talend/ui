@@ -35,7 +35,7 @@
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^5.29.0",
+    "@talend/react-cmf": "^6.0.0-alpha.43",
     "@talend/scripts-core": "^6.8.2",
     "@talend/scripts-preset-react-lib": "^6.8.2",
     "enzyme": "^3.11.0",
@@ -46,7 +46,7 @@
     "redux-mock-store": "^1.2.3"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^5.0.0",
+    "@talend/react-cmf": "^6.0.0-alpha.41",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -54,5 +54,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.29.0"
+  "version": "6.0.0-alpha.43"
 }

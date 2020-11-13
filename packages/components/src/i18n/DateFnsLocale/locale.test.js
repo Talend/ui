@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import getDefaultT from '../translate';
+import getDefaultT from '../../translate';
 import getLocale, { buildDistanceInWordsLocale } from './locale';
 
 describe('buildDistanceInWordsLocale', () => {

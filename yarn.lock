@@ -3013,6 +3013,11 @@
     objectpath "^1.2.1"
     tv4 "^1.3.0"
 
+"@talend/locales-tui@^5.29.0":
+  version "5.29.0"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-5.29.0.tgz#fa398c6c4381d8e56f526fead6cd7898776e5d49"
+  integrity sha512-N/1cwMMNsT0PFWDlbwiDFsjxuSiLT4NMSbvTFLN00LUv7l5BiVXZtq5Xiig+G9swa6dy4QzeHJ2rQ1ZNoKNW5A==
+
 "@talend/locales-tui@^5.6.0":
   version "5.26.0"
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-5.26.0.tgz#7ea1309ef8506de808fcaf58098f9979cf20f1c6"
@@ -3041,6 +3046,45 @@
     react-router "^3.2.0"
     react-router-redux "^4.0.8"
     redux-saga "^0.15.4"
+
+"@talend/react-cmf-webpack-plugin@>=3.4.0":
+  version "5.26.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf-webpack-plugin/-/react-cmf-webpack-plugin-5.26.0.tgz#253d8cb11017304a21eeeeeae5209d8893da7f62"
+  integrity sha512-SEQSURPQUCPTF/K7fgQ9p7Pw1vDBmeQu7hhK+oD8qTISWYS9QgNGSUUbbBjy9EPJ0yQ/J6IiQLIjl5GzZhMl+g==
+  dependencies:
+    "@talend/react-cmf" "^5.26.0"
+    chokidar "^2.0.2"
+    deepmerge "^1.5.1"
+    lodash "^4.17.15"
+    mkdirp "^0.5.1"
+
+"@talend/react-cmf@^5.26.0":
+  version "5.26.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-5.26.0.tgz#f16df723e97f20ca7a686f4d09286b864dcc31d8"
+  integrity sha512-iytsfER3nuUjfNEBGMmw4lB6E0vHvvjVLqAV8PU31wpIvLiYJmH2VEj1bsIG5NopwJ93DNKv+J1Vvka3p50bzA==
+  dependencies:
+    "@sentry/browser" "^5.11.1"
+    deepmerge "^1.5.1"
+    hoist-non-react-statics "2.5.5"
+    immutable "^3.8.1"
+    invariant "^2.2.2"
+    jsonpath "^1.0.0"
+    lodash "^4.17.15"
+    mkdirp "^1.0.4"
+    path-to-regexp "^2.0.0"
+    prop-types "^15.5.10"
+    react-immutable-proptypes "^2.1.0"
+    react-redux "^5.0.7"
+    redux "^3.7.2"
+    redux-batched-actions "^0.2.0"
+    redux-batched-subscribe "^0.1.6"
+    redux-saga "^0.15.4"
+    redux-storage "^4.1.2"
+    redux-storage-decorator-filter "^1.1.8"
+    redux-storage-decorator-immutablejs "^1.0.4"
+    redux-storage-engine-localstorage "^1.1.4"
+    redux-thunk "^2.2.0"
+    uuid "^3.4.0"
 
 "@talend/scripts-config-babel@^6.8.2":
   version "6.8.2"

@@ -42,7 +42,3 @@ VirtualizedList.SORT_BY = SORT_BY;
 VirtualizedList.SELECTION_MODE = SELECTION_MODE;
 
 export default VirtualizedList;
-
-// TODO 6.0: remove those exports, they are attached to
-export { cellDictionary, headerDictionary };
-export * from './utils/constants';
