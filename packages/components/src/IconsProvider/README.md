@@ -16,7 +16,8 @@ import IconsProvider from '@talend/react-components/lib/IconsProvider';
 export function App(props) {
 	return (
 		<React.Fragment>
-			<IconsProvider>{props.children}</IconsProvider>
+			<IconsProvider />
+			{props.children}
 		</React.Fragment>
 	);
 }
