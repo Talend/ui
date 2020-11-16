@@ -9,6 +9,7 @@ $tc-icon-size: $svg-md-size !default;
 	width: $tc-icon-size;
 	height: $tc-icon-size;
 	fill: currentColor;
+	transform-origin: center;
 
 	use {
 		pointer-events: none;
