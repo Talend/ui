@@ -17,13 +17,14 @@ const withFormLayout = (story, options) => {
 	}
 	return (
 		<div className="container-fluid">
-			<IconsProvider />
-			<div
-				className="col-md-offset-1 col-md-10"
-				style={{ marginTop: '20px', marginBottom: '20px' }}
-			>
-				{story()}
-			</div>
+			<IconsProvider>
+				<div
+					className="col-md-offset-1 col-md-10"
+					style={{ marginTop: '20px', marginBottom: '20px' }}
+				>
+					{story()}
+				</div>
+			</IconsProvider>
 		</div>
 	);
 };
