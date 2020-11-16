@@ -22,6 +22,6 @@ addDecorator(
 );
 addDecorator(withA11y);
 
-addDecorator(storyFn => <IconsProvider>{storyFn()}</IconsProvider>);
+addDecorator(storyFn => <><IconsProvider />{storyFn()}</>);
 
 configure([require.context('../src', true, /\.stories\.js$/)], module);
