@@ -22,10 +22,10 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 	// tmp change Talend logo colors until rebranding is done
 	[name='talend-logo-square'] path {
-		&.ti-foreground {
+		&:global(.ti-foreground) {
 			fill: $regal-blue;
 		}
-		&.ti-background {
+		&:global(.ti-background) {
 			fill: $white;
 		}
 	}
