@@ -16,7 +16,8 @@ import IconsProvider from '@talend/react-components/lib/IconsProvider';
 export function App(props) {
 	return (
 		<React.Fragment>
-			<IconsProvider>{props.children}</IconsProvider>
+			<IconsProvider />
+			{props.children}
 		</React.Fragment>
 	);
 }
@@ -29,7 +30,6 @@ export function App(props) {
 | bundles      | array    | [ '/all.svg' ]               |
 | defaultIcons | object   | DEPRECATED: all talend icons | the default icons provided                                                  |
 | icons        | object   | DEPRECATED: {}               | use to add icons to the default ones                                        |
-| getIconHref  | function | DEPRECATED: noop             | a function responsible to return a string used as href in svg use attribute |
 
 ## How to customize bundles
 

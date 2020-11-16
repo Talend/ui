@@ -2,31 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const DEFAULT_BUNDLES = ['/all.svg'];
-
-// breaking change here: no more required react icons data structure
-const talendIcons = {};
-const IconsContext = React.createContext(talendIcons);
-
-// same here we keep it so if you refer to it
-const context = {
-	ids: [],
-	// default no op for testing (case of Icon call without IconsProvider)
-	get: () => {},
-};
-
-function getIconHREF(name) {
-	if (context.ids.indexOf(name) !== -1) {
-		return `#${name}`;
-	}
-	let href = context.get(name);
-	if (!href) {
-		// backward compatibility for test
-		href = `#${name}`;
-	}
-	return href;
-}
+const FETCHING_BUNDLES = {};
 
 function hasBundle(url) {
+	if (FETCHING_BUNDLES[url]) {
+		return true;
+	}
+
 	const results = document.querySelectorAll('.tc-iconsprovider');
 	return (
 		Array.prototype.slice.call(results).filter(e => {
@@ -40,10 +22,12 @@ function hasBundle(url) {
  * @returns <Array<string>> Array of id if available icons
  */
 function getAllIconIds() {
-	const symbols = document.querySelectorAll('.tc-iconsprovider symbol');
-	return Array.from(symbols)
-		.map(symbol => symbol.getAttribute('id'))
-		.filter(Boolean);
+	return Promise.all(Object.values(FETCHING_BUNDLES)).then(() => {
+		const symbols = document.querySelectorAll('.tc-iconsprovider symbol');
+		return Array.from(symbols)
+			.map(symbol => symbol.getAttribute('id'))
+			.filter(Boolean);
+	});
 }
 
 /**
@@ -66,6 +50,8 @@ function injectIcon(id, container) {
 	const element = document.querySelector(`.tc-iconsprovider #${id}`);
 	if (element) {
 		container.appendChild(element.children[0].cloneNode(true));
+	} else if (Object.keys(FETCHING_BUNDLES).length) {
+		Promise.all(Object.values(FETCHING_BUNDLES)).then(() => injectIcon(id, container));
 	}
 }
 
@@ -86,7 +72,7 @@ function addBundle(response) {
 			}
 		});
 	}
-	return new Promise(resolve => resolve());
+	return Promise.resolve(response);
 }
 
 /**
@@ -98,35 +84,23 @@ function addBundle(response) {
  * @example
 <IconsProvider />
  */
-function IconsProvider({
-	bundles = DEFAULT_BUNDLES,
-	children,
-	// deprecated
-	defaultIcons = talendIcons,
-	icons = {},
-	getIconHref = () => {},
-}) {
+function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, icons = {} }) {
 	const iconset = { ...defaultIcons, ...icons };
-	const ids = Object.keys(iconset);
-	const [FETCHING, setFetching] = React.useState([]);
-	context.ids = getAllIconIds().concat(ids);
-	context.get = getIconHref;
 
 	React.useEffect(() => {
 		if (!Array.isArray(bundles)) {
 			return;
 		}
 		bundles
-			.filter(url => !hasBundle(url) && FETCHING.indexOf(url) === -1)
+			.filter(url => !hasBundle(url))
 			.forEach(url => {
-				setFetching(oldFetching => [...oldFetching, url]);
-				fetch(url)
+				FETCHING_BUNDLES[url] = fetch(url)
 					.then(addBundle)
 					.finally(() => {
-						setFetching(oldFetching => oldFetching.filter(nextUrl => nextUrl !== url));
+						delete FETCHING_BUNDLES[url];
 					});
 			});
-	}, [bundles, FETCHING]);
+	}, [bundles]);
 	return (
 		<>
 			<svg
@@ -134,32 +108,24 @@ function IconsProvider({
 				focusable="false"
 				className="sr-only tc-iconsprovider"
 			>
-				{ids.map((id, index) => (
+				{Object.keys({ ...defaultIcons, ...icons }).map((id, index) => (
 					<symbol key={index} id={id}>
 						{iconset[id]}
 					</symbol>
 				))}
 			</svg>
-			<IconsContext.Provider value={{ ids: context.ids }}>{children}</IconsContext.Provider>
 		</>
 	);
 }
 
 IconsProvider.displayName = 'IconsProvider';
 IconsProvider.propTypes = {
-	defaultIcons: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	icons: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	getIconHref: PropTypes.func, // eslint-disable-line react/forbid-prop-types
+	defaultIcons: PropTypes.object,
+	icons: PropTypes.object,
 	bundles: PropTypes.arrayOf(PropTypes.string),
-	children: PropTypes.any,
 };
 IconsProvider.getAllIconIds = getAllIconIds;
 IconsProvider.getAllFilterIds = getAllFilterIds;
 IconsProvider.injectIcon = injectIcon;
-IconsProvider.reactContext = IconsContext;
-
-// backward compat should not be used anymore
-IconsProvider.context = context;
-IconsProvider.getIconHREF = getIconHREF;
 
 export default IconsProvider;
