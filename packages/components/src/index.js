@@ -286,7 +286,6 @@ export {
 	NavDropdown,
 	NavItem,
 	Overlay,
-	// OverlayTrigger,
 	PageHeader,
 	PageItem,
 	Pager,
