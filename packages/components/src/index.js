@@ -56,6 +56,7 @@ import Loader from './Loader';
 import MultiSelect from './MultiSelect';
 import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
+import OverlayTrigger from './OverlayTrigger';
 import PieChart from './PieChart';
 import Progress from './Progress';
 import QualityBar from './QualityBar';
@@ -128,7 +129,6 @@ const {
 	NavDropdown,
 	NavItem,
 	Overlay,
-	OverlayTrigger,
 	PageHeader,
 	PageItem,
 	Pager,
@@ -211,7 +211,7 @@ export {
 	MultiSelect,
 	Notification,
 	ObjectViewer,
-	// TODO 6.0: export OverlayTrigger here. For now there is already an OverlayTrigger from react-bootstrap
+	OverlayTrigger,
 	PieChart,
 	Progress,
 	QualityBar,
@@ -286,7 +286,6 @@ export {
 	NavDropdown,
 	NavItem,
 	Overlay,
-	OverlayTrigger,
 	PageHeader,
 	PageItem,
 	Pager,
