@@ -105,9 +105,9 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	}
 
 	&.warning {
-		border-left-color: $jaffa;
+		border-left-color: $brand-warning;
 		:global(.tc-status-label) {
-			color: $jaffa;
+			color: $brand-warning;
 		}
 	}
 
