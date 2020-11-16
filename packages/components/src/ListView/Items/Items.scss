@@ -19,6 +19,8 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 			}
 			.with-icon {
 				display: flex;
+				margin-top: 0;
+				margin-bottom: 0;
 			}
 			.tc-svg-icon {
 				height: $row-height;
