@@ -41,6 +41,7 @@ class Item extends Component {
 			'checkbox',
 			{ 'switch-nested': children },
 			{ switch: isSwitchBox },
+			{'with-icon': item.icon},
 		);
 		const ariaLabel = item.checked
 			? t('TC_LISTVIEW_DESELECT', { defaultValue: 'Deselect {{ value }}', value: item.label })

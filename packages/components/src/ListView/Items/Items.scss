@@ -16,6 +16,8 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 		:global {
 			.checkbox {
 				margin-left: $padding-smaller;
+			}
+			.with-icon {
 				display: flex;
 			}
 			.tc-svg-icon {
