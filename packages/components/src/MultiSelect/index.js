@@ -1,3 +1,3 @@
-import MultiSelect from './MultiSelect.container.js';
+import MultiSelect from './MultiSelect.container';
 
 export default MultiSelect;

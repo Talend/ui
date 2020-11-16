@@ -3,7 +3,6 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-
 import getRouter from '@talend/react-cmf-router';
 import cmf from '@talend/react-cmf';
 import containersModule from '@talend/react-containers';
