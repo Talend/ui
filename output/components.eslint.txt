@@ -185,9 +185,6 @@
   33:7  error  A form label must be associated with a control  jsx-a11y/label-has-associated-control
   45:7  error  A form label must be associated with a control  jsx-a11y/label-has-associated-control
 
-/home/travis/build/Talend/ui/packages/components/src/MultiSelect/index.js
-  1:25  error  Unexpected use of file extension "js" for "./MultiSelect.container.js"  import/extensions
-
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
   100:3  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                                                                                                                               jsx-a11y/click-events-have-key-events
   107:4  error  `tabIndex` should only be declared on interactive elements                                                                                                                                                                                                                                                   jsx-a11y/no-noninteractive-tabindex
@@ -390,5 +387,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 209 problems (189 errors, 20 warnings)
+✖ 208 problems (188 errors, 20 warnings)
   15 errors and 0 warnings potentially fixable with the `--fix` option.
