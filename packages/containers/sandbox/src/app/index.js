@@ -3,12 +3,10 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-import React from 'react';
 import getRouter from '@talend/react-cmf-router';
 import cmf from '@talend/react-cmf';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
-import { IconsProvider } from '@talend/react-components';
 import ComponentFormSandbox from './ComponentFormSandbox';
 import actions from './actions';
 
@@ -20,11 +18,7 @@ const app = {
 	actionCreators: actions,
 	middlewares: [],
 	modules: [router.cmfModule, containersModule],
-	RootComponent: () => (
-		<IconsProvider>
-			<router.RootComponent />
-		</IconsProvider>
-	),
+	RootComponent: router.RootComponent,
 };
 
 /**
