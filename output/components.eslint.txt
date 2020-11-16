@@ -304,13 +304,9 @@
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.stories.js
-  429:25  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
-  687:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
-  687:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
-  697:11  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
-  697:44  error  ["icon"] is better written in dot notation                                                                                                       dot-notation
-  703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
-  703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
+  664:56  error  ["resizable"] is better written in dot notation  dot-notation
+  674:44  error  ["icon"] is better written in dot notation       dot-notation
+  680:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 208 problems (188 errors, 20 warnings)
+✖ 147 problems (127 errors, 20 warnings)
   15 errors and 0 warnings potentially fixable with the `--fix` option.
