@@ -7,9 +7,10 @@ import UIForm from '@talend/react-forms';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
-import { isComponentFormDirty } from '@talend/react-containers/lib/ComponentForm/ComponentForm.selectors';
-import { setComponentFormDirtyState } from '@talend/react-containers/lib/ComponentForm/ComponentForm.actions';
 import theme from './example.scss';
+
+const { isComponentFormDirty } = ComponentForm.selectors;
+const { setComponentFormDirtyState } = ComponentForm.actions;
 
 const componentId = 'external';
 const jsonSchema = {
@@ -18,10 +19,7 @@ const jsonSchema = {
 	properties: {
 		definitionURL: {
 			type: 'string',
-			enum: [
-				'/api/v1/forms/example',
-				'/api/v1/forms/validation',
-			],
+			enum: ['/api/v1/forms/example', '/api/v1/forms/validation'],
 		},
 		uiSpecPath: {
 			type: 'string',
@@ -29,7 +27,7 @@ const jsonSchema = {
 		triggerURL: {
 			type: 'string',
 		},
-	}
+	},
 };
 
 const uiSchema = [
@@ -44,7 +42,7 @@ const uiSchema = [
 	{
 		key: 'triggerURL',
 		title: 'triggerURL',
-	}
+	},
 ];
 
 function ComponentFormSandBox({ dirty, dispatch }) {
@@ -73,14 +71,23 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 	];
 	return (
 		<Layout mode="TwoColumns" one={<SidePanel />} header={<HeaderBar />}>
-			<SubHeaderBar title="ComponentForm" right={right} onGoBack={() => {window.location = '/'}}/>
+			<SubHeaderBar
+				title="ComponentForm"
+				right={right}
+				onGoBack={() => {
+					window.location = '/';
+				}}
+			/>
 			<div id={theme.example}>
 				{displayConfig ? (
-					<UIForm data={uispec} onSubmit={(event, data) => {
-						console.log(event, data);
-						setProperties(data);
-						setConfig(false);
-					}} />
+					<UIForm
+						data={uispec}
+						onSubmit={(event, data) => {
+							console.log(event, data);
+							setProperties(data);
+							setConfig(false);
+						}}
+					/>
 				) : (
 					<ComponentForm
 						{...properties}

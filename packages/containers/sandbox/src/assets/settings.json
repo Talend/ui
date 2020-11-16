@@ -17,9 +17,6 @@
         "before-children": [
           {
             "component": "Notification"
-          },
-          {
-            "component": "IconsProvider"
           }
         ]
       }
