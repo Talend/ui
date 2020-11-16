@@ -3,6 +3,9 @@
   55:2   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
   55:13  error  'step' is defined but never used                                                                                                                                           @typescript-eslint/no-unused-vars
 
+/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.test.js
+  2:1  error  '@talend/react-cmf/lib/registry' import too deep. No more than @talend/react-cmf  @talend/import-depth
+
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.component.js
   88:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
@@ -12,4 +15,7 @@
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:57  error  'notifications' is missing in props validation  react/prop-types
 
-✖ 5 problems (5 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
+  40:2  error  redirect should be placed after handleKeyPress  react/sort-comp
+
+✖ 7 problems (7 errors, 0 warnings)
