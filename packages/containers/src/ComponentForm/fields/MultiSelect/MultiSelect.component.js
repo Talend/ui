@@ -3,6 +3,8 @@ import React from 'react';
 import MultiSelect from '@talend/react-components/lib/MultiSelect';
 import Form from '@talend/react-forms';
 
+const FieldTemplate = Form.UIForm.FieldTemplate;
+
 export default class MultiSelectField extends React.Component {
 	constructor(props) {
 		super(props);
@@ -83,7 +85,6 @@ export default class MultiSelectField extends React.Component {
 		const errorId = generateErrorId(id);
 		const errorMsg = errorMessage || this.getChildrenErrorMessage();
 		const isDeepValid = isValid && !errorMsg;
-		const FieldTemplate = Form.UIForm.FieldTemplate.DefaultModeTemplate;
 
 		return (
 			<FieldTemplate
