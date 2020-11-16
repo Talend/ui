@@ -10,6 +10,7 @@ import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import 'focus-outline-manager';
 import '../../../.storybook/sortStories';
 import i18n from './../../../.storybook/i18n';
+import { IconsProvider } from '../src';
 
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));
@@ -20,5 +21,7 @@ addDecorator(
 	}),
 );
 addDecorator(withA11y);
+
+addDecorator(storyFn => <><IconsProvider />{storyFn()}</>);
 
 configure([require.context('../src', true, /\.stories\.js$/)], module);
