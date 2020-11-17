@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 import { useListContext } from '../context';
 import ColumnChooserButton from '../../Toolbar/ColumnChooserButton';
 
@@ -20,7 +21,7 @@ function ColumnChooser(props) {
 					props.onSubmit(_, changes);
 				}
 			}}
-			{...props}
+			{...omit(props, 'onSubmit')}
 		/>
 	);
 }
