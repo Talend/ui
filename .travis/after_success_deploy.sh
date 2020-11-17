@@ -5,7 +5,7 @@ cd "$TRAVIS_BUILD_DIR"
 if [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" == 'master' ]; then
 	surge --project .static --domain "talend.surge.sh"
 	echo "✓ Deploy to talend.surge.sh"
-if [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" == 'jsomsanith/chore/6_0' ]; then
+elif [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" == 'jsomsanith/chore/6_0' ]; then
 	surge --project .static --domain "6_0.talend.surge.sh"
 	echo "✓ Deploy to talend.surge.sh"
 elif [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
