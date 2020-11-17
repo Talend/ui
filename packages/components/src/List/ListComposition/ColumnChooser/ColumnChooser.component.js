@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import omit from 'lodash/omit';
+import pickBy from 'lodash/pickBy';
 import { useListContext } from '../context';
 import ColumnChooserButton from '../../Toolbar/ColumnChooserButton';
 
@@ -21,7 +21,7 @@ function ColumnChooser(props) {
 					props.onSubmit(_, changes);
 				}
 			}}
-			{...omit(props, 'onSubmit')}
+			{...pickBy(props, (_, key) => key !== 'onSubmit')}
 		/>
 	);
 }
