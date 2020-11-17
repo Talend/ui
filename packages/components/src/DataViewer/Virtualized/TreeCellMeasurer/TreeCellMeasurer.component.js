@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { CellMeasurer } from 'react-virtualized';
 
-export default function TreeCellMeasurer({ index, key, parent, style, cellRenderer, className }) {
+export default function TreeCellMeasurer({ index, parent, style, cellRenderer, className }) {
 	return (
 		<CellMeasurer
 			cache={get(parent, 'props.cache')}
 			columnIndex={0}
-			key={key}
 			parent={parent}
 			rowIndex={index}
 		>
@@ -25,7 +24,6 @@ TreeCellMeasurer.propTypes = {
 	cellRenderer: PropTypes.func.isRequired,
 	className: PropTypes.string,
 	index: PropTypes.number,
-	key: PropTypes.string,
 	parent: PropTypes.object,
 	style: PropTypes.object,
 };
