@@ -63,3 +63,4 @@ matrix:
 branches:
   only:
     - master
+    - jsomsanith/chore/6_0
