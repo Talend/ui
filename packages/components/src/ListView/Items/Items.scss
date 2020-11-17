@@ -21,12 +21,13 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 				display: flex;
 				margin-top: 0;
 				margin-bottom: 0;
-			}
-			.tc-svg-icon {
-				height: $row-height;
-				width: $row-height;
-				margin-top: $padding-small;
-				margin-left: $padding-smaller;
+
+				.tc-svg-icon {
+					height: $row-height;
+					width: $row-height;
+					margin-top: $padding-small;
+					margin-left: $padding-smaller;
+				}	
 			}
 
 			.checkbox-nested {
