@@ -1,4 +1,5 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { FigmaImage, Use } from '../../../docs';
 import Combobox from '../';
 
 <Meta title="Components/Combobox" component={Combobox} />
@@ -7,6 +8,29 @@ import Combobox from '../';
 
 Combobox is used to suggest items using rich preview.
 Custom values are still possible like a datalist.
+
+## Zoning
+
+// To do 
+
+## Style
+
+### Variations
+
+**With categories**
+
+<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A422" alt="combobox with categories" />
+
+
+**With icons**
+
+<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A468" alt="combobox with icons" />
+
+
+**Multi-selection**
+
+<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A547" alt="combobox for multiselection" />
+
 
 export const userListCache = {};
 
@@ -39,3 +63,43 @@ export function createUserList(term = '') {
 		<Combobox initialValue="" getList={term => createUserList(term)} />
 	</Story>
 </Preview>
+
+## States
+
+<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A202" alt="combobox behaviors" />
+
+
+## Content
+
+## Interaction
+
+### Filtering 
+
+Typing in the field will filter the predefined list options and highlight the searching value.
+
+<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A846" alt="combobox filtering values" />
+
+
+### Searching 
+
+The asynchronous scenario allows for lazy loading of the pre-selected options. In that case there is a "loading" spinner and message that's displayed before the options load is complete.
+
+<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A287" alt="combobox searching for a value" />
+
+### Add a  value
+
+If a value is not available in the predefined list options the user may have the possibility to add a new value by clicking on the button. 
+
+<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A207" alt="combobox add a new value" />
+
+
+## Accessibility
+
+## Usage
+
+## Changelog
+
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 09/30/2020 | Fabien Rassinier | Init page   |
+
