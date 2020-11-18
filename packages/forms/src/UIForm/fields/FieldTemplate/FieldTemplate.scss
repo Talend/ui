@@ -2,25 +2,25 @@
 
 .template:global(.required) {
 	> :global(.checkbox:after) {
-	   position: static;
-	   display: inline;
-	   content: '*';
+		position: static;
+		display: inline;
+		content: '*';
 	}
 	:global {
-	   .control-label:after {
-		  content: '*';
-	   }
-	   .checkbox {
-		  .control-label:after {
-			 content: '';
-		  }
-	   }
-	   // Remove required stars for multi selection
-	   .control-label ~ .checkbox:after {
-		  content: '';
-	   }
+		.control-label:after {
+			content: '*';
+		}
+		.checkbox {
+			.control-label:after {
+				content: '';
+			}
+		}
+		// Remove required stars for multi selection
+		.control-label ~ .checkbox:after {
+			content: '';
+		}
 	}
- }
+}
 
 .updating {
 	@include heartbeat(object-blink);
