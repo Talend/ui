@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import pickBy from 'lodash/pickBy';
 import { useListContext } from '../context';
 import ColumnChooserButton from '../../Toolbar/ColumnChooserButton';
 
@@ -9,6 +8,7 @@ function ColumnChooser(props) {
 
 	return (
 		<ColumnChooserButton
+			{...props}
 			columns={columns.map(({ dataKey, label }, i) => ({
 				key: dataKey,
 				label,
@@ -21,7 +21,6 @@ function ColumnChooser(props) {
 					props.onSubmit(_, changes);
 				}
 			}}
-			{...pickBy(props, (_, key) => key !== 'onSubmit')}
 		/>
 	);
 }
