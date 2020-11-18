@@ -69,13 +69,13 @@ class Item extends Component {
 					label={
 						<>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}
-							{item.icon && <>{(
+							{item.icon && (
 								<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
 									<span>
 										<Icon {...item.icon} />
 									</span>
 								</TooltipTrigger>
-							)}}
+							)}
 						</>
 					}
 					aria-label={ariaLabel}
