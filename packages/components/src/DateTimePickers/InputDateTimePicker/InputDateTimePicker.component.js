@@ -39,7 +39,7 @@ function InputDateTimePicker(props) {
 							dateFormat={props.dateFormat}
 							startDate={props.startDate}
 							endDate={props.endDate}
-							minWidth={props.minWidth}
+							minWidth={props.minWidthDate}
 						/>
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
@@ -49,6 +49,7 @@ function InputDateTimePicker(props) {
 							value={time}
 							useSeconds={props.useSeconds}
 							timezone={props.timezone}
+							minWidth={props.minWidthTime}
 						/>
 					</div>
 				)}
@@ -78,7 +79,8 @@ InputDateTimePicker.propTypes = {
 	}),
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
-	minWidth: PropTypes.number,
+	minWidthDate: PropTypes.number,
+    minWidthTime: PropTypes.number,
 };
 
 InputDateTimePicker.defaultProps = {
