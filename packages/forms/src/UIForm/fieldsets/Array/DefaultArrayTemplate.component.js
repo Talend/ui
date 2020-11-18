@@ -86,6 +86,7 @@ function DefaultArrayTemplate(props) {
 DefaultArrayTemplate.defaultProps = {
 	isCloseable: false,
 };
+DefaultArrayTemplate.ArrayItem = ArrayItem;
 
 if (process.env.NODE_ENV !== 'production') {
 	DefaultArrayTemplate.propTypes = {
