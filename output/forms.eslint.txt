@@ -1,28 +1,14 @@
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
-  64:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+  20:31  error  Missing file extension for "./context"        import/extensions
+  20:31  error  Unable to resolve path to module './context'  import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.js
-  94:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.js
+  11:27  error  Missing file extension for "../context"        import/extensions
+  11:27  error  Unable to resolve path to module '../context'  import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Enumeration/EnumerationWidget.js
-  255:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.js
+  8:42  error  Missing file extension for "../../context"        import/extensions
+  8:42  error  Unable to resolve path to module '../../context'  import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/ListView/ListView.component.js
-  55:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.js
-  54:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
-  47:8  error  The attribute aria-invalid is not supported by the role radio. This role is implicit on the element input  jsx-a11y/role-supports-aria-props
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.test.js
-  283:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  287:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/DefaultArrayTemplate.component.js
-  57:4  error  The attribute aria-invalid is not supported by the role list. This role is implicit on the element ol  jsx-a11y/role-supports-aria-props
-
-✖ 9 problems (9 errors, 0 warnings)
-  2 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 6 problems (6 errors, 0 warnings)
