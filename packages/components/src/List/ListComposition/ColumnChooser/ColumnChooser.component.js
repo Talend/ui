@@ -8,6 +8,7 @@ function ColumnChooser(props) {
 
 	return (
 		<ColumnChooserButton
+			{...props}
 			columns={columns.map(({ dataKey, label }, i) => ({
 				key: dataKey,
 				label,
@@ -20,7 +21,6 @@ function ColumnChooser(props) {
 					props.onSubmit(_, changes);
 				}
 			}}
-			{...props}
 		/>
 	);
 }
