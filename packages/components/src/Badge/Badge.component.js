@@ -145,7 +145,7 @@ Badge.propTypes = {
 	type: PropTypes.oneOf(Object.values(TYPES)),
 	dropdown: PropTypes.object,
 };
-
+Badge.displayName = 'Badge';
 Badge.SIZES = SIZES;
 Badge.TYPES = TYPES;
 export default Badge;
