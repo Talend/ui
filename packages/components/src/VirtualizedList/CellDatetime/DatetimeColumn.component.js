@@ -1,6 +1,6 @@
 import React from 'react';
 import { defaultColumnConfiguration } from '../Content.component';
-import CellDatetime from './CellDatetime.component';
+import CellDatetime, { computeValue } from './CellDatetime.component';
 
 export const cellType = 'datetime';
 export const datetimeColumnConfiguration = {
@@ -9,10 +9,13 @@ export const datetimeColumnConfiguration = {
 
 // this is a fake component to be usable in JSX,
 // but the element is used as props object internally (VirtualizedList / RV)
-export default function DatetimeColumn() {
+function DatetimeColumn() {
 	return null;
 }
+DatetimeColumn.computeValue = computeValue;
 DatetimeColumn.defaultProps = {
 	...defaultColumnConfiguration,
 	...datetimeColumnConfiguration,
 };
+
+export default DatetimeColumn;
