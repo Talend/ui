@@ -9,7 +9,7 @@ import theme from './Input.scss';
 
 export default function Input(props) {
 	const { time, inputManagement } = useContext(TimeContext);
-    const { minWidth } = props;
+	const { minWidth } = props;
 
 	return (
 		<InputSizer inputText={inputManagement.placeholder} minWidth={minWidth}>

@@ -27,19 +27,19 @@ storiesOf('Form/Controls/DatePicker/Time', module)
 		</>
 	))
 	.add('Input', () => {
-	    return (
-            <div>
-                <div>
-                    <p>Default</p>
-                    <InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} />
-                </div>
-                <div>
-                    <p>minWidth</p>
-                    <InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} minWidth={200} />
-                </div>
-            </div>
-	    );
-    })
+		return (
+			<div>
+				<div>
+					<p>Default</p>
+					<InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} />
+				</div>
+				<div>
+					<p>minWidth</p>
+					<InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} minWidth={200} />
+				</div>
+			</div>
+		);
+	})
 	.add('Picker', () => {
 		const containerStyle = {
 			overflow: 'auto',
