@@ -1,6 +1,6 @@
 $tc-listview-height: 40vh !default;
 
-$row-height: 13px;
+$row-height: 12px;
 $row-vertical-margin: $padding-small;
 $row-nested-inner-margin-top: $padding-normal - $padding-small;
 $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
@@ -17,15 +17,14 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 			.checkbox {
 				margin-left: $padding-smaller;
 			}
+
 			.with-icon {
-				display: flex;
-				margin-top: 0;
-				margin-bottom: 0;
+				display: inline-flex;
+				margin: 0;
 
 				.tc-svg-icon {
 					height: $row-height;
 					width: $row-height;
-					margin-top: $padding-small;
 					margin-left: $padding-smaller;
 				}
 			}

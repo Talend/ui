@@ -66,16 +66,20 @@ class Item extends Component {
 					id={itemId}
 					onChange={event => item.onChange(event, item, parentItem)}
 					checked={item.checked}
-					label={searchCriteria ? getSearchedLabel(item.label) : item.label}
+					label={
+						<>
+							{searchCriteria ? getSearchedLabel(item.label) : item.label}
+							{item.icon && <>{(
+								<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+									<span>
+										<Icon {...item.icon} />
+									</span>
+								</TooltipTrigger>
+							)}}
+						</>
+					}
 					aria-label={ariaLabel}
 				/>
-				{item.icon && (
-					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
-						<span>
-							<Icon {...item.icon} />
-						</span>
-					</TooltipTrigger>
-				)}
 				{children && (
 					<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })}>
 						<Action
