@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 
@@ -28,5 +29,9 @@ export default function Input(props) {
 		</InputSizer>
 	);
 }
+
+Input.propTypes = {
+	minWidth: PropTypes.number,
+};
 
 Input.displayName = 'Time.Input';

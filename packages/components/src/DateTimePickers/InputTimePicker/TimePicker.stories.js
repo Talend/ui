@@ -38,8 +38,8 @@ storiesOf('Form/Controls/DatePicker/Time', module)
                     <InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} minWidth={200} />
                 </div>
             </div>
-	    )}
-    )
+	    );
+    })
 	.add('Picker', () => {
 		const containerStyle = {
 			overflow: 'auto',

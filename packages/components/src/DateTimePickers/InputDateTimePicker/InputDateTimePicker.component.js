@@ -78,6 +78,7 @@ InputDateTimePicker.propTypes = {
 	}),
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	minWidth: PropTypes.number,
 };
 
 InputDateTimePicker.defaultProps = {
