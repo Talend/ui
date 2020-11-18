@@ -9,11 +9,15 @@ import {
 	SizeRecord,
 } from '../../constants/flowdesigner.model';
 
-jest.mock('d3-selection', () => ({
-	select() {
-		return { data() {}, call() {} };
-	},
-}));
+jest.mock('d3', () => {
+	const original = jest.requireActual('d3');
+	return {
+		...original,
+		select() {
+			return { data() {}, call() {} };
+		},
+	};
+});
 
 const noOp = () => {};
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, event } from 'd3-selection';
+import { select, event } from 'd3';
 
 import { Port, Position } from '../../api';
 import { PortRecord } from '../../customTypings/index.d';

@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { zoomIdentity } from 'd3-zoom';
+import { zoomIdentity } from 'd3';
 import {
 	FLOWDESIGNER_FLOW_ADD_ELEMENTS,
 	FLOWDESIGNER_FLOW_RESET,

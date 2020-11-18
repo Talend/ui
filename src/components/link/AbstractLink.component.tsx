@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { line, curveBasis } from 'd3-shape';
-import { interpolateBasis } from 'd3-interpolate';
+import { line, curveBasis, interpolateBasis } from 'd3';
 
 import LinkHandle from './LinkHandle.component';
 import { Position, PortRecord } from '../../customTypings/index.d';

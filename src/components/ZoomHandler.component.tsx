@@ -1,6 +1,5 @@
 import React from 'react';
-import { select, event } from 'd3-selection';
-import { zoom as d3ZoomFactory, ZoomBehavior } from 'd3-zoom';
+import { select, event, zoom as d3ZoomFactory, ZoomBehavior } from 'd3';
 import { Transform } from '../customTypings/index.d';
 
 export function transformToString(transform?: Transform) {
