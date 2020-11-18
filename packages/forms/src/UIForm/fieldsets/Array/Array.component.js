@@ -4,8 +4,8 @@ import { head, get } from 'lodash';
 import Widget from '../../Widget';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
 import defaultTemplates from '../../utils/templates';
-import defaultWidgets from '../../utils/widgets';
 import { getArrayElementSchema } from '../../utils/array';
+import { getWidget, WidgetContext } from '../../context';
 
 function getRange(previousIndex, nextIndex) {
 	if (previousIndex < nextIndex) {
@@ -22,6 +22,8 @@ function getRange(previousIndex, nextIndex) {
 }
 
 export default class ArrayWidget extends React.Component {
+	static contextType = WidgetContext;
+
 	constructor(props) {
 		super(props);
 
@@ -113,7 +115,7 @@ export default class ArrayWidget extends React.Component {
 
 	isCloseable() {
 		const widgetId = this.props.schema.itemWidget;
-		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
+		const itemWidget = getWidget(this.context, widgetId);
 		if (!itemWidget) {
 			return false;
 		}
@@ -153,7 +155,6 @@ export default class ArrayWidget extends React.Component {
 ArrayWidget.defaultProps = {
 	value: [],
 	templates: {},
-	widgets: {},
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -165,6 +166,5 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.object.isRequired,
 		templates: PropTypes.object,
 		value: PropTypes.array,
-		widgets: PropTypes.object,
 	};
 }

@@ -280,11 +280,11 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={autoCompleteSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		expect(wrapper.find('input').prop('autoComplete')).toBe('off');

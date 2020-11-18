@@ -252,7 +252,7 @@ class EnumerationForm extends React.Component {
 		this.onBlur = this.onBlur.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.value) {
 			this.setState(prevState => ({ ...prevState, items: nextProps.value }));
 		}

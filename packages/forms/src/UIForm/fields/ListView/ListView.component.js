@@ -52,7 +52,7 @@ class ListViewWidget extends React.Component {
 	 * @param { Object } schema The new mergedSchema
 	 * @param { Array } value The new value
 	 */
-	componentWillReceiveProps({ schema, value }) {
+	UNSAFE_componentWillReceiveProps({ schema, value }) {
 		if (schema !== this.props.schema) {
 			this.setState(oldState =>
 				initItems(schema, value, oldState.searchCriteria, this.onToggleItem.bind(this)),

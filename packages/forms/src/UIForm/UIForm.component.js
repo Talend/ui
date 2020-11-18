@@ -17,6 +17,8 @@ import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
 import theme from './UIForm.scss';
+import { WidgetContext } from './context';
+import widgets from './utils/widgets';
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -61,7 +63,7 @@ export class UIFormComponent extends React.Component {
 	 * @param jsonSchema
 	 * @param uiSchema
 	 */
-	componentWillReceiveProps({ jsonSchema, uiSchema }) {
+	UNSAFE_componentWillReceiveProps({ jsonSchema, uiSchema }) {
 		if (
 			!jsonSchema ||
 			!uiSchema ||
@@ -350,7 +352,9 @@ export class UIFormComponent extends React.Component {
 				target={this.props.target}
 				ref={this.setFormRef}
 			>
-				{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
+				<WidgetContext.Provider value={{ ...widgets, ...this.state.widgets }}>
+					{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
+				</WidgetContext.Provider>
 			</form>
 		);
 	}
