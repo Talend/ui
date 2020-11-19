@@ -49,6 +49,9 @@ function getAllFilterIds() {
 function injectIcon(id, container) {
 	const element = document.querySelector(`.tc-iconsprovider #${id}`);
 	if (element) {
+		while (container.hasChildNodes()) {
+			container.removeChild(container.lastChild);
+		}
 		container.appendChild(element.children[0].cloneNode(true));
 	} else if (Object.keys(FETCHING_BUNDLES).length) {
 		Promise.all(Object.values(FETCHING_BUNDLES)).then(() => injectIcon(id, container));
