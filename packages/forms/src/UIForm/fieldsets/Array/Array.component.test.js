@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ArrayWidget from './Array.component';
 import DefaultArrayTemplate from './DefaultArrayTemplate.component';
+import widgets from '../../utils/widgets';
 
 const schema = {
 	key: ['comments'],
@@ -142,7 +143,7 @@ describe('Array component', () => {
 				onFinish={jest.fn()}
 				schema={{ ...schema, readOnly: true }}
 				value={value}
-				errors={[]}
+				errors={{}}
 			/>,
 		);
 		expect(wrapper.find('Action').length).toBe(0);
@@ -214,6 +215,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
 					value={value}
+					widgets={widgets}
 				/>,
 			);
 
@@ -422,6 +424,8 @@ describe('Array component', () => {
 					isValid
 					schema={schema}
 					value={value}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
 				/>,
 			);
 
@@ -452,6 +456,8 @@ describe('Array component', () => {
 					isValid
 					schema={deepSchema}
 					value={value}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
 				/>,
 			);
 
@@ -480,6 +486,8 @@ describe('Array component', () => {
 					schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
 					widgets={widgets}
 					value={value}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
 				/>,
 			);
 			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(true);
@@ -496,6 +504,8 @@ describe('Array component', () => {
 					schema={{ ...schema, itemWidget: 'someWidget' }}
 					widgets={widgets}
 					value={value}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
 				/>,
 			);
 			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(false);
@@ -512,6 +522,8 @@ describe('Array component', () => {
 					schema={{ ...schema, itemWidget: 'someWidget' }}
 					widgets={widgets}
 					value={value}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
 				/>,
 			);
 			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(false);
