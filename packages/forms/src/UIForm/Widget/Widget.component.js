@@ -33,7 +33,7 @@ export default function Widget(props) {
 	} = props.schema;
 	const widgetId = widget || type;
 
-	const { widgets, WidgetImpl } = useWidget(props.displayMode || displayMode, widgetId);
+	const { widgets, WidgetImpl } = useWidget(widgetId, props.displayMode || displayMode);
 
 	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
 		return null;
@@ -83,14 +83,7 @@ if (process.env.NODE_ENV !== 'production') {
 		idSeparator: PropTypes.string,
 		properties: PropTypes.object,
 		schema: PropTypes.shape({
-			condition: PropTypes.arrayOf(
-				PropTypes.shape({
-					path: PropTypes.string,
-					values: PropTypes.array,
-					strategy: PropTypes.string,
-					shouldBe: PropTypes.bool,
-				}),
-			),
+			condition: PropTypes.object,
 			displayMode: PropTypes.string,
 			key: PropTypes.array,
 			options: PropTypes.object,
@@ -100,7 +93,7 @@ if (process.env.NODE_ENV !== 'production') {
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,
 		}).isRequired,
-		updating: PropTypes.arrayOf(PropTypes.shape({ path: PropTypes.string })),
+		updating: PropTypes.arrayOf(PropTypes.string),
 		widgets: PropTypes.object,
 	};
 }
