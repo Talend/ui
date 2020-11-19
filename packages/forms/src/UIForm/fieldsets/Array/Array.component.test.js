@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ArrayWidget from './Array.component';
 import DefaultArrayTemplate from './DefaultArrayTemplate.component';
+import { WidgetContext } from '../../context';
+import widgets from '../../utils/widgets';
 
 const schema = {
 	key: ['comments'],
@@ -133,17 +135,19 @@ describe('Array component', () => {
 
 	it('should render a readOnly array', () => {
 		const wrapper = mount(
-			<ArrayWidget
-				description="My array description"
-				errorMessage="This array is not correct"
-				id="talend-array"
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={{ ...schema, readOnly: true }}
-				value={value}
-				errors={[]}
-			/>,
+			<WidgetContext.Provider value={widgets}>
+				<ArrayWidget
+					description="My array description"
+					errorMessage="This array is not correct"
+					id="talend-array"
+					isValid
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
+					schema={{ ...schema, readOnly: true }}
+					value={value}
+					errors={[]}
+				/>
+			</WidgetContext.Provider>,
 		);
 		expect(wrapper.find('Action').length).toBe(0);
 	});
@@ -156,16 +160,18 @@ describe('Array component', () => {
 		};
 		// when
 		const wrapper = mount(
-			<ArrayWidget
-				description="My array description"
-				id="talend-array"
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={disabledSchema}
-				value={value}
-				errors={{}}
-			/>,
+			<WidgetContext.Provider value={widgets}>
+				<ArrayWidget
+					description="My array description"
+					id="talend-array"
+					isValid
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
+					schema={disabledSchema}
+					value={value}
+					errors={{}}
+				/>
+			</WidgetContext.Provider>,
 		);
 		// then
 		expect(wrapper.find('Action#talend-array-btn').prop('disabled')).toBe(true);
@@ -204,17 +210,20 @@ describe('Array component', () => {
 			const onChange = jest.fn();
 			const onFinish = jest.fn();
 			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description="My array description"
-					errorMessage="This array is not correct"
-					id="talend-array"
-					isValid
-					onChange={onChange}
-					onFinish={onFinish}
-					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
-					value={value}
-				/>,
+			const wrapper = mount(
+				<WidgetContext.Provider value={widgets}>
+					<ArrayWidget
+						description="My array description"
+						errorMessage="This array is not correct"
+						id="talend-array"
+						isValid
+						onChange={onChange}
+						onFinish={onFinish}
+						schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
+						value={value}
+						errors={{}}
+					/>
+				</WidgetContext.Provider>,
 			);
 
 			// when
@@ -422,6 +431,8 @@ describe('Array component', () => {
 					isValid
 					schema={schema}
 					value={value}
+					onFinish={jest.fn()}
+					onChange={jest.fn()}
 				/>,
 			);
 
@@ -452,6 +463,8 @@ describe('Array component', () => {
 					isValid
 					schema={deepSchema}
 					value={value}
+					onFinish={jest.fn()}
+					onChange={jest.fn()}
 				/>,
 			);
 
@@ -470,23 +483,29 @@ describe('Array component', () => {
 
 	describe('#isCloseable', () => {
 		it('should pass isCloseable true if widget has isCloseable property set to true', () => {
-			const widgets = { myCloseableWidget: { isCloseable: true } };
-			const wrapper = shallow(
-				<ArrayWidget
-					description="My array description"
-					errorMessage="This array is not correct"
-					id="talend-array"
-					isValid
-					schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
-					widgets={widgets}
-					value={value}
-				/>,
+			function myCloseableWidget() {
+				return null;
+			}
+			myCloseableWidget.isCloseable = true;
+			const wrapper = mount(
+				<WidgetContext.Provider value={{ ...widgets, myCloseableWidget }}>
+					<ArrayWidget
+						description="My array description"
+						errorMessage="This array is not correct"
+						id="talend-array"
+						isValid
+						schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
+						value={value}
+						onFinish={jest.fn()}
+						onChange={jest.fn()}
+						errors={{}}
+					/>
+				</WidgetContext.Provider>,
 			);
 			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(true);
 		});
 
 		it('should pass isCloseable false if widget has isCloseable property set to false', () => {
-			const widgets = { someWidget: { isCloseable: false } };
 			const wrapper = shallow(
 				<ArrayWidget
 					description="My array description"
@@ -496,13 +515,14 @@ describe('Array component', () => {
 					schema={{ ...schema, itemWidget: 'someWidget' }}
 					widgets={widgets}
 					value={value}
+					onFinish={jest.fn()}
+					onChange={jest.fn()}
 				/>,
 			);
 			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(false);
 		});
 
 		it('should pass isCloseable false if widget does not have isCloseable property', () => {
-			const widgets = { someWidget: {} };
 			const wrapper = shallow(
 				<ArrayWidget
 					description="My array description"
@@ -512,6 +532,8 @@ describe('Array component', () => {
 					schema={{ ...schema, itemWidget: 'someWidget' }}
 					widgets={widgets}
 					value={value}
+					onFinish={jest.fn()}
+					onChange={jest.fn()}
 				/>,
 			);
 			expect(wrapper.find(DefaultArrayTemplate).prop('isCloseable')).toEqual(false);
