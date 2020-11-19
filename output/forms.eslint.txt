@@ -1,14 +1,7 @@
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
-  20:31  error  Missing file extension for "./context"        import/extensions
-  20:31  error  Unable to resolve path to module './context'  import/no-unresolved
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.test.js
+  479:10  error  'widgets' is already declared in the upper scope  no-shadow
+  497:10  error  'widgets' is already declared in the upper scope  no-shadow
+  515:10  error  'widgets' is already declared in the upper scope  no-shadow
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.js
-  11:27  error  Missing file extension for "../context"        import/extensions
-  11:27  error  Unable to resolve path to module '../context'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.js
-  8:42  error  Missing file extension for "../../context"        import/extensions
-  8:42  error  Unable to resolve path to module '../../context'  import/no-unresolved
-
-✖ 6 problems (6 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
