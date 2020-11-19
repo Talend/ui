@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ArrayWidget from './Array.component';
 import DefaultArrayTemplate from './DefaultArrayTemplate.component';
-import widgets from '../../utils/widgets';
+import defaultWidgets from '../../utils/widgets';
 
 const schema = {
 	key: ['comments'],
@@ -215,7 +215,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
 					value={value}
-					widgets={widgets}
+					widgets={defaultWidgets}
 				/>,
 			);
 
