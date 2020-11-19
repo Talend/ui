@@ -1,7 +1,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { useForm, FormProvider } from 'react-hook-form';
+import { useForm, FormProvider } from 'react-hook-form/dist/index.ie11';
 import Input from './RHFInput.component';
 
 /* eslint-disable-next-line react/prop-types */

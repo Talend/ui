@@ -5,7 +5,6 @@ import Widget from '../../Widget';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
 import defaultTemplates from '../../utils/templates';
 import { getArrayElementSchema } from '../../utils/array';
-import { getWidget } from '../../context';
 
 function getRange(previousIndex, nextIndex) {
 	if (previousIndex < nextIndex) {
