@@ -33,7 +33,7 @@ export default function Widget(props) {
 	} = props.schema;
 	const widgetId = widget || type;
 
-	const WidgetImpl = useWidget(props.displayMode || displayMode, widgetId);
+	const { widgets, WidgetImpl } = useWidget(props.displayMode || displayMode, widgetId);
 
 	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
 		return null;
@@ -55,6 +55,7 @@ export default function Widget(props) {
 		isValid: !error,
 		value: getValue(props.properties, props.schema),
 		valueIsUpdating: isUpdating(props.updating, props.schema.key),
+		widgets,
 	};
 
 	if (tooltip) {

@@ -4,7 +4,6 @@ export const WidgetContext = React.createContext();
 
 export function getWidget(widgets, widgetId, displayMode) {
 	if (!widgets) {
-		console.error('UIForm.Widgets.NOT_FOUND: You may have forgot to setup the provider');
 		return undefined;
 	}
 	const id = displayMode ? `${widgetId}_${displayMode}` : widgetId;
@@ -15,7 +14,10 @@ export function getWidget(widgets, widgetId, displayMode) {
 	return widget;
 }
 
-export function useWidget(displayMode, widgetId) {
+export function useWidget(widgetId, displayMode) {
 	const widgets = React.useContext(WidgetContext);
-	return getWidget(widgets, widgetId, displayMode);
+	return {
+		widgets,
+		WidgetImpl: getWidget(widgets, widgetId, displayMode),
+	};
 }
