@@ -52,10 +52,10 @@
     "@storybook/addon-knobs": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/bootstrap-theme": "^6.1.5",
-    "@talend/icons": "^6.1.5",
+    "@talend/bootstrap-theme": "^6.1.6",
+    "@talend/icons": "^6.1.6",
     "@talend/locales-tui": "^5.29.0",
-    "@talend/react-components": "^6.1.5",
+    "@talend/react-components": "^6.1.6",
     "@talend/scripts-core": "^6.8.2",
     "@talend/scripts-preset-react-lib": "^6.8.2",
     "autoprefixer": "^7.1.4",
@@ -87,5 +87,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.1.5"
+  "version": "6.1.6"
 }
