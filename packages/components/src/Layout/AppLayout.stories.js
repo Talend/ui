@@ -84,7 +84,9 @@ const tabs = {
 
 const stories = storiesOf('Layout/AppLayout', module).addDecorator(story => (
 	<div>
-		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+		<IconsProvider
+			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
+		/>
 		{story()}
 	</div>
 ));

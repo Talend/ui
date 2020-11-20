@@ -255,7 +255,11 @@ const appMassActions = {
 storiesOf('Form/Controls/ActionBar', module)
 	.add('default', () => (
 		<nav>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<p>No Selected, Layout: Left Space Right</p>
 			<div id="default">
 				<ActionBar {...basicProps} selected={0} />
@@ -289,7 +293,11 @@ storiesOf('Form/Controls/ActionBar', module)
 	))
 	.add('custom', () => (
 		<nav>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<div id="default">
 				<ActionBar>
 					<ActionBar.Content tag="a" left href="#/foo/bar">

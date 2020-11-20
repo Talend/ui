@@ -93,7 +93,11 @@ storiesOf('Navigation/Badge', module)
 		<React.Fragment>
 			<section>
 				<h1>New visual</h1>
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<div style={defaultStyle} id="newVisual-header">
 					<div style={columnStyle}>
 						<span>Tags as links</span>
@@ -347,7 +351,11 @@ storiesOf('Navigation/Badge', module)
 
 			<section>
 				<h1>New visual - Disabled</h1>
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<div style={defaultStyle} id="newVisualDisabled-header">
 					<div style={columnStyle}>
 						<span>Tags as links</span>
@@ -663,7 +671,11 @@ storiesOf('Navigation/Badge', module)
 
 			<section style={greyBackgroundStyle}>
 				<h1>New visual - white background</h1>
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<div style={defaultStyle} id="newVisualWhite-header">
 					<div style={columnStyle}>
 						<span>/</span>
@@ -768,7 +780,11 @@ storiesOf('Navigation/Badge', module)
 
 			<section>
 				<h1>Old Examples</h1>
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<div style={defaultStyle} id="oldExample-header">
 					<div style={columnStyle}>
 						<span>Read Only</span>
@@ -886,7 +902,11 @@ storiesOf('Navigation/Badge', module)
 	))
 	.add('colored', () => (
 		<>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			{Object.entries(Badge.TYPES).map(([name, value]) => (
 				<div>
 					{name}

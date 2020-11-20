@@ -89,7 +89,11 @@ const customBody = <div>my custom body rich tolltip</div>;
 storiesOf('Layout/RichLayout', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			{story()}
 		</div>
 	))

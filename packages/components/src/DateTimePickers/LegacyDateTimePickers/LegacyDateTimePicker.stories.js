@@ -7,7 +7,9 @@ import InputDateTimePicker from '.';
 
 storiesOf('Deprecated/LegacyDteTimePicker', module).add('Legacy - form mode', () => (
 	<div>
-		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+		<IconsProvider
+			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
+		/>
 		<div style={{ width: 150 }}>
 			<InputDateTimePicker
 				id="my-date-picker"

@@ -24,7 +24,11 @@ storiesOf('Data/List/Column Chooser', module)
 		<div>
 			<h1>Column chooser tooltip</h1>
 			<p>Default mode with minimal props</p>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<ColumnChooser
 				columnsFromList={columns}
 				nbLockedLeftItems={2}
@@ -37,7 +41,11 @@ storiesOf('Data/List/Column Chooser', module)
 		<div>
 			<h1>Column chooser tooltip</h1>
 			<p>You can provide and compose some of the column chooser part.</p>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<ColumnChooser
 				columnsFromList={columns}
 				id="default-column-chooser"

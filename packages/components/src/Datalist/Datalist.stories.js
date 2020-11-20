@@ -67,7 +67,11 @@ storiesOf('Form/Controls/Datalist', module)
 		};
 		return (
 			<form className="form">
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<h3>By default</h3>
 				<Datalist {...propsMultiSection} />
 				<h3>default value</h3>
@@ -97,7 +101,11 @@ storiesOf('Form/Controls/Datalist', module)
 		};
 		return (
 			<form className="form">
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<h3>By default</h3>
 				<Datalist {...singleSectionProps} />
 				<h3>default value</h3>
@@ -159,7 +167,11 @@ storiesOf('Form/Controls/Datalist', module)
 		};
 		return (
 			<form className="form">
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<h3>Disabled</h3>
 				<Datalist {...disabledSectionProps} />
 				<h3>Readonly</h3>

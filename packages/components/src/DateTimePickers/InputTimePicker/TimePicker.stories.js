@@ -9,7 +9,11 @@ import TimePicker from '../pickers/TimePicker';
 storiesOf('Form/Controls/DatePicker/Time', module)
 	.addDecorator(story => (
 		<>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<form
 				onSubmit={event => {
 					event.persist();

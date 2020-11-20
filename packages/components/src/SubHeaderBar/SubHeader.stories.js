@@ -73,37 +73,61 @@ const stories = storiesOf('Navigation/SubHeader', module);
 stories
 	.add('with default', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
 	.add('with editable', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} onGoBack={backAction} editable />
 		</div>
 	))
 	.add('with icon', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} />
 		</div>
 	))
 	.add('with subtitle', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
 		</div>
 	))
 	.add('with loading subtitle', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} subTitleLoading onGoBack={backAction} />
 		</div>
 	))
 	.add('with custom subtitle', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar
 				{...viewProps}
 				subTitle="mySubTitle"
@@ -114,13 +138,21 @@ stories
 	))
 	.add('with right components', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight} />
 		</div>
 	))
 	.add('with center components', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} onGoBack={backAction} center={[componentAction]}>
 				{center}
 			</SubHeaderBar>
@@ -128,7 +160,11 @@ stories
 	))
 	.add('with center components with tag props', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} onGoBack={backAction}>
 				<SubHeaderBar.Content tag="form" center>
 					<input id="inputTitle" type="text" onChange={action('onChange')} value="" />
@@ -138,7 +174,11 @@ stories
 	))
 	.add('with center && right components', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight}>
 				{center}
 			</SubHeaderBar>
@@ -146,7 +186,11 @@ stories
 	))
 	.add('with all', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar
 				{...viewProps}
 				iconId="talend-file-csv-o"
@@ -160,7 +204,11 @@ stories
 	))
 	.add('with skeleton', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar
 				{...viewProps}
 				iconId="talend-file-csv-o"
@@ -174,7 +222,11 @@ stories
 	))
 	.add('with inProgress', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar
 				{...viewProps}
 				iconId="talend-file-csv-o"
@@ -189,7 +241,11 @@ stories
 	))
 	.add('with right actions loading', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<SubHeaderBar {...viewProps} onGoBack={backAction} rightActionsLoading />
 		</div>
 	));

@@ -30,7 +30,11 @@ storiesOf('Messaging & Communication/Icon', module)
 		return (
 			<div>
 				<h1>Icon</h1>
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<p>
 					We have {ids.length.toString()} svg icons registered:{' '}
 					{name && (
@@ -110,7 +114,11 @@ storiesOf('Messaging & Communication/Icon', module)
 		}, 1000);
 		return (
 			<div>
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<p>Here we are changing the icon talend-apache</p>
 				<ul>
 					<li>

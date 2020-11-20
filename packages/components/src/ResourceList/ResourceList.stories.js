@@ -277,7 +277,11 @@ export function FilteredResourceList(props) {
 storiesOf('Data/List/ResourceList', module)
 	.addDecorator(story => (
 		<section>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			{story()}
 		</section>
 	))

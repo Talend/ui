@@ -122,7 +122,11 @@ const descriptiveDetail = {
 storiesOf('Layout/CollapsiblePanel', module)
 	.add('Default', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Collapsible Panel</h1>
 			<CollapsiblePanel
 				id="panel-default-1"
@@ -147,7 +151,11 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Header', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Collapsible Panel Headers</h1>
 			<CollapsiblePanel id="panel-header-1" header={[{ label: 'Simple header' }]} />
 			<CollapsiblePanel
@@ -179,7 +187,11 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Body', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Collapsible Panel</h1>
 			<CollapsiblePanel
 				id="panel-content-1"
@@ -200,7 +212,11 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Theme: descriptive-panel', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Theme : descriptive-panel</h1>
 			<CollapsiblePanel
 				id="panel-textual-1"
@@ -235,7 +251,11 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Selection', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Selection</h1>
 			<CollapsiblePanel
 				id="panel-selection-1"
@@ -288,7 +308,11 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Nested', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Nested</h1>
 			<CollapsiblePanel
 				id="panel-nested-1"

@@ -91,7 +91,9 @@ class NotificationWrapper extends React.Component {
 storiesOf('Messaging & Communication/Notification', module).add('default', () => (
 	<nav>
 		<h1>Notification</h1>
-		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+		<IconsProvider
+			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
+		/>
 		<h2>Definition</h2>
 		<p>The Notification component display notification</p>
 		<ul>

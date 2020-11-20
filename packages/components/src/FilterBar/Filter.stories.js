@@ -45,7 +45,11 @@ const divStyle = {
 storiesOf('Form/Inline form/FilterBar', module)
 	.add('default-dock and dockable', () => (
 		<div style={divStyle}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<p>When not docked but dockable in an ActionBar</p>
 			<ActionBar>
 				<FilterBar {...propsDockToggle} />
@@ -54,7 +58,11 @@ storiesOf('Form/Inline form/FilterBar', module)
 	))
 	.add('no docked, no dockable and icon visible', () => (
 		<div style={divStyle}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<p>When icon always visible and not docked, no dockable in an ActionBar</p>
 			<ActionBar>
 				<FilterBar {...propsIconAlwaysVisble} />
@@ -63,14 +71,22 @@ storiesOf('Form/Inline form/FilterBar', module)
 	))
 	.add('custom-undock no dockable', () => (
 		<div>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<p>When not docked and no dockable take full width</p>
 			<FilterBar {...propsNoDockToggle} />
 		</div>
 	))
 	.add('disabled input', () => (
 		<div style={divStyle}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<p>With the input filter disable</p>
 			<ActionBar>
 				<FilterBar {...propsDisabled} />

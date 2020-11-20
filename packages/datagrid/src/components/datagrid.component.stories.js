@@ -28,7 +28,11 @@ sample.data[2].value.field0.value =
 storiesOf('Data/Datagrid/Datagrid', module)
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<DataGrid
 				data={sample}
 				getComponent={getComponent}
@@ -42,7 +46,11 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	))
 	.add('without subtype', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<DataGrid
 				columnsConf={{ hideSubType: true }}
 				data={sample}
@@ -57,7 +65,11 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	))
 	.add('datagrid without quality', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<DataGrid
 				data={sampleWithoutQuality}
 				getComponent={getComponent}
@@ -71,7 +83,11 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	))
 	.add('columns resizables', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<DataGrid
 				data={sample}
 				getComponent={getComponent}
@@ -84,7 +100,11 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	))
 	.add('With start index to 1', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<DataGrid
 				data={sample}
 				getComponent={getComponent}
@@ -98,7 +118,11 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	))
 	.add('no row specific message', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<DataGrid
 				data={[]}
 				getComponent={getComponent}
@@ -112,13 +136,21 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	))
 	.add('loading datagrid', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<DataGrid data={sample} loading />
 		</div>
 	))
 	.add('loading cells', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<DataGrid data={sample3} />
 		</div>
 	))
@@ -142,7 +174,11 @@ storiesOf('Data/Datagrid/Datagrid', module)
 					<div>
 						<input type="button" value="changestatus" onClick={this.changeState} />
 						Number of fields : {currentSample.schema.fields.length}
-						<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+						<IconsProvider
+							bundles={[
+								'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+							]}
+						/>
 						<div style={{ height: '200px' }}>
 							<DataGrid
 								data={currentSample}
@@ -165,7 +201,11 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	.add('dynamic change data', () => <DynamicDataGrid />)
 	.add('faster datagrid', () => (
 		<div style={{ height: '100vh' }}>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<FasterDatagrid />
 		</div>
 	))

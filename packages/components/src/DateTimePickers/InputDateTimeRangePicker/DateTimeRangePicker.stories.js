@@ -8,7 +8,11 @@ import InputDateTimeRangePicker from './InputDateTimeRangePicker.component';
 storiesOf('Form/Controls/DatePicker/Date Time Range', module)
 	.addDecorator(story => (
 		<>
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<form
 				onSubmit={event => {
 					event.persist();

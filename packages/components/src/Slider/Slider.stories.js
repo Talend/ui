@@ -71,7 +71,9 @@ const functionFormatFloor = value => `${Math.floor(value)}`;
 
 storiesOf('Form/Controls/Slider', module).add('default', () => (
 	<section>
-		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+		<IconsProvider
+			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
+		/>
 		<div style={style}>
 			<div style={delimiterStyle}>
 				<p>By default</p>

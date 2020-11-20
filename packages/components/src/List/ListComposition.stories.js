@@ -91,7 +91,11 @@ function CustomListLazyLoading(props) {
 storiesOf('Data/List/List Composition', module)
 	.add('Default', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Default list</h1>
 			<p>By default List doesn't come with any feature</p>
 			<pre>
@@ -120,7 +124,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Display mode: uncontrolled', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>List with display mode change</h1>
 			<p>You can change display mode by adding the selector in toolbar</p>
 			<pre>
@@ -151,7 +159,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Display mode: controlled', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>List with display mode change</h1>
 			<p>
 				You can control the display mode by
@@ -198,7 +210,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Total Items', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Total items</h1>
 			<p>
 				You can show the total number of elements in the list by adding the ItemsNumber component
@@ -236,7 +252,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Text Filter: uncontrolled', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Text Filter</h1>
 			<p>You can filter the dataset with the text by adding the component and let it work itself</p>
 			<p>
@@ -282,7 +302,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Text Filter: controlled', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>Text Filter</h1>
 			<p>
 				You can control the filter feature by providing callbacks to
@@ -325,7 +349,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Sort by: uncontrolled', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>List with sorting feature</h1>
 			<p>You can change the sorting criteria by adding the component in the toolbar</p>
 			<pre>
@@ -370,7 +398,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Sort by: uncontrolled in large mode', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>List with sorting feature</h1>
 			<p>You can change the sorting criteria by adding the component in the toolbar</p>
 			<pre>
@@ -415,7 +447,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Sort by: controlled', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>List with sorting feature</h1>
 			<p>
 				You can control the sorting feature by providing both onChange and onOrderChange props
@@ -460,7 +496,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Sort by and resizable column: uncontrolled', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>List with sorting feature and resizing column</h1>
 			<p>You can change the sorting criteria by adding the component in the toolbar</p>
 			<p>
@@ -531,7 +571,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('lots of actions, layout render: uncontrolled', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>List with multiple right actions</h1>
 			<p>
 				With multiple actions the Right component will align the actions to the right, and add a
@@ -587,7 +631,11 @@ storiesOf('Data/List/List Composition', module)
 	))
 	.add('Lazy Loading', () => (
 		<div className="virtualized-list">
-			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
 			<h1>List supporting Lazy Loding</h1>
 			<p>
 				The LazyLoadingList list component allows to create lists that supports lazy loading
@@ -680,7 +728,11 @@ storiesOf('Data/List/List Composition', module)
 
 		return (
 			<div className="virtualized-list">
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<h1>List with selectable items</h1>
 				<p>The list also supports items selection, when using the proper hook.</p>
 
@@ -705,7 +757,11 @@ storiesOf('Data/List/List Composition', module)
 
 		return (
 			<div className="virtualized-list">
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<h1>List with selectable items + an ActionBar</h1>
 				<pre>
 					{`<List.Manager
@@ -759,7 +815,11 @@ storiesOf('Data/List/List Composition', module)
 
 		return (
 			<div className="virtualized-list">
-				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<h1>List with selectable items + total number of items</h1>
 				<p>The number of selected items is available in the right toolbar</p>
 				<pre>
