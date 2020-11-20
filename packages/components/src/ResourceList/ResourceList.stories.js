@@ -275,16 +275,7 @@ export function FilteredResourceList(props) {
 }
 
 storiesOf('Data/List/ResourceList', module)
-	.addDecorator(story => (
-		<section>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</section>
-	))
+	.addDecorator(story => <section>{story()}</section>)
 	.add('default', () => <ResourceList {...commonProps} collection={collection} />)
 	.add('simple', () => <ResourceList {...commonProps} collection={simpleCollection} />)
 	.add('preparations', () => (

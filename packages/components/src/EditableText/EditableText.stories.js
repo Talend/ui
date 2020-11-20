@@ -15,11 +15,6 @@ const props = {
 storiesOf('Form/Inline form/EditableText', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 			<h1>EditableText</h1>
 			{story()}
 		</div>

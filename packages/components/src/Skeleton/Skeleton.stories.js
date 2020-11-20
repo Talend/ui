@@ -4,16 +4,7 @@ import Skeleton from './Skeleton.component';
 import IconsProvider from '../IconsProvider';
 
 storiesOf('Design Principles/Loading Feedback/Skeleton', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('default', () => (
 		<div>
 			<h4>Circles :</h4>

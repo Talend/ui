@@ -320,110 +320,70 @@ storiesOf('Form/Controls/Enumeration', module)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...props} />
 		</div>
 	))
 	.add('default header action disabled', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...headerDisabled} />
 		</div>
 	))
 	.add('default - empty list', () => (
 		<div>
 			<p>Empty list by default:</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...defaultEmptyListProps} />
 		</div>
 	))
 	.add('default with dropdown', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...dropDownActionsProps} />
 		</div>
 	))
 	.add('add', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...addProps} />
 		</div>
 	))
 	.add('edit mode', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...editItemProps} />
 		</div>
 	))
 	.add('search mode', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...searchProps} />
 		</div>
 	))
 	.add('search mode - empty list', () => (
 		<div>
 			<p>empty list in search mode :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...searchModeEmptyListProps} />
 		</div>
 	))
 	.add('selected values', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...selectedValuesProps} />
 		</div>
 	))
 	.add('selected values with checkboxes', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<form>
 				<Enumeration {...selectedValuesCheckboxesProps} />
 			</form>
@@ -432,66 +392,42 @@ storiesOf('Form/Controls/Enumeration', module)
 	.add('with header error', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...headerErrorProps} />
 		</div>
 	))
 	.add('with item in error', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...editItemPropsWithError} />
 		</div>
 	))
 	.add('with custom label', () => (
 		<div>
 			<p>Should be 'Users' instead of 'Values'</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...customLabelProps} />
 		</div>
 	))
 	.add('with icon', () => (
 		<div>
 			<p>By default: </p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...withIconProps} />
 		</div>
 	))
 	.add('with custom class for row', () => (
 		<div>
 			<p>With custom class on second row: </p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...withClassProps} />
 		</div>
 	))
 	.add('with dynamic height', () => (
 		<div>
 			<p>With dynamic height: </p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<EnumerationDynamicHeight />
 		</div>
 	))
@@ -511,11 +447,7 @@ storiesOf('Form/Controls/Enumeration', module)
 				The function takes a single argument, item data(including index). returns an array of
 				actions.
 			</p>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
+
 			<Enumeration {...withCustomActions} />
 		</div>
 	));

@@ -66,16 +66,7 @@ const notFoundWithRedirectProps = {
 // Style here is for demonstration purpose, you should use generated className with its status code.
 
 storiesOf('Messaging & Communication/HttpError', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('Forbidden', () => <HttpError style={forbiddenStyle} {...forbiddenProps} />)
 	.add('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />)
 	.add('NotFound with redirect action', () => (

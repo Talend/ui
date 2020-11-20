@@ -557,16 +557,7 @@ const itemsForListWithIcons = [
 ];
 
 storiesOf('Data/List/List', module)
-	.addDecorator(story => (
-		<div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div>{story()}</div>)
 	.add('Table display', () => (
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>

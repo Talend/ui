@@ -43,11 +43,6 @@ storiesOf('Deprecated/SplitDropdown', module)
 		<div>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</div>
 	))
 	.add('default', () => (

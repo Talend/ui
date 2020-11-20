@@ -329,11 +329,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with action example: </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...withAddAction} />
 			</div>
 		</div>
@@ -344,11 +339,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<h3>Definition</h3>
 			<p>The icons can be customized, passign the Icon components props</p>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...withAddAction} structure={structureWithIcons} />
 			</div>
 		</div>
@@ -360,11 +350,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Custom header and action tooltip property-set example: </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...withHeader} />
 			</div>
 		</div>
@@ -376,11 +361,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set without action example: </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...defaultProps} />
 			</div>
 		</div>
@@ -392,11 +372,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set without header example: </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...defaultProps} noHeader />
 			</div>
 		</div>
@@ -408,11 +383,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with remove action example: </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...withRemoval} />
 			</div>
 		</div>
@@ -424,11 +394,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with remove action example: </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...withActions} />
 			</div>
 		</div>
@@ -440,11 +405,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with deep structure: </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...withDeepStructure} />
 			</div>
 		</div>
@@ -456,11 +416,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with cornercase: longname </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...cornerCaseLongName} />
 			</div>
 		</div>
@@ -472,11 +427,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set without icons: </h3>
 			<div style={style}>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<TreeView {...withAddAction} structure={structureWithoutIcons} />
 			</div>
 		</div>

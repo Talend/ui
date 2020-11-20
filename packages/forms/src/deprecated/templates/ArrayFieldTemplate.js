@@ -66,7 +66,6 @@ function ArrayFieldTemplate(props) {
 	return (
 		<fieldset className={`${theme.ArrayFieldTemplate} ArrayFieldTemplate`} data-content={title}>
 			{title && <legend>{title}</legend>}
-			<IconsProvider />
 			{canAdd && (
 				<button
 					className={addBtnClass}

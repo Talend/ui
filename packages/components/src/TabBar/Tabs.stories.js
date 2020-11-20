@@ -167,11 +167,6 @@ stories
 					{renderContent()}
 				</TabBar>
 			</div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</nav>
 	))
 	.add('custom id generator', () => (
@@ -207,11 +202,6 @@ function generateChildId(key, kind) {
 					I'm the child
 				</TabBar>
 			</div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</nav>
 	))
 	.add('With existing content', () => (
@@ -233,11 +223,6 @@ function generateChildId(key, kind) {
 					I'm the existing content of tab 5
 				</div>
 			</div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</nav>
 	))
 	.add('Fully interactive', () => (
@@ -251,10 +236,5 @@ function generateChildId(key, kind) {
 					I'm the responsive child
 				</InteractiveResponsiveTabs>
 			</div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</nav>
 	));

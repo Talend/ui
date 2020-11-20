@@ -136,11 +136,6 @@ const withIconProps = {
 storiesOf('Form/Controls/ListView', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 			<h1>ListView</h1>
 			<form>{story()}</form>
 		</div>

@@ -98,16 +98,7 @@ const other = [
 const stories = storiesOf('Navigation/SidePanel', module);
 
 stories
-	.addDecorator(story => (
-		<div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div>{story()}</div>)
 	.add('uncontrolled', () => (
 		<SidePanel
 			id="context"

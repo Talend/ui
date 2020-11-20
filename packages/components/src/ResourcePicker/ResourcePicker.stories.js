@@ -134,16 +134,7 @@ const props = {
 };
 
 storiesOf('Form/Controls/ResourcePicker', module)
-	.addDecorator(story => (
-		<section>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</section>
-	))
+	.addDecorator(story => <section>{story()}</section>)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>

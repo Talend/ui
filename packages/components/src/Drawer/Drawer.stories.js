@@ -258,55 +258,30 @@ storiesOf('Layout/Drawer', module)
 		<Layout header={header} mode="OneColumn" drawers={drawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</Layout>
 	))
 	.add('Layout 2 columns', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</Layout>
 	))
 	.add('with editable header', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</Layout>
 	))
 	.add('with long editable header', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={longEditableDrawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</Layout>
 	))
 	.add('Default with no transition', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
 		</Layout>
 	))
 	.add('stacked drawers', () => {
@@ -334,11 +309,6 @@ storiesOf('Layout/Drawer', module)
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={stackedDrawers}>
 				<span>zone with drawer</span>
 				{fiftyRows}
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 			</Layout>
 		);
 	})
@@ -354,11 +324,6 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 				<span>zone with drawer</span>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 			</Layout>
 		);
 	})
@@ -387,11 +352,6 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 				<span>zone with drawer</span>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 			</Layout>
 		);
 	})
@@ -446,11 +406,6 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 			</Layout>
 		);
 	})
@@ -480,11 +435,6 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 			</Layout>
 		);
 	});

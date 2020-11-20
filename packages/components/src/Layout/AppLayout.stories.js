@@ -82,14 +82,7 @@ const tabs = {
 	selectedKey: '2',
 };
 
-const stories = storiesOf('Layout/AppLayout', module).addDecorator(story => (
-	<div>
-		<IconsProvider
-			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
-		/>
-		{story()}
-	</div>
-));
+const stories = storiesOf('Layout/AppLayout', module).addDecorator(story => <div>{story()}</div>);
 
 const appStyle = require('../../stories/config/themes.scss');
 

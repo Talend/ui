@@ -14,16 +14,7 @@ const myAction = {
 };
 
 storiesOf('Buttons/File', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>

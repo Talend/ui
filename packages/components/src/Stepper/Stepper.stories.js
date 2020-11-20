@@ -22,16 +22,7 @@ function renderActions(isInError) {
 }
 
 stories
-	.addDecorator(fn => (
-		<>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{fn()}
-		</>
-	))
+	.addDecorator(fn => <>{fn()}</>)
 	.add('Stepper default', () => {
 		const steps = [
 			{ label: 'Fetch Sample', status: Stepper.LOADING_STEP_STATUSES.SUCCESS },

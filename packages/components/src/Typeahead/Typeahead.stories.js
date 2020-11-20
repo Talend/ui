@@ -88,16 +88,7 @@ const noHeaderItems = [
 ];
 
 storiesOf('Form/Inline form/Typeahead', module)
-	.addDecorator(story => (
-		<div>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div>{story()}</div>)
 	.add('default with debounce input', () => {
 		const props = {
 			placeholder: 'Search...',

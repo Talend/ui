@@ -43,15 +43,6 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 }
 
 storiesOf('Messaging & Communication/AppGuidedTour', module)
-	.addDecorator(fn => (
-		<>
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{fn()}
-		</>
-	))
+	.addDecorator(fn => <>{fn()}</>)
 	.add('default', () => <AppGuidedTourContainer withDemoContent />)
 	.add('without demo content', () => <AppGuidedTourContainer />);

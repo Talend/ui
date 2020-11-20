@@ -22,6 +22,13 @@ addDecorator(
 );
 addDecorator(withA11y);
 
-addDecorator(storyFn => <><IconsProvider />{storyFn()}</>);
+addDecorator(storyFn => (
+	<>
+		<IconsProvider
+			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
+		/>
+		{storyFn()}
+	</>
+));
 
 configure([require.context('../src', true, /\.stories\.js$/)], module);

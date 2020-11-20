@@ -30,11 +30,7 @@ storiesOf('Messaging & Communication/Icon', module)
 		return (
 			<div>
 				<h1>Icon</h1>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
+
 				<p>
 					We have {ids.length.toString()} svg icons registered:{' '}
 					{name && (
@@ -67,7 +63,7 @@ storiesOf('Messaging & Communication/Icon', module)
 	.add('extends defaults', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider icons={newIcons} />
+			<IconsProvider bundles={[]} icons={newIcons} />
 			<p>Here we are adding a new Icon id</p>
 			<ul>
 				<li>
@@ -79,7 +75,7 @@ storiesOf('Messaging & Communication/Icon', module)
 	.add('override defaults', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider defaultIcons={defaultIcons} />
+			<IconsProvider bundles={[]} defaultIcons={defaultIcons} />
 			<p>Here we are changing the icon talend-add</p>
 			<ul>
 				<li>
@@ -114,11 +110,6 @@ storiesOf('Messaging & Communication/Icon', module)
 		}, 1000);
 		return (
 			<div>
-				<IconsProvider
-					bundles={[
-						'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-					]}
-				/>
 				<p>Here we are changing the icon talend-apache</p>
 				<ul>
 					<li>

@@ -64,16 +64,7 @@ class DisableActionIconToggle extends React.Component {
 }
 
 storiesOf('Buttons/IconToggle', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider
-				bundles={[
-					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-				]}
-			/>
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('disable the buttons', () => (
 		<div>
 			<DisableActionIconToggle />
