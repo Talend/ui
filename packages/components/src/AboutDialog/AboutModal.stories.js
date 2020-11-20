@@ -48,7 +48,7 @@ const { name, version } = AboutDialog.Table.getColumnHeaders();
 storiesOf('Layout/Modals/AboutModal', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			<h1>AboutDialog</h1>
 			{story()}
 		</div>

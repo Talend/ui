@@ -8,7 +8,7 @@ import InputDateTimePicker from './InputDateTimePicker.component';
 storiesOf('Form/Controls/DatePicker/DateTime', module)
 	.addDecorator(story => (
 		<>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			<form
 				onSubmit={event => {
 					event.persist();

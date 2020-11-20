@@ -11,7 +11,7 @@ import DatePicker from '../Date/Picker';
 storiesOf('Form/Controls/DatePicker/Date Range', module)
 	.addDecorator(story => (
 		<>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			<form
 				onSubmit={event => {
 					event.persist();

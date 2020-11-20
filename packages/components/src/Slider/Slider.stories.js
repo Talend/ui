@@ -71,7 +71,7 @@ const functionFormatFloor = value => `${Math.floor(value)}`;
 
 storiesOf('Form/Controls/Slider', module).add('default', () => (
 	<section>
-		<IconsProvider />
+		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 		<div style={style}>
 			<div style={delimiterStyle}>
 				<p>By default</p>

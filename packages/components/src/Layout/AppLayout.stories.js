@@ -84,7 +84,7 @@ const tabs = {
 
 const stories = storiesOf('Layout/AppLayout', module).addDecorator(story => (
 	<div>
-		<IconsProvider />
+		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 		{story()}
 	</div>
 ));

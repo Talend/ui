@@ -28,7 +28,7 @@ const myStatus = {
 
 storiesOf('Messaging & Communication/Status', module).add('default', () => (
 	<div>
-		<IconsProvider />
+		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 		<h1>Status</h1>
 		<h2>Definition</h2>
 		<p>

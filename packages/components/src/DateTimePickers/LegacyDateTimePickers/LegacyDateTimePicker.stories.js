@@ -7,7 +7,7 @@ import InputDateTimePicker from '.';
 
 storiesOf('Deprecated/LegacyDteTimePicker', module).add('Legacy - form mode', () => (
 	<div>
-		<IconsProvider />
+		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 		<div style={{ width: 150 }}>
 			<InputDateTimePicker
 				id="my-date-picker"

@@ -9,7 +9,7 @@ import TimePicker from '../pickers/TimePicker';
 storiesOf('Form/Controls/DatePicker/Time', module)
 	.addDecorator(story => (
 		<>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			<form
 				onSubmit={event => {
 					event.persist();

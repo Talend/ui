@@ -34,7 +34,7 @@ const stories = storiesOf('Data/Tree/DataViewer', module);
 stories
 	.addDecorator(story => (
 		<div style={{ backgroundColor: 'white', height: '400px' }} className="col-lg-offset-2 col-lg-8">
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			{story()}
 		</div>
 	))

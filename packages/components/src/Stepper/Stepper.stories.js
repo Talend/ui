@@ -24,7 +24,7 @@ function renderActions(isInError) {
 stories
 	.addDecorator(fn => (
 		<>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			{fn()}
 		</>
 	))

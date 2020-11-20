@@ -89,7 +89,7 @@ const customBody = <div>my custom body rich tolltip</div>;
 storiesOf('Layout/RichLayout', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			{story()}
 		</div>
 	))

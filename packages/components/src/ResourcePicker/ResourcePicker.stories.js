@@ -136,7 +136,7 @@ const props = {
 storiesOf('Form/Controls/ResourcePicker', module)
 	.addDecorator(story => (
 		<section>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			{story()}
 		</section>
 	))

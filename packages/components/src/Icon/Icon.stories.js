@@ -27,10 +27,11 @@ storiesOf('Messaging & Communication/Icon', module)
 		setTimeout(() => {
 			setName(ids[ids.indexOf(name) + 1]);
 		}, 1000);
+		const bundles = [`${location.origin}${location.pathname}all.svg`];
 		return (
 			<div>
 				<h1>Icon</h1>
-				<IconsProvider />
+				<IconsProvider bundles={bundles} />
 				<p>
 					We have {ids.length.toString()} svg icons registered:{' '}
 					{name && (
@@ -110,7 +111,7 @@ storiesOf('Messaging & Communication/Icon', module)
 		}, 1000);
 		return (
 			<div>
-				<IconsProvider />
+				<IconsProvider bundles={bundles} />
 				<p>Here we are changing the icon talend-apache</p>
 				<ul>
 					<li>

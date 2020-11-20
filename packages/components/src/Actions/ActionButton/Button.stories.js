@@ -67,7 +67,7 @@ class DisableActionButton extends React.Component {
 storiesOf('Buttons/Button', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			{story()}
 		</div>
 	))

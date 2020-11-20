@@ -49,7 +49,7 @@ const stories = storiesOf('Navigation/ActionList', module);
 stories
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			{story()}
 		</div>
 	))

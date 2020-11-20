@@ -287,6 +287,6 @@ storiesOf('Buttons/Dropdown', module).add('default', () => (
 		<div id="openImmutable">
 			<ActionDropdown {...openWithImmutable} />
 		</div>
-		<IconsProvider />
+		<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 	</div>
 ));

@@ -201,7 +201,7 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 storiesOf('Layout/Dashboard', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			{story()}
 		</div>
 	))

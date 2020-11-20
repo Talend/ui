@@ -43,7 +43,7 @@ storiesOf('Deprecated/SplitDropdown', module)
 		<div>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 		</div>
 	))
 	.add('default', () => (

@@ -8,7 +8,7 @@ import InputDateTimeRangePicker from './InputDateTimeRangePicker.component';
 storiesOf('Form/Controls/DatePicker/Date Time Range', module)
 	.addDecorator(story => (
 		<>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			<form
 				onSubmit={event => {
 					event.persist();

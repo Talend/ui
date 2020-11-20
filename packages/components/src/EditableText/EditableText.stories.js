@@ -15,7 +15,7 @@ const props = {
 storiesOf('Form/Inline form/EditableText', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			<h1>EditableText</h1>
 			{story()}
 		</div>

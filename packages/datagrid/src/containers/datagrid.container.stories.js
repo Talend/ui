@@ -219,7 +219,7 @@ storiesOf('Data/Datagrid/Containers', module)
 		'default',
 		() => (
 			<div style={{ height: '100vh' }}>
-				<IconsProvider />
+				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 				<DataGrid />
 			</div>
 		),
@@ -229,7 +229,7 @@ storiesOf('Data/Datagrid/Containers', module)
 		'loading',
 		() => (
 			<div style={{ height: '100vh' }}>
-				<IconsProvider />
+				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 				<DataGrid componentId="ProgressDatagrid" />
 			</div>
 		),
@@ -239,7 +239,7 @@ storiesOf('Data/Datagrid/Containers', module)
 		'with custom renderers',
 		() => (
 			<div style={{ height: '100vh' }}>
-				<IconsProvider />
+				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 				<DataGrid componentId="CustomizedDatagrid" />
 			</div>
 		),
@@ -249,7 +249,7 @@ storiesOf('Data/Datagrid/Containers', module)
 		'with custom avro renderers',
 		() => (
 			<div style={{ height: '100vh' }}>
-				<IconsProvider />
+				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 				<DataGrid componentId="CustomizedAvroDatagrid" />
 			</div>
 		),
@@ -259,7 +259,7 @@ storiesOf('Data/Datagrid/Containers', module)
 		'with selected rows',
 		() => (
 			<div style={{ height: '100vh' }}>
-				<IconsProvider />
+				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 				<DataGrid componentId="HightLightRows" className={theme['td-grid-focus-row']} />
 			</div>
 		),
@@ -269,7 +269,7 @@ storiesOf('Data/Datagrid/Containers', module)
 		'multiple grid',
 		() => (
 			<div>
-				<IconsProvider />
+				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 				<div style={{ height: '50vh' }}>
 					<DataGrid componentId="HightLightRows" />
 				</div>
@@ -284,7 +284,7 @@ storiesOf('Data/Datagrid/Containers', module)
 		'type renderer',
 		() => (
 			<div style={{ height: '100vh' }}>
-				<IconsProvider />
+				<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 				<DataGrid componentId="TypeRenderer" data={sampleRenderer} />
 			</div>
 		),

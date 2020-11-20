@@ -45,7 +45,7 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 storiesOf('Messaging & Communication/AppGuidedTour', module)
 	.addDecorator(fn => (
 		<>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			{fn()}
 		</>
 	))

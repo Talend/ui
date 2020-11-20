@@ -136,7 +136,7 @@ const withIconProps = {
 storiesOf('Form/Controls/ListView', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
+			<IconsProvider bundles={[`${location.origin}${location.pathname}all.svg`]} />
 			<h1>ListView</h1>
 			<form>{story()}</form>
 		</div>
