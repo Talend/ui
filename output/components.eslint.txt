@@ -119,7 +119,7 @@
   178:3   error  Empty components are self-closing  react/self-closing-comp
   179:3   error  Empty components are self-closing  react/self-closing-comp
   253:33  error  Unary operator '++' used           no-plusplus
-  310:35  error  Unary operator '++' used           no-plusplus
+  330:35  error  Unary operator '++' used           no-plusplus
 
 /home/travis/build/Talend/ui/packages/components/src/EditableText/EditableText.test.js
   12:3  error  Arrow function should not return assignment  no-return-assign
@@ -159,8 +159,8 @@
   293:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/MultiSelect.stories.js
-  33:7  error  A form label must be associated with a control  jsx-a11y/label-has-associated-control
-  45:7  error  A form label must be associated with a control  jsx-a11y/label-has-associated-control
+  37:7  error  A form label must be associated with a control  jsx-a11y/label-has-associated-control
+  49:7  error  A form label must be associated with a control  jsx-a11y/label-has-associated-control
 
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
   100:3  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                                                                                                                               jsx-a11y/click-events-have-key-events
@@ -250,7 +250,7 @@
   170:5  warning  React Hook useEffect has missing dependencies: 'children' and 'transitionState'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/Stepper/Stepper.stories.js
-  142:13  error  'children' is missing in props validation  react/prop-types
+  146:13  error  'children' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.component.js
   129:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
@@ -304,9 +304,9 @@
   70:5  warning  React Hook useEffect has missing dependencies: 'children' and 'setWidths'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.stories.js
-  664:56  error  ["resizable"] is better written in dot notation  dot-notation
-  674:44  error  ["icon"] is better written in dot notation       dot-notation
-  680:56  error  ["resizable"] is better written in dot notation  dot-notation
+  700:56  error  ["resizable"] is better written in dot notation  dot-notation
+  710:44  error  ["icon"] is better written in dot notation       dot-notation
+  716:56  error  ["resizable"] is better written in dot notation  dot-notation
 
 ✖ 147 problems (127 errors, 20 warnings)
   15 errors and 0 warnings potentially fixable with the `--fix` option.
