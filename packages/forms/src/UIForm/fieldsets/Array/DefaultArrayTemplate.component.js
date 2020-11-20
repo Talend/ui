@@ -54,6 +54,7 @@ function DefaultArrayTemplate(props) {
 				descriptionId={descriptionId}
 				errorId={errorId}
 			/>
+			{/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
 			<ol
 				id={id}
 				className={classNames(theme['tf-array'], 'tf-array')}

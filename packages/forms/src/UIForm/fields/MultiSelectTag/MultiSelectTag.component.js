@@ -51,7 +51,7 @@ export default class MultiSelectTag extends React.Component {
 	 * On Tags value change, we update suggestions if they are displayed
 	 * @param { Object } nextProps The new props
 	 */
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.value === this.props.value) {
 			return;
 		}
