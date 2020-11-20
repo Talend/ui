@@ -9,7 +9,7 @@ import theme from './Input.scss';
 
 export default function Input(props) {
 	const { time, inputManagement } = useContext(TimeContext);
-	const { minWidth } = props;
+	const { minWidth, ...rest } = props;
 
 	return (
 		<InputSizer inputText={inputManagement.placeholder} minWidth={minWidth}>
@@ -23,7 +23,7 @@ export default function Input(props) {
 					style={{ width }}
 					maxLength={inputManagement.placeholder.length}
 					{...inputManagement}
-					{...props}
+					{...rest}
 				/>
 			)}
 		</InputSizer>
