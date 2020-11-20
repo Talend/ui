@@ -2,7 +2,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
 
@@ -98,12 +97,6 @@ const other = [
 const stories = storiesOf('Navigation/SidePanel', module);
 
 stories
-	.addDecorator(story => (
-		<div>
-			<IconsProvider />
-			{story()}
-		</div>
-	))
 	.add('uncontrolled', () => (
 		<SidePanel
 			id="context"

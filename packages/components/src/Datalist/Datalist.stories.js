@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Datalist from './Datalist.component';
-import IconsProvider from '../IconsProvider';
 
 const defaultProps = {
 	onChange: action('onChange'),
@@ -67,7 +66,6 @@ storiesOf('Form/Controls/Datalist', module)
 		};
 		return (
 			<form className="form">
-				<IconsProvider />
 				<h3>By default</h3>
 				<Datalist {...propsMultiSection} />
 				<h3>default value</h3>
@@ -97,7 +95,6 @@ storiesOf('Form/Controls/Datalist', module)
 		};
 		return (
 			<form className="form">
-				<IconsProvider />
 				<h3>By default</h3>
 				<Datalist {...singleSectionProps} />
 				<h3>default value</h3>
@@ -159,7 +156,6 @@ storiesOf('Form/Controls/Datalist', module)
 		};
 		return (
 			<form className="form">
-				<IconsProvider />
 				<h3>Disabled</h3>
 				<Datalist {...disabledSectionProps} />
 				<h3>Readonly</h3>

@@ -5,7 +5,6 @@ import { action } from '@storybook/addon-actions';
 import Badge from './Badge.component';
 import FilterBar from '../FilterBar';
 import Action from '../Actions/Action';
-import IconsProvider from '../IconsProvider';
 
 const defaultStyle = {
 	display: 'flex',
@@ -93,7 +92,7 @@ storiesOf('Navigation/Badge', module)
 		<React.Fragment>
 			<section>
 				<h1>New visual</h1>
-				<IconsProvider />
+
 				<div style={defaultStyle} id="newVisual-header">
 					<div style={columnStyle}>
 						<span>Tags as links</span>
@@ -347,7 +346,7 @@ storiesOf('Navigation/Badge', module)
 
 			<section>
 				<h1>New visual - Disabled</h1>
-				<IconsProvider />
+
 				<div style={defaultStyle} id="newVisualDisabled-header">
 					<div style={columnStyle}>
 						<span>Tags as links</span>
@@ -663,7 +662,7 @@ storiesOf('Navigation/Badge', module)
 
 			<section style={greyBackgroundStyle}>
 				<h1>New visual - white background</h1>
-				<IconsProvider />
+
 				<div style={defaultStyle} id="newVisualWhite-header">
 					<div style={columnStyle}>
 						<span>/</span>
@@ -768,7 +767,7 @@ storiesOf('Navigation/Badge', module)
 
 			<section>
 				<h1>Old Examples</h1>
-				<IconsProvider />
+
 				<div style={defaultStyle} id="oldExample-header">
 					<div style={columnStyle}>
 						<span>Read Only</span>
@@ -886,7 +885,6 @@ storiesOf('Navigation/Badge', module)
 	))
 	.add('colored', () => (
 		<>
-			<IconsProvider />
 			{Object.entries(Badge.TYPES).map(([name, value]) => (
 				<div>
 					{name}

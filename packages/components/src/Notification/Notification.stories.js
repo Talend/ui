@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import NotificationContainer from './Notification.component';
-import IconsProvider from '../IconsProvider';
 
 class NotificationWrapper extends React.Component {
 	constructor() {
@@ -91,7 +90,7 @@ class NotificationWrapper extends React.Component {
 storiesOf('Messaging & Communication/Notification', module).add('default', () => (
 	<nav>
 		<h1>Notification</h1>
-		<IconsProvider />
+
 		<h2>Definition</h2>
 		<p>The Notification component display notification</p>
 		<ul>

@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
-import IconsProvider from '../../IconsProvider';
 
 const items = [
 	{
@@ -43,7 +42,6 @@ storiesOf('Deprecated/SplitDropdown', module)
 		<div>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider />
 		</div>
 	))
 	.add('default', () => (

@@ -1,24 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '../../IconsProvider';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 
 storiesOf('Form/Controls/DatePicker/DateTime', module)
 	.addDecorator(story => (
-		<>
-			<IconsProvider />
-			<form
-				onSubmit={event => {
-					event.persist();
-					event.preventDefault();
-					action('submit')(event);
-				}}
-			>
-				{story()}
-			</form>
-		</>
+		<form
+			onSubmit={event => {
+				event.persist();
+				event.preventDefault();
+				action('submit')(event);
+			}}
+		>
+			{story()}
+		</form>
 	))
 	.add('Input', () => (
 		<InputDateTimePicker

@@ -7,7 +7,6 @@ import Drawer from './Drawer.component';
 
 import ActionBar from '../ActionBar';
 import HeaderBar from '../HeaderBar';
-import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from '../SidePanel';
 import { ActionButton } from '../Actions';
@@ -258,35 +257,30 @@ storiesOf('Layout/Drawer', module)
 		<Layout header={header} mode="OneColumn" drawers={drawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider />
 		</Layout>
 	))
 	.add('Layout 2 columns', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider />
 		</Layout>
 	))
 	.add('with editable header', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider />
 		</Layout>
 	))
 	.add('with long editable header', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={longEditableDrawers}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider />
 		</Layout>
 	))
 	.add('Default with no transition', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
 			<span>zone with drawer</span>
 			{twentyRows}
-			<IconsProvider />
 		</Layout>
 	))
 	.add('stacked drawers', () => {
@@ -314,7 +308,6 @@ storiesOf('Layout/Drawer', module)
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={stackedDrawers}>
 				<span>zone with drawer</span>
 				{fiftyRows}
-				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -330,7 +323,6 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 				<span>zone with drawer</span>
-				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -359,7 +351,6 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 				<span>zone with drawer</span>
-				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -414,7 +405,6 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
-				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -444,7 +434,6 @@ storiesOf('Layout/Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
-				<IconsProvider />
 			</Layout>
 		);
 	});

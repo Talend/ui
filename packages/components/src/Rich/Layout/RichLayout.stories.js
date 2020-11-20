@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 
 import { Actions, Action } from '../../Actions';
 import ActionBar from '../../ActionBar';
-import IconsProvider from '../../IconsProvider';
 import CircularProgress from '../../CircularProgress';
 import HeaderTitle from '../HeaderTitle';
 import RichError from '../Error';
@@ -87,12 +86,7 @@ const footer = (
 const customBody = <div>my custom body rich tolltip</div>;
 
 storiesOf('Layout/RichLayout', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider />
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('default', () => (
 		<div>
 			<Action

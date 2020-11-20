@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import HttpError from './HttpError.component';
-import IconsProvider from '../IconsProvider';
 
 const commonStyle = {
 	height: '60rem',
@@ -66,12 +65,7 @@ const notFoundWithRedirectProps = {
 // Style here is for demonstration purpose, you should use generated className with its status code.
 
 storiesOf('Messaging & Communication/HttpError', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider />
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('Forbidden', () => <HttpError style={forbiddenStyle} {...forbiddenProps} />)
 	.add('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />)
 	.add('NotFound with redirect action', () => (

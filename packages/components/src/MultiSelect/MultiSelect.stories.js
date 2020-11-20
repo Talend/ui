@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import MultiSelect from './MultiSelect.container';
-import IconsProvider from '../IconsProvider';
 
 class Photos extends React.Component {
 	constructor(props) {
@@ -27,7 +26,6 @@ class Photos extends React.Component {
 	render() {
 		return (
 			<section style={{ margin: 20 }}>
-				<IconsProvider />
 				<form className="form">
 					<div className="form-group">
 						<label className="control-label" htmlFor="storybook">

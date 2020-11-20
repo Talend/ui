@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import TreeView from './TreeView.component';
-import IconsProvider from '../IconsProvider';
 
 const structure = [
 	{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], isOpened: false },
@@ -329,7 +328,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with action example: </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...withAddAction} />
 			</div>
 		</div>
@@ -340,7 +338,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<h3>Definition</h3>
 			<p>The icons can be customized, passign the Icon components props</p>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...withAddAction} structure={structureWithIcons} />
 			</div>
 		</div>
@@ -352,7 +349,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Custom header and action tooltip property-set example: </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...withHeader} />
 			</div>
 		</div>
@@ -364,7 +360,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set without action example: </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...defaultProps} />
 			</div>
 		</div>
@@ -376,7 +371,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set without header example: </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...defaultProps} noHeader />
 			</div>
 		</div>
@@ -388,7 +382,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with remove action example: </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...withRemoval} />
 			</div>
 		</div>
@@ -400,7 +393,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with remove action example: </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...withActions} />
 			</div>
 		</div>
@@ -412,7 +404,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with deep structure: </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...withDeepStructure} />
 			</div>
 		</div>
@@ -424,7 +415,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with cornercase: longname </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...cornerCaseLongName} />
 			</div>
 		</div>
@@ -436,7 +426,6 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set without icons: </h3>
 			<div style={style}>
-				<IconsProvider />
 				<TreeView {...withAddAction} structure={structureWithoutIcons} />
 			</div>
 		</div>

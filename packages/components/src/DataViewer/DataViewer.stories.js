@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import words from 'lodash/words';
-import IconsProvider from '../IconsProvider';
 import ModelViewer from './ModelViewer';
 import RecordsViewer from './RecordsViewer';
 import hierarchicSample from './sample.raw.json';
@@ -34,7 +33,6 @@ const stories = storiesOf('Data/Tree/DataViewer', module);
 stories
 	.addDecorator(story => (
 		<div style={{ backgroundColor: 'white', height: '400px' }} className="col-lg-offset-2 col-lg-8">
-			<IconsProvider />
 			{story()}
 		</div>
 	))

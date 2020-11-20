@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 
 import { ActionButton } from '../Actions';
 import TabBar from './TabBar.component';
-import IconsProvider from '../IconsProvider';
 
 const tabProps = {
 	id: 'my-tabs',
@@ -167,7 +166,6 @@ stories
 					{renderContent()}
 				</TabBar>
 			</div>
-			<IconsProvider />
 		</nav>
 	))
 	.add('custom id generator', () => (
@@ -203,7 +201,6 @@ function generateChildId(key, kind) {
 					I'm the child
 				</TabBar>
 			</div>
-			<IconsProvider />
 		</nav>
 	))
 	.add('With existing content', () => (
@@ -225,7 +222,6 @@ function generateChildId(key, kind) {
 					I'm the existing content of tab 5
 				</div>
 			</div>
-			<IconsProvider />
 		</nav>
 	))
 	.add('Fully interactive', () => (
@@ -239,6 +235,5 @@ function generateChildId(key, kind) {
 					I'm the responsive child
 				</InteractiveResponsiveTabs>
 			</div>
-			<IconsProvider />
 		</nav>
 	));

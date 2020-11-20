@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '../../../../IconsProvider';
 import ColumnChooser from './ColumnChooser.component';
 
 const columns = [
@@ -24,7 +23,7 @@ storiesOf('Data/List/Column Chooser', module)
 		<div>
 			<h1>Column chooser tooltip</h1>
 			<p>Default mode with minimal props</p>
-			<IconsProvider />
+
 			<ColumnChooser
 				columnsFromList={columns}
 				nbLockedLeftItems={2}
@@ -37,7 +36,7 @@ storiesOf('Data/List/Column Chooser', module)
 		<div>
 			<h1>Column chooser tooltip</h1>
 			<p>You can provide and compose some of the column chooser part.</p>
-			<IconsProvider />
+
 			<ColumnChooser
 				columnsFromList={columns}
 				id="default-column-chooser"

@@ -2,7 +2,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import IconsProvider from '../IconsProvider';
 import { InlineMessage } from './InlineMessage.component';
 
 const props = {
@@ -17,7 +16,6 @@ const Wrapper = ({ width, children }) => <div style={{ width }}>{children}</div>
 storiesOf('Messaging & Communication/InlineMessage', module)
 	.add('default', () => (
 		<div>
-			<IconsProvider />
 			<h1>InlineMessage</h1>
 			<h2>Definition</h2>
 			<p>
@@ -78,7 +76,6 @@ storiesOf('Messaging & Communication/InlineMessage', module)
 	))
 	.add('withBackground', () => (
 		<div>
-			<IconsProvider />
 			<h1>InlineMessage</h1>
 			<h2>
 				<code>withBackground</code> prop is passed

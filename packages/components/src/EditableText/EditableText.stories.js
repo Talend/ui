@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '../IconsProvider';
 import EditableText from './EditableText.component';
 
 const props = {
@@ -15,7 +14,6 @@ const props = {
 storiesOf('Form/Inline form/EditableText', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
 			<h1>EditableText</h1>
 			{story()}
 		</div>
