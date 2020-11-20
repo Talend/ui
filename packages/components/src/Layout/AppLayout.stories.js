@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 
 import Drawer from '../Drawer';
 import HeaderBar from '../HeaderBar';
-import IconsProvider from '../IconsProvider';
 import Layout from '.';
 import SidePanel from '../SidePanel';
 import SubHeaderBar from '../SubHeaderBar';

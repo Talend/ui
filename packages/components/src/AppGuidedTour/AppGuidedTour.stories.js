@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import AppGuidedTour from './AppGuidedTour.component';
 import Stepper from '../Stepper';
-import IconsProvider from '../IconsProvider';
 
 // eslint-disable-next-line react/prop-types
 function AppGuidedTourContainer({ withDemoContent = false }) {

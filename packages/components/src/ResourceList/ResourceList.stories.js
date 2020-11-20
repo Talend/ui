@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ResourceList from './ResourceList.component';
-import IconsProvider from '../IconsProvider';
 import Icon from '../Icon';
 
 const collection = [
