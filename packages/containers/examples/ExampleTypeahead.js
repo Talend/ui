@@ -77,11 +77,7 @@ const view = {
 };
 
 const ExampleTypeahead = {
-	default: () => (
-		<div>
-			<Typeahead {...view} />
-		</div>
-	),
+	default: () => <Typeahead {...view} />,
 };
 
 export default ExampleTypeahead;

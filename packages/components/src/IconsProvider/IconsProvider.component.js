@@ -69,7 +69,7 @@ function addBundle(response) {
 				container.setAttribute('class', 'tc-iconsprovider sr-only');
 				container.setAttribute('focusable', false);
 				container.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-				container.setAttribute('data-url', new URL(response.url).pathname);
+				container.setAttribute('data-url', response.url);
 				container.innerHTML = content;
 				document.body.appendChild(container);
 			}

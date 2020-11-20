@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import ActionList from './ActionList.component';
-import IconsProvider from '../IconsProvider';
 
 const actions = [
 	{
@@ -47,7 +46,6 @@ const actions = [
 const stories = storiesOf('Navigation/ActionList', module);
 
 stories
-	.addDecorator(story => <div>{story()}</div>)
 	.add('default', () => (
 		<div style={{ display: 'inline-table' }}>
 			<ActionList

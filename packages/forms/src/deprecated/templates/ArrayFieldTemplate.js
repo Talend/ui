@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Icon from '@talend/react-components/lib/Icon';
-import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { withTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../constants';

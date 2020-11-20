@@ -189,7 +189,6 @@ const updating = schema.uiSchema.map(w => w.key);
 function story() {
 	return (
 		<div>
-			/>
 			<h2>Updating status</h2>
 			<p>
 				Form can disable and add an animation feedback on the widgets. To do so, you need to pass a

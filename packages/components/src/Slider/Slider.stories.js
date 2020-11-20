@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Slider from './Slider.component';
-import IconsProvider from '../IconsProvider';
 
 const icons = [
 	'talend-activity',

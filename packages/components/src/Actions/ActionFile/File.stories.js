@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Action from '../Action';
-import IconsProvider from '../../IconsProvider';
 
 const myAction = {
 	label: 'Click me',

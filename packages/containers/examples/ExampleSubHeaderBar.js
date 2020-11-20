@@ -41,56 +41,22 @@ const props = {
 };
 
 const ExampleSubHeaderBar = {
-	'with-default': () => (
-		<div>
-			<SubHeaderBar {...props} />
-		</div>
-	),
-	'with-subtitle': () => (
-		<div>
-			<SubHeaderBar subTitle="mySubTitle" {...props} />
-		</div>
-	),
-	'with-icon': () => (
-		<div>
-			<SubHeaderBar iconId="talend-file-csv-o" {...props} />
-		</div>
-	),
-	'with-editable': () => (
-		<div>
-			<SubHeaderBar {...props} editable />
-		</div>
-	),
-	'with-inProgress': () => (
-		<div>
-			<SubHeaderBar {...props} editable inProgress />
-		</div>
-	),
-	'with-loading': () => (
-		<div>
-			<SubHeaderBar {...props} loading />
-		</div>
-	),
-	'with-right-actions': () => (
-		<div>
-			<SubHeaderBar {...props} components={injectedComponentsRight} />
-		</div>
-	),
-	'with-center-actions': () => (
-		<div>
-			<SubHeaderBar {...props} components={injectedComponentsCenter} />
-		</div>
-	),
+	'with-default': () => <SubHeaderBar {...props} />,
+	'with-subtitle': () => <SubHeaderBar subTitle="mySubTitle" {...props} />,
+	'with-icon': () => <SubHeaderBar iconId="talend-file-csv-o" {...props} />,
+	'with-editable': () => <SubHeaderBar {...props} editable />,
+	'with-inProgress': () => <SubHeaderBar {...props} editable inProgress />,
+	'with-loading': () => <SubHeaderBar {...props} loading />,
+	'with-right-actions': () => <SubHeaderBar {...props} components={injectedComponentsRight} />,
+	'with-center-actions': () => <SubHeaderBar {...props} components={injectedComponentsCenter} />,
 	'with-all': () => (
-		<div>
-			<SubHeaderBar
-				{...props}
-				components={Object.assign({}, injectedComponentsCenter, injectedComponentsRight)}
-				iconId="talend-file-csv-o"
-				subTitle="mySubTitle"
-				editable
-			/>
-		</div>
+		<SubHeaderBar
+			{...props}
+			components={{ ...injectedComponentsCenter, ...injectedComponentsRight }}
+			iconId="talend-file-csv-o"
+			subTitle="mySubTitle"
+			editable
+		/>
 	),
 };
 export default ExampleSubHeaderBar;

@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import MultiSelect from './MultiSelect.container';
-import IconsProvider from '../IconsProvider';
 
 class Photos extends React.Component {
 	constructor(props) {

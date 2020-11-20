@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import IconsProvider from '../IconsProvider';
 import Enumeration from './Enumeration.component';
 
 import theme from './Enumeration.stories.scss';

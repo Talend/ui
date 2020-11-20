@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import TreeView from './TreeView.component';
-import IconsProvider from '../IconsProvider';
 
 const structure = [
 	{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], isOpened: false },

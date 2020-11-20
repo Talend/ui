@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '../../../../IconsProvider';
 import ColumnChooser from './ColumnChooser.component';
 
 const columns = [

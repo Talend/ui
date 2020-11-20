@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import words from 'lodash/words';
-import IconsProvider from '../IconsProvider';
 import ModelViewer from './ModelViewer';
 import RecordsViewer from './RecordsViewer';
 import hierarchicSample from './sample.raw.json';

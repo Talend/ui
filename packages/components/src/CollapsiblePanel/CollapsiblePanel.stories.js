@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
-import IconsProvider from '../IconsProvider';
 
 const keyValueContent = [
 	{

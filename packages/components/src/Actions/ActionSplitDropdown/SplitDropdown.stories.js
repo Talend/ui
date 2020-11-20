@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
-import IconsProvider from '../../IconsProvider';
 
 const items = [
 	{

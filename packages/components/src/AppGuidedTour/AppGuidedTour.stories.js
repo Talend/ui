@@ -43,6 +43,5 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 }
 
 storiesOf('Messaging & Communication/AppGuidedTour', module)
-	.addDecorator(fn => <>{fn()}</>)
 	.add('default', () => <AppGuidedTourContainer withDemoContent />)
 	.add('without demo content', () => <AppGuidedTourContainer />);

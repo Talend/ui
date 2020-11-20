@@ -82,7 +82,7 @@ const tabs = {
 	selectedKey: '2',
 };
 
-const stories = storiesOf('Layout/AppLayout', module).addDecorator(story => <div>{story()}</div>);
+const stories = storiesOf('Layout/AppLayout', module);
 
 const appStyle = require('../../stories/config/themes.scss');
 

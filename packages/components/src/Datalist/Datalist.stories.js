@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Datalist from './Datalist.component';
-import IconsProvider from '../IconsProvider';
 
 const defaultProps = {
 	onChange: action('onChange'),

@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import NotificationContainer from './Notification.component';
-import IconsProvider from '../IconsProvider';
 
 class NotificationWrapper extends React.Component {
 	constructor() {

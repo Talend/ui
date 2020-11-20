@@ -6,7 +6,6 @@ import { action } from '@storybook/addon-actions';
 
 import ObjectViewer from './ObjectViewer.component';
 import Icon from '../Icon';
-import IconsProvider from '../IconsProvider';
 import TooltipTrigger from '../TooltipTrigger';
 
 const schema = new Map();

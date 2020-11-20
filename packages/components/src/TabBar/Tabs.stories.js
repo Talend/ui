@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 
 import { ActionButton } from '../Actions';
 import TabBar from './TabBar.component';
-import IconsProvider from '../IconsProvider';
 
 const tabProps = {
 	id: 'my-tabs',

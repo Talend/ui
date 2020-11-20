@@ -196,15 +196,11 @@ apps.forEach(app => {
 ExampleHomeListView.drawer = () => (
 	<div>
 		<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
-			<Drawer
-				stacked
-				title="Im stacked drawer 1"
-				footerActions={Object.assign({}, basicProps, { selected: 0 })}
-			>
+			<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
 				<h1>Hello drawer 1</h1>
 				<p>You should not being able to read this because I&#39;m first</p>
 			</Drawer>
-			<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+			<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
 				<h1>Hello drawer 2</h1>
 				<p>The content dictate the width</p>
 			</Drawer>
@@ -220,15 +216,12 @@ apps.forEach(app => {
 					<Drawer
 						stacked
 						title="Im stacked drawer 1"
-						footerActions={Object.assign({}, basicProps, { selected: 0 })}
+						footerActions={{ ...basicProps, selected: 0 }}
 					>
 						<h1>Hello drawer 1</h1>
 						<p>You should not being able to read this because I&#39;m first</p>
 					</Drawer>
-					<Drawer
-						title="Im drawer 2"
-						footerActions={Object.assign({}, basicProps, { selected: 0 })}
-					>
+					<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
 						<h1>Hello drawer 2</h1>
 						<p>The content dictate the width</p>
 					</Drawer>

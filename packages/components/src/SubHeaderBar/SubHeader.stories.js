@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Label } from 'react-bootstrap';
-import IconsProvider from '../IconsProvider';
 import FilterBar from '../FilterBar';
 import SubHeaderBar from './SubHeaderBar.component';
 

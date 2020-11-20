@@ -6,7 +6,6 @@ import { action } from '@storybook/addon-actions';
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import { InputDateTimePicker } from '../DateTimePickers';
-import IconsProvider from '../IconsProvider';
 import GridLayout from '.';
 
 export const customSkeletonConf = [
@@ -199,7 +198,6 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 }
 
 storiesOf('Layout/Dashboard', module)
-	.addDecorator(story => <div>{story()}</div>)
 	.add('default', () => <GridContainer />)
 	.add('not draggable', () => <GridContainer isDraggable={false} />)
 	.add('not resizable', () => <GridContainer isResizable={false} />)

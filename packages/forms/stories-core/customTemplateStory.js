@@ -106,7 +106,6 @@ function story() {
 	};
 	return (
 		<div>
-			/>
 			<UIForm
 				templates={templates}
 				data={schema}

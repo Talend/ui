@@ -7,7 +7,6 @@ import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-d
 import cloneDeep from 'lodash/cloneDeep';
 
 import List from './List.component';
-import IconsProvider from '../IconsProvider';
 import { columnChooserService } from './Toolbar/ColumnChooserButton';
 
 function MyCustomRow(props) {
@@ -557,7 +556,6 @@ const itemsForListWithIcons = [
 ];
 
 storiesOf('Data/List/List', module)
-	.addDecorator(story => <div>{story()}</div>)
 	.add('Table display', () => (
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>

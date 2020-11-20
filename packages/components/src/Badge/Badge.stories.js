@@ -5,7 +5,6 @@ import { action } from '@storybook/addon-actions';
 import Badge from './Badge.component';
 import FilterBar from '../FilterBar';
 import Action from '../Actions/Action';
-import IconsProvider from '../IconsProvider';
 
 const defaultStyle = {
 	display: 'flex',

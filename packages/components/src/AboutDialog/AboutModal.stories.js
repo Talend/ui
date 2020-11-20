@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import AboutDialog from '.';
-import IconsProvider from '../IconsProvider';
 
 const props = {
 	show: true,

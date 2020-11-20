@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionBar from '../ActionBar';
-import IconsProvider from '../IconsProvider';
 import FilterBar from './FilterBar.component';
 
 const propsDockToggle = {

@@ -46,7 +46,6 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 	React.useEffect(() => {
 		if (isRemote) {
 			fetch(imgSrc, {
-				mode: 'cors',
 				headers: {
 					Accept: 'image/svg+xml',
 				},

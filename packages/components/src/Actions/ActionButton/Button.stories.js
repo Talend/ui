@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
 import ActionButton from './ActionButton.component';
-import IconsProvider from '../../IconsProvider';
 
 import theme from './Button.stories.scss';
 
@@ -66,11 +65,7 @@ class DisableActionButton extends React.Component {
 
 storiesOf('Buttons/Button', module)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.add('Disable the buttons', () => (
-		<div>
-			<DisableActionButton />
-		</div>
-	))
+	.add('Disable the buttons', () => <DisableActionButton />)
 	.add('default', () => (
 		<div>
 			<h3>By default :</h3>

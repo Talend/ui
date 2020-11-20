@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import HttpError from './HttpError.component';
-import IconsProvider from '../IconsProvider';
 
 const commonStyle = {
 	height: '60rem',

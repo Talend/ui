@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '../../IconsProvider';
 
 import InputDateRangePicker from './InputDateRangePicker.component';
 
@@ -10,17 +9,15 @@ import DatePicker from '../Date/Picker';
 
 storiesOf('Form/Controls/DatePicker/Date Range', module)
 	.addDecorator(story => (
-		<>
-			<form
-				onSubmit={event => {
-					event.persist();
-					event.preventDefault();
-					action('submit')(event);
-				}}
-			>
-				{story()}
-			</form>
-		</>
+		<form
+			onSubmit={event => {
+				event.persist();
+				event.preventDefault();
+				action('submit')(event);
+			}}
+		>
+			{story()}
+		</form>
 	))
 	.add('Input', () => (
 		<InputDateRangePicker

@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { simpleCollection } from './ListComposition/collection';
-import IconsProvider from '../IconsProvider';
 import ActionBar from '../ActionBar';
 import List from '.';
 

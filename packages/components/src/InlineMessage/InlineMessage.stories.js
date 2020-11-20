@@ -2,7 +2,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import IconsProvider from '../IconsProvider';
 import { InlineMessage } from './InlineMessage.component';
 
 const props = {

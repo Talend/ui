@@ -5,7 +5,6 @@ import { action } from '@storybook/addon-actions'; // eslint-disable-line import
 
 import { SortIndicator } from 'react-virtualized';
 
-import IconsProvider from '../IconsProvider';
 import VirtualizedList from '.';
 
 function MyCustomRow(props) {

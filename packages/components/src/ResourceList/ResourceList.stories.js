@@ -275,7 +275,6 @@ export function FilteredResourceList(props) {
 }
 
 storiesOf('Data/List/ResourceList', module)
-	.addDecorator(story => <section>{story()}</section>)
 	.add('default', () => <ResourceList {...commonProps} collection={collection} />)
 	.add('simple', () => <ResourceList {...commonProps} collection={simpleCollection} />)
 	.add('preparations', () => (

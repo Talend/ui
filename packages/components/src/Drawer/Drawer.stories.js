@@ -7,7 +7,6 @@ import Drawer from './Drawer.component';
 
 import ActionBar from '../ActionBar';
 import HeaderBar from '../HeaderBar';
-import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from '../SidePanel';
 import { ActionButton } from '../Actions';

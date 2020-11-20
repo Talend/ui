@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '../IconsProvider';
 import { Action } from '../Actions';
 import ActionBar from './ActionBar.component';
 
