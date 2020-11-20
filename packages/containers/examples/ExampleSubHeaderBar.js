@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { SubHeaderBar } from '../src';
 
 const viewSubHeader = {
@@ -43,74 +43,46 @@ const props = {
 const ExampleSubHeaderBar = {
 	'with-default': () => (
 		<div>
-			<IconsProvider />
 			<SubHeaderBar {...props} />
 		</div>
 	),
 	'with-subtitle': () => (
 		<div>
-			<IconsProvider />
-			<SubHeaderBar
-				subTitle="mySubTitle"
-				{...props}
-			/>
+			<SubHeaderBar subTitle="mySubTitle" {...props} />
 		</div>
 	),
 	'with-icon': () => (
 		<div>
-			<IconsProvider />
-			<SubHeaderBar
-				iconId="talend-file-csv-o"
-				{...props}
-			/>
+			<SubHeaderBar iconId="talend-file-csv-o" {...props} />
 		</div>
 	),
 	'with-editable': () => (
 		<div>
-			<IconsProvider />
-			<SubHeaderBar
-				{...props}
-				editable
-			/>
+			<SubHeaderBar {...props} editable />
 		</div>
 	),
 	'with-inProgress': () => (
 		<div>
-			<IconsProvider />
-			<SubHeaderBar
-				{...props}
-				editable
-				inProgress
-			/>
+			<SubHeaderBar {...props} editable inProgress />
 		</div>
 	),
 	'with-loading': () => (
 		<div>
-			<IconsProvider />
-			<SubHeaderBar
-				{...props}
-				loading
-			/>
+			<SubHeaderBar {...props} loading />
 		</div>
 	),
 	'with-right-actions': () => (
 		<div>
-			<IconsProvider />
-			<SubHeaderBar
-				{...props}
-				components={injectedComponentsRight}
-			/>
+			<SubHeaderBar {...props} components={injectedComponentsRight} />
 		</div>
 	),
 	'with-center-actions': () => (
 		<div>
-			<IconsProvider />
 			<SubHeaderBar {...props} components={injectedComponentsCenter} />
 		</div>
 	),
 	'with-all': () => (
 		<div>
-			<IconsProvider />
 			<SubHeaderBar
 				{...props}
 				components={Object.assign({}, injectedComponentsCenter, injectedComponentsRight)}

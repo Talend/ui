@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { SelectObject } from '../src';
 
 const props = {
@@ -40,19 +40,16 @@ const schema = {
 const ExampleSelectObject = {
 	'default tree': () => (
 		<div>
-			<IconsProvider />
 			<SelectObject {...props} />
 		</div>
 	),
 	'tree with preview': () => (
 		<div>
-			<IconsProvider />
 			<SelectObject {...props} schema={schema} />
 		</div>
 	),
 	'tree with filter mode set to ALL': () => (
 		<div>
-			<IconsProvider />
 			<SelectObject {...props} filterMode={SelectObject.FILTER_MODE.ALL} />
 		</div>
 	),

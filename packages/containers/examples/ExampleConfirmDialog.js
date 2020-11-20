@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { IconsProvider } from '@talend/react-components';
 import { Map } from 'immutable';
 import { ConfirmDialog } from '../src';
 
@@ -16,7 +15,6 @@ const initialState = new Map({
 export default function ExampleConfirmDialog() {
 	return (
 		<div>
-			<IconsProvider />
 			<ConfirmDialog initialState={initialState} />
 		</div>
 	);

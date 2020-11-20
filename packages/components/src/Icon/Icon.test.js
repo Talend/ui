@@ -73,6 +73,7 @@ describe('Icon', () => {
 		expect(global.fetch).toHaveBeenCalledTimes(1);
 		expect(global.fetch).toHaveBeenCalledWith('/assets/icons/my-icon.svg', {
 			headers: { Accept: 'image/svg+xml' },
+			mode: 'cors',
 		});
 		expect(wrapper.html()).toMatchSnapshot();
 	});

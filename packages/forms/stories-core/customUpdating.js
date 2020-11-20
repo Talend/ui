@@ -1,5 +1,4 @@
 import React from 'react';
-import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src/UIForm';
 
@@ -190,7 +189,7 @@ const updating = schema.uiSchema.map(w => w.key);
 function story() {
 	return (
 		<div>
-			<IconsProvider />
+			/>
 			<h2>Updating status</h2>
 			<p>
 				Form can disable and add an animation feedback on the widgets. To do so, you need to pass a

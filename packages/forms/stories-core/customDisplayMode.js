@@ -1,5 +1,4 @@
 import React from 'react';
-import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src/UIForm';
 
@@ -216,7 +215,6 @@ const schema = {
 function story() {
 	return (
 		<div>
-			<IconsProvider />
 			<h2>displayMode="text"</h2>
 			<p>Form can be used to display data in read only</p>
 			<UIForm

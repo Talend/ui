@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IconsProvider } from '@talend/react-components';
+
 import api from '@talend/react-cmf';
 import Immutable from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
@@ -92,7 +92,10 @@ const actionsWithSeparator = {
 const toolbar = {
 	sort: {
 		field: 'id',
-		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'label', name: 'Name' },
+		],
 	},
 	display: {
 		displayModes: ['large', 'table'],
@@ -213,7 +216,6 @@ propsTimestampSorted.list.sort = sortUpdatedAsc;
 const ExampleList = {
 	default: () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List {...props} items={items} />
 			</div>
@@ -221,7 +223,6 @@ const ExampleList = {
 	),
 	'with persistent actions': () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List {...props} actions={actionsWithPersistent} items={items} />
 			</div>
@@ -229,7 +230,6 @@ const ExampleList = {
 	),
 	'with separator actions': () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List {...props} actions={actionsWithSeparator} items={items} />
 			</div>
@@ -307,7 +307,6 @@ const ExampleList = {
 		propsPg.toolbar.pagination = {};
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List {...propsPg} items={itemsPg} />
 				</div>
@@ -319,7 +318,6 @@ const ExampleList = {
 		props2.list.inProgress = true;
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List {...props2} items={items} />
 				</div>
@@ -334,7 +332,6 @@ const ExampleList = {
 		multiSelectionProps.idKey = 'id';
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List {...multiSelectionProps} items={items} />
 				</div>
@@ -343,7 +340,6 @@ const ExampleList = {
 	},
 	'no toolbar': () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List list={list} actions={actions} items={items} />
 			</div>
@@ -351,7 +347,6 @@ const ExampleList = {
 	),
 	CustomHeight: () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} />
 			</div>
@@ -359,7 +354,6 @@ const ExampleList = {
 	),
 	'sort on timestamps': () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List
 					{...propsTimestampSorted}
@@ -376,7 +370,6 @@ const ExampleList = {
 
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List
 						virtualized
@@ -394,7 +387,6 @@ const ExampleList = {
 		};
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List
 						virtualized
