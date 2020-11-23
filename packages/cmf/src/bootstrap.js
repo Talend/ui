@@ -132,13 +132,29 @@ export default async function bootstrap(appOptions = {}) {
 
 	const store = bootstrapRedux(options, saga.middleware);
 	onError.bootstrap(options, store);
-	saga.run();
+
 	const RootComponent = options.RootComponent || DefaultRootComponent;
 	const element = options.root || document.getElementById(appId);
-	render(
-		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
-			<RootComponent />
-		</App>,
+
+	const config = {
+		store,
+		saga,
+		App,
+		options,
+		RootComponent,
 		element,
-	);
+	};
+
+	if (!options.nostart) {
+		saga.run();
+
+		render(
+			<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
+				<RootComponent />
+			</App>,
+			element,
+		);
+	}
+
+	return config;
 }
