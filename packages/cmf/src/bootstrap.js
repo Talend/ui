@@ -140,7 +140,7 @@ export default async function bootstrap(appOptions = {}) {
 		store,
 		saga,
 		App,
-		options,
+		cmfModule: options,
 	};
 
 	if (!options.nostart) {
