@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, Use } from '../../../docs';
 import Form from '../';
 import { Col, Row } from '../../../docs';
@@ -23,7 +23,7 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 
 ## States
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Form.Checkbox label="Checkbox" />
     </Story>
@@ -33,9 +33,9 @@ Use a checkbox when you want to give your recipients the opportunity to select m
     <Story name="checked">
         <Form.Checkbox label="Checked Checkbox" checked />
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <Form.Checkbox label="Disabled Checkbox" disabled />
     </Story>
@@ -45,9 +45,9 @@ Use a checkbox when you want to give your recipients the opportunity to select m
     <Story name="disabled checked">
         <Form.Checkbox label="Disabled Checked Checkbox" disabled checked />
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="read-only">
         <Form.Checkbox label="Read-Only Checkbox" readOnly />
     </Story>
@@ -57,7 +57,7 @@ Use a checkbox when you want to give your recipients the opportunity to select m
     <Story name="read-only checked">
         <Form.Checkbox label="Read-Only Checked Checkbox" readOnly checked />
     </Story>
-</Preview>
+</Canvas>
 
 ## Content
 

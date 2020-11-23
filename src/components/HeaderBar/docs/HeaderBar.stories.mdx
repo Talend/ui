@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Props, Story } from '@storybook/addon-docs/blocks';
 import { VisuallyHidden } from 'reakit/VisuallyHidden';
 
 import { FigmaImage } from '../../../docs';
@@ -28,25 +28,25 @@ The header is placed on the top and takes the full window width.
 
 Only Talend Logo should be visible on the left and no other elements are displayed on the right.
 
-<Preview>
+<Canvas>
 	<Story name="portal-onboarding">{pobStory.bind({})}</Story>
-</Preview>
+</Canvas>
 
 **Portal**
 
 The Talend logo should be linked to the Portal homepage.
 
-<Preview>
+<Canvas>
 	<Story name="portal">{pStory.bind({})}</Story>
-</Preview>
+</Canvas>
 
 **In the apps**
 
 The Talend logo should be linked to the Portal.
 
-<Preview>
+<Canvas>
 	<Story name="apps">{aStory.bind({})}</Story>
-</Preview>
+</Canvas>
 
 ### App switcher
 
