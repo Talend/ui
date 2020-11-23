@@ -141,8 +141,6 @@ export default async function bootstrap(appOptions = {}) {
 		saga,
 		App,
 		options,
-		RootComponent,
-		element,
 	};
 
 	if (!options.nostart) {
