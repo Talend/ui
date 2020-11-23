@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, Use } from '../../../docs';
 import Combobox from '../';
 
@@ -32,37 +32,83 @@ Custom values are still possible like a datalist.
 <FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A547" alt="combobox for multiselection" />
 
 
-export const userListCache = {};
+export const fruits = [
+    "Acerola",
+    "Apple",
+    "Apricots",
+    "Avocado",
+    "Banana",
+    "Blackberries",
+    "Blackcurrant",
+    "Blueberries",
+    "Breadfruit",
+    "Cantaloupe",
+    "Carambola",
+    "Cherimoya",
+    "Cherries",
+    "Clementine",
+    "Coconut Meat",
+    "Cranberries",
+    "Custard-Apple",
+    "Date Fruit",
+    "Durian",
+    "Elderberries",
+    "Feijoa",
+    "Figs",
+    "Gooseberries",
+    "Grapefruit",
+    "Grapes",
+    "Guava",
+    "Honeydew Melon",
+    "Jackfruit",
+    "Java-Plum",
+    "Jujube Fruit",
+    "Kiwifruit",
+    "Kumquat",
+    "Lemon",
+    "Lime",
+    "Longan",
+    "Loquat",
+    "Lychee",
+    "Mandarin",
+    "Mango",
+    "Mangosteen",
+    "Mulberries",
+    "Nectarine",
+    "Olives",
+    "Orange",
+    "Papaya",
+    "Passion Fruit",
+    "Peaches",
+    "Pear",
+    "Persimmon",
+    "Pitaya",
+    "Pineapple",
+    "Pitanga",
+    "Plantain",
+    "Plums",
+    "Pomegranate",
+    "Prickly Pear",
+    "Prunes",
+    "Pummelo",
+    "Quince",
+    "Raspberries",
+    "Rhubarb",
+    "Rose-Apple",
+    "Sapodilla",
+    "Soursop",
+    "Strawberries",
+    "Sugar-Apple",
+    "Tamarind",
+    "Tangerine",
+    "Watermelon",
+];
 
-export function createUserList(term = '') {
-	if (userListCache[term]) {
-		return {
-			read() {
-				return userListCache[term];
-			},
-		};
-	}
-	const promise = fetch(`https://jsonplaceholder.typicode.com/users?q=${term}`)
-		.then(response => response.json())
-		.then(data => {
-			userListCache[term] = data;
-			return data;
-		});
-	return {
-		read() {
-			if (userListCache[term]) {
-				return userListCache[term];
-			}
-			throw promise;
-		},
-	};
-}
-
-<Preview>
+<Canvas>
 	<Story name="usage">
-		<Combobox initialValue="" getList={term => createUserList(term)} />
+		<Combobox initialValue="" values={fruits} />
 	</Story>
-</Preview>
+</Canvas>
 
 ## States
 

@@ -8,39 +8,24 @@ import {
 
 import * as S from './Combobox.style';
 
-function Options({ resource, ...props }) {
-	const users = resource.read();
-	return users.length
-		? users.map(user => <ReakitComboboxOption {...props} key={user.name} value={user.name} />)
-		: 'No results found';
-}
-
-const Combobox = ({ value, getList }) => {
+const Combobox = ({ value, values, ...rest }) => {
 	const combobox = useReakitComboboxState({
 		autoSelect: true,
 		inline: true,
 		list: true,
 		gutter: 8,
+		values,
 	});
-	const [resource, setResource] = React.useState(value);
-	// const [startTransition] = React.unstable_useTransition({
-	// 	timeoutMs: 1000,
-	// });
-
-	React.useEffect(() => {
-		// startTransition(() => {
-		setResource(getList(combobox.inputValue));
-		// });
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [combobox.inputValue]);
 
 	return (
 		<S.Combobox>
-			<ReakitCombobox {...combobox} placeholder="Joe Dohn" aria-label="User" />
-			<ReakitComboboxPopover {...combobox} aria-label="Users">
-				<React.Suspense fallback="Loading...">
-					<Options {...combobox} resource={resource} />
-				</React.Suspense>
+			<ReakitCombobox {...combobox} {...rest} />
+			<ReakitComboboxPopover {...combobox}>
+				{combobox.matches.length
+					? combobox.matches.map(value => (
+							<ReakitComboboxOption {...combobox} key={value} value={value} />
+					  ))
+					: 'No results found'}
 			</ReakitComboboxPopover>
 		</S.Combobox>
 	);
