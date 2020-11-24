@@ -53,7 +53,7 @@
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
     "storybook-chroma": "^4.0.2",
-    "storybook-docs-toc": "^1.0.1",
+    "storybook-docs-toc": "^1.2.0",
     "styled-components": "^5.2.1"
   },
   "peerDependencies": {
