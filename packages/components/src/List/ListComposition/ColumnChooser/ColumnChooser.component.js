@@ -8,13 +8,13 @@ function ColumnChooser(props) {
 
 	return (
 		<ColumnChooserButton
-			{...props}
 			columns={columns.map(({ dataKey, label }, i) => ({
 				key: dataKey,
 				label,
 				hidden: !visibleColumns?.includes(dataKey),
 				order: i + 1,
 			}))}
+			{...props}
 			onSubmit={(_, changes) => {
 				setVisibleColumns(changes.filter(c => !c.hidden).map(c => c.key));
 				if (props.onSubmit) {
