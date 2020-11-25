@@ -7,6 +7,7 @@ import get from 'lodash/get';
 import { AddFacetPopover } from '../AddFacetPopover';
 import { BadgeOverlay } from '../Badges';
 import { BadgesGenerator } from '../BadgesGenerator';
+import { QuickSearchInput } from '../QuickSearchInput';
 import { generateBadge } from '../types/badgeDefinition.type';
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 import { BadgeFacetedProvider } from '../context/badgeFaceted.context';
@@ -26,6 +27,7 @@ import {
 
 import theme from './BasicSearch.scss';
 import { USAGE_TRACKING_TAGS } from '../../constants';
+import { DEFAULT_QUICKSEARCH_OPERATOR } from '../QuickSearchInput/QuickSearchInput.component';
 
 const css = getTheme(theme);
 
@@ -54,6 +56,10 @@ const BasicSearch = ({
 		[badgesDictionary, badgesDefinitions],
 	);
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
+	const quicksearchable = useMemo(
+		() => badgesDefinitions.filter(({ metadata = {} }) => metadata.isAvailableForQuickSearch),
+		[badgesDefinitions],
+	);
 
 	useEffect(() => {
 		if (!state.badges.some(isInCreation)) {
@@ -76,6 +82,25 @@ const BasicSearch = ({
 
 	return (
 		<div id={basicSearchId} className={css('tc-basic-search')}>
+			<QuickSearchInput
+				t={t}
+				className={css('tc-basic-search-quicksearch')}
+				facets={quicksearchable}
+				onSelect={(facet, value) => {
+					const operators = getOperatorsFromDict(
+						operatorsDictionary,
+						get(facet, 'metadata.operators'),
+					);
+					dispatch(
+						BADGES_ACTIONS.addWithValue(
+							generateBadge(operators)(facet),
+							operators.find(({ name }) => name === DEFAULT_QUICKSEARCH_OPERATOR) ||
+								operators[0],
+							value,
+						),
+					);
+				}}
+			/>
 			<div className={css('tc-basic-search-content')}>
 				<BadgeFacetedProvider value={badgeFacetedContextValue}>
 					<BadgesGenerator

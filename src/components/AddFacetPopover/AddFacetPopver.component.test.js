@@ -97,12 +97,7 @@ describe('AddFacetPopover', () => {
 				.simulate('change', { target: { value: 'connection' } });
 		});
 		wrapper.update();
-		expect(
-			wrapper
-				.find('input')
-				.first()
-				.prop('value'),
-		).toBe('connection');
+		expect(wrapper.find('input').first().prop('value')).toBe('connection');
 		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
 	});
 	it('should reset the badge rows when the filter is reset', () => {
@@ -119,18 +114,10 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper
-				.find('button[aria-label="Remove filter"]')
-				.first()
-				.simulate('mouseDown');
+			wrapper.find('button[aria-label="Remove filter"]').first().simulate('mouseDown');
 		});
 		wrapper.update();
-		expect(
-			wrapper
-				.find('input')
-				.first()
-				.prop('value'),
-		).toBe('');
+		expect(wrapper.find('input').first().prop('value')).toBe('');
 		expect(wrapper.find('button[aria-label="Name"]')).toHaveLength(1);
 		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
 	});
@@ -203,12 +190,7 @@ describe('AddFacetPopover', () => {
 		wrapper.update();
 		expect(wrapper.find('button.tc-add-facet-popover-row')).toHaveLength(0);
 		expect(wrapper.find('span').first()).toHaveLength(1);
-		expect(
-			wrapper
-				.find('span')
-				.first()
-				.text(),
-		).toBe('No result found');
+		expect(wrapper.find('span').first().text()).toBe('No result found');
 	});
 	it('should render an disabled row if badgePerFacet is exceeded', () => {
 		// Given

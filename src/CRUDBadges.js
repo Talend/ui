@@ -70,3 +70,21 @@ export const closeInitOpenedBadge = badgeId =>
 		initialOperatorOpened: false,
 		initialValueOpened: false,
 	});
+
+export const createBadgeWithValue = (badge, operator, value) =>
+	applyBadgeTransform(
+		pushBadge({
+			...badge,
+			properties: {
+				...badge.properties,
+				initialOperatorOpened: false,
+				initialValueOpened: false,
+				value,
+				operator,
+			},
+			metadata: {
+				...badge.metadata,
+				isInCreation: false,
+			},
+		}),
+	);
