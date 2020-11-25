@@ -1,13 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { Action } from '@talend/react-components/lib/Actions';
-import FilterBar from '@talend/react-components/lib/FilterBar';
-import { Rich } from '@talend/react-components';
-import Loader from '@talend/react-components/lib/Loader';
-import { CIRCULAR_PROGRESS_SIZE } from '@talend/react-components/lib/constants';
-import { Checkbox } from '@talend/react-components/lib/Toggle';
-import { getTheme } from '@talend/react-components/lib/theme';
+import { getTheme, Checkbox, Action, Rich, Loader, FilterBar } from '@talend/react-components';
 import cssModule from './BadgeTags.scss';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
@@ -110,7 +104,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 			/>
 			{isLoading && (
 				<div className={theme('fs-badge-tags-form-loading')}>
-					<Loader size={CIRCULAR_PROGRESS_SIZE.default} />
+					<Loader size="default" />
 				</div>
 			)}
 			{!isLoading && (

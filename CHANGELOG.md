@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+-   [Circular dependency on Tag Facet](https://github.com/Talend/ui-faceted-search/pull/13)
+
 ## [1.0.1]
 
 ### Fixed
