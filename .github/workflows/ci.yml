@@ -2,7 +2,7 @@ name: Faceted search CI
 
 on:
     pull_request:
-        branches: [master, develop, main]
+        branches: [main]
 
 jobs:
     build:
