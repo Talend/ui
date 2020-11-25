@@ -1,8 +1,15 @@
 import { useEffect, useReducer } from 'react';
-import { closeInitOpenedBadge, createBadge, deleteBadge, updateBadge } from '../CRUDBadges';
+import {
+	closeInitOpenedBadge,
+	createBadge,
+	deleteBadge,
+	updateBadge,
+	createBadgeWithValue,
+} from '../CRUDBadges';
 
 export const BADGES_ACTIONS_KEYS = {
 	ADD_BADGE: 'ADD_BADGE',
+	ADD_BADGE_WITH_VALUE: 'ADD_BADGE_WITH_VALUE',
 	UPDATE_BADGE: 'UPDATE_BADGE',
 	DELETE_BADGE: 'DELETE_BADGE',
 	DELETE_ALL_BADGES: 'DELETE_ALL_BADGES',
@@ -19,6 +26,10 @@ export const BADGES_ACTIONS = {
 			properties,
 			metadata,
 		},
+	}),
+	addWithValue: (badge, operator, value) => ({
+		type: BADGES_ACTIONS_KEYS.ADD_BADGE_WITH_VALUE,
+		payload: { badge, operator, value },
 	}),
 	delete: badgeId => ({ type: BADGES_ACTIONS_KEYS.DELETE_BADGE, payload: { badgeId } }),
 	deleteAll: () => ({ type: BADGES_ACTIONS_KEYS.DELETE_ALL_BADGES }),
@@ -40,6 +51,15 @@ const reducer = (state, { type, payload }) => {
 					payload.badgeId,
 					payload.properties,
 					payload.metadata,
+				)(state.badges),
+			};
+		case BADGES_ACTIONS_KEYS.ADD_BADGE_WITH_VALUE:
+			return {
+				...state,
+				badges: createBadgeWithValue(
+					payload.badge,
+					payload.operator,
+					payload.value,
 				)(state.badges),
 			};
 		case BADGES_ACTIONS_KEYS.DELETE_BADGE:

@@ -24,7 +24,7 @@ export function FacetedSearchIcon({ active, tick, loading, onClick }) {
 			active={active}
 			tick={tick}
 			className={theme('faceted-search-icon')}
-			icon="talend-filter"
+			icon="talend-search"
 			label={t('SHOW_FACETED_SEARCH', {
 				defaultValue: 'Show faceted search',
 			})}

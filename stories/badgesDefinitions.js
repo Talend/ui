@@ -9,6 +9,7 @@ export const badgeName = {
 		type: 'text',
 	},
 	metadata: {
+		isAvailableForQuickSearch: true,
 		isAvailableForFacetList: true,
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',

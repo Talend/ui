@@ -48,10 +48,19 @@ describe('BasicSearch', () => {
 			badgePerFacet: 'N',
 			entitiesPerBadge: '1',
 			operators: ['contains', '='],
+			isAvailableForQuickSearch: true,
 		},
 	};
 
 	const badgesDefinitions = [badgeDefinitionName];
+
+	const badgesDefinitionsWithQuicksearch = [{
+		...badgeDefinitionName,
+		metadata: {
+			...badgeDefinitionName.metadata,
+			isAvailableForQuickSearch: true,
+		},
+	}];
 
 	it('should render the default html output with no badges', () => {
 		// Given
@@ -72,6 +81,22 @@ describe('BasicSearch', () => {
 		// Given
 		const props = {
 			badgesDefinitions,
+			badgesFaceted,
+			onSubmit: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<FacetedManager id="manager-id">
+				<BasicSearch {...props} />
+			</FacetedManager>,
+		);
+		// Then
+		expect(wrapper.html()).toMatchSnapshot();
+	});
+	it('should render the default html output with some badges and the quick search input', () => {
+		// Given
+		const props = {
+			badgesDefinitions: badgesDefinitionsWithQuicksearch,
 			badgesFaceted,
 			onSubmit: jest.fn(),
 		};
