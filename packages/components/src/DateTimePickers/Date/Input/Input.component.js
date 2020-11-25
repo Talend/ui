@@ -7,7 +7,7 @@ import InputSizer from '../../shared/InputSizer';
 
 function Input(props) {
 	const { value, inputManagement } = useContext(DateContext);
-	const { minWidth } = props;
+	const { minWidth, ...rest } = props;
 
 	return (
 		<InputSizer inputText={inputManagement.placeholder} minWidth={minWidth}>
@@ -20,7 +20,7 @@ function Input(props) {
 					value={value.textInput}
 					style={{ width }}
 					{...inputManagement}
-					{...props}
+					{...rest}
 				/>
 			)}
 		</InputSizer>

@@ -70,7 +70,7 @@
   108:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
-  87:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  91:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
   37:2  warning  The 'showHorizontalAndTest' function makes the dependencies of useEffect Hook (at line 53) change on every render. To fix this, wrap the 'showHorizontalAndTest' definition into its own useCallback() Hook  react-hooks/exhaustive-deps
