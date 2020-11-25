@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Added
+
+-   [allow to hide badges in the list](https://github.com/Talend/ui-faceted-search/pull/11)
+
 ## [1.0.2]
 
 ### Fixed

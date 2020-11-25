@@ -16,6 +16,7 @@ import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dic
 import {
 	badgeConnectionType,
 	badgeName,
+	badgeAll,
 	badgePrice,
 	badgeValid,
 	badgeEmpty,
@@ -31,6 +32,7 @@ import {
 } from './badgesDefinitions';
 
 const badgesDefinitions = [
+	badgeAll,
 	badgeName,
 	badgeConnectionType,
 	badgeTags,
@@ -69,6 +71,32 @@ const callbacks = {
 			]),
 		),
 };
+
+const badgesWithAll = {
+	badges: [
+		{
+			properties: {
+				attribute: 'all',
+				initialOperatorOpened: false,
+				initialValueOpened: false,
+				label: 'All',
+				operator: { label: 'Contains', name: 'containsIgnoreCase', iconName: 'contains' },
+				operators: [],
+				type: 'text',
+				value: 'test',
+			},
+			metadata: {
+				isAvailableForFacetList: false,
+				badgePerFacet: 'N',
+				entitiesPerBadge: '1',
+				operators: ['containsIgnoreCase'],
+				badgeId: 'all-b6c04e3d-1d72-4aca-9565-09d206f76d88',
+				isInCreation: false,
+			},
+		},
+	],
+};
+
 const badgesFaceted = {
 	badges: [
 		{
@@ -189,6 +217,25 @@ storiesOf('FacetedSearch', module)
 							badgesFaceted={badgesFaceted}
 							onSubmit={action('onSubmit')}
 							callbacks={callbacks}
+						/>
+					))
+				}
+			</FacetedSearch.Faceted>
+		</div>
+	))
+	.add('initialized with a badge which is not visible in the list', () => (
+		<div>
+			<FacetedSearch.Faceted id="my-faceted-search">
+				{currentFacetedMode =>
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+						<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+					)) ||
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+						<FacetedSearch.BasicSearch
+							badgesDefinitions={badgesDefinitions}
+							badgesFaceted={badgesWithAll}
+							callbacks={callbacks}
+							onSubmit={action('onSubmit')}
 						/>
 					))
 				}

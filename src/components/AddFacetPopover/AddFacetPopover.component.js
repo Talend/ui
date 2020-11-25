@@ -190,9 +190,13 @@ const getCategories = badgesDefinitions => {
 };
 
 const getScreens = (badgesDefinitions, filterValue) => {
-	const categories = getCategories(badgesDefinitions);
+	const visibleBadges = badgesDefinitions.filter(
+		badgeDefinition => badgeDefinition.metadata.isAvailableForFacetList !== false,
+	);
 
-	const badgesWithoutCategory = badgesDefinitions.filter(
+	const categories = getCategories(visibleBadges);
+
+	const badgesWithoutCategory = visibleBadges.filter(
 		badgeDefinition => !badgeDefinition.metadata.category,
 	);
 
