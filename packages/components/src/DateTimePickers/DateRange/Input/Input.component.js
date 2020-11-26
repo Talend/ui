@@ -6,7 +6,7 @@ import DebounceInput from 'react-debounce-input';
 import { DateRangeContext } from '../Context';
 import InputSizer from '../../shared/InputSizer';
 
-const OMIT_INPUT_PROPS = ['date', 'onChange', 'onFocus', 'label'];
+const OMIT_INPUT_PROPS = ['date', 'onChange', 'onFocus', 'label', 'minWidth'];
 
 const Input = forwardRef((props, ref) => {
 	const { date, onChange, onFocus, label, minWidth } = props;

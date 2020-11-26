@@ -30,5 +30,6 @@ function QualityIndicator(props) {
 QualityIndicator.propTypes = {
 	qualityIndex: PropTypes.oneOf([QUALITY_INVALID_KEY, QUALITY_EMPTY_KEY, QUALITY_VALID_KEY]),
 };
+QualityIndicator.theme = theme;
 
 export default QualityIndicator;

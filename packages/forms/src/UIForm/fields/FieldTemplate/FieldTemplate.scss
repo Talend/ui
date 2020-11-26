@@ -1,23 +1,20 @@
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 .template:global(.required) {
+	> :global(.checkbox:after) {
+		position: static;
+		display: inline;
+		content: '*';
+	}
 	:global {
 		.control-label:after {
 			content: '*';
 		}
-
 		.checkbox {
-			&:after {
-				position: static;
-				display: inline;
-				content: '*';
-			}
-
 			.control-label:after {
 				content: '';
 			}
 		}
-
 		// Remove required stars for multi selection
 		.control-label ~ .checkbox:after {
 			content: '';

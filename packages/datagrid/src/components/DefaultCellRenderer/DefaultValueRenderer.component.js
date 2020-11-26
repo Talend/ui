@@ -22,6 +22,8 @@ export default class DefaultValueRenderer extends React.Component {
 		value: DEFAULT_VALUE_PROP_TYPES,
 	};
 
+	static theme = theme;
+
 	constructor(props) {
 		super(props);
 

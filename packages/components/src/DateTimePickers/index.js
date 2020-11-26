@@ -3,6 +3,7 @@ import InputDateTimePicker from './InputDateTimePicker';
 import InputDatePicker from './InputDatePicker';
 import InputDateRangePicker from './InputDateRangePicker';
 import InputTimePicker from './InputTimePicker';
+import InputDateTimeRangePicker from './InputDateTimeRangePicker';
 
 export default InputDateTimePicker;
 export {
@@ -11,4 +12,5 @@ export {
 	InputDateRangePicker,
 	InputDateTimePicker,
 	InputTimePicker,
+	InputDateTimeRangePicker,
 };
