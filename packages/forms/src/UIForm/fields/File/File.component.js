@@ -18,6 +18,22 @@ const BASE64_NAME = ';name=';
 const BASE64_PREFIX = ';base64,';
 
 /**
+ * Decode the base64 file name with wide character support
+ * @param {string} filename The base64 value of the file name
+ * @returns {string} The decoded file name
+ */
+function base64Decode(filename) {
+	return decodeURIComponent(
+		atob(filename)
+			.split('')
+			.map(c => {
+				return `%${`00${c.charCodeAt(0).toString(16)}`.slice(-2)}`;
+			})
+			.join(''),
+	);
+}
+
+/**
  * Extract the file name from the value
  * @param {string} value The base64 value of the file.
  * Looks like `data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2l...`
@@ -36,7 +52,7 @@ function getFileName(value, schema) {
 			trigger => trigger.action === PRESIGNED_URL_TRIGGER_ACTION,
 		);
 		if (uploadTrigger) {
-			return atob(value.split('.')[1]);
+			return base64Decode(value.split('.')[1]);
 		}
 	}
 	return value;
