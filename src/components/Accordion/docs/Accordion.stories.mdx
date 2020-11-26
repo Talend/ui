@@ -1,4 +1,6 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { FigmaImage, Use } from '../../../docs';
+
 import Accordion from '../';
 import Button from '../../Button';
 
@@ -6,9 +8,40 @@ import Button from '../../Button';
 
 # Accordion
 
+The accordion component allows the user to display section of content; each item can be collapsed or expanded.
+
 ## Zoning
 
+<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=70%3A93" alt="zoning image for accordion" />
+
+
 ## Style
+
+### Variations
+
+**Accordion by default**
+
+<FigmaImage src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=3%3A63" alt="accordion by default" />
+
+**Accordion with status**
+
+<FigmaImage src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=2%3A93" alt="accordion with status" />
+
+**Reversed accordion**
+
+<FigmaImage src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=3%3A97" alt="reversed accordion" />
+
+### Sizes
+
+| Attribute  | Variable |
+| ---------- | -------- |
+| max-height | 37rem    |
+| min-width  | 25rem    |
+
+**Max heigh**
+
+The max-height of a dropdown is 37rem. A scroll-bar has to be added in the content after exceeding 37rem longer items.
+
 
 <Canvas>
     <Story name="default">
@@ -28,13 +61,32 @@ import Button from '../../Button';
 
 ## States
 
+The accordion component is by default in the collapsed state with all content panels closed.
+
+<FigmaImage src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=2%3A88" alt="accordion states" />
+
+
 ## Content
+
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>The title should be as brief as possible while still being clear and descriptive</li>
+		</ul>
+	</Use.Do>
+
+</Use>
 
 ## Interaction
 
 ## Accessibility
 
+- Press <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to expand or collapse the accordion when the area is focused.
+
 ## Usage
+
+The accordion component can be placed as main page content or placed inside of a container such as a drawer or an overview tile.
 
 ## Changelog
 
