@@ -36,9 +36,8 @@ function WithDrawer({ drawers, children }) {
 								get(drawer, 'props.route.state.withTransition')
 							}
 							key={get(drawer, 'props.route.path', key)}
-							className="tc-with-drawer-wrapper"
 						>
-							{drawer}
+							<div className="tc-with-drawer-wrapper">{drawer}</div>
 						</Drawer.Animation>
 					))}
 			</TransitionGroup>
