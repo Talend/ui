@@ -18,7 +18,7 @@ const BASE64_NAME = ';name=';
 const BASE64_PREFIX = ';base64,';
 
 /**
- * Decode the base64 file name with wide character support
+ * Decode the base64 file name with multi-byte character support
  * @param {string} filename The base64 value of the file name
  * @returns {string} The decoded file name
  */
