@@ -247,6 +247,6 @@ FileWidget.defaultProps = {
 	schema: {},
 };
 
-export { FileWidget };
+export { FileWidget, base64Decode };
 
 export default withTranslation(I18N_DOMAIN_FORMS)(FileWidget);
