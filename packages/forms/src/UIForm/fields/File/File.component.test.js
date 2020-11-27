@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import File, { FileWidget } from './File.component';
+import File, { FileWidget, base64Decode } from './File.component';
 
 describe('File field', () => {
 	const schema = {
@@ -242,5 +242,11 @@ describe('File field', () => {
 		expect(wrapper.state('fileName')).toBe('');
 		const textInputUpdated = wrapper.find('input[type="text"]');
 		expect(textInputUpdated.props().value).toBe('');
+	});
+
+	it('should base64 encode single and multi-byte strings', () => {
+		expect(base64Decode('Y3LDqG1lLnhsc3g=')).toBe('crème.xlsx');
+		expect(base64Decode('Y3JlYW0ueGxzeA==')).toBe('cream.xlsx');
+		expect(base64Decode('Y3JlYW0tYW5kLXN1Z2FyLnhsc3g=')).toBe('cream-and-sugar.xlsx');
 	});
 });
