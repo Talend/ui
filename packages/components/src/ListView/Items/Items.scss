@@ -21,6 +21,7 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 			.with-icon {
 				display: inline-flex;
 				margin: 0;
+				margin-left: $padding-smaller;
 
 				.tc-svg-icon {
 					height: $row-height;
