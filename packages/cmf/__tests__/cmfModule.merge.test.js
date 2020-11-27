@@ -163,13 +163,17 @@ describe('mergeModule', () => {
 	});
 
 	it('should merge reducer', () => {
-		const ob1 = { foo: jest.fn() };
-		const ob2 = { bar: jest.fn() };
+		const ob1 = { foo: jest.fn(), composed: { composed1: jest.fn() } };
+		const ob2 = { bar: jest.fn(), composed: { composed2: jest.fn() } };
 
 		const config = mergeModules({ reducer: ob1 }, { reducer: ob2 });
 		expect(typeof config.reducer).toBe('object');
 		expect(config.reducer.foo).toBe(ob1.foo);
 		expect(config.reducer.bar).toBe(ob2.bar);
+		expect(config.reducer.composed).toEqual({
+			composed1: ob1.composed.composed1,
+			composed2: ob2.composed.composed2,
+		});
 	});
 
 	it('should merge preReducer', () => {

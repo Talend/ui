@@ -20,6 +20,7 @@ const Input = React.forwardRef((props, ref) => {
 			id={id}
 			label={label}
 			inProgress={inProgress}
+			required={required}
 		>
 			<input
 				{...rest}

@@ -5,6 +5,8 @@ import ItemPropTypes from './Item.propTypes';
 import Action from '../../../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import Checkbox from '../../../Checkbox';
+import Icon from '../../../Icon';
+import TooltipTrigger from '../../../TooltipTrigger';
 
 class Item extends Component {
 	componentDidUpdate(prevProps) {
@@ -39,6 +41,7 @@ class Item extends Component {
 			'checkbox',
 			{ 'switch-nested': children },
 			{ switch: isSwitchBox },
+			{ 'with-icon': item.icon },
 		);
 		const ariaLabel = item.checked
 			? t('TC_LISTVIEW_DESELECT', { defaultValue: 'Deselect {{ value }}', value: item.label })
@@ -63,7 +66,18 @@ class Item extends Component {
 					id={itemId}
 					onChange={event => item.onChange(event, item, parentItem)}
 					checked={item.checked}
-					label={searchCriteria ? getSearchedLabel(item.label) : item.label}
+					label={
+						<>
+							{searchCriteria ? getSearchedLabel(item.label) : item.label}
+							{item.icon && (
+								<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+									<span>
+										<Icon {...item.icon} />
+									</span>
+								</TooltipTrigger>
+							)}
+						</>
+					}
 					aria-label={ariaLabel}
 				/>
 				{children && (

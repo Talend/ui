@@ -31,6 +31,7 @@ cp -R packages/faceted-search/storybook-static/* .static/faceted-search
 echo "✓ Copy faceted-search showcase to .static"
 
 cp -R packages/icons/docs/index.html .static/icons
+cp -R packages/icons/dist .static/icons
 echo "✓ Copy icons showcase to .static"
 
 cp -R packages/theme/example/index.html .static/theme

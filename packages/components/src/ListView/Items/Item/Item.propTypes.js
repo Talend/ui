@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Icon from '../../../Icon';
 
 export default {
 	id: PropTypes.string,
@@ -6,4 +7,5 @@ export default {
 	checked: PropTypes.bool,
 	onChange: PropTypes.func,
 	measure: PropTypes.func,
+	icon: PropTypes.shape(Icon.propTypes),
 };

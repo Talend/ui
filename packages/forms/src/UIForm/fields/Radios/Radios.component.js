@@ -44,6 +44,7 @@ export default function Radios({
 				schema.titleMap.map((option, index) => (
 					<div className={radioClassNames} key={index}>
 						<label>
+							{/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
 							<input
 								id={`${id}-${index}`}
 								autoFocus={autoFocus}
@@ -54,7 +55,6 @@ export default function Radios({
 								onChange={event => onChange(event, { schema, value: option.value })}
 								type="radio"
 								value={option.value}
-								// eslint-disable-next-line jsx-a11y/aria-proptypes
 								aria-invalid={!isValid}
 								aria-describedby={`${descriptionId} ${errorId}`}
 								{...extractDataAttributes(rest, index)}

@@ -22,7 +22,7 @@ describe('UIForm container', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	describe('#componentWillReceiveProps', () => {
+	describe('#UNSAFE_componentWillReceiveProps', () => {
 		it('should update state if form data structure changed', () => {
 			// given
 			const wrapper = shallow(<UIForm data={data} {...props} />);

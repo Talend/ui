@@ -3,25 +3,12 @@ import React from 'react';
 import { sfPath } from '@talend/json-schema-form-core';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
-import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 import shouldRender from '../utils/condition';
 
 import theme from './Widget.component.scss';
-
-function getWidget(displayMode, widgetId, customWidgets) {
-	// resolve the widget id depending on the display mode
-	const id = displayMode ? `${widgetId}_${displayMode}` : widgetId;
-
-	// Get the widget and fallback to default mode widget if not found
-	let widget = customWidgets[id] || defaultWidgets[id];
-	if (!widget) {
-		widget = customWidgets[widgetId] || defaultWidgets[widgetId];
-	}
-
-	return widget;
-}
+import { useWidget } from '../context';
 
 function isUpdating(updatingKeys = [], key) {
 	if (updatingKeys.length === 0 || !key) {
@@ -46,11 +33,11 @@ export default function Widget(props) {
 	} = props.schema;
 	const widgetId = widget || type;
 
+	const { widgets, WidgetImpl } = useWidget(widgetId, props.displayMode || displayMode);
+
 	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
 		return null;
 	}
-
-	const WidgetImpl = getWidget(props.displayMode || displayMode, widgetId, props.widgets);
 
 	if (!WidgetImpl) {
 		return <p className="text-danger">Widget not found {widgetId}</p>;
@@ -68,6 +55,7 @@ export default function Widget(props) {
 		isValid: !error,
 		value: getValue(props.properties, props.schema),
 		valueIsUpdating: isUpdating(props.updating, props.schema.key),
+		widgets,
 	};
 
 	if (tooltip) {
@@ -95,14 +83,7 @@ if (process.env.NODE_ENV !== 'production') {
 		idSeparator: PropTypes.string,
 		properties: PropTypes.object,
 		schema: PropTypes.shape({
-			condition: PropTypes.arrayOf(
-				PropTypes.shape({
-					path: PropTypes.string,
-					values: PropTypes.array,
-					strategy: PropTypes.string,
-					shouldBe: PropTypes.bool,
-				}),
-			),
+			condition: PropTypes.object,
 			displayMode: PropTypes.string,
 			key: PropTypes.array,
 			options: PropTypes.object,
@@ -112,7 +93,7 @@ if (process.env.NODE_ENV !== 'production') {
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,
 		}).isRequired,
-		updating: PropTypes.arrayOf(PropTypes.shape({ path: PropTypes.string })),
+		updating: PropTypes.arrayOf(PropTypes.string),
 		widgets: PropTypes.object,
 	};
 }

@@ -67,7 +67,12 @@ describe('List Manager', () => {
 	it('should propagate filter', () => {
 		// given
 		const wrapper = mount(
-			<ListManager collection={[{ id: 0, name: 'toto' }, { id: 1, name: 'tata' }]}>
+			<ListManager
+				collection={[
+					{ id: 0, name: 'toto' },
+					{ id: 1, name: 'tata' },
+				]}
+			>
 				<ContextTestConsumer />
 			</ListManager>,
 		);
@@ -91,10 +96,69 @@ describe('List Manager', () => {
 		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([{ id: 0, name: 'toto' }]);
 	});
 
+	it('should propagate column list', () => {
+		// given
+		const wrapper = mount(
+			<ListManager
+				collection={[
+					{ dataKey: 'id', label: 'ID' },
+					{ dataKey: 'name', label: 'Name' },
+				]}
+			>
+				<ContextTestConsumer />
+			</ListManager>,
+		);
+		expect(wrapper.find(TestConsumer).prop('columns')).toEqual([]);
+
+		const columns = ['id', 'name'];
+
+		// when
+		act(() => {
+			const setColumns = wrapper.find(TestConsumer).prop('setColumns');
+			setColumns(columns);
+		});
+		wrapper.update();
+
+		// then
+		expect(wrapper.find(TestConsumer).prop('columns')).toEqual(columns);
+	});
+
+	it('should propagate filtered column list', () => {
+		// given
+		const wrapper = mount(
+			<ListManager
+				collection={[
+					{ dataKey: 'id', label: 'ID' },
+					{ dataKey: 'name', label: 'Name' },
+				]}
+			>
+				<ContextTestConsumer />
+			</ListManager>,
+		);
+		expect(wrapper.find(TestConsumer).prop('filteredColumns')).toBeUndefined();
+
+		const filteredColumns = ['name'];
+
+		// when
+		act(() => {
+			const setFilteredColumns = wrapper.find(TestConsumer).prop('setFilteredColumns');
+			setFilteredColumns(filteredColumns);
+		});
+		wrapper.update();
+
+		// then
+		expect(wrapper.find(TestConsumer).prop('filteredColumns')).toBe(filteredColumns);
+	});
+
 	it('should propagate sort', () => {
 		// given
 		const wrapper = mount(
-			<ListManager collection={[{ id: 0, name: 'toto' }, { id: 1, name: 'tata' }]}>
+			<ListManager
+				collection={[
+					{ id: 0, name: 'toto' },
+					{ id: 1, name: 'tata' },
+				]}
+			>
 				<ContextTestConsumer />
 			</ListManager>,
 		);

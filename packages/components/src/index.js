@@ -28,6 +28,7 @@ import {
 	InputDateRangePicker,
 	InputDateTimePicker,
 	InputTimePicker,
+	InputDateTimeRangePicker,
 } from './DateTimePickers';
 import Dialog from './Dialog';
 import DraggableComponent from './Draggable';
@@ -38,6 +39,7 @@ import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
 import FocusManager from './FocusManager';
 import GridLayout from './GridLayout';
+import Gesture from './Gesture';
 import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
@@ -54,6 +56,7 @@ import Loader from './Loader';
 import MultiSelect from './MultiSelect';
 import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
+import OverlayTrigger from './OverlayTrigger';
 import PieChart from './PieChart';
 import Progress from './Progress';
 import QualityBar from './QualityBar';
@@ -126,7 +129,6 @@ const {
 	NavDropdown,
 	NavItem,
 	Overlay,
-	OverlayTrigger,
 	PageHeader,
 	PageItem,
 	Pager,
@@ -181,6 +183,7 @@ export {
 	InputDatePicker,
 	InputDateRangePicker,
 	InputDateTimePicker,
+	InputDateTimeRangePicker,
 	InputTimePicker,
 	Dialog,
 	DraggableComponent,
@@ -190,6 +193,7 @@ export {
 	Enumeration,
 	FilterBar,
 	FocusManager,
+	Gesture,
 	GridLayout,
 	GuidedTour,
 	HeaderBar,
@@ -207,7 +211,7 @@ export {
 	MultiSelect,
 	Notification,
 	ObjectViewer,
-	// TODO 6.0: export OverlayTrigger here. For now there is already an OverlayTrigger from react-bootstrap
+	OverlayTrigger,
 	PieChart,
 	Progress,
 	QualityBar,
@@ -282,7 +286,6 @@ export {
 	NavDropdown,
 	NavItem,
 	Overlay,
-	OverlayTrigger,
 	PageHeader,
 	PageItem,
 	Pager,

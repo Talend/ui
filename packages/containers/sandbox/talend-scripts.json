@@ -1,8 +1,10 @@
 {
+  "preset": "@talend/scripts-preset-react",
   "cmf": false,
-	"webpack": {
-		"config": {
-			"development": "./webpack.config.dev.js"
-		}
-	}
+  "html": {},
+  "webpack": {
+    "config": {
+      "development": "./webpack.config.dev.js"
+    }
+  }
 }
