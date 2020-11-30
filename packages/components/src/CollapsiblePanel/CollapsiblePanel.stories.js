@@ -135,8 +135,9 @@ storiesOf('Layout/CollapsiblePanel', module)
 			<h1>Collapsible Panel</h1>
 			<CollapsiblePanel
 				id="panel-default-1"
-				header={[{ label: 'Controlled collapsed panel' }]}
+				header={[{ label: 'Controlled collapsed panel'}]}
 				onToggle={action('onToggle')}
+				status="failed"
 			>
 				Coucou
 			</CollapsiblePanel>
@@ -145,6 +146,8 @@ storiesOf('Layout/CollapsiblePanel', module)
 				header={[{ label: 'Controlled expanded panel' }]}
 				onToggle={action('onToggle')}
 				expanded
+								status="failed"
+
 			>
 				Coucou
 			</CollapsiblePanel>
