@@ -48,7 +48,6 @@ $tc-tabbar-active-color: $lochmara;
 		.btn.btn-link {
 			padding: $padding-large;
 			width: 100%;
-			line-height: 1;
 			text-align: left;
 			text-overflow: ellipsis;
 			overflow: hidden;
@@ -102,7 +101,6 @@ $tc-tabbar-active-color: $lochmara;
 				border: none;
 				border-radius: 0;
 				color: $black;
-				line-height: 1;
 				margin-bottom: 0.5rem;
 				outline: none;
 				padding: $padding-smaller $padding-small;
