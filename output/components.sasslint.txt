@@ -2,7 +2,7 @@
 
 
 src/CollapsiblePanel/CollapsiblePanel.scss
-  139:5  error  Mixins should come before declarations  mixins-before-declarations
+  165:5  error  Mixins should come before declarations  mixins-before-declarations
 
 src/DataViewer/RecordsViewer/RecordsViewer.scss
    7:18  error  Variable 'backgroundColor' should be written in lowercase with hyphens  variable-name-format
