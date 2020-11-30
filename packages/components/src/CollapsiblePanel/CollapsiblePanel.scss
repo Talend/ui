@@ -66,11 +66,11 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		padding-left: 1px;
 	}
 
-    &:not(.open) {
-      :global(.panel-heading) {
-        border-bottom: none;
-       }
-    }
+	&:not(.open) {
+		:global(.panel-heading) {
+			border-bottom: none;
+		}
+	}
 
 	&.info,
 	&.success,
@@ -78,16 +78,16 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	&.muted,
 	&.warning,
 	&.skeleton {
-        :global(.panel-heading) {
-	        padding-left: 1px;
-            border-left: 5px solid;
-	    }
+		:global(.panel-heading) {
+			padding-left: 1px;
+			border-left: 5px solid;
+		}
 	}
 
 	&.info {
-        border-color: $brand-info;
-	    :global(.panel-heading) {
-		    border-color: $brand-info;
+		border-color: $brand-info;
+		:global(.panel-heading) {
+			border-color: $brand-info;
 		}
 		:global(.tc-status-label) {
 			color: $brand-info;
@@ -95,49 +95,49 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	}
 
 	&.success {
-        border-color: $brand-success;
-	    :global(.panel-heading) {
-            border-color: $brand-success;
-        }
+		border-color: $brand-success;
+		:global(.panel-heading) {
+			border-color: $brand-success;
+		}
 		:global(.tc-status-label) {
 			color: $brand-success;
 		}
 	}
 
 	&.danger {
-        border-color: $brand-danger;
-	    :global(.panel-heading) {
-		    border-color: $brand-danger;
-        }
+		border-color: $brand-danger;
+		:global(.panel-heading) {
+			border-color: $brand-danger;
+		}
 		:global(.tc-status-label) {
 			color: $brand-danger;
 		}
 	}
 
 	&.muted {
-        border-color: $gray;
-	    :global(.panel-heading) {
-		    border-color: $gray;
-        }
+		border-color: $gray;
+		:global(.panel-heading) {
+			border-color: $gray;
+		}
 		:global(.tc-status-label) {
 			color: $gray;
 		}
 	}
 
 	&.warning {
-        border-color: $brand-warning;
-	    :global(.panel-heading) {
-		    border-color: $brand-warning;
-        }
+		border-color: $brand-warning;
+		:global(.panel-heading) {
+			border-color: $brand-warning;
+		}
 		:global(.tc-status-label) {
 			color: $brand-warning;
 		}
 	}
 
 	&.skeleton {
-        border-color: $tc-skeleton-background-color;
-	    :global(.panel-heading) {
-		    border-color: $tc-skeleton-background-color;
+		border-color: $tc-skeleton-background-color;
+		:global(.panel-heading) {
+			border-color: $tc-skeleton-background-color;
 		}
 	}
 
