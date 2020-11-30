@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 
@@ -8,9 +9,10 @@ import theme from './Input.scss';
 
 export default function Input(props) {
 	const { time, inputManagement } = useContext(TimeContext);
+	const { minWidth, ...rest } = props;
 
 	return (
-		<InputSizer inputText={inputManagement.placeholder}>
+		<InputSizer inputText={inputManagement.placeholder} minWidth={minWidth}>
 			{width => (
 				<DebounceInput
 					autoComplete="off"
@@ -21,11 +23,15 @@ export default function Input(props) {
 					style={{ width }}
 					maxLength={inputManagement.placeholder.length}
 					{...inputManagement}
-					{...props}
+					{...rest}
 				/>
 			)}
 		</InputSizer>
 	);
 }
+
+Input.propTypes = {
+	minWidth: PropTypes.number,
+};
 
 Input.displayName = 'Time.Input';

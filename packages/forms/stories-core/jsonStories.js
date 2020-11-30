@@ -17,6 +17,14 @@ function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function stringToB64(string) {
+	return window.btoa(
+		encodeURIComponent(string).replace(/%([0-9A-F]{2})/g, (match, p1) => {
+			return String.fromCharCode(`0x${p1}`);
+		}),
+	);
+}
+
 function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
 	const methods = {
 		asc: (a, b) => (a > b ? -1 : 1),
@@ -178,7 +186,7 @@ function createCommonProps(tab) {
 							resolve({
 								properties: properties => ({
 									...properties,
-									[key]: `${uuid.v4()}.${btoa(name)}`,
+									[key]: `${uuid.v4()}.${stringToB64(name)}`,
 								}),
 							}),
 						3000,

@@ -24,6 +24,16 @@ storiesOf('Form/Controls/DatePicker/Date Time Range', module)
 			useSeconds
 		/>
 	))
+	.add('minWidth', () => (
+		<InputDateTimeRangePicker
+			id="my-datetime-range-picker"
+			onChange={action('onChange')}
+			onBlur={action('onBlur')}
+			useSeconds
+			minWidthDate={200}
+			minWidthTime={150}
+		/>
+	))
 	.add('Default time', () => (
 		<div>
 			<InputDateTimeRangePicker

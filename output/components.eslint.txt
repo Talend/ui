@@ -63,7 +63,7 @@
   108:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
-  87:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  91:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
   37:2  warning  The 'showHorizontalAndTest' function makes the dependencies of useEffect Hook (at line 53) change on every render. To fix this, wrap the 'showHorizontalAndTest' definition into its own useCallback() Hook  react-hooks/exhaustive-deps
@@ -116,7 +116,7 @@
   7:23  error  Unexpected use of file extension "js" for "./DraggableComponent.js"  import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
-  269:43  error  'footerActions' is already declared in the upper scope  no-shadow
+  264:43  error  'footerActions' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
   177:3   error  Empty components are self-closing  react/self-closing-comp
