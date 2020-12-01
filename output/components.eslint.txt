@@ -126,10 +126,14 @@
   264:43  error  'footerActions' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
-  178:3   error  Empty components are self-closing  react/self-closing-comp
-  179:3   error  Empty components are self-closing  react/self-closing-comp
-  253:33  error  Unary operator '++' used           no-plusplus
-  310:35  error  Unary operator '++' used           no-plusplus
+  178:3   error  Empty components are self-closing                    react/self-closing-comp
+  179:3   error  Empty components are self-closing                    react/self-closing-comp
+  253:33  error  Unary operator '++' used                             no-plusplus
+  310:35  error  Unary operator '++' used                             no-plusplus
+  458:55  error  'remove' was used before it was defined              @typescript-eslint/no-use-before-define
+  469:55  error  'remove' was used before it was defined              @typescript-eslint/no-use-before-define
+  480:55  error  'remove' was used before it was defined              @typescript-eslint/no-use-before-define
+  494:7   error  Assignment to property of function parameter 'accu'  no-param-reassign
 
 /home/travis/build/Talend/ui/packages/components/src/EditableText/EditableText.test.js
   12:3  error  Arrow function should not return assignment  no-return-assign
@@ -387,5 +391,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 208 problems (188 errors, 20 warnings)
+✖ 212 problems (192 errors, 20 warnings)
   15 errors and 0 warnings potentially fixable with the `--fix` option.
