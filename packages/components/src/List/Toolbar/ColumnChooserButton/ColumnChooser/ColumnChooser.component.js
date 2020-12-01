@@ -30,7 +30,7 @@ export default function ColumnChooser({
 }) {
 	const { t } = useTranslation();
 	const {
-		columns, visibleColumns,
+		columns, filteredColumns,
 		onChangeVisibility,
 		onSelectAll, selectAll,
 		setTextFilter, textFilter,
@@ -83,7 +83,7 @@ export default function ColumnChooser({
 	return (
 		<ColumnChooserProvider
 			value={{
-				columns: visibleColumns,
+				columns: filteredColumns,
 				id,
 				onChangeVisibility,
 				onSelectAll,

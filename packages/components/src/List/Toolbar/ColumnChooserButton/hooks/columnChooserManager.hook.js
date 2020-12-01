@@ -1,25 +1,6 @@
 import { useState, useMemo } from 'react';
 import flow from 'lodash/flow';
-import cloneDeep from 'lodash/cloneDeep';
 import { compareOrder } from '../service';
-
-const isItemVisible = item => item.visible;
-
-/**
- * Helps to change the select all visible status. If all columns are visible, select all is checked.
- * @param {array} columns
- */
-const isEveryItemVisible = columns => columns.every(isItemVisible);
-
-const findColumnLabel = label => column => column.label === label;
-
-export const getColumn = label => columns => columns.find(findColumnLabel(label));
-
-export const setColumn = (column, label) => columns => {
-	const index = columns.findIndex(findColumnLabel(label));
-	// eslint-disable-next-line no-param-reassign
-	columns[index] = column;
-};
 
 const orderColumns = columns => {
 	columns.sort(compareOrder).forEach((item, index) => {
@@ -64,25 +45,22 @@ const addMissingVisibleAttr = column => {
  * @param {array} columns
  * @param {number} lockedLeftItems
  */
-const prepareColumns = (columns, lockedLeftItems) =>
-	columns.map((column, index) =>
+const prepareColumns = (columns, lockedLeftItems) => {
+	const prepared = columns.map((column, index) =>
 		flow([extractColumnValues, addMissingVisibleAttr, addColumnLockedAttr(lockedLeftItems, index)])(
 			column,
 		),
 	);
 
-const changeColumnChooserAttribute = key => value => column => {
+	return orderColumns(prepared);
+};
+
+const updateVisibility = (column, visible) => {
 	if (!column.locked) {
-		return { ...column, [key]: value };
+		return { ...column, visible };
 	}
 	return column;
 };
-
-const updateVisibilityAttr = changeColumnChooserAttribute('visible');
-
-const hasColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
-
-const filterColumns = (columns, filter) => columns.filter(hasColumnLabel(filter));
 
 /** *******************************************************************************
  * HOOK ENTRY POINT
@@ -94,45 +72,55 @@ const filterColumns = (columns, filter) => columns.filter(hasColumnLabel(filter)
  * @param {number} nbLockedLeftItems
  */
 export const useColumnChooserManager = (initialColumns = [], nbLockedLeftItems = 0, initialFilterValue = '') => {
-	const [textFilter, setTextFilter] = useState(initialFilterValue);
-
-	const columns = useMemo(
-		() => prepareColumns(initialColumns, nbLockedLeftItems),
-		[initialColumns, nbLockedLeftItems]
+	const [columns, setColumns] = useState(
+		() => prepareColumns(initialColumns, nbLockedLeftItems)
 	);
 
-	const visibleColumns = useMemo(
-		() => filterColumns(columns, textFilter),
+	const [textFilter, setTextFilter] = useState(initialFilterValue);
+
+	const filteredColumns = useMemo(
+		() => columns.filter(
+			column => column.label.toLowerCase().includes(textFilter.toLowerCase()
+			)
+		),
 		[columns, textFilter]
 	);
 
-	const [state, setState] = useState({
-		columns: orderColumns(columns),
-		selectAll: isEveryItemVisible(columns),
-	});
-
-	const updateState = (updatedColumns, updatedSelectAll) => {
-		setState({
-			columns: updatedColumns,
-			selectAll: updatedSelectAll,
-		});
-	};
 	const onChangeVisibility = (value, label) => {
-		const columnUpdated = flow([getColumn(label), updateVisibilityAttr(value)])(state.columns);
-		setColumn(columnUpdated, label)(state.columns);
-		updateState(state.columns, isEveryItemVisible(state.columns));
+		const newColumns = columns.map(column => {
+			if (column.label !== label) {
+				return column;
+			}
+
+			return updateVisibility(column, value);
+		});
+
+		setColumns(newColumns);
 	};
 
 	const onSelectAll = value => {
-		updateState(state.columns.map(updateVisibilityAttr(value)), value);
+		const newColumns = columns.map(column => {
+			if (!filteredColumns.some(fColumn => fColumn.label === column.label)) {
+				// Column is not part of the filtered columns, ignore it
+				return column;
+			}
+
+			return updateVisibility(column, value);
+		});
+
+		setColumns(newColumns);
 	};
+
+	const selectAll = useMemo(() => {
+		return filteredColumns.length > 0 && filteredColumns.every(column => column.visible);
+	}, [filteredColumns]);
 
 	return {
 		onChangeVisibility,
 		onSelectAll,
-		columns: cloneDeep(state.columns),
-		visibleColumns,
-		selectAll: state.selectAll,
+		columns,
+		filteredColumns,
+		selectAll,
 		textFilter,
 		setTextFilter,
 	};
