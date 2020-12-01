@@ -32,7 +32,6 @@ function DrawerAnimation(props) {
 		<Transition
 			in
 			appear
-			exit
 			timeout={{
 				appear: 0,
 				enter: 0,
