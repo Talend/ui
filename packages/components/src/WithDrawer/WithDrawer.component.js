@@ -24,26 +24,23 @@ body > div {
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
 function WithDrawer({ drawers, children }) {
-	const hasDrawer = drawers && drawers.length > 0;
 	return (
 		<div className={theme['tc-with-drawer']}>
 			{children}
-			{hasDrawer && (
-				<TransitionGroup className={theme['tc-with-drawer-container']}>
-					{drawers &&
-						drawers.map((drawer, key) => (
-							<Drawer.Animation
-								withTransition={
-									get(drawer, 'props.withTransition', true) &&
-									get(drawer, 'props.route.state.withTransition')
-								}
-								key={get(drawer, 'props.route.path', key)}
-							>
-								<div className="tc-with-drawer-wrapper">{drawer}</div>
-							</Drawer.Animation>
-						))}
-				</TransitionGroup>
-			)}
+			<TransitionGroup className={theme['tc-with-drawer-container']}>
+				{drawers &&
+					drawers.map((drawer, key) => (
+						<Drawer.Animation
+							withTransition={
+								get(drawer, 'props.withTransition', true) &&
+								get(drawer, 'props.route.state.withTransition')
+							}
+							key={get(drawer, 'props.route.path', key)}
+						>
+							<div className="tc-with-drawer-wrapper">{drawer}</div>
+						</Drawer.Animation>
+					))}
+			</TransitionGroup>
 		</div>
 	);
 }
