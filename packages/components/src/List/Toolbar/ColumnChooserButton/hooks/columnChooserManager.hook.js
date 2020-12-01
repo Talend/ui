@@ -71,7 +71,7 @@ const prepareColumns = (columns, lockedLeftItems) =>
 		),
 	);
 
-export const changeColumnChooserAttribute = key => value => column => {
+const changeColumnChooserAttribute = key => value => column => {
 	if (!column.locked) {
 		return { ...column, [key]: value };
 	}
