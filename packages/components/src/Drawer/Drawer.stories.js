@@ -476,11 +476,11 @@ storiesOf('Layout/Drawer', module)
 			),
 			third: (
 				<Drawer
-					withTransition
+					withTransition={false}
 					title="Im drawer 3"
 					onCancelAction={{ label: 'Close', onClick: () => remove('third') }}
 				>
-					<h1>Hello drawer 3</h1>
+					<h1>No transition on this one</h1>
 					Coucou
 				</Drawer>
 			),
