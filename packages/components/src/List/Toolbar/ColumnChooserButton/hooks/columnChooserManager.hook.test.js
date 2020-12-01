@@ -8,7 +8,13 @@ const initialColumns = [
 	{ key: 'name', label: 'Name', order: 2 },
 	{ key: 'author', label: 'Author', order: 3 },
 	{ key: 'created', label: 'Created', order: 6 },
-	{ key: 'modified', label: 'Modified', order: 4, header: 'icon', data: { iconName: 'talend-scheduler' } },
+	{
+		key: 'modified',
+		label: 'Modified',
+		order: 4,
+		header: 'icon',
+		data: { iconName: 'talend-scheduler' },
+	},
 	{ key: 'icon', label: 'Icon', visible: true, order: 5 },
 ];
 

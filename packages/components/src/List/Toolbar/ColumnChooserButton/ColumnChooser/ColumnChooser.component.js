@@ -30,15 +30,14 @@ export default function ColumnChooser({
 }) {
 	const { t } = useTranslation();
 	const {
-		columns, filteredColumns,
+		columns,
+		filteredColumns,
 		onChangeVisibility,
-		onSelectAll, selectAll,
-		setTextFilter, textFilter,
-	} = useColumnChooserManager(
-		columnsFromList,
-		nbLockedLeftItems,
-		initialFilterValue,
-	);
+		onSelectAll,
+		selectAll,
+		setTextFilter,
+		textFilter,
+	} = useColumnChooserManager(columnsFromList, nbLockedLeftItems, initialFilterValue);
 
 	useEffect(() => {
 		// eslint-disable-next-line no-console

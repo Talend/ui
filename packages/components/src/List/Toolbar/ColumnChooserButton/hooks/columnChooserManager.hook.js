@@ -71,19 +71,18 @@ const updateVisibility = (column, visible) => {
  * @param {array} initColumns
  * @param {number} nbLockedLeftItems
  */
-export const useColumnChooserManager = (initialColumns = [], nbLockedLeftItems = 0, initialFilterValue = '') => {
-	const [columns, setColumns] = useState(
-		() => prepareColumns(initialColumns, nbLockedLeftItems)
-	);
+export const useColumnChooserManager = (
+	initialColumns = [],
+	nbLockedLeftItems = 0,
+	initialFilterValue = '',
+) => {
+	const [columns, setColumns] = useState(() => prepareColumns(initialColumns, nbLockedLeftItems));
 
 	const [textFilter, setTextFilter] = useState(initialFilterValue);
 
 	const filteredColumns = useMemo(
-		() => columns.filter(
-			column => column.label.toLowerCase().includes(textFilter.toLowerCase()
-			)
-		),
-		[columns, textFilter]
+		() => columns.filter(column => column.label.toLowerCase().includes(textFilter.toLowerCase())),
+		[columns, textFilter],
 	);
 
 	const onChangeVisibility = (value, label) => {
