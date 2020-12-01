@@ -11,7 +11,6 @@ import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from '../SidePanel';
 import { ActionButton } from '../Actions';
-import { remove } from 'lodash';
 
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
