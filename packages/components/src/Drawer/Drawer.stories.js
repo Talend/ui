@@ -11,6 +11,7 @@ import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from '../SidePanel';
 import { ActionButton } from '../Actions';
+import { remove } from 'lodash';
 
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
@@ -445,6 +446,65 @@ storiesOf('Layout/Drawer', module)
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 				<span>zone with drawer</span>
 				<IconsProvider />
+			</Layout>
+		);
+	})
+	.add('Interactive', () => {
+		const allDrawers = {
+			first: (
+				<Drawer
+					withTransition
+					stacked
+					title="Im stacked drawer 1"
+					onCancelAction={{ label: 'Close', onClick: () => remove('first') }}
+				>
+					<h1>Hello drawer 1</h1>
+					<p>You should not being able to read this because I'm first</p>
+				</Drawer>
+			),
+			second: (
+				<Drawer
+					withTransition
+					stacked
+					title="Im drawer 2"
+					onCancelAction={{ label: 'Close', onClick: () => remove('second') }}
+				>
+					<h1>Hello drawer 2</h1>
+					<p>The scroll is defined by the content</p>
+					{scrollableContent()}
+				</Drawer>
+			),
+			third: (
+				<Drawer
+					withTransition
+					title="Im drawer 3"
+					onCancelAction={{ label: 'Close', onClick: () => remove('third') }}
+				>
+					<h1>Hello drawer 3</h1>
+					Coucou
+				</Drawer>
+			),
+		};
+		const [displayedDrawers, setDisplayedDrawers] = React.useState(allDrawers);
+
+		function remove(id) {
+			setDisplayedDrawers(oldDrawers =>
+				Object.entries(oldDrawers)
+					.filter(([key]) => key !== id)
+					.reduce((accu, [key, value]) => {
+						accu[key] = value;
+						return accu;
+					}, {}),
+			);
+		}
+
+		return (
+			<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
+				<div style={{ padding: '1.5rem' }}>
+					<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
+						Set back the drawers
+					</button>
+				</div>
 			</Layout>
 		);
 	});
