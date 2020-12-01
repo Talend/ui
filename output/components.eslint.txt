@@ -123,20 +123,17 @@
   7:23  error  Unexpected use of file extension "js" for "./DraggableComponent.js"  import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
-  272:43  error  'footerActions' is already declared in the upper scope  no-shadow
+  270:43  error  'footerActions' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.stories.js
-   14:1   error  `lodash` import should occur before import of `./Drawer.component`  import/order
-   14:10  error  'remove' is defined but never used                                  @typescript-eslint/no-unused-vars
-  179:3   error  Empty components are self-closing                                   react/self-closing-comp
-  180:3   error  Empty components are self-closing                                   react/self-closing-comp
-  254:33  error  Unary operator '++' used                                            no-plusplus
-  311:35  error  Unary operator '++' used                                            no-plusplus
-  459:55  error  'remove' was used before it was defined                             @typescript-eslint/no-use-before-define
-  470:55  error  'remove' was used before it was defined                             @typescript-eslint/no-use-before-define
-  481:55  error  'remove' was used before it was defined                             @typescript-eslint/no-use-before-define
-  490:12  error  'remove' is already declared in the upper scope                     no-shadow
-  495:7   error  Assignment to property of function parameter 'accu'                 no-param-reassign
+  178:3   error  Empty components are self-closing                    react/self-closing-comp
+  179:3   error  Empty components are self-closing                    react/self-closing-comp
+  253:33  error  Unary operator '++' used                             no-plusplus
+  310:35  error  Unary operator '++' used                             no-plusplus
+  458:55  error  'remove' was used before it was defined              @typescript-eslint/no-use-before-define
+  469:55  error  'remove' was used before it was defined              @typescript-eslint/no-use-before-define
+  480:55  error  'remove' was used before it was defined              @typescript-eslint/no-use-before-define
+  494:7   error  Assignment to property of function parameter 'accu'  no-param-reassign
 
 /home/travis/build/Talend/ui/packages/components/src/EditableText/EditableText.test.js
   12:3  error  Arrow function should not return assignment  no-return-assign
@@ -394,5 +391,5 @@
   703:23  error  Caution: `VirtualizedList` also has a named export `headerDictionary`. Check if you meant to write `import {headerDictionary} from '.'` instead  import/no-named-as-default-member
   703:56  error  ["resizable"] is better written in dot notation                                                                                                  dot-notation
 
-✖ 215 problems (195 errors, 20 warnings)
-  16 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 212 problems (192 errors, 20 warnings)
+  15 errors and 0 warnings potentially fixable with the `--fix` option.
