@@ -19,6 +19,7 @@
 .tc-tab-bar {
 	white-space: nowrap;
 	overflow: hidden;
+	flex: 1;
 
 	& &-item {
 		float: none;
