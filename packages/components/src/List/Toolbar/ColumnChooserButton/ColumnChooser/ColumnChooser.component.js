@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { ColumnChooserProvider } from './columnChooser.context';
@@ -12,8 +12,6 @@ import { getTheme } from '../../../../theme';
 
 const theme = getTheme(cssModule);
 
-const hasColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
-const filterColumns = (columns, filter) => columns.filter(hasColumnLabel(filter));
 const changeVisibleToHidden = column => ({
 	hidden: !column.visible,
 	label: column.label,
@@ -32,7 +30,7 @@ export default function ColumnChooser({
 }) {
 	const { t } = useTranslation();
 	const {
-		columns,
+		columns, visibleColumns,
 		onChangeVisibility,
 		onSelectAll, selectAll,
 		setTextFilter, textFilter,
@@ -58,7 +56,7 @@ export default function ColumnChooser({
 	// Filter field callbacks
 	const onFilter = useCallback((_, value) => setTextFilter(value), [setTextFilter]);
 	const resetFilter = useCallback(() => setTextFilter(''), [setTextFilter]);
-	const filteredColumns = useMemo(() => filterColumns(columns, textFilter), [columns, textFilter]);
+
 	const Default = (
 		<React.Fragment>
 			<ColumnChooserHeader />
@@ -85,7 +83,7 @@ export default function ColumnChooser({
 	return (
 		<ColumnChooserProvider
 			value={{
-				columns: filteredColumns,
+				columns: visibleColumns,
 				id,
 				onChangeVisibility,
 				onSelectAll,

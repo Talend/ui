@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import flow from 'lodash/flow';
 import cloneDeep from 'lodash/cloneDeep';
 import { compareOrder } from '../service';
@@ -80,6 +80,10 @@ const changeColumnChooserAttribute = key => value => column => {
 
 const updateVisibilityAttr = changeColumnChooserAttribute('visible');
 
+const hasColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
+
+const filterColumns = (columns, filter) => columns.filter(hasColumnLabel(filter));
+
 /** *******************************************************************************
  * HOOK ENTRY POINT
  ******************************************************************************** */
@@ -92,7 +96,15 @@ const updateVisibilityAttr = changeColumnChooserAttribute('visible');
 export const useColumnChooserManager = (initialColumns = [], nbLockedLeftItems = 0, initialFilterValue = '') => {
 	const [textFilter, setTextFilter] = useState(initialFilterValue);
 
-	const columns = prepareColumns(initialColumns, nbLockedLeftItems);
+	const columns = useMemo(
+		() => prepareColumns(initialColumns, nbLockedLeftItems),
+		[initialColumns, nbLockedLeftItems]
+	);
+
+	const visibleColumns = useMemo(
+		() => filterColumns(columns, textFilter),
+		[columns, textFilter]
+	);
 
 	const [state, setState] = useState({
 		columns: orderColumns(columns),
@@ -119,6 +131,7 @@ export const useColumnChooserManager = (initialColumns = [], nbLockedLeftItems =
 		onChangeVisibility,
 		onSelectAll,
 		columns: cloneDeep(state.columns),
+		visibleColumns,
 		selectAll: state.selectAll,
 		textFilter,
 		setTextFilter,
