@@ -284,18 +284,17 @@ export default function cmfConnect({
 				// eslint-disable-next-line react-hooks/exhaustive-deps
 			}, []);
 			function getOnEventProps() {
-				return { toOmit: [] };
-				// TODO: fixme
-				// return Object.keys(props).reduce(
-				// 	(acc, key) => {
-				// 		// TODO check how to replace the this
-				// 		onEvent.addOnEventSupport(onEvent.DISPATCH, this, acc, key);
-				// 		onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, this, acc, key);
-				// 		onEvent.addOnEventSupport(onEvent.SETSTATE, this, acc, key);
-				// 		return acc;
-				// 	},
-				// 	{ toOmit: [] },
-				// );
+				const withDispatchProps = { ...props, dispatchActionCreator };
+				return Object.keys(props).reduce(
+					(acc, key) => {
+						// TODO check how to replace the this
+						onEvent.addOnEventSupport(onEvent.DISPATCH, withDispatchProps, acc, key);
+						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, withDispatchProps, acc, key);
+						onEvent.addOnEventSupport(onEvent.SETSTATE, withDispatchProps, acc, key);
+						return acc;
+					},
+					{ toOmit: [] },
+				);
 			}
 
 			if (props.renderIf === false) {

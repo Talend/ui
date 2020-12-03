@@ -294,7 +294,7 @@ describe('cmfConnect', () => {
 		});
 		it('should support no context in dispatchActionCreator', () => {
 			const TestComponent = props => {
-				const rest = Object.assign({}, omit(props, cmfConnect.INJECTED_PROPS));
+				const rest = { ...omit(props, cmfConnect.INJECTED_PROPS) };
 				return <div className="test-component" {...rest} />;
 			};
 			TestComponent.displayName = 'TestComponent';
@@ -582,7 +582,10 @@ describe('cmfConnect', () => {
 			function FunctionComponent() {
 				return <div />;
 			}
+
+			// eslint-disable-next-line react/prefer-stateless-function
 			class ClassComponent extends React.Component {}
+
 			const CMFConnectedArrow = cmfConnect({})(ArrowComponent);
 			const CMFConnectedFunction = cmfConnect({})(FunctionComponent);
 			const CMFConnectedClass = cmfConnect({})(ClassComponent);

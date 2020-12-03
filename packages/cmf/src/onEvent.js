@@ -9,14 +9,14 @@ function serializeEvent(event) {
 	return event;
 }
 
-function getOnEventActionCreatorHandler(instance, config, currentHandler) {
+function getOnEventActionCreatorHandler(props, config, currentHandler) {
 	let actionCreator = config;
 	if (typeof config === 'object') {
 		actionCreator = config.id;
 	}
 	return function onEventActionCreator(...args) {
-		instance.dispatchActionCreator(actionCreator, serializeEvent(args[0]), {
-			props: instance.props,
+		props.dispatchActionCreator(actionCreator, serializeEvent(args[0]), {
+			props,
 			...args[1],
 			...(config.data || {}),
 		});
@@ -26,21 +26,21 @@ function getOnEventActionCreatorHandler(instance, config, currentHandler) {
 	};
 }
 
-function getOnEventDispatchHandler(instance, config, currentHandler) {
+function getOnEventDispatchHandler(props, config, currentHandler) {
 	return function onEventDispatch(...args) {
 		const payload = {
 			event: serializeEvent(args[0]),
 			data: args[1],
 			...config,
 		};
-		instance.props.dispatch(payload);
+		props.dispatch(payload);
 		if (currentHandler) {
 			currentHandler(...args);
 		}
 	};
 }
 
-function getOnEventSetStateHandler(instance, config, currentHandler) {
+function getOnEventSetStateHandler(props, config, currentHandler) {
 	return function onEventSetState(...args) {
 		if (typeof currentHandler === 'function') {
 			currentHandler(...args);
@@ -59,7 +59,7 @@ function getOnEventSetStateHandler(instance, config, currentHandler) {
 				}
 			} else if (value === 'toggle') {
 				// because toggle need to read the state we dispatch it with a function
-				instance.props.setState(props => instance.props.setState({ [key]: !props.state.get(key) }));
+				props.setState(_props => props.setState({ [key]: !_props.state.get(key) }));
 			} else {
 				// eslint-disable-next-line no-param-reassign
 				acc[key] = value;
@@ -67,7 +67,7 @@ function getOnEventSetStateHandler(instance, config, currentHandler) {
 			return acc;
 		}, {});
 		if (Object.keys(state).length > 0) {
-			instance.props.setState(state);
+			props.setState(state);
 		}
 	};
 }
@@ -84,7 +84,7 @@ const SETSTATE = 'SETSTATE';
 
 const INITIAL_STATE = new Immutable.Map();
 
-function addOnEventSupport(handlerType, instance, props, key) {
+function addOnEventSupport(handlerType, props, key) {
 	if (CONSTANT[`IS_HANDLER_${handlerType}_REGEX`].test(key)) {
 		if (handlerType === SETSTATE) {
 			if (!props.spreadCMFState) {
@@ -98,13 +98,9 @@ function addOnEventSupport(handlerType, instance, props, key) {
 		}
 		props.toOmit.push(key);
 		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
-		const originalEventHandler = props[handlerKey] || instance.props[handlerKey];
+		const originalEventHandler = props[handlerKey] || props[handlerKey];
 		// eslint-disable-next-line no-param-reassign
-		props[handlerKey] = GET_HANDLER[handlerType](
-			instance,
-			instance.props[key],
-			originalEventHandler,
-		);
+		props[handlerKey] = GET_HANDLER[handlerType](props, props[key], originalEventHandler);
 	}
 }
 
