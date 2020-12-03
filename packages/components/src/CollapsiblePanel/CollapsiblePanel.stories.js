@@ -149,7 +149,7 @@ storiesOf('Layout/CollapsiblePanel', module)
 				Coucou
 			</CollapsiblePanel>
 			<CollapsiblePanel
-				id="panel-default-2"
+				id="panel-default-fail"
 				header={[{ label: 'Controlled expanded panel with status fail' }]}
 				onToggle={action('onToggle')}
 				expanded
@@ -158,11 +158,11 @@ storiesOf('Layout/CollapsiblePanel', module)
 				Coucou
 			</CollapsiblePanel>
 			<CollapsiblePanel
-				id="panel-default-2"
+				id="panel-default-success"
 				header={[{ label: 'Controlled expanded panel with success status' }]}
 				onToggle={action('onToggle')}
 				expanded
-				status={'successful'}
+				status="successful"
 			>
 				Coucou
 			</CollapsiblePanel>
