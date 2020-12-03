@@ -34,16 +34,19 @@ const Link: React.FC<LinkProps> = React.forwardRef(
 		}: LinkProps,
 		ref,
 	) => {
-		const isBlank = target?.toLocaleLowerCase().includes('blank');
-		const isExternal = !hideExternalIcon && href?.toLocaleLowerCase().includes('http');
+		const isBlank = React.useMemo(() => target?.toLowerCase() === '_blank', [target]);
 
-		function getTitle() {
+		const isExternal = React.useMemo(() => {
+			return /^https?:\/\//i.test(href) && new URL(href).host !== location.host;
+		}, [target]);
+
+		const getTitle = React.useCallback(() => {
 			if (disabled && title) return `${title} (this link is disabled)`;
 			if (disabled) return `This link is disabled`;
 			if (isExternal && title) return `${title} (open in a new tab)`;
 			if (isExternal) return `Open in a new tab`;
 			return title;
-		}
+		}, [disabled, title, isExternal]);
 
 		return (
 			<S.Link

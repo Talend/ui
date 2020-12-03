@@ -8,10 +8,39 @@ export const Link = styled.a(
 	font-family: ${tokens.fonts.sansSerif};
 	color: ${theme.colors.activeColor};
 	
+	.link__text {
+		border-bottom: .1rem solid transparent;
+		transition: .3s ease; 
+	}
+	
+	.link__text, 
+	.link__icon {
+	    vertical-align: middle;
+	}
+
+	.link__icon {
+  		height: ${tokens.sizes.m};
+  		width: ${tokens.sizes.m};
+  		
+  		&--external {
+			height: ${tokens.sizes.s};
+			width: ${tokens.sizes.s};
+		}
+  		
+  		&--before {
+  			margin-right: ${tokens.space.xs};
+		}
+  		
+  		&--external,
+	 	&--after {
+			margin-left: ${tokens.space.xs};
+		}
+	}
+	
 	&:hover,
 	&:active {
 		.link__text {
-			text-decoration: underline;
+			border-bottom-color: ${theme.colors.activeColor};
 		}
 	}
 	
@@ -22,27 +51,13 @@ export const Link = styled.a(
 	&:active {
 		color: ${shade(0.4, theme.colors.activeColor)};
 	}
-
-	.link__icon {
-		display: inline-block;
-		vertical-align: baseline;
-  		
-  		&--before {
-  			margin-right: ${tokens.space.s};
-		}
-  		
-  		&--external,
-	 	&--after {
-			margin-left: ${tokens.space.xs};
-		}
-	}
 	
 	&.link--disabled {
 		cursor: not-allowed;
 		opacity: ${tokens.opacity.disabled};
 		
 		.link__text {
-			text-decoration: none;
+			border-bottom-color: transparent;
 		}
 	}
 `,
