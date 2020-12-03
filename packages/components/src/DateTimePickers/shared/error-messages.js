@@ -1,7 +1,7 @@
 /*
-* Unexpected issues when importing t directly with named import
-* https://github.com/i18next/i18next/issues/1287
-* */
+ * Unexpected issues when importing t directly with named import
+ * https://github.com/i18next/i18next/issues/1287
+ * */
 // eslint-disable-next-line import/no-named-as-default-member
 import i18next from 'i18next';
 
