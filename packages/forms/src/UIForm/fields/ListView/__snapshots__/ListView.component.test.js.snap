@@ -581,11 +581,7 @@ exports[`ListView field render should render no items message 1`] = `
                         focusable="false"
                         name="talend-search"
                         title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-search"
-                        />
-                      </svg>
+                      />
                     </Icon>
                   </button>
                 </Button>

@@ -22,8 +22,6 @@ exports[`ColumnChooser should render with default props 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-search">
-      </use>
     </svg>
     <input name="search"
            placeholder="Find a column"

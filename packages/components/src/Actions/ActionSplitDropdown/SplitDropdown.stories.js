@@ -1,16 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
-import IconsProvider from '../../IconsProvider';
-
-const icons = {
-	'talend-environment': talendIcons['talend-environment'],
-	'talend-logo-dp': talendIcons['talend-logo-dp'],
-	'talend-logo-ic': talendIcons['talend-logo-ic'],
-};
 
 const items = [
 	{
@@ -50,7 +42,6 @@ storiesOf('Deprecated/SplitDropdown', module)
 		<div>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider defaultIcons={icons} />
 		</div>
 	))
 	.add('default', () => (

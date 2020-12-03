@@ -1,3 +1,4 @@
+import React from 'react';
 import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
@@ -9,6 +10,7 @@ import { mock } from '@talend/react-cmf';
 import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
+import { IconsProvider } from '@talend/react-components';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import i18n from './../../../.storybook/i18n';
 import ComponentOverlay from './ComponentOverlay';
@@ -31,6 +33,14 @@ addDecorator(
 );
 addDecorator(withCMF);
 addDecorator(withA11y);
+addDecorator(storyFn => (
+	<>
+		<IconsProvider
+			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
+		/>
+		{storyFn()}
+	</>
+));
 
 registerAllContainers();
 const actionLogger = action('dispatch');

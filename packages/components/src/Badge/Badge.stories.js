@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import Badge from './Badge.component';
 import FilterBar from '../FilterBar';
 import Action from '../Actions/Action';
-import IconsProvider from '../IconsProvider';
 
 const defaultStyle = {
 	display: 'flex',
@@ -20,13 +18,6 @@ const columnStyle = {
 	flexGrow: '1',
 	maxWidth: '250px',
 	padding: '0 10px',
-};
-
-const icons = {
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-clock': talendIcons['talend-clock'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-search': talendIcons['talend-search'],
 };
 
 const dropdownProps = {
@@ -101,7 +92,7 @@ storiesOf('Navigation/Badge', module)
 		<React.Fragment>
 			<section>
 				<h1>New visual</h1>
-				<IconsProvider defaultIcons={icons} />
+
 				<div style={defaultStyle} id="newVisual-header">
 					<div style={columnStyle}>
 						<span>Tags as links</span>
@@ -355,7 +346,7 @@ storiesOf('Navigation/Badge', module)
 
 			<section>
 				<h1>New visual - Disabled</h1>
-				<IconsProvider defaultIcons={icons} />
+
 				<div style={defaultStyle} id="newVisualDisabled-header">
 					<div style={columnStyle}>
 						<span>Tags as links</span>
@@ -671,7 +662,7 @@ storiesOf('Navigation/Badge', module)
 
 			<section style={greyBackgroundStyle}>
 				<h1>New visual - white background</h1>
-				<IconsProvider defaultIcons={icons} />
+
 				<div style={defaultStyle} id="newVisualWhite-header">
 					<div style={columnStyle}>
 						<span>/</span>
@@ -776,7 +767,7 @@ storiesOf('Navigation/Badge', module)
 
 			<section>
 				<h1>Old Examples</h1>
-				<IconsProvider defaultIcons={icons} />
+
 				<div style={defaultStyle} id="oldExample-header">
 					<div style={columnStyle}>
 						<span>Read Only</span>
@@ -894,7 +885,6 @@ storiesOf('Navigation/Badge', module)
 	))
 	.add('colored', () => (
 		<>
-			<IconsProvider defaultIcons={icons} />
 			{Object.entries(Badge.TYPES).map(([name, value]) => (
 				<div>
 					{name}

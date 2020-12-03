@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { Map } from 'immutable';
 import Slider from '../src/Slider';
 
@@ -74,7 +74,6 @@ const initialState = new Map({
 const ExampleSlider = {
 	Slider: () => (
 		<div style={{ padding: '0 12px' }}>
-			<IconsProvider />
 			<div style={delimiterStyle}>
 				<p style={paragraphStyle}>default</p>
 				<Slider id="slider1" initialState={initialState} />

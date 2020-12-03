@@ -2,27 +2,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
-import IconsProvider from '../IconsProvider';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
-
-const APPS_WITH_SIDEPANEL = ['tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc', 'mdm'];
-
-const icons = {
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-download': talendIcons['talend-download'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-opener': talendIcons['talend-opener'],
-	'talend-world': talendIcons['talend-world'],
-	'talend-user-circle': talendIcons['talend-user-circle'],
-	'talend-group-circle': talendIcons['talend-group-circle'],
-	'talend-roles': talendIcons['talend-roles'],
-	'talend-license': talendIcons['talend-license'],
-	'talend-projects': talendIcons['talend-projects'],
-	'talend-activity': talendIcons['talend-activity'],
-};
 
 const actions = [
 	{
@@ -116,12 +97,6 @@ const other = [
 const stories = storiesOf('Navigation/SidePanel', module);
 
 stories
-	.addDecorator(story => (
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-		</div>
-	))
 	.add('uncontrolled', () => (
 		<SidePanel
 			id="context"
@@ -225,9 +200,16 @@ stories
 
 const appStyle = require('../../stories/config/themes.scss');
 
-APPS_WITH_SIDEPANEL.forEach(app => {
-	stories.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
-		<div className={appStyle[app]}>
+[
+	{ key: 'mdm', value: 'Master Data Management' },
+	{ key: 'tdc', value: 'Data Inventory' },
+	{ key: 'tdp', value: 'Data Preparation' },
+	{ key: 'tds', value: 'Data Stewardship' },
+	{ key: 'tmc', value: 'Management Console' },
+	{ key: 'tfd', value: 'Pipeline Designer' },
+].forEach(({ key, value }) => {
+	stories.add(`[${value}] SidePanel`, () => (
+		<div className={appStyle[key]}>
 			<div className={Layout.TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
 				<SidePanel id="context" actions={actions} tooltipPlacement="top" />
 			</div>
@@ -235,7 +217,7 @@ APPS_WITH_SIDEPANEL.forEach(app => {
 	));
 });
 
-stories.add('🎨 [Portal] reverse', () => (
+stories.add('[Portal] reverse', () => (
 	<div className={appStyle.portal}>
 		<h1>SidePanel</h1>
 		<p>

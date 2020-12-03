@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import icons from '@talend/icons/dist/react';
 
 import IconsProvider from '../IconsProvider';
 import Icon from './Icon.component';
@@ -19,24 +18,40 @@ const defaultIcons = {
 };
 
 storiesOf('Messaging & Communication/Icon', module)
-	.add('default use svg', () => (
-		<div>
-			<h1>Icon</h1>
-			<IconsProvider />
-			<p>We have {Object.keys(icons).length.toString()} svg icons registred:</p>
-			<ul>
-				{Object.keys(icons).map((icon, index) => (
-					<li key={index}>
-						<Icon name={icon} /> : <strong>{icon}</strong>
-					</li>
-				))}
-			</ul>
-		</div>
-	))
+	.add('default use svg', () => {
+		const [ids, setIds] = React.useState([]);
+		React.useEffect(() => {
+			IconsProvider.getAllIconIds().then(setIds);
+		}, []);
+		const [name, setName] = React.useState();
+		setTimeout(() => {
+			setName(ids[ids.indexOf(name) + 1]);
+		}, 1000);
+		return (
+			<div>
+				<h1>Icon</h1>
+
+				<p>
+					We have {ids.length.toString()} svg icons registered:{' '}
+					{name && (
+						<>
+							<Icon name={name} /> : <strong>{name}</strong>
+						</>
+					)}
+				</p>
+				<ul>
+					{ids.map((icon, index) => (
+						<li key={index}>
+							<Icon name={icon} /> : <strong>{icon}</strong>
+						</li>
+					))}
+				</ul>
+			</div>
+		);
+	})
 	.add('fontawesome', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider />
 			<p>You can use font awesome icons if you have loaded the stylesheet</p>
 			<ul>
 				<li>
@@ -48,7 +63,7 @@ storiesOf('Messaging & Communication/Icon', module)
 	.add('extends defaults', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider icons={newIcons} />
+			<IconsProvider bundles={[]} icons={newIcons} />
 			<p>Here we are adding a new Icon id</p>
 			<ul>
 				<li>
@@ -60,7 +75,7 @@ storiesOf('Messaging & Communication/Icon', module)
 	.add('override defaults', () => (
 		<div>
 			<h1>Icon</h1>
-			<IconsProvider defaultIcons={defaultIcons} />
+			<IconsProvider bundles={[]} defaultIcons={defaultIcons} />
 			<p>Here we are changing the icon talend-add</p>
 			<ul>
 				<li>
@@ -75,45 +90,66 @@ storiesOf('Messaging & Communication/Icon', module)
 			<Icon name="remote-/svg/svg/brands/azure.svg" />
 		</div>
 	))
-	.add('svg transform', () => (
-		<div>
-			<IconsProvider />
-			<p>Here we are changing the icon talend-apache</p>
-			<ul>
-				<li>
-					<Icon name="talend-apache" />
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="spin" /> : <strong>spin</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-45" /> : <strong>rotate-45</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-90" /> : <strong>rotate-90</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-135" /> : <strong>rotate-135</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-180" /> : <strong>rotate-180</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-225" /> : <strong>rotate-225</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-270" /> : <strong>rotate-270</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="rotate-315" /> : <strong>rotate-315</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="flip-horizontal" /> :{' '}
-					<strong>flip-horizontal</strong>
-				</li>
-				<li>
-					<Icon name="talend-apache" transform="flip-vertical" /> : <strong>flip-vertical</strong>
-				</li>
-			</ul>
-		</div>
-	));
+	.add('svg transform', () => {
+		const [transform, setTransform] = React.useState(null);
+		const transforms = [
+			null,
+			'spin',
+			'rotate-45',
+			'rotate-90',
+			'rotate-135',
+			'rotate-180',
+			'rotate-225',
+			'rotate-270',
+			'rotate-315',
+			'flip-horizontal',
+			'flip-vertical',
+		];
+		setTimeout(() => {
+			setTransform(transforms[transforms.indexOf(transform) + 1]);
+		}, 1000);
+		return (
+			<div>
+				<p>Here we are changing the icon talend-apache</p>
+				<ul>
+					<li>
+						<Icon name="talend-apache" />
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="spin" /> : <strong>spin</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-45" /> : <strong>rotate-45</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-90" /> : <strong>rotate-90</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-135" /> : <strong>rotate-135</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-180" /> : <strong>rotate-180</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-225" /> : <strong>rotate-225</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-270" /> : <strong>rotate-270</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="rotate-315" /> : <strong>rotate-315</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="flip-horizontal" /> :{' '}
+						<strong>flip-horizontal</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform="flip-vertical" /> : <strong>flip-vertical</strong>
+					</li>
+					<li>
+						<Icon name="talend-apache" transform={transform} />: <strong>{transform}</strong>
+					</li>
+				</ul>
+			</div>
+		);
+	});

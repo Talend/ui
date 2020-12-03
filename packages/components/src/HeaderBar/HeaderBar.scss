@@ -12,18 +12,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 	}
 }
 
-// tmp change Talend logo colors until rebranding is done
-:global {
-	#talend-logo-square path {
-		&.ti-foreground {
-			fill: $regal-blue;
-		}
-		&.ti-background {
-			fill: $white;
-		}
-	}
-}
-
 .tc-header-bar {
 	background-color: $brand-primary-darker;
 	display: flex;
@@ -31,6 +19,16 @@ $background-color-on-hover: shade($brand-primary, 30);
 	top: 0;
 	width: 100%;
 	z-index: 1030;
+
+	// tmp change Talend logo colors until rebranding is done
+	[name='talend-logo-square'] path {
+		&:global(.ti-foreground) {
+			fill: $regal-blue;
+		}
+		&:global(.ti-background) {
+			fill: $white;
+		}
+	}
 
 	svg {
 		margin: 0;

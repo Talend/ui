@@ -22,8 +22,6 @@ exports[`AppSwitcher should render the products 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-caret-down">
-          </use>
         </svg>
       </button>
       <ul role="menu"
@@ -45,8 +43,6 @@ exports[`AppSwitcher should render the products 1`] = `
                  focusable="false"
                  aria-hidden="true"
             >
-              <use xlink:href="#talend-tdp-colored">
-              </use>
             </svg>
             Data Preparation
           </a>
@@ -66,8 +62,6 @@ exports[`AppSwitcher should render the products 1`] = `
                  focusable="false"
                  aria-hidden="true"
             >
-              <use xlink:href="#talend-tic-colored">
-              </use>
             </svg>
             Integration Cloud
           </a>
@@ -87,8 +81,6 @@ exports[`AppSwitcher should render the products 1`] = `
                  focusable="false"
                  aria-hidden="true"
             >
-              <use xlink:href="#talend-tmc-colored">
-              </use>
             </svg>
             Management Console
           </a>
