@@ -78,22 +78,14 @@ exports[`SelectSortBy should render 1`] = `
         focusable="false"
         name="talend-sort-asc"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-asc"
-        />
-      </svg>
+      />
       <svg
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator theme-rotate-180"
         focusable="false"
         name="talend-caret-down"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-caret-down"
-        />
-      </svg>
+      />
     </button>
   </li>
 </ul>
@@ -180,22 +172,14 @@ exports[`SelectSortBy should render id if provided 1`] = `
         focusable="false"
         name="talend-sort-asc"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-asc"
-        />
-      </svg>
+      />
       <svg
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator theme-rotate-180"
         focusable="false"
         name="talend-caret-down"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-caret-down"
-        />
-      </svg>
+      />
     </button>
   </li>
 </ul>
@@ -228,22 +212,14 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
         focusable="false"
         name="talend-sort-asc"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-asc"
-        />
-      </svg>
+      />
       <svg
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator theme-rotate-180"
         focusable="false"
         name="talend-caret-down"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-caret-down"
-        />
-      </svg>
+      />
     </button>
   </li>
 </ul>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { EditableText } from '../src';
 
 const props = {
@@ -13,7 +13,6 @@ const props = {
 const ExampleEditableText = {
 	'with-default': () => (
 		<div>
-			<IconsProvider />
 			<EditableText {...props} />
 		</div>
 	),

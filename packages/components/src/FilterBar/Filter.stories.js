@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionBar from '../ActionBar';
-import IconsProvider from '../IconsProvider';
 import FilterBar from './FilterBar.component';
 
 const propsDockToggle = {
@@ -45,7 +44,6 @@ const divStyle = {
 storiesOf('Form/Inline form/FilterBar', module)
 	.add('default-dock and dockable', () => (
 		<div style={divStyle}>
-			<IconsProvider />
 			<p>When not docked but dockable in an ActionBar</p>
 			<ActionBar>
 				<FilterBar {...propsDockToggle} />
@@ -54,7 +52,6 @@ storiesOf('Form/Inline form/FilterBar', module)
 	))
 	.add('no docked, no dockable and icon visible', () => (
 		<div style={divStyle}>
-			<IconsProvider />
 			<p>When icon always visible and not docked, no dockable in an ActionBar</p>
 			<ActionBar>
 				<FilterBar {...propsIconAlwaysVisble} />
@@ -63,14 +60,12 @@ storiesOf('Form/Inline form/FilterBar', module)
 	))
 	.add('custom-undock no dockable', () => (
 		<div>
-			<IconsProvider />
 			<p>When not docked and no dockable take full width</p>
 			<FilterBar {...propsNoDockToggle} />
 		</div>
 	))
 	.add('disabled input', () => (
 		<div style={divStyle}>
-			<IconsProvider />
 			<p>With the input filter disable</p>
 			<ActionBar>
 				<FilterBar {...propsDisabled} />

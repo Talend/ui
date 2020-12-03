@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ListView from '.';
-import IconsProvider from '../IconsProvider';
 
 const filterAction = {
 	label: 'Filter',
@@ -136,7 +135,6 @@ const withIconProps = {
 storiesOf('Form/Controls/ListView', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
 			<h1>ListView</h1>
 			<form>{story()}</form>
 		</div>

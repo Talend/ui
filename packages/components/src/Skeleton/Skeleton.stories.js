@@ -1,21 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import talendIcons from '@talend/icons/dist/react';
 import Skeleton from './Skeleton.component';
-import IconsProvider from '../IconsProvider';
-
-const icons = {
-	'talend-locked': talendIcons['talend-locked'],
-	'talend-table': talendIcons['talend-table'],
-};
 
 storiesOf('Design Principles/Loading Feedback/Skeleton', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('default', () => (
 		<div>
 			<h4>Circles :</h4>

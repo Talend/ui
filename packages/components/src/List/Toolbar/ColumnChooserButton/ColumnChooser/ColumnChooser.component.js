@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { ColumnChooserProvider } from './columnChooser.context';
@@ -12,8 +12,6 @@ import { getTheme } from '../../../../theme';
 
 const theme = getTheme(cssModule);
 
-const hasColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
-const filterColumns = (columns, filter) => columns.filter(hasColumnLabel(filter));
 const changeVisibleToHidden = column => ({
 	hidden: !column.visible,
 	label: column.label,
@@ -31,10 +29,15 @@ export default function ColumnChooser({
 	onSubmit,
 }) {
 	const { t } = useTranslation();
-	const { columns, onChangeVisibility, onSelectAll, selectAll } = useColumnChooserManager(
-		columnsFromList,
-		nbLockedLeftItems,
-	);
+	const {
+		columns,
+		filteredColumns,
+		onChangeVisibility,
+		onSelectAll,
+		selectAll,
+		setTextFilter,
+		textFilter,
+	} = useColumnChooserManager(columnsFromList, nbLockedLeftItems, initialFilterValue);
 
 	useEffect(() => {
 		// eslint-disable-next-line no-console
@@ -48,10 +51,11 @@ export default function ColumnChooser({
 		event.preventDefault();
 		onSubmit(event, mapToColumnsList(columns));
 	};
-	const [filter, setFilter] = useState(initialFilterValue || '');
-	const onFilter = (_, value) => setFilter(value);
-	const resetFilter = () => setFilter('');
-	const filteredColumns = useMemo(() => filterColumns(columns, filter), [columns, filter]);
+
+	// Filter field callbacks
+	const onFilter = useCallback((_, value) => setTextFilter(value), [setTextFilter]);
+	const resetFilter = useCallback(() => setTextFilter(''), [setTextFilter]);
+
 	const Default = (
 		<React.Fragment>
 			<ColumnChooserHeader />
@@ -67,7 +71,7 @@ export default function ColumnChooser({
 				})}
 				onToggle={resetFilter}
 				onFilter={onFilter}
-				value={filter}
+				value={textFilter}
 			/>
 			<form id={`${id}-form`} className={theme('tc-column-chooser')} onSubmit={onSubmitForm}>
 				<ColumnChooserBody />

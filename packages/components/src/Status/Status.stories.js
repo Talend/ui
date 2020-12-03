@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import IconsProvider from '../IconsProvider';
 import { Status } from './Status.component';
 
 const cancelAction = {
@@ -28,7 +27,6 @@ const myStatus = {
 
 storiesOf('Messaging & Communication/Status', module).add('default', () => (
 	<div>
-		<IconsProvider />
 		<h1>Status</h1>
 		<h2>Definition</h2>
 		<p>

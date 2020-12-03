@@ -37,8 +37,6 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
                focusable="false"
                aria-hidden="true"
           >
-            <use xlink:href="#talend-locked">
-            </use>
           </svg>
           <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
             col1
@@ -50,8 +48,6 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
                focusable="false"
                aria-hidden="true"
           >
-            <use xlink:href="#talend-locked">
-            </use>
           </svg>
           <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
             col2

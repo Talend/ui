@@ -33,11 +33,7 @@ exports[`Header should render filter header 1`] = `
       focusable="false"
       name="talend-cross"
       title={null}
-    >
-      <use
-        xlinkHref="#talend-cross"
-      />
-    </svg>
+    />
   </button>
 </header>
 `;

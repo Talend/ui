@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { action } from '@storybook/addon-actions';
 import { Actions } from '../src';
 
@@ -41,7 +41,6 @@ const infos = [
 export default function ExampleActions() {
 	return (
 		<div>
-			<IconsProvider />
 			<p>using action ids</p>
 			<Actions actionIds={['menu:first', 'menu:second', 'menu:third']} />
 			<p>Using pure component props</p>

@@ -5,7 +5,6 @@ import { makeDecorator } from '@storybook/addons';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 
-import IconsProvider from '../IconsProvider';
 import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
 import AppSwitcher from '../AppSwitcher';
@@ -103,7 +102,6 @@ const withIcons = makeDecorator({
 		const story = getStory(context);
 		return (
 			<div>
-				<IconsProvider />
 				{story}
 				<div className="container" style={{ paddingTop: 40 }} />
 			</div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import Form from '../src/Form';
 
 const SCHEMA = `{
@@ -83,13 +83,17 @@ class SchemaInState extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<IconsProvider />
 				<div className="col-md-6">
 					<Form {...JSON.parse(this.state.schema)} />
 				</div>
 				<div className="col-md-6">
 					<h2>Schema</h2>
-					<textarea rows="20" className="form-control" onChange={this.onChange} value={this.state.schema} />
+					<textarea
+						rows="20"
+						className="form-control"
+						onChange={this.onChange}
+						value={this.state.schema}
+					/>
 				</div>
 			</div>
 		);

@@ -34,11 +34,7 @@ exports[`Icon should render from svg 1`] = `
   focusable="false"
   name="svg-dd"
   title={null}
->
-  <use
-    xlinkHref="#svg-dd"
-  />
-</svg>
+/>
 `;
 
 exports[`Icon should render with provided className 1`] = `
@@ -48,11 +44,7 @@ exports[`Icon should render with provided className 1`] = `
   focusable="false"
   name="svg-dd"
   title={null}
->
-  <use
-    xlinkHref="#svg-dd"
-  />
-</svg>
+/>
 `;
 
 exports[`Icon should support extra props 1`] = `
@@ -63,11 +55,7 @@ exports[`Icon should support extra props 1`] = `
   focusable="false"
   name="svg-dd"
   title={null}
->
-  <use
-    xlinkHref="#svg-dd"
-  />
-</svg>
+/>
 `;
 
 exports[`Icon should support remote svg 1`] = `

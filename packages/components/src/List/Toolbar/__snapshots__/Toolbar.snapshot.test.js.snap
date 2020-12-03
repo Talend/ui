@@ -26,11 +26,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
           focusable="false"
           name="talend-plus"
           title={null}
-        >
-          <use
-            xlinkHref="#talend-plus"
-          />
-        </svg>
+        />
         <span>
           Add
         </span>
@@ -76,11 +72,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
           focusable="false"
           name="talend-trash"
           title={null}
-        >
-          <use
-            xlinkHref="#talend-trash"
-          />
-        </svg>
+        />
         <span>
           Delete selection
         </span>
@@ -237,11 +229,7 @@ exports[`Toolbar should render pagination 1`] = `
               focusable="false"
               name="talend-chevron-end"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-chevron-end"
-              />
-            </svg>
+            />
           </a>
         </li>
         <li
@@ -262,11 +250,7 @@ exports[`Toolbar should render pagination 1`] = `
               focusable="false"
               name="talend-chevron-left"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-chevron-left"
-              />
-            </svg>
+            />
           </a>
         </li>
         <li
@@ -295,11 +279,7 @@ exports[`Toolbar should render pagination 1`] = `
               focusable="false"
               name="talend-chevron-left"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-chevron-left"
-              />
-            </svg>
+            />
           </a>
         </li>
         <li
@@ -320,11 +300,7 @@ exports[`Toolbar should render pagination 1`] = `
               focusable="false"
               name="talend-chevron-end"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-chevron-end"
-              />
-            </svg>
+            />
           </a>
         </li>
       </ul>

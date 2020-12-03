@@ -1,31 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
-import IconsProvider from '../../IconsProvider';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 
-const icons = {
-	'talend-info-circle': talendIcons['talend-info-circle'],
-	'talend-arrow-right': talendIcons['talend-arrow-right'],
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-};
-
 storiesOf('Form/Controls/DatePicker/DateTime', module)
 	.addDecorator(story => (
-		<>
-			<IconsProvider defaultIcons={icons} />
-			<form
-				onSubmit={event => {
-					event.persist();
-					event.preventDefault();
-					action('submit')(event);
-				}}
-			>
-				{story()}
-			</form>
-		</>
+		<form
+			onSubmit={event => {
+				event.persist();
+				event.preventDefault();
+				action('submit')(event);
+			}}
+		>
+			{story()}
+		</form>
 	))
 	.add('Input', () => (
 		<InputDateTimePicker
