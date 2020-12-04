@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IconsProvider, Drawer } from '@talend/react-components';
+import { Drawer } from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { ActionIconToggle } from '../src';
@@ -40,7 +40,6 @@ const MyconnectedDrawer = cmfConnect({ mapStateToProps })(MyDrawer);
 export default function ExampleActionIconToggle() {
 	return (
 		<div>
-			<IconsProvider />
 			<div style={{ padding: '3rem' }}>
 				<p>Click on the icon toggle below</p>
 				<ActionIconToggle actionId="action:icon:toggle" />

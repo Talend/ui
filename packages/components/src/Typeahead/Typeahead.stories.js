@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Typeahead from './Typeahead.component';
-import IconsProvider from '../IconsProvider';
 
 const items = [
 	{
@@ -88,12 +87,6 @@ const noHeaderItems = [
 ];
 
 storiesOf('Form/Inline form/Typeahead', module)
-	.addDecorator(story => (
-		<div>
-			<IconsProvider />
-			{story()}
-		</div>
-	))
 	.add('default with debounce input', () => {
 		const props = {
 			placeholder: 'Search...',

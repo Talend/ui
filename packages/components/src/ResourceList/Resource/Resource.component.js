@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { getRowData } from '../../VirtualizedList/utils/gridrow';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import getLocale from '../../DateFnsLocale/locale';
+import getLocale from '../../i18n/DateFnsLocale/locale';
 import Icon from '../../Icon';
 
 import theme from './Resource.scss';

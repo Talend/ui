@@ -18,25 +18,25 @@ const css = getTheme(theme);
 const DEFAULT_TRANSITION_DURATION = 350;
 
 const STYLES = {
-	entering: { transform: 'translateX(100%)' },
+	entering: { transform: 'translateX(0%)' },
 	entered: { transform: 'translateX(0%)' },
-	exiting: { transform: 'translateX(0%)' },
+	exiting: { transform: 'translateX(100%)' },
 	exited: { transform: 'translateX(100%)' },
 };
 
 function DrawerAnimation(props) {
 	const { children, withTransition, ...rest } = props;
 	const timeout = withTransition ? DEFAULT_TRANSITION_DURATION : 0;
-	const defaultStyle = {
-		transition: `transform ${timeout}ms ease-in-out`,
-		transform: 'translateX(100%)',
-	};
 
 	return (
-		<Transition in appear timeout={timeout}>
+		<Transition in appear timeout={withTransition ? 500 : 0} {...rest}>
 			{transitionState => {
-				const style = { ...defaultStyle, ...STYLES[transitionState] };
-				return React.cloneElement(children, { ...rest, style });
+				const style = {
+					transition: `transform ${timeout}ms ease-in-out`,
+					transform: 'translateX(100%)',
+					...STYLES[transitionState],
+				};
+				return React.cloneElement(children, { style });
 			}}
 		</Transition>
 	);

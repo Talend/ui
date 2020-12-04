@@ -13,11 +13,7 @@ exports[`InlineMessage should render with higligthed background 1`] = `
       focusable="false"
       name="talend-check-circle"
       title={null}
-    >
-      <use
-        xlinkHref="#talend-check-circle"
-      />
-    </svg>
+    />
   </span>
   <div
     className="tc-inline-message-text theme-tc-inline-message-text success theme-success background theme-background"
@@ -49,11 +45,7 @@ exports[`InlineMessage should render with icon and description 1`] = `
       focusable="false"
       name="talend-check-circle"
       title={null}
-    >
-      <use
-        xlinkHref="#talend-check-circle"
-      />
-    </svg>
+    />
   </span>
   <div
     className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
@@ -81,11 +73,7 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
       focusable="false"
       name="talend-check-circle"
       title={null}
-    >
-      <use
-        xlinkHref="#talend-check-circle"
-      />
-    </svg>
+    />
   </span>
   <div
     className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
@@ -117,11 +105,7 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
       focusable="false"
       name="talend-check-circle"
       title={null}
-    >
-      <use
-        xlinkHref="#talend-check-circle"
-      />
-    </svg>
+    />
   </span>
   <div
     className="tc-inline-message-text theme-tc-inline-message-text success theme-success"

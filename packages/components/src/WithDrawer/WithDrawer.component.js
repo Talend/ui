@@ -27,7 +27,7 @@ function WithDrawer({ drawers, children }) {
 	return (
 		<div className={theme['tc-with-drawer']}>
 			{children}
-			<TransitionGroup appear className={theme['tc-with-drawer-container']}>
+			<TransitionGroup className={theme['tc-with-drawer-container']}>
 				{drawers &&
 					drawers.map((drawer, key) => (
 						<Drawer.Animation

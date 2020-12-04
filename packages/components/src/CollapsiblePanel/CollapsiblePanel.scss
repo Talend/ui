@@ -179,12 +179,6 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		}
 	}
 
-	&.open {
-		:global(.tc-icon-toggle) svg {
-			transform: rotate(180deg);
-		}
-	}
-
 	.group {
 		display: flex;
 	}

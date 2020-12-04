@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm } from '../src/UIForm';
 import Enumeration from '../src/UIForm/fields/Enumeration';
 import { PRESIGNED_URL_TRIGGER_ACTION } from '../src/UIForm/fields/File/File.component';
@@ -221,7 +220,6 @@ class DisplayModeForm extends React.Component {
 	render() {
 		return (
 			<section>
-				<IconsProvider />
 				{this.props.doc && (
 					<a
 						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${this.props.category}/${this.props.doc}`}
