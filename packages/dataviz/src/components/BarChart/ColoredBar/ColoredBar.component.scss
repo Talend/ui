@@ -1,0 +1,38 @@
+@import '../bar-chart';
+
+$module: colored-bar;
+
+.#{$module} {
+	@mixin colored-bar($style, $primaryColor, $secondaryColor) {
+		&--#{$style}.colored-bar__primary-bar {
+			fill: $primaryColor;
+		}
+
+		&--#{$style}.colored-bar__label tspan {
+			fill: $secondaryColor;
+		}
+
+		&--#{$style}.colored-bar--hover {
+			fill: $secondaryColor;
+
+			&.colored-bar__label tspan {
+				fill: $primaryColor;
+			}
+		}
+	}
+
+	&__label tspan {
+		font-size: 1.2rem;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: $font-weight-semi-bold;
+	}
+
+	&__secondary-bar {
+		fill: $alto;
+	}
+
+	@include colored-bar('value', $value-bar-primary-color, $value-bar-secondary-color);
+
+	@include colored-bar('pattern', $pattern-bar-primary-color, $pattern-bar-secondary-color);
+
+}

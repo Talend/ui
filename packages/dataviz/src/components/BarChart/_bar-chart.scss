@@ -1,0 +1,27 @@
+$pattern-bar-primary-color: tint($jaffa, 70%);
+$pattern-bar-secondary-color: shade($jaffa, 30%);
+
+$value-bar-primary-color: tint($lochmara, 70%);
+$value-bar-secondary-color: shade($lochmara, 30%);
+
+$grey-bar-color: $alto;
+
+@mixin styleAxis() {
+	// We can't use custom classname on axis
+	:global {
+		.recharts-xAxis,
+		.recharts-yAxis {
+			text {
+				font-size: 1.2rem;
+				fill: $gray;
+			}
+			line {
+				stroke: $gray;
+			}
+		}
+
+		.recharts-tooltip-wrapper {
+			z-index: 999;
+		}
+	}
+}

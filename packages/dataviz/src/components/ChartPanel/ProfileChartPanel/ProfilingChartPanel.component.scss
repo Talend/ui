@@ -1,0 +1,11 @@
+$module: vertical-chart-panel;
+
+.#{$module} {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	&__chart-container {
+		height: 100%;
+	}
+}

@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Boxplot chart should render the different basic components of the boxplot 1`] = `
+<div id="boxplotId"
+     class="theme-box-plot"
+>
+  <svg width="360"
+       height="500"
+       class="theme-box"
+  >
+    <g transform="translate(80,30)">
+      <g>
+        <line class="theme-box-plot__center"
+              x1="100"
+              y1="400"
+              x2="100"
+              y2="0"
+              style="opacity: 0.000001;"
+        >
+        </line>
+      </g>
+      <g>
+        <g>
+          <rect x="0"
+                y="39.99999999999999"
+                width="200"
+                height="39.99999999999999"
+          >
+          </rect>
+        </g>
+        <g>
+          <rect x="0"
+                y="39.99999999999999"
+                width="200"
+                height="328"
+          >
+          </rect>
+        </g>
+      </g>
+      <g>
+        <g>
+          <polygon class="theme-box-plot__whiskerPolyg"
+                   points="0,0 200,0 180,-20 20,-20"
+          >
+          </polygon>
+          <text class="theme-box-plot__max-min-labels"
+                x="100"
+                y="0"
+                style="opacity: 1;"
+                text-anchor="middle"
+          >
+            Maximum
+          </text>
+        </g>
+        <g>
+          <polygon class="theme-box-plot__whiskerPolyg"
+                   points="0,400 200,400 180,420 20,420"
+          >
+          </polygon>
+          <text class="theme-box-plot__max-min-labels"
+                x="100"
+                y="200"
+                style="opacity: 1;"
+                text-anchor="middle"
+          >
+            MINIMUM
+          </text>
+        </g>
+      </g>
+      <g>
+        <circle class="theme-box-plot__mean"
+                r="17"
+                cx="100"
+                cy="160.84"
+                style="opacity: 1;"
+        >
+        </circle>
+        <circle r="1.5"
+                cx="100"
+                cy="160.84"
+                style="opacity: 0.000001; shape-rendering: geometricPrecision;"
+        >
+        </circle>
+      </g>
+      <g>
+        <text class="theme-box-plot__max-min-labels"
+              x="100"
+              y="200"
+              style="opacity: 1;"
+              text-anchor="middle"
+        >
+          100
+        </text>
+        <text class="theme-box-plot__max-min-labels"
+              x="100"
+              y="200"
+              style="opacity: 1;"
+              text-anchor="middle"
+        >
+          0
+        </text>
+        <text class="theme-box-plot__mean-labels"
+              x="100"
+              y="150.84"
+              style="opacity: 0.000001;"
+              text-anchor="middle"
+        >
+          MEANCOLON59.79
+        </text>
+        <text class="theme-box-plot__low-quantile-labels"
+              x="205"
+              y="200"
+              style="opacity: 1;"
+              text-anchor="start"
+        >
+          8
+        </text>
+        <text class="theme-box-plot__low-quantile-labels"
+              x="10"
+              y="200"
+              style="opacity: 1;"
+              text-anchor="end"
+        >
+          LOWER_QUANTILE
+        </text>
+        <text class="theme-box-plot__up-quantile-labels"
+              x="10"
+              y="200"
+              style="opacity: 1;"
+              text-anchor="end"
+        >
+          UPPER_QUANTILE
+        </text>
+        <text class="theme-box-plot__up-quantile-labels"
+              x="205"
+              y="200"
+              style="opacity: 1;"
+              text-anchor="start"
+        >
+          90
+        </text>
+        <text class="theme-box-plot__mean-labels"
+              x="195"
+              style="opacity: 0.000001;"
+              text-anchor="end"
+              y="163.00000000000003"
+        >
+          58
+        </text>
+        <text class="theme-box-plot__mean-labels"
+              x="5"
+              style="opacity: 0.000001;"
+              text-anchor="start"
+              y="163.00000000000003"
+        >
+          MEDIAN
+        </text>
+      </g>
+    </g>
+  </svg>
+</div>
+`;

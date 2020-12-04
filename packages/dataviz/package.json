@@ -1,0 +1,76 @@
+{
+  "name": "@talend/dataviz",
+  "version": "0.0.1",
+  "description": "Talend charts and visualization components",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.ts",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "talend-scripts build:ts:lib",
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
+    "lint": "yarn lint:es",
+    "lint:es": "talend-scripts lint:es",
+    "start": "start-storybook -p 6006",
+    "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
+    "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
+    "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
+    "test:demo": "build-storybook"
+  },
+  "keywords": [
+    "react",
+    "talend",
+    "chart"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/dataviz#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "@talend/react-components": "^6.2.2",
+    "classnames": "^2.2.6",
+    "d3": "^6.3.0",
+    "d3-format": "^2.0.0",
+    "date-fns": "^2.16.1",
+    "recharts": "^1.8.5"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.0.28",
+    "@talend/bootstrap-theme": "^6.1.7",
+    "@talend/icons": "^6.2.2",
+    "@talend/scripts-core": "^7.1.0",
+    "@talend/scripts-preset-react-lib": "^7.1.0",
+    "@teamsupercell/typings-for-css-modules-loader": "^2.4.0",
+    "@types/classnames": "^2.2.11",
+    "@types/d3": "^6.2.0",
+    "@types/enzyme": "^3.10.8",
+    "@types/recharts": "^1.8.16",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.11.0",
+    "eslint": "^6.5.1",
+    "i18next": "^19.8.4",
+    "i18next-scanner": "^3.0.0",
+    "i18next-scanner-typescript": "^1.0.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-i18next": "^10.10.0"
+  },
+  "peerDependencies": {
+    "@talend/bootstrap-theme": "^6.1.7",
+    "@talend/icons": "^6.2.2",
+    "i18next": "^19.8.4",
+    "react": "^16.14.0",
+    "react-i18next": "^10.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
