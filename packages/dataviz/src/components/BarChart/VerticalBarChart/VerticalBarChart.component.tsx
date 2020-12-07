@@ -11,11 +11,15 @@ export interface VerticalBarChartProps {
 	dataType: DataType;
 	onBarClick: (event: MouseEvent, entry: VerticalBarChartEntry) => void;
 	getTooltipContent: (entry: VerticalBarChartEntry) => JSX.Element;
+	width?: number;
+	height?: number;
 }
 
 function VerticalBarChart({
 	data,
 	dataType,
+	width,
+	height,
 	onBarClick,
 	getTooltipContent,
 }: VerticalBarChartProps) {
@@ -26,7 +30,7 @@ function VerticalBarChart({
 	);
 
 	return (
-		<ResponsiveContainer>
+		<ResponsiveContainer height={height} width={width}>
 			<BarChart
 				data={data}
 				className={classNames(styles['vertical-bar-chart'])}

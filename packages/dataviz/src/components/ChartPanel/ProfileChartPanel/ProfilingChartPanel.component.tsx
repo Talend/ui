@@ -57,7 +57,10 @@ function Panel({
 						dataType={dataType}
 						limits={rangeLimits}
 						onSliderChange={setSliderValue}
-						onAfterChange={onRangeChange}
+						onAfterChange={range => {
+							onRangeChange(range);
+							setSliderValue(range);
+						}}
 					/>
 				</div>
 			)}

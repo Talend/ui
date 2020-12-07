@@ -10,7 +10,7 @@ module.exports = {
 			...defaults.globals['ts-jest'],
 			diagnostics: {
 				warnOnly: true,
-				ignoreCodes: [2722]
+				ignoreCodes: [2722, 2322]
 			},
 		},
 	},

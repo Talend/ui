@@ -51,10 +51,9 @@ function RangeFilter({
 	onAfterChange,
 }: RangeFilterProps): JSX.Element {
 	const { t } = useTranslation();
+
 	const precision = Math.max(getFractionDigits(limits.min), getFractionDigits(limits.max));
-
 	const marks = useMemo(() => getMarks(dataType, limits, precision), [limits, dataType, precision]);
-
 	const InputField = dataType === DataType.DATE ? DateInputField : NumberInputField;
 
 	return (
