@@ -1,7 +1,7 @@
 @import '../bar-chart';
 
 .vertical-bar-chart {
-	@include styleAxis();
+	@include overrideRechartsStyles();
 
 	:global {
 		.recharts-yAxis {

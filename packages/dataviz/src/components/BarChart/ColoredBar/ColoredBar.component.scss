@@ -9,6 +9,7 @@ $module: colored-bar;
 		}
 
 		&--#{$style}.colored-bar__label tspan {
+			pointer-events: none;
 			fill: $secondaryColor;
 		}
 
@@ -34,5 +35,4 @@ $module: colored-bar;
 	@include colored-bar('value', $value-bar-primary-color, $value-bar-secondary-color);
 
 	@include colored-bar('pattern', $pattern-bar-primary-color, $pattern-bar-secondary-color);
-
 }

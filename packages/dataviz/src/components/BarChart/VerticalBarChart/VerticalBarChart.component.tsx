@@ -79,7 +79,6 @@ function VerticalBarChart({
 					allowEscapeViewBox={{ x: false, y: true }}
 					isAnimationActive={false}
 					content={TooltipContent}
-					cursor={false}
 				/>
 
 				{dataType === DataType.DATE && (

@@ -1,5 +1,5 @@
 @import '../bar-chart';
 
 .horizontal-bar-chart {
-	@include styleAxis();
+	@include overrideRechartsStyles();
 }

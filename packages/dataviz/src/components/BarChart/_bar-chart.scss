@@ -6,7 +6,7 @@ $value-bar-secondary-color: shade($lochmara, 30%);
 
 $grey-bar-color: $alto;
 
-@mixin styleAxis() {
+@mixin overrideRechartsStyles() {
 	// We can't use custom classname on axis
 	:global {
 		.recharts-xAxis,
@@ -22,6 +22,12 @@ $grey-bar-color: $alto;
 
 		.recharts-tooltip-wrapper {
 			z-index: 999;
+		}
+
+		.recharts-tooltip-cursor {
+			fill: transparent;
+			cursor: pointer;
+			pointer-events: all;
 		}
 	}
 }

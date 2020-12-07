@@ -7,7 +7,7 @@ import {
 	getSecondaryBarValue,
 	PRIMARY_BAR_ANIMATION_PROPS, SECONDARY_BAR_ANIMATION_PROPS,
 	useBarChart
-} from "../useBarChart.hook";
+} from '../useBarChart.hook';
 import FixedBarSizeWrapper from './FixedHeightBarWrapper/FixedHeightBarWrapper.component';
 import ColoredBar from '../ColoredBar/ColoredBar.component';
 
@@ -76,7 +76,6 @@ function HorizontalBarChart({
 					<Tooltip
 						allowEscapeViewBox={{ x: false, y: true }}
 						isAnimationActive={false}
-						cursor={false}
 						content={<TooltipContent />}
 					/>
 

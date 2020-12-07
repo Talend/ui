@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { ChartEntry } from './barChart.types';
+import { useState } from 'react';
 import { AnimationEasingType } from 'recharts';
+import { ChartEntry } from './barChart.types';
 
 const ANIMATION_DURATION = 80;
 
