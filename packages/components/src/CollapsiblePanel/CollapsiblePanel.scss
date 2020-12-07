@@ -85,7 +85,6 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	}
 
 	&.info {
-		//border-color: $brand-info;
 		:global(.panel-heading) {
 			border-left-color: $brand-info;
 		}
@@ -95,7 +94,6 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	}
 
 	&.success {
-		//border-color: $brand-success;
 		:global(.panel-heading) {
 			border-left-color: $brand-success;
 		}
@@ -115,7 +113,6 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	}
 
 	&.muted {
-		//border-color: $gray;
 		:global(.panel-heading) {
 			border-left-color: $gray;
 		}
@@ -134,7 +131,6 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	}
 
 	&.skeleton {
-		//border-color: $tc-skeleton-background-color;
 		:global(.panel-heading) {
 			border-color: $tc-skeleton-background-color;
 		}
