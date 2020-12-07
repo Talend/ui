@@ -3,7 +3,13 @@ import classNames from 'classnames';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styles from './VerticalBarChart.component.scss';
 import { ChartStyle, DataType, VerticalBarChartEntry } from '../barChart.types';
-import { getPrimaryBarValue, getSecondaryBarValue, useBarChart } from '../useBarChart.hook';
+import {
+	getPrimaryBarValue,
+	getSecondaryBarValue,
+	PRIMARY_BAR_ANIMATION_PROPS,
+	SECONDARY_BAR_ANIMATION_PROPS,
+	useBarChart,
+} from '../useBarChart.hook';
 import ColoredBar from '../ColoredBar/ColoredBar.component';
 
 export interface VerticalBarChartProps {
@@ -48,6 +54,7 @@ function VerticalBarChart({
 				<Bar
 					dataKey={getPrimaryBarValue}
 					stackId="1"
+					{...PRIMARY_BAR_ANIMATION_PROPS}
 					shape={
 						<ColoredBar
 							chartStyle={ChartStyle.VALUE}
@@ -59,6 +66,7 @@ function VerticalBarChart({
 				<Bar
 					dataKey={getSecondaryBarValue}
 					stackId="1"
+					{...SECONDARY_BAR_ANIMATION_PROPS}
 					shape={
 						<ColoredBar
 							chartStyle={ChartStyle.VALUE}

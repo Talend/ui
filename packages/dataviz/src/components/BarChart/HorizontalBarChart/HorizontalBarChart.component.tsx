@@ -2,7 +2,12 @@ import React from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styles from './HorizontalBarChart.component.scss';
 import { ChartEntry, ChartStyle, ValueType } from '../barChart.types';
-import { getPrimaryBarValue, getSecondaryBarValue, useBarChart } from '../useBarChart.hook';
+import {
+	getPrimaryBarValue,
+	getSecondaryBarValue,
+	PRIMARY_BAR_ANIMATION_PROPS, SECONDARY_BAR_ANIMATION_PROPS,
+	useBarChart
+} from "../useBarChart.hook";
 import FixedBarSizeWrapper from './FixedHeightBarWrapper/FixedHeightBarWrapper.component';
 import ColoredBar from '../ColoredBar/ColoredBar.component';
 
@@ -45,6 +50,7 @@ function HorizontalBarChart({
 					<Bar
 						dataKey={getPrimaryBarValue}
 						stackId="1"
+						{...PRIMARY_BAR_ANIMATION_PROPS}
 						shape={
 							<ColoredBar
 								chartStyle={chartStyle}
@@ -57,6 +63,7 @@ function HorizontalBarChart({
 					<Bar
 						dataKey={getSecondaryBarValue}
 						stackId="1"
+						{...SECONDARY_BAR_ANIMATION_PROPS}
 						shape={
 							<ColoredBar
 								chartStyle={chartStyle}

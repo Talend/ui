@@ -1,5 +1,26 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ChartEntry } from './barChart.types';
+import { AnimationEasingType } from 'recharts';
+
+const ANIMATION_DURATION = 80;
+
+interface AnimationProps {
+	animationBegin: number;
+	animationDuration: number;
+	animationEasing: AnimationEasingType;
+}
+
+export const PRIMARY_BAR_ANIMATION_PROPS: AnimationProps = {
+	animationBegin: 0,
+	animationDuration: ANIMATION_DURATION,
+	animationEasing: 'linear',
+};
+
+export const SECONDARY_BAR_ANIMATION_PROPS: AnimationProps = {
+	animationBegin: ANIMATION_DURATION,
+	animationDuration: ANIMATION_DURATION,
+	animationEasing: 'linear',
+};
 
 /**
  * Primary bar shows
