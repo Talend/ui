@@ -42,14 +42,15 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: ./.github/workflows/release-variables.sh # this sets env.TAG, env.CHANGELOG and env.DEMO_DOMAIN
+      - id: set-variables
+        run: ./.github/workflows/release-variables.sh # this sets env.TAG, env.CHANGELOG and env.DEMO_DOMAIN
       - uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.TAG }}
-          release_name: ${{ env.TAG }}
-          body: ${{ env.CHANGELOG }}
+          tag_name: ${{ steps.set-variables.outputs.TAG }}
+          release_name: ${{ steps.set-variables.outputs.TAG }}
+          body: ${{ steps.set-variables.outputs.CHANGELOG }}
           draft: false
           prerelease: false
-      - run: yarn && yarn build-demo && npx surge --project .static --domain ${{ env.DEMO_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: yarn && yarn build-demo && npx surge --project .static --domain ${{ steps.set-variables.outputs.DEMO_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
