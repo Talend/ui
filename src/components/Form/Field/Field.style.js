@@ -145,7 +145,8 @@ export const FieldControl = styled.div(
   }
   
   &:focus {
-	border: 2px solid ${theme.colors.inputBorderFocusColor};  	
+	border: 1px solid ${theme.colors.inputBorderFocusColor};  
+	box-shadow: 0 0 1px 1px ${theme.colors.inputBorderFocusColor};  
   }
   
   &:disabled {

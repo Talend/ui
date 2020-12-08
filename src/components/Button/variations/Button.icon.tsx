@@ -15,12 +15,9 @@ const ButtonIcon: React.FC<ButtonProps> = styled(ButtonBase).attrs({ hideText: t
 	border-color: currentColor;
 	border-radius: ${tokens.radii.circleRadius};
 
-	&:hover {
-		color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
-	}
-
+	&:hover,
 	&:active {
-		color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
+		color: ${theme.colors.buttonPrimaryColor};
 	}
 
 	&[aria-disabled='true'] {
