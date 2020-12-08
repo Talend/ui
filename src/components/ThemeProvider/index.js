@@ -3,6 +3,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { normalize } from 'polished';
 
 import defaultTheme from '../../themes';
+import tokens from '../../tokens';
 
 const GlobalStyle = createGlobalStyle(
 	({ theme }) => `  
@@ -11,6 +12,10 @@ const GlobalStyle = createGlobalStyle(
 
 	*, ::after, ::before {
 		box-sizing: border-box;
+	}
+	
+	::selection {
+	  	background-color: ${tokens.colors.coral100};
 	}
 	
 	html {

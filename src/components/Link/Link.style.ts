@@ -10,19 +10,16 @@ export const Link = styled.a(
 	
 	.link__text {
 		border-bottom: .1rem solid transparent;
-		transition: .3s ease; 
-	}
-	
-	.link__text, 
-	.link__icon {
-	    vertical-align: middle;
+		transition: ${tokens.transitions.show}; 
 	}
 
 	.link__icon {
+  		margin-bottom: -0.2rem;
   		height: ${tokens.sizes.m};
   		width: ${tokens.sizes.m};
   		
   		&--external {
+			margin-bottom: -0.1rem;
 			height: ${tokens.sizes.s};
 			width: ${tokens.sizes.s};
 		}

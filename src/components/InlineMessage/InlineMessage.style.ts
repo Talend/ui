@@ -19,7 +19,6 @@ export const InlineMessage = styled.div<InlineMessageProps>(
 	font-family: ${tokens.fonts.sansSerif};
 	${small ? `font-size: ${tokens.fontSizes.small};` : ''}
 
-
 	p {
 		margin: 0;
 	}
@@ -29,7 +28,7 @@ export const InlineMessage = styled.div<InlineMessageProps>(
 		${withBackground ? `margin-left: -${tokens.space.l}; ` : ''}
 		    
 		svg {
-			display: inline;
+	  		margin-bottom: ${small ? '-0.1rem' : '-0.2rem'};
 			height: ${small ? tokens.sizes.s : tokens.sizes.m};
 			width: ${small ? tokens.sizes.s : tokens.sizes.m};
 		}

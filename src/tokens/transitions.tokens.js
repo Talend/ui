@@ -14,5 +14,5 @@ export const showKeyframes = keyframes`
  *	animation: ${tokens.transtions.show} 0.2s normal forwards ease-in-out;
  */
 export default {
-	show: '0.2s normal forwards ease-in-out',
+	show: '.3s ease-in-out',
 };
