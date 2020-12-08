@@ -77,7 +77,7 @@ Date.args = {
 			},
 			label: '[2000, 2010[',
 			value: 249,
-			filteredValue: 1,
+			filteredValue: 200,
 		},
 		{
 			key: {

@@ -36,8 +36,8 @@ export default {
 	],
 } as Meta<RangeFilterProps>;
 
-export const Number = Template.bind({});
-Number.args = {
+export const NumberRangeFilter = Template.bind({});
+NumberRangeFilter.args = {
 	range: {
 		min: 2200,
 		max: 2500,
@@ -48,30 +48,9 @@ Number.args = {
 	},
 	dataType: DataType.NUMBER,
 };
-/*
-export const BigNumbers = Template.bind({});
-BigNumbers.args = {
-	data,
 
-	rangeLimits: {
-		min: 1e25,
-		max: 8e26,
-	},
-	dataType: DataType.NUMBER,
-};
-
-export const SmallNumbers = Template.bind({});
-SmallNumbers.args = {
-	data,
-	rangeLimits: {
-		min: 1e-6,
-		max: 8e-6,
-	},
-	dataType: DataType.NUMBER,
-};
-*/
-export const Date = Template.bind({});
-Date.args = {
+export const DateRangeFilter = Template.bind({});
+DateRangeFilter.args = {
 	range: {
 		min: 1262300400000,
 		max: 1577833200000,

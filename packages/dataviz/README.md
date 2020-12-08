@@ -2,9 +2,10 @@
 
 Charts and visualization components used in Talend products.
 
+Look at the storybook for components documentation and usage.
+
 ## TODO
 
-- handle empty charts in horizontal bar chart
 - support date locale format
 
 ## Contributing

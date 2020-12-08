@@ -1,14 +1,21 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import VerticalBarChart from './VerticalBarChart.component';
-import { DateBarChart, NumberBarChart } from './VerticalBarChart.stories';
+import { DataType } from '../barChart.types';
 
 describe('Vertical bar chart', () => {
 	it('Should trigger onBarClick', () => {
 		const onBarClick = jest.fn();
+		const entry = {
+			key: { min: 2000, max: 2100 },
+			label: '[2000, 2100[',
+			value: 200,
+			filteredValue: 100,
+		};
 		const component = mount(
 			<VerticalBarChart
-				{...NumberBarChart.args}
+				data={[entry]}
+				dataType={DataType.NUMBER}
 				height={300}
 				width={300}
 				onBarClick={onBarClick}
@@ -16,21 +23,28 @@ describe('Vertical bar chart', () => {
 			/>,
 		);
 
-		component.find('BarChart').invoke('onMouseMove')({
+		component.find('BarChart').invoke('onMouseMove')!({
 			isTooltipActive: true,
-			activeTooltipIndex: 1,
+			activeTooltipIndex: 0,
 		} as any);
 		component.update();
-		component.find('BarChart').invoke('onClick')({} as any);
+		component.find('BarChart').invoke('onClick')!({} as any);
 
-		expect(onBarClick).toHaveBeenCalledWith(undefined, NumberBarChart.args?.data?.[1]);
+		expect(onBarClick).toHaveBeenCalledWith(undefined, entry);
 	});
 
 	it('Should render tooltip on hover', () => {
 		const getTooltipContent = jest.fn().mockImplementation(() => 'myTooltipContent');
+		const entry = {
+			key: { min: 2000, max: 2100 },
+			label: '[2000, 2100[',
+			value: 200,
+			filteredValue: 100,
+		};
 		const component = mount(
 			<VerticalBarChart
-				{...NumberBarChart.args}
+				data={[entry]}
+				dataType={DataType.NUMBER}
 				height={300}
 				width={300}
 				onBarClick={jest.fn()}
@@ -38,20 +52,30 @@ describe('Vertical bar chart', () => {
 			/>,
 		);
 
-		component.find('BarChart').invoke('onMouseMove')({
+		component.find('BarChart').invoke('onMouseMove')!({
 			isTooltipActive: true,
-			activeTooltipIndex: 1,
+			activeTooltipIndex: 0,
 		} as any);
 		component.update();
 
-		expect(getTooltipContent).toHaveBeenCalledWith(NumberBarChart.args?.data?.[1]);
+		expect(getTooltipContent).toHaveBeenCalledWith(entry);
 		expect(component.find('Tooltip').text()).toEqual('myTooltipContent');
 	});
 
 	it('Should display x axis label for date chart', () => {
 		const component = mount(
 			<VerticalBarChart
-				{...DateBarChart.args}
+				data={[
+					{
+						key: {
+							min: 946681200000,
+							max: 1262300400000,
+						},
+						label: '[2000, 2010[',
+						value: 249,
+					},
+				]}
+				dataType={DataType.DATE}
 				height={300}
 				width={300}
 				onBarClick={jest.fn()}
@@ -67,7 +91,15 @@ describe('Vertical bar chart', () => {
 	it('Should not display x axis label for number chart', () => {
 		const component = mount(
 			<VerticalBarChart
-				{...NumberBarChart.args}
+				data={[
+					{
+						key: { min: 2000, max: 2100 },
+						label: '[2000, 2100[',
+						value: 200,
+						filteredValue: 100,
+					},
+				]}
+				dataType={DataType.NUMBER}
 				height={300}
 				width={300}
 				onBarClick={jest.fn()}

@@ -1,5 +1,5 @@
 import { ValueType } from './barChart.types';
-import { getHorizontalBarChartTooltip } from './barChart.tooltip';
+import { getHorizontalBarChartTooltip, getVerticalBarChartTooltip } from './barChart.tooltip';
 
 describe('BarChartTooltip', () => {
 	it('Should return content for an aggregation on full dataset', () => {
@@ -44,6 +44,44 @@ describe('BarChartTooltip', () => {
 			{ key: 'OCCURRENCES_MATCHING_FILTER', value: '10 (50.0%)' },
 			{ key: 'OCCURRENCES_IN_DATASET', value: '20' },
 			{ key: 'RECORD', value: 'France' },
+		]);
+	});
+	it('Should return content for a range', () => {
+		expect(
+			getVerticalBarChartTooltip(
+				{
+					value: 20,
+					key: {
+						min: 10,
+						max: 20
+					},
+					filteredValue: 10,
+					label: '[10, 20['
+				}
+			),
+		).toEqual([
+			{ key: 'OCCURRENCES_MATCHING_FILTER', value: '10 (50.0%)' },
+			{ key: 'OCCURRENCES_IN_DATASET', value: '20' },
+			{ key: 'RANGE', value: '[10, 20[' },
+		]);
+	});
+	it('Should return content for a range with same min and max', () => {
+		expect(
+			getVerticalBarChartTooltip(
+				{
+					value: 20,
+					key: {
+						min: 10,
+						max: 10
+					},
+					filteredValue: 10,
+					label: '10'
+				}
+			),
+		).toEqual([
+			{ key: 'OCCURRENCES_MATCHING_FILTER', value: '10 (50.0%)' },
+			{ key: 'OCCURRENCES_IN_DATASET', value: '20' },
+			{ key: 'VALUE', value: '10' },
 		]);
 	});
 });

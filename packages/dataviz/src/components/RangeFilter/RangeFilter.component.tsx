@@ -9,6 +9,7 @@ import { DataType, Range } from '../BarChart/barChart.types';
 import { formatDate, formatNumber, getFractionDigits } from '../../formatters/formatters';
 
 export interface RangeFilterProps {
+	id?: string;
 	range: Range;
 	dataType: DataType;
 	limits: Range;
@@ -28,6 +29,7 @@ function getMarks(
 	const result: { [tick in number]: ReactNode } = {};
 	for (let i = 0; i < ticksNumber; i += 1) {
 		const tickValue = limits.min + (i * (limits.max - limits.min)) / (ticksNumber - 1);
+		// Position: _ - - - _
 		const position = { 0: 'bottom-left', [ticksNumber - 1]: 'bottom-right' }[i] || 'top';
 		result[tickValue] = (
 			<span
@@ -87,14 +89,24 @@ function RangeFilter({
 					<span className={styles['range-filter__label-text']}>{t('MIN', 'Min')}</span>
 					<InputField
 						value={range.min}
-						onChange={value => onAfterChange({ min: value, max: range.max })}
+						onChange={value =>
+							onAfterChange({
+								min: Math.min(Math.max(value, limits.min), range.max),
+								max: range.max,
+							})
+						}
 					/>
 				</label>
 				<label className={styles['range-filter__label']}>
 					<span className={styles['range-filter__label-text']}>{t('MAX', 'Max')}</span>
 					<InputField
 						value={range.max}
-						onChange={value => onAfterChange({ min: range.min, max: value })}
+						onChange={value =>
+							onAfterChange({
+								min: range.min,
+								max: Math.max(range.min, Math.min(value, limits.max)),
+							})
+						}
 					/>
 				</label>
 			</form>

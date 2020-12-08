@@ -16,12 +16,12 @@ describe('Horizontal bar chart', () => {
 			/>,
 		);
 
-		component.find('BarChart').invoke('onMouseMove')({
+		component.find('BarChart').invoke('onMouseMove')!({
 			isTooltipActive: true,
 			activeTooltipIndex: 1,
 		} as any);
 		component.update();
-		component.find('BarChart').invoke('onClick')({} as any);
+		component.find('BarChart').invoke('onClick')!({} as any);
 
 		expect(onBarClick).toHaveBeenCalledWith(undefined, {
 			filteredValue: 0,
@@ -42,7 +42,7 @@ describe('Horizontal bar chart', () => {
 			/>,
 		);
 
-		component.find('BarChart').invoke('onMouseMove')({
+		component.find('BarChart').invoke('onMouseMove')!({
 			isTooltipActive: true,
 			activeTooltipIndex: 1,
 		} as any);
