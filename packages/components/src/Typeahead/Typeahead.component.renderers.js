@@ -39,6 +39,12 @@ export function renderInputComponent(props) {
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
+			{hasIcon && (
+				<div className={classNames(theme['icon-cls'], hasCaret && theme['icon-caret'])}>
+					{icon && <Icon {...icon} />}
+					{hasCaret && <Icon name="talend-caret-down" />}
+				</div>
+			)}
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
 					autoFocus
@@ -63,12 +69,6 @@ export function renderInputComponent(props) {
 					readOnly={readOnly}
 					inputRef={inputRef}
 				/>
-			)}
-			{hasIcon && (
-				<div className={classNames(theme['icon-cls'], hasCaret && theme['icon-caret'])}>
-					{icon && <Icon {...icon} />}
-					{hasCaret && <Icon name="talend-caret-down" />}
-				</div>
 			)}
 		</div>
 	);
@@ -256,6 +256,7 @@ export function renderItem(item, { value, ...rest }) {
 			className={classNames(theme.item, {
 				[theme.disabled]: item.disabled,
 				[theme.selected]: value === title,
+				[theme.multiline]: title && description,
 			})}
 			title={title}
 			data-feature={item['data-feature'] || rest['data-feature']}

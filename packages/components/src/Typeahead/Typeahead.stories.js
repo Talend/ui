@@ -6,10 +6,10 @@ import Typeahead from './Typeahead.component';
 const items = [
 	{
 		title: 'category 1',
-		icon: {
-			name: 'talend-filter',
-			title: 'icon',
-		},
+		// icon: {
+		// 	name: 'talend-filter',
+		// 	title: 'icon',
+		// },
 		suggestions: [
 			{
 				title: 'le title 1',
@@ -25,10 +25,10 @@ const items = [
 	},
 	{
 		title: 'category 2',
-		icon: {
-			name: 'fa fa-asterisk',
-			title: 'icon',
-		},
+		// icon: {
+		// 	name: 'fa fa-asterisk',
+		// 	title: 'icon',
+		// },
 		suggestions: [
 			{
 				title: 'title 3',
@@ -39,10 +39,10 @@ const items = [
 	},
 	{
 		title: 'category 3',
-		icon: {
-			name: 'fa fa-asterisk',
-			title: 'icon',
-		},
+		// icon: {
+		// 	name: 'fa fa-asterisk',
+		// 	title: 'icon',
+		// },
 		suggestions: [
 			{
 				title: 'title 4',
@@ -117,6 +117,41 @@ storiesOf('Form/Inline form/Typeahead', module)
 			onSelect: action('onSelect'),
 			role: 'searchbox',
 			'data-feature': 'data-feature-typeahead',
+			// caret: true,
+		};
+		return <Typeahead {...props} />;
+	})
+	.add('with results and icon', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			role: 'searchbox',
+			'data-feature': 'data-feature-typeahead',
+			icon: {
+				name: 'talend-search',
+				title: 'Toggle search input',
+			},
+			// caret: true,
+		};
+		return <Typeahead {...props} />;
+	})
+	.add('with results and icon and caret', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			role: 'searchbox',
+			'data-feature': 'data-feature-typeahead',
+			icon: {
+				name: 'talend-search',
+				title: 'Toggle search input',
+			},
+			caret: true,
 		};
 		return <Typeahead {...props} />;
 	})
