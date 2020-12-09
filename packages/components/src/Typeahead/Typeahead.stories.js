@@ -139,7 +139,23 @@ storiesOf('Form/Inline form/Typeahead', module)
 				name: 'talend-search',
 				title: 'Toggle search input',
 			},
-			// caret: true,
+		};
+		return <Typeahead {...props} />;
+	})
+	.add('with managed navigation', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			role: 'searchbox',
+			'data-feature': 'data-feature-typeahead',
+			icon: {
+				name: 'talend-search',
+				title: 'Toggle search input',
+			},
+			manageNavigation: true,
 		};
 		return <Typeahead {...props} />;
 	})
@@ -169,24 +185,6 @@ storiesOf('Form/Inline form/Typeahead', module)
 				name: 'talend-search',
 				title: 'Toggle search input',
 			},
-			// caret: true,
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('with results and icon and caret', () => {
-		const props = {
-			value: 'le',
-			items,
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			onSelect: action('onSelect'),
-			role: 'searchbox',
-			'data-feature': 'data-feature-typeahead',
-			icon: {
-				name: 'talend-search',
-				title: 'Toggle search input',
-			},
-			caret: true,
 		};
 		return <Typeahead {...props} />;
 	})

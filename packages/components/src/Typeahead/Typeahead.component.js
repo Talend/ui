@@ -36,7 +36,7 @@ function getItems(items, dataFeature) {
  *
  * <Typeahead {...props} />
  */
-function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+function Typeahead({ onToggle, icon, position, docked, manageNavigation, ...rest }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const inputRef = useRef(null);
 
@@ -127,7 +127,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
 			onClick: rest.onClick,
-			onKeyDown: handleKeyDown,
+			onKeyDown: manageNavigation ? handleKeyDown : rest.onKeyDown,
 			placeholder: rest.placeholder,
 			readOnly: rest.readOnly,
 			value: rest.value,
@@ -165,8 +165,8 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...sectionProps,
 		...themeProps,
 		...inputProps,
-		highlightedSectionIndex,
-		highlightedItemIndex,
+		highlightedSectionIndex:  manageNavigation ? highlightedSectionIndex : rest.focusedSectionIndex,
+		highlightedItemIndex: manageNavigation ?  highlightedItemIndex : rest.focusedItemIndex,
 		items: getItems(rest.items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
 			onMouseDown: event => event.preventDefault(),
@@ -248,6 +248,7 @@ Typeahead.propTypes = {
 		]),
 	),
 	children: PropTypes.func, // render props
+	manageNavigation: PropTypes.bool,
 };
 
 export default Typeahead;

@@ -30,7 +30,7 @@ export function renderInputComponent(props) {
 	} = props;
 
 	const hasCaret = caret && !disabled && !readOnly;
-	const hasIcon = icon || hasCaret;
+	const hasIcon = icon;
 	const typeaheadContainerIconClasses = classNames(
 		'tc-typeahead-typeahead-input-icon',
 		theme['typeahead-input-container'],
@@ -234,9 +234,9 @@ export function renderSectionTitle(section) {
 	if (section && (section.icon || section.title)) {
 		const { hint } = section;
 		return (
-			<div className={css('section-header')}>
+			<div className={css('section-header', 'tc-typeahead-section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span className={css('section-header-title', { hint })}>{section.title}</span>
+				<span className={css('section-header-title', 'tc-typeahead-section-header-title', { hint })}>{section.title}</span>
 			</div>
 		);
 	}
@@ -264,11 +264,11 @@ export function renderItem(item, { value, ...rest }) {
 		>
 			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
 			<div className={theme['item-text']}>
-				<span className={css('item-title')}>
+				<span className={css('item-title', 'tc-typeahead-item-title')}>
 					<Emphasis value={value} text={title} />
 				</span>
 				{description && (
-					<p className={css('item-description')}>
+					<p className={css('item-description', 'tc-typeahead-item-description')}>
 						<Emphasis value={value} text={description} />
 					</p>
 				)}
