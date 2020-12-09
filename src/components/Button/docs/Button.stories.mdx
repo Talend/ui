@@ -2,6 +2,7 @@ import { Meta, Canvas, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { FigmaImage, Use } from '../../../docs';
 import Button from '../';
+import Loading from '../../Loading';
 import Tooltip from '../../Tooltip';
 
 <Meta title="Components/Button" component={Button} />
@@ -39,6 +40,9 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 <Canvas>
 	<Story name="primary">
 		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
+		<Button.Primary onClick={action('clicked')} icon="plus">
+			Button with icon
+		</Button.Primary>
 		<Button.Primary small onClick={action('clicked')}>
 			Small Button
 		</Button.Primary>
@@ -56,6 +60,9 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 <Canvas>
 	<Story name="destructive">
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
+		<Button.Destructive onClick={action('clicked')} icon="plus">
+			Button with icon
+		</Button.Destructive>
 		<Button.Destructive small onClick={action('clicked')}>
 			Small Button
 		</Button.Destructive>
@@ -73,6 +80,9 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 <Canvas>
 	<Story name="secondary">
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
+		<Button.Secondary onClick={action('clicked')} icon="plus">
+			Button with icon
+		</Button.Secondary>
 		<Button.Secondary small onClick={action('clicked')}>
 			Small Button
 		</Button.Secondary>
@@ -90,6 +100,9 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 <Canvas>
 	<Story name="ghost">
 		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
+		<Button.Ghost onClick={action('clicked')} icon="plus">
+			Button with icon
+		</Button.Ghost>
 		<Button.Ghost small onClick={action('clicked')}>
 			Small Button
 		</Button.Ghost>
@@ -128,6 +141,11 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 		<Tooltip title="Relevant description of the basic button">
 			<Button onClick={action('clicked')}>Basic Button</Button>
 		</Tooltip>
+		<Tooltip title="Relevant description of the basic button with icon">
+			<Button onClick={action('clicked')} icon={'plus'}>
+				Basic Button
+			</Button>
+		</Tooltip>
 		<Tooltip title="Relevant description of the small button">
 			<Button small onClick={action('clicked')}>
 				Small Button
@@ -148,12 +166,32 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 
 ## Interactions
 
-**Buttons has a loading states**
+**Button has a loading states**
 
-When the user clicks on the button, a spinner will appear on the left of the label. No actions will be possible until it's loading.
-In case of button with icon inside, the spinner will replace the icon as long as it's loading.
+When the user clicks on the button, and the action is asynchronous, a spinner will appear on the left of the label.
+If the button has an icon, the spinner will temporary replace this icon as long as it's loading.
+No action will be possible until it's done.
 
-// TODO add demo
+<Canvas>
+	<Story name="loading">
+		{() => {
+			const [loading, isLoading] = React.useState(false);
+			return (
+				<Tooltip title="Relevant description of the basic button">
+					<Button.Primary
+						icon={!loading && 'plus'}
+						onClick={() => {
+							isLoading(true);
+							setTimeout(() => isLoading(false), 3000);
+						}}
+					>
+						{loading && <Loading />} Async Button
+					</Button.Primary>
+				</Tooltip>
+			);
+		}}
+	</Story>
+</Canvas>
 
 ## Content
 
