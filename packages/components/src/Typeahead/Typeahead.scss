@@ -95,13 +95,12 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 		}
 	}
 
-	// [NC] fixme :
 	&-caret {
 		[type='text'].typeahead-input {
 			padding-right: 1em;
 		}
 
-		.icon-caret {
+		.icon-cls {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -118,23 +117,6 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 		}
 	}
 }
-
-// .is-loading,
-// .is-searching,
-// .no-result {
-// 	padding: $padding-normal;
-// 	font-size: 1.5rem;
-// 	color: $black
-// }
-
-// .is-searching {
-// 	display: flex;
-// 	align-items: center;
-
-// 	> svg {
-// 		margin-left: auto;
-// 	}
-// }
 
 .is-loading,
 .is-searching,

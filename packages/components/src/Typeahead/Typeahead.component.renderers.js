@@ -45,7 +45,6 @@ export function renderInputComponent(props) {
 			{hasIcon && (
 				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
 					{icon && <Icon {...icon} />}
-					{hasCaret && <Icon name="talend-caret-down" />}
 				</div>
 			)}
 			{debounceMinLength || debounceTimeout ? (
@@ -72,6 +71,11 @@ export function renderInputComponent(props) {
 					readOnly={readOnly}
 					inputRef={inputRef}
 				/>
+			)}
+			{hasCaret && (
+				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
+					<Icon name="talend-caret-down" />
+				</div>
 			)}
 		</div>
 	);
