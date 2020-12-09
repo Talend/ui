@@ -7,6 +7,7 @@ export const Link = styled.a(
 	({ theme }) => `
 	font-family: ${tokens.fonts.sansSerif};
 	color: ${theme.colors.activeColor};
+	text-decoration: none;
 	
 	.link__text {
 		border-bottom: .1rem solid transparent;

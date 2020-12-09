@@ -126,7 +126,88 @@ Press <kbd>ENTER</kbd> to open a link
 	<Story
 		name="usage"
 		args={{
-			children: 'Lorem ipsum',
+			iconBefore: 'information',
+			children: 'Help',
+			iconAfter: '',
+			href: 'https://help.talend.com',
+			disabled: false,
+			hideExternalIcon: false,
+		}}
+		argTypes={{
+			iconBefore: {
+				description: 'Link icon before text as illustration',
+				control: {
+					type: 'select',
+					options: [
+						'',
+						'arrowLeft',
+						'bell',
+						'burger',
+						'bubbles',
+						'caret',
+						'cross',
+						'check',
+						'datagrid',
+						'eye',
+						'eyeSlash',
+						'information',
+						'link',
+						'minus',
+						'opener',
+						'plus',
+						'search',
+						'talend',
+						'talendLogo',
+						'upload',
+						'user',
+						'validate',
+						'warning',
+					],
+				},
+			},
+			iconAfter: {
+				description: 'Link icon after text as illustration',
+				control: {
+					type: 'select',
+					options: [
+						'',
+						'arrowLeft',
+						'bell',
+						'burger',
+						'bubbles',
+						'caret',
+						'cross',
+						'check',
+						'datagrid',
+						'eye',
+						'eyeSlash',
+						'information',
+						'link',
+						'minus',
+						'opener',
+						'plus',
+						'search',
+						'talend',
+						'talendLogo',
+						'upload',
+						'user',
+						'validate',
+						'warning',
+					],
+				},
+			},
+			href: {
+				description: 'Link reference',
+				control: {
+					type: 'text',
+				},
+			},
+			hideExternalIcon: {
+				description: 'Button has hidden text',
+				control: {
+					type: 'boolean',
+				},
+			},
 		}}
 	>
 		{({ children, ...rest }) => <Link {...rest}>{children}</Link>}

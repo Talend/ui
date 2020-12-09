@@ -60,7 +60,9 @@ const Link: React.FC<LinkProps> = React.forwardRef(
 			>
 				{iconBefore && <Icon className="link__icon link__icon--before" name={iconBefore} />}
 				<span className="link__text">{children}</span>
-				{isExternal && <Icon className="link__icon link__icon--external" name="link" />}
+				{isExternal && !hideExternalIcon && (
+					<Icon className="link__icon link__icon--external" name="link" />
+				)}
 				{iconAfter && <Icon className="link__icon link__icon--after" name={iconAfter} />}
 			</S.Link>
 		);
