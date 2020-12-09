@@ -11,34 +11,23 @@ const SVG = styled.svg(
 
 function Loading(props) {
 	return (
-		<SVG
-			xmlns="http://www.w3.org/2000/svg"
-			width="40px"
-			height="40px"
-			viewBox="0 0 40 40"
-			enable-background="new 0 0 40 40"
-			{...props}
-		>
-			<path
-				opacity="0.2"
-				d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
-    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
-    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"
-			/>
-			<path
-				d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
-    C22.32,8.481,24.301,9.057,26.013,10.047z"
-			>
-				<animateTransform
-					attributeType="xml"
-					attributeName="transform"
-					type="rotate"
-					from="0 20 20"
-					to="360 20 20"
-					dur="0.5s"
-					repeatCount="indefinite"
+		<SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" {...props}>
+			<g>
+				<path
+					d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 14.227A6.227 6.227 0 118 1.773a6.227 6.227 0 010 12.454z"
+					opacity=".2"
 				/>
-			</path>
+				<path d="M11.11 2.611l.886-1.534A7.951 7.951 0 008 0v1.773c1.134 0 2.195.308 3.11.838z">
+					<animateTransform
+						attributeName="transform"
+						type="rotate"
+						from="0 8 8"
+						to="360 8 8"
+						dur=".85s"
+						repeatCount="indefinite"
+					/>
+				</path>
+			</g>
 		</SVG>
 	);
 }

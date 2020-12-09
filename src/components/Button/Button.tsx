@@ -27,8 +27,9 @@ const Button: React.FC<ButtonProps> = React.forwardRef(
 				hideText ? '' : 'btn--has-text'
 			} ${small ? `btn--small` : ''} ${loading ? 'btn--loading' : ''}
 			`}
+			aria-busy={!!loading}
 		>
-			{loading && <Loading className="btn__loading" name={icon} />}
+			{loading && <Loading className="btn__loading" name={icon} aria-hidden />}
 			{!loading && icon && <Icon className="btn__icon" name={icon} />}
 			<span className={`btn__text ${hideText ? 'btn__text--hidden' : ''}`}>{children}</span>
 		</S.Button>

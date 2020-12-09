@@ -61,7 +61,9 @@ export const Button = styled(ReakitButton)(
 	}
 	
 	&.btn--loading {
-		cursor: progress;
+		color: ${theme.colors.buttonDisabledColor};
+		background: ${theme.colors.buttonDisabledBackgroundColor};
+		pointer-events: none;
 	}
 `,
 );
