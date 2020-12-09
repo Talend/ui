@@ -8,10 +8,13 @@ import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
 import { Popper } from 'react-popper';
 
+import { getTheme } from '../theme';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
+
+const css = getTheme(theme);
 
 export function renderInputComponent(props) {
 	const {
@@ -40,7 +43,7 @@ export function renderInputComponent(props) {
 				Search
 			</ControlLabel>
 			{hasIcon && (
-				<div className={classNames(theme['icon-cls'], hasCaret && theme['icon-caret'])}>
+				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
 					{icon && <Icon {...icon} />}
 					{hasCaret && <Icon name="talend-caret-down" />}
 				</div>
@@ -138,20 +141,21 @@ export function renderItemsContainerFactory(
 		if (searching) {
 			content = (
 				<div key="searching" className={`${theme['is-searching']} is-searching`}>
-					{searchingText}
 					<CircularProgress />
+					<span>{searchingText}</span>
 				</div>
 			);
 		} else if (noResult && loading) {
 			content = (
 				<div key="loading" className={`${theme['is-loading']} is-loading`}>
-					{loadingText}
+					<span>{loadingText}</span>
 				</div>
 			);
 		} else if (noResult) {
 			content = (
 				<div key="no-result" className={`${theme['no-result']} no-result`}>
-					{noResultText}
+					<Icon name="talend-fieldglass" title={noResultText} />
+					<span>{noResultText}</span>
 				</div>
 			);
 		} else {
@@ -228,14 +232,11 @@ export function renderItemsContainerFactory(
 
 export function renderSectionTitle(section) {
 	if (section && (section.icon || section.title)) {
+		const { hint } = section;
 		return (
-			<div className={classNames(theme['section-header'], 'tc-typeahead-section-header')}>
+			<div className={css('section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span
-					className={classNames(theme['section-header-title'], 'tc-typeahead-section-header-title')}
-				>
-					{section.title}
-				</span>
+				<span className={css('section-header-title', { hint })}>{section.title}</span>
 			</div>
 		);
 	}
@@ -263,11 +264,11 @@ export function renderItem(item, { value, ...rest }) {
 		>
 			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
 			<div className={theme['item-text']}>
-				<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
+				<span className={css('item-title')}>
 					<Emphasis value={value} text={title} />
 				</span>
 				{description && (
-					<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
+					<p className={css('item-description')}>
 						<Emphasis value={value} text={description} />
 					</p>
 				)}
