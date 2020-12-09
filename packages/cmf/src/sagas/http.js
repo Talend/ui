@@ -186,7 +186,17 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, opti
 	const silent = get(options, 'silent');
 	if (silent !== true && answer instanceof Error) {
 		yield put({
-			error: { message: answer.data.message, stack: { status: answer.response.status } },
+			error: {
+				// legacy properties
+				message: get(answer, 'data.message'),
+				stack: { status: get(answer, 'response.status') },
+				// RFC-7807 default properties
+				type: get(answer, 'data.type'),
+				title: get(answer, 'data.title'),
+				detail: get(answer, 'data.detail'),
+				// RFC-7807 custom properties
+				code: get(answer, 'data.code'),
+			},
 			url,
 			config,
 			method,
