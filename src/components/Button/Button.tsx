@@ -1,12 +1,12 @@
 import React from 'react';
-import { ButtonProps as ReakitButtonProps } from 'reakit/Button';
+import { StyledProps } from 'styled-components';
 
 import Icon, { IconName } from '../Icon/Icon';
 import Loading from '../Loading';
 
 import * as S from './Button.style';
 
-export type ButtonProps = ReakitButtonProps & {
+export type ButtonProps = StyledProps<any> & {
 	/** The icon name of the button */
 	icon?: IconName;
 	/** If the button is small or not */
