@@ -30,7 +30,7 @@ export const Button = styled(ReakitButton)(
 		margin: 0;
 
 		+ .btn__text {
-			margin-left: 1rem; 
+			margin-left: ${tokens.space.s}; 
 		}
 	}
 	
@@ -55,6 +55,13 @@ export const Button = styled(ReakitButton)(
 	&.btn--small {
 		min-height: ${tokens.sizes.xl};
 	
+		.btn__loading,
+		.btn__icon {
+			+ .btn__text {
+				margin-left: ${tokens.space.xs}; 
+			}
+		}
+		
 		&.btn--has-text {
 			padding: ${tokens.space.none} ${tokens.space.s};
 		}

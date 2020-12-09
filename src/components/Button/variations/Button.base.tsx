@@ -5,7 +5,7 @@ import tokens from '../../../tokens';
 
 const ButtonBase: React.FC<ButtonProps> = styled(Button)(
 	({ theme }) => `
-		padding: ${tokens.space.none} ${tokens.space.l};
+		padding: ${tokens.space.none} ${tokens.space.m};
 		min-height: ${tokens.sizes.xxl};
         color: ${theme.colors.textColor};
         border: ${tokens.borders.normal};
