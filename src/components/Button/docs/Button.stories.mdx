@@ -2,6 +2,7 @@ import { Meta, Canvas, Props, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { FigmaImage, Use } from '../../../docs';
 import Button from '../';
+import Tooltip from '../../Tooltip';
 
 <Meta title="Components/Button" component={Button} />
 
@@ -34,6 +35,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 ### Variations
 
 **Primary**
+
 <Canvas>
 	<Story name="primary">
 		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
@@ -50,6 +52,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 </Canvas>
 
 **Destructive**
+
 <Canvas>
 	<Story name="destructive">
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
@@ -66,6 +69,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 </Canvas>
 
 **Secondary**
+
 <Canvas>
 	<Story name="secondary">
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
@@ -82,6 +86,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 </Canvas>
 
 **Tertiary**
+
 <Canvas>
 	<Story name="ghost">
 		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
@@ -98,6 +103,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 </Canvas>
 
 **Icon button**
+
 <Canvas>
 	<Story name="icon">
 		<Button.Icon onClick={action('clicked')} icon={'plus'}>
@@ -116,18 +122,27 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 </Canvas>
 
 **Buttons should all have a tooltip on hover displaying the description**
+
 <Canvas>
 	<Story name="basic">
-		<Button onClick={action('clicked')}>Basic Button</Button>
-		<Button small onClick={action('clicked')}>
-			Small Button
-		</Button>
-		<Button disabled onClick={action('clicked')}>
-			Disabled Button
-		</Button>
-		<Button disabled focusable onClick={action('clicked')}>
-			Disabled Focusable Button
-		</Button>
+		<Tooltip title="Relevant description of the basic button">
+			<Button onClick={action('clicked')}>Basic Button</Button>
+		</Tooltip>
+		<Tooltip title="Relevant description of the small button">
+			<Button small onClick={action('clicked')}>
+				Small Button
+			</Button>
+		</Tooltip>
+		<Tooltip title="Relevant description of the disabled button">
+			<Button disabled onClick={action('clicked')}>
+				Disabled Button
+			</Button>
+		</Tooltip>
+		<Tooltip title="Relevant description of the disabled focusable button">
+			<Button disabled focusable onClick={action('clicked')}>
+				Disabled Focusable Button
+			</Button>
+		</Tooltip>
 	</Story>
 </Canvas>
 
@@ -147,18 +162,16 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 <Use>
 	<Use.Do>
 		<ul>
-			<li>
-				Use sentence case in button labels.
-			</li>
+			<li>Use sentence case in button labels.</li>
 			<li>
 				Always start with an action verb: something happens when you click a button. Say what
 				happens with a verb. Navigation buttons are an example of an exception to using an action
 				verb. These often use Next and Back.
 			</li>
 			<li>
-				Choose specific words over vague words: “Try it now” for example is a common call to action (CTA), but
-				doesn’t really tell the user what will happen next. It might be too vague. Use your
-				judgement according to what the user should be doing when they click the button.
+				Choose specific words over vague words: “Try it now” for example is a common call to action
+				(CTA), but doesn’t really tell the user what will happen next. It might be too vague. Use
+				your judgement according to what the user should be doing when they click the button.
 			</li>
 			<li>
 				Choose words that logically align with the preceding content: if your headline says "Sign up
@@ -169,7 +182,9 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 	<Use.Dont>
 		<ul>
 			<li>Don’t use more than 3 words in a button: keep it short and simple.</li>
-			<li>Don't use Yes and No for buttons. Say what action really happens when the user clicks.</li>
+			<li>
+				Don't use Yes and No for buttons. Say what action really happens when the user clicks.
+			</li>
 			<li>Don't use title case or all caps in button labels (except for acronyms).</li>
 		</ul>
 	</Use.Dont>
