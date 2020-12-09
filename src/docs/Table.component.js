@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledTable = styled.table`
+	width: 100%;
 	border: 1px solid;
 	border-collapse: collapse;
-	border-radius: 0.75rem;
+	border-radius: 0.4rem;
 	text-align: left;
 	overflow: hidden;
 
