@@ -24,6 +24,12 @@ Types of changes
 -   `Fixed` for any bug fixes.
 -   `Security` in case of vulnerabilities.
 
+## [unreleased]
+
+### Fixed
+
+-   [Styling issue on badges with multiple lengthy values](https://github.com/Talend/ui-faceted-search/pull/15)
+
 ## [1.1.0]
 
 ### Changed

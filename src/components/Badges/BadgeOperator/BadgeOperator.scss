@@ -3,11 +3,9 @@ $circle-size-small: 1.8rem !default;
 
 .tc-badge-operator {
 	&-small {
-		width: $circle-size-small;
 		height: $circle-size-small;
 	}
 	&-large {
-		width: $circle-size-large;
 		height: $circle-size-large;
 	}
 	align-items: center;
@@ -25,6 +23,11 @@ $circle-size-small: 1.8rem !default;
 			padding: 0;
 			text-decoration: none;
 			text-transform: none;
+			> span {
+				padding: 0 $padding-smaller;
+			}
+			> svg {
+			}
 		}
 	}
 	&-popover {

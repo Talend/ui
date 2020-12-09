@@ -1,14 +1,12 @@
-$width-operator-badge: 27rem;
-$width-label-badge: 23.5rem;
-
 .tc-badge-faceted {
 	padding: $padding-smaller $padding-small $padding-smaller $padding-small;
-	max-width: none;
+	max-width: 35em;
 
 	:global(.tc-badge-button) {
 		max-width: none;
 	}
 	:global(.tc-badge-button:first-child) {
+		flex-grow: 1;
 		padding-top: 0;
 		margin: 0;
 		> span {
@@ -18,12 +16,12 @@ $width-label-badge: 23.5rem;
 
 	:global(.tc-badge-delete-icon) {
 		align-self: center;
+		padding-left: $padding-small;
 	}
 
 	&-overlay {
 		align-items: center;
 		display: flex;
-		max-width: $width-label-badge;
 		& > button {
 			font-style: italic;
 			padding: 0;
