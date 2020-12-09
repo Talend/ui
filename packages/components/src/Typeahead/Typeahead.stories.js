@@ -57,10 +57,6 @@ const items = [
 	},
 	{
 		title: 'category 3',
-		// icon: {
-		// 	name: 'fa fa-asterisk',
-		// 	title: 'icon',
-		// },
 		suggestions: [
 			{
 				title: 'title 4',
@@ -142,7 +138,7 @@ storiesOf('Form/Inline form/Typeahead', module)
 		};
 		return <Typeahead {...props} />;
 	})
-	.add('with managed navigation', () => {
+	.add('with unmanaged navigation', () => {
 		const props = {
 			value: 'le',
 			items,
@@ -155,6 +151,7 @@ storiesOf('Form/Inline form/Typeahead', module)
 				name: 'talend-search',
 				title: 'Toggle search input',
 			},
+			onKeyDown: action('onKeyDown -> internal nav is bypassed'),
 			manageNavigation: true,
 		};
 		return <Typeahead {...props} />;

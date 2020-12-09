@@ -30,11 +30,10 @@ export function renderInputComponent(props) {
 	} = props;
 
 	const hasCaret = caret && !disabled && !readOnly;
-	const hasIcon = icon;
 	const typeaheadContainerIconClasses = classNames(
 		'tc-typeahead-typeahead-input-icon',
 		theme['typeahead-input-container'],
-		hasIcon && theme['typeahead-input-icon'],
+		icon && theme['typeahead-input-icon'],
 		hasCaret && theme['typeahead-input-caret'],
 	);
 	return (
@@ -42,7 +41,7 @@ export function renderInputComponent(props) {
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
-			{hasIcon && (
+			{icon && (
 				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
 					{icon && <Icon {...icon} />}
 				</div>

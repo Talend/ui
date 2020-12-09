@@ -36,7 +36,7 @@ function getItems(items, dataFeature) {
  *
  * <Typeahead {...props} />
  */
-function Typeahead({ onToggle, icon, position, docked, manageNavigation, ...rest }) {
+function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const inputRef = useRef(null);
 
@@ -59,9 +59,6 @@ function Typeahead({ onToggle, icon, position, docked, manageNavigation, ...rest
 	}
 
 	const handleKeyDown = (event, data) => {
-		if (rest.onKeyDown) {
-			rest.onKeyDown(event, data);
-		}
 		switch (event.which) {
 			case keycode.codes.down:
 			case keycode.codes.up:
@@ -127,7 +124,7 @@ function Typeahead({ onToggle, icon, position, docked, manageNavigation, ...rest
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
 			onClick: rest.onClick,
-			onKeyDown: manageNavigation ? handleKeyDown : rest.onKeyDown,
+			onKeyDown: rest.onKeyDown || handleKeyDown,
 			placeholder: rest.placeholder,
 			readOnly: rest.readOnly,
 			value: rest.value,
@@ -158,15 +155,14 @@ function Typeahead({ onToggle, icon, position, docked, manageNavigation, ...rest
 		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};
 
-
 	const autowhateverProps = {
 		...defaultRenderersProps,
 		...rest,
 		...sectionProps,
 		...themeProps,
 		...inputProps,
-		highlightedSectionIndex:  manageNavigation ? highlightedSectionIndex : rest.focusedSectionIndex,
-		highlightedItemIndex: manageNavigation ?  highlightedItemIndex : rest.focusedItemIndex,
+		highlightedSectionIndex: rest.onKeyDown ? rest.focusedSectionIndex : highlightedSectionIndex,
+		highlightedItemIndex: rest.onKeyDown ? rest.focusedItemIndex : highlightedItemIndex,
 		items: getItems(rest.items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
 			onMouseDown: event => event.preventDefault(),
@@ -248,7 +244,6 @@ Typeahead.propTypes = {
 		]),
 	),
 	children: PropTypes.func, // render props
-	manageNavigation: PropTypes.bool,
 };
 
 export default Typeahead;
