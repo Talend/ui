@@ -14,6 +14,7 @@ declare module 'styled-components' {
 			focusColor: string;
 			activeColor: string;
 			backgroundColor: string;
+
 			// Buttons
 			buttonPrimaryColor: string;
 			buttonPrimaryBackgroundColor: string;
@@ -46,6 +47,12 @@ declare module 'styled-components' {
 			inputBorderFocusColor: string;
 			inputBorderDisabledColor: string;
 			inputBorderReadOnlyColor: string;
+
+			modalBackground: string;
+			modalHeadingBackground: string;
+			modalHeadingBorderColor: string;
+
+			skeletonColor: string;
 
 			// Tags
 			tagDefaultColor: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { addParameters } from '@storybook/react';
 import { withTableOfContents } from 'storybook-docs-toc';
 import 'focus-outline-manager';
@@ -26,8 +26,10 @@ const getTheme = themeKey => {
 	return light;
 };
 
-const GlobalStyle = createGlobalStyle(
+const GlobalStyle = ThemeProvider.createGlobalStyle(
 	({ theme }) => `
+		${ThemeProvider.globalStyle};
+	
 		.sbdocs .sbdocs-preview {
 			background: ${theme.colors.backgroundColor};
 		}
@@ -38,7 +40,7 @@ const withThemeProvider = (Story, context) => {
 	const theme = getTheme(context.globals.theme);
 	return (
 		<ThemeProvider theme={theme}>
-			<ThemeProvider.GlobalStyle />
+			<GlobalStyle />
 			<Story {...context} />
 		</ThemeProvider>
 	);
