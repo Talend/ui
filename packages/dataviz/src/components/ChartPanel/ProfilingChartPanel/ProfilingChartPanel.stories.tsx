@@ -1,12 +1,12 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import ProfilingChartPanel, { PanelProps } from './ProfilingChartPanel.component';
+import ProfilingChartPanel, { ProfilingChartPanelProps } from './ProfilingChartPanel.component';
 import { DataType } from '../../BarChart/barChart.types';
 
-const Template: Story<PanelProps> = args => <ProfilingChartPanel {...args} />;
+const Template: Story<ProfilingChartPanelProps> = args => <ProfilingChartPanel {...args} />;
 
 export default {
-	title: 'Dataviz/ProfilePanel',
+	title: 'Dataviz/ProfilingChartPanel',
 	component: ProfilingChartPanel,
 	decorators: [
 		MyStory => (
@@ -15,7 +15,7 @@ export default {
 			</div>
 		),
 	],
-} as Meta<PanelProps>;
+} as Meta<ProfilingChartPanelProps>;
 
 export const Number = Template.bind({});
 Number.args = {

@@ -3,10 +3,10 @@ import VerticalBarChart from '../../BarChart/VerticalBarChart/VerticalBarChart.c
 import { ChartEntry, DataType, Range, VerticalBarChartEntry } from '../../BarChart/barChart.types';
 import styles from './ProfilingChartPanel.component.scss';
 import RangeFilter from '../../RangeFilter/RangeFilter.component';
-import Tooltip from '../../Tooltip/Tooltip.component';
+import TooltipContent from '../../TooltipContent/TooltipContent.component';
 import { getVerticalBarChartTooltip } from '../../BarChart/barChart.tooltip';
 
-export interface PanelProps {
+export interface ProfilingChartPanelProps {
 	data: VerticalBarChartEntry[];
 	activeRange?: Range;
 	rangeLimits: Range;
@@ -15,14 +15,14 @@ export interface PanelProps {
 	onRangeChange: (value: Range) => void;
 }
 
-function Panel({
+function ProfilingChartPanel({
 	activeRange,
 	rangeLimits,
 	data,
 	onBarClick,
 	onRangeChange,
 	dataType,
-}: PanelProps): JSX.Element {
+}: ProfilingChartPanelProps): JSX.Element {
 	const [sliderValue, setSliderValue] = useState<Range>(activeRange || rangeLimits);
 
 	useEffect(() => {
@@ -46,7 +46,7 @@ function Panel({
 					}))}
 					onBarClick={onBarClick}
 					getTooltipContent={(entry: VerticalBarChartEntry) => (
-						<Tooltip entries={getVerticalBarChartTooltip(entry)} />
+						<TooltipContent entries={getVerticalBarChartTooltip(entry)} />
 					)}
 				/>
 			</div>
@@ -68,4 +68,4 @@ function Panel({
 	);
 }
 
-export default Panel;
+export default ProfilingChartPanel;

@@ -96,4 +96,4 @@ function HorizontalBarChart({
 	);
 }
 
-export default Object.assign(HorizontalBarChart);
+export default HorizontalBarChart;

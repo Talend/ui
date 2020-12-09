@@ -1,0 +1,29 @@
+$module: dataviz-tooltip;
+
+.#{$module} {
+	padding: 12px;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.8);
+	list-style-type: none;
+	white-space: nowrap;
+
+	&__entry {
+		display: flex;
+		align-items: center;
+	}
+
+	&__key {
+		font-weight: $font-weight-regular;
+		line-height: $line-height-base;
+		color: $white;
+
+		&::after {
+			content: ':';
+		}
+	}
+
+	&__value {
+		margin-left: 5px;
+		color: $scooter;
+	}
+}

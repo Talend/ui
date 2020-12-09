@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import { ChartEntry, ValueType, VerticalBarChartEntry } from './barChart.types';
-import { TooltipEntry } from '../Tooltip/Tooltip.component';
+import { TooltipEntry } from '../TooltipContent/TooltipContent.component';
 
 function getFilteredValueLabel(valueType: ValueType): string {
 	return {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Tooltip from './Tooltip.component';
+import TooltipContent from './TooltipContent.component';
 
-describe('Tooltip', () => {
+describe('TooltipContent', () => {
 	it('Should render', () => {
 		const component = mount(
-			<Tooltip
+			<TooltipContent
 				entries={[
 					{
 						key: 'key1',

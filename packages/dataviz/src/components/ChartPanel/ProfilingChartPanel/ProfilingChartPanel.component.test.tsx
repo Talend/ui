@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Panel from './ProfilingChartPanel.component';
+import ProfilingChartPanel from './ProfilingChartPanel.component';
 import { DataType, VerticalBarChartEntry } from '../../BarChart/barChart.types';
 
 describe('Profiling chart panel', () => {
@@ -11,7 +11,7 @@ describe('Profiling chart panel', () => {
 
 	it('Should not show range filter if limits min and max are equal', () => {
 		const component = shallow(
-			<Panel data={[]} dataType={DataType.NUMBER} rangeLimits={{ min: 10, max: 10 }} {...mocks} />,
+			<ProfilingChartPanel data={[]} dataType={DataType.NUMBER} rangeLimits={{ min: 10, max: 10 }} {...mocks} />,
 		);
 
 		expect(component.find('RangeFilter')).toHaveLength(0);
@@ -19,7 +19,7 @@ describe('Profiling chart panel', () => {
 
 	it('Should show range filter if limits min and max are different', () => {
 		const component = shallow(
-			<Panel data={[]} dataType={DataType.NUMBER} rangeLimits={{ min: 10, max: 20 }} {...mocks} />,
+			<ProfilingChartPanel data={[]} dataType={DataType.NUMBER} rangeLimits={{ min: 10, max: 20 }} {...mocks} />,
 		);
 
 		expect(component.find('RangeFilter')).toHaveLength(1);
@@ -27,7 +27,7 @@ describe('Profiling chart panel', () => {
 
 	it('Should syn bar chart with range filter', () => {
 		const component = shallow(
-			<Panel
+			<ProfilingChartPanel
 				data={[
 					{
 						value: 10,

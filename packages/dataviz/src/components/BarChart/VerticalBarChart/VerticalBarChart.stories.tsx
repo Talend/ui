@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import VerticalBarChart, { VerticalBarChartProps } from './VerticalBarChart.component';
 import { DataType } from '../barChart.types';
-import Tooltip from '../../Tooltip/Tooltip.component';
+import TooltipContent from '../../TooltipContent/TooltipContent.component';
 import { getVerticalBarChartTooltip } from '../barChart.tooltip';
 
 const Template: Story<VerticalBarChartProps> = args => <VerticalBarChart {...args} />;
@@ -63,7 +63,7 @@ NumberBarChart.args = {
 		},
 	],
 	dataType: DataType.NUMBER,
-	getTooltipContent: entry => <Tooltip entries={getVerticalBarChartTooltip(entry)} />,
+	getTooltipContent: entry => <TooltipContent entries={getVerticalBarChartTooltip(entry)} />,
 };
 
 export const DateBarChart = Template.bind({});
@@ -95,7 +95,7 @@ DateBarChart.args = {
 		},
 	],
 	dataType: DataType.DATE,
-	getTooltipContent: entry => <Tooltip entries={getVerticalBarChartTooltip(entry)} />,
+	getTooltipContent: entry => <TooltipContent entries={getVerticalBarChartTooltip(entry)} />,
 };
 
 export const MinBarSize = Template.bind({});

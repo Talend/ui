@@ -1,12 +1,12 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Tooltip, { TooltipProps } from './Tooltip.component';
+import TooltipContent, { TooltipContentProps } from './TooltipContent.component';
 
-const Template: Story<TooltipProps> = args => <Tooltip {...args} />;
+const Template: Story<TooltipContentProps> = args => <TooltipContent {...args} />;
 
 export default {
-	title: 'Dataviz/Tooltip',
-	component: Tooltip,
+	title: 'Dataviz/TooltipContent',
+	component: TooltipContent,
 	decorators: [
 		MyStory => (
 			<div style={{ width: 200 }}>
