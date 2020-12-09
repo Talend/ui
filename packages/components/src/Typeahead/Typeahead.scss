@@ -192,6 +192,10 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 		height: $tc-typeahead-item-height + $tc-typeahead-item-description-height;
 	}
 
+	&-icon {
+		margin-right: 2.2rem;
+	}
+
 	&-title > span,
 	&-description {
 		display: block;
