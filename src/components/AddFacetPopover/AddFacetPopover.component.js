@@ -22,14 +22,14 @@ const theme = getTheme(cssModule);
 const filterByAttribute = badgeDefinition => badge =>
 	badge.properties.attribute === badgeDefinition.properties.attribute;
 
-const isButtonDisabled = (badges, badgeDefinition, occurences) => {
+const isButtonDisabled = (badges, badgeDefinition, occurrences) => {
 	const badgePerFacet = parseInt(badgeDefinition.metadata.badgePerFacet, 10);
 
 	if (isNaN(badgePerFacet)) {
 		return false;
 	}
 
-	return occurences >= badgePerFacet;
+	return occurrences >= badgePerFacet;
 };
 
 const getTabIndex = isFocusable => (isFocusable ? 0 : -1);
@@ -59,21 +59,21 @@ OpenCategoryRow.propTypes = {
 };
 
 const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges, t }) => {
-	const occurences = useMemo(() => badges.filter(filterByAttribute(badgeDefinition)).length, [
+	const occurrences = useMemo(() => badges.filter(filterByAttribute(badgeDefinition)).length, [
 		badges,
 		badgeDefinition,
 	]);
-	const isDisabled = useMemo(() => isButtonDisabled(badges, badgeDefinition, occurences), [
+	const isDisabled = useMemo(() => isButtonDisabled(badges, badgeDefinition, occurrences), [
 		badges,
 		badgeDefinition,
-		occurences,
+		occurrences,
 	]);
 	const onClickRow = event => {
 		onClick(event, badgeDefinition);
 	};
 
 	const disabledLabel = t('ADD_FACET_ROW_DISABLED_LABEL', {
-		count: occurences,
+		count: occurrences,
 		badgeLabel: label,
 		defaultValue: 'You can only apply the {{badgeLabel}} filter once',
 		defaultValue_plural: 'You can only apply the {{badgeLabel}} filter {{count}} times',
