@@ -49,10 +49,10 @@
     "webpack-dev-server": "^3.1.11"
   },
   "peerDependencies": {
-    "@talend/icons": "^5.28.0"
+    "@talend/icons": ">=6.3.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.3.0"
+  "version": "6.3.1"
 }
