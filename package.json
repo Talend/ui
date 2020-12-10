@@ -13,8 +13,7 @@
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
     "test:demo": "build-storybook",
     "lint:es": "talend-scripts lint:es",
-    "lint:style": "sass-lint -v -q",
-    "lint": "npm run lint:es && npm run lint:style",
+    "lint": "npm run lint:es",
     "start": "start-storybook -p 6006",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
@@ -43,10 +42,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "@storybook/addon-actions": "^5.3.14",
-    "@storybook/addon-links": "^5.3.14",
-    "@storybook/addons": "^5.3.14",
-    "@storybook/react": "^5.3.14",
+    "@storybook/addon-actions": "^6.1.10",
+    "@storybook/addon-links": "^6.1.10",
+    "@storybook/addons": "^6.1.10",
+    "@storybook/react": "^6.1.10",
     "@talend/bootstrap-theme": "^5.27.1",
     "@talend/icons": "^5.27.1",
     "@talend/locales-tui": "^5.24.0",
@@ -66,8 +65,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
-    "sass-lint": "^1.13.1",
-    "storybook-addon-i18next": "^1.2.1"
+    "storybook-addon-i18next": "^1.3.0"
   },
   "peerDependencies": {
     "@talend/bootstrap-theme": ">= 5.27.1",
@@ -88,5 +86,9 @@
   },
   "lint-staged": {
     "./{src,stories,test}/**/*.{ts,js,tsx}": "eslint --fix"
+  },
+  "resolutions": {
+    "refractor/prismjs": "1.22.0",
+    "highlight.js": "10.4.1"
   }
 }
