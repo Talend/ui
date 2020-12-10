@@ -52,7 +52,7 @@ declare module 'styled-components' {
 			modalHeadingBackground: string;
 			modalHeadingBorderColor: string;
 
-			skeletonColor: string;
+			skeletonBackgroundColor: string;
 
 			// Tags
 			tagDefaultColor: string;

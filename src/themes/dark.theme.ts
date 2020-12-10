@@ -52,6 +52,8 @@ const theme: DefaultTheme = {
 		modalHeadingBackground: colors.gray800,
 		modalHeadingBorderColor: colors.gray900,
 
+		skeletonBackgroundColor: colors.gray100,
+
 		tagDefaultColor: colors.gray700,
 		tagDefaultBackgroundColor: colors.gray75,
 		tagInformationColor: colors.lochmara700,

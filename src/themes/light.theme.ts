@@ -1,7 +1,6 @@
 import { DefaultTheme } from 'styled-components';
-import { tint } from 'polished';
 
-import tokens from '../tokens';
+import tokens from './../tokens';
 
 const colors = tokens.colors;
 
@@ -53,7 +52,7 @@ const theme: DefaultTheme = {
 		modalHeadingBackground: colors.gray0,
 		modalHeadingBorderColor: colors.gray75,
 
-		skeletonColor: colors.gray100,
+		skeletonBackgroundColor: colors.gray100,
 
 		tagDefaultColor: colors.gray700,
 		tagDefaultBackgroundColor: colors.gray75,

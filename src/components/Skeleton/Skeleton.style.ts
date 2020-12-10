@@ -3,7 +3,7 @@ import tokens from '../../tokens';
 
 const ThemedSkeleton = styled.span(
 	({ theme }) => `
-    background: ${theme.colors.skeletonColor};
+    background: ${theme.colors.skeletonBackgroundColor};
 `,
 );
 
@@ -16,5 +16,5 @@ export const Skeleton = styled(ThemedSkeleton).attrs({
 	width: 100%;
 	border-radius: ${tokens.radii.rectRadius};
 	cursor: progress;
-	animation: 1.5s ${tokens.animations.heartbeat} ease infinite;
+	animation: ${tokens.animations.heartbeat};
 `;
