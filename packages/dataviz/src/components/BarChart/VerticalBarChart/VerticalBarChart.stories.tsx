@@ -2,9 +2,9 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import VerticalBarChart, { VerticalBarChartProps } from './VerticalBarChart.component';
-import { DataType } from '../barChart.types';
 import TooltipContent from '../../TooltipContent/TooltipContent.component';
 import { getVerticalBarChartTooltip } from '../barChart.tooltip';
+import { DataType } from '../../../types';
 
 const Template: Story<VerticalBarChartProps> = args => <VerticalBarChart {...args} />;
 

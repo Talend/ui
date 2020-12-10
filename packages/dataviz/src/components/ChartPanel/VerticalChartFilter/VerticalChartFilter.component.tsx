@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import VerticalBarChart from '../../BarChart/VerticalBarChart/VerticalBarChart.component';
-import { ChartEntry, DataType, Range, VerticalBarChartEntry } from '../../BarChart/barChart.types';
-import styles from './ProfilingChartPanel.component.scss';
+import VerticalBarChart, {
+	VerticalBarChartEntry,
+} from '../../BarChart/VerticalBarChart/VerticalBarChart.component';
+import styles from './VerticalChartFilter.component.scss';
 import RangeFilter from '../../RangeFilter/RangeFilter.component';
 import TooltipContent from '../../TooltipContent/TooltipContent.component';
 import { getVerticalBarChartTooltip } from '../../BarChart/barChart.tooltip';
+import { DataType, Range } from '../../../types';
 
-export interface ProfilingChartPanelProps {
+export interface VerticalChartFilterProps {
 	data: VerticalBarChartEntry[];
 	activeRange?: Range;
 	rangeLimits: Range;
@@ -15,14 +17,14 @@ export interface ProfilingChartPanelProps {
 	onRangeChange: (value: Range) => void;
 }
 
-function ProfilingChartPanel({
+function VerticalChartFilter({
 	activeRange,
 	rangeLimits,
 	data,
 	onBarClick,
 	onRangeChange,
 	dataType,
-}: ProfilingChartPanelProps): JSX.Element {
+}: VerticalChartFilterProps): JSX.Element {
 	const [sliderValue, setSliderValue] = useState<Range>(activeRange || rangeLimits);
 
 	useEffect(() => {
@@ -31,7 +33,7 @@ function ProfilingChartPanel({
 		}
 	}, [activeRange]);
 
-	function isInActiveRange(entry: ChartEntry<Range>) {
+	function isInActiveRange(entry: VerticalBarChartEntry) {
 		return sliderValue.min <= entry.key.min && entry.key.max <= sliderValue.max;
 	}
 
@@ -59,7 +61,6 @@ function ProfilingChartPanel({
 						onSliderChange={setSliderValue}
 						onAfterChange={range => {
 							onRangeChange(range);
-							setSliderValue(range);
 						}}
 					/>
 				</div>
@@ -68,4 +69,4 @@ function ProfilingChartPanel({
 	);
 }
 
-export default ProfilingChartPanel;
+export default VerticalChartFilter;

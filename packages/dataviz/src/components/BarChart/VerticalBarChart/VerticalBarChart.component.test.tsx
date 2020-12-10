@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import VerticalBarChart from './VerticalBarChart.component';
-import { DataType } from '../barChart.types';
+import { DataType } from '../../../types';
 
 describe('Vertical bar chart', () => {
 	it('Should trigger onBarClick', () => {

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import ProfilingChartPanel, { ProfilingChartPanelProps } from './ProfilingChartPanel.component';
-import { DataType } from '../../BarChart/barChart.types';
+import VerticalChartFilter, { VerticalChartFilterProps } from './VerticalChartFilter.component';
+import { DataType } from '../../../types';
 
-const Template: Story<ProfilingChartPanelProps> = args => <ProfilingChartPanel {...args} />;
+const Template: Story<VerticalChartFilterProps> = args => <VerticalChartFilter {...args} />;
 
 export default {
-	title: 'Dataviz/ProfilingChartPanel',
-	component: ProfilingChartPanel,
+	title: 'Dataviz/VerticalChartFilter',
+	component: VerticalChartFilter,
 	decorators: [
 		MyStory => (
 			<div style={{ width: 400, height: 300 }}>
@@ -15,7 +15,7 @@ export default {
 			</div>
 		),
 	],
-} as Meta<ProfilingChartPanelProps>;
+} as Meta<VerticalChartFilterProps>;
 
 export const Number = Template.bind({});
 Number.args = {

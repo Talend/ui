@@ -1,14 +1,21 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import HorizontalBarChart from './HorizontalBarChart.component';
-import { PatternChart } from './HorizontalBarChart.stories';
+import { ChartStyle } from '../ColoredBar/ColoredBar.component';
 
 describe('Horizontal bar chart', () => {
 	it('Should trigger onBarClick', () => {
 		const onBarClick = jest.fn();
 		const component = mount(
 			<HorizontalBarChart
-				{...PatternChart.args}
+				data={[
+					{
+						key: 'Entry fully matching filter',
+						value: 2145,
+						filteredValue: 2145,
+					},
+				]}
+				chartStyle={ChartStyle.VALUE}
 				height={300}
 				width={400}
 				onBarClick={onBarClick}
@@ -18,15 +25,15 @@ describe('Horizontal bar chart', () => {
 
 		component.find('BarChart').invoke('onMouseMove')!({
 			isTooltipActive: true,
-			activeTooltipIndex: 1,
+			activeTooltipIndex: 0,
 		} as any);
 		component.update();
 		component.find('BarChart').invoke('onClick')!({} as any);
 
 		expect(onBarClick).toHaveBeenCalledWith(undefined, {
-			filteredValue: 0,
-			key: 'Entry not matching filter',
-			value: 1500,
+			filteredValue: 2145,
+			key: 'Entry fully matching filter',
+			value: 2145,
 		});
 	});
 
@@ -34,7 +41,14 @@ describe('Horizontal bar chart', () => {
 		const getTooltipContent = jest.fn().mockImplementation(() => 'myTooltipContent');
 		const component = mount(
 			<HorizontalBarChart
-				{...PatternChart.args}
+				data={[
+					{
+						key: 'Entry fully matching filter',
+						value: 2145,
+						filteredValue: 2145,
+					},
+				]}
+				chartStyle={ChartStyle.VALUE}
 				height={300}
 				width={400}
 				onBarClick={jest.fn()}
@@ -44,14 +58,14 @@ describe('Horizontal bar chart', () => {
 
 		component.find('BarChart').invoke('onMouseMove')!({
 			isTooltipActive: true,
-			activeTooltipIndex: 1,
+			activeTooltipIndex: 0,
 		} as any);
 		component.update();
 
 		expect(getTooltipContent).toHaveBeenCalledWith({
-			filteredValue: 0,
-			key: 'Entry not matching filter',
-			value: 1500,
+			filteredValue: 2145,
+			key: 'Entry fully matching filter',
+			value: 2145,
 		});
 		expect(component.find('Tooltip').text()).toEqual('myTooltipContent');
 	});

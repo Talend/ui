@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styles from './VerticalBarChart.component.scss';
-import { ChartStyle, DataType, VerticalBarChartEntry } from '../barChart.types';
+import { ChartEntry } from '../barChart.types';
 import {
 	getPrimaryBarValue,
 	getSecondaryBarValue,
@@ -10,7 +10,12 @@ import {
 	SECONDARY_BAR_ANIMATION_PROPS,
 	useBarChart,
 } from '../useBarChart.hook';
-import ColoredBar from '../ColoredBar/ColoredBar.component';
+import ColoredBar, { ChartStyle } from '../ColoredBar/ColoredBar.component';
+import { DataType, Range } from '../../../types';
+
+export type VerticalBarChartEntry = ChartEntry<Range> & {
+	label: string;
+};
 
 export interface VerticalBarChartProps {
 	data: VerticalBarChartEntry[];

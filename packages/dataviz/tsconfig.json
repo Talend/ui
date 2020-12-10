@@ -4,8 +4,8 @@
   "compilerOptions": {
     "allowJs": false,
     "declaration": true,
-    "module": "CommonJs",
     "jsx": "react",
-    "target": "ES5"
+    "target": "ES5",
+    "module": "CommonJs"
   }
 }

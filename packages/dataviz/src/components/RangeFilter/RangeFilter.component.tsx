@@ -1,12 +1,13 @@
 import React, { ReactNode, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import startOfDay from 'date-fns/startOfDay';
 import { Slider } from '@talend/react-components';
 import styles from './RangeFilter.component.scss';
 import DateInputField from './input-fields/DateInputField.component';
 import NumberInputField from './input-fields/NumberInputField.component';
-import { DataType, Range } from '../BarChart/barChart.types';
 import { formatDate, formatNumber, getFractionDigits } from '../../formatters/formatters';
+import { DataType, Range } from '../../types';
 
 export interface RangeFilterProps {
 	id?: string;
@@ -45,6 +46,17 @@ function getMarks(
 	return result;
 }
 
+const DataTypeHandlers = {
+	[DataType.DATE]: {
+		InputField: DateInputField,
+		formatter: (value: number) => startOfDay(value).getTime(),
+	},
+	[DataType.NUMBER]: {
+		InputField: NumberInputField,
+		formatter: (value: number) => value,
+	},
+};
+
 function RangeFilter({
 	range,
 	dataType,
@@ -56,7 +68,11 @@ function RangeFilter({
 
 	const precision = Math.max(getFractionDigits(limits.min), getFractionDigits(limits.max));
 	const marks = useMemo(() => getMarks(dataType, limits, precision), [limits, dataType, precision]);
-	const InputField = dataType === DataType.DATE ? DateInputField : NumberInputField;
+	const dataTypeHandler = DataTypeHandlers[dataType];
+
+	// Prevent onAfterChange to be triggered twice
+	let onAfterChangedCalled = false;
+
 
 	return (
 		<div className={styles['range-filter']}>
@@ -66,16 +82,19 @@ function RangeFilter({
 					step={Number(`1e-${precision + 2}`).toFixed(precision + 2)}
 					onChange={([min, max]: [number, number]) =>
 						onSliderChange({
-							min,
-							max,
+							min: dataTypeHandler.formatter(min),
+							max: dataTypeHandler.formatter(max),
 						})
 					}
-					onAfterChange={([min, max]: [number, number]) =>
-						onAfterChange({
-							min,
-							max,
-						})
-					}
+					onAfterChange={([min, max]: [number, number]) => {
+						if (!onAfterChangedCalled) {
+							onAfterChangedCalled = true;
+							onAfterChange({
+								min,
+								max,
+							});
+						}
+					}}
 					min={limits.min}
 					max={limits.max}
 					value={[range.min, range.max]}
@@ -87,7 +106,7 @@ function RangeFilter({
 			<form className={styles['range-filter__input-container']}>
 				<label className={styles['range-filter__label']}>
 					<span className={styles['range-filter__label-text']}>{t('MIN', 'Min')}</span>
-					<InputField
+					<dataTypeHandler.InputField
 						value={range.min}
 						onChange={value =>
 							onAfterChange({
@@ -99,7 +118,7 @@ function RangeFilter({
 				</label>
 				<label className={styles['range-filter__label']}>
 					<span className={styles['range-filter__label-text']}>{t('MAX', 'Max')}</span>
-					<InputField
+					<dataTypeHandler.InputField
 						value={range.max}
 						onChange={value =>
 							onAfterChange({

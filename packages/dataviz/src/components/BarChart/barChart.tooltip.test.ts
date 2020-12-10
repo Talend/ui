@@ -1,5 +1,4 @@
-import { ValueType } from './barChart.types';
-import { getHorizontalBarChartTooltip, getVerticalBarChartTooltip } from './barChart.tooltip';
+import { getHorizontalBarChartTooltip, getVerticalBarChartTooltip, ValueType } from './barChart.tooltip';
 
 describe('BarChartTooltip', () => {
 	it('Should return content for an aggregation on full dataset', () => {

@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 import i18next from 'i18next';
 
 // should use locale value

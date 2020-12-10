@@ -1,19 +1,19 @@
 import React from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styles from './HorizontalBarChart.component.scss';
-import { ChartEntry, ChartStyle, ValueType } from '../barChart.types';
+import { ChartEntry } from '../barChart.types';
 import {
 	getPrimaryBarValue,
 	getSecondaryBarValue,
-	PRIMARY_BAR_ANIMATION_PROPS, SECONDARY_BAR_ANIMATION_PROPS,
-	useBarChart
+	PRIMARY_BAR_ANIMATION_PROPS,
+	SECONDARY_BAR_ANIMATION_PROPS,
+	useBarChart,
 } from '../useBarChart.hook';
 import FixedBarSizeWrapper from './FixedHeightBarWrapper/FixedHeightBarWrapper.component';
-import ColoredBar from '../ColoredBar/ColoredBar.component';
+import ColoredBar, { ChartStyle } from '../ColoredBar/ColoredBar.component';
 
 export interface HorizontalBarChartProps {
 	data: ChartEntry<string>[];
-	valueType: ValueType;
 	chartStyle: ChartStyle;
 	onBarClick: (event: MouseEvent, entry: ChartEntry<string>) => void;
 	getTooltipContent: (entry: ChartEntry<string>) => JSX.Element;
@@ -96,4 +96,6 @@ function HorizontalBarChart({
 	);
 }
 
-export default HorizontalBarChart;
+export default Object.assign(HorizontalBarChart, {
+	ChartStyle,
+});

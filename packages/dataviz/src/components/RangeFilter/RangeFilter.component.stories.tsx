@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import RangeFilter, { RangeFilterProps } from './RangeFilter.component';
-import { DataType } from '../BarChart/barChart.types';
+import { DataType } from '../../types';
 
 const Template: Story<RangeFilterProps> = args => {
 	const [currentRange, setCurrentRange] = useState(args.range);

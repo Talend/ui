@@ -5,7 +5,7 @@ import styles from './BoxPlot.component.scss';
 
 const formatNumber = d3.format(',');
 
-interface BoxPlotData {
+export interface BoxPlotData {
 	q1: number;
 	q2: number;
 	median: number;
@@ -31,6 +31,8 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 	useEffect(() => {
 		if (boxPlotData && containerRef.current) {
 			const margin = { top: 30, right: 80, bottom: 70, left: 80 };
+			const boxWidth = width - margin.left - margin.right;
+			const boxHeight = height - margin.top - margin.bottom;
 			const duration = 1000;
 
 			d3.select(containerRef.current)
@@ -40,8 +42,8 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			const svg = d3
 				.select(containerRef.current)
 				.append('svg')
-				.attr('width', width + margin.left + margin.right)
-				.attr('height', height + margin.top + margin.bottom)
+				.attr('width', width)
+				.attr('height', height)
 				.attr('class', styles.box)
 				.append('g')
 				.attr('transform', `translate(${margin.left},${margin.top})`);
@@ -52,16 +54,16 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			const vScale = d3
 				.scaleLinear()
 				.domain([boxPlotData.min, boxPlotData.max])
-				.range([height, 0]);
+				.range([boxHeight, 0]);
 
 			// central vertical Axis
 			const center = svg.append('g');
 			center
 				.append('line')
 				.attr('class', styles['box-plot__center'])
-				.attr('x1', width / 2)
+				.attr('x1', boxWidth / 2)
 				.attr('y1', () => vScale(boxPlotData.min))
-				.attr('x2', width / 2)
+				.attr('x2', boxWidth / 2)
 				.attr('y2', () => vScale(boxPlotData.max))
 				.style('opacity', 1e-6)
 				.transition()
@@ -82,7 +84,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 				.append('rect')
 				.attr('x', 0)
 				.attr('y', d => vScale(d[2]))
-				.attr('width', width)
+				.attr('width', boxWidth)
 				.attr('height', () => vScale(boxPlotData.q2));
 
 			boxTop
@@ -101,7 +103,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 				.append('rect')
 				.attr('x', 0)
 				.attr('y', () => vScale(boxPlotData.q2))
-				.attr('width', width)
+				.attr('width', boxWidth)
 				.attr('height', d => vScale(d[0]) - vScale(d[2]));
 
 			boxBottom
@@ -113,12 +115,12 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 
 			const max = boxPlotData.max;
 			// whiskers
-			const topWhiskerPolyg = `0,${vScale(max)} ${width},${vScale(max)} ${width - 20},${vScale(
+			const topWhiskerPolyg = `0,${vScale(max)} ${boxWidth},${vScale(max)} ${boxWidth - 20},${vScale(
 				max,
 			) - 20} ${vScale(max) + 20},${vScale(max) - 20}`;
 
 			const min = boxPlotData.min;
-			const bottomWhiskerPolyg = `0,${vScale(min)} ${width},${vScale(min)} ${width - 20},${vScale(
+			const bottomWhiskerPolyg = `0,${vScale(min)} ${boxWidth},${vScale(min)} ${boxWidth - 20},${vScale(
 				min,
 			) + 20} 20,${vScale(min) + 20}`;
 
@@ -134,7 +136,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gWhiskerTop
 				.append('text')
 				.attr('class', styles['box-plot__max-min-labels'])
-				.attr('x', width / 2)
+				.attr('x', boxWidth / 2)
 				.attr('y', vScale(boxPlotData.max) / 2)
 				.text(
 					t('MAXIMUM', {
@@ -158,7 +160,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gWhiskerBottom
 				.append('text')
 				.attr('class', styles['box-plot__max-min-labels'])
-				.attr('x', width / 2)
+				.attr('x', boxWidth / 2)
 				.attr('y', vScale(boxPlotData.min) / 2)
 				.text(t('MINIMUM', 'Minimum'))
 				.style('opacity', 1)
@@ -173,7 +175,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 				.append('circle')
 				.attr('class', styles['box-plot__mean'])
 				.attr('r', 17)
-				.attr('cx', width / 2)
+				.attr('cx', boxWidth / 2)
 				.attr('cy', () => vScale(boxPlotData.mean))
 				.style('opacity', 1)
 				.transition()
@@ -184,7 +186,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gMean
 				.append('circle')
 				.attr('r', 1.5)
-				.attr('cx', width / 2)
+				.attr('cx', boxWidth / 2)
 				.attr('cy', () => vScale(boxPlotData.mean))
 				.style('opacity', 1e-6)
 				.style('shape-rendering', 'geometricPrecision')
@@ -198,7 +200,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gTexts
 				.append('text')
 				.attr('class', styles['box-plot__max-min-labels'])
-				.attr('x', width / 2)
+				.attr('x', boxWidth / 2)
 				.attr('y', vScale(boxPlotData.min) / 2)
 				.text(formatNumber(boxPlotData.max))
 				.style('opacity', 1)
@@ -211,7 +213,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gTexts
 				.append('text')
 				.attr('class', styles['box-plot__max-min-labels'])
-				.attr('x', width / 2)
+				.attr('x', boxWidth / 2)
 				.attr('y', vScale(boxPlotData.min) / 2)
 				.text(formatNumber(boxPlotData.min))
 				.style('opacity', 1)
@@ -223,11 +225,11 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gTexts
 				.append('text')
 				.attr('class', styles['box-plot__mean-labels'])
-				.attr('x', width / 2)
+				.attr('x', boxWidth / 2)
 				.attr('y', () => {
-					if (height - vScale(boxPlotData.mean - boxPlotData.min) < 15) {
+					if (boxHeight - vScale(boxPlotData.mean - boxPlotData.min) < 15) {
 						return vScale(boxPlotData.mean) - 10;
-					} else if (height - vScale(boxPlotData.max - boxPlotData.mean) < 15) {
+					} else if (boxHeight - vScale(boxPlotData.max - boxPlotData.mean) < 15) {
 						return vScale(boxPlotData.mean) + 15;
 					}
 					return vScale(boxPlotData.mean) - 10;
@@ -243,7 +245,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gTexts
 				.append('text')
 				.attr('class', styles['box-plot__low-quantile-labels'])
-				.attr('x', width + 5)
+				.attr('x', boxWidth + 5)
 				.attr('y', vScale(boxPlotData.min) / 2)
 				.text(formatNumber(boxPlotData.q1))
 				.style('opacity', 1)
@@ -282,7 +284,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gTexts
 				.append('text')
 				.attr('class', styles['box-plot__up-quantile-labels'])
-				.attr('x', width + 5)
+				.attr('x', boxWidth + 5)
 				.attr('y', vScale(boxPlotData.min) / 2)
 				.text(formatNumber(boxPlotData.q2))
 				.style('opacity', 1)
@@ -295,7 +297,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			gTexts
 				.append('text')
 				.attr('class', styles['box-plot__mean-labels'])
-				.attr('x', width - 5)
+				.attr('x', boxWidth - 5)
 				.text(formatNumber(boxPlotData.median))
 				.style('opacity', 1e-6)
 				.attr('text-anchor', 'end')

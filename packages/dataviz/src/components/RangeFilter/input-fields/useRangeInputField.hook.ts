@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function useRangeInputField(
 	rangeValue: number,
@@ -8,27 +8,27 @@ function useRangeInputField(
 ) {
 	const [inputValue, setInputValue] = useState<string>('');
 
-	function resetValue() {
+	const resetValue = useCallback(() => {
 		setInputValue(formatter(rangeValue));
+	}, [formatter, rangeValue]);
+
+	function submit(stringValue: string) {
+		const parsed = parser(stringValue);
+		if (parsed) {
+			onChange(parsed);
+		} else {
+			resetValue();
+		}
 	}
 
-  function submit(stringValue: string) {
-    const parsed = parser(stringValue);
-    if (parsed) {
-      onChange(parsed);
-    } else {
-      resetValue();
-    }
-  }
-
-  useEffect(() => {
+	useEffect(() => {
 		resetValue();
-	}, [rangeValue]);
+	}, [resetValue]);
 
 	return {
 		value: inputValue,
 		setInputValue,
-		onKeyDown: (event: {key: string}) => {
+		onKeyDown: (event: { key: string }) => {
 			if (event.key === 'Enter') {
 				submit(inputValue);
 			} else if (event.key === 'Escape') {
@@ -36,7 +36,7 @@ function useRangeInputField(
 			}
 		},
 		onBlur: () => submit(inputValue),
-    submit,
+		submit,
 	};
 }
 

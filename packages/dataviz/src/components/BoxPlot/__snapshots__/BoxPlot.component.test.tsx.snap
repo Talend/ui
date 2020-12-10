@@ -4,16 +4,16 @@ exports[`Boxplot chart should render the different basic components of the boxpl
 <div id="boxplotId"
      class="theme-box-plot"
 >
-  <svg width="360"
-       height="500"
+  <svg width="200"
+       height="400"
        class="theme-box"
   >
     <g transform="translate(80,30)">
       <g>
         <line class="theme-box-plot__center"
-              x1="100"
-              y1="400"
-              x2="100"
+              x1="20"
+              y1="300"
+              x2="20"
               y2="0"
               style="opacity: 0.000001;"
         >
@@ -22,17 +22,17 @@ exports[`Boxplot chart should render the different basic components of the boxpl
       <g>
         <g>
           <rect x="0"
-                y="39.99999999999999"
-                width="200"
-                height="39.99999999999999"
+                y="29.999999999999993"
+                width="40"
+                height="29.999999999999993"
           >
           </rect>
         </g>
         <g>
           <rect x="0"
-                y="39.99999999999999"
-                width="200"
-                height="328"
+                y="29.999999999999993"
+                width="40"
+                height="246"
           >
           </rect>
         </g>
@@ -40,11 +40,11 @@ exports[`Boxplot chart should render the different basic components of the boxpl
       <g>
         <g>
           <polygon class="theme-box-plot__whiskerPolyg"
-                   points="0,0 200,0 180,-20 20,-20"
+                   points="0,0 40,0 20,-20 20,-20"
           >
           </polygon>
           <text class="theme-box-plot__max-min-labels"
-                x="100"
+                x="20"
                 y="0"
                 style="opacity: 1;"
                 text-anchor="middle"
@@ -54,12 +54,12 @@ exports[`Boxplot chart should render the different basic components of the boxpl
         </g>
         <g>
           <polygon class="theme-box-plot__whiskerPolyg"
-                   points="0,400 200,400 180,420 20,420"
+                   points="0,300 40,300 20,320 20,320"
           >
           </polygon>
           <text class="theme-box-plot__max-min-labels"
-                x="100"
-                y="200"
+                x="20"
+                y="150"
                 style="opacity: 1;"
                 text-anchor="middle"
           >
@@ -70,46 +70,46 @@ exports[`Boxplot chart should render the different basic components of the boxpl
       <g>
         <circle class="theme-box-plot__mean"
                 r="17"
-                cx="100"
-                cy="160.84"
+                cx="20"
+                cy="120.63000000000001"
                 style="opacity: 1;"
         >
         </circle>
         <circle r="1.5"
-                cx="100"
-                cy="160.84"
+                cx="20"
+                cy="120.63000000000001"
                 style="opacity: 0.000001; shape-rendering: geometricPrecision;"
         >
         </circle>
       </g>
       <g>
         <text class="theme-box-plot__max-min-labels"
-              x="100"
-              y="200"
+              x="20"
+              y="150"
               style="opacity: 1;"
               text-anchor="middle"
         >
           100
         </text>
         <text class="theme-box-plot__max-min-labels"
-              x="100"
-              y="200"
+              x="20"
+              y="150"
               style="opacity: 1;"
               text-anchor="middle"
         >
           0
         </text>
         <text class="theme-box-plot__mean-labels"
-              x="100"
-              y="150.84"
+              x="20"
+              y="110.63000000000001"
               style="opacity: 0.000001;"
               text-anchor="middle"
         >
           MEANCOLON59.79
         </text>
         <text class="theme-box-plot__low-quantile-labels"
-              x="205"
-              y="200"
+              x="45"
+              y="150"
               style="opacity: 1;"
               text-anchor="start"
         >
@@ -117,7 +117,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
         </text>
         <text class="theme-box-plot__low-quantile-labels"
               x="10"
-              y="200"
+              y="150"
               style="opacity: 1;"
               text-anchor="end"
         >
@@ -125,25 +125,25 @@ exports[`Boxplot chart should render the different basic components of the boxpl
         </text>
         <text class="theme-box-plot__up-quantile-labels"
               x="10"
-              y="200"
+              y="150"
               style="opacity: 1;"
               text-anchor="end"
         >
           UPPER_QUANTILE
         </text>
         <text class="theme-box-plot__up-quantile-labels"
-              x="205"
-              y="200"
+              x="45"
+              y="150"
               style="opacity: 1;"
               text-anchor="start"
         >
           90
         </text>
         <text class="theme-box-plot__mean-labels"
-              x="195"
+              x="35"
               style="opacity: 0.000001;"
               text-anchor="end"
-              y="163.00000000000003"
+              y="121.00000000000001"
         >
           58
         </text>
@@ -151,7 +151,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
               x="5"
               style="opacity: 0.000001;"
               text-anchor="start"
-              y="163.00000000000003"
+              y="121.00000000000001"
         >
           MEDIAN
         </text>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import HorizontalBarChart, { HorizontalBarChartProps } from './HorizontalBarChart.component';
-import { ChartEntry, ChartStyle, ValueType } from '../barChart.types';
-import { getHorizontalBarChartTooltip } from '../barChart.tooltip';
+import HorizontalBarChart, { HorizontalBarChartProps } from './index';
+import { ChartEntry } from '../barChart.types';
+import { getHorizontalBarChartTooltip, ValueType } from '../barChart.tooltip';
 import TooltipContent from '../../TooltipContent/TooltipContent.component';
 
 const data: ChartEntry<string>[] = [
@@ -37,6 +37,7 @@ export default {
 		),
 	],
 	args: {
+		dataFeature: 'on.bar.click',
 		onBarClick: action('onClick'),
 		getTooltipContent: entry => (
 			<TooltipContent entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
@@ -47,13 +48,13 @@ export default {
 export const ProfileChartWithFilter = Template.bind({});
 ProfileChartWithFilter.args = {
 	data,
-	chartStyle: ChartStyle.VALUE,
+	chartStyle: HorizontalBarChart.ChartStyle.VALUE,
 };
 
 export const PatternChart = Template.bind({});
 PatternChart.args = {
 	data,
-	chartStyle: ChartStyle.PATTERN,
+	chartStyle: HorizontalBarChart.ChartStyle.PATTERN,
 };
 
 export const TooManyBars = Template.bind({});
@@ -63,7 +64,7 @@ TooManyBars.parameters = {
 	},
 };
 TooManyBars.args = {
-	chartStyle: ChartStyle.PATTERN,
+	chartStyle: HorizontalBarChart.ChartStyle.PATTERN,
 	data: [...Array(10)].flatMap(() => data),
 };
 
@@ -74,7 +75,7 @@ SpecialValues.parameters = {
 	},
 };
 SpecialValues.args = {
-	chartStyle: ChartStyle.PATTERN,
+	chartStyle: HorizontalBarChart.ChartStyle.PATTERN,
 	data: [
 		{
 			key: 'Bar should be at least 3px long',

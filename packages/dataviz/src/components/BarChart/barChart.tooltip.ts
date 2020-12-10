@@ -1,6 +1,15 @@
 import i18next from 'i18next';
-import { ChartEntry, ValueType, VerticalBarChartEntry } from './barChart.types';
+import { ChartEntry } from './barChart.types';
 import { TooltipEntry } from '../TooltipContent/TooltipContent.component';
+import { VerticalBarChartEntry } from './VerticalBarChart/VerticalBarChart.component';
+
+export enum ValueType {
+	MIN = 'MIN',
+	MAX = 'MAX',
+	SUM = 'SUM',
+	AVERAGE = 'AVERAGE',
+	OCCURRENCES = 'OCCURRENCES',
+}
 
 function getFilteredValueLabel(valueType: ValueType): string {
 	return {

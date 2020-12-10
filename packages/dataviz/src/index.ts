@@ -1,8 +1,13 @@
-import HorizontalBarChart from './components/BarChart/HorizontalBarChart/HorizontalBarChart.component';
-import VerticalBarChart from './components/BarChart/VerticalBarChart/VerticalBarChart.component';
-import RangeFilter from './components/RangeFilter/RangeFilter.component';
-import ProfilingChartPanel from './components/ChartPanel/ProfilingChartPanel/ProfilingChartPanel.component';
+export { default as HorizontalBarChart } from './components/BarChart/HorizontalBarChart';
+export { default as VerticalBarChart } from './components/BarChart/VerticalBarChart';
+export { default as VerticalChartFilter } from './components/ChartPanel/VerticalChartFilter';
+export { default as TooltipContent } from './components/TooltipContent/TooltipContent.component';
+export { default as BoxPlot } from './components/BoxPlot';
+export * from './components/BarChart/barChart.tooltip';
 
-import TooltipContent from './components/TooltipContent/TooltipContent.component';
-
-export { HorizontalBarChart, VerticalBarChart, ProfilingChartPanel, TooltipContent, RangeFilter };
+export type {HorizontalBarChartProps} from './components/BarChart/HorizontalBarChart';
+export type{ VerticalBarChartEntry,VerticalBarChartProps } from './components/BarChart/VerticalBarChart';
+export type{ VerticalChartFilterProps } from './components/ChartPanel/VerticalChartFilter';
+export type{ TooltipEntry,TooltipContentProps } from './components/TooltipContent/TooltipContent.component';
+export type{ BoxPlotProps,BoxPlotData } from './components/BoxPlot';
+export type {DataType,Range} from './types';

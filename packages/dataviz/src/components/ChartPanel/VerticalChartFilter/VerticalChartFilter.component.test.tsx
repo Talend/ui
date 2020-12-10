@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ProfilingChartPanel from './ProfilingChartPanel.component';
-import { DataType, VerticalBarChartEntry } from '../../BarChart/barChart.types';
+import VerticalChartFilter from './VerticalChartFilter.component';
+import { DataType } from '../../../types';
+import { VerticalBarChartEntry } from '../../BarChart/VerticalBarChart';
 
 describe('Profiling chart panel', () => {
 	const mocks = {
@@ -11,7 +12,12 @@ describe('Profiling chart panel', () => {
 
 	it('Should not show range filter if limits min and max are equal', () => {
 		const component = shallow(
-			<ProfilingChartPanel data={[]} dataType={DataType.NUMBER} rangeLimits={{ min: 10, max: 10 }} {...mocks} />,
+			<VerticalChartFilter
+				data={[]}
+				dataType={DataType.NUMBER}
+				rangeLimits={{ min: 10, max: 10 }}
+				{...mocks}
+			/>,
 		);
 
 		expect(component.find('RangeFilter')).toHaveLength(0);
@@ -19,7 +25,12 @@ describe('Profiling chart panel', () => {
 
 	it('Should show range filter if limits min and max are different', () => {
 		const component = shallow(
-			<ProfilingChartPanel data={[]} dataType={DataType.NUMBER} rangeLimits={{ min: 10, max: 20 }} {...mocks} />,
+			<VerticalChartFilter
+				data={[]}
+				dataType={DataType.NUMBER}
+				rangeLimits={{ min: 10, max: 20 }}
+				{...mocks}
+			/>,
 		);
 
 		expect(component.find('RangeFilter')).toHaveLength(1);
@@ -27,7 +38,7 @@ describe('Profiling chart panel', () => {
 
 	it('Should syn bar chart with range filter', () => {
 		const component = shallow(
-			<ProfilingChartPanel
+			<VerticalChartFilter
 				data={[
 					{
 						value: 10,
@@ -56,9 +67,9 @@ describe('Profiling chart panel', () => {
 		);
 
 		expect(
-			(component
+			((component
 				.find('VerticalBarChart')
-				.prop('data')! as unknown as VerticalBarChartEntry[]).map(entry => entry.filteredValue),
+				.prop('data')! as unknown) as VerticalBarChartEntry[]).map(entry => entry.filteredValue),
 		).toEqual([0, 10, 0]);
 	});
 });

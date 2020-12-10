@@ -3,7 +3,11 @@ import { Rectangle, RectangleProps, Text } from 'recharts';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import styles from './ColoredBar.component.scss';
-import { ChartStyle } from '../barChart.types';
+
+export enum ChartStyle {
+	VALUE = 'value',
+	PATTERN = 'pattern',
+}
 
 type BarRenderProps = RectangleProps & {
 	index?: number;

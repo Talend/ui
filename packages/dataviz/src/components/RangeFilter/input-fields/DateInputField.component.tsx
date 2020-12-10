@@ -1,5 +1,7 @@
 import React from 'react';
-import { isDate, startOfDay } from 'date-fns';
+import isValid from 'date-fns/isValid';
+import startOfDay from 'date-fns/startOfDay';
+
 import { InputDatePicker } from '@talend/react-components';
 import { formatDate } from '../../../formatters/formatters';
 import useRangeInputField from './useRangeInputField.hook';
@@ -9,11 +11,14 @@ interface InputFieldProps {
 	onChange: (value: number) => void;
 }
 
+const parser = (input: string) =>
+	isValid(new Date(input)) ? startOfDay(new Date(input)).getTime() : null;
+
 function DateInputField({ value: rangeValue, onChange }: InputFieldProps): JSX.Element {
 	const { setInputValue, submit, ...props } = useRangeInputField(
 		rangeValue,
 		formatDate,
-		input => (isDate(new Date(input)) ? startOfDay(new Date(input)).getTime() : null),
+		parser,
 		onChange,
 	);
 
