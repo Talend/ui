@@ -46,6 +46,7 @@
     "@storybook/react": "^6.0.28",
     "@talend/bootstrap-theme": "^6.1.7",
     "@talend/icons": "^6.2.2",
+    "@talend/react-components": "^6.2.2",
     "@talend/scripts-core": "^7.1.0",
     "@talend/scripts-preset-react-lib": "^7.1.0",
     "@teamsupercell/typings-for-css-modules-loader": "^2.4.0",
