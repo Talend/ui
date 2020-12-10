@@ -8,7 +8,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "talend-scripts build:ts:lib",
-    "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint": "yarn lint:es",
     "lint:es": "talend-scripts lint:es",
