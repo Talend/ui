@@ -32,7 +32,7 @@ export const Item = styled.span.attrs({
 })<{ freeze: boolean }>(
 	({ freeze }) => `
 	padding: 0 1.5rem;
-	transition: all 0.2s ease-out;
+	transition: ${tokens.transitions.fast};
 
 	&:hover {
 		background: ${freeze ? 'none' : transparentize(0.8, tokens.colors.gray0)};
@@ -157,7 +157,7 @@ export const MenuDisclosure = styled(Button).attrs({
 
 	rect {
 		transform-origin: 50% 50%;
-		transition: transform 0.2s ease-out;
+		transition: transform ${tokens.transitions.fast};
 	}
 
 	&[aria-expanded='true'] {
@@ -196,7 +196,7 @@ export const Menu = styled.div.attrs({
 	opacity: 0;
 	overflow: auto;
 	z-index: 1;
-	transition: opacity 0.2s ease-in-out;
+	transition: opacity ${tokens.transitions.fast};
 
 	&[data-enter] {
 		opacity: 1;
@@ -242,9 +242,9 @@ export const ContentRight = styled(ContentArea).attrs({
 	className: 'header-bar__content--right',
 })`
 	.btn--is-active {
-		&, 
+		&,
 		&:focus,
-		&:hover, 
+		&:hover,
 		&:active {
 			color: ${tokens.colors.gray0};
 			background: none;

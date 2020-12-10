@@ -11,7 +11,7 @@ export const Link = styled.a(
 	
 	.link__text {
 		border-bottom: .1rem solid transparent;
-		transition: ${tokens.transitions.show}; 
+		transition: ${tokens.transitions.fast}; 
 	}
 
 	.link__icon {

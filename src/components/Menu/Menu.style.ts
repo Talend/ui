@@ -27,7 +27,7 @@ export const Nav = styled.nav.attrs({
 		min-height: 100%;
 		color: ${tokens.colors.gray0};
 		background: ${tokens.colors.twilight.backgroundImage};
-		transition: flex-basis .3s;
+		transition: flex-basis ${tokens.transitions.normal};
 		overflow: hidden;
 		
 		${
@@ -70,7 +70,7 @@ export const NavButton = styled(Button.Icon)`
 	}
 
 	.btn__icon {
-		transition: transform 0.2s;
+		transition: transform ${tokens.transitions.fast};
 	}
 
 	&.nav__button--collapsed {

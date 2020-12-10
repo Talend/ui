@@ -18,7 +18,7 @@ export const ButtonIcon = styled(Icon).attrs({
 		height: ${tokens.sizes.xs};
 		width: ${tokens.sizes.xs};
 		fill: currentColor;
-		transition: transform 0.2s ease-out;
+		transition: transform ${tokens.transitions.fast};
 
 		[aria-expanded='true'] & {
 			transform: rotate(-180deg);
@@ -51,7 +51,7 @@ export const AnimatedMenu = styled.div(
 	border: 0;
 	box-shadow: 0 2px 4px 0 ${tokens.colors.gray300};
 	opacity: 0;
-	transition: opacity 250ms ease-in-out;
+	transition: opacity ${tokens.transitions.normal};
 
 	[data-enter] & {
 		opacity: 1;

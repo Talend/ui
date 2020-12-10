@@ -25,7 +25,7 @@ const Div = styled(InlineStyle)(
 	input + span:after {
 		height: 1.2rem;
 		width: 1.2rem;
-		transition: transform .3s;
+		transition: transform ${tokens.transitions.normal};
 	}
 
 	input + span:before {

@@ -23,7 +23,7 @@ const InlineStyle = styled.div(
 		top: .3rem;
 		left: 0;
 		background: ${theme.colors.inputBackgroundColor};
-		transition: background 0.2s, box-shadow 0.2s;
+		transition: ${tokens.transitions.fast};
 	}
 
 	input + span:before {

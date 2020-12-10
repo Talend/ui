@@ -1,14 +1,6 @@
-import { keyframes } from 'styled-components';
-
-export const showKeyframes = keyframes`
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-`;
-
 export default {
-	show: '.3s ease-in-out',
+	instant: '100ms ease-out', // fades, color
+	fast: '250ms ease-in-out', // hover, scaling, toggle
+	normal: '300ms ease-in-out', // main movements
+	slow: '400ms ease-in', // background movements
 };

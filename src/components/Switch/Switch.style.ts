@@ -46,7 +46,7 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
     	left: 0;
     	width: 0;
     	bottom: 0;
-    	transition: transform .2s, width .2s;
+    	transition: ${tokens.transitions.fast};
 		z-index: 1;
   	}
   	
@@ -74,7 +74,7 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
 	} 
   
 	[data-checked] {
-		transition: color .3s;
+		transition: color ${tokens.transitions.normal};
 	}
 	
 	[data-checked="true"] {

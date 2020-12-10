@@ -10,7 +10,7 @@ const ButtonBase: React.FC<ButtonProps> = styled(Button)(
         color: ${theme.colors.textColor};
         border: ${tokens.borders.normal};
         border-radius: ${tokens.radii.rectRadius};
-    	transition: ${tokens.transitions.show};
+    	transition: ${tokens.transitions.fast};
 
         &:not([aria-disabled='true']):hover {
             background-color: ${theme.colors.buttonPrimaryHoverBackgroundColor};

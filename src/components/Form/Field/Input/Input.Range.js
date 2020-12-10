@@ -19,7 +19,7 @@ const SRange = styled.div(
 			height: ${tokens.sizes.xs};
 			background: ${theme.colors.inputRadioBackgroundColor};
 			border-radius: 1rem;
-			transition: all 0.3s;
+			transition: ${tokens.transitions.normal};
 			cursor: pointer;
 		}
         

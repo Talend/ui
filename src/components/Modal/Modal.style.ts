@@ -21,7 +21,7 @@ export const DialogBackdrop = styled(ReakitDialogBackdrop)`
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 999;
-	transition: opacity 250ms ease-in-out;
+	transition: opacity ${tokens.transitions.slow};
 	opacity: 0;
 
 	&[data-enter] {
@@ -39,7 +39,7 @@ export const Dialog = styled(ReakitDialog)(
 		background-color: ${theme.colors.modalBackground};
 		box-shadow: 0 2px 7px 0px rgba(0,0,0,0.2);
 		z-index: 999;
-		transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+		transition: ${tokens.transitions.normal};
 		opacity: 0;
 		transform-origin: top center;
 		transform: translate3d(-50%, -10%, 0) rotateX(90deg);
@@ -56,7 +56,6 @@ export const DialogHeading = styled.header(
 		align-items: center;
 		margin: -3rem -3rem 3rem;
 		padding: 1.5rem 3rem;
-		width: calc(100% + 2 * 3rem);
 		background: ${theme.colors.modalHeadingBackground};
 		border-bottom: 1px solid ${theme.colors.modalHeadingBorderColor};
 `,
