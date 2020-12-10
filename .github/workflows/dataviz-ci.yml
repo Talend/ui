@@ -26,8 +26,6 @@ jobs:
 
       - name: Install
         run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Test
         run: yarn test

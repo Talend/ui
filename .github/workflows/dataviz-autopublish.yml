@@ -38,8 +38,6 @@ jobs:
       - name: Install
         if: ${{ steps.check-already-published.outputs.already-published == 0 }}
         run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Publish
         id: publish
@@ -48,7 +46,7 @@ jobs:
           yarn publish --non-interactive
           echo "::set-output name=published::done"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Create a Release
         if: steps.publish.outputs.published
