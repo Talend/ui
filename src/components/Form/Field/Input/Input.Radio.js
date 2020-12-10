@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio as ReakitRadio } from 'reakit/Radio';
+import { Radio as ReakitRadio } from 'reakit';
 import styled from 'styled-components';
 
 import tokens from '../../../../tokens';

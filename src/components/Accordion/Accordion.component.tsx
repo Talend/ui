@@ -1,6 +1,5 @@
 import React from 'react';
-import { useCompositeState, Composite, CompositeItem } from 'reakit/Composite';
-import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit/Disclosure';
+import { useCompositeState, Composite, CompositeItem , useDisclosureState, Disclosure, DisclosureContent } from 'reakit';
 
 const AccordionContext = React.createContext();
 

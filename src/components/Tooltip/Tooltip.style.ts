@@ -3,7 +3,7 @@ import {
 	Tooltip as ReakitTooltip,
 	TooltipArrow as ReakitTooltipArrow,
 	TooltipReference as ReakitTooltipReference,
-} from 'reakit/Tooltip';
+} from 'reakit';
 
 import tokens from '../../tokens';
 

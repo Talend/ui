@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { VisuallyHidden } from 'reakit/VisuallyHidden';
+import { VisuallyHidden } from 'reakit';
 
 import Button from '../../components/Button';
 import Dropdown from '../../components/Dropdown';

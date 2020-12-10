@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
+import { Radio, RadioGroup, useRadioState } from 'reakit';
 
 import * as S from './Switch.style';
 

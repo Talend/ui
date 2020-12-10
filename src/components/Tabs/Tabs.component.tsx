@@ -4,7 +4,7 @@ import {
 	Tab as ReakitTab,
 	TabList as ReakitTabList,
 	TabPanel as ReakitTabPanel,
-} from 'reakit/Tab';
+} from 'reakit';
 
 const TabsContext = React.createContext();
 

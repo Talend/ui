@@ -4,7 +4,7 @@ import {
 	unstable_Combobox as ReakitCombobox,
 	unstable_ComboboxPopover as ReakitComboboxPopover,
 	unstable_ComboboxOption as ReakitComboboxOption,
-} from 'reakit/Combobox';
+} from 'reakit';
 
 import * as S from './Combobox.style';
 

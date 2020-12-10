@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTooltipState } from 'reakit/Tooltip';
+import { useTooltipState } from 'reakit';
 
 import * as S from './Tooltip.style';
 

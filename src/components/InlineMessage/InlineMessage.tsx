@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BoxProps } from 'reakit/Box';
+import { BoxProps } from 'reakit';
 
 import Icon, { IconName } from '../Icon/Icon';
 

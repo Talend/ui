@@ -26,11 +26,11 @@
   },
   "homepage": "https://github.com/Talend/design-system#readme",
   "dependencies": {
-    "i18next": "^19.8.3",
-    "polished": "^4.0.3",
-    "react-i18next": "^11.7.3",
-    "react-use": "^15.3.4",
-    "reakit": "1.3.0"
+    "i18next": "^15.1.3",
+    "polished": "^4.0.5",
+    "react-i18next": "^10.11.4",
+    "react-use": "^13.27.0",
+    "reakit": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -39,18 +39,18 @@
     "@storybook/addons": "6.1.10",
     "@storybook/react": "6.1.10",
     "@storybook/theming": "6.1.10",
-    "@svgr/webpack": "^5.4.0",
+    "@svgr/webpack": "^5.5.0",
     "@talend/scripts-core": "7.1.2",
     "@talend/scripts-preset-react-lib": "7.1.2",
-    "@types/react": "^16.9.56",
-    "@types/react-dom": "^16.9.9",
-    "@types/react-is": "^16.7.1",
+    "@types/react": "^16.14.2",
+    "@types/react-dom": "^16.9.10",
+    "@types/react-is": "^16.7.2",
     "@types/styled-components": "^5.1.4",
     "figma-js": "^1.13.0",
     "focus-outline-manager": "^1.0.2",
-    "prettier": "^2.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "prettier": "^2.2.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-is": "^16.13.1",
     "storybook-chroma": "^4.0.2",
     "storybook-docs-toc": "^1.2.0",
@@ -58,8 +58,8 @@
   },
   "peerDependencies": {
     "focus-outline-manager": "^1.0.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "styled-components": "^5.2.1"
   },
   "resolutions": {

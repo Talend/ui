@@ -4,7 +4,7 @@ import {
 	Popover as BasePopover,
 	PopoverDisclosure,
 	PopoverArrow,
-} from 'reakit/Popover';
+} from 'reakit';
 
 export type PopoverProps = {
 	disclosure: React.ReactElement<any>;

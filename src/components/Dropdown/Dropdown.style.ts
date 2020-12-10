@@ -3,7 +3,7 @@ import {
 	MenuButton as ReakitMenuButton,
 	MenuItem as ReakitMenuItem,
 	MenuSeparator as ReakitMenuSeparator,
-} from 'reakit/Menu';
+} from 'reakit';
 import styled from 'styled-components';
 import Icon from '../Icon';
 import tokens from '../../tokens';

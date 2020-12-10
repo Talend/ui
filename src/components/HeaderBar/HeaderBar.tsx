@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import useMedia from 'react-use/lib/useMedia';
-import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit/Disclosure';
+import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit';
 
 import * as S from './HeaderBar.style';
 

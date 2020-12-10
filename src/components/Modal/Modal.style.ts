@@ -4,7 +4,7 @@ import {
 	Dialog as ReakitDialog,
 	DialogDisclosure as ReakitDialogDisclosure,
 	DialogBackdrop as ReakitDialogBackdrop,
-} from 'reakit/Dialog';
+} from 'reakit';
 
 import tokens from '../../tokens';
 

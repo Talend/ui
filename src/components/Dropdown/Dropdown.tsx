@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyledProps } from 'styled-components';
 import * as ReactIs from 'react-is';
-import { BoxProps } from 'reakit/Box';
-import { useMenuState } from 'reakit/Menu';
+import { BoxProps, useMenuState } from 'reakit';
 
 import Button from '../Button';
 

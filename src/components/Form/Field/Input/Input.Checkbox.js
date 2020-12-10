@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Checkbox as ReakitCheckbox, useCheckboxState } from 'reakit/Checkbox';
+import { Checkbox as ReakitCheckbox, useCheckboxState } from 'reakit';
 import tokens from '../../../../tokens';
 import icons from '../../../../icons';
 import InlineStyle from './styles/Input.Inline.style';
