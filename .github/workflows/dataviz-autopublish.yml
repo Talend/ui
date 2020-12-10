@@ -48,11 +48,3 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Create a Release
-        if: steps.publish.outputs.published
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: talend/dataviz.v${{ steps.current-version.outputs.current_version }}
-          body: Please update this message with the CHANGELOG content corresponding to this version
