@@ -31,7 +31,7 @@ jobs:
       - name: Check if package.json version is already published
         id: check-already-published
         run: |
-          alreadyPublished="$(yarn info @talend/dataviz versions | sed -n "/'${{ steps.current-version.outputs.current_version }}'/ p" | wc -l)"
+          alreadyPublished="$(yarn info @talend/react-dataviz versions | sed -n "/'${{ steps.current-version.outputs.current_version }}'/ p" | wc -l)"
           echo "Is local version already published ? $alreadyPublished"
           echo "::set-output name=already-published::$alreadyPublished"
 
