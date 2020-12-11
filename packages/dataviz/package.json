@@ -7,6 +7,7 @@
   "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
+    "prepublishOnly": "talend-scripts build:lib:umd",
     "build": "talend-scripts build:ts:lib",
     "prepare": "npm run build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
@@ -47,8 +48,8 @@
     "@talend/bootstrap-theme": "^6.1.7",
     "@talend/icons": "^6.2.2",
     "@talend/react-components": "^6.2.2",
-    "@talend/scripts-core": "^7.1.0",
-    "@talend/scripts-preset-react-lib": "^7.1.0",
+    "@talend/scripts-core": "^7.2.1",
+    "@talend/scripts-preset-react-lib": "^7.2.1",
     "@teamsupercell/typings-for-css-modules-loader": "^2.4.0",
     "@types/classnames": "^2.2.11",
     "@types/d3": "^6.2.0",
