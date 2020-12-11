@@ -8,14 +8,12 @@ export function componentId(ownProps) {
 export function deleteNotification(indexNotification) {
 	return function mutator(prevStateProps) {
 		const notifications = prevStateProps.state.get('notifications');
-		console.log('[NC] indexNotification: ', indexNotification);
-		console.log('[NC] notifications: ', notifications);
 		const index = notifications.indexOf(indexNotification);
 		if (index > -1) {
 			const newNotif = notifications.delete(index);
 			return prevStateProps.state.set('notifications', newNotif);
 		}
-		return notifications;
+		return prevStateProps.state;
 	};
 }
 
