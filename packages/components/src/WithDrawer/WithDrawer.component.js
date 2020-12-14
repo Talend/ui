@@ -37,7 +37,11 @@ function WithDrawer({ drawers, children }) {
 							}
 							key={get(drawer, 'props.route.path', key)}
 						>
-							<div className="tc-with-drawer-wrapper">{drawer}</div>
+							{({style, ...props}) => (
+								<div className="tc-with-drawer-wrapper" style={style}>
+									{React.cloneElement(drawer, props)}
+								</div>
+							)}
 						</Drawer.Animation>
 					))}
 			</TransitionGroup>
