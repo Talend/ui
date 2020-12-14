@@ -6,7 +6,9 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "prepublishOnly": "yarn build:dev && yarn build:prod",
     "prepare": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",

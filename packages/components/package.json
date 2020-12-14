@@ -5,7 +5,9 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "prepublishOnly": "yarn build:dev && yarn build:prod",
     "prepare": "talend-scripts build:lib",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
@@ -13,7 +15,7 @@
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",
     "lint:es": "talend-scripts lint:es",
-    "lint": "npm run lint:es && npm run lint:style",
+    "lint": "yarn lint:es && yarn lint:style",
     "start": "start-storybook -p 6006"
   },
   "keywords": [
