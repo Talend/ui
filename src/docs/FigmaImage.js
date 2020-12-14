@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as Figma from 'figma-js';
 
-const client = Figma.Client({
-	personalAccessToken: process.env.STORYBOOK_FIGMA_ACCESS_TOKEN,
-});
+import FigmaContext from './FigmaContext';
 
 const Figure = styled.figure`
 	display: flex;
@@ -20,26 +17,32 @@ function getMetadata(url) {
 	};
 }
 
+const FigmaImagePlaceholder = React.memo(() => {
+	return (
+		<div
+			style={{
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				height: '5rem',
+				color: 'black',
+				backgroundColor: 'gray',
+				backgroundImage:
+					'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px)',
+				borderRadius: '.4rem',
+				opacity: '.5',
+			}}
+		>
+			Figma is not configured
+		</div>
+	);
+});
+
 const FigmaImage = ({ src, alt = '', ...rest }) => {
-	if (!process.env.STORYBOOK_FIGMA_ACCESS_TOKEN) {
-		return (
-			<div
-				style={{
-					height: '5rem',
-					color: 'black',
-					backgroundColor: 'gray',
-					backgroundImage:
-						'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px)',
-					borderRadius: '.4rem',
-					opacity: '.5',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-				}}
-			>
-				Figma is not configured
-			</div>
-		);
+	const figma = React.useContext(FigmaContext);
+
+	if (!figma.isConfigured) {
+		return <FigmaImagePlaceholder />;
 	}
 
 	const [data, setData] = React.useState();
@@ -65,7 +68,7 @@ const FigmaImage = ({ src, alt = '', ...rest }) => {
 
 	React.useEffect(() => {
 		const { projectId, nodeId } = getMetadata(src);
-		client
+		figma
 			.fileImages(projectId, {
 				ids: [nodeId],
 			})
