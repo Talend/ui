@@ -37,7 +37,7 @@ function WithDrawer({ drawers, children }) {
 							}
 							key={get(drawer, 'props.route.path', key)}
 						>
-							{({style, ...props}) => (
+							{({ style, ...props }) => (
 								<div className="tc-with-drawer-wrapper" style={style}>
 									{React.cloneElement(drawer, props)}
 								</div>
