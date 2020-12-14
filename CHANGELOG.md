@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [1.2.0]
+
+### Added
+
+- [Added](https://github.com/Talend/ui-faceted-search/pull/17): Support custom/no sort of badge definitions
+
 ### Fixed
 
 -   [Styling issue on badges with multiple lengthy values](https://github.com/Talend/ui-faceted-search/pull/15)

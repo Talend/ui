@@ -189,22 +189,26 @@ const getCategories = badgesDefinitions => {
 	return uniq(categories);
 };
 
-const getScreens = (badgesDefinitions, filterValue) => {
+const getScreens = (badgesDefinitions, filterValue, comparator = sortByLabel) => {
 	const visibleBadges = badgesDefinitions.filter(
 		badgeDefinition => badgeDefinition.metadata.isAvailableForFacetList !== false,
 	);
 
 	const categories = getCategories(visibleBadges);
 
-	const badgesWithoutCategory = visibleBadges.filter(
-		badgeDefinition => !badgeDefinition.metadata.category,
-	);
-
-	return [
+	const screens = [
 		{
 			category: null,
-			rows: [...categories, ...badgesWithoutCategory]
-				.sort(sortByLabel)
+			rows: visibleBadges
+				.filter(
+					(definition, index, arr) =>
+						!definition.metadata.category ||
+						// remove category duplicates
+						arr.findIndex(
+							prev => prev.metadata.category === definition.metadata.category,
+						) === index,
+				)
+				.map(badgeDefinition => badgeDefinition.metadata.category || badgeDefinition)
 				.filter(filterByNotEmpty)
 				.filter(filterByLabel(filterValue)),
 		},
@@ -213,14 +217,18 @@ const getScreens = (badgesDefinitions, filterValue) => {
 			rows: badgesDefinitions
 				.filter(badgeDefinition => badgeDefinition.metadata.category === categoryName)
 				.filter(filterByNotEmpty)
-				.filter(filterByLabel(filterValue))
-				.sort(sortByLabel),
+				.filter(filterByLabel(filterValue)),
 		})),
 	];
+	if (comparator) {
+		screens.forEach(screen => screen.rows.sort(comparator));
+	}
+	return screens;
 };
 
 const AddFacetPopover = ({
 	badgesDefinitions = [],
+	badgesDefinitionsSort,
 	badges,
 	id,
 	initialFilterValue,
@@ -231,10 +239,10 @@ const AddFacetPopover = ({
 
 	const [category, setCategory] = useState(null);
 	const [filterValue, setFilterValue] = useState(initialFilterValue || '');
-	const getScreensMemo = useCallback(() => getScreens(badgesDefinitions, filterValue), [
-		badgesDefinitions,
-		filterValue,
-	]);
+	const getScreensMemo = useCallback(
+		() => getScreens(badgesDefinitions, filterValue, badgesDefinitionsSort),
+		[badgesDefinitions, filterValue, badgesDefinitionsSort],
+	);
 	const screens = getScreensMemo();
 	const currentCategoryScreenIndex = screens.findIndex(screen => screen.category === category);
 
@@ -332,6 +340,7 @@ AddFacetPopover.propTypes = {
 	id: PropTypes.string.isRequired,
 	initialFilterValue: PropTypes.string,
 	badgesDefinitions: badgesFacetedPropTypes,
+	badgesDefinitionsSort: PropTypes.func,
 	badges: PropTypes.array.isRequired,
 	onClick: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,

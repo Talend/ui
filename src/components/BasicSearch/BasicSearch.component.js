@@ -42,6 +42,7 @@ const BasicSearch = ({
 	onSubmit,
 	setBadgesFaceted,
 	callbacks,
+	badgesDefinitionsSort,
 }) => {
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary), [
@@ -54,7 +55,7 @@ const BasicSearch = ({
 	const badges = useMemo(
 		() => filterBadgeDefinitionsWithDictionary(badgesDictionary, badgesDefinitions),
 		[badgesDictionary, badgesDefinitions],
-	);
+		);
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 	const quicksearchable = useMemo(
 		() => badgesDefinitions.filter(({ metadata = {} }) => metadata.isAvailableForQuickSearch),
@@ -126,6 +127,7 @@ const BasicSearch = ({
 							<AddFacetPopover
 								badges={state.badges}
 								badgesDefinitions={badges}
+								badgesDefinitionsSort={badgesDefinitionsSort}
 								id={basicSearchId}
 								initialFilterValue={initialFilterValue}
 								onClick={onClickOverlayRow(setOverlayOpened)}
@@ -155,6 +157,7 @@ const BasicSearch = ({
 
 BasicSearch.propTypes = {
 	badgesDefinitions: badgesFacetedPropTypes,
+	badgesDefinitionsSort: PropTypes.func,
 	badgesFaceted: PropTypes.shape({
 		badges: badgesFacetedPropTypes,
 	}),

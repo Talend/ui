@@ -256,4 +256,39 @@ describe('AddFacetPopover', () => {
 		// Then
 		expect(wrapper.find('button[aria-label=""]')).toHaveLength(0);
 	});
+	it('should sort by label if no comparator provided', () => {
+		// Given
+		const props = {
+			badges,
+			badgesDefinitions,
+			id: 'my id',
+			onClick: jest.fn(),
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+
+		// Then
+		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Connection name');
+		expect(wrapper.find('.tc-add-facet-popover-row-text').at(1).text()).toEqual('Custom attributes');
+		expect(wrapper.find('.tc-add-facet-popover-row-text').at(2).text()).toEqual('Name');
+	});
+	it('should not sort if null is provided as comparator', () => {
+		// Given
+		const props = {
+			badges,
+			badgesDefinitions,
+			id: 'my id',
+			onClick: jest.fn(),
+			badgesDefinitionsSort: null,
+			t,
+		};
+		// When
+		const wrapper = mount(<AddFacetPopover {...props} />);
+
+		// Then
+		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Name');
+		expect(wrapper.find('.tc-add-facet-popover-row-text').at(1).text()).toEqual('Connection name');
+		expect(wrapper.find('.tc-add-facet-popover-row-text').at(2).text()).toEqual('Custom attributes');
+	});
 });

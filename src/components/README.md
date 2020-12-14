@@ -2,25 +2,25 @@
 
 ### Table of Contents
 
-1. Main components  
-   a. [AddFacetPopover](#AddFacetPopover)  
-   b. [AdvancedSearch](#AdvancedSearch)  
-   c. [BasicSearch](#BasicSearch)  
-   d. [FacetedManager](#FacetedManager)  
-   e. [FacetedSearch](#FacetedSearch)  
-   f. [FacetedSearchIcon](#FacetedSearchIcon)  
+1. Main components
+   a. [AddFacetPopover](#AddFacetPopover)
+   b. [AdvancedSearch](#AdvancedSearch)
+   c. [BasicSearch](#BasicSearch)
+   d. [FacetedManager](#FacetedManager)
+   e. [FacetedSearch](#FacetedSearch)
+   f. [FacetedSearchIcon](#FacetedSearchIcon)
    g. [FacetedToolbar](#FacetedToolbar)
 2. Badges
    a. [BadgeText](#BadgeText)
    b. [BadgeNumber](#BadgeNumber)
    c. [BadgeCheckboxes](#BadgeCheckboxes)
 3. Badges api
-   a. [BadgeOperatorOverlay](#BadgeOperatorOverlay)  
-   b. [BadgesGenerator](#BadgesGenerator)  
-   c. [BadgeFaceted](#BadgeFaceted)  
+   a. [BadgeOperatorOverlay](#BadgeOperatorOverlay)
+   b. [BadgesGenerator](#BadgesGenerator)
+   c. [BadgeFaceted](#BadgeFaceted)
    d. [BadgeOverlay](#BadgeOverlay)
 4. Context
-   a. [FacetedSearchContext](#FacetedSearchContext)  
+   a. [FacetedSearchContext](#FacetedSearchContext)
    b. [BadgeFacetedContext](#BadgeFacetedContext)
 5. [Structure and PropTypes](##Structure and PropTypes)
    a. [BadgeDefinition](#BadgeDefinition)
@@ -60,9 +60,9 @@ The advanced search enable a **text input** field where the user can directly en
 ### BasicSearch
 
 This is **search with badges**.
-All the **logical behavior** of badges is embedded in this component ([facetedBadges.hook](#facetedBadges.hook)).  
+All the **logical behavior** of badges is embedded in this component ([facetedBadges.hook](#facetedBadges.hook)).
 You have to feed him with some **badges definitions** to allow the creation and the CRUD manipulation of badges.
-It triggers a submit every time the badges change.  
+It triggers a submit every time the badges change.
 Init the **badgeFaceted context** (see [BadgeFacetedContext](#BadgeFacetedContext)).
 
 | Props                     | Type                              | Info                                                                    |
@@ -74,6 +74,8 @@ Init the **badgeFaceted context** (see [BadgeFacetedContext](#BadgeFacetedContex
 | initialFilterValue        | string                            | filter value at first render of the [AddFacetPopover](#AddFacetPopover) |
 | onSubmit                  | func                              | callback trigger when badges change                                     |
 | setFacetedBadges          | func                              | callback trigger to sync the badges at every state change               |
+| badgesDefinitionsSort     | func                              | "Add filter" entries comparator, falls back to label sort               |
+
 
 ---
 
@@ -226,9 +228,9 @@ You have to provide the badges dictionary and the function to access it.
 
 ### BadgeFaceted
 
-The generic component at the based of **all badges**.  
+The generic component at the based of **all badges**.
 Create a badge (base on ui/badges) with a **category**, an **operator**, a **value** button which open a custom **popover**,
-and a **delete action** represents by a cross.  
+and a **delete action** represents by a cross.
 Popover flow mechanics is handle by [BadgeOpenedOverlayFlow](#BadgeOpenedOverlayFlow).
 
 | Props                 | Type               | Info                                         |
@@ -251,7 +253,7 @@ Popover flow mechanics is handle by [BadgeOpenedOverlayFlow](#BadgeOpenedOverlay
 ### BadgeOverlay
 
 Create a **button icon** with a **popover**.
-Depending on props the button will be a icon, a label or "+ Add Filter".  
+Depending on props the button will be a icon, a label or "+ Add Filter".
 Worked in **uncontrolled mode**.
 Render the **children** you pass as a React.element or as a function if you need to access the opened value outside.
 
