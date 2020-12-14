@@ -15,6 +15,7 @@ export const ButtonIcon = styled(Icon).attrs({
 })`
 	&.dropdown__icon {
 		display: inline-flex;
+		margin-left: 1rem;
 		height: ${tokens.sizes.xs};
 		width: ${tokens.sizes.xs};
 		fill: currentColor;
@@ -36,7 +37,7 @@ export const ButtonIcon = styled(Icon).attrs({
 `;
 
 export const Menu = styled(ReakitMenu)`
-	z-index: ${tokens.zIndices.dropdowns};
+	z-index: ${tokens.zIndices.dropdown};
 `;
 
 export const AnimatedMenu = styled.div(
@@ -74,5 +75,9 @@ export const MenuItem = styled(ReakitMenuItem)(
     text-overflow: ellipsis;
 	overflow: hidden;
 	cursor: pointer;
+	
+	.link__text {
+		border: none !important;
+	}
 `,
 );

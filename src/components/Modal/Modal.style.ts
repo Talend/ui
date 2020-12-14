@@ -20,7 +20,7 @@ export const DialogBackdrop = styled(ReakitDialogBackdrop)`
 	bottom: 0;
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 999;
+	z-index: ${tokens.zIndices.backdrop};
 	transition: opacity ${tokens.transitions.slow};
 	opacity: 0;
 
@@ -38,7 +38,7 @@ export const Dialog = styled(ReakitDialog)(
 		color: ${theme.colors.textColor};
 		background-color: ${theme.colors.modalBackground};
 		box-shadow: 0 2px 7px 0px rgba(0,0,0,0.2);
-		z-index: 999;
+		z-index: ${tokens.zIndices.modal};		
 		transition: ${tokens.transitions.normal};
 		opacity: 0;
 		transform-origin: top center;

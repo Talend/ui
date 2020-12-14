@@ -33,7 +33,7 @@ export const Combobox = styled.div(
 
 	[role='listbox'] {
 		width: 250px;
-		z-index: 999;
+		z-index: ${tokens.zIndices.dropdown};		
 		padding: 0.5rem 0;
 		border-radius: ${tokens.radii.rectRadius};
 	    box-shadow: 0 2px 4px 0 ${tokens.colors.gray300};

@@ -1,10 +1,11 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
 import { addParameters } from '@storybook/react';
 import { withTableOfContents } from 'storybook-docs-toc';
 import 'focus-outline-manager';
+import { normalize } from 'polished';
 
 import light, { dark } from '../src/themes';
+import tokens from '../src/tokens';
 import ThemeProvider from '../src/components/ThemeProvider';
 
 export const globalTypes = {
@@ -28,8 +29,52 @@ const getTheme = themeKey => {
 
 const GlobalStyle = ThemeProvider.createGlobalStyle(
 	({ theme }) => `
-		${ThemeProvider.globalStyle};
+	${normalize()};
+
+	*, ::after, ::before {
+		box-sizing: border-box;
+	}
 	
+	::selection {
+	  	background-color: ${tokens.colors.coral100};
+	}
+	
+	html {
+		/* 1rem = 10px */
+		font-size: 62.5%;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+        font-family: 'Open Sans', sans-serif;
+		font-size: 14px;
+	}
+	
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+	}
+	
+	:focus,
+	button:focus {
+		outline: 0.3rem solid ${theme.colors.focusColor};
+	}
+
+	.focus-outline-hidden *:focus {
+		outline: none;
+	}
+	
+	
+	.sb-show-main.sb-main-padded {
+		padding: 0;
+	}
 		.sbdocs .sbdocs-preview {
 			background: ${theme.colors.backgroundColor};
 		}

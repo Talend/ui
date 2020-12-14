@@ -127,8 +127,8 @@ export const MenuItem = styled(Link).attrs(({ active }) => ({
 			min-width: 0;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-			text-decoration: none !important;
 			overflow: hidden;
+			border: none !important;
 		}
 
         &:hover {
