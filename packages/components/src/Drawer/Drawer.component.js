@@ -36,14 +36,14 @@ function DrawerAnimation(props) {
 					transform: 'translateX(100%)',
 					...STYLES[transitionState],
 				};
-				return React.cloneElement(children, { style });
+				return children({ style, transitioned: transitionState === 'entered', transitionState });
 			}}
 		</Transition>
 	);
 }
 
 DrawerAnimation.propTypes = {
-	children: PropTypes.node,
+	children: PropTypes.func,
 	withTransition: PropTypes.bool,
 	onTransitionComplete: PropTypes.func,
 };
