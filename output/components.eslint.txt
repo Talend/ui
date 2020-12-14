@@ -154,7 +154,7 @@
   102:7  warning  Dangerous property 'dangerouslySetInnerHTML' found  react/no-danger
 
 /home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/hooks/useCollectionSort.hook.js
-  33:61  warning  React Hook useMemo has unnecessary dependencies: 'sortFunctions' and 'sortParams'. Either exclude them or remove the dependency array. Outer scope values like 'sortParams' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+  27:61  warning  React Hook useMemo has unnecessary dependencies: 'sortFunctions' and 'sortParams'. Either exclude them or remove the dependency array. Outer scope values like 'sortParams' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Header/HeaderInput.component.js
   68:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
