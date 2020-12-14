@@ -36,7 +36,7 @@ function DrawerAnimation(props) {
 					transform: 'translateX(100%)',
 					...STYLES[transitionState],
 				};
-				return React.cloneElement(children, { style });
+				return React.cloneElement(children, { style, transitioned: transitionState === 'entered' });
 			}}
 		</Transition>
 	);
