@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import ButtonBase from './Button.base';
 import { ButtonProps } from '../Button';
 
-const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase)(
+const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase).attrs({
+	className: 'btn--primary',
+})(
 	({ theme }) => `
 	color: ${theme.colors.buttonPrimaryColor};
 	background-color: ${theme.colors.buttonPrimaryBackgroundColor};

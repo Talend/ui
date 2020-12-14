@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import ButtonPrimary from './Button.primary';
 import { ButtonProps } from '../Button';
 
-const ButtonDestructive: React.FC<ButtonProps> = styled(ButtonPrimary)(
+const ButtonDestructive: React.FC<ButtonProps> = styled(ButtonPrimary).attrs({
+	className: 'btn--destructive',
+})(
 	({ theme }) => `
 	background-color: ${theme.colors.buttonDestructiveBackgroundColor};
 	border-color: ${theme.colors.buttonDestructiveBackgroundColor};

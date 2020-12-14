@@ -4,7 +4,9 @@ import ButtonSecondary from './Button.secondary';
 import { ButtonProps } from '../Button';
 import tokens from '../../../tokens';
 
-const ButtonGhost: React.FC<ButtonProps> = styled(ButtonSecondary)`
+const ButtonTertiary: React.FC<ButtonProps> = styled(ButtonSecondary).attrs({
+	className: 'btn--tertiary',
+})`
 	&,
 	&:not([aria-disabled='true']):hover,
 	&:not([aria-disabled='true']):active {
@@ -12,4 +14,4 @@ const ButtonGhost: React.FC<ButtonProps> = styled(ButtonSecondary)`
 	}
 `;
 
-export default ButtonGhost;
+export default ButtonTertiary;

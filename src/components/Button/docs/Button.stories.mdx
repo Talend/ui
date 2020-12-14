@@ -24,7 +24,7 @@ Buttons are clickable items used for actions. They can have different style depe
 
 Coral support two buttons sizes: **default** and **small**.
 
-The small size is available for primary, secondary and ghost buttons — but shouldn't be use for buttons with icons or dropdown buttons.
+The small size is available for primary, secondary and tertiary buttons — but shouldn't be use for buttons with icons or dropdown buttons.
 
 Icon buttons has also two sizes: **default** and **small**. They can be used as dropdown but without the caret icon.
 
@@ -122,28 +122,28 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 **Tertiary**
 
 <Canvas>
-	<Story name="ghost">
-		<Button.Ghost onClick={action('clicked')}>Basic Button</Button.Ghost>
+	<Story name="tertiary">
+		<Button.Tertiary onClick={action('clicked')}>Basic Button</Button.Tertiary>
 	</Story>
-	<Story name="ghost--icon">
-		<Button.Ghost onClick={action('clicked')} icon="plus">
+	<Story name="tertiary--icon">
+		<Button.Tertiary onClick={action('clicked')} icon="plus">
 			Button with icon
-		</Button.Ghost>
+		</Button.Tertiary>
 	</Story>
-	<Story name="ghost--small">
-		<Button.Ghost small onClick={action('clicked')}>
+	<Story name="tertiary--small">
+		<Button.Tertiary small onClick={action('clicked')}>
 			Small Button
-		</Button.Ghost>
+		</Button.Tertiary>
 	</Story>
-	<Story name="ghost--disabled">
-		<Button.Ghost disabled onClick={action('clicked')}>
+	<Story name="tertiary--disabled">
+		<Button.Tertiary disabled onClick={action('clicked')}>
 			Disabled Button
-		</Button.Ghost>
+		</Button.Tertiary>
 	</Story>
-	<Story name="ghost--disabled-focusable">
-		<Button.Ghost disabled focusable onClick={action('clicked')}>
+	<Story name="tertiary--disabled-focusable">
+		<Button.Tertiary disabled focusable onClick={action('clicked')}>
 			Disabled Focusable Button
-		</Button.Ghost>
+		</Button.Tertiary>
 	</Story>
 </Canvas>
 
@@ -278,7 +278,7 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 				description: 'Button variation',
 				control: {
 					type: 'select',
-					options: ['', 'Primary', 'Secondary', 'Ghost', 'Destructive', 'Icon'],
+					options: ['', 'Primary', 'Secondary', 'Tertiary', 'Destructive', 'Icon'],
 				},
 			},
 			small: {
@@ -320,12 +320,6 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 			},
 			loading: {
 				description: 'Button is loading',
-				control: {
-					type: 'boolean',
-				},
-			},
-			hideText: {
-				description: 'Button has hidden text',
 				control: {
 					type: 'boolean',
 				},
