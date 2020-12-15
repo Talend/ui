@@ -2307,10 +2307,10 @@
     redux-thunk "^2.2.0"
     uuid "^3.4.0"
 
-"@talend/react-components@^6.2.2":
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-6.3.1.tgz#952f113b889a1a5f144204ebb5962522027f81f5"
-  integrity sha512-ex1TKzewh6J9Iwx24oGJsBs36JLe/wpnO4ZzeW5bu03e+6ZhzXlQj2lor5+NKnvg8+l/S9frMXLlMqjLj6lfmg==
+"@talend/react-components@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-6.4.0.tgz#db52a60121d4949656aafd71ce844f4ed521b2f2"
+  integrity sha512-LvzZqPjcfWONDe3tE1GBTQP+QWp2GBpS2HMsj16DRbz83+DhF7VROiFuEI/Ay9YJm7w+CV6AopPOMO/pBDWNTA==
   dependencies:
     ally.js "^1.4.1"
     classnames "^2.2.5"

@@ -8,24 +8,30 @@ $module: colored-bar;
 			fill: $primaryColor;
 		}
 
-		&--#{$style}.colored-bar__label tspan {
-			pointer-events: none;
-			fill: $secondaryColor;
+		&--#{$style}.colored-bar__label {
+			color: $secondaryColor;
 		}
 
 		&--#{$style}.colored-bar--hover {
 			fill: $secondaryColor;
 
-			&.colored-bar__label tspan {
-				fill: $primaryColor;
+			&.colored-bar__label {
+				color: $primaryColor;
 			}
 		}
 	}
 
-	&__label tspan {
+	&__label-container {
+		pointer-events: none;
 		font-size: 1.2rem;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: $font-weight-semi-bold;
+	}
+
+	&__label {
+		display: inline-flex;
+		align-items: center;
+		height: 100%;
 	}
 
 	&__secondary-bar {

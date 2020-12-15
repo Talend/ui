@@ -6,6 +6,10 @@ $module: vertical-chart-panel;
 	flex-direction: column;
 
 	&__chart-container {
-		height: 100%;
+		flex: 1;
+	}
+
+	&__slider-container {
+		flex: 0;
 	}
 }

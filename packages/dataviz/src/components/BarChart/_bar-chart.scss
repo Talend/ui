@@ -9,6 +9,9 @@ $grey-bar-color: $alto;
 @mixin overrideRechartsStyles() {
 	// We can't use custom classname on axis
 	:global {
+		.recharts-responsive-container {
+			overflow: visible;
+		}
 		.recharts-xAxis,
 		.recharts-yAxis {
 			text {

@@ -4,10 +4,11 @@ export { default as VerticalChartFilter } from './components/ChartPanel/Vertical
 export { default as TooltipContent } from './components/TooltipContent/TooltipContent.component';
 export { default as BoxPlot } from './components/BoxPlot';
 export * from './components/BarChart/barChart.tooltip';
+export { DataType } from './types';
 
 export type {HorizontalBarChartProps} from './components/BarChart/HorizontalBarChart';
-export type{ VerticalBarChartEntry,VerticalBarChartProps } from './components/BarChart/VerticalBarChart';
-export type{ VerticalChartFilterProps } from './components/ChartPanel/VerticalChartFilter';
-export type{ TooltipEntry,TooltipContentProps } from './components/TooltipContent/TooltipContent.component';
-export type{ BoxPlotProps,BoxPlotData } from './components/BoxPlot';
-export type {DataType,Range} from './types';
+export type { VerticalBarChartEntry, VerticalBarChartProps } from './components/BarChart/VerticalBarChart';
+export type { VerticalChartFilterProps } from './components/ChartPanel/VerticalChartFilter';
+export type { TooltipEntry, TooltipContentProps } from './components/TooltipContent/TooltipContent.component';
+export type { BoxPlotProps, BoxPlotData } from './components/BoxPlot';
+export type { Range } from './types';

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Rectangle, RectangleProps, Text } from 'recharts';
+import { Customized, Rectangle, RectangleProps } from 'recharts';
+import { FormatValue } from '@talend/react-components';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import styles from './ColoredBar.component.scss';
@@ -50,19 +51,29 @@ type ColorBarLabelProps = any & {
 function ColoredBarLabel({ focusedBarIndex, payload, chartStyle, ...props }: ColorBarLabelProps) {
 	const { t } = useTranslation();
 	return (
-		<Text
-			{...props}
-			className={classNames(
-				styles[`colored-bar--${chartStyle}`],
-				{
-					[styles['colored-bar--hover']]: focusedBarIndex === payload.index,
-				},
-				styles['colored-bar__label'],
+		<Customized
+			component={() => (
+				<foreignObject
+					className={styles['colored-bar__label-container']}
+					x={props.x}
+					y={props.y - 10}
+					height={20}
+					width="100%"
+				>
+					<FormatValue
+						className={classNames(
+							styles[`colored-bar--${chartStyle}`],
+							{
+								[styles['colored-bar--hover']]: focusedBarIndex === payload.index,
+							},
+							styles['colored-bar__label'],
+						)}
+						value={payload?.value || t('EMPTY', 'Empty')}
+						t={t}
+					/>
+				</foreignObject>
 			)}
-		>
-			{/* use non-breaking spaces */
-			payload?.value.replaceAll(' ', String.fromCharCode(160)) || t('EMPTY', 'Empty')}
-		</Text>
+		/>
 	);
 }
 

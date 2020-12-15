@@ -2,7 +2,7 @@ $module: range-filter;
 
 .#{$module} {
 	&__slider {
-		margin: 30px 0;
+		margin: 20px 0 30px;
 	}
 
 	&__slider-mark {
@@ -37,6 +37,7 @@ $module: range-filter;
 	&__input-container {
 		display: flex;
 		justify-content: space-evenly;
+		padding: 0 10%;
 	}
 
 	&__label {

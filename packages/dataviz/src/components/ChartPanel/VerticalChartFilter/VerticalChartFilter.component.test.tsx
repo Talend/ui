@@ -72,4 +72,35 @@ describe('Profiling chart panel', () => {
 				.prop('data')! as unknown) as VerticalBarChartEntry[]).map(entry => entry.filteredValue),
 		).toEqual([0, 10, 0]);
 	});
+
+	it('Should handle bars with bounds outside range limits', () => {
+		const component = shallow(
+			<VerticalChartFilter
+				data={[
+					{
+						value: 20,
+						filteredValue: 10,
+						label: '[10, 20[',
+						key: { min: -100, max: 20 },
+					},
+					{
+						value: 20,
+						filteredValue: 10,
+						label: '[30, 40[',
+						key: { min: 30, max: 300 },
+					},
+				]}
+				dataType={DataType.NUMBER}
+				activeRange={{ min: 2, max: 40 }}
+				rangeLimits={{ min: 2, max: 40 }}
+				{...mocks}
+			/>,
+		);
+
+		expect(
+			((component
+				.find('VerticalBarChart')
+				.prop('data')! as unknown) as VerticalBarChartEntry[]).map(entry => entry.filteredValue),
+		).toEqual([10, 10]);
+	});
 });

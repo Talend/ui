@@ -34,7 +34,11 @@ function VerticalChartFilter({
 	}, [activeRange]);
 
 	function isInActiveRange(entry: VerticalBarChartEntry) {
-		return sliderValue.min <= entry.key.min && entry.key.max <= sliderValue.max;
+		// Check if bar is inside range, and handle bar min/max outside of rangelimits
+		return (
+			sliderValue.min <= Math.max(rangeLimits.min, entry.key.min) &&
+			Math.min(rangeLimits.max, entry.key.max) <= sliderValue.max
+		);
 	}
 
 	return (
@@ -53,7 +57,7 @@ function VerticalChartFilter({
 				/>
 			</div>
 			{rangeLimits.min !== rangeLimits.max && (
-				<div className="slider-container">
+				<div className={styles['vertical-chart-panel__slider-container']}>
 					<RangeFilter
 						range={sliderValue}
 						dataType={dataType}
