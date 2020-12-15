@@ -1,6 +1,6 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import IconsProvider from "@talend/react-components/lib/IconsProvider";
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import i18n from './i18n';
 
@@ -9,12 +9,15 @@ export const parameters = {
 };
 
 export const decorators = [
-	Story => (
-		<I18nextProvider i18n={i18n}>
-			<IconsProvider/>
-			<Story />
-		</I18nextProvider>
-	),
+	(Story, context) => {
+		i18n.changeLanguage(context.globals.locale);
+		return (
+			<I18nextProvider i18n={i18n}>
+				<IconsProvider />
+				<Story />
+			</I18nextProvider>
+		);
+	},
 ];
 
 export const globalTypes = {

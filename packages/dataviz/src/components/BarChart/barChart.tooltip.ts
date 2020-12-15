@@ -7,16 +7,16 @@ export enum ValueType {
 	MIN = 'MIN',
 	MAX = 'MAX',
 	SUM = 'SUM',
-	AVERAGE = 'AVERAGE',
+	AVERAGE = 'MEAN',
 	OCCURRENCES = 'OCCURRENCES',
 }
 
 function getFilteredValueLabel(valueType: ValueType): string {
 	return {
-		[ValueType.MIN]: i18next.t('MIN_MATCHING_FILTER', 'Min matching your filter'),
-		[ValueType.MAX]: i18next.t('MAX_MATCHING_FILTER_MAX', 'Max matching your filter'),
-		[ValueType.AVERAGE]: i18next.t('AVERAGE_MATCHING_FILTER', 'Average matching your filter'),
-		[ValueType.SUM]: i18next.t('SUM_MATCHING_FILTER', 'Sum matching your filter'),
+		[ValueType.MIN]: i18next.t('MIN_MATCHING_FILTER', 'Min value matching your filter'),
+		[ValueType.MAX]: i18next.t('MAX_MATCHING_FILTER_MAX', 'Max value matching your filter'),
+		[ValueType.AVERAGE]: i18next.t('AVERAGE_MATCHING_FILTER', 'Average of values matching your filter'),
+		[ValueType.SUM]: i18next.t('SUM_MATCHING_FILTER', 'Sum of values matching your filter'),
 		[ValueType.OCCURRENCES]: i18next.t(
 			'OCCURRENCES_MATCHING_FILTER',
 			'Occurrences matching your filter',

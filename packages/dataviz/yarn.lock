@@ -2256,6 +2256,16 @@
   resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-6.2.2.tgz#5f4350f5666eb495961b21e227e5d1f0da306fca"
   integrity sha512-OovN6pir998VuDWbDTBznLBLbj7NE2Pq7dYM2DxZLcp7NuFX5MSyFawhNv9q2t2vZ5VrTM3DO5tDoUuv97gicg==
 
+"@talend/locales-tui-dataviz@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-dataviz/-/locales-tui-dataviz-0.0.1.tgz#20431444f161c2c3520970ea6afd1d80dc2843ff"
+  integrity sha512-NGP5FHndHfMc/tzhVA4oFlTdIGzhTd4Dk5bqvODH/EKv2BfXeCL39gEdizHqmQa6HkZ73leyvCpVQrLrI3XG3g==
+
+"@talend/locales-tui@>=5.29.0":
+  version "5.29.0"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-5.29.0.tgz#fa398c6c4381d8e56f526fead6cd7898776e5d49"
+  integrity sha512-N/1cwMMNsT0PFWDlbwiDFsjxuSiLT4NMSbvTFLN00LUv7l5BiVXZtq5Xiig+G9swa6dy4QzeHJ2rQ1ZNoKNW5A==
+
 "@talend/module-to-cdn@^7.2.1":
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-7.2.1.tgz#4e6a8ea3a5a44e718fc7c77618c4869e073b8ed6"
@@ -2482,17 +2492,6 @@
     "@talend/scripts-config-jest" "^7.2.1"
     "@talend/scripts-config-react-webpack" "^7.2.1"
     "@talend/scripts-config-typescript" "^7.2.1"
-
-"@teamsupercell/typings-for-css-modules-loader@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@teamsupercell/typings-for-css-modules-loader/-/typings-for-css-modules-loader-2.4.0.tgz#b15f9f0e6efb37cc84eede162eba9f1ff4dda96c"
-  integrity sha512-atjtomGyj6PeY8N8Zg7N0OJ162QAUo3+VKFohjd5CUo90Xqnmtdixt8UYNuZSfbohr8qnM/AGGR6MSpEiWqxkg==
-  dependencies:
-    camelcase "^5.3.1"
-    loader-utils "1.2.3"
-    schema-utils "^2.0.1"
-  optionalDependencies:
-    prettier "*"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -12463,11 +12462,6 @@ prepend-http@^1.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
 
-prettier@*:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
-  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
-
 prettier@~2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.5.tgz#d6d56282455243f2f92cc1716692c08aa31522d4"
@@ -14161,7 +14155,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.0.0, schema-utils@^2.0.1, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7.0:
+schema-utils@^2.0.0, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7.0:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.7.1.tgz#1ca4f32d1b24c590c203b8e7a50bf0ea4cd394d7"
   integrity sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg==
