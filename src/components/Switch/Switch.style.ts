@@ -29,7 +29,7 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
 		cursor: pointer;
 		background: none;
 		border: none;
-		z-index: 2;
+		z-index: ${tokens.zIndices.onTop};
 	}
 	
 	button:nth-child(1) {
@@ -47,7 +47,7 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
     	width: 0;
     	bottom: 0;
     	transition: ${tokens.transitions.fast};
-		z-index: 1;
+		z-index: ${tokens.zIndices.above};
   	}
   	
   	strong em {

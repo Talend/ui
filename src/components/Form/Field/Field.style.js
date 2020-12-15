@@ -70,7 +70,7 @@ export const FieldGroup = styled.div(
     position: absolute;
     padding: 0;
     height: ${tokens.sizes.l};
-    z-index: 1;
+    z-index: ${tokens.zIndices.above};
   }
   
   svg {

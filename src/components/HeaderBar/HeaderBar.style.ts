@@ -164,7 +164,7 @@ export const MenuDisclosure = styled(Button).attrs({
 		position: fixed;
 		top: 0;
 		right: 0;
-		z-index: 2;
+		z-index: ${tokens.zIndices.onTop};
 
 		rect {
 			transform: scaleX(0);
@@ -195,7 +195,7 @@ export const Menu = styled.div.attrs({
 	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
 	opacity: 0;
 	overflow: auto;
-	z-index: 1;
+	z-index: ${tokens.zIndices.above};
 	transition: opacity ${tokens.transitions.fast};
 
 	&[data-enter] {
