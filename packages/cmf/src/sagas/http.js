@@ -194,8 +194,8 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, opti
 				type: get(answer, 'data.type'),
 				title: get(answer, 'data.title'),
 				detail: get(answer, 'data.detail'),
-				// RFC-7807 custom properties
-				code: get(answer, 'data.code'),
+				// RFC-7807 custom properties bag
+				custom: get(answer, 'data.custom'),
 			},
 			url,
 			config,
