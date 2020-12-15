@@ -10,6 +10,7 @@ import { DataType, Range } from '../../../types';
 
 export interface VerticalChartFilterProps {
 	data: VerticalBarChartEntry[];
+	barDataFeature?: string;
 	activeRange?: Range;
 	rangeLimits: Range;
 	dataType: DataType;
@@ -21,6 +22,7 @@ function VerticalChartFilter({
 	activeRange,
 	rangeLimits,
 	data,
+	barDataFeature,
 	onBarClick,
 	onRangeChange,
 	dataType,
@@ -50,6 +52,7 @@ function VerticalChartFilter({
 						...entry,
 						filteredValue: entry.filteredValue && isInActiveRange(entry) ? entry.filteredValue : 0,
 					}))}
+					dataFeature={barDataFeature}
 					onBarClick={onBarClick}
 					getTooltipContent={(entry: VerticalBarChartEntry) => (
 						<TooltipContent entries={getVerticalBarChartTooltip(entry)} />

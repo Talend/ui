@@ -1,15 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import {
-	Bar,
-	BarChart,
-	CartesianGrid,
-	Rectangle,
-	ResponsiveContainer,
-	Tooltip,
-	XAxis,
-	YAxis,
-} from 'recharts';
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styles from './VerticalBarChart.component.scss';
 import { ChartEntry } from '../barChart.types';
 import {
@@ -21,11 +12,11 @@ import {
 } from '../useBarChart.hook';
 import ColoredBar, { ChartStyle } from '../ColoredBar/ColoredBar.component';
 import { DataType, Range } from '../../../types';
+import TooltipCursor from '../TooltipCursor/TooltipCursor.component';
 
 export type VerticalBarChartEntry = ChartEntry<Range> & {
 	label: string;
 };
-
 
 export interface VerticalBarChartProps {
 	data: VerticalBarChartEntry[];
@@ -96,7 +87,7 @@ function VerticalBarChart({
 					allowEscapeViewBox={{ x: false, y: true }}
 					isAnimationActive={false}
 					content={TooltipContent}
-					cursor={<Rectangle data-feature={dataFeature} />}
+					cursor={<TooltipCursor dataFeature={dataFeature} />}
 				/>
 
 				{dataType === DataType.DATE && (

@@ -39,6 +39,10 @@ jobs:
         if: ${{ steps.check-already-published.outputs.already-published == 0 }}
         run: yarn install --frozen-lockfile
 
+      - name: Test
+        if: ${{ steps.check-already-published.outputs.already-published == 0 }}
+        run: yarn test
+
       - name: Publish
         id: publish
         if: ${{ steps.check-already-published.outputs.already-published == 0 }}

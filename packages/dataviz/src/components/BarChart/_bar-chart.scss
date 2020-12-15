@@ -26,11 +26,5 @@ $grey-bar-color: $alto;
 		.recharts-tooltip-wrapper {
 			z-index: 999;
 		}
-
-		.recharts-tooltip-cursor {
-			fill: transparent;
-			cursor: pointer;
-			pointer-events: all;
-		}
 	}
 }

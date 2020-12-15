@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-	Bar,
-	BarChart,
-	CartesianGrid,
-	Rectangle,
-	ResponsiveContainer,
-	Tooltip,
-	XAxis,
-	YAxis,
-} from 'recharts';
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styles from './HorizontalBarChart.component.scss';
 import { ChartEntry } from '../barChart.types';
 import {
@@ -20,6 +11,7 @@ import {
 } from '../useBarChart.hook';
 import FixedBarSizeWrapper from './FixedHeightBarWrapper/FixedHeightBarWrapper.component';
 import ColoredBar, { ChartStyle } from '../ColoredBar/ColoredBar.component';
+import TooltipCursor from '../TooltipCursor/TooltipCursor.component';
 
 export interface HorizontalBarChartProps {
 	data: ChartEntry<string>[];
@@ -88,7 +80,7 @@ function HorizontalBarChart({
 						allowEscapeViewBox={{ x: false, y: true }}
 						isAnimationActive={false}
 						content={<TooltipContent />}
-						cursor={<Rectangle data-feature={dataFeature} />}
+						cursor={<TooltipCursor dataFeature={dataFeature} />}
 					/>
 
 					<XAxis dataKey="value" type="number" orientation="top" />
