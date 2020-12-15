@@ -193,13 +193,13 @@ export const Menu = styled.div.attrs({
 	height: 100vh;
 	width: 100vw;
 	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
-	opacity: 0;
+	opacity: ${tokens.opacity.transparent};
 	overflow: auto;
 	z-index: ${tokens.zIndices.above};
 	transition: opacity ${tokens.transitions.fast};
 
 	&[data-enter] {
-		opacity: 1;
+		opacity: ${tokens.opacity.opaque};
 	}
 
 	[role='menu'] {

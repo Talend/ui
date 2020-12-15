@@ -51,11 +51,11 @@ export const AnimatedMenu = styled.div(
 	border-radius: ${tokens.radii.rectRadius};
 	border: 0;
 	box-shadow: 0 2px 4px 0 ${tokens.colors.gray300};
-	opacity: 0;
+	opacity: ${tokens.opacity.transparent};
 	transition: opacity ${tokens.transitions.normal};
 
 	[data-enter] & {
-		opacity: 1;
+		opacity: ${tokens.opacity.opaque};
 	}
 `,
 );

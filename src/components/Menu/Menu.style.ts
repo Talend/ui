@@ -49,7 +49,7 @@ export const Nav = styled.nav.attrs({
 					: ''
 			};
 			background-color: ${variant !== '' ? tokens.colors.gray0 : tokens.colors.transparent};
-    		opacity: 0.1;
+    		opacity: ${tokens.opacity.shade};
 		}`
 		}
 `,

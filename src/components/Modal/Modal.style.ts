@@ -22,10 +22,10 @@ export const DialogBackdrop = styled(ReakitDialogBackdrop)`
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: ${tokens.zIndices.backdrop};
 	transition: opacity ${tokens.transitions.slow};
-	opacity: 0;
+	opacity: ${tokens.opacity.transparent};
 
 	&[data-enter] {
-		opacity: 1;
+		opacity: ${tokens.opacity.opaque};
 	}
 `;
 
@@ -40,11 +40,11 @@ export const Dialog = styled(ReakitDialog)(
 		box-shadow: 0 2px 7px 0px rgba(0,0,0,0.2);
 		z-index: ${tokens.zIndices.modal};		
 		transition: ${tokens.transitions.normal};
-		opacity: 0;
+		opacity: ${tokens.opacity.transparent};
 		transform-origin: top center;
 		transform: translate3d(-50%, -10%, 0) rotateX(90deg);
 		&[data-enter] {
-			opacity: 1;
+			opacity: ${tokens.opacity.opaque};
 			transform: translate3d(-50%, 0, 0);
 		}
 `,

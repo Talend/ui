@@ -79,7 +79,7 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
 	
 	[data-checked="true"] {
 		color: ${theme.colors.inputBackgroundColor};
-		opacity: 1;
+		opacity: ${tokens.opacity.opaque};
 	}
 		
 	[data-checked] ~ strong {
