@@ -20,7 +20,7 @@ export default {
 	],
 	args: {
 		onBarClick: action('onClick'),
-		dataFeature: "my.data.feature"
+		dataFeature: 'my.data.feature'
 	},
 } as Meta<VerticalBarChartProps>;
 

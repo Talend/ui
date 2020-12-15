@@ -22,6 +22,7 @@ $module: colored-bar;
 	}
 
 	&__label-container {
+		pointer-events: none;
 		font-size: 1.2rem;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: $font-weight-semi-bold;
