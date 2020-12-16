@@ -36,7 +36,7 @@
   "dependencies": {
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
-    "d3": "^3.5.17",
+    "d3": "^6.3.0",
     "date-fns": "^1.27.2",
     "date-fns-timezone": "^0.1.4",
     "focus-outline-manager": "^1.0.2",
