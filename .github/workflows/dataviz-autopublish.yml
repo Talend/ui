@@ -2,7 +2,7 @@ name: Dataviz module auto publish
 
 on:
   push:
-    branches: [main, master, gjou/feat/dataviz]
+    branches: [main, master]
     paths: packages/dataviz/**
 
 jobs:
