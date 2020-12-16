@@ -5,9 +5,21 @@ import Typeahead from './Typeahead.component';
 
 const items = [
 	{
+		title: 'Search in',
+		hint: true,
+		suggestions: [
+			{
+				title: 'First hint example',
+			},
+			{
+				title: 'Second hint example',
+			},
+		],
+	},
+	{
 		title: 'category 1',
 		icon: {
-			name: 'talend-filter',
+			name: 'talend-smiley-satisfied',
 			title: 'icon',
 		},
 		suggestions: [
@@ -18,6 +30,12 @@ const items = [
 			},
 			{
 				title: 'title 2 Les elephants elementaires ont des aile ',
+				disabled: true,
+				description:
+					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+			},
+			{
+				title: 'title 3 Les elephants elementaires ont des aile ',
 				description:
 					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
@@ -26,7 +44,7 @@ const items = [
 	{
 		title: 'category 2',
 		icon: {
-			name: 'fa fa-asterisk',
+			name: 'talend-smiley-sleep',
 			title: 'icon',
 		},
 		suggestions: [
@@ -39,10 +57,6 @@ const items = [
 	},
 	{
 		title: 'category 3',
-		icon: {
-			name: 'fa fa-asterisk',
-			title: 'icon',
-		},
 		suggestions: [
 			{
 				title: 'title 4',
@@ -117,6 +131,57 @@ storiesOf('Form/Inline form/Typeahead', module)
 			onSelect: action('onSelect'),
 			role: 'searchbox',
 			'data-feature': 'data-feature-typeahead',
+			icon: {
+				name: 'talend-search',
+				title: 'Toggle search input',
+			},
+		};
+		return <Typeahead {...props} />;
+	})
+	.add('with unmanaged navigation', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			role: 'searchbox',
+			'data-feature': 'data-feature-typeahead',
+			icon: {
+				name: 'talend-search',
+				title: 'Toggle search input',
+			},
+			onKeyDown: action('onKeyDown -> internal nav is bypassed'),
+			manageNavigation: true,
+		};
+		return <Typeahead {...props} />;
+	})
+	.add('with results but loading', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			role: 'searchbox',
+			'data-feature': 'data-feature-typeahead',
+			isLoading: true,
+		};
+		return <Typeahead {...props} />;
+	})
+	.add('with results and icon', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			role: 'searchbox',
+			'data-feature': 'data-feature-typeahead',
+			icon: {
+				name: 'talend-search',
+				title: 'Toggle search input',
+			},
 		};
 		return <Typeahead {...props} />;
 	})

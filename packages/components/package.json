@@ -5,7 +5,9 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "prepublishOnly": "yarn build:dev && yarn build:prod",
     "prepare": "talend-scripts build:lib",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
@@ -13,7 +15,7 @@
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",
     "lint:es": "talend-scripts lint:es",
-    "lint": "npm run lint:es && npm run lint:style",
+    "lint": "yarn lint:es && yarn lint:style",
     "start": "start-storybook -p 6006"
   },
   "keywords": [
@@ -69,8 +71,8 @@
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/bootstrap-theme": "^6.2.4",
-    "@talend/icons": "^6.2.4",
+    "@talend/bootstrap-theme": "^6.4.0",
+    "@talend/icons": "^6.4.0",
     "@talend/locales-tui": "^5.6.0",
     "@talend/scripts-core": "^6.8.2",
     "@talend/scripts-preset-react-lib": "^6.8.2",
@@ -109,5 +111,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.2.4"
+  "version": "6.4.0"
 }

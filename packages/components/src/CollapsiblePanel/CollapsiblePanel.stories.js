@@ -137,6 +137,24 @@ storiesOf('Layout/CollapsiblePanel', module)
 			>
 				Coucou
 			</CollapsiblePanel>
+			<CollapsiblePanel
+				id="panel-default-fail"
+				header={[{ label: 'Controlled expanded panel with status fail' }]}
+				onToggle={action('onToggle')}
+				expanded
+				status="failed"
+			>
+				Coucou
+			</CollapsiblePanel>
+			<CollapsiblePanel
+				id="panel-default-success"
+				header={[{ label: 'Controlled expanded panel with success status' }]}
+				onToggle={action('onToggle')}
+				expanded
+				status="successful"
+			>
+				Coucou
+			</CollapsiblePanel>
 			<CollapsiblePanel id="panel-default-3" header={[{ label: 'No content panel' }]} />
 			<CollapsiblePanel id="panel-default-4" header={[{ label: 'Uncontrolled panel' }]}>
 				Coucou
