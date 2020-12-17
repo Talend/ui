@@ -10,8 +10,9 @@ import {
 	useBarChart,
 } from '../useBarChart.hook';
 import FixedBarSizeWrapper from './FixedHeightBarWrapper/FixedHeightBarWrapper.component';
-import ColoredBar, { ChartStyle } from '../ColoredBar/ColoredBar.component';
+import ColoredBar from '../ColoredBar/ColoredBar.component';
 import TooltipCursor from '../TooltipCursor/TooltipCursor.component';
+import { ChartStyle } from '../../../types';
 
 export interface HorizontalBarChartProps {
 	data: ChartEntry<string>[];

@@ -27,4 +27,10 @@ $module: dataviz-tooltip;
 		margin-left: 5px;
 		color: $scooter;
 	}
+
+	&--pattern {
+		.#{$module}__value {
+			color: $jaffa;
+		}
+	}
 }
