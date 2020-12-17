@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import isEqual from 'lodash/isEqual';
 import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
@@ -35,6 +36,10 @@ ListTableRowRenderer.propTypes = {
 	rowData: PropTypes.object,
 };
 
+const MemoListTableRowRenderer = React.memo(ListTableRowRenderer, (prevProps, nextProps) => {
+	return isEqual(prevProps.rowData, nextProps.rowData);
+});
+
 /**
  * List renderer that renders a react-virtualized Table
  */
@@ -51,9 +56,9 @@ function ListTable(props) {
 		...restProps
 	} = props;
 
-	let RowTableRenderer = ListTableRowRenderer;
+	let RowTableRenderer = MemoListTableRowRenderer;
 	if (isActive || isSelected || getRowState) {
-		RowTableRenderer = getRowSelectionRenderer(RowTableRenderer, {
+		RowTableRenderer = getRowSelectionRenderer(MemoListTableRowRenderer, {
 			isSelected,
 			isActive,
 			getRowState,
