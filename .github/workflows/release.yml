@@ -59,4 +59,5 @@ jobs:
     needs: publish-npm
     runs-on: ubuntu-latest
     steps:
-      - run: curl -XPOST -u "frassinier:${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/talend/cdn-content/actions/workflows/download.yml/dispatches --data '{"ref": "main"}'
+      - run: |
+          curl -XPOST -u "frassinier:${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/talend/cdn-content/actions/workflows/download.yml/dispatches --data '{"ref": "main"}'
