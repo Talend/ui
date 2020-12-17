@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import HorizontalBarChart from './HorizontalBarChart.component';
-import { ChartStyle } from '../ColoredBar/ColoredBar.component';
+import { ChartStyle } from '../../../types';
 
 describe('Horizontal bar chart', () => {
 	it('Should trigger onBarClick', () => {

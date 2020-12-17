@@ -4,11 +4,7 @@ import { FormatValue } from '@talend/react-components';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import styles from './ColoredBar.component.scss';
-
-export enum ChartStyle {
-	VALUE = 'value',
-	PATTERN = 'pattern',
-}
+import { ChartStyle } from '../../../types';
 
 type BarRenderProps = RectangleProps & {
 	index?: number;
@@ -16,6 +12,7 @@ type BarRenderProps = RectangleProps & {
 	barType: 'primary' | 'secondary';
 	chartStyle: ChartStyle;
 };
+
 function ColoredBar({
 	height,
 	width,

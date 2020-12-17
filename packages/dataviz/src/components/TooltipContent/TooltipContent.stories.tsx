@@ -14,19 +14,23 @@ export default {
 			</div>
 		),
 	],
-	args: {},
+	args: {
+		entries: [
+			{
+				key: 'First line',
+				value: '50',
+			},
+			{
+				key: 'Second line',
+				value: '50',
+			},
+		],
+	},
 } as Meta;
 
 export const Default = Template.bind({});
-Default.args = {
-	entries: [
-		{
-			key: 'First line',
-			value: '50',
-		},
-		{
-			key: 'Second line',
-			value: '50',
-		},
-	],
+
+export const Pattern = Template.bind({});
+Pattern.args = {
+	chartStyle: TooltipContent.ChartStyle.PATTERN,
 };

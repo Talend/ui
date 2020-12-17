@@ -5,6 +5,7 @@ import HorizontalBarChart, { HorizontalBarChartProps } from './index';
 import { ChartEntry } from '../barChart.types';
 import { getHorizontalBarChartTooltip, ValueType } from '../barChart.tooltip';
 import TooltipContent from '../../TooltipContent/TooltipContent.component';
+import { ChartStyle } from '../../../types';
 
 const data: ChartEntry<string>[] = [
 	{
@@ -55,6 +56,12 @@ export const PatternChart = Template.bind({});
 PatternChart.args = {
 	data,
 	chartStyle: HorizontalBarChart.ChartStyle.PATTERN,
+	getTooltipContent: entry => (
+		<TooltipContent
+			entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)}
+			chartStyle={ChartStyle.PATTERN}
+		/>
+	),
 };
 
 export const TooManyBars = Template.bind({});
@@ -64,7 +71,7 @@ TooManyBars.parameters = {
 	},
 };
 TooManyBars.args = {
-	chartStyle: HorizontalBarChart.ChartStyle.PATTERN,
+	chartStyle: HorizontalBarChart.ChartStyle.VALUE,
 	data: [...Array(10)].flatMap(() => data),
 };
 
@@ -75,7 +82,7 @@ SpecialValues.parameters = {
 	},
 };
 SpecialValues.args = {
-	chartStyle: HorizontalBarChart.ChartStyle.PATTERN,
+	chartStyle: HorizontalBarChart.ChartStyle.VALUE,
 	data: [
 		{
 			key: 'Bar should be at least 3px long',

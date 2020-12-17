@@ -10,8 +10,8 @@ import {
 	SECONDARY_BAR_ANIMATION_PROPS,
 	useBarChart,
 } from '../useBarChart.hook';
-import ColoredBar, { ChartStyle } from '../ColoredBar/ColoredBar.component';
-import { DataType, Range } from '../../../types';
+import ColoredBar from '../ColoredBar/ColoredBar.component';
+import { ChartStyle, DataType, Range } from '../../../types';
 import TooltipCursor from '../TooltipCursor/TooltipCursor.component';
 
 export type VerticalBarChartEntry = ChartEntry<Range> & {
