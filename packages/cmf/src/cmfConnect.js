@@ -284,16 +284,15 @@ export default function cmfConnect({
 				// eslint-disable-next-line react-hooks/exhaustive-deps
 			}, []);
 			function getOnEventProps() {
-				const withDispatchProps = { ...props, dispatchActionCreator };
 				return Object.keys(props).reduce(
 					(acc, key) => {
 						// TODO check how to replace the this
-						onEvent.addOnEventSupport(onEvent.DISPATCH, withDispatchProps, acc, key);
-						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, withDispatchProps, acc, key);
-						onEvent.addOnEventSupport(onEvent.SETSTATE, withDispatchProps, acc, key);
+						onEvent.addOnEventSupport(onEvent.DISPATCH, {props}, acc, key);
+						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, {props}, acc, key);
+						onEvent.addOnEventSupport(onEvent.SETSTATE, {props}, acc, key);
 						return acc;
 					},
-					{ toOmit: [] },
+					{ toOmit: [], dispatchActionCreator },
 				);
 			}
 
@@ -301,7 +300,9 @@ export default function cmfConnect({
 				return null;
 			}
 			const { toOmit, spreadCMFState, ...handlers } = getOnEventProps();
+
 			// remove all internal props already used by the container
+			delete handlers.dispatchActionCreator;
 			toOmit.push(...CONST.CMF_PROPS, ...propsToOmit);
 			if (props.omitRouterProps) {
 				toOmit.push('omitRouterProps', ...CONST.INJECTED_ROUTER_PROPS);
@@ -310,6 +311,7 @@ export default function cmfConnect({
 			if ((spreadCMFState || props.spreadCMFState) && props.state) {
 				spreadedState = props.state.toJS();
 			}
+
 			const newProps = {
 				...omit(props, toOmit),
 				...handlers,

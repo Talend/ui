@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
+import { Provider } from 'react-redux';
+
+// eslint-disable-next-line
 import uuid from 'uuid';
 import omit from 'lodash/omit';
 import expression from '../src/expression';
@@ -626,12 +629,12 @@ describe('cmfConnect', () => {
 				'actionCreator:myactionCreator': event => ({ type: 'FETCH_STUFF', event }),
 			};
 
-			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, {
-				context,
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />,
+				{
+					wrappingComponent: Provider,
+					wrappingComponentProps: { store: context.store },
+				}
+			);
 			const props = wrapper.find(Button).props();
 			expect(props.onClick).toBeDefined();
 			expect(props.onClickActionCreator).toBeUndefined();
@@ -663,7 +666,8 @@ describe('cmfConnect', () => {
 			};
 
 			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, {
-				context,
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: context.store },
 				childContextTypes: {
 					registry: PropTypes.object,
 				},
@@ -689,11 +693,9 @@ describe('cmfConnect', () => {
 			const wrapper = mount(
 				<CMFConnectedButton onClickSetState={config} initialState={new Map()} spreadCMFState />,
 				{
-					context,
-					childContextTypes: {
-						registry: PropTypes.object,
-					},
-				},
+					wrappingComponent: Provider,
+					wrappingComponentProps: { store: context.store },
+				}
 			);
 			const props = wrapper.find(Button).props();
 			expect(props.onClick).toBeDefined();
@@ -735,11 +737,9 @@ describe('cmfConnect', () => {
 			const wrapper = mount(
 				<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={new Map()} />,
 				{
-					context,
-					childContextTypes: {
-						registry: PropTypes.object,
-					},
-				},
+					wrappingComponent: Provider,
+					wrappingComponentProps: { store: context.store },
+				}
 			);
 			const props = wrapper.find(Button).props();
 			expect(props.inProgress).toBe(false);
@@ -777,15 +777,12 @@ describe('cmfConnect', () => {
 	});
 	describe('#omitCMFProps', () => {
 		it('should cmfConnect({ omitCMFProps: false }) keep compatibility', () => {
-			const context = mock.context();
+			const store = mock.store();
 			const TestComponent = props => <div {...props} />;
 			const WithCMFProps = cmfConnect({ omitCMFProps: false })(TestComponent);
-			const wrapperWithCMFProps = shallow(
-				shallow(<WithCMFProps className="foo" id="bar" />, {
-					context: { store: context.store },
-				}).getElement(),
-			);
+			const wrapperWithCMFProps = shallow(<WithCMFProps store={store} className="foo" id="bar" />).dive().dive();
 			expect(Object.keys(wrapperWithCMFProps.props())).toEqual([
+				'store',
 				'className',
 				'id',
 				'setState',
@@ -799,34 +796,37 @@ describe('cmfConnect', () => {
 			]);
 		});
 		it('should cmfConnect({ omitCMFProps: true }) remove all internals', () => {
-			const context = mock.context();
 			const TestComponent = props => <div {...props} />;
 			const WithoutCMFProps = cmfConnect({ omitCMFProps: true })(TestComponent);
+			const store = mock.store();
 			const wrapperWithoutCMFProps = shallow(
-				shallow(<WithoutCMFProps className="foo" id="bar" />, {
-					context: { store: context.store },
-				}).getElement(),
-			);
+				<WithoutCMFProps store={store} className="foo" id="bar" />,
+			)
+				.dive()
+				.dive();
 			expect(wrapperWithoutCMFProps.props()).toEqual({
 				className: 'foo',
 				id: 'bar',
+				store,
 			});
 		});
 		it('should cmfConnect({ omitCMFProps: true, withComponentRegistry: true }) add getComponent', () => {
-			const context = mock.context();
 			const TestComponent = props => <div {...props} />;
 			const WithoutCMFProps = cmfConnect({ omitCMFProps: true, withComponentRegistry: true })(
 				TestComponent,
 			);
+			const store = mock.store();
 			const wrapperWithoutCMFProps = shallow(
-				shallow(<WithoutCMFProps className="foo" id="bar" />, {
-					context: { store: context.store },
-				}).getElement(),
-			);
+				<WithoutCMFProps store={store} className="foo" id="bar" />,
+			)
+				.dive()
+				.dive();
+
 			expect(wrapperWithoutCMFProps.props()).toEqual({
 				className: 'foo',
 				id: 'bar',
 				getComponent: component.get,
+				store,
 			});
 		});
 	});

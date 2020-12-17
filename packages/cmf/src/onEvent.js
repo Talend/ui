@@ -9,7 +9,7 @@ function serializeEvent(event) {
 	return event;
 }
 
-function getOnEventActionCreatorHandler(props, config, currentHandler) {
+function getOnEventActionCreatorHandler(instance, props, config, currentHandler) {
 	let actionCreator = config;
 	if (typeof config === 'object') {
 		actionCreator = config.id;
@@ -26,7 +26,7 @@ function getOnEventActionCreatorHandler(props, config, currentHandler) {
 	};
 }
 
-function getOnEventDispatchHandler(props, config, currentHandler) {
+function getOnEventDispatchHandler(instance, props, config, currentHandler) {
 	return function onEventDispatch(...args) {
 		const payload = {
 			event: serializeEvent(args[0]),
@@ -40,7 +40,7 @@ function getOnEventDispatchHandler(props, config, currentHandler) {
 	};
 }
 
-function getOnEventSetStateHandler(props, config, currentHandler) {
+function getOnEventSetStateHandler(instance, props, config, currentHandler) {
 	return function onEventSetState(...args) {
 		if (typeof currentHandler === 'function') {
 			currentHandler(...args);
@@ -59,7 +59,7 @@ function getOnEventSetStateHandler(props, config, currentHandler) {
 				}
 			} else if (value === 'toggle') {
 				// because toggle need to read the state we dispatch it with a function
-				props.setState(_props => props.setState({ [key]: !_props.state.get(key) }));
+				instance.props.setState(_props => instance.props.setState({ [key]: !_props.state.get(key) }));
 			} else {
 				// eslint-disable-next-line no-param-reassign
 				acc[key] = value;
@@ -67,7 +67,7 @@ function getOnEventSetStateHandler(props, config, currentHandler) {
 			return acc;
 		}, {});
 		if (Object.keys(state).length > 0) {
-			props.setState(state);
+			instance.props.setState(state);
 		}
 	};
 }
@@ -84,7 +84,7 @@ const SETSTATE = 'SETSTATE';
 
 const INITIAL_STATE = new Immutable.Map();
 
-function addOnEventSupport(handlerType, props, key) {
+function addOnEventSupport(handlerType, instance, props, key) {
 	if (CONSTANT[`IS_HANDLER_${handlerType}_REGEX`].test(key)) {
 		if (handlerType === SETSTATE) {
 			if (!props.spreadCMFState) {
@@ -98,9 +98,9 @@ function addOnEventSupport(handlerType, props, key) {
 		}
 		props.toOmit.push(key);
 		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
-		const originalEventHandler = props[handlerKey] || props[handlerKey];
+		const originalEventHandler = props[handlerKey] || instance.props[handlerKey];
 		// eslint-disable-next-line no-param-reassign
-		props[handlerKey] = GET_HANDLER[handlerType](props, props[key], originalEventHandler);
+		props[handlerKey] = GET_HANDLER[handlerType](instance, props, instance.props[key], originalEventHandler);
 	}
 }
 
