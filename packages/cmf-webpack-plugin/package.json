@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^8.0.0-alpha.2",
-    "@talend/scripts-preset-react-lib": "^6.8.2"
+    "@talend/scripts-preset-react-lib": "^8.0.0-alpha.2"
   },
   "publishConfig": {
     "access": "public"
