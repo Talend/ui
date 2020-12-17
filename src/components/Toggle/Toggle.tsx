@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonProps } from './../Button/Button';
+import { ButtonProps } from '../Button/Button';
 import * as S from './Toggle.style';
 
 export type ToggleProps = ButtonProps & {
@@ -14,7 +14,9 @@ const Toggle: React.FC<ToggleProps> = React.forwardRef((props: ToggleProps, ref)
 
 	function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
 		toggle(!isActive);
-		props.onChange && props.onChange(event);
+		if (props.onChange) {
+			props.onChange(event);
+		}
 	}
 
 	return (
