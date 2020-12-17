@@ -23,9 +23,9 @@ const Button: React.FC<ButtonProps> = React.forwardRef(
 			ref={ref}
 			{...rest}
 			className={`
-				btn ${className ? className : ''} ${icon ? 'btn--has-icon' : ''} ${
-				hideText ? '' : 'btn--has-text'
-			} ${small ? `btn--small` : ''} ${loading ? 'btn--loading' : ''}
+				btn ${className || ''} ${icon ? 'btn--has-icon' : ''} ${hideText ? '' : 'btn--has-text'} ${
+				small ? 'btn--small' : ''
+			} ${loading ? 'btn--loading' : ''}
 			`}
 			aria-busy={!!loading}
 		>
