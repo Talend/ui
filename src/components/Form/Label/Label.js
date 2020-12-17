@@ -5,7 +5,7 @@ import tokens from '../../../tokens';
 
 const StyledLabel = styled.label(
 	({ theme }) => `
-    font-size: ${tokens.fontSize.small};
+    font-size: ${tokens.fontSizes.small};
 `,
 );
 
