@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { tokens } from '../../../tokens';
+import tokens from '../../../tokens';
 
 const StyledLabel = styled.label(
 	({ theme }) => `
