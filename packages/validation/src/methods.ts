@@ -1,45 +1,45 @@
 import { NAME, EMAIL, DOMAIN, PHONE } from './regexp';
 
 /**
+ * Build a validation method along a given regular expression
+ * @param {RegExp} regexp Regular expression to test values against
+ * @returns {Function}
+ */
+function getValidationMethod(regexp: RegExp): Function {
+	return (value: string) => regexp.test(value);
+}
+
+/**
  * Check that a given value is a valid first name
- * @param {String} value
+ * @param {string} value
  * @returns {boolean}
  */
-export function validFirstName(value: string): boolean {
-	return NAME.test(value);
-}
+export const validFirstName: Function = getValidationMethod(NAME);
+
 /**
  * Check that a given value is a valid last name
- * @param {String} value
+ * @param {string} value
  * @returns {boolean}
  */
-export function validLastName(value: string): boolean {
-	return NAME.test(value);
-}
+export const validLastName: Function = getValidationMethod(NAME);
 
 /**
  * Check that a given value is a value email address
- * @param {String} value
+ * @param {string} value
  * @returns {boolean}
  */
-export function validEmail(value: string): boolean {
-	return EMAIL.test(value);
-}
+export const validEmail: Function = getValidationMethod(EMAIL);
 
 /**
  * Check that a given value is a valid domain
- * @param {String} value
+ * @param {string} value
  * @returns {boolean}
  */
-export function validDomain(value: string): boolean {
-	return DOMAIN.test(value);
-}
+export const validDomain: Function = getValidationMethod(DOMAIN);
 
 /**
  * Check that a given value is a value phone number
- * @param {String} value
+ * @param {string} value
  * @returns {boolean}
  */
-export function validPhone(value: string): boolean {
-	return PHONE.test(value);
-}
+export const validPhone: Function = getValidationMethod(PHONE);
