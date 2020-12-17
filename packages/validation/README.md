@@ -23,8 +23,10 @@ import { validEmail, REGEX } from '@talend/validation';
 
 // ...
 
-const isMyValueValidEmail = validEmail(form.email);
-const isMyValudValidName = REGEX.NAME.test(form.firstName);
+function checkFormValues(form) {
+  const isMyValueValidEmail = validEmail(form.email);
+  const isMyValueValidName = REGEX.NAME.test(form.firstName);
+}
 ```
 
 ## Methods
