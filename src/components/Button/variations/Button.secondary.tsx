@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import ButtonBase from './Button.base';
+import ButtonPrimary from './Button.primary';
 import { ButtonProps } from '../Button';
 
-const ButtonSecondary: React.FC<ButtonProps> = styled(ButtonBase).attrs({
+const ButtonSecondary: React.FC<ButtonProps> = styled(ButtonPrimary).attrs({
 	className: 'btn--secondary',
 })(
 	({ theme }) => `
@@ -11,17 +11,13 @@ const ButtonSecondary: React.FC<ButtonProps> = styled(ButtonBase).attrs({
 	background: none;
 
 	&:not([aria-disabled='true']):hover {
+		color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
 		background-color: ${theme.colors.buttonSecondaryHoverBackgroundColor};
 	}
 
 	&:not([aria-disabled='true']):active {
     	color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
 		background-color: ${theme.colors.buttonSecondaryActiveBackgroundColor};
-	}
-
-	&[aria-disabled='true'] {
-		color: ${theme.colors.buttonDisabledColor};
-		border-color: ${theme.colors.buttonDisabledBackgroundColor};
 	}
 `,
 );

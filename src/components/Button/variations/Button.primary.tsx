@@ -20,12 +20,6 @@ const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase).attrs({
 		background-color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
         border-color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
 	}
-
-	&[aria-disabled='true'] {
-		color: ${theme.colors.buttonDisabledColor};
-		background-color: ${theme.colors.buttonDisabledBackgroundColor};
-		border-color: ${theme.colors.buttonDisabledBackgroundColor};
-	}
 `,
 );
 

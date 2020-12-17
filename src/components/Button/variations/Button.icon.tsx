@@ -1,32 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import ButtonBase from './Button.base';
+import ButtonSecondary from './Button.secondary';
 import { ButtonProps } from '../Button';
 import tokens from '../../../tokens';
 
-const ButtonIcon: React.FC<ButtonProps> = styled(ButtonBase).attrs({
+const ButtonIcon: React.FC<ButtonProps> = styled(ButtonSecondary).attrs({
 	className: 'btn--icon',
 	hideText: true,
-})(
-	({ theme }) => `
-	padding: 0;
+})`
 	padding: ${tokens.space.xs};
 	min-height: unset;
-	align-items: center;
-	justify-content: center;
-	color: ${theme.colors.buttonPrimaryBackgroundColor};
-	border-color: currentColor;
 	border-radius: ${tokens.radii.circleRadius};
 
-	&:hover,
-	&:active {
-		color: ${theme.colors.buttonPrimaryColor};
+	&,
+	&:not([aria-disabled='true']):hover,
+	&:not([aria-disabled='true']):active {
+		background: none;
 	}
-
-	&[aria-disabled='true'] {
-		color: ${theme.colors.buttonDisabledColor};
-	}
-`,
-);
+`;
 
 export default ButtonIcon;

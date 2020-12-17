@@ -6,6 +6,7 @@ export const Button = styled(ReakitButton)(
 	({ theme }) => `
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	font-family: ${tokens.fonts.sansSerif};
 	background: ${tokens.colors.transparent};
 	border: none;
