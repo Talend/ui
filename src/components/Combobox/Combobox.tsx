@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledProps } from 'styled-components';
 import {
 	unstable_useComboboxState as useReakitComboboxState,
 	unstable_Combobox as ReakitCombobox,
@@ -8,7 +9,11 @@ import {
 
 import * as S from './Combobox.style';
 
-const Combobox = ({ value, values, ...rest }) => {
+export type ComboboxProps = StyledProps<any> & {
+	values?: string[];
+};
+
+const Combobox: React.FC<ComboboxProps> = ({ values, ...rest }: ComboboxProps) => {
 	const combobox = useReakitComboboxState({
 		autoSelect: true,
 		inline: true,
@@ -22,8 +27,8 @@ const Combobox = ({ value, values, ...rest }) => {
 			<ReakitCombobox {...combobox} {...rest} />
 			<ReakitComboboxPopover {...combobox}>
 				{combobox.matches.length
-					? combobox.matches.map(value => (
-							<ReakitComboboxOption {...combobox} key={value} value={value} />
+					? combobox.matches.map(match => (
+							<ReakitComboboxOption {...combobox} key={match} value={match} />
 					  ))
 					: 'No results found'}
 			</ReakitComboboxPopover>
