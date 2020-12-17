@@ -21,8 +21,6 @@ exports[`AddFacetPopover should render the html output 1`] = `
                  focusable="false"
                  aria-hidden="true"
             >
-              <use xlink:href="#talend-search">
-              </use>
             </svg>
             <input name="search"
                    placeholder="Find a filter"

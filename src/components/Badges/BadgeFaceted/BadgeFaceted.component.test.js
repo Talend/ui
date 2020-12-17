@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { mount } from 'enzyme';
+import Badge from '@talend/react-components/lib/Badge';
 import { BadgeFaceted } from './BadgeFaceted.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 
@@ -119,5 +120,34 @@ describe('BadgeFaceted', () => {
 			payload: { badgeId: 'my-badge-id' },
 			type: 'DELETE_BADGE',
 		});
+	});
+	it('should show special chars when a display type is provided', () => {
+		// Given
+		const dispatch = jest.fn();
+		const badgeFacetedContextValue = {
+			state: { badges: [] },
+			dispatch,
+			onSubmit: jest.fn(),
+		};
+		const props = {
+			badgeId: 'my-badge-id',
+			category: 'Category',
+			id: 'my-id',
+			labelCategory: 'My Label',
+			labelValue: ' All',
+			operator,
+			operators,
+			t: () => 'Remove filter',
+			displayType: Badge.TYPES.VALUE,
+		};
+		// When
+		const wrapper = mount(
+			<MyWrappedBadge properties={props} providerValue={badgeFacetedContextValue}>
+				{renderProps => <TestChildren {...renderProps} />}
+			</MyWrappedBadge>,
+		);
+		expect(wrapper.find('#my-id-action-overlay svg[name="talend-empty-space"]')).toHaveLength(
+			1,
+		);
 	});
 });

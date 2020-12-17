@@ -124,6 +124,7 @@ const BadgeFaceted = ({
 				id={id}
 				className={theme('tc-badge-faceted-overlay')}
 				hideLabel={false}
+				showSpecialChars={!!displayType}
 				label={labelValue}
 				onHide={onHideSubmitBadge}
 				opened={overlayState.valueOpened}

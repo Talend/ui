@@ -10,8 +10,6 @@ exports[`AdvancedSearch should render by default 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-filter">
-      </use>
     </svg>
     <input name="advanced-search-faceted"
            placeholder="Enter your query"
@@ -36,8 +34,6 @@ exports[`AdvancedSearch should render by default 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-cross">
-          </use>
         </svg>
       </button>
       <button aria-label="Submit"
@@ -52,8 +48,6 @@ exports[`AdvancedSearch should render by default 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-check">
-          </use>
         </svg>
       </button>
     </div>
@@ -71,8 +65,6 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-filter">
-      </use>
     </svg>
     <input name="advanced-search-faceted"
            placeholder="Enter your query"
@@ -97,8 +89,6 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-cross">
-          </use>
         </svg>
       </button>
       <button aria-label="Submit"
@@ -113,8 +103,6 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-check">
-          </use>
         </svg>
       </button>
     </div>

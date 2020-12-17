@@ -26,6 +26,17 @@ Types of changes
 
 ## [unreleased]
 
+## [2.0.0]
+
+### Breaking Change
+
+-   ⤴️ @talend/tui: ^5.27.1 => ^6.4.0
+
+### Added
+
+- [Added](https://github.com/Talend/ui-faceted-search/pull/18): Show blank characters on colored badges
+
+
 ## [1.2.0]
 
 ### Added

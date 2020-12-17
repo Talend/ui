@@ -24,8 +24,6 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
                focusable="false"
                aria-hidden="true"
           >
-            <use xlink:href="#talend-talend-my-icon-equal">
-            </use>
           </svg>
         </button>
       </div>
@@ -54,8 +52,6 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
            focusable="false"
            aria-hidden="true"
       >
-        <use xlink:href="#talend-cross">
-        </use>
       </svg>
     </button>
   </div>

@@ -5,6 +5,7 @@ import Popover from 'react-bootstrap/lib/Popover';
 import Button from 'react-bootstrap/lib/Button';
 import Icon from '@talend/react-components/lib/Icon';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
+import FormatValue from '@talend/react-components/lib/FormatValue';
 import { getTheme } from '@talend/react-components/lib/theme';
 import cssModule from './BadgeOverlay.scss';
 
@@ -17,11 +18,18 @@ const getChildren = (children, setOverlayOpened) => {
 	return children;
 };
 
-const getLabel = labels => {
+const labelFormatter = (value, showSpecialChars) =>
+	showSpecialChars ? (
+		<FormatValue key={value} className={theme('tc-badge-format-value')} value={value} />
+	) : (
+		<span key={value}>{value}</span>
+	);
+
+const getLabel = (labels, showSpecialChars) => {
 	if (Array.isArray(labels)) {
-		return labels.map(label => <span key={label}>{label}</span>);
+		return labels.map(label => labelFormatter(label, showSpecialChars));
 	}
-	return <span>{labels}</span>;
+	return labelFormatter(labels, showSpecialChars);
 };
 
 /**
@@ -46,6 +54,7 @@ const BadgeOverlay = ({
 	placement = 'bottom',
 	readOnly,
 	rootClose = true,
+	showSpecialChars = false,
 	t,
 }) => {
 	const [overlayOpened, setOverlayOpened] = useState(initialOpened);
@@ -81,10 +90,16 @@ const BadgeOverlay = ({
 			data-feature={dataFeature}
 		>
 			{iconName && (
-				<Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />
+				<Icon
+					name={`talend-${iconName}`}
+					key="icon"
+					className={theme('tc-badge-link-plus-icon')}
+				/>
 			)}
-			{hasAddButton && <span>{t('BASIC_SEARCH_ADD_FILTER', { defaultValue: 'Add filter' })}</span>}
-			{!iconName && getLabel(label)}
+			{hasAddButton && (
+				<span>{t('BASIC_SEARCH_ADD_FILTER', { defaultValue: 'Add filter' })}</span>
+			)}
+			{!iconName && getLabel(label, showSpecialChars)}
 		</Button>
 	);
 
@@ -134,6 +149,7 @@ BadgeOverlay.propTypes = {
 	rootClose: PropTypes.bool,
 	hasAddButton: PropTypes.bool,
 	readOnly: PropTypes.bool,
+	showSpecialChars: PropTypes.bool,
 };
 
 // eslint-disable-next-line import/prefer-default-export

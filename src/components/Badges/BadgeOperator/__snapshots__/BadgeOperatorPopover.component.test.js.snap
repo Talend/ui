@@ -19,8 +19,6 @@ exports[`BadgeOperatorPopover should render the html output 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-my-icon-equal">
-          </use>
         </svg>
         <span>
           My icon operator equal
@@ -37,8 +35,6 @@ exports[`BadgeOperatorPopover should render the html output 1`] = `
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-my-icon-not-equal">
-          </use>
         </svg>
         <span>
           My icon operator not equal

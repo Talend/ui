@@ -42,8 +42,6 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-plus-circle">
-          </use>
         </svg>
         <span>
           Add filter
@@ -106,8 +104,6 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                    focusable="false"
                    aria-hidden="true"
               >
-                <use xlink:href="#talend-equal">
-                </use>
               </svg>
             </button>
           </div>
@@ -136,8 +132,6 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                focusable="false"
                aria-hidden="true"
           >
-            <use xlink:href="#talend-cross">
-            </use>
           </svg>
         </button>
       </div>
@@ -155,8 +149,6 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-plus-circle">
-          </use>
         </svg>
         <span>
           Add filter
@@ -176,8 +168,6 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-trash">
-      </use>
     </svg>
     <span>
     </span>
@@ -237,8 +227,6 @@ exports[`BasicSearch should render the default html output with some badges and 
                    focusable="false"
                    aria-hidden="true"
               >
-                <use xlink:href="#talend-equal">
-                </use>
               </svg>
             </button>
           </div>
@@ -267,8 +255,6 @@ exports[`BasicSearch should render the default html output with some badges and 
                focusable="false"
                aria-hidden="true"
           >
-            <use xlink:href="#talend-cross">
-            </use>
           </svg>
         </button>
       </div>
@@ -286,8 +272,6 @@ exports[`BasicSearch should render the default html output with some badges and 
              focusable="false"
              aria-hidden="true"
         >
-          <use xlink:href="#talend-plus-circle">
-          </use>
         </svg>
         <span>
           Add filter
@@ -307,8 +291,6 @@ exports[`BasicSearch should render the default html output with some badges and 
          focusable="false"
          aria-hidden="true"
     >
-      <use xlink:href="#talend-trash">
-      </use>
     </svg>
     <span>
     </span>

@@ -265,6 +265,28 @@ storiesOf('FacetedSearch', module)
 			</FacetedSearch.Faceted>
 		</div>
 	))
+	.add('with special chars', () => {
+		const { t } = useTranslation();
+		const badgesDictionary = createBadgesDict();
+		const badge = cloneDeep(badgesFaceted.badges[0]);
+		Object.assign(badge.properties, {
+			value: '  text  ',
+			type: 'text',
+			displayType: Badge.TYPES.PATTERN,
+		});
+		return (
+			<div>
+				<BadgeFacetedProvider value={{}}>
+					<BadgesGenerator
+						badges={[badge]}
+						badgesDictionary={badgesDictionary}
+						getBadgeFromDict={getBadgesFromDict}
+						t={t}
+					/>
+				</BadgeFacetedProvider>
+			</div>
+		);
+	})
 	.add('read only', () => {
 		const { t } = useTranslation();
 		const badgesDictionary = createBadgesDict();

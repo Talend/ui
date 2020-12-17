@@ -24,8 +24,6 @@ exports[`BadgeText should mount a default badge 1`] = `
                focusable="false"
                aria-hidden="true"
           >
-            <use xlink:href="#talend-not-equal">
-            </use>
           </svg>
         </button>
       </div>
@@ -54,8 +52,6 @@ exports[`BadgeText should mount a default badge 1`] = `
            focusable="false"
            aria-hidden="true"
       >
-        <use xlink:href="#talend-cross">
-        </use>
       </svg>
     </button>
   </div>

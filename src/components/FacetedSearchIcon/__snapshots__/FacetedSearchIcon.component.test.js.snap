@@ -13,8 +13,6 @@ exports[`FacetedSearchIcon should render by default 1`] = `
        focusable="false"
        aria-hidden="true"
   >
-    <use xlink:href="#talend-search">
-    </use>
   </svg>
 </button>
 `;
