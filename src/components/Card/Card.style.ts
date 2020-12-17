@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import tokens from '../../tokens';
 
-const Card = styled.div.attrs({
+export const Card = styled.div.attrs({
 	className: 'card',
 })(
 	({ theme }) => `
@@ -25,23 +25,13 @@ const Card = styled.div.attrs({
 `,
 );
 
-const Heading = styled.div.attrs({
+export const Heading = styled.div.attrs({
 	className: 'card__heading',
 })``;
 
-const Body = styled.div.attrs({
+export const Body = styled.div.attrs({
 	className: 'card__body',
 })`
 	width: 100%;
 	max-width: 36.5rem;
 `;
-
-const CardComponent = Card as typeof Card & {
-	Heading: typeof Heading;
-	Body: typeof Body;
-};
-
-CardComponent.Heading = Heading;
-CardComponent.Body = Body;
-
-export default CardComponent;

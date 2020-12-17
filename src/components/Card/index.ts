@@ -1,3 +1,11 @@
-import Card from './Card';
+import * as S from './Card.style';
 
-export default Card;
+const CardComponent = S.Card as typeof S.Card & {
+	Heading: typeof S.Heading;
+	Body: typeof S.Body;
+};
+
+CardComponent.Heading = S.Heading;
+CardComponent.Body = S.Body;
+
+export default CardComponent;
