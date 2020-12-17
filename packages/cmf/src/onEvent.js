@@ -59,7 +59,9 @@ function getOnEventSetStateHandler(instance, props, config, currentHandler) {
 				}
 			} else if (value === 'toggle') {
 				// because toggle need to read the state we dispatch it with a function
-				instance.props.setState(_props => instance.props.setState({ [key]: !_props.state.get(key) }));
+				instance.props.setState(_props =>
+					instance.props.setState({ [key]: !_props.state.get(key) }),
+				);
 			} else {
 				// eslint-disable-next-line no-param-reassign
 				acc[key] = value;
@@ -100,7 +102,12 @@ function addOnEventSupport(handlerType, instance, props, key) {
 		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
 		const originalEventHandler = props[handlerKey] || instance.props[handlerKey];
 		// eslint-disable-next-line no-param-reassign
-		props[handlerKey] = GET_HANDLER[handlerType](instance, props, instance.props[key], originalEventHandler);
+		props[handlerKey] = GET_HANDLER[handlerType](
+			instance,
+			props,
+			instance.props[key],
+			originalEventHandler,
+		);
 	}
 }
 

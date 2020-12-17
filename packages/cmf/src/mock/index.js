@@ -15,6 +15,4 @@ import Provider from './provider';
 
 export default store;
 
-export {
-	Provider,
-};
+export { Provider };

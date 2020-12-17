@@ -287,9 +287,9 @@ export default function cmfConnect({
 				return Object.keys(props).reduce(
 					(acc, key) => {
 						// TODO check how to replace the this
-						onEvent.addOnEventSupport(onEvent.DISPATCH, {props}, acc, key);
-						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, {props}, acc, key);
-						onEvent.addOnEventSupport(onEvent.SETSTATE, {props}, acc, key);
+						onEvent.addOnEventSupport(onEvent.DISPATCH, { props }, acc, key);
+						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, { props }, acc, key);
+						onEvent.addOnEventSupport(onEvent.SETSTATE, { props }, acc, key);
 						return acc;
 					},
 					{ toOmit: [], dispatchActionCreator },
