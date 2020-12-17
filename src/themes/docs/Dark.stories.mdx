@@ -4,15 +4,21 @@ import { ColorPalette, ColorItem } from '@storybook/components';
 import { dark } from '../.';
 
 import tokens from '../../tokens';
+import { FigmaImage } from '../../docs';
 
 <Meta title="Themes/Dark" />
 
 export function getTokenNameByValue(value) {
-    const designToken = Object.entries(tokens.colors).find(([k, v]) => v === value)
-    return designToken ? designToken[0] : 'there is no design token used here!';
+	const designToken = Object.entries(tokens.colors).find(([k, v]) => v === value);
+	return designToken ? designToken[0] : 'there is no design token used here!';
 }
 
 # Dark theme
+
+<FigmaImage
+	src="https://www.figma.com/file/6yvSenpvK9L8892ruW7XI6/Portal?node-id=2%3A72"
+	alt="Talend dark theme"
+/>
 
 <dl>
 	{Object.entries(dark).map(([k, v], index) => (
@@ -26,11 +32,7 @@ export function getTokenNameByValue(value) {
 </dl>
 
 <ColorPalette>
-    {Object.entries(dark.colors).map(([k, v], index) => (
-        <ColorItem
-          key={index}
-          title={k}
-          colors={{ [`${getTokenNameByValue(v)}`]: v }}
-        />
+	{Object.entries(dark.colors).map(([k, v], index) => (
+		<ColorItem key={index} title={k} colors={{ [`${getTokenNameByValue(v)}`]: v }} />
 	))}
 </ColorPalette>
