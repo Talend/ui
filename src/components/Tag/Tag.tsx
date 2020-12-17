@@ -8,7 +8,9 @@ export type TagProps = {
 	children: any;
 };
 
-const Span = styled.span(
+const Span = styled.span.attrs({
+	className: 'tag',
+})(
 	({ theme }) => `
 	display: inline-block;
 	padding: 0 0.5rem;	
@@ -25,8 +27,8 @@ const Span = styled.span(
 `,
 );
 
-const Tag: React.FC<TagProps> = props => {
-	return <Span {...props} />;
-};
+const Tag: React.FC<TagProps> = React.forwardRef((props, ref) => {
+	return <Span ref={ref} {...props} />;
+});
 
-export default React.memo(Tag);
+export default Tag;
