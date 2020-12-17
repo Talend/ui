@@ -10,12 +10,12 @@ const ButtonSecondary: React.FC<ButtonProps> = styled(ButtonPrimary).attrs({
 	color: ${theme.colors.buttonPrimaryBackgroundColor};
 	background: none;
 
-	&:not([aria-disabled='true']):hover {
+	&:hover {
 		color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
 		background-color: ${theme.colors.buttonSecondaryHoverBackgroundColor};
 	}
 
-	&:not([aria-disabled='true']):active {
+	&:active {
     	color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
 		background-color: ${theme.colors.buttonSecondaryActiveBackgroundColor};
 	}

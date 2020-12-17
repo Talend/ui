@@ -10,12 +10,12 @@ const ButtonDestructive: React.FC<ButtonProps> = styled(ButtonPrimary).attrs({
 	background-color: ${theme.colors.buttonDestructiveBackgroundColor};
 	border-color: ${theme.colors.buttonDestructiveBackgroundColor};
 
-	&:not([aria-disabled='true']):hover {
+	&:hover {
 		background-color: ${theme.colors.buttonDestructiveHoverBackgroundColor};
         border-color: ${theme.colors.buttonDestructiveHoverBackgroundColor};
 	}
 
-	&:not([aria-disabled='true']):active {
+	&:active {
 		background-color: ${theme.colors.buttonDestructiveActiveBackgroundColor};
         border-color: ${theme.colors.buttonDestructiveActiveBackgroundColor};
 	}

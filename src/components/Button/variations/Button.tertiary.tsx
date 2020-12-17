@@ -8,8 +8,8 @@ const ButtonTertiary: React.FC<ButtonProps> = styled(ButtonSecondary).attrs({
 	className: 'btn--tertiary',
 })`
 	&,
-	&:not([aria-disabled='true']):hover,
-	&:not([aria-disabled='true']):active {
+	&:hover,
+	&:active {
 		border-color: ${tokens.colors.transparent};
 	}
 `;

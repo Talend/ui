@@ -11,12 +11,26 @@ const ButtonBase: React.FC<ButtonProps> = styled(Button)(
         border: ${tokens.borders.normal};
         border-radius: ${tokens.radii.rectRadius};
     	transition: ${tokens.transitions.fast};
-    
-        &[aria-disabled='true'] {
-            color: ${theme.colors.buttonDisabledColor};
-            background-color: ${theme.colors.buttonDisabledBackgroundColor};
-            border-color: ${theme.colors.buttonDisabledBackgroundColor};
-        }
+    	
+		&[aria-disabled='true'],
+		&[aria-busy='true'] {
+			
+			&,
+			&:hover,
+			&:active {
+				color: ${theme.colors.buttonDisabledColor};
+				background-color: ${theme.colors.buttonDisabledBackgroundColor};
+				border-color: ${theme.colors.buttonDisabledBackgroundColor};
+			}
+		}
+		
+		&[aria-disabled='true'] {
+			cursor: not-allowed;
+		}
+		
+		&[aria-busy='true'] {
+			cursor: progress;
+		}
 `,
 );
 

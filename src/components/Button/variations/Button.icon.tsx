@@ -13,8 +13,8 @@ const ButtonIcon: React.FC<ButtonProps> = styled(ButtonSecondary).attrs({
 	border-radius: ${tokens.radii.circleRadius};
 
 	&,
-	&:not([aria-disabled='true']):hover,
-	&:not([aria-disabled='true']):active {
+	&:hover,
+	&:active {
 		background: none;
 	}
 `;
