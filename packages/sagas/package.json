@@ -43,8 +43,8 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^6.8.2",
-    "@talend/scripts-preset-react-lib": "^6.8.2",
+    "@talend/scripts-core": "^8.0.0-alpha.2",
+    "@talend/scripts-preset-react-lib": "^8.0.0-alpha.2",
     "prop-types": "^15.5.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
