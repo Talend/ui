@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import isEqual from 'lodash/isEqual';
 import { distanceInWordsToNow, format } from 'date-fns';
 import invariant from 'invariant';
 import { withTranslation } from 'react-i18next';
@@ -34,7 +35,8 @@ export function computeValue(cellData, columnData, t) {
 export class CellDatetimeComponent extends React.Component {
 	shouldComponentUpdate(nextProps) {
 		return (
-			this.props.cellData !== nextProps.cellData || this.props.columnData !== nextProps.columnData
+			this.props.cellData !== nextProps.cellData ||
+			!isEqual(this.props.columnData, nextProps.columnData)
 		);
 	}
 
