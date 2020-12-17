@@ -71,13 +71,14 @@ const GlobalStyle = ThemeProvider.createGlobalStyle(
 		outline: none;
 	}
 	
-	
 	.sb-show-main.sb-main-padded {
 		padding: 0;
 	}
-		.sbdocs .sbdocs-preview {
-			background: ${theme.colors.backgroundColor};
-		}
+	
+	.sbdocs .sbdocs-preview {
+		color: ${theme.colors.textColor};
+		background: ${theme.colors.backgroundColor};
+	}
 	`,
 );
 

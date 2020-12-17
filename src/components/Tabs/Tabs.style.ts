@@ -22,6 +22,7 @@ export const Tab = styled(ReakitTab)(
 	padding: ${tokens.space.none};
 	padding-bottom: ${tokens.space.xs}; 
 	border: none;
+	color: ${theme.colors.textColor};
 	background: none;
 	appearance: none;
 	transition: ${tokens.transitions.fast};
