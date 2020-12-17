@@ -14,8 +14,10 @@ function useRangeInputField(
 
 	function submit(stringValue: string) {
 		const parsed = parser(stringValue);
-		if (parsed) {
-			onChange(parsed);
+		if (parsed !== null) {
+			if (parsed !== rangeValue) {
+				onChange(parsed);
+			}
 		} else {
 			resetValue();
 		}

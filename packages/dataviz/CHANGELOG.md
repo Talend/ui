@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [0.1.1]
+
+### Added
+
+- [Fixed](https://github.com/Talend/ui/pull/3134): Unnecessary onChange triggered
+
 ## [0.1.0]
 
 ### Added
