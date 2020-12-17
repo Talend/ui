@@ -1,5 +1,12 @@
 import React from 'react';
-import { useCompositeState, Composite, CompositeItem , useDisclosureState, Disclosure, DisclosureContent } from 'reakit';
+import {
+	useCompositeState,
+	Composite,
+	CompositeItem,
+	useDisclosureState,
+	Disclosure,
+	DisclosureContent,
+} from 'reakit';
 
 const AccordionContext = React.createContext();
 
@@ -7,8 +14,8 @@ function useAccordionState({ selectedId }) {
 	const [selected, setSelected] = React.useState(selectedId);
 	return {
 		selected,
-		setSelected: id => {
-			setSelected(id != selected ? id : undefined);
+		setSelected: (id: string) => {
+			setSelected(id !== selected ? id : undefined);
 		},
 	};
 }
@@ -21,7 +28,7 @@ const Accordion = ({ selectedId, children, ...rest }) => {
 			<Composite {...composite} {...rest}>
 				{children.map((child, id) => (
 					<CompositeItem
-						as={'div'}
+						as="div"
 						{...composite}
 						key={id}
 						id={id}
@@ -41,7 +48,7 @@ const Item = ({ id, disclosure, children, visible }) => {
 	const disclosureState = useDisclosureState({ visible });
 
 	React.useEffect(() => {
-		accordion.selected == disclosureId ? disclosureState.show() : disclosureState.hide();
+		accordion.selected === disclosureId ? disclosureState.show() : disclosureState.hide();
 	}, [accordion.selected]);
 
 	return (
