@@ -1,16 +1,16 @@
 import { NAME, EMAIL, DOMAIN, PHONE } from './regexp';
 
 /**
- * Check that a given value is a valid first name)
- * @param {String} name
+ * Check that a given value is a valid first name
+ * @param {String} value
  * @returns {Boolean}
  */
 export function validFirstName(value: string): Boolean {
 	return NAME.test(value);
 }
 /**
- * Check that a given value is a valid last name)
- * @param {String} name
+ * Check that a given value is a valid last name
+ * @param {String} value
  * @returns {Boolean}
  */
 export function validLastName(value: string): Boolean {
@@ -28,7 +28,7 @@ export function validEmail(value: string): Boolean {
 
 /**
  * Check that a given value is a valid domain
- * @param {String} phone
+ * @param {String} value
  * @returns {Boolean}
  */
 export function validDomain(value: string): Boolean {
