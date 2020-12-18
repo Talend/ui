@@ -6,13 +6,13 @@ This packages exposes utils to validate values against specific shapes they shou
 
 Add the library to the dependencies of your project
 
-```javascript
+```sh
 npm i @talend/validation
 ```
 
 or
 
-```javascript
+```sh
 yarn add @talend/validation
 ```
 
