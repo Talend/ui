@@ -54,7 +54,7 @@ function ListTable(props) {
 
 	let RowTableRenderer = ListTableRowRenderer;
 	if (isActive || isSelected || getRowState) {
-		RowTableRenderer = getRowSelectionRenderer(ListTableRowRenderer, {
+		RowTableRenderer = getRowSelectionRenderer(RowTableRenderer, {
 			isSelected,
 			isActive,
 			getRowState,
