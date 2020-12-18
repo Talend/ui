@@ -1,5 +1,6 @@
 // List of values used in the tests
 
+// Names
 export const validNames: Array<string> = [
 	'Sarah',
 	'sarah-bernard',
@@ -37,6 +38,7 @@ export const invalidNames: Array<string> = [
 	'Sa*ra',
 ];
 
+// Emails
 export const validEmails: Array<string> = [
 	'sarah@something',
 	'sarah@something.fr',
@@ -48,7 +50,7 @@ export const invalidEmails: Array<string> = [
 	'john @',
 ];
 
-
+// Phones
 export const validPhones: Array<string> = [
 	'+33102030405',
 ];
