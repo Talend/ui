@@ -66,4 +66,24 @@ describe('RatioBar', () => {
 			expect(wrapper.find('.tc-ratio-bar-counter').text()).toEqual('5/12');
 		});
 	});
+
+	it('should render a classic ratio bar without label', () => {
+		// given
+		const props = {
+			amount: 5,
+			total: 12,
+		};
+		// when
+		const wrapper = shallow(<RatioBar {...props} hideLabel />);
+		// then
+		expect(wrapper.find('FilledLine').props()).toEqual({
+			percentage: 41.66666666666667,
+			value: 5,
+		});
+		expect(wrapper.find('EmptyLine').props()).toEqual({
+			percentage: 58.33333333333333,
+			value: 7,
+		});
+		expect(wrapper.find('.tc-ratio-bar-counter').length).toBe(0);
+	});
 });
