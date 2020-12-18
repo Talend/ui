@@ -36,10 +36,6 @@ ListTableRowRenderer.propTypes = {
 	rowData: PropTypes.object,
 };
 
-const MemoListTableRowRenderer = React.memo(ListTableRowRenderer, (prevProps, nextProps) => {
-	return isEqual(prevProps.rowData, nextProps.rowData);
-});
-
 /**
  * List renderer that renders a react-virtualized Table
  */
@@ -56,9 +52,9 @@ function ListTable(props) {
 		...restProps
 	} = props;
 
-	let RowTableRenderer = MemoListTableRowRenderer;
+	let RowTableRenderer = ListTableRowRenderer;
 	if (isActive || isSelected || getRowState) {
-		RowTableRenderer = getRowSelectionRenderer(MemoListTableRowRenderer, {
+		RowTableRenderer = getRowSelectionRenderer(ListTableRowRenderer, {
 			isSelected,
 			isActive,
 			getRowState,
