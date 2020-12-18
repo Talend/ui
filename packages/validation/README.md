@@ -6,17 +6,17 @@ This packages exposes utils to validate values against specific shapes they shou
 
 Add the library to the dependencies of your project
 
-```javascript
+```sh
 npm i @talend/validation
 ```
 
 or
 
-```javascript
+```sh
 yarn add @talend/validation
 ```
 
-Then use the exposed methods/regular expression exposed by the library.
+Then use the methods/regular expressions exposed by the library.
 
 ```javascript
 import { validEmail, REGEX } from '@talend/validation';
