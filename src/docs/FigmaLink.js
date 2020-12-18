@@ -35,8 +35,7 @@ const FigmaIcon = () => (
 const Link = styled.a`
 	position: relative;
 	float: right;
-	display: flex;
-	gap: 0.5rem;
+	display: inline-flex;
 	padding: 1rem;
 	text-decoration: none;
 	color: #000;
@@ -47,6 +46,8 @@ const Link = styled.a`
 	z-index: 1;
 
 	svg {
+		margin-right: 0.5rem;
+		height: 1.6rem;
 		width: 1.6rem;
 	}
 `;
