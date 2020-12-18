@@ -10,7 +10,7 @@ import Code, { CodeTextMode } from '../fields/Code';
 import Datalist, { DatalistTextMode } from '../fields/Datalist';
 import { DateWidget, DateTimeWidget, TimeWidget } from '../fields/Date';
 import Enumeration from '../fields/Enumeration';
-import File from '../fields/File';
+import File, { FileTextMode } from '../fields/File';
 import KeyValue from '../fields/KeyValue';
 import Comparator, { TextModeComparator } from '../fields/Comparator';
 import ListView from '../fields/ListView';
@@ -56,7 +56,7 @@ const widgets = {
 	code_text: CodeTextMode,
 	comparator_text: TextModeComparator,
 	datalist_text: DatalistTextMode,
-	file_text: () => null,
+	file_text: FileTextMode,
 	multiSelectTag_text: MultiSelectTagTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
