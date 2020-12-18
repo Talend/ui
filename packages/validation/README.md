@@ -16,7 +16,7 @@ or
 yarn add @talend/validation
 ```
 
-Then use the exposed methods/regular expression exposed by the library.
+Then use the methods/regular expressions exposed by the library.
 
 ```javascript
 import { validEmail, REGEX } from '@talend/validation';
