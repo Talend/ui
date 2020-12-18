@@ -14,6 +14,14 @@ describe('Number input field', () => {
 		expect(onChange).toHaveBeenCalledWith(20);
 	});
 
+  it('Should not trigger onChange if value did not change', () => {
+    const onChange = jest.fn();
+    const component = mount(<NumberInputField value={10} onChange={onChange} />);
+
+    component.find('input').simulate('blur');
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
   it('Should reset value on Esc', () => {
     const onChange = jest.fn();
     const component = mount(<NumberInputField value={10} onChange={onChange} />);
