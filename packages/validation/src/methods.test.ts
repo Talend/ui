@@ -1,43 +1,14 @@
 import { validFirstName, validLastName, validEmail, validPhone } from './methods';
+import {
+	validNames,
+	invalidNames,
+	validEmails,
+	invalidEmails,
+	validPhones,
+	invalidPhones,
+}  from './testValues';
 
 describe('methods', () => {
-	const validNames: Array<string> = [
-		'Sarah',
-		'sarah-bernard',
-		'John Doe',
-		'Charles the 3rd',
-		'John Sr.' ,
-		'Іванна',
-		'Αλέξης',
-		'佐藤',
-	];
-
-	const invalidNames: Array<string> = [
-		'Jo@hn',
-		'Jo#hn',
-		'Jo$hn',
-		'Jo%hn',
-		'Jo^hn',
-		'Jo&hn',
-		'Jo(hn',
-		'Jo)hn',
-		'Jo|hn',
-		'Jo=hn',
-		'Jo?hn',
-		'Jo;hn',
-		'Sa:ra',
-		'Sa,ra',
-		'Sa&ra',
-		'Sa¤ra',
-		'Sa€ra',
-		'Sa¨ra',
-		'Sa£ra',
-		'Sa"ra',
-		'Sa°ra',
-		'Sa§ra',
-		'Sa*ra',
-	];
-
 	describe('validFirstName', () => {
 		// Test valid values
 		test.each(validNames)(
@@ -67,17 +38,6 @@ describe('methods', () => {
 	});
 
 	describe('validEmail', () => {
-		const validEmails: Array<string> = [
-			'sarah@something',
-			'sarah@something.fr',
-		];
-
-		const invalidEmails: Array<string> = [
-			'john',
-			'john@',
-			'john @',
-		];
-
 		// Test valid values
 		test.each(validEmails)(
 			'"%s" should be an acceptable email',
@@ -92,18 +52,6 @@ describe('methods', () => {
 	});
 
 	describe('validPhone', () => {
-		const validPhones: Array<string> = [
-			'+33102030405',
-		];
-
-		const invalidPhones: Array<string> = [
-			'john',
-			'john@',
-			'john @',
-			'sarah@something.fr',
-			'Fred',
-		];
-
 		// Test valid values
 		test.each(validPhones)(
 			'"%s" should be an acceptable phone',
