@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [2.0.1]
+
+### Fixed
+
+-   [Multi values separator contrast & alignment issues](https://github.com/Talend/ui-faceted-search/pull/19)
+
 ## [2.0.0]
 
 ### Breaking Change

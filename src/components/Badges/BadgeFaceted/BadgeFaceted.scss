@@ -38,7 +38,9 @@
 			}
 			> span:not(:first-child):before {
 				content: '|';
-				color: $silver;
+				position: relative;
+				top: -1px;
+				opacity: 0.5;
 				padding: 0 $padding-smaller;
 			}
 		}
