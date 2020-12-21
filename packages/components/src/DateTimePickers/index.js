@@ -13,5 +13,5 @@ export {
 	InputDateTimePicker,
 	InputDateTimeRangePicker,
 	InputTimePicker,
-	DatePicker
+	DatePicker,
 };
