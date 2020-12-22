@@ -43,9 +43,7 @@ function MockProvider(props) {
 	return (
 		<div className="mock-provider">
 			<Provider store={context.store}>
-				<RegistryProvider value={context.registry}>
-					{props.children}
-				</RegistryProvider>
+				<RegistryProvider value={context.registry}>{props.children}</RegistryProvider>
 			</Provider>
 		</div>
 	);
