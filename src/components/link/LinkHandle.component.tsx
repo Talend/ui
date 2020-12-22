@@ -1,5 +1,5 @@
 import React from 'react';
-import { drag, select, event } from 'd3';
+import { drag, select } from 'd3';
 import { PositionRecord } from '../../customTypings/index.d';
 
 type Props = {
@@ -30,13 +30,13 @@ class LinkHandle extends React.Component<Props> {
 		this.d3Handle.remove();
 	}
 
-	drag() {
+	drag(event: any) {
 		if (this.props.onDrag) {
 			this.props.onDrag(event);
 		}
 	}
 
-	dragEnd() {
+	dragEnd(event: any) {
 		if (this.props.onDragEnd) {
 			this.props.onDragEnd(event);
 		}

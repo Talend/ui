@@ -1,5 +1,5 @@
 import React from 'react';
-import { scaleLinear, drag, select, event } from 'd3';
+import { scaleLinear, drag, select } from 'd3';
 import { Map } from 'immutable';
 
 import invariant from 'invariant';
@@ -150,7 +150,7 @@ class AbstractNode extends React.Component<Props> {
 		}
 	}
 
-	onDragStart() {
+	onDragStart(event: any) {
 		this.squaredDeltaDrag = 0;
 		const position = {
 			x: event.x,
@@ -162,7 +162,7 @@ class AbstractNode extends React.Component<Props> {
 		}
 	}
 
-	onDrag() {
+	onDrag(event: any) {
 		this.squaredDeltaDrag += event.dx * event.dx + event.dy * event.dy;
 		const position = {
 			x: event.x,
@@ -176,7 +176,7 @@ class AbstractNode extends React.Component<Props> {
 		}
 	}
 
-	onDragEnd() {
+	onDragEnd(event: any) {
 		// Ok this is pretty specific
 		// for a chrome windows bug
 		// where d3 inhibit onCLick propagation
@@ -186,7 +186,7 @@ class AbstractNode extends React.Component<Props> {
 		if (this.squaredDeltaDrag < 1) {
 			select(window).on('click.drag', null);
 		}
-		const position = this.getEventPosition();
+		const position = this.getEventPosition(event);
 		this.props.moveNodeToEnd(this.props.node.id, position);
 		this.d3Node.data([position]);
 		if (this.props.onDragEnd) {
@@ -194,7 +194,7 @@ class AbstractNode extends React.Component<Props> {
 		}
 	}
 
-	getEventPosition() {
+	getEventPosition(event: any) {
 		if (this.props.snapToGrid) {
 			return {
 				x: event.x - (event.x % GRID_SIZE),

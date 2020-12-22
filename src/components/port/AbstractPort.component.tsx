@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, event } from 'd3';
+import { select } from 'd3';
 
 import { Port, Position } from '../../api';
 import { PortRecord } from '../../customTypings/index.d';
@@ -29,7 +29,7 @@ class AbstractPort extends React.Component<Props> {
 		return nextProps.port !== this.props.port || nextProps.children !== this.props.children;
 	}
 
-	onClick() {
+	onClick(event: any) {
 		if (this.props.onClick) {
 			this.props.onClick(event);
 		}

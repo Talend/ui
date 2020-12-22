@@ -8,7 +8,7 @@
     "build": "talend-scripts build:ts:lib",
     "lint": "talend-scripts lint:es",
     "test": "talend-scripts test --silent",
-    "prepublishOnly": "yarn test",
+    "prepublishOnly": "talend-scripts build:lib:umd",
     "prepare": "yarn build"
   },
   "repository": {
@@ -18,10 +18,10 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-config-jest": "^6.8.2",
-    "@talend/scripts-core": "^6.8.2",
-    "@talend/scripts-preset-react-lib": "^6.8.2",
-    "@types/d3": "^4.13.12",
+    "@talend/scripts-config-jest": "^7.3.0",
+    "@talend/scripts-core": "^7.3.0",
+    "@talend/scripts-preset-react-lib": "^7.3.0",
+    "@types/d3": "^6.2.0",
     "@types/enzyme": "^3.10.5",
     "@types/invariant": "^2.2.33",
     "@types/lodash": "^4.14.149",
@@ -56,13 +56,14 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "d3": "^4.13.0",
+    "d3": "^6.3.0",
     "enzyme": "^3.11.0",
     "invariant": "^2.2.4",
     "prop-types": "^15.7.2",
     "react-immutable-proptypes": "^2.2.0"
   },
   "files": [
+    "/dist",
     "/lib",
     "/src"
   ]

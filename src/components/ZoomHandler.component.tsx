@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, event, zoom as d3ZoomFactory, ZoomBehavior } from 'd3';
+import { select, zoom as d3ZoomFactory, ZoomBehavior } from 'd3';
 import { Transform } from '../customTypings/index.d';
 
 export function transformToString(transform?: Transform) {
@@ -57,11 +57,11 @@ class ZoomHandler extends React.Component<Props, State> {
 		}
 	}
 
-	onZoomEnd = () => {
+	onZoomEnd = (event: any) => {
 		if (this.props.setZoom) this.props.setZoom(event.transform);
 	};
 
-	onZoom = () => {
+	onZoom = (event: any) => {
 		this.setState({ transform: event.transform });
 	};
 
