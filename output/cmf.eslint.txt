@@ -1,9 +1,6 @@
 
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  244:32  error  'context' is defined but never used  @typescript-eslint/no-unused-vars
-
 /home/travis/build/Talend/ui/packages/cmf/src/cmfModule.js
   17:3   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
   17:20  error  'current' is defined but never used                                                                                                                                        @typescript-eslint/no-unused-vars
 
-✖ 3 problems (3 errors, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
