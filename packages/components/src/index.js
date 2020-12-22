@@ -23,6 +23,7 @@ import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import { ModelViewer, RecordsViewer } from './DataViewer';
 import {
+	DatePicker,
 	InputDatePicker,
 	InputDateRangePicker,
 	InputDateTimePicker,
@@ -102,6 +103,7 @@ export {
 	CollapsiblePanel,
 	ConfirmDialog,
 	Datalist,
+	DatePicker,
 	ModelViewer,
 	RecordsViewer,
 	InputDatePicker,
