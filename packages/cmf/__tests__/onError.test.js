@@ -1,7 +1,7 @@
 import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
-import { store as mock } from '../src/mock';
+import mock from '../src/mock';
 
 jest.mock('@sentry/browser', () => ({
 	captureException: jest.fn(),
