@@ -8,6 +8,7 @@ mkdir .static
 mkdir .static/cmf
 mkdir .static/components
 mkdir .static/containers
+mkdir .static/dataviz
 mkdir .static/forms
 mkdir .static/icons
 mkdir .static/theme
