@@ -32,7 +32,7 @@ import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { connect } from 'react-redux';
+import { connect, ReactReduxContext } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import actions from './actions';
 import actionCreator from './actionCreator';
@@ -43,6 +43,7 @@ import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 import omit from './omit';
+import { RegistryContext } from './RegistryProvider';
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -242,8 +243,10 @@ export default function cmfConnect({
 
 		function CMFContainer(props, context) {
 			const [instanceId] = React.useState(uuidv4());
+			const registry = React.useContext(RegistryContext);
+			const store = React.useContext(ReactReduxContext);
 			function dispatchActionCreator(actionCreatorId, event, data, extraContext) {
-				const extendedContext = { ...context, ...extraContext };
+				const extendedContext = { registry, store, ...extraContext };
 				props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 

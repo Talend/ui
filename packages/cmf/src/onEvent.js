@@ -33,7 +33,7 @@ function getOnEventDispatchHandler(instance, props, config, currentHandler) {
 			data: args[1],
 			...config,
 		};
-		props.dispatch(payload);
+		instance.props.dispatch(payload);
 		if (currentHandler) {
 			currentHandler(...args);
 		}
