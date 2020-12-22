@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { generateDefaultViewId, mapStateToViewProps, WaitForSettings } from '../src/settings';
-import mock, { store } from '../src/mock';
+import mock from '../src/mock';
 
 
 describe('settings', () => {
@@ -60,7 +60,7 @@ describe('settings', () => {
 			const state = mock.state();
 			const wrapper = mount(<WaitForSettings>Hello</WaitForSettings>, {
 				context: {
-					store: store.store(state),
+					store: mock.store(state),
 				},
 			});
 			expect(wrapper.text()).toBe('loading');
@@ -70,7 +70,7 @@ describe('settings', () => {
 			const state = mock.state();
 			const wrapper = mount(<WaitForSettings loading={AppLoader}>Hello</WaitForSettings>, {
 				context: {
-					store: store.store(state),
+					store: mock.store(state),
 				},
 			});
 			expect(wrapper.text()).not.toBe('loading');
@@ -81,7 +81,7 @@ describe('settings', () => {
 			state.cmf.settings.initialized = true;
 			const wrapper = mount(<WaitForSettings>Hello</WaitForSettings>, {
 				context: {
-					store: store.store(state),
+					store: mock.store(state),
 				},
 			});
 			expect(wrapper.text()).not.toBe('loading');
