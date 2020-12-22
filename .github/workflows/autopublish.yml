@@ -22,7 +22,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
-          npmVersion="$(yarn info @talend/react-flow-designer version | sed -n 2p)"
+          npmVersion="$(yarn info react-flow-designer version | sed -n 2p)"
           echo "Last published version is $npmVersion"
           echo "::set-output name=published_version::$npmVersion"
 
