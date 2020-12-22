@@ -218,14 +218,17 @@ describe('cmfConnect', () => {
 		});
 
 		it('should create a connected component', () => {
-			const TestComponent = jest.fn();
+			const TestComponent = jest.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			mapStateToViewProps.cache.clear();
 			const CMFConnected = cmfConnect({})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
-			const wrapper = shallow(<CMFConnected />, { context: mock.context() });
-			expect(wrapper.props()).toMatchSnapshot();
+			const wrapper = mount(<CMFConnected />, {
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: mock.context().store },
+			});
+			expect(wrapper.find('CMF(TestComponent)').props()).toMatchSnapshot();
 		});
 
 		it('should expose getState static function to get the state', () => {
@@ -330,7 +333,8 @@ describe('cmfConnect', () => {
 			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
 
 			const wrapper = mount(<CMFConnected />, {
-				context: mock.context(),
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: mock.context().store },
 				childContextTypes: {
 					registry: PropTypes.object,
 				},
@@ -416,7 +420,7 @@ describe('cmfConnect', () => {
 		});
 
 		it('should componentWillUnMount dispatchActionCreator', () => {
-			const TestComponent = jest.fn();
+			const TestComponent = jest.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
@@ -426,8 +430,14 @@ describe('cmfConnect', () => {
 				foo: 'bar',
 			};
 			const context = mock.context();
-			const instance = new CMFConnected.CMFContainer(props, context);
-			instance.componentWillUnmount();
+			const instance = mount(
+				<CMFConnected {...props} />,
+				{
+					wrappingComponent: Provider,
+					wrappingComponentProps: { store: context.store }
+				}
+			);
+			instance.unmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalled();
 			const call = props.dispatchActionCreator.mock.calls[0];
 			expect(call[0]).toBe('bye');
@@ -453,7 +463,8 @@ describe('cmfConnect', () => {
 			context.store.dispatch = jest.fn();
 
 			const wrapper = mount(<CMFConnected />, {
-				context,
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: context.store },
 				childContextTypes: {
 					registry: PropTypes.object,
 				},
@@ -481,7 +492,8 @@ describe('cmfConnect', () => {
 			context.store.dispatch = jest.fn();
 
 			const wrapper = mount(<CMFConnected />, {
-				context,
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: context.store },
 				childContextTypes: {
 					registry: PropTypes.object,
 				},
@@ -508,7 +520,8 @@ describe('cmfConnect', () => {
 			context.store.dispatch = jest.fn();
 
 			const wrapper = mount(<CMFConnected keepComponentState />, {
-				context,
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: context.store },
 				childContextTypes: {
 					registry: PropTypes.object,
 				},
@@ -535,7 +548,8 @@ describe('cmfConnect', () => {
 			context.store.dispatch = jest.fn();
 
 			const wrapper = mount(<CMFConnected keepComponentState={false} />, {
-				context,
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: context.store },
 				childContextTypes: {
 					registry: PropTypes.object,
 				},
@@ -565,7 +579,8 @@ describe('cmfConnect', () => {
 			context.store.dispatch = jest.fn();
 
 			const wrapper = mount(<CMFConnected {...iProps} />, {
-				context,
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: context.store },
 				childContextTypes: {
 					registry: PropTypes.object,
 				},
@@ -582,12 +597,16 @@ describe('cmfConnect', () => {
 
 		it('should expose displayName', () => {
 			const ArrowComponent = () => <div />;
+			ArrowComponent.displayName = 'ArrowComponent';
 			function FunctionComponent() {
 				return <div />;
 			}
+			FunctionComponent.displayName = 'FunctionComponent';
 
 			// eslint-disable-next-line react/prefer-stateless-function
-			class ClassComponent extends React.Component {}
+			class ClassComponent extends React.Component {
+				static displayName = 'ClassComponent';
+			}
 
 			const CMFConnectedArrow = cmfConnect({})(ArrowComponent);
 			const CMFConnectedFunction = cmfConnect({})(FunctionComponent);
@@ -604,7 +623,8 @@ describe('cmfConnect', () => {
 			context.store.dispatch = jest.fn();
 
 			const wrapper = mount(<CMFConnectedButton onClickDispatch={onClickDispatch} />, {
-				context,
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: context.store },
 				childContextTypes: {
 					registry: PropTypes.object,
 				},
@@ -779,6 +799,7 @@ describe('cmfConnect', () => {
 		it('should cmfConnect({ omitCMFProps: false }) keep compatibility', () => {
 			const store = mock.store();
 			const TestComponent = props => <div {...props} />;
+			TestComponent.displayName = 'TestComponent';
 			const WithCMFProps = cmfConnect({ omitCMFProps: false })(TestComponent);
 			const wrapperWithCMFProps = shallow(<WithCMFProps store={store} className="foo" id="bar" />).dive().dive();
 			expect(Object.keys(wrapperWithCMFProps.props())).toEqual([
@@ -797,6 +818,7 @@ describe('cmfConnect', () => {
 		});
 		it('should cmfConnect({ omitCMFProps: true }) remove all internals', () => {
 			const TestComponent = props => <div {...props} />;
+			TestComponent.displayName = 'TestComponent';
 			const WithoutCMFProps = cmfConnect({ omitCMFProps: true })(TestComponent);
 			const store = mock.store();
 			const wrapperWithoutCMFProps = shallow(
@@ -812,6 +834,7 @@ describe('cmfConnect', () => {
 		});
 		it('should cmfConnect({ omitCMFProps: true, withComponentRegistry: true }) add getComponent', () => {
 			const TestComponent = props => <div {...props} />;
+			TestComponent.displayName = 'TestComponent';
 			const WithoutCMFProps = cmfConnect({ omitCMFProps: true, withComponentRegistry: true })(
 				TestComponent,
 			);

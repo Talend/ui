@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { Provider } from 'react-redux';
 import { generateDefaultViewId, mapStateToViewProps, WaitForSettings } from '../src/settings';
 import mock from '../src/mock';
 
@@ -59,9 +60,8 @@ describe('settings', () => {
 		it('should display using loader if state settings is not initialized', () => {
 			const state = mock.state();
 			const wrapper = mount(<WaitForSettings>Hello</WaitForSettings>, {
-				context: {
-					store: mock.store(state),
-				},
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: mock.store(state), },
 			});
 			expect(wrapper.text()).toBe('loading');
 		});
@@ -69,9 +69,8 @@ describe('settings', () => {
 			const AppLoader = () => <p>custom loader</p>;
 			const state = mock.state();
 			const wrapper = mount(<WaitForSettings loading={AppLoader}>Hello</WaitForSettings>, {
-				context: {
-					store: mock.store(state),
-				},
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: mock.store(state), },
 			});
 			expect(wrapper.text()).not.toBe('loading');
 			expect(wrapper.text()).toBe('custom loader');
@@ -80,9 +79,8 @@ describe('settings', () => {
 			const state = mock.state();
 			state.cmf.settings.initialized = true;
 			const wrapper = mount(<WaitForSettings>Hello</WaitForSettings>, {
-				context: {
-					store: mock.store(state),
-				},
+				wrappingComponent: Provider,
+				wrappingComponentProps: { store: mock.store(state), },
 			});
 			expect(wrapper.text()).not.toBe('loading');
 			expect(wrapper.text()).toBe('Hello');
