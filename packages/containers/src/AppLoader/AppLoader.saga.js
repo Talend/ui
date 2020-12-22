@@ -1,6 +1,5 @@
 import api from '@talend/react-cmf';
-import { call, select, all, take } from 'redux-saga/effects';
-import { delay } from 'redux-saga';
+import { delay, call, select, all, take } from 'redux-saga/effects';
 import invariant from 'invariant';
 
 export const ACTION_CREATORS = 'actionCreators';

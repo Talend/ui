@@ -1,5 +1,4 @@
-import { delay } from 'redux-saga';
-import { call, put, select, take } from 'redux-saga/effects';
+import { delay, call, put, select, take } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
 import { Map } from 'immutable';
 
