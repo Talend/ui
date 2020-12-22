@@ -26,6 +26,17 @@ Types of changes
 
 ## [unreleased]
 
+## [3.0.0]
+
+### Breaking Change
+
+-   ⤴️ @talend/tui: ^6.4.0 => ^6.5.1
+
+### Added
+
+- [Add date picker badge](https://github.com/Talend/ui-faceted-search/pull/20)
+
+
 ## [2.0.1]
 
 ### Fixed

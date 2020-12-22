@@ -335,3 +335,27 @@ export const badgePriceAsCustomAttribute = {
 		],
 	},
 };
+
+export const badgeCreationDate = {
+	properties: {
+		attribute: 'creationDate',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Creation Date',
+		operator: {},
+		operators: [],
+		type: 'date',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: [
+			'equals',
+			'notEquals',
+			'greaterThan',
+			'greaterThanOrEquals',
+			'lessThan',
+			'lessThanOrEquals',
+		],
+	},
+};

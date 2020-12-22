@@ -29,6 +29,7 @@ import {
 	badgeTextAsCategory,
 	badgeEmptyLabel,
 	badgePriceAsCustomAttribute,
+	badgeCreationDate,
 } from './badgesDefinitions';
 
 const badgesDefinitions = [
@@ -40,6 +41,7 @@ const badgesDefinitions = [
 	badgeValid,
 	badgeEmpty,
 	badgeInvalid,
+	badgeCreationDate,
 ];
 const lotsOfBadgesDefinitions = [];
 let i = 0;
@@ -273,6 +275,27 @@ storiesOf('FacetedSearch', module)
 			value: '  text  ',
 			type: 'text',
 			displayType: Badge.TYPES.PATTERN,
+		});
+		return (
+			<div>
+				<BadgeFacetedProvider value={{}}>
+					<BadgesGenerator
+						badges={[badge]}
+						badgesDictionary={badgesDictionary}
+						getBadgeFromDict={getBadgesFromDict}
+						t={t}
+					/>
+				</BadgeFacetedProvider>
+			</div>
+		);
+	})
+	.add('date picker', () => {
+		const { t } = useTranslation();
+		const badgesDictionary = createBadgesDict();
+		const badge = cloneDeep(badgesFaceted.badges[0]);
+		Object.assign(badge.properties, {
+			value: Date.now(),
+			type: 'date',
 		});
 		return (
 			<div>

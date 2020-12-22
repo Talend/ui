@@ -3,6 +3,7 @@ import { BadgeCheckboxes } from '../components/Badges/BadgeCheckboxes/BadgeCheck
 import { BadgeNumber } from '../components/Badges/BadgeNumber/BadgeNumber.component';
 import { BadgeSlider } from '../components/Badges/BadgeSlider/BadgeSlider.component';
 import { BadgeTags } from '../components/Badges/BadgeTags/BadgeTags.component';
+import { BadgeDate } from '../components/Badges/BadgeDate/BadgeDate.component';
 
 const standardBadgeTypeNames = {
 	text: 'text',
@@ -10,6 +11,7 @@ const standardBadgeTypeNames = {
 	number: 'number',
 	slider: 'slider',
 	tags: 'tags',
+	date: 'date',
 };
 
 const standardBadges = {
@@ -18,6 +20,7 @@ const standardBadges = {
 	[standardBadgeTypeNames.number]: BadgeNumber,
 	[standardBadgeTypeNames.slider]: BadgeSlider,
 	[standardBadgeTypeNames.tags]: BadgeTags,
+	[standardBadgeTypeNames.date]: BadgeDate,
 };
 
 export const filterBadgeDefinitionsWithDictionary = (badgesDictionary, badgeDefinition) => {
