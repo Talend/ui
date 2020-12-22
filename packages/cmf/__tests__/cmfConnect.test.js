@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import { Provider } from 'react-redux';
 
 // eslint-disable-next-line
-import uuid from 'uuid';
 import omit from 'lodash/omit';
 import expression from '../src/expression';
-import mock from '../src/mock';
+import mock, { Provider } from '../src/mock';
 import { mapStateToViewProps } from '../src/settings';
 
 import cmfConnect, {
@@ -224,10 +222,7 @@ describe('cmfConnect', () => {
 			const CMFConnected = cmfConnect({})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
-			const wrapper = mount(<CMFConnected />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: mock.context().store },
-			});
+			const wrapper = mount(<CMFConnected />, Provider.getEnzymeOption(context));
 			expect(wrapper.find('CMF(TestComponent)').props()).toMatchSnapshot();
 		});
 
@@ -311,7 +306,7 @@ describe('cmfConnect', () => {
 				dispatchActionCreator: jest.fn(),
 			};
 			const context = mock.context();
-			const wrapper = mount(<CMFConnected.CMFContainer {...props} />, { context });
+			const wrapper = mount(<CMFConnected.CMFContainer {...props} />, Provider.getEnzymeOption(context));
 			const injectedProps = wrapper.find(TestComponent).props();
 			expect(injectedProps.dispatchActionCreator).not.toBe(props.dispatchActionCreator);
 			const event = {};
@@ -332,19 +327,13 @@ describe('cmfConnect', () => {
 			const defaultState = new Map({ toto: 'lol' });
 			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
 
-			const wrapper = mount(<CMFConnected />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: mock.context().store },
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnected />, Provider.getEnzymeOption(mock.context()));
 
 			expect(wrapper.find(TestComponent).props().state).toBe(defaultState);
 		});
 
 		it('should componentDidMount initState and dispatchActionCreator after the saga', () => {
-			const TestComponent = jest.fn();
+			const TestComponent = jest.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			const STATE = new Map();
 			const CMFConnected = cmfConnect({})(TestComponent);
@@ -357,8 +346,7 @@ describe('cmfConnect', () => {
 				saga: 'saga',
 			};
 			const context = mock.context();
-			const instance = new CMFConnected.CMFContainer(props, context);
-			instance.componentDidMount();
+			const instance = mount(<CMFConnected.CMFContainer {...props} />, Provider.getEnzymeOption(context));
 			expect(props.dispatchActionCreator).toHaveBeenCalled();
 			const callSagaActionCreator = props.dispatchActionCreator.mock.calls[0];
 			const callDidMountActionCreator = props.dispatchActionCreator.mock.calls[1];
@@ -378,7 +366,7 @@ describe('cmfConnect', () => {
 		});
 
 		it('should componentDidMount support saga', () => {
-			const TestComponent = jest.fn();
+			const TestComponent = jest.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
@@ -386,8 +374,7 @@ describe('cmfConnect', () => {
 				dispatchActionCreator: jest.fn(),
 			};
 			const context = mock.context();
-			const instance = new CMFConnected.CMFContainer(props, context);
-			instance.componentDidMount();
+			const instance = mount(<CMFConnected.CMFContainer {...props} />, Provider.getEnzymeOption(context));
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.start',
 				{ type: 'DID_MOUNT', componentId: '42' },
@@ -400,7 +387,7 @@ describe('cmfConnect', () => {
 		});
 
 		it('should componentWillUnmount support saga', () => {
-			const TestComponent = jest.fn();
+			const TestComponent = jest.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
@@ -409,8 +396,8 @@ describe('cmfConnect', () => {
 				deleteState: jest.fn(),
 			};
 			const context = mock.context();
-			const instance = new CMFConnected.CMFContainer(props, context);
-			instance.componentWillUnmount();
+			const instance = mount(<CMFConnected.CMFContainer {...props} />, Provider.getEnzymeOption(context));
+			instance.unmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.stop',
 				{ type: 'WILL_UNMOUNT', componentId: '42' },
@@ -430,13 +417,10 @@ describe('cmfConnect', () => {
 				foo: 'bar',
 			};
 			const context = mock.context();
-			const instance = mount(
-				<CMFConnected {...props} />,
-				{
-					wrappingComponent: Provider,
-					wrappingComponentProps: { store: context.store }
-				}
-			);
+			context.registry = {
+				'actionCreator:bye': jest.fn(),
+			};
+			const instance = mount(<CMFConnected {...props} />, Provider.getEnzymeOption(context));
 			instance.unmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalled();
 			const call = props.dispatchActionCreator.mock.calls[0];
@@ -462,13 +446,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(<CMFConnected />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: context.store },
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnected />, Provider.getEnzymeOption(context));
 
 			// when
 			wrapper.unmount();
@@ -491,13 +469,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(<CMFConnected />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: context.store },
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnected />, Provider.getEnzymeOption(context));
 
 			// when
 			wrapper.unmount();
@@ -519,13 +491,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(<CMFConnected keepComponentState />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: context.store },
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnected keepComponentState />, Provider.getEnzymeOption(context));
 
 			// when
 			wrapper.unmount();
@@ -547,13 +513,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(<CMFConnected keepComponentState={false} />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: context.store },
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnected keepComponentState={false} />, Provider.getEnzymeOption(context));
 
 			// when
 			wrapper.unmount();
@@ -578,13 +538,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(<CMFConnected {...iProps} />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: context.store },
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnected {...iProps} />, Provider.getEnzymeOption(context));
 			const props = wrapper.find(TestComponent).props();
 
 			// then
@@ -622,13 +576,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(<CMFConnectedButton onClickDispatch={onClickDispatch} />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: context.store },
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnectedButton onClickDispatch={onClickDispatch} />, Provider.getEnzymeOption(context));
 			const props = wrapper.find(Button).props();
 			expect(props.onClickDispatch).toBeUndefined();
 			expect(props.onClick).toBeDefined();
@@ -649,12 +597,7 @@ describe('cmfConnect', () => {
 				'actionCreator:myactionCreator': event => ({ type: 'FETCH_STUFF', event }),
 			};
 
-			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />,
-				{
-					wrappingComponent: Provider,
-					wrappingComponentProps: { store: context.store },
-				}
-			);
+			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, Provider.getEnzymeOption(context));
 			const props = wrapper.find(Button).props();
 			expect(props.onClick).toBeDefined();
 			expect(props.onClickActionCreator).toBeUndefined();
@@ -685,13 +628,7 @@ describe('cmfConnect', () => {
 				}),
 			};
 
-			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: context.store },
-				childContextTypes: {
-					registry: PropTypes.object,
-				},
-			});
+			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, Provider.getEnzymeOption(context));
 			const props = wrapper.find(Button).props();
 			expect(props.onClick).toBeDefined();
 			expect(context.store.dispatch).not.toHaveBeenCalled();
@@ -712,10 +649,7 @@ describe('cmfConnect', () => {
 
 			const wrapper = mount(
 				<CMFConnectedButton onClickSetState={config} initialState={new Map()} spreadCMFState />,
-				{
-					wrappingComponent: Provider,
-					wrappingComponentProps: { store: context.store },
-				}
+				Provider.getEnzymeOption(context),
 			);
 			const props = wrapper.find(Button).props();
 			expect(props.onClick).toBeDefined();
@@ -756,10 +690,7 @@ describe('cmfConnect', () => {
 
 			const wrapper = mount(
 				<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={new Map()} />,
-				{
-					wrappingComponent: Provider,
-					wrappingComponentProps: { store: context.store },
-				}
+				Provider.getEnzymeOption(context),
 			);
 			const props = wrapper.find(Button).props();
 			expect(props.inProgress).toBe(false);
@@ -801,7 +732,9 @@ describe('cmfConnect', () => {
 			const TestComponent = props => <div {...props} />;
 			TestComponent.displayName = 'TestComponent';
 			const WithCMFProps = cmfConnect({ omitCMFProps: false })(TestComponent);
-			const wrapperWithCMFProps = shallow(<WithCMFProps store={store} className="foo" id="bar" />).dive().dive();
+			const wrapperWithCMFProps = shallow(<WithCMFProps store={store} className="foo" id="bar" />)
+				.dive()
+				.dive();
 			expect(Object.keys(wrapperWithCMFProps.props())).toEqual([
 				'store',
 				'className',

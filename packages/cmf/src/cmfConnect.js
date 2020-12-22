@@ -4,18 +4,11 @@
  * @example
 import { cmfConnect } from '@talend/react-cmf';
 
-class MyComponent extends React.Component {
-	static displayName = 'MyComponent';
-	constructor(props) {
-		super(props);
-		this.onClick = this.onClick.bind(this);
-	}
-	onClick(event) {
-		return this.props.dispatchActionCreator('myaction', event, { props: this.props });
-	}
-	render() {
-		return <button onClick={this.onClick}>Edit {this.props.foo.name}</button>;
-	}
+function MyComponent(props) {
+	const onClick = (event) => {
+		props.dispatchActionCreator('myaction', event, { props: props });
+	};
+	return <button onClick={onClick}>Edit {props.foo.name}</button>;
 }
 
 function mapStateToProps(state) {
@@ -241,7 +234,7 @@ export default function cmfConnect({
 			};
 		}
 
-		function CMFContainer(props, context) {
+		function CMFContainer(props) {
 			const [instanceId] = React.useState(uuidv4());
 			const registry = React.useContext(RegistryContext);
 			const store = React.useContext(ReactReduxContext);
