@@ -13,7 +13,6 @@ describe('waitFor', () => {
 			},
 		};
 		const withCollection = withoutCollection.cmf.collections.set('foo', new Immutable.Map({}));
-		console.log('####', call, delay)
 		const gen = waitFor('foo');
 		expect(gen.next().value).toEqual(select(selectors.collections.get, 'foo'));
 		expect(gen.next().value).toEqual(call(delay, 10));

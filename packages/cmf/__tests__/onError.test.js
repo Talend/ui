@@ -1,7 +1,7 @@
 import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
-import mock from '../src/mock';
+import {mock} from '../src';
 
 jest.mock('@sentry/browser', () => ({
 	captureException: jest.fn(),
@@ -23,7 +23,7 @@ describe('onError', () => {
 	let config;
 	beforeEach(() => {
 		state = { foo: { ok: 'should be kept', password: 'secret', keyUndefined: undefined } };
-		store = mock.store(state);
+		store = mock.store.store(state);
 		window.addEventListener.mockClear();
 		store.dispatch = jest.fn();
 		console.error = jest.fn();
