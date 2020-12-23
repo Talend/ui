@@ -58,9 +58,7 @@ describe('Connected Notification', () => {
 		const stateProps = {
 			state: fromJS({ notifications: [ok] }),
 		};
-		expect(deleteNotification(ko)(stateProps)).toEqual(
-			stateProps.state
-		);
+		expect(deleteNotification(ko)(stateProps)).toEqual(stateProps.state);
 	});
 });
 

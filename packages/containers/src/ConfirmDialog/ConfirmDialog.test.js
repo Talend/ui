@@ -20,7 +20,10 @@ describe('Container ConfirmDialog', () => {
 			show: true,
 			children: 'Confirm this !',
 		});
-		const wrapper = mount(<Container state={state} />, mock.Provider.getEnzymeOption(mock.store.context()));
+		const wrapper = mount(
+			<Container state={state} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
 		expect(wrapper.instance()).toBe(null);
 	});
 	it('should render', () => {
@@ -35,7 +38,7 @@ describe('Container ConfirmDialog', () => {
 		});
 		const wrapper = mount(
 			<Container state={state} />,
-			mock.Provider.getEnzymeOption(mock.store.context())
+			mock.Provider.getEnzymeOption(mock.store.context()),
 		);
 		expect(wrapper.html()).toMatchSnapshot();
 	});

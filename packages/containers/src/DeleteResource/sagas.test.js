@@ -232,7 +232,10 @@ describe('sagas', () => {
 			expect(effect.type).toBe('RACE');
 			expect(effect.payload).toMatchObject({
 				deleteConfirmationCancel: { type: 'CALL', payload: { fn: internals.deleteResourceCancel } },
-				deleteConfirmationValidate: { type: 'CALL', payload: { fn: internals.deleteResourceValidate } },
+				deleteConfirmationValidate: {
+					type: 'CALL',
+					payload: { fn: internals.deleteResourceValidate },
+				},
 			});
 		});
 		it('should throw a specific error if sth goes bad', () => {

@@ -84,7 +84,10 @@ describe('Container ActionBar', () => {
 	});
 	it('should compute props using CMF with array of string', () => {
 		context.registry = {};
-		const wrapper = mount(<Container actionIds={actionIds} />, mock.Provider.getEnzymeOption(context));
+		const wrapper = mount(
+			<Container actionIds={actionIds} />,
+			mock.Provider.getEnzymeOption(context),
+		);
 		expect(wrapper.find(Container.CMFContainer).props()).toMatchSnapshot();
 	});
 });
