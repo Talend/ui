@@ -8,6 +8,6 @@ import React from 'react';
 import Registry from './registry';
 
 export const RegistryContext = React.createContext(Registry.getRegistry());
-export const RegistryProvider =  RegistryContext.Provider;
+export const RegistryProvider = RegistryContext.Provider;
 
 export default RegistryContext.Provider;
