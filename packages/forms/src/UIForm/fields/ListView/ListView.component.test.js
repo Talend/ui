@@ -82,7 +82,7 @@ describe('ListView field', () => {
 		});
 	});
 
-	describe('componentWillReceiveProps', () => {
+	describe('UNSAFE_componentWillReceiveProps', () => {
 		it('should update items on props.value change', () => {
 			// given
 			const node = document.createElement('div');

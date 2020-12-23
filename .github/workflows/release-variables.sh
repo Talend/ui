@@ -40,6 +40,6 @@ FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//$'\n'/'%0A'}"
 FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//$'\r'/'%0D'}"
 
 # Set env var for create-release action
-echo ::set-env name=CHANGELOG::"$FORMATTED_CHANGELOG"
-echo ::set-env name=TAG::"v$CURRENT_VERSION"
-echo ::set-env name=DEMO_DOMAIN::"$DEMO_DOMAIN"
+echo ::set-output name=CHANGELOG::"$FORMATTED_CHANGELOG"
+echo ::set-output name=TAG::"v$CURRENT_VERSION"
+echo ::set-output name=DEMO_DOMAIN::"$DEMO_DOMAIN"

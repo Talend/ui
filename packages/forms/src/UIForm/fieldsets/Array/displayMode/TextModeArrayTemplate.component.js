@@ -35,6 +35,6 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		renderItem: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
-		value: PropTypes.arrayOf(PropTypes.object).isRequired,
+		value: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])).isRequired,
 	};
 }

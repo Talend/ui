@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
+import keycode from 'keycode';
 
 import theme from './Typeahead.scss';
 import {
@@ -37,8 +38,10 @@ function getItems(items, dataFeature) {
  */
 function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-
 	const inputRef = useRef(null);
+
+	const [highlightedSectionIndex, setHighlightedSectionIndex] = useState(0);
+	const [highlightedItemIndex, setHighlightedItemIndex] = useState(0);
 
 	if (docked && onToggle) {
 		return (
@@ -54,6 +57,31 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			/>
 		);
 	}
+
+	const handleKeyDown = (event, data) => {
+		switch (event.which) {
+			case keycode.codes.down:
+			case keycode.codes.up:
+				event.preventDefault();
+				setHighlightedSectionIndex(data.newHighlightedSectionIndex);
+				setHighlightedItemIndex(data.newHighlightedItemIndex);
+				break;
+			case keycode.codes.enter:
+				event.preventDefault();
+				if (highlightedItemIndex !== null && highlightedItemIndex !== null) {
+					rest.onSelect(event, {
+						sectionIndex: data.highlightedSectionIndex,
+						itemIndex: data.highlightedItemIndex,
+					});
+				}
+				break;
+			case keycode.codes.esc:
+				event.preventDefault();
+				rest.onBlur(event);
+				break;
+			default:
+		}
+	};
 
 	const sectionProps = rest.multiSection
 		? { getSectionItems: section => section.suggestions, renderSectionTitle }
@@ -96,7 +124,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
 			onClick: rest.onClick,
-			onKeyDown: rest.onKeyDown,
+			onKeyDown: rest.onKeyDown || handleKeyDown,
 			placeholder: rest.placeholder,
 			readOnly: rest.readOnly,
 			value: rest.value,
@@ -127,18 +155,14 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};
 
-	const compatibilityProps = {
-		highlightedSectionIndex: rest.focusedSectionIndex,
-		highlightedItemIndex: rest.focusedItemIndex,
-	};
-
 	const autowhateverProps = {
 		...defaultRenderersProps,
 		...rest,
-		...compatibilityProps,
 		...sectionProps,
 		...themeProps,
 		...inputProps,
+		highlightedSectionIndex: rest.onKeyDown ? rest.focusedSectionIndex : highlightedSectionIndex,
+		highlightedItemIndex: rest.onKeyDown ? rest.focusedItemIndex : highlightedItemIndex,
 		items: getItems(rest.items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
 			onMouseDown: event => event.preventDefault(),

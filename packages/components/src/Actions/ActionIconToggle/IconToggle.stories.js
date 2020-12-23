@@ -1,14 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import ActionIconToggle from './ActionIconToggle.component';
-import IconsProvider from '../../IconsProvider';
-
-const icons = {
-	'talend-panel-opener-right': talendIcons['talend-panel-opener-right'],
-};
 
 const inactiveIconToggle = {
 	icon: 'talend-panel-opener-right',
@@ -69,12 +63,7 @@ class DisableActionIconToggle extends React.Component {
 }
 
 storiesOf('Buttons/IconToggle', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('disable the buttons', () => (
 		<div>
 			<DisableActionIconToggle />

@@ -49,3 +49,4 @@ tmp/
 lib/
 storybook-static/
 dist/
+i18n-extract/

@@ -3,11 +3,9 @@ import React from 'react';
 import random from 'lodash/random';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
-import talendIcons from '@talend/icons/dist/react';
 
 import { SortIndicator } from 'react-virtualized';
 
-import IconsProvider from '../IconsProvider';
 import VirtualizedList from '.';
 
 function MyCustomRow(props) {
@@ -30,28 +28,6 @@ function NoRowsRenderer() {
 		</span>
 	);
 }
-
-const icons = {
-	'talend-badge': talendIcons['talend-badge'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-cog': talendIcons['talend-cog'],
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-expanded': talendIcons['talend-expanded'],
-	'talend-file': talendIcons['talend-file'],
-	'talend-file-json-o': talendIcons['talend-file-json-o'],
-	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
-	'talend-files-o': talendIcons['talend-files-o'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-icons': talendIcons['talend-icons'],
-	'talend-pencil': talendIcons['talend-pencil'],
-	'talend-plus': talendIcons['talend-plus'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-search': talendIcons['talend-search'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-table': talendIcons['talend-table'],
-	'talend-tiles': talendIcons['talend-tiles'],
-	'talend-trash': talendIcons['talend-trash'],
-};
 
 const titleProps = {
 	onClick: action('onTitleClick'),
@@ -425,7 +401,7 @@ function CollapsiblePanels(props) {
 	return (
 		<div>
 			<h1>Virtualized List with Collapsible Panels</h1>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '90vh' }}>
 				<VirtualizedList
 					collection={cpCollection}
@@ -473,7 +449,7 @@ storiesOf('Data/List/VirtualizedList', module)
 .virtualized-list div.tc-list-cell-created,
 .virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
 			</pre>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" />
@@ -499,7 +475,7 @@ storiesOf('Data/List/VirtualizedList', module)
 	.add('List > Table with radio button title', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List with radio button title</h1>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
@@ -523,7 +499,7 @@ storiesOf('Data/List/VirtualizedList', module)
 	.add('List > Table with label author', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List with radio button title</h1>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id="my-list">
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
@@ -544,7 +520,7 @@ storiesOf('Data/List/VirtualizedList', module)
 				You can enable sort by passing <b>sort</b>, <b>sortBy</b> and <b>sortDirection</b>.<br />
 				To disable sort on a column, add the <b>disableSort</b> props (see Description column).
 			</p>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
@@ -583,7 +559,7 @@ storiesOf('Data/List/VirtualizedList', module)
 				function that returns if a row is selected.
 			</p>
 			<pre>{'isSelected={item => item.id === 6}'}</pre>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
@@ -619,7 +595,7 @@ storiesOf('Data/List/VirtualizedList', module)
 				that returns if a row is active.
 			</p>
 			<pre>{'isActive={item => item.id === 6}'}</pre>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
@@ -655,7 +631,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<pre>
 				{'getRowState={row => (row.id === 2 ? { disabled: true, tooltip: "Houlala" } : null)'}
 			</pre>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
@@ -689,7 +665,7 @@ storiesOf('Data/List/VirtualizedList', module)
 				<br />
 				Also you have to give the proper header renderer, <b>HeaderResizable</b>.<br />
 			</p>
-			<IconsProvider defaultIcons={icons} />
+
 			<section>
 				<VirtualizedList collection={collection} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" width={40} />
@@ -749,7 +725,7 @@ storiesOf('Data/List/VirtualizedList', module)
 				The row height is by default <b>135px</b> but can be customized by passing a<b>rowHeight</b>{' '}
 				props.
 			</p>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
@@ -783,7 +759,7 @@ storiesOf('Data/List/VirtualizedList', module)
 				function that returns if a row is selected.
 			</p>
 			<pre>{'isSelected={item => item.id === 6}'}</pre>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
@@ -820,7 +796,7 @@ storiesOf('Data/List/VirtualizedList', module)
 				that returns if a row is active.
 			</p>
 			<pre>{'isActive={item => item.id === 6}'}</pre>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
@@ -865,7 +841,7 @@ storiesOf('Data/List/VirtualizedList', module)
 .virtualized-list div.tc-list-cell-created,
 .virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
 			</pre>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id="my-list" disableHeader>
 					<VirtualizedList.Text label="Id" dataKey="id" />
@@ -896,7 +872,7 @@ storiesOf('Data/List/VirtualizedList', module)
 				also the icon name and tooltip label should be provided in list item rowData (in{' '}
 				<b>collection</b> items)
 			</p>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collectionWithTooltipLabel} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" />
@@ -955,7 +931,7 @@ storiesOf('Data/List/VirtualizedList', module)
 	.add('List > custom noRowsRenderer', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={[]} id="my-list" noRowsRenderer={NoRowsRenderer}>
 					<VirtualizedList.Text label="Id" dataKey="id" />
@@ -978,7 +954,7 @@ storiesOf('Data/List/VirtualizedList', module)
 	.add('List > custom rowRenderers', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
-			<IconsProvider defaultIcons={icons} />
+
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collectionWithTooltipLabel}

@@ -1,14 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import Action from '../Action';
-import IconsProvider from '../../IconsProvider';
-
-const icons = {
-	'talend-upload': talendIcons['talend-upload'],
-};
 
 const myAction = {
 	label: 'Click me',
@@ -19,12 +13,7 @@ const myAction = {
 };
 
 storiesOf('Buttons/File', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>

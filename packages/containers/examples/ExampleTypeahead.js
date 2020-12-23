@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { Typeahead } from '../src';
 
 const view = {
@@ -19,11 +19,13 @@ const view = {
 			suggestions: [
 				{
 					title: 'le title 1',
-					description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
+					description:
+						'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 				},
 				{
 					title: 'title 2 Les elephants elementaires ont des aile ',
-					description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+					description:
+						'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 				},
 			],
 		},
@@ -36,7 +38,8 @@ const view = {
 			suggestions: [
 				{
 					title: 'title 3',
-					description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
+					description:
+						'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
 				},
 			],
 		},
@@ -49,15 +52,18 @@ const view = {
 			suggestions: [
 				{
 					title: 'title 4',
-					description: 'description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.',
+					description:
+						'description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.',
 				},
 				{
 					title: 'title 5',
-					description: 'description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.',
+					description:
+						'description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.',
 				},
 				{
 					title: 'title 6',
-					description: 'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
+					description:
+						'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
 				},
 				{
 					title: 'without description',
@@ -71,12 +77,7 @@ const view = {
 };
 
 const ExampleTypeahead = {
-	default: () => (
-		<div>
-			<IconsProvider />
-			<Typeahead {...view} />
-		</div>
-	),
+	default: () => <Typeahead {...view} />,
 };
 
 export default ExampleTypeahead;

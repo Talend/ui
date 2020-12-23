@@ -54,6 +54,7 @@ function DefaultArrayTemplate(props) {
 				descriptionId={descriptionId}
 				errorId={errorId}
 			/>
+			{/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
 			<ol
 				id={id}
 				className={classNames(theme['tf-array'], 'tf-array')}
@@ -86,6 +87,7 @@ function DefaultArrayTemplate(props) {
 DefaultArrayTemplate.defaultProps = {
 	isCloseable: false,
 };
+DefaultArrayTemplate.ArrayItem = ArrayItem;
 
 if (process.env.NODE_ENV !== 'production') {
 	DefaultArrayTemplate.propTypes = {

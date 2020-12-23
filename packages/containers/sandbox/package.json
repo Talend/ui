@@ -20,7 +20,8 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts": "file:../../scripts",
+    "@talend/scripts-core": "^6.8.0",
+    "@talend/scripts-preset-react": "^6.8.0",
     "compression": "^1.7.3",
     "express": "^4.16.4"
   },
@@ -28,15 +29,15 @@
     "@talend/bootstrap-theme": "link:../../theme",
     "@talend/icons": "link:../../icons",
     "@talend/react-cmf": "link:../../cmf",
-    "@talend/react-cmf-router": "3.1.1",
+    "@talend/react-cmf-router": "3.5.1",
     "@talend/react-components": "link:../../components",
     "@talend/react-containers": "link:../../containers",
     "@talend/react-forms": "link:../../forms",
     "i18next": "^15.1.3",
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
+    "react": "^16.13.1",
     "react-ace": "6.2.0",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.13.1",
     "react-i18next": "^10.11.4",
     "redux-logger": "^3.0.6"
   }

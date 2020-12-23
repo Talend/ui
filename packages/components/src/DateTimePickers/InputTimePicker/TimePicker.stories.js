@@ -1,32 +1,36 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
-import IconsProvider from '../../IconsProvider';
 
 import InputTimePicker from './InputTimePicker.component';
 import TimePicker from '../pickers/TimePicker';
 
-const icons = {
-	'talend-info-circle': talendIcons['talend-info-circle'],
-};
-
 storiesOf('Form/Controls/DatePicker/Time', module)
 	.addDecorator(story => (
-		<>
-			<IconsProvider defaultIcons={icons} />
-			<form
-				onSubmit={event => {
-					event.persist();
-					event.preventDefault();
-					action('submit')(event);
-				}}
-			>
-				{story()}
-			</form>
-		</>
+		<form
+			onSubmit={event => {
+				event.persist();
+				event.preventDefault();
+				action('submit')(event);
+			}}
+		>
+			{story()}
+		</form>
 	))
-	.add('Input', () => <InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} />)
+	.add('Input', () => {
+		return (
+			<div>
+				<div>
+					<p>Default</p>
+					<InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} />
+				</div>
+				<div>
+					<p>minWidth</p>
+					<InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} minWidth={200} />
+				</div>
+			</div>
+		);
+	})
 	.add('Picker', () => {
 		const containerStyle = {
 			overflow: 'auto',

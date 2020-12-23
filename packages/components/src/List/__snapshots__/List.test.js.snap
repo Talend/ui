@@ -874,11 +874,7 @@ exports[`List should render 1`] = `
                                     focusable="false"
                                     name="talend-chevron-end"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-chevron-end"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </a>
                             </SafeAnchor>
@@ -919,11 +915,7 @@ exports[`List should render 1`] = `
                                     focusable="false"
                                     name="talend-chevron-left"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-chevron-left"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </a>
                             </SafeAnchor>
@@ -974,11 +966,7 @@ exports[`List should render 1`] = `
                                     focusable="false"
                                     name="talend-chevron-left"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-chevron-left"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </a>
                             </SafeAnchor>
@@ -1020,11 +1008,7 @@ exports[`List should render 1`] = `
                                     focusable="false"
                                     name="talend-chevron-end"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-chevron-end"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </a>
                             </SafeAnchor>
@@ -1878,11 +1862,7 @@ exports[`List should render id if provided 1`] = `
                                     focusable="false"
                                     name="talend-chevron-end"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-chevron-end"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </a>
                             </SafeAnchor>
@@ -1926,11 +1906,7 @@ exports[`List should render id if provided 1`] = `
                                     focusable="false"
                                     name="talend-chevron-left"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-chevron-left"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </a>
                             </SafeAnchor>
@@ -1984,11 +1960,7 @@ exports[`List should render id if provided 1`] = `
                                     focusable="false"
                                     name="talend-chevron-left"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-chevron-left"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </a>
                             </SafeAnchor>
@@ -2033,11 +2005,7 @@ exports[`List should render id if provided 1`] = `
                                     focusable="false"
                                     name="talend-chevron-end"
                                     title={null}
-                                  >
-                                    <use
-                                      xlinkHref="#talend-chevron-end"
-                                    />
-                                  </svg>
+                                  />
                                 </Icon>
                               </a>
                             </SafeAnchor>

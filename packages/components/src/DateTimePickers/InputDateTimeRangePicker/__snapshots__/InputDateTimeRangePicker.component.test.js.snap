@@ -353,11 +353,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             focusable="false"
             name="talend-arrow-right"
             title={null}
-          >
-            <use
-              xlinkHref="#talend-arrow-right"
-            />
-          </svg>
+          />
         </Icon>
       </span>
       <div>
@@ -1079,11 +1075,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
             focusable="false"
             name="talend-arrow-right"
             title={null}
-          >
-            <use
-              xlinkHref="#talend-arrow-right"
-            />
-          </svg>
+          />
         </Icon>
       </span>
       <div>

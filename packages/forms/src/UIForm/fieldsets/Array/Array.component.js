@@ -4,7 +4,6 @@ import { head, get } from 'lodash';
 import Widget from '../../Widget';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
 import defaultTemplates from '../../utils/templates';
-import defaultWidgets from '../../utils/widgets';
 import { getArrayElementSchema } from '../../utils/array';
 
 function getRange(previousIndex, nextIndex) {
@@ -113,7 +112,7 @@ export default class ArrayWidget extends React.Component {
 
 	isCloseable() {
 		const widgetId = this.props.schema.itemWidget;
-		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
+		const itemWidget = this.props.widgets[widgetId];
 		if (!itemWidget) {
 			return false;
 		}

@@ -6,7 +6,7 @@ import invariant from 'invariant';
 import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import getLocale from '../../DateFnsLocale/locale';
+import getLocale from '../../i18n/DateFnsLocale/locale';
 import styles from './CellDatetime.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 

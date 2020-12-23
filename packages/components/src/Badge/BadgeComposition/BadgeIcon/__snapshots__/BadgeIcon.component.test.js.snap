@@ -6,7 +6,5 @@ exports[`BadgeIcon should default render 1`] = `
      focusable="false"
      aria-hidden="true"
 >
-  <use xlink:href="#my icon name">
-  </use>
 </svg>
 `;

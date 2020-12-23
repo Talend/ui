@@ -31,11 +31,7 @@ exports[`Header should render header with one button 1`] = `
         focusable="false"
         name="talend-search"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-search"
-        />
-      </svg>
+      />
     </button>
   </div>
 </header>

@@ -1,20 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
 
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import { InputDateTimePicker } from '../DateTimePickers';
-import IconsProvider from '../IconsProvider';
 import GridLayout from '.';
-
-const icons = {
-	'talend-filter': talendIcons['talend-filter'],
-	'talend-user-circle': talendIcons['talend-user-circle'],
-	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
-};
 
 export const customSkeletonConf = [
 	{ key: 'skel1', 'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'skel1' } },
@@ -206,12 +198,6 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 }
 
 storiesOf('Layout/Dashboard', module)
-	.addDecorator(story => (
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-		</div>
-	))
 	.add('default', () => <GridContainer />)
 	.add('not draggable', () => <GridContainer isDraggable={false} />)
 	.add('not resizable', () => <GridContainer isResizable={false} />)

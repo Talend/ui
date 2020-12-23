@@ -14,13 +14,13 @@ function ColumnChooser(props) {
 				hidden: !visibleColumns?.includes(dataKey),
 				order: i + 1,
 			}))}
+			{...props}
 			onSubmit={(_, changes) => {
 				setVisibleColumns(changes.filter(c => !c.hidden).map(c => c.key));
 				if (props.onSubmit) {
 					props.onSubmit(_, changes);
 				}
 			}}
-			{...props}
 		/>
 	);
 }

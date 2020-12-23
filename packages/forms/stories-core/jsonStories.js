@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import { action } from '@storybook/addon-actions';
-import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm } from '../src/UIForm';
 import Enumeration from '../src/UIForm/fields/Enumeration';
 import { PRESIGNED_URL_TRIGGER_ACTION } from '../src/UIForm/fields/File/File.component';
@@ -16,6 +15,14 @@ const stories = [];
 
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function stringToB64(string) {
+	return window.btoa(
+		encodeURIComponent(string).replace(/%([0-9A-F]{2})/g, (match, p1) => {
+			return String.fromCharCode(`0x${p1}`);
+		}),
+	);
 }
 
 function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
@@ -179,7 +186,7 @@ function createCommonProps(tab) {
 							resolve({
 								properties: properties => ({
 									...properties,
-									[key]: `${uuid.v4()}.${btoa(name)}`,
+									[key]: `${uuid.v4()}.${stringToB64(name)}`,
 								}),
 							}),
 						3000,
@@ -213,7 +220,6 @@ class DisplayModeForm extends React.Component {
 	render() {
 		return (
 			<section>
-				<IconsProvider />
 				{this.props.doc && (
 					<a
 						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${this.props.category}/${this.props.doc}`}

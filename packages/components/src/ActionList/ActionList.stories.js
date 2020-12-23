@@ -1,18 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 import ActionList from './ActionList.component';
-import IconsProvider from '../IconsProvider';
-
-const icons = {
-	'talend-clock': talendIcons['talend-clock'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-badge': talendIcons['talend-badge'],
-	'talend-expanded': talendIcons['talend-expanded'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-tdp-negative': talendIcons['talend-tdp-negative'],
-};
 
 const actions = [
 	{
@@ -57,12 +46,6 @@ const actions = [
 const stories = storiesOf('Navigation/ActionList', module);
 
 stories
-	.addDecorator(story => (
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-		</div>
-	))
 	.add('default', () => (
 		<div style={{ display: 'inline-table' }}>
 			<ActionList

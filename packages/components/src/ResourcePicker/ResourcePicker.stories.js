@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ResourcePicker from '.';
-import IconsProvider from '../IconsProvider';
 
 const collection = [
 	{
@@ -134,12 +133,6 @@ const props = {
 };
 
 storiesOf('Form/Controls/ResourcePicker', module)
-	.addDecorator(story => (
-		<section>
-			<IconsProvider />
-			{story()}
-		</section>
-	))
 	.add('default', () => (
 		<div>
 			<p>By default :</p>

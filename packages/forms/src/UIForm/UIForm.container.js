@@ -91,7 +91,7 @@ export default class UIForm extends React.Component {
 	 * Update live and initialState with the new schema
 	 * @param nextProps
 	 */
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.data !== this.props.data) {
 			this.setState(reinitLiveState(nextProps.data));
 		}
