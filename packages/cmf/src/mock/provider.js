@@ -58,11 +58,6 @@ MockProvider.propTypes = {
 	registry: PropTypes.object,
 };
 
-MockProvider.childContextTypes = {
-	store: PropTypes.object,
-	registry: PropTypes.object,
-};
-
 MockProvider.getEnzymeOption = context => ({
 	wrappingComponent: MockProvider,
 	wrappingComponentProps: context,

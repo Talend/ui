@@ -13,6 +13,6 @@ export function* waitFor(id, interval = 10) {
 		if (collection !== undefined) {
 			break;
 		}
-		yield call(delay, interval);
+		yield delay(interval);
 	}
 }

@@ -15,7 +15,7 @@ describe('waitFor', () => {
 		const withCollection = withoutCollection.cmf.collections.set('foo', new Immutable.Map({}));
 		const gen = waitFor('foo');
 		expect(gen.next().value).toEqual(select(selectors.collections.get, 'foo'));
-		expect(gen.next().value).toEqual(call(delay, 10));
+		expect(gen.next().value).toEqual(delay(10));
 		expect(gen.next().value).toEqual(select(selectors.collections.get, 'foo'));
 		expect(gen.next(withCollection).value).toBeUndefined();
 	});

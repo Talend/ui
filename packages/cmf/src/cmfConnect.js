@@ -327,12 +327,6 @@ export default function cmfConnect({
 		CMFContainer.propTypes = {
 			...cmfConnect.propTypes,
 		};
-		CMFContainer.contextTypes = {
-			store: PropTypes.object,
-			registry: PropTypes.object,
-			router: PropTypes.object,
-		};
-
 		CMFContainer.WrappedComponent = WrappedComponent;
 		CMFContainer.getState = getState;
 

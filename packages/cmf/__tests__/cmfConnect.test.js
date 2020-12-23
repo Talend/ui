@@ -222,7 +222,7 @@ describe('cmfConnect', () => {
 			const CMFConnected = cmfConnect({})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
-			const wrapper = mount(<CMFConnected />, mock.Provider.getEnzymeOption(context));
+			const wrapper = mount(<CMFConnected />, mock.Provider.getEnzymeOption(mock.store.context()));
 			expect(wrapper.find('CMF(TestComponent)').props()).toMatchSnapshot();
 		});
 
@@ -318,7 +318,7 @@ describe('cmfConnect', () => {
 			expect(call[1]).toBe(event);
 			expect(call[2]).toBe(data);
 			expect(call[3].registry).toBe(context.registry);
-			expect(call[3].store).toBe(context.store);
+			expect(call[3].store.store).toMatchObject(context.store);
 		});
 
 		it('should pass defaultState when there is no component state in store', () => {
@@ -327,7 +327,7 @@ describe('cmfConnect', () => {
 			const defaultState = new Map({ toto: 'lol' });
 			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
 
-			const wrapper = mount(<CMFConnected />, mock.Provider.getEnzymeOption(mock.context()));
+			const wrapper = mount(<CMFConnected />, mock.Provider.getEnzymeOption(mock.store.context()));
 
 			expect(wrapper.find(TestComponent).props().state).toBe(defaultState);
 		});
@@ -346,7 +346,7 @@ describe('cmfConnect', () => {
 				saga: 'saga',
 			};
 			const context = mock.store.context();
-			const instance = mount(<CMFConnected.CMFContainer {...props} />, mock.Provider.getEnzymeOption(context));
+			mount(<CMFConnected.CMFContainer {...props} />, mock.Provider.getEnzymeOption(context));
 			expect(props.dispatchActionCreator).toHaveBeenCalled();
 			const callSagaActionCreator = props.dispatchActionCreator.mock.calls[0];
 			const callDidMountActionCreator = props.dispatchActionCreator.mock.calls[1];
@@ -357,9 +357,9 @@ describe('cmfConnect', () => {
 			});
 			expect(callDidMountActionCreator[0]).toBe('hello');
 			expect(callDidMountActionCreator[1]).toBe(null);
-			expect(callDidMountActionCreator[2]).toBe(props);
-			expect(callDidMountActionCreator[3].registry).toBe(instance.context.registry);
-			expect(callDidMountActionCreator[3].store).toBe(instance.context.store);
+			expect(callDidMountActionCreator[2]).toEqual(props);
+			expect(callDidMountActionCreator[3].registry).toBe(context.registry);
+			expect(callDidMountActionCreator[3].store.store).toMatchObject(context.store);
 
 			expect(props.initState).toHaveBeenCalled();
 			expect(props.initState.mock.calls[0][0]).toBe(props.initialState);
@@ -374,7 +374,7 @@ describe('cmfConnect', () => {
 				dispatchActionCreator: jest.fn(),
 			};
 			const context = mock.store.context();
-			const instance = mount(<CMFConnected.CMFContainer {...props} />, mock.Provider.getEnzymeOption(context));
+			mount(<CMFConnected.CMFContainer {...props} />, mock.Provider.getEnzymeOption(context));
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.start',
 				{ type: 'DID_MOUNT', componentId: '42' },
@@ -382,7 +382,12 @@ describe('cmfConnect', () => {
 					componentId: 'default',
 					saga: 'hello',
 				}),
-				instance.context,
+				expect.objectContaining({
+					store: expect.objectContaining({
+						store: context.store
+					}),
+					registry: context.registry,
+				})
 			);
 		});
 
@@ -401,8 +406,13 @@ describe('cmfConnect', () => {
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.stop',
 				{ type: 'WILL_UNMOUNT', componentId: '42' },
-				instance.props,
-				instance.context,
+				props,
+				expect.objectContaining({
+					store: expect.objectContaining({
+						store: context.store
+					}),
+					registry: context.registry,
+				})
 			);
 		});
 
@@ -420,15 +430,15 @@ describe('cmfConnect', () => {
 			context.registry = {
 				'actionCreator:bye': jest.fn(),
 			};
-			const instance = mount(<CMFConnected {...props} />, mock.Provider.getEnzymeOption(context));
+			const instance = mount(<CMFConnected.CMFContainer {...props} />, mock.Provider.getEnzymeOption(context));
 			instance.unmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalled();
 			const call = props.dispatchActionCreator.mock.calls[0];
 			expect(call[0]).toBe('bye');
 			expect(call[1]).toBe(null);
-			expect(call[2]).toBe(props);
-			expect(call[3].registry).toBe(instance.context.registry);
-			expect(call[3].store).toBe(instance.context.store);
+			expect(call[2]).toEqual(props);
+			expect(call[3].registry).toBe(context.registry);
+			expect(call[3].store.store).toBe(context.store);
 
 			expect(props.deleteState).toHaveBeenCalled();
 			expect(props.deleteState.mock.calls[0][0]).toBe();
