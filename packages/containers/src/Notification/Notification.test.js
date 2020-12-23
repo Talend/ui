@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import { mock } from '@talend/react-cmf';
 import Immutable, { fromJS } from 'immutable';
 import Container from './Notification.container';
@@ -13,15 +13,9 @@ jest.mock('@talend/react-components/lib/Notification', () => props => (
 
 describe('Container Notification', () => {
 	it('should render', () => {
-		const { Provider } = mock;
-		const wrapper = renderer
-			.create(
-				<Provider>
-					<Container />
-				</Provider>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const context = mock.store.context();
+		const wrapper = mount(<Container />, mock.Provider.getEnzymeOption(context));
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 });
 
