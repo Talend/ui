@@ -35,9 +35,9 @@ class CMFStory extends React.Component {
 			props.sagaMiddleware.run(initSagaMiddleWare);
 		}
 		if (props.registry) {
-			this.registry = Object.assign(registry.getRegistry(), props.registry);
+			this.registry = { ...registry.getRegistry, ...props.registry };
 		} else {
-			this.registry = registry.getRegistry();
+			this.registry = registry.getRegistry() || {};
 		}
 	}
 
@@ -67,6 +67,7 @@ class CMFStory extends React.Component {
 
 CMFStory.propTypes = {
 	state: PropTypes.object,
+	registry: PropTypes.object,
 	children: PropTypes.node,
 	reducer: PropTypes.func,
 	enhancer: PropTypes.func,
