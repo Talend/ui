@@ -7,7 +7,10 @@ import Action, { mapStateToProps, mergeProps } from './Action.connect';
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {
 		const context = mock.store.context();
-		const wrapper = mount(<Action actionId="menu:article" extra="foo" />, mock.Provider.getEnzymeOption(context));
+		const wrapper = mount(
+			<Action actionId="menu:article" extra="foo" />,
+			mock.Provider.getEnzymeOption(context),
+		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

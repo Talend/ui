@@ -19,14 +19,20 @@ const localConfig = {
 		},
 	]),
 	list: {
-		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
+		columns: [
+			{ key: 'id', name: 'ID' },
+			{ key: 'value', name: 'Value' },
+		],
 	},
 };
 
 const state = mock.store.state();
 state.cmf.collections = fromJS({
 	default: {
-		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
+		columns: [
+			{ key: 'id', name: 'ID' },
+			{ key: 'value', name: 'Value' },
+		],
 		items: localConfig.items,
 	},
 });
