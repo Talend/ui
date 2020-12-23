@@ -117,7 +117,7 @@ exports[`Component HomeListView should render with object props 1`] = `
     />
   }
 >
-  <Connect(CMF(Container(List)))
+  <Memo(Connect(CMF(Container(List))))
     actions={Object {}}
     items={
       Immutable.List [
