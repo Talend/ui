@@ -8,47 +8,10 @@
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.component.js
   88:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
-/home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
-    1:8   error  'PropTypes' is defined but never used                   @typescript-eslint/no-unused-vars
-    2:8   error  'ImmutablePropTypes' is defined but never used          @typescript-eslint/no-unused-vars
-   93:22  error  'state' is missing in props validation                  react/prop-types
-   93:28  error  'state.toJS' is missing in props validation             react/prop-types
-   96:9   error  'setState' is missing in props validation               react/prop-types
-  100:9   error  'setState' is missing in props validation               react/prop-types
-  104:25  error  'getSelectedItems' was used before it was defined       @typescript-eslint/no-use-before-define
-  105:54  error  'idKey' is missing in props validation                  react/prop-types
-  107:10  error  'setState' is missing in props validation               react/prop-types
-  111:10  error  'setState' is missing in props validation               react/prop-types
-  112:50  error  'idKey' is missing in props validation                  react/prop-types
-  118:25  error  'getSelectedItems' was used before it was defined       @typescript-eslint/no-use-before-define
-  119:23  error  'items' is missing in props validation                  react/prop-types
-  120:36  error  'items.size' is missing in props validation             react/prop-types
-  121:10  error  'setState' is missing in props validation               react/prop-types
-  122:26  error  'items.map' is missing in props validation              react/prop-types
-  122:53  error  'idKey' is missing in props validation                  react/prop-types
-  125:10  error  'setState' is missing in props validation               react/prop-types
-  132:16  error  'state' is missing in props validation                  react/prop-types
-  132:22  error  'state.get' is missing in props validation              react/prop-types
-  137:10  error  'dispatchActionCreator' is missing in props validation  react/prop-types
-  143:63  error  'idKey' is missing in props validation                  react/prop-types
-  165:10  error  'dispatch' is missing in props validation               react/prop-types
-  168:25  error  'collectionId' is missing in props validation           react/prop-types
-  178:49  error  'displayMode' is missing in props validation            react/prop-types
-  199:25  error  'getComponent' is missing in props validation           react/prop-types
-  213:28  error  'getComponent' is missing in props validation           react/prop-types
-  235:11  error  'dispatch' is missing in props validation               react/prop-types
-  238:26  error  'collectionId' is missing in props validation           react/prop-types
-  246:11  error  'dispatch' is missing in props validation               react/prop-types
-  249:26  error  'collectionId' is missing in props validation           react/prop-types
-  254:11  error  'dispatch' is missing in props validation               react/prop-types
-  257:26  error  'collectionId' is missing in props validation           react/prop-types
-  268:44  error  'idKey' is missing in props validation                  react/prop-types
-  318:12  error  'dispatchActionCreator' is missing in props validation  react/prop-types
-
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:57  error  'notifications' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
   40:2  error  redirect should be placed after handleKeyPress  react/sort-comp
 
-✖ 40 problems (40 errors, 0 warnings)
+✖ 5 problems (5 errors, 0 warnings)
