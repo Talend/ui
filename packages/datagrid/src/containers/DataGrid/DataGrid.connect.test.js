@@ -8,6 +8,8 @@ describe('#ConnectedDataGrid', () => {
 	it('should render a connected DataGrid', () => {
 		const context = mock.store.context();
 		const wrapper = mount(<ConnectedDataGrid />, mock.Provider.getEnzymeOption(context));
-		expect(wrapper.find(ConnectedDataGrid.CMFContainer).type().displayName).toBe('CMF(Container(DataGrid))');
+		expect(wrapper.find(ConnectedDataGrid.CMFContainer).type().displayName).toBe(
+			'CMF(Container(DataGrid))',
+		);
 	});
 });

@@ -42,7 +42,7 @@ describe('Container ACKDispatcher', () => {
 		}
 
 		registry['actionCreator:myActionCreator'] = myActionCreator;
-		mount(<Container acks={Map()} />, mock.Provider.getEnzymeOption({ registry}));
+		mount(<Container acks={Map()} />, mock.Provider.getEnzymeOption({ registry }));
 		expect(mockProcessACK).toHaveBeenCalled();
 	});
 	it('should processACK call dispatch', () => {
