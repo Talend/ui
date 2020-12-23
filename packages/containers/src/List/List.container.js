@@ -182,14 +182,10 @@ function List(props) {
 			newProps.list.titleProps.onClick = getGenericDispatcher(newProps.actions.title);
 		}
 		if (newProps.actions.editSubmit) {
-			newProps.list.titleProps.onEditSubmit = getGenericDispatcher(
-				newProps.actions.editSubmit,
-			);
+			newProps.list.titleProps.onEditSubmit = getGenericDispatcher(newProps.actions.editSubmit);
 		}
 		if (newProps.actions.editCancel) {
-			newProps.list.titleProps.onEditCancel = getGenericDispatcher(
-				newProps.actions.editCancel,
-			);
+			newProps.list.titleProps.onEditCancel = getGenericDispatcher(newProps.actions.editCancel);
 		}
 	}
 
@@ -280,9 +276,11 @@ function List(props) {
 		const multiSelectActions = newProps.multiSelectActions;
 		if (multiSelectActions) {
 			if (multiSelectActions.left) {
-				newProps.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(action => ({
-					actionId: action,
-				}));
+				newProps.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(
+					action => ({
+						actionId: action,
+					}),
+				);
 			}
 			if (multiSelectActions.right) {
 				newProps.toolbar.actionBar.multiSelectActions.right = multiSelectActions.right.map(
@@ -294,7 +292,9 @@ function List(props) {
 		}
 		if (actions) {
 			if (actions.left) {
-				newProps.toolbar.actionBar.actions.left = actions.left.map(action => ({ actionId: action }));
+				newProps.toolbar.actionBar.actions.left = actions.left.map(action => ({
+					actionId: action,
+				}));
 			}
 			if (actions.right) {
 				newProps.toolbar.actionBar.actions.right = actions.right.map(action => ({
