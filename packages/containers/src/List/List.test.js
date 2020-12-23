@@ -24,7 +24,10 @@ const toolbar = {
 		placeholder: 'find an object',
 	},
 	sort: {
-		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'name', name: 'Name' },
+		],
 		field: 'id',
 		isDescending: false,
 	},
@@ -87,7 +90,7 @@ describe('Container List', () => {
 	it('should put default props', () => {
 		const wrapper = mount(
 			<Container {...cloneDeep(settings)} items={items} />,
-			mock.Provider.getEnzymeOption(mock.store.context)
+			mock.Provider.getEnzymeOption(mock.store.context),
 		);
 		const props = wrapper.find('List').props();
 		expect(props.displayMode).toBe('table');
@@ -116,7 +119,7 @@ describe('Container List', () => {
 				getComponent={getComponent}
 				items={fromJS([])}
 			/>,
-			mock.Provider.getEnzymeOption(mock.store.context)
+			mock.Provider.getEnzymeOption(mock.store.context),
 		);
 		const props = wrapper.find('List').props();
 
@@ -139,7 +142,7 @@ describe('Container List', () => {
 				items={fromJS([])}
 				headerDictionary={{ custom: { component: 'componentId' } }}
 			/>,
-			mock.Provider.getEnzymeOption(mock.store.context)
+			mock.Provider.getEnzymeOption(mock.store.context),
 		);
 		const props = wrapper.find('List').props();
 
@@ -155,7 +158,10 @@ describe('Container List', () => {
 		multiSelectionSetting.multiSelectActions = {
 			left: ['object:remove'],
 		};
-		const wrapper = mount(<Container {...multiSelectionSetting} items={items} />, mock.Provider.getEnzymeOption(mock.store.context()));
+		const wrapper = mount(
+			<Container {...multiSelectionSetting} items={items} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
 		const props = wrapper.props();
 		expect(typeof props.list.itemProps.onToggle).toBe('function');
 		expect(typeof props.list.itemProps.onToggleAll).toBe('function');
@@ -163,13 +169,20 @@ describe('Container List', () => {
 	});
 
 	it('should render without toolbar', () => {
-		const wrapper = mount(<Container items={items} />, mock.Provider.getEnzymeOption(mock.store.context()), mock.Provider.getEnzymeOption(mock.store.context()));
+		const wrapper = mount(
+			<Container items={items} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
 		const props = wrapper.props();
 		expect(props.toolbar).toBe(undefined);
 	});
 
 	it('should support displayMode as props', () => {
-		const wrapper = mount(<Container displayMode="large" items={items} />, mock.Provider.getEnzymeOption(mock.store.context()));
+		const wrapper = mount(
+			<Container displayMode="large" items={items} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
 	});
@@ -188,7 +201,7 @@ describe('Container List', () => {
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
-			mock.Provider.getEnzymeOption(context)
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		const onClick = props.list.titleProps.onClick;
@@ -218,7 +231,7 @@ describe('Container List', () => {
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
-			mock.Provider.getEnzymeOption(context)
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		const onEditSubmit = props.list.titleProps.onEditSubmit;
@@ -248,7 +261,7 @@ describe('Container List', () => {
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
-			mock.Provider.getEnzymeOption(context)
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		const onEditCancel = props.list.titleProps.onEditCancel;
@@ -282,7 +295,7 @@ describe('Container List', () => {
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
-			mock.Provider.getEnzymeOption(context)
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		expect(props.list.titleProps.onClick).toBeUndefined();
@@ -305,7 +318,7 @@ describe('Container List', () => {
 				dispatchActionCreator={dispatchActionCreator}
 				setState={setState}
 			/>,
-			mock.Provider.getEnzymeOption(context)
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		const event = null;
@@ -317,7 +330,12 @@ describe('Container List', () => {
 		props.toolbar.pagination.onChange(data.startIndex, data.itemsPerPage);
 
 		// then
-		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, expect.objectContaining(context));
+		expect(dispatchActionCreator).toBeCalledWith(
+			'pagination:change',
+			event,
+			data,
+			expect.objectContaining(context),
+		);
 	});
 
 	it('should set the proper rowHeight', () => {
@@ -402,7 +420,10 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [] });
 			multiSelectionSetting.state = state;
-			const wrapper = mount(<Container {...multiSelectionSetting} items={items} />, mock.Provider.getEnzymeOption(mock.store.context()));
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// when
 			wrapper.find('List').props().list.itemProps.onToggle({}, { id: 1 });
 			// then
@@ -421,7 +442,10 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [1] });
 			multiSelectionSetting.state = state;
-			const wrapper = mount(<Container {...multiSelectionSetting} items={items} />, mock.Provider.getEnzymeOption(mock.store.context()));
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// when
 			wrapper.find('List').props().list.itemProps.onToggle({}, { id: 1 });
 			// then
@@ -439,7 +463,10 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [] });
 			multiSelectionSetting.state = state;
-			const wrapper = mount(<Container {...multiSelectionSetting} items={items} />, mock.Provider.getEnzymeOption(mock.store.context()));
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// when
 			wrapper.find('List').props().list.itemProps.onToggleAll();
 			// then
@@ -459,7 +486,10 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [1, 2, 3] });
 			multiSelectionSetting.state = state;
-			const wrapper = mount(<Container {...multiSelectionSetting} items={items} />, mock.Provider.getEnzymeOption(mock.store.context()));
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// when
 			wrapper.find('List').props().list.itemProps.onToggleAll();
 			// then
@@ -480,7 +510,10 @@ describe('Container List', () => {
 			multiSelectionSetting.state = state;
 
 			// when
-			const wrapper = mount(<Container {...multiSelectionSetting} items={items} />, mock.Provider.getEnzymeOption(mock.store.context()));
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// then
 			expect(wrapper.props().toolbar.actionBar.selected).toBe(3);
 		});
