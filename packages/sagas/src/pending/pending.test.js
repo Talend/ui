@@ -33,7 +33,7 @@ describe('test pending status', () => {
 		const gen = pendingMaybeNeeded('', 'streams:create');
 		let pendersCollection = new Map();
 
-		expect(gen.next().value).toEqual(call(delay, PENDING_DELAY_TO_SHOW));
+		expect(gen.next().value).toEqual(delay(PENDING_DELAY_TO_SHOW));
 		expect(gen.next().value).toEqual(call(ensurePendersCollectionExists));
 		expect(gen.next().value).toEqual(select(findPenders));
 

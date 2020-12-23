@@ -39,7 +39,7 @@ export default function* pendingMaybeNeeded(asyncCallerId, actionId) {
 	let pending = false;
 
 	try {
-		yield call(delay, PENDING_DELAY_TO_SHOW);
+		yield delay(PENDING_DELAY_TO_SHOW);
 		pending = true;
 		yield call(ensurePendersCollectionExists);
 		let pendersCollection = yield select(findPenders);
