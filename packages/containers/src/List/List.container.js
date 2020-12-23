@@ -100,6 +100,10 @@ function List(props) {
 		props.setState({ displayMode: payload });
 	}
 
+	function getSelectedItems() {
+		return props.state.get('selectedItems', new ImmutableList());
+	}
+
 	function onToggleMultiSelection(event, data) {
 		const selectedItems = getSelectedItems();
 		const dataIndex = selectedItems.indexOf(data[props.idKey]);
@@ -126,10 +130,6 @@ function List(props) {
 				selectedItems: new ImmutableList([]),
 			});
 		}
-	}
-
-	function getSelectedItems() {
-		return props.state.get('selectedItems', new ImmutableList());
 	}
 
 	function getGenericDispatcher(property) {
@@ -175,7 +175,7 @@ function List(props) {
 	}
 
 	if (newProps.rowHeight) {
-		newProps.rowHeight = newProps.rowHeight[props.displayMode];
+		newProps.rowHeight = newProps.rowHeight[newProps.displayMode];
 	}
 	if (newProps.list.titleProps && newProps.actions.title) {
 		if (newProps.actions.title) {
@@ -325,7 +325,42 @@ function List(props) {
 			}
 		}
 	}
-	return <Component {...props} />;
+	return <Component {...newProps} />;
 }
+
+List.displayName = 'Container(List)';
+List.propTypes = {
+	actions: PropTypes.shape({
+		title: PropTypes.string,
+		left: PropTypes.arrayOf(PropTypes.string),
+		right: PropTypes.arrayOf(PropTypes.string),
+	}),
+	multiSelectActions: PropTypes.shape({
+		title: PropTypes.string,
+		left: PropTypes.arrayOf(PropTypes.string),
+		right: PropTypes.arrayOf(PropTypes.string),
+	}),
+	idKey: PropTypes.string,
+	list: PropTypes.shape({
+		columns: PropTypes.array,
+		titleProps: PropTypes.object,
+	}),
+	toolbar: PropTypes.shape({
+		sort: PropTypes.object,
+		filter: PropTypes.object,
+		pagination: PropTypes.shape({
+			onChange: PropTypes.func,
+		}),
+	}),
+	cellDictionary: PropTypes.object,
+	displayMode: PropTypes.string,
+	items: ImmutablePropTypes.list.isRequired,
+	state: cmfConnect.propTypes.state,
+	...cmfConnect.propTypes,
+};
+
+List.defaultProps = {
+	state: DEFAULT_STATE,
+};
 
 export default List;

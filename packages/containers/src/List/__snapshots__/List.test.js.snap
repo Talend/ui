@@ -212,10 +212,12 @@ Object {
       "onChange": [Function],
     },
     "titleProps": Object {
+      "actionsKey": "actions",
       "key": "label",
       "onClick": [Function],
       "onEditCancel": [Function],
       "onEditSubmit": [Function],
+      "persistentActionsKey": "persistentActions",
     },
   },
   "toolbar": Object {
@@ -228,6 +230,7 @@ Object {
         "large",
         "table",
       ],
+      "mode": "table",
       "onChange": [Function],
     },
     "filter": Object {
