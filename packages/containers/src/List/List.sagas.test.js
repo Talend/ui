@@ -1,8 +1,8 @@
 import { put } from 'redux-saga/effects';
 import { fromJS } from 'immutable';
+import { mock } from '@talend/react-cmf';
 import { onToggleFilter, onFilterChange, onChangeSortChange } from './List.sagas';
 import Connected from './List.connect';
-import mock, { store } from '../../../cmf/lib/mock';
 
 const localConfig = {
 	collectionId: 'default',
@@ -23,7 +23,7 @@ const localConfig = {
 	},
 };
 
-const state = store.state();
+const state = mock.store.state();
 state.cmf.collections = fromJS({
 	default: {
 		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
@@ -31,7 +31,7 @@ state.cmf.collections = fromJS({
 	},
 });
 
-const context = mock.context();
+const context = mock.store.context();
 const event = { type: 'click' };
 
 const data = {
