@@ -3,7 +3,7 @@ import React from 'react';
 import { all, fork } from 'redux-saga/effects';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import api, { store, RegistryProvider, mock } from '@talend/react-cmf';
+import api, { store, registry, RegistryProvider, mock } from '@talend/react-cmf';
 
 function* initSagaMiddleWare() {
 	yield all([fork(api.sagas.component.handle)]);
@@ -34,6 +34,11 @@ class CMFStory extends React.Component {
 			api.registerInternals();
 			props.sagaMiddleware.run(initSagaMiddleWare);
 		}
+		if (props.registry) {
+			this.registry = Object.assign(registry.getRegistry(), props.registry);
+		} else {
+			this.registry = registry.getRegistry();
+		}
 	}
 
 	getChildContext() {
@@ -54,7 +59,7 @@ class CMFStory extends React.Component {
 	render() {
 		return (
 			<Provider store={this.store}>
-				<RegistryProvider>{this.props.children}</RegistryProvider>
+				<RegistryProvider value={this.registry}>{this.props.children}</RegistryProvider>
 			</Provider>
 		);
 	}
@@ -71,9 +76,7 @@ CMFStory.propTypes = {
 CMFStory.defaultProps = {
 	middleware: [],
 };
-CMFStory.contextTypes = {
-	registry: PropTypes.object,
-};
+
 CMFStory.childContextTypes = {
 	router: PropTypes.object,
 };
