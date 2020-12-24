@@ -8,6 +8,7 @@ import DateInputField from './input-fields/DateInputField.component';
 import NumberInputField from './input-fields/NumberInputField.component';
 import { formatDate, formatNumber, getFractionDigits } from '../../formatters/formatters';
 import { DataType, Range } from '../../types';
+import { I18N_DOMAIN_DATAVIZ } from '../../constants';
 
 export interface RangeFilterProps {
 	id?: string;
@@ -64,7 +65,7 @@ function RangeFilter({
 	onSliderChange,
 	onAfterChange,
 }: RangeFilterProps): JSX.Element {
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DATAVIZ);
 
 	const precision = Math.max(getFractionDigits(limits.min), getFractionDigits(limits.max));
 	const marks = useMemo(() => getMarks(dataType, limits, precision), [limits, dataType, precision]);
@@ -72,7 +73,6 @@ function RangeFilter({
 
 	// Prevent onAfterChange to be triggered twice
 	let onAfterChangedCalled = false;
-
 
 	return (
 		<div className={styles['range-filter']}>
