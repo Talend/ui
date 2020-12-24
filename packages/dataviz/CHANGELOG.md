@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [0.1.3]
+
+### Fixed
+
+- [Wrong i18n namespace](https://github.com/Talend/ui/pull/3147):
+
 ## [0.1.2]
 
 ### Fixed
