@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-dataviz",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Talend charts and visualization components",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
