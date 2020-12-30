@@ -1,6 +1,4 @@
 import { cmfConnect } from '@talend/react-cmf';
-import invariant from 'invariant';
-
 import Container, { DEFAULT_STATE } from './Notification.container';
 
 export function componentId(ownProps) {
@@ -11,11 +9,11 @@ export function deleteNotification(indexNotification) {
 	return function mutator(prevStateProps) {
 		const notifications = prevStateProps.state.get('notifications');
 		const index = notifications.indexOf(indexNotification);
-		if (index === -1) {
-			invariant(true, `notification not found ${JSON.stringify(indexNotification)}`);
+		if (index > -1) {
+			const newNotif = notifications.delete(index);
+			return prevStateProps.state.set('notifications', newNotif);
 		}
-		const newNotif = notifications.delete(index);
-		return prevStateProps.state.set('notifications', newNotif);
+		return prevStateProps.state;
 	};
 }
 

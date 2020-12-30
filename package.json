@@ -12,7 +12,6 @@
     "build": "lerna exec -- yarn",
     "build-cmf": "lerna exec --scope=@talend/react-cmf -- yarn",
     "build-components": "lerna exec --scope=@talend/react-components -- yarn",
-    "build-faceted-search": "lerna exec --scope=@talend/react-faceted-search -- yarn",
     "build-containers": "lerna exec --scope=@talend/react-containers -- yarn",
     "build-forms": "lerna exec --scope=@talend/react-forms -- yarn",
     "build-icons": "lerna exec --scope=@talend/icons -- yarn && lerna exec --scope=@talend/react-components -- yarn test -- -u",

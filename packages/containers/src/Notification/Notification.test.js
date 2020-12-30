@@ -49,11 +49,24 @@ describe('Connected Notification', () => {
 	});
 
 	it('deleteNotification should delete notification', () => {
-		const message = { message: 'hello world' };
+		const message = fromJS({ message: 'hello world' });
 		const stateProps = {
 			state: fromJS({ notifications: [message] }),
 		};
-		expect(deleteNotification(1)(stateProps).toJS()).toEqual({ notifications: [] });
+		expect(deleteNotification(message)(stateProps).toJS()).toEqual({
+			notifications: [],
+		});
+	});
+
+	it('deleteNotification should do nothing if the notification does not exist', () => {
+		const ok = fromJS({ message: 'ahah' });
+		const ko = fromJS({ message: 'hello world' });
+		const stateProps = {
+			state: fromJS({ notifications: [ok] }),
+		};
+		expect(deleteNotification(ko)(stateProps)).toEqual(
+			stateProps.state
+		);
 	});
 });
 

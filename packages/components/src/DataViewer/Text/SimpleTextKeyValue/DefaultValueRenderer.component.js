@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import has from 'lodash/has';
 import TooltipTrigger from '../../../TooltipTrigger';
-import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
+import FormatValue, { hasWhiteSpaceCharacters } from '../../../FormatValue/FormatValue.component';
 
 import theme from './DefaultValueRenderer.scss';
 

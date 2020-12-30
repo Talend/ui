@@ -8,10 +8,13 @@ import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
 import { Popper } from 'react-popper';
 
+import { getTheme } from '../theme';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
+
+const css = getTheme(theme);
 
 export function renderInputComponent(props) {
 	const {
@@ -27,11 +30,10 @@ export function renderInputComponent(props) {
 	} = props;
 
 	const hasCaret = caret && !disabled && !readOnly;
-	const hasIcon = icon || hasCaret;
 	const typeaheadContainerIconClasses = classNames(
 		'tc-typeahead-typeahead-input-icon',
 		theme['typeahead-input-container'],
-		hasIcon && theme['typeahead-input-icon'],
+		icon && theme['typeahead-input-icon'],
 		hasCaret && theme['typeahead-input-caret'],
 	);
 	return (
@@ -39,6 +41,11 @@ export function renderInputComponent(props) {
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
+			{icon && (
+				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
+					{icon && <Icon {...icon} />}
+				</div>
+			)}
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
 					autoFocus
@@ -64,10 +71,9 @@ export function renderInputComponent(props) {
 					inputRef={inputRef}
 				/>
 			)}
-			{hasIcon && (
-				<div className={classNames(theme['icon-cls'], hasCaret && theme['icon-caret'])}>
-					{icon && <Icon {...icon} />}
-					{hasCaret && <Icon name="talend-caret-down" />}
+			{hasCaret && (
+				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
+					<Icon name="talend-caret-down" />
 				</div>
 			)}
 		</div>
@@ -138,20 +144,21 @@ export function renderItemsContainerFactory(
 		if (searching) {
 			content = (
 				<div key="searching" className={`${theme['is-searching']} is-searching`}>
-					{searchingText}
 					<CircularProgress />
+					<span>{searchingText}</span>
 				</div>
 			);
 		} else if (noResult && loading) {
 			content = (
 				<div key="loading" className={`${theme['is-loading']} is-loading`}>
-					{loadingText}
+					<span>{loadingText}</span>
 				</div>
 			);
 		} else if (noResult) {
 			content = (
 				<div key="no-result" className={`${theme['no-result']} no-result`}>
-					{noResultText}
+					<Icon name="talend-fieldglass" title={noResultText} />
+					<span>{noResultText}</span>
 				</div>
 			);
 		} else {
@@ -228,14 +235,11 @@ export function renderItemsContainerFactory(
 
 export function renderSectionTitle(section) {
 	if (section && (section.icon || section.title)) {
+		const { hint } = section;
 		return (
-			<div className={classNames(theme['section-header'], 'tc-typeahead-section-header')}>
+			<div className={css('section-header', 'tc-typeahead-section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span
-					className={classNames(theme['section-header-title'], 'tc-typeahead-section-header-title')}
-				>
-					{section.title}
-				</span>
+				<span className={css('section-header-title', 'tc-typeahead-section-header-title', { hint })}>{section.title}</span>
 			</div>
 		);
 	}
@@ -256,17 +260,18 @@ export function renderItem(item, { value, ...rest }) {
 			className={classNames(theme.item, {
 				[theme.disabled]: item.disabled,
 				[theme.selected]: value === title,
+				[theme.multiline]: title && description,
 			})}
 			title={title}
 			data-feature={item['data-feature'] || rest['data-feature']}
 		>
 			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
 			<div className={theme['item-text']}>
-				<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
+				<span className={css('item-title', 'tc-typeahead-item-title')}>
 					<Emphasis value={value} text={title} />
 				</span>
 				{description && (
-					<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
+					<p className={css('item-description', 'tc-typeahead-item-description')}>
 						<Emphasis value={value} text={description} />
 					</p>
 				)}

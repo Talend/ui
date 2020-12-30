@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
-import Icon from '../../../Icon';
-import getDefaultT from '../../../translate';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
+import Icon from '../Icon';
+import getDefaultT from '../translate';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import theme from './FormatValue.scss';
 
 export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
@@ -159,10 +159,11 @@ export function FormatValueComponent(props) {
 		content = [...content, ...formattedContent];
 	}
 
-	return <span>{content.map(addKeyAttribute)}</span>;
+	return <span className={props.className}>{content.map(addKeyAttribute)}</span>;
 }
 
 FormatValueComponent.propTypes = {
+	className: PropTypes.string,
 	value: PropTypes.string,
 	t: PropTypes.func,
 };

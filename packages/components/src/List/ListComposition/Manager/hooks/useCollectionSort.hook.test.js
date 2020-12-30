@@ -41,6 +41,21 @@ const collection = [
 		lastName: 'Dixon',
 		id: 4,
 	},
+	{
+		firstName: '1',
+		lastName: '2',
+		id: 5,
+	},
+	{
+		firstName: '11',
+		lastName: '11',
+		id: 6,
+	},
+	{
+		firstName: '5',
+		lastName: '5',
+		id: 7,
+	},
 ];
 
 const natural = [
@@ -80,11 +95,14 @@ describe('useCollectionSort', () => {
 
 		// then
 		const sortedCollection = wrapper.find('#mainChild').prop('sortedCollection');
-		expect(sortedCollection[0].firstName).toEqual('Conner');
-		expect(sortedCollection[1].firstName).toEqual('Copeland');
-		expect(sortedCollection[2].firstName).toEqual('Louisa');
-		expect(sortedCollection[3].firstName).toEqual('Luann');
-		expect(sortedCollection[4].firstName).toEqual('Shelly');
+		expect(sortedCollection[0].firstName).toEqual('1');
+		expect(sortedCollection[1].firstName).toEqual('5');
+		expect(sortedCollection[2].firstName).toEqual('11');
+		expect(sortedCollection[3].firstName).toEqual('Conner');
+		expect(sortedCollection[4].firstName).toEqual('Copeland');
+		expect(sortedCollection[5].firstName).toEqual('Louisa');
+		expect(sortedCollection[6].firstName).toEqual('Luann');
+		expect(sortedCollection[7].firstName).toEqual('Shelly');
 	});
 
 	it('should sort with new sort params set', () => {
@@ -136,11 +154,14 @@ describe('useCollectionSort', () => {
 
 		// then
 		const sortedCollection = wrapper.find('#mainChild').prop('sortedCollection');
-		expect(sortedCollection[0].firstName).toEqual('Louisa');
-		expect(sortedCollection[1].firstName).toEqual('Copeland');
-		expect(sortedCollection[2].firstName).toEqual('Luann');
-		expect(sortedCollection[3].firstName).toEqual('Conner');
-		expect(sortedCollection[4].firstName).toEqual('Shelly');
+		expect(sortedCollection[0].firstName).toEqual('1');
+		expect(sortedCollection[1].firstName).toEqual('11');
+		expect(sortedCollection[2].firstName).toEqual('5');
+		expect(sortedCollection[3].firstName).toEqual('Louisa');
+		expect(sortedCollection[4].firstName).toEqual('Copeland');
+		expect(sortedCollection[5].firstName).toEqual('Luann');
+		expect(sortedCollection[6].firstName).toEqual('Conner');
+		expect(sortedCollection[7].firstName).toEqual('Shelly');
 	});
 
 	it('should use a natural sort order', () => {

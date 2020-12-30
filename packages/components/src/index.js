@@ -23,6 +23,7 @@ import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import { ModelViewer, RecordsViewer } from './DataViewer';
 import {
+	DatePicker,
 	InputDatePicker,
 	InputDateRangePicker,
 	InputDateTimePicker,
@@ -37,6 +38,7 @@ import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
 import FocusManager from './FocusManager';
+import FormatValue from './FormatValue';
 import GridLayout from './GridLayout';
 import Gesture from './Gesture';
 import GuidedTour from './GuidedTour';
@@ -101,6 +103,7 @@ export {
 	CollapsiblePanel,
 	ConfirmDialog,
 	Datalist,
+	DatePicker,
 	ModelViewer,
 	RecordsViewer,
 	InputDatePicker,
@@ -116,6 +119,7 @@ export {
 	Enumeration,
 	FilterBar,
 	FocusManager,
+	FormatValue,
 	Gesture,
 	GridLayout,
 	GuidedTour,

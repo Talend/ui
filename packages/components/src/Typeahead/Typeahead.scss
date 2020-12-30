@@ -6,8 +6,6 @@ $tc-typeahead-input-width: 26rem !default;
 $tc-typeahead-opened-items-container-color: #aaa !default;
 $tc-typeahead-opened-items-container-background-color: #fff !default;
 
-$tc-typeahead-item-description-color: #c0c0c0 !default;
-
 $tc-typeahead-section-border-color: #e0e0e0 !default;
 
 $tc-typeahead-icon-color: $gray !default;
@@ -16,8 +14,11 @@ $tc-typeahead-section-header-color: #63aebd !default;
 
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
-$tc-typeahead-items-font-size: 1.5rem !default;
+$tc-typeahead-items-font-size: 1.4rem !default;
 $tc-typeahead-items-zindex: 1035 !default;
+
+$tc-typeahead-item-height: 3.2rem !default;
+$tc-typeahead-item-description-height: 1.6rem !default;
 
 .tc-typeahead-container {
 	position: relative;
@@ -36,7 +37,7 @@ $tc-typeahead-items-zindex: 1035 !default;
 
 	.items-container,
 	.items-body {
-		max-height: 70vh;
+		max-height: 32vh;
 	}
 
 	.items-container {
@@ -72,21 +73,25 @@ $tc-typeahead-items-zindex: 1035 !default;
 
 .typeahead-input {
 	min-width: $tc-typeahead-input-width;
+	position: relative;
 
 	&-icon {
-		position: relative;
-		right: 0;
-		display: flex;
-		align-items: center;
-
 		[type='text'].typeahead-input {
-			padding-right: 2.5em;
+			padding-left: 2.5em;
 		}
 
 		.icon-cls {
-			margin: -2em;
+			position: absolute;
 			color: $tc-typeahead-icon-color;
 			pointer-events: none;
+			display: flex;
+			align-items: center;
+			height: 100%;
+			width: 2.5em;
+
+			> * {
+				margin: auto;
+			}
 		}
 	}
 
@@ -95,7 +100,7 @@ $tc-typeahead-items-zindex: 1035 !default;
 			padding-right: 1em;
 		}
 
-		.icon-caret {
+		.icon-cls {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -116,18 +121,13 @@ $tc-typeahead-items-zindex: 1035 !default;
 .is-loading,
 .is-searching,
 .no-result {
-	padding: $padding-normal;
-	font-size: 1.5rem;
-	font-style: italic;
-	color: $tc-typeahead-item-description-color;
-}
-
-.is-searching {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	height: $tc-typeahead-item-height;
 
-	> svg {
-		margin-left: auto;
+	span {
+		margin-left: $padding-smaller;
 	}
 }
 
@@ -135,53 +135,86 @@ $tc-typeahead-items-zindex: 1035 !default;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+	color: $black;
 }
 
 .section-header {
+	color: $black;
 	display: flex;
 	align-items: center;
-	margin-top: -1px;
-	padding: $padding-normal;
-	color: $tc-typeahead-section-header-color;
 	border-top: 1px solid $tc-typeahead-section-border-color;
-	border-bottom: 1px solid $tc-typeahead-section-border-color;
+	height: $tc-typeahead-item-height;
+	padding: {
+		left: $padding-small;
+		right: $padding-small;
+	}
 
 	&-title {
-		font-size: 1.2rem;
+		font-weight: $font-weight-semi-bold;
+
+		&.hint {
+			font-style: italic;
+			font-weight: normal;
+		}
 	}
 
 	i + &-title,
 	svg + &-title {
-		padding-left: $padding-small;
+		padding-left: $padding-smaller;
+	}
+
+	i,
+	svg {
+		width: $svg-md-size;
+		height: $svg-md-size;
+		color: $dove-gray;
 	}
 }
 
 .item {
-	margin-bottom: 0;
-	padding: $padding-normal;
 	cursor: pointer;
 	white-space: pre;
 	align-items: center;
 
-	&-description {
-		margin-bottom: 0;
-		font-size: 1.3rem;
-		color: $tc-typeahead-item-description-color;
+	display: flex;
+	align-items: center;
+	padding: {
+		left: $padding-small;
+		right: $padding-small;
+	}
+
+	> div {
+		width: 100%;
+	}
+
+	height: $tc-typeahead-item-height;
+	&.multiline {
+		height: $tc-typeahead-item-height + $tc-typeahead-item-description-height;
 	}
 
 	&-icon {
-		width: $svg-md-size;
-		height: $svg-md-size;
-		color: $black;
-		margin-right: $padding-normal;
+		margin-right: $padding-small;
+	}
+
+	&-title > span,
+	&-description {
+		display: block;
+		width: 100%;
+		text-overflow: ellipsis;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	&-description {
+		font-size: 1.2rem;
 	}
 
 	&-highlighted,
 	&:hover {
-		background-color: $concrete;
+		background-color: rgba($lochmara, 0.1);
 
 		&.selected {
-			background-color: #ccdce8;
+			background-color: rgba($lochmara, 0.2);
 		}
 	}
 
@@ -195,11 +228,6 @@ $tc-typeahead-items-zindex: 1035 !default;
 	}
 
 	&.selected {
-		background-color: rgba($scooter, 0.2);
+		background-color: rgba($lochmara, 0.2);
 	}
-}
-
-.highlight-match {
-	font-weight: 600;
-	font-style: normal;
 }
