@@ -729,7 +729,7 @@ class EnumerationForm extends React.Component {
 				]),
 			};
 			this.onChange(event, payload);
-            this.input.focus();
+			this.input.focus();
 			if (isSingleAdd) {
 				successHandler();
 			}
