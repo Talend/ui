@@ -187,16 +187,11 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, opti
 	if (silent !== true && answer instanceof Error) {
 		yield put({
 			error: {
+				// allow RFC-7807 compliance
+				...get(answer, 'data', {}),
 				// legacy properties
 				message: get(answer, 'data.message'),
 				stack: { status: get(answer, 'response.status') },
-				// RFC-7807 default properties
-				type: get(answer, 'data.type'),
-				title: get(answer, 'data.title'),
-				detail: get(answer, 'data.detail'),
-				instance: get(answer, 'data.instance'),
-				// RFC-7807 custom properties bag
-				custom: get(answer, 'data.custom'),
 			},
 			url,
 			config,
