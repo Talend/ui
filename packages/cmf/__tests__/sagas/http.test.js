@@ -694,9 +694,7 @@ describe('#httpFetch', () => {
 			type: 'some-documentation-uri',
 			title: 'An expected error title',
 			detail: 'Some useful detail',
-			custom: {
-				code: 'business-error-xxx'
-			}
+			code: 'business-error-xxx'
 		};
 		const payload = {
 			bar: 42,
