@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+## [3.1.0]
+
 ### Added
 
 - Use new typeahead design
