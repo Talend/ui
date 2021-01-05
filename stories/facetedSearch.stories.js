@@ -16,6 +16,8 @@ import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dic
 import {
 	badgeConnectionType,
 	badgeName,
+	badgeConnectionName,
+	badgeAuthor,
 	badgeAll,
 	badgePrice,
 	badgeValid,
@@ -35,6 +37,8 @@ import {
 const badgesDefinitions = [
 	badgeAll,
 	badgeName,
+	badgeConnectionName,
+	badgeAuthor,
 	badgeConnectionType,
 	badgeTags,
 	badgePrice,

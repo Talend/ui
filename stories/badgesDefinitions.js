@@ -17,6 +17,45 @@ export const badgeName = {
 	},
 };
 
+export const badgeConnectionName = {
+	properties: {
+		attribute: 'connectionName',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Connection name',
+		operator: {},
+		operators: [],
+		type: 'text',
+	},
+	metadata: {
+		isAvailableForQuickSearch: true,
+		isAvailableForFacetList: true,
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+	},
+};
+
+
+export const badgeAuthor = {
+	properties: {
+		attribute: 'Author',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Author',
+		operator: {},
+		operators: [],
+		type: 'text',
+	},
+	metadata: {
+		isAvailableForQuickSearch: true,
+		isAvailableForFacetList: true,
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+	},
+};
+
 export const badgeAll = {
 	properties: {
 		attribute: 'all',

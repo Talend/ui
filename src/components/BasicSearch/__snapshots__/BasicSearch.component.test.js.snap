@@ -10,15 +10,24 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
        aria-expanded="false"
        class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container">
+    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
       <label for="react-autowhatever-42-input"
              class="control-label sr-only"
       >
         Search
       </label>
+      <div class="icon-cls theme-icon-cls">
+        <svg name="talend-search"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+        </svg>
+      </div>
       <input autocomplete="off"
              aria-autocomplete="list"
              aria-controls="react-autowhatever-42"
+             aria-activedescendant="react-autowhatever-42-section-0-item-0"
              placeholder="Find in a column..."
              role="searchbox"
              type="text"
@@ -62,15 +71,24 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
        aria-expanded="false"
        class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container">
+    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
       <label for="react-autowhatever-42-input"
              class="control-label sr-only"
       >
         Search
       </label>
+      <div class="icon-cls theme-icon-cls">
+        <svg name="talend-search"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+        </svg>
+      </div>
       <input autocomplete="off"
              aria-autocomplete="list"
              aria-controls="react-autowhatever-42"
+             aria-activedescendant="react-autowhatever-42-section-0-item-0"
              placeholder="Find in a column..."
              role="searchbox"
              type="text"
@@ -185,15 +203,24 @@ exports[`BasicSearch should render the default html output with some badges and 
        aria-expanded="false"
        class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container">
+    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
       <label for="react-autowhatever-42-input"
              class="control-label sr-only"
       >
         Search
       </label>
+      <div class="icon-cls theme-icon-cls">
+        <svg name="talend-search"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+        </svg>
+      </div>
       <input autocomplete="off"
              aria-autocomplete="list"
              aria-controls="react-autowhatever-42"
+             aria-activedescendant="react-autowhatever-42-section-0-item-0"
              placeholder="Find in a column..."
              role="searchbox"
              type="text"
