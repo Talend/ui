@@ -7,6 +7,11 @@ const Figure = styled.figure`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 0;
+`;
+
+const Img = styled.img`
+	width: ${props => (props.full ? '100%' : 'auto')};
 `;
 
 function getMetadata(url) {
@@ -41,10 +46,6 @@ const FigmaImagePlaceholder = React.memo(() => {
 const FigmaImage = ({ src, alt = '', ...rest }) => {
 	const figma = React.useContext(FigmaContext);
 
-	if (!figma.isConfigured) {
-		return <FigmaImagePlaceholder />;
-	}
-
 	const [data, setData] = React.useState();
 
 	React.useEffect(() => {
@@ -75,13 +76,17 @@ const FigmaImage = ({ src, alt = '', ...rest }) => {
 			.then(({ data }) => setData(data));
 	}, [src]);
 
+	if (!figma.isConfigured) {
+		return <FigmaImagePlaceholder />;
+	}
+
 	if (!data) {
 		return <span>Fetching data from Figma server...</span>;
 	}
 
 	return Object.values(data.images).map((image, index) => (
 		<Figure key={index}>
-			<img src={image} alt={alt} {...rest} />
+			<Img src={image} alt={alt} {...rest} />
 		</Figure>
 	));
 };
