@@ -6,4 +6,5 @@
   <img src="https://api.netlify.com/api/v1/badges/d6d66424-7754-4257-bb5e-cc6de2f9d9aa/deploy-status" alt="Netlify" />
   <img src="https://github.com/Talend/design-system/workflows/Chromatic/badge.svg" alt="Chromatic"/> 
   <img src="https://github.com/Talend/design-system/workflows/Upload%20to%20CDN/badge.svg" alt="S3 deploy" />
+  <img src="https://github.com/Talend/design-system/workflows/End-to-end%20tests/badge.svg" alt="End to End tests" />
 </div>
