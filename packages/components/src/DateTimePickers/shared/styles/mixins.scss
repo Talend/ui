@@ -36,6 +36,7 @@
 
 @mixin date-picker {
 	display: flex;
+    width: fit-content;
 }
 
 @mixin range-picker {
