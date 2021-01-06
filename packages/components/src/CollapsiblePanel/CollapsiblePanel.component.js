@@ -84,11 +84,15 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 		}
 		default: {
 			const { element, label, tooltipLabel, tooltipPlacement } = headerItem;
-			return (
-				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					<div className={css[className]}>{element || label}</div>
-				</TooltipTrigger>
-			);
+			const labelExist = tooltipLabel || label;
+            if (labelExist) {
+                return (
+                    <TooltipTrigger key={key} label={labelExist} tooltipPlacement={tooltipPlacement}>
+                        <div className={css[className]}>{element || labelExist}</div>
+                    </TooltipTrigger>
+                );
+            }
+            return (<div className={css[className]}>{element || labelExist}</div>);
 		}
 	}
 }

@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { mount } from 'enzyme';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
+import TooltipTrigger from '../TooltipTrigger';
 
 const version1 = {
 	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
@@ -134,6 +135,29 @@ describe('CollapsiblePanel', () => {
 		const wrapper = mount(panelInstance);
 
 		// then
+        expect(wrapper.find(TooltipTrigger).length).toBe(3);
 		expect(wrapper.find('h3').getElement().props.children).toEqual('Custom label');
 	});
+
+	it('should render custom element without tooltip', () => {
+        // given
+        const customElement = <h3>Custom label</h3>;
+        const propsPanelWithCustomElement = {
+            ...propsPanelWithActions,
+            header: [
+                {
+                    element: customElement,
+                    className: 'custom-col',
+                },
+                ...propsPanelWithActions.header,
+            ],
+        };
+
+        const panelInstance = <CollapsiblePanel {...propsPanelWithCustomElement} />;
+        // when
+        const wrapper = mount(panelInstance);
+
+        // then
+        expect(wrapper.find(TooltipTrigger).length).toBe(2);
+    });
 });

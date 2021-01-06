@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
+import { ActionButton } from '../Actions';
 
 const keyValueContent = [
 	{
@@ -118,6 +119,8 @@ const descriptiveDetail = {
 	className: 'detail',
 };
 
+const element = (<ActionButton {...buttonDownload}/>);
+
 storiesOf('Layout/CollapsiblePanel', module)
 	.add('Default', () => (
 		<div className="col-lg-offset-1 col-lg-10">
@@ -156,9 +159,6 @@ storiesOf('Layout/CollapsiblePanel', module)
 				Coucou
 			</CollapsiblePanel>
 			<CollapsiblePanel id="panel-default-3" header={[{ label: 'No content panel' }]} />
-			<CollapsiblePanel id="panel-default-4" header={[{ label: 'Uncontrolled panel' }]}>
-				Coucou
-			</CollapsiblePanel>
 		</div>
 	))
 	.add('Header', () => (
@@ -167,8 +167,12 @@ storiesOf('Layout/CollapsiblePanel', module)
 			<CollapsiblePanel id="panel-header-1" header={[{ label: 'Simple header' }]} />
 			<CollapsiblePanel
 				id="panel-header-2"
-				header={[{ label: 'Header with actions' }, buttonDownload]}
+				header={[{ label: 'Header with actions' }, { element: element }]}
 			/>
+			<CollapsiblePanel
+                id="panel-header-element-withbutton"
+                header={[{ label: 'Header with element having actions' }, buttonDownload]}
+            />
 			<CollapsiblePanel id="panel-header-3" header={[{ label: 'Header with badge' }, badge]} />
 			<CollapsiblePanel
 				id="panel-header-4"
