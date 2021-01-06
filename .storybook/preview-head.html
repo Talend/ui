@@ -22,15 +22,16 @@
 	}
 
 	.sbdocs.sbdocs-wrapper {
-		background: #F9F8F6;
+		background: #F7F3EF;
 	}
 
 	.sbdocs .sbdocs-content {
 		padding: 2rem 4rem;
 		font-family: 'Source Sans Pro', sans-serif;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+		font-size: 1.4rem;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 		background: white;
-		border-radius: 0.4rem;
+		border-radius: 0.5rem;
 	}
 
 	.sbdocs .sbdocs-h1,
@@ -39,21 +40,35 @@
 	.sbdocs .sbdocs-h4,
 	.sbdocs .sbdocs-h5,
 	.sbdocs .sbdocs-h6 {
-		font-family: 'Gelasio', serif;
-		font-weight: bold;
 		border: none;
 	}
 
 	.sbdocs .sbdocs-h1 {
-		font-size: 7rem;
+		position:relative;
+		display: inline-block;
+		font-family: 'Gelasio', serif;
+		font-weight: bold;
+		font-size: 3.2rem;
+		z-index: 0;
+	}
+
+	.sbdocs .sbdocs-h1:after {
+		content: '';
+		position: absolute;
+		height: 1rem;
+		width: 100%;
+		bottom: 0.8rem;
+		left: 0;
+		background: #FDE1E2;
+		z-index: -1;
 	}
 
 	.sbdocs .sbdocs-h2 {
-		font-size: 3rem;
+		font-size: 2rem;
 	}
 
 	.sbdocs .sbdocs-h3 {
-		font-size: 2.5rem;
+		font-size: 1.6rem;
 	}
 
 	.sbdocs .sbdocs-h4 {
@@ -70,7 +85,7 @@
 
 	.sbdocs .sbdocs-p {
 		margin-top: 0;
-		font-size: 1.6rem;
+		font-size: 1.4rem;
 	}
 
 	.sbdocs .sbdocs-a {
@@ -79,6 +94,36 @@
 
 	.sbdocs .sbdocs-table {
 		width: 100%;
+		border-collapse: collapse;
+		overflow: hidden;
+	}
+
+	.sbdocs .sbdocs-table th,
+	.sbdocs .sbdocs-table td {
+		padding: 0.5rem 1.5rem;
+	}
+
+	.sbdocs .sbdocs-table th:first-child {
+		border-radius: 0.4rem 0 0 0;
+	}
+
+	.sbdocs .sbdocs-table th:last-child {
+		border-radius: 0 0.4rem 0 0;
+	}
+
+	.sbdocs .sbdocs-table th {
+		width: 50%;
+		color: #323e48;
+		text-align: start;
+		font-size: 1.2rem;
+		font-weight: 600;
+		background: #f5f5f5;
+	}
+
+	.sbdocs .sbdocs-table td {
+		font-weight: normal;
+		font-size: 1.4rem;
+		border: 1px solid #f5f5f5;
 	}
 
 	.sbdocs-div > dt {
