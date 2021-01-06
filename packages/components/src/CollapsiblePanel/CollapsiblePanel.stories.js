@@ -119,7 +119,7 @@ const descriptiveDetail = {
 	className: 'detail',
 };
 
-const element = (<ActionButton {...buttonDownload}/>);
+const element = (<div> my custom element <ActionButton {...buttonDownload}/></div>);
 
 storiesOf('Layout/CollapsiblePanel', module)
 	.add('Default', () => (
