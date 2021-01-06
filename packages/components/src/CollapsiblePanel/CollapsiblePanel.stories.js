@@ -119,7 +119,12 @@ const descriptiveDetail = {
 	className: 'detail',
 };
 
-const element = (<div> my custom element <ActionButton {...buttonDownload}/></div>);
+const element = (
+	<div>
+		{' '}
+		my custom element <ActionButton {...buttonDownload} />
+	</div>
+);
 
 storiesOf('Layout/CollapsiblePanel', module)
 	.add('Default', () => (
@@ -170,9 +175,9 @@ storiesOf('Layout/CollapsiblePanel', module)
 				header={[{ label: 'Header with actions' }, { element: element }]}
 			/>
 			<CollapsiblePanel
-                id="panel-header-element-withbutton"
-                header={[{ label: 'Header with element having actions' }, buttonDownload]}
-            />
+				id="panel-header-element-withbutton"
+				header={[{ label: 'Header with element having actions' }, buttonDownload]}
+			/>
 			<CollapsiblePanel id="panel-header-3" header={[{ label: 'Header with badge' }, badge]} />
 			<CollapsiblePanel
 				id="panel-header-4"

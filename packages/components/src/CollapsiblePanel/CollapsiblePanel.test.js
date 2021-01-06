@@ -77,10 +77,7 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		// then
 		expect(propsDescriptivePanel.onSelect).toBeCalled();
@@ -92,10 +89,7 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		// then
 		expect(propsPanelWithActions.onToggle).toBeCalled();
@@ -135,29 +129,29 @@ describe('CollapsiblePanel', () => {
 		const wrapper = mount(panelInstance);
 
 		// then
-        expect(wrapper.find(TooltipTrigger).length).toBe(3);
+		expect(wrapper.find(TooltipTrigger).length).toBe(3);
 		expect(wrapper.find('h3').getElement().props.children).toEqual('Custom label');
 	});
 
 	it('should render custom element without tooltip', () => {
-        // given
-        const customElement = <h3>Custom label</h3>;
-        const propsPanelWithCustomElement = {
-            ...propsPanelWithActions,
-            header: [
-                {
-                    element: customElement,
-                    className: 'custom-col',
-                },
-                ...propsPanelWithActions.header,
-            ],
-        };
+		// given
+		const customElement = <h3>Custom label</h3>;
+		const propsPanelWithCustomElement = {
+			...propsPanelWithActions,
+			header: [
+				{
+					element: customElement,
+					className: 'custom-col',
+				},
+				...propsPanelWithActions.header,
+			],
+		};
 
-        const panelInstance = <CollapsiblePanel {...propsPanelWithCustomElement} />;
-        // when
-        const wrapper = mount(panelInstance);
+		const panelInstance = <CollapsiblePanel {...propsPanelWithCustomElement} />;
+		// when
+		const wrapper = mount(panelInstance);
 
-        // then
-        expect(wrapper.find(TooltipTrigger).length).toBe(2);
-    });
+		// then
+		expect(wrapper.find(TooltipTrigger).length).toBe(2);
+	});
 });
