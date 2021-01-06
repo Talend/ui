@@ -9,10 +9,11 @@ export type SkipLinksProps = {
 	main?: boolean;
 };
 
-const SkipLinks: React.FC<SkipLinksProps> = ({ nav, main }: SkipLinksProps) => {
+const SkipLinks = ({ nav, main }: SkipLinksProps) => {
 	return (
 		<S.SkipLinks className="skip-links">
-			<ul>
+			{/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+			<ul role="list">
 				{nav && (
 					<li key="nav">
 						<Link className="skip-links__link" href="#nav">

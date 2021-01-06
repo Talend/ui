@@ -1,29 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const StyledTable = styled.table`
-	width: 100%;
-	border: 1px solid;
-	border-collapse: collapse;
-	border-radius: 0.4rem;
-	text-align: left;
-	overflow: hidden;
-
-	thead {
-		color: white;
-		background: #333;
-	}
-
-	th,
-	td {
-		padding: 1rem 2rem;
-		width: 50%;
-	}
-
-	tbody tr:nth-child(even) {
-		background-color: #efefef99;
-	}
-`;
 
 function Table({ data }) {
 	const entries = Object.entries(data);
@@ -33,7 +8,7 @@ function Table({ data }) {
 	}
 
 	return (
-		<StyledTable>
+		<table className="sbdocs sbdocs-table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -48,7 +23,7 @@ function Table({ data }) {
 					</tr>
 				))}
 			</tbody>
-		</StyledTable>
+		</table>
 	);
 }
 
