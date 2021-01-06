@@ -6,7 +6,7 @@
   40:10  error  Elements with the ARIA role "heading" must have the following attributes defined: aria-level  jsx-a11y/role-has-required-aria-props
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
-  142:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
+  146:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/Tree.component.js
   4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4                                             import/no-cycle
