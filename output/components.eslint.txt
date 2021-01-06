@@ -8,9 +8,6 @@
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
   146:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
-/home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.stories.js
-  175:50  error  Expected property shorthand  object-shorthand
-
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/Tree.component.js
   4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4                                             import/no-cycle
   5:1  error  Dependency cycle via ./TreeNodeList.component:1=>../TreeNode:4=>./TreeNode.component:1=>../Tree:4  import/no-cycle
@@ -319,5 +316,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 156 problems (136 errors, 20 warnings)
-  16 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 155 problems (135 errors, 20 warnings)
+  15 errors and 0 warnings potentially fixable with the `--fix` option.
