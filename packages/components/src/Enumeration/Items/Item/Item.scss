@@ -27,7 +27,6 @@ $item-checkbox-width: 20px;
 	}
 
 	:global(button:disabled) {
-		height: $tc-enumeration-item-height;
 		padding: 0 $tc-enumeration-normal-padding;
 	}
 
@@ -51,7 +50,7 @@ $item-checkbox-width: 20px;
 		overflow: hidden;
 		box-shadow: none;
 		text-align: left;
-
+		outline: none;
 		// In order to show ellipsis, need to override <span> to be inline
 		span:first-child {
 			display: inline;
@@ -61,6 +60,7 @@ $item-checkbox-width: 20px;
 	.tc-enumeration-item-actions {
 		display: flex;
 		flex-grow: 0;
+		align-items: center;
 		margin: auto $tc-enumeration-smaller-padding;
 	}
 
@@ -89,11 +89,12 @@ $item-checkbox-width: 20px;
 	.tc-enumeration-item-error {
 		font-size: 12px;
 		position: absolute;
-		top: calc(100% - #{$padding-small});
+		top: 100%;
 		width: 100%;
 		color: $tc-enumeration-item-error-color;
 		padding: $tc-enumeration-item-error-padding;
 		z-index: 1;
+		background: inherit;
 	}
 }
 
