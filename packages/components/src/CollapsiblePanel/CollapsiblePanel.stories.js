@@ -172,7 +172,7 @@ storiesOf('Layout/CollapsiblePanel', module)
 			<CollapsiblePanel id="panel-header-1" header={[{ label: 'Simple header' }]} />
 			<CollapsiblePanel
 				id="panel-header-2"
-				header={[{ label: 'Header with actions' }, { element: element }]}
+				header={[{ label: 'Header with actions' }, { element }]}
 			/>
 			<CollapsiblePanel
 				id="panel-header-element-withbutton"
