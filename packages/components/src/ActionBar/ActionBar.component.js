@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
-import CircularProgress from '../CircularProgress';
 import Inject from '../Inject';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import css from './ActionBar.scss';
