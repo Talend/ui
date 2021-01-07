@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
+import CircularProgress from '../CircularProgress';
 import Inject from '../Inject';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import css from './ActionBar.scss';
@@ -164,15 +165,22 @@ Count.propTypes = {
 	selected: PropTypes.number,
 };
 
-function defineComponentLeft(parentComponentLeft, selected, hideCount) {
+function defineComponentLeft(parentComponentLeft, selected, hideCount, selectionInProgress) {
 	if (parentComponentLeft) {
 		return parentComponentLeft;
 	}
 
-	if (!hideCount && selected > 0) {
-		return {
-			'before-actions': <Count selected={selected} />,
-		};
+	if (!hideCount) {
+		if (selectionInProgress) {
+			return {
+				'before-actions': <CircularProgress size="default" />,
+			};
+		}
+		if(selected > 0) {
+			return {
+				'before-actions': <Count selected={selected} />,
+			};
+		}
 	}
 
 	return undefined;
@@ -191,6 +199,7 @@ export function ActionBar(props) {
 		props.components.left,
 		props.selected,
 		props.hideCount,
+		props.selectionInProgress,
 	);
 	const componentsCenter = props.components.center;
 	const componentsRight = props.components.right;
@@ -226,6 +235,7 @@ export function ActionBar(props) {
 ActionBar.propTypes = {
 	selected: PropTypes.number,
 	hideCount: PropTypes.bool,
+	selectionInProgress: PropTypes.bool,
 	children: PropTypes.node,
 	className: PropTypes.string,
 	getComponent: PropTypes.func,

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import classnames from 'classnames';
+import Checkbox from '../../Checkbox';
 import theme from './HeaderCheckbox.scss';
 import getDefaultT from '../../translate';
 
@@ -17,18 +18,29 @@ function HeaderCheckbox({ columnData, t }) {
 		collection,
 		isSelected,
 	]);
-	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select All' });
+	const partial = useMemo(
+		() => {
+			if (!collection.length) {
+				return false;
+			}
+			const selected = collection.filter(isSelected);
+			return selected.length && selected.length < collection.length;
+		}, [collection, isSelected],
+	);
 
+	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select All' });
 	return (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox" title={title}>
 				<label htmlFor={id && `${id}-header-check`}>
-					<input
+					<Checkbox
 						id={id && `${id}-header-check`}
 						type="checkbox"
 						onChange={onToggleAll}
 						checked={checked}
+						intermediate={partial}
 						disabled={!collection.length}
+						data-feature="list.select_all"
 					/>
 					<span className="sr-only">{title}</span>
 				</label>
