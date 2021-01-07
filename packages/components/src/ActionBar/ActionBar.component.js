@@ -165,22 +165,15 @@ Count.propTypes = {
 	selected: PropTypes.number,
 };
 
-function defineComponentLeft(parentComponentLeft, selected, hideCount, selectionInProgress) {
+function defineComponentLeft(parentComponentLeft, selected, hideCount) {
 	if (parentComponentLeft) {
 		return parentComponentLeft;
 	}
 
-	if (!hideCount) {
-		if (selectionInProgress) {
-			return {
-				'before-actions': <CircularProgress size="default" />,
-			};
-		}
-		if(selected > 0) {
+	if (!hideCount && selected > 0) {
 			return {
 				'before-actions': <Count selected={selected} />,
 			};
-		}
 	}
 
 	return undefined;
@@ -199,7 +192,6 @@ export function ActionBar(props) {
 		props.components.left,
 		props.selected,
 		props.hideCount,
-		props.selectionInProgress,
 	);
 	const componentsCenter = props.components.center;
 	const componentsRight = props.components.right;
@@ -235,7 +227,6 @@ export function ActionBar(props) {
 ActionBar.propTypes = {
 	selected: PropTypes.number,
 	hideCount: PropTypes.bool,
-	selectionInProgress: PropTypes.bool,
 	children: PropTypes.node,
 	className: PropTypes.string,
 	getComponent: PropTypes.func,
