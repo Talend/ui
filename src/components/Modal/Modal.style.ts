@@ -61,12 +61,10 @@ export const DialogHeading = styled.header(
 `,
 );
 
-export const DialogButtons = styled.footer(
-	({ theme }) => `
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
-		margin-top: 3rem;
-`,
-);
+export const DialogButtons = styled.footer`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 3rem;
+`;

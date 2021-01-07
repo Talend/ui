@@ -7,28 +7,23 @@ import {
 
 import tokens from '../../tokens';
 
-export const Tooltip = styled(ReakitTooltip)(
-	({ theme }) => `
+export const Tooltip = styled(ReakitTooltip)`
 	max-width: 25rem;
 	padding: ${tokens.space.none} ${tokens.space.s};
 	font-family: ${tokens.fonts.sansSerif};
-	font-size:${tokens.fontSizes.small};
-	color: ${theme.colors.tooltipColor};
-	background: ${theme.colors.tooltipBackgroundColor};
-	border: 1px solid ${theme.colors.tooltipBackgroundColor};
+	font-size: ${tokens.fontSizes.small};
 	border-radius: ${tokens.radii.rectRadius};
 	z-index: ${tokens.zIndices.tooltip};
-`,
-);
+	color: ${({ theme }) => theme.colors.tooltipColor};
+	background: ${({ theme }) => theme.colors.tooltipBackgroundColor};
+`;
 
 export const TooltipReference = styled(ReakitTooltipReference)``;
 
-export const TooltipArrow = styled(ReakitTooltipArrow)(
-	({ theme }) => `
-	color: ${theme.colors.tooltipBackgroundColor};
+export const TooltipArrow = styled(ReakitTooltipArrow)`
+	color: ${({ theme }) => theme.colors.tooltipBackgroundColor};
 
 	svg {
 		fill: currentColor;
 	}
-`,
-);
+`;

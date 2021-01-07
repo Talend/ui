@@ -20,13 +20,13 @@ const InputGroup = ({ label, prefix, suffix, children }) => {
 			<S.InputGroupLabel id={labelId}>{label}</S.InputGroupLabel>
 			<S.InputGroupRow>
 				{prefix && (
-					<div className={'input-group__item input-group__item--prefix'}>
+					<div className="input-group__item input-group__item--prefix">
 						{isString(prefix) ? <InputGroupPrefix>{prefix}</InputGroupPrefix> : prefix}
 					</div>
 				)}
-				<div className={'input-group__item input-group__item--input'}>{children}</div>
+				<div className="input-group__item input-group__item--input">{children}</div>
 				{suffix && (
-					<div className={'input-group__item input-group__item--suffix'}>
+					<div className="input-group__item input-group__item--suffix">
 						{isString(suffix) ? <InputGroupSuffix>{suffix}</InputGroupSuffix> : suffix}
 					</div>
 				)}

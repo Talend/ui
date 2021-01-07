@@ -11,11 +11,9 @@ function Password(props) {
 	useEffect(() => {
 		if (isInitialMount.current) {
 			isInitialMount.current = false;
-		} else {
-			if (inputRef.current) {
+		} else if (inputRef.current) {
 				inputRef.current.focus();
 			}
-		}
 	});
 
 	return (
@@ -23,7 +21,7 @@ function Password(props) {
 			{...props}
 			type={currentType}
 			ref={inputRef}
-			onBlur={(event) => {
+			onBlur={event => {
 				inputRef.current = null;
 				onReset(event);
 			}}

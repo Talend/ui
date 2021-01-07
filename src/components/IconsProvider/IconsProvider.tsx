@@ -91,7 +91,7 @@ function addBundle(response: Response) {
 
 type IconSet = Record<string, ReactElement>;
 
-function isRootProvider(ref) {
+function isRootProvider(ref: React.RefObject<any>) {
 	const providers = document.querySelectorAll('.tc-iconsprovider');
 	if (ref !== null && ref.current && providers.length > 0) {
 		return providers[0] === ref.current;

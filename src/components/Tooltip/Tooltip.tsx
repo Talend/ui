@@ -20,14 +20,13 @@ type Placement =
 	| 'left'
 	| 'left-start';
 
-export type TooltipProps = {
+export type TooltipProps = React.PropsWithChildren<any> & {
 	title?: string;
 	placement?: Placement;
 	visible?: boolean;
-	children?: any;
 };
 
-const Tooltip = React.forwardRef(
+const Tooltip = React.forwardRef<React.ReactElement, TooltipProps>(
 	({ children, title, placement = 'auto', visible = false, ...rest }: TooltipProps, ref) => {
 		const tooltipState = useTooltipState({
 			placement,

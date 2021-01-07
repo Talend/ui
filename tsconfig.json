@@ -1,30 +1,5 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
   "include": ["src/*", "custom.d.ts"],
-  "exclude": ["dist", "node_modules"],
-  "compilerOptions": {
-    "target": "es5",
-    "jsx": "react",
-    "outDir": "./dist",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "declaration": false,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true,
-    "alwaysStrict": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "sourceMap": true
-  }
+  "exclude": ["dist", "node_modules"]
 }

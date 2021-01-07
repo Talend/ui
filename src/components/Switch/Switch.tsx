@@ -3,39 +3,31 @@ import { Radio, RadioGroup, useRadioState } from 'reakit';
 
 import * as S from './Switch.style';
 
-export type SwitchProps = {
+export type SwitchProps = React.PropsWithChildren<any> & {
 	label: string;
 	value?: string;
 	values?: any[];
-	checked?: boolean;
-	disabled?: boolean;
-	readOnly?: boolean;
+	checked: boolean;
+	disabled: boolean;
+	readOnly: boolean;
 };
 
-const Switch: React.FC<SwitchProps> = ({
-	label,
-	value,
-	values,
-	checked,
-	disabled,
-	readOnly,
-	...rest
-}: SwitchProps) => {
+const Switch = ({ label, value, values, checked, disabled, readOnly, ...rest }: SwitchProps) => {
 	const radio = useRadioState({
 		state: value || (values && values[0]),
 		loop: false,
 		unstable_virtual: true,
 	});
 
-	const containerRef = useRef();
-	const switchIndicator = useRef();
+	const containerRef = useRef<React.PropsWithChildren<any>>();
+	const switchIndicator = useRef<React.PropsWithChildren<any>>();
 
 	let radioWidths: number[] = [];
 
 	useEffect(() => {
 		radioWidths = radio.items.map(item => {
-			const radio = item.ref.current;
-			return radio.scrollWidth;
+			if (item.ref.current) return item.ref.current.scrollWidth;
+			return 0;
 		});
 	});
 
@@ -51,7 +43,7 @@ const Switch: React.FC<SwitchProps> = ({
 		}
 		const checkedRadioIndex = radioGroupChildren.indexOf(checkedElement);
 		const checkedRadioSpanWidth = checkedElement.scrollWidth;
-		const switchIndicatorRef = switchIndicator.current;
+		const switchIndicatorRef = switchIndicator?.current;
 		const isFirst = checkedRadioIndex === 0;
 		const isLast = checkedRadioIndex === radioWidths.length - 1;
 		if (switchIndicatorRef) {
@@ -76,9 +68,9 @@ const Switch: React.FC<SwitchProps> = ({
 						</Radio>
 					);
 				})}
-				<strong ref={switchIndicator} aria-hidden="true">
-					<em></em>
-				</strong>
+				<S.SwitchIndicator ref={switchIndicator} aria-hidden="true">
+					<em />
+				</S.SwitchIndicator>
 			</RadioGroup>
 		</S.Switch>
 	);

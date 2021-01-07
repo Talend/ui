@@ -2,7 +2,12 @@ import Menu from './Menu';
 import MenuItem from './MenuItem';
 import ReversedMenu from './variations/Menu.Reversed';
 
-Menu.Item = MenuItem;
-Menu.Reversed = ReversedMenu;
+const MenuComponent = Menu as typeof Menu & {
+	Item: typeof MenuItem;
+	Reversed: typeof ReversedMenu;
+};
 
-export default Menu;
+MenuComponent.Item = MenuItem;
+MenuComponent.Reversed = ReversedMenu;
+
+export default MenuComponent;

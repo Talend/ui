@@ -3,13 +3,12 @@ import { action } from '@storybook/addon-actions';
 import { FigmaImage, Use } from '../../../docs';
 import Tooltip from '../.';
 import Button from '../../Button';
-import { Col, Row } from '../../../docs';
 
-<Meta title="Components/Tooltip" component={Tooltip}/>
+<Meta title="Components/Tooltip" component={Tooltip} />
 
 # Tooltip
 
-Tooltips provide helpful, additional content for their paired elements on hover. They are contextual and specific to the element and don't provide the big picture. 
+Tooltips provide helpful, additional content for their paired elements on hover. They are contextual and specific to the element and don't provide the big picture.
 
 ## Zoning
 
@@ -21,76 +20,87 @@ Tooltips provide helpful, additional content for their paired elements on hover.
 ## Style
 
 <Canvas>
-  <Story name="top">
+	<Story name="top">
 		<Tooltip title="Relevant information about this basic button" placement="top" visible>
 			<Button onClick={action('clicked')}>Top</Button>
 		</Tooltip>
-  </Story>
-  <Story name="left">
+	</Story>
+	<Story name="left">
 		<Tooltip title="Relevant information about this basic button" placement="left">
 			<Button onClick={action('clicked')}>Left</Button>
 		</Tooltip>
-  </Story>
-  <Story name="bottom">
+	</Story>
+	<Story name="bottom">
 		<Tooltip title="Relevant information about this basic button" placement="bottom">
 			<Button onClick={action('clicked')}>Bottom</Button>
 		</Tooltip>
-  </Story>
-  <Story name="right">
+	</Story>
+	<Story name="right">
 		<Tooltip title="Relevant information about this basic button" placement="right">
 			<Button onClick={action('clicked')}>Right</Button>
 		</Tooltip>
-  </Story>
+	</Story>
 </Canvas>
-
 
 ## Content
 
-Tooltips with obvious or redundant text are not beneficial to users. If you can’t think of particularly helpful content, don’t offer a tooltip. Otherwise, you’ll just add information pollution to your UI and waste the time of users.
+Tooltips with obvious or redundant text are not beneficial to users.
+If you can’t think of particularly helpful content, don’t offer a tooltip.
+Otherwise, you’ll just add information pollution to your UI and waste the time of users.
 
 <Use>
 	<Use.Do>
 		<ul>
 			<li>Use tooltips consistently throughout your site.</li>
-			<li>Try to make the text as short as possible and include the most critical or meaningful info to make reading easier.</li>
+			<li>
+				Try to make the text as short as possible and include the most critical or meaningful info
+				to make reading easier.
+			</li>
 			<li>If the tooltip has more than one sentence, use a period at the end.</li>
 		</ul>
-  </Use.Do>
+	</Use.Do>
 	<Use.Dont>
 		<ul>
 			<li>Don't use tooltips for simple actions users perform regularly.</li>
 			<li>Avoid tooltips which are complete duplicates of what is stated clearly in the UI.</li>
-			<li>Don't use tooltips for information that is necessary to task completion, e.g. field or password requirements. Such info essential to a frictionless user experience should always be present on the screen.</li>
-			<li>If the tooltip is one phrase, don't use a period at the end even if it's a complete sentence in order not to overload the interface.</li>
+			<li>
+				Don't use tooltips for information that is necessary to task completion, e.g. field or
+				password requirements. Such info essential to a frictionless user experience should always
+				be present on the screen.
+			</li>
+			<li>
+				If the tooltip is one phrase, don't use a period at the end even if it's a complete sentence
+				in order not to overload the interface.
+			</li>
 		</ul>
-  </Use.Dont>
+	</Use.Dont>
 </Use>
-
 
 <hr />
 
 ## Usage
 
 <Canvas>
-  <Story
-    name="usage"
-    args={{
-        text: 'Example'
-    }}
-  >
-    {({ text, ...props }) => <Tooltip {...props}><Button onClick={action('clicked')}>{text}</Button></Tooltip>}
-  </Story>
+	<Story
+		name="usage"
+		args={{
+			title: 'Meaningful description',
+			visible: true,
+		}}
+	>
+		{({ text, ...props }) => (
+			<Tooltip {...props}>
+				<Button onClick={action('clicked')}>Lorem ipsum</Button>
+			</Tooltip>
+		)}
+	</Story>
 </Canvas>
 
 <ArgsTable story="usage" />
 
 ## Accessibility
 
-Classic behaviors expected:
-
 - Press <kbd>TABS</kbd> to focus element and tooltip will be visible
-
-For more information, please go to accessibility page
 
 ## Changelog
 

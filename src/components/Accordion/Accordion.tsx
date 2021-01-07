@@ -1,72 +1,55 @@
 import React from 'react';
-import {
-	useCompositeState,
-	Composite,
-	CompositeItem,
-	useDisclosureState,
-	Disclosure,
-	DisclosureContent,
-} from 'reakit';
+import { useCompositeState, Composite, CompositeItem } from 'reakit';
 
-const AccordionContext = React.createContext();
+export type InitialAccordionState = {
+	selectedId?: string;
+};
 
-function useAccordionState({ selectedId }) {
-	const [selected, setSelected] = React.useState(selectedId);
+export type AccordionContextType = {
+	selected: string | undefined;
+	setSelected: (id: string) => void;
+};
+
+export type AccordionProps = React.PropsWithChildren<any> & {
+	selectedId?: string;
+};
+
+export const AccordionContext = React.createContext<AccordionContextType>({
+	selected: '',
+	setSelected: () => console.warn('no accordion provider'),
+});
+
+const useAccordionState = ({ selectedId }: InitialAccordionState) => {
+	const [selected, setSelected] = React.useState<string | undefined>(selectedId);
 	return {
 		selected,
 		setSelected: (id: string) => {
 			setSelected(id !== selected ? id : undefined);
 		},
 	};
-}
-
-const Accordion = ({ selectedId, children, ...rest }) => {
-	const accordion = useAccordionState({ selectedId });
-	const composite = useCompositeState({});
-	return (
-		<AccordionContext.Provider value={accordion}>
-			<Composite {...composite} {...rest}>
-				{children.map((child, id) => (
-					<CompositeItem
-						as="div"
-						{...composite}
-						key={id}
-						id={id}
-						onClick={() => accordion.setSelected(`accordion-disclosure-${id}`)}
-					>
-						{React.cloneElement(child, { id, ...child.props })}
-					</CompositeItem>
-				))}
-			</Composite>
-		</AccordionContext.Provider>
-	);
 };
 
-const Item = ({ id, disclosure, children, visible }) => {
-	const accordion = React.useContext(AccordionContext);
-	const disclosureId = `accordion-disclosure-${id}`;
-	const disclosureState = useDisclosureState({ visible });
-
-	React.useEffect(() => {
-		accordion.selected === disclosureId ? disclosureState.show() : disclosureState.hide();
-	}, [accordion.selected]);
-
-	return (
-		<>
-			<Disclosure
-				id={disclosureId}
-				{...disclosureState}
-				ref={disclosure.ref}
-				{...disclosure.props}
-				onClick={event => accordion.setSelected(event.currentTarget.id)}
-			>
-				{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
-			</Disclosure>
-			<DisclosureContent {...disclosureState}>{children}</DisclosureContent>
-		</>
-	);
-};
-
-Accordion.Item = Item;
+const Accordion = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>(
+	({ selectedId, children, ...rest }: AccordionProps, ref) => {
+		const accordion = useAccordionState({ selectedId });
+		const composite = useCompositeState({});
+		return (
+			<AccordionContext.Provider value={accordion}>
+				<Composite {...composite} ref={ref} {...rest}>
+					{children.map((child: React.ReactElement, id: number) => (
+						<CompositeItem
+							as="div"
+							{...composite}
+							key={id}
+							onClick={() => accordion.setSelected(`accordion-disclosure-${id}`)}
+						>
+							{React.cloneElement(child, { id, ...child.props })}
+						</CompositeItem>
+					))}
+				</Composite>
+			</AccordionContext.Provider>
+		);
+	},
+);
 
 export default Accordion;

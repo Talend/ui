@@ -25,7 +25,7 @@ export type InlineMessageProps = BoxProps & {
  Inline message highlights information necessary to display for the user in many different contexts.
  It can be additional information related to system status, it can be a required action to complete the current task.
  @link https://inclusive-components.design/notifications
- **/
+ * */
 const InlineMessage: React.FC<InlineMessageProps> = React.forwardRef(
 	({ icon, title, description, link, className = '', ...rest }: InlineMessageProps, ref) => {
 		return (

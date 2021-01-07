@@ -6,6 +6,6 @@ context('<Link />', () => {
 	});
 
 	it('should render', () => {
-		cy.get('.link').should('have.attr', 'title', 'Open in a new tab').should('have.text', 'Help');
+		cy.get('.link').should('have.attr', 'title', 'Open in a new tab').should('contain', 'Help');
 	});
 });

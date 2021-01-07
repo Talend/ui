@@ -8,9 +8,7 @@ import tokens from '../../tokens';
 
 const HeaderBar = S.HeaderBar;
 
-export type ContentProps = {
-	children: ReactElement;
-};
+export type ContentProps = React.PropsWithChildren<any>;
 
 const Content: React.FC<ContentProps> = ({ children }: ContentProps) => {
 	const isWide = useMedia(`(min-width: ${tokens.breakpoints.l})`);
