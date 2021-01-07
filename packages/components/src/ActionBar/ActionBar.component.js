@@ -171,9 +171,9 @@ function defineComponentLeft(parentComponentLeft, selected, hideCount) {
 	}
 
 	if (!hideCount && selected > 0) {
-			return {
-				'before-actions': <Count selected={selected} />,
-			};
+		return {
+			'before-actions': <Count selected={selected} />,
+		};
 	}
 
 	return undefined;
