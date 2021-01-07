@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledProps } from 'styled-components';
 import { BoxProps } from 'reakit';
-import Icon, { IconName } from '../Icon/Icon';
+import { Icon, IconName } from '../Icon/Icon';
 
 import * as S from './Link.style';
 
@@ -58,12 +58,16 @@ const Link: React.FC<LinkProps> = React.forwardRef(
 				ariaDisabled={disabled ? 'true' : null}
 				ref={ref}
 			>
-				{iconBefore && <Icon className="link__icon link__icon--before" name={iconBefore} />}
+				{iconBefore && (
+					<Icon className="link__icon link__icon--before" name={iconBefore} currentColor />
+				)}
 				<span className="link__text">{children}</span>
 				{isExternal && !hideExternalIcon && (
-					<Icon className="link__icon link__icon--external" name="link" />
+					<Icon className="link__icon link__icon--external" name="talend-link" currentColor />
 				)}
-				{iconAfter && <Icon className="link__icon link__icon--after" name={iconAfter} />}
+				{iconAfter && (
+					<Icon className="link__icon link__icon--after" name={iconAfter} currentColor />
+				)}
 			</S.Link>
 		);
 	},

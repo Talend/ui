@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BoxProps } from 'reakit';
 
-import Icon, { IconName } from '../Icon/Icon';
+import { Icon, IconName } from '../Icon/Icon';
 
 import * as S from './InlineMessage.style';
 

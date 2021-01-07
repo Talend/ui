@@ -2,7 +2,7 @@ import React from 'react';
 import { useDialogState, DialogProps } from 'reakit';
 
 import Button from '../Button';
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import * as S from './Modal.style';
 

@@ -99,11 +99,10 @@ export const Logo = styled(Item).attrs({
 	className: 'header-bar__logo',
 })<{ full: boolean }>(
 	({ full }) => `
-	max-width: ${full ? 'auto' : '6rem'};
-
 	svg {
 		height: ${tokens.sizes.xl};
-		width: ${full ? 'auto' : tokens.sizes.xl};
+		width: ${full ? '6rem' : tokens.sizes.xl};
+		vertical-align: middle;
 	}
 `,
 );

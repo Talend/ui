@@ -4,6 +4,7 @@ import { FigmaImage, FigmaLink, Use } from '../../../docs';
 import Button from '../';
 import Skeleton from '../../Skeleton';
 import Tooltip from '../../Tooltip';
+import { IconsProvider } from '../../IconsProvider';
 
 <Meta title="Components/Button" component={Button} />
 
@@ -44,7 +45,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
 	</Story>
 	<Story name="primary--icon">
-		<Button.Primary onClick={action('clicked')} icon="plus">
+		<Button.Primary onClick={action('clicked')} icon="talend-plus">
 			Button with icon
 		</Button.Primary>
 	</Story>
@@ -72,7 +73,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
 	</Story>
 	<Story name="destructive--icon">
-		<Button.Destructive onClick={action('clicked')} icon="plus">
+		<Button.Destructive onClick={action('clicked')} icon="talend-plus">
 			Button with icon
 		</Button.Destructive>
 	</Story>
@@ -100,7 +101,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
 	</Story>
 	<Story name="secondary--icon">
-		<Button.Secondary onClick={action('clicked')} icon="plus">
+		<Button.Secondary onClick={action('clicked')} icon="talend-plus">
 			Button with icon
 		</Button.Secondary>
 	</Story>
@@ -128,7 +129,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 		<Button.Tertiary onClick={action('clicked')}>Basic Button</Button.Tertiary>
 	</Story>
 	<Story name="tertiary--icon">
-		<Button.Tertiary onClick={action('clicked')} icon="plus">
+		<Button.Tertiary onClick={action('clicked')} icon="talend-plus">
 			Button with icon
 		</Button.Tertiary>
 	</Story>
@@ -153,22 +154,22 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 
 <Canvas>
 	<Story name="icon">
-		<Button.Icon onClick={action('clicked')} icon={'plus'}>
+		<Button.Icon onClick={action('clicked')} icon={'talend-plus'}>
 			Basic Button
 		</Button.Icon>
 	</Story>
 	<Story name="icon--small">
-		<Button.Icon small onClick={action('clicked')} icon={'plus'}>
+		<Button.Icon small onClick={action('clicked')} icon={'talend-plus'}>
 			Small Button
 		</Button.Icon>
 	</Story>
 	<Story name="icon--disabled">
-		<Button.Icon disabled onClick={action('clicked')} icon={'plus'}>
+		<Button.Icon disabled onClick={action('clicked')} icon={'talend-plus'}>
 			Disabled Button
 		</Button.Icon>
 	</Story>
 	<Story name="icon--disabled-focusable">
-		<Button.Icon disabled focusable onClick={action('clicked')} icon={'plus'}>
+		<Button.Icon disabled focusable onClick={action('clicked')} icon={'talend-plus'}>
 			Disabled Focusable Button
 		</Button.Icon>
 	</Story>
@@ -179,7 +180,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 <Canvas>
 	<Story name="basic">
 		<Tooltip title="Relevant information about contacting the support">
-			<Button.Primary onClick={action('clicked')} icon={'bubbles'}>
+			<Button.Primary onClick={action('clicked')} icon={'talend-bubbles'}>
 				Contact support
 			</Button.Primary>
 		</Tooltip>
@@ -215,7 +216,7 @@ No action will be possible until it's done.
 			return (
 				<Tooltip title="Relevant description of the basic button">
 					<Button.Primary
-						icon="check"
+						icon="talend-check"
 						loading={loading}
 						onClick={() => {
 							isLoading(true);
@@ -272,7 +273,7 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 		name="usage"
 		args={{
 			variant: 'Primary',
-			icon: 'upload',
+			icon: 'talend-upload',
 			children: 'Upload',
 		}}
 		argTypes={{
@@ -293,31 +294,7 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 				description: 'Button icon as illustration',
 				control: {
 					type: 'select',
-					options: [
-						'',
-						'arrowLeft',
-						'bell',
-						'burger',
-						'bubbles',
-						'caret',
-						'cross',
-						'check',
-						'datagrid',
-						'eye',
-						'eyeSlash',
-						'information',
-						'link',
-						'minus',
-						'opener',
-						'plus',
-						'search',
-						'talend',
-						'talendLogo',
-						'upload',
-						'user',
-						'validate',
-						'warning',
-					],
+					options: [''].concat(IconsProvider.getCurrentIconIds()),
 				},
 			},
 			loading: {

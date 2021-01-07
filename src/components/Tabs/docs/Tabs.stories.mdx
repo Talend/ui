@@ -2,7 +2,7 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, FigmaLink, Use } from '../../../docs';
 
 import Tabs from '../';
-import Icon from '../../Icon';
+import { Icon } from '../../Icon';
 import Tag from '../../Tag';
 import Tooltip from '../../Tooltip';
 import Button from '../../Button';
@@ -57,13 +57,13 @@ Icons can be used with tabs to help users differentiate among them. Tabs with ic
 		<Tabs selectedId="tab2">
 			<Tabs.TabList aria-label="My tabs">
 				<Tabs.Tab>
-					<Icon name="user" /> User
+					<Icon name="talend-user-circle" /> User
 				</Tabs.Tab>
 				<Tabs.Tab id="tab2">
-					<Icon name="talend" /> Calendar
+					<Icon name="talend-empty-calendar" /> Calendar
 				</Tabs.Tab>
 				<Tabs.Tab>
-					<Icon name="talend" /> Favorite
+					<Icon name="talend-star" /> Favorite
 				</Tabs.Tab>
 			</Tabs.TabList>
 		</Tabs>

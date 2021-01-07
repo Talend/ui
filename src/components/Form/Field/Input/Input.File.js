@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { VisuallyHidden } from 'reakit';
 import Button from '../../../Button';
 import Link from '../../../Link';
-import Icon from '../../../Icon';
+import { Icon } from '../../../Icon';
 import Input from './Input';
 import tokens from '../../../../tokens';
 
@@ -193,7 +193,7 @@ function InputFile(props) {
 				/>
 				{!files ? (
 					<div className="input-file__text text">
-						<Icon className="text__icon" name="upload" />{' '}
+						<Icon className="text__icon" name="talend-upload" />{' '}
 						<span className="text__span">
 							Drop your files or <Link className="text__link">browse</Link>
 						</span>
@@ -209,7 +209,7 @@ function InputFile(props) {
 							))}
 						</ol>
 						<Button className="preview__button" onClick={clear}>
-							<Icon className="preview__button-icon" name="cross" />
+							<Icon className="preview__button-icon" name="talend-cross" />
 							<VisuallyHidden>Clear selection</VisuallyHidden>
 						</Button>
 					</div>

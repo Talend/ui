@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledProps } from 'styled-components';
 
-import Icon, { IconName } from '../Icon/Icon';
+import { Icon, IconName } from '../Icon/Icon';
 import Loading from '../Loading';
 
 import * as S from './Button.style';
@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(
 			aria-busy={!!loading}
 		>
 			{loading && <Loading className="btn__loading" name={icon} aria-hidden />}
-			{!loading && icon && <Icon className="btn__icon" name={icon} />}
+			{!loading && icon && <Icon className="btn__icon" name={icon} currentColor />}
 			<span className={`btn__text ${hideText ? 'btn__text--hidden' : ''}`}>{children}</span>
 		</S.Button>
 	),

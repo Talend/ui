@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Icon from './../../../../Icon';
+import { Icon } from './../../../../Icon';
 import Button from '../../../../Button';
 
 export default function useRevealPassword() {
@@ -15,14 +15,14 @@ export default function useRevealPassword() {
 				aria-hidden
 				{...props}
 			>
-				<Icon name={revealed ? 'eye' : 'eyeSlash'} />
+				<Icon name={revealed ? 'talend-eye' : 'talend-eye-slash'} />
 			</Button>
 		);
 	}
 
 	function onReveal(event) {
 		event.preventDefault();
-		setRevealed((prevState) => !prevState);
+		setRevealed(prevState => !prevState);
 	}
 
 	function onReset() {

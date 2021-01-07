@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Card from '../components/Card';
-import Icon from '../components/Icon';
+import { Icon } from '../components/Icon';
 import Layout from '../components/Layout';
 
 import tokens from '../tokens';
@@ -139,7 +139,7 @@ const CardTemplate: React.FC<CardTemplateProps> = ({ title, main, footer }: Card
 				<Card>
 					{title && (
 						<Card.Heading>
-							<Icon name="talendLogo" />
+							<Icon name="talend-logo" />
 							<h1>{title}</h1>
 						</Card.Heading>
 					)}

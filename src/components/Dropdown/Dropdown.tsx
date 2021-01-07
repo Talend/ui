@@ -25,7 +25,7 @@ const Dropdown: React.FC<DropdownProps> = React.forwardRef(
 			<>
 				<S.Button as={Button} ref={ref} {...menu} {...rest}>
 					{children}
-					{items.length ? <S.ButtonIcon name="caret" /> : null}
+					{items.length ? <S.ButtonIcon name="talend-caret-down" /> : null}
 				</S.Button>
 				{items.length ? (
 					<S.Menu {...menu} aria-label={ariaLabel} aria-labelledby={ariaLabelledby}>

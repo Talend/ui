@@ -67,7 +67,7 @@ describe('Button', () => {
 
 	test('icon', () => {
 		const { getByTestId } = render(
-			<Button data-testid="my.button" icon="talend">
+			<Button data-testid="my.button" icon="talend-logo">
 				Button
 			</Button>,
 		);

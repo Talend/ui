@@ -11,7 +11,7 @@ describe('Link', () => {
 
 	test('iconBefore', () => {
 		const { getByTestId } = render(
-			<Link data-testid="my.link" iconBefore="talend">
+			<Link data-testid="my.link" iconBefore="talend-stop">
 				Link
 			</Link>,
 		);
@@ -21,7 +21,7 @@ describe('Link', () => {
 
 	test('iconAfter', () => {
 		const { getByTestId } = render(
-			<Link data-testid="my.link" iconAfter="talend">
+			<Link data-testid="my.link" iconAfter="talend-stop">
 				Link
 			</Link>,
 		);

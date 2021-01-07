@@ -4,13 +4,13 @@ import Menu from '../../components/Menu';
 export default function MenuExample() {
 	return (
 		<Menu variant="TDI">
-			<Menu.Item iconBefore="information" href="#A" active>
+			<Menu.Item iconBefore="talend-info-circle" href="#A" active>
 				Link A
 			</Menu.Item>
-			<Menu.Item iconBefore="warning" href="#B">
+			<Menu.Item iconBefore="talend-warning" href="#B">
 				Link B
 			</Menu.Item>
-			<Menu.Item iconBefore="cross" href="#C">
+			<Menu.Item iconBefore="talend-cross" href="#C">
 				Link C
 			</Menu.Item>
 		</Menu>

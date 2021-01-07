@@ -5,7 +5,7 @@ import { VisuallyHidden } from 'reakit';
 import Button from '../../Button';
 import Dropdown from '../../Dropdown';
 import Link from '../../Link';
-import Icon from '../../Icon';
+import { Icon } from '../../Icon';
 import Toggle from '../../Toggle';
 import Tooltip from '../../Tooltip';
 import HeaderBar from '..';
@@ -16,7 +16,7 @@ export const PortalOnBoarding = () => (
 	<HeaderBar>
 		<HeaderBar.Logo full>
 			<Link href="#">
-				<Icon name="talendLogo" />
+				<Icon name="talend-logo" currentColor />
 				<VisuallyHidden>Talend</VisuallyHidden>
 			</Link>
 		</HeaderBar.Logo>
@@ -28,7 +28,7 @@ export const Portal = () => {
 		<HeaderBar>
 			<HeaderBar.Logo full>
 				<Link href="#">
-					<Icon name="talendLogo" />
+					<Icon name="talend-logo" currentColor />
 					<VisuallyHidden>Talend</VisuallyHidden>
 				</Link>
 			</HeaderBar.Logo>
@@ -36,19 +36,19 @@ export const Portal = () => {
 				<Dropdown
 					aria-label="Apps switcher"
 					items={[
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 1
 						</Link>,
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 2
 						</Link>,
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 3
 						</Link>,
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 4
 						</Link>,
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 5
 						</Link>,
 					]}
@@ -65,17 +65,17 @@ export const Portal = () => {
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Tooltip title="Chat with Talend support" placement="bottom">
-							<Toggle icon="bubbles">Intercom</Toggle>
+							<Toggle icon="talend-bubbles">Intercom</Toggle>
 						</Tooltip>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
-						<Link iconBefore="information" href="#">
+						<Link iconBefore="talend-info-circle" href="#">
 							Help
 						</Link>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Dropdown
-							icon="user"
+							icon="talend-user-circle"
 							items={[
 								<Button>About</Button>,
 								<></>,
@@ -100,25 +100,25 @@ export const Apps = () => {
 		<HeaderBar>
 			<HeaderBar.Logo>
 				<Link href="#">
-					<Icon name="talend" preserveColors />
+					<Icon name="talend-logo-square" />
 					<VisuallyHidden>Talend</VisuallyHidden>
 				</Link>
 			</HeaderBar.Logo>
 			<HeaderBar.Brand>
 				<Dropdown
-					icon="talend"
+					icon="talend-api-designer-positive"
 					aria-label="Apps switcher"
 					items={[
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 2
 						</Link>,
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 3
 						</Link>,
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 4
 						</Link>,
-						<Link iconBefore="talend" href="#">
+						<Link iconBefore="talend-stop" href="#">
 							App name 5
 						</Link>,
 					]}
@@ -170,22 +170,22 @@ export const Apps = () => {
 				<HeaderBar.ContentRight>
 					<HeaderBar.Item>
 						<Tooltip title="Notifications (you have no unread notifications)" placement="bottom">
-							<Toggle icon="bell">Notifications</Toggle>
+							<Toggle icon="talend-bell-notification">Notifications</Toggle>
 						</Tooltip>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Tooltip title="Chat with Talend support" placement="bottom">
-							<Toggle icon="bubbles">Intercom</Toggle>
+							<Toggle icon="talend-bubbles">Intercom</Toggle>
 						</Tooltip>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
-						<Link iconBefore="information" href="#">
+						<Link iconBefore="talend-info-circle" href="#">
 							Help
 						</Link>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Dropdown
-							icon="user"
+							icon="talend-user-circle"
 							items={[
 								<Button>About</Button>,
 								<></>,

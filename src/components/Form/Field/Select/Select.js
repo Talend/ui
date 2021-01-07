@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from '../../../Icon/Icon';
 
 import Field from '../Field';
 
@@ -53,6 +54,7 @@ function Select({ className = '', children, values, value: initialValue, multipl
 				value={value}
 				multiple={multiple}
 				onChange={onChange}
+				before={!multiple && <Icon name="talend-caret-down" className="talend-caret-down" />}
 			>
 				{getOptions()}
 			</Field>

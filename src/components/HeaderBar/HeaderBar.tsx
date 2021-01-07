@@ -21,7 +21,7 @@ const Content: React.FC<ContentProps> = ({ children }: ContentProps) => {
 		children
 	) : (
 		<>
-			<Disclosure as={S.MenuDisclosure} {...disclosure} icon="burger">
+			<Disclosure as={S.MenuDisclosure} {...disclosure} icon="talend-burger">
 				Toggle menu
 			</Disclosure>
 			<DisclosureContent as={S.Menu} {...disclosure}>

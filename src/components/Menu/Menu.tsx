@@ -36,7 +36,7 @@ const Menu = React.forwardRef(({ children, hasToggle = true, ...rest }: MenuProp
 		>
 			{hasToggle && (
 				<S.NavButton
-					icon="opener"
+					icon="talend-opener"
 					className={`nav__button ${isCollapsed ? 'nav__button--collapsed' : ''}`}
 					onClick={() => collapse(!isCollapsed)}
 				>

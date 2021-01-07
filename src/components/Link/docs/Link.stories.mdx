@@ -1,5 +1,6 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, FigmaLink, Use } from '../../../docs';
+import { IconsProvider } from '../../IconsProvider';
 import Link from '../';
 
 <Meta title="Components/Link" component={Link} />
@@ -35,7 +36,7 @@ Still need to be convinced? Please, take the time to read [this article written 
 
 <Canvas>
 	<Story name="with icon">
-		<Link iconBefore="information" href="#">
+		<Link iconBefore="talend-info-circle" href="#">
 			Link example
 		</Link>
 	</Story>
@@ -45,7 +46,7 @@ Still need to be convinced? Please, take the time to read [this article written 
 
 <Canvas>
 	<Story name="multi lines">
-		<Link iconBefore="information" href="https://www.talend.com" target="_blank">
+		<Link iconBefore="talend-info-circle" href="https://www.talend.com" target="_blank">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et
 			massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci
 			maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique
@@ -63,7 +64,7 @@ When the link is disabled the whole component is displayed with 0.54 opacity.
 
 <Canvas>
 	<Story name="disabled">
-		<Link iconBefore="information" href="#" disabled>
+		<Link iconBefore="talend-info-circle" href="#" disabled>
 			Link example
 		</Link>
 	</Story>
@@ -140,62 +141,14 @@ Press <kbd>ENTER</kbd> to open a link
 				description: 'Link icon before text as illustration',
 				control: {
 					type: 'select',
-					options: [
-						'',
-						'arrowLeft',
-						'bell',
-						'burger',
-						'bubbles',
-						'caret',
-						'cross',
-						'check',
-						'datagrid',
-						'eye',
-						'eyeSlash',
-						'information',
-						'link',
-						'minus',
-						'opener',
-						'plus',
-						'search',
-						'talend',
-						'talendLogo',
-						'upload',
-						'user',
-						'validate',
-						'warning',
-					],
+					options: [''].concat(IconsProvider.getCurrentIconIds()),
 				},
 			},
 			iconAfter: {
 				description: 'Link icon after text as illustration',
 				control: {
 					type: 'select',
-					options: [
-						'',
-						'arrowLeft',
-						'bell',
-						'burger',
-						'bubbles',
-						'caret',
-						'cross',
-						'check',
-						'datagrid',
-						'eye',
-						'eyeSlash',
-						'information',
-						'link',
-						'minus',
-						'opener',
-						'plus',
-						'search',
-						'talend',
-						'talendLogo',
-						'upload',
-						'user',
-						'validate',
-						'warning',
-					],
+					options: [''].concat(IconsProvider.getCurrentIconIds()),
 				},
 			},
 			href: {

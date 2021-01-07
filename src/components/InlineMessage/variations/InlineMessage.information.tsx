@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { tint } from 'polished';
-import InlineMessage, { InlineMessageProps } from '../InlineMessage';
+import InlineMessage from '../InlineMessage';
 
 const InlineMessageInformation = styled(InlineMessage).attrs({
-	icon: 'information',
+	icon: 'talend-info-circle',
 })(
 	({ withBackground, theme }) => `
 	color: ${theme.colors.informationColor};

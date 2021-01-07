@@ -3,7 +3,7 @@ import { ColorPalette, ColorItem, IconItem, IconGallery } from '@storybook/compo
 import { FigmaImage, Use } from '../../../docs';
 
 import tokens from '../../../tokens';
-import Icon from '../../Icon';
+import { Icon } from '../../Icon';
 import InlineMessage from '../';
 import Link from '../../Link';
 
@@ -26,7 +26,7 @@ It can be additional information related to system status, it can be a required 
 ### Icons
 
 <IconGallery>
-	{['cross', 'warning', 'check', 'information'].map((iconName, index) => (
+	{['talend-cross', 'talend-warning', 'talend-check', 'talend-info-circle'].map((iconName, index) => (
 		<IconItem key={index} name={iconName}>
 			<Icon name={iconName} />
 		</IconItem>
@@ -274,9 +274,8 @@ Error messages should tell why there was a problem and what could be done to res
 	<Story
 		name="basic"
 		args={{
-			variant: 'Primary',
-			title: 'Title',
-			description: 'Description',
+			title: 'A title',
+			description: 'with a description',
 			withBackground: true,
 		}}
 		argTypes={{

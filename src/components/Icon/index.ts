@@ -1,3 +1,3 @@
-import Icon from './Icon';
+import { IconMemo } from './Icon';
 
-export default Icon;
+export const Icon = IconMemo;
