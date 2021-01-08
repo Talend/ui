@@ -8,51 +8,50 @@ import { Icon } from '../../../Icon';
 import Input from './Input';
 import tokens from '../../../../tokens';
 
-const FileField = styled.div(
-	({ theme }) => `
+const FileField = styled.div`
 	width: 100%;
-	
+
 	.input {
-		&, 
+		&,
 		&::-webkit-file-upload-button {
 			height: 100%;
 			width: 100%;
-			cursor: pointer; 
+			cursor: pointer;
 		}
-		
-		&--filled {				
+
+		&--filled {
 			pointer-events: none;
 		}
-		
+
 		&:focus + .input-file__text {
-			border: 2px solid ${theme.colors.inputBorderFocusColor}; 
+			border: 2px solid ${({ theme }) => theme.colors.inputBorderFocusColor};
 			border-radius: ${tokens.radii.inputBorderRadius};
-			outline: 0.3rem solid ${theme.colors.focusColor};
+			outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor};
 		}
 	}
 
 	.input-file {
 		position: relative;
-		border: 1px dashed ${theme.colors.inputBorderColor};
+		border: 1px dashed ${({ theme }) => theme.colors.inputBorderColor};
 		border-radius: ${tokens.radii.inputBorderRadius};
-		
+
 		&:hover {
-			border-color: ${theme.colors.inputBorderHoverColor};
-			
+			border-color: ${({ theme }) => theme.colors.inputBorderHoverColor};
+
 			.text__icon {
-                fill: ${theme.colors.inputBorderHoverColor};
-            }
+				fill: ${({ theme }) => theme.colors.inputBorderHoverColor};
+			}
 		}
 
 		&--dragging {
-			background: ${tint(0.95, theme.colors.activeColor)};
-			border: 2px dashed ${theme.colors.activeColor};
-			
-            .text__icon {
-                fill: ${theme.colors.activeColor};
-            }
+			background: ${({ theme }) => tint(0.95, theme.colors.activeColor)};
+			border: 2px dashed ${({ theme }) => theme.colors.activeColor};
+
+			.text__icon {
+				fill: ${({ theme }) => theme.colors.activeColor};
+			}
 		}
-		
+
 		&__text,
 		&__preview,
 		&__input {
@@ -68,68 +67,67 @@ const FileField = styled.div(
 			opacity: ${tokens.opacity.transparent};
 		}
 	}
-	
+
 	.text {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: ${theme.colors.inputPlaceholderColor};
-		
+		color: ${({ theme }) => theme.colors.inputPlaceholderColor};
+
 		&__icon {
+			position: static;
 			margin: 0 1rem;
 			width: ${tokens.sizes.l};
-			fill: ${theme.colors.inputPlaceholderColor};
+			color: ${({ theme }) => theme.colors.textColor};
 		}
-	}	
-	
+	}
+
 	.preview {
-		position: relative;
-		
+		display: flex;
+		align-items: baseline;
+		padding: 0 1rem;
+
 		&__list {
-			padding: 0 1rem;
-			
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
 			&-item {
-				line-height: ${tokens.sizes.xxl};
-				color: ${theme.colors.inputColor}; 
+				color: ${({ theme }) => theme.colors.inputColor};
 			}
 		}
-		
+
 		&__button {
-			position: absolute;
-			top: 0;
-			right: 0;
+			position: static;
+			margin-left: auto;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			min-height: ${tokens.sizes.xxl};
 			border: none;
-			
+
 			svg {
 				position: static;
 				width: ${tokens.sizes.l};
-				
-				path {
-					fill: ${theme.colors.activeColor};
-				}
+				color: ${({ theme }) => theme.colors.textColor};
 			}
-			  
-			&:hover {    
+
+			&:hover {
 				svg path {
-					fill: ${shade(0.25, theme.colors.activeColor)};
+					fill: ${({ theme }) => shade(0.25, theme.colors.activeColor)};
 				}
 			}
 		}
 	}
-`,
-);
+`;
 
 function getFileSize(size) {
 	if (size < 1024) {
-		return `${size  }bytes`;
+		return `${size}bytes`;
 	} else if (size > 1024 && size < 1048576) {
-		return `${(size / 1024).toFixed(1)  }KB`;
+		return `${(size / 1024).toFixed(1)}KB`;
 	} else if (size > 1048576) {
-		return `${(size / 1048576).toFixed(1)  }MB`;
+		return `${(size / 1048576).toFixed(1)}MB`;
 	}
 }
 
@@ -193,7 +191,7 @@ function InputFile(props) {
 				/>
 				{!files ? (
 					<div className="input-file__text text">
-						<Icon className="text__icon" name="talend-upload" />{' '}
+						<Icon className="text__icon" name="talend-upload" currentColor />{' '}
 						<span className="text__span">
 							Drop your files or <Link className="text__link">browse</Link>
 						</span>
@@ -201,17 +199,16 @@ function InputFile(props) {
 				) : (
 					<div className="input-file__preview preview">
 						<VisuallyHidden>You have selected:</VisuallyHidden>
-						<ol className="preview__list">
+						<ol role="list" className="preview__list">
 							{files.map((file, index) => (
 								<li key={index} className="preview__list-item">
 									{typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`}
 								</li>
 							))}
 						</ol>
-						<Button className="preview__button" onClick={clear}>
-							<Icon className="preview__button-icon" name="talend-cross" />
-							<VisuallyHidden>Clear selection</VisuallyHidden>
-						</Button>
+						<Button.Icon icon="talend-cross-circle" className="preview__button" onClick={clear}>
+							Clear selection
+						</Button.Icon>
 					</div>
 				)}
 			</div>
