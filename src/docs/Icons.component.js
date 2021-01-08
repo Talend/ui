@@ -22,6 +22,11 @@ export const Icons = () => {
 	return (
 		<>
 			<ThemeProvider>
+				<IconsProvider
+					bundles={[
+						'https://statics-dev.cloud.talend.com/@talend/icons/6.7.0/dist/svg-bundle/all.svg',
+					]}
+				/>
 				<Form>
 					<Form.Search label="Search" onChange={onChangeQuery} />
 					<Form.Select
