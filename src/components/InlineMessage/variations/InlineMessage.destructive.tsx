@@ -4,7 +4,7 @@ import { tint } from 'polished';
 import InlineMessage from '../InlineMessage';
 
 const InlineMessageDestructive = styled(InlineMessage).attrs({
-	icon: 'talend-cross',
+	icon: 'talend-cross-circle',
 })(
 	({ withBackground, theme }) => `
 	color: ${theme.colors.destructiveColor};

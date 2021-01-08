@@ -54,7 +54,9 @@ function Select({ className = '', children, values, value: initialValue, multipl
 				value={value}
 				multiple={multiple}
 				onChange={onChange}
-				before={!multiple && <Icon name="talend-caret-down" className="talend-caret-down" />}
+				before={
+					!multiple && <Icon name="talend-caret-down" className="talend-caret-down" currentColor />
+				}
 			>
 				{getOptions()}
 			</Field>

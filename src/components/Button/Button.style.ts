@@ -16,10 +16,10 @@ export const Button = styled(ReakitButton)`
 	&:after {
 		content: '';
 		position: absolute;
-		top: 0.5rem;
-		right: 0.5rem;
-		bottom: 0.5rem;
-		left: 0.5rem;
+		top: ${tokens.space.xs};
+		right: ${tokens.space.xs};
+		bottom: ${tokens.space.xs};
+		left: ${tokens.space.xs};
 		border-radius: ${tokens.radii.rectRadius};
 	}
 

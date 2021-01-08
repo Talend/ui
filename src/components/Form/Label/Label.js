@@ -3,11 +3,10 @@ import styled from 'styled-components';
 
 import tokens from '../../../tokens';
 
-const StyledLabel = styled.label(
-	({ theme }) => `
-    font-size: ${tokens.fontSizes.small};
-`,
-);
+const StyledLabel = styled.label`
+	font-size: ${tokens.fontSizes.small};
+	font-weight: ${tokens.fontWeights.semiBold};
+`;
 
 function Label(props) {
 	return <StyledLabel {...props} />;

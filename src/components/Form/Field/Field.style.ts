@@ -1,0 +1,156 @@
+import styled from 'styled-components';
+
+import Label from '../Label';
+
+import tokens from '../../../tokens';
+
+export const FieldControl = styled.div<{ as: string; type: string; multiple: boolean }>`
+	padding: 0 ${tokens.space.s};
+	width: 100%;
+	color: ${({ theme }) => theme.colors.inputColor};
+	font-size: ${tokens.fontSizes.normal};
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	background: ${({ theme }) => theme.colors.inputBackgroundColor};
+	border: 1px solid ${({ theme }) => theme.colors.inputBorderColor};
+	border-radius: ${tokens.radii.inputBorderRadius};
+
+	${({ as, type, multiple }) =>
+		['input', 'select'].includes(as) &&
+		!['radio', 'checkbox'].includes(type) &&
+		!multiple &&
+		`height: ${tokens.sizes.xxl};`}
+
+	&::placeholder {
+		font-size: ${tokens.fontSizes.normal};
+		color: ${({ theme }) => theme.colors.inputPlaceholderColor};
+	}
+
+	&:hover {
+		border: 1px solid ${({ theme }) => theme.colors.inputBorderHoverColor};
+	}
+
+	&:focus {
+		border: 1px solid ${({ theme }) => theme.colors.inputBorderFocusColor};
+		box-shadow: 0 0 1px 1px ${({ theme }) => theme.colors.inputBorderFocusColor};
+	}
+
+	&:disabled {
+		border: 1px solid ${({ theme }) => theme.colors.inputBorderDisabledColor};
+		opacity: ${tokens.opacity.disabled};
+		cursor: not-allowed;
+	}
+
+	&:read-only {
+		border: 1px solid ${({ theme }) => theme.colors.inputBorderDisabledColor};
+	}
+`;
+
+export const Field = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding-bottom: ${tokens.space.m};
+	width: 100%;
+	min-width: 8rem;
+	color: ${({ theme }) => theme.colors.textColor};
+
+	.field__group--loading {
+		.field__control {
+			padding-right: ${tokens.sizes.xxl};
+		}
+
+		.field__loading {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: auto;
+			width: ${tokens.sizes.xxl};
+			height: ${tokens.sizes.xxl};
+		}
+	}
+
+	.field__group--has-error {
+		${FieldControl} {
+			border-width: 2px;
+			border-color: ${({ theme }) => theme.colors.destructiveColor};
+		}
+
+		+ [role='status'] {
+			padding-top: ${tokens.space.xs};
+		}
+	}
+
+	select[multiple] {
+		padding: 1rem;
+	}
+`;
+
+export const FieldLabel = Label;
+
+export const FieldGroup = styled.div<{ after: boolean }>`
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+
+	${({ after }) =>
+		after
+			? ` input {
+	padding-right: 3.6rem;
+  }`
+			: ''}
+
+	svg, 
+  button {
+		position: absolute;
+		padding: 0;
+		height: ${tokens.sizes.l};
+		z-index: ${tokens.zIndices.above};
+	}
+
+	svg {
+		left: 0;
+		margin: 0 1rem;
+		fill: ${tokens.colors.gray500};
+		pointer-events: none;
+
+		+ input {
+			padding-left: 3.6rem;
+		}
+	}
+
+	button {
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		min-height: auto;
+		border: none;
+
+		svg {
+			position: static;
+		}
+
+		&:hover {
+			svg {
+				fill: ${({ theme }) => theme.colors.activeColor};
+			}
+		}
+	}
+
+	@media all and (-ms-high-contrast: none) {
+		input {
+			padding-right: inherit;
+		}
+
+		button,
+		*::-ms-backdrop,
+		button {
+			display: none;
+		}
+	}
+`;
