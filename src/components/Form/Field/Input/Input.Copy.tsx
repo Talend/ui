@@ -10,6 +10,7 @@ import tokens from '../../../../tokens';
 const CopyButton = styled(Button.Icon)`
 	height: ${tokens.sizes.xxl};
 	background: ${({ theme }) => theme.colors.inputGroupInteractiveBackgroundColor};
+	border-color: ${({ theme }) => theme.colors.inputBorderColor};
 	border-radius: 0 ${tokens.radii.inputBorderRadius} ${tokens.radii.inputBorderRadius} 0;
 `;
 
