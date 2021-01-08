@@ -41,6 +41,10 @@ export const Field = styled.div(
 		}
 	}
 	
+	textarea {
+		min-height: 9.6rem;
+	}
+	
 	textarea,
     select[multiple] {
 		padding: 1rem;
