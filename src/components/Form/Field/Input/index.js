@@ -1,6 +1,7 @@
 import Input from './Input';
 
 import InputCheckbox from './Input.Checkbox';
+import InputCopy from './Input.Copy';
 import InputDate from './Input.Date';
 import InputDatetimeLocal from './Input.DatetimeLocal';
 import InputEmail from './Input.Email';
@@ -20,6 +21,7 @@ import InputUrl from './Input.Url';
 import InputWeek from './Input.Week';
 
 Input.Checkbox = InputCheckbox;
+Input.Copy = InputCopy;
 Input.Date = InputDate;
 Input.DatetimeLocal = InputDatetimeLocal;
 Input.Email = InputEmail;

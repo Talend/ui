@@ -18,6 +18,7 @@ Form.Email = Input.Email;
 Form.Fieldset = Fieldset;
 Form.File = Input.File;
 Form.Hidden = Input.Hidden;
+Form.Copy = Input.Copy;
 Form.InputGroup = InputGroup;
 Form.InputGroupPrefix = InputGroupPrefix;
 Form.InputGroupSuffix = InputGroupSuffix;
