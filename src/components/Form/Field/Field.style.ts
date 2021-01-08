@@ -28,22 +28,22 @@ export const FieldControl = styled.div<{ as: string; type: string; multiple: boo
 	}
 
 	&:hover {
-		border: 1px solid ${({ theme }) => theme.colors.inputBorderHoverColor};
+		border-color: ${({ theme }) => theme.colors.inputBorderHoverColor};
 	}
 
 	&:focus {
-		border: 1px solid ${({ theme }) => theme.colors.inputBorderFocusColor};
-		box-shadow: 0 0 1px 1px ${({ theme }) => theme.colors.inputBorderFocusColor};
+		border-width: 2px;
+		border-color: ${({ theme }) => theme.colors.inputBorderFocusColor};
 	}
 
 	&:disabled {
-		border: 1px solid ${({ theme }) => theme.colors.inputBorderDisabledColor};
+		border-color: ${({ theme }) => theme.colors.inputBorderDisabledColor};
 		opacity: ${tokens.opacity.disabled};
 		cursor: not-allowed;
 	}
 
 	&:read-only {
-		border: 1px solid ${({ theme }) => theme.colors.inputBorderDisabledColor};
+		border-color: ${({ theme }) => theme.colors.inputBorderDisabledColor};
 	}
 `;
 
