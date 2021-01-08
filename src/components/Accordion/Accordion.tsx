@@ -1,5 +1,5 @@
 import React from 'react';
-import { Composite, useCompositeState } from 'reakit';
+import { useCompositeState } from 'reakit';
 import * as S from './Accordion.style';
 
 export type AccordionProps = React.PropsWithChildren<any> & {

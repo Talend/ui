@@ -1,10 +1,10 @@
 import React from 'react';
-import { CompositeItem, Disclosure, useDisclosureState } from 'reakit';
+import { CompositeItem, useDisclosureState } from 'reakit';
 import * as S from './Accordion.style';
-import { Icon } from '../../index';
+import { Icon } from '../Icon';
 
 export type AccordionItemProps = React.PropsWithChildren<any> & {
-	disclosure: React.ReactNode;
+	disclosure: React.ReactElement;
 	visible?: boolean;
 };
 
@@ -12,26 +12,25 @@ const AccordionItem = ({ id, disclosure, children, visible, ...rest }: Accordion
 	const disclosureState = useDisclosureState({ visible });
 
 	React.useEffect(() => (rest.currentId === id ? disclosureState.show() : disclosureState.hide()), [
+		id,
 		rest.currentId,
-		disclosure,
+		disclosureState,
 	]);
 
 	return (
-		<S.DisclosureWrapper>
-			<CompositeItem as="div" id={id} {...disclosureState} {...rest}>
-				<S.DisclosureHeading visible={disclosureState.visible}>
-					{disclosure}
-					<S.DisclosureArrow>
-						<Icon
-							name="talend-caret-down"
-							transform={disclosureState.visible ? 'rotate-180' : ''}
-							currentColor
-						/>
-					</S.DisclosureArrow>
-				</S.DisclosureHeading>
+		<S.AccordionItem>
+			<CompositeItem as={S.DisclosureHeading} {...disclosureState} id={id} {...rest}>
+				{disclosure}
+				<S.DisclosureArrow>
+					<Icon
+						name="talend-caret-down"
+						transform={disclosureState.visible ? 'rotate-180' : ''}
+						currentColor
+					/>
+				</S.DisclosureArrow>
 			</CompositeItem>
 			<S.DisclosureContent {...disclosureState}>{children}</S.DisclosureContent>
-		</S.DisclosureWrapper>
+		</S.AccordionItem>
 	);
 };
 

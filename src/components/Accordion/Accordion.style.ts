@@ -8,7 +8,7 @@ export const Accordion = styled(ReakitComposite)`
 	flex-direction: column;
 `;
 
-export const DisclosureWrapper = styled.div`
+export const AccordionItem = styled.div`
 	margin: ${tokens.space.m} 0;
 	min-width: 25rem;
 	border: 1px solid ${tokens.colors.gray100};
