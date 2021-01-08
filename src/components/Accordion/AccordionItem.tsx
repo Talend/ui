@@ -2,6 +2,7 @@ import React from 'react';
 import { Disclosure, useDisclosureState } from 'reakit';
 import { AccordionContext } from './Accordion';
 import * as S from './Accordion.style';
+import { Icon } from '../../index';
 
 export type AccordionItemProps = React.PropsWithChildren<any> & {
 	disclosure: React.ReactNode;
@@ -38,7 +39,13 @@ const AccordionItem = ({ id, disclosure, children, visible }: AccordionItemProps
 				{disclosureProps => (
 					<S.DisclosureHeading visible={disclosureState.visible}>
 						{React.cloneElement(disclosure, disclosureProps)}
-						<S.DisclosureArrow>{disclosureState.visible ? '^' : 'v'}</S.DisclosureArrow>
+						<S.DisclosureArrow>
+							<Icon
+								name="talend-caret-down"
+								transform={disclosureState.visible ? 'rotate-180' : ''}
+								currentColor
+							/>
+						</S.DisclosureArrow>
 					</S.DisclosureHeading>
 				)}
 			</Disclosure>

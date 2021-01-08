@@ -35,8 +35,12 @@ export const DisclosureArrow = styled.span`
 
 export const DisclosureContent = styled(ReakitDisclosureContent)`
 	padding: ${tokens.space.m};
-	max-height: 37rem;
 	border: 1px solid ${tokens.colors.gray100};
 	border-top: none;
 	border-radius: 0 0 ${tokens.radii.rectRadius} ${tokens.radii.rectRadius};
+
+	@media (min-width: ${tokens.breakpoints.l}) {
+		max-height: 37rem;
+		overflow: auto;
+	}
 `;
