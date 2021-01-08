@@ -1,4 +1,6 @@
+import { action } from '@storybook/addon-actions';
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+
 import { FigmaImage, FigmaLink, Use } from '../../../docs';
 
 import Accordion from '../';
@@ -51,7 +53,8 @@ The accordion component allows the user to display section of content; each item
 | max-height | 37rem    |
 | min-width  | 25rem    |
 
-The max-height of a accordion item is 37rem. A scroll-bar has to be added in the content after exceeding 37rem longer items.
+The max-height of an accordion item is `37rem`.
+A scrollbar has to be added in the content after exceeding `37rem`.
 
 <Canvas>
 	<Story name="default">
@@ -67,7 +70,14 @@ The max-height of a accordion item is 37rem. A scroll-bar has to be added in the
 				dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
 				libero sagittis sit amet.
 			</Accordion.Item>
-			<Accordion.Item disclosure={<header>Accordion title 2</header>}>
+			<Accordion.Item
+				disclosure={
+					<header>
+						Accordion title 2{' '}
+						<Button.Secondary onClick={action('call to action')}>CTA</Button.Secondary>
+					</header>
+				}
+			>
 				Maecenas tempus sagittis sollicitudin. Nullam condimentum vitae erat consequat bibendum.
 				Nunc eget lacus tortor. Pellentesque fermentum pellentesque urna et lacinia. Aliquam iaculis
 				aliquet volutpat. Praesent tempus sed risus vitae elementum. Fusce tempus elit quis dui
