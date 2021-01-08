@@ -3,6 +3,7 @@ import { Button as ReakitButton } from 'reakit';
 import tokens from '../../tokens';
 
 export const Button = styled(ReakitButton)`
+	position: relative;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -10,6 +11,17 @@ export const Button = styled(ReakitButton)`
 	background: ${tokens.colors.transparent};
 	border: none;
 	cursor: pointer;
+
+	// [a11y] increase the clickable area
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		bottom: 0.5rem;
+		left: 0.5rem;
+		border-radius: ${tokens.radii.rectRadius};
+	}
 
 	svg {
 		flex-grow: 0;
