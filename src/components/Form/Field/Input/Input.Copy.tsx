@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useCopyToClipboard } from 'react-use';
 import Button from '../../../Button';
-import Form from '../../index';
 import InlineMessage from '../../../InlineMessage';
+import InputGroup from './../InputGroup';
+import Text from './Input.Text';
 
 import tokens from '../../../../tokens';
 
@@ -15,12 +16,16 @@ const CopyButton = styled(Button.Icon)`
 	border-radius: 0 ${tokens.radii.inputBorderRadius} ${tokens.radii.inputBorderRadius} 0;
 `;
 
-const InputCopy = ({ value, ...rest }) => {
+export type InputCopyProps = React.PropsWithChildren<any> & {
+	value?: string;
+};
+
+const InputCopy = ({ value, ...rest }: InputCopyProps) => {
 	const [text, setText] = React.useState(value);
 	const [state, copyToClipboard] = useCopyToClipboard();
 
 	return (
-		<Form.InputGroup
+		<InputGroup
 			label="Copy to clipboard"
 			suffix={
 				<CopyButton icon="talend-files-o" onClick={() => copyToClipboard(text)}>
@@ -28,10 +33,10 @@ const InputCopy = ({ value, ...rest }) => {
 				</CopyButton>
 			}
 		>
-			<Form.Text
+			<Text
 				label="Token"
 				value={text}
-				onChange={event => setText(event.target.value)}
+				onChange={(event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value)}
 				{...rest}
 			/>
 			{state.error ? (
@@ -39,7 +44,7 @@ const InputCopy = ({ value, ...rest }) => {
 			) : (
 				state.value && <InlineMessage.Success description={`Copied ${state.value}`} />
 			)}
-		</Form.InputGroup>
+		</InputGroup>
 	);
 };
 
