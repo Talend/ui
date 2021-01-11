@@ -1,8 +1,6 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import InputBehaviors from './images/input-text-behaviors.png';
 import { FigmaImage, Use } from '../../../docs';
 import Form from '../';
-import { Col, Row } from '../../../docs';
 
 <Meta title="Components/Form/Fields/Textarea" />
 
@@ -26,25 +24,37 @@ N/C
 ### Default
 
 <Canvas>
-    <Story name="default">
-        <Form.Textarea label="Textarea" />
-    </Story>
+	<Story name="default">
+		<Form.Textarea label="Textarea" placeholder="Placeholder" />
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.Textarea label="Textarea">Lorem ipsum</Form.Textarea>
+	</Story>
 </Canvas>
 
 ### Disabled
 
 <Canvas>
-    <Story name="disabled">
-        <Form.Textarea label="Disabled Textarea" disabled />
-    </Story>
+	<Story name="disabled">
+		<Form.Textarea label="Disabled Textarea" disabled>
+            Lorem ipsum
+		</Form.Textarea>
+	</Story>
 </Canvas>
 
 ### Read only
 
 <Canvas>
-    <Story name="read-only">
-        <Form.Textarea label="Read-Only Textarea" readOnly />
-    </Story>
+	<Story name="read-only">
+		<Form.Textarea label="Read-only Textarea" readOnly>
+			Lorem ipsum
+		</Form.Textarea>
+	</Story>
 </Canvas>
 
 ## Interactions
@@ -63,6 +73,6 @@ N/C
 
 ## Changelog
 
-| Date       | Author      | Description |
-| ---------- | ----------- | ----------- |
-| 06/09/2020 | Monia Huet  | Init page   |
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 06/09/2020 | Monia Huet | Init page   |

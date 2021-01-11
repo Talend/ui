@@ -40,7 +40,7 @@ const InlineStyle = styled.div`
 	input:not(:disabled) + span:hover,
 	input:focus:not(:disabled) + span {
 		&:before {
-			box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.inputBorderFocusColor};
+			box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.inputFocusBorderColor};
 		}
 	}
 

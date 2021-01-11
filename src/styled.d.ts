@@ -34,24 +34,26 @@ declare module 'styled-components' {
 
 			// Inputs
 			inputColor: string;
-			inputPlaceholderColor: string;
 			inputBackgroundColor: string;
+			inputBorderColor: string;
+			inputHoverBorderColor: string;
+			inputFocusBorderColor: string;
+			inputDisabledBorderColor: string;
+			inputReadOnlyBorderColor: string;
+			inputReadOnlyBackgroundColor: string;
+			inputPlaceholderColor: string;
+			inputRadioBackgroundColor: string;
 			inputGroupColor: string;
 			inputGroupBackgroundColor: string;
 			inputGroupInteractiveColor: string;
 			inputGroupInteractiveBackgroundColor: string;
-			inputRadioBackgroundColor: string;
-			inputBackgroundReadOnlyColor: string;
-			inputBorderColor: string;
-			inputBorderHoverColor: string;
-			inputBorderFocusColor: string;
-			inputBorderDisabledColor: string;
-			inputBorderReadOnlyColor: string;
 
+			// Modals
 			modalBackground: string;
 			modalHeadingBackground: string;
 			modalHeadingBorderColor: string;
 
+			// Skeletons
 			skeletonBackgroundColor: string;
 
 			// Tags

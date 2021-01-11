@@ -24,11 +24,11 @@ export const Combobox = styled.div(
     }
 
 	[role='combobox']:hover {
-	    border: 1px solid ${theme.colors.inputBorderHoverColor};  
+	    border: 1px solid ${theme.colors.inputHoverBorderColor};  
 	}
 	
 	[role='combobox']:focus {
-	    border: 2px solid ${theme.colors.inputBorderFocusColor};  
+	    border: 2px solid ${theme.colors.inputFocusBorderColor};  
 	}
 
 	[role='listbox'] {

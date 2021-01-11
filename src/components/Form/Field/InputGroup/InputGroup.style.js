@@ -73,7 +73,7 @@ export const InputGroup = styled.div`
 	&:hover {
 		${Span},
 		.input-group__item .field__control {
-			border-color: ${({ theme }) => theme.colors.inputBorderHoverColor};
+			border-color: ${({ theme }) => theme.colors.inputHoverBorderColor};
 		}
 	}
 `;

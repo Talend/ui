@@ -24,7 +24,7 @@ const FileField = styled.div`
 		}
 
 		&:focus + .input-file__text {
-			border: 2px solid ${({ theme }) => theme.colors.inputBorderFocusColor};
+			border: 2px solid ${({ theme }) => theme.colors.inputFocusBorderColor};
 			border-radius: ${tokens.radii.inputBorderRadius};
 			outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor};
 		}
@@ -36,10 +36,10 @@ const FileField = styled.div`
 		border-radius: ${tokens.radii.inputBorderRadius};
 
 		&:hover {
-			border-color: ${({ theme }) => theme.colors.inputBorderHoverColor};
+			border-color: ${({ theme }) => theme.colors.inputHoverBorderColor};
 
 			.text__icon {
-				fill: ${({ theme }) => theme.colors.inputBorderHoverColor};
+				fill: ${({ theme }) => theme.colors.inputHoverBorderColor};
 			}
 		}
 

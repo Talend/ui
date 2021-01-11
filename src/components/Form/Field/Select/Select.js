@@ -4,61 +4,45 @@ import { Icon } from '../../../Icon/Icon';
 import Field from '../Field';
 
 import * as S from './Select.style';
+import Input from '../Input';
 
-function Select({ className = '', children, values, value: initialValue, multiple, ...rest }) {
-	const [value, setValue] = React.useState(initialValue);
+function Select({ children, multiple, readOnly, required, placeholder, ...rest }) {
+	if (readOnly) {
+		const values = children.reduce((acc, current) => {
+			const { children: optChildren, originalType, selected } = current.props;
+			if (originalType === 'optgroup') {
+				return acc.concat(
+					React.Children.toArray(optChildren)
+						.filter(option => option.props.selected)
+						.map(option => option.props.children),
+				);
+			}
+			if (selected) {
+				return acc.concat(optChildren);
+			}
+			return acc;
+		}, []);
 
-	function onChange(event) {
-		let value = event.target.value;
-		if (multiple) {
-			const options = event.target.options;
-			value = [];
-			options.forEach(option => {
-				if (option.selected) {
-					value.push(option.value);
-				}
-			});
-		}
-		setValue(() => value);
-		rest.onChange && rest.onChange(event);
-	}
-
-	function getOptions() {
-		if (Array.isArray(values)) {
-			return values.map((value, index) => (
-				<option key={index} value={value}>
-					{value}
-				</option>
-			));
-		}
-		if (values) {
-			return Object.entries(values).map(([key, keyValues], i) => (
-				<optgroup key={i} label={key}>
-					{keyValues.map((value, j) => (
-						<option key={j} value={value}>
-							{value}
-						</option>
-					))}
-				</optgroup>
-			));
-		}
-		return children;
+		return <Input readOnly value={values.join('; ')} {...rest} />;
 	}
 
 	return (
 		<S.FieldWrapper>
 			<Field
 				as="select"
-				{...rest}
-				className={`${className} select`}
-				value={value}
 				multiple={multiple}
-				onChange={onChange}
+				{...rest}
 				before={
 					!multiple && <Icon name="talend-caret-down" className="talend-caret-down" currentColor />
 				}
 			>
-				{getOptions()}
+				{placeholder && (
+					<option value="" disabled selected>
+						{placeholder}
+					</option>
+				)}
+				{!required && <option value=""></option>}
+				{children}
 			</Field>
 		</S.FieldWrapper>
 	);

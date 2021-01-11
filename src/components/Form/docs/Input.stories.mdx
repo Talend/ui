@@ -1,15 +1,13 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import InputBehaviors from './images/input-behaviors.png';
-import { FigmaImage, Use } from '../../../docs';
+import { FigmaImage } from '../../../docs';
 
 import Form from '../';
-import { Col, Row } from '../../../docs';
 
 <Meta title="Components/Form/Fields/Text" />
 
 # Input text
 
-A input enable the user to interact with and input short content and data.
+An input enables the user to interact with and input short content and data.
 
 ## Zoning
 
@@ -27,25 +25,33 @@ N/C
 ### Default
 
 <Canvas>
-    <Story name="default">
-        <Form.Text label="Input" />
-    </Story>
+	<Story name="default">
+		<Form.Text label="Default input" placeholder="Lorem ipsum"/>
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.Text label="Filled input" value="Lorem ipsum"/>
+	</Story>
 </Canvas>
 
 ### Disabled
 
 <Canvas>
-    <Story name="disabled">
-        <Form.Text label="Disabled Input" disabled />
-    </Story>
+	<Story name="disabled">
+		<Form.Text label="Disabled input" disabled value="Lorem ipsum" />
+	</Story>
 </Canvas>
 
 ### Read only
 
 <Canvas>
-    <Story name="read-only">
-        <Form.Text label="Read-Only Input" readOnly />
-    </Story>
+	<Story name="read-only">
+		<Form.Text label="Read-only input" readOnly value="Lorem ipsum" />
+	</Story>
 </Canvas>
 
 ## Content
@@ -62,11 +68,10 @@ N/C
 
 ## Accessibility
 
-Press <kbd>TABS</kbd> to focus on a input
+Press <kbd>TABS</kbd> to focus on an input
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 06/15/2020 | Monia Huet  | Init page   |
-
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 06/15/2020 | Monia Huet | Init page   |
