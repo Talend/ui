@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import tokens from '../../../../../tokens';
 
-const InlineStyle = styled.div`
+const InlineStyle = styled.div.attrs(({ readOnly, checked }) => ({
+	className: `${readOnly ? 'input--read-only' : ''} ${checked ? 'input--checked' : ''}`,
+}))`
 	input {
 		position: absolute;
 		margin-left: -9999px;
@@ -25,13 +27,13 @@ const InlineStyle = styled.div`
 		transition: ${tokens.transitions.fast};
 	}
 
-	input + span:before {
+	span:before {
 		width: ${tokens.sizes.s};
 		height: ${tokens.sizes.s};
 		box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.inputBorderColor};
 	}
 
-	input + span:after {
+	span:after {
 		margin: calc((${tokens.sizes.s} - ${tokens.sizes.xs}) / 2);
 		width: ${tokens.sizes.xs};
 		height: ${tokens.sizes.xs};
@@ -48,8 +50,8 @@ const InlineStyle = styled.div`
 		outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor};
 	}
 
-	input:checked + span:before,
-	input[aria-checked='mixed'] + span:before {
+	[aria-checked='true'] + span:before,
+	[aria-checked='mixed'] + span:before {
 		background: ${({ theme }) => theme.colors.activeColor};
 		box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.activeColor};
 	}
@@ -59,6 +61,13 @@ const InlineStyle = styled.div`
 	input:disabled + span:after {
 		opacity: ${tokens.opacity.disabled};
 		cursor: not-allowed;
+	}
+
+	&.input--read-only span:before,
+	&.input--read-only span:after {
+		color: ${({ theme }) => theme.colors.inputColor};
+		box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.inputReadOnlyBorderColor};
+		background: ${({ theme }) => theme.colors.inputReadOnlyBackgroundColor};
 	}
 `;
 
