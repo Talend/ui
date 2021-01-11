@@ -90,7 +90,8 @@
       "key": "simpleDatalist",
       "title": "Simple Datalist",
       "description": "This datalist accepts values that are not in the list of suggestions",
-      "widget": "datalist"
+      "widget": "datalist",
+      "data-test": "datalist.simple"
     },
     {
       "key": "restrictedDatalist",

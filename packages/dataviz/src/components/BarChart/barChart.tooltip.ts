@@ -2,6 +2,9 @@ import i18next from 'i18next';
 import { ChartEntry } from './barChart.types';
 import { TooltipEntry } from '../TooltipContent/TooltipContent.component';
 import { VerticalBarChartEntry } from './VerticalBarChart/VerticalBarChart.component';
+import { I18N_DOMAIN_DATAVIZ } from '../../constants';
+
+const t = i18next.getFixedT(null, I18N_DOMAIN_DATAVIZ);
 
 export enum ValueType {
 	MIN = 'MIN',
@@ -13,14 +16,11 @@ export enum ValueType {
 
 function getFilteredValueLabel(valueType: ValueType): string {
 	return {
-		[ValueType.MIN]: i18next.t('MIN_MATCHING_FILTER', 'Min value matching your filter'),
-		[ValueType.MAX]: i18next.t('MAX_MATCHING_FILTER_MAX', 'Max value matching your filter'),
-		[ValueType.AVERAGE]: i18next.t('AVERAGE_MATCHING_FILTER', 'Average of values matching your filter'),
-		[ValueType.SUM]: i18next.t('SUM_MATCHING_FILTER', 'Sum of values matching your filter'),
-		[ValueType.OCCURRENCES]: i18next.t(
-			'OCCURRENCES_MATCHING_FILTER',
-			'Occurrences matching your filter',
-		),
+		[ValueType.MIN]: t('MIN_MATCHING_FILTER', 'Min value matching your filter'),
+		[ValueType.MAX]: t('MAX_MATCHING_FILTER_MAX', 'Max value matching your filter'),
+		[ValueType.AVERAGE]: t('AVERAGE_MATCHING_FILTER', 'Average of values matching your filter'),
+		[ValueType.SUM]: t('SUM_MATCHING_FILTER', 'Sum of values matching your filter'),
+		[ValueType.OCCURRENCES]: t('OCCURRENCES_MATCHING_FILTER', 'Occurrences matching your filter'),
 	}[valueType];
 }
 
@@ -31,21 +31,21 @@ function getDatasetValueLabel(valueType: ValueType, hasFilteredValue: boolean): 
 	 */
 	switch (valueType) {
 		case ValueType.MIN:
-			label = i18next.t('MIN', 'Min');
+			label = t('MIN', 'Min');
 			break;
 		case ValueType.MAX:
-			label = i18next.t('MAX', 'Max');
+			label = t('MAX', 'Max');
 			break;
 		case ValueType.AVERAGE:
-			label = i18next.t('AVERAGE', 'Average');
+			label = t('MEAN', 'Mean');
 			break;
 		case ValueType.SUM:
-			label = i18next.t('SUM', 'Sum');
+			label = t('SUM', 'Sum');
 			break;
 		case ValueType.OCCURRENCES:
 			label = hasFilteredValue
-				? i18next.t('OCCURRENCES_IN_DATASET', 'Occurrences in entire dataset')
-				: i18next.t('SUM', 'Occurrences');
+				? t('OCCURRENCES_IN_DATASET', 'Occurrences in entire dataset')
+				: t('SUM', 'Occurrences');
 			break;
 		default:
 			label = valueType;
@@ -85,8 +85,8 @@ export function getHorizontalBarChartTooltip(entry: ChartEntry<string>, valueTyp
 	return [
 		...getValuesLines(entry, valueType),
 		{
-			key: i18next.t('RECORD', 'Record'),
-			value: entry.key || i18next.t('EMPTY', 'Empty'),
+			key: t('RECORD', 'Record'),
+			value: entry.key || t('EMPTY', 'Empty'),
 		},
 	];
 }
@@ -96,11 +96,11 @@ export function getVerticalBarChartTooltip(entry: VerticalBarChartEntry): Toolti
 		...getValuesLines(entry, ValueType.OCCURRENCES),
 		entry.key.min === entry.key.max
 			? {
-					key: i18next.t('VALUE', 'Value'),
+					key: t('VALUE', 'Value'),
 					value: entry.label,
 			  }
 			: {
-					key: i18next.t('RANGE', 'Range'),
+					key: t('RANGE', 'Range'),
 					value: entry.label,
 			  },
 	];

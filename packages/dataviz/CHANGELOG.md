@@ -26,14 +26,26 @@ Types of changes
 
 ## [unreleased]
 
+## [0.1.3]
+
+### Fixed
+
+- [Wrong i18n namespace](https://github.com/Talend/ui/pull/3147):
+
+## [0.1.2]
+
+### Fixed
+
+- [Missing i18n namespace](https://github.com/Talend/ui/pull/3145):
+
 ## [0.1.1]
 
-### Added
+### Fixed
 
-- [Fixed](https://github.com/Talend/ui/pull/3134): Unnecessary onChange triggered
+- [Unnecessary onChange triggered](https://github.com/Talend/ui/pull/3134):
 
 ## [0.1.0]
 
 ### Added
 
-- [Added](https://github.com/Talend/ui/pull/3133): Add "pattern" color support in tooltip
+- [Add "pattern" color support in tooltip](https://github.com/Talend/ui/pull/3133):

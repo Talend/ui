@@ -21,6 +21,8 @@ stories
 					<RatioBar amount={12} total={12} />
 					<div>With an amount of 532/1000</div>
 					<RatioBar amount={532} total={1000} />
+					<div>With an amount of 532/1000 and no label</div>
+					<RatioBar amount={532} total={1000} hideLabel />
 				</div>
 			</section>
 		</div>

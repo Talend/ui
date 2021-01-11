@@ -37,7 +37,7 @@ describe('QualityBar', () => {
 				return item.prop('data-feature') === 'data-feature-valid';
 			}).simulate('click');
 			// then
-			expect(mockFunctionAction).toHaveBeenCalled();;
+			expect(mockFunctionAction).toHaveBeenCalled();
 			expect(wrapper.find('div').filterWhere(item => {
 				return item.prop('data-feature') === 'data-feature-valid';
 			}).length).toBe(1);

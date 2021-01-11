@@ -289,12 +289,31 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                               title="Select All"
                             >
                               <label>
-                                <input
+                                <Checkbox
                                   checked={false}
+                                  data-feature="list.select_all"
                                   disabled={false}
+                                  intermediate={0}
                                   onChange={[MockFunction]}
                                   type="checkbox"
-                                />
+                                >
+                                  <div
+                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                  >
+                                    <label
+                                      data-feature="list.select_all.enable"
+                                    >
+                                      <input
+                                        checked={false}
+                                        data-checked={0}
+                                        disabled={false}
+                                        onChange={[MockFunction]}
+                                        type="checkbox"
+                                      />
+                                      <span />
+                                    </label>
+                                  </div>
+                                </Checkbox>
                                 <span
                                   className="sr-only"
                                 >
@@ -1268,12 +1287,31 @@ exports[`List should render 1`] = `
                               title="Select All"
                             >
                               <label>
-                                <input
+                                <Checkbox
                                   checked={false}
+                                  data-feature="list.select_all"
                                   disabled={false}
+                                  intermediate={0}
                                   onChange={[MockFunction]}
                                   type="checkbox"
-                                />
+                                >
+                                  <div
+                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                  >
+                                    <label
+                                      data-feature="list.select_all.enable"
+                                    >
+                                      <input
+                                        checked={false}
+                                        data-checked={0}
+                                        disabled={false}
+                                        onChange={[MockFunction]}
+                                        type="checkbox"
+                                      />
+                                      <span />
+                                    </label>
+                                  </div>
+                                </Checkbox>
                                 <span
                                   className="sr-only"
                                 >
@@ -2273,13 +2311,34 @@ exports[`List should render id if provided 1`] = `
                               <label
                                 htmlFor="context-header-check"
                               >
-                                <input
+                                <Checkbox
                                   checked={false}
+                                  data-feature="list.select_all"
                                   disabled={false}
                                   id="context-header-check"
+                                  intermediate={0}
                                   onChange={[MockFunction]}
                                   type="checkbox"
-                                />
+                                >
+                                  <div
+                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                  >
+                                    <label
+                                      data-feature="list.select_all.enable"
+                                      htmlFor="context-header-check"
+                                    >
+                                      <input
+                                        checked={false}
+                                        data-checked={0}
+                                        disabled={false}
+                                        id="context-header-check"
+                                        onChange={[MockFunction]}
+                                        type="checkbox"
+                                      />
+                                      <span />
+                                    </label>
+                                  </div>
+                                </Checkbox>
                                 <span
                                   className="sr-only"
                                 >
