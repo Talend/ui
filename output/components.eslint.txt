@@ -219,11 +219,6 @@
    45:6  error  Value must be omitted for boolean attributes     react/jsx-boolean-value
   133:5  error  Empty components are self-closing                react/self-closing-comp
 
-/home/travis/build/Talend/ui/packages/components/src/RatioBar/RatioBarComposition.component.js
-  23:11  error  'onKeyDown' is defined but never used                    @typescript-eslint/no-unused-vars
-  39:3   error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
-  52:21  error  Strings must use singlequote                             @typescript-eslint/quotes
-
 /home/travis/build/Talend/ui/packages/components/src/ResourceList/Resource/Resource.component.js
   52:3   error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
   52:3   error  Non-interactive elements should not be assigned mouse or keyboard event listeners               jsx-a11y/no-noninteractive-element-interactions
@@ -314,4 +309,3 @@
 
 ✖ 148 problems (128 errors, 20 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
-
