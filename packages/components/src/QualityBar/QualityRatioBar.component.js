@@ -31,16 +31,10 @@ function formatNumber(value = '') {
 export const QualityType = {
 	VALID: 'valid',
 	INVALID: 'invalid',
-	EMPTY: 'empty'
-}
+	EMPTY: 'empty',
+};
 
-export function QualityInvalidLine({
-	value,
-	percentage,
-	t,
-	dataFeature,
-	onClick,
-}) {
+export function QualityInvalidLine({ value, percentage, t, dataFeature, onClick }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
@@ -60,13 +54,7 @@ export function QualityInvalidLine({
 }
 QualityInvalidLine.propTypes = qualityBarLinePropTypes;
 
-export function QualityValidLine({
-	value,
-	percentage,
-	t,
-	dataFeature,
-	onClick,
-}) {
+export function QualityValidLine({ value, percentage, t, dataFeature, onClick }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
@@ -86,13 +74,7 @@ export function QualityValidLine({
 }
 QualityValidLine.propTypes = qualityBarLinePropTypes;
 
-export function QualityEmptyLine({
-	value,
-	percentage,
-	t,
-	dataFeature,
-	onClick,
-}) {
+export function QualityEmptyLine({ value, percentage, t, dataFeature, onClick }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}

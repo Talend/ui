@@ -53,27 +53,42 @@ export function QualityBar({ invalid, valid, empty, onClick, getDataFeature, dig
 	return (
 		<RatioBar.Composition>
 			<QualityInvalidLine
-				onClick={onClick ? e => onClick(e, {
-					type: QualityType.INVALID
-				}) : null}
+				onClick={
+					onClick
+						? e =>
+								onClick(e, {
+									type: QualityType.INVALID,
+								})
+						: null
+				}
 				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
 				value={invalid}
 				percentage={invalidPercentage}
 				t={t}
 			/>
 			<QualityEmptyLine
-				onClick={onClick ? e => onClick(e, {
-					type: QualityType.EMPTY
-				}) : null}
+				onClick={
+					onClick
+						? e =>
+								onClick(e, {
+									type: QualityType.EMPTY,
+								})
+						: null
+				}
 				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
 				value={empty}
 				percentage={emptyPercentage}
 				t={t}
 			/>
 			<QualityValidLine
-				onClick={onClick ? e => onClick(e, {
-					type: QualityType.VALID
-				}) : null}
+				onClick={
+					onClick
+						? e =>
+								onClick(e, {
+									type: QualityType.VALID,
+								})
+						: null
+				}
 				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
 				value={valid}
 				percentage={validPercentage}

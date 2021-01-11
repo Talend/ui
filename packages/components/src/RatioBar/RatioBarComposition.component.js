@@ -8,14 +8,7 @@ import ratioBarTheme from './RatioBar.scss';
 const theme = getTheme(ratioBarTheme);
 const minPercentage = 5;
 
-export function RatioBarLine({
-	percentage,
-	tooltipLabel,
-	className,
-	value,
-	dataFeature,
-	onClick,
-}) {
+export function RatioBarLine({ percentage, tooltipLabel, className, value, dataFeature, onClick }) {
 	const canGrow = percentage >= minPercentage;
 
 	if (!value || value < 0) return null;
@@ -33,7 +26,7 @@ export function RatioBarLine({
 			default:
 				break;
 		}
-	};
+	}
 
 	const content = (
 		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
