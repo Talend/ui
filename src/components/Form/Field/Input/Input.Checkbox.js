@@ -11,8 +11,7 @@ const InlineField = styled(InlineStyle)`
 		border-radius: ${tokens.radii.inputBorderRadius};
 	}
 
-	input:checked + span:after,
-	input[aria-checked='mixed'] + span:after {
+	span:after {
 		background-color: transparent;
 	}
 
@@ -20,36 +19,43 @@ const InlineField = styled(InlineStyle)`
 		position: relative;
 	}
 
-	.tc-svg-icon {
+	svg {
 		position: absolute;
 		top: 1px;
 		left: 1px;
 		width: 1rem;
 	}
 
-	input:checked ~ .tc-svg-icon,
-	input[aria-checked='mixed'] ~ .tc-svg-icon .ti-foreground {
-		fill: ${({ theme }) => theme.colors.inputBackgroundColor};
-	}
-
 	// FIXME
-	input[aria-checked='mixed'] ~ .tc-svg-icon circle {
-		display: none;
+	svg {
+		circle {
+			display: none;
+		}
+
+		path {
+			fill: ${({ readOnly, theme }) =>
+				readOnly ? 'currentColor' : theme.colors.inputBackgroundColor};
+		}
 	}
 `;
 
-function Checkbox({ label, indeterminate, checked, ...rest }) {
+function Checkbox({ label, indeterminate, checked, readOnly, ...rest }) {
 	const checkbox = useCheckboxState({ state: (indeterminate && 'indeterminate') || checked });
 
+	const icon =
+		checkbox.state === 'indeterminate' ? (
+			<Icon name="talend-minus-circle" />
+		) : (
+			checkbox.state && <Icon name="talend-check" />
+		);
+
 	return (
-		<InlineField>
+		<InlineField readOnly={readOnly} checked={checked}>
+			{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
 			<label>
-				<ReakitCheckbox {...rest} {...checkbox} /> <span>{label}</span>
-				{checkbox.state === 'indeterminate' ? (
-					<Icon name="talend-minus-circle" />
-				) : (
-					checkbox.state && <Icon name="talend-check" />
-				)}
+				{!readOnly && <ReakitCheckbox {...rest} {...checkbox} />}
+				<span>{label}</span>
+				{icon}
 			</label>
 		</InlineField>
 	);

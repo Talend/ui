@@ -39,7 +39,7 @@ const theme: DefaultTheme = {
 		inputHoverBorderColor: colors.gray0,
 		inputFocusBorderColor: colors.paleCyan,
 		inputDisabledBorderColor: colors.gray300,
-		inputReadOnlyBorderColor: colors.gray300,
+		inputReadOnlyBorderColor: colors.gray600,
 		inputReadOnlyBackgroundColor: colors.gray600,
 		inputPlaceholderColor: colors.gray100,
 		inputRadioBackgroundColor: colors.gray600,
