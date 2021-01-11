@@ -57,11 +57,9 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
   role="listbox"
   style={
     Object {
-      "left": 0,
-      "opacity": 0,
-      "pointerEvents": "none",
+      "left": "0",
       "position": "absolute",
-      "top": 0,
+      "top": "0",
     }
   }
 >
@@ -116,11 +114,9 @@ exports[`MultiSelectTagWidget should render section title when items has categor
   role="listbox"
   style={
     Object {
-      "left": 0,
-      "opacity": 0,
-      "pointerEvents": "none",
+      "left": "0",
       "position": "absolute",
-      "top": 0,
+      "top": "0",
     }
   }
 >
@@ -194,11 +190,9 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
   role="listbox"
   style={
     Object {
-      "left": 0,
-      "opacity": 0,
-      "pointerEvents": "none",
+      "left": "0",
       "position": "absolute",
-      "top": 0,
+      "top": "0",
     }
   }
 >
