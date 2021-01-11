@@ -11,9 +11,9 @@ import { Col, Row } from '../../../docs';
 # Checkbox
 
 Checkbox should be used for item/option selection and only when more than one item can be selected at the same time.
-If there is only two options (on/off), consider using a switch.
+If there is only two options (on/off), consider using a <a href="/?path=/docs/components-form-fields-switch--default-story">switch</a>.
  
-If the user should select only one option, use radio buttons.
+If the user should select only one option, use <a href="/?path=/docs/components-form-fields-radio--default-story">radio buttons</a>.
 
 Use a checkbox when you want to give your recipients the opportunity to select more than one option. 
 
@@ -21,10 +21,10 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 
 <FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=44%3A59" alt="zoning image for checkbox" />
 
-## Style
-
 
 ## States
+
+### Default
 
 <Canvas>
     <Story name="default">
@@ -38,6 +38,8 @@ Use a checkbox when you want to give your recipients the opportunity to select m
     </Story>
 </Canvas>
 
+### Disabled
+
 <Canvas>
     <Story name="disabled">
         <Form.Checkbox label="Disabled Checkbox" disabled />
@@ -49,6 +51,8 @@ Use a checkbox when you want to give your recipients the opportunity to select m
         <Form.Checkbox label="Disabled Checked Checkbox" disabled checked />
     </Story>
 </Canvas>
+
+### Read only
 
 <Canvas>
     <Story name="read-only">
@@ -81,10 +85,9 @@ Checkboxes appear as a list on UI so it's important to make their labels as para
 	</Use.Dont>
 </Use>
 
-## Interaction
+## Interactions
 
-- If a label is provided, it should always be clickable to check or uncheck.
-- Checking one checkbox does not change the state of others, unless the parent was indeterminant and all children have the same state.
+- The label must always be clickable to check or uncheck.
 
 ## Usage
 
@@ -94,9 +97,9 @@ To do
 
 Press <kbd>TABS</kbd> to focus on a checkbox.
 
-Press <kbd>TABS</kbd> or <kbd>Shift TABS</kbd> to navigate between checkboxes.
+Press <kbd>TABS</kbd> or <kbd>Shift</kbd> + <kbd>TABS</kbd> to navigate between checkboxes.
 
-Press the <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to toggle the checkbox between selected and not selected. 
+Press <kbd>SPACE</kbd> to toggle the checkbox between selected and not selected. 
  
 
 
