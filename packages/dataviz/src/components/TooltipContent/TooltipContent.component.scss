@@ -14,6 +14,7 @@ $module: dataviz-tooltip;
 	}
 
 	&__key {
+		margin-top: 0; // override dt margin
 		font-weight: $font-weight-regular;
 		line-height: $line-height-base;
 		color: $white;

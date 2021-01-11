@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [0.1.4]
+
+### Fixed
+
+- [Reset tooltip line margin](https://github.com/Talend/ui/pull/3158):
+
 ## [0.1.3]
 
 ### Fixed
