@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { FigmaImage, Use } from '../../../docs';
 
 import Form from '../';
 
@@ -6,9 +7,14 @@ import Form from '../';
 
 # Datalist
 
-Datalist is a set of options that represent the permissible or recommended options available to choose from within other controls.
+Datalist is a set of options that represent the suggested values. It works like any other inputs where you can fill with any custom value.
 
 ## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=252%3A0"
+	alt="zoning image for datalist"
+/>
 
 ## Style
 
@@ -20,9 +26,19 @@ Datalist is a set of options that represent the permissible or recommended optio
     <Story name="default">
         <Form.Datalist label="Datalist" values={['', 'foo', 'bar']}/>
     </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
     <Story name="disabled">
         <Form.Datalist label="Disabled Datalist" disabled  values={['', 'foo', 'bar']}/>
     </Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
     <Story name="read-only">
         <Form.Datalist label="Read-Only Datalist" readOnly value="foo" values={['', 'foo', 'bar']} />
     </Story>
@@ -30,28 +46,21 @@ Datalist is a set of options that represent the permissible or recommended optio
 
 ## Content
 
-_Not applicable_
+N/C
 
-## Interaction
+## Interactions
+
+N/C
 
 ## Code
 
-<Canvas>
-  <Story
-    name="usage"
-    args={{
-      label: 'Datalist',
-      id: 1234,
-      values: ['apple', 'orange', 'banana'],
-    }}
-  >
-    {(props) => <Form.Datalist {...props} />}
-  </Story>
-</Canvas>
-
-<ArgsTable story="usage" />
+N/C
 
 ## Accessibility
+
+The keyboard gestures are the default ones, such as:
+- Press arrows keys to display and navigate into the menu.
+- Press <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to select the option.
 
 ## Changelog
 

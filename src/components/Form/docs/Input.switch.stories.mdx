@@ -11,19 +11,11 @@ Switches are a quick way to view and switch between two states or on-off state i
 
 ## Zoning
 
-<FigmaImage src="https://www.figma.com/file/2Sw2IvUHZ9F2srJ3L8AWxr/%F0%9F%93%90-Zoning?node-id=36%3A0" alt="zoning image for switch" />
+<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=252%3A9" alt="zoning image for switch" />
 
 ## Style
 
-### Variations
-
-**With label**
-
-// add demo
-
-**Without label**
-
-// add demo
+N/C
 
 ## States
 
@@ -54,63 +46,6 @@ Switches are a quick way to view and switch between two states or on-off state i
     </Story>
 </Canvas>
 
-### Default with 2 values
-
-<Canvas>
-    <Story name="default with 2 values">
-        <Form.Switch label="Switch on" values={['off', 'on']} value="on" />
-        <Form.Switch label="Switch off" values={['basic', 'advanced']} />
-    </Story>
-</Canvas>
-
-### Disabled with 2 values
-
-<Canvas>
-    <Story name="disabled with 2 values">
-        <Form.Switch label="Switch on" values={['off', 'on']} value="on" disabled />
-        <Form.Switch label="Switch off" values={['this is off', 'and of course this is on']} disabled />
-    </Story>
-</Canvas>
-
-### Read-only with 2 values
-
-<Canvas>
-    <Story name="read-only with 2 values">
-        <Form.Switch label="Switch on" values={['off', 'on']} value="on" readOnly />
-        <Form.Switch label="Switch off" values={['this is off', 'and of course this is on']} readOnly />
-    </Story>
-</Canvas>
-
-### Default with 3 values
-
-<Canvas>
-    <Story name="default with 3 values">
-        <Form.Switch label="Switch one/two/three" values={['one', 'two', 'three']}  value="two"/>
-        <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} />
-    </Story>
-</Canvas>
-
-### Disabled with 3 values
-
-<Canvas>
-    <Story name="disabled with 3 values">
-        <Form.Switch label="Switch one/two/three" values={['one', 'two', 'three']}  value="two" disabled />
-        <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} disabled />
-    </Story>
-</Canvas>
-
-### Read-only with 3 values
-
-<Canvas>
-    <Story name="read-only with 3 values">
-        <Form.Switch label="Switch one/two/three" values={['one', 'two', 'three']}  value="two" readOnly />
-        <Form.Switch label="Switch input/both/output" values={['input', 'both', 'output']} readOnly />
-    </Story>
-</Canvas>
-
-When the switch is disabled the whole component is displayed with 0.54 opacity
-
-
 ## Content
 
 Use switches to change the state of system functionalities and preferences on or off, or to select among more than two states/options. Labels for switches should give users a strong indication of what they are selecting.
@@ -132,21 +67,19 @@ Use switches to change the state of system functionalities and preferences on or
 	</Use.Dont>
 </Use>
 
-## Interaction
+## Interactions
 
-- Use a tooltip on hover to explain the user what happens when the switch is on.
+- The label must always be clickable to enable or disable.
 
-// ADD DEMO
+## Usage
 
-## Code
-
-To do
+N/C
 
 ## Accessibility
 
 Press <kbd>TABS</kbd> to focus on a switch.
 
-Press the <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to toggle the switch between selected and not selected. 
+Press <kbd>SPACE</kbd> to toggle the switch between selected and not selected. 
  
 
 ## Changelog

@@ -13,10 +13,13 @@ Select lets the user choose one option or multiple options from an options menu.
 ## Zoning
 
 <FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=51%3A122"
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A211"
 	alt="zoning image for input select"
 />
+
 ## Style
+
+N/C
 
 ## States
 
@@ -26,51 +29,91 @@ Select lets the user choose one option or multiple options from an options menu.
     <Story name="default">
         <Form.Select label="Select" values={['', 'foo', 'bar']}/>
     </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
     <Story name="disabled">
         <Form.Select label="Disabled Select" disabled  values={['', 'foo', 'bar']}/>
     </Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
     <Story name="read-only">
         <Form.Select label="Read-Only Select" readOnly value="foo" values={['', 'foo', 'bar']} />
     </Story>
 </Canvas>
 
-### Multiple
+### Multiple Default
 
 <Canvas>
     <Story name="default multiple">
         <Form.Select label="Select" values={['', 'foo', 'bar']} multiple />
     </Story>
+</Canvas>
+
+### Multiple Disabled
+
+<Canvas>
     <Story name="disabled multiple">
         <Form.Select label="Disabled Select" disabled  values={['', 'foo', 'bar']} multiple/>
     </Story>
+</Canvas>
+
+### Multiple Read only
+
+<Canvas>
     <Story name="read-only multiple">
         <Form.Select label="Read-Only Select" readOnly value={['','bar']} values={['', 'foo', 'bar']} multiple/>
     </Story>
 </Canvas>
 
-### With option group
+### With option group Default
 
 <Canvas>
     <Story name="default object">
         <Form.Select label="Select" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} />
     </Story>
+</Canvas>
+
+### With option group Disabled
+
+<Canvas>
     <Story name="disabled object">
         <Form.Select label="Disabled Select" disabled  values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}}/>
     </Story>
+</Canvas>
+
+### With option group Read only
+
+<Canvas>
     <Story name="read-only object">
         <Form.Select label="Read-Only Select" readOnly value="foo" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}}/>
     </Story>
 </Canvas>
 
-### Multiple with option group
+### Multiple with option group Default
 
 <Canvas>
     <Story name="default multiple object">
         <Form.Select label="Select" values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} multiple />
     </Story>
+</Canvas>
+
+### Multiple with option group Disabled
+
+<Canvas>
     <Story name="disabled multiple object">
         <Form.Select label="Disabled Select" disabled  values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} multiple />
     </Story>
+</Canvas>
+
+### Multiple with option group Read only
+
+<Canvas>
     <Story name="read-only multiple object">
         <Form.Select label="Read-Only Select" readOnly value={['','bar']} values={{foo: ['', 'foo', 'bar'], bar: ['', 'foo', 'bar']}} multiple />
     </Story>
@@ -93,18 +136,18 @@ When you use clear terms and order them logically in the list, you enable users 
 	</Use.Dont>
 </Use>
 
-## Interaction
+## Interactions
 
 - When a user clicks into the text input field, they trigger the selection menu which is the browser default one (for compatibility reason).
 
-## Code
+## Usage
 
 To do
 
 ## Accessibility
 
 The keyboard gestures are the default ones, such as:
-- Press <kbd>DOWN ARROW KEY</kbd> to display and navigate into the menu.
+- Press arrows keys to display and navigate into the menu.
 - Press <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to select the option.
 
 ## Changelog

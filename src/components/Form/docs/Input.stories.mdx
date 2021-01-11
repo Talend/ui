@@ -9,127 +9,60 @@ import { Col, Row } from '../../../docs';
 
 # Input text
 
-Text fields is the default input which can display user input in the following ways:
-- Single line text fields display only one line of text
-Use text fields in forms to help people enter, select, and search for text. 
-Text fields are usually found within a form but can also be part of a modal, search, or widget… 
-Common text input types include: usernames, descriptions, URLs, emails, addresses, and plain text searches.
+A input enable the user to interact with and input short content and data.
 
 ## Zoning
 
 <FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=51%3A147"
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A219"
 	alt="zoning image for inputs"
 />
 
 ## Style
 
-### Sizes
-
-| Property                       | Value             | 
-| ------------------------------ | ----------------- | 
-| width           	             | 100%              | 
-| min-width                      | 8rem              | 
-| max-width                      | 70rem             | 
-| height    			    	 | 3.2rem            | 
-
-### Space
-
-| Property                       | Value             | 
-| ------------------------------ | ----------------- | 
-| padding-left; padding-right    | $small            | 
-| margin-top                     | $smaller          |
-
-### Colors
-
-To do
-
-| Property                       | Value                               | Themeable				 |
-| ------------------------------ | ----------------------------------- | ----------------------- |
-| background-color               | $white                              | inputBackgroundColor	 |
-| background-color (read-only)   | $concrete                           | -						 |
-| border (default)               | $silver-chalice                     | inputBorderColor		 |
-| border (hover)                 | $dove-gray                          | inputBorderHoverColor	 |
-| border (focus)                 | $lochmara                           | inputBorderFocusColor	 |
-| border (read-only)             | $concrete	                       | inputBorderColor		 |
-| color							 | $black 							   | inputColor	   			 |
-| placeholder                    | $dark-silver                        | inputPlaceholderColor   |
-
-### Font size
-
-| Property                       | Value             | 
-| ------------------------------ | ----------------- |
-| Placeholder					 | 1.4rem 			 |
-| Text 							 | 1.4rem 			 |  
-
-### Font weight
-
-| Property                       | Value             | 
-| ------------------------------ | ----------------- |
-| Placeholder					 | regular			 |
-| Text 							 | regular 			 |  
-
-### Radii
- 
-| Property                       | Value             | 
-| ------------------------------ | ----------------- | 
-| border-radius			         | 0.2rem            |
-
-### Shadows
-
-| Property                       | Value             | 
-| ------------------------------ | ----------------- | 
-| box-shadow			         | 0 0 0 0.1rem      |
-| box-shadow (focus)	         | 0 0 0 0.2rem      |
+N/C
 
 ## States
+
+### Default
 
 <Canvas>
     <Story name="default">
         <Form.Text label="Input" />
     </Story>
-    <Story name="loading">
-        <Form.Text label="Loading Input" loading />
-    </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
     <Story name="disabled">
         <Form.Text label="Disabled Input" disabled />
     </Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
     <Story name="read-only">
         <Form.Text label="Read-Only Input" readOnly />
     </Story>
 </Canvas>
 
-When the input is disabled the whole component is displayed with 0.54 opacity
-
 ## Content
 
-Text fields may have different text&labeling elements, e.g. labels, placeholders, hint text, tooltip icon.
-<Use>
-	<Use.Do>
-		<ul>
-			
-		</ul>
-	</Use.Do>
-	<Use.Dont>
-		<ul>
-			
-		</ul>
-	</Use.Dont>
-</Use>
+N/C
 
-## Interaction
+## Interactions
 
-Non applicable 
+N/C
 
-## Code
+## Usage
 
-To do
+N/C
 
 ## Accessibility
 
 Press <kbd>TABS</kbd> to focus on a input
-
-Press <kbd>ENTER</kbd> to submit the form
 
 ## Changelog
 

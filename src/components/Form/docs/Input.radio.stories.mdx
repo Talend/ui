@@ -13,7 +13,7 @@ import { Col, Row } from '../../../docs';
 Radio buttons are used when a question has only one answer. Radio buttons allow the user to select one option from a set. 
 Use radio buttons for exclusive selection if you think that the user needs to see all available options side-by-side.
 
-Otherwise, consider checkboxes, toggle switch or a dropdown.
+Otherwise, consider <a href="/?path=/docs/components-form-fields-checkbox--default-story">checkboxes</a>, <a href="/?path=/docs/components-form-fields-switch--default-story">switch</a> or a <a href="/?path=/docs/components-form-fields-select--default-story">select</a>.
 
 
 ## Zoning
@@ -24,7 +24,11 @@ Otherwise, consider checkboxes, toggle switch or a dropdown.
 
 ## Style
 
+N/C
+
 ## States
+
+### Default
 
 <Canvas>
     <Story name="default">
@@ -35,6 +39,8 @@ Otherwise, consider checkboxes, toggle switch or a dropdown.
     </Story>
 </Canvas>
 
+### Disabled
+
 <Canvas>
     <Story name="disabled">
         <Form.Radio label="Disabled Radio" disabled />
@@ -43,6 +49,8 @@ Otherwise, consider checkboxes, toggle switch or a dropdown.
         <Form.Radio label="Disabled Checked Radio" disabled checked />
     </Story>
 </Canvas>
+
+### Read only
 
 <Canvas>
     <Story name="read-only">
@@ -74,22 +82,21 @@ Radio buttons appear as a list of two or more options on UI where users can sele
 </Use>
 
 
-## Interaction
+## Interactions
 
-- If a label is provided, it should always be clickable to check or uncheck.
-- A set of radio buttons should have by default one option selected.
+- The label must always be clickable to check or uncheck.
 
 ## Usage
 
-To do
+N/C
 
 ## Accessibility
 
 Press <kbd>TABS</kbd> to focus on a radio button.
 
-Press <kbd>TABS</kbd> or <kbd>Shift TABS</kbd> to navigate between radio buttons.
+Press <kbd>TABS</kbd> or <kbd>Shift</kbd> + <kbd>TABS</kbd> to navigate between radio buttons.
 
-Press the <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to toggle the radio button between selected and not selected. 
+Press the arrows keys to change the selection.
 
 
 ## Changelog
