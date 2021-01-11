@@ -5,76 +5,73 @@ import { useCheckboxState, Checkbox } from 'reakit';
 import InlineStyle from './styles/Input.Inline.style';
 import tokens from '../../../../tokens';
 
-const Div = styled(InlineStyle)(
-	({ theme, readOnly }) => `
-	input + span {
+const InlineField = styled(InlineStyle)`
+	span {
 		padding-left: calc(1rem + ${tokens.sizes.xxl});
 	}
-	
-	input + span:before,
-	input + span:after {
+
+	span:before,
+	span:after {
 		top: 0;
-		border-radius: 10rem;
+		border-radius: ${tokens.radii.roundedRadius};
 	}
-	
-	input + span:before {
+
+	span:before {
 		width: ${tokens.sizes.xxl};
 		height: 1.6rem;
+		background: ${({ theme }) => theme.colors.inputRadioBackgroundColor};
+		box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 	}
-	
-	input + span:after {
+
+	span:after {
 		height: 1.2rem;
 		width: 1.2rem;
 		transition: transform ${tokens.transitions.normal};
 	}
 
-	input + span:before {
-		background: ${theme.colors.inputRadioBackgroundColor};
-		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
+	input:not(:disabled) + span:hover:before,
+	input:not(:disabled):focus + span:before {
+		background: ${({ theme }) => shade(0.25, theme.colors.inputRadioBackgroundColor)};
+		box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 	}
-	
-	${
-		!readOnly
-			? `
-			input:not(:disabled) + span:hover:before,
-			input:not(:disabled):focus + span:before {
-				background: ${shade(0.25, theme.colors.inputRadioBackgroundColor)};
-				box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
-			}
-			
-			input:not(:disabled):checked + span:hover:before,
-			input:not(:disabled):checked:focus + span:before {
-				background: ${shade(0.25, theme.colors.activeColor)};
-			}
-		`
-			: `
-			// FIXME
-			pointer-events: none;	
-		`
-	}
-	
-	input:checked + span:before {
-		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
-	}
-	
-	input:checked + span:before {
-		background: ${theme.colors.activeColor};	
-	}
-	
-	input:checked + span:after {
-		transform: translateX(1.5rem); 
-	}
-`,
-);
 
-function Switch({ label, value, checked, disabled, readOnly, ...rest }) {
+	input:not(:disabled):checked + span:hover:before,
+	input:not(:disabled):checked:focus + span:before {
+		background: ${({ theme }) => shade(0.25, theme.colors.activeColor)};
+	}
+
+	&.input--checked span:before {
+		background: ${({ theme }) => theme.colors.activeColor};
+		box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
+	}
+
+	&.input--checked span:after {
+		transform: translateX(1.5rem);
+	}
+
+	&.input--read-only span:before {
+		background: ${({ theme }) => theme.colors.inputReadOnlyBackgroundColor};
+		box-shadow: none;
+	}
+
+	&.input--read-only span:after {
+		background: ${({ theme }) => theme.colors.inputBackgroundColor};
+	}
+
+	&.input--read-only.input--checked span:after {
+		background: ${({ theme }) => theme.colors.inputColor};
+	}
+`;
+
+function Switch({ label, checked, readOnly, ...rest }) {
 	const checkbox = useCheckboxState({ state: checked });
 	return (
-		<Div readOnly={readOnly}>
+		<InlineField readOnly={readOnly} checked={checkbox.state}>
 			<label>
-				<Checkbox {...rest} {...checkbox} /> <span>{label}</span>
+				{!readOnly && <Checkbox {...rest} {...checkbox} />}
+				<span>{label}</span>
 			</label>
-		</Div>
+		</InlineField>
 	);
 }
 
