@@ -214,35 +214,6 @@
   347:2  error  defaultProp "minimumPercentage" has no corresponding propTypes declaration  react/default-props-match-prop-types
   348:2  error  defaultProp "display" has no corresponding propTypes declaration            react/default-props-match-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/QualityBar/QualityBar.component.js
-  43:62  error  'getDataFeature' is missing in props validation           react/prop-types
-  56:25  error  Unexpected parentheses around single function argument    arrow-parens
-  65:25  error  Unexpected parentheses around single function argument    arrow-parens
-  74:25  error  Unexpected parentheses around single function argument    arrow-parens
-  91:2   error  'dataFeature' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/QualityBar/QualityBar.component.test.js
-  32:22  error  Unexpected parentheses around single function argument  arrow-parens
-  32:76  error  Missing semicolon                                       @typescript-eslint/semi
-  36:37  error  Unexpected parentheses around single function argument  arrow-parens
-  41:44  error  Unexpected parentheses around single function argument  arrow-parens
-  44:44  error  Unexpected parentheses around single function argument  arrow-parens
-  47:44  error  Unexpected parentheses around single function argument  arrow-parens
-
-/home/travis/build/Talend/ui/packages/components/src/QualityBar/QualityBar.stories.js
-  36:24  error  Unexpected parentheses around single function argument  arrow-parens
-  36:78  error  Missing semicolon                                       @typescript-eslint/semi
-
-/home/travis/build/Talend/ui/packages/components/src/QualityBar/QualityRatioBar.component.js
-  32:9   error  Strings must use singlequote  @typescript-eslint/quotes
-  33:11  error  Strings must use singlequote  @typescript-eslint/quotes
-  34:9   error  Strings must use singlequote  @typescript-eslint/quotes
-  35:2   error  Missing semicolon             @typescript-eslint/semi
-
-/home/travis/build/Talend/ui/packages/components/src/QualityBar/index.js
-  2:1   error  Expected 1 empty line after import statement not followed by another import  import/newline-after-import
-  3:37  error  Missing semicolon                                                            @typescript-eslint/semi
-
 /home/travis/build/Talend/ui/packages/components/src/RadarChart/RadarChart.stories.js
    31:7  error  'activeAxis' is assigned a value but never used  @typescript-eslint/no-unused-vars
    45:6  error  Value must be omitted for boolean attributes     react/jsx-boolean-value
@@ -341,5 +312,6 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 170 problems (150 errors, 20 warnings)
-  25 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 148 problems (128 errors, 20 warnings)
+  7 errors and 0 warnings potentially fixable with the `--fix` option.
+

@@ -29,24 +29,35 @@ describe('QualityBar', () => {
 				invalid: 123,
 				empty: 332,
 				onClick: mockFunctionAction,
-				getDataFeature: (qualityType) => { return `data-feature-${qualityType}` },
+				getDataFeature: qualityType => {
+					return `data-feature-${qualityType}`;
+				},
 			};
 			// when
 			const wrapper = mount(<QualityBar {...props} />);
-			wrapper.find('div').filterWhere((item) => {
-				return item.prop('data-feature') === 'data-feature-valid';
-			}).simulate('click');
+			wrapper
+				.find('div')
+				.filterWhere(item => {
+					return item.prop('data-feature') === 'data-feature-valid';
+				})
+				.simulate('click');
 			// then
-			expect(mockFunctionAction).toHaveBeenCalled();;
-			expect(wrapper.find('div').filterWhere((item) => {
-				return item.prop('data-feature') === 'data-feature-valid';
-			}).length).toBe(1);
-			expect(wrapper.find('div').filterWhere((item) => {
-				return item.prop('data-feature') === 'data-feature-invalid';
-			}).length).toBe(1);
-			expect(wrapper.find('div').filterWhere((item) => {
-				return item.prop('data-feature') === 'data-feature-empty';
-			}).length).toBe(1);
+			expect(mockFunctionAction).toHaveBeenCalled();
+			expect(
+				wrapper.find('div').filterWhere(item => {
+					return item.prop('data-feature') === 'data-feature-valid';
+				}).length,
+			).toBe(1);
+			expect(
+				wrapper.find('div').filterWhere(item => {
+					return item.prop('data-feature') === 'data-feature-invalid';
+				}).length,
+			).toBe(1);
+			expect(
+				wrapper.find('div').filterWhere(item => {
+					return item.prop('data-feature') === 'data-feature-empty';
+				}).length,
+			).toBe(1);
 		});
 	});
 });
