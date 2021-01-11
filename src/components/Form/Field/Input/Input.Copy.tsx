@@ -8,6 +8,7 @@ import InlineMessage from '../../../InlineMessage';
 import tokens from '../../../../tokens';
 
 const CopyButton = styled(Button.Icon)`
+	padding: 0 ${tokens.space.s};
 	height: ${tokens.sizes.xxl};
 	background: ${({ theme }) => theme.colors.inputGroupInteractiveBackgroundColor};
 	border-color: ${({ theme }) => theme.colors.inputBorderColor};
