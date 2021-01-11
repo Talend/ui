@@ -35,13 +35,16 @@ export const Disclaimer = () => (
 export const Login = () => (
 	<LoginPageWith>
 		<Form className="login-form">
-			<Form.Select
-				label="Region"
-				values={{
-					'Amazon Web Services (AWS)': ['Asia Pacific AWS', 'Europ AWS', 'East America AWS'],
-					'Microsoft Azure': ['West America Azure'],
-				}}
-			/>
+			<Form.Select label="Region">
+				<optgroup label="Amazon Web Services (AWS)">
+					<option>Asia Pacific AWS</option>
+					<option>Europe AWS</option>
+					<option>East America AWS</option>
+				</optgroup>
+				<optgroup label="Microsoft Azure">
+					<option>West America Azure</option>
+				</optgroup>
+			</Form.Select>
 			<Form.Email label="Email" />
 			<Form.Password label="Password" />
 			<Form.Buttons className="form__buttons">

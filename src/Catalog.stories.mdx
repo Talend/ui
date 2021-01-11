@@ -100,8 +100,14 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 				<Form.Datalist label="Datalist" values={['foo', 'bar']} />
 				<Form.Search label="Search" />
 				<Form.Textarea label="Textarea" />
-				<Form.Select label="Select" values={['', 'foo', 'bar']} value="foo" />
-				<Form.Select label="Select multiple" values={['foo', 'bar']} multiple value={['foo']} />
+                <Form.Select label="Select">
+                    <option selected>Foo</option>
+                    <option>Bar</option>
+                </Form.Select>
+                <Form.Select label="Select multiple" multiple>
+                    <option selected>Foo</option>
+                    <option selected>Bar</option>
+                </Form.Select>
 				<Form.Checkbox label="Checkbox" checked />
 				<Form.Radio label="Radio" checked />
 				<Form.Switch label="Switch" checked />

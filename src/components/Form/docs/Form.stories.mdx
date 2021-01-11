@@ -7,49 +7,76 @@ import Button from '../../Button';
 import CountryCodes from './data/CountryCodes.json';
 
 export function getCountryCodes() {
-    return CountryCodes.map(({ name, dial_code }) => `${name} (${dial_code})`);
+	return CountryCodes.map(({ name, dial_code }) => `${name} (${dial_code})`);
 }
 export function getColumnTypes() {
-    return ['String', 'Long', 'Date', 'Boolean', 'Decimal'];
+	return ['String', 'Long', 'Date', 'Boolean', 'Decimal'];
 }
 
-<Meta title="Components/Form"/>
+<Meta title="Components/Form" />
 
 # Form
 
 <Canvas>
-    <Story name="Overview">
-        <Form>
-            <Form.Fieldset legend="Fieldset">
-                <Form.Text label="Input" />
-                <Form.Text label="Input with error" errorMessage="Lorem ipsum dolor sit amet Quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaLorem ipsum dolor sit ame"/>
-                <Form.InputGroup label="Phone" prefix={<Form.Select label="Phone prefix" values={getCountryCodes()} value="France (+33)" style={{ width: '13rem' }}/>}>
-                    <Form.Tel label="Phone number" />
-                </Form.InputGroup>
-                <Form.InputGroup label="Column" suffix={<Form.Select label="Column type" values={getColumnTypes()} value="Date" />}>
-                    <Form.Text label="Column name" />
-                </Form.InputGroup>
-                <Form.InputGroup label="Amount"
-                                 prefix="$"
-                                 suffix=".00">
-                    <Form.Number label="Amount without decimal" min="1" step="1" />
-                </Form.InputGroup>
-                <Form.File label="File" />
-                <Form.Password label="Password" />
-                <Form.Datalist label="Datalist" values={['foo', 'bar']} />
-                <Form.Search label="Search" />
-                <Form.Textarea label="Textarea" />
-                <Form.Range label="Range" />
-                <Form.Select label="Select" values={['', 'foo', 'bar']} value="foo"/>
-                <Form.Select label="Select multiple" values={['foo', 'bar']} multiple value={['foo']} />
-                <Form.Checkbox label="Checkbox" checked />
-                <Form.Radio label="Radio" checked />
-                <Form.Switch label="Switch" checked />
-            </Form.Fieldset>
-            <Form.Buttons>
-                <Button.Secondary type="reset" onClick={action('clicked')}>Reset</Button.Secondary>
-                <Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
-            </Form.Buttons>
-        </Form>
-    </Story>
+	<Story name="Overview">
+		<Form>
+			<Form.Fieldset legend="Fieldset">
+				<Form.Text label="Input" />
+				<Form.Text
+					label="Input with error"
+					errorMessage="Lorem ipsum dolor sit amet Quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaLorem ipsum dolor sit ame"
+				/>
+				<Form.InputGroup
+					label="Phone"
+					prefix={
+						<Form.Select label="Phone prefix" value="France (+33)" style={{ width: '13rem' }}>
+							{getCountryCodes().map(countryCode => (
+								<option>{countryCode}</option>
+							))}
+						</Form.Select>
+					}
+				>
+					<Form.Tel label="Phone number" />
+				</Form.InputGroup>
+				<Form.InputGroup
+					label="Column"
+					suffix={
+						<Form.Select label="Column type" value="Date">
+							{getColumnTypes().map(columnType => (
+								<option>{columnType}</option>
+							))}
+						</Form.Select>
+					}
+				>
+					<Form.Text label="Column name" />
+				</Form.InputGroup>
+				<Form.InputGroup label="Amount" prefix="$" suffix=".00">
+					<Form.Number label="Amount without decimal" min="1" step="1" />
+				</Form.InputGroup>
+				<Form.File label="File" />
+				<Form.Password label="Password" />
+				<Form.Datalist label="Datalist" values={['foo', 'bar']} />
+				<Form.Search label="Search" />
+				<Form.Textarea label="Textarea" />
+				<Form.Range label="Range" />
+				<Form.Select label="Select">
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Select label="Select multiple" multiple>
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Checkbox label="Checkbox" checked />
+				<Form.Radio label="Radio" checked />
+				<Form.Switch label="Switch" checked />
+			</Form.Fieldset>
+			<Form.Buttons>
+				<Button.Secondary type="reset" onClick={action('clicked')}>
+					Reset
+				</Button.Secondary>
+				<Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
+			</Form.Buttons>
+		</Form>
+	</Story>
 </Canvas>
