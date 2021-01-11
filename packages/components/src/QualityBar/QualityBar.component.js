@@ -53,7 +53,7 @@ export function QualityBar({ invalid, valid, empty, onClick, getDataFeature, dig
 	return (
 		<RatioBar.Composition>
 			<QualityInvalidLine
-				onClick={onClick ? (e) => onClick(e, {
+				onClick={onClick ? e => onClick(e, {
 					type: QualityType.INVALID
 				}) : null}
 				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
@@ -62,7 +62,7 @@ export function QualityBar({ invalid, valid, empty, onClick, getDataFeature, dig
 				t={t}
 			/>
 			<QualityEmptyLine
-				onClick={onClick ? (e) => onClick(e, {
+				onClick={onClick ? e => onClick(e, {
 					type: QualityType.EMPTY
 				}) : null}
 				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
@@ -71,7 +71,7 @@ export function QualityBar({ invalid, valid, empty, onClick, getDataFeature, dig
 				t={t}
 			/>
 			<QualityValidLine
-				onClick={onClick ? (e) => onClick(e, {
+				onClick={onClick ? e => onClick(e, {
 					type: QualityType.VALID
 				}) : null}
 				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
@@ -88,6 +88,6 @@ QualityBar.propTypes = {
 	empty: PropTypes.number.isRequired,
 	valid: PropTypes.number.isRequired,
 	onClick: PropTypes.func,
-	dataFeature: PropTypes.func,
+	getDataFeature: PropTypes.func,
 	digits: PropTypes.number,
 };

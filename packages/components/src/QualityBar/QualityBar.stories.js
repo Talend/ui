@@ -33,7 +33,7 @@ stories
 						valid={88}
 						empty={3}
 						onClick={action('onClickAction')}
-						getDataFeature={(qualityType) => { return `data-feature.${qualityType}` }}
+						getDataFeature={qualityType => { return `data-feature.${qualityType}`; }}
 					/>
 				</div>
 			</section>

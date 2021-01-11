@@ -29,9 +29,9 @@ function formatNumber(value = '') {
 }
 
 export const QualityType = {
-	VALID: "valid",
-	INVALID: "invalid",
-	EMPTY: "empty"
+	VALID: 'valid',
+	INVALID: 'invalid',
+	EMPTY: 'empty'
 }
 
 export function QualityInvalidLine({

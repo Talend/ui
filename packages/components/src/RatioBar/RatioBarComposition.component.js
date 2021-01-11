@@ -52,7 +52,7 @@ export function RatioBarLine({
 			role={onClick && "button"}
 			data-feature={dataFeature}
 			onClick={onClick}
-			onKeyDown={onClick}
+			onKeyDown={onKeyDown}
 		/>
 	);
 
