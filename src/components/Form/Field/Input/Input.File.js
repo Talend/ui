@@ -186,7 +186,7 @@ function InputFile(props) {
 				<Input
 					{...props}
 					value={files
-						.map(file =>
+						?.map(file =>
 							typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`,
 						)
 						.join(';')}
