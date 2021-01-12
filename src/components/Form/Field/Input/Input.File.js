@@ -182,36 +182,47 @@ function InputFile(props) {
 
 	return (
 		<FileField aria-describedby={id}>
-			<div id={id} className={`input-file ${drag ? 'input-file--dragging' : ''}`}>
-				<input
-					type="file"
+			{props.readOnly ? (
+				<Input
 					{...props}
-					className={`input-file__input input ${files ? 'input--filled' : ''}`}
-					ref={inputRef}
+					value={files
+						.map(file =>
+							typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`,
+						)
+						.join(';')}
 				/>
-				{!files ? (
-					<div className="input-file__text text">
-						<Icon className="text__icon" name="talend-upload" currentColor />{' '}
-						<span className="text__span">
-							Drop your files or <Link className="text__link">browse</Link>
-						</span>
-					</div>
-				) : (
-					<div className="input-file__preview preview">
-						<VisuallyHidden>You have selected:</VisuallyHidden>
-						<ol role="list" className="preview__list">
-							{files.map((file, index) => (
-								<li key={index} className="preview__list-item">
-									{typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`}
-								</li>
-							))}
-						</ol>
-						<Button.Icon icon="talend-cross-circle" className="preview__button" onClick={clear}>
-							Clear selection
-						</Button.Icon>
-					</div>
-				)}
-			</div>
+			) : (
+				<div id={id} className={`input-file ${drag ? 'input-file--dragging' : ''}`}>
+					<input
+						type="file"
+						{...props}
+						className={`input-file__input input ${files ? 'input--filled' : ''}`}
+						ref={inputRef}
+					/>
+					{!files ? (
+						<div className="input-file__text text">
+							<Icon className="text__icon" name="talend-upload" currentColor />{' '}
+							<span className="text__span">
+								Drop your files or <Link className="text__link">browse</Link>
+							</span>
+						</div>
+					) : (
+						<div className="input-file__preview preview">
+							<VisuallyHidden>You have selected:</VisuallyHidden>
+							<ol role="list" className="preview__list">
+								{files.map((file, index) => (
+									<li key={index} className="preview__list-item">
+										{typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`}
+									</li>
+								))}
+							</ol>
+							<Button.Icon icon="talend-cross-circle" className="preview__button" onClick={clear}>
+								Clear selection
+							</Button.Icon>
+						</div>
+					)}
+				</div>
+			)}
 		</FileField>
 	);
 }
