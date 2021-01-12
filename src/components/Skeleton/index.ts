@@ -2,7 +2,12 @@ import Skeleton from './Skeleton';
 import SkeletonButton from './variations/Skeleton.Button';
 import SkeletonIconButton from './variations/Skeleton.IconButton';
 
-Skeleton.Button = SkeletonButton;
-Skeleton.Icon = SkeletonIconButton;
+const SkeletonComponent = Skeleton as typeof Skeleton & {
+	Button: typeof SkeletonButton;
+	Icon: typeof SkeletonIconButton;
+};
 
-export default Skeleton;
+SkeletonComponent.Button = SkeletonButton;
+SkeletonComponent.Icon = SkeletonIconButton;
+
+export default SkeletonComponent;

@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
+import { IconName } from '@talend/icons';
 
-import { BoxProps } from 'reakit';
-
-import { Icon, IconName } from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 
 import * as S from './InlineMessage.style';
 
-export type InlineMessageProps = BoxProps & {
+export type InlineMessageProps = PropsWithChildren<any> & {
 	/** The icon element to display */
 	icon: IconName;
 	/** The title of the message */
@@ -16,7 +15,7 @@ export type InlineMessageProps = BoxProps & {
 	/** Size variant */
 	small: boolean;
 	/** Link element at the end */
-	link?: React.ReactElement<any>;
+	link?: React.ReactElement;
 	/** If it is an inline message or a block with a background */
 	withBackground?: boolean;
 };
@@ -26,7 +25,7 @@ export type InlineMessageProps = BoxProps & {
  It can be additional information related to system status, it can be a required action to complete the current task.
  @link https://inclusive-components.design/notifications
  * */
-const InlineMessage: React.FC<InlineMessageProps> = React.forwardRef(
+const InlineMessage = React.forwardRef(
 	({ icon, title, description, link, className = '', ...rest }: InlineMessageProps, ref) => {
 		return (
 			<S.InlineMessage

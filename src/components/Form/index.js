@@ -10,6 +10,7 @@ import Label from './Label';
 import Select from './Field/Select';
 import Textarea from './Field/Textarea';
 
+Form.Color = Input.Color;
 Form.Checkbox = Input.Checkbox;
 Form.Datalist = Datalist;
 Form.Date = Input.Date;

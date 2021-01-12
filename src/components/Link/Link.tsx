@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyledProps } from 'styled-components';
 import { BoxProps } from 'reakit';
-import { Icon, IconName } from '../Icon/Icon';
+import { IconName } from '@talend/icons';
+
+import { Icon } from '../Icon/Icon';
 
 import * as S from './Link.style';
 

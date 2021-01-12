@@ -27,6 +27,7 @@ const InputCopy = ({ value, ...rest }: InputCopyProps) => {
 	return (
 		<InputGroup
 			label="Copy to clipboard"
+			prefix={null}
 			suffix={
 				<CopyButton icon="talend-files-o" onClick={() => copyToClipboard(text)}>
 					Copy to clipboard

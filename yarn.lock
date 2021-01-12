@@ -2387,6 +2387,11 @@
     babel-eslint "^10.1.0"
     requireindex "~1.1.0"
 
+"@talend/icons@^6.8.0":
+  version "6.8.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-6.8.0.tgz#90c2066436a559da92d0e3b68f01bffcec646566"
+  integrity sha512-OJ/f+cFiQUxmnhzXpyw9CzwVRM6U4sT8/O1Gx0CGAAdsU3HTk5vB5UImyW5SpMbfuzFXmLBYbTvzrRn03TZbUQ==
+
 "@talend/module-to-cdn@^7.1.2":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-7.1.2.tgz#00386e199ad8f36fe4ab8b1a233cfbf2b047f31c"
