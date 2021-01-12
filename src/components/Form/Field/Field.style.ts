@@ -4,7 +4,9 @@ import Label from '../Label';
 
 import tokens from '../../../tokens';
 
-export const FieldControl = styled.div<{ as: string; type: string; multiple: boolean }>`
+export const FieldControl = styled.div.attrs(({ readOnly, checked }) => ({
+	className: `${readOnly ? 'input--read-only' : ''} ${checked ? 'input--checked' : ''}`,
+}))`
 	padding: 0 ${tokens.space.s};
 	width: 100%;
 	color: ${({ theme }) => theme.colors.inputColor};
@@ -37,12 +39,11 @@ export const FieldControl = styled.div<{ as: string; type: string; multiple: boo
 	}
 
 	&:disabled {
-		border-color: ${({ theme }) => theme.colors.inputDisabledBorderColor};
 		opacity: ${tokens.opacity.disabled};
 		cursor: not-allowed;
 	}
 
-	&:read-only {
+	&.input--read-only {
 		border-color: ${({ theme }) => theme.colors.inputReadOnlyBorderColor};
 		background: ${({ theme }) => theme.colors.inputReadOnlyBackgroundColor};
 	}

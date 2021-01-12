@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import tokens from '../../../../../tokens';
 
-const InlineStyle = styled.div.attrs(({ readOnly, checked }) => ({
-	className: `${readOnly ? 'input--read-only' : ''} ${checked ? 'input--checked' : ''}`,
-}))`
+const InlineStyle = styled.div`
 	input {
 		position: absolute;
 		margin-left: -9999px;
