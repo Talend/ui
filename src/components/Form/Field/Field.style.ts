@@ -4,7 +4,9 @@ import Label from '../Label';
 
 import tokens from '../../../tokens';
 
-export const FieldControl = styled.div.attrs(({ readOnly, checked }) => ({
+export type FieldControlProps = { as: string; type: string; multiple: boolean };
+
+export const FieldControl = styled.input.attrs(({ readOnly, checked }) => ({
 	className: `${readOnly ? 'input--read-only' : ''} ${checked ? 'input--checked' : ''}`,
 }))`
 	padding: 0 ${tokens.space.s};
@@ -18,7 +20,7 @@ export const FieldControl = styled.div.attrs(({ readOnly, checked }) => ({
 	border: 1px solid ${({ theme }) => theme.colors.inputBorderColor};
 	border-radius: ${tokens.radii.inputBorderRadius};
 
-	${({ as, type, multiple }) =>
+	${({ as, type, multiple }: FieldControlProps) =>
 		['input', 'select'].includes(as) &&
 		!['radio', 'checkbox'].includes(type) &&
 		!multiple &&
