@@ -17,6 +17,10 @@ export function getColumnTypes() {
 
 # Form
 
+## States
+
+### Default
+
 <Canvas>
 	<Story name="Overview">
 		<Form>
@@ -77,6 +81,137 @@ export function getColumnTypes() {
 				</Button.Secondary>
 				<Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
 			</Form.Buttons>
+		</Form>
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="Overview-disabled">
+		<Form>
+			<Form.Fieldset legend="Fieldset">
+				<Form.Text label="Input" disabled />
+				<Form.InputGroup
+					label="Phone"
+					disabled
+					prefix={
+						<Form.Select
+							disabled
+							label="Phone prefix"
+							value="France (+33)"
+							style={{ width: '13rem' }}
+						>
+							{getCountryCodes().map(countryCode => (
+								<option>{countryCode}</option>
+							))}
+						</Form.Select>
+					}
+				>
+					<Form.Tel disabled label="Phone number" />
+				</Form.InputGroup>
+				<Form.InputGroup
+					label="Column"
+					suffix={
+						<Form.Select disabledlabel="Column type" value="Date">
+							{getColumnTypes().map(columnType => (
+								<option>{columnType}</option>
+							))}
+						</Form.Select>
+					}
+				>
+					<Form.Text disabled label="Column name" />
+				</Form.InputGroup>
+				<Form.InputGroup label="Amount" prefix="$" suffix=".00">
+					<Form.Number disabled label="Amount without decimal" min="1" step="1" />
+				</Form.InputGroup>
+				<Form.File disabled label="File" />
+				<Form.Password disabled label="Password" />
+				<Form.Datalist disabled label="Datalist" values={['foo', 'bar']} />
+				<Form.Search disabled label="Search" />
+				<Form.Textarea disabled label="Textarea" />
+				<Form.Range disabledlabel="Range" />
+				<Form.Select disabled label="Select">
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Select disabled label="Select multiple" multiple>
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Checkbox disabled label="Checkbox" checked />
+				<Form.Radio disabled label="Radio" checked />
+				<Form.Switch disabled label="Switch" checked />
+			</Form.Fieldset>
+			<Form.Buttons>
+				<Button.Secondary type="reset" disabled onClick={action('clicked')}>
+					Reset
+				</Button.Secondary>
+				<Button.Primary disabled onClick={action('clicked')}>
+					Submit
+				</Button.Primary>
+			</Form.Buttons>
+		</Form>
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="Overview-readonly">
+		<Form>
+			<Form.Fieldset legend="Fieldset">
+				<Form.Text label="Input" readOnly />
+				<Form.InputGroup
+					label="Phone"
+					readOnly
+					prefix={
+						<Form.Select
+							readOnlylabel="Phone prefix"
+							value="France (+33)"
+							style={{ width: '13rem' }}
+						>
+							{getCountryCodes().map(countryCode => (
+								<option>{countryCode}</option>
+							))}
+						</Form.Select>
+					}
+				>
+					<Form.Tel readOnly label="Phone number" />
+				</Form.InputGroup>
+				<Form.InputGroup
+					label="Column"
+					suffix={
+						<Form.Select readOnly label="Column type" value="Date">
+							{getColumnTypes().map(columnType => (
+								<option>{columnType}</option>
+							))}
+						</Form.Select>
+					}
+				>
+					<Form.Text readOnly label="Column name" />
+				</Form.InputGroup>
+				<Form.InputGroup label="Amount" prefix="$" suffix=".00">
+					<Form.Number readOnly label="Amount without decimal" min="1" step="1" />
+				</Form.InputGroup>
+				<Form.File readOnly label="File" />
+				<Form.Password readOnly label="Password" />
+				<Form.Datalist readOnly label="Datalist" values={['foo', 'bar']} />
+				<Form.Search readOnly label="Search" />
+				<Form.Textarea readOnly label="Textarea" />
+				<Form.Range readOnlylabel="Range" />
+				<Form.Select readOnly label="Select">
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Select readOnly label="Select multiple" multiple>
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Checkbox readOnly label="Checkbox" checked />
+				<Form.Radio readOnly label="Radio" checked />
+				<Form.Switch readOnly label="Switch" checked />
+			</Form.Fieldset>
 		</Form>
 	</Story>
 </Canvas>
