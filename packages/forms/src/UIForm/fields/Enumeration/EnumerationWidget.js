@@ -404,7 +404,7 @@ class EnumerationForm extends React.Component {
 
 		// if the value exist add an error
 		this.setState(prevState => {
-			const valueExist = this.valueAlreadyExist(value.value, prevState);
+			const valueExist = this.valueAlreadyExist(value.value, prevState, value.index);
 			const items = [...prevState.items];
 			items[value.index].error = '';
 			if (valueExist) {
@@ -729,6 +729,7 @@ class EnumerationForm extends React.Component {
 				]),
 			};
 			this.onChange(event, payload);
+			this.input.focus();
 			if (isSingleAdd) {
 				successHandler();
 			}
@@ -954,8 +955,10 @@ class EnumerationForm extends React.Component {
 		}));
 	}
 
-	valueAlreadyExist(value, state) {
-		return !this.allowDuplicate && state.items.find(item => item.values[0] === value);
+	valueAlreadyExist(value, state, index) {
+	    const foundIndex = state.items.findIndex(item => item.values[0] === value);
+	    const indexCheck = index ? foundIndex !== index : true;
+		return !this.allowDuplicate && foundIndex > -1 && indexCheck;
 	}
 
 	updateHeaderInputDisabled(value) {

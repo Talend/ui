@@ -683,6 +683,66 @@ describe('#httpFetch', () => {
 		expect(gen.next().value).toEqual(httpError);
 		expect(gen.next().done).toBe(true);
 	});
+	it('should wrap the request and notify enriched business error if response payload follow RFC-7807', () => {
+		const url = '/foo';
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+		const rfcReponse = {
+			type: 'some-documentation-uri',
+			title: 'An expected error title',
+			detail: 'Some useful detail',
+			code: 'business-error-xxx'
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		const httpError = new HTTPError({
+			data: {
+				message: 'Error occured',
+				...rfcReponse,
+			},
+			response: {
+				status: HTTP_STATUS.FORBIDDEN,
+			},
+		});
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
+		const $config = { url, method: HTTP_METHODS.PUT, payload, ...config };
+		gen.next();
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.PUT, payload),
+		);
+		gen.next(httpError);
+		expect(gen.next(httpError).value).toEqual(
+			put({
+				config: {
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				},
+				options: undefined,
+				error: {
+					message: 'Error occured',
+					stack: {
+						status: HTTP_STATUS.FORBIDDEN,
+					},
+					...rfcReponse,
+				},
+				method: 'PUT',
+				payload: {
+					bar: 42,
+				},
+				url: '/foo',
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().value).toEqual(httpError);
+		expect(gen.next().done).toBe(true);
+	});
 	it('should wrap the request and notify network error', () => {
 		const url = '/foo';
 		const config = {

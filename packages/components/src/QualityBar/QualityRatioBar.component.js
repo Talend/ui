@@ -10,6 +10,8 @@ const qualityBarLinePropTypes = {
 	value: PropTypes.number.isRequired,
 	percentage: PropTypes.number.isRequired,
 	t: PropTypes.func.isRequired,
+	dataFeature: PropTypes.string,
+	onClick: PropTypes.func,
 };
 
 /**
@@ -26,7 +28,13 @@ function formatNumber(value = '') {
 	return parts.join('.');
 }
 
-export function QualityInvalidLine({ value, percentage, t }) {
+export const QualityType = {
+	VALID: 'valid',
+	INVALID: 'invalid',
+	EMPTY: 'empty',
+};
+
+export function QualityInvalidLine({ value, percentage, t, dataFeature, onClick }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
@@ -37,6 +45,8 @@ export function QualityInvalidLine({ value, percentage, t }) {
 				percentage,
 				value: formatNumber(value),
 			})}
+			dataFeature={dataFeature}
+			onClick={onClick}
 			value={value}
 			className={theme('tc-ratio-bar-line-quality-invalid')}
 		/>
@@ -44,7 +54,7 @@ export function QualityInvalidLine({ value, percentage, t }) {
 }
 QualityInvalidLine.propTypes = qualityBarLinePropTypes;
 
-export function QualityValidLine({ value, percentage, t }) {
+export function QualityValidLine({ value, percentage, t, dataFeature, onClick }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
@@ -55,6 +65,8 @@ export function QualityValidLine({ value, percentage, t }) {
 				percentage,
 				value: formatNumber(value),
 			})}
+			dataFeature={dataFeature}
+			onClick={onClick}
 			value={value}
 			className={theme('tc-ratio-bar-line-quality-valid')}
 		/>
@@ -62,7 +74,7 @@ export function QualityValidLine({ value, percentage, t }) {
 }
 QualityValidLine.propTypes = qualityBarLinePropTypes;
 
-export function QualityEmptyLine({ value, percentage, t }) {
+export function QualityEmptyLine({ value, percentage, t, dataFeature, onClick }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
@@ -73,6 +85,8 @@ export function QualityEmptyLine({ value, percentage, t }) {
 				percentage,
 				value: formatNumber(value),
 			})}
+			dataFeature={dataFeature}
+			onClick={onClick}
 			value={value}
 			className={theme('tc-ratio-bar-line-quality-empty')}
 		/>

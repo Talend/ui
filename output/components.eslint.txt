@@ -6,7 +6,7 @@
   40:10  error  Elements with the ARIA role "heading" must have the following attributes defined: aria-level  jsx-a11y/role-has-required-aria-props
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
-  142:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
+  146:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/Tree.component.js
   4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4                                             import/no-cycle
@@ -214,16 +214,6 @@
   347:2  error  defaultProp "minimumPercentage" has no corresponding propTypes declaration  react/default-props-match-prop-types
   348:2  error  defaultProp "display" has no corresponding propTypes declaration            react/default-props-match-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/QualityBar/QualityBar.stories.js
-  15:6  error  Empty components are self-closing  react/self-closing-comp
-  17:6  error  Empty components are self-closing  react/self-closing-comp
-  19:6  error  Empty components are self-closing  react/self-closing-comp
-  21:6  error  Empty components are self-closing  react/self-closing-comp
-  23:6  error  Empty components are self-closing  react/self-closing-comp
-  25:6  error  Empty components are self-closing  react/self-closing-comp
-  27:6  error  Empty components are self-closing  react/self-closing-comp
-  29:6  error  Empty components are self-closing  react/self-closing-comp
-
 /home/travis/build/Talend/ui/packages/components/src/RadarChart/RadarChart.stories.js
    31:7  error  'activeAxis' is assigned a value but never used  @typescript-eslint/no-unused-vars
    45:6  error  Value must be omitted for boolean attributes     react/jsx-boolean-value
@@ -291,7 +281,8 @@
   54:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/HeaderCheckbox/HeaderCheckbox.component.js
-  16:18  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  17:18  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  21:18  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/HeaderResizable/HeaderResizable.component.js
   34:7  error  Use callback in setState when referencing the previous state  react/no-access-state-in-setstate
@@ -316,5 +307,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 155 problems (135 errors, 20 warnings)
-  15 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 148 problems (128 errors, 20 warnings)
+  7 errors and 0 warnings potentially fixable with the `--fix` option.
