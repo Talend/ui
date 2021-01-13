@@ -170,8 +170,8 @@ export function renderItemsContainerFactory(
 				modifiers={[
 					{ name: 'preventOverflow', enabled: false },
 					{ name: 'hide', enabled: false },
-					{ name: 'shift', enabled: false},
-					{ name: 'computePosition', enabled: true,  fn: computePopperPosition },
+					{ name: 'shift', enabled: false },
+					{ name: 'computePosition', enabled: true, fn: computePopperPosition },
 				]}
 				// FIXME: those do not exists anymore
 				// boundariesElement="viewport"// viewport is now default
@@ -230,7 +230,11 @@ export function renderSectionTitle(section) {
 		return (
 			<div className={css('section-header', 'tc-typeahead-section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span className={css('section-header-title', 'tc-typeahead-section-header-title', { hint })}>{section.title}</span>
+				<span
+					className={css('section-header-title', 'tc-typeahead-section-header-title', { hint })}
+				>
+					{section.title}
+				</span>
 			</div>
 		);
 	}
