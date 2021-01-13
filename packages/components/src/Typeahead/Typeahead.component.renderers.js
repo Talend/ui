@@ -164,33 +164,24 @@ export function renderItemsContainerFactory(
 		} else {
 			content = children;
 		}
-
 		return (
 			<Popper
-				modifiers={{
-					hide: {
-						enabled: false,
-					},
-					preventOverflow: {
-						enabled: false,
-					},
-					shift: {
-						enabled: false,
-					},
-					computePosition: {
-						enabled: true,
-						fn: computePopperPosition,
-					},
-				}}
-				positionFixed
-				boundariesElement="viewport"
-				referenceElement={inputRef.current}
+				strategy="fixed"
+				modifiers={[
+					{ name: 'preventOverflow', enabled: false },
+					{ name: 'hide', enabled: false },
+					{ name: 'shift', enabled: false},
+					{ name: 'computePosition', enabled: true,  fn: computePopperPosition },
+				]}
+				// FIXME: those do not exists anymore
+				// boundariesElement="viewport"// viewport is now default
+				// referenceElement={inputRef.current}
 				placement="bottom-start"
 			>
-				{({ placement = '', ref, scheduleUpdate, style }) => {
+				{({ placement, ref, style, update }) => {
 					if (placement.includes('top')) {
 						// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
-						scheduleUpdate();
+						update();
 					}
 
 					return (
