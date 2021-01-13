@@ -10,7 +10,7 @@ export const DEFAULT_QUICKSEARCH_OPERATOR = 'containsIgnoreCase';
 const getDefaultFacet = (facets = []) =>
 	facets.find(({ metadata }) => metadata.isDefaultForQuickSearch) || facets[0];
 
-export const QuickSearchInput = ({ t, facets, className, onSelect = () => {} }) => {
+export const QuickSearchInput = ({ t, facets, placeholder, className, onSelect = () => {} }) => {
 	const defaultFacet = useMemo(() => getDefaultFacet(facets), [facets]);
 	const [opened, setOpened] = useState(false);
 	const [value, setValue] = useState('');
@@ -21,7 +21,7 @@ export const QuickSearchInput = ({ t, facets, className, onSelect = () => {} }) 
 
 	return (
 		<Typeahead
-			placeholder={t('QUICKSEARCH_PLACEHOLDER', { defaultValue: 'Find in a column...' })}
+			placeholder={placeholder || t('QUICKSEARCH_PLACEHOLDER', { defaultValue: 'Find in a column...' })}
 			onFocus={() => setOpened(value.length >= MINIMUM_LENGTH)}
 			onBlur={() => {
 				setValue('');
@@ -63,6 +63,7 @@ export const QuickSearchInput = ({ t, facets, className, onSelect = () => {} }) 
 QuickSearchInput.propTypes = {
 	facets: badgesFacetedPropTypes,
 	className: PropTypes.string,
+	placeholder: PropTypes.string,
 	onSelect: PropTypes.func,
 	t: PropTypes.func,
 };

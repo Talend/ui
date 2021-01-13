@@ -76,7 +76,7 @@ const BadgeSliderForm = ({
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<Rich.Layout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
 				<div className={theme('tc-badge-slider-form-body-row')}>
-					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class)} />}
+					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class || icon.className)} />}
 					{editing ? (
 						<input
 							id={`${id}-input`}
@@ -157,6 +157,7 @@ BadgeSliderForm.propTypes = {
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		class: PropTypes.string,
+		className: PropTypes.string,
 	}),
 	operator: PropTypes.shape({
 		name: PropTypes.string,

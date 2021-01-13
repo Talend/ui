@@ -26,6 +26,10 @@ Types of changes
 
 ## [unreleased]
 
+### Added
+
+- Ability to customize the quicksearch placeholder
+
 ## [3.1.0]
 
 ### Added
