@@ -140,12 +140,7 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 				if (svgContainer) {
 					const svg = svgContainer.querySelector('svg');
 					if (svg) {
-						const {
-							x,
-							y,
-							width,
-							height,
-						}: { x: number; y: number; width: number; height: number } = svg.viewBox.baseVal;
+						const { x, y, width, height }: DOMRect = svg.viewBox.baseVal;
 						const factor: number = height;
 						const strokeWidth: number = 1;
 						const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
