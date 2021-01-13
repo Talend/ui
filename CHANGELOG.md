@@ -26,15 +26,17 @@ Types of changes
 
 ## [unreleased]
 
+## [3.2.0]
+
 ### Added
 
-- Ability to customize the quicksearch placeholder
+-   Ability to customize the quicksearch placeholder
 
 ## [3.1.0]
 
 ### Added
 
-- Use new typeahead design
+-   Use new typeahead design
 
 ## [3.0.0]
 
@@ -44,8 +46,7 @@ Types of changes
 
 ### Added
 
-- [Add date picker badge](https://github.com/Talend/ui-faceted-search/pull/20)
-
+-   [Add date picker badge](https://github.com/Talend/ui-faceted-search/pull/20)
 
 ## [2.0.1]
 
@@ -61,14 +62,13 @@ Types of changes
 
 ### Added
 
-- [Added](https://github.com/Talend/ui-faceted-search/pull/18): Show blank characters on colored badges
-
+-   [Added](https://github.com/Talend/ui-faceted-search/pull/18): Show blank characters on colored badges
 
 ## [1.2.0]
 
 ### Added
 
-- [Added](https://github.com/Talend/ui-faceted-search/pull/17): Support custom/no sort of badge definitions
+-   [Added](https://github.com/Talend/ui-faceted-search/pull/17): Support custom/no sort of badge definitions
 
 ### Fixed
 
