@@ -1,36 +1,34 @@
 const CACHE_NAME = 'cache-or-figma';
 
-self.addEventListener('install', event => {
-	console.log('The service worker is being installed.');
-});
+const FIGMA_BASEURL = 'https://api.figma.com';
 
 self.addEventListener('fetch', event => {
-	if (event.request.method === 'GET' && event.request.url.startsWith('https://api.figma.com')) {
-		console.log('The service worker is serving the Figma asset.', event);
+	if (event.request.method === 'GET' && event.request.url.startsWith(FIGMA_BASEURL)) {
+		// eslint-disable-next-line no-console
+		console.info(`[${CACHE_NAME}] The service worker is serving the Figma assets`, event);
 
 		event.respondWith(
-			caches
-				.open(CACHE_NAME)
-				.then(
-					cache =>
-						console.log('Get Figma asset from cache', event.request.url) ||
-						cache.match(event.request).then(match => match || fetch(event.request)),
-				),
+			caches.open(CACHE_NAME).then(
+				cache =>
+					// eslint-disable-next-line no-console
+					console.debug(`[${CACHE_NAME}] Get Figma asset from cache`, event.request.url) ||
+					cache.match(event.request).then(match => match || fetch(event.request)),
+			),
 		);
 
 		event.waitUntil(
-			caches
-				.open(CACHE_NAME)
-				.then(cache =>
-					fetch(event.request).then(response =>
-						cache
-							.put(event.request, response.clone())
-							.then(
-								() =>
-									console.log('Async get Figma asset from network', event.request.url) || response,
-							),
+			caches.open(CACHE_NAME).then(cache =>
+				fetch(event.request).then(response =>
+					cache.put(event.request, response.clone()).then(
+						() =>
+							// eslint-disable-next-line no-console
+							console.debug(
+								`[${CACHE_NAME}] Async get Figma assets from network`,
+								event.request.url,
+							) || response,
 					),
 				),
+			),
 		);
 	}
 });
