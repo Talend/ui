@@ -2,10 +2,11 @@
   "name": "@talend/icons",
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
   "main": "dist/TalendIcons.js",
+  "types": "dist/index.d.ts",
   "style": "build/octicons.css",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "echo no prepublishOnly",
+    "prepublishOnly": "node ./scripts/typescript.js",
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env.production",
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",

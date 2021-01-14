@@ -27,6 +27,7 @@ export default class FocusManager extends Component {
 
 	onBlur = event => {
 		if (this.props.onFocusOut) {
+			event.persist();
 			this.timeout = setTimeout(() => this.props.onFocusOut(event));
 		}
 	};
