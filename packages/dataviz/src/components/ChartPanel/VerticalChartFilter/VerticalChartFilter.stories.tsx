@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import VerticalChartFilter, { VerticalChartFilterProps } from './VerticalChartFilter.component';
-import { DataType } from '../../../types';
+import { DateRangeHandler, NumberRangeHandler } from '../../RangeFilter';
 
 const Template: Story<VerticalChartFilterProps> = args => <VerticalChartFilter {...args} />;
 
@@ -10,7 +10,7 @@ export default {
 	component: VerticalChartFilter,
 	decorators: [
 		MyStory => (
-			<div style={{ width: 400, height: 300 }}>
+			<div style={{ width: 350, height: 300 }}>
 				<MyStory />
 			</div>
 		),
@@ -64,7 +64,7 @@ Number.args = {
 		min: 2000,
 		max: 2600,
 	},
-	dataType: DataType.NUMBER,
+	rangeHandler: NumberRangeHandler,
 };
 
 export const Date = Template.bind({});
@@ -100,5 +100,5 @@ Date.args = {
 		max: 1577833200000,
 	},
 	rangeLimits: { min: 946681200000, max: 1893452400000 },
-	dataType: DataType.DATE,
+	rangeHandler: DateRangeHandler,
 };

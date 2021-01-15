@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import VerticalChartFilter from './VerticalChartFilter.component';
-import { DataType } from '../../../types';
 import { VerticalBarChartEntry } from '../../BarChart/VerticalBarChart';
+import { NumberRangeHandler } from '../../RangeFilter';
 
 describe('Profiling chart panel', () => {
 	const mocks = {
@@ -14,7 +14,7 @@ describe('Profiling chart panel', () => {
 		const component = shallow(
 			<VerticalChartFilter
 				data={[]}
-				dataType={DataType.NUMBER}
+				rangeHandler={NumberRangeHandler}
 				rangeLimits={{ min: 10, max: 10 }}
 				{...mocks}
 			/>,
@@ -27,7 +27,7 @@ describe('Profiling chart panel', () => {
 		const component = shallow(
 			<VerticalChartFilter
 				data={[]}
-				dataType={DataType.NUMBER}
+				rangeHandler={NumberRangeHandler}
 				rangeLimits={{ min: 10, max: 20 }}
 				{...mocks}
 			/>,
@@ -59,7 +59,7 @@ describe('Profiling chart panel', () => {
 						key: { min: 30, max: 40 },
 					},
 				]}
-				dataType={DataType.NUMBER}
+				rangeHandler={NumberRangeHandler}
 				activeRange={{ min: 12, max: 38 }}
 				rangeLimits={{ min: 10, max: 40 }}
 				{...mocks}
@@ -90,7 +90,7 @@ describe('Profiling chart panel', () => {
 						key: { min: 30, max: 300 },
 					},
 				]}
-				dataType={DataType.NUMBER}
+				rangeHandler={NumberRangeHandler}
 				activeRange={{ min: 2, max: 40 }}
 				rangeLimits={{ min: 2, max: 40 }}
 				{...mocks}

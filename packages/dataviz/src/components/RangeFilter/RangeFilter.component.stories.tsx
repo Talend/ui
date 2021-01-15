@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import RangeFilter, { RangeFilterProps } from './RangeFilter.component';
-import { DataType } from '../../types';
+import {
+	DateRangeHandler,
+	DateTimeRangeHandler,
+	NumberRangeHandler,
+	TimeRangeHandler,
+} from './handlers';
 
 const Template: Story<RangeFilterProps> = args => {
 	const [currentRange, setCurrentRange] = useState(args.range);
@@ -28,7 +33,7 @@ export default {
 	decorators: [
 		MyStory => {
 			return (
-				<div style={{ width: 400, height: 300 }}>
+				<div style={{ width: 350, height: 300 }}>
 					<MyStory />
 				</div>
 			);
@@ -46,7 +51,7 @@ NumberRangeFilter.args = {
 		min: 2000,
 		max: 2600,
 	},
-	dataType: DataType.NUMBER,
+	...NumberRangeHandler,
 };
 
 export const DateRangeFilter = Template.bind({});
@@ -56,5 +61,25 @@ DateRangeFilter.args = {
 		max: 1577833200000,
 	},
 	limits: { min: 946681200000, max: 1893452400000 },
-	dataType: DataType.DATE,
+	...DateRangeHandler,
+};
+
+export const DateTimeRangeFilter = Template.bind({});
+DateTimeRangeFilter.args = {
+	range: {
+		min: 1262300430000,
+		max: 1577833230000,
+	},
+	limits: { min: 946681200000, max: 1893452400000 },
+	...DateTimeRangeHandler,
+};
+
+export const TimeRangeFilter = Template.bind({});
+TimeRangeFilter.args = {
+	range: {
+		min: 37304,
+		max: 67304,
+	},
+	limits: { min: 37304, max: 67304 },
+	...TimeRangeHandler,
 };
