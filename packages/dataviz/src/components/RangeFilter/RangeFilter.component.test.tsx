@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, ReactWrapper, shallow } from 'enzyme';
 import RangeFilter from './RangeFilter.component';
-import { DataType } from '../../types';
+import { DateRangeHandler, NumberRangeHandler } from './handlers';
 
 describe('Range filter', () => {
 	const mocks = {
@@ -18,7 +18,7 @@ describe('Range filter', () => {
 			const component = shallow(
 				<RangeFilter
 					range={{ min: 15, max: 20 }}
-					dataType={DataType.NUMBER}
+					{...NumberRangeHandler}
 					limits={{ min: 15, max: 20 }}
 					{...mocks}
 				/>,
@@ -36,7 +36,7 @@ describe('Range filter', () => {
 			const component = shallow(
 				<RangeFilter
 					range={{ min: 15, max: 20 }}
-					dataType={DataType.NUMBER}
+					{...NumberRangeHandler}
 					limits={{ min: 15, max: 20 }}
 					{...mocks}
 				/>,
@@ -67,7 +67,7 @@ describe('Range filter', () => {
 					<RangeFilter
 						range={{ min: 1e11, max: 1e15 }}
 						limits={{ min: 1e11, max: 1e15 }}
-						dataType={DataType.NUMBER}
+						{...NumberRangeHandler}
 						{...mocks}
 					/>,
 				);
@@ -80,7 +80,7 @@ describe('Range filter', () => {
 					<RangeFilter
 						range={{ min: 1, max: 1000 }}
 						limits={{ min: 1, max: 1000 }}
-						dataType={DataType.NUMBER}
+						{...NumberRangeHandler}
 						{...mocks}
 					/>,
 				);
@@ -96,7 +96,7 @@ describe('Range filter', () => {
 							min: new Date('2010-01-01').getTime(),
 							max: new Date('2020-01-01').getTime(),
 						}}
-						dataType={DataType.DATE}
+						{...DateRangeHandler}
 						{...mocks}
 					/>,
 				);
@@ -118,7 +118,7 @@ describe('Range filter', () => {
 			const component = shallow(
 				<RangeFilter
 					range={{ min: 15, max: 20 }}
-					dataType={DataType.NUMBER}
+					{...NumberRangeHandler}
 					limits={limits}
 					{...mocks}
 				/>,

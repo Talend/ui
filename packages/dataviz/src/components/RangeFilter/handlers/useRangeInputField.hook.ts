@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 
+export interface InputFieldProps {
+	id: string;
+	value: number;
+	onChange: (value: number) => void;
+}
+
 function useRangeInputField(
 	rangeValue: number,
 	formatter: (input: number) => string,

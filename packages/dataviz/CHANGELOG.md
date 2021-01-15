@@ -26,11 +26,18 @@ Types of changes
 
 ## [unreleased]
 
+## [0.2.0]
+
+### Added
+
+- [Time & DateTime pickers](https://github.com/Talend/ui/pull/3163):
+
 ## [0.1.4]
 
 ### Fixed
 
 - [Reset tooltip line margin](https://github.com/Talend/ui/pull/3158):
+
 
 ## [0.1.3]
 

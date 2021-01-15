@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 import VerticalBarChart, { VerticalBarChartProps } from './VerticalBarChart.component';
 import TooltipContent from '../../TooltipContent/TooltipContent.component';
 import { getVerticalBarChartTooltip } from '../barChart.tooltip';
-import { DataType } from '../../../types';
 
 const Template: Story<VerticalBarChartProps> = args => <VerticalBarChart {...args} />;
 
@@ -20,7 +19,7 @@ export default {
 	],
 	args: {
 		onBarClick: action('onClick'),
-		dataFeature: 'my.data.feature'
+		dataFeature: 'my.data.feature',
 	},
 } as Meta<VerticalBarChartProps>;
 
@@ -63,7 +62,6 @@ NumberBarChart.args = {
 			filteredValue: 400,
 		},
 	],
-	dataType: DataType.NUMBER,
 	getTooltipContent: entry => <TooltipContent entries={getVerticalBarChartTooltip(entry)} />,
 };
 
@@ -95,7 +93,7 @@ DateBarChart.args = {
 			filteredValue: 20,
 		},
 	],
-	dataType: DataType.DATE,
+	showXAxis: true,
 	getTooltipContent: entry => <TooltipContent entries={getVerticalBarChartTooltip(entry)} />,
 };
 
