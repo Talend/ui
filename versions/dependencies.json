@@ -7,7 +7,7 @@
   "babel-polyfill": "^6.26.0",
   "popper.js": "1.16.1",
   "ag-grid": "^24.0.0",
-  "axios": "^0.20.0",
+  "axios": "^0.21.1",
   "bootstrap": "^4.5.2",
   "core-js": "^1.2.7",
   "d3": "^6.3.0",
