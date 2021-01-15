@@ -956,8 +956,8 @@ class EnumerationForm extends React.Component {
 	}
 
 	valueAlreadyExist(value, state, index) {
-	    const foundIndex = state.items.findIndex(item => item.values[0] === value);
-	    const indexCheck = index > -1 ? foundIndex !== index : true;
+		const foundIndex = state.items.findIndex(item => item.values[0] === value);
+		const indexCheck = index > -1 ? foundIndex !== index : true;
 		return !this.allowDuplicate && foundIndex > -1 && indexCheck;
 	}
 
