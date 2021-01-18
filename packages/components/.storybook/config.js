@@ -1,7 +1,7 @@
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import React from 'react';
-import { ThemeProvider } from '@talend/design-system/lib';
+import { ThemeProvider } from '@talend/design-system';
 
 import { configure, addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
