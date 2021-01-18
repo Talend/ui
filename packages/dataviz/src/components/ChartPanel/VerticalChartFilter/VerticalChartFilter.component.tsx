@@ -53,7 +53,9 @@ function VerticalChartFilter({
 					showXAxis={showXAxis}
 					data={data.map(entry => ({
 						...entry,
-						filteredValue: entry.filteredValue && isInActiveRange(entry) ? entry.filteredValue : 0,
+						value: entry.value!,
+						// undefined (no filter applied) !== 0 (not matching value)
+						filteredValue: isInActiveRange(entry) ? entry.filteredValue : 0,
 					}))}
 					dataFeature={barDataFeature}
 					onBarClick={onBarClick}
