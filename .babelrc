@@ -1,3 +1,14 @@
 {
-	"extends": "@talend/scripts-config-babel/.babelrc.json"
+	"extends": "@talend/scripts-config-babel/.babelrc.json",
+	"presets": ["next/babel"],
+	"plugins": [
+		[
+			"styled-components",
+			{
+				"ssr": true,
+				"displayName": true,
+				"preprocess": false
+			}
+		]
+	]
 }
