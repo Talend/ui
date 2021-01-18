@@ -42,6 +42,7 @@ Number.args = {
 			key: { min: 2300, max: 2400 },
 			label: '[2300, 2400[',
 			value: 400,
+			filteredValue: 0,
 		},
 		{
 			key: { min: 2400, max: 2500 },

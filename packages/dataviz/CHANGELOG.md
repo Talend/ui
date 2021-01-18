@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [0.2.1]
+
+### Fixed
+
+- [Show blue bars for entries without filtered values](https://github.com/Talend/ui/pull/3163):
+
 ## [0.2.0]
 
 ### Added

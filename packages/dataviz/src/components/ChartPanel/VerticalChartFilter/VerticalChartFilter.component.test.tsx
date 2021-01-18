@@ -36,7 +36,7 @@ describe('Profiling chart panel', () => {
 		expect(component.find('RangeFilter')).toHaveLength(1);
 	});
 
-	it('Should syn bar chart with range filter', () => {
+	it('Should sync bar chart with range filter', () => {
 		const component = shallow(
 			<VerticalChartFilter
 				data={[
@@ -49,8 +49,21 @@ describe('Profiling chart panel', () => {
 					{
 						value: 10,
 						filteredValue: 10,
-						label: '[20, 30[',
-						key: { min: 20, max: 30 },
+						label: '[20, 25[',
+						key: { min: 20, max: 25 },
+					},
+					{
+						// bars without existing filter value appear as not filtered
+						filteredValue: undefined,
+						value: 10,
+						label: '[25, 30[',
+						key: { min: 25, max: 30 },
+					},
+					{
+						value: 10,
+						filteredValue: 10,
+						label: '[30, 40[',
+						key: { min: 30, max: 40 },
 					},
 					{
 						value: 10,
@@ -70,7 +83,7 @@ describe('Profiling chart panel', () => {
 			((component
 				.find('VerticalBarChart')
 				.prop('data')! as unknown) as VerticalBarChartEntry[]).map(entry => entry.filteredValue),
-		).toEqual([0, 10, 0]);
+		).toEqual([0, 10, undefined, 0, 0]);
 	});
 
 	it('Should handle bars with bounds outside range limits', () => {
