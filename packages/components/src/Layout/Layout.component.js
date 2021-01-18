@@ -72,7 +72,6 @@ function Layout({
 
 	return (
 		<ThemeProvider>
-			<ThemeProvider.GlobalStyle />
 			<div id={id} className={appCSS}>
 				<div className={theme['skip-links']}>
 					<SkipLinks navigationId={skipLinkNavigationId} mainId="#tc-layout-main" />

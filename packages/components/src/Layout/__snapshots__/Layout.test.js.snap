@@ -2,7 +2,6 @@
 
 exports[`Layout should render layout with footer component 1`] = `
 <TalendThemeProvider>
-  <Memo(l) />
   <div
     className="tc-layout theme-layout"
   >
