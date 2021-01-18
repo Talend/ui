@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { Tag } from '@talend/design-system/lib';
+import { Tag } from '@talend/design-system';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';

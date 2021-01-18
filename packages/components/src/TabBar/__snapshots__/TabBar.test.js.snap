@@ -40,13 +40,11 @@ exports[`TabBar component should render with badges 1`] = `
               >
                 Tab1
               </span>
-              <Label
-                bsClass="label"
-                bsStyle="default"
+              <ForwardRef
                 className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge custom-class-name"
               >
                 967
-              </Label>
+              </ForwardRef>
             </span>
           </TooltipTrigger>
         </NavItem>
@@ -69,13 +67,11 @@ exports[`TabBar component should render with badges 1`] = `
               >
                 Tab2
               </span>
-              <Label
-                bsClass="label"
-                bsStyle="info"
+              <ForwardRef
                 className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge"
               >
                 999+
-              </Label>
+              </ForwardRef>
             </span>
           </TooltipTrigger>
         </NavItem>
