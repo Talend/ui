@@ -6,16 +6,18 @@ import styles from './VerticalChartFilter.component.scss';
 import RangeFilter from '../../RangeFilter/RangeFilter.component';
 import TooltipContent from '../../TooltipContent/TooltipContent.component';
 import { getVerticalBarChartTooltip } from '../../BarChart/barChart.tooltip';
-import { DataType, Range } from '../../../types';
+import { Range } from '../../../types';
+import { RangeHandler } from '../../RangeFilter/handlers/range-handler.types';
 
 export interface VerticalChartFilterProps {
 	data: VerticalBarChartEntry[];
 	barDataFeature?: string;
 	activeRange?: Range;
 	rangeLimits: Range;
-	dataType: DataType;
 	onBarClick: (event: MouseEvent, entry: VerticalBarChartEntry) => void;
 	onRangeChange: (value: Range) => void;
+	showXAxis?: boolean;
+	rangeHandler: RangeHandler;
 }
 
 function VerticalChartFilter({
@@ -25,7 +27,8 @@ function VerticalChartFilter({
 	barDataFeature,
 	onBarClick,
 	onRangeChange,
-	dataType,
+	rangeHandler,
+	showXAxis,
 }: VerticalChartFilterProps): JSX.Element {
 	const [sliderValue, setSliderValue] = useState<Range>(activeRange || rangeLimits);
 
@@ -47,10 +50,12 @@ function VerticalChartFilter({
 		<div className={styles['vertical-chart-panel']}>
 			<div className={styles['vertical-chart-panel__chart-container']}>
 				<VerticalBarChart
-					dataType={dataType}
+					showXAxis={showXAxis}
 					data={data.map(entry => ({
 						...entry,
-						filteredValue: entry.filteredValue && isInActiveRange(entry) ? entry.filteredValue : 0,
+						value: entry.value!,
+						// undefined (no filter applied) !== 0 (not matching value)
+						filteredValue: isInActiveRange(entry) ? entry.filteredValue : 0,
 					}))}
 					dataFeature={barDataFeature}
 					onBarClick={onBarClick}
@@ -63,12 +68,12 @@ function VerticalChartFilter({
 				<div className={styles['vertical-chart-panel__slider-container']}>
 					<RangeFilter
 						range={sliderValue}
-						dataType={dataType}
 						limits={rangeLimits}
 						onSliderChange={setSliderValue}
 						onAfterChange={range => {
 							onRangeChange(range);
 						}}
+						{...rangeHandler}
 					/>
 				</div>
 			)}

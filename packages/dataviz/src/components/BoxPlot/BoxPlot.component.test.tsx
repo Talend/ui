@@ -12,7 +12,7 @@ describe('Boxplot chart', () => {
 					q1: 8,
 					q2: 90,
 					median: 58,
-					mean: 59.79
+					mean: 59.79,
 				}}
 				id="boxplotId"
 				width={200}

@@ -4,6 +4,10 @@ Charts and visualization components used in Talend products.
 
 Look at the storybook for components documentation and usage.
 
+## Important
+
+- Date manipulation are done using locale timezone
+
 ## TODO
 
 - support date locale format

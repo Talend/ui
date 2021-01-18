@@ -115,14 +115,12 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 
 			const max = boxPlotData.max;
 			// whiskers
-			const topWhiskerPolyg = `0,${vScale(max)} ${boxWidth},${vScale(max)} ${boxWidth - 20},${vScale(
-				max,
-			) - 20} ${vScale(max) + 20},${vScale(max) - 20}`;
+			const topWhiskerPolyg = `0,${vScale(max)} ${boxWidth},${vScale(max)} ${boxWidth -
+				20},${vScale(max) - 20} ${vScale(max) + 20},${vScale(max) - 20}`;
 
 			const min = boxPlotData.min;
-			const bottomWhiskerPolyg = `0,${vScale(min)} ${boxWidth},${vScale(min)} ${boxWidth - 20},${vScale(
-				min,
-			) + 20} 20,${vScale(min) + 20}`;
+			const bottomWhiskerPolyg = `0,${vScale(min)} ${boxWidth},${vScale(min)} ${boxWidth -
+				20},${vScale(min) + 20} 20,${vScale(min) + 20}`;
 
 			const gWhisker = svg.append('g');
 

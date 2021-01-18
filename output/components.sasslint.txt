@@ -38,9 +38,8 @@ src/RatioBar/RatioBar.scss
   47:11  error  @extend must be used with a %placeholder  placeholder-in-extend
 
 src/Typeahead/Typeahead.scss
-   33:5  error    Mixins should come before declarations               mixins-before-declarations
-  180:2  error    Duplicate properties are not allowed within a block  no-duplicate-properties
-  233:1  warning  Files must end with a new line                       final-newline
+   33:5  error  Mixins should come before declarations               mixins-before-declarations
+  185:2  error  Duplicate properties are not allowed within a block  no-duplicate-properties
 
-✖ 21 problems (19 errors, 2 warnings)
+✖ 20 problems (19 errors, 1 warning)
 

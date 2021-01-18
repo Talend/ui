@@ -1,4 +1,5 @@
 import { QualityBar } from './QualityBar.component';
 import { QualityType } from './QualityRatioBar.component';
-QualityBar.QualityType = QualityType
+
+QualityBar.QualityType = QualityType;
 export default QualityBar;
