@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [0.2.2]
+
+### Fixed
+
+- [Don't hide bars on overflow](https://github.com/Talend/ui/pull/3172):
+
 ## [0.2.1]
 
 ### Fixed
