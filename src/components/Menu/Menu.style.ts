@@ -40,14 +40,6 @@ export const Nav = styled.nav.attrs({
 			width: 29rem;
 			left: 0;
 			bottom: -6rem;
-			mask-image: ${
-				variant !== ''
-					? `url('${
-							require(`@svgr/webpack!./../../images/logos/negative/${getLogo(variant)}_reg_neg.svg`)
-								.default
-					  }')`
-					: ''
-			};
 			background-color: ${variant !== '' ? tokens.colors.gray0 : tokens.colors.transparent};
     		opacity: ${tokens.opacity.shade};
 		}`
