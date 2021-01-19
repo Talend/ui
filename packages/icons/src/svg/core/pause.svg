@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-  <circle class="ti-background" cx="8" cy="8" r="7.5" stroke="#202020"/>
+  <circle class="ti-background" cx="8" cy="8" r="7.5" stroke="currentColor" fill="none"/>
   <g class="ti-foreround" >
-    <rect width="8" height="2" x="5" y="12" fill="#202020" rx="1" transform="rotate(-90 5 12)"/>
-    <rect width="8" height="2" x="9" y="12" fill="#202020" rx="1" transform="rotate(-90 9 12)"/>
+    <rect width="8" height="2" x="5" y="12" fill="currentColor" rx="1" transform="rotate(-90 5 12)"/>
+    <rect width="8" height="2" x="9" y="12" fill="currentColor" rx="1" transform="rotate(-90 9 12)"/>
   </g>
 </svg>
