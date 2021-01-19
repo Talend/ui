@@ -2,7 +2,7 @@
   "name": "@talend/design-system",
   "version": "1.0.0-beta.8",
   "description": "",
-  "main": "dist/TalendDesignSystem.min.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run build:lib && npm run build:lib:umd && npm run build:lib:umd:min",
     "build:lib": "talend-scripts build:ts:lib",

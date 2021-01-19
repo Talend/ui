@@ -1,5 +1,12 @@
 {
-  "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/*", "custom.d.ts"],
-  "exclude": ["dist", "node_modules"]
+  "extends": "./node_modules/@talend/scripts-config-typescript/tsconfig.json",
+  "include": ["src/**/*", "custom.d.ts"],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "jsx": "react",
+    "target": "ES5",
+    "module": "CommonJs"
+  }
 }
