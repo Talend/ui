@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-  <circle class="ti-background" cx="8" cy="8" r="8" stroke="currentColor" fill="#transparent"/>
+  <circle class="ti-background" cx="8" cy="8" r="8" stroke="currentColor" fill="none"/>
   <g class="ti-foreground" >
     <rect width="2" height="12" x="3" y="4.464" fill="currentColor" rx="1" transform="rotate(-45 3 4.464)"/>
     <rect width="2" height="12" x="4.414" y="12.95" fill="currentColor" rx="1" transform="rotate(-135 4.414 12.95)"/>
