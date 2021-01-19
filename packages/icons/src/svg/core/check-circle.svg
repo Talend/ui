@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-  <circle class="ti-background" cx="8" cy="8" r="8" stroke="currentColor" fill="transparent" />
+  <circle class="ti-background" cx="8" cy="8" r="8" stroke="currentColor" fill="none" />
   <path class="ti-foreground" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7.5l4 4L12.5 5"/>
 </svg>
