@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
-import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import Time from '../Time';
@@ -12,6 +11,7 @@ import TimeZone from '../TimeZone';
 import theme from './InputTimePicker.scss';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import focusOnTime from '../gesture/timePickerGesture';
+import { usePopper } from '../../Popper';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',
@@ -28,13 +28,21 @@ export default function InputTimePicker(props) {
 
 	const inputRef = useRef(null);
 	const containerRef = useRef(null);
+	const ref = useRef(null);
 
 	const handlers = useInputPickerHandlers({
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
 		handleKeyDown: () => focusOnTime(containerRef.current),
 	});
-
+	usePopper(inputRef, ref, {
+		modifiers: [
+			{ name: 'hide', enabled: false },
+			{ name: 'preventOverflow', enabled: false },
+		],
+		placement: inputRef ? handlers.getPopperPlacement(inputRef.current) : 'bottom-start',
+		strategy: 'fixed',
+	});
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
 		<Time.Input
@@ -44,26 +52,9 @@ export default function InputTimePicker(props) {
 			inputRef={inputRef}
 		/>,
 		handlers.showPicker && (
-			<Popper
-				key="popper"
-				modifiers={{
-					hide: {
-						enabled: false,
-					},
-					preventOverflow: {
-						enabled: false,
-					},
-				}}
-				placement={handlers.getPopperPlacement(inputRef.current)}
-				positionFixed
-				referenceElement={inputRef.current}
-			>
-				{({ ref, style }) => (
-					<div id={popoverId} className={theme.popper} style={style} ref={ref}>
-						<Time.Picker {...props} />
-					</div>
-				)}
-			</Popper>
+			<div id={popoverId} className={theme.popper} ref={ref}>
+				<Time.Picker {...props} />
+			</div>
 		),
 		props.timezone && <TimeZone key="timezone" timezone={props.timezone} />,
 	].filter(Boolean);

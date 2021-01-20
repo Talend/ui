@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
 import classnames from 'classnames';
-import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
@@ -13,6 +12,7 @@ import TimeZone from '../TimeZone';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import theme from './InputDatePicker.scss';
+import { usePopper } from '../../Popper';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	't',
@@ -38,43 +38,34 @@ export default function InputDatePicker(props) {
 
 	const inputRef = useRef(null);
 	const containerRef = useRef(null);
-
+	const ref = useRef();
 	const handlers = useInputPickerHandlers({
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
 		handleKeyDown: () => focusOnCalendar(containerRef.current),
+	});
+	usePopper(inputRef, ref, {
+		modifiers: [
+			{ name: 'hide', enabled: false },
+			{ name: 'preventOverflow', enabled: false },
+		],
+		placement: handlers.getPopperPlacement(inputRef.current),
+		strategy: 'fixed',
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const datePicker = [
 		<DatePicker.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
 		handlers.showPicker && (
-			<Popper
-				key="popper"
-				modifiers={{
-					hide: {
-						enabled: false,
-					},
-					preventOverflow: {
-						enabled: false,
-					},
-				}}
-				placement={handlers.getPopperPlacement(inputRef.current)}
-				positionFixed
-				referenceElement={inputRef.current}
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+			<div
+				id={popoverId}
+				className={theme.popper}
+				ref={ref}
+				onMouseDown={onMouseDown}
 			>
-				{({ ref, style }) => (
-					<div
-						id={popoverId}
-						className={theme.popper}
-						style={style}
-						ref={ref}
-						onMouseDown={onMouseDown}
-					>
-						<DatePicker.Picker {...props} />
-					</div>
-				)}
-			</Popper>
+				<DatePicker.Picker {...props} />
+			</div>
 		),
 		!props.hideTimezone && props.timezone && <TimeZone key="timezone" timezone={props.timezone} />,
 	].filter(Boolean);
@@ -118,4 +109,5 @@ InputDatePicker.propTypes = {
 	timezone: PropTypes.string,
 	hideTimezone: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	required: PropTypes.bool,
 };

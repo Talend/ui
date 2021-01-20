@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import keycode from 'keycode';
 import uuid from 'uuid';
-import { Popper } from 'react-popper';
 
 import FocusManager from '../../../FocusManager';
 import { DateTimeContext } from '../DateTime/Context';
@@ -12,6 +11,7 @@ import DateTime from '../DateTime';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 
 import theme from './InputDateTimePicker.scss';
+import { usePopper } from '../../../Popper';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',
@@ -29,6 +29,38 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 function onMouseDown(event) {
 	event.stopPropagation();
 }
+
+function Popper(props) {
+	const ref = React.useRef();
+	usePopper(props.inputRef, ref, {
+		modifiers: [
+			{ name: 'hide', enabled: false },
+			{ name: 'preventOverflow', enabled: false },
+		],
+		placement: props.getPopperPlacement(),
+		strategy: 'fixed',
+	});
+	return (
+		<div
+			id={props.popoverId}
+			className={theme.popper}
+			ref={ref}
+			onMouseDown={onMouseDown}
+		>
+			<DateTime.Picker />
+			{props.formMode && <DateTime.Validation />}
+		</div>
+	);
+}
+Popper.propTypes={
+	formMode: PropTypes.bool.isRequired,
+	popoverId: PropTypes.string.isRequired,
+	getPopperPlacement: PropTypes.func.isRequired,
+	inputRef: PropTypes.oneOfType([
+		PropTypes.func,
+		PropTypes.shape({ current: PropTypes.instanceOf(HTMLInputElement) })
+	])
+};
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
@@ -168,32 +200,12 @@ class InputDateTimePicker extends React.Component {
 			/>,
 			this.state.showPicker && (
 				<Popper
-					key="popper"
-					modifiers={{
-						hide: {
-							enabled: false,
-						},
-						preventOverflow: {
-							enabled: false,
-						},
-					}}
-					placement={this.getPopperPlacement()}
-					positionFixed
-					referenceElement={this.inputRef}
-				>
-					{({ ref, style }) => (
-						<div
-							id={this.popoverId}
-							className={theme.popper}
-							style={style}
-							ref={ref}
-							onMouseDown={onMouseDown}
-						>
-							<DateTime.Picker />
-							{this.props.formMode && <DateTime.Validation />}
-						</div>
-					)}
-				</Popper>
+					inputRef={this.inputRef}
+					popoverId={this.popoverId}
+					onMouseDown={this.onMouseDown}
+					formMode={this.formMode}
+					getPopperPlacement={this.getPopperPlacement}
+				/>
 			),
 		].filter(Boolean);
 
