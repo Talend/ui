@@ -1,3 +1,4 @@
+import { Icon, IconsProvider } from '@talend/design-system';
 import AboutDialog from './AboutDialog';
 import ActionBar from './ActionBar';
 import ActionIntercom from './ActionIntercom';
@@ -45,8 +46,6 @@ import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
 import i18n from './i18n';
-import Icon from './Icon';
-import IconsProvider from './IconsProvider';
 import Inject from './Inject';
 import { InlineMessage } from './InlineMessage';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
