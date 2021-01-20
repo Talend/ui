@@ -4,7 +4,7 @@ exports[`RichLayout should render RichLayout with header, content and footer 1`]
 <div
   className="theme-wrapper tc-rich-error"
 >
-  <Icon
+  <Memo
     className="theme-icon tc-rich-error-icon"
     name="talend-warning"
   />

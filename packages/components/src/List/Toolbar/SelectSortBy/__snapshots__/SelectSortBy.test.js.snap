@@ -74,17 +74,13 @@ exports[`SelectSortBy should render 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon"
         focusable="false"
-        name="talend-sort-asc"
-        title={null}
       />
       <svg
         aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator theme-rotate-180"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180"
         focusable="false"
-        name="talend-caret-down"
-        title={null}
       />
     </button>
   </li>
@@ -168,17 +164,13 @@ exports[`SelectSortBy should render id if provided 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon"
         focusable="false"
-        name="talend-sort-asc"
-        title={null}
       />
       <svg
         aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator theme-rotate-180"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180"
         focusable="false"
-        name="talend-caret-down"
-        title={null}
       />
     </button>
   </li>
@@ -208,17 +200,13 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon"
         focusable="false"
-        name="talend-sort-asc"
-        title={null}
       />
       <svg
         aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator theme-rotate-180"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180"
         focusable="false"
-        name="talend-caret-down"
-        title={null}
       />
     </button>
   </li>

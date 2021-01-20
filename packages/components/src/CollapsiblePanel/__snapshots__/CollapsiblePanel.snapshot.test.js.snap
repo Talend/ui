@@ -32,11 +32,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 <span
                   className="theme-tc-status-icon tc-status-icon theme-info"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-check"
+                    className="sc-EHOje dQOrnx tc-svg-icon"
                     focusable="false"
-                    title={null}
                   />
                 </span>
                 <span
@@ -56,11 +55,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                     role={null}
                     type="button"
                   >
-                    <i
+                    <svg
                       aria-hidden="true"
-                      className="fa fa-cancel"
+                      className="sc-EHOje dQOrnx tc-svg-icon"
                       focusable="false"
-                      title={null}
                     />
                     <span>
                       cancel
@@ -75,11 +73,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                     role={null}
                     type="button"
                   >
-                    <i
+                    <svg
                       aria-hidden="true"
-                      className="fa fa-delete"
+                      className="sc-EHOje dQOrnx tc-svg-icon"
                       focusable="false"
-                      title={null}
                     />
                     <span>
                       delete
@@ -106,11 +103,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 role="link"
                 type="button"
               >
-                <i
+                <svg
                   aria-hidden="true"
-                  className="fa fa-edit"
+                  className="sc-EHOje dQOrnx tc-svg-icon"
                   focusable="false"
-                  title={null}
                 />
               </button>
             </div>
@@ -177,10 +173,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         >
           <svg
             aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon theme-flip-vertical"
+            className="sc-EHOje dQOrnx tc-svg-icon flip-vertical"
             focusable="false"
-            name="talend-caret-down"
-            title={null}
           />
         </button>
       </div>
@@ -248,11 +242,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 <span
                   className="theme-tc-status-icon tc-status-icon theme-info"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-check"
+                    className="sc-EHOje dQOrnx tc-svg-icon"
                     focusable="false"
-                    title={null}
                   />
                 </span>
                 <span
@@ -272,11 +265,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                     role={null}
                     type="button"
                   >
-                    <i
+                    <svg
                       aria-hidden="true"
-                      className="fa fa-cancel"
+                      className="sc-EHOje dQOrnx tc-svg-icon"
                       focusable="false"
-                      title={null}
                     />
                     <span>
                       cancel
@@ -291,11 +283,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                     role={null}
                     type="button"
                   >
-                    <i
+                    <svg
                       aria-hidden="true"
-                      className="fa fa-delete"
+                      className="sc-EHOje dQOrnx tc-svg-icon"
                       focusable="false"
-                      title={null}
                     />
                     <span>
                       delete
@@ -322,11 +313,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 role="link"
                 type="button"
               >
-                <i
+                <svg
                   aria-hidden="true"
-                  className="fa fa-edit"
+                  className="sc-EHOje dQOrnx tc-svg-icon"
                   focusable="false"
-                  title={null}
                 />
               </button>
             </div>
@@ -392,10 +382,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
+            className="sc-EHOje dQOrnx tc-svg-icon"
             focusable="false"
-            name="talend-caret-down"
-            title={null}
           />
         </button>
       </div>
@@ -463,11 +451,10 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 <span
                   className="theme-tc-status-icon tc-status-icon theme-info"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-check"
+                    className="sc-EHOje dQOrnx tc-svg-icon"
                     focusable="false"
-                    title={null}
                   />
                 </span>
                 <span
@@ -487,11 +474,10 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                     role={null}
                     type="button"
                   >
-                    <i
+                    <svg
                       aria-hidden="true"
-                      className="fa fa-cancel"
+                      className="sc-EHOje dQOrnx tc-svg-icon"
                       focusable="false"
-                      title={null}
                     />
                     <span>
                       cancel
@@ -506,11 +492,10 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                     role={null}
                     type="button"
                   >
-                    <i
+                    <svg
                       aria-hidden="true"
-                      className="fa fa-delete"
+                      className="sc-EHOje dQOrnx tc-svg-icon"
                       focusable="false"
-                      title={null}
                     />
                     <span>
                       delete
@@ -537,11 +522,10 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 role="link"
                 type="button"
               >
-                <i
+                <svg
                   aria-hidden="true"
-                  className="fa fa-edit"
+                  className="sc-EHOje dQOrnx tc-svg-icon"
                   focusable="false"
-                  title={null}
                 />
               </button>
             </div>
@@ -777,10 +761,8 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
+            className="sc-EHOje dQOrnx tc-svg-icon"
             focusable="false"
-            name="talend-caret-down"
-            title={null}
           />
         </button>
       </div>

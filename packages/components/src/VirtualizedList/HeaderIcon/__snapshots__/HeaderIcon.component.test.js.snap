@@ -8,7 +8,7 @@ exports[`HeaderIcon should render the header when there is no sort 1`] = `
     aria-label="test"
     title="test"
   >
-    <Icon
+    <Memo
       name="talend-test"
     />
   </span>
@@ -23,7 +23,7 @@ exports[`HeaderIcon should render unchecked checkbox 1`] = `
     aria-label="test"
     title="test"
   >
-    <Icon
+    <Memo
       name="talend-test"
     />
     <SortIndicator

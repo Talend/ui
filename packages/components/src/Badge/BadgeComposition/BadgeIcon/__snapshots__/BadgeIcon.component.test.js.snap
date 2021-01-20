@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgeIcon should default render 1`] = `
-<svg name="my icon name"
-     class="theme-tc-svg-icon tc-svg-icon tc-badge-label-icon theme-tc-badge-label-icon"
-     focusable="false"
+<svg focusable="false"
      aria-hidden="true"
+     class="sc-EHOje dQOrnx tc-svg-icon tc-badge-label-icon theme-tc-badge-label-icon"
 >
 </svg>
 `;

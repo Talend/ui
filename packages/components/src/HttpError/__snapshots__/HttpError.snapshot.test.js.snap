@@ -43,10 +43,8 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon"
         focusable="false"
-        name="talend-arrow-left"
-        title={null}
       />
       <span>
         Start over

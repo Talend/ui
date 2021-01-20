@@ -31,10 +31,9 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <svg name="talend-caret-down"
-         class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-         focusable="false"
+    <svg focusable="false"
          aria-hidden="true"
+         class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret"
     >
     </svg>
   </button>
@@ -52,10 +51,9 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
          tabindex="-1"
          href="#"
       >
-        <svg name="talend-icon"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
+        <svg focusable="false"
              aria-hidden="true"
+             class="sc-EHOje dQOrnx tc-svg-icon"
         >
         </svg>
         document 1
@@ -90,10 +88,9 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <svg name="talend-caret-down"
-         class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-         focusable="false"
+    <svg focusable="false"
          aria-hidden="true"
+         class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret"
     >
     </svg>
   </button>
@@ -111,10 +108,9 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
          tabindex="-1"
          href="#"
       >
-        <svg name="talend-icon"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
+        <svg focusable="false"
              aria-hidden="true"
+             class="sc-EHOje dQOrnx tc-svg-icon"
         >
         </svg>
         document 1
@@ -146,18 +142,17 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
           type="button"
           class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
   >
-    <i class="fa fa-file-excel-o"
-       focusable="false"
-       aria-hidden="true"
+    <svg focusable="false"
+         aria-hidden="true"
+         class="sc-EHOje dQOrnx tc-svg-icon"
     >
-    </i>
+    </svg>
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <svg name="talend-caret-down"
-         class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-         focusable="false"
+    <svg focusable="false"
          aria-hidden="true"
+         class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret"
     >
     </svg>
   </button>
@@ -175,10 +170,9 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
          tabindex="-1"
          href="#"
       >
-        <svg name="talend-icon"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
+        <svg focusable="false"
              aria-hidden="true"
+             class="sc-EHOje dQOrnx tc-svg-icon"
         >
         </svg>
         document 1
@@ -211,15 +205,14 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
           type="button"
           class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
   >
-    <i class="fa fa-file-excel-o"
-       focusable="false"
-       aria-hidden="true"
-    >
-    </i>
-    <svg name="talend-caret-down"
-         class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-         focusable="false"
+    <svg focusable="false"
          aria-hidden="true"
+         class="sc-EHOje dQOrnx tc-svg-icon"
+    >
+    </svg>
+    <svg focusable="false"
+         aria-hidden="true"
+         class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret"
     >
     </svg>
   </button>
@@ -237,10 +230,9 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
          tabindex="-1"
          href="#"
       >
-        <svg name="talend-icon"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
+        <svg focusable="false"
              aria-hidden="true"
+             class="sc-EHOje dQOrnx tc-svg-icon"
         >
         </svg>
         document 1
@@ -277,10 +269,9 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
        tabindex="-1"
        href="#"
     >
-      <svg name="talend-icon"
-           class="theme-tc-svg-icon tc-svg-icon"
-           focusable="false"
+      <svg focusable="false"
            aria-hidden="true"
+           class="sc-EHOje dQOrnx tc-svg-icon"
       >
       </svg>
     </a>
@@ -312,10 +303,9 @@ exports[`ActionDropdown should render immutable items 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <svg name="talend-caret-down"
-         class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-         focusable="false"
+    <svg focusable="false"
          aria-hidden="true"
+         class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret"
     >
     </svg>
   </button>
@@ -333,10 +323,9 @@ exports[`ActionDropdown should render immutable items 1`] = `
          tabindex="-1"
          href="#"
       >
-        <svg name="talend-icon"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
+        <svg focusable="false"
              aria-hidden="true"
+             class="sc-EHOje dQOrnx tc-svg-icon"
         >
         </svg>
         document 1
@@ -400,10 +389,9 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
        tabindex="-1"
        href="#"
     >
-      <svg name="talend-icon"
-           class="theme-tc-svg-icon tc-svg-icon"
-           focusable="false"
+      <svg focusable="false"
            aria-hidden="true"
+           class="sc-EHOje dQOrnx tc-svg-icon"
       >
       </svg>
       document 1

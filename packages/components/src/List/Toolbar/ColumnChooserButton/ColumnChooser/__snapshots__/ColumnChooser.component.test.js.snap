@@ -17,10 +17,9 @@ exports[`ColumnChooser should render with default props 1`] = `
       role="search"
 >
   <div class="form-group">
-    <svg name="talend-search"
-         class="theme-tc-svg-icon tc-svg-icon theme-search-icon"
-         focusable="false"
+    <svg focusable="false"
          aria-hidden="true"
+         class="sc-EHOje dQOrnx tc-svg-icon theme-search-icon"
     >
     </svg>
     <input name="search"

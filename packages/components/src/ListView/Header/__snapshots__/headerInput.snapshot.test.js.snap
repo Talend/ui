@@ -29,10 +29,8 @@ exports[`Header should render filter header 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
+      className="sc-EHOje dQOrnx tc-svg-icon"
       focusable="false"
-      name="talend-cross"
-      title={null}
     />
   </button>
 </header>

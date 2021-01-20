@@ -17,10 +17,9 @@ exports[`AppSwitcher should render the products 1`] = `
         <span class="tc-dropdown-button-title-label">
           My App
         </span>
-        <svg name="talend-caret-down"
-             class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-             focusable="false"
+        <svg focusable="false"
              aria-hidden="true"
+             class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret"
         >
         </svg>
       </button>
@@ -38,10 +37,9 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tdp-colored"
-                 class="theme-tc-svg-icon tc-svg-icon"
-                 focusable="false"
+            <svg focusable="false"
                  aria-hidden="true"
+                 class="sc-EHOje dQOrnx tc-svg-icon"
             >
             </svg>
             Data Preparation
@@ -57,10 +55,9 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tic-colored"
-                 class="theme-tc-svg-icon tc-svg-icon"
-                 focusable="false"
+            <svg focusable="false"
                  aria-hidden="true"
+                 class="sc-EHOje dQOrnx tc-svg-icon"
             >
             </svg>
             Integration Cloud
@@ -76,10 +73,9 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tmc-colored"
-                 class="theme-tc-svg-icon tc-svg-icon"
-                 focusable="false"
+            <svg focusable="false"
                  aria-hidden="true"
+                 class="sc-EHOje dQOrnx tc-svg-icon"
             >
             </svg>
             Management Console

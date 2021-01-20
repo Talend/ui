@@ -9,10 +9,8 @@ exports[`InlineMessage should render with higligthed background 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
+      className="sc-EHOje dQOrnx tc-svg-icon"
       focusable="false"
-      name="talend-check-circle"
-      title={null}
     />
   </span>
   <div
@@ -41,10 +39,8 @@ exports[`InlineMessage should render with icon and description 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
+      className="sc-EHOje dQOrnx tc-svg-icon"
       focusable="false"
-      name="talend-check-circle"
-      title={null}
     />
   </span>
   <div
@@ -69,10 +65,8 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
+      className="sc-EHOje dQOrnx tc-svg-icon"
       focusable="false"
-      name="talend-check-circle"
-      title={null}
     />
   </span>
   <div
@@ -101,10 +95,8 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
   >
     <svg
       aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
+      className="sc-EHOje dQOrnx tc-svg-icon"
       focusable="false"
-      name="talend-check-circle"
-      title={null}
     />
   </span>
   <div
@@ -137,11 +129,11 @@ exports[`InlineMessage should render with title and description 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <div
-      className="alert alert-danger"
-    >
-      Icon: no name provided
-    </div>
+    <svg
+      aria-hidden="true"
+      className="sc-EHOje dQOrnx tc-svg-icon"
+      focusable="false"
+    />
   </span>
   <div
     className="tc-inline-message-text theme-tc-inline-message-text success theme-success"

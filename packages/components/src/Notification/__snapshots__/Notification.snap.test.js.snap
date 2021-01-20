@@ -26,10 +26,8 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon"
           focusable="false"
-          name="talend-cross"
-          title={null}
         />
         <span>
           
@@ -53,10 +51,8 @@ exports[`Notification should render 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon"
               focusable="false"
-              name="talend-undo"
-              title={null}
             />
             <span>
               Haha
@@ -89,10 +85,8 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon"
           focusable="false"
-          name="talend-cross"
-          title={null}
         />
         <span>
           
@@ -121,10 +115,8 @@ exports[`Notification should render 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon"
               focusable="false"
-              name="talend-undo"
-              title={null}
             />
             <span>
               undo
@@ -154,10 +146,8 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon"
           focusable="false"
-          name="talend-cross"
-          title={null}
         />
         <span>
           
@@ -202,10 +192,8 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon"
           focusable="false"
-          name="talend-cross"
-          title={null}
         />
         <span>
           

@@ -22,10 +22,8 @@ exports[`Toolbar should render actions toolbar 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon"
           focusable="false"
-          name="talend-plus"
-          title={null}
         />
         <span>
           Add
@@ -68,10 +66,8 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon"
           focusable="false"
-          name="talend-trash"
-          title={null}
         />
         <span>
           Delete selection
@@ -225,10 +221,8 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon"
               focusable="false"
-              name="talend-chevron-end"
-              title={null}
             />
           </a>
         </li>
@@ -246,10 +240,8 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon"
               focusable="false"
-              name="talend-chevron-left"
-              title={null}
             />
           </a>
         </li>
@@ -275,10 +267,8 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
+              className="sc-EHOje dQOrnx tc-svg-icon rotate-180"
               focusable="false"
-              name="talend-chevron-left"
-              title={null}
             />
           </a>
         </li>
@@ -296,10 +286,8 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
+              className="sc-EHOje dQOrnx tc-svg-icon rotate-180"
               focusable="false"
-              name="talend-chevron-end"
-              title={null}
             />
           </a>
         </li>

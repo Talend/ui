@@ -197,9 +197,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-filter"
+              className="sc-EHOje dQOrnx tc-svg-icon"
               focusable="false"
               title="icon"
             />
@@ -333,9 +333,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-asterisk"
+              className="sc-EHOje dQOrnx tc-svg-icon"
               focusable="false"
               title="icon"
             />
@@ -531,9 +531,9 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-filter"
+              className="sc-EHOje dQOrnx tc-svg-icon"
               focusable="false"
               title="icon"
             />
@@ -621,9 +621,9 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-asterisk"
+              className="sc-EHOje dQOrnx tc-svg-icon"
               focusable="false"
               title="icon"
             />
@@ -851,9 +851,8 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon"
           focusable="false"
-          name="talend-fieldglass"
           title="No result."
         />
         <span>
@@ -956,11 +955,10 @@ exports[`Typeahead with toggle should render button 1`] = `
   onMouseOver={[Function]}
   type="button"
 >
-  <i
+  <svg
     aria-hidden="true"
-    className="fa fa-search"
+    className="sc-EHOje dQOrnx tc-svg-icon"
     focusable="false"
-    title={null}
   />
 </button>
 `;
