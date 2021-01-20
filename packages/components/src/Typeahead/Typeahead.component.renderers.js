@@ -13,6 +13,7 @@ import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
+import { usePopper } from '../Popper';
 
 const css = getTheme(theme);
 
@@ -94,30 +95,31 @@ renderInputComponent.propTypes = {
 	readOnly: PropTypes.bool,
 };
 
+/**
+ * data:
+  state: $Shape<State>,
+  instance: Instance,
+  options: $Shape<Options>,
+  name: string,
+ */
 function computePopperPosition(data) {
-	console.log('$$$$$$$$$', data);
+	const { state } = data;
 	const GAP = 45; // the offset between the end of items container and screen boundaries
-	const inputDimensions = data.offsets.reference;
-	const { top, height } = inputDimensions;
+	const inputDimensions = state.rects.reference;
+	const { x: top, height } = inputDimensions;
 	const offsetTop = top - GAP;
 	const offsetBottom = window.innerHeight - top - height - GAP;
-	const placements = data.placement.split('-');
-	let newPlacement = data.placement;
+	const placements = state.placement.split('-');
+	let newPlacement = state.placement;
+
 	if (placements[0] === 'top' && offsetBottom > offsetTop) {
 		newPlacement = `bottom-${placements[1]}`;
 	}
 	const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
-	console.log('$$$$$$$$$', newPlacement, maxHeight, inputDimensions);
 
-	return {
-		...data,
-		placement: newPlacement,
-		styles: {
-			...data.styles,
-			width: inputDimensions.width,
-			maxHeight,
-		},
-	};
+	state.placement = newPlacement;
+	state.elements.popper.style.width = `${inputDimensions.width}px`;
+	state.elements.popper.style.maxHeight = maxHeight;
 }
 
 export function renderItemsContainerFactory(
@@ -133,60 +135,19 @@ export function renderItemsContainerFactory(
 	const isShown = items;
 	const noResult = items && !items.length;
 
-	const modifiers = React.useMemo(
-		() => [
+	const modifiers = [
 			{ name: 'preventOverflow', enabled: false },
 			{ name: 'hide', enabled: false },
-			{ name: 'shift', enabled: false },
-			// { name: 'computePosition', enabled: true, phase: 'main', fn: computePopperPosition },
-		],
-		[],
-	);
+			{ name: 'shift', enabled: false, phase: 'main' },
+			{ name: 'computePosition', enabled: true, phase: 'write', fn: computePopperPosition },
+		];
 
 	const tooltipref = React.createRef();
-	React.useEffect(() => {
-		let popper = null;
-		function show() {
-			console.log('show');
-			tooltipref.current.style.display = 'block';
-		}
-
-		function hide() {
-			console.log('hide');
-			tooltipref.current.style.display = 'none';
-		}
-		const showEvents = ['focus'];
-		const hideEvents = ['blur'];
-		if (inputRef && tooltipref && inputRef.current && tooltipref.current) {
-			popper = createPopper(inputRef.current.querySelector('input'), tooltipref.current, {
-				modifiers,
-				strategy: 'fixed',
-				placement: 'bottom',
-			});
-			hide();
-			showEvents.forEach(event => {
-				inputRef.current.addEventListener(event, show);
-			});
-
-			hideEvents.forEach(event => {
-				inputRef.current.addEventListener(event, hide);
-			});
-		}
-
-		return () => {
-			if (popper) {
-				popper.destroy();
-				popper = null;
-				showEvents.forEach(event => {
-					inputRef.current.removeEventListener(event, show);
-				});
-
-				hideEvents.forEach(event => {
-					inputRef.current.removeEventListener(event, hide);
-				});
-			}
-		};
-	}, [inputRef, tooltipref, modifiers]);
+	usePopper(inputRef, tooltipref, {
+		modifiers,
+		strategy: 'fixed',
+		placement: 'bottom-start',
+	});
 	function ItemsContainerComponent({ containerProps, children }) {
 		if (!isShown) {
 			return undefined;
