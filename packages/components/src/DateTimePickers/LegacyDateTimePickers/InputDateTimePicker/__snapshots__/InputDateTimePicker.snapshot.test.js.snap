@@ -23,7 +23,17 @@ exports[`InputDateTimePicker should render 1`] = `
     useUTC={false}
   >
     <FocusManager
-      divRef={[Function]}
+      divRef={
+        Object {
+          "current": <div
+            tabindex="-1"
+          >
+            <div
+              class="InputMock"
+            />
+          </div>,
+        }
+      }
       onClick={[Function]}
       onFocusIn={[Function]}
       onFocusOut={[Function]}

@@ -6,7 +6,6 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
-import { Popper } from 'react-popper';
 
 import { getTheme } from '../theme';
 import Icon from '../Icon';
@@ -23,7 +22,7 @@ export function renderInputComponent(props) {
 		debounceMinLength,
 		debounceTimeout,
 		icon,
-		inputRef,
+		setReferenceElement,
 		disabled,
 		readOnly,
 		...rest
@@ -58,7 +57,7 @@ export function renderInputComponent(props) {
 					minLength={debounceMinLength}
 					inputRef={node => {
 						// eslint-disable-next-line react/no-find-dom-node
-						inputRef.current = ReactDOM.findDOMNode(node);
+						setReferenceElement(ReactDOM.findDOMNode(node));
 					}}
 				/>
 			) : (
@@ -68,7 +67,7 @@ export function renderInputComponent(props) {
 					{...rest}
 					disabled={disabled}
 					readOnly={readOnly}
-					inputRef={inputRef}
+					inputRef={setReferenceElement}
 				/>
 			)}
 			{hasCaret && (
@@ -94,29 +93,6 @@ renderInputComponent.propTypes = {
 	readOnly: PropTypes.bool,
 };
 
-function computePopperPosition(data) {
-	const GAP = 45; // the offset between the end of items container and screen boundaries
-	const inputDimensions = data.offsets.reference;
-	const { top, height } = inputDimensions;
-	const offsetTop = top - GAP;
-	const offsetBottom = window.innerHeight - top - height - GAP;
-	const placements = data.placement.split('-');
-	let newPlacement = data.placement;
-	if (placements[0] === 'top' && offsetBottom > offsetTop) {
-		newPlacement = `bottom-${placements[1]}`;
-	}
-	const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
-
-	return {
-		...data,
-		placement: newPlacement,
-		styles: {
-			...data.styles,
-			width: inputDimensions.width,
-			maxHeight,
-		},
-	};
-}
 
 export function renderItemsContainerFactory(
 	items,
@@ -125,8 +101,10 @@ export function renderItemsContainerFactory(
 	searchingText,
 	loading,
 	loadingText,
-	inputRef,
+	referenceElement,
 	render = content => content,
+
+	setPopperElement, styles, attributes
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
@@ -165,63 +143,33 @@ export function renderItemsContainerFactory(
 			content = children;
 		}
 
-		return (
-			<Popper
-				modifiers={{
-					hide: {
-						enabled: false,
-					},
-					preventOverflow: {
-						enabled: false,
-					},
-					shift: {
-						enabled: false,
-					},
-					computePosition: {
-						enabled: true,
-						fn: computePopperPosition,
-					},
-				}}
-				positionFixed
-				boundariesElement="viewport"
-				referenceElement={inputRef.current}
-				placement="bottom-start"
+		return console.log({ styles, attributes }) || (
+			<div
+				className={containerClassName}
+				id={containerProps.id}
+				key={containerProps.key}
+				role={containerProps.role}
+				ref={setPopperElement}
+				style={styles.popper}
+				{...attributes.popper}
 			>
-				{({ placement = '', ref, scheduleUpdate, style }) => {
-					if (placement.includes('top')) {
-						// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
-						scheduleUpdate();
-					}
-
-					return (
-						<div
-							className={containerClassName}
-							id={containerProps.id}
-							key={containerProps.key}
-							ref={ref}
-							role={containerProps.role}
-							style={style}
-						>
-							<div
-								ref={containerProps.ref}
-								className={theme['items-body']}
-								style={{ maxHeight: style.maxHeight }}
-							>
-								{render(
-									content,
-									{
-										isShown,
-										loading,
-										noResult,
-										searching,
-									},
-									containerProps.ref,
-								)}
-							</div>
-						</div>
-					);
-				}}
-			</Popper>
+				<div
+					ref={containerProps.ref}
+					className={theme['items-body']}
+					style={{ maxHeight: styles.popper.maxHeight }}
+				>
+					{render(
+						content,
+						{
+							isShown,
+							loading,
+							noResult,
+							searching,
+						},
+						containerProps.ref,
+					)}
+				</div>
+			</div>
 		);
 	}
 
@@ -239,7 +187,11 @@ export function renderSectionTitle(section) {
 		return (
 			<div className={css('section-header', 'tc-typeahead-section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span className={css('section-header-title', 'tc-typeahead-section-header-title', { hint })}>{section.title}</span>
+				<span
+					className={css('section-header-title', 'tc-typeahead-section-header-title', { hint })}
+				>
+					{section.title}
+				</span>
 			</div>
 		);
 	}

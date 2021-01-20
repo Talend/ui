@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import classnames from 'classnames';
-import { Popper } from 'react-popper';
+import { usePopper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
@@ -24,7 +24,14 @@ export default function InputDateRangePicker(props) {
 	const startDateInputRef = useRef(null);
 	const endDateInputRef = useRef(null);
 	const containerRef = useRef(null);
-	const [inputRef, setInputRef] = useState(null);
+
+	const [referenceElement, setReferenceElement] = useState(null);
+	const [popperElement, setPopperElement] = useState(null);
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+		modifiers: [{ name: 'hide', enabled: false }, { name: 'preventOverflow', enabled: false }],
+		strategy: 'fixed',
+		placement: 'bottom-start',
+	});
 
 	const handlers = useInputPickerHandlers({
 		handleBlur: props.onBlur,
@@ -35,10 +42,10 @@ export default function InputDateRangePicker(props) {
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 
 	function getFocusedInput() {
-		if (inputRef === startDateInputRef) {
+		if (referenceElement === startDateInputRef.current) {
 			return 'startDate';
 		}
-		if (inputRef === endDateInputRef) {
+		if (referenceElement === endDateInputRef.current) {
 			return 'endDate';
 		}
 		return null;
@@ -48,7 +55,7 @@ export default function InputDateRangePicker(props) {
 		if (payload.origin === 'START_PICKER' && endDateInputRef) {
 			endDateInputRef.current.focus();
 		}
-		handlers.onChange(event, payload, inputRef.current);
+		handlers.onChange(event, payload, referenceElement);
 	}
 	return (
 		<DateRange.Manager
@@ -68,7 +75,7 @@ export default function InputDateRangePicker(props) {
 							onFocusIn={handlers.onFocus}
 							onFocusOut={handlers.onBlur}
 							onKeyDown={event => {
-								handlers.onKeyDown(event, inputRef.current);
+								handlers.onKeyDown(event, referenceElement);
 							}}
 						>
 							<DateRange.Input
@@ -76,7 +83,7 @@ export default function InputDateRangePicker(props) {
 								id={`${props.id}-start-input`}
 								date={startDate}
 								onChange={onStartChange}
-								onFocus={() => setInputRef(startDateInputRef)}
+								onFocus={() => setReferenceElement(startDateInputRef)}
 								label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 								ref={startDateInputRef}
 							/>
@@ -88,31 +95,20 @@ export default function InputDateRangePicker(props) {
 								id={`${props.id}-end-input`}
 								date={endDate}
 								onChange={onEndChange}
-								onFocus={() => setInputRef(endDateInputRef)}
+								onFocus={() => setReferenceElement(endDateInputRef)}
 								label={props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
 								ref={endDateInputRef}
 							/>
-							{handlers.showPicker && inputRef && (
-								<Popper
-									key="popper"
-									modifiers={{
-										hide: {
-											enabled: false,
-										},
-										preventOverflow: {
-											enabled: false,
-										},
-									}}
-									placement={handlers.getPopperPlacement(inputRef.current)}
-									positionFixed
-									referenceElement={inputRef.current}
+							{handlers.showPicker && (
+								<div
+									id={popoverId}
+									className={theme.popper}
+									ref={setPopperElement}
+									style={styles.popper}
+									{...attributes.popper}
 								>
-									{({ ref, style }) => (
-										<div id={popoverId} className={theme.popper} style={style} ref={ref}>
-											<DateRange.Picker {...props} focusedInput={getFocusedInput()} />
-										</div>
-									)}
-								</Popper>
+									<DateRange.Picker {...props} focusedInput={getFocusedInput()} />
+								</div>
 							)}
 						</FocusManager>
 					);

@@ -6,7 +6,7 @@ import Time from '../Time';
 import InputTimePicker from './InputTimePicker.component';
 
 function getOverlay(wrapper) {
-	return wrapper.find('Popper').first();
+	return wrapper.find('.theme-popper').first();
 }
 
 describe('InputTimePicker', () => {
