@@ -126,7 +126,7 @@ exports[`TreeView item should render items with icon and tooltip 1`] = `
   tooltipPlacement="top"
 >
   <span>
-    <Memo
+    <Memo(Icon)
       className="theme-tc-treeview-img"
       name="talend-versioning"
     />

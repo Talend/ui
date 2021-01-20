@@ -21,7 +21,7 @@ exports[`Filter should render filter input with default placeholder and remove c
   <div
     className="form-group theme-animate"
   >
-    <Memo
+    <Memo(Icon)
       className="theme-search-icon"
       name="talend-search"
     />
@@ -57,7 +57,7 @@ exports[`Filter should render filter input with given placeholder without remove
   <div
     className="form-group theme-animate"
   >
-    <Memo
+    <Memo(Icon)
       className="theme-search-icon"
       name="talend-search"
     />

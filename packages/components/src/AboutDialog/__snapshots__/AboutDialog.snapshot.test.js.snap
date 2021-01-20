@@ -27,7 +27,7 @@ exports[`AboutDialog should render 1`] = `
   type="informative"
 >
   <div>
-    <Memo
+    <Memo(Icon)
       className="theme-about-logo about-logo"
       name="talend-tdp-colored"
     />
@@ -76,7 +76,7 @@ exports[`AboutDialog should render in loading mode 1`] = `
   type="informative"
 >
   <div>
-    <Memo
+    <Memo(Icon)
       className="theme-about-logo about-logo"
       name="talend-tdp-colored"
     />
@@ -125,7 +125,7 @@ exports[`AboutDialog should render services 1`] = `
   type="informative"
 >
   <div>
-    <Memo
+    <Memo(Icon)
       className="theme-about-logo about-logo"
       name="talend-tdp-colored"
     />
@@ -202,7 +202,7 @@ exports[`AboutDialog should render with custom copyright 1`] = `
   type="informative"
 >
   <div>
-    <Memo
+    <Memo(Icon)
       className="theme-about-logo about-logo"
       name="talend-tdp-colored"
     />

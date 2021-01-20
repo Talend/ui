@@ -18,7 +18,7 @@ exports[`ActionIconToggle should render a button 1`] = `
     id="my-inactive-action"
     onClick={[MockFunction]}
   >
-    <Memo
+    <Memo(Icon)
       name="talend-panel-opener-right"
       transform="rotate-90"
     />
@@ -44,7 +44,7 @@ exports[`ActionIconToggle should render an active button 1`] = `
     id="my-inactive-action"
     onClick={[MockFunction]}
   >
-    <Memo
+    <Memo(Icon)
       name="talend-panel-opener-right"
       transform="rotate-90"
     />

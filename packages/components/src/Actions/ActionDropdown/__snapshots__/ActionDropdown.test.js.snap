@@ -61,7 +61,7 @@ exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
   onClick={[Function]}
   title="Toto"
 >
-  <Memo
+  <Memo(Icon)
     name="talend-bell"
   />
   Toto

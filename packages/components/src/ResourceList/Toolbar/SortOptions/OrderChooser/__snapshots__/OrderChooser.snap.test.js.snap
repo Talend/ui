@@ -14,10 +14,10 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in as
     className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser"
     disabled={false}
   >
-    <Memo
+    <Memo(Icon)
       name="talend-sort-desc"
     />
-    <Memo
+    <Memo(Icon)
       className="tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
       name="talend-caret-down"
     />
@@ -39,10 +39,10 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in de
     className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser"
     disabled={false}
   >
-    <Memo
+    <Memo(Icon)
       name="talend-sort-desc"
     />
-    <Memo
+    <Memo(Icon)
       className="tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator"
       name="talend-caret-down"
     />
