@@ -136,11 +136,11 @@ export function renderItemsContainerFactory(
 	const noResult = items && !items.length;
 
 	const modifiers = [
-			{ name: 'preventOverflow', enabled: false },
-			{ name: 'hide', enabled: false },
-			{ name: 'shift', enabled: false, phase: 'main' },
-			{ name: 'computePosition', enabled: true, phase: 'write', fn: computePopperPosition },
-		];
+		{ name: 'preventOverflow', enabled: false },
+		{ name: 'hide', enabled: false },
+		{ name: 'shift', enabled: false, phase: 'main' },
+		{ name: 'computePosition', enabled: true, phase: 'write', fn: computePopperPosition },
+	];
 
 	const tooltipref = React.createRef();
 	usePopper(inputRef, tooltipref, {
