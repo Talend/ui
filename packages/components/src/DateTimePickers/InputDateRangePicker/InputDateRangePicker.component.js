@@ -13,8 +13,8 @@ import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import getDefaultT from '../../translate';
 
+import { usePopper } from '../../usePopper';
 import theme from './InputDateRangePicker.scss';
-import { usePopper } from '../../Popper';
 
 const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange', 't'];
 

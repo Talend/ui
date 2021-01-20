@@ -9,9 +9,9 @@ import FocusManager from '../../../FocusManager';
 import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
+import { usePopper } from '../../../usePopper';
 
 import theme from './InputDateTimePicker.scss';
-import { usePopper } from '../../../Popper';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',

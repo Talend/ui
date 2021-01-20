@@ -6,14 +6,13 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
-import { createPopper } from '@popperjs/core';
 
 import { getTheme } from '../theme';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
+import { usePopper } from '../usePopper';
 import theme from './Typeahead.scss';
-import { usePopper } from '../Popper';
 
 const css = getTheme(theme);
 
@@ -143,6 +142,8 @@ export function renderItemsContainerFactory(
 	];
 
 	const tooltipref = React.createRef();
+
+	// eslint-disable-next-line react-hooks/rules-of-hooks
 	usePopper(inputRef, tooltipref, {
 		modifiers,
 		strategy: 'fixed',

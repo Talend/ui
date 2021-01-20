@@ -10,9 +10,9 @@ import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import DatePicker from '../Date';
 import TimeZone from '../TimeZone';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
+import { usePopper } from '../../usePopper';
 
 import theme from './InputDatePicker.scss';
-import { usePopper } from '../../Popper';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	't',

@@ -11,7 +11,7 @@ import TimeZone from '../TimeZone';
 import theme from './InputTimePicker.scss';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import focusOnTime from '../gesture/timePickerGesture';
-import { usePopper } from '../../Popper';
+import { usePopper } from '../../usePopper';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',
