@@ -270,6 +270,16 @@
    98:3  error  defaultProp "level" defined for isRequired propType  react/default-props-match-prop-types
   209:4  error  'item.hidden' is missing in props validation         react/prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.renderers.js
+   97:10  error    'computePopperPosition' is defined but never used                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+   98:2   error    Unexpected console statement                                                                                                                                                                                                                                     no-console
+  110:2   error    Unexpected console statement                                                                                                                                                                                                                                     no-console
+  136:20  error    React Hook "React.useMemo" is called in function "renderItemsContainerFactory" that is neither a React function component nor a custom React Hook function                                                                                                       react-hooks/rules-of-hooks
+  147:2   error    React Hook "React.useEffect" is called in function "renderItemsContainerFactory" that is neither a React function component nor a custom React Hook function                                                                                                     react-hooks/rules-of-hooks
+  150:4   error    Unexpected console statement                                                                                                                                                                                                                                     no-console
+  155:4   error    Unexpected console statement                                                                                                                                                                                                                                     no-console
+  185:15  warning  The ref value 'inputRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'inputRef.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellBoolean/CellBoolean.component.js
   63:2  error  defaultProp "columnData" defined for isRequired propType  react/default-props-match-prop-types
 
@@ -307,5 +317,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 148 problems (128 errors, 20 warnings)
+✖ 156 problems (135 errors, 21 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
