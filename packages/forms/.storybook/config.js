@@ -1,6 +1,5 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y';
 import { withI18next } from 'storybook-addon-i18next';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
@@ -47,7 +46,6 @@ addDecorator(
 	}),
 );
 addDecorator(withIconsProvider);
-addDecorator(withA11y);
 addDecorator(withFormLayout);
 configure(
 	[

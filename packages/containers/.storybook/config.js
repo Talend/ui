@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withA11y } from '@storybook/addon-a11y';
 import { withI18next } from 'storybook-addon-i18next';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import createSagaMiddleware from 'redux-saga';
@@ -32,7 +31,6 @@ addDecorator(
 	}),
 );
 addDecorator(withCMF);
-addDecorator(withA11y);
 addDecorator(storyFn => (
 	<>
 		<IconsProvider
