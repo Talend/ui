@@ -3,7 +3,7 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 import React from 'react';
 
 import { configure, addDecorator } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y';
+// import { withA11y } from '@storybook/addon-a11y';
 import { withI18next } from 'storybook-addon-i18next';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 
@@ -20,7 +20,7 @@ addDecorator(
 		languages,
 	}),
 );
-addDecorator(withA11y);
+// addDecorator(withA11y);
 
 addDecorator(storyFn => (
 	<>

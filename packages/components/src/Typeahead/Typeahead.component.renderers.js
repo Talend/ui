@@ -6,7 +6,7 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
-import { Popper } from 'react-popper';
+import { createPopper } from '@popperjs/core';
 
 import { getTheme } from '../theme';
 import Icon from '../Icon';
@@ -95,6 +95,7 @@ renderInputComponent.propTypes = {
 };
 
 function computePopperPosition(data) {
+	console.log('$$$$$$$$$', data);
 	const GAP = 45; // the offset between the end of items container and screen boundaries
 	const inputDimensions = data.offsets.reference;
 	const { top, height } = inputDimensions;
@@ -106,6 +107,7 @@ function computePopperPosition(data) {
 		newPlacement = `bottom-${placements[1]}`;
 	}
 	const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
+	console.log('$$$$$$$$$', newPlacement, maxHeight, inputDimensions);
 
 	return {
 		...data,
@@ -131,6 +133,60 @@ export function renderItemsContainerFactory(
 	const isShown = items;
 	const noResult = items && !items.length;
 
+	const modifiers = React.useMemo(
+		() => [
+			{ name: 'preventOverflow', enabled: false },
+			{ name: 'hide', enabled: false },
+			{ name: 'shift', enabled: false },
+			// { name: 'computePosition', enabled: true, phase: 'main', fn: computePopperPosition },
+		],
+		[],
+	);
+
+	const tooltipref = React.createRef();
+	React.useEffect(() => {
+		let popper = null;
+		function show() {
+			console.log('show');
+			tooltipref.current.style.display = 'block';
+		}
+
+		function hide() {
+			console.log('hide');
+			tooltipref.current.style.display = 'none';
+		}
+		const showEvents = ['focus'];
+		const hideEvents = ['blur'];
+		if (inputRef && tooltipref && inputRef.current && tooltipref.current) {
+			popper = createPopper(inputRef.current.querySelector('input'), tooltipref.current, {
+				modifiers,
+				strategy: 'fixed',
+				placement: 'bottom',
+			});
+			hide();
+			showEvents.forEach(event => {
+				inputRef.current.addEventListener(event, show);
+			});
+
+			hideEvents.forEach(event => {
+				inputRef.current.addEventListener(event, hide);
+			});
+		}
+
+		return () => {
+			if (popper) {
+				popper.destroy();
+				popper = null;
+				showEvents.forEach(event => {
+					inputRef.current.removeEventListener(event, show);
+				});
+
+				hideEvents.forEach(event => {
+					inputRef.current.removeEventListener(event, hide);
+				});
+			}
+		};
+	}, [inputRef, tooltipref, modifiers]);
 	function ItemsContainerComponent({ containerProps, children }) {
 		if (!isShown) {
 			return undefined;
@@ -164,55 +220,28 @@ export function renderItemsContainerFactory(
 		} else {
 			content = children;
 		}
-		return (
-			<Popper
-				strategy="fixed"
-				modifiers={[
-					{ name: 'preventOverflow', enabled: false },
-					{ name: 'hide', enabled: false },
-					{ name: 'shift', enabled: false },
-					{ name: 'computePosition', enabled: true, fn: computePopperPosition },
-				]}
-				// FIXME: those do not exists anymore
-				// boundariesElement="viewport"// viewport is now default
-				// referenceElement={inputRef.current}
-				placement="bottom-start"
-			>
-				{({ placement, ref, style, update }) => {
-					if (placement.includes('top')) {
-						// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
-						update();
-					}
 
-					return (
-						<div
-							className={containerClassName}
-							id={containerProps.id}
-							key={containerProps.key}
-							ref={ref}
-							role={containerProps.role}
-							style={style}
-						>
-							<div
-								ref={containerProps.ref}
-								className={theme['items-body']}
-								style={{ maxHeight: style.maxHeight }}
-							>
-								{render(
-									content,
-									{
-										isShown,
-										loading,
-										noResult,
-										searching,
-									},
-									containerProps.ref,
-								)}
-							</div>
-						</div>
-					);
-				}}
-			</Popper>
+		return (
+			<div
+				className={containerClassName}
+				id={containerProps.id}
+				key={containerProps.key}
+				ref={tooltipref}
+				role={containerProps.role}
+			>
+				<div ref={containerProps.ref} className={theme['items-body']}>
+					{render(
+						content,
+						{
+							isShown,
+							loading,
+							noResult,
+							searching,
+						},
+						containerProps.ref,
+					)}
+				</div>
+			</div>
 		);
 	}
 
