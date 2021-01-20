@@ -58,12 +58,7 @@ export default function InputDatePicker(props) {
 		<DatePicker.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
 		handlers.showPicker && (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<div
-				id={popoverId}
-				className={theme.popper}
-				ref={ref}
-				onMouseDown={onMouseDown}
-			>
+			<div id={popoverId} className={theme.popper} ref={ref} onMouseDown={onMouseDown}>
 				<DatePicker.Picker {...props} />
 			</div>
 		),

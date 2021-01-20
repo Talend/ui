@@ -3,21 +3,21 @@ import { createPopper } from '@popperjs/core';
 
 export function usePopper(triggerRef, tooltipRef, options) {
 	React.useEffect(() => {
-    function show() {
-      // eslint-disable-next-line no-param-reassign
-      tooltipRef.current.style.display = 'block';
-    }
+		function show() {
+			// eslint-disable-next-line no-param-reassign
+			tooltipRef.current.style.display = 'block';
+		}
 
-    function hide() {
-      // eslint-disable-next-line no-param-reassign
-      tooltipRef.current.style.display = 'none';
-    }
+		function hide() {
+			// eslint-disable-next-line no-param-reassign
+			tooltipRef.current.style.display = 'none';
+		}
 
-    const showEvents = ['focus', 'click'];
-    const hideEvents = ['blur'];
-    let popper = null;
+		const showEvents = ['focus', 'click'];
+		const hideEvents = ['blur'];
+		let popper = null;
 		if (triggerRef && tooltipRef && triggerRef.current && tooltipRef.current) {
-      popper = createPopper(triggerRef.current, tooltipRef.current, options);
+			popper = createPopper(triggerRef.current, tooltipRef.current, options);
 			hide();
 			showEvents.forEach(event => {
 				triggerRef.current.addEventListener(event, show);
@@ -26,8 +26,8 @@ export function usePopper(triggerRef, tooltipRef, options) {
 			hideEvents.forEach(event => {
 				triggerRef.current.addEventListener(event, hide);
 			});
-    }
-    return () => {
+		}
+		return () => {
 			if (popper) {
 				popper.destroy();
 				popper = null;
@@ -43,5 +43,5 @@ export function usePopper(triggerRef, tooltipRef, options) {
 				}
 			}
 		};
-  }, [triggerRef, tooltipRef, options]);
+	}, [triggerRef, tooltipRef, options]);
 }

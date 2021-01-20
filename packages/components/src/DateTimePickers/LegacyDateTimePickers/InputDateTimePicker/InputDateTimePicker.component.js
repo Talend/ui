@@ -41,25 +41,20 @@ function Popper(props) {
 		strategy: 'fixed',
 	});
 	return (
-		<div
-			id={props.popoverId}
-			className={theme.popper}
-			ref={ref}
-			onMouseDown={onMouseDown}
-		>
+		<div id={props.popoverId} className={theme.popper} ref={ref} onMouseDown={onMouseDown}>
 			<DateTime.Picker />
 			{props.formMode && <DateTime.Validation />}
 		</div>
 	);
 }
-Popper.propTypes={
+Popper.propTypes = {
 	formMode: PropTypes.bool.isRequired,
 	popoverId: PropTypes.string.isRequired,
 	getPopperPlacement: PropTypes.func.isRequired,
 	inputRef: PropTypes.oneOfType([
 		PropTypes.func,
-		PropTypes.shape({ current: PropTypes.instanceOf(HTMLInputElement) })
-	])
+		PropTypes.shape({ current: PropTypes.instanceOf(HTMLInputElement) }),
+	]),
 };
 
 class InputDateTimePicker extends React.Component {
