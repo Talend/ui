@@ -3,9 +3,9 @@
 /// @group Custom widgets
 ////
 
-$list-item-height: 3rem;
+$list-item-height: 3rem !default;
 $list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-reverse-hover-color: rgba($black, 0.12);
+$list-item-reverse-hover-color: rgba($black, 0.12) !default;
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
 $toggle-height: 70px;
@@ -21,41 +21,41 @@ $large-docked-width: 7rem;
 [role='navigation'] {
 	display: flex;
 	flex-direction: column;
-	font-weight: 600 !important;
-	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important;
+	font-weight: 600;
+	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important; // sass-lint:disable-line no-important
 	overflow: hidden;
 
 	&:before {
-		left: 1rem !important;
-		bottom: -5rem !important;
+		left: 1rem;
+		bottom: -5rem;
 	}
 
 	&.animate {
 		transition: 0.2s width ease-out;
 	}
 
-	.action-list-container {
+	.action-list-container.action-list-container {
 		flex: 1;
 		height: calc(100vh - 12rem); // specific to Safari
 
 		:global .tc-side-panel-list {
-			background: none !important;
+			background: none;
 		}
 
 		:global .tc-action-list-item {
-			width: calc(100% - 2rem) !important;
-			background: none !important;
-			box-shadow: none !important;
+			width: calc(100% - 2rem);
+			background: none !important; // sass-lint:disable-line no-important
+			box-shadow: none !important; // sass-lint:disable-line no-important
 
 			.btn.btn-link {
-				display: flex !important;
-				align-items: center !important;
-				justify-content: start !important;
+				display: flex;
+				align-items: center;
+				justify-content: start;
 				font-size: 1.6rem;
-				height: $list-item-height !important;
-				margin: 0.5rem 1rem !important;
-				padding: 0.5rem !important;
-				border-radius: 0.4rem !important;
+				height: $list-item-height;
+				margin: 0.5rem 1rem;
+				padding: 0.5rem;
+				border-radius: 0.4rem;
 
 				> span {
 					margin-left: $padding-small;
@@ -64,19 +64,19 @@ $large-docked-width: 7rem;
 			.tc-svg-icon {
 				width: $tc-side-panel-icons-size;
 				height: $tc-side-panel-icons-size;
-				margin-left: $padding-smaller !important;
+				margin-left: $padding-smaller;
 			}
 
 			&:hover {
 				.btn.btn-link {
-					background: rgba(255, 255, 255, 0.12) !important;
+					background: rgba(255, 255, 255, 0.12);
 				}
 			}
 
 			&.active {
 				.btn.btn-link {
-					color: $brand-primary !important;
-					background: rgba(255, 255, 255, 1) !important;
+					color: $brand-primary;
+					background: $white;
 				}
 			}
 		}
@@ -169,6 +169,10 @@ $large-docked-width: 7rem;
 				.btn.btn-link {
 					padding: $padding-normal $tc-side-panel-large-padding;
 
+					.tc-svg-icon {
+						margin-left: $padding-small;
+					}
+
 					.tc-svg-icon + span {
 						margin-left: $tc-side-panel-large-padding;
 					}
@@ -196,7 +200,7 @@ $large-docked-width: 7rem;
 	}
 
 	&.reverse[role='navigation'][aria-expanded] {
-		background: $wild-sand !important;
+		background: $wild-sand !important; // sass-lint:disable-line no-important
 
 		&:before {
 			content: none;
@@ -219,7 +223,7 @@ $large-docked-width: 7rem;
 
 				&:hover {
 					.btn.btn-link {
-						background: $list-item-reverse-hover-color !important;
+						background: $list-item-reverse-hover-color;
 					}
 
 					.btn.btn-link,
@@ -230,7 +234,7 @@ $large-docked-width: 7rem;
 
 				&.active {
 					.btn.btn-link {
-						background: $list-item-color !important;
+						background: $list-item-color;
 					}
 
 					.btn.btn-link,

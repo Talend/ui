@@ -13,7 +13,7 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 }
 
 .tc-header-bar {
-	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important;
+	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important;// sass-lint:disable-line no-important
 	display: flex;
 	position: fixed;
 	top: 0;
