@@ -25,7 +25,7 @@ function ListView(props) {
 		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
 			{props.items.length ? (
-				<ItemsListView {...props} />
+				<Items {...props} />
 			) : (
 				<span className={theme['empty-message']}>{label}</span>
 			)}
@@ -45,12 +45,6 @@ ListView.propTypes = {
 ListView.defaultProps = {
 	items: [],
 };
-
-function ItemsListView(props) {
-	return <Items {...props} />;
-}
-
-ItemsListView.propTypes = Items.propTypes;
 
 function HeaderListView(props) {
 	const {
