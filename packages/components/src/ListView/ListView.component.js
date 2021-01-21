@@ -38,7 +38,7 @@ ListView.DISPLAY_MODES = { DISPLAY_MODE_DEFAULT, DISPLAY_MODE_SEARCH };
 ListView.displayName = 'ListView';
 
 ListView.propTypes = {
-	displayMode: PropTypes.string,
+	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
 	items: PropTypes.arrayOf(PropTypes.object),
 };
 
