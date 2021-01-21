@@ -23,6 +23,7 @@ function getMarks(ticks: Ticks): { [tick: number]: ReactNode } {
 		.map(([value, label]) => [+value, label])
 		.sort((a, b) => a[0] - b[0])
 		.forEach(([value, label], i, arr) => {
+			// Position: _ - - - _
 			const position = { 0: 'bottom-left', [arr.length - 1]: 'bottom-right' }[i] || 'top';
 			marks[value] = (
 				<span

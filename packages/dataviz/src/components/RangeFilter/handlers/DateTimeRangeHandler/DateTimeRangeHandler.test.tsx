@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { DateTimeInputField, DateTimeRangeHandler } from './DateTimeRangeHandler';
-import { DateRangeHandler } from "../DateRangeHandler/DateRangeHandler";
+import { DateRangeHandler } from '../DateRangeHandler/DateRangeHandler';
 
 describe('DateTimeRangeHandler', () => {
 	it('Should submit value on blur', () => {

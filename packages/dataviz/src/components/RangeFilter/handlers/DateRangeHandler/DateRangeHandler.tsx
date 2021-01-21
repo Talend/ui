@@ -50,6 +50,6 @@ export const DateRangeHandler: RangeHandler = {
 	getMinValue,
 	getMaxValue,
 	// slider should move day by day
-	getStep: () => 3600 * 24,
+	getStep: () => 24 * 3600 * 1000,
 	getTicks: limits => formatTimeTicks(limits, formatDate),
 };
