@@ -39,7 +39,10 @@ function InputDateTimePicker(props) {
 	const [referenceElement, setReferenceElement] = useState(null);
 	const [popperElement, setPopperElement] = useState(null);
 	const { styles, attributes } = usePopper(referenceElement, popperElement, {
-		modifiers: [{ name: 'hide', enabled: false }, { name: 'preventOverflow', enabled: false }],
+		modifiers: [
+			{ name: 'hide', enabled: false },
+			{ name: 'preventOverflow', enabled: false },
+		],
 		strategy: 'fixed',
 		// eslint-disable-next-line @typescript-eslint/no-use-before-define
 		placement: getPopperPlacement(),

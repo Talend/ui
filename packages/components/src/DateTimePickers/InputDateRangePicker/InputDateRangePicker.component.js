@@ -28,7 +28,10 @@ export default function InputDateRangePicker(props) {
 	const [referenceElement, setReferenceElement] = useState(null);
 	const [popperElement, setPopperElement] = useState(null);
 	const { styles, attributes } = usePopper(referenceElement, popperElement, {
-		modifiers: [{ name: 'hide', enabled: false }, { name: 'preventOverflow', enabled: false }],
+		modifiers: [
+			{ name: 'hide', enabled: false },
+			{ name: 'preventOverflow', enabled: false },
+		],
 		strategy: 'fixed',
 		placement: 'bottom-start',
 	});

@@ -93,7 +93,6 @@ renderInputComponent.propTypes = {
 	readOnly: PropTypes.bool,
 };
 
-
 export function renderItemsContainerFactory(
 	items,
 	noResultText,
@@ -104,7 +103,9 @@ export function renderItemsContainerFactory(
 	referenceElement,
 	render = content => content,
 
-	setPopperElement, styles, attributes
+	setPopperElement,
+	styles,
+	attributes,
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
@@ -143,33 +144,35 @@ export function renderItemsContainerFactory(
 			content = children;
 		}
 
-		return console.log({ styles, attributes }) || (
-			<div
-				className={containerClassName}
-				id={containerProps.id}
-				key={containerProps.key}
-				role={containerProps.role}
-				ref={setPopperElement}
-				style={styles.popper}
-				{...attributes.popper}
-			>
+		return (
+			console.log({ styles, attributes }) || (
 				<div
-					ref={containerProps.ref}
-					className={theme['items-body']}
-					style={{ maxHeight: styles.popper.maxHeight }}
+					className={containerClassName}
+					id={containerProps.id}
+					key={containerProps.key}
+					role={containerProps.role}
+					ref={setPopperElement}
+					style={styles.popper}
+					{...attributes.popper}
 				>
-					{render(
-						content,
-						{
-							isShown,
-							loading,
-							noResult,
-							searching,
-						},
-						containerProps.ref,
-					)}
+					<div
+						ref={containerProps.ref}
+						className={theme['items-body']}
+						style={{ maxHeight: styles.popper.maxHeight }}
+					>
+						{render(
+							content,
+							{
+								isShown,
+								loading,
+								noResult,
+								searching,
+							},
+							containerProps.ref,
+						)}
+					</div>
 				</div>
-			</div>
+			)
 		);
 	}
 
