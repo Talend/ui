@@ -59,8 +59,26 @@ describe('DateRangeHandler', () => {
 		expect(max).toEqual(parseISO('2015-01-01T23:59:59.999').getTime());
 	});
 
-	it('Should format tick', () => {
-		const max = DateRangeHandler.tickFormatter!(new Date('2015-01-01T12:00:00').getTime());
-		expect(max).toEqual('2015-01-01');
+	it('Should create ticks', () => {
+		const ticks = DateRangeHandler.getTicks({
+			min: new Date('2000-01-01T12:00:00').getTime(),
+			max: new Date('2030-01-01T12:00:00').getTime(),
+		});
+		expect(ticks).toEqual({
+			'946724400000': '2000-01-01',
+			'1262300400000': '2010-01-01',
+			'1577833200000': '2020-01-01',
+			'1893452400000': '2030-01-01',
+		});
+	});
+	it('Should create ticks for tiny range', () => {
+		const ticks = DateRangeHandler.getTicks({
+			min: new Date('2000-01-01T12:00:00').getTime(),
+			max: new Date('2000-01-02T12:00:00').getTime(),
+		});
+		expect(ticks).toEqual({
+			'946724400000': '2000-01-01',
+			'946767600000': '2000-01-02',
+		});
 	});
 });

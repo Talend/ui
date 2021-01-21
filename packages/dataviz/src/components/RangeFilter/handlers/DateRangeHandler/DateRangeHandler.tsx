@@ -7,6 +7,7 @@ import { InputDatePicker } from '@talend/react-components';
 import { formatDate } from '../../../../formatters/formatters';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 import { RangeHandler } from '../range-handler.types';
+import { formatTimeTicks } from '../slider-ticks.utils';
 
 export function getMinValue(value: number): number {
 	return startOfDay(new Date(value)).getTime();
@@ -46,7 +47,9 @@ export function DateInputField({ id, value: rangeValue, onChange }: InputFieldPr
 
 export const DateRangeHandler: RangeHandler = {
 	inputField: DateInputField,
-	tickFormatter: formatDate,
 	getMinValue,
 	getMaxValue,
+	// slider should move day by day
+	getStep: () => 3600 * 24,
+	getTicks: limits => formatTimeTicks(limits, formatDate),
 };
