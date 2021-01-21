@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement, useRef } from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
 import { IconName } from '@talend/icons';
@@ -94,6 +94,7 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 		const [content, setContent] = React.useState<string>();
 
 		const isRemote = name.startsWith('remote-');
+		const isImg = name.startsWith('src-');
 		const imgSrc = name.replace('remote-', '').replace('src-', '');
 		const isRemoteSVG =
 			isRemote && content && content.includes('svg') && !content.includes('script');
@@ -157,13 +158,13 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 			}
 		}, [border, safeRef]);
 
-		if (name.startsWith('src-')) {
+		if (isImg) {
 			return (
 				<img alt="" src={name.substring(4)} className="tc-icon" {...accessibility} {...rest} />
 			);
 		}
 
-		const classname = classnames('tc-svg-icon', className, transform);
+		const classname = classnames('tc-svg-icon', className, transform, { [`tc-icon-name-${name}`]: !(isImg || isRemote) });
 
 		let iconElement = (
 			<SVG {...rest} {...accessibility} className={classname} border={border} ref={safeRef} />
@@ -187,3 +188,4 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 
 export const IconMemo = React.memo(Icon);
+IconMemo.displayName = 'Icon';
