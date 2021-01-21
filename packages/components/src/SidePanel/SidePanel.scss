@@ -3,26 +3,32 @@
 /// @group Custom widgets
 ////
 
-$list-item-height: 55px !default;
+$list-item-height: 3rem;
 $list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-reverse-hover-color: rgba($white, 0.5) !default;
+$list-item-reverse-hover-color: rgba($black, 0.12);
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
 $toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-icons-size: $svg-lg-size;
+$tc-side-panel-icons-size: $svg-rg-size;
 $toggle-button-padding: $padding-small;
 
 $docked-width: 6rem;
 $large-docked-width: 7rem;
 
-.tc-side-panel {
+.tc-side-panel,
+[role=navigation] {
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
-	background: $list-item-reverse-color;
+	font-weight: 600 !important;
+	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important;
 	overflow: hidden;
+
+	&:before {
+		left: 1rem !important;
+		bottom: -5rem !important;
+	}
 
 	&.animate {
 		transition: 0.2s width ease-out;
@@ -32,11 +38,22 @@ $large-docked-width: 7rem;
 		flex: 1;
 		height: calc(100vh - 12rem); // specific to Safari
 
+		:global .tc-side-panel-list {
+			background: none !important;
+		}
+
 		:global .tc-action-list-item {
+			width: calc(100% - 2rem) !important;
+			background: none !important;
+			box-shadow: none !important;
+
 			.btn.btn-link {
 				font-size: 1.6rem;
-				height: $list-item-height;
-				padding-left: $padding-large;
+				height: $list-item-height !important;
+				margin: 0.5rem 1rem !important;
+				padding: 0.5rem !important;
+				border-radius: 0.4rem !important;
+
 				> span {
 					margin-left: $padding-small;
 				}
@@ -44,7 +61,20 @@ $large-docked-width: 7rem;
 			.tc-svg-icon {
 				width: $tc-side-panel-icons-size;
 				height: $tc-side-panel-icons-size;
-				margin: 0;
+				margin-left: $padding-smaller !important;
+			}
+
+			&:hover {
+				.btn.btn-link {
+					background: rgba(255, 255, 255, 0.12) !important;
+				}
+			}
+
+			&.active {
+				.btn.btn-link {
+					color: $brand-primary !important;
+					background: rgba(255, 255, 255, 1) !important;
+				}
 			}
 		}
 	}
@@ -83,7 +113,6 @@ $large-docked-width: 7rem;
 
 				&:hover {
 					opacity: 1;
-					background-color: $list-item-hover-color;
 				}
 
 				.tc-svg-icon {
@@ -164,40 +193,43 @@ $large-docked-width: 7rem;
 	}
 
 	&.reverse[role='navigation'][aria-expanded] {
-		background: $wild-sand;
+		background: $wild-sand !important;
 
 		&:before {
-			background-image: none;
+			content: none;
 		}
+
 		.toggle-btn {
-			background-color: $wild-sand;
+			background-color: transparent;
 
 			:global {
 				.btn.btn-link,
 				.tc-svg-icon {
-					color: $dove-gray;
+					color: $gray700;
 				}
 			}
 		}
 
 		:global {
 			.tc-action-list-item {
-				color: $dove-gray;
+				color: $gray700;
 
 				&:hover {
-					background-color: $list-item-reverse-hover-color;
 
-					.btn.btn-link {
-						color: $dove-gray;
+					.btn.btn-link{
+						background: $list-item-reverse-hover-color !important;
 					}
 
+					.btn.btn-link,
 					.tc-svg-icon {
-						color: $silver;
+						color: $black;
 					}
 				}
 
 				&.active {
-					background: $list-item-color;
+					.btn.btn-link {
+						background: $list-item-color !important;
+					}
 
 					.btn.btn-link,
 					.tc-svg-icon {

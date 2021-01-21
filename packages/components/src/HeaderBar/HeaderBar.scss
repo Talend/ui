@@ -1,6 +1,6 @@
 $tc-headerbar-logo-width: 6rem !default;
 $tc-headerbar-logo-full-width: 8.5rem !default;
-$background-color-on-hover: shade($brand-primary, 30);
+$background-color-on-hover: rgba(255, 255, 255, 0.2);
 
 @keyframes fadeIn {
 	from {
@@ -12,23 +12,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 	}
 }
 
-.tc-header-bar {
-	background-color: $brand-primary-darker;
+.tc-header-bar,
+[role="banner"] {
+	background: linear-gradient(133deg, #19426c 0%, #2C1F56 100%) !important;
 	display: flex;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 1030;
-
-	// tmp change Talend logo colors until rebranding is done
-	[name='talend-logo-square'] path {
-		&:global(.ti-foreground) {
-			fill: $regal-blue;
-		}
-		&:global(.ti-background) {
-			fill: $white;
-		}
-	}
 
 	svg {
 		margin: 0;
