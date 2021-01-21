@@ -167,7 +167,7 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 		const classname = classnames('tc-svg-icon', className, transform, { [`tc-icon-name-${name}`]: !(isImg || isRemote) });
 
 		let iconElement = (
-			<SVG {...rest} {...accessibility} className={classname} border={border} ref={safeRef} />
+			<SVG {...rest} name={!(isImg || isRemote) ? name : null} {...accessibility} className={classname} border={border} ref={safeRef} />
 		);
 
 		if (isRemote && content && !isRemoteSVG) {
