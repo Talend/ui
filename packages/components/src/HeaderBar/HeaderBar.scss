@@ -13,8 +13,8 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 }
 
 .tc-header-bar,
-[role="banner"] {
-	background: linear-gradient(133deg, #19426c 0%, #2C1F56 100%) !important;
+[role='banner'] {
+	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important;
 	display: flex;
 	position: fixed;
 	top: 0;

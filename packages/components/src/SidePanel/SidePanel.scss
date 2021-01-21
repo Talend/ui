@@ -18,7 +18,7 @@ $docked-width: 6rem;
 $large-docked-width: 7rem;
 
 .tc-side-panel,
-[role=navigation] {
+[role='navigation'] {
 	display: flex;
 	flex-direction: column;
 	font-weight: 600 !important;
@@ -215,8 +215,7 @@ $large-docked-width: 7rem;
 				color: $gray700;
 
 				&:hover {
-
-					.btn.btn-link{
+					.btn.btn-link {
 						background: $list-item-reverse-hover-color !important;
 					}
 
