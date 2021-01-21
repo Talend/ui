@@ -165,6 +165,10 @@ $large-docked-width: 7rem;
 		}
 
 		:global {
+			.tc-action-list {
+				padding: $padding-smaller 0;
+			}
+
 			.tc-action-list-item {
 				.btn.btn-link {
 					padding: $padding-normal $tc-side-panel-large-padding;
