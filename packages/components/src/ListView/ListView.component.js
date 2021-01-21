@@ -33,6 +33,8 @@ function ListView(props) {
 	);
 }
 
+ListView.DISPLAY_MODES = { DISPLAY_MODE_DEFAULT, DISPLAY_MODE_SEARCH };
+
 ListView.displayName = 'ListView';
 
 ListView.propTypes = {
@@ -48,17 +50,7 @@ function ItemsListView(props) {
 	return <Items {...props} />;
 }
 
-ItemsListView.propTypes = {
-	getItemHeight: PropTypes.func,
-	id: PropTypes.string,
-	items: ListView.propTypes.items,
-	isSwitchBox: PropTypes.bool,
-	onToggleAll: PropTypes.func,
-	searchCriteria: PropTypes.string,
-	toggleAllChecked: PropTypes.bool,
-	showToggleAll: PropTypes.bool,
-	t: PropTypes.func,
-};
+ItemsListView.propTypes = Items.propTypes;
 
 function HeaderListView(props) {
 	const {
