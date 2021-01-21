@@ -34,7 +34,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^1.0.3",
+    "@talend/design-system": "^1.0.4",
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
     "d3": "^6.3.0",
