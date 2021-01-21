@@ -108,6 +108,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
         focusable="false"
+        name="talend-chevron-end"
       />
     </a>
   </li>
@@ -132,6 +133,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
         focusable="false"
+        name="talend-chevron-left"
       />
     </a>
   </li>
@@ -158,6 +160,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
         focusable="false"
+        name="talend-chevron-left"
       />
     </a>
   </li>
@@ -176,6 +179,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
         focusable="false"
+        name="talend-chevron-end"
       />
     </a>
   </li>
@@ -284,6 +288,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
         focusable="false"
+        name="talend-chevron-end"
       />
     </a>
   </li>
@@ -302,6 +307,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
         focusable="false"
+        name="talend-chevron-left"
       />
     </a>
   </li>
@@ -334,6 +340,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
         focusable="false"
+        name="talend-chevron-left"
       />
     </a>
   </li>
@@ -358,6 +365,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
         focusable="false"
+        name="talend-chevron-end"
       />
     </a>
   </li>
@@ -736,6 +744,7 @@ exports[`Pagination should render 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
         focusable="false"
+        name="talend-chevron-end"
       />
     </a>
   </li>
@@ -754,6 +763,7 @@ exports[`Pagination should render 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
         focusable="false"
+        name="talend-chevron-left"
       />
     </a>
   </li>
@@ -780,6 +790,7 @@ exports[`Pagination should render 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
         focusable="false"
+        name="talend-chevron-left"
       />
     </a>
   </li>
@@ -798,6 +809,7 @@ exports[`Pagination should render 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
         focusable="false"
+        name="talend-chevron-end"
       />
     </a>
   </li>
@@ -907,6 +919,7 @@ exports[`Pagination should render id if provided 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
         focusable="false"
+        name="talend-chevron-end"
       />
     </a>
   </li>
@@ -926,6 +939,7 @@ exports[`Pagination should render id if provided 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
         focusable="false"
+        name="talend-chevron-left"
       />
     </a>
   </li>
@@ -953,6 +967,7 @@ exports[`Pagination should render id if provided 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
         focusable="false"
+        name="talend-chevron-left"
       />
     </a>
   </li>
@@ -972,6 +987,7 @@ exports[`Pagination should render id if provided 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
         focusable="false"
+        name="talend-chevron-end"
       />
     </a>
   </li>

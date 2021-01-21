@@ -94,6 +94,7 @@ exports[`TextFilter should render text filter component 1`] = `
                   aria-hidden="true"
                   className="tc-svg-icon tc-icon-name-talend-search"
                   focusable="false"
+                  name="talend-search"
                 >
                   <StyledComponent
                     aria-hidden="true"
@@ -193,14 +194,17 @@ exports[`TextFilter should render text filter component 1`] = `
                           aria-hidden="true"
                           class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                           focusable="false"
+                          name="talend-search"
                         />,
                       }
                     }
+                    name="talend-search"
                   >
                     <svg
                       aria-hidden="true"
                       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                       focusable="false"
+                      name="talend-search"
                     />
                   </StyledComponent>
                 </styled.svg>
@@ -309,6 +313,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                   aria-hidden="true"
                   className="tc-svg-icon tc-icon-name-talend-search"
                   focusable="false"
+                  name="talend-search"
                 >
                   <StyledComponent
                     aria-hidden="true"
@@ -408,14 +413,17 @@ exports[`TextFilter should render text filter component with defined docked stat
                           aria-hidden="true"
                           class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                           focusable="false"
+                          name="talend-search"
                         />,
                       }
                     }
+                    name="talend-search"
                   >
                     <svg
                       aria-hidden="true"
                       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                       focusable="false"
+                      name="talend-search"
                     />
                   </StyledComponent>
                 </styled.svg>

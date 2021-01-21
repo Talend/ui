@@ -77,6 +77,7 @@ exports[`List DisplayMode should render 1`] = `
                   aria-hidden="true"
                   className="tc-svg-icon tc-icon-name-talend-table"
                   focusable="false"
+                  name="talend-table"
                 >
                   <StyledComponent
                     aria-hidden="true"
@@ -176,14 +177,17 @@ exports[`List DisplayMode should render 1`] = `
                           aria-hidden="true"
                           class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-table"
                           focusable="false"
+                          name="talend-table"
                         />,
                       }
                     }
+                    name="talend-table"
                   >
                     <svg
                       aria-hidden="true"
                       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-table"
                       focusable="false"
+                      name="talend-table"
                     />
                   </StyledComponent>
                 </styled.svg>
@@ -257,6 +261,7 @@ exports[`List DisplayMode should render 1`] = `
                   aria-hidden="true"
                   className="tc-svg-icon tc-icon-name-talend-expanded"
                   focusable="false"
+                  name="talend-expanded"
                 >
                   <StyledComponent
                     aria-hidden="true"
@@ -356,14 +361,17 @@ exports[`List DisplayMode should render 1`] = `
                           aria-hidden="true"
                           class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-expanded"
                           focusable="false"
+                          name="talend-expanded"
                         />,
                       }
                     }
+                    name="talend-expanded"
                   >
                     <svg
                       aria-hidden="true"
                       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-expanded"
                       focusable="false"
+                      name="talend-expanded"
                     />
                   </StyledComponent>
                 </styled.svg>

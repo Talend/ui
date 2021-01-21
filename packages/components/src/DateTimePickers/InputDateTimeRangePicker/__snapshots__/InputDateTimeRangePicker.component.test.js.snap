@@ -351,6 +351,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             aria-hidden="true"
             className="tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
             focusable="false"
+            name="talend-arrow-right"
           >
             <StyledComponent
               aria-hidden="true"
@@ -450,14 +451,17 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                     aria-hidden="true"
                     class="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                     focusable="false"
+                    name="talend-arrow-right"
                   />,
                 }
               }
+              name="talend-arrow-right"
             >
               <svg
                 aria-hidden="true"
                 className="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                 focusable="false"
+                name="talend-arrow-right"
               />
             </StyledComponent>
           </styled.svg>
@@ -1180,6 +1184,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
             aria-hidden="true"
             className="tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
             focusable="false"
+            name="talend-arrow-right"
           >
             <StyledComponent
               aria-hidden="true"
@@ -1279,14 +1284,17 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                     aria-hidden="true"
                     class="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                     focusable="false"
+                    name="talend-arrow-right"
                   />,
                 }
               }
+              name="talend-arrow-right"
             >
               <svg
                 aria-hidden="true"
                 className="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                 focusable="false"
+                name="talend-arrow-right"
               />
             </StyledComponent>
           </styled.svg>

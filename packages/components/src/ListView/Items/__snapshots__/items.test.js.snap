@@ -1028,6 +1028,7 @@ exports[`Items should render with nested items 1`] = `
                                         aria-hidden="true"
                                         className="tc-svg-icon tc-icon-name-talend-caret-down"
                                         focusable="false"
+                                        name="talend-caret-down"
                                       >
                                         <StyledComponent
                                           aria-hidden="true"
@@ -1127,14 +1128,17 @@ exports[`Items should render with nested items 1`] = `
                                                 aria-hidden="true"
                                                 class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                                                 focusable="false"
+                                                name="talend-caret-down"
                                               />,
                                             }
                                           }
+                                          name="talend-caret-down"
                                         >
                                           <svg
                                             aria-hidden="true"
                                             className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                                             focusable="false"
+                                            name="talend-caret-down"
                                           />
                                         </StyledComponent>
                                       </styled.svg>

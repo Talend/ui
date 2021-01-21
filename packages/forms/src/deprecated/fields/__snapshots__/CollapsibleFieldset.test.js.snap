@@ -164,6 +164,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
               aria-hidden="true"
               className="tc-svg-icon tc-icon-name-talend-caret-down"
               focusable="false"
+              name="talend-caret-down"
             >
               <StyledComponent
                 aria-hidden="true"
@@ -263,14 +264,17 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
                       aria-hidden="true"
                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                       focusable="false"
+                      name="talend-caret-down"
                     />,
                   }
                 }
+                name="talend-caret-down"
               >
                 <svg
                   aria-hidden="true"
                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                   focusable="false"
+                  name="talend-caret-down"
                 />
               </StyledComponent>
             </styled.svg>
@@ -928,6 +932,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
               aria-hidden="true"
               className="tc-svg-icon tc-icon-name-talend-caret-down"
               focusable="false"
+              name="talend-caret-down"
             >
               <StyledComponent
                 aria-hidden="true"
@@ -1027,14 +1032,17 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
                       aria-hidden="true"
                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                       focusable="false"
+                      name="talend-caret-down"
                     />,
                   }
                 }
+                name="talend-caret-down"
               >
                 <svg
                   aria-hidden="true"
                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                   focusable="false"
+                  name="talend-caret-down"
                 />
               </StyledComponent>
             </styled.svg>
@@ -1692,6 +1700,7 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
               aria-hidden="true"
               className="tc-svg-icon tc-icon-name-talend-caret-down"
               focusable="false"
+              name="talend-caret-down"
             >
               <StyledComponent
                 aria-hidden="true"
@@ -1791,14 +1800,17 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
                       aria-hidden="true"
                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                       focusable="false"
+                      name="talend-caret-down"
                     />,
                   }
                 }
+                name="talend-caret-down"
               >
                 <svg
                   aria-hidden="true"
                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                   focusable="false"
+                  name="talend-caret-down"
                 />
               </StyledComponent>
             </styled.svg>
@@ -2456,6 +2468,7 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
               aria-hidden="true"
               className="tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
               focusable="false"
+              name="talend-caret-down"
             >
               <StyledComponent
                 aria-hidden="true"
@@ -2555,14 +2568,17 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
                       aria-hidden="true"
                       class="sc-EHOje dQOrnx tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
                       focusable="false"
+                      name="talend-caret-down"
                     />,
                   }
                 }
+                name="talend-caret-down"
               >
                 <svg
                   aria-hidden="true"
                   className="sc-EHOje dQOrnx tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
                   focusable="false"
+                  name="talend-caret-down"
                 />
               </StyledComponent>
             </styled.svg>

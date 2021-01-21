@@ -354,6 +354,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -453,14 +454,17 @@ exports[`EnumerationWidget delete all 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -545,6 +549,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -644,14 +649,17 @@ exports[`EnumerationWidget delete all 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -1138,6 +1146,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                             aria-hidden="true"
                             className="tc-svg-icon tc-icon-name-talend-cross"
                             focusable="false"
+                            name="talend-cross"
                           >
                             <StyledComponent
                               aria-hidden="true"
@@ -1237,14 +1246,17 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                                     aria-hidden="true"
                                     class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
                                     focusable="false"
+                                    name="talend-cross"
                                   />,
                                 }
                               }
+                              name="talend-cross"
                             >
                               <svg
                                 aria-hidden="true"
                                 className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
                                 focusable="false"
+                                name="talend-cross"
                               />
                             </StyledComponent>
                           </styled.svg>
@@ -1719,6 +1731,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -1818,14 +1831,17 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -1910,6 +1926,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -2009,14 +2026,17 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -2498,6 +2518,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -2597,14 +2618,17 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -2689,6 +2713,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -2788,14 +2813,17 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -3323,6 +3351,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -3422,14 +3451,17 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -3514,6 +3546,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -3613,14 +3646,17 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -4154,6 +4190,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-check"
                                               focusable="false"
+                                              name="talend-check"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -4253,14 +4290,17 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check"
                                                       focusable="false"
+                                                      name="talend-check"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-check"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check"
                                                   focusable="false"
+                                                  name="talend-check"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -4340,6 +4380,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-cross"
                                               focusable="false"
+                                              name="talend-cross"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -4439,14 +4480,17 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
                                                       focusable="false"
+                                                      name="talend-cross"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-cross"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
                                                   focusable="false"
+                                                  name="talend-cross"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -4820,6 +4864,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                             aria-hidden="true"
                             className="tc-svg-icon tc-icon-name-talend-cross"
                             focusable="false"
+                            name="talend-cross"
                           >
                             <StyledComponent
                               aria-hidden="true"
@@ -4919,14 +4964,17 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                                     aria-hidden="true"
                                     class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
                                     focusable="false"
+                                    name="talend-cross"
                                   />,
                                 }
                               }
+                              name="talend-cross"
                             >
                               <svg
                                 aria-hidden="true"
                                 className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
                                 focusable="false"
+                                name="talend-cross"
                               />
                             </StyledComponent>
                           </styled.svg>
@@ -5413,6 +5461,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -5512,14 +5561,17 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -5604,6 +5656,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -5703,14 +5756,17 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -6227,6 +6283,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -6326,14 +6383,17 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -6418,6 +6478,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -6517,14 +6578,17 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -7405,6 +7469,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                             aria-hidden="true"
                             className="tc-svg-icon tc-icon-name-talend-trash"
                             focusable="false"
+                            name="talend-trash"
                           >
                             <StyledComponent
                               aria-hidden="true"
@@ -7504,14 +7569,17 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     aria-hidden="true"
                                     class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                     focusable="false"
+                                    name="talend-trash"
                                   />,
                                 }
                               }
+                              name="talend-trash"
                             >
                               <svg
                                 aria-hidden="true"
                                 className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                 focusable="false"
+                                name="talend-trash"
                               />
                             </StyledComponent>
                           </styled.svg>
@@ -8051,6 +8119,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-pencil"
                                               focusable="false"
+                                              name="talend-pencil"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -8150,14 +8219,17 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
+                                                      name="talend-pencil"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-pencil"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
+                                                  name="talend-pencil"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -8236,6 +8308,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-trash"
                                               focusable="false"
+                                              name="talend-trash"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -8335,14 +8408,17 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
+                                                      name="talend-trash"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-trash"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
+                                                  name="talend-trash"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -8766,6 +8842,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -8865,14 +8942,17 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -8957,6 +9037,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -9056,14 +9137,17 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -9640,6 +9724,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-pencil"
                                               focusable="false"
+                                              name="talend-pencil"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -9739,14 +9824,17 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
+                                                      name="talend-pencil"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-pencil"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
+                                                  name="talend-pencil"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -9825,6 +9913,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-trash"
                                               focusable="false"
+                                              name="talend-trash"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -9924,14 +10013,17 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
+                                                      name="talend-trash"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-trash"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
+                                                  name="talend-trash"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -10124,6 +10216,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-pencil"
                                               focusable="false"
+                                              name="talend-pencil"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -10223,14 +10316,17 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
+                                                      name="talend-pencil"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-pencil"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
+                                                  name="talend-pencil"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -10309,6 +10405,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-trash"
                                               focusable="false"
+                                              name="talend-trash"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -10408,14 +10505,17 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
+                                                      name="talend-trash"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-trash"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
+                                                  name="talend-trash"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -10778,6 +10878,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -10877,14 +10978,17 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -10969,6 +11073,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -11068,14 +11173,17 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -11639,6 +11747,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -11738,14 +11847,17 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -11929,6 +12041,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         aria-hidden="true"
                                         className="tc-svg-icon tc-icon-name-talend-download"
                                         focusable="false"
+                                        name="talend-download"
                                       >
                                         <StyledComponent
                                           aria-hidden="true"
@@ -12028,14 +12141,17 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                 aria-hidden="true"
                                                 class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
                                                 focusable="false"
+                                                name="talend-download"
                                               />,
                                             }
                                           }
+                                          name="talend-download"
                                         >
                                           <svg
                                             aria-hidden="true"
                                             className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
                                             focusable="false"
+                                            name="talend-download"
                                           />
                                         </StyledComponent>
                                       </styled.svg>
@@ -12049,6 +12165,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         aria-hidden="true"
                                         className="tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                         focusable="false"
+                                        name="talend-caret-down"
                                       >
                                         <StyledComponent
                                           aria-hidden="true"
@@ -12148,14 +12265,17 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                 aria-hidden="true"
                                                 class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                                 focusable="false"
+                                                name="talend-caret-down"
                                               />,
                                             }
                                           }
+                                          name="talend-caret-down"
                                         >
                                           <svg
                                             aria-hidden="true"
                                             className="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                             focusable="false"
+                                            name="talend-caret-down"
                                           />
                                         </StyledComponent>
                                       </styled.svg>
@@ -12374,6 +12494,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -12473,14 +12594,17 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -13591,6 +13715,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-pencil"
                                               focusable="false"
+                                              name="talend-pencil"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -13690,14 +13815,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
+                                                      name="talend-pencil"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-pencil"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
+                                                  name="talend-pencil"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -13776,6 +13904,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-trash"
                                               focusable="false"
+                                              name="talend-trash"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -13875,14 +14004,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
+                                                      name="talend-trash"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-trash"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
+                                                  name="talend-trash"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -14073,6 +14205,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-pencil"
                                               focusable="false"
+                                              name="talend-pencil"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -14172,14 +14305,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
+                                                      name="talend-pencil"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-pencil"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
+                                                  name="talend-pencil"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -14258,6 +14394,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-trash"
                                               focusable="false"
+                                              name="talend-trash"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -14357,14 +14494,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
+                                                      name="talend-trash"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-trash"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
+                                                  name="talend-trash"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -14867,6 +15007,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-search"
                               focusable="false"
+                              name="talend-search"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -14966,14 +15107,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
+                                      name="talend-search"
                                     />,
                                   }
                                 }
+                                name="talend-search"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
+                                  name="talend-search"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -15152,6 +15296,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         aria-hidden="true"
                                         className="tc-svg-icon tc-icon-name-talend-download"
                                         focusable="false"
+                                        name="talend-download"
                                       >
                                         <StyledComponent
                                           aria-hidden="true"
@@ -15251,14 +15396,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 aria-hidden="true"
                                                 class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
                                                 focusable="false"
+                                                name="talend-download"
                                               />,
                                             }
                                           }
+                                          name="talend-download"
                                         >
                                           <svg
                                             aria-hidden="true"
                                             className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
                                             focusable="false"
+                                            name="talend-download"
                                           />
                                         </StyledComponent>
                                       </styled.svg>
@@ -15272,6 +15420,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         aria-hidden="true"
                                         className="tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                         focusable="false"
+                                        name="talend-caret-down"
                                       >
                                         <StyledComponent
                                           aria-hidden="true"
@@ -15371,14 +15520,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 aria-hidden="true"
                                                 class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                                 focusable="false"
+                                                name="talend-caret-down"
                                               />,
                                             }
                                           }
+                                          name="talend-caret-down"
                                         >
                                           <svg
                                             aria-hidden="true"
                                             className="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                             focusable="false"
+                                            name="talend-caret-down"
                                           />
                                         </StyledComponent>
                                       </styled.svg>
@@ -15591,6 +15743,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               aria-hidden="true"
                               className="tc-svg-icon tc-icon-name-talend-plus"
                               focusable="false"
+                              name="talend-plus"
                             >
                               <StyledComponent
                                 aria-hidden="true"
@@ -15690,14 +15843,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       aria-hidden="true"
                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
+                                      name="talend-plus"
                                     />,
                                   }
                                 }
+                                name="talend-plus"
                               >
                                 <svg
                                   aria-hidden="true"
                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
+                                  name="talend-plus"
                                 />
                               </StyledComponent>
                             </styled.svg>
@@ -16279,6 +16435,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-pencil"
                                               focusable="false"
+                                              name="talend-pencil"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -16378,14 +16535,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
+                                                      name="talend-pencil"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-pencil"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
+                                                  name="talend-pencil"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -16464,6 +16624,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-trash"
                                               focusable="false"
+                                              name="talend-trash"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -16563,14 +16724,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
+                                                      name="talend-trash"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-trash"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
+                                                  name="talend-trash"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -16761,6 +16925,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-pencil"
                                               focusable="false"
+                                              name="talend-pencil"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -16860,14 +17025,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
+                                                      name="talend-pencil"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-pencil"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
+                                                  name="talend-pencil"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>
@@ -16946,6 +17114,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               aria-hidden="true"
                                               className="tc-svg-icon tc-icon-name-talend-trash"
                                               focusable="false"
+                                              name="talend-trash"
                                             >
                                               <StyledComponent
                                                 aria-hidden="true"
@@ -17045,14 +17214,17 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                       aria-hidden="true"
                                                       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
+                                                      name="talend-trash"
                                                     />,
                                                   }
                                                 }
+                                                name="talend-trash"
                                               >
                                                 <svg
                                                   aria-hidden="true"
                                                   className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
+                                                  name="talend-trash"
                                                 />
                                               </StyledComponent>
                                             </styled.svg>

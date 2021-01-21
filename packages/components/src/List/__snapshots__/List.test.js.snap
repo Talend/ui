@@ -891,6 +891,7 @@ exports[`List should render 1`] = `
                                     aria-hidden="true"
                                     className="tc-svg-icon tc-icon-name-talend-chevron-end"
                                     focusable="false"
+                                    name="talend-chevron-end"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
@@ -990,14 +991,17 @@ exports[`List should render 1`] = `
                                             aria-hidden="true"
                                             class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
                                             focusable="false"
+                                            name="talend-chevron-end"
                                           />,
                                         }
                                       }
+                                      name="talend-chevron-end"
                                     >
                                       <svg
                                         aria-hidden="true"
                                         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
                                         focusable="false"
+                                        name="talend-chevron-end"
                                       />
                                     </StyledComponent>
                                   </styled.svg>
@@ -1039,6 +1043,7 @@ exports[`List should render 1`] = `
                                     aria-hidden="true"
                                     className="tc-svg-icon tc-icon-name-talend-chevron-left"
                                     focusable="false"
+                                    name="talend-chevron-left"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
@@ -1138,14 +1143,17 @@ exports[`List should render 1`] = `
                                             aria-hidden="true"
                                             class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
                                             focusable="false"
+                                            name="talend-chevron-left"
                                           />,
                                         }
                                       }
+                                      name="talend-chevron-left"
                                     >
                                       <svg
                                         aria-hidden="true"
                                         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
                                         focusable="false"
+                                        name="talend-chevron-left"
                                       />
                                     </StyledComponent>
                                   </styled.svg>
@@ -1197,6 +1205,7 @@ exports[`List should render 1`] = `
                                     aria-hidden="true"
                                     className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                     focusable="false"
+                                    name="talend-chevron-left"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
@@ -1296,14 +1305,17 @@ exports[`List should render 1`] = `
                                             aria-hidden="true"
                                             class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                             focusable="false"
+                                            name="talend-chevron-left"
                                           />,
                                         }
                                       }
+                                      name="talend-chevron-left"
                                     >
                                       <svg
                                         aria-hidden="true"
                                         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                         focusable="false"
+                                        name="talend-chevron-left"
                                       />
                                     </StyledComponent>
                                   </styled.svg>
@@ -1346,6 +1358,7 @@ exports[`List should render 1`] = `
                                     aria-hidden="true"
                                     className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                     focusable="false"
+                                    name="talend-chevron-end"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
@@ -1445,14 +1458,17 @@ exports[`List should render 1`] = `
                                             aria-hidden="true"
                                             class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                             focusable="false"
+                                            name="talend-chevron-end"
                                           />,
                                         }
                                       }
+                                      name="talend-chevron-end"
                                     >
                                       <svg
                                         aria-hidden="true"
                                         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                         focusable="false"
+                                        name="talend-chevron-end"
                                       />
                                     </StyledComponent>
                                   </styled.svg>
@@ -2326,6 +2342,7 @@ exports[`List should render id if provided 1`] = `
                                     aria-hidden="true"
                                     className="tc-svg-icon tc-icon-name-talend-chevron-end"
                                     focusable="false"
+                                    name="talend-chevron-end"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
@@ -2425,14 +2442,17 @@ exports[`List should render id if provided 1`] = `
                                             aria-hidden="true"
                                             class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
                                             focusable="false"
+                                            name="talend-chevron-end"
                                           />,
                                         }
                                       }
+                                      name="talend-chevron-end"
                                     >
                                       <svg
                                         aria-hidden="true"
                                         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
                                         focusable="false"
+                                        name="talend-chevron-end"
                                       />
                                     </StyledComponent>
                                   </styled.svg>
@@ -2477,6 +2497,7 @@ exports[`List should render id if provided 1`] = `
                                     aria-hidden="true"
                                     className="tc-svg-icon tc-icon-name-talend-chevron-left"
                                     focusable="false"
+                                    name="talend-chevron-left"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
@@ -2576,14 +2597,17 @@ exports[`List should render id if provided 1`] = `
                                             aria-hidden="true"
                                             class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
                                             focusable="false"
+                                            name="talend-chevron-left"
                                           />,
                                         }
                                       }
+                                      name="talend-chevron-left"
                                     >
                                       <svg
                                         aria-hidden="true"
                                         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
                                         focusable="false"
+                                        name="talend-chevron-left"
                                       />
                                     </StyledComponent>
                                   </styled.svg>
@@ -2638,6 +2662,7 @@ exports[`List should render id if provided 1`] = `
                                     aria-hidden="true"
                                     className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                     focusable="false"
+                                    name="talend-chevron-left"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
@@ -2737,14 +2762,17 @@ exports[`List should render id if provided 1`] = `
                                             aria-hidden="true"
                                             class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                             focusable="false"
+                                            name="talend-chevron-left"
                                           />,
                                         }
                                       }
+                                      name="talend-chevron-left"
                                     >
                                       <svg
                                         aria-hidden="true"
                                         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                         focusable="false"
+                                        name="talend-chevron-left"
                                       />
                                     </StyledComponent>
                                   </styled.svg>
@@ -2790,6 +2818,7 @@ exports[`List should render id if provided 1`] = `
                                     aria-hidden="true"
                                     className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                     focusable="false"
+                                    name="talend-chevron-end"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
@@ -2889,14 +2918,17 @@ exports[`List should render id if provided 1`] = `
                                             aria-hidden="true"
                                             class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                             focusable="false"
+                                            name="talend-chevron-end"
                                           />,
                                         }
                                       }
+                                      name="talend-chevron-end"
                                     >
                                       <svg
                                         aria-hidden="true"
                                         className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                         focusable="false"
+                                        name="talend-chevron-end"
                                       />
                                     </StyledComponent>
                                   </styled.svg>

@@ -579,6 +579,7 @@ exports[`ListView field render should render no items message 1`] = `
                         aria-hidden="true"
                         className="tc-svg-icon tc-icon-name-talend-search"
                         focusable="false"
+                        name="talend-search"
                       >
                         <StyledComponent
                           aria-hidden="true"
@@ -678,14 +679,17 @@ exports[`ListView field render should render no items message 1`] = `
                                 aria-hidden="true"
                                 class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                                 focusable="false"
+                                name="talend-search"
                               />,
                             }
                           }
+                          name="talend-search"
                         >
                           <svg
                             aria-hidden="true"
                             className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                             focusable="false"
+                            name="talend-search"
                           />
                         </StyledComponent>
                       </styled.svg>

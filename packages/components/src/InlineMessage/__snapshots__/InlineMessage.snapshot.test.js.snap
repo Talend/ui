@@ -11,6 +11,7 @@ exports[`InlineMessage should render with higligthed background 1`] = `
       aria-hidden="true"
       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check-circle"
       focusable="false"
+      name="talend-check-circle"
     />
   </span>
   <div
@@ -41,6 +42,7 @@ exports[`InlineMessage should render with icon and description 1`] = `
       aria-hidden="true"
       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check-circle"
       focusable="false"
+      name="talend-check-circle"
     />
   </span>
   <div
@@ -67,6 +69,7 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
       aria-hidden="true"
       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check-circle"
       focusable="false"
+      name="talend-check-circle"
     />
   </span>
   <div
@@ -97,6 +100,7 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
       aria-hidden="true"
       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check-circle"
       focusable="false"
+      name="talend-check-circle"
     />
   </span>
   <div
@@ -133,6 +137,7 @@ exports[`InlineMessage should render with title and description 1`] = `
       aria-hidden="true"
       className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-"
       focusable="false"
+      name=""
     />
   </span>
   <div

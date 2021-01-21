@@ -45,6 +45,7 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-arrow-left"
         focusable="false"
+        name="talend-arrow-left"
       />
       <span>
         Start over

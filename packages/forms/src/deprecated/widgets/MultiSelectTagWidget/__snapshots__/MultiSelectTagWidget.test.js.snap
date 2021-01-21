@@ -218,6 +218,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-fieldglass"
         focusable="false"
+        name="talend-fieldglass"
         title="No result."
       />
       <span>

@@ -201,6 +201,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
               aria-hidden="true"
               className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-filter"
               focusable="false"
+              name="fa fa-filter"
               title="icon"
             />
             <span
@@ -337,6 +338,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
               aria-hidden="true"
               className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-asterisk"
               focusable="false"
+              name="fa fa-asterisk"
               title="icon"
             />
             <span
@@ -535,6 +537,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
               aria-hidden="true"
               className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-filter"
               focusable="false"
+              name="fa fa-filter"
               title="icon"
             />
             <span
@@ -625,6 +628,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
               aria-hidden="true"
               className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-asterisk"
               focusable="false"
+              name="fa fa-asterisk"
               title="icon"
             />
             <span
@@ -853,6 +857,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
           aria-hidden="true"
           className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-fieldglass"
           focusable="false"
+          name="talend-fieldglass"
           title="No result."
         />
         <span>
@@ -959,6 +964,7 @@ exports[`Typeahead with toggle should render button 1`] = `
     aria-hidden="true"
     className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-search"
     focusable="false"
+    name="fa fa-search"
   />
 </button>
 `;

@@ -17,7 +17,8 @@ exports[`AppSwitcher should render the products 1`] = `
         <span class="tc-dropdown-button-title-label">
           My App
         </span>
-        <svg focusable="false"
+        <svg name="talend-caret-down"
+             focusable="false"
              aria-hidden="true"
              class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
         >
@@ -37,7 +38,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg focusable="false"
+            <svg name="talend-tdp-colored"
+                 focusable="false"
                  aria-hidden="true"
                  class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-tdp-colored"
             >
@@ -55,7 +57,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg focusable="false"
+            <svg name="talend-tic-colored"
+                 focusable="false"
                  aria-hidden="true"
                  class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-tic-colored"
             >
@@ -73,7 +76,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg focusable="false"
+            <svg name="talend-tmc-colored"
+                 focusable="false"
                  aria-hidden="true"
                  class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-tmc-colored"
             >

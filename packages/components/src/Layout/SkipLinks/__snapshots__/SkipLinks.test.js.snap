@@ -32,6 +32,7 @@ exports[`Skip links should render navigation link 1`] = `
                   aria-hidden="true"
                   className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                   focusable="false"
+                  name="talend-arrow-left"
                 >
                   <StyledComponent
                     aria-hidden="true"
@@ -131,14 +132,17 @@ exports[`Skip links should render navigation link 1`] = `
                           aria-hidden="true"
                           class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
+                          name="talend-arrow-left"
                         />,
                       }
                     }
+                    name="talend-arrow-left"
                   >
                     <svg
                       aria-hidden="true"
                       className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
+                      name="talend-arrow-left"
                     />
                   </StyledComponent>
                 </styled.svg>
@@ -173,6 +177,7 @@ exports[`Skip links should render navigation link 1`] = `
                   aria-hidden="true"
                   className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                   focusable="false"
+                  name="talend-arrow-left"
                 >
                   <StyledComponent
                     aria-hidden="true"
@@ -272,14 +277,17 @@ exports[`Skip links should render navigation link 1`] = `
                           aria-hidden="true"
                           class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
+                          name="talend-arrow-left"
                         />,
                       }
                     }
+                    name="talend-arrow-left"
                   >
                     <svg
                       aria-hidden="true"
                       className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
+                      name="talend-arrow-left"
                     />
                   </StyledComponent>
                 </styled.svg>
@@ -329,6 +337,7 @@ exports[`Skip links should render only main link 1`] = `
                   aria-hidden="true"
                   className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                   focusable="false"
+                  name="talend-arrow-left"
                 >
                   <StyledComponent
                     aria-hidden="true"
@@ -428,14 +437,17 @@ exports[`Skip links should render only main link 1`] = `
                           aria-hidden="true"
                           class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
+                          name="talend-arrow-left"
                         />,
                       }
                     }
+                    name="talend-arrow-left"
                   >
                     <svg
                       aria-hidden="true"
                       className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
+                      name="talend-arrow-left"
                     />
                   </StyledComponent>
                 </styled.svg>

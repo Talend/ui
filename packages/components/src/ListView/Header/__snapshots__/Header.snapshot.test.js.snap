@@ -29,6 +29,7 @@ exports[`Header should render header with one button 1`] = `
         aria-hidden="true"
         className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
         focusable="false"
+        name="talend-search"
       />
     </button>
   </div>

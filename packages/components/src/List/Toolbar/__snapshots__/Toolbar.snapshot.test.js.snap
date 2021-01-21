@@ -24,6 +24,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
           aria-hidden="true"
           className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
           focusable="false"
+          name="talend-plus"
         />
         <span>
           Add
@@ -68,6 +69,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
           aria-hidden="true"
           className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
           focusable="false"
+          name="talend-trash"
         />
         <span>
           Delete selection
@@ -223,6 +225,7 @@ exports[`Toolbar should render pagination 1`] = `
               aria-hidden="true"
               className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
               focusable="false"
+              name="talend-chevron-end"
             />
           </a>
         </li>
@@ -242,6 +245,7 @@ exports[`Toolbar should render pagination 1`] = `
               aria-hidden="true"
               className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
               focusable="false"
+              name="talend-chevron-left"
             />
           </a>
         </li>
@@ -269,6 +273,7 @@ exports[`Toolbar should render pagination 1`] = `
               aria-hidden="true"
               className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
               focusable="false"
+              name="talend-chevron-left"
             />
           </a>
         </li>
@@ -288,6 +293,7 @@ exports[`Toolbar should render pagination 1`] = `
               aria-hidden="true"
               className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
               focusable="false"
+              name="talend-chevron-end"
             />
           </a>
         </li>
