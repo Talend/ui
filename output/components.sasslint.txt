@@ -23,7 +23,7 @@ src/GuidedTour/GuidedTour.scss
   86:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
 
 src/HeaderBar/HeaderBar.scss
-  17:64  error  !important not allowed  no-important
+  16:64  error  !important not allowed  no-important
 
 src/List/Toolbar/Toolbar.scss
   70:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
@@ -49,21 +49,24 @@ src/SidePanel/SidePanel.scss
    46:29  error  !important not allowed  no-important
    47:21  error  !important not allowed  no-important
    48:21  error  !important not allowed  no-important
-   52:31  error  !important not allowed  no-important
-   53:25  error  !important not allowed  no-important
-   54:21  error  !important not allowed  no-important
-   55:27  error  !important not allowed  no-important
-   64:35  error  !important not allowed  no-important
-   69:44  error  !important not allowed  no-important
-   75:28  error  !important not allowed  no-important
-   76:41  error  !important not allowed  no-important
-  196:26  error  !important not allowed  no-important
-  219:50  error  !important not allowed  no-important
-  230:36  error  !important not allowed  no-important
+   51:19  error  !important not allowed  no-important
+   52:25  error  !important not allowed  no-important
+   53:28  error  !important not allowed  no-important
+   55:31  error  !important not allowed  no-important
+   56:25  error  !important not allowed  no-important
+   57:21  error  !important not allowed  no-important
+   58:27  error  !important not allowed  no-important
+   67:35  error  !important not allowed  no-important
+   72:44  error  !important not allowed  no-important
+   78:28  error  !important not allowed  no-important
+   79:41  error  !important not allowed  no-important
+  199:26  error  !important not allowed  no-important
+  222:50  error  !important not allowed  no-important
+  233:36  error  !important not allowed  no-important
 
 src/Typeahead/Typeahead.scss
    33:5  error  Mixins should come before declarations               mixins-before-declarations
   185:2  error  Duplicate properties are not allowed within a block  no-duplicate-properties
 
-✖ 40 problems (39 errors, 1 warning)
+✖ 43 problems (42 errors, 1 warning)
 
