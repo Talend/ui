@@ -87,7 +87,7 @@ HeaderListView.defaultProps = {
 };
 
 HeaderListView.propTypes = {
-	displayMode: PropTypes.string,
+	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
 	headerDefault: PropTypes.arrayOf(PropTypes.object),
 	headerInput: PropTypes.arrayOf(PropTypes.object),
 	headerLabel: PropTypes.string,
