@@ -75,12 +75,12 @@ exports[`List DisplayMode should render 1`] = `
               >
                 <styled.svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="tc-svg-icon tc-icon-name-talend-table"
                   focusable="false"
                 >
                   <StyledComponent
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="tc-svg-icon tc-icon-name-talend-table"
                     focusable="false"
                     forwardedComponent={
                       Object {
@@ -174,7 +174,7 @@ exports[`List DisplayMode should render 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon"
+                          class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-table"
                           focusable="false"
                         />,
                       }
@@ -182,7 +182,7 @@ exports[`List DisplayMode should render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon"
+                      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-table"
                       focusable="false"
                     />
                   </StyledComponent>
@@ -255,12 +255,12 @@ exports[`List DisplayMode should render 1`] = `
               >
                 <styled.svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="tc-svg-icon tc-icon-name-talend-expanded"
                   focusable="false"
                 >
                   <StyledComponent
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="tc-svg-icon tc-icon-name-talend-expanded"
                     focusable="false"
                     forwardedComponent={
                       Object {
@@ -354,7 +354,7 @@ exports[`List DisplayMode should render 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon"
+                          class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-expanded"
                           focusable="false"
                         />,
                       }
@@ -362,7 +362,7 @@ exports[`List DisplayMode should render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon"
+                      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-expanded"
                       focusable="false"
                     />
                   </StyledComponent>

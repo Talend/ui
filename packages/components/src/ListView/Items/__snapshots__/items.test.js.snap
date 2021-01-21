@@ -1026,12 +1026,12 @@ exports[`Items should render with nested items 1`] = `
                                     >
                                       <styled.svg
                                         aria-hidden="true"
-                                        className="tc-svg-icon"
+                                        className="tc-svg-icon tc-icon-name-talend-caret-down"
                                         focusable="false"
                                       >
                                         <StyledComponent
                                           aria-hidden="true"
-                                          className="tc-svg-icon"
+                                          className="tc-svg-icon tc-icon-name-talend-caret-down"
                                           focusable="false"
                                           forwardedComponent={
                                             Object {
@@ -1125,7 +1125,7 @@ exports[`Items should render with nested items 1`] = `
                                             Object {
                                               "current": <svg
                                                 aria-hidden="true"
-                                                class="sc-EHOje dQOrnx tc-svg-icon"
+                                                class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                                                 focusable="false"
                                               />,
                                             }
@@ -1133,7 +1133,7 @@ exports[`Items should render with nested items 1`] = `
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            className="sc-EHOje dQOrnx tc-svg-icon"
+                                            className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
                                             focusable="false"
                                           />
                                         </StyledComponent>

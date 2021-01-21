@@ -74,12 +74,12 @@ exports[`SelectSortBy should render 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-sort-asc"
         focusable="false"
       />
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180 tc-icon-name-talend-caret-down"
         focusable="false"
       />
     </button>
@@ -164,12 +164,12 @@ exports[`SelectSortBy should render id if provided 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-sort-asc"
         focusable="false"
       />
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180 tc-icon-name-talend-caret-down"
         focusable="false"
       />
     </button>
@@ -200,12 +200,12 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-sort-asc"
         focusable="false"
       />
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator rotate-180 tc-icon-name-talend-caret-down"
         focusable="false"
       />
     </button>

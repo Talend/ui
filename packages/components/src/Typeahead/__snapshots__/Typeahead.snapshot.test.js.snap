@@ -199,7 +199,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-filter"
               focusable="false"
               title="icon"
             />
@@ -335,7 +335,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-asterisk"
               focusable="false"
               title="icon"
             />
@@ -533,7 +533,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-filter"
               focusable="false"
               title="icon"
             />
@@ -623,7 +623,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-asterisk"
               focusable="false"
               title="icon"
             />
@@ -851,7 +851,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dQOrnx tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-fieldglass"
           focusable="false"
           title="No result."
         />
@@ -957,7 +957,7 @@ exports[`Typeahead with toggle should render button 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="sc-EHOje dQOrnx tc-svg-icon"
+    className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-search"
     focusable="false"
   />
 </button>

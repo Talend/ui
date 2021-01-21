@@ -22,7 +22,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dQOrnx tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
           focusable="false"
         />
         <span>
@@ -66,7 +66,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dQOrnx tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
           focusable="false"
         />
         <span>
@@ -221,7 +221,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
               focusable="false"
             />
           </a>
@@ -240,7 +240,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
               focusable="false"
             />
           </a>
@@ -267,7 +267,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+              className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
               focusable="false"
             />
           </a>
@@ -286,7 +286,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+              className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
               focusable="false"
             />
           </a>

@@ -92,12 +92,12 @@ exports[`TextFilter should render text filter component 1`] = `
               >
                 <styled.svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="tc-svg-icon tc-icon-name-talend-search"
                   focusable="false"
                 >
                   <StyledComponent
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="tc-svg-icon tc-icon-name-talend-search"
                     focusable="false"
                     forwardedComponent={
                       Object {
@@ -191,7 +191,7 @@ exports[`TextFilter should render text filter component 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon"
+                          class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                           focusable="false"
                         />,
                       }
@@ -199,7 +199,7 @@ exports[`TextFilter should render text filter component 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon"
+                      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                       focusable="false"
                     />
                   </StyledComponent>
@@ -307,12 +307,12 @@ exports[`TextFilter should render text filter component with defined docked stat
               >
                 <styled.svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="tc-svg-icon tc-icon-name-talend-search"
                   focusable="false"
                 >
                   <StyledComponent
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="tc-svg-icon tc-icon-name-talend-search"
                     focusable="false"
                     forwardedComponent={
                       Object {
@@ -406,7 +406,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon"
+                          class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                           focusable="false"
                         />,
                       }
@@ -414,7 +414,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon"
+                      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
                       focusable="false"
                     />
                   </StyledComponent>

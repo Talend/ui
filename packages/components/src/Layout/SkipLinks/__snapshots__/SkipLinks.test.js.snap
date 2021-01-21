@@ -30,12 +30,12 @@ exports[`Skip links should render navigation link 1`] = `
               >
                 <styled.svg
                   aria-hidden="true"
-                  className="tc-svg-icon rotate-270"
+                  className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                   focusable="false"
                 >
                   <StyledComponent
                     aria-hidden="true"
-                    className="tc-svg-icon rotate-270"
+                    className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                     focusable="false"
                     forwardedComponent={
                       Object {
@@ -129,7 +129,7 @@ exports[`Skip links should render navigation link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270"
+                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                         />,
                       }
@@ -137,7 +137,7 @@ exports[`Skip links should render navigation link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270"
+                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                     />
                   </StyledComponent>
@@ -171,12 +171,12 @@ exports[`Skip links should render navigation link 1`] = `
               >
                 <styled.svg
                   aria-hidden="true"
-                  className="tc-svg-icon rotate-270"
+                  className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                   focusable="false"
                 >
                   <StyledComponent
                     aria-hidden="true"
-                    className="tc-svg-icon rotate-270"
+                    className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                     focusable="false"
                     forwardedComponent={
                       Object {
@@ -270,7 +270,7 @@ exports[`Skip links should render navigation link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270"
+                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                         />,
                       }
@@ -278,7 +278,7 @@ exports[`Skip links should render navigation link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270"
+                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                     />
                   </StyledComponent>
@@ -327,12 +327,12 @@ exports[`Skip links should render only main link 1`] = `
               >
                 <styled.svg
                   aria-hidden="true"
-                  className="tc-svg-icon rotate-270"
+                  className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                   focusable="false"
                 >
                   <StyledComponent
                     aria-hidden="true"
-                    className="tc-svg-icon rotate-270"
+                    className="tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                     focusable="false"
                     forwardedComponent={
                       Object {
@@ -426,7 +426,7 @@ exports[`Skip links should render only main link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270"
+                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                         />,
                       }
@@ -434,7 +434,7 @@ exports[`Skip links should render only main link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270"
+                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                     />
                   </StyledComponent>

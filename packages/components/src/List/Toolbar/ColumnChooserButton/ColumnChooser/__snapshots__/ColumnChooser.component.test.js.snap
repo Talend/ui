@@ -19,7 +19,7 @@ exports[`ColumnChooser should render with default props 1`] = `
   <div class="form-group">
     <svg focusable="false"
          aria-hidden="true"
-         class="sc-EHOje dQOrnx tc-svg-icon theme-search-icon"
+         class="sc-EHOje dQOrnx tc-svg-icon theme-search-icon tc-icon-name-talend-search"
     >
     </svg>
     <input name="search"

@@ -19,7 +19,7 @@ exports[`AppSwitcher should render the products 1`] = `
         </span>
         <svg focusable="false"
              aria-hidden="true"
-             class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret"
+             class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
         >
         </svg>
       </button>
@@ -39,7 +39,7 @@ exports[`AppSwitcher should render the products 1`] = `
           >
             <svg focusable="false"
                  aria-hidden="true"
-                 class="sc-EHOje dQOrnx tc-svg-icon"
+                 class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-tdp-colored"
             >
             </svg>
             Data Preparation
@@ -57,7 +57,7 @@ exports[`AppSwitcher should render the products 1`] = `
           >
             <svg focusable="false"
                  aria-hidden="true"
-                 class="sc-EHOje dQOrnx tc-svg-icon"
+                 class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-tic-colored"
             >
             </svg>
             Integration Cloud
@@ -75,7 +75,7 @@ exports[`AppSwitcher should render the products 1`] = `
           >
             <svg focusable="false"
                  aria-hidden="true"
-                 class="sc-EHOje dQOrnx tc-svg-icon"
+                 class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-tmc-colored"
             >
             </svg>
             Management Console

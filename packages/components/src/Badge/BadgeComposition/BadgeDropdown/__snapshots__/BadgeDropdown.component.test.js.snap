@@ -15,7 +15,7 @@ exports[`BadgeDropdown should render a dropdown 1`] = `
     </span>
     <svg focusable="false"
          aria-hidden="true"
-         class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret"
+         class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
     >
     </svg>
   </button>

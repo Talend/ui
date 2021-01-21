@@ -349,12 +349,12 @@ exports[`InputDateTimeRangePicker should render 1`] = `
         >
           <styled.svg
             aria-hidden="true"
-            className="tc-svg-icon theme-icon icon"
+            className="tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
             focusable="false"
           >
             <StyledComponent
               aria-hidden="true"
-              className="tc-svg-icon theme-icon icon"
+              className="tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
               focusable="false"
               forwardedComponent={
                 Object {
@@ -448,7 +448,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                 Object {
                   "current": <svg
                     aria-hidden="true"
-                    class="sc-EHOje dQOrnx tc-svg-icon theme-icon icon"
+                    class="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                     focusable="false"
                   />,
                 }
@@ -456,7 +456,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="sc-EHOje dQOrnx tc-svg-icon theme-icon icon"
+                className="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                 focusable="false"
               />
             </StyledComponent>
@@ -1178,12 +1178,12 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
         >
           <styled.svg
             aria-hidden="true"
-            className="tc-svg-icon theme-icon icon"
+            className="tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
             focusable="false"
           >
             <StyledComponent
               aria-hidden="true"
-              className="tc-svg-icon theme-icon icon"
+              className="tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
               focusable="false"
               forwardedComponent={
                 Object {
@@ -1277,7 +1277,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                 Object {
                   "current": <svg
                     aria-hidden="true"
-                    class="sc-EHOje dQOrnx tc-svg-icon theme-icon icon"
+                    class="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                     focusable="false"
                   />,
                 }
@@ -1285,7 +1285,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="sc-EHOje dQOrnx tc-svg-icon theme-icon icon"
+                className="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                 focusable="false"
               />
             </StyledComponent>

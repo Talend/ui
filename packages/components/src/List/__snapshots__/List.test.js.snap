@@ -889,12 +889,12 @@ exports[`List should render 1`] = `
                                 >
                                   <styled.svg
                                     aria-hidden="true"
-                                    className="tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-chevron-end"
                                     focusable="false"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
-                                      className="tc-svg-icon"
+                                      className="tc-svg-icon tc-icon-name-talend-chevron-end"
                                       focusable="false"
                                       forwardedComponent={
                                         Object {
@@ -988,7 +988,7 @@ exports[`List should render 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
                                             focusable="false"
                                           />,
                                         }
@@ -996,7 +996,7 @@ exports[`List should render 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
                                         focusable="false"
                                       />
                                     </StyledComponent>
@@ -1037,12 +1037,12 @@ exports[`List should render 1`] = `
                                 >
                                   <styled.svg
                                     aria-hidden="true"
-                                    className="tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-chevron-left"
                                     focusable="false"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
-                                      className="tc-svg-icon"
+                                      className="tc-svg-icon tc-icon-name-talend-chevron-left"
                                       focusable="false"
                                       forwardedComponent={
                                         Object {
@@ -1136,7 +1136,7 @@ exports[`List should render 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
                                             focusable="false"
                                           />,
                                         }
@@ -1144,7 +1144,7 @@ exports[`List should render 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
                                         focusable="false"
                                       />
                                     </StyledComponent>
@@ -1195,12 +1195,12 @@ exports[`List should render 1`] = `
                                 >
                                   <styled.svg
                                     aria-hidden="true"
-                                    className="tc-svg-icon rotate-180"
+                                    className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                     focusable="false"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
-                                      className="tc-svg-icon rotate-180"
+                                      className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                       focusable="false"
                                       forwardedComponent={
                                         Object {
@@ -1294,7 +1294,7 @@ exports[`List should render 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                             focusable="false"
                                           />,
                                         }
@@ -1302,7 +1302,7 @@ exports[`List should render 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                         focusable="false"
                                       />
                                     </StyledComponent>
@@ -1344,12 +1344,12 @@ exports[`List should render 1`] = `
                                 >
                                   <styled.svg
                                     aria-hidden="true"
-                                    className="tc-svg-icon rotate-180"
+                                    className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                     focusable="false"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
-                                      className="tc-svg-icon rotate-180"
+                                      className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                       focusable="false"
                                       forwardedComponent={
                                         Object {
@@ -1443,7 +1443,7 @@ exports[`List should render 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                             focusable="false"
                                           />,
                                         }
@@ -1451,7 +1451,7 @@ exports[`List should render 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                         focusable="false"
                                       />
                                     </StyledComponent>
@@ -2324,12 +2324,12 @@ exports[`List should render id if provided 1`] = `
                                 >
                                   <styled.svg
                                     aria-hidden="true"
-                                    className="tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-chevron-end"
                                     focusable="false"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
-                                      className="tc-svg-icon"
+                                      className="tc-svg-icon tc-icon-name-talend-chevron-end"
                                       focusable="false"
                                       forwardedComponent={
                                         Object {
@@ -2423,7 +2423,7 @@ exports[`List should render id if provided 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
                                             focusable="false"
                                           />,
                                         }
@@ -2431,7 +2431,7 @@ exports[`List should render id if provided 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
                                         focusable="false"
                                       />
                                     </StyledComponent>
@@ -2475,12 +2475,12 @@ exports[`List should render id if provided 1`] = `
                                 >
                                   <styled.svg
                                     aria-hidden="true"
-                                    className="tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-chevron-left"
                                     focusable="false"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
-                                      className="tc-svg-icon"
+                                      className="tc-svg-icon tc-icon-name-talend-chevron-left"
                                       focusable="false"
                                       forwardedComponent={
                                         Object {
@@ -2574,7 +2574,7 @@ exports[`List should render id if provided 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
                                             focusable="false"
                                           />,
                                         }
@@ -2582,7 +2582,7 @@ exports[`List should render id if provided 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
                                         focusable="false"
                                       />
                                     </StyledComponent>
@@ -2636,12 +2636,12 @@ exports[`List should render id if provided 1`] = `
                                 >
                                   <styled.svg
                                     aria-hidden="true"
-                                    className="tc-svg-icon rotate-180"
+                                    className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                     focusable="false"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
-                                      className="tc-svg-icon rotate-180"
+                                      className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                       focusable="false"
                                       forwardedComponent={
                                         Object {
@@ -2735,7 +2735,7 @@ exports[`List should render id if provided 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                             focusable="false"
                                           />,
                                         }
@@ -2743,7 +2743,7 @@ exports[`List should render id if provided 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                         focusable="false"
                                       />
                                     </StyledComponent>
@@ -2788,12 +2788,12 @@ exports[`List should render id if provided 1`] = `
                                 >
                                   <styled.svg
                                     aria-hidden="true"
-                                    className="tc-svg-icon rotate-180"
+                                    className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                     focusable="false"
                                   >
                                     <StyledComponent
                                       aria-hidden="true"
-                                      className="tc-svg-icon rotate-180"
+                                      className="tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                       focusable="false"
                                       forwardedComponent={
                                         Object {
@@ -2887,7 +2887,7 @@ exports[`List should render id if provided 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                             focusable="false"
                                           />,
                                         }
@@ -2895,7 +2895,7 @@ exports[`List should render id if provided 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180"
+                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                         focusable="false"
                                       />
                                     </StyledComponent>

@@ -29,7 +29,7 @@ exports[`Status should render a label 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-cancel"
         focusable="false"
       />
       <span>
@@ -47,7 +47,7 @@ exports[`Status should render a label 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-delete"
         focusable="false"
       />
       <span>
@@ -68,7 +68,7 @@ exports[`Status should render a label with Icon 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="sc-EHOje dQOrnx tc-svg-icon"
+      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-check"
       focusable="false"
     />
   </span>
@@ -91,7 +91,7 @@ exports[`Status should render a label with Icon 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-cancel"
         focusable="false"
       />
       <span>
@@ -109,7 +109,7 @@ exports[`Status should render a label with Icon 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-delete"
         focusable="false"
       />
       <span>
@@ -130,7 +130,7 @@ exports[`Status should render a label with Icon without actions 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="sc-EHOje dQOrnx tc-svg-icon"
+      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-check"
       focusable="false"
     />
   </span>
@@ -194,7 +194,7 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-cancel"
         focusable="false"
       />
       <span>
@@ -212,7 +212,7 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-delete"
         focusable="false"
       />
       <span>
@@ -272,7 +272,7 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-cancel"
         focusable="false"
       />
       <span>
@@ -290,7 +290,7 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dQOrnx tc-svg-icon"
+        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-fa fa-delete"
         focusable="false"
       />
       <span>

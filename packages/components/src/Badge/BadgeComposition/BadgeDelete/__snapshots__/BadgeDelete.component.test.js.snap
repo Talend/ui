@@ -10,7 +10,7 @@ exports[`BadgeDelete should render 1`] = `
 >
   <svg focusable="false"
        aria-hidden="true"
-       class="sc-EHOje dQOrnx tc-svg-icon"
+       class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
   >
   </svg>
 </button>

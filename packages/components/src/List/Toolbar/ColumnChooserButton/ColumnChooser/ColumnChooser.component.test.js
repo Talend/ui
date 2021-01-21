@@ -99,6 +99,6 @@ describe('ColumnChooser', () => {
 		// When
 		const wrapper = mount(<Component {...props} />);
 		// Then
-		expect(wrapper.find('svg[name="talend-locked"]')).toHaveLength(2);
+		expect(wrapper.find('svg.tc-icon-name-talend-locked')).toHaveLength(2);
 	});
 });

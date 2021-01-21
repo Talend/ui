@@ -26,7 +26,7 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dQOrnx tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
           focusable="false"
         />
         <span>
@@ -51,7 +51,7 @@ exports[`Notification should render 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-undo"
               focusable="false"
             />
             <span>
@@ -85,7 +85,7 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dQOrnx tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
           focusable="false"
         />
         <span>
@@ -115,7 +115,7 @@ exports[`Notification should render 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dQOrnx tc-svg-icon"
+              className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-undo"
               focusable="false"
             />
             <span>
@@ -146,7 +146,7 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dQOrnx tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
           focusable="false"
         />
         <span>
@@ -192,7 +192,7 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dQOrnx tc-svg-icon"
+          className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
           focusable="false"
         />
         <span>
