@@ -1,13 +1,13 @@
 {
   "name": "@talend/design-system",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "scripts": {
     "build": "npm run build:lib && npm run build:lib:umd && npm run build:lib:umd:min",
     "build:lib": "talend-scripts build:ts:lib",
-    "build:lib:umd": "talend-scripts build:lib:umd",
-    "build:lib:umd:min": "talend-scripts build:lib:umd --env.optimize=true",
+    "build:lib:umd": "talend-scripts build:lib:umd --dev",
+    "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
     "start": "npm run storybook",
     "test": "talend-scripts test",
     "storybook": "start-storybook -s static -p 6006",
