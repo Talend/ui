@@ -53,9 +53,9 @@ $large-docked-width: 7rem;
 				justify-content: start;
 				font-size: 1.6rem;
 				height: $list-item-height;
-				margin: 0.5rem 1rem;
-				padding: 0.5rem;
-				border-radius: 0.4rem;
+				margin: $padding-smaller $padding-small;
+				padding: $padding-smaller;
+				border-radius: $border-radius-base;
 
 				> span {
 					margin-left: $padding-small;
