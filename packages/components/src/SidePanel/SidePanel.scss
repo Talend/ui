@@ -48,6 +48,9 @@ $large-docked-width: 7rem;
 			box-shadow: none !important;
 
 			.btn.btn-link {
+				display: flex !important;
+				align-items: center !important;
+				justify-content: start !important;
 				font-size: 1.6rem;
 				height: $list-item-height !important;
 				margin: 0.5rem 1rem !important;
