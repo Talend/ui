@@ -64,7 +64,7 @@ exports[`FieldTemplate should render with hint 1`] = `
     disabled={false}
     id="myAwesomeField-hint"
   >
-    <Icon
+    <Memo(Icon)
       name="talend-info-circle"
     />
   </Button>

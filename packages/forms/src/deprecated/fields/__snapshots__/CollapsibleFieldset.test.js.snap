@@ -156,18 +156,125 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
           title="Collapse"
           type="button"
         >
-          <Icon
+          <ForwardRef
             name="talend-caret-down"
             transform=""
           >
-            <svg
+            <styled.svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
+              className="tc-svg-icon tc-icon-name-talend-caret-down"
               focusable="false"
-              name="talend-caret-down"
-              title={null}
-            />
-          </Icon>
+            >
+              <StyledComponent
+                aria-hidden="true"
+                className="tc-svg-icon tc-icon-name-talend-caret-down"
+                focusable="false"
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-EHOje",
+                      "isStatic": false,
+                      "lastClassName": "dQOrnx",
+                      "rules": Array [
+                        "
+	width: ",
+                        "1.6rem",
+                        ";
+	height: ",
+                        "1.6rem",
+                        ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                        [Function],
+                        ";
+		",
+                        [Function],
+                        ";
+	}
+
+	.ti-background {
+		",
+                        [Function],
+                        ";
+	}
+
+	.ti-border {
+		",
+                        [Function],
+                        ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                      ],
+                    },
+                    "displayName": "styled.svg",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-EHOje",
+                    "target": "svg",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={
+                  Object {
+                    "current": <svg
+                      aria-hidden="true"
+                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                      focusable="false"
+                    />,
+                  }
+                }
+              >
+                <svg
+                  aria-hidden="true"
+                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                  focusable="false"
+                />
+              </StyledComponent>
+            </styled.svg>
+          </ForwardRef>
         </button>
       </div>
     </div>
@@ -813,18 +920,125 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
           title="Collapse"
           type="button"
         >
-          <Icon
+          <ForwardRef
             name="talend-caret-down"
             transform=""
           >
-            <svg
+            <styled.svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
+              className="tc-svg-icon tc-icon-name-talend-caret-down"
               focusable="false"
-              name="talend-caret-down"
-              title={null}
-            />
-          </Icon>
+            >
+              <StyledComponent
+                aria-hidden="true"
+                className="tc-svg-icon tc-icon-name-talend-caret-down"
+                focusable="false"
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-EHOje",
+                      "isStatic": false,
+                      "lastClassName": "dQOrnx",
+                      "rules": Array [
+                        "
+	width: ",
+                        "1.6rem",
+                        ";
+	height: ",
+                        "1.6rem",
+                        ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                        [Function],
+                        ";
+		",
+                        [Function],
+                        ";
+	}
+
+	.ti-background {
+		",
+                        [Function],
+                        ";
+	}
+
+	.ti-border {
+		",
+                        [Function],
+                        ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                      ],
+                    },
+                    "displayName": "styled.svg",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-EHOje",
+                    "target": "svg",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={
+                  Object {
+                    "current": <svg
+                      aria-hidden="true"
+                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                      focusable="false"
+                    />,
+                  }
+                }
+              >
+                <svg
+                  aria-hidden="true"
+                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                  focusable="false"
+                />
+              </StyledComponent>
+            </styled.svg>
+          </ForwardRef>
         </button>
       </div>
     </div>
@@ -1470,18 +1684,125 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
           title="Collapse"
           type="button"
         >
-          <Icon
+          <ForwardRef
             name="talend-caret-down"
             transform=""
           >
-            <svg
+            <styled.svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
+              className="tc-svg-icon tc-icon-name-talend-caret-down"
               focusable="false"
-              name="talend-caret-down"
-              title={null}
-            />
-          </Icon>
+            >
+              <StyledComponent
+                aria-hidden="true"
+                className="tc-svg-icon tc-icon-name-talend-caret-down"
+                focusable="false"
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-EHOje",
+                      "isStatic": false,
+                      "lastClassName": "dQOrnx",
+                      "rules": Array [
+                        "
+	width: ",
+                        "1.6rem",
+                        ";
+	height: ",
+                        "1.6rem",
+                        ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                        [Function],
+                        ";
+		",
+                        [Function],
+                        ";
+	}
+
+	.ti-background {
+		",
+                        [Function],
+                        ";
+	}
+
+	.ti-border {
+		",
+                        [Function],
+                        ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                      ],
+                    },
+                    "displayName": "styled.svg",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-EHOje",
+                    "target": "svg",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={
+                  Object {
+                    "current": <svg
+                      aria-hidden="true"
+                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                      focusable="false"
+                    />,
+                  }
+                }
+              >
+                <svg
+                  aria-hidden="true"
+                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                  focusable="false"
+                />
+              </StyledComponent>
+            </styled.svg>
+          </ForwardRef>
         </button>
       </div>
     </div>
@@ -2127,18 +2448,125 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
           title="Collapse"
           type="button"
         >
-          <Icon
+          <ForwardRef
             name="talend-caret-down"
             transform="flip-vertical"
           >
-            <svg
+            <styled.svg
               aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon theme-flip-vertical"
+              className="tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
               focusable="false"
-              name="talend-caret-down"
-              title={null}
-            />
-          </Icon>
+            >
+              <StyledComponent
+                aria-hidden="true"
+                className="tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
+                focusable="false"
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-EHOje",
+                      "isStatic": false,
+                      "lastClassName": "dQOrnx",
+                      "rules": Array [
+                        "
+	width: ",
+                        "1.6rem",
+                        ";
+	height: ",
+                        "1.6rem",
+                        ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                        [Function],
+                        ";
+		",
+                        [Function],
+                        ";
+	}
+
+	.ti-background {
+		",
+                        [Function],
+                        ";
+	}
+
+	.ti-border {
+		",
+                        [Function],
+                        ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                      ],
+                    },
+                    "displayName": "styled.svg",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-EHOje",
+                    "target": "svg",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={
+                  Object {
+                    "current": <svg
+                      aria-hidden="true"
+                      class="sc-EHOje dQOrnx tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
+                      focusable="false"
+                    />,
+                  }
+                }
+              >
+                <svg
+                  aria-hidden="true"
+                  className="sc-EHOje dQOrnx tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
+                  focusable="false"
+                />
+              </StyledComponent>
+            </styled.svg>
+          </ForwardRef>
         </button>
       </div>
     </div>

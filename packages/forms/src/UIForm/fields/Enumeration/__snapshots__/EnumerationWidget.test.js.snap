@@ -341,18 +341,125 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                 role="link"
                                 type="button"
                               >
-                                <Icon
+                                <ForwardRef
                                   key="icon"
                                   name="talend-search"
                                 >
-                                  <svg
+                                  <styled.svg
                                     aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-search"
                                     focusable="false"
-                                    name="talend-search"
-                                    title={null}
-                                  />
-                                </Icon>
+                                  >
+                                    <StyledComponent
+                                      aria-hidden="true"
+                                      className="tc-svg-icon tc-icon-name-talend-search"
+                                      focusable="false"
+                                      forwardedComponent={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "attrs": Array [],
+                                          "componentStyle": ComponentStyle {
+                                            "componentId": "sc-EHOje",
+                                            "isStatic": false,
+                                            "lastClassName": "dQOrnx",
+                                            "rules": Array [
+                                              "
+	width: ",
+                                              "1.6rem",
+                                              ";
+	height: ",
+                                              "1.6rem",
+                                              ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                              [Function],
+                                              ";
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-background {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-border {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                            ],
+                                          },
+                                          "displayName": "styled.svg",
+                                          "foldedComponentIds": Array [],
+                                          "render": [Function],
+                                          "styledComponentId": "sc-EHOje",
+                                          "target": "svg",
+                                          "toString": [Function],
+                                          "warnTooManyClasses": [Function],
+                                          "withComponent": [Function],
+                                        }
+                                      }
+                                      forwardedRef={
+                                        Object {
+                                          "current": <svg
+                                            aria-hidden="true"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                            focusable="false"
+                                          />,
+                                        }
+                                      }
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                        focusable="false"
+                                      />
+                                    </StyledComponent>
+                                  </styled.svg>
+                                </ForwardRef>
                               </button>
                             </Button>
                           </TooltipTrigger>
@@ -424,18 +531,125 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                 role="link"
                                 type="button"
                               >
-                                <Icon
+                                <ForwardRef
                                   key="icon"
                                   name="talend-plus"
                                 >
-                                  <svg
+                                  <styled.svg
                                     aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-plus"
                                     focusable="false"
-                                    name="talend-plus"
-                                    title={null}
-                                  />
-                                </Icon>
+                                  >
+                                    <StyledComponent
+                                      aria-hidden="true"
+                                      className="tc-svg-icon tc-icon-name-talend-plus"
+                                      focusable="false"
+                                      forwardedComponent={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "attrs": Array [],
+                                          "componentStyle": ComponentStyle {
+                                            "componentId": "sc-EHOje",
+                                            "isStatic": false,
+                                            "lastClassName": "dQOrnx",
+                                            "rules": Array [
+                                              "
+	width: ",
+                                              "1.6rem",
+                                              ";
+	height: ",
+                                              "1.6rem",
+                                              ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                              [Function],
+                                              ";
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-background {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-border {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                            ],
+                                          },
+                                          "displayName": "styled.svg",
+                                          "foldedComponentIds": Array [],
+                                          "render": [Function],
+                                          "styledComponentId": "sc-EHOje",
+                                          "target": "svg",
+                                          "toString": [Function],
+                                          "warnTooManyClasses": [Function],
+                                          "withComponent": [Function],
+                                        }
+                                      }
+                                      forwardedRef={
+                                        Object {
+                                          "current": <svg
+                                            aria-hidden="true"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                            focusable="false"
+                                          />,
+                                        }
+                                      }
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                        focusable="false"
+                                      />
+                                    </StyledComponent>
+                                  </styled.svg>
+                                </ForwardRef>
                               </button>
                             </Button>
                           </TooltipTrigger>
@@ -938,18 +1152,125 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                 role="link"
                                 type="button"
                               >
-                                <Icon
+                                <ForwardRef
                                   key="icon"
                                   name="talend-search"
                                 >
-                                  <svg
+                                  <styled.svg
                                     aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-search"
                                     focusable="false"
-                                    name="talend-search"
-                                    title={null}
-                                  />
-                                </Icon>
+                                  >
+                                    <StyledComponent
+                                      aria-hidden="true"
+                                      className="tc-svg-icon tc-icon-name-talend-search"
+                                      focusable="false"
+                                      forwardedComponent={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "attrs": Array [],
+                                          "componentStyle": ComponentStyle {
+                                            "componentId": "sc-EHOje",
+                                            "isStatic": false,
+                                            "lastClassName": "dQOrnx",
+                                            "rules": Array [
+                                              "
+	width: ",
+                                              "1.6rem",
+                                              ";
+	height: ",
+                                              "1.6rem",
+                                              ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                              [Function],
+                                              ";
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-background {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-border {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                            ],
+                                          },
+                                          "displayName": "styled.svg",
+                                          "foldedComponentIds": Array [],
+                                          "render": [Function],
+                                          "styledComponentId": "sc-EHOje",
+                                          "target": "svg",
+                                          "toString": [Function],
+                                          "warnTooManyClasses": [Function],
+                                          "withComponent": [Function],
+                                        }
+                                      }
+                                      forwardedRef={
+                                        Object {
+                                          "current": <svg
+                                            aria-hidden="true"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                            focusable="false"
+                                          />,
+                                        }
+                                      }
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                        focusable="false"
+                                      />
+                                    </StyledComponent>
+                                  </styled.svg>
+                                </ForwardRef>
                               </button>
                             </Button>
                           </TooltipTrigger>
@@ -1021,18 +1342,125 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                 role="link"
                                 type="button"
                               >
-                                <Icon
+                                <ForwardRef
                                   key="icon"
                                   name="talend-plus"
                                 >
-                                  <svg
+                                  <styled.svg
                                     aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-plus"
                                     focusable="false"
-                                    name="talend-plus"
-                                    title={null}
-                                  />
-                                </Icon>
+                                  >
+                                    <StyledComponent
+                                      aria-hidden="true"
+                                      className="tc-svg-icon tc-icon-name-talend-plus"
+                                      focusable="false"
+                                      forwardedComponent={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "attrs": Array [],
+                                          "componentStyle": ComponentStyle {
+                                            "componentId": "sc-EHOje",
+                                            "isStatic": false,
+                                            "lastClassName": "dQOrnx",
+                                            "rules": Array [
+                                              "
+	width: ",
+                                              "1.6rem",
+                                              ";
+	height: ",
+                                              "1.6rem",
+                                              ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                              [Function],
+                                              ";
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-background {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-border {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                            ],
+                                          },
+                                          "displayName": "styled.svg",
+                                          "foldedComponentIds": Array [],
+                                          "render": [Function],
+                                          "styledComponentId": "sc-EHOje",
+                                          "target": "svg",
+                                          "toString": [Function],
+                                          "warnTooManyClasses": [Function],
+                                          "withComponent": [Function],
+                                        }
+                                      }
+                                      forwardedRef={
+                                        Object {
+                                          "current": <svg
+                                            aria-hidden="true"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                            focusable="false"
+                                          />,
+                                        }
+                                      }
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                        focusable="false"
+                                      />
+                                    </StyledComponent>
+                                  </styled.svg>
+                                </ForwardRef>
                               </button>
                             </Button>
                           </TooltipTrigger>
@@ -1529,18 +1957,125 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                 role="link"
                                 type="button"
                               >
-                                <Icon
+                                <ForwardRef
                                   key="icon"
                                   name="talend-search"
                                 >
-                                  <svg
+                                  <styled.svg
                                     aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-search"
                                     focusable="false"
-                                    name="talend-search"
-                                    title={null}
-                                  />
-                                </Icon>
+                                  >
+                                    <StyledComponent
+                                      aria-hidden="true"
+                                      className="tc-svg-icon tc-icon-name-talend-search"
+                                      focusable="false"
+                                      forwardedComponent={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "attrs": Array [],
+                                          "componentStyle": ComponentStyle {
+                                            "componentId": "sc-EHOje",
+                                            "isStatic": false,
+                                            "lastClassName": "dQOrnx",
+                                            "rules": Array [
+                                              "
+	width: ",
+                                              "1.6rem",
+                                              ";
+	height: ",
+                                              "1.6rem",
+                                              ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                              [Function],
+                                              ";
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-background {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-border {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                            ],
+                                          },
+                                          "displayName": "styled.svg",
+                                          "foldedComponentIds": Array [],
+                                          "render": [Function],
+                                          "styledComponentId": "sc-EHOje",
+                                          "target": "svg",
+                                          "toString": [Function],
+                                          "warnTooManyClasses": [Function],
+                                          "withComponent": [Function],
+                                        }
+                                      }
+                                      forwardedRef={
+                                        Object {
+                                          "current": <svg
+                                            aria-hidden="true"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                            focusable="false"
+                                          />,
+                                        }
+                                      }
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                        focusable="false"
+                                      />
+                                    </StyledComponent>
+                                  </styled.svg>
+                                </ForwardRef>
                               </button>
                             </Button>
                           </TooltipTrigger>
@@ -1612,18 +2147,125 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                 role="link"
                                 type="button"
                               >
-                                <Icon
+                                <ForwardRef
                                   key="icon"
                                   name="talend-plus"
                                 >
-                                  <svg
+                                  <styled.svg
                                     aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-plus"
                                     focusable="false"
-                                    name="talend-plus"
-                                    title={null}
-                                  />
-                                </Icon>
+                                  >
+                                    <StyledComponent
+                                      aria-hidden="true"
+                                      className="tc-svg-icon tc-icon-name-talend-plus"
+                                      focusable="false"
+                                      forwardedComponent={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "attrs": Array [],
+                                          "componentStyle": ComponentStyle {
+                                            "componentId": "sc-EHOje",
+                                            "isStatic": false,
+                                            "lastClassName": "dQOrnx",
+                                            "rules": Array [
+                                              "
+	width: ",
+                                              "1.6rem",
+                                              ";
+	height: ",
+                                              "1.6rem",
+                                              ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                              [Function],
+                                              ";
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-background {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-border {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                            ],
+                                          },
+                                          "displayName": "styled.svg",
+                                          "foldedComponentIds": Array [],
+                                          "render": [Function],
+                                          "styledComponentId": "sc-EHOje",
+                                          "target": "svg",
+                                          "toString": [Function],
+                                          "warnTooManyClasses": [Function],
+                                          "withComponent": [Function],
+                                        }
+                                      }
+                                      forwardedRef={
+                                        Object {
+                                          "current": <svg
+                                            aria-hidden="true"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                            focusable="false"
+                                          />,
+                                        }
+                                      }
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                        focusable="false"
+                                      />
+                                    </StyledComponent>
+                                  </styled.svg>
+                                </ForwardRef>
                               </button>
                             </Button>
                           </TooltipTrigger>
@@ -2203,18 +2845,125 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 role="link"
                                 type="button"
                               >
-                                <Icon
+                                <ForwardRef
                                   key="icon"
                                   name="talend-search"
                                 >
-                                  <svg
+                                  <styled.svg
                                     aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-search"
                                     focusable="false"
-                                    name="talend-search"
-                                    title={null}
-                                  />
-                                </Icon>
+                                  >
+                                    <StyledComponent
+                                      aria-hidden="true"
+                                      className="tc-svg-icon tc-icon-name-talend-search"
+                                      focusable="false"
+                                      forwardedComponent={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "attrs": Array [],
+                                          "componentStyle": ComponentStyle {
+                                            "componentId": "sc-EHOje",
+                                            "isStatic": false,
+                                            "lastClassName": "dQOrnx",
+                                            "rules": Array [
+                                              "
+	width: ",
+                                              "1.6rem",
+                                              ";
+	height: ",
+                                              "1.6rem",
+                                              ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                              [Function],
+                                              ";
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-background {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-border {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                            ],
+                                          },
+                                          "displayName": "styled.svg",
+                                          "foldedComponentIds": Array [],
+                                          "render": [Function],
+                                          "styledComponentId": "sc-EHOje",
+                                          "target": "svg",
+                                          "toString": [Function],
+                                          "warnTooManyClasses": [Function],
+                                          "withComponent": [Function],
+                                        }
+                                      }
+                                      forwardedRef={
+                                        Object {
+                                          "current": <svg
+                                            aria-hidden="true"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                            focusable="false"
+                                          />,
+                                        }
+                                      }
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                        focusable="false"
+                                      />
+                                    </StyledComponent>
+                                  </styled.svg>
+                                </ForwardRef>
                               </button>
                             </Button>
                           </TooltipTrigger>
@@ -2278,10 +3027,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             role="button"
                             title={
                               Array [
-                                <Icon
+                                <Memo(Icon)
                                   name="talend-download"
                                 />,
-                                <Icon
+                                <Memo(Icon)
                                   className="theme-tc-dropdown-caret"
                                   name="talend-caret-down"
                                 />,
@@ -2386,31 +3135,245 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           role="button"
                                           type="button"
                                         >
-                                          <Icon
+                                          <ForwardRef
                                             key="icon"
                                             name="talend-download"
                                           >
-                                            <svg
+                                            <styled.svg
                                               aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
+                                              className="tc-svg-icon tc-icon-name-talend-download"
                                               focusable="false"
-                                              name="talend-download"
-                                              title={null}
-                                            />
-                                          </Icon>
-                                          <Icon
+                                            >
+                                              <StyledComponent
+                                                aria-hidden="true"
+                                                className="tc-svg-icon tc-icon-name-talend-download"
+                                                focusable="false"
+                                                forwardedComponent={
+                                                  Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "attrs": Array [],
+                                                    "componentStyle": ComponentStyle {
+                                                      "componentId": "sc-EHOje",
+                                                      "isStatic": false,
+                                                      "lastClassName": "dQOrnx",
+                                                      "rules": Array [
+                                                        "
+	width: ",
+                                                        "1.6rem",
+                                                        ";
+	height: ",
+                                                        "1.6rem",
+                                                        ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                                        [Function],
+                                                        ";
+		",
+                                                        [Function],
+                                                        ";
+	}
+
+	.ti-background {
+		",
+                                                        [Function],
+                                                        ";
+	}
+
+	.ti-border {
+		",
+                                                        [Function],
+                                                        ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                                      ],
+                                                    },
+                                                    "displayName": "styled.svg",
+                                                    "foldedComponentIds": Array [],
+                                                    "render": [Function],
+                                                    "styledComponentId": "sc-EHOje",
+                                                    "target": "svg",
+                                                    "toString": [Function],
+                                                    "warnTooManyClasses": [Function],
+                                                    "withComponent": [Function],
+                                                  }
+                                                }
+                                                forwardedRef={
+                                                  Object {
+                                                    "current": <svg
+                                                      aria-hidden="true"
+                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
+                                                      focusable="false"
+                                                    />,
+                                                  }
+                                                }
+                                              >
+                                                <svg
+                                                  aria-hidden="true"
+                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
+                                                  focusable="false"
+                                                />
+                                              </StyledComponent>
+                                            </styled.svg>
+                                          </ForwardRef>
+                                          <ForwardRef
                                             className="theme-tc-dropdown-caret"
                                             key="caret"
                                             name="talend-caret-down"
                                           >
-                                            <svg
+                                            <styled.svg
                                               aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
+                                              className="tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                               focusable="false"
-                                              name="talend-caret-down"
-                                              title={null}
-                                            />
-                                          </Icon>
+                                            >
+                                              <StyledComponent
+                                                aria-hidden="true"
+                                                className="tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                                focusable="false"
+                                                forwardedComponent={
+                                                  Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "attrs": Array [],
+                                                    "componentStyle": ComponentStyle {
+                                                      "componentId": "sc-EHOje",
+                                                      "isStatic": false,
+                                                      "lastClassName": "dQOrnx",
+                                                      "rules": Array [
+                                                        "
+	width: ",
+                                                        "1.6rem",
+                                                        ";
+	height: ",
+                                                        "1.6rem",
+                                                        ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                                        [Function],
+                                                        ";
+		",
+                                                        [Function],
+                                                        ";
+	}
+
+	.ti-background {
+		",
+                                                        [Function],
+                                                        ";
+	}
+
+	.ti-border {
+		",
+                                                        [Function],
+                                                        ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                                      ],
+                                                    },
+                                                    "displayName": "styled.svg",
+                                                    "foldedComponentIds": Array [],
+                                                    "render": [Function],
+                                                    "styledComponentId": "sc-EHOje",
+                                                    "target": "svg",
+                                                    "toString": [Function],
+                                                    "warnTooManyClasses": [Function],
+                                                    "withComponent": [Function],
+                                                  }
+                                                }
+                                                forwardedRef={
+                                                  Object {
+                                                    "current": <svg
+                                                      aria-hidden="true"
+                                                      class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                                      focusable="false"
+                                                    />,
+                                                  }
+                                                }
+                                              >
+                                                <svg
+                                                  aria-hidden="true"
+                                                  className="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                                  focusable="false"
+                                                />
+                                              </StyledComponent>
+                                            </styled.svg>
+                                          </ForwardRef>
                                         </button>
                                       </Button>
                                     </DropdownToggle>
@@ -2617,18 +3580,125 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 role="link"
                                 type="button"
                               >
-                                <Icon
+                                <ForwardRef
                                   key="icon"
                                   name="talend-plus"
                                 >
-                                  <svg
+                                  <styled.svg
                                     aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
+                                    className="tc-svg-icon tc-icon-name-talend-plus"
                                     focusable="false"
-                                    name="talend-plus"
-                                    title={null}
-                                  />
-                                </Icon>
+                                  >
+                                    <StyledComponent
+                                      aria-hidden="true"
+                                      className="tc-svg-icon tc-icon-name-talend-plus"
+                                      focusable="false"
+                                      forwardedComponent={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "attrs": Array [],
+                                          "componentStyle": ComponentStyle {
+                                            "componentId": "sc-EHOje",
+                                            "isStatic": false,
+                                            "lastClassName": "dQOrnx",
+                                            "rules": Array [
+                                              "
+	width: ",
+                                              "1.6rem",
+                                              ";
+	height: ",
+                                              "1.6rem",
+                                              ";
+	transform-origin: center;
+
+	circle,
+	path,
+	polygon,
+	polyline {
+		",
+                                              [Function],
+                                              ";
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-background {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	.ti-border {
+		",
+                                              [Function],
+                                              ";
+	}
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+",
+                                            ],
+                                          },
+                                          "displayName": "styled.svg",
+                                          "foldedComponentIds": Array [],
+                                          "render": [Function],
+                                          "styledComponentId": "sc-EHOje",
+                                          "target": "svg",
+                                          "toString": [Function],
+                                          "warnTooManyClasses": [Function],
+                                          "withComponent": [Function],
+                                        }
+                                      }
+                                      forwardedRef={
+                                        Object {
+                                          "current": <svg
+                                            aria-hidden="true"
+                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                            focusable="false"
+                                          />,
+                                        }
+                                      }
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                        focusable="false"
+                                      />
+                                    </StyledComponent>
+                                  </styled.svg>
+                                </ForwardRef>
                               </button>
                             </Button>
                           </TooltipTrigger>

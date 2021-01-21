@@ -6,7 +6,7 @@ exports[`CheckBox field in text mode should render checked value 1`] = `
   id="myForm"
   label="My checkbox title"
 >
-  <Icon
+  <Memo(Icon)
     aria-hidden={false}
     aria-label={true}
     className="theme-icon"
@@ -21,7 +21,7 @@ exports[`CheckBox field in text mode should render unchecked value 1`] = `
   id="myForm"
   label="My checkbox title"
 >
-  <Icon
+  <Memo(Icon)
     aria-hidden={false}
     aria-label={false}
     className="theme-icon theme-cross"
