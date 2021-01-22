@@ -73,6 +73,8 @@
     "styled-components": "^5.2.1"
   },
   "resolutions": {
-    "core-js": "3"
+    "core-js": "3",
+    "immer": "^8.0.1",
+    "node-notifier": "^8.0.1"
   }
 }
