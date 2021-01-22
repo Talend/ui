@@ -145,34 +145,32 @@ export function renderItemsContainerFactory(
 		}
 
 		return (
-			console.log({ styles, attributes }) || (
+			<div
+				className={containerClassName}
+				id={containerProps.id}
+				key={containerProps.key}
+				role={containerProps.role}
+				ref={setPopperElement}
+				style={styles.popper}
+				{...attributes.popper}
+			>
 				<div
-					className={containerClassName}
-					id={containerProps.id}
-					key={containerProps.key}
-					role={containerProps.role}
-					ref={setPopperElement}
-					style={styles.popper}
-					{...attributes.popper}
+					ref={containerProps.ref}
+					className={theme['items-body']}
+					style={{ maxHeight: styles.popper.maxHeight }}
 				>
-					<div
-						ref={containerProps.ref}
-						className={theme['items-body']}
-						style={{ maxHeight: styles.popper.maxHeight }}
-					>
-						{render(
-							content,
-							{
-								isShown,
-								loading,
-								noResult,
-								searching,
-							},
-							containerProps.ref,
-						)}
-					</div>
+					{render(
+						content,
+						{
+							isShown,
+							loading,
+							noResult,
+							searching,
+						},
+						containerProps.ref,
+					)}
 				</div>
-			)
+			</div>
 		);
 	}
 

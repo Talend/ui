@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
@@ -49,9 +49,11 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			phase: 'beforeWrite',
 			requires: ['computeStyles'],
 			fn: ({ state }) => {
+				// eslint-disable-next-line no-param-reassign
 				state.styles.popper.width = `${state.rects.reference.width}px`;
 			},
 			effect: ({ state }) => {
+				// eslint-disable-next-line no-param-reassign
 				state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
 			},
 		}),
@@ -76,7 +78,9 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				}
 				const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
 
+				// eslint-disable-next-line no-param-reassign
 				state.placement = newPlacement;
+				// eslint-disable-next-line no-param-reassign
 				state.styles.popper.maxHeight = `${maxHeight}px`;
 			},
 		}),
