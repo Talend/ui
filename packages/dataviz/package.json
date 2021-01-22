@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-dataviz",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Talend charts and visualization components",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
@@ -50,8 +50,8 @@
     "@talend/locales-tui": ">=5.29.0",
     "@talend/locales-tui-dataviz": "0.0.1",
     "@talend/react-components": "^6.4.0",
-    "@talend/scripts-core": "^7.2.1",
-    "@talend/scripts-preset-react-lib": "^7.2.1",
+    "@talend/scripts-core": "^7.5.0",
+    "@talend/scripts-preset-react-lib": "^7.5.0",
     "@types/classnames": "^2.2.11",
     "@types/d3": "^6.2.0",
     "@types/enzyme": "^3.10.8",
