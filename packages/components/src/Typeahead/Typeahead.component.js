@@ -42,6 +42,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 
 	const [referenceElement, setReferenceElement] = useState(null);
 	const [popperElement, setPopperElement] = useState(null);
+	const [focus, setFocus] = useState(false);
 	const withSameWidth = useMemo(
 		() => ({
 			name: 'withSameWidth',
@@ -87,7 +88,26 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		[],
 	);
 
-	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+	const withInitialState = useMemo(
+		() => ({
+			name: 'withInitialState',
+			enabled: true,
+			phase: 'write',
+			requires: ['computeStyles'],
+			fn: ({ state }) => {
+				if (!focus) {
+					// eslint-disable-next-line no-param-reassign
+					state.styles.popper.opacity = 0;
+				} else {
+					// eslint-disable-next-line no-param-reassign
+					delete state.styles.popper.opacity;
+				}
+			}
+		}),
+		[focus],
+	);
+
+	const { styles, attributes, ...popper } = usePopper(referenceElement, popperElement, {
 		modifiers: [
 			{ name: 'hide', enabled: false },
 			{ name: 'preventOverflow', enabled: false },
@@ -99,11 +119,11 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			},
 			withSameWidth,
 			withInViewport,
+			withInitialState,
 		],
 		strategy: 'fixed',
 		placement: 'bottom-start',
 	});
-
 	const [highlightedSectionIndex, setHighlightedSectionIndex] = useState(0);
 	const [highlightedItemIndex, setHighlightedItemIndex] = useState(0);
 
@@ -186,7 +206,14 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			setReferenceElement,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
-			onFocus: rest.onFocus,
+			onFocus: event => {
+				if (!focus) {
+					setFocus(true);
+				}
+				if (rest.onFocus) {
+					rest.onFocus(event);
+				}
+			},
 			onClick: rest.onClick,
 			onKeyDown: rest.onKeyDown || handleKeyDown,
 			placeholder: rest.placeholder,
