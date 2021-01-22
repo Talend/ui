@@ -65,8 +65,10 @@ export default function InputDatePicker(props) {
 			inputRef={setReferenceElement}
 		/>,
 		handlers.showPicker && (
+			// eslint-disable-next-line jsx-a11y/interactive-supports-focus
 			<div
 				id={popoverId}
+				role="button"
 				className={theme.popper}
 				ref={setPopperElement}
 				style={styles.popper}
@@ -118,4 +120,5 @@ InputDatePicker.propTypes = {
 	timezone: PropTypes.string,
 	hideTimezone: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	required: PropTypes.bool,
 };

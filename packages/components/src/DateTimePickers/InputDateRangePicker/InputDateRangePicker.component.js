@@ -86,7 +86,7 @@ export default function InputDateRangePicker(props) {
 								id={`${props.id}-start-input`}
 								date={startDate}
 								onChange={onStartChange}
-								onFocus={() => setReferenceElement(startDateInputRef)}
+								onFocus={() => setReferenceElement(startDateInputRef.current)}
 								label={props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 								ref={startDateInputRef}
 							/>
@@ -98,7 +98,7 @@ export default function InputDateRangePicker(props) {
 								id={`${props.id}-end-input`}
 								date={endDate}
 								onChange={onEndChange}
-								onFocus={() => setReferenceElement(endDateInputRef)}
+								onFocus={() => setReferenceElement(endDateInputRef.current)}
 								label={props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
 								ref={endDateInputRef}
 							/>
