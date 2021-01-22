@@ -35,7 +35,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           <svg name="talend-locked"
                focusable="false"
                aria-hidden="true"
-               class="sc-EHOje dQOrnx tc-svg-icon tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon tc-icon-name-talend-locked"
+               class="sc-EHOje dOvxkt tc-svg-icon tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon tc-icon-name-talend-locked"
           >
           </svg>
           <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
@@ -46,7 +46,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           <svg name="talend-locked"
                focusable="false"
                aria-hidden="true"
-               class="sc-EHOje dQOrnx tc-svg-icon tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon tc-icon-name-talend-locked"
+               class="sc-EHOje dOvxkt tc-svg-icon tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon tc-icon-name-talend-locked"
           >
           </svg>
           <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">

@@ -45,7 +45,7 @@ exports[`Skip links should render navigation link 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dQOrnx",
+                          "lastClassName": "dOvxkt",
                           "rules": Array [
                             "
 	width: ",
@@ -130,7 +130,7 @@ exports[`Skip links should render navigation link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                          class="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                           name="talend-arrow-left"
                         />,
@@ -140,7 +140,7 @@ exports[`Skip links should render navigation link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                      className="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                       name="talend-arrow-left"
                     />
@@ -190,7 +190,7 @@ exports[`Skip links should render navigation link 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dQOrnx",
+                          "lastClassName": "dOvxkt",
                           "rules": Array [
                             "
 	width: ",
@@ -275,7 +275,7 @@ exports[`Skip links should render navigation link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                          class="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                           name="talend-arrow-left"
                         />,
@@ -285,7 +285,7 @@ exports[`Skip links should render navigation link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                      className="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                       name="talend-arrow-left"
                     />
@@ -350,7 +350,7 @@ exports[`Skip links should render only main link 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dQOrnx",
+                          "lastClassName": "dOvxkt",
                           "rules": Array [
                             "
 	width: ",
@@ -435,7 +435,7 @@ exports[`Skip links should render only main link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                          class="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                           name="talend-arrow-left"
                         />,
@@ -445,7 +445,7 @@ exports[`Skip links should render only main link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                      className="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                       name="talend-arrow-left"
                     />

@@ -904,7 +904,7 @@ exports[`List should render 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dQOrnx",
+                                            "lastClassName": "dOvxkt",
                                             "rules": Array [
                                               "
 	width: ",
@@ -989,7 +989,7 @@ exports[`List should render 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
+                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-end"
                                             focusable="false"
                                             name="talend-chevron-end"
                                           />,
@@ -999,7 +999,7 @@ exports[`List should render 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
+                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-end"
                                         focusable="false"
                                         name="talend-chevron-end"
                                       />
@@ -1056,7 +1056,7 @@ exports[`List should render 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dQOrnx",
+                                            "lastClassName": "dOvxkt",
                                             "rules": Array [
                                               "
 	width: ",
@@ -1141,7 +1141,7 @@ exports[`List should render 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
+                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-left"
                                             focusable="false"
                                             name="talend-chevron-left"
                                           />,
@@ -1151,7 +1151,7 @@ exports[`List should render 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
+                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-left"
                                         focusable="false"
                                         name="talend-chevron-left"
                                       />
@@ -1218,7 +1218,7 @@ exports[`List should render 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dQOrnx",
+                                            "lastClassName": "dOvxkt",
                                             "rules": Array [
                                               "
 	width: ",
@@ -1303,7 +1303,7 @@ exports[`List should render 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
+                                            class="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                             focusable="false"
                                             name="talend-chevron-left"
                                           />,
@@ -1313,7 +1313,7 @@ exports[`List should render 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
+                                        className="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                         focusable="false"
                                         name="talend-chevron-left"
                                       />
@@ -1371,7 +1371,7 @@ exports[`List should render 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dQOrnx",
+                                            "lastClassName": "dOvxkt",
                                             "rules": Array [
                                               "
 	width: ",
@@ -1456,7 +1456,7 @@ exports[`List should render 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
+                                            class="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                             focusable="false"
                                             name="talend-chevron-end"
                                           />,
@@ -1466,7 +1466,7 @@ exports[`List should render 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
+                                        className="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                         focusable="false"
                                         name="talend-chevron-end"
                                       />
@@ -2355,7 +2355,7 @@ exports[`List should render id if provided 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dQOrnx",
+                                            "lastClassName": "dOvxkt",
                                             "rules": Array [
                                               "
 	width: ",
@@ -2440,7 +2440,7 @@ exports[`List should render id if provided 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
+                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-end"
                                             focusable="false"
                                             name="talend-chevron-end"
                                           />,
@@ -2450,7 +2450,7 @@ exports[`List should render id if provided 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-end"
+                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-end"
                                         focusable="false"
                                         name="talend-chevron-end"
                                       />
@@ -2510,7 +2510,7 @@ exports[`List should render id if provided 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dQOrnx",
+                                            "lastClassName": "dOvxkt",
                                             "rules": Array [
                                               "
 	width: ",
@@ -2595,7 +2595,7 @@ exports[`List should render id if provided 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
+                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-left"
                                             focusable="false"
                                             name="talend-chevron-left"
                                           />,
@@ -2605,7 +2605,7 @@ exports[`List should render id if provided 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-chevron-left"
+                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-left"
                                         focusable="false"
                                         name="talend-chevron-left"
                                       />
@@ -2675,7 +2675,7 @@ exports[`List should render id if provided 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dQOrnx",
+                                            "lastClassName": "dOvxkt",
                                             "rules": Array [
                                               "
 	width: ",
@@ -2760,7 +2760,7 @@ exports[`List should render id if provided 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
+                                            class="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                             focusable="false"
                                             name="talend-chevron-left"
                                           />,
@@ -2770,7 +2770,7 @@ exports[`List should render id if provided 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
+                                        className="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
                                         focusable="false"
                                         name="talend-chevron-left"
                                       />
@@ -2831,7 +2831,7 @@ exports[`List should render id if provided 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dQOrnx",
+                                            "lastClassName": "dOvxkt",
                                             "rules": Array [
                                               "
 	width: ",
@@ -2916,7 +2916,7 @@ exports[`List should render id if provided 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
+                                            class="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                             focusable="false"
                                             name="talend-chevron-end"
                                           />,
@@ -2926,7 +2926,7 @@ exports[`List should render id if provided 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dQOrnx tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
+                                        className="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
                                         focusable="false"
                                         name="talend-chevron-end"
                                       />

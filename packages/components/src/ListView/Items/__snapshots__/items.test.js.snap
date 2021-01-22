@@ -1041,7 +1041,7 @@ exports[`Items should render with nested items 1`] = `
                                               "componentStyle": ComponentStyle {
                                                 "componentId": "sc-EHOje",
                                                 "isStatic": false,
-                                                "lastClassName": "dQOrnx",
+                                                "lastClassName": "dOvxkt",
                                                 "rules": Array [
                                                   "
 	width: ",
@@ -1126,7 +1126,7 @@ exports[`Items should render with nested items 1`] = `
                                             Object {
                                               "current": <svg
                                                 aria-hidden="true"
-                                                class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                                                class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
                                                 focusable="false"
                                                 name="talend-caret-down"
                                               />,
@@ -1136,7 +1136,7 @@ exports[`Items should render with nested items 1`] = `
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                                            className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
                                             focusable="false"
                                             name="talend-caret-down"
                                           />

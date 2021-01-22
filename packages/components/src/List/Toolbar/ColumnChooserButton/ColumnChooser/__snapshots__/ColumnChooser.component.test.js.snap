@@ -20,7 +20,7 @@ exports[`ColumnChooser should render with default props 1`] = `
     <svg name="talend-search"
          focusable="false"
          aria-hidden="true"
-         class="sc-EHOje dQOrnx tc-svg-icon theme-search-icon tc-icon-name-talend-search"
+         class="sc-EHOje dOvxkt tc-svg-icon theme-search-icon tc-icon-name-talend-search"
     >
     </svg>
     <input name="search"

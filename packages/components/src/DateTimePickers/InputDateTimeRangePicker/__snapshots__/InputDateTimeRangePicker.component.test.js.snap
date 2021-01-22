@@ -364,7 +364,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                   "componentStyle": ComponentStyle {
                     "componentId": "sc-EHOje",
                     "isStatic": false,
-                    "lastClassName": "dQOrnx",
+                    "lastClassName": "dOvxkt",
                     "rules": Array [
                       "
 	width: ",
@@ -449,7 +449,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                 Object {
                   "current": <svg
                     aria-hidden="true"
-                    class="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
+                    class="sc-EHOje dOvxkt tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                     focusable="false"
                     name="talend-arrow-right"
                   />,
@@ -459,7 +459,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
+                className="sc-EHOje dOvxkt tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                 focusable="false"
                 name="talend-arrow-right"
               />
@@ -1197,7 +1197,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                   "componentStyle": ComponentStyle {
                     "componentId": "sc-EHOje",
                     "isStatic": false,
-                    "lastClassName": "dQOrnx",
+                    "lastClassName": "dOvxkt",
                     "rules": Array [
                       "
 	width: ",
@@ -1282,7 +1282,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                 Object {
                   "current": <svg
                     aria-hidden="true"
-                    class="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
+                    class="sc-EHOje dOvxkt tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                     focusable="false"
                     name="talend-arrow-right"
                   />,
@@ -1292,7 +1292,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="sc-EHOje dQOrnx tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
+                className="sc-EHOje dOvxkt tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                 focusable="false"
                 name="talend-arrow-right"
               />

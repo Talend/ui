@@ -367,7 +367,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -452,7 +452,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -462,7 +462,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -562,7 +562,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -647,7 +647,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -657,7 +657,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -1159,7 +1159,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                                   "componentStyle": ComponentStyle {
                                     "componentId": "sc-EHOje",
                                     "isStatic": false,
-                                    "lastClassName": "dQOrnx",
+                                    "lastClassName": "dOvxkt",
                                     "rules": Array [
                                       "
 	width: ",
@@ -1244,7 +1244,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                                 Object {
                                   "current": <svg
                                     aria-hidden="true"
-                                    class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
+                                    class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-cross"
                                     focusable="false"
                                     name="talend-cross"
                                   />,
@@ -1254,7 +1254,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
+                                className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-cross"
                                 focusable="false"
                                 name="talend-cross"
                               />
@@ -1744,7 +1744,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -1829,7 +1829,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -1839,7 +1839,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -1939,7 +1939,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -2024,7 +2024,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -2034,7 +2034,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -2531,7 +2531,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -2616,7 +2616,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -2626,7 +2626,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -2726,7 +2726,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -2811,7 +2811,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -2821,7 +2821,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -3364,7 +3364,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -3449,7 +3449,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -3459,7 +3459,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -3559,7 +3559,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -3644,7 +3644,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -3654,7 +3654,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -4203,7 +4203,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -4288,7 +4288,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-check"
                                                       focusable="false"
                                                       name="talend-check"
                                                     />,
@@ -4298,7 +4298,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-check"
                                                   focusable="false"
                                                   name="talend-check"
                                                 />
@@ -4393,7 +4393,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -4478,7 +4478,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-cross"
                                                       focusable="false"
                                                       name="talend-cross"
                                                     />,
@@ -4488,7 +4488,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-cross"
                                                   focusable="false"
                                                   name="talend-cross"
                                                 />
@@ -4877,7 +4877,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                                   "componentStyle": ComponentStyle {
                                     "componentId": "sc-EHOje",
                                     "isStatic": false,
-                                    "lastClassName": "dQOrnx",
+                                    "lastClassName": "dOvxkt",
                                     "rules": Array [
                                       "
 	width: ",
@@ -4962,7 +4962,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                                 Object {
                                   "current": <svg
                                     aria-hidden="true"
-                                    class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
+                                    class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-cross"
                                     focusable="false"
                                     name="talend-cross"
                                   />,
@@ -4972,7 +4972,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-cross"
+                                className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-cross"
                                 focusable="false"
                                 name="talend-cross"
                               />
@@ -5474,7 +5474,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -5559,7 +5559,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -5569,7 +5569,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -5669,7 +5669,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -5754,7 +5754,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -5764,7 +5764,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -6296,7 +6296,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -6381,7 +6381,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -6391,7 +6391,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -6491,7 +6491,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -6576,7 +6576,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -6586,7 +6586,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -7482,7 +7482,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                   "componentStyle": ComponentStyle {
                                     "componentId": "sc-EHOje",
                                     "isStatic": false,
-                                    "lastClassName": "dQOrnx",
+                                    "lastClassName": "dOvxkt",
                                     "rules": Array [
                                       "
 	width: ",
@@ -7567,7 +7567,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                 Object {
                                   "current": <svg
                                     aria-hidden="true"
-                                    class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                    class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                     focusable="false"
                                     name="talend-trash"
                                   />,
@@ -7577,7 +7577,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                 focusable="false"
                                 name="talend-trash"
                               />
@@ -8132,7 +8132,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -8217,7 +8217,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
                                                       name="talend-pencil"
                                                     />,
@@ -8227,7 +8227,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
                                                   name="talend-pencil"
                                                 />
@@ -8321,7 +8321,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -8406,7 +8406,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
                                                       name="talend-trash"
                                                     />,
@@ -8416,7 +8416,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
                                                   name="talend-trash"
                                                 />
@@ -8855,7 +8855,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -8940,7 +8940,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -8950,7 +8950,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -9050,7 +9050,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -9135,7 +9135,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -9145,7 +9145,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -9737,7 +9737,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -9822,7 +9822,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
                                                       name="talend-pencil"
                                                     />,
@@ -9832,7 +9832,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
                                                   name="talend-pencil"
                                                 />
@@ -9926,7 +9926,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -10011,7 +10011,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
                                                       name="talend-trash"
                                                     />,
@@ -10021,7 +10021,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
                                                   name="talend-trash"
                                                 />
@@ -10229,7 +10229,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -10314,7 +10314,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
                                                       name="talend-pencil"
                                                     />,
@@ -10324,7 +10324,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
                                                   name="talend-pencil"
                                                 />
@@ -10418,7 +10418,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -10503,7 +10503,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
                                                       name="talend-trash"
                                                     />,
@@ -10513,7 +10513,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
                                                   name="talend-trash"
                                                 />
@@ -10891,7 +10891,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -10976,7 +10976,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -10986,7 +10986,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -11086,7 +11086,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -11171,7 +11171,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -11181,7 +11181,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -11760,7 +11760,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -11845,7 +11845,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -11855,7 +11855,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -12054,7 +12054,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               "componentStyle": ComponentStyle {
                                                 "componentId": "sc-EHOje",
                                                 "isStatic": false,
-                                                "lastClassName": "dQOrnx",
+                                                "lastClassName": "dOvxkt",
                                                 "rules": Array [
                                                   "
 	width: ",
@@ -12139,7 +12139,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                             Object {
                                               "current": <svg
                                                 aria-hidden="true"
-                                                class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
+                                                class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-download"
                                                 focusable="false"
                                                 name="talend-download"
                                               />,
@@ -12149,7 +12149,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
+                                            className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-download"
                                             focusable="false"
                                             name="talend-download"
                                           />
@@ -12178,7 +12178,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               "componentStyle": ComponentStyle {
                                                 "componentId": "sc-EHOje",
                                                 "isStatic": false,
-                                                "lastClassName": "dQOrnx",
+                                                "lastClassName": "dOvxkt",
                                                 "rules": Array [
                                                   "
 	width: ",
@@ -12263,7 +12263,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                             Object {
                                               "current": <svg
                                                 aria-hidden="true"
-                                                class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                                class="sc-EHOje dOvxkt tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                                 focusable="false"
                                                 name="talend-caret-down"
                                               />,
@@ -12273,7 +12273,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            className="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                            className="sc-EHOje dOvxkt tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                             focusable="false"
                                             name="talend-caret-down"
                                           />
@@ -12507,7 +12507,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -12592,7 +12592,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -12602,7 +12602,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -13728,7 +13728,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -13813,7 +13813,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
                                                       name="talend-pencil"
                                                     />,
@@ -13823,7 +13823,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
                                                   name="talend-pencil"
                                                 />
@@ -13917,7 +13917,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -14002,7 +14002,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
                                                       name="talend-trash"
                                                     />,
@@ -14012,7 +14012,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
                                                   name="talend-trash"
                                                 />
@@ -14218,7 +14218,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -14303,7 +14303,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
                                                       name="talend-pencil"
                                                     />,
@@ -14313,7 +14313,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
                                                   name="talend-pencil"
                                                 />
@@ -14407,7 +14407,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -14492,7 +14492,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
                                                       name="talend-trash"
                                                     />,
@@ -14502,7 +14502,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
                                                   name="talend-trash"
                                                 />
@@ -15020,7 +15020,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -15105,7 +15105,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                       focusable="false"
                                       name="talend-search"
                                     />,
@@ -15115,7 +15115,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                                   focusable="false"
                                   name="talend-search"
                                 />
@@ -15309,7 +15309,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               "componentStyle": ComponentStyle {
                                                 "componentId": "sc-EHOje",
                                                 "isStatic": false,
-                                                "lastClassName": "dQOrnx",
+                                                "lastClassName": "dOvxkt",
                                                 "rules": Array [
                                                   "
 	width: ",
@@ -15394,7 +15394,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             Object {
                                               "current": <svg
                                                 aria-hidden="true"
-                                                class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
+                                                class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-download"
                                                 focusable="false"
                                                 name="talend-download"
                                               />,
@@ -15404,7 +15404,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-download"
+                                            className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-download"
                                             focusable="false"
                                             name="talend-download"
                                           />
@@ -15433,7 +15433,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               "componentStyle": ComponentStyle {
                                                 "componentId": "sc-EHOje",
                                                 "isStatic": false,
-                                                "lastClassName": "dQOrnx",
+                                                "lastClassName": "dOvxkt",
                                                 "rules": Array [
                                                   "
 	width: ",
@@ -15518,7 +15518,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             Object {
                                               "current": <svg
                                                 aria-hidden="true"
-                                                class="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                                class="sc-EHOje dOvxkt tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                                 focusable="false"
                                                 name="talend-caret-down"
                                               />,
@@ -15528,7 +15528,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            className="sc-EHOje dQOrnx tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                            className="sc-EHOje dOvxkt tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                             focusable="false"
                                             name="talend-caret-down"
                                           />
@@ -15756,7 +15756,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     "componentStyle": ComponentStyle {
                                       "componentId": "sc-EHOje",
                                       "isStatic": false,
-                                      "lastClassName": "dQOrnx",
+                                      "lastClassName": "dOvxkt",
                                       "rules": Array [
                                         "
 	width: ",
@@ -15841,7 +15841,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   Object {
                                     "current": <svg
                                       aria-hidden="true"
-                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                       focusable="false"
                                       name="talend-plus"
                                     />,
@@ -15851,7 +15851,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-plus"
+                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
                                   focusable="false"
                                   name="talend-plus"
                                 />
@@ -16448,7 +16448,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -16533,7 +16533,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
                                                       name="talend-pencil"
                                                     />,
@@ -16543,7 +16543,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
                                                   name="talend-pencil"
                                                 />
@@ -16637,7 +16637,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -16722,7 +16722,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
                                                       name="talend-trash"
                                                     />,
@@ -16732,7 +16732,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
                                                   name="talend-trash"
                                                 />
@@ -16938,7 +16938,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -17023,7 +17023,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                       focusable="false"
                                                       name="talend-pencil"
                                                     />,
@@ -17033,7 +17033,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-pencil"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-pencil"
                                                   focusable="false"
                                                   name="talend-pencil"
                                                 />
@@ -17127,7 +17127,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dQOrnx",
+                                                      "lastClassName": "dOvxkt",
                                                       "rules": Array [
                                                         "
 	width: ",
@@ -17212,7 +17212,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                       focusable="false"
                                                       name="talend-trash"
                                                     />,
@@ -17222,7 +17222,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-trash"
+                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
                                                   focusable="false"
                                                   name="talend-trash"
                                                 />

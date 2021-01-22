@@ -107,7 +107,7 @@ exports[`TextFilter should render text filter component 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dQOrnx",
+                          "lastClassName": "dOvxkt",
                           "rules": Array [
                             "
 	width: ",
@@ -192,7 +192,7 @@ exports[`TextFilter should render text filter component 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                          class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                           focusable="false"
                           name="talend-search"
                         />,
@@ -202,7 +202,7 @@ exports[`TextFilter should render text filter component 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                       focusable="false"
                       name="talend-search"
                     />
@@ -326,7 +326,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dQOrnx",
+                          "lastClassName": "dOvxkt",
                           "rules": Array [
                             "
 	width: ",
@@ -411,7 +411,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                          class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                           focusable="false"
                           name="talend-search"
                         />,
@@ -421,7 +421,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-search"
+                      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
                       focusable="false"
                       name="talend-search"
                     />

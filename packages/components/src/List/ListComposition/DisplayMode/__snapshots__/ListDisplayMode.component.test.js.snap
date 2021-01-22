@@ -90,7 +90,7 @@ exports[`List DisplayMode should render 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dQOrnx",
+                          "lastClassName": "dOvxkt",
                           "rules": Array [
                             "
 	width: ",
@@ -175,7 +175,7 @@ exports[`List DisplayMode should render 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-table"
+                          class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-table"
                           focusable="false"
                           name="talend-table"
                         />,
@@ -185,7 +185,7 @@ exports[`List DisplayMode should render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-table"
+                      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-table"
                       focusable="false"
                       name="talend-table"
                     />
@@ -274,7 +274,7 @@ exports[`List DisplayMode should render 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dQOrnx",
+                          "lastClassName": "dOvxkt",
                           "rules": Array [
                             "
 	width: ",
@@ -359,7 +359,7 @@ exports[`List DisplayMode should render 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-expanded"
+                          class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-expanded"
                           focusable="false"
                           name="talend-expanded"
                         />,
@@ -369,7 +369,7 @@ exports[`List DisplayMode should render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-expanded"
+                      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-expanded"
                       focusable="false"
                       name="talend-expanded"
                     />

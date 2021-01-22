@@ -177,7 +177,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
                     "componentStyle": ComponentStyle {
                       "componentId": "sc-EHOje",
                       "isStatic": false,
-                      "lastClassName": "dQOrnx",
+                      "lastClassName": "dOvxkt",
                       "rules": Array [
                         "
 	width: ",
@@ -262,7 +262,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
                   Object {
                     "current": <svg
                       aria-hidden="true"
-                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
                       focusable="false"
                       name="talend-caret-down"
                     />,
@@ -272,7 +272,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
                   focusable="false"
                   name="talend-caret-down"
                 />
@@ -945,7 +945,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
                     "componentStyle": ComponentStyle {
                       "componentId": "sc-EHOje",
                       "isStatic": false,
-                      "lastClassName": "dQOrnx",
+                      "lastClassName": "dOvxkt",
                       "rules": Array [
                         "
 	width: ",
@@ -1030,7 +1030,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
                   Object {
                     "current": <svg
                       aria-hidden="true"
-                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
                       focusable="false"
                       name="talend-caret-down"
                     />,
@@ -1040,7 +1040,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
               >
                 <svg
                   aria-hidden="true"
-                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
                   focusable="false"
                   name="talend-caret-down"
                 />
@@ -1713,7 +1713,7 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
                     "componentStyle": ComponentStyle {
                       "componentId": "sc-EHOje",
                       "isStatic": false,
-                      "lastClassName": "dQOrnx",
+                      "lastClassName": "dOvxkt",
                       "rules": Array [
                         "
 	width: ",
@@ -1798,7 +1798,7 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
                   Object {
                     "current": <svg
                       aria-hidden="true"
-                      class="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
                       focusable="false"
                       name="talend-caret-down"
                     />,
@@ -1808,7 +1808,7 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
               >
                 <svg
                   aria-hidden="true"
-                  className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-caret-down"
+                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
                   focusable="false"
                   name="talend-caret-down"
                 />
@@ -2481,7 +2481,7 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
                     "componentStyle": ComponentStyle {
                       "componentId": "sc-EHOje",
                       "isStatic": false,
-                      "lastClassName": "dQOrnx",
+                      "lastClassName": "dOvxkt",
                       "rules": Array [
                         "
 	width: ",
@@ -2566,7 +2566,7 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
                   Object {
                     "current": <svg
                       aria-hidden="true"
-                      class="sc-EHOje dQOrnx tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
+                      class="sc-EHOje dOvxkt tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
                       focusable="false"
                       name="talend-caret-down"
                     />,
@@ -2576,7 +2576,7 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="sc-EHOje dQOrnx tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
+                  className="sc-EHOje dOvxkt tc-svg-icon flip-vertical tc-icon-name-talend-caret-down"
                   focusable="false"
                   name="talend-caret-down"
                 />

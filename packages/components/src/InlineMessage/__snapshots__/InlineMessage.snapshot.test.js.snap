@@ -9,7 +9,7 @@ exports[`InlineMessage should render with higligthed background 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check-circle"
+      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-check-circle"
       focusable="false"
       name="talend-check-circle"
     />
@@ -40,7 +40,7 @@ exports[`InlineMessage should render with icon and description 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check-circle"
+      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-check-circle"
       focusable="false"
       name="talend-check-circle"
     />
@@ -67,7 +67,7 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check-circle"
+      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-check-circle"
       focusable="false"
       name="talend-check-circle"
     />
@@ -98,7 +98,7 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
   >
     <svg
       aria-hidden="true"
-      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-talend-check-circle"
+      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-check-circle"
       focusable="false"
       name="talend-check-circle"
     />
@@ -135,7 +135,7 @@ exports[`InlineMessage should render with title and description 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="sc-EHOje dQOrnx tc-svg-icon tc-icon-name-"
+      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-"
       focusable="false"
       name=""
     />
