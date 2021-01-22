@@ -270,16 +270,6 @@
    98:3  error  defaultProp "level" defined for isRequired propType  react/default-props-match-prop-types
   209:4  error  'item.hidden' is missing in props validation         react/prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.js
-   2:26  error  'useRef' is defined but never used                    @typescript-eslint/no-unused-vars
-  52:5   error  Assignment to property of function parameter 'state'  no-param-reassign
-  55:5   error  Assignment to property of function parameter 'state'  no-param-reassign
-  79:5   error  Assignment to property of function parameter 'state'  no-param-reassign
-  80:5   error  Assignment to property of function parameter 'state'  no-param-reassign
-
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.renderers.js
-  148:4  error  Unexpected console statement  no-console
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellBoolean/CellBoolean.component.js
   63:2  error  defaultProp "columnData" defined for isRequired propType  react/default-props-match-prop-types
 
@@ -317,5 +307,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 154 problems (134 errors, 20 warnings)
+✖ 148 problems (128 errors, 20 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
