@@ -56,7 +56,7 @@ export function defaultTitle(formData, schema, options) {
 		return title.join(options?.separator || schema.options?.separator || ', ');
 	}
 
-	if(options?.emptyTitle) {
+	if (options?.emptyTitle) {
 		return options.emptyTitle;
 	}
 
