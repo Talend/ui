@@ -201,7 +201,7 @@ function InputFile(props) {
 					/>
 					{!files ? (
 						<div className="input-file__text text">
-							<Icon className="text__icon" name="talend-upload" currentColor />{' '}
+							<Icon className="text__icon" name="talend-upload" />{' '}
 							<span className="text__span">
 								Drop your files or <Link className="text__link">browse</Link>
 							</span>

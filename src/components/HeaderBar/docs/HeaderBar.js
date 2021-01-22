@@ -16,7 +16,7 @@ export const PortalOnBoarding = () => (
 	<HeaderBar>
 		<HeaderBar.Logo full>
 			<Link href="#">
-				<Icon name="talend-logo" currentColor />
+				<Icon name="talend-logo" />
 				<VisuallyHidden>Talend</VisuallyHidden>
 			</Link>
 		</HeaderBar.Logo>
@@ -28,7 +28,7 @@ export const Portal = () => {
 		<HeaderBar>
 			<HeaderBar.Logo full>
 				<Link href="#">
-					<Icon name="talend-logo" currentColor />
+					<Icon name="talend-logo" />
 					<VisuallyHidden>Talend</VisuallyHidden>
 				</Link>
 			</HeaderBar.Logo>

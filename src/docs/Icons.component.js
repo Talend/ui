@@ -86,7 +86,7 @@ export const Icons = () => {
 								name={iconName}
 								style={{ width: size + 'rem', height: size + 'rem' }}
 								transform={transform}
-								currentColor={useCurrentColor ? currentColor : null}
+								preserveColor={!useCurrentColor}
 								border={border}
 							/>
 						</IconItem>

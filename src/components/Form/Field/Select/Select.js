@@ -32,9 +32,7 @@ function Select({ children, multiple, readOnly, required, placeholder, ...rest }
 				as="select"
 				multiple={multiple}
 				{...rest}
-				before={
-					!multiple && <Icon name="talend-caret-down" className="talend-caret-down" currentColor />
-				}
+				before={!multiple && <Icon name="talend-caret-down" className="talend-caret-down" />}
 			>
 				{placeholder && (
 					<option value="" disabled selected>

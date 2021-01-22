@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(
 			aria-busy={!!loading}
 		>
 			{loading && <Loading className="btn__loading" name={icon} aria-hidden />}
-			{!loading && icon && <Icon className="btn__icon" name={icon} currentColor />}
+			{!loading && icon && <Icon className="btn__icon" name={icon} />}
 			<span className={`btn__text ${hideText ? 'btn__text--hidden' : ''}`}>{children}</span>
 		</S.Button>
 	),

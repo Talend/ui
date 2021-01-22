@@ -22,7 +22,7 @@ export enum SVG_TRANSFORMS {
 export type IconProps = PropsWithChildren<any> & {
 	name: IconName;
 	transform: SVG_TRANSFORMS;
-	currentColor: boolean;
+	preserveColor: boolean;
 	border: boolean;
 };
 
@@ -35,12 +35,12 @@ const SVG = styled.svg<IconProps>`
 	path,
 	polygon,
 	polyline {
-		${({ currentColor }) => currentColor && 'fill: currentColor;'};
+		${({ preserveColor }) => preserveColor || 'fill: currentColor;'};
 		${({ border }) => border && 'transform: translate(25%, 25%);'};
 	}
 
 	.ti-background {
-		${({ border, currentColor }) => !border && currentColor && 'display: none;'};
+		${({ border, preserveColor }) => !border && !preserveColor && 'display: none;'};
 	}
 
 	.ti-border {
@@ -164,10 +164,19 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 			);
 		}
 
-		const classname = classnames('tc-svg-icon', className, transform, { [`tc-icon-name-${name}`]: !(isImg || isRemote) });
+		const classname = classnames('tc-svg-icon', className, transform, {
+			[`tc-icon-name-${name}`]: !(isImg || isRemote),
+		});
 
 		let iconElement = (
-			<SVG {...rest} name={!(isImg || isRemote) ? name : null} {...accessibility} className={classname} border={border} ref={safeRef} />
+			<SVG
+				{...rest}
+				name={!(isImg || isRemote) ? name : null}
+				{...accessibility}
+				className={classname}
+				border={border}
+				ref={safeRef}
+			/>
 		);
 
 		if (isRemote && content && !isRemoteSVG) {
@@ -188,4 +197,5 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 
 export const IconMemo = React.memo(Icon);
+
 IconMemo.displayName = 'Icon';
