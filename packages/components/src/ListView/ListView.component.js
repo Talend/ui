@@ -25,7 +25,7 @@ function ListView(props) {
 		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
 			{props.items.length ? (
-				<ItemsListView {...props} />
+				<Items {...props} />
 			) : (
 				<span className={theme['empty-message']}>{label}</span>
 			)}
@@ -33,31 +33,17 @@ function ListView(props) {
 	);
 }
 
+ListView.DISPLAY_MODES = { DISPLAY_MODE_DEFAULT, DISPLAY_MODE_SEARCH };
+
 ListView.displayName = 'ListView';
 
 ListView.propTypes = {
-	displayMode: PropTypes.string,
+	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
 	items: PropTypes.arrayOf(PropTypes.object),
 };
 
 ListView.defaultProps = {
 	items: [],
-};
-
-function ItemsListView(props) {
-	return <Items {...props} />;
-}
-
-ItemsListView.propTypes = {
-	getItemHeight: PropTypes.func,
-	id: PropTypes.string,
-	items: ListView.propTypes.items,
-	isSwitchBox: PropTypes.bool,
-	onToggleAll: PropTypes.func,
-	searchCriteria: PropTypes.string,
-	toggleAllChecked: PropTypes.bool,
-	showToggleAll: PropTypes.bool,
-	t: PropTypes.func,
 };
 
 function HeaderListView(props) {
@@ -101,7 +87,7 @@ HeaderListView.defaultProps = {
 };
 
 HeaderListView.propTypes = {
-	displayMode: PropTypes.string,
+	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
 	headerDefault: PropTypes.arrayOf(PropTypes.object),
 	headerInput: PropTypes.arrayOf(PropTypes.object),
 	headerLabel: PropTypes.string,
