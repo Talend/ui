@@ -3,40 +3,60 @@
 /// @group Custom widgets
 ////
 
-$list-item-height: 55px !default;
+$list-item-height: 3rem !default;
 $list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-reverse-hover-color: rgba($white, 0.5) !default;
+$list-item-reverse-hover-color: rgba($black, 0.12) !default;
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
 $toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-icons-size: $svg-lg-size;
+$tc-side-panel-icons-size: $svg-rg-size;
 $toggle-button-padding: $padding-small;
 
 $docked-width: 6rem;
 $large-docked-width: 7rem;
 
-.tc-side-panel {
+.tc-side-panel,
+[role='navigation'] {
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
-	background: $list-item-reverse-color;
+	font-weight: 500;
+	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important; // sass-lint:disable-line no-important
 	overflow: hidden;
+
+	&:before {
+		left: 1rem;
+		bottom: -5rem;
+	}
 
 	&.animate {
 		transition: 0.2s width ease-out;
 	}
 
-	.action-list-container {
+	.action-list-container.action-list-container {
 		flex: 1;
 		height: calc(100vh - 12rem); // specific to Safari
 
+		:global .tc-side-panel-list {
+			background: none;
+		}
+
 		:global .tc-action-list-item {
+			width: calc(100% - 2rem);
+			background: none !important; // sass-lint:disable-line no-important
+			box-shadow: none !important; // sass-lint:disable-line no-important
+
 			.btn.btn-link {
+				display: flex;
+				align-items: center;
+				justify-content: start;
 				font-size: 1.6rem;
 				height: $list-item-height;
-				padding-left: $padding-large;
+				margin: $padding-smaller $padding-small;
+				padding: $padding-smaller;
+				border-radius: $border-radius-base;
+
 				> span {
 					margin-left: $padding-small;
 				}
@@ -44,7 +64,20 @@ $large-docked-width: 7rem;
 			.tc-svg-icon {
 				width: $tc-side-panel-icons-size;
 				height: $tc-side-panel-icons-size;
-				margin: 0;
+				margin-left: $padding-smaller;
+			}
+
+			&:hover {
+				.btn.btn-link {
+					background: rgba(255, 255, 255, 0.12);
+				}
+			}
+
+			&.active {
+				.btn.btn-link {
+					color: $brand-primary;
+					background: $white;
+				}
 			}
 		}
 	}
@@ -83,7 +116,6 @@ $large-docked-width: 7rem;
 
 				&:hover {
 					opacity: 1;
-					background-color: $list-item-hover-color;
 				}
 
 				.tc-svg-icon {
@@ -133,9 +165,17 @@ $large-docked-width: 7rem;
 		}
 
 		:global {
+			.tc-action-list {
+				padding: $padding-smaller 0;
+			}
+
 			.tc-action-list-item {
 				.btn.btn-link {
 					padding: $padding-normal $tc-side-panel-large-padding;
+
+					.tc-svg-icon {
+						margin-left: $padding-small;
+					}
 
 					.tc-svg-icon + span {
 						margin-left: $tc-side-panel-large-padding;
@@ -164,40 +204,42 @@ $large-docked-width: 7rem;
 	}
 
 	&.reverse[role='navigation'][aria-expanded] {
-		background: $wild-sand;
+		background: $wild-sand !important; // sass-lint:disable-line no-important
 
 		&:before {
-			background-image: none;
+			content: none;
 		}
+
 		.toggle-btn {
-			background-color: $wild-sand;
+			background-color: transparent;
 
 			:global {
 				.btn.btn-link,
 				.tc-svg-icon {
-					color: $dove-gray;
+					color: $gray700;
 				}
 			}
 		}
 
 		:global {
 			.tc-action-list-item {
-				color: $dove-gray;
+				color: $gray700;
 
 				&:hover {
-					background-color: $list-item-reverse-hover-color;
-
 					.btn.btn-link {
-						color: $dove-gray;
+						background: $list-item-reverse-hover-color;
 					}
 
+					.btn.btn-link,
 					.tc-svg-icon {
-						color: $silver;
+						color: $black;
 					}
 				}
 
 				&.active {
-					background: $list-item-color;
+					.btn.btn-link {
+						background: $list-item-color;
+					}
 
 					.btn.btn-link,
 					.tc-svg-icon {
