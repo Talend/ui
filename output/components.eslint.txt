@@ -55,16 +55,11 @@
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTimeRange/Manager/Manager.component.js
   26:5  warning  React Hook useEffect has missing dependencies: 'state.endDateTime' and 'state.startDateTime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDatePicker/InputDatePicker.component.js
-   68:4  error  Static HTML elements with event handlers require a role            jsx-a11y/no-static-element-interactions
-  108:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
   91:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
-  37:2  warning  The 'showHorizontalAndTest' function makes the dependencies of useEffect Hook (at line 53) change on every render. To fix this, wrap the 'showHorizontalAndTest' definition into its own useCallback() Hook  react-hooks/exhaustive-deps
-  57:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array                                                                                     react-hooks/exhaustive-deps
+  59:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/Manager/Manager.component.js
    79:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
@@ -270,9 +265,6 @@
    98:3  error  defaultProp "level" defined for isRequired propType  react/default-props-match-prop-types
   209:4  error  'item.hidden' is missing in props validation         react/prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.js
-  110:33  error  'popper' is assigned a value but never used  @typescript-eslint/no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellBoolean/CellBoolean.component.js
   63:2  error  defaultProp "columnData" defined for isRequired propType  react/default-props-match-prop-types
 
@@ -310,5 +302,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 149 problems (129 errors, 20 warnings)
+✖ 145 problems (126 errors, 19 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
