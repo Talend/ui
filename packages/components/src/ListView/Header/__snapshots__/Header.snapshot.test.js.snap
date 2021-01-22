@@ -27,7 +27,7 @@ exports[`Header should render header with one button 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
         focusable="false"
         name="talend-search"
       />

@@ -22,7 +22,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+          className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
           focusable="false"
           name="talend-plus"
         />
@@ -67,7 +67,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-trash"
+          className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-trash"
           focusable="false"
           name="talend-trash"
         />
@@ -223,7 +223,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-end"
+              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-end"
               focusable="false"
               name="talend-chevron-end"
             />
@@ -243,7 +243,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-chevron-left"
+              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-left"
               focusable="false"
               name="talend-chevron-left"
             />
@@ -271,7 +271,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
+              className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
               focusable="false"
               name="talend-chevron-left"
             />
@@ -291,7 +291,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dOvxkt tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
+              className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
               focusable="false"
               name="talend-chevron-end"
             />

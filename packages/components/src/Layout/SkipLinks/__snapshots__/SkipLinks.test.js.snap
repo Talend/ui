@@ -45,9 +45,10 @@ exports[`Skip links should render navigation link 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dOvxkt",
+                          "lastClassName": "iyUYnG",
                           "rules": Array [
                             "
+	fill: currentColor;
 	width: ",
                             "1.6rem",
                             ";
@@ -60,7 +61,7 @@ exports[`Skip links should render navigation link 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                             [Function],
                             ";
 		",
@@ -68,11 +69,11 @@ exports[`Skip links should render navigation link 1`] = `
                             ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                             [Function],
                             ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -130,7 +131,7 @@ exports[`Skip links should render navigation link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                          class="sc-EHOje iyUYnG tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                           name="talend-arrow-left"
                         />,
@@ -140,7 +141,7 @@ exports[`Skip links should render navigation link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                      className="sc-EHOje iyUYnG tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                       name="talend-arrow-left"
                     />
@@ -190,9 +191,10 @@ exports[`Skip links should render navigation link 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dOvxkt",
+                          "lastClassName": "iyUYnG",
                           "rules": Array [
                             "
+	fill: currentColor;
 	width: ",
                             "1.6rem",
                             ";
@@ -205,7 +207,7 @@ exports[`Skip links should render navigation link 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                             [Function],
                             ";
 		",
@@ -213,11 +215,11 @@ exports[`Skip links should render navigation link 1`] = `
                             ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                             [Function],
                             ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -275,7 +277,7 @@ exports[`Skip links should render navigation link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                          class="sc-EHOje iyUYnG tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                           name="talend-arrow-left"
                         />,
@@ -285,7 +287,7 @@ exports[`Skip links should render navigation link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                      className="sc-EHOje iyUYnG tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                       name="talend-arrow-left"
                     />
@@ -350,9 +352,10 @@ exports[`Skip links should render only main link 1`] = `
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-EHOje",
                           "isStatic": false,
-                          "lastClassName": "dOvxkt",
+                          "lastClassName": "iyUYnG",
                           "rules": Array [
                             "
+	fill: currentColor;
 	width: ",
                             "1.6rem",
                             ";
@@ -365,7 +368,7 @@ exports[`Skip links should render only main link 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                             [Function],
                             ";
 		",
@@ -373,11 +376,11 @@ exports[`Skip links should render only main link 1`] = `
                             ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                             [Function],
                             ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -435,7 +438,7 @@ exports[`Skip links should render only main link 1`] = `
                       Object {
                         "current": <svg
                           aria-hidden="true"
-                          class="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                          class="sc-EHOje iyUYnG tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                           focusable="false"
                           name="talend-arrow-left"
                         />,
@@ -445,7 +448,7 @@ exports[`Skip links should render only main link 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      className="sc-EHOje dOvxkt tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
+                      className="sc-EHOje iyUYnG tc-svg-icon rotate-270 tc-icon-name-talend-arrow-left"
                       focusable="false"
                       name="talend-arrow-left"
                     />

@@ -6,7 +6,7 @@ exports[`CellBoolean should render an check icon for a truthy value in icon mode
        name="talend-check-circle"
        focusable="false"
        aria-hidden="true"
-       class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-check-circle"
+       class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-check-circle"
   >
   </svg>
 </div>

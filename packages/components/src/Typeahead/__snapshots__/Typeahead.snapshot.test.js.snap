@@ -199,7 +199,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-fa fa-filter"
+              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-filter"
               focusable="false"
               name="fa fa-filter"
               title="icon"
@@ -336,7 +336,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-fa fa-asterisk"
+              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-asterisk"
               focusable="false"
               name="fa fa-asterisk"
               title="icon"
@@ -535,7 +535,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-fa fa-filter"
+              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-filter"
               focusable="false"
               name="fa fa-filter"
               title="icon"
@@ -626,7 +626,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-fa fa-asterisk"
+              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-asterisk"
               focusable="false"
               name="fa fa-asterisk"
               title="icon"
@@ -855,7 +855,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-fieldglass"
+          className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-fieldglass"
           focusable="false"
           name="talend-fieldglass"
           title="No result."
@@ -962,7 +962,7 @@ exports[`Typeahead with toggle should render button 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-fa fa-search"
+    className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-search"
     focusable="false"
     name="fa fa-search"
   />

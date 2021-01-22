@@ -362,9 +362,10 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dOvxkt",
+                                            "lastClassName": "iyUYnG",
                                             "rules": Array [
                                               "
+	fill: currentColor;
 	width: ",
                                               "1.6rem",
                                               ";
@@ -377,7 +378,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                               [Function],
                                               ";
 		",
@@ -385,11 +386,11 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                               ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                               [Function],
                                               ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -447,7 +448,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+                                            class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
                                             focusable="false"
                                             name="talend-search"
                                           />,
@@ -457,7 +458,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+                                        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
                                         focusable="false"
                                         name="talend-search"
                                       />
@@ -556,9 +557,10 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dOvxkt",
+                                            "lastClassName": "iyUYnG",
                                             "rules": Array [
                                               "
+	fill: currentColor;
 	width: ",
                                               "1.6rem",
                                               ";
@@ -571,7 +573,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                               [Function],
                                               ";
 		",
@@ -579,11 +581,11 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                               ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                               [Function],
                                               ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -641,7 +643,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+                                            class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
                                             focusable="false"
                                             name="talend-plus"
                                           />,
@@ -651,7 +653,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+                                        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
                                         focusable="false"
                                         name="talend-plus"
                                       />
@@ -1181,9 +1183,10 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dOvxkt",
+                                            "lastClassName": "iyUYnG",
                                             "rules": Array [
                                               "
+	fill: currentColor;
 	width: ",
                                               "1.6rem",
                                               ";
@@ -1196,7 +1199,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                               [Function],
                                               ";
 		",
@@ -1204,11 +1207,11 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                               ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                               [Function],
                                               ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -1266,7 +1269,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+                                            class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
                                             focusable="false"
                                             name="talend-search"
                                           />,
@@ -1276,7 +1279,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+                                        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
                                         focusable="false"
                                         name="talend-search"
                                       />
@@ -1375,9 +1378,10 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dOvxkt",
+                                            "lastClassName": "iyUYnG",
                                             "rules": Array [
                                               "
+	fill: currentColor;
 	width: ",
                                               "1.6rem",
                                               ";
@@ -1390,7 +1394,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                               [Function],
                                               ";
 		",
@@ -1398,11 +1402,11 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                               ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                               [Function],
                                               ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -1460,7 +1464,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+                                            class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
                                             focusable="false"
                                             name="talend-plus"
                                           />,
@@ -1470,7 +1474,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+                                        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
                                         focusable="false"
                                         name="talend-plus"
                                       />
@@ -1994,9 +1998,10 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dOvxkt",
+                                            "lastClassName": "iyUYnG",
                                             "rules": Array [
                                               "
+	fill: currentColor;
 	width: ",
                                               "1.6rem",
                                               ";
@@ -2009,7 +2014,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                               [Function],
                                               ";
 		",
@@ -2017,11 +2022,11 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                               ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                               [Function],
                                               ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -2079,7 +2084,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+                                            class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
                                             focusable="false"
                                             name="talend-search"
                                           />,
@@ -2089,7 +2094,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+                                        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
                                         focusable="false"
                                         name="talend-search"
                                       />
@@ -2188,9 +2193,10 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dOvxkt",
+                                            "lastClassName": "iyUYnG",
                                             "rules": Array [
                                               "
+	fill: currentColor;
 	width: ",
                                               "1.6rem",
                                               ";
@@ -2203,7 +2209,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                               [Function],
                                               ";
 		",
@@ -2211,11 +2217,11 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                               ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                               [Function],
                                               ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -2273,7 +2279,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+                                            class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
                                             focusable="false"
                                             name="talend-plus"
                                           />,
@@ -2283,7 +2289,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+                                        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
                                         focusable="false"
                                         name="talend-plus"
                                       />
@@ -2890,9 +2896,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dOvxkt",
+                                            "lastClassName": "iyUYnG",
                                             "rules": Array [
                                               "
+	fill: currentColor;
 	width: ",
                                               "1.6rem",
                                               ";
@@ -2905,7 +2912,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                               [Function],
                                               ";
 		",
@@ -2913,11 +2920,11 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                               [Function],
                                               ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -2975,7 +2982,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+                                            class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
                                             focusable="false"
                                             name="talend-search"
                                           />,
@@ -2985,7 +2992,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-search"
+                                        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-search"
                                         focusable="false"
                                         name="talend-search"
                                       />
@@ -3184,9 +3191,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dOvxkt",
+                                                      "lastClassName": "iyUYnG",
                                                       "rules": Array [
                                                         "
+	fill: currentColor;
 	width: ",
                                                         "1.6rem",
                                                         ";
@@ -3199,7 +3207,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                                         [Function],
                                                         ";
 		",
@@ -3207,11 +3215,11 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                         ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                                         [Function],
                                                         ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -3269,7 +3277,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-download"
+                                                      class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-download"
                                                       focusable="false"
                                                       name="talend-download"
                                                     />,
@@ -3279,7 +3287,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-download"
+                                                  className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-download"
                                                   focusable="false"
                                                   name="talend-download"
                                                 />
@@ -3308,9 +3316,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                     "componentStyle": ComponentStyle {
                                                       "componentId": "sc-EHOje",
                                                       "isStatic": false,
-                                                      "lastClassName": "dOvxkt",
+                                                      "lastClassName": "iyUYnG",
                                                       "rules": Array [
                                                         "
+	fill: currentColor;
 	width: ",
                                                         "1.6rem",
                                                         ";
@@ -3323,7 +3332,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                                         [Function],
                                                         ";
 		",
@@ -3331,11 +3340,11 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                         ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                                         [Function],
                                                         ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -3393,7 +3402,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                   Object {
                                                     "current": <svg
                                                       aria-hidden="true"
-                                                      class="sc-EHOje dOvxkt tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                                      class="sc-EHOje iyUYnG tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                                       focusable="false"
                                                       name="talend-caret-down"
                                                     />,
@@ -3403,7 +3412,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="sc-EHOje dOvxkt tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+                                                  className="sc-EHOje iyUYnG tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
                                                   focusable="false"
                                                   name="talend-caret-down"
                                                 />
@@ -3637,9 +3646,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           "componentStyle": ComponentStyle {
                                             "componentId": "sc-EHOje",
                                             "isStatic": false,
-                                            "lastClassName": "dOvxkt",
+                                            "lastClassName": "iyUYnG",
                                             "rules": Array [
                                               "
+	fill: currentColor;
 	width: ",
                                               "1.6rem",
                                               ";
@@ -3652,7 +3662,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                               [Function],
                                               ";
 		",
@@ -3660,11 +3670,11 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                               [Function],
                                               ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -3722,7 +3732,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         Object {
                                           "current": <svg
                                             aria-hidden="true"
-                                            class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+                                            class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
                                             focusable="false"
                                             name="talend-plus"
                                           />,
@@ -3732,7 +3742,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-plus"
+                                        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-plus"
                                         focusable="false"
                                         name="talend-plus"
                                       />

@@ -1041,9 +1041,10 @@ exports[`Items should render with nested items 1`] = `
                                               "componentStyle": ComponentStyle {
                                                 "componentId": "sc-EHOje",
                                                 "isStatic": false,
-                                                "lastClassName": "dOvxkt",
+                                                "lastClassName": "iyUYnG",
                                                 "rules": Array [
                                                   "
+	fill: currentColor;
 	width: ",
                                                   "1.6rem",
                                                   ";
@@ -1056,7 +1057,7 @@ exports[`Items should render with nested items 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                                                   [Function],
                                                   ";
 		",
@@ -1064,11 +1065,11 @@ exports[`Items should render with nested items 1`] = `
                                                   ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                                                   [Function],
                                                   ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -1126,7 +1127,7 @@ exports[`Items should render with nested items 1`] = `
                                             Object {
                                               "current": <svg
                                                 aria-hidden="true"
-                                                class="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
+                                                class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-caret-down"
                                                 focusable="false"
                                                 name="talend-caret-down"
                                               />,
@@ -1136,7 +1137,7 @@ exports[`Items should render with nested items 1`] = `
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-caret-down"
+                                            className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-caret-down"
                                             focusable="false"
                                             name="talend-caret-down"
                                           />

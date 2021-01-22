@@ -29,7 +29,7 @@ exports[`Header should render filter header 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="sc-EHOje dOvxkt tc-svg-icon tc-icon-name-talend-cross"
+      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-cross"
       focusable="false"
       name="talend-cross"
     />

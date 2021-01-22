@@ -364,9 +364,10 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                   "componentStyle": ComponentStyle {
                     "componentId": "sc-EHOje",
                     "isStatic": false,
-                    "lastClassName": "dOvxkt",
+                    "lastClassName": "iyUYnG",
                     "rules": Array [
                       "
+	fill: currentColor;
 	width: ",
                       "1.6rem",
                       ";
@@ -379,7 +380,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                       [Function],
                       ";
 		",
@@ -387,11 +388,11 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                       ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                       [Function],
                       ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -449,7 +450,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                 Object {
                   "current": <svg
                     aria-hidden="true"
-                    class="sc-EHOje dOvxkt tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
+                    class="sc-EHOje iyUYnG tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                     focusable="false"
                     name="talend-arrow-right"
                   />,
@@ -459,7 +460,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="sc-EHOje dOvxkt tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
+                className="sc-EHOje iyUYnG tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                 focusable="false"
                 name="talend-arrow-right"
               />
@@ -1197,9 +1198,10 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                   "componentStyle": ComponentStyle {
                     "componentId": "sc-EHOje",
                     "isStatic": false,
-                    "lastClassName": "dOvxkt",
+                    "lastClassName": "iyUYnG",
                     "rules": Array [
                       "
+	fill: currentColor;
 	width: ",
                       "1.6rem",
                       ";
@@ -1212,7 +1214,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
 	path,
 	polygon,
 	polyline {
-		",
+		// 	",
                       [Function],
                       ";
 		",
@@ -1220,11 +1222,11 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                       ";
 	}
 
-	.ti-background {
-		",
+	// .ti-background {
+	// 	",
                       [Function],
                       ";
-	}
+	// }
 
 	.ti-border {
 		",
@@ -1282,7 +1284,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                 Object {
                   "current": <svg
                     aria-hidden="true"
-                    class="sc-EHOje dOvxkt tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
+                    class="sc-EHOje iyUYnG tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                     focusable="false"
                     name="talend-arrow-right"
                   />,
@@ -1292,7 +1294,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="sc-EHOje dOvxkt tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
+                className="sc-EHOje iyUYnG tc-svg-icon theme-icon icon tc-icon-name-talend-arrow-right"
                 focusable="false"
                 name="talend-arrow-right"
               />

@@ -4,7 +4,7 @@ exports[`BadgeIcon should default render 1`] = `
 <svg name="my icon name"
      focusable="false"
      aria-hidden="true"
-     class="sc-EHOje dOvxkt tc-svg-icon tc-badge-label-icon theme-tc-badge-label-icon tc-icon-name-my icon name"
+     class="sc-EHOje iyUYnG tc-svg-icon tc-badge-label-icon theme-tc-badge-label-icon tc-icon-name-my icon name"
 >
 </svg>
 `;
