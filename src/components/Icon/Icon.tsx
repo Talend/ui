@@ -27,6 +27,7 @@ export type IconProps = PropsWithChildren<any> & {
 };
 
 const SVG = styled.svg<IconProps>`
+	fill: currentColor;
 	width: ${tokens.sizes.l};
 	height: ${tokens.sizes.l};
 	transform-origin: center;
@@ -35,13 +36,13 @@ const SVG = styled.svg<IconProps>`
 	path,
 	polygon,
 	polyline {
-		${({ preserveColor }) => preserveColor || 'fill: currentColor;'};
+		// 	${({ preserveColor }) => (preserveColor ? '' : 'fill: currentColor;')};
 		${({ border }) => border && 'transform: translate(25%, 25%);'};
 	}
 
-	.ti-background {
-		${({ border, preserveColor }) => !border && !preserveColor && 'display: none;'};
-	}
+	// .ti-background {
+	// 	${({ border, preserveColor }) => !border && !preserveColor && 'display: none;'};
+	// }
 
 	.ti-border {
 		${({ border }) => border && 'stroke: currentColor; fill: none; transform: none'};
