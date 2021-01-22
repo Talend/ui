@@ -84,7 +84,6 @@ function VerticalBarChart({
 					}
 				/>
 				<Tooltip
-					allowEscapeViewBox={{ x: false, y: true }}
 					isAnimationActive={false}
 					content={TooltipContent}
 					cursor={<TooltipCursor dataFeature={dataFeature} />}
