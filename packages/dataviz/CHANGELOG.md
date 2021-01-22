@@ -26,6 +26,13 @@ Types of changes
 
 ## [unreleased]
 
+## [0.2.3]
+
+### Fixed
+
+- [Fix truncated/misplaced tooltip](https://github.com/Talend/ui/pull/3183):
+
+
 ## [0.2.2]
 
 ### Fixed
