@@ -175,12 +175,20 @@ describe('CollapsibleFieldset', () => {
 });
 
 describe('defaultTitle', () => {
-	it('should return schema.title by default', () => {
+	it('should return schema.title by default if no emptyTitle has been provided in options', () => {
 		// given not used in an array you have the schema.title
 		expect(defaultTitle({}, { title: 'Comment' })).toBe('Comment');
 		// given no value, you have the schema.title
 		expect(defaultTitle({}, schema)).toBe(schema.title);
 	});
+	it('should return if emptyTitle has been provided and formData is empty', () => {
+		const emptyTitle = 'my custom static fallback title';
+		// given not used in an array you have the empty title value provided in options
+		expect(defaultTitle({}, {}, { emptyTitle })).toBe(emptyTitle);
+		// given no value, you have the empty title value provided in options
+		expect(defaultTitle({}, schema, { emptyTitle })).toBe(emptyTitle);
+	});
+
 	it('should return concat values if used in an array', () => {
 		expect(defaultTitle(value, schema)).toBe(`${value.firstname}, ${value.lastname}`);
 	});
