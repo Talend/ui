@@ -8,6 +8,7 @@ import {
 	NumberRangeHandler,
 	TimeRangeHandler,
 } from './handlers';
+import { IntegerRangeHandler } from './handlers/IntegerRangeHandler/IntegerRangeHandler';
 
 const Template: Story<RangeFilterProps> = args => {
 	const [currentRange, setCurrentRange] = useState(args.range);
@@ -41,15 +42,28 @@ export default {
 	],
 } as Meta<RangeFilterProps>;
 
+export const IntegerRangeFilter = Template.bind({});
+IntegerRangeFilter.args = {
+	range: {
+		min: 1,
+		max: 6,
+	},
+	limits: {
+		min: 1,
+		max: 6,
+	},
+	...IntegerRangeHandler,
+};
+
 export const NumberRangeFilter = Template.bind({});
 NumberRangeFilter.args = {
 	range: {
-		min: 2200,
-		max: 2500,
+		min: 2177.87,
+		max: 9530.28,
 	},
 	limits: {
-		min: 2000,
-		max: 2600,
+		min: 2177.87,
+		max: 9530.28,
 	},
 	...NumberRangeHandler,
 };

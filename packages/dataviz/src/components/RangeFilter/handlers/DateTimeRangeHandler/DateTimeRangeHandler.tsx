@@ -8,6 +8,7 @@ import { formatDate, formatDateTime } from '../../../../formatters/formatters';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 import styles from './DateTimeInputField.component.scss';
 import { RangeHandler } from '../range-handler.types';
+import { formatTimeTicks } from '../slider-ticks.utils';
 
 function parser(input: string): number | null {
 	// Create date in locale time zone
@@ -52,7 +53,7 @@ export function DateTimeInputField({
 
 export const DateTimeRangeHandler: RangeHandler = {
 	inputField: DateTimeInputField,
-	tickFormatter: formatDate,
 	getMinValue: value => startOfSecond(value).getTime(),
 	getMaxValue: value => endOfSecond(value).getTime(),
+	getTicks: limits => formatTimeTicks(limits, formatDate),
 };

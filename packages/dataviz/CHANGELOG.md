@@ -26,12 +26,22 @@ Types of changes
 
 ## [unreleased]
 
+
+## [0.3.0]
+
+### Added
+
+- [Add IntegerRangeHandler](https://github.com/Talend/ui/pull/3180):
+
+### Changed
+
+- [Use d3-scale for slider marks](https://github.com/Talend/ui/pull/3180):
+
 ## [0.2.3]
 
 ### Fixed
 
 - [Fix truncated/misplaced tooltip](https://github.com/Talend/ui/pull/3183):
-
 
 ## [0.2.2]
 

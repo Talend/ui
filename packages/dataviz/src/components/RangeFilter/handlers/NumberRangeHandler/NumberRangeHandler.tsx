@@ -1,13 +1,38 @@
 import React from 'react';
 import classNames from 'classnames';
+import { scaleLinear } from 'd3';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 import styles from './NumberInputField.component.scss';
-import { formatNumber } from '../../../../formatters/formatters';
+import { formatNumber, getFractionDigits } from '../../../../formatters/formatters';
+import { RangeHandler, Ticks } from '../range-handler.types';
+import { formatD3Ticks } from '../slider-ticks.utils';
 import { Range } from '../../../../types';
-import { RangeHandler } from '../range-handler.types';
 
 const formatter = (input: number) => `${input}`;
 const parser = (input: string) => +input;
+
+function getPrecision(limits: Range): number {
+	return Math.max(getFractionDigits(limits.min), getFractionDigits(limits.max));
+}
+
+function getStep(limits: Range): string {
+	// rc-slider is really picky
+	const precision = getPrecision(limits);
+	return Number(`1e-${precision}`).toFixed(precision);
+}
+
+function getTicks(limits: Range): Ticks {
+	return formatD3Ticks(
+		limits,
+		scaleLinear()
+			.domain([limits.min, limits.max])
+			.ticks(
+				// Use only 1 tick for big number
+				limits.max < 1e10 && limits.max > 1e-10 ? 3 : 1,
+			),
+		v => formatNumber(v, +getPrecision(limits)),
+	);
+}
 
 export function NumberInputField({
 	id,
@@ -35,6 +60,6 @@ export function NumberInputField({
 
 export const NumberRangeHandler: RangeHandler = {
 	inputField: NumberInputField,
-	tickFormatter: formatNumber,
-	tickCount: (limits: Range) => (limits.max < 1e10 && limits.max > 1e-10 ? 5 : 3),
+	getStep,
+	getTicks,
 };
