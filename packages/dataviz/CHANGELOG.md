@@ -26,6 +26,11 @@ Types of changes
 
 ## [unreleased]
 
+## [0.3.1]
+
+### Added
+
+- [Range ticks edge cases](https://github.com/Talend/ui/pull/3180):
 
 ## [0.3.0]
 

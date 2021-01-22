@@ -22,14 +22,20 @@ function getStep(limits: Range): string {
 }
 
 function getTicks(limits: Range): Ticks {
+	const precision = getPrecision(limits);
+	const maxDigits = Math.max(
+		formatNumber(limits.min, precision).length,
+		formatNumber(limits.max, precision).length,
+	);
+
+	// Use number of chars in formatted number to guess how many ticks we can show
+	const tickCount = maxDigits < 11 ? 3 : 1;
+
 	return formatD3Ticks(
 		limits,
 		scaleLinear()
 			.domain([limits.min, limits.max])
-			.ticks(
-				// Use only 1 tick for big number
-				limits.max < 1e10 && limits.max > 1e-10 ? 3 : 1,
-			),
+			.ticks(tickCount),
 		v => formatNumber(v, +getPrecision(limits)),
 	);
 }

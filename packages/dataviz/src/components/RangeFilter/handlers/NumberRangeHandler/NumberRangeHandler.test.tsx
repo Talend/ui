@@ -55,4 +55,16 @@ describe('Number input field', () => {
 			'9530.28': '9,530.28',
 		});
 	});
+	it('Should create ticks for big number', () => {
+		const ticks = NumberRangeHandler.getTicks({
+			min: 131035911,
+			max: 831035920,
+		});
+
+		expect(ticks).toEqual({
+			'131035911': '131,035,911',
+			'500000000': '500,000,000',
+			'831035920': '831,035,920',
+		});
+	});
 });

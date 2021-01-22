@@ -11,9 +11,10 @@ export function formatD3Ticks(
 	// It's nice, but we want to make sure we'll always show min and max values
 	const ticks: Ticks = {};
 	// Add min/max and remove duplicates, then create a map [value, label to display]
-	[limits.min, ...scale, limits.max].forEach(value => {
+	[limits.min, limits.max, ...scale].forEach((value, index) => {
 		const label = formatter(value);
-		if (!Object.values(ticks).includes(label)) {
+		// We want min and max even if they have the same label
+		if (index < 2 || !Object.values(ticks).includes(label)) {
 			ticks[value] = label;
 		}
 	});

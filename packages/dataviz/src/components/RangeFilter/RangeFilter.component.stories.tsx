@@ -68,6 +68,18 @@ NumberRangeFilter.args = {
 	...NumberRangeHandler,
 };
 
+export const BigNumberRangeFilter = Template.bind({});
+BigNumberRangeFilter.args = {
+	range: {
+		min: 131035911,
+		max: 831035920,
+	},
+	limits: {
+		min: 131035911,
+		max: 831035920,
+	},
+	...NumberRangeHandler,
+};
 export const DateRangeFilter = Template.bind({});
 DateRangeFilter.args = {
 	range: {
