@@ -18,20 +18,8 @@ export const States = () => {
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<TextArea id="name" name="default" label="Default" defaultValue="Jimmy" />
-				<TextArea
-					id="disabled"
-					name="disabled"
-					label="Disabled"
-					defaultValue="Jimmy"
-					disabled
-				/>
-				<TextArea
-					id="readonly"
-					name="readonly"
-					label="Readonly"
-					defaultValue="Jimmy"
-					readOnly
-				/>
+				<TextArea id="disabled" name="disabled" label="Disabled" defaultValue="Jimmy" disabled />
+				<TextArea id="readonly" name="readonly" label="Readonly" defaultValue="Jimmy" readOnly />
 				<button type="submit" className="btn btn-primary">
 					Submit
 				</button>
