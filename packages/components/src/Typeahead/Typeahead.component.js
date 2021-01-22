@@ -107,7 +107,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		[focus],
 	);
 
-	const { styles, attributes, ...popper } = usePopper(referenceElement, popperElement, {
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
 		modifiers: [
 			{ name: 'hide', enabled: false },
 			{ name: 'preventOverflow', enabled: false },
