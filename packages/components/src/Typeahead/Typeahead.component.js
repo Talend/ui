@@ -102,7 +102,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 					// eslint-disable-next-line no-param-reassign
 					delete state.styles.popper.opacity;
 				}
-			}
+			},
 		}),
 		[focus],
 	);
