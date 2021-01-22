@@ -181,7 +181,7 @@ describe('defaultTitle', () => {
 		// given no value, you have the schema.title
 		expect(defaultTitle({}, schema)).toBe(schema.title);
 	});
-	it('should return if emptyTitle has been provided and formData is empty', () => {
+	it('should return if emptyTitle has been provided and computed title is empty', () => {
 		const emptyTitle = 'my custom static fallback title';
 		// given not used in an array you have the empty title value provided in options
 		expect(defaultTitle({}, {}, { emptyTitle })).toBe(emptyTitle);
