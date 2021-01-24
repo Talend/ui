@@ -253,4 +253,11 @@ describe('defaultTitle', () => {
 			'age # EQUAL # 50',
 		);
 	});
+	it('should return emptyTitleFallback', () => {
+		const emptyMock = cloneDeep(defaultTitleMockData);
+		set(emptyMock, ['formData'], {});
+		expect(
+			defaultTitle(emptyMock.formData, emptyMock.uiSchema, { emptyTitleFallback: 'Undefined' }),
+		).toEqual('Undefined');
+	});
 });
