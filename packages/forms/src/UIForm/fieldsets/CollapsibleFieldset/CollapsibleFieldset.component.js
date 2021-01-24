@@ -58,6 +58,8 @@ export function defaultTitle(formData, schema, options) {
 
 	if(options?.emptyTitleFallback) {
 		return options.emptyTitleFallback || schema.options?.emptyTitleFallback;
+	if (options?.emptyTitleFallback) {
+		return options.emptyTitleFallback;
 	}
 	return schema.title;
 }
