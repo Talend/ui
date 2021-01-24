@@ -7,26 +7,7 @@
   2:1  error  '@talend/react-cmf/lib/registry' import too deep. No more than @talend/react-cmf  @talend/import-depth
 
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.component.js
-   4:18  error  Unable to resolve path to module '@talend/react-forms'                                                                                                                                                                                                                                                       import/no-unresolved
-  88:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/MultiSelect.component.js
-  4:18  error  Unable to resolve path to module '@talend/react-forms'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/displayMode/TextMode.component.js
-  4:18  error  Unable to resolve path to module '@talend/react-forms'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/NameResolver/NameResolver.component.js
-  3:18  error  Unable to resolve path to module '@talend/react-forms'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/index.js
-  2:18  error  Unable to resolve path to module '@talend/react-forms'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/defaultRegistry.js
-  19:18  error  Unable to resolve path to module '@talend/react-forms'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
-  5:22  error  Unable to resolve path to module '@talend/react-forms'  import/no-unresolved
+  88:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
   124:3  error  defaultProp "state" has no corresponding propTypes declaration  react/default-props-match-prop-types
@@ -37,4 +18,4 @@
 /home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
   40:2  error  redirect should be placed after handleKeyPress  react/sort-comp
 
-✖ 14 problems (14 errors, 0 warnings)
+✖ 7 problems (7 errors, 0 warnings)
