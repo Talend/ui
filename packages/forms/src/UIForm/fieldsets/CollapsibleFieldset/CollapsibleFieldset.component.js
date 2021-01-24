@@ -59,6 +59,9 @@ export function defaultTitle(formData, schema, options) {
 	if(options?.emptyTitleFallback) {
 		return options.emptyTitleFallback;
 	}
+	if (options?.emptyTitle) {
+		return options.emptyTitle;
+	}
 
 	return schema.title;
 }
