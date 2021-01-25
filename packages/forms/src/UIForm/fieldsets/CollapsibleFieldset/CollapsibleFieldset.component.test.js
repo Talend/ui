@@ -260,4 +260,12 @@ describe('defaultTitle', () => {
 			defaultTitle(emptyMock.formData, emptyMock.uiSchema, { emptyTitleFallback: 'Undefined' }),
 		).toEqual('Undefined');
 	});
+	it('should return emty title defined by schema if title is empty and emptyTitleFallback not defined in fieldset options but in schema options', () => {
+		const separatorInSchemaMock = cloneDeep(defaultTitleMockData);
+		set(separatorInSchemaMock, ['formData'], {});
+		set(separatorInSchemaMock, ['uiSchema', 'options', 'emptyTitleFallback'], 'schema title fallback');
+		expect(defaultTitle(separatorInSchemaMock.formData, separatorInSchemaMock.uiSchema)).toEqual(
+			'schema title fallback',
+		);
+	});
 });
