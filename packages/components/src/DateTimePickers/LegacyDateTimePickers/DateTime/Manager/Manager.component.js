@@ -41,8 +41,8 @@ class ContextualManager extends React.Component {
 		]),
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
-        useUTC: PropTypes.bool,
-        hybridMode: PropTypes.bool,
+		useUTC: PropTypes.bool,
+		hybridMode: PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -52,8 +52,8 @@ class ContextualManager extends React.Component {
 		required: true,
 		useSeconds: false,
 		useTime: false,
-        useUTC: false,
-        hybridMode: false,
+		useUTC: false,
+		hybridMode: false,
 	};
 
 	constructor(props) {
@@ -204,8 +204,8 @@ class ContextualManager extends React.Component {
 			useTime: this.props.useTime,
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
-            required: this.props.required,
-            hybridMode: this.props.hybridMode,
+			required: this.props.required,
+			hybridMode: this.props.hybridMode,
 		};
 	}
 
@@ -253,8 +253,8 @@ class ContextualManager extends React.Component {
 						onSubmit: this.onPickerChange,
 						useTime: this.props.useTime,
 						useSeconds: this.props.useSeconds,
-                        useUTC: this.props.useUTC,
-                        // hybridMode: this.props.hybridMode,
+						useUTC: this.props.useUTC,
+						// hybridMode: this.props.hybridMode,
 					},
 
 					formManagement: {
