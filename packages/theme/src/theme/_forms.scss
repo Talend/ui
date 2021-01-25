@@ -72,6 +72,7 @@ form {
 	input[type='email'],
 	input[type='number'],
 	input[type='search'],
+    textarea.form-control,
 	[type='text'].form-control,
 	[type='password'].form-control,
 	[type='email'].form-control,
@@ -100,6 +101,7 @@ form {
 		&[readonly]:focus {
 			background-color: transparent;
 			box-shadow: none;
+			border-color: $gallery;
 		}
 
 		&.input {
