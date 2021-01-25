@@ -62,7 +62,7 @@ function injectIcon(id: string, container: Element) {
 		}
 		container.appendChild(element.children[0].cloneNode(true));
 	} else if (Object.keys(FETCHING_BUNDLES).length) {
-		Promise.all(Object.values(FETCHING_BUNDLES)).then(() => injectIcon(id, container));
+		Promise.any(Object.values(FETCHING_BUNDLES)).then(() => injectIcon(id, container));
 	}
 }
 
