@@ -60,6 +60,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-is": "^16.13.1",
+    "storybook-addon-pseudo-states": "^1.0.0-rc.3",
     "storybook-chroma": "^4.0.2",
     "storybook-docs-toc": "^1.2.0",
     "styled-components": "^5.2.1"
