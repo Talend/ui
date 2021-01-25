@@ -474,19 +474,19 @@ function extractPartsFromDateAndTime(date, time, options) {
 function extractDateOrTimeHybridMode(textInput, options) {
 	let date;
 	let time;
-	const errors = [];
+	let errors = [];
 	try {
 		date = strToDate(textInput, options.dateFormat);
 	} catch (dateError) {
 		// if not a format valid date check for time
 		if (dateError[0].code !== 'INVALID_DATE_FORMAT') {
-			errors.push(dateError);
+			errors = errors.concat(dateError);
 		} else {
 			try {
 				time = strToTime(textInput, options.useSeconds);
 				checkTime(time);
 			} catch (timError) {
-				errors.push(timError);
+				errors = errors.concat(timError);
 			}
 		}
 	}
