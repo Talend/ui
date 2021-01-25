@@ -43,8 +43,9 @@ class InputDateTimePicker extends React.Component {
 		readOnly: PropTypes.bool,
 		dateFormat: PropTypes.string,
 		useSeconds: PropTypes.bool,
-		useTime: PropTypes.bool,
-		useUTC: PropTypes.bool,
+        useTime: PropTypes.bool,
+        useUTC: PropTypes.bool,
+        hybridMode: PropTypes.bool,
 		formMode: PropTypes.bool,
 		required: PropTypes.bool,
 	};
@@ -206,7 +207,8 @@ class InputDateTimePicker extends React.Component {
 				selectedDateTime={this.props.selectedDateTime}
 				useSeconds={this.props.useSeconds}
 				useTime={this.props.useTime}
-				useUTC={this.props.useUTC}
+                useUTC={this.props.useUTC}
+                hybridMode={this.props.hybridMode}
 				onChange={this.onChange}
 			>
 				<DateTimeContext.Consumer>

@@ -4,7 +4,9 @@ import DebounceInput from 'react-debounce-input';
 import { DateTimeContext } from '../Context';
 
 export default function Input(props) {
-	const { datetime, inputManagement, errorManagement } = useContext(DateTimeContext);
+    const context = useContext(DateTimeContext);
+    console.log(context);
+	const { datetime, inputManagement, errorManagement, date, time } = useContext(DateTimeContext);
 	return (
 		<DebounceInput
 			aria-describedby={errorManagement.inputErrorId}

@@ -41,7 +41,8 @@ class ContextualManager extends React.Component {
 		]),
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
-		useUTC: PropTypes.bool,
+        useUTC: PropTypes.bool,
+        hybridMode: PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -51,7 +52,8 @@ class ContextualManager extends React.Component {
 		required: true,
 		useSeconds: false,
 		useTime: false,
-		useUTC: false,
+        useUTC: false,
+        hybridMode: false,
 	};
 
 	constructor(props) {
@@ -98,10 +100,10 @@ class ContextualManager extends React.Component {
 		if (!this.props.onChange) {
 			return;
 		}
-		const { errorMessage, datetime, textInput, errors } = this.state;
+		const { errorMessage, datetime, textInput, errors, time, date } = this.state;
 		// we need to update the initial state once it has been changed
 		this.initialState = { ...this.state };
-		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
+		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin, time, date });
 	}
 
 	onInputChange(event) {
@@ -202,7 +204,8 @@ class ContextualManager extends React.Component {
 			useTime: this.props.useTime,
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
-			required: this.props.required,
+            required: this.props.required,
+            hybridMode: this.props.hybridMode,
 		};
 	}
 
@@ -250,7 +253,8 @@ class ContextualManager extends React.Component {
 						onSubmit: this.onPickerChange,
 						useTime: this.props.useTime,
 						useSeconds: this.props.useSeconds,
-						useUTC: this.props.useUTC,
+                        useUTC: this.props.useUTC,
+                        // hybridMode: this.props.hybridMode,
 					},
 
 					formManagement: {

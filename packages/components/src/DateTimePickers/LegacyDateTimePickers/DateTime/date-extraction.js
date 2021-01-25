@@ -170,8 +170,12 @@ function checkSeconds(seconds) {
 /**
  * Check if time is correct
  */
-function checkTime({ hours, minutes, seconds }) {
+function checkTime({ hours, minutes, seconds }, hybridMode = false) {
 	const timeErrors = [];
+
+	if (!hours && !minutes && !seconds && hybridMode) {
+		return;
+	}
 
 	const hoursError = checkHours(hours);
 	if (hoursError) {
@@ -246,6 +250,10 @@ function timeToSeconds(hours, minutes, seconds) {
  */
 function dateTimeToStr(date, time, options) {
 	if (date === undefined) {
+		if (options.useTime) {
+			const { hours, minutes, seconds } = time;
+			return options.useSeconds ? `${hours}:${minutes}:${seconds}` : `${hours}:${minutes}`;
+		}
 		return '';
 	}
 
@@ -278,8 +286,8 @@ function dateTimeToStr(date, time, options) {
  * @param useUTC {boolean} Indicates that we ask for a date in UTC TZ
  * @returns {Date}
  */
-function dateAndTimeToDateTime(date, time, { useUTC }) {
-	if (date === undefined || time === undefined) {
+function dateAndTimeToDateTime(date, time, { useUTC, hybridMode }) {
+	if (!hybridMode && (date === undefined || time === undefined)) {
 		return INTERNAL_INVALID_DATE;
 	}
 
@@ -289,6 +297,9 @@ function dateAndTimeToDateTime(date, time, { useUTC }) {
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
 		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
+		// if (hybridMode) {
+		// 	return '';
+		// }
 		return INTERNAL_INVALID_DATE;
 	}
 }
@@ -442,7 +453,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 
 	if (options.useTime) {
 		try {
-			checkTime(time);
+			checkTime(time, options.hybridMode);
 		} catch (error) {
 			errors = errors.concat(error);
 		}
@@ -458,6 +469,28 @@ function extractPartsFromDateAndTime(date, time, options) {
 		errorMessage: errors[0] ? errors[0].message : null,
 		errors,
 	};
+}
+
+function extractDateOrTimeHybridMode(textInput, options) {
+	let date;
+	let time;
+	const errors = [];
+	try {
+		date = strToDate(textInput, options.dateFormat);
+	} catch (dateError) {
+		// if not a format valid date check for time
+		if (dateError[0].code !== 'INVALID_DATE_FORMAT') {
+			errors.push(dateError);
+		} else {
+			try {
+				time = strToTime(textInput, options.useSeconds);
+				checkTime(time);
+			} catch (timError) {
+				errors.push(timError);
+			}
+		}
+	}
+	return { date, time, errors };
 }
 
 /**
@@ -492,7 +525,9 @@ function extractPartsFromTextInput(textInput, options) {
 		if (options.useTime) {
 			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
 			if (!splitMatches.length) {
-				throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
+				if (!options.hybridMode) {
+					throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
+				}
 			} else {
 				// extract date part from datetime
 				dateTextToParse = splitMatches[1];
@@ -508,11 +543,19 @@ function extractPartsFromTextInput(textInput, options) {
 			}
 		}
 
-		// parse date
-		try {
-			date = strToDate(dateTextToParse, options.dateFormat);
-		} catch (error) {
-			errors = errors.concat(error);
+		if (options.hybridMode) {
+			// parse date
+			const hybridDateTime = extractDateOrTimeHybridMode(textInput, options);
+			date = hybridDateTime.date;
+			time = hybridDateTime.time;
+			errors = errors.concat(hybridDateTime.errors);
+		} else {
+			// parse date
+			try {
+				date = strToDate(dateTextToParse, options.dateFormat);
+			} catch (error) {
+				errors = errors.concat(error);
+			}
 		}
 	} catch (error) {
 		errors = [error];
