@@ -88,11 +88,11 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			if (labelExist) {
 				return (
 					<TooltipTrigger key={key} label={labelExist} tooltipPlacement={tooltipPlacement}>
-						<div className={css[className]}>{element || labelExist}</div>
+						<div className={css[className]}>{element || label}</div>
 					</TooltipTrigger>
 				);
 			}
-			return <div className={css[className]}>{element || labelExist}</div>;
+			return <div className={css[className]}>{element || label}</div>;
 		}
 	}
 }
