@@ -1,8 +1,0 @@
-
-/home/travis/build/Talend/ui/packages/router/src/expressions.test.js
-  1:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
-
-/home/travis/build/Talend/ui/packages/router/src/route.test.js
-  4:1  error  '@talend/react-cmf/lib/mock' import too deep. No more than @talend/react-cmf  @talend/import-depth
-
-✖ 2 problems (2 errors, 0 warnings)

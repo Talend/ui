@@ -1,7 +1,0 @@
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.test.js
-  479:10  error  'widgets' is already declared in the upper scope  no-shadow
-  497:10  error  'widgets' is already declared in the upper scope  no-shadow
-  515:10  error  'widgets' is already declared in the upper scope  no-shadow
-
-✖ 3 problems (3 errors, 0 warnings)
