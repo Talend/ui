@@ -23,7 +23,6 @@ export function computeValue(cellData, columnData, t) {
 				locale: getLocale(t),
 			});
 		} else if (columnData.mode === 'format') {
-
 			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 		}
 	}
