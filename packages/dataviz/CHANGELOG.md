@@ -30,7 +30,7 @@ Types of changes
 
 ### Added
 
-- [Range ticks edge cases](https://github.com/Talend/ui/pull/3180):
+- [Range ticks edge cases](https://github.com/Talend/ui/pull/3186):
 
 ## [0.3.0]
 
