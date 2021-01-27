@@ -28,7 +28,7 @@ Types of changes
 
 ## [0.3.1]
 
-### Added
+### Fixed
 
 - [Range ticks edge cases](https://github.com/Talend/ui/pull/3186):
 
