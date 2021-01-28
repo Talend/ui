@@ -64,15 +64,16 @@ describe('DateTimeRangeHandler', () => {
 	});
 
 	it('Should create ticks', () => {
-		const ticks = DateRangeHandler.getTicks({
+		const limits = {
 			min: new Date('2000-01-01T12:00:00').getTime(),
 			max: new Date('2030-01-01T12:00:00').getTime(),
-		});
+		};
+		const ticks = DateRangeHandler.getTicks(limits);
 		expect(ticks).toEqual({
-			'946724400000': '2000-01-01',
+			[limits.min]: '2000-01-01',
 			'1262300400000': '2010-01-01',
 			'1577833200000': '2020-01-01',
-			'1893452400000': '2030-01-01',
+			[limits.max]: '2030-01-01',
 		});
 	});
 });
