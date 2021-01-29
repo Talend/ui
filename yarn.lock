@@ -3156,10 +3156,10 @@
   dependencies:
     typescript "^3.8.3"
 
-"@talend/scripts-core@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-8.0.0.tgz#7d32f1719711cd9575ae76e395d7021c8e227d89"
-  integrity sha512-Uy7TVXUWmgLrDq/AQV4PVja59c3fF/vbxPuicjwPpa8998n+yrlyLVO6yvpDwuGDoeddUyV5TNSVtALyWEMWsA==
+"@talend/scripts-core@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-8.0.1.tgz#846323440a12acae87be06be515b4b26581a89ef"
+  integrity sha512-f7lize3ejJLut8Qs+f66A6MhNP9u2XGw/lGMHSo21nhajF2YWyfOcJ1nKFo2855gxrdgx95Z7TarlwkIbBh7TQ==
   dependencies:
     "@babel/cli" "^7.8.3"
     "@babel/core" "^7.8.7"
