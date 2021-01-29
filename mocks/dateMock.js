@@ -1,19 +1,21 @@
-let OriginalDate;
+let spy;
 
 /**
  * Unmock the Date object by restoring the native Date
  */
 function restore() {
-	if (OriginalDate) {
-		global.Date = OriginalDate;
-		OriginalDate = undefined;
+	if (spy) {
+		spy.mockRestore();
+		spy = undefined;
 	}
 }
 
 function mock(now) {
-	OriginalDate = global.Date;
-	global.Date = () => now;
-	global.Date.now = () => now;
+	if (spy) {
+		restore();
+	}
+	spy = jest.spyOn(global, 'Date').mockImplementation(() => now);
+	global.Date.now = jest.fn(() => now);
 }
 
 export default {
