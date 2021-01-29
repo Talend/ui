@@ -138,11 +138,16 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 	color: $black;
 }
 
+.section-container:not(:first-of-type) {
+	.section-header {
+		border-top: 1px solid $tc-typeahead-section-border-color;
+	}
+}
+
 .section-header {
 	color: $black;
 	display: flex;
 	align-items: center;
-	border-top: 1px solid $tc-typeahead-section-border-color;
 	height: $tc-typeahead-item-height;
 	padding: {
 		left: $padding-small;

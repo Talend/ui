@@ -11,6 +11,7 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { extractDataAttributes } from '../../utils/properties';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -188,6 +189,7 @@ class Datalist extends Component {
 						'aria-invalid': !this.props.isValid,
 						'aria-required': this.props.schema.required,
 						'aria-describedby': `${descriptionId} ${errorId}`,
+						...extractDataAttributes(this.props.schema),
 					}}
 				/>
 			</FieldTemplate>

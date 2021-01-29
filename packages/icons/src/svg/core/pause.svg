@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16">
-  <g>
-    <path d="M7,4 L7,12 L5,12 L5,4 L7,4 Z M11,4 L11,12 L9,12 L9,4 L11,4 Z M7.9995,14.8147 C4.2355,14.8147 1.1855,11.7647 1.1855,8.0017 C1.1855,4.2367 4.2365,1.1857 7.9995,1.1857 C11.7625,1.1857 14.8135,4.2367 14.8135,8.0017 C14.8135,11.7647 11.7625,14.8147 7.9995,14.8147 L7.9995,14.8147 Z M-0.0005,7.9997 C-0.0005,12.4107 3.5895,15.9977 7.9995,15.9977 C12.4115,15.9977 15.9995,12.4107 15.9995,7.9997 C15.9995,3.5887 12.4115,-0.0003 7.9995,-0.0003 C3.5895,-0.0003 -0.0005,3.5887 -0.0005,7.9997 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+  <circle class="ti-background" cx="8" cy="8" r="7.5" stroke="currentColor" fill="none"/>
+  <g class="ti-foreround" >
+    <rect width="8" height="2" x="5" y="12" fill="currentColor" rx="1" transform="rotate(-90 5 12)"/>
+    <rect width="8" height="2" x="9" y="12" fill="currentColor" rx="1" transform="rotate(-90 9 12)"/>
   </g>
 </svg>

@@ -5,6 +5,7 @@ import RatioBar from '../RatioBar';
 import {
 	QualityEmptyLine,
 	QualityInvalidLine,
+	QualityType,
 	QualityValidLine,
 } from './QualityRatioBar.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -39,7 +40,7 @@ export function getQualityPercentagesRounded(invalid, empty, valid, digits = 0) 
 	return [invalidRounded, emptyRounded, validRounded];
 }
 
-export function QualityBar({ invalid, valid, empty, digits = 1 }) {
+export function QualityBar({ invalid, valid, empty, onClick, getDataFeature, digits = 1 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	const [invalidPercentage, emptyPercentage, validPercentage] = getQualityPercentagesRounded(
@@ -51,9 +52,48 @@ export function QualityBar({ invalid, valid, empty, digits = 1 }) {
 
 	return (
 		<RatioBar.Composition>
-			<QualityInvalidLine value={invalid} percentage={invalidPercentage} t={t} />
-			<QualityEmptyLine value={empty} percentage={emptyPercentage} t={t} />
-			<QualityValidLine value={valid} percentage={validPercentage} t={t} />
+			<QualityInvalidLine
+				onClick={
+					onClick
+						? e =>
+								onClick(e, {
+									type: QualityType.INVALID,
+								})
+						: null
+				}
+				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
+				value={invalid}
+				percentage={invalidPercentage}
+				t={t}
+			/>
+			<QualityEmptyLine
+				onClick={
+					onClick
+						? e =>
+								onClick(e, {
+									type: QualityType.EMPTY,
+								})
+						: null
+				}
+				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
+				value={empty}
+				percentage={emptyPercentage}
+				t={t}
+			/>
+			<QualityValidLine
+				onClick={
+					onClick
+						? e =>
+								onClick(e, {
+									type: QualityType.VALID,
+								})
+						: null
+				}
+				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
+				value={valid}
+				percentage={validPercentage}
+				t={t}
+			/>
 		</RatioBar.Composition>
 	);
 }
@@ -62,5 +102,7 @@ QualityBar.propTypes = {
 	invalid: PropTypes.number.isRequired,
 	empty: PropTypes.number.isRequired,
 	valid: PropTypes.number.isRequired,
+	onClick: PropTypes.func,
+	getDataFeature: PropTypes.func,
 	digits: PropTypes.number,
 };

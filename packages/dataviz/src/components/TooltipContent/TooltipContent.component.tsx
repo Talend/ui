@@ -1,12 +1,15 @@
 import React from 'react';
+import classNames from 'classnames';
 import styles from './TooltipContent.component.scss';
+import { ChartStyle } from '../../types';
 
 export interface TooltipContentProps {
 	entries: TooltipEntry[];
+	chartStyle?: ChartStyle;
 }
-function TooltipContent({ entries }: TooltipContentProps) {
+function TooltipContent({ entries, chartStyle = ChartStyle.VALUE }: TooltipContentProps) {
 	return (
-		<dl className={styles['dataviz-tooltip']}>
+		<dl className={classNames(styles['dataviz-tooltip'], styles[`dataviz-tooltip--${chartStyle}`])}>
 			{entries.map(({ key, value }) => (
 				<div className={styles['dataviz-tooltip__entry']} key={key}>
 					<dt className={styles['dataviz-tooltip__key']}>{key}</dt>
@@ -24,4 +27,6 @@ export interface TooltipEntry {
 	value: string;
 }
 
-export default TooltipContent;
+export default Object.assign(TooltipContent, {
+	ChartStyle,
+});

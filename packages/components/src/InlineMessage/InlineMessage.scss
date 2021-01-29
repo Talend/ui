@@ -13,7 +13,7 @@ $tc-inline-message-icon-offset: 0.4rem !default;
 	position: relative;
 	display: flex;
 	color: $black;
-	padding-left: padding-smaller;
+	padding-left: $padding-smaller;
 
 	&-title {
 		font-weight: $font-weight-semi-bold;

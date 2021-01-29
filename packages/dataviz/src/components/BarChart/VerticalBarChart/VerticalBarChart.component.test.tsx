@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import VerticalBarChart from './VerticalBarChart.component';
-import { DataType } from '../../../types';
 
 describe('Vertical bar chart', () => {
 	it('Should trigger onBarClick', () => {
@@ -15,7 +14,6 @@ describe('Vertical bar chart', () => {
 		const component = mount(
 			<VerticalBarChart
 				data={[entry]}
-				dataType={DataType.NUMBER}
 				height={300}
 				width={300}
 				onBarClick={onBarClick}
@@ -44,7 +42,6 @@ describe('Vertical bar chart', () => {
 		const component = mount(
 			<VerticalBarChart
 				data={[entry]}
-				dataType={DataType.NUMBER}
 				height={300}
 				width={300}
 				onBarClick={jest.fn()}
@@ -75,7 +72,7 @@ describe('Vertical bar chart', () => {
 						value: 249,
 					},
 				]}
-				dataType={DataType.DATE}
+				showXAxis
 				height={300}
 				width={300}
 				onBarClick={jest.fn()}
@@ -99,7 +96,6 @@ describe('Vertical bar chart', () => {
 						filteredValue: 100,
 					},
 				]}
-				dataType={DataType.NUMBER}
 				height={300}
 				width={300}
 				onBarClick={jest.fn()}

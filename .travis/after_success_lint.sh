@@ -3,6 +3,7 @@
 
 if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
 	echo "Linting JavaScript files"
+	rm -rf output
 	(lerna exec --scope=@talend/react-sagas -- npm run lint:es -- -o ../../output/sagas.eslint.txt --no-color)
 	(lerna exec --scope=@talend/react-datagrid -- npm run lint:es -- -o ../../output/datagrid.eslint.txt --no-color)
 	(lerna exec --scope=@talend/react-stepper -- npm run lint:es -- -o ../../output/stepper.eslint.txt --no-color)

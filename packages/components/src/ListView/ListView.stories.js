@@ -28,7 +28,7 @@ const props = {
 
 const searchProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_SEARCH',
+	displayMode: ListView.DISPLAY_MODES.DISPLAY_MODE_SEARCH,
 	headerInput: [
 		{
 			label: 'Remove search',

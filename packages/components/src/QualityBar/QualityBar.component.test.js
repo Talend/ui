@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { QualityBar } from './QualityBar.component';
 
 describe('QualityBar', () => {
@@ -20,6 +20,44 @@ describe('QualityBar', () => {
 			expect(wrapper.find('QualityEmptyLine').props().value).toBe(332);
 			expect(wrapper.find('QualityValidLine').props().percentage).toBe(53.5);
 			expect(wrapper.find('QualityValidLine').props().value).toBe(523);
+		});
+		it('should render an chart with action button', () => {
+			// given
+			const mockFunctionAction = jest.fn();
+			const props = {
+				valid: 523,
+				invalid: 123,
+				empty: 332,
+				onClick: mockFunctionAction,
+				getDataFeature: qualityType => {
+					return `data-feature-${qualityType}`;
+				},
+			};
+			// when
+			const wrapper = mount(<QualityBar {...props} />);
+			wrapper
+				.find('div')
+				.filterWhere(item => {
+					return item.prop('data-feature') === 'data-feature-valid';
+				})
+				.simulate('click');
+			// then
+			expect(mockFunctionAction).toHaveBeenCalled();
+			expect(
+				wrapper.find('div').filterWhere(item => {
+					return item.prop('data-feature') === 'data-feature-valid';
+				}).length,
+			).toBe(1);
+			expect(
+				wrapper.find('div').filterWhere(item => {
+					return item.prop('data-feature') === 'data-feature-invalid';
+				}).length,
+			).toBe(1);
+			expect(
+				wrapper.find('div').filterWhere(item => {
+					return item.prop('data-feature') === 'data-feature-empty';
+				}).length,
+			).toBe(1);
 		});
 	});
 });

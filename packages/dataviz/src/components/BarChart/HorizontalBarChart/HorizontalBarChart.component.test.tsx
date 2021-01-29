@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import HorizontalBarChart from './HorizontalBarChart.component';
-import { ChartStyle } from '../ColoredBar/ColoredBar.component';
+import { ChartStyle } from '../../../types';
 
 describe('Horizontal bar chart', () => {
 	it('Should trigger onBarClick', () => {
@@ -68,5 +68,23 @@ describe('Horizontal bar chart', () => {
 			value: 2145,
 		});
 		expect(component.find('Tooltip').text()).toEqual('myTooltipContent');
+	});
+	it('Should not grow to available size if not enough data provided', () => {
+		const component = mount(
+			<HorizontalBarChart
+				data={[
+					{
+						key: 'Entry fully matching filter',
+						value: 2145,
+						filteredValue: 2145,
+					},
+				]}
+				chartStyle={ChartStyle.VALUE}
+				onBarClick={jest.fn()}
+				getTooltipContent={jest.fn()}
+			/>,
+		);
+
+		expect(component.find('ResponsiveContainer').prop('height')).toEqual(65);
 	});
 });

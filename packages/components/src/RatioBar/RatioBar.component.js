@@ -48,7 +48,7 @@ function getLabel(amount, total) {
 	);
 }
 
-export function RatioBar({ amount, total }) {
+export function RatioBar({ amount, total, hideLabel = false }) {
 	const filled = getFilledValues(amount, total);
 	const empty = getEmptyValues(amount, total);
 
@@ -56,7 +56,7 @@ export function RatioBar({ amount, total }) {
 		<RatioBarComposition>
 			<FilledLine percentage={filled.percentage} value={filled.amount} />
 			<EmptyLine percentage={empty.percentage} value={empty.amount} />
-			{getLabel(amount, total)}
+			{!hideLabel && getLabel(amount, total)}
 		</RatioBarComposition>
 	);
 }
@@ -64,4 +64,5 @@ export function RatioBar({ amount, total }) {
 RatioBar.propTypes = {
 	amount: PropTypes.number,
 	total: PropTypes.number.isRequired,
+	hideLabel: PropTypes.bool,
 };

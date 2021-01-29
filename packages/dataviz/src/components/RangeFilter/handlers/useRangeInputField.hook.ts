@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 
+export interface InputFieldProps {
+	id: string;
+	value: number;
+	onChange: (value: number) => void;
+}
+
 function useRangeInputField(
 	rangeValue: number,
 	formatter: (input: number) => string,
@@ -14,8 +20,10 @@ function useRangeInputField(
 
 	function submit(stringValue: string) {
 		const parsed = parser(stringValue);
-		if (parsed) {
-			onChange(parsed);
+		if (parsed !== null) {
+			if (parsed !== rangeValue) {
+				onChange(parsed);
+			}
 		} else {
 			resetValue();
 		}

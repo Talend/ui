@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TooltipContent Should render 1`] = `
-<dl class="theme-dataviz-tooltip">
+<dl class="theme-dataviz-tooltip theme-dataviz-tooltip--value">
   <div class="theme-dataviz-tooltip__entry">
     <dt class="theme-dataviz-tooltip__key">
       key1
