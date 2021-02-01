@@ -3176,7 +3176,7 @@
     which "^2.0.1"
     yargs "^15.3.0"
 
-"@talend/scripts-preset-react-lib@^8.0.0", "@talend/scripts-preset-react-lib@^8.0.1":
+"@talend/scripts-preset-react-lib@^8.0.1":
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-8.0.1.tgz#4e361ae6502c51e4410d63a7f1520f7486a6336b"
   integrity sha512-OG0We8D0c8DHIqb0yE/D3AUXP1yF7G9iCRQIQzYhydLcYYcPJUkyPkEihELR2muRZN6MT6MwxyZ0ZMnxohd2cQ==
