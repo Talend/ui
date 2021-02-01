@@ -20,7 +20,7 @@ storiesOf('Deprecated/LegacyDteTimePicker', module).add('Legacy - form mode', ()
 			/>
 		</div>
 		<div style={{ width: 150 }}>
-			<div> without submit in hybrid mode </div>
+			<div> in form mode in hybrid mode </div>
 			<InputDateTimePicker
 				id="my-date-picker2"
 				name="Datetime"
@@ -30,6 +30,8 @@ storiesOf('Deprecated/LegacyDteTimePicker', module).add('Legacy - form mode', ()
 				required={false}
 				useSeconds
 				hybridMode
+				selectedDateTime={'::00'}
+				formMode
 			/>
 		</div>
 	</React.Fragment>

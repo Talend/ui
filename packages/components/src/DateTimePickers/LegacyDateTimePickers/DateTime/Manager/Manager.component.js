@@ -132,32 +132,47 @@ class ContextualManager extends React.Component {
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
 		if (isTimeUpdate) {
-			// to avoid having errors on untouched time elements, we check only the updated part
-			let newError;
-			switch (field) {
-				case FIELD_HOURS:
-					newError = checkHours(time.hours);
-					break;
-				case FIELD_MINUTES:
-					newError = checkMinutes(time.minutes);
-					break;
-				case FIELD_SECONDS:
-					newError = checkSeconds(time.seconds);
-					break;
-				default:
-					break;
-			}
+			const timeToCheck = nextState.time;
+			if (
+				this.getDateOptions().hybridMode &&
+				!timeToCheck.hours &&
+				!timeToCheck.minutes &&
+				!timeToCheck.seconds
+			) {
+				nextErrors = nextErrors.filter(
+					error =>
+						!HOUR_ERRORS.includes(error.code) &&
+						!MINUTES_ERRORS.includes(error.code) &&
+						!SECONDS_ERRORS.includes(error.code),
+				);
+			} else {
+				// to avoid having errors on untouched time elements, we check only the updated part
+				let newError;
+				switch (field) {
+					case FIELD_HOURS:
+						newError = checkHours(time.hours, this.getDateOptions().hybridMode);
+						break;
+					case FIELD_MINUTES:
+						newError = checkMinutes(time.minutes, this.getDateOptions().hybridMode);
+						break;
+					case FIELD_SECONDS:
+						newError = checkSeconds(time.seconds, this.getDateOptions().hybridMode);
+						break;
+					default:
+						break;
+				}
 
-			// remove old error on updated time part
-			nextErrors = nextErrors.filter(
-				error =>
-					(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
-					(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
-					(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
-			);
-			// add the new error on updated time part
-			if (newError) {
-				nextErrors.push(newError);
+				// remove old error on updated time part
+				nextErrors = nextErrors.filter(
+					error =>
+						(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
+						(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
+						(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
+				);
+				// add the new error on updated time part
+				if (newError) {
+					nextErrors.push(newError);
+				}
 			}
 		}
 

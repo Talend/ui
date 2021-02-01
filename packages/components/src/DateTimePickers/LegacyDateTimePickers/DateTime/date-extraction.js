@@ -134,7 +134,12 @@ function checkHours(hours) {
 	const hoursNum = Number(hours);
 	if (hours === '') {
 		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_EMPTY');
-	} else if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
+	} else if (
+		(hours.length > 0 && hours.length !== 2) ||
+		isNaN(hoursNum) ||
+		hoursNum < 0 ||
+		hoursNum > 23
+	) {
 		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_NUMBER');
 	}
 	return null;
@@ -147,7 +152,12 @@ function checkMinutes(minutes) {
 	const minsNum = Number(minutes);
 	if (minutes === '') {
 		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_EMPTY');
-	} else if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
+	} else if (
+		(minutes.length > 0 && minutes.length !== 2) ||
+		isNaN(minsNum) ||
+		minsNum < 0 ||
+		minsNum > 59
+	) {
 		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER');
 	}
 	return null;
@@ -161,7 +171,12 @@ function checkSeconds(seconds) {
 	const secondsNum = Number(seconds);
 	if (seconds === '') {
 		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_EMPTY');
-	} else if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
+	} else if (
+		(seconds.length > 0 && seconds.length !== 2) ||
+		isNaN(secondsNum) ||
+		secondsNum < 0 ||
+		secondsNum > 59
+	) {
 		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER');
 	}
 	return null;
@@ -218,7 +233,7 @@ function check(date, time, options) {
 		return errors;
 	}
 	try {
-		checkTime(time);
+		checkTime(time, options.hybridMode);
 	} catch (timeErrors) {
 		errors = errors.concat(timeErrors);
 	}
@@ -236,8 +251,8 @@ function check(date, time, options) {
  * @param seconds {string}
  * @returns {number}
  */
-function timeToSeconds(hours, minutes, seconds) {
-	checkTime({ hours, minutes, seconds });
+function timeToSeconds(hours, minutes, seconds, hybridMode) {
+	checkTime({ hours, minutes, seconds }, hybridMode);
 	return Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds);
 }
 
@@ -264,8 +279,12 @@ function dateTimeToStr(date, time, options) {
 
 	const { hours, minutes, seconds } = time;
 	try {
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
+		const timeInSeconds = timeToSeconds(hours, minutes, seconds, options.hybridMode);
 		const fullDate = setSeconds(date, timeInSeconds);
+		if (!hours && !minutes && !seconds && options.hybridMode) {
+			// if in hybrid mode and time are empty we don't want time in text input
+			return format(fullDate, getFullDateFormat({ ...options, useTime: false }));
+		}
 		return format(fullDate, getFullDateFormat(options));
 	} catch (e) {
 		const dateStr = format(date, dateFormat);
@@ -293,7 +312,7 @@ function dateAndTimeToDateTime(date, time, { useUTC, hybridMode }) {
 
 	try {
 		const { hours, minutes, seconds } = time;
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
+		const timeInSeconds = timeToSeconds(hours, minutes, seconds, hybridMode);
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
 		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
@@ -484,7 +503,7 @@ function extractDateOrTimeHybridMode(textInput, options) {
 		} else {
 			try {
 				time = strToTime(textInput, options.useSeconds);
-				checkTime(time);
+				checkTime(time, options.hybridMode);
 			} catch (timError) {
 				errors = errors.concat(timError);
 			}
@@ -520,6 +539,7 @@ function extractPartsFromTextInput(textInput, options) {
 	let date;
 	let errors = [];
 	let dateTextToParse = textInput;
+	let dateMatched = false;
 
 	try {
 		if (options.useTime) {
@@ -529,6 +549,7 @@ function extractPartsFromTextInput(textInput, options) {
 					throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 				}
 			} else {
+				dateMatched = true;
 				// extract date part from datetime
 				dateTextToParse = splitMatches[1];
 
@@ -536,18 +557,21 @@ function extractPartsFromTextInput(textInput, options) {
 				try {
 					const timeTextToParse = splitMatches[2];
 					time = strToTime(timeTextToParse, options.useSeconds);
-					checkTime(time);
+					checkTime(time, options.hybridMode);
 				} catch (error) {
 					errors = errors.concat(error);
 				}
 			}
 		}
 
-		if (options.hybridMode) {
+		if (options.hybridMode && !dateMatched) {
 			// parse date
 			const hybridDateTime = extractDateOrTimeHybridMode(textInput, options);
 			date = hybridDateTime.date;
 			time = hybridDateTime.time;
+			if (!time) {
+				time = { hours: '', minutes: '', seconds: '' };
+			}
 			errors = errors.concat(hybridDateTime.errors);
 		} else {
 			// parse date
