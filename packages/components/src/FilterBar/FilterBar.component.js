@@ -52,7 +52,8 @@ function FilterInput(props) {
 	const placeholderLabel = placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' });
 
 	const inputProps = {
-		'data-test': rest['data-test'],
+		'data-test': rest['dataTest'],
+		'data-feature': rest['dataFeature'],
 		id,
 		name: 'search',
 		type: 'search',
@@ -199,7 +200,8 @@ export class FilterBarComponent extends React.Component {
 					/>
 					<FilterInput
 						disabled={this.props.disabled}
-						data-test={this.props['data-test']}
+						dataFeature={this.props['data-feature']}
+						dataTest={this.props['data-test']}
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
 						debounceMinLength={this.props.debounceMinLength}
@@ -218,6 +220,8 @@ export class FilterBarComponent extends React.Component {
 						<Action
 							className={theme.remove}
 							id={this.props.id && `${this.props.id}-cross-icon`}
+							data-test={this.props['data-test'] && `${this.props['data-test']}-reset`}
+							data-feature={this.props['data-feature'] && `${this.props['data-feature']}-reset`}
 							bsStyle="link"
 							icon="talend-cross"
 							label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
