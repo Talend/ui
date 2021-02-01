@@ -251,7 +251,7 @@
   135:13  error  'children' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.component.js
-  129:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  130:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.test.js
   13:3  error  Arrow function should not return assignment  no-return-assign
