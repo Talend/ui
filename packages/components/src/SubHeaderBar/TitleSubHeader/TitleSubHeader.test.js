@@ -55,15 +55,11 @@ describe('TitleSubHeader', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
 		const findEditableText = () => wrapper.find('[feature="subheaderbar.rename"]');
 
-		findEditableText()
-			.props()
-			.onEdit();
+		findEditableText().props().onEdit();
 
 		expect(findEditableText().props().editMode).toEqual(true);
 
-		findEditableText()
-			.props()
-			.onCancel();
+		findEditableText().props().onCancel();
 
 		expect(findEditableText().props().editMode).toEqual(false);
 	});
