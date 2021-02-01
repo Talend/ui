@@ -43,7 +43,7 @@ describe('FilterBar', () => {
 
 	it('should accept data-test attribute', () => {
 		// given
-		const filterInstance = mount(<FilterBarComponent {...defaultProps} data-test="my.test" />);
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} dataTest="my.test" value="filter text" focus />);
 		// then
 		expect(filterInstance.find('input').prop('data-test')).toEqual('my.test');
 	});
@@ -57,19 +57,28 @@ describe('FilterBar', () => {
 		expect(filterInstance.find('input').prop('data-feature')).toEqual('my.feature');
 	});
 
-	it('should reuse data-feature for reset button custom attribute', () => {
+	it('should accept dataFeature prop', () => {
 		// given
 		const filterInstance = mount(
-			<FilterBarComponent {...defaultProps} focus data-feature="my.feature" value="filter text" />,
+			<FilterBarComponent {...defaultProps} dataFeature="my.feature" />,
+		);
+		// then
+		expect(filterInstance.find('input').prop('data-feature')).toEqual('my.feature');
+	});
+
+	it('should reuse dataFeature props for reset button custom attribute', () => {
+		// given
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} focus dataFeature="my.feature" value="filter text" />,
 		);
 		// then
 		expect(filterInstance.find('button').prop('data-feature')).toEqual('my.feature-reset');
 	});
 
-	it('should reuse data-test for reset button custom attribute', () => {
+	it('should reuse dataTest prop for reset button "data-teste" custom attribute', () => {
 		// given
 		const filterInstance = mount(
-			<FilterBarComponent {...defaultProps} data-test="my.test" value="filter text" />,
+			<FilterBarComponent {...defaultProps} dataTest="my.test" value="filter text" />,
 		);
 		// then
 		expect(filterInstance.find('button').prop('data-test')).toEqual('my.test-reset');

@@ -50,10 +50,9 @@ function FilterInput(props) {
 	} = props;
 
 	const placeholderLabel = placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' });
-
 	const inputProps = {
-		'data-test': rest['dataTest'],
-		'data-feature': rest['dataFeature'],
+		'data-test': rest.dataTest,
+		'data-feature': rest.dataFeature,
 		id,
 		name: 'search',
 		type: 'search',
@@ -99,7 +98,8 @@ FilterInput.propTypes = {
 	onFilter: PropTypes.func.isRequired,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
-	'data-test': PropTypes.string,
+	dataTest: PropTypes.string,
+	dataFeature: PropTypes.string,
 	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
@@ -173,7 +173,7 @@ export class FilterBarComponent extends React.Component {
 					hideLabel
 					icon="talend-search"
 					bsStyle="link"
-					data-feature={this.props['data-feature']}
+					data-feature={this.props['dataFeature']}
 					tooltipPlacement={this.props.tooltipPlacement}
 					role="search"
 				/>
@@ -200,8 +200,8 @@ export class FilterBarComponent extends React.Component {
 					/>
 					<FilterInput
 						disabled={this.props.disabled}
-						dataFeature={this.props['data-feature']}
-						dataTest={this.props['data-test']}
+						dataFeature={this.props['dataFeature'] || this.props['data-feature']}
+						dataTest={this.props['dataTest'] || this.props['data-test']}
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
 						debounceMinLength={this.props.debounceMinLength}
@@ -220,8 +220,8 @@ export class FilterBarComponent extends React.Component {
 						<Action
 							className={theme.remove}
 							id={this.props.id && `${this.props.id}-cross-icon`}
-							data-test={this.props['data-test'] && `${this.props['data-test']}-reset`}
-							data-feature={this.props['data-feature'] && `${this.props['data-feature']}-reset`}
+							dataTest={this.props['dataTest'] && `${this.props['dataTest']}-reset`}
+							dataFeature={this.props['dataFeature'] && `${this.props['dataFeature']}-reset`}
 							bsStyle="link"
 							icon="talend-cross"
 							label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
@@ -241,8 +241,8 @@ FilterBarComponent.propTypes = {
 	autoFocus: PropTypes.bool,
 	id: PropTypes.string,
 	className: PropTypes.string,
-	'data-test': PropTypes.string,
-	'data-feature': PropTypes.string,
+	dataTest: PropTypes.string,
+	dataFeature: PropTypes.string,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
