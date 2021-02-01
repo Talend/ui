@@ -148,6 +148,7 @@
 /home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.component.js
   123:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
   176:31  error  ["dataFeature"] is better written in dot notation                                                                                                                                                                                                                                                            dot-notation
+  176:60  error  'data-feature' is missing in props validation                                                                                                                                                                                                                                                                react/prop-types
   203:31  error  ["dataFeature"] is better written in dot notation                                                                                                                                                                                                                                                            dot-notation
   203:60  error  'data-feature' is missing in props validation                                                                                                                                                                                                                                                                react/prop-types
   204:28  error  ["dataTest"] is better written in dot notation                                                                                                                                                                                                                                                               dot-notation
@@ -320,5 +321,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 159 problems (139 errors, 20 warnings)
+✖ 160 problems (140 errors, 20 warnings)
   16 errors and 0 warnings potentially fixable with the `--fix` option.
