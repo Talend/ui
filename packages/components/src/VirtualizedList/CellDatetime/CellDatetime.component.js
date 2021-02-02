@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import isEqual from 'lodash/isEqual';
+import pick from 'lodash/pick';
 import { distanceInWordsToNow, format } from 'date-fns';
 import isValid from 'date-fns/is_valid';
 import parse from 'date-fns/parse';
@@ -35,9 +36,11 @@ export function computeValue(cellData, columnData, t) {
  */
 export class CellDatetimeComponent extends React.Component {
 	shouldComponentUpdate(nextProps) {
-		return (
+		console.log('[NC] should ? ');
+		const watch = Object.keys(CellDatetimeComponent.propTypes.columnData);
+		 return (
 			this.props.cellData !== nextProps.cellData ||
-			!isEqual(this.props.columnData, nextProps.columnData)
+			!isEqual(pick(this.props.columnData, watch), pick(nextProps.columnData, watch))
 		);
 	}
 

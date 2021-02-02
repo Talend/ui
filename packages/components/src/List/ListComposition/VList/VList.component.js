@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import isEqual from 'lodash/isEqual';
+import omit from 'lodash/omit';
+import functions from 'lodash/functions';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
@@ -16,11 +19,15 @@ function VList({ children, ...rest }) {
 		setSortParams,
 		sortParams,
 		setColumns,
+		columns,
 	} = useListContext();
 
 	React.useEffect(() => {
 		if (Array.isArray(children)) {
-			setColumns(children.filter(column => column.props?.dataKey).map(column => column.props));
+			const newColumns = children.filter(column => column.props?.dataKey).map(column => column.props);
+			if (!isEqual(newColumns.map(nc => nc.dataKey), columns.map(nc => nc.dataKey))) {
+				setColumns(newColumns);
+			}
 		}
 	}, [children, setColumns]);
 

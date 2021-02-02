@@ -32,9 +32,23 @@ function ListTableRowRenderer(props) {
 	);
 }
 
+// const ListTableRowRenderer = React.memo(
+// 	props => {
+// 		return isEmpty(props.rowData) ? (
+// 			<DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
+// 		) : (
+// 			<DefaultTableRowRenderer {...props} />
+// 		);
+// 	},
+// 	(prev, next) =>  {
+// 		return JSON.stringify(prev.rowData) === JSON.stringify(next.rowData);
+// 	},
+// );
+
 ListTableRowRenderer.propTypes = {
 	rowData: PropTypes.object,
 };
+
 
 /**
  * List renderer that renders a react-virtualized Table
