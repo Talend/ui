@@ -173,7 +173,7 @@ export class FilterBarComponent extends React.Component {
 					hideLabel
 					icon="talend-search"
 					bsStyle="link"
-					data-feature={dataFeature || this.props['data-feature'] }
+					data-feature={dataFeature || this.props['data-feature']}
 					tooltipPlacement={this.props.tooltipPlacement}
 					role="search"
 				/>
