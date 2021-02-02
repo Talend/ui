@@ -142,7 +142,7 @@
   147:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
 
 /home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.component.js
-  122:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+  123:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Tile/Tile.component.js
   27:4  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
