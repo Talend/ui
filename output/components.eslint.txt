@@ -2,10 +2,6 @@
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionButton/ActionButton.component.js
-  155:37  error  ["dataFeature"] is better written in dot notation  dot-notation
-  156:34  error  ["dataTest"] is better written in dot notation     dot-notation
-
 /home/travis/build/Talend/ui/packages/components/src/AppSwitcher/AppSwitcher.component.js
   40:10  error  Elements with the ARIA role "heading" must have the following attributes defined: aria-level  jsx-a11y/role-has-required-aria-props
 
@@ -147,16 +143,10 @@
 
 /home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.component.js
   123:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
-  176:31  error  ["dataFeature"] is better written in dot notation                                                                                                                                                                                                                                                            dot-notation
-  176:60  error  'data-feature' is missing in props validation                                                                                                                                                                                                                                                                react/prop-types
-  203:31  error  ["dataFeature"] is better written in dot notation                                                                                                                                                                                                                                                            dot-notation
-  203:60  error  'data-feature' is missing in props validation                                                                                                                                                                                                                                                                react/prop-types
-  204:28  error  ["dataTest"] is better written in dot notation                                                                                                                                                                                                                                                               dot-notation
-  204:54  error  'data-test' is missing in props validation                                                                                                                                                                                                                                                                   react/prop-types
-  223:29  error  ["dataTest"] is better written in dot notation                                                                                                                                                                                                                                                               dot-notation
-  223:58  error  ["dataTest"] is better written in dot notation                                                                                                                                                                                                                                                               dot-notation
-  224:32  error  ["dataFeature"] is better written in dot notation                                                                                                                                                                                                                                                            dot-notation
-  224:64  error  ["dataFeature"] is better written in dot notation                                                                                                                                                                                                                                                            dot-notation
+  223:44  error  ["dataTest"] is better written in dot notation                                                                                                                                                                                                                                                               dot-notation
+  224:50  error  ["dataFeature"] is better written in dot notation                                                                                                                                                                                                                                                            dot-notation
+  245:2   error  Unnecessarily computed property ['data-test'] found                                                                                                                                                                                                                                                          no-useless-computed-key
+  247:2   error  Unnecessarily computed property ['data-feature'] found                                                                                                                                                                                                                                                       no-useless-computed-key
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Tile/Tile.component.js
   27:4  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
@@ -321,5 +311,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 160 problems (140 errors, 20 warnings)
-  16 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 152 problems (132 errors, 20 warnings)
+  11 errors and 0 warnings potentially fixable with the `--fix` option.
