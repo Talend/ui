@@ -43,7 +43,9 @@ describe('FilterBar', () => {
 
 	it('should accept data-test attribute', () => {
 		// given
-		const filterInstance = mount(<FilterBarComponent {...defaultProps} dataTest="my.test" value="filter text" focus />);
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} dataTest="my.test" value="filter text" focus />,
+		);
 		// then
 		expect(filterInstance.find('input').prop('data-test')).toEqual('my.test');
 	});
@@ -59,9 +61,7 @@ describe('FilterBar', () => {
 
 	it('should accept dataFeature prop', () => {
 		// given
-		const filterInstance = mount(
-			<FilterBarComponent {...defaultProps} dataFeature="my.feature" />,
-		);
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} dataFeature="my.feature" />);
 		// then
 		expect(filterInstance.find('input').prop('data-feature')).toEqual('my.feature');
 	});
