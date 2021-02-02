@@ -44,7 +44,7 @@ describe('FilterBar', () => {
 	it('should accept data-test attribute', () => {
 		// given
 		const filterInstance = mount(
-			<FilterBarComponent {...defaultProps} data-test="my.test" value="filter text" focus />,
+			<FilterBarComponent {...defaultProps} data-test="my.test" value="filter text" />,
 		);
 		// then
 		expect(filterInstance.find('input').prop('data-test')).toEqual('my.test');
@@ -57,6 +57,24 @@ describe('FilterBar', () => {
 		);
 		// then
 		expect(filterInstance.find('input').prop('data-feature')).toEqual('my.feature');
+	});
+
+	it('should propagate and compose data-test attribute to the clear selection button', () => {
+		// given
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} data-test="my.test" value="filter text" focus />,
+		);
+		// then
+		expect(filterInstance.find('button').prop('data-test')).toEqual('my.test-reset');
+	});
+
+	it('should propagate and compose data-feature attribute to the clear selection button', () => {
+		// given
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} data-test="my.test" value="filter text" focus />,
+		);
+		// then
+		expect(filterInstance.find('button').prop('data-test')).toEqual('my.test-reset');
 	});
 
 	it('should be able to switch autofocus to false', () => {
