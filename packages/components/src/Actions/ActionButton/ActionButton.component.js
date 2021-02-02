@@ -152,9 +152,6 @@ function ActionButton(props) {
 		[theme['btn-disabled']]: btnIsDisabled,
 	});
 
-	buttonProps['data-feature'] = rest.dataFeature || rest['data-feature'];
-	buttonProps['data-test'] = rest.dataTest || rest['data-test'];
-
 	let ariaLabel = tooltipLabel || label;
 	if (inProgress) {
 		ariaLabel = t('ACTION_IN_PROGRESS', {
