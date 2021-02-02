@@ -220,8 +220,8 @@ export class FilterBarComponent extends React.Component {
 						<Action
 							className={theme.remove}
 							id={this.props.id && `${this.props.id}-cross-icon`}
-							dataTest={dataTest && `${this.props['dataTest']}-reset`}
-							dataFeature={dataFeature && `${this.props['dataFeature']}-reset`}
+							dataTest={dataTest && `${dataTest}-reset`}
+							dataFeature={dataFeature && `${dataFeature}-reset`}
 							bsStyle="link"
 							icon="talend-cross"
 							label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
@@ -242,9 +242,9 @@ FilterBarComponent.propTypes = {
 	id: PropTypes.string,
 	className: PropTypes.string,
 	dataTest: PropTypes.string,
-	['data-test']: PropTypes.string,
+	'data-test': PropTypes.string,
 	dataFeature: PropTypes.string,
-	['data-feature']: PropTypes.string,
+	'data-feature': PropTypes.string,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
