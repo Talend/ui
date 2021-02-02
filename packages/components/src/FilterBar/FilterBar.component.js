@@ -162,7 +162,7 @@ export class FilterBarComponent extends React.Component {
 	}
 
 	render() {
-		const { t } = this.props;
+		const { t, dataFeature, dataTest } = this.props;
 		if (this.props.dockable && this.props.docked) {
 			return (
 				<Action
@@ -173,7 +173,7 @@ export class FilterBarComponent extends React.Component {
 					hideLabel
 					icon="talend-search"
 					bsStyle="link"
-					data-feature={this.props['dataFeature'] || this.props['data-feature'] }
+					data-feature={dataFeature || this.props['data-feature'] }
 					tooltipPlacement={this.props.tooltipPlacement}
 					role="search"
 				/>
@@ -200,8 +200,8 @@ export class FilterBarComponent extends React.Component {
 					/>
 					<FilterInput
 						disabled={this.props.disabled}
-						dataFeature={this.props['dataFeature'] || this.props['data-feature']}
-						dataTest={this.props['dataTest'] || this.props['data-test']}
+						dataFeature={dataFeature || this.props['data-feature']}
+						dataTest={dataTest || this.props['data-test']}
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
 						debounceMinLength={this.props.debounceMinLength}
@@ -220,8 +220,8 @@ export class FilterBarComponent extends React.Component {
 						<Action
 							className={theme.remove}
 							id={this.props.id && `${this.props.id}-cross-icon`}
-							dataTest={this.props['dataTest'] && `${this.props['dataTest']}-reset`}
-							dataFeature={this.props['dataFeature'] && `${this.props['dataFeature']}-reset`}
+							dataTest={dataTest && `${this.props['dataTest']}-reset`}
+							dataFeature={dataFeature && `${this.props['dataFeature']}-reset`}
 							bsStyle="link"
 							icon="talend-cross"
 							label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
@@ -242,7 +242,9 @@ FilterBarComponent.propTypes = {
 	id: PropTypes.string,
 	className: PropTypes.string,
 	dataTest: PropTypes.string,
+	['data-test']: PropTypes.string,
 	dataFeature: PropTypes.string,
+	['data-feature']: PropTypes.string,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
