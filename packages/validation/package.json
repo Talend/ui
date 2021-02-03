@@ -21,8 +21,8 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-core": "^7.5.0",
-    "@talend/scripts-preset-react-lib": "^7.5.0",
+    "@talend/scripts-core": "^8.0.1",
+    "@talend/scripts-preset-react-lib": "^8.0.1",
     "@typescript-eslint/parser": "^3.9.1"
   }
 }
