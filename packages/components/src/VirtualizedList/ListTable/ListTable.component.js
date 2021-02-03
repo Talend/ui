@@ -35,7 +35,6 @@ ListTableRowRenderer.propTypes = {
 	rowData: PropTypes.object,
 };
 
-
 /**
  * List renderer that renders a react-virtualized Table
  */
