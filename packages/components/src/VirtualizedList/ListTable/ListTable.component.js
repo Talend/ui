@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import isEqual from 'lodash/isEqual';
 import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
@@ -31,19 +30,6 @@ function ListTableRowRenderer(props) {
 		<DefaultTableRowRenderer {...props} />
 	);
 }
-
-// const ListTableRowRenderer = React.memo(
-// 	props => {
-// 		return isEmpty(props.rowData) ? (
-// 			<DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
-// 		) : (
-// 			<DefaultTableRowRenderer {...props} />
-// 		);
-// 	},
-// 	(prev, next) =>  {
-// 		return JSON.stringify(prev.rowData) === JSON.stringify(next.rowData);
-// 	},
-// );
 
 ListTableRowRenderer.propTypes = {
 	rowData: PropTypes.object,

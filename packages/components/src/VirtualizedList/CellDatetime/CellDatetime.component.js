@@ -36,7 +36,6 @@ export function computeValue(cellData, columnData, t) {
  */
 export class CellDatetimeComponent extends React.Component {
 	shouldComponentUpdate(nextProps) {
-		console.log('[NC] should ? ');
 		const watch = Object.keys(CellDatetimeComponent.propTypes.columnData);
 		 return (
 			this.props.cellData !== nextProps.cellData ||
