@@ -5,9 +5,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/acateland/react-flow-designer/badge.svg)](https://coveralls.io/github/acateland/react-flow-designer)
 
-LIB in active development, concept are not fully scoped
-
-Do Not Use !
+# DEPRECATED
+This library is no longer under active development. It is barely supported, only some security updates will be done, and it will be no longer supported at all in the future. Do not use for new projects, please consider using https://reactflow.dev/.
 
 # Datastream Designer
 
