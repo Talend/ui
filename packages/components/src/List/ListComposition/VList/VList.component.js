@@ -28,6 +28,7 @@ function VList({ children, ...rest }) {
 				setColumns(next);
 			}
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [children, setColumns]);
 
 	return (
