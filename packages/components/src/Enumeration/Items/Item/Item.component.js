@@ -57,6 +57,8 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				icon={action.icon}
 				onClick={onClick}
 				inProgress={action.inProgress}
+				overlayComponent={action.overlayComponent}
+				overlayPlacement={action.overlayPlacement}
 				tooltipPlacement="bottom"
 				hideLabel
 				link
