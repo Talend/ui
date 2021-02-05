@@ -15,6 +15,7 @@ const extractColumnValues = column => ({
 	label: column.label,
 	order: column.order,
 	key: column.key,
+	locked: column.locked,
 });
 
 /**

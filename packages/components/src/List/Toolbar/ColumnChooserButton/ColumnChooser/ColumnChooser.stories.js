@@ -15,7 +15,7 @@ const columns = [
 		header: 'icon',
 		data: { iconName: 'talend-scheduler' },
 	},
-	{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
+	{ key: 'icon', label: 'Icon', hidden: true, order: 5, locked:true },
 ];
 
 storiesOf('Data/List/Column Chooser', module)
