@@ -56,7 +56,7 @@ const getCheckboxes = (checkboxes, value, filterValue) => {
 		.map(createCheckboxEntity(value));
 };
 
-const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, feature, t }) => {
+const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, feature, filterBarPlaceholder, t }) => {
 	const [filter, setFilter] = useState('');
 
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
@@ -84,7 +84,7 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, fe
 				docked={false}
 				iconAlwaysVisible
 				id={`${badgeCheckBoxesFormId}-filter`}
-				placeholder={t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+				placeholder={filterBarPlaceholder || t('FIND_COLUMN_FILTER_PLACEHOLDER', {
 					defaultValue: 'Find an entity',
 				})}
 				onToggle={() => setFilter('')}
@@ -136,6 +136,7 @@ BadgeCheckboxesForm.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	value: PropTypes.array,
 	feature: PropTypes.string.isRequired,
+	filterBarPlaceholder: PropTypes.string,
 	t: PropTypes.func.isRequired,
 };
 
