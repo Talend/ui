@@ -15,7 +15,7 @@ const initialColumns = [
 		header: 'icon',
 		data: { iconName: 'talend-scheduler' },
 	},
-	{ key: 'icon', label: 'Icon', visible: true, order: 5 },
+	{ key: 'icon', label: 'Icon', visible: true, order: 5, locked: true },
 ];
 
 const lockedLeftItems = 2;
@@ -48,17 +48,17 @@ describe('useColumnChooserManager', () => {
 		expect(hookWithNoValue.columns).toEqual([]);
 	});
 
-	it('should have some columns with the first two left locked', () => {
+	it('should have some columns with the first two & icon column locked', () => {
 		// given before each
 		// when mounting before each
 		// then
 		expect(columnChooserHook.columns).toEqual([
 			{ key: 'id', label: 'Id', locked: true, order: 1, visible: true },
 			{ key: 'name', label: 'Name', locked: true, order: 2, visible: true },
-			{ key: 'author', label: 'Author', order: 3, visible: true },
-			{ key: 'modified', label: 'Modified', order: 4, visible: true },
-			{ key: 'icon', label: 'Icon', order: 5, visible: true },
-			{ key: 'created', label: 'Created', order: 6, visible: true },
+			{ key: 'author', label: 'Author', order: 3, visible: true, locked: false },
+			{ key: 'modified', label: 'Modified', order: 4, visible: true, locked: false },
+			{ key: 'icon', label: 'Icon', order: 5, visible: true, locked: true },
+			{ key: 'created', label: 'Created', order: 6, visible: true, locked: false },
 		]);
 	});
 
@@ -94,7 +94,7 @@ describe('useColumnChooserManager', () => {
 		expect(columnChooserHook.columns[1].visible).toBe(true);
 		expect(columnChooserHook.columns[2].visible).toBe(false);
 		expect(columnChooserHook.columns[3].visible).toBe(false);
-		expect(columnChooserHook.columns[4].visible).toBe(false);
+		expect(columnChooserHook.columns[4].visible).toBe(true);
 	});
 
 	it('should filter the list of columns', () => {
