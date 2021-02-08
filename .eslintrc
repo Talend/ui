@@ -1,7 +1,0 @@
-{
-	"extends": "./node_modules/@talend/scripts-config-eslint/.eslintrc",
-	"parser": "@typescript-eslint/parser",
-	"rules": {
-		"react/prop-types": "off"
-	}
-}
