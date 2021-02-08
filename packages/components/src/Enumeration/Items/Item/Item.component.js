@@ -51,18 +51,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 			}
 		}
 		return (
-			<Action
-				key={index}
-				label={action.label}
-				icon={action.icon}
-				onClick={onClick}
-				inProgress={action.inProgress}
-				overlayComponent={action.overlayComponent}
-				overlayPlacement={action.overlayPlacement}
-				tooltipPlacement="bottom"
-				hideLabel
-				link
-			/>
+			<Action {...action} key={index} onClick={onClick} tooltipPlacement="bottom" hideLabel link />
 		);
 	}
 
