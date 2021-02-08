@@ -1,4 +1,4 @@
-import { scaleTime } from 'd3-scale';
+import { scaleTime } from 'd3';
 import { Range } from '../../../types';
 import { Ticks } from './range-handler.types';
 

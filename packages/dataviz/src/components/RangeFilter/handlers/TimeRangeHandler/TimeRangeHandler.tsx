@@ -1,6 +1,6 @@
 import React from 'react';
 import isValid from 'date-fns/isValid';
-import { scaleTime } from 'd3-scale';
+import { scaleTime } from 'd3';
 import { InputTimePicker } from '@talend/react-components';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 import { RangeHandler, Ticks } from '../range-handler.types';

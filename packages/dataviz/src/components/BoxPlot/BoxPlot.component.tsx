@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { select as d3select } from 'd3-selection';
-import { easeBounce as d3easeBounce } from 'd3-ease';
-import { scaleLinear } from 'd3-scale';
-import { format as d3format } from 'd3-format';
-import 'd3-transition';
+import {
+	select as d3select,
+	easeBounce as d3easeBounce,
+	scaleLinear,
+	format as d3format,
+} from 'd3';
 import styles from './BoxPlot.component.scss';
 
 const formatNumber = d3format(',');

@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { rgb, RGBColor } from 'd3-color';
-import { select as d3select, Selection } from 'd3-selection';
-import { scaleLinear, ScaleLinear } from 'd3-scale';
-import { geoIdentity, geoPath, GeoPath } from 'd3-geo';
-import { zoom as d3zoom } from 'd3-zoom';
+import {
+	rgb, RGBColor,
+	select as d3select, Selection,
+	scaleLinear, ScaleLinear,
+	geoIdentity, geoPath, GeoPath,
+	zoom as d3zoom,
+} from 'd3';
 import { FeatureCollection } from 'geojson';
 // eslint-disable-next-line import/no-unresolved
 import { Topology } from 'topojson-specification';
