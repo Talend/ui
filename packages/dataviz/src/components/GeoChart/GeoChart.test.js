@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import GeoChart from './GeoChart.component';
 import { getGeoChartConfig } from './GeoChart.utils';
+import styles from './GeoChart.scss';
 
 describe('GeoChart component', () => {
 	let defaultProps;
@@ -21,8 +22,8 @@ describe('GeoChart component', () => {
 	it('Should match data', () => {
 		const component = mount(<GeoChart {...defaultProps} />).render();
 
-		expect(component.find('.geo-chart__feature')).toHaveLength(18);
-		expect(component.find('.geo-chart__feature--disabled')).toHaveLength(16);
+		expect(component.find(`.${styles['geo-chart__feature']}`)).toHaveLength(18);
+		expect(component.find(`.${styles['geo-chart__feature--disabled']}`)).toHaveLength(16);
 		expect(component.find('[data-key="Occitanie"][data-value="10"]')).toHaveLength(1);
 	});
 
