@@ -7,6 +7,7 @@ import { scaleLinear, ScaleLinear } from 'd3-scale';
 import { geoIdentity, geoPath, GeoPath } from 'd3-geo';
 import { zoom as d3zoom } from 'd3-zoom';
 import { FeatureCollection } from 'geojson';
+// eslint-disable-next-line import/no-unresolved
 import { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import throttle from 'lodash/throttle';
@@ -81,8 +82,8 @@ function renderFeature(
 ): void {
 	path.attr(
 		'class',
-		classNames('geo-chart__feature', {
-			'geo-chart__feature--disabled': !entry,
+		classNames(styles['geo-chart__feature'], {
+			[styles['geo-chart__feature--disabled']]: !entry,
 		}),
 	);
 	if (entry) {
@@ -210,7 +211,7 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 				.data(featureCollection.features)
 				.enter()
 				.append('path')
-				.each(function(d) {
+				.each(function render(d) {
 					const matchedEntry = d.properties
 						? findEntry(data, d.properties, chartConfig)
 						: undefined;
