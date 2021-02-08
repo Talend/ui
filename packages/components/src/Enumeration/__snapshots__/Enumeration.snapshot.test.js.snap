@@ -402,8 +402,10 @@ Array [
       role="gridcell"
     >
       <Component
+        disabled={false}
         hideLabel={true}
         icon="talend-pencil"
+        id="edit"
         key="0"
         label="Edit"
         link={true}
@@ -411,9 +413,10 @@ Array [
         tooltipPlacement="bottom"
       >
         <div
+          disabled={false}
           hideLabel={true}
           icon="talend-pencil"
-          id="ActionMock"
+          id="edit"
           label="Edit"
           link={true}
           onClick={[Function]}
@@ -423,6 +426,7 @@ Array [
       <Component
         hideLabel={true}
         icon="talend-trash"
+        id="delete"
         key="1"
         label="Delete"
         link={true}
@@ -432,7 +436,7 @@ Array [
         <div
           hideLabel={true}
           icon="talend-trash"
-          id="ActionMock"
+          id="delete"
           label="Delete"
           link={true}
           onClick={[Function]}
@@ -485,8 +489,10 @@ Array [
       role="gridcell"
     >
       <Component
+        disabled={false}
         hideLabel={true}
         icon="talend-pencil"
+        id="edit"
         key="0"
         label="Edit"
         link={true}
@@ -494,9 +500,10 @@ Array [
         tooltipPlacement="bottom"
       >
         <div
+          disabled={false}
           hideLabel={true}
           icon="talend-pencil"
-          id="ActionMock"
+          id="edit"
           label="Edit"
           link={true}
           onClick={[Function]}
@@ -506,6 +513,7 @@ Array [
       <Component
         hideLabel={true}
         icon="talend-trash"
+        id="delete"
         key="1"
         label="Delete"
         link={true}
@@ -515,7 +523,7 @@ Array [
         <div
           hideLabel={true}
           icon="talend-trash"
-          id="ActionMock"
+          id="delete"
           label="Delete"
           link={true}
           onClick={[Function]}
@@ -568,8 +576,10 @@ Array [
       role="gridcell"
     >
       <Component
+        disabled={false}
         hideLabel={true}
         icon="talend-pencil"
+        id="edit"
         key="0"
         label="Edit"
         link={true}
@@ -577,9 +587,10 @@ Array [
         tooltipPlacement="bottom"
       >
         <div
+          disabled={false}
           hideLabel={true}
           icon="talend-pencil"
-          id="ActionMock"
+          id="edit"
           label="Edit"
           link={true}
           onClick={[Function]}
@@ -589,6 +600,7 @@ Array [
       <Component
         hideLabel={true}
         icon="talend-trash"
+        id="delete"
         key="1"
         label="Delete"
         link={true}
@@ -598,7 +610,7 @@ Array [
         <div
           hideLabel={true}
           icon="talend-trash"
-          id="ActionMock"
+          id="delete"
           label="Delete"
           link={true}
           onClick={[Function]}

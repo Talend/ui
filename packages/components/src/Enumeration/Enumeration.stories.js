@@ -304,6 +304,14 @@ const withCustomActions = {
 			}
 			return [
 				{
+					label: 'Action with popover',
+					icon: 'talend-bell',
+					id: 'notify',
+					overlayComponent: <p>I'm an overlay!</p>,
+					overlayPlacement: 'left',
+					onClick: action('item.onNotify'),
+				},
+				{
 					disabled: false,
 					label: 'Edit',
 					icon: 'talend-pencil',

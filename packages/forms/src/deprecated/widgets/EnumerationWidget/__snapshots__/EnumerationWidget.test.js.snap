@@ -5229,6 +5229,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 <Action
                                   hideLabel={true}
                                   icon="talend-cross"
+                                  id="loading"
                                   inProgress={true}
                                   key="0"
                                   label="Loading"
@@ -5242,6 +5243,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-cross"
+                                    id="loading"
                                     inProgress={true}
                                     label="Loading"
                                     link={true}
@@ -5263,6 +5265,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                         bsStyle="link"
                                         className="btn-icon-only theme-btn-disabled"
                                         disabled={true}
+                                        id="loading"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -5278,6 +5281,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           aria-label="Loading (in progress)"
                                           className="btn-icon-only theme-btn-disabled btn btn-link"
                                           disabled={true}
+                                          id="loading"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -6164,8 +6168,10 @@ exports[`EnumerationWidget should select an item 1`] = `
                                 role="gridcell"
                               >
                                 <Action
+                                  disabled={false}
                                   hideLabel={true}
                                   icon="talend-pencil"
+                                  id="edit"
                                   key="0"
                                   label="Edit"
                                   link={true}
@@ -6178,6 +6184,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-pencil"
+                                    id="edit"
                                     inProgress={false}
                                     label="Edit"
                                     link={true}
@@ -6199,6 +6206,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="edit"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -6214,6 +6222,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="edit"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -6242,8 +6251,10 @@ exports[`EnumerationWidget should select an item 1`] = `
                                   </withI18nextTranslation(ActionButton)>
                                 </Action>
                                 <Action
+                                  disabled={false}
                                   hideLabel={true}
                                   icon="talend-trash"
+                                  id="delete"
                                   key="1"
                                   label="Remove value"
                                   link={true}
@@ -6256,6 +6267,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-trash"
+                                    id="delete"
                                     inProgress={false}
                                     label="Remove value"
                                     link={true}
@@ -6277,6 +6289,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="delete"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -6292,6 +6305,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="delete"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -7325,8 +7339,10 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 role="gridcell"
                               >
                                 <Action
+                                  disabled={false}
                                   hideLabel={true}
                                   icon="talend-pencil"
+                                  id="edit"
                                   key="0"
                                   label="Edit"
                                   link={true}
@@ -7339,6 +7355,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-pencil"
+                                    id="edit"
                                     inProgress={false}
                                     label="Edit"
                                     link={true}
@@ -7360,6 +7377,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="edit"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -7375,6 +7393,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="edit"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -7403,8 +7422,10 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   </withI18nextTranslation(ActionButton)>
                                 </Action>
                                 <Action
+                                  disabled={false}
                                   hideLabel={true}
                                   icon="talend-trash"
+                                  id="delete"
                                   key="1"
                                   label="Remove value"
                                   link={true}
@@ -7417,6 +7438,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-trash"
+                                    id="delete"
                                     inProgress={false}
                                     label="Remove value"
                                     link={true}
@@ -7438,6 +7460,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="delete"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -7453,6 +7476,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="delete"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -7595,8 +7619,10 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 role="gridcell"
                               >
                                 <Action
+                                  disabled={false}
                                   hideLabel={true}
                                   icon="talend-pencil"
+                                  id="edit"
                                   key="0"
                                   label="Edit"
                                   link={true}
@@ -7609,6 +7635,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-pencil"
+                                    id="edit"
                                     inProgress={false}
                                     label="Edit"
                                     link={true}
@@ -7630,6 +7657,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="edit"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -7645,6 +7673,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="edit"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -7673,8 +7702,10 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   </withI18nextTranslation(ActionButton)>
                                 </Action>
                                 <Action
+                                  disabled={false}
                                   hideLabel={true}
                                   icon="talend-trash"
+                                  id="delete"
                                   key="1"
                                   label="Remove value"
                                   link={true}
@@ -7687,6 +7718,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-trash"
+                                    id="delete"
                                     inProgress={false}
                                     label="Remove value"
                                     link={true}
@@ -7708,6 +7740,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="delete"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -7723,6 +7756,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="delete"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -10208,6 +10242,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 <Action
                                   hideLabel={true}
                                   icon="talend-pencil"
+                                  id="edit"
                                   key="0"
                                   label="Edit"
                                   link={true}
@@ -10220,6 +10255,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-pencil"
+                                    id="edit"
                                     inProgress={false}
                                     label="Edit"
                                     link={true}
@@ -10241,6 +10277,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="edit"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -10256,6 +10293,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="edit"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -10286,6 +10324,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 <Action
                                   hideLabel={true}
                                   icon="talend-trash"
+                                  id="delete"
                                   key="1"
                                   label="Remove value"
                                   link={true}
@@ -10298,6 +10337,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-trash"
+                                    id="delete"
                                     inProgress={false}
                                     label="Remove value"
                                     link={true}
@@ -10319,6 +10359,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="delete"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -10334,6 +10375,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="delete"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -10476,6 +10518,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 <Action
                                   hideLabel={true}
                                   icon="talend-pencil"
+                                  id="edit"
                                   key="0"
                                   label="Edit"
                                   link={true}
@@ -10488,6 +10531,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-pencil"
+                                    id="edit"
                                     inProgress={false}
                                     label="Edit"
                                     link={true}
@@ -10509,6 +10553,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="edit"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -10524,6 +10569,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="edit"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -10554,6 +10600,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 <Action
                                   hideLabel={true}
                                   icon="talend-trash"
+                                  id="delete"
                                   key="1"
                                   label="Remove value"
                                   link={true}
@@ -10566,6 +10613,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-trash"
+                                    id="delete"
                                     inProgress={false}
                                     label="Remove value"
                                     link={true}
@@ -10587,6 +10635,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="delete"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -10602,6 +10651,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="delete"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -12040,6 +12090,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 <Action
                                   hideLabel={true}
                                   icon="talend-pencil"
+                                  id="edit"
                                   key="0"
                                   label="Edit"
                                   link={true}
@@ -12052,6 +12103,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-pencil"
+                                    id="edit"
                                     inProgress={false}
                                     label="Edit"
                                     link={true}
@@ -12073,6 +12125,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="edit"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -12088,6 +12141,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="edit"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -12118,6 +12172,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 <Action
                                   hideLabel={true}
                                   icon="talend-trash"
+                                  id="delete"
                                   key="1"
                                   label="Remove value"
                                   link={true}
@@ -12130,6 +12185,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-trash"
+                                    id="delete"
                                     inProgress={false}
                                     label="Remove value"
                                     link={true}
@@ -12151,6 +12207,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="delete"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -12166,6 +12223,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="delete"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -12308,6 +12366,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 <Action
                                   hideLabel={true}
                                   icon="talend-pencil"
+                                  id="edit"
                                   key="0"
                                   label="Edit"
                                   link={true}
@@ -12320,6 +12379,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-pencil"
+                                    id="edit"
                                     inProgress={false}
                                     label="Edit"
                                     link={true}
@@ -12341,6 +12401,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="edit"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -12356,6 +12417,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           aria-label="Edit"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="edit"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -12386,6 +12448,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 <Action
                                   hideLabel={true}
                                   icon="talend-trash"
+                                  id="delete"
                                   key="1"
                                   label="Remove value"
                                   link={true}
@@ -12398,6 +12461,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     disabled={false}
                                     hideLabel={true}
                                     icon="talend-trash"
+                                    id="delete"
                                     inProgress={false}
                                     label="Remove value"
                                     link={true}
@@ -12419,6 +12483,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        id="delete"
                                         key=".0"
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -12434,6 +12499,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           aria-label="Remove value"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
+                                          id="delete"
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
