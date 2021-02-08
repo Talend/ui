@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { scaleLinear } from 'd3';
+import { scaleLinear } from 'd3-scale';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 import styles from './NumberInputField.component.scss';
 import { formatNumber, getFractionDigits } from '../../../../formatters/formatters';
