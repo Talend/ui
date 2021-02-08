@@ -3,5 +3,4 @@ declare module '*.scss' {
 	export default content;
 }
 
-declare module '@talend/react-components'; // TODO check me
-declare module '@talend/react-components/*';
+declare module '@talend/react-components';

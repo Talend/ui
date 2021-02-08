@@ -11,7 +11,7 @@ import { FeatureCollection } from 'geojson';
 import { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import throttle from 'lodash/throttle';
-import Icon from '@talend/react-components/lib/Icon';
+import { Icon } from '@talend/react-components';
 
 import TooltipContent, { TooltipEntry } from '../TooltipContent/TooltipContent.component';
 import styles from './GeoChart.scss';
