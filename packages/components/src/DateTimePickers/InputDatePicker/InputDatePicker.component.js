@@ -119,4 +119,5 @@ InputDatePicker.propTypes = {
 	timezone: PropTypes.string,
 	hideTimezone: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	disabled: PropTypes.bool,
 };
