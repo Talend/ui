@@ -69,7 +69,7 @@ InputDateTimePicker.propTypes = {
 	]),
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
-    disabled: PropTypes.bool,
+	disabled: PropTypes.bool,
 	readOnly: PropTypes.bool,
 	dateFormat: PropTypes.string,
 	useSeconds: PropTypes.bool,
