@@ -30,6 +30,7 @@ export default function InputTimePicker(props) {
 	const containerRef = useRef(null);
 
 	const handlers = useInputPickerHandlers({
+	    disabled: props.disabled,
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
 		handleKeyDown: () => focusOnTime(containerRef.current),
