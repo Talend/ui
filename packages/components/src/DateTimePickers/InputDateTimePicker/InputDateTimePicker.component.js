@@ -45,7 +45,7 @@ function InputDateTimePicker(props) {
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
 							readOnly={props.readOnly}
-                            disabled={props.disabled}
+							disabled={props.disabled}
 							onBlur={props.onBlur}
 							onChange={onTimeChange}
 							value={time}

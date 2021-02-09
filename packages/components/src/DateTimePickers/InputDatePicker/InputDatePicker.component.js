@@ -40,7 +40,7 @@ export default function InputDatePicker(props) {
 	const containerRef = useRef(null);
 
 	const handlers = useInputPickerHandlers({
-	    disabled: props.disabled,
+		disabled: props.disabled,
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
 		handleKeyDown: () => focusOnCalendar(containerRef.current),

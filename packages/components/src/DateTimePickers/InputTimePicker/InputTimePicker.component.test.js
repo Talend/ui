@@ -23,16 +23,16 @@ describe('InputTimePicker', () => {
 			expect(getOverlay(wrapper).exists()).toBe(true);
 		});
 		it('should not open picker on focus when disabled', () => {
-            // given
-            const wrapper = mount(<InputTimePicker disabled id="my-picker" />);
-            expect(getOverlay(wrapper).exists()).toBe(false);
+			// given
+			const wrapper = mount(<InputTimePicker disabled id="my-picker" />);
+			expect(getOverlay(wrapper).exists()).toBe(false);
 
-            // when
-            wrapper.simulate('focus');
+			// when
+			wrapper.simulate('focus');
 
-            // then
-            expect(getOverlay(wrapper).exists()).toBeFalsy();
-        });
+			// then
+			expect(getOverlay(wrapper).exists()).toBeFalsy();
+		});
 		it('should close picker on blur', () => {
 			// given
 			jest.useFakeTimers();

@@ -25,9 +25,9 @@ storiesOf('Form/Controls/DatePicker/Time', module)
 					<InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} />
 				</div>
 				<div>
-                    <p>disabled</p>
-                    <InputTimePicker disabled onChange={action('onChange')} onBlur={action('onBlur')} />
-                </div>
+					<p>disabled</p>
+					<InputTimePicker disabled onChange={action('onChange')} onBlur={action('onBlur')} />
+				</div>
 				<div>
 					<p>minWidth</p>
 					<InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} minWidth={200} />
