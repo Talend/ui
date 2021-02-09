@@ -95,6 +95,7 @@ InputTimePicker.propTypes = {
 	onBlur: PropTypes.func,
 	timezone: PropTypes.string,
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+	disabled: PropTypes.bool,
 };
 
 InputTimePicker.defaultProps = {
