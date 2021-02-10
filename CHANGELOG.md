@@ -26,6 +26,13 @@ Types of changes
 
 ## [unreleased]
 
+
+## [3.3.1]
+
+### Fixed
+
+- Expose all badges components
+
 ## [3.3.0]
 
 ### Added
