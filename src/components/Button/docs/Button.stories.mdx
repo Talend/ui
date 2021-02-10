@@ -209,25 +209,28 @@ When the user clicks on the button, and the action is asynchronous, a spinner wi
 If the button has an icon, the spinner will temporary replace this icon as long as it's loading.
 No action will be possible until it's done.
 
+export const LoadingButton = (props) => {
+    const [loading, isLoading] = React.useState(false);
+    return (
+        <Tooltip title="Relevant description of the basic button">
+            <Button.Primary
+                icon="talend-check"
+                loading={loading}
+                onClick={() => {
+                    isLoading(true);
+                    setTimeout(() => isLoading(false), 3000);
+                }}
+                {...props}
+            >
+                Async call to action
+            </Button.Primary>
+        </Tooltip>
+    );
+}
+
 <Canvas>
 	<Story name="loading">
-		{() => {
-			const [loading, isLoading] = React.useState(false);
-			return (
-				<Tooltip title="Relevant description of the basic button">
-					<Button.Primary
-						icon="talend-check"
-						loading={loading}
-						onClick={() => {
-							isLoading(true);
-							setTimeout(() => isLoading(false), 3000);
-						}}
-					>
-						Async call to action
-					</Button.Primary>
-				</Tooltip>
-			);
-		}}
+		<LoadingButton />
 	</Story>
 </Canvas>
 
