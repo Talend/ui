@@ -37,12 +37,12 @@ export const Tab = styled(ReakitTab)`
 
 	&:hover,
 	&[aria-selected='true'] {
-		color: ${({ theme }) => theme.colors.activeColor};
+		color: ${({ theme }) => theme.colors.activeColor[500]};
 	}
 
 	&[aria-selected='true'] {
 		font-weight: ${tokens.fontWeights.semiBold};
-		box-shadow: ${tokens.shadows.underline} ${({ theme }) => theme.colors.activeColor};
+		box-shadow: ${tokens.shadows.underline} ${({ theme }) => theme.colors.activeColor[500]};
 	}
 
 	.tc-svg-icon {

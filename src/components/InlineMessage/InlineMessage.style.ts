@@ -40,7 +40,7 @@ export const InlineMessage = styled.div<InlineMessageProps>(
 	
 	.inline-message__title,
 	.inline-message__description {
-		color: ${withBackground ? tokens.colors.gray900 : theme.colors.textColor};
+		color: ${withBackground ? tokens.colors.gray[900] : theme.colors.textColor};
 	}
 `,
 );

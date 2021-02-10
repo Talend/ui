@@ -47,7 +47,7 @@ export const Main = styled.main.attrs({
 	({ hasScreenHeight, hasOverflow, theme }) => `
 	display: flex;
 	color: ${theme.colors.textColor};
-	background: ${tokens.colors.deepBlue100};
+	background: ${tokens.colors.deepBlue[100]};
 	overflow: hidden;
 		${
 			(!hasScreenHeight || !hasOverflow) &&
@@ -81,7 +81,7 @@ export const AsideOverlay = styled.div`
 		}
 
 		&::after {
-			background: ${transparentize(0.3, tokens.colors.gray900)};
+			background: ${transparentize(0.3, tokens.colors.gray[900])};
 			cursor: pointer;
 		}
 	}
@@ -97,7 +97,7 @@ export const Aside = styled.aside(
 	width: 50rem;
 	max-width: 100vw;
 	background: ${theme.colors.backgroundColor};
-	box-shadow: -5px 0px 20px 5px ${tokens.colors.gray500};
+	box-shadow: -5px 0px 20px 5px ${tokens.colors.gray[500]};
 `,
 );
 

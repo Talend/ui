@@ -26,7 +26,7 @@ const FileField = styled.div`
 		&:focus + .input-file__text {
 			border: 2px solid ${({ theme }) => theme.colors.inputFocusBorderColor};
 			border-radius: ${tokens.radii.inputBorderRadius};
-			outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor};
+			outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor[500]};
 		}
 	}
 
@@ -44,11 +44,11 @@ const FileField = styled.div`
 		}
 
 		&--dragging {
-			background: ${({ theme }) => tint(0.95, theme.colors.activeColor)};
-			border: 2px dashed ${({ theme }) => theme.colors.activeColor};
+			background: ${({ theme }) => tint(0.95, theme.colors.activeColor[500])};
+			border: 2px dashed ${({ theme }) => theme.colors.activeColor[500]};
 
 			.text__icon {
-				fill: ${({ theme }) => theme.colors.activeColor};
+				fill: ${({ theme }) => theme.colors.activeColor[500]};
 			}
 		}
 
@@ -114,7 +114,7 @@ const FileField = styled.div`
 
 			&:hover {
 				svg path {
-					fill: ${({ theme }) => shade(0.25, theme.colors.activeColor)};
+					fill: ${({ theme }) => shade(0.25, theme.colors.activeColor[500])};
 				}
 			}
 		}

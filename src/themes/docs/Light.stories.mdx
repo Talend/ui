@@ -8,9 +8,23 @@ import { FigmaImage } from '../../docs';
 
 <Meta title="Themes/Light" />
 
+export function isNumeric(str) {
+    if (typeof str != "string") return false;
+    return !isNaN(str) && !isNaN(parseFloat(str));
+}
+
 export function getTokenNameByValue(value) {
-	const designToken = Object.entries(tokens.colors).find(([k, v]) => v === value);
-	return designToken ? designToken[0] : 'there is no design token used here!';
+    let designToken = null;
+    Object.entries(tokens.colors).some(([k, v]) => {
+        if (typeof v === 'object' && v !== null) {
+            const match = Object.entries(v).find(([kn, vn]) =>
+                isNumeric(kn) && vn === value);
+            if (match) {
+                designToken = `${k}[${match[0]}]`;
+            }
+        }
+    });
+    return designToken || 'there is no design token used here!';
 }
 
 # Light theme (default)
@@ -18,22 +32,12 @@ export function getTokenNameByValue(value) {
 <FigmaImage
 	src="https://www.figma.com/file/6yvSenpvK9L8892ruW7XI6/Portal?node-id=2%3A115"
 	alt="Talend light theme"
-    full
+	full
 />
 
-<dl>
-	{Object.entries(light).map(([k, v], index) => (
-		<div key={index}>
-			<dt>{k}</dt>
-			<dd>
-				<code>{JSON.stringify(v, null, 2)}</code>
-			</dd>
-		</div>
-	))}
-</dl>
-
 <ColorPalette>
-	{Object.entries(light.colors).map(([k, v], index) => (
-		<ColorItem key={index} title={k} colors={{ [`${getTokenNameByValue(v)}`]: v }} />
-	))}
+	{Object.entries(light.colors).map(([k, v], index) => {
+		const vs = typeof v === 'string' ? v : v[500];
+		return <ColorItem key={index} title={k} colors={{ [`${getTokenNameByValue(vs)}`]: vs }} />;
+	})}
 </ColorPalette>

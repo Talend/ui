@@ -11,16 +11,16 @@ import * as S from '../Menu.style';
 const ReversedMenu = styled(Menu).attrs({
 	className: 'c-menu--reversed',
 })`
-	color: ${tokens.colors.gray700};
-	background: ${tokens.colors.gray50};
+	color: ${tokens.colors.gray[700]};
+	background: ${tokens.colors.gray[50]};
 
 	${S.MenuItem} {
 		&:hover {
-			background: ${tint(0.9, tokens.colors.gray900)};
+			background: ${tint(0.9, tokens.colors.gray[900])};
 		}
 
 		&:active {
-			background: ${tint(0.8, tokens.colors.gray900)};
+			background: ${tint(0.8, tokens.colors.gray[900])};
 		}
 	}
 `;

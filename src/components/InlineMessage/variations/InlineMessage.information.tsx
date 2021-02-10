@@ -7,9 +7,9 @@ const InlineMessageInformation = styled(InlineMessage).attrs({
 	icon: 'talend-info-circle',
 })(
 	({ withBackground, theme }) => `
-	color: ${theme.colors.informationColor};
-	background: ${withBackground && tint(0.95, theme.colors.informationColor)};
-	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.informationColor)}`};
+	color: ${theme.colors.informationColor[500]};
+	background: ${withBackground && tint(0.95, theme.colors.informationColor[500])};
+	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.informationColor[500])}`};
 `,
 );
 

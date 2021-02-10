@@ -36,7 +36,7 @@ export const Combobox = styled.div(
 		z-index: ${tokens.zIndices.dropdown};		
 		padding: 0.5rem 0;
 		border-radius: ${tokens.radii.rectRadius};
-	    box-shadow: 0 2px 4px 0 ${tokens.colors.gray300};
+	    box-shadow: 0 2px 4px 0 ${tokens.colors.gray[300]};
 	}
 
 	[role='option'] {
@@ -45,12 +45,12 @@ export const Combobox = styled.div(
 	}
 
 	[role='option']:hover {
-		background-color: ${tokens.colors.gray75};  
+		background-color: ${tokens.colors.gray[75]};  
 	}
 
 	[role='combobox']:focus + [role='listbox'] [aria-selected='true'] {
-		color: ${tokens.colors.gray0};  
-		background-color: ${theme.colors.activeColor};  
+		color: ${tokens.colors.gray[0]};  
+		background-color: ${theme.colors.activeColor[500]};  
 	}
 `,
 );

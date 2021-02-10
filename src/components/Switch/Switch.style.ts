@@ -55,13 +55,14 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
 		right: .2rem;
   		bottom: .2rem;
   		left: .2rem;
-	    background: ${({ theme }) => theme.colors.activeColor};    
+		transition: background .3s;
+		background: ${({ theme }) => theme.colors.activeColor[500]};    
     	border-radius: 100px;
   	}
 
 	div:hover ${SwitchIndicator} em {
 		background: ${({ readOnly, theme }) =>
-			!readOnly ? shade(0.25, theme.colors.activeColor) : 'none'};
+			!readOnly ? shade(0.25, theme.colors.activeColor[500]) : 'none'};
 	}
   
 	[data-checked] {

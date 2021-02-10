@@ -28,7 +28,7 @@ const SRange = styled.div(
         }
         
         &:focus::-webkit-slider-runnable-track {
-            background: ${theme.colors.activeColor};
+            background: ${theme.colors.activeColor[500]};
         }
 
 		&::-webkit-slider-thumb {

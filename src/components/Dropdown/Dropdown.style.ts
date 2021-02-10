@@ -50,7 +50,7 @@ export const AnimatedMenu = styled.div`
 	background: ${({ theme }) => theme.colors.backgroundColor};
 	border-radius: ${tokens.radii.rectRadius};
 	border: 0;
-	box-shadow: 0 2px 4px 0 ${tokens.colors.gray300};
+	box-shadow: 0 2px 4px 0 ${tokens.colors.gray[300]};
 	opacity: ${tokens.opacity.transparent};
 	transition: opacity ${tokens.transitions.normal};
 

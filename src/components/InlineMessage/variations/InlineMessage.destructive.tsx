@@ -7,9 +7,9 @@ const InlineMessageDestructive = styled(InlineMessage).attrs({
 	icon: 'talend-cross-circle',
 })(
 	({ withBackground, theme }) => `
-	color: ${theme.colors.destructiveColor};
-	background: ${withBackground && tint(0.95, theme.colors.destructiveColor)};
-	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.destructiveColor)}`};
+	color: ${theme.colors.destructiveColor[500]};
+	background: ${withBackground && tint(0.95, theme.colors.destructiveColor[500])};
+	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.destructiveColor[500])}`};
 `,
 );
 

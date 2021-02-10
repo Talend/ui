@@ -6,26 +6,15 @@ import Link from '../Link';
 
 import tokens from '../../tokens';
 
-function getLogo(name: string) {
-	switch (name) {
-		case 'TAPID':
-			return 'API-D';
-		case 'TAPIT':
-			return 'API-T';
-		default:
-			return name;
-	}
-}
-
 export const Nav = styled.nav.attrs({
 	className: 'c-menu',
 })<{ isCollapsed: boolean; variant: string }>(
-	({ isCollapsed, theme, variant = '' }) => `
+	({ isCollapsed, variant = '' }) => `
 		position: relative;		
 		flex: 0 1 ${isCollapsed ? '6rem' : '20rem'};
 		max-width: ${isCollapsed ? '6rem' : 'auto'};
 		min-height: 100%;
-		color: ${tokens.colors.gray0};
+		color: ${tokens.colors.gray[0]};
 		background: ${tokens.colors.twilight.backgroundImage};
 		transition: flex-basis ${tokens.transitions.normal};
 		overflow: hidden;
@@ -40,7 +29,7 @@ export const Nav = styled.nav.attrs({
 			width: 29rem;
 			left: 0;
 			bottom: -6rem;
-			background-color: ${variant !== '' ? tokens.colors.gray0 : tokens.colors.transparent};
+			background-color: ${variant !== '' ? tokens.colors.gray[0] : tokens.colors.transparent};
     		opacity: ${tokens.opacity.shade};
 		}`
 		}
@@ -98,8 +87,8 @@ export const MenuItem = styled(Link).attrs(({ active }) => ({
 	({ active, theme }) => `
         display: flex;
         padding: 0.5rem 1rem;
-        color: ${active ? tokens.colors.deepBlue500 : 'inherit'};
-        background: ${active ? tokens.colors.gray0 : 'none'};
+        color: ${active ? tokens.colors.deepBlue[500] : 'inherit'};
+        background: ${active ? tokens.colors.gray[0] : 'none'};
         border-radius: ${tokens.radii.rectRadius};
         min-width: 0;
         white-space: nowrap;
@@ -125,7 +114,7 @@ export const MenuItem = styled(Link).attrs(({ active }) => ({
 
         &:hover {
             color: ${active ? theme.colors.primary : 'inherit'};
-            background: ${transparentize(active ? 0.12 : 0.88, tokens.colors.gray0)};
+            background: ${transparentize(active ? 0.12 : 0.88, tokens.colors.gray[0])};
         }
     `,
 );

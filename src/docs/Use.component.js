@@ -28,20 +28,20 @@ const Block = styled(({ title, icon, children, ...rest }) => (
 `;
 
 const Do = styled(props => <Block title="Do" icon="talend-check" {...props} />)`
-	background: ${tokens.colors.rioGrande100};
-	box-shadow: 0 0 0.1rem 0.1rem ${tokens.colors.rioGrande500};
+	background: ${tokens.colors.rioGrande[100]};
+	box-shadow: 0 0 0.1rem 0.1rem ${tokens.colors.rioGrande[500]};
 
 	svg {
-		fill: ${tokens.colors.rioGrande500};
+		fill: ${tokens.colors.rioGrande[500]};
 	}
 `;
 
 const Dont = styled(props => <Block title="Don't" icon="talend-block" {...props} />)`
-	background: ${tokens.colors.coral100};
-	box-shadow: 0 0 0.1rem 0.1rem ${tokens.colors.coral500};
+	background: ${tokens.colors.coral[100]};
+	box-shadow: 0 0 0.1rem 0.1rem ${tokens.colors.coral[500]};
 
 	svg {
-		fill: ${tokens.colors.coral500};
+		fill: ${tokens.colors.coral[500]};
 	}
 `;
 

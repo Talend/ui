@@ -19,9 +19,10 @@ export const brand = {
 };
 
 export const palette = {
-	paleCyan,
-	lochmara,
+	moodyPurple,
 	deepBlue,
+	lochmara,
+	paleCyan,
 	rioGrande,
 	lightningYellow,
 	jaffa,
@@ -37,102 +38,41 @@ export const gradients = {
 };
 
 export const swatches = {};
-
-swatches.paleCyan900 = shade(0.8, palette.paleCyan);
-swatches.paleCyan800 = shade(0.6, palette.paleCyan);
-swatches.paleCyan700 = shade(0.4, palette.paleCyan);
-swatches.paleCyan600 = shade(0.2, palette.paleCyan);
-swatches.paleCyan500 = palette.paleCyan;
-swatches.paleCyan400 = tint(0.2, palette.paleCyan);
-swatches.paleCyan300 = tint(0.4, palette.paleCyan);
-swatches.paleCyan200 = tint(0.6, palette.paleCyan);
-swatches.paleCyan100 = tint(0.8, palette.paleCyan);
-
-swatches.lochmara900 = shade(0.8, palette.lochmara);
-swatches.lochmara800 = shade(0.6, palette.lochmara);
-swatches.lochmara700 = shade(0.4, palette.lochmara);
-swatches.lochmara600 = shade(0.2, palette.lochmara);
-swatches.lochmara500 = palette.lochmara;
-swatches.lochmara400 = tint(0.2, palette.lochmara);
-swatches.lochmara300 = tint(0.4, palette.lochmara);
-swatches.lochmara200 = tint(0.6, palette.lochmara);
-swatches.lochmara100 = tint(0.8, palette.lochmara);
-
-swatches.deepBlue900 = shade(0.8, palette.deepBlue);
-swatches.deepBlue800 = shade(0.6, palette.deepBlue);
-swatches.deepBlue700 = shade(0.4, palette.deepBlue);
-swatches.deepBlue600 = shade(0.2, palette.deepBlue);
-swatches.deepBlue500 = palette.deepBlue;
-swatches.deepBlue400 = tint(0.2, palette.deepBlue);
-swatches.deepBlue300 = tint(0.4, palette.deepBlue);
-swatches.deepBlue200 = tint(0.6, palette.deepBlue);
-swatches.deepBlue100 = tint(0.8, palette.deepBlue);
-
-swatches.rioGrande900 = shade(0.8, palette.rioGrande);
-swatches.rioGrande800 = shade(0.6, palette.rioGrande);
-swatches.rioGrande700 = shade(0.4, palette.rioGrande);
-swatches.rioGrande600 = shade(0.2, palette.rioGrande);
-swatches.rioGrande500 = palette.rioGrande;
-swatches.rioGrande400 = tint(0.2, palette.rioGrande);
-swatches.rioGrande300 = tint(0.4, palette.rioGrande);
-swatches.rioGrande200 = tint(0.6, palette.rioGrande);
-swatches.rioGrande100 = tint(0.8, palette.rioGrande);
-
-swatches.lightningYellow900 = shade(0.8, palette.lightningYellow);
-swatches.lightningYellow800 = shade(0.6, palette.lightningYellow);
-swatches.lightningYellow700 = shade(0.4, palette.lightningYellow);
-swatches.lightningYellow600 = shade(0.2, palette.lightningYellow);
-swatches.lightningYellow500 = palette.lightningYellow;
-swatches.lightningYellow400 = tint(0.2, palette.lightningYellow);
-swatches.lightningYellow300 = tint(0.4, palette.lightningYellow);
-swatches.lightningYellow200 = tint(0.6, palette.lightningYellow);
-swatches.lightningYellow100 = tint(0.8, palette.lightningYellow);
-
-swatches.jaffa900 = shade(0.8, palette.jaffa);
-swatches.jaffa800 = shade(0.6, palette.jaffa);
-swatches.jaffa700 = shade(0.4, palette.jaffa);
-swatches.jaffa600 = shade(0.2, palette.jaffa);
-swatches.jaffa500 = palette.jaffa;
-swatches.jaffa400 = tint(0.2, palette.jaffa);
-swatches.jaffa300 = tint(0.4, palette.jaffa);
-swatches.jaffa200 = tint(0.6, palette.jaffa);
-swatches.jaffa100 = tint(0.8, palette.jaffa);
-
-swatches.coral900 = shade(0.8, palette.coral);
-swatches.coral800 = shade(0.6, palette.coral);
-swatches.coral700 = shade(0.4, palette.coral);
-swatches.coral600 = shade(0.2, palette.coral);
-swatches.coral500 = palette.coral;
-swatches.coral400 = tint(0.2, palette.coral);
-swatches.coral300 = tint(0.4, palette.coral);
-swatches.coral200 = tint(0.6, palette.coral);
-swatches.coral100 = tint(0.8, palette.coral);
-
-export const interactions = {
-	lochmara,
-	moodyPurple,
-};
+Object.entries(palette).forEach(([key, value]) => {
+	swatches[key] = {
+		900: shade(0.8, value),
+		800: shade(0.6, value),
+		700: shade(0.4, value),
+		600: shade(0.2, value),
+		500: value,
+		400: tint(0.2, value),
+		300: tint(0.4, value),
+		200: tint(0.6, value),
+		100: tint(0.8, value),
+	};
+});
 
 export const grayscale = {
-	gray900: black,
-	gray800: tint(0.1, black),
-	gray700: tint(0.2, black),
-	gray600: tint(0.3, black),
-	gray500: tint(0.4, black),
-	gray400: tint(0.5, black),
-	gray300: tint(0.6, black),
-	gray200: tint(0.7, black),
-	gray100: tint(0.8, black),
-	gray75: tint(0.9, black),
-	gray50: tint(0.95, black),
-	gray0: tint(1, black),
+	gray: {
+		900: black,
+		800: tint(0.1, black),
+		700: tint(0.2, black),
+		600: tint(0.3, black),
+		500: tint(0.4, black),
+		400: tint(0.5, black),
+		300: tint(0.6, black),
+		200: tint(0.7, black),
+		100: tint(0.8, black),
+		75: tint(0.9, black),
+		50: tint(0.95, black),
+		0: tint(1, black),
+	},
 };
 
 export default {
 	...brand,
 	...gradients,
 	...swatches,
-	...interactions,
 	...grayscale,
 	transparent: 'rgba(0,0,0,0)',
 };

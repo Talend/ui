@@ -14,7 +14,7 @@ const borderLeft = () => `
 		top: 50%;
 		left: 0;
 		transform: translateY(-50%);
-		background: ${tokens.colors.gray0};
+		background: ${tokens.colors.gray[0]};
 	}
 `;
 
@@ -24,8 +24,8 @@ export const HeaderBar = styled.div.attrs({
 	display: flex;
 	min-height: 4.8rem;
 	width: 100%;
-	color: ${tokens.colors.gray0};
-	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
+	color: ${tokens.colors.gray[0]};
+	background: ${tokens.colors.twilight.backgroundImage};
 `;
 export const Item = styled.span.attrs({
 	className: 'header-bar__item',
@@ -35,11 +35,11 @@ export const Item = styled.span.attrs({
 	transition: ${tokens.transitions.fast};
 
 	&:hover {
-		background: ${freeze ? 'none' : transparentize(0.8, tokens.colors.gray0)};
+		background: ${freeze ? 'none' : transparentize(0.8, tokens.colors.gray[0])};
 	}
 
 	&:active {
-		background: ${freeze ? 'none' : transparentize(0.9, tokens.colors.gray0)};
+		background: ${freeze ? 'none' : transparentize(0.9, tokens.colors.gray[0])};
 	}
 
 	&,
@@ -61,7 +61,7 @@ export const Item = styled.span.attrs({
 		&:hover,
 		&:focus,
 		&:active {
-			color: ${tokens.colors.gray0};
+			color: ${tokens.colors.gray[0]};
 		}
 	}
 
@@ -84,8 +84,8 @@ export const Item = styled.span.attrs({
 		&:hover,
 		&:focus,
 		&:active {
-			color: ${tokens.colors.gray900};
-			background: ${tokens.colors.paleCyan100};
+			color: ${tokens.colors.gray[900]};
+			background: ${tokens.colors.paleCyan[100]};
 		}
 	}
 
@@ -134,15 +134,15 @@ export const MenuDisclosure = styled(Button).attrs({
 	&:hover,
 	&:focus,
 	&:active {
-		color: ${tokens.colors.gray0};
+		color: ${tokens.colors.gray[0]};
 	}
 
 	&:hover {
-		background: ${transparentize(0.8, tokens.colors.gray0)};
+		background: ${transparentize(0.8, tokens.colors.gray[0])};
 	}
 
 	&:active {
-		background: ${transparentize(0.9, tokens.colors.gray0)};
+		background: ${transparentize(0.9, tokens.colors.gray[0])};
 	}
 
 	&.btn {
@@ -191,7 +191,7 @@ export const Menu = styled.div.attrs({
 	padding-top: 5rem;
 	height: 100vh;
 	width: 100vw;
-	background: linear-gradient(133deg, ${tokens.colors.deepBlue}, ${tokens.colors.russianViolet});
+	background: ${tokens.colors.twilight.backgroundImage};
 	opacity: ${tokens.opacity.transparent};
 	overflow: auto;
 	z-index: ${tokens.zIndices.above};
@@ -215,7 +215,7 @@ export const Menu = styled.div.attrs({
 
 	[role='menuitem'] {
 		min-height: 4.8rem;
-		color: ${tokens.colors.gray0};
+		color: ${tokens.colors.gray[0]};
 	}
 `;
 const ContentArea = styled.div.attrs({
@@ -245,7 +245,7 @@ export const ContentRight = styled(ContentArea).attrs({
 		&:focus,
 		&:hover,
 		&:active {
-			color: ${tokens.colors.gray0};
+			color: ${tokens.colors.gray[0]};
 			background: none;
 			border: none;
 		}

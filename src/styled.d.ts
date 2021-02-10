@@ -48,6 +48,11 @@ declare module 'styled-components' {
 			inputGroupInteractiveColor: string;
 			inputGroupInteractiveBackgroundColor: string;
 
+			// Links
+			linkColor: string;
+			linkHoverColor: string;
+			linkActiveColor: string;
+
 			// Modals
 			modalBackground: string;
 			modalHeadingBackground: string;

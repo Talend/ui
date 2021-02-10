@@ -17,7 +17,7 @@ const InlineField = styled(InlineStyle)`
 	}
 
 	input:checked + span:after {
-		background-color: ${({ theme }) => theme.colors.activeColor};
+		background-color: ${({ theme }) => theme.colors.activeColor[500]};
 	}
 
 	&.input--read-only.input--checked span:after {

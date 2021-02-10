@@ -7,9 +7,9 @@ const InlineMessageWarning = styled(InlineMessage).attrs({
 	icon: 'talend-warning',
 })(
 	({ withBackground, theme }) => `
-	color: ${theme.colors.warningColor};
-	background: ${withBackground && tint(0.95, theme.colors.warningColor)};
-	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.warningColor)}`};
+	color: ${theme.colors.warningColor[500]};
+	background: ${withBackground && tint(0.95, theme.colors.warningColor[500])};
+	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.warningColor[500])}`};
 `,
 );
 

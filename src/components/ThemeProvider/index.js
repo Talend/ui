@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	::selection {
-		background-color: ${tokens.colors.coral100};
+		background-color: ${tokens.colors.coral[100]};
 	}
 `;
 

@@ -70,7 +70,7 @@ const SWrapper = styled.div(
 		padding: 0.5rem 0;
 
 		@media only screen and (min-width: 468px) {
-			color: ${tokens.colors.gray0};
+			color: ${tokens.colors.gray[0]};
 			flex-direction: row;
 		}
 
@@ -85,7 +85,7 @@ const SWrapper = styled.div(
 			&-item {
 				display: inline-flex;
 				padding: 0 1rem;
-				border-right: 1px solid ${tokens.colors.gray75};
+				border-right: 1px solid ${tokens.colors.gray[75]};
 
 				&:last-child {
 					border-right-color: transparent;
@@ -94,7 +94,7 @@ const SWrapper = styled.div(
 				@media only screen and (min-width: 468px) {
 					&,
 					&:last-child {
-						border-right-color: ${tokens.colors.gray0};
+						border-right-color: ${tokens.colors.gray[0]};
 					}
 				}
 			}
@@ -113,7 +113,7 @@ const SWrapper = styled.div(
 			}
 
 			@media only screen and (min-width: 468px) {
-				color: ${tokens.colors.gray0};
+				color: ${tokens.colors.gray[0]};
 			}
 		}
 

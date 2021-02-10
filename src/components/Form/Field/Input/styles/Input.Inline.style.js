@@ -47,13 +47,13 @@ const InlineStyle = styled.div.attrs(({ readOnly, checked }) => ({
 	}
 
 	input:focus:not(:disabled) + span {
-		outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor};
+		outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor[500]};
 	}
 
 	[aria-checked='true'] + span:before,
 	[aria-checked='mixed'] + span:before {
-		background: ${({ theme }) => theme.colors.activeColor};
-		box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.activeColor};
+		background: ${({ theme }) => theme.colors.activeColor[500]};
+		box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.activeColor[500]};
 	}
 
 	input:disabled + span,

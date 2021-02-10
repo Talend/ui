@@ -11,15 +11,15 @@ export const Accordion = styled(ReakitComposite)`
 export const AccordionItem = styled.div`
 	margin: ${tokens.space.m} 0;
 	min-width: 25rem;
-	border: 1px solid ${tokens.colors.gray100};
+	border: 1px solid ${tokens.colors.gray[100]};
 	border-radius: ${tokens.radii.rectRadius};
 
 	&:hover {
-		border-color: ${tokens.colors.gray200};
+		border-color: ${tokens.colors.gray[200]};
 	}
 
 	&:active {
-		border-color: ${tokens.colors.gray300};
+		border-color: ${tokens.colors.gray[300]};
 	}
 `;
 
@@ -34,7 +34,7 @@ export const DisclosureHeading = styled.div<{ visible: boolean }>`
 		props.visible
 			? `${tokens.radii.rectRadius} ${tokens.radii.rectRadius} 0 0`
 			: tokens.radii.rectRadius};
-	background: ${tokens.colors.gray50};
+	background: ${tokens.colors.gray[50]};
 `;
 
 export const DisclosureArrow = styled.span`

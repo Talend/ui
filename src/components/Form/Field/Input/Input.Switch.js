@@ -37,11 +37,11 @@ const InlineField = styled(InlineStyle)`
 
 	input:not(:disabled):checked + span:hover:before,
 	input:not(:disabled):checked:focus + span:before {
-		background: ${({ theme }) => shade(0.25, theme.colors.activeColor)};
+		background: ${({ theme }) => shade(0.25, theme.colors.activeColor[500])};
 	}
 
 	&.input--checked span:before {
-		background: ${({ theme }) => theme.colors.activeColor};
+		background: ${({ theme }) => theme.colors.activeColor[500]};
 		box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 	}
 
