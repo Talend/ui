@@ -130,7 +130,7 @@ exports[`PlainTextTitle should render 1`] = `
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"
-    label="Edit"
+    label="Rename"
     name="action-edit"
     onClick={[MockFunction]}
   />
@@ -159,7 +159,7 @@ exports[`PlainTextTitle should render provided component class 1`] = `
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"
-    label="Edit"
+    label="Rename"
     name="action-edit"
     onClick={[MockFunction]}
   />
