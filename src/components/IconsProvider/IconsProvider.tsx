@@ -73,7 +73,7 @@ function addBundle(response: Response) {
 	if (response.status === 200 && response.ok) {
 		return response.text().then(content => {
 			if (content.startsWith('<svg')) {
-				const container = document.createElement('svg');
+				const container = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 				container.setAttribute('class', 'tc-iconsprovider');
 				container.setAttribute('style', 'display: none');
 				container.setAttribute('aria-hidden', 'true');
