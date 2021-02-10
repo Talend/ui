@@ -188,6 +188,7 @@ function registerZoom(
 
 function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps): JSX.Element {
 	const containerRef = useRef<HTMLDivElement>(null);
+	const tooltipRef = useRef<HTMLDivElement>(null);
 	const zoomInButtonRef = useRef<HTMLButtonElement>(null);
 	const zoomOutButtonRef = useRef<HTMLButtonElement>(null);
 	const { t } = useTranslation();
@@ -267,10 +268,12 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 			<div ref={containerRef} />
 			{tooltipPosition && tooltipEntry && (
 				<div
+					ref={tooltipRef}
 					style={{
 						position: 'fixed',
-						left: `${tooltipPosition.x - 3}px`,
-						top: `${tooltipPosition.y + 3}px`,
+						top: `${tooltipPosition.y - (tooltipRef?.current?.offsetHeight ?? 0)}px`,
+						left: `${tooltipPosition.x - ((tooltipRef?.current?.offsetWidth ?? 0) / 2)}px`,
+						pointerEvents: 'none',
 					}}
 				>
 					<TooltipContent entries={[tooltipEntry]} />
