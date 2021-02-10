@@ -49,6 +49,11 @@ interface TooltipPosition {
 	y: number;
 }
 
+interface Tooltip {
+	entry: TooltipEntry,
+	position: TooltipPosition,
+}
+
 // Don't worry, chart will fit it's container
 const width = 250;
 const height = 200;
@@ -76,8 +81,7 @@ function findEntry(
 function renderFeature(
 	path: SvgPath,
 	colorScale: ColorScale,
-	setTooltipEntry: (tooltipEntry: TooltipEntry | null) => void,
-	setTooltipPosition: (tooltipPosition: TooltipPosition | null) => void,
+	setTooltip: (tooltip: Tooltip | null) => void,
 	onSelection: (key: string) => void,
 	entry?: Entry,
 	label?: string,
@@ -89,41 +93,32 @@ function renderFeature(
 		}),
 	);
 	if (entry) {
+		// if we have both label and entry key: "label (key): value", otherwise "label: value" or "key: value"
+		const tooltipLabel = `${label || entry.key}${
+			label && entry.key !== label ? ` (${entry.key})` : ''
+		}`;
+
+		const setTooltipFromD3Event = (d3Event: any) => {
+			setTooltip({
+				entry: {
+					key: tooltipLabel,
+					value: `${entry.value}`,
+				},
+				position: {
+					x: d3Event.x,
+					y: d3Event.y,
+				}
+			});
+		};
+
 		path
 			.attr('data-key', entry.key)
 			.attr('data-value', entry.value)
 			.style('fill', colorScale(+entry.value)?.toString() || '')
 			.on('click', () => onSelection(entry.key))
-			.on('mouseover', d3Event => {
-				// if we have both label and entry key: "label (key): value", otherwise "label: value" or "key: value"
-				const tooltipLabel = `${label || entry.key}${
-					label && entry.key !== label ? ` (${entry.key})` : ''
-				}`;
-				setTooltipEntry({
-					key: tooltipLabel,
-					value: `${entry.value}`,
-				});
-				setTooltipPosition({
-					x: d3Event.x,
-					y: d3Event.y,
-				});
-			})
-			.on(
-				'mousemove',
-				throttle(
-					d3Event =>
-						d3Event &&
-						setTooltipPosition({
-							x: d3Event.x,
-							y: d3Event.y,
-						}),
-					30,
-				),
-			)
-			.on('mouseout', () => {
-				setTooltipEntry(null);
-				setTooltipPosition(null);
-			});
+			.on('mouseover', d3Event => setTooltipFromD3Event(d3Event))
+			.on('mousemove', throttle(d3Event => d3Event && setTooltipFromD3Event(d3Event), 50))
+			.on('mouseout', () => setTooltip(null));
 	}
 }
 
@@ -192,8 +187,7 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 	const zoomInButtonRef = useRef<HTMLButtonElement>(null);
 	const zoomOutButtonRef = useRef<HTMLButtonElement>(null);
 	const { t } = useTranslation();
-	const [tooltipEntry, setTooltipEntry] = useState<TooltipEntry | null>();
-	const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition | null>();
+	const [tooltip, setTooltip] = useState<Tooltip | null>();
 
 	useEffect(() => {
 		if (
@@ -222,8 +216,7 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 					renderFeature(
 						d3select(this),
 						colorScale,
-						setTooltipEntry,
-						setTooltipPosition,
+						setTooltip,
 						onSelection,
 						matchedEntry,
 						label,
@@ -233,7 +226,7 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 
 			registerZoom(svg, container, zoomInButtonRef.current, zoomOutButtonRef.current);
 		}
-	}, [data, chartConfig, onSelection, setTooltipEntry, setTooltipPosition]);
+	}, [data, chartConfig, onSelection, setTooltip]);
 
 	return (
 		<div className={styles['geo-chart']}>
@@ -266,17 +259,17 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 				</button>
 			</div>
 			<div ref={containerRef} />
-			{tooltipPosition && tooltipEntry && (
+			{tooltip && (
 				<div
 					ref={tooltipRef}
 					style={{
 						position: 'fixed',
-						top: `${tooltipPosition.y - (tooltipRef.current?.offsetHeight ?? 0)}px`,
-						left: `${tooltipPosition.x - ((tooltipRef.current?.offsetWidth ?? 0) / 2)}px`,
+						top: `${tooltip.position.y - (tooltipRef.current?.offsetHeight ?? 0)}px`,
+						left: `${tooltip.position.x - ((tooltipRef.current?.offsetWidth ?? 0) / 2)}px`,
 						pointerEvents: 'none',
 					}}
 				>
-					<TooltipContent entries={[tooltipEntry]} />
+					<TooltipContent entries={[tooltip.entry]} />
 				</div>
 			)}
 		</div>
