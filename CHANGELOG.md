@@ -27,6 +27,12 @@ Types of changes
 ## [unreleased]
 
 
+## [3.3.3]
+
+### Fixed
+
+- Fix Expose BadgeCheckboxesForm
+
 ## [3.3.2]
 
 ### Fixed

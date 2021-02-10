@@ -8,6 +8,7 @@ import {
 	BadgeSlider,
 	BadgeOverlay,
 	BadgeCheckboxes,
+	BadgeCheckboxesForm,
 } from './components';
 import * as constants from './constants';
 import dictionaryHelpers from './dictionary/helpers.dictionary';
@@ -22,6 +23,7 @@ const components = {
 	BadgeSlider,
 	BadgeOverlay,
 	BadgeCheckboxes,
+	BadgeCheckboxesForm,
 };
 
 const helpers = {
