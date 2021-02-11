@@ -1,6 +1,6 @@
 name: UMD size checker
 
-on: repository_dispatch
+on: [pull_request]
 
 jobs:
   check:

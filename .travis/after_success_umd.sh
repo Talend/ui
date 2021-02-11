@@ -3,11 +3,6 @@
 echo "cp UMD"
 cd "$TRAVIS_BUILD_DIR"
 
-curl \
-  -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/repos/talend/ui/actions/workflows/umd-size-checker.yml/dispatches
-
 mkdir -p .static/@talend/react-cmf/dist
 cp -R packages/cmf/dist/* .static/@talend/react-cmf/dist
 echo "✓ Copy cmf UMD to .static"
