@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import * as d3 from 'd3';
+import {
+	select as d3select,
+	easeBounce as d3easeBounce,
+	scaleLinear,
+	format as d3format,
+} from 'd3';
 import styles from './BoxPlot.component.scss';
 
-const formatNumber = d3.format(',');
+const formatNumber = d3format(',');
 
 export interface BoxPlotData {
 	q1: number;
@@ -35,12 +40,11 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			const boxHeight = height - margin.top - margin.bottom;
 			const duration = 1000;
 
-			d3.select(containerRef.current)
+			d3select(containerRef.current)
 				.select('svg')
 				.remove();
 
-			const svg = d3
-				.select(containerRef.current)
+			const svg = d3select(containerRef.current)
 				.append('svg')
 				.attr('width', width)
 				.attr('height', height)
@@ -51,8 +55,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			const quartileData = [boxPlotData.q1, boxPlotData.median, boxPlotData.q2];
 
 			// Compute the new vertical-scale.
-			const vScale = d3
-				.scaleLinear()
+			const vScale = scaleLinear()
 				.domain([boxPlotData.min, boxPlotData.max])
 				.range([boxHeight, 0]);
 
@@ -109,7 +112,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			boxBottom
 				.transition()
 				.duration(duration * 1.5)
-				.ease(d3.easeBounce)
+				.ease(d3easeBounce)
 				.attr('y', d => vScale(d[1]))
 				.attr('height', d => vScale(d[0]) - vScale(d[1]));
 
