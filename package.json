@@ -51,6 +51,8 @@
     "@types/react-is": "^16.7.2",
     "@types/styled-components": "^5.1.7",
     "babel-plugin-styled-components": "^1.12.0",
+    "chromatic": "^5.6.1",
+    "core-js": "^3.8.3",
     "cypress": "^6.3.0",
     "enzyme": "^3.11.0",
     "figma-js": "^1.13.0",
@@ -61,7 +63,6 @@
     "react-dom": "^16.14.0",
     "react-is": "^16.13.1",
     "storybook-addon-pseudo-states": "^1.0.0-rc.3",
-    "storybook-chroma": "^4.0.2",
     "storybook-docs-toc": "^1.2.0",
     "styled-components": "^5.2.1"
   },
@@ -74,7 +75,6 @@
     "styled-components": "^5.2.1"
   },
   "resolutions": {
-    "core-js": "3",
     "immer": "^8.0.1",
     "node-notifier": "^8.0.1"
   }
