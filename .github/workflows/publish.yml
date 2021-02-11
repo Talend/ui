@@ -1,4 +1,4 @@
-name: Design System Auto Publish
+name: Publish
 
 on:
   push:

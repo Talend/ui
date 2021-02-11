@@ -1,4 +1,5 @@
-name: 'Chromatic'
+name: Visual regression testing
+
 on: push
 
 jobs:
