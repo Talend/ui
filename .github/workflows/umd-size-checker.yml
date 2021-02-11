@@ -11,5 +11,5 @@ jobs:
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           build-script: 'prepublishOnly'
-          pattern: './packages/{cmf,cmf-cqrs,components,containers,datagrid,dataviz,forms,icons,router,sagas,stepper,theme}/dist/*.{js,css,json}'
+          pattern: './packages/*/dist/*.{js,css,json}'
           exclude: '{**/*.html,**/*.map,**/node_modules/**}'
