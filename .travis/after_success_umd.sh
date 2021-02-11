@@ -3,6 +3,11 @@
 echo "cp UMD"
 cd "$TRAVIS_BUILD_DIR"
 
+curl \
+  -X POST \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/talend/ui/actions/workflows/umd-size-checker.yml/dispatches
+
 mkdir -p .static/@talend/react-cmf/dist
 cp -R packages/cmf/dist/* .static/@talend/react-cmf/dist
 echo "✓ Copy cmf UMD to .static"
@@ -43,6 +48,6 @@ mkdir -p .static/@talend/react-stepper/dist
 cp -R packages/stepper/dist/* .static/@talend/react-stepper/dist
 echo "✓ Copy stepper UMD to .static"
 
-mkdir -p .static/@talend/bootrap-theme/dist
-cp -R packages/theme/dist/* .static/@talend/bootrap-theme/dist
-echo "✓ Copy bootrap-theme UMD to .static"
+mkdir -p .static/@talend/bootstrap-theme/dist
+cp -R packages/theme/dist/* .static/@talend/bootstrap-theme/dist
+echo "✓ Copy bootstrap-theme UMD to .static"

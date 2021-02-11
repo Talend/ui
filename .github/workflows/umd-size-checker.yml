@@ -1,0 +1,14 @@
+name: UMD size checker
+
+on: repository_dispatch
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: "./packages/*/dist/**/*.{js,css,html,json}"
+          exclude: "{./packages/*/dist/*.report.html,**/*.map,**/node_modules/**}"
