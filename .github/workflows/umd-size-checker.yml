@@ -10,5 +10,6 @@ jobs:
       - uses: preactjs/compressed-size-action@v2
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          pattern: "./packages/{cmf,cmf-cqrs,components,containers,datagrid,dataviz,forms,icons,router,sagas,stepper,theme}/dist/*.{js,css,json}"
-          exclude: "{**/*.html,**/*.map,**/node_modules/**}"
+          build-script: 'prepublishOnly'
+          pattern: './packages/{cmf,cmf-cqrs,components,containers,datagrid,dataviz,forms,icons,router,sagas,stepper,theme}/dist/*.{js,css,json}'
+          exclude: '{**/*.html,**/*.map,**/node_modules/**}'
