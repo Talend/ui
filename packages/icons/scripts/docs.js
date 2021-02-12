@@ -132,7 +132,7 @@ const HTML_TPL = (icons, style) => `
 			<div class="form-group">
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" onchange="asFont(this)" checked=""><span>Render as font</span>
+						<input type="checkbox" onchange="asFont(this)"><span>Render as font</span>
 					</label>
 				</div>
 			</div>
