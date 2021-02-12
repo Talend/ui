@@ -130,9 +130,11 @@ const HTML_TPL = (icons, style) => `
 				<input id="search-icon" type="text" oninput="filter(this.value)" class="form-control" placeholder="search" style="width: 280px; margin-left: 7px" />
 			</div>
 			<div class="form-group">
-				<label class="sr-only">render as font
-					<input type="checkbox" onchange="asFont(this)" class="form-control" />
-				</label>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" onchange="asFont(this)" checked=""><span>Render as font</span>
+					</label>
+				</div>
 			</div>
 		</form>
 		<ul>
