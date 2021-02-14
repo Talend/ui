@@ -5,6 +5,6 @@ module.exports = {
 	types: ['eot', 'woff', 'woff2', 'ttf', 'svg'],
 	fileName: '[fontname].[ext]',
 	files: ['svg/**/*.svg'],
-	fixedWidth: true,
+	fixedWidth: false,
 	fontName: 'talendicons',
 };
