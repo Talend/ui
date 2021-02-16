@@ -12,7 +12,7 @@ export const globalTypes = {
 		name: 'Theme',
 		description: 'Choose a theme to apply to the design system',
 		toolbar: {
-			icon: 'mirror',
+			icon: 'paintbrush',
 			items: [
 				{ value: 'light', left: '⚪️', title: 'Default theme' },
 				{ value: 'dark', left: '⚫️', title: 'Dark theme' },
