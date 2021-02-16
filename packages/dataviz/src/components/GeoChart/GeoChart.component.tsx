@@ -12,7 +12,6 @@ import { FeatureCollection } from 'geojson';
 // eslint-disable-next-line import/no-unresolved
 import { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
-import throttle from 'lodash/throttle';
 import { Icon } from '@talend/react-components';
 
 import TooltipContent, { TooltipEntry } from '../TooltipContent/TooltipContent.component';
@@ -94,9 +93,7 @@ function renderFeature(
 	);
 	if (entry) {
 		// if we have both label and entry key: "label (key): value", otherwise "label: value" or "key: value"
-		const tooltipLabel = `${label || entry.key}${
-			label && entry.key !== label ? ` (${entry.key})` : ''
-		}`;
+		const tooltipLabel = `${label || entry.key}${label && entry.key !== label ? ` (${entry.key})` : ''}`;
 
 		const setTooltipFromD3Event = (d3Event: any) => {
 			setTooltip({
@@ -117,7 +114,7 @@ function renderFeature(
 			.style('fill', colorScale(+entry.value)?.toString() || '')
 			.on('click', () => onSelection(entry.key))
 			.on('mouseover', d3Event => setTooltipFromD3Event(d3Event))
-			.on('mousemove', throttle(d3Event => d3Event && setTooltipFromD3Event(d3Event), 50))
+			.on('mousemove', d3Event => d3Event && setTooltipFromD3Event(d3Event))
 			.on('mouseout', () => setTooltip(null));
 	}
 }
