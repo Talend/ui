@@ -13,11 +13,10 @@ export const SwitchIndicator = styled.span`
 	z-index: ${tokens.zIndices.above};
 `;
 
-export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: boolean }>`
+export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 	div {
 		position: relative;
     	display: inline-flex;
-		padding: 0 1rem;
 		background: ${({ theme }) => theme.colors.inputRadioBackgroundColor};
 		border-radius: 10rem;
 		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
@@ -30,6 +29,7 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
+		margin: 0;
 		padding: 0 1rem;
 		color: ${({ theme }) => theme.colors.textColor}
 		font-size: ${tokens.fontSizes.small};
@@ -41,14 +41,6 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
 		z-index: ${tokens.zIndices.onTop};
 	}
 	
-	button:nth-child(1) {
-		padding-left: 0;
-	}
-	
-	button:nth-child(${({ values }) => values.length}) {
-		padding-right: 0;
-	}
-
 	${SwitchIndicator} em {
   		position: absolute;
   		top: .2rem;
@@ -65,20 +57,20 @@ export const Switch = styled.div<{ values: any[]; disabled: boolean; readOnly: b
 			!readOnly ? shade(0.25, theme.colors.activeColor[500]) : 'none'};
 	}
   
-	[data-checked] {
+	[aria-selected] {
 		transition: color ${tokens.transitions.normal};
 	}
 	
-	[data-checked="true"] {
+	[aria-selected="true"] {
 		color: ${({ theme }) => theme.colors.inputBackgroundColor};
 		opacity: ${tokens.opacity.opaque};
 	}
 		
-	[data-checked] ~ ${SwitchIndicator} {
+	[aria-selected] ~ ${SwitchIndicator} {
 		visibility: hidden;
 	}
 	
-	[data-checked="true"] ~ ${SwitchIndicator} {
+	[aria-selected="true"] ~ ${SwitchIndicator} {
 		visibility: visible;
 	}
 `;
