@@ -48,7 +48,12 @@ export default function InputTimePicker(props) {
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
-	  <Time.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={setReferenceElement} />,
+		<Time.Input
+			{...inputProps}
+			id={`${props.id}-input`}
+			key="input"
+			inputRef={setReferenceElement}
+		/>,
 		handlers.showPicker && (
 			<div
 				key="popper"
