@@ -50,7 +50,6 @@ export const Tab = styled(ReakitTab)`
 		margin-right: ${tokens.space.xs};
 		width: ${tokens.sizes.s};
 		height: ${tokens.sizes.s};
-		color: ${({ theme }) => theme.colors.textColor};
 	}
 
 	.tag {
