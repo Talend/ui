@@ -14763,10 +14763,10 @@ storybook-addon-pseudo-states@^1.0.0-rc.3:
   resolved "https://registry.yarnpkg.com/storybook-addon-pseudo-states/-/storybook-addon-pseudo-states-1.0.0-rc.3.tgz#e1158667021a2400fad75cbd3e06328dcbebb584"
   integrity sha512-i3syBLfMu62w0y1SonRoPYdSFiFBm2G0lFWoGs4lHuY84ujYx0TWRUQOfc3dWTcAfFVNpOiMOchcWvFOqANMpA==
 
-storybook-docs-toc@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/storybook-docs-toc/-/storybook-docs-toc-1.2.0.tgz#e2ad112b70aab5dd1afb22835387bba1cc03396c"
-  integrity sha512-FWMeWZE0PwG+9ijmugyqNbtuwR/78I9PGS/arQbsQcA1aiz53c0AbJouPfxthEYkqeKSHkUyDda5juYXcfrQ6w==
+storybook-docs-toc@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/storybook-docs-toc/-/storybook-docs-toc-1.3.1.tgz#b198e8c4cdc6d86462955a2b2e75eae9d9bb3624"
+  integrity sha512-J9qCt+wPYeWg8t0KSS+1buZq1km8XK1zysIdhsNErIMTH8tnQEv9SttPb7N8qOHL22evgFzGiL5D5LMDO22zXw==
   dependencies:
     tocbot "^4.12.0"
 
