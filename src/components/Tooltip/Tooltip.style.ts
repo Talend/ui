@@ -24,6 +24,9 @@ export const TooltipArrow = styled(ReakitTooltipArrow)`
 	color: ${({ theme }) => theme.colors.tooltipBackgroundColor};
 
 	svg {
+		display: block;
+		margin: -1px;
+		vertical-align: middle;
 		fill: currentColor;
 	}
 `;
