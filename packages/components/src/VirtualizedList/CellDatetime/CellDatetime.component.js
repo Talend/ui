@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import isEqual from 'lodash/isEqual';
+import pick from 'lodash/pick';
 import { distanceInWordsToNow, format } from 'date-fns';
-import invariant from 'invariant';
+import isValid from 'date-fns/is_valid';
+import parse from 'date-fns/parse';
 import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -13,7 +16,9 @@ import TooltipTrigger from '../../TooltipTrigger';
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
 export function computeValue(cellData, columnData, t) {
-	try {
+	const isDateValid = isValid(parse(cellData));
+
+	if (isDateValid) {
 		if (cellData && columnData.mode === 'ago') {
 			return distanceInWordsToNow(cellData, {
 				addSuffix: true,
@@ -22,8 +27,6 @@ export function computeValue(cellData, columnData, t) {
 		} else if (columnData.mode === 'format') {
 			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 		}
-	} catch (e) {
-		invariant(true, 'Conversion error in list cell ', columnData);
 	}
 
 	return cellData;
@@ -33,8 +36,10 @@ export function computeValue(cellData, columnData, t) {
  */
 export class CellDatetimeComponent extends React.Component {
 	shouldComponentUpdate(nextProps) {
+		const watch = Object.keys(CellDatetimeComponent.propTypes.columnData);
 		return (
-			this.props.cellData !== nextProps.cellData || this.props.columnData !== nextProps.columnData
+			this.props.cellData !== nextProps.cellData ||
+			!isEqual(pick(this.props.columnData, watch), pick(nextProps.columnData, watch))
 		);
 	}
 

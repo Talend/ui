@@ -1,0 +1,65 @@
+:export {
+	scaleMinColor: tint($regal-blue, 80%);
+	scaleMaxColor: shade($regal-blue, 30%);
+}
+
+.geo-chart {
+	&__title {
+		text-align: center;
+		margin: 8px 0;
+	}
+
+	&__feature {
+		stroke: $white;
+		stroke-width: 1px;
+		vector-effect: non-scaling-stroke;
+
+		&--disabled {
+			fill: $silver;
+		}
+
+		&:not(&--disabled):hover {
+			fill: $lochmara !important;
+			cursor: pointer;
+		}
+	}
+
+	&__zoom {
+		position: absolute;
+		bottom: 15px;
+		left: 10px;
+		z-index: 3;
+	}
+
+	&__zoom-button {
+		display: block;
+		background: transparent;
+		border: none;
+		outline: none;
+		padding: 0;
+		height: 20px;
+		width: 20px;
+
+		& + #{&} {
+			margin-top: 5px;
+		}
+	}
+
+	&__zoom-icon {
+		color: $black;
+		width: 100%;
+		height: 100%;
+
+		&:not(:hover) .ti-background {
+			color: $silver;
+		}
+
+		&:hover {
+			color: $lochmara;
+		}
+
+		&:active {
+			color: $regal-blue;
+		}
+	}
+}

@@ -69,4 +69,22 @@ describe('Horizontal bar chart', () => {
 		});
 		expect(component.find('Tooltip').text()).toEqual('myTooltipContent');
 	});
+	it('Should not grow to available size if not enough data provided', () => {
+		const component = mount(
+			<HorizontalBarChart
+				data={[
+					{
+						key: 'Entry fully matching filter',
+						value: 2145,
+						filteredValue: 2145,
+					},
+				]}
+				chartStyle={ChartStyle.VALUE}
+				onBarClick={jest.fn()}
+				getTooltipContent={jest.fn()}
+			/>,
+		);
+
+		expect(component.find('ResponsiveContainer').prop('height')).toEqual(65);
+	});
 });

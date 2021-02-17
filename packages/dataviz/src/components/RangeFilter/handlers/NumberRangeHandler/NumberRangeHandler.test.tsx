@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { NumberInputField } from './NumberRangeHandler';
+import { NumberInputField, NumberRangeHandler } from './NumberRangeHandler';
 
 describe('Number input field', () => {
 	it('Should submit value on blur', () => {
@@ -40,5 +40,31 @@ describe('Number input field', () => {
 		component.find('input').simulate('keydown', { key: 'Enter' });
 
 		expect(onChange).toHaveBeenCalledWith(20);
+	});
+	it('Should create ticks', () => {
+		const ticks = NumberRangeHandler.getTicks({
+			min: 2177.87,
+			max: 9530.28,
+		});
+
+		expect(ticks).toEqual({
+			'2177.87': '2,177.87',
+			'4000': '4,000',
+			'6000': '6,000',
+			'8000': '8,000',
+			'9530.28': '9,530.28',
+		});
+	});
+	it('Should create ticks for big number', () => {
+		const ticks = NumberRangeHandler.getTicks({
+			min: 131035911,
+			max: 831035920,
+		});
+
+		expect(ticks).toEqual({
+			'131035911': '131,035,911',
+			'500000000': '500,000,000',
+			'831035920': '831,035,920',
+		});
 	});
 });

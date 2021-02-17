@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { DateTimeInputField, DateTimeRangeHandler } from './DateTimeRangeHandler';
+import { DateRangeHandler } from '../DateRangeHandler/DateRangeHandler';
 
 describe('DateTimeRangeHandler', () => {
 	it('Should submit value on blur', () => {
@@ -62,8 +63,17 @@ describe('DateTimeRangeHandler', () => {
 		expect(max).toEqual(new Date('2015-01-01T12:12:12.999').getTime());
 	});
 
-	it('Should format tick', () => {
-		const max = DateTimeRangeHandler.tickFormatter!(new Date('2015-01-01T12:00:00').getTime());
-		expect(max).toEqual('2015-01-01');
+	it('Should create ticks', () => {
+		const limits = {
+			min: new Date('2000-01-01T12:00:00').getTime(),
+			max: new Date('2030-01-01T12:00:00').getTime(),
+		};
+		const ticks = DateRangeHandler.getTicks(limits);
+		expect(ticks).toEqual({
+			[limits.min]: '2000-01-01',
+			'1262300400000': '2010-01-01',
+			'1577833200000': '2020-01-01',
+			[limits.max]: '2030-01-01',
+		});
 	});
 });

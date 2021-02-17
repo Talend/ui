@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, ReactWrapper, shallow } from 'enzyme';
 import RangeFilter from './RangeFilter.component';
-import { DateRangeHandler, NumberRangeHandler } from './handlers';
+import { NumberRangeHandler } from './handlers';
 
 describe('Range filter', () => {
 	const mocks = {
@@ -51,63 +51,24 @@ describe('Range filter', () => {
 		});
 
 		describe('Marks', () => {
-			function checkMarks(component: ReactWrapper, marks: string[]) {
-				marks.forEach((mark, index) => {
-					expect(
-						component
-							.find('.rc-slider-mark-text')
-							.at(index)
-							.text(),
-					).toEqual(mark);
-				});
+			function checkMark(component: ReactWrapper, index: number, style: string, value: string) {
+				const mark = component.find('.rc-slider-mark-text').at(index);
+				expect(mark.find(`.theme-range-filter__slider-mark--${style}`).text()).toEqual(value);
 			}
-
-			it('Should display only 3 marks for big values', () => {
+			it('Should render min/max on bottom, and other marks on top', () => {
 				const component = mount(
 					<RangeFilter
-						range={{ min: 1e11, max: 1e15 }}
-						limits={{ min: 1e11, max: 1e15 }}
+						range={{ min: 2177.87, max: 9530.28 }}
+						limits={{ min: 2177.87, max: 9530.28 }}
 						{...NumberRangeHandler}
 						{...mocks}
 					/>,
 				);
-
-				checkMarks(component, ['100000000000', '500050000000000', '1000000000000000']);
-			});
-
-			it('Should display only 5 number marks', () => {
-				const component = mount(
-					<RangeFilter
-						range={{ min: 1, max: 1000 }}
-						limits={{ min: 1, max: 1000 }}
-						{...NumberRangeHandler}
-						{...mocks}
-					/>,
-				);
-
-				checkMarks(component, ['1', '251', '501', '750', '1,000']);
-			});
-
-			it('Should display 5 date marks', () => {
-				const component = mount(
-					<RangeFilter
-						range={{ min: new Date('2010-01-01').getTime(), max: new Date('2015-01-01').getTime() }}
-						limits={{
-							min: new Date('2010-01-01').getTime(),
-							max: new Date('2020-01-01').getTime(),
-						}}
-						{...DateRangeHandler}
-						{...mocks}
-					/>,
-				);
-
-				checkMarks(component, [
-					'2010-01-01',
-					'2012-07-02',
-					'2015-01-01',
-					'2017-07-02',
-					'2020-01-01',
-				]);
+				checkMark(component, 0, 'bottom-left', '2,177.87');
+				checkMark(component, 1, 'top', '4,000');
+				checkMark(component, 2, 'top', '6,000');
+				checkMark(component, 3, 'top', '8,000');
+				checkMark(component, 4, 'bottom-right', '9,530.28');
 			});
 		});
 	});

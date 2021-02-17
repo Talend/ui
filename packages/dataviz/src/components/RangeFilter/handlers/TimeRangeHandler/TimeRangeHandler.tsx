@@ -1,8 +1,11 @@
 import React from 'react';
 import isValid from 'date-fns/isValid';
+import { scaleTime } from 'd3';
 import { InputTimePicker } from '@talend/react-components';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
-import { RangeHandler } from '../range-handler.types';
+import { RangeHandler, Ticks } from '../range-handler.types';
+import { Range } from '../../../../types';
+import { formatD3Ticks, formatTimeTicks } from '../slider-ticks.utils';
 
 function parser(input: string): number | null {
 	const date = new Date(`1970-01-01T${input}Z`);
@@ -11,6 +14,17 @@ function parser(input: string): number | null {
 
 function formatter(value: number): string {
 	return new Date(value * 1000).toISOString().substr(11, 8);
+}
+
+export function getTicks(limits: Range): Ticks {
+	return formatD3Ticks(
+		limits,
+		scaleTime()
+			.domain([limits.min, limits.max])
+			.ticks(3)
+			.map(v => v.getTime()),
+		formatter,
+	);
 }
 
 export function TimeInputField({ id, value: rangeValue, onChange }: InputFieldProps): JSX.Element {
@@ -38,7 +52,7 @@ export function TimeInputField({ id, value: rangeValue, onChange }: InputFieldPr
 
 export const TimeRangeHandler: RangeHandler = {
 	inputField: TimeInputField,
-	tickFormatter: formatter,
 	getMinValue: Math.floor,
-	getMaxValue: Math.floor
+	getMaxValue: Math.floor,
+	getTicks: limits => formatTimeTicks(limits, formatter),
 };

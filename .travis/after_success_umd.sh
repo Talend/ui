@@ -42,3 +42,7 @@ echo "✓ Copy sagas UMD to .static"
 mkdir -p .static/@talend/react-stepper/dist
 cp -R packages/stepper/dist/* .static/@talend/react-stepper/dist
 echo "✓ Copy stepper UMD to .static"
+
+mkdir -p .static/@talend/bootstrap-theme/dist
+cp -R packages/theme/dist/* .static/@talend/bootstrap-theme/dist
+echo "✓ Copy bootstrap-theme UMD to .static"

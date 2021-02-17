@@ -60,8 +60,8 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^6.8.2",
-    "@talend/scripts-preset-react-lib": "^6.8.2",
+    "@talend/scripts-core": "^8.0.1",
+    "@talend/scripts-preset-react-lib": "^8.0.1",
     "enzyme": "^3.11.0",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.4",
@@ -79,5 +79,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.9.0"
+  "version": "6.13.0"
 }
