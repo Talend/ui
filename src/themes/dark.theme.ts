@@ -20,9 +20,10 @@ const theme: DefaultTheme = {
 		...palette,
 
 		textColor: palette.grayColor[0],
-		focusColor: palette.focusColor[500],
-		activeColor: palette.primaryColor[500],
 		backgroundColor: palette.grayColor[900],
+
+		accordionBorderColor: palette.grayColor[800],
+		accordionBackgroundColor: palette.grayColor[700],
 
 		buttonPrimaryColor: palette.grayColor[900],
 		buttonPrimaryBackgroundColor: palette.primaryColor[500],

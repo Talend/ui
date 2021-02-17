@@ -11,7 +11,7 @@ export const Accordion = styled(ReakitComposite)`
 export const AccordionItem = styled.div`
 	margin: ${tokens.space.m} 0;
 	min-width: 25rem;
-	border: 1px solid ${tokens.colors.gray[100]};
+	border: 1px solid ${({ theme }) => theme.colors.accordionBorderColor};
 	border-radius: ${tokens.radii.rectRadius};
 
 	&:hover {
@@ -34,7 +34,7 @@ export const DisclosureHeading = styled.div<{ visible: boolean }>`
 		props.visible
 			? `${tokens.radii.rectRadius} ${tokens.radii.rectRadius} 0 0`
 			: tokens.radii.rectRadius};
-	background: ${tokens.colors.gray[50]};
+	background: ${({ theme }) => theme.colors.accordionBackgroundColor};
 `;
 
 export const DisclosureArrow = styled.span`

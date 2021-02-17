@@ -15,6 +15,10 @@ declare module 'styled-components' {
 			activeColor: string;
 			backgroundColor: string;
 
+			// Accordions
+			accordionBorderColor: string;
+			accordionBackgroundColor: string;
+
 			// Buttons
 			buttonPrimaryColor: string;
 			buttonPrimaryBackgroundColor: string;

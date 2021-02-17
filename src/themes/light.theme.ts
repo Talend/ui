@@ -22,6 +22,9 @@ const theme: DefaultTheme = {
 		textColor: palette.grayColor[900],
 		backgroundColor: palette.grayColor[0],
 
+		accordionBorderColor: palette.grayColor[100],
+		accordionBackgroundColor: palette.grayColor[50],
+
 		buttonPrimaryColor: palette.grayColor[0],
 		buttonPrimaryBackgroundColor: palette.primaryColor[500],
 		buttonPrimaryHoverBackgroundColor: palette.primaryColor[600],
