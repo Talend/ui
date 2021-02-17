@@ -8,6 +8,7 @@ $module: range-filter;
 	&__slider-mark {
 		position: absolute;
 		width: 100%;
+		white-space: nowrap;
 
 		&--top {
 			transform: translateX(-50%);

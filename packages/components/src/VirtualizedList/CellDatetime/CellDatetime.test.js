@@ -47,6 +47,20 @@ describe('CellDatetime', () => {
 		expect(cellValue).toEqual('');
 	});
 
+	it('should render CellDatetime with invalid date', () => {
+		// when
+		const columnData = {
+			mode: 'format',
+		};
+
+		const cellData = 'not parsable date';
+
+		const wrapper = shallow(<CellDatetimeComponent cellData={cellData} columnData={columnData} />);
+		// then
+		const cellValue = wrapper.find('.cell-datetime-container').text();
+		expect(cellValue).toEqual(cellData);
+	});
+
 	it('should format with "ago"', () => {
 		// when
 		const columnData = {

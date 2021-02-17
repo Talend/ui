@@ -3,10 +3,9 @@ import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { Slider } from '@talend/react-components';
 import styles from './RangeFilter.component.scss';
-import { getFractionDigits } from '../../formatters/formatters';
 import { Range } from '../../types';
 import { I18N_DOMAIN_DATAVIZ } from '../../constants';
-import { RangeHandler } from './handlers/range-handler.types';
+import { RangeHandler, Ticks } from './handlers/range-handler.types';
 
 export type RangeFilterProps = RangeHandler & {
 	id?: string;
@@ -17,29 +16,27 @@ export type RangeFilterProps = RangeHandler & {
 	onAfterChange: (range: Range) => void;
 };
 
-function getMarks(
-	ticksNumber: number,
-	tickFormatter: (value: number, precision: number) => string,
-	limits: Range,
-	precision: number,
-): { [tick in number]: ReactNode } {
-	const result: { [tick in number]: ReactNode } = {};
-	for (let i = 0; i < ticksNumber; i += 1) {
-		const tickValue = limits.min + (i * (limits.max - limits.min)) / (ticksNumber - 1);
-		// Position: _ - - - _
-		const position = { 0: 'bottom-left', [ticksNumber - 1]: 'bottom-right' }[i] || 'top';
-		result[tickValue] = (
-			<span
-				className={classNames(
-					styles['range-filter__slider-mark'],
-					styles[`range-filter__slider-mark--${position}`],
-				)}
-			>
-				{tickFormatter(tickValue, precision)}
-			</span>
-		);
-	}
-	return result;
+function getMarks(ticks: Ticks): { [tick: number]: ReactNode } {
+	const marks: { [k: number]: ReactNode } = {};
+
+	Object.entries(ticks)
+		.map(([value, label]) => [+value, label])
+		.sort((a, b) => a[0] - b[0])
+		.forEach(([value, label], i, arr) => {
+			// Position: _ - - - _
+			const position = { 0: 'bottom-left', [arr.length - 1]: 'bottom-right' }[i] || 'top';
+			marks[value] = (
+				<span
+					className={classNames(
+						styles['range-filter__slider-mark'],
+						styles[`range-filter__slider-mark--${position}`],
+					)}
+				>
+					{label}
+				</span>
+			);
+		});
+	return marks;
 }
 
 function RangeFilter({
@@ -48,21 +45,15 @@ function RangeFilter({
 	limits,
 	getMinValue = v => v,
 	getMaxValue = v => v,
-	tickCount = () => 5,
+	getStep = () => 1,
 	inputField: InputField,
-	tickFormatter,
 	onSliderChange,
 	onAfterChange,
+	getTicks,
 }: RangeFilterProps): JSX.Element {
 	const { t } = useTranslation(I18N_DOMAIN_DATAVIZ);
 
-	const precision = Math.max(getFractionDigits(limits.min), getFractionDigits(limits.max));
-	const marks = useMemo(() => getMarks(tickCount(limits), tickFormatter, limits, precision), [
-		limits,
-		tickCount,
-		tickFormatter,
-		precision,
-	]);
+	const marks = useMemo(() => getMarks(getTicks(limits)), [limits, getTicks]);
 
 	// Prevent onAfterChange to be triggered twice
 	let onAfterChangedCalled = false;
@@ -71,8 +62,7 @@ function RangeFilter({
 		<div className={styles['range-filter']}>
 			<div className={styles['range-filter__slider']}>
 				<Slider
-					// rc-slider is really picky..
-					step={Number(`1e-${precision + 2}`).toFixed(precision + 2)}
+					step={getStep(limits)}
 					onChange={([min, max]: [number, number]) =>
 						onSliderChange({
 							min: getMinValue(min),

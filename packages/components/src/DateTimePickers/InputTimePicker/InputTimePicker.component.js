@@ -40,6 +40,7 @@ export default function InputTimePicker(props) {
 	});
 
 	const handlers = useInputPickerHandlers({
+		disabled: props.disabled,
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
 		handleKeyDown: () => focusOnTime(containerRef.current),
@@ -47,12 +48,7 @@ export default function InputTimePicker(props) {
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
-		<Time.Input
-			{...inputProps}
-			id={`${props.id}-input`}
-			key="input"
-			inputRef={setReferenceElement}
-		/>,
+	  <Time.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={setReferenceElement} />,
 		handlers.showPicker && (
 			<div
 				key="popper"
@@ -99,6 +95,7 @@ InputTimePicker.propTypes = {
 	onBlur: PropTypes.func,
 	timezone: PropTypes.string,
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+	disabled: PropTypes.bool,
 };
 
 InputTimePicker.defaultProps = {

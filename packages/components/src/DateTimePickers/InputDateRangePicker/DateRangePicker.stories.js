@@ -27,6 +27,15 @@ storiesOf('Form/Controls/DatePicker/Date Range', module)
 			onChange={action('onChange')}
 		/>
 	))
+	.add('disabled', () => (
+		<InputDateRangePicker
+			disabled
+			id="my-date-picker"
+			name="daterange"
+			onBlur={action('onBlur')}
+			onChange={action('onChange')}
+		/>
+	))
 	.add('Input with minWidth', () => (
 		<InputDateRangePicker
 			id="my-date-picker"

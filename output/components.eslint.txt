@@ -56,7 +56,7 @@
   26:5  warning  React Hook useEffect has missing dependencies: 'state.endDateTime' and 'state.startDateTime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
-  91:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  94:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
   59:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
@@ -137,7 +137,7 @@
   147:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
 
 /home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.component.js
-  122:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+  123:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Tile/Tile.component.js
   27:4  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
@@ -246,7 +246,7 @@
   135:13  error  'children' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.component.js
-  129:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  130:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.test.js
   13:3  error  Arrow function should not return assignment  no-return-assign
