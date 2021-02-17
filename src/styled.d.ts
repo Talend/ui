@@ -1,18 +1,33 @@
 import 'styled-components';
 
 declare module 'styled-components' {
+	export type ColorSwatch = {
+		900: string;
+		800: string;
+		700: string;
+		600: string;
+		500: string;
+		400: string;
+		300: string;
+		200: string;
+		100: string;
+		75?: string;
+		50?: string;
+		0?: string;
+	};
 	export interface DefaultTheme {
 		colors: {
-			//
-			primaryColor: string;
-			informationColor: string;
-			warningColor: string;
-			successColor: string;
-			destructiveColor: string;
-			//
+			// Palette
+			primaryColor: ColorSwatch;
+			informationColor: ColorSwatch;
+			warningColor: ColorSwatch;
+			successColor: ColorSwatch;
+			destructiveColor: ColorSwatch;
+			focusColor: ColorSwatch;
+			activeColor: ColorSwatch;
+
+			// Global
 			textColor: string;
-			focusColor: string;
-			activeColor: string;
 			backgroundColor: string;
 
 			// Accordions

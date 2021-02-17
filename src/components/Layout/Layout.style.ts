@@ -7,17 +7,16 @@ export type LayoutProps = {
 	hasOverflow?: boolean;
 };
 
-export const Layout = styled.div<LayoutProps>(
-	({ hasScreenHeight, hasOverflow }) => `
+export const Layout = styled.div<LayoutProps>`
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	flex-basis: 100%;
-	${hasScreenHeight && 'height: 100vh;'}
+	${({ hasScreenHeight }) => (hasScreenHeight ? 'height: 100vh;' : '')}
 	font-family: ${tokens.fonts.sansSerif};
-	${(!hasScreenHeight || !hasOverflow) && 'overflow: hidden;'}
-`,
-);
+	${({ hasScreenHeight, hasOverflow }) =>
+		!hasScreenHeight || !hasOverflow ? 'overflow: hidden;' : ''}
+`;
 
 export const Header = styled.header.attrs({
 	role: 'banner',
@@ -25,40 +24,34 @@ export const Header = styled.header.attrs({
 	min-height: 4.8rem;
 `;
 
-export const LayoutGroup = styled.div<LayoutProps>(
-	({ hasOverflow }) => `
-		display: flex;
-		flex: 1; 
-		${!hasOverflow && 'overflow: hidden'}
-`,
-);
+export const LayoutGroup = styled.div<LayoutProps>`
+	display: flex;
+	flex: 1;
+	${({ hasOverflow }) => (!hasOverflow ? 'overflow: hidden' : '')}
+`;
 
 export const Nav = styled.nav.attrs({
 	role: 'navigation',
-})<{ isNavCollapsed: boolean }>(
-	() => `
+})<{ isNavCollapsed: boolean }>`
 	display: flex;
-`,
-);
+`;
 
 export const Main = styled.main.attrs({
 	role: 'main',
-})<LayoutProps>(
-	({ hasScreenHeight, hasOverflow, theme }) => `
+})<LayoutProps>`
 	display: flex;
-	color: ${theme.colors.textColor};
+	color: ${({ theme }) => theme.colors.textColor};
 	background: ${tokens.colors.deepBlue[100]};
 	overflow: hidden;
-		${
-			(!hasScreenHeight || !hasOverflow) &&
-			`
+	${({ hasScreenHeight, hasOverflow }) =>
+		!hasScreenHeight || !hasOverflow
+			? `
 		flex-grow: 1; 
 		min-height: 0; 
 		overflow: auto;
     `
-		};
-`,
-);
+			: ''};
+`;
 
 export const AsideOverlay = styled.div`
 	position: relative;
@@ -87,8 +80,7 @@ export const AsideOverlay = styled.div`
 	}
 `;
 
-export const Aside = styled.aside(
-	({ theme }) => `
+export const Aside = styled.aside`
 	position: absolute;
 	display: flex;
 	top: 0;
@@ -96,10 +88,9 @@ export const Aside = styled.aside(
 	bottom: 0;
 	width: 50rem;
 	max-width: 100vw;
-	background: ${theme.colors.backgroundColor};
+	background: ${({ theme }) => theme.colors.backgroundColor};
 	box-shadow: -5px 0px 20px 5px ${tokens.colors.gray[500]};
-`,
-);
+`;
 
 export const Footer = styled.footer.attrs({
 	role: 'contentinfo',

@@ -5,20 +5,13 @@ import Template from '../templates';
 import Footer from './blocks/Footer';
 import SignupCTA from './blocks/SignupCTA';
 
-
-import tokens from '../tokens';
-
 const Login = ({ title, children }) => (
-	<Template.Card
-		title={title}
-		main={
-			<>
-				{children}
-				<SignupCTA />
-			</>
-		}
-		footer={<Footer />}
-	/>
+	<Template.Card title={title} footer={<Footer />}>
+		<>
+			{children}
+			<SignupCTA />
+		</>
+	</Template.Card>
 );
 
 export default Login;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 import Card from '../components/Card';
@@ -9,8 +9,7 @@ import tokens from '../tokens';
 
 import Datachaos from '../images/datachaos.png';
 
-const SWrapper = styled.div(
-	({ theme }) => `
+const SWrapper = styled.div`
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -24,8 +23,8 @@ const SWrapper = styled.div(
 		background: none;
 
 		@media only screen and (min-width: 768px) {
-		    flex: 1 1 auto;
-    		padding: 5rem;	
+			flex: 1 1 auto;
+			padding: 5rem;
 		}
 	}
 
@@ -33,10 +32,10 @@ const SWrapper = styled.div(
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-				
+
 		svg {
-            height: 3.2rem;
-            width: auto;
+			height: 3.2rem;
+			width: auto;
 			max-width: 100%;
 		}
 
@@ -101,7 +100,7 @@ const SWrapper = styled.div(
 		}
 
 		.footer__link {
-			color: ${theme.colors.textColor};
+			color: ${({ theme }) => theme.colors.textColor};
 
 			&:hover,
 			&:focus {
@@ -122,32 +121,30 @@ const SWrapper = styled.div(
 			font-weight: 300;
 		}
 	}
-`,
-);
+`;
 
-export type CardTemplateProps = {
+export type CardTemplateProps = PropsWithChildren<any> & {
 	title?: string;
-	main?: React.ReactElement<any>;
-	footer?: React.ReactElement<any>;
+	footer?: React.ReactElement;
 };
 
-const CardTemplate: React.FC<CardTemplateProps> = ({ title, main, footer }: CardTemplateProps) => (
+const CardTemplate: React.FC<CardTemplateProps> = ({
+	title,
+	children,
+	footer,
+}: CardTemplateProps) => (
 	<SWrapper>
-		<Layout
-			hasOverflow
-			main={
-				<Card>
-					{title && (
-						<Card.Heading>
-							<Icon name="talend-logo" />
-							<h1>{title}</h1>
-						</Card.Heading>
-					)}
-					<Card.Body>{main}</Card.Body>
-				</Card>
-			}
-			footer={footer}
-		/>
+		<Layout hasOverflow footer={footer}>
+			<Card>
+				{title && (
+					<Card.Heading>
+						<Icon name="talend-logo" />
+						<h1>{title}</h1>
+					</Card.Heading>
+				)}
+				<Card.Body>{children}</Card.Body>
+			</Card>
+		</Layout>
 	</SWrapper>
 );
 

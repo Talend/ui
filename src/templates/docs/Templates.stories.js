@@ -27,13 +27,24 @@ const args = {
 	header: <Box>Header</Box>,
 	nav: <Box>Nav</Box>,
 	title: <Box>Title</Box>,
-	main: <Box>Main</Box>,
 	footer: <Box>Footer</Box>,
 };
 
-export const Card = props => <Template.Card {...props} />;
+export const Card = props => (
+	<Template.Card {...props}>
+		<Box>Main</Box>
+	</Template.Card>
+);
 Card.args = args;
-export const List = props => <Template.List {...props} />;
+export const List = props => (
+	<Template.List {...props}>
+		<Box>Main</Box>
+	</Template.List>
+);
 List.args = args;
-export const Full = props => <Template.Full {...props} />;
+export const Full = props => (
+	<Template.Full {...props}>
+		<Box>Main</Box>
+	</Template.Full>
+);
 Full.args = args;

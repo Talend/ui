@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import SkipLinks from './SkipLinks';
 import Main from './Main';
 
 import * as S from './Layout.style';
 
-export type LayoutProps = {
+export type LayoutProps = PropsWithChildren<any> & {
 	header?: React.ReactElement;
 	nav?: React.ReactElement;
-	main?: React.ReactElement;
 	aside?: React.ReactElement;
 	footer?: React.ReactElement;
 };
@@ -16,7 +15,7 @@ export type LayoutProps = {
 const Layout: React.FC<LayoutProps> = ({
 	header,
 	nav,
-	main,
+	children,
 	aside,
 	footer,
 	...rest
@@ -25,7 +24,7 @@ const Layout: React.FC<LayoutProps> = ({
 
 	return (
 		<>
-			<SkipLinks nav={!!nav} main={!!main} />
+			<SkipLinks nav={!!nav} main={!!children} />
 			<S.Layout className="layout" {...rest}>
 				{header && <S.Header className="layout__header">{header}</S.Header>}
 				{nav || aside ? (
@@ -36,15 +35,15 @@ const Layout: React.FC<LayoutProps> = ({
 								className="layout__overlay"
 								onClick={() => setAsideVisibility(() => false)}
 							>
-								<Main>{main}</Main>
+								<Main>{children}</Main>
 								<S.Aside>{aside}</S.Aside>
 							</S.AsideOverlay>
 						) : (
-							<Main>{main}</Main>
+							<Main>{children}</Main>
 						)}
 					</S.LayoutGroup>
 				) : (
-					<Main>{main}</Main>
+					<Main>{children}</Main>
 				)}
 				{footer && <S.Footer className="layout__footer">{footer}</S.Footer>}
 			</S.Layout>

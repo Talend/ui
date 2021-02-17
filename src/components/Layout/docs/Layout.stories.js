@@ -13,7 +13,7 @@ export default {
 
 const Box = styled.div`
 	display: flex;
-	flex-basis: 100%;
+	flex: 1;
 	align-items: center;
 	justify-content: center;
 	margin: 1rem;
