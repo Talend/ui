@@ -6,4 +6,3 @@ export type ChartEntry<U> = {
 	key: U;
 	label?: string;
 } & ({ value: number; filteredValue?: number } | { value?: number; filteredValue: number });
-

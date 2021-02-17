@@ -11,7 +11,7 @@ import {
 	useBarChart,
 } from '../useBarChart.hook';
 import ColoredBar from '../ColoredBar/ColoredBar.component';
-import { ChartStyle, DataType, Range } from '../../../types';
+import { ChartStyle, Range } from '../../../types';
 import TooltipCursor from '../TooltipCursor/TooltipCursor.component';
 
 export type VerticalBarChartEntry = ChartEntry<Range> & {
@@ -20,22 +20,22 @@ export type VerticalBarChartEntry = ChartEntry<Range> & {
 
 export interface VerticalBarChartProps {
 	data: VerticalBarChartEntry[];
-	dataType: DataType;
 	dataFeature?: string;
 	onBarClick: (event: MouseEvent, entry: VerticalBarChartEntry) => void;
 	getTooltipContent: (entry: VerticalBarChartEntry) => JSX.Element;
 	width?: number;
 	height?: number;
+	showXAxis?: boolean;
 }
 
 function VerticalBarChart({
 	data,
 	dataFeature,
-	dataType,
 	width,
 	height,
 	onBarClick,
 	getTooltipContent,
+	showXAxis,
 }: VerticalBarChartProps) {
 	const { focusedBarIndex, onClick, onMouseMove, onMouseOut, TooltipContent } = useBarChart(
 		data,
@@ -52,8 +52,8 @@ function VerticalBarChart({
 				layout="horizontal"
 				onClick={onClick}
 				margin={{
-					// Or date labels will overflow
-					bottom: dataType === DataType.DATE ? 40 : 10,
+					// Or labels will overflow
+					bottom: showXAxis ? 40 : 10,
 				}}
 				onMouseOut={onMouseOut}
 			>
@@ -84,13 +84,12 @@ function VerticalBarChart({
 					}
 				/>
 				<Tooltip
-					allowEscapeViewBox={{ x: false, y: true }}
 					isAnimationActive={false}
 					content={TooltipContent}
 					cursor={<TooltipCursor dataFeature={dataFeature} />}
 				/>
 
-				{dataType === DataType.DATE && (
+				{showXAxis && (
 					<XAxis
 						dataKey="label"
 						type="category"

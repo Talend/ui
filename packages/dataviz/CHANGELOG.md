@@ -26,11 +26,56 @@ Types of changes
 
 ## [unreleased]
 
+## [0.4.0]
+
+- [Add GeoChart component](https://github.com/Talend/ui/pull/3209):
+
+## [0.3.1]
+
+### Fixed
+
+- [Range ticks edge cases](https://github.com/Talend/ui/pull/3186):
+
+## [0.3.0]
+
+### Added
+
+- [Add IntegerRangeHandler](https://github.com/Talend/ui/pull/3180):
+
+### Changed
+
+- [Use d3-scale for slider marks](https://github.com/Talend/ui/pull/3180):
+
+## [0.2.3]
+
+### Fixed
+
+- [Fix truncated/misplaced tooltip](https://github.com/Talend/ui/pull/3183):
+
+## [0.2.2]
+
+### Fixed
+
+- [Don't hide bars on overflow](https://github.com/Talend/ui/pull/3172):
+
+## [0.2.1]
+
+### Fixed
+
+- [Show blue bars for entries without filtered values](https://github.com/Talend/ui/pull/3163):
+
+## [0.2.0]
+
+### Added
+
+- [Time & DateTime pickers](https://github.com/Talend/ui/pull/3163):
+
 ## [0.1.4]
 
 ### Fixed
 
 - [Reset tooltip line margin](https://github.com/Talend/ui/pull/3158):
+
 
 ## [0.1.3]
 

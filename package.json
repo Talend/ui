@@ -21,8 +21,6 @@
     "test:update": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test --silent -u",
     "test:cov": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test:cov",
     "test:demo": "lerna exec -- yarn test:demo",
-    "test:extra": "yarn test:html-webpack-plugin",
-    "test:html-webpack-plugin": "cd packages/html-webpack-plugin && yarn && yarn test",
     "start": "yarn storybook",
     "start-components": "cd packages/components && yarn start",
     "start-containers": "cd packages/containers && yarn start",

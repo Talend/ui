@@ -40,6 +40,7 @@ export default function InputDatePicker(props) {
 	const containerRef = useRef(null);
 
 	const handlers = useInputPickerHandlers({
+		disabled: props.disabled,
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
 		handleKeyDown: () => focusOnCalendar(containerRef.current),
@@ -118,4 +119,5 @@ InputDatePicker.propTypes = {
 	timezone: PropTypes.string,
 	hideTimezone: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	disabled: PropTypes.bool,
 };

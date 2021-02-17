@@ -1,5 +1,0 @@
-
-/home/travis/build/Talend/ui/packages/router/src/sagaRouter.test.js
-  2:32  error  Unable to resolve path to module 'redux-saga/utils'  import/no-unresolved
-
-✖ 1 problem (1 error, 0 warnings)

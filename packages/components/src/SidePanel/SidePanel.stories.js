@@ -141,6 +141,18 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
+	.add('reverse large docked', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			selected={items[1]}
+			reverse
+			large
+			minimised
+			dockable={false}
+			tooltipPlacement="top"
+		/>
+	))
 	.add('with layout', () => {
 		class WithLayout extends React.Component {
 			constructor() {

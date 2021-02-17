@@ -13,7 +13,7 @@ DEMO_DOMAIN="${CURRENT_VERSION//[.]/-}.talend.surge.sh"
 echo "Demo: $DEMO_DOMAIN"
 
 # Generate changelog
-CHANGELOG=$(git log --date=short --pretty="%ad %s" v$PREVIOUS_VERSION..master | tail -n +2)
+CHANGELOG=$(git log --date=short --pretty="%ad %s" v$PREVIOUS_VERSION..HEAD | tail -n +2)
 DEMO="Demo: http://$DEMO_DOMAIN"$'\n'
 TITLE=$'# Changelog\n'
 FEATURES=$'## Features\n'

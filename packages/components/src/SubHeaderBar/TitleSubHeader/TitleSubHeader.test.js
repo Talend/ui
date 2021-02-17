@@ -51,6 +51,18 @@ describe('TitleSubHeader', () => {
 			'tc-subheader-details theme-tc-subheader-details tc-subheader-details-blink theme-tc-subheader-details-blink',
 		);
 	});
+	it('should go in edit mode', () => {
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
+		const findEditableText = () => wrapper.find('[feature="subheaderbar.rename"]');
+
+		findEditableText().props().onEdit();
+
+		expect(findEditableText().props().editMode).toEqual(true);
+
+		findEditableText().props().onCancel();
+
+		expect(findEditableText().props().editMode).toEqual(false);
+	});
 });
 
 describe('TitleSubHeader', () => {

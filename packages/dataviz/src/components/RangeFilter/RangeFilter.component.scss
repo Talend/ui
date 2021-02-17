@@ -8,6 +8,7 @@ $module: range-filter;
 	&__slider-mark {
 		position: absolute;
 		width: 100%;
+		white-space: nowrap;
 
 		&--top {
 			transform: translateX(-50%);
@@ -33,20 +34,19 @@ $module: range-filter;
 			bottom: 0;
 		}
 	}
+	&__form {
+		display: flex;
+		justify-content: space-evenly;
+	}
 
 	&__input-container {
 		display: flex;
-		justify-content: space-evenly;
-		padding: 0 10%;
+		flex-wrap: wrap;
+		align-items: center;
 	}
 
 	&__label {
-		display: flex;
-		align-items: center;
 		font-weight: $font-weight-semi-bold;
-	}
-
-	&__label-text {
 		margin-right: 10px;
 	}
 }

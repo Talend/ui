@@ -7,7 +7,119 @@
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="stylesheet" href="/theme/dist/bootstrap.css" />
+		<link rel="stylesheet" href="https://talend.surge.sh/theme/dist/bootstrap.css" />
+		<style>
+			.layout {
+				position: relative;
+				padding: 1rem;
+			}
+
+			.layout:before {
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				right: 0;
+				background: linear-gradient(133deg, #19426c, #2c1f56);
+				height: 20rem;
+				border-bottom-left-radius: 100% 7.5rem;
+				border-bottom-right-radius: 100% 7.5rem;
+				z-index: -1;
+			}
+
+			.layout__header {
+				padding: 5rem 0 2.5rem;
+				text-align: center;
+			}
+
+			.layout__header svg {
+				width: 18rem;
+			}
+
+			.layout__header h1 {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				white-space: nowrap;
+				border: 0;
+			}
+
+			.layout__container {
+				display: grid;
+				gap: 2.5rem;
+				margin: 1rem auto;
+				max-width: 100rem;
+			}
+
+			@media screen and (min-width: 768px) {
+				.layout__container {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+
+			@media screen and (min-width: 1024px) {
+				.layout__container {
+					grid-template-columns: repeat(3, 1fr);
+				}
+			}
+
+			.card {
+				position: relative;
+				min-height: 18rem;
+				text-align: center;
+				background: #ffffff;
+				border-radius: 0.2rem;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+			}
+			
+			.card__body {
+				font-weight: 400;
+			}
+
+			.card__link {
+				padding: 0 2rem 5rem;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				color: inherit;
+				text-decoration: none;
+			}
+
+			.card__link:hover {
+				box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.15);
+			}
+
+			.card__link:hover,
+			.card__link--with-arrow:hover {
+				color: inherit;
+				text-decoration: none;
+				transition: all 0.2s ease-in-out;
+			}
+
+			.card__link--with-arrow {
+				position: absolute;
+				left: 50%;
+				bottom: 2.5rem;
+				height: 2rem;
+				transform: translate(-50%, -50%);
+			}
+
+			.card__link--with-arrow + .card__link--with-arrow {
+				bottom: 0;
+			}
+
+			.card__link--with-arrow svg {
+				display: inline-block;
+				width: 1.2rem;
+				vertical-align: middle;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -19,125 +131,289 @@
 			</p>
 		<![endif]-->
 
-		<div class="container">
-			<div class="col-lg-12">
-				<h1>Talend UI</h1>
-				<div class="list-group">
-					<div class="list-group-item">
-						<a href="cmf">
-							<h4 class="list-group-item-heading">React CMF</h4>
-							<p class="list-group-item-text">
-								Content Management Framework helps you to build an application in React with a
-								system to configure your contents and much more.
-							</p>
-						</a>
-						<a href="/@talend/react-cmf/dist/TalendReactCmf.js.report.html">UMD</a>
-						<a href="/@talend/react-cmf/dist/TalendReactCmf.min.js.report.html">minified UMD</a>
-					</div>
+		<div class="layout">
+			<header class="layout__header">
+				<h1>Talend/UI</h1>
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 181 36">
+					<defs />
+					<rect width="30" height="25" x="151" y="10" fill="#FF6D70" rx="3" />
+					<path
+						fill="#fff"
+						fill-rule="evenodd"
+						d="M165.061 29.939c-.697.253-1.483.379-2.357.379-.874 0-1.66-.127-2.358-.38a4.404 4.404 0 01-1.793-1.207c-.499-.552-.882-1.261-1.15-2.128-.269-.866-.403-1.92-.403-3.162V15h2.668v8.648c0 .813.073 1.499.218 2.058.146.56.353 1.009.621 1.346.269.337.587.579.955.724a3.35 3.35 0 001.242.219c.46 0 .882-.073 1.265-.219a2.34 2.34 0 00.989-.724c.276-.337.491-.786.644-1.346.153-.56.23-1.245.23-2.058V15h2.553v8.441c0 1.242-.13 2.296-.391 3.163-.261.866-.64 1.575-1.138 2.127a4.41 4.41 0 01-1.795 1.207zM174.802 15v15.042h-2.668V15h2.668z"
+						clip-rule="evenodd"
+					/>
+					<g>
+						<path
+							fill="#fff"
+							fill-rule="evenodd"
+							d="M132.22 1.193a.63.63 0 01.428.202c.15.183.223.417.202.653v28.395c-.031.453.088.903.338 1.282.213.27.503.465.832.563.4.1.806.175 1.215.225.315.022.608.067.608.18.157.09.157.292.112.495a1.013 1.013 0 01-.202.585.608.608 0 01-.518.292H127.9a1.888 1.888 0 01-1.147-.247.923.923 0 01-.428-.653c-.029-.464-.029-.93 0-1.395a6.208 6.208 0 01-2.992 2.25 10.867 10.867 0 01-3.983.765 9.178 9.178 0 01-5.467-1.53 8.708 8.708 0 01-3.105-4.005 15.104 15.104 0 01-.968-5.557 12.498 12.498 0 011.215-5.49 9.815 9.815 0 013.69-4.095 11.027 11.027 0 015.963-1.53 14.859 14.859 0 013.06.27 9.546 9.546 0 012.61 1.125l-.18-8.1a2.003 2.003 0 00-1.103-1.958 8.681 8.681 0 00-3.172-.72.655.655 0 01-.383-.292.99.99 0 01-.135-.563c.007-.209.052-.415.135-.607.113-.315.225-.315.383-.315 1.804-.184 4.045-.218 6.71-.224l3.617-.001zM10.585 7.066c0-.248-.18-.428-.472-.54a.272.272 0 00-.12-.015c-.3.024-.713.42-.713.42a12.51 12.51 0 01-7.717 6.952.743.743 0 00-.54.923v.18c.112.202.225.315.382.337h2.25v14.085A4.68 4.68 0 005.5 33.616a8.864 8.864 0 004.883 1.192 8.998 8.998 0 002.25-.36c.822-.24 1.62-.557 2.385-.945a5.601 5.601 0 001.642-1.125v-.472a2.43 2.43 0 00-.315-.675c-.157-.225-.27-.315-.36-.27-.572.28-1.167.514-1.777.697a6.185 6.185 0 01-1.643.27 1.732 1.732 0 01-1.215-.427 2.25 2.25 0 01-.585-1.283 14.511 14.511 0 01-.18-2.767V15.278h4.5c.158 0 .293-.157.428-.45.144-.349.213-.724.202-1.102a.9.9 0 00-.135-.495.428.428 0 00-.36-.225h-4.635v-5.94zm65.317 7.356a11.115 11.115 0 00-7.043-1.845c-2.048-.02-4.076.41-5.94 1.26a10.394 10.394 0 00-4.32 3.736 10.687 10.687 0 00-1.597 5.895 11.25 11.25 0 002.992 8.392 12.735 12.735 0 009.203 2.925c1.871.097 3.739-.258 5.445-1.035a8.032 8.032 0 003.375-3.15.901.901 0 00.135-.36c0-.135 0-.202-.225-.27l-.923-.45h-.247a.631.631 0 00-.203.157v.136a5.67 5.67 0 01-2.25 1.687 9.225 9.225 0 01-3.285.517 6.277 6.277 0 01-3.15-.832 6.165 6.165 0 01-2.452-2.745 11.023 11.023 0 01-.968-4.995h14.76a23.228 23.228 0 00-.382-3.645 8.303 8.303 0 00-2.925-5.378zM52.66 1.396a.585.585 0 00-.427-.202c-3.262 0-6.412.112-9.472.315-.158 0-.27.112-.36.315-.105.185-.16.395-.158.607a.99.99 0 00.135.563.765.765 0 00.383.292l.81.135c.479.05.953.14 1.417.27.383.123.72.358.968.675.301.45.444.99.404 1.53v25.448c0 .36-2.25.877-3.892.877a6.3 6.3 0 01-3.6-.877 4.119 4.119 0 01-.225-1.395V18.495a5.04 5.04 0 00-.968-3.082 6.592 6.592 0 00-3.06-2.093 15.55 15.55 0 00-5.22-.742 20.546 20.546 0 00-4.5.54 11.455 11.455 0 00-3.982 1.687 3.33 3.33 0 00-1.62 2.835 2.722 2.722 0 00.968 2.25c.446.375.98.63 1.552.743.652 0 1.305 0 1.215-.9v-.113a4.5 4.5 0 012.902-4.5h.27a5.74 5.74 0 012.363-.337 3.443 3.443 0 012.25.697c.61.691.91 1.602.832 2.52v3.51a50.983 50.983 0 00-6.524 1.103 12.692 12.692 0 00-4.905 2.25 5.04 5.04 0 00-2.003 4.185 4.973 4.973 0 00.99 3.195 5.557 5.557 0 002.453 1.867 7.469 7.469 0 002.902.608 11.517 11.517 0 004.185-.743 8.459 8.459 0 002.905-1.834l.402-.416v1.238c.107.435.405.799.81.99a35 35 0 006.346 0h16.2c.215.012.42-.09.54-.27a1.08 1.08 0 00.202-.585.9.9 0 00-.158-.608 1.059 1.059 0 00-.517 0 11.448 11.448 0 01-1.305-.18c-.34-.091-.65-.27-.9-.517a1.552 1.552 0 01-.405-1.148V2.048a.9.9 0 00-.203-.653zm45.922 11.183a8.346 8.346 0 015.017 1.35 5.803 5.803 0 011.845 4.995v11.61a1.734 1.734 0 00.585 1.552 3 3 0 001.26.428h.855a.878.878 0 01.743.18c.124.168.18.377.157.585.004.216-.059.428-.18.607a.652.652 0 01-.54.27h-11.43a.653.653 0 01-.54-.27 1.261 1.261 0 01-.18-.607 1.24 1.24 0 010-.563.765.765 0 01.54-.202c.497-.058.979-.21 1.418-.45.368-.163.613-.52.63-.923V19.013a7.58 7.58 0 00-.135-1.485 2.249 2.249 0 00-.675-1.193 2.43 2.43 0 00-1.733-.517 6.75 6.75 0 00-2.25.405c-.726.267-1.42.614-2.07 1.035a7.153 7.153 0 00-1.485 1.215l.001 12.194c.022.356.13.704.314 1.013.175.269.437.468.743.563.372.12.757.196 1.147.225.221-.01.44.044.63.157.108.184.155.396.135.608a.99.99 0 01-.18.585.608.608 0 01-.54.292h-11.25a.608.608 0 01-.517-.27 1.081 1.081 0 01-.203-.607.968.968 0 01.158-.54.72.72 0 01.562-.225c1.485-.203 2.25-.653 2.25-1.373v-13.5a2.497 2.497 0 00-.36-1.485 1.732 1.732 0 00-.855-.675 4.766 4.766 0 00-1.237-.292l-.72-.113a.833.833 0 01-.518-.855c.002-.21.048-.416.135-.607.06-.172.205-.3.383-.338 3.307-.292 6.322-.292 9-.292.152.01.295.074.405.18.151.193.238.43.247.675v2.385a7.9 7.9 0 011.823-1.44 14.96 14.96 0 013.127-1.508 9.652 9.652 0 013.488-.652zm19.643 4.545a4.635 4.635 0 014.5-2.25c.48.007.951.13 1.372.36.488.217.937.514 1.328.877.33.287.585.65.742 1.058v12.555a3.617 3.617 0 01-1.62 1.44 4.768 4.768 0 01-2.25.517c-3.6 0-5.4-2.655-5.4-7.987a13.15 13.15 0 011.328-6.57zM31.691 23.13a16.317 16.317 0 00-3.128.765 4.973 4.973 0 00-2.25 1.665 5.332 5.332 0 00-.9 3.24 2.88 2.88 0 00.743 1.98 2.632 2.632 0 002.047.833 4.23 4.23 0 003.443-1.62l.045-6.863zm34.132-7.043a3.668 3.668 0 012.97-1.71 2.475 2.475 0 012.385 1.665c.595 1.712.847 3.524.743 5.333h-7.605c.02-1.866.54-3.692 1.507-5.288z"
+							clip-rule="evenodd"
+						/>
+					</g>
+				</svg>
+			</header>
 
-					<div class="list-group-item">
-						<a href="components" class="list-group-item">
-							<h4 class="list-group-item-heading">React Talend Components</h4>
-							<p class="list-group-item-text">
-								A set of stateless components which follows the Talend Guidelines.
-							</p>
-						</a>
-						<a href="/@talend/react-components/dist/TalendReactComponents.js.report.html">UMD</a>
-						<a href="/@talend/react-components/dist/TalendReactComponents.min.js.report.html"
-							>minified UMD</a
-						>
-					</div>
-
-					<div class="list-group-item">
-						<a href="containers" class="list-group-item">
-							<h4 class="list-group-item-heading">React Talend Containers</h4>
-							<p class="list-group-item-text">
-								This library provides a widget set to be able to start with react-cmf.
-							</p>
-						</a>
-						<a href="/@talend/react-containers/dist/TalendReactContainers.js.report.html">UMD</a>
-						<a href="/@talend/react-containers/dist/TalendReactContainers.min.js.report.html"
-							>minified UMD</a
-						>
-					</div>
-
-					<div class="list-group-item">
-						<a href="forms" class="list-group-item">
-							<h4 class="list-group-item-heading">React Talend Forms</h4>
-							<p class="list-group-item-text">
-								This library is designed to be used on top of react-jsonschema-form, a React
-								component for building Web forms from JSONSchema.
-							</p>
-						</a>
-						<a href="/@talend/react-forms/dist/TalendReactForms.js.report.html">UMD</a>
-						<a href="/@talend/react-forms/dist/TalendReactForms.min.js.report.html">minified UMD</a>
-					</div>
-
-					<div class="list-group-item">
-						<a href="icons" class="list-group-item">
-							<h4 class="list-group-item-heading">Talend icons</h4>
-							<p class="list-group-item-text">SVG icon set.</p>
-						</a>
-						<a href="/@talend/icons/dist/TalendIcons.js.report.html">UMD</a>
-						<a href="/@talend/icons/dist/TalendIcons.min.js.report.html">minified UMD</a>
-					</div>
-
-					<div class="list-group-item">
-						<a href="theme" class="list-group-item">
-							<h4 class="list-group-item-heading">Talend Boostrap theme</h4>
-							<p class="list-group-item-text">HTML and CSS only.</p>
-						</a>
-					</div>
-
-					<div class="list-group-item">
-						<a href="datagrid" class="list-group-item">
-							<h4 class="list-group-item-heading">React Talend Datagrid</h4>
-							<p class="list-group-item-text">This library provides the Talend Datagrid</p>
-						</a>
-						<a href="/@talend/react-datagrid/dist/TalendReactDatagrid.js.report.html">UMD</a>
-						<a href="/@talend/react-datagrid/dist/TalendReactDatagrid.min.js.report.html"
-							>minified UMD</a
-						>
-					</div>
-
-					<div class="list-group-item">
-						<a href="/stepper" class="list-group-item">
-							<h4 class="list-group-item-heading">Talend Stepper</h4>
-							<p class="list-group-item-text">This library provides the Stepper</p>
-						</a>
-						<a href="/@talend/react-stepper/dist/TalendReactStepper.js.report.html">UMD</a>
-						<a href="/@talend/react-stepper/dist/TalendReactStepper.min.js.report.html"
-							>minified UMD</a
-						>
-					</div>
-
-					<div class="list-group-item">
-						<a href="/faceted-search" class="list-group-item">
-							<h4 class="list-group-item-heading">Faceted Search</h4>
-							<p class="list-group-item-text">This library provides the Faceted Search</p>
-						</a>
-						<a href="/@talend/react-faceted-search/dist/TalendReactFacetedSearch.js.report.html"
-							>UMD</a
-						>
-						<a href="/@talend/react-faceted-search/dist/TalendReactFacetedSearch.min.js.report.html"
-							>minified UMD</a
-						>
-					</div>
-
-                    <div class="list-group-item">
-                        <a href="/dataviz" class="list-group-item">
-                            <h4 class="list-group-item-heading">Dataviz</h4>
-                            <p class="list-group-item-text">This library provides charts components</p>
-                        </a>
-                        <a href="/@talend/dataviz/dist/TalendReactDataviz.js.report.html"
-                        >UMD</a
-                        >
-                        <a href="/@talend/dataviz/dist/TalendReactDataviz.min.js.report.html"
-                        >minified UMD</a
-                        >
-                    </div>
+			<main class="layout__container">
+				<div class="card">
+					<a href="cmf" class="card__link">
+						<h2 class="card__heading">React CMF</h2>
+						<p class="card__body">
+							Content Management Framework helps you to build an application in React with a system
+							to configure your contents and much more.
+						</p>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-cmf/dist/TalendReactCmf.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/>
+						</svg>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-cmf/dist/TalendReactCmf.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
 				</div>
-			</div>
+
+				<div class="card">
+					<a href="components" class="card__link">
+						<h2 class="card__heading">React Talend Components</h2>
+						<p class="card__body">
+							A set of stateless components which follows the Talend Guidelines.
+						</p>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-components/dist/TalendReactComponents.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-components/dist/TalendReactComponents.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+				</div>
+
+				<div class="card">
+					<a href="containers" class="card__link">
+						<h2 class="card__heading">React Talend Containers</h2>
+						<p class="card__body">
+							This library provides a widget set to be able to start with react-cmf.
+						</p>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-containers/dist/TalendReactContainers.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-containers/dist/TalendReactContainers.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+				</div>
+
+				<div class="card">
+					<a href="forms" class="card__link">
+						<h2 class="card__heading">React Talend Forms</h2>
+						<p class="card__body">
+							This library is designed to be used on top of react-jsonschema-form, a React component
+							for building Web forms from JSONSchema.
+						</p>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-forms/dist/TalendReactForms.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-forms/dist/TalendReactForms.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+				</div>
+
+				<div class="card">
+					<a href="icons" class="card__link">
+						<h2 class="card__heading">Talend icons</h2>
+						<p class="card__body">SVG icon set.</p>
+					</a>
+					<a class="card__link--with-arrow" href="/@talend/icons/dist/TalendIcons.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/icons/dist/TalendIcons.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+				</div>
+
+				<div class="card">
+					<a href="theme" class="card__link">
+						<h2 class="card__heading">Talend Boostrap theme</h2>
+						<p class="card__body">HTML and CSS only.</p>
+					</a>
+				</div>
+
+				<div class="card">
+					<a href="datagrid" class="card__link">
+						<h2 class="card__heading">React Talend Datagrid</h2>
+						<p class="card__body">This library provides the Talend Datagrid</p>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-datagrid/dist/TalendReactDatagrid.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-datagrid/dist/TalendReactDatagrid.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+				</div>
+
+				<div class="card">
+					<a href="/stepper" class="card__link">
+						<h2 class="card__heading">Talend Stepper</h2>
+						<p class="card__body">This library provides the Stepper</p>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-stepper/dist/TalendReactStepper.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-stepper/dist/TalendReactStepper.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+				</div>
+
+				<div class="card">
+					<a href="/faceted-search" class="card__link">
+						<h2 class="card__heading">Faceted Search</h2>
+						<p class="card__body">This library provides the Faceted Search</p>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-faceted-search/dist/TalendReactFacetedSearch.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/react-faceted-search/dist/TalendReactFacetedSearch.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+				</div>
+
+				<div class="card">
+					<a href="/dataviz" class="card__link">
+						<h2 class="card__heading">Dataviz</h2>
+						<p class="card__body">This library provides charts components</p>
+					</a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/dataviz/dist/TalendReactDataviz.js.report.html"
+						>UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+					<a
+						class="card__link--with-arrow"
+						href="/@talend/dataviz/dist/TalendReactDataviz.min.js.report.html"
+						>Minified UMD
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+							<path
+								fill="currentColor"
+								d="M5.586.625l-.965.957 2.758 2.734H0v1.368h7.38L4.62 8.418l.966.957L10 4.999 5.586.625z"
+							/></svg
+					></a>
+				</div>
+			</main>
 		</div>
 	</body>
 </html>

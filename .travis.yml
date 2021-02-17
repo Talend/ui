@@ -24,7 +24,6 @@ matrix:
         - '14'
       script:
         - yarn test
-        - yarn test:extra
 
     - language: node_js
       node_js:
