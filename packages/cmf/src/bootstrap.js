@@ -87,8 +87,8 @@ export function bootstrapRedux(options, sagaMiddleware) {
 	}
 	const middlewares = options.middlewares || [];
 	const store = storeAPI.initialize(options.reducer, options.preloadedState, enhancer, [
-		...middlewares,
 		sagaMiddleware,
+		...middlewares,
 	]);
 	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
