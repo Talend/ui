@@ -1,11 +1,10 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { TreeView } from '../src';
 
 const ExampleTreeView = {
 	default: () => (
 		<div>
-			<IconsProvider />
 			<TreeView
 				id="my-treeview"
 				collection="with.data"

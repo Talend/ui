@@ -3,7 +3,7 @@ import React from 'react';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import noop from 'lodash/noop';
-import { CSSTransition, transit } from 'react-css-transition';
+import { Transition } from 'react-transition-group';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
@@ -16,39 +16,34 @@ import theme from './Drawer.scss';
 
 const css = getTheme(theme);
 const DEFAULT_TRANSITION_DURATION = 350;
-CSSTransition.childContextTypes = {};
 
-class DrawerAnimation extends React.Component {
-	constructor(props) {
-		super(props);
-		this.handleTransitionComplete = this.handleTransitionComplete.bind(this);
-		this.state = { transitioned: false };
-	}
+const STYLES = {
+	entering: { transform: 'translateX(0%)' },
+	entered: { transform: 'translateX(0%)' },
+	exiting: { transform: 'translateX(100%)' },
+	exited: { transform: 'translateX(100%)' },
+};
 
-	handleTransitionComplete() {
-		this.props.onTransitionComplete();
-		this.setState({ transitioned: true });
-	}
+function DrawerAnimation(props) {
+	const { children, withTransition, ...rest } = props;
+	const timeout = withTransition ? DEFAULT_TRANSITION_DURATION : 0;
 
-	render() {
-		const { children, withTransition, ...rest } = this.props;
-		const transitionDuration = withTransition ? DEFAULT_TRANSITION_DURATION : 0;
-		return (
-			<CSSTransition
-				{...rest}
-				onTransitionComplete={this.handleTransitionComplete}
-				defaultStyle={{ transform: 'translateX(100%)' }}
-				enterStyle={{ transform: transit('translateX(0%)', transitionDuration, 'ease-in-out') }}
-				leaveStyle={{ transform: transit('translateX(100%)', transitionDuration, 'ease-in-out') }}
-			>
-				{React.cloneElement(children, this.state)}
-			</CSSTransition>
-		);
-	}
+	return (
+		<Transition in appear timeout={withTransition ? 500 : 0} {...rest}>
+			{transitionState => {
+				const style = {
+					transition: `transform ${timeout}ms ease-in-out`,
+					transform: 'translateX(100%)',
+					...STYLES[transitionState],
+				};
+				return children({ style, transitioned: transitionState === 'entered', transitionState });
+			}}
+		</Transition>
+	);
 }
 
 DrawerAnimation.propTypes = {
-	children: PropTypes.node,
+	children: PropTypes.func,
 	withTransition: PropTypes.bool,
 	onTransitionComplete: PropTypes.func,
 };

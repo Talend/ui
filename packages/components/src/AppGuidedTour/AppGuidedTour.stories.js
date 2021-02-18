@@ -1,12 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import AppGuidedTour from './AppGuidedTour.component';
-import { LOADING_STEP_STATUSES } from '../Stepper/Stepper.component';
-import IconsProvider from '../IconsProvider';
+import Stepper from '../Stepper';
 
 // eslint-disable-next-line react/prop-types
 function AppGuidedTourContainer({ withDemoContent = false }) {
-	const [stepStatus, setStepStatus] = React.useState(LOADING_STEP_STATUSES.PENDING);
+	const [stepStatus, setStepStatus] = React.useState(Stepper.LOADING_STEP_STATUSES.PENDING);
 	const demoContentProps = {
 		demoContentSteps: [
 			{
@@ -15,9 +14,9 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 			},
 		],
 		onImportDemoContent: () => {
-			setStepStatus(LOADING_STEP_STATUSES.LOADING);
+			setStepStatus(Stepper.LOADING_STEP_STATUSES.LOADING);
 			setTimeout(() => {
-				setStepStatus(LOADING_STEP_STATUSES.SUCCESS);
+				setStepStatus(Stepper.LOADING_STEP_STATUSES.SUCCESS);
 			}, 2000);
 		},
 	};
@@ -43,11 +42,5 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 }
 
 storiesOf('Messaging & Communication/AppGuidedTour', module)
-	.addDecorator(fn => (
-		<>
-			<IconsProvider />
-			{fn()}
-		</>
-	))
 	.add('default', () => <AppGuidedTourContainer withDemoContent />)
 	.add('without demo content', () => <AppGuidedTourContainer />);

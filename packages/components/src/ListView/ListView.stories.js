@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ListView from '.';
-import IconsProvider from '../IconsProvider';
 
 const filterAction = {
 	label: 'Filter',
@@ -29,7 +28,7 @@ const props = {
 
 const searchProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_SEARCH',
+	displayMode: ListView.DISPLAY_MODES.DISPLAY_MODE_SEARCH,
 	headerInput: [
 		{
 			label: 'Remove search',
@@ -136,7 +135,6 @@ const withIconProps = {
 storiesOf('Form/Controls/ListView', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
 			<h1>ListView</h1>
 			<form>{story()}</form>
 		</div>

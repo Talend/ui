@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { arc } from 'd3-shape';
+import { arc } from 'd3';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import I18N_DOMAIN_COMPONENTS from '../constants';

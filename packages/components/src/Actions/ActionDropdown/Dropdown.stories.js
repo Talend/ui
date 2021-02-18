@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionDropdown from './ActionDropdown.component';
-import IconsProvider from '../../IconsProvider';
 import FilterBar from '../../FilterBar';
 import Action from '../Action';
 
@@ -287,6 +286,5 @@ storiesOf('Buttons/Dropdown', module).add('default', () => (
 		<div id="openImmutable">
 			<ActionDropdown {...openWithImmutable} />
 		</div>
-		<IconsProvider />
 	</div>
 ));

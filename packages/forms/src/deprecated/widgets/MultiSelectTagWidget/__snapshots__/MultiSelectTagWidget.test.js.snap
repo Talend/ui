@@ -57,11 +57,9 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
   role="listbox"
   style={
     Object {
-      "left": 0,
-      "opacity": 0,
-      "pointerEvents": "none",
-      "position": "absolute",
-      "top": 0,
+      "left": "0",
+      "position": "fixed",
+      "top": "0",
     }
   }
 >
@@ -94,7 +92,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
             className="theme-item-text"
           >
             <span
-              className="theme-item-title tc-typeahead-item-title"
+              className="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
             >
               <span>
                 Bar
@@ -116,11 +114,9 @@ exports[`MultiSelectTagWidget should render section title when items has categor
   role="listbox"
   style={
     Object {
-      "left": 0,
-      "opacity": 0,
-      "pointerEvents": "none",
-      "position": "absolute",
-      "top": 0,
+      "left": "0",
+      "position": "fixed",
+      "top": "0",
     }
   }
 >
@@ -141,10 +137,10 @@ exports[`MultiSelectTagWidget should render section title when items has categor
         style={Object {}}
       >
         <div
-          className="theme-section-header tc-typeahead-section-header"
+          className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
         >
           <span
-            className="theme-section-header-title tc-typeahead-section-header-title"
+            className="section-header-title theme-section-header-title tc-typeahead-section-header-title theme-tc-typeahead-section-header-title"
           >
             pet
           </span>
@@ -171,7 +167,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
               className="theme-item-text"
             >
               <span
-                className="theme-item-title tc-typeahead-item-title"
+                className="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
               >
                 <span>
                   Puppy
@@ -194,11 +190,9 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
   role="listbox"
   style={
     Object {
-      "left": 0,
-      "opacity": 0,
-      "pointerEvents": "none",
-      "position": "absolute",
-      "top": 0,
+      "left": "0",
+      "position": "fixed",
+      "top": "0",
     }
   }
 >
@@ -214,7 +208,16 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
       className="theme-no-result no-result"
       key="no-result"
     >
-      No result.
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-fieldglass"
+        title="No result."
+      />
+      <span>
+        No result.
+      </span>
     </div>
   </div>
 </div>

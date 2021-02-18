@@ -166,11 +166,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
               focusable="false"
               name="talend-caret-down"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-caret-down"
-              />
-            </svg>
+            />
           </Icon>
         </button>
       </div>
@@ -827,11 +823,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
               focusable="false"
               name="talend-caret-down"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-caret-down"
-              />
-            </svg>
+            />
           </Icon>
         </button>
       </div>
@@ -1488,11 +1480,7 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
               focusable="false"
               name="talend-caret-down"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-caret-down"
-              />
-            </svg>
+            />
           </Icon>
         </button>
       </div>
@@ -2149,11 +2137,7 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
               focusable="false"
               name="talend-caret-down"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-caret-down"
-              />
-            </svg>
+            />
           </Icon>
         </button>
       </div>

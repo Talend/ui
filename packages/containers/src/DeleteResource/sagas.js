@@ -88,13 +88,13 @@ export function* deleteResourceValidate(
 					labelResource: resource.get('label') || resource.get('name', ''),
 				},
 			});
+			yield call(redirect, get(action, 'data.model.redirectUrl'));
 		} else {
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_ERROR,
 				error: result.data,
 			});
 		}
-		yield call(redirect, get(action, 'data.model.redirectUrl'));
 	}
 }
 

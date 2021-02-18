@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import talendIcons from '@talend/icons/dist/react';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import words from 'lodash/words';
-import IconsProvider from '../IconsProvider';
 import ModelViewer from './ModelViewer';
 import RecordsViewer from './RecordsViewer';
 import hierarchicSample from './sample.raw.json';
 import theme from './theme.scss';
-
-const icons = {
-	'talend-chevron-left': talendIcons['talend-chevron-left'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-minus-circle': talendIcons['talend-minus-circle'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-};
 
 /**
  * Transform the jsonpath $['pathParent']['pathChildren],
@@ -42,7 +33,6 @@ const stories = storiesOf('Data/Tree/DataViewer', module);
 stories
 	.addDecorator(story => (
 		<div style={{ backgroundColor: 'white', height: '400px' }} className="col-lg-offset-2 col-lg-8">
-			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))

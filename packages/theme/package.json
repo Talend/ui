@@ -32,6 +32,7 @@
     "bootstrap-sass": "3.4.1"
   },
   "devDependencies": {
+    "@talend/icons": "^5.28.0",
     "autoprefixer": "^7.1.4",
     "css-loader": "^1.0.1",
     "extract-text-webpack-plugin": "next",
@@ -47,8 +48,11 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.11"
   },
+  "peerDependencies": {
+    "@talend/icons": ">=6.3.1"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.30.2"
+  "version": "6.13.0"
 }

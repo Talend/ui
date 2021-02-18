@@ -39,7 +39,6 @@ export class ItemsComponent extends React.PureComponent {
 		this.renderToggleAllOrItem = this.renderToggleAllOrItem.bind(this);
 		this.renderToggleAll = this.renderToggleAll.bind(this);
 
-		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
 		this.cache = new CellMeasurerCache({
 			defaultHeight: props.getItemHeight ? props.getItemHeight() : ROW_HEIGHT,
 			fixedWidth: true,
@@ -199,6 +198,8 @@ export class ItemsComponent extends React.PureComponent {
 	}
 
 	render() {
+		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
+
 		return (
 			<div className={itemsClasses}>
 				<AutoSizer>

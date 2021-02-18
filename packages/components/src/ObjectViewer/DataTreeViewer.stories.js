@@ -3,20 +3,10 @@ import repeat from 'lodash/repeat';
 import cloneDeep from 'lodash/cloneDeep';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import ObjectViewer from './ObjectViewer.component';
 import Icon from '../Icon';
-import IconsProvider from '../IconsProvider';
 import TooltipTrigger from '../TooltipTrigger';
-
-const icons = {
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-chevron-left': talendIcons['talend-chevron-left'],
-	'talend-chain': talendIcons['talend-chain'],
-	'talend-check': talendIcons['talend-check'],
-	'talend-warning': talendIcons['talend-warning'],
-};
 
 const schema = new Map();
 schema.set('business_id', 'integer').set('name', 'CAFE_NAME').set('rating', 'integer');
@@ -476,13 +466,11 @@ const stories = storiesOf('Data/Tree/DataTreeViewer', module);
 stories
 	.add('tree default', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} {...handlerHighlight} />
 		</div>
 	))
 	.add('array tree with datetime', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id="my-viewer"
 				data={dateTimeData}
@@ -493,13 +481,11 @@ stories
 	))
 	.add('primitive array tree', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={primitiveArray} {...rootOpenedTypeHandler} />
 		</div>
 	))
 	.add('tree with hightlighting', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id="my-viewer"
 				data={data}
@@ -510,7 +496,6 @@ stories
 	))
 	.add('tree with hightlighting and type', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id="my-viewer"
 				data={data}
@@ -522,7 +507,6 @@ stories
 	))
 	.add('tree with labels', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id="my-viewer"
 				data={data}
@@ -535,13 +519,11 @@ stories
 	))
 	.add('tree without rootLabel', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} tupleLabel="Record" />
 		</div>
 	))
 	.add('tree with very large root label', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id="my-viewer"
 				data={data}
@@ -553,37 +535,31 @@ stories
 	))
 	.add('tree with injected elements', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} {...handlerTags} />
 		</div>
 	))
 	.add('tree with handler', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} {...handler} />
 		</div>
 	))
 	.add('list default', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} displayMode="list" />
 		</div>
 	))
 	.add('list with handler', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} displayMode="list" {...handler} />
 		</div>
 	))
 	.add('table default', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} displayMode="table" title="Table data" />
 		</div>
 	))
 	.add('table with handler', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id="my-viewer"
 				data={data}
@@ -600,7 +576,6 @@ stories
 		enhancedData[0].category = repeat(clubCategory, 10);
 		return (
 			<div>
-				<IconsProvider defaultIcons={icons} />
 				<ObjectViewer
 					id="my-viewer"
 					data={enhancedData}
@@ -613,13 +588,11 @@ stories
 	})
 	.add('flat default', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} displayMode="flat" title="Table data" />
 		</div>
 	))
 	.add('flat default with schema', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id="my-viewer"
 				data={{ dataset: data, schema }}
@@ -630,13 +603,11 @@ stories
 	))
 	.add('flat with handler', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={data} {...handler} displayMode="flat" title="Table data" />
 		</div>
 	))
 	.add('flat with complex nested data', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id="my-viewer"
 				data={moreComplexDataShape}
@@ -648,7 +619,6 @@ stories
 	))
 	.add('tree with a long field', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id="my-viewer" data={longFieldData} {...handlerHighlight} />
 		</div>
 	));

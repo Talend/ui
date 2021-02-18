@@ -1,13 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
-import IconsProvider from '../../../../IconsProvider';
 import ColumnChooser from './ColumnChooser.component';
-
-const icons = {
-	'talend-locked': talendIcons['talend-locked'],
-};
 
 const columns = [
 	{ key: 'id', label: 'Id', order: 1 },
@@ -21,7 +15,7 @@ const columns = [
 		header: 'icon',
 		data: { iconName: 'talend-scheduler' },
 	},
-	{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
+	{ key: 'icon', label: 'Icon', hidden: true, order: 5, locked: true },
 ];
 
 storiesOf('Data/List/Column Chooser', module)
@@ -29,7 +23,7 @@ storiesOf('Data/List/Column Chooser', module)
 		<div>
 			<h1>Column chooser tooltip</h1>
 			<p>Default mode with minimal props</p>
-			<IconsProvider defaultIcons={icons} />
+
 			<ColumnChooser
 				columnsFromList={columns}
 				nbLockedLeftItems={2}
@@ -42,7 +36,7 @@ storiesOf('Data/List/Column Chooser', module)
 		<div>
 			<h1>Column chooser tooltip</h1>
 			<p>You can provide and compose some of the column chooser part.</p>
-			<IconsProvider defaultIcons={icons} />
+
 			<ColumnChooser
 				columnsFromList={columns}
 				id="default-column-chooser"

@@ -64,6 +64,7 @@ function TitleSubHeader({
 							onEdit={handleEdit}
 							onCancel={handleCancel}
 							onSubmit={handleSubmit}
+							editMode={isEditMode}
 							{...rest}
 						/>
 					) : (

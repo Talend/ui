@@ -12,10 +12,9 @@ import TooltipTrigger from '../TooltipTrigger';
 import css from './CollapsiblePanel.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-// TODO 6.0: do not export those constants
-export const TYPE_STATUS = 'status';
-export const TYPE_ACTION = 'action';
-export const TYPE_BADGE = 'badge';
+const TYPE_STATUS = 'status';
+const TYPE_ACTION = 'action';
+const TYPE_BADGE = 'badge';
 
 function getActionHandler(func, item) {
 	return function actionHandler(e) {
@@ -85,11 +84,15 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 		}
 		default: {
 			const { element, label, tooltipLabel, tooltipPlacement } = headerItem;
-			return (
-				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					<div className={css[className]}>{element || label}</div>
-				</TooltipTrigger>
-			);
+			const labelExist = tooltipLabel || label;
+			if (labelExist) {
+				return (
+					<TooltipTrigger key={key} label={labelExist} tooltipPlacement={tooltipPlacement}>
+						<div className={css[className]}>{element || label}</div>
+					</TooltipTrigger>
+				);
+			}
+			return <div className={css[className]}>{element || label}</div>;
 		}
 	}
 }

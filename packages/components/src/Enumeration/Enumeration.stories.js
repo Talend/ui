@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import IconsProvider from '../IconsProvider';
 import Enumeration from './Enumeration.component';
 
 import theme from './Enumeration.stories.scss';
@@ -305,6 +304,14 @@ const withCustomActions = {
 			}
 			return [
 				{
+					label: 'Action with popover',
+					icon: 'talend-bell',
+					id: 'notify',
+					overlayComponent: <p>I'm an overlay!</p>,
+					overlayPlacement: 'left',
+					onClick: action('item.onNotify'),
+				},
+				{
 					disabled: false,
 					label: 'Edit',
 					icon: 'talend-pencil',
@@ -320,70 +327,70 @@ storiesOf('Form/Controls/Enumeration', module)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...props} />
 		</div>
 	))
 	.add('default header action disabled', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...headerDisabled} />
 		</div>
 	))
 	.add('default - empty list', () => (
 		<div>
 			<p>Empty list by default:</p>
-			<IconsProvider />
+
 			<Enumeration {...defaultEmptyListProps} />
 		</div>
 	))
 	.add('default with dropdown', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...dropDownActionsProps} />
 		</div>
 	))
 	.add('add', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...addProps} />
 		</div>
 	))
 	.add('edit mode', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...editItemProps} />
 		</div>
 	))
 	.add('search mode', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...searchProps} />
 		</div>
 	))
 	.add('search mode - empty list', () => (
 		<div>
 			<p>empty list in search mode :</p>
-			<IconsProvider />
+
 			<Enumeration {...searchModeEmptyListProps} />
 		</div>
 	))
 	.add('selected values', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...selectedValuesProps} />
 		</div>
 	))
 	.add('selected values with checkboxes', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<form>
 				<Enumeration {...selectedValuesCheckboxesProps} />
 			</form>
@@ -392,42 +399,42 @@ storiesOf('Form/Controls/Enumeration', module)
 	.add('with header error', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...headerErrorProps} />
 		</div>
 	))
 	.add('with item in error', () => (
 		<div>
 			<p>By default :</p>
-			<IconsProvider />
+
 			<Enumeration {...editItemPropsWithError} />
 		</div>
 	))
 	.add('with custom label', () => (
 		<div>
 			<p>Should be 'Users' instead of 'Values'</p>
-			<IconsProvider />
+
 			<Enumeration {...customLabelProps} />
 		</div>
 	))
 	.add('with icon', () => (
 		<div>
 			<p>By default: </p>
-			<IconsProvider />
+
 			<Enumeration {...withIconProps} />
 		</div>
 	))
 	.add('with custom class for row', () => (
 		<div>
 			<p>With custom class on second row: </p>
-			<IconsProvider />
+
 			<Enumeration {...withClassProps} />
 		</div>
 	))
 	.add('with dynamic height', () => (
 		<div>
 			<p>With dynamic height: </p>
-			<IconsProvider />
+
 			<EnumerationDynamicHeight />
 		</div>
 	))
@@ -447,7 +454,7 @@ storiesOf('Form/Controls/Enumeration', module)
 				The function takes a single argument, item data(including index). returns an array of
 				actions.
 			</p>
-			<IconsProvider />
+
 			<Enumeration {...withCustomActions} />
 		</div>
 	));

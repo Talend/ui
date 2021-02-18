@@ -11,13 +11,25 @@ import i18n from '../../../.storybook/i18n';
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));
 
+function withIconsProvider(story) {
+	return (
+		<>
+			<IconsProvider
+				bundles={[
+					'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
+				]}
+			/>
+			{story()}
+		</>
+	);
+}
+
 const withFormLayout = (story, options) => {
 	if (options.kind === 'Layout') {
 		return story();
 	}
 	return (
 		<div className="container-fluid">
-			<IconsProvider />
 			<div
 				className="col-md-offset-1 col-md-10"
 				style={{ marginTop: '20px', marginBottom: '20px' }}
@@ -34,6 +46,7 @@ addDecorator(
 		languages,
 	}),
 );
+addDecorator(withIconsProvider);
 addDecorator(withA11y);
 addDecorator(withFormLayout);
 configure(

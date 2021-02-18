@@ -96,11 +96,7 @@ exports[`TextFilter should render text filter component 1`] = `
                   focusable="false"
                   name="talend-search"
                   title={null}
-                >
-                  <use
-                    xlinkHref="#talend-search"
-                  />
-                </svg>
+                />
               </Icon>
             </button>
           </Button>
@@ -208,11 +204,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                   focusable="false"
                   name="talend-search"
                   title={null}
-                >
-                  <use
-                    xlinkHref="#talend-search"
-                  />
-                </svg>
+                />
               </Icon>
             </button>
           </Button>

@@ -1030,11 +1030,7 @@ exports[`Items should render with nested items 1`] = `
                                         focusable="false"
                                         name="talend-caret-down"
                                         title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-caret-down"
-                                        />
-                                      </svg>
+                                      />
                                     </Icon>
                                   </button>
                                 </Button>

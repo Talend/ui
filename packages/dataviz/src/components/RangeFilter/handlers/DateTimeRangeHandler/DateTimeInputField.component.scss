@@ -1,0 +1,15 @@
+.date-time-input-field {
+	input {
+		width: 100% !important;
+	}
+
+	:global(.date-picker) {
+		flex-basis: 75%;
+		margin-right: 2px;
+	}
+
+	:global(.time-picker) {
+		flex-basis: 50%;
+		margin-right: 5px;
+	}
+}

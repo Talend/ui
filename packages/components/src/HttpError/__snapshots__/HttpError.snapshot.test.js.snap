@@ -47,11 +47,7 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
         focusable="false"
         name="talend-arrow-left"
         title={null}
-      >
-        <use
-          xlinkHref="#talend-arrow-left"
-        />
-      </svg>
+      />
       <span>
         Start over
       </span>

@@ -24,6 +24,7 @@ $drag-element-width: $padding-smaller;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		display: inline-flex;
 	}
 
 	&-drag-button {

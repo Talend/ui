@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ResourceList from './ResourceList.component';
-import IconsProvider from '../IconsProvider';
 import Icon from '../Icon';
 
 const collection = [
@@ -275,12 +274,6 @@ export function FilteredResourceList(props) {
 }
 
 storiesOf('Data/List/ResourceList', module)
-	.addDecorator(story => (
-		<section>
-			<IconsProvider />
-			{story()}
-		</section>
-	))
 	.add('default', () => <ResourceList {...commonProps} collection={collection} />)
 	.add('simple', () => <ResourceList {...commonProps} collection={simpleCollection} />)
 	.add('preparations', () => (

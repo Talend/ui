@@ -1,18 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
-import IconsProvider from '../IconsProvider';
-
-const icons = {
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-download': talendIcons['talend-download'],
-	'talend-check': talendIcons['talend-check'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-warning': talendIcons['talend-warning'],
-};
+import { ActionButton } from '../Actions';
 
 const keyValueContent = [
 	{
@@ -128,10 +119,16 @@ const descriptiveDetail = {
 	className: 'detail',
 };
 
+const element = (
+	<div>
+		{' '}
+		my custom element <ActionButton {...buttonDownload} />
+	</div>
+);
+
 storiesOf('Layout/CollapsiblePanel', module)
 	.add('Default', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel</h1>
 			<CollapsiblePanel
 				id="panel-default-1"
@@ -148,20 +145,38 @@ storiesOf('Layout/CollapsiblePanel', module)
 			>
 				Coucou
 			</CollapsiblePanel>
-			<CollapsiblePanel id="panel-default-3" header={[{ label: 'No content panel' }]} />
-			<CollapsiblePanel id="panel-default-4" header={[{ label: 'Uncontrolled panel' }]}>
+			<CollapsiblePanel
+				id="panel-default-fail"
+				header={[{ label: 'Controlled expanded panel with status fail' }]}
+				onToggle={action('onToggle')}
+				expanded
+				status="failed"
+			>
 				Coucou
 			</CollapsiblePanel>
+			<CollapsiblePanel
+				id="panel-default-success"
+				header={[{ label: 'Controlled expanded panel with success status' }]}
+				onToggle={action('onToggle')}
+				expanded
+				status="successful"
+			>
+				Coucou
+			</CollapsiblePanel>
+			<CollapsiblePanel id="panel-default-3" header={[{ label: 'No content panel' }]} />
 		</div>
 	))
 	.add('Header', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel Headers</h1>
 			<CollapsiblePanel id="panel-header-1" header={[{ label: 'Simple header' }]} />
 			<CollapsiblePanel
 				id="panel-header-2"
-				header={[{ label: 'Header with actions' }, buttonDownload]}
+				header={[{ label: 'Header with actions' }, { element }]}
+			/>
+			<CollapsiblePanel
+				id="panel-header-element-withbutton"
+				header={[{ label: 'Header with element having actions' }, buttonDownload]}
 			/>
 			<CollapsiblePanel id="panel-header-3" header={[{ label: 'Header with badge' }, badge]} />
 			<CollapsiblePanel
@@ -188,7 +203,6 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Body', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel</h1>
 			<CollapsiblePanel
 				id="panel-content-1"
@@ -209,7 +223,6 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Theme: descriptive-panel', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons} />
 			<h1>Theme : descriptive-panel</h1>
 			<CollapsiblePanel
 				id="panel-textual-1"
@@ -244,7 +257,6 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Selection', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons} />
 			<h1>Selection</h1>
 			<CollapsiblePanel
 				id="panel-selection-1"
@@ -297,7 +309,6 @@ storiesOf('Layout/CollapsiblePanel', module)
 	))
 	.add('Nested', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons} />
 			<h1>Nested</h1>
 			<CollapsiblePanel
 				id="panel-nested-1"

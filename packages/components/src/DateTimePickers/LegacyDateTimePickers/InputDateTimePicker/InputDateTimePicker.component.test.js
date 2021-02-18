@@ -7,7 +7,7 @@ import InputDateTimePicker from './InputDateTimePicker.component';
 import Manager from '../DateTime/Manager';
 
 function getOverlay(wrapper) {
-	return wrapper.find('Popper').first();
+	return wrapper.find('.theme-popper').first();
 }
 
 describe('InputDateTimePicker', () => {

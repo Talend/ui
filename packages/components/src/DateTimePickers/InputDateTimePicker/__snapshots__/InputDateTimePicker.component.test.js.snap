@@ -78,19 +78,7 @@ exports[`InputDateTimePicker should render 1`] = `
               >
                 <Date.Input
                   id="my-picker-date-picker-input"
-                  inputRef={
-                    Object {
-                      "current": <input
-                        autocomplete="off"
-                        class="form-control"
-                        id="my-picker-date-picker-input"
-                        placeholder="YYYY-MM-DD"
-                        style="width: 47px;"
-                        type="text"
-                        value="2017-04-04"
-                      />,
-                    }
-                  }
+                  inputRef={[Function]}
                   key="input"
                 >
                   <InputSizer
@@ -104,19 +92,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       forceNotifyByEnter={true}
                       forceNotifyOnBlur={true}
                       id="my-picker-date-picker-input"
-                      inputRef={
-                        Object {
-                          "current": <input
-                            autocomplete="off"
-                            class="form-control"
-                            id="my-picker-date-picker-input"
-                            placeholder="YYYY-MM-DD"
-                            style="width: 47px;"
-                            type="text"
-                            value="2017-04-04"
-                          />,
-                        }
-                      }
+                      inputRef={[Function]}
                       minLength={0}
                       onChange={[Function]}
                       placeholder="YYYY-MM-DD"
@@ -227,20 +203,7 @@ exports[`InputDateTimePicker should render 1`] = `
               >
                 <Time.Input
                   id="my-picker-time-picker-input"
-                  inputRef={
-                    Object {
-                      "current": <input
-                        autocomplete="off"
-                        class="form-control theme-time-picker-input"
-                        id="my-picker-time-picker-input"
-                        maxlength="8"
-                        placeholder="HH:mm:ss"
-                        style="width: 47px;"
-                        type="text"
-                        value="15:27:00"
-                      />,
-                    }
-                  }
+                  inputRef={[Function]}
                   key="input"
                 >
                   <InputSizer
@@ -254,20 +217,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       forceNotifyByEnter={true}
                       forceNotifyOnBlur={true}
                       id="my-picker-time-picker-input"
-                      inputRef={
-                        Object {
-                          "current": <input
-                            autocomplete="off"
-                            class="form-control theme-time-picker-input"
-                            id="my-picker-time-picker-input"
-                            maxlength="8"
-                            placeholder="HH:mm:ss"
-                            style="width: 47px;"
-                            type="text"
-                            value="15:27:00"
-                          />,
-                        }
-                      }
+                      inputRef={[Function]}
                       maxLength={8}
                       minLength={0}
                       onChange={[Function]}

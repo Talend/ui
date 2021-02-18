@@ -30,11 +30,7 @@ exports[`Notification should render 1`] = `
           focusable="false"
           name="talend-cross"
           title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
-          />
-        </svg>
+        />
         <span>
           
         </span>
@@ -61,11 +57,7 @@ exports[`Notification should render 1`] = `
               focusable="false"
               name="talend-undo"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-undo"
-              />
-            </svg>
+            />
             <span>
               Haha
             </span>
@@ -101,11 +93,7 @@ exports[`Notification should render 1`] = `
           focusable="false"
           name="talend-cross"
           title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
-          />
-        </svg>
+        />
         <span>
           
         </span>
@@ -137,11 +125,7 @@ exports[`Notification should render 1`] = `
               focusable="false"
               name="talend-undo"
               title={null}
-            >
-              <use
-                xlinkHref="#talend-undo"
-              />
-            </svg>
+            />
             <span>
               undo
             </span>
@@ -174,11 +158,7 @@ exports[`Notification should render 1`] = `
           focusable="false"
           name="talend-cross"
           title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
-          />
-        </svg>
+        />
         <span>
           
         </span>
@@ -226,11 +206,7 @@ exports[`Notification should render 1`] = `
           focusable="false"
           name="talend-cross"
           title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
-          />
-        </svg>
+        />
         <span>
           
         </span>

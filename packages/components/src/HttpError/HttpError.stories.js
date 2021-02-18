@@ -1,14 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import HttpError from './HttpError.component';
-import IconsProvider from '../IconsProvider';
-
-const icons = {
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-};
 
 const commonStyle = {
 	height: '60rem',
@@ -71,12 +65,7 @@ const notFoundWithRedirectProps = {
 // Style here is for demonstration purpose, you should use generated className with its status code.
 
 storiesOf('Messaging & Communication/HttpError', module)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.add('Forbidden', () => <HttpError style={forbiddenStyle} {...forbiddenProps} />)
 	.add('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />)
 	.add('NotFound with redirect action', () => (

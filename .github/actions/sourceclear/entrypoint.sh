@@ -5,10 +5,10 @@ echo "Script saved to srcclr.sh"
 chmod a+x srcclr.sh
 echo "Script execution rights added"
 
-packages="cmf,cmf-cqrs,cmf-webpack-plugin,components,containers,datagrid,forms,icons,sagas,stepper,theme,faceted-search,router,html-webpack-plugin"
+packages="cmf,cmf-cqrs,cmf-webpack-plugin,components,containers,datagrid,forms,icons,sagas,stepper,theme,dataviz,router"
 
 # set comma as internal field separator for the string list
-Field_Separator=$IFS 
+Field_Separator=$IFS
 IFS=,
 
 # scan each folder

@@ -1,19 +1,13 @@
 import { useMemo, useState } from 'react';
-import isNil from 'lodash/isNil';
 
 function getDefaultSortFunction({ sortBy, isDescending }) {
 	const direction = isDescending ? -1 : 1;
 
 	return function defaultSort(a, b) {
-		const valueA = isNil(a[sortBy]) ? '' : a[sortBy];
-		const valueB = isNil(b[sortBy]) ? '' : b[sortBy];
-
-		const result =
-			isNaN(valueA) || isNaN(valueB)
-				? valueA
-						.toString()
-						.localeCompare(valueB.toString(), undefined, { numeric: true, sensitivity: 'base' })
-				: valueA - valueB;
+		const result = new Intl.Collator(undefined, { sensitivity: 'base', numeric: true }).compare(
+			a[sortBy],
+			b[sortBy],
+		);
 
 		return result * direction;
 	};
