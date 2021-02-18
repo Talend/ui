@@ -3008,10 +3008,10 @@
   resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-1.4.5.tgz#78be2d33323317fa69acbf51b2998135fc2205f7"
   integrity sha512-fzPV/5v041XKDQ8XY8jxOpH3xej0ZsDtZNbHPujxZ1khkA9KWUfN+b29RZjDC4V6+HWGDNw+DhLMKF770mtgLA==
 
-"@talend/design-system@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-1.0.6.tgz#2fd8d8bf37874cb093f09a313601d54eb000ac1c"
-  integrity sha512-2UfLF2+WIcgq9jLs602SKiwuEL1VWiW8hv2/Hcf32qm4K6KRMTtSGXvGSTBUOI/R/LQ3lmjq8J+U1/fol4eSTA==
+"@talend/design-system@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-1.0.7.tgz#ebe224a1aae17ddfd8b105bb88923254ab75ad2a"
+  integrity sha512-7tVIyOJHxFL9h6cS+N06etZHfw1nKXOalFudYZqdL9POlDBRvmxCtLFRTfGMVOB3mReY35Sl6+9prK0bZVxthQ==
   dependencies:
     classnames "^2.2.6"
     i18next "^15.1.3"
