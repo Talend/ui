@@ -1,10 +1,6 @@
-<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" />
 <link
-	href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
-	rel="stylesheet"
-/>
-<link
-	href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Inconsolata:wght@300;400;500;600;700;800;900&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&family=Inconsolata:wght@300;400;500;600;700;800;900&display=swap"
 	rel="stylesheet"
 />
 <style>
@@ -14,25 +10,37 @@
 	}
 
 	body {
-		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 14px;
 	}
 
-	img {
-		max-width: 100%;
-	}
-
 	.sbdocs.sbdocs-wrapper {
-		background: #F7F3EF;
+		background: #f7f3ef;
 	}
 
 	.sbdocs .sbdocs-content {
 		padding: 2rem 4rem;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 1.4rem;
 		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 		background: white;
 		border-radius: 0.5rem;
+	}
+
+	.sbdocs .sbdocs-content,
+	.sbdocs .sbdocs-div,
+	.sbdocs .sbdocs-p {
+		margin-top: 0;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 1.4rem;
+		line-height: normal;
+		color: #202020;
+	}
+
+	.sbdocs #diveinto {
+		margin-bottom: 2rem;
+	}
+
+	.sbdocs img {
+		display: block;
+		max-width: 100%;
 	}
 
 	.sbdocs .sbdocs-h1,
@@ -42,10 +50,11 @@
 	.sbdocs .sbdocs-h5,
 	.sbdocs .sbdocs-h6 {
 		border: none;
+		color: #202020;
 	}
 
 	.sbdocs .sbdocs-h1 {
-		position:relative;
+		position: relative;
 		display: inline-block;
 		font-family: 'Gelasio', serif;
 		font-weight: bold;
@@ -60,7 +69,7 @@
 		width: 100%;
 		bottom: 0.8rem;
 		left: 0;
-		background: #FDE1E2;
+		background: #fde1e2;
 		z-index: -1;
 	}
 
@@ -73,24 +82,20 @@
 	}
 
 	.sbdocs .sbdocs-h4 {
-		font-size: 2.3rem;
+		font-size: 1.4rem;
 	}
 
 	.sbdocs .sbdocs-h5 {
-		font-size: 2.1rem;
+		font-size: 1.2rem;
 	}
 
 	.sbdocs .sbdocs-h6 {
-		font-size: 2rem;
-	}
-
-	.sbdocs .sbdocs-p {
-		margin-top: 0;
-		font-size: 1.4rem;
+		font-size: 1rem;
 	}
 
 	.sbdocs .sbdocs-a {
 		color: #0675c1;
+		font-weight: 600;
 	}
 
 	.sbdocs .sbdocs-table {
@@ -132,6 +137,11 @@
 		font-size: 1.6rem;
 		font-weight: 600;
 	}
+	.sbdocs-div > dt:before {
+		content: '#';
+		color: #ff6d70;
+		padding-right: 1ch;
+	}
 
 	.sbdocs-div > dd {
 		margin: 0.5rem 0;
@@ -146,5 +156,9 @@
 		border: 1px solid #606060;
 		font-size: 1.2rem;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+	}
+
+	.sbdocs footer {
+		text-align: center;
 	}
 </style>
