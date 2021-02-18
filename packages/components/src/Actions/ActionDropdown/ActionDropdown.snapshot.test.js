@@ -179,4 +179,20 @@ describe('ActionDropdown', () => {
 		// then
 		expect(wrapper.html()).toMatchSnapshot();
 	});
+
+	it('should apply transformation on icon', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'button label',
+			icon: 'talend-ellipsis',
+			iconTransform: 'rotate-90',
+		};
+
+		// when
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
+
+		// then
+		expect(wrapper.html()).toMatchSnapshot();
+	});
 });

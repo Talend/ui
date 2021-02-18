@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ActionDropdown should apply transformation on icon 1`] = `
+<div class="dropdown btn-group btn-group-default">
+  <button aria-label="button label"
+          id="dropdown-id"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+  >
+    <svg name="talend-ellipsis"
+         class="theme-tc-svg-icon tc-svg-icon theme-rotate-90"
+         focusable="false"
+         aria-hidden="true"
+    >
+    </svg>
+    <span class="tc-dropdown-button-title-label">
+      button label
+    </span>
+    <svg name="talend-caret-down"
+         class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
+         focusable="false"
+         aria-hidden="true"
+    >
+    </svg>
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="dropdown-id"
+  >
+    <li role="presentation"
+        class="disabled"
+    >
+      <a role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        No options
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`ActionDropdown should render "no option" item when items array is empty 1`] = `
 <ul role="menu"
     class="dropdown-menu"
