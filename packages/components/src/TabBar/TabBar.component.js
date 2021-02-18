@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { Tag } from '@talend/design-system';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -12,6 +11,7 @@ import keycode from 'keycode';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 
+import Tag from '../Tag';
 import Icon from '../Icon';
 import TooltipTrigger from '../TooltipTrigger';
 import { ActionDropdown } from '../Actions';
@@ -87,10 +87,7 @@ function TabBar(props) {
 			if (event) {
 				event.preventDefault();
 			}
-			onSelect(
-				event,
-				props.items.find(({ key }) => selectedKey === key),
-			);
+			onSelect(event, props.items.find(({ key }) => selectedKey === key));
 		}
 	}
 
@@ -164,57 +161,46 @@ function TabBar(props) {
 				)}
 				ref={tabBarRef}
 			>
-				{items.map(({ icon, badge, ...item }) => {
-					let StyledTag = Tag;
-					switch (badge?.bsStyle?.toLowerCase()) {
-						case 'danger':
-							StyledTag = Tag.Destructive;
-							break;
-						case 'warning':
-							StyledTag = Tag.Warning;
-							break;
-						case 'success':
-							StyledTag = Tag.Success;
-							break;
-						default:
-							break;
-					}
-
-					return (
-						<NavItem
-							className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
-							{...item}
-							eventKey={item.key}
-							componentClass="button"
+				{items.map(({ icon, badge, ...item }) => (
+					<NavItem
+						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
+						{...item}
+						eventKey={item.key}
+						componentClass="button"
+					>
+						<TooltipTrigger
+							label={badge && badge.label ? `${badge.label} ${item.label}` : item.label}
+							tooltipPlacement={tooltipPlacement}
 						>
-							<TooltipTrigger
-								label={badge && badge.label ? `${badge.label} ${item.label}` : item.label}
-								tooltipPlacement={tooltipPlacement}
+							<span
+								className={classnames(
+									theme['tc-tab-bar-item-container'],
+									'tc-tab-bar-item-container',
+								)}
 							>
-								<span>
-									{icon && (
-										<Icon
-											className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
-											{...icon}
-										/>
-									)}
-									<span className={classnames(theme['tc-tab-bar-item-label'])}>{item.label}</span>
-									{badge && (
-										<StyledTag
-											className={classnames(
-												theme['tc-tab-bar-item-badge'],
-												'tc-tab-bar-item-badge',
-												badge.className,
-											)}
-										>
-											{getTabBarBadgeLabel(badge.label)}
-										</StyledTag>
-									)}
-								</span>
-							</TooltipTrigger>
-						</NavItem>
-					);
-				})}
+								{icon && (
+									<Icon
+										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
+										{...icon}
+									/>
+								)}
+								<span className={classnames(theme['tc-tab-bar-item-label'])}>{item.label}</span>
+								{badge && (
+									<Tag
+										{...badge}
+										className={classnames(
+											theme['tc-tab-bar-item-badge'],
+											'tc-tab-bar-item-badge',
+											badge.className,
+										)}
+									>
+										{getTabBarBadgeLabel(badge.label)}
+									</Tag>
+								)}
+							</span>
+						</TooltipTrigger>
+					</NavItem>
+				))}
 			</Nav>
 		);
 	}

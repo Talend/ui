@@ -73,6 +73,7 @@ import Status from './Status';
 import Stepper from './Stepper';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
+import Tag from './Tag';
 import Toggle from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import TreeView from './TreeView';
@@ -154,6 +155,7 @@ export {
 	Stepper,
 	SubHeaderBar,
 	TabBar,
+	Tag,
 	Toggle,
 	TooltipTrigger,
 	TreeView,

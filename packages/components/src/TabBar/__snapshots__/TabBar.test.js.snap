@@ -34,17 +34,20 @@ exports[`TabBar component should render with badges 1`] = `
             label="967 Tab1"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
                 Tab1
               </span>
-              <ForwardRef
+              <CoralTag
                 className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge custom-class-name"
+                label={967}
               >
                 967
-              </ForwardRef>
+              </CoralTag>
             </span>
           </TooltipTrigger>
         </NavItem>
@@ -61,17 +64,21 @@ exports[`TabBar component should render with badges 1`] = `
             label="1287 Tab2"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
                 Tab2
               </span>
-              <ForwardRef
+              <CoralTag
+                bsStyle="info"
                 className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge"
+                label="1287"
               >
                 999+
-              </ForwardRef>
+              </CoralTag>
             </span>
           </TooltipTrigger>
         </NavItem>
@@ -131,7 +138,9 @@ exports[`TabBar component should render with selected children from item definit
             label="Tab1"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -153,7 +162,9 @@ exports[`TabBar component should render with selected children from item definit
             label="Tab2"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -175,7 +186,9 @@ exports[`TabBar component should render with selected children from item definit
             label="Tab3"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -197,7 +210,9 @@ exports[`TabBar component should render with selected children from item definit
             label="Tab4"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -219,7 +234,9 @@ exports[`TabBar component should render with selected children from item definit
             label="Tab5"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -321,7 +338,9 @@ exports[`TabBar component should render with selected children managed by user 1
             label="Tab1"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -343,7 +362,9 @@ exports[`TabBar component should render with selected children managed by user 1
             label="Tab2"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -365,7 +386,9 @@ exports[`TabBar component should render with selected children managed by user 1
             label="Tab3"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -387,7 +410,9 @@ exports[`TabBar component should render with selected children managed by user 1
             label="Tab4"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >
@@ -409,7 +434,9 @@ exports[`TabBar component should render with selected children managed by user 1
             label="Tab5"
             tooltipPlacement="top"
           >
-            <span>
+            <span
+              className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            >
               <span
                 className="theme-tc-tab-bar-item-label"
               >

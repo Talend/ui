@@ -17,6 +17,7 @@
 }
 
 .tc-tab-bar {
+	display: flex;
 	white-space: nowrap;
 	overflow: hidden;
 	flex: 1;
@@ -24,6 +25,11 @@
 	& &-item {
 		float: none;
 		display: inline-block;
+
+		&-container {
+			display: flex;
+			align-items: baseline;
+		}
 
 		&-icon {
 			margin-right: $padding-smaller;
