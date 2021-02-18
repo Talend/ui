@@ -190,12 +190,12 @@ function TabBar(props) {
 								<span className={classnames(theme['tc-tab-bar-item-label'])}>{item.label}</span>
 								{badge && (
 									<Tag
-										{...badge}
 										className={classnames(
 											theme['tc-tab-bar-item-badge'],
 											'tc-tab-bar-item-badge',
 											badge.className,
 										)}
+										bsStyle={badge.bsStyle}
 									>
 										{getTabBarBadgeLabel(badge.label)}
 									</Tag>

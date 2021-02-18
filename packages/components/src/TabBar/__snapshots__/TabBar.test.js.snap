@@ -44,7 +44,6 @@ exports[`TabBar component should render with badges 1`] = `
               </span>
               <CoralTag
                 className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge custom-class-name"
-                label={967}
               >
                 967
               </CoralTag>
@@ -75,7 +74,6 @@ exports[`TabBar component should render with badges 1`] = `
               <CoralTag
                 bsStyle="info"
                 className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge"
-                label="1287"
               >
                 999+
               </CoralTag>
