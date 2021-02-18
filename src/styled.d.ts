@@ -1,7 +1,7 @@
 import 'styled-components';
 
 declare module 'styled-components' {
-	export type ColorSwatch = {
+	export interface ColorSwatch {
 		900: string;
 		800: string;
 		700: string;
@@ -14,7 +14,7 @@ declare module 'styled-components' {
 		75?: string;
 		50?: string;
 		0?: string;
-	};
+	}
 	export interface DefaultTheme {
 		colors: {
 			// Palette
@@ -25,6 +25,7 @@ declare module 'styled-components' {
 			destructiveColor: ColorSwatch;
 			focusColor: ColorSwatch;
 			activeColor: ColorSwatch;
+			grayColor: ColorSwatch;
 
 			// Global
 			textColor: string;

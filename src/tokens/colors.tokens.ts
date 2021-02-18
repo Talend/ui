@@ -1,3 +1,4 @@
+import { ColorSwatch } from 'styled-components';
 import { linearGradient, shade, tint } from 'polished';
 
 const black = '#202020';
@@ -19,6 +20,7 @@ export const brand = {
 };
 
 export const palette = {
+	russianViolet,
 	moodyPurple,
 	deepBlue,
 	lochmara,
@@ -37,20 +39,32 @@ export const gradients = {
 	}),
 };
 
-export const swatches = {};
-Object.entries(palette).forEach(([key, value]) => {
-	swatches[key] = {
-		900: shade(0.8, value),
-		800: shade(0.6, value),
-		700: shade(0.4, value),
-		600: shade(0.2, value),
-		500: value,
-		400: tint(0.2, value),
-		300: tint(0.4, value),
-		200: tint(0.6, value),
-		100: tint(0.8, value),
+function getColorSwatch(color: string): ColorSwatch {
+	return {
+		900: shade(0.8, color),
+		800: shade(0.6, color),
+		700: shade(0.4, color),
+		600: shade(0.2, color),
+		500: color,
+		400: tint(0.2, color),
+		300: tint(0.4, color),
+		200: tint(0.6, color),
+		100: tint(0.8, color),
 	};
-});
+}
+
+export const swatches = {
+	black: getColorSwatch(black),
+	russianViolet: getColorSwatch(russianViolet),
+	moodyPurple: getColorSwatch(moodyPurple),
+	deepBlue: getColorSwatch(deepBlue),
+	lochmara: getColorSwatch(lochmara),
+	paleCyan: getColorSwatch(paleCyan),
+	rioGrande: getColorSwatch(rioGrande),
+	lightningYellow: getColorSwatch(lightningYellow),
+	jaffa: getColorSwatch(jaffa),
+	coral: getColorSwatch(coral),
+};
 
 export const grayscale = {
 	gray: {
@@ -69,10 +83,11 @@ export const grayscale = {
 	},
 };
 
-export default {
-	...brand,
-	...gradients,
+const colors = {
 	...swatches,
 	...grayscale,
+	...gradients,
 	transparent: 'rgba(0,0,0,0)',
 };
+
+export default colors;

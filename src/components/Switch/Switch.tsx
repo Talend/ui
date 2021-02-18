@@ -68,7 +68,9 @@ const Switch = ({
 					const isChecked = radio.state === v;
 					return (
 						<Radio
-							onChange={event => onChange && onChange(event, v)}
+							onChange={(event: React.MouseEvent<HTMLButtonElement>) =>
+								onChange && onChange(event, v)
+							}
 							{...radio}
 							value={v}
 							as="button"
