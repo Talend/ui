@@ -87,7 +87,10 @@ function TabBar(props) {
 			if (event) {
 				event.preventDefault();
 			}
-			onSelect(event, props.items.find(({ key }) => selectedKey === key));
+			onSelect(
+				event,
+				props.items.find(({ key }) => selectedKey === key),
+			);
 		}
 	}
 
