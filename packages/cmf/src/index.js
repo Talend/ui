@@ -22,6 +22,7 @@ import localStorage from './localStorage';
 import onError from './onError';
 import reduxStorage from './reduxstorage';
 import * as mock from './mock';
+import httpInterceptors from './httpInterceptors';
 
 // DEPRECATED APIs
 import action from './action';
@@ -88,6 +89,7 @@ export default {
 	constants,
 	expression,
 	expressions,
+	httpInterceptors,
 	middlewares,
 	module: cmfModule,
 	onError,
