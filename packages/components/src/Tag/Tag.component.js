@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tag } from '@talend/design-system';
 
 /**
@@ -23,6 +24,12 @@ const CoralTag = ({ bsStyle, ...rest }) => {
 			break;
 	}
 	return <StyledTag {...rest} />;
+};
+
+CoralTag.displayName = 'Tag';
+
+CoralTag.propTypes = {
+	bsStyle: PropTypes.string,
 };
 
 export default CoralTag;
