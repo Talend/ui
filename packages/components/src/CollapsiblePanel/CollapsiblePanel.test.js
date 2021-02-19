@@ -5,7 +5,6 @@ import { mount } from 'enzyme';
 import CollapsiblePanel from './CollapsiblePanel.component';
 import TooltipTrigger from '../TooltipTrigger';
 
-
 const version1 = {
 	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
 	bsStyle: 'default',
@@ -78,10 +77,7 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		// then
 		expect(propsDescriptivePanel.onSelect).toBeCalled();
@@ -93,10 +89,7 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		// then
 		expect(propsPanelWithActions.onToggle).toBeCalled();
