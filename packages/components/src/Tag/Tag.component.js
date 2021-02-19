@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tag } from '@talend/design-system';
+import { Tag as CoralTag } from '@talend/design-system';
 
 /**
  * Proxy to https://design.talend.com/?path=/docs/components-tag--default-story#tag
  */
-const CoralTag = ({ bsStyle, ...rest }) => {
-	let StyledTag = Tag;
+const Tag = ({ bsStyle, ...rest }) => {
+	let StyledTag = CoralTag;
 	switch (bsStyle?.toLowerCase()) {
 		case 'info':
-			StyledTag = Tag.Information;
+			StyledTag = CoralTag.Information;
 			break;
 		case 'success':
-			StyledTag = Tag.Success;
+			StyledTag = CoralTag.Success;
 			break;
 		case 'warning':
-			StyledTag = Tag.Warning;
+			StyledTag = CoralTag.Warning;
 			break;
 		case 'danger':
-			StyledTag = Tag.Destructive;
+			StyledTag = CoralTag.Destructive;
 			break;
 		default:
 			break;
@@ -26,10 +26,10 @@ const CoralTag = ({ bsStyle, ...rest }) => {
 	return <StyledTag {...rest} />;
 };
 
-CoralTag.displayName = 'Tag';
+Tag.displayName = 'Tag';
 
-CoralTag.propTypes = {
+Tag.propTypes = {
 	bsStyle: PropTypes.string,
 };
 
-export default CoralTag;
+export default Tag;

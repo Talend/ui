@@ -42,11 +42,11 @@ exports[`TabBar component should render with badges 1`] = `
               >
                 Tab1
               </span>
-              <CoralTag
+              <Tag
                 className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge custom-class-name"
               >
                 967
-              </CoralTag>
+              </Tag>
             </span>
           </TooltipTrigger>
         </NavItem>
@@ -71,12 +71,12 @@ exports[`TabBar component should render with badges 1`] = `
               >
                 Tab2
               </span>
-              <CoralTag
+              <Tag
                 bsStyle="info"
                 className="theme-tc-tab-bar-item-badge tc-tab-bar-item-badge"
               >
                 999+
-              </CoralTag>
+              </Tag>
             </span>
           </TooltipTrigger>
         </NavItem>

@@ -5,12 +5,12 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
-import Label from 'react-bootstrap/lib/Label';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
+import Tag from '../../Tag';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import wrapOnClick from '../wrapOnClick';
@@ -83,12 +83,12 @@ function renderMutableMenuItem(item, index, getComponent) {
 			{item.icon && <Icon key="icon" name={item.icon} />}
 			{!item.hideLabel && item.label}
 			{item.badge && (
-				<Label
+				<Tag
 					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
 					bsStyle={item.badge.bsStyle || 'default'}
 				>
 					{getTabBarBadgeLabel(item.badge.label)}
-				</Label>
+				</Tag>
 			)}
 		</Renderers.MenuItem>
 	);

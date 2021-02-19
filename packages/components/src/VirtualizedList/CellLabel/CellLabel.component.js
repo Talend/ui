@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
+import Tag from '../../Tag';
 
 /**
  * Cell renderer that displays a label
  */
 function CellLabel({ cellData, rowIndex }) {
 	return (
-		<small id={`${rowIndex}`} className={classNames('label', 'label-info')}>
+		<Tag id={`${rowIndex}`} bsStyle="info">
 			{cellData}
-		</small>
+		</Tag>
 	);
 }
 
