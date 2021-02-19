@@ -2,9 +2,6 @@
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.component.js
-  221:6  error  'Label' is not defined  react/jsx-no-undef
-
 /home/travis/build/Talend/ui/packages/components/src/AppSwitcher/AppSwitcher.component.js
   40:10  error  Elements with the ARIA role "heading" must have the following attributes defined: aria-level  jsx-a11y/role-has-required-aria-props
 
@@ -305,5 +302,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 146 problems (127 errors, 19 warnings)
+✖ 145 problems (126 errors, 19 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
