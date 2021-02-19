@@ -184,7 +184,7 @@ describe('ActionDropdown', () => {
 		// given
 		const props = {
 			id: 'dropdown-id',
-			label: 'button label',
+			label: 'Button label',
 			icon: 'talend-ellipsis',
 			iconTransform: 'rotate-90',
 		};

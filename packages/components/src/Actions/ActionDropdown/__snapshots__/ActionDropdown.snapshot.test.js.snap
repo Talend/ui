@@ -2,7 +2,7 @@
 
 exports[`ActionDropdown should apply transformation on icon 1`] = `
 <div class="dropdown btn-group btn-group-default">
-  <button aria-label="button label"
+  <button aria-label="Button label"
           id="dropdown-id"
           role="button"
           aria-haspopup="true"
@@ -17,7 +17,7 @@ exports[`ActionDropdown should apply transformation on icon 1`] = `
     >
     </svg>
     <span class="tc-dropdown-button-title-label">
-      button label
+      Button label
     </span>
     <svg name="talend-caret-down"
          class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
