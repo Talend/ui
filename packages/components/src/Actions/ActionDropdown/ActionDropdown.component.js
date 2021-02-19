@@ -218,12 +218,12 @@ class ActionDropdown extends React.Component {
 				</span>
 			),
 			badge && (
-				<Label
+				<Tag
 					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
 					bsStyle={badge.bsStyle || 'default'}
 				>
 					{getTabBarBadgeLabel(badge.label)}
-				</Label>
+				</Tag>
 			),
 			<Icon
 				key="caret"
