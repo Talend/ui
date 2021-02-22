@@ -56,10 +56,7 @@ describe('ActionDropdown', () => {
 		const menuItems = actionDropdownInstance.find('MenuItem');
 
 		// when
-		menuItems
-			.at(0)
-			.find('SafeAnchor')
-			.simulate('click');
+		menuItems.at(0).find('SafeAnchor').simulate('click');
 
 		// then
 		expect(onSelectClick).toBeCalledWith(jasmine.anything(), props.items[0]);
@@ -70,10 +67,7 @@ describe('ActionDropdown', () => {
 		expect(onItemClick.mock.calls[0][0].type).toBe('click');
 
 		// when
-		menuItems
-			.at(1)
-			.find('SafeAnchor')
-			.simulate('click');
+		menuItems.at(1).find('SafeAnchor').simulate('click');
 
 		// then
 		expect(onSelectClick).toBeCalledWith(jasmine.anything(), props.items[1]);
@@ -94,7 +88,9 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton').find('svg.theme-rotate-90');
+		const wrapper = mount(<ActionDropdown {...props} />)
+			.find('DropdownButton')
+			.find('svg.theme-rotate-90');
 
 		// then
 		expect(wrapper.exists()).toBeTruthy();
@@ -173,10 +169,7 @@ describe('Dropup', () => {
 		container.querySelector('.dropdown-menu').getBoundingClientRect = () => menuPosition;
 
 		// when
-		wrapper
-			.find('button')
-			.first()
-			.simulate('click');
+		wrapper.find('button').first().simulate('click');
 
 		// then
 		expect(container.firstChild.classList.contains('dropup')).toBe(isDropupExpected);
