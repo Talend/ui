@@ -6,6 +6,7 @@ import pick from 'lodash/pick';
 import { distanceInWordsToNow, format } from 'date-fns';
 import isValid from 'date-fns/is_valid';
 import parse from 'date-fns/parse';
+import { formatToTimeZone } from 'date-fns-timezone';
 import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -25,6 +26,13 @@ export function computeValue(cellData, columnData, t) {
 				locale: getLocale(t),
 			});
 		} else if (columnData.mode === 'format') {
+			if (columnData.timeZone) {
+				return formatToTimeZone(
+					cellData,
+					columnData.pattern || DATE_TIME_FORMAT,
+					{ timeZone: columnData.timeZone },
+				);
+			}
 			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 		}
 	}
@@ -45,16 +53,30 @@ export class CellDatetimeComponent extends React.Component {
 
 	render() {
 		const { cellData, columnData, t } = this.props;
+		const computedValue = computeValue(cellData, columnData, t);
+
 		const cell = (
 			<div className={classnames('cell-datetime-container', styles['cell-datetime-container'])}>
-				{computeValue(cellData, columnData, t)}
+				{computedValue}
 			</div>
 		);
 
 		if (columnData.mode === 'ago') {
+			let tooltipLabel = '';
+
+			if (columnData.timeZone) {
+				tooltipLabel = formatToTimeZone(
+					cellData,
+					columnData.pattern || DATE_TIME_FORMAT,
+					{ timeZone: columnData.timeZone },
+				);
+			} else {
+				tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			}
+
 			return (
 				<TooltipTrigger
-					label={format(cellData, columnData.pattern || DATE_TIME_FORMAT)}
+					label={tooltipLabel}
 					tooltipPlacement={columnData.tooltipPlacement || 'bottom'}
 				>
 					{cell}
@@ -62,7 +84,14 @@ export class CellDatetimeComponent extends React.Component {
 			);
 		}
 
-		return cell;
+		return (
+			<TooltipTrigger
+				label={columnData.tooltipLabel || computedValue}
+				tooltipPlacement={columnData.tooltipPlacement || 'bottom'}
+			>
+				{cell}
+			</TooltipTrigger>
+		);
 	}
 }
 

@@ -13,7 +13,7 @@ exports[`CellDatetime should render CellDatetime 1`] = `
 </TooltipTrigger>
 `;
 
-exports[`CellDatetime should test CellDatetime render with tooltip 1`] = `
+exports[`CellDatetime should render CellDatetime with tooltip in ago mode 1`] = `
 <TooltipTrigger
   label="2016-09-22 09:00:00"
   tooltipPlacement="bottom"
@@ -22,6 +22,19 @@ exports[`CellDatetime should test CellDatetime render with tooltip 1`] = `
     className="cell-datetime-container theme-cell-datetime-container"
   >
     about 1 month ago
+  </div>
+</TooltipTrigger>
+`;
+
+exports[`CellDatetime should render CellDatetime with tooltip in format mode 1`] = `
+<TooltipTrigger
+  label="2016-09-22 09:00:00"
+  tooltipPlacement="bottom"
+>
+  <div
+    className="cell-datetime-container theme-cell-datetime-container"
+  >
+    2016-09-22 09:00:00
   </div>
 </TooltipTrigger>
 `;
