@@ -124,6 +124,8 @@ describe('CellDatetime', () => {
 		computeValue(cellData, columnData);
 
 		// then
-		expect(formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, { timeZone: columnData.timeZone });
+		expect(formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
+			timeZone: columnData.timeZone,
+		});
 	});
 });

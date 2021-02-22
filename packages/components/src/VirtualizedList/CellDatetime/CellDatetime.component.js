@@ -27,11 +27,9 @@ export function computeValue(cellData, columnData, t) {
 			});
 		} else if (columnData.mode === 'format') {
 			if (columnData.timeZone) {
-				return formatToTimeZone(
-					cellData,
-					columnData.pattern || DATE_TIME_FORMAT,
-					{ timeZone: columnData.timeZone },
-				);
+				return formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+					timeZone: columnData.timeZone,
+				});
 			}
 			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 		}
@@ -65,11 +63,9 @@ export class CellDatetimeComponent extends React.Component {
 			let tooltipLabel = '';
 
 			if (columnData.timeZone) {
-				tooltipLabel = formatToTimeZone(
-					cellData,
-					columnData.pattern || DATE_TIME_FORMAT,
-					{ timeZone: columnData.timeZone },
-				);
+				tooltipLabel = formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+					timeZone: columnData.timeZone,
+				});
 			} else {
 				tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 			}
