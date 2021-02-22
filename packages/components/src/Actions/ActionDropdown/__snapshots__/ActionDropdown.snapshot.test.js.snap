@@ -1,14 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionDropdown should apply transformation on icon 1`] = `
-<svg name="talend-ellipsis"
-     class="theme-tc-svg-icon tc-svg-icon theme-rotate-90"
-     focusable="false"
-     aria-hidden="true"
->
-</svg>
-`;
-
 exports[`ActionDropdown should render "no option" item when items array is empty 1`] = `
 <ul role="menu"
     class="dropdown-menu"

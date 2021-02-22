@@ -83,6 +83,22 @@ describe('ActionDropdown', () => {
 		});
 		expect(onItemClick.mock.calls[1][0].type).toBe('click');
 	});
+
+	it('should apply transformation on icon', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'Button label',
+			icon: 'talend-ellipsis',
+			iconTransform: 'rotate-90',
+		};
+
+		// when
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton').find('svg.theme-rotate-90');
+
+		// then
+		expect(wrapper.exists()).toBeTruthy();
+	});
 });
 
 describe('getMenuItem', () => {
