@@ -84,14 +84,7 @@ export class CellDatetimeComponent extends React.Component {
 			);
 		}
 
-		return (
-			<TooltipTrigger
-				label={columnData.tooltipLabel || computedValue}
-				tooltipPlacement={columnData.tooltipPlacement || 'bottom'}
-			>
-				{cell}
-			</TooltipTrigger>
-		);
+		return cell;
 	}
 }
 

@@ -112,20 +112,6 @@ describe('CellDatetime', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render CellDatetime with tooltip in format mode', () => {
-		// when
-		const columnData = {
-			mode: 'format',
-		};
-
-		const wrapper = shallow(
-			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />,
-		);
-		expect(wrapper.find('TooltipTrigger').length).toBe(1);
-		expect(wrapper.find('TooltipTrigger').getElement().props.label).toBe('2016-09-22 09:00:00');
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
 	it('should format with timezone', () => {
 		// when
 		const columnData = {
