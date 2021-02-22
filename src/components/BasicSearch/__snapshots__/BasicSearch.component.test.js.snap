@@ -1,5 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BasicSearch should render the default html output with initial badges 1`] = `
+<div id="manager-id-basic-search"
+     class="tc-basic-search theme-tc-basic-search"
+>
+  <div role="combobox"
+       aria-haspopup="listbox"
+       aria-owns="react-autowhatever-42"
+       aria-expanded="false"
+       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+  >
+    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
+      <label for="react-autowhatever-42-input"
+             class="control-label sr-only"
+      >
+        Search
+      </label>
+      <div class="icon-cls theme-icon-cls">
+        <svg name="talend-search"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+        </svg>
+      </div>
+      <input autocomplete="off"
+             aria-autocomplete="list"
+             aria-controls="react-autowhatever-42"
+             aria-activedescendant="react-autowhatever-42-section-0-item-0"
+             placeholder="Find in a column..."
+             role="searchbox"
+             type="text"
+             id="42"
+             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+             value
+      >
+    </div>
+  </div>
+  <div class="tc-basic-search-content theme-tc-basic-search-content">
+    <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
+      <div id="tc-badge-select-name-42-badge-text"
+           class="tc-badge-button theme-tc-badge-button"
+      >
+        <span aria-label="Name"
+              class="tc-badge-category theme-tc-badge-category"
+              aria-describedby="42"
+        >
+          Name
+        </span>
+        <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
+          <div class="tc-badge-operator-button theme-tc-badge-operator-button">
+            <button id="name-42-badge-text-operator-action-overlay"
+                    aria-label="Contains"
+                    type="button"
+                    aria-describedby="42"
+                    class="btn btn-link"
+            >
+              <svg name="talend-contains"
+                   class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+                   focusable="false"
+                   aria-hidden="true"
+              >
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
+          <button id="name-42-badge-text-action-overlay"
+                  aria-label="hello"
+                  type="button"
+                  class="btn btn-link"
+          >
+            <span>
+              hello
+            </span>
+          </button>
+        </div>
+        <button role="button"
+                aria-label="Remove filter"
+                id="tc-badge-delete-name-42-badge-text"
+                data-feature="filter.remove"
+                aria-describedby="42"
+                type="button"
+                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+        >
+          <svg name="talend-cross"
+               class="theme-tc-svg-icon tc-svg-icon"
+               focusable="false"
+               aria-hidden="true"
+          >
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div>
+      <button id="manager-id-basic-search-action-overlay"
+              aria-label="Add filter"
+              type="button"
+              data-feature="filter.basic.add"
+              aria-describedby="42"
+              class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
+      >
+        <svg name="talend-plus-circle"
+             class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+             focusable="false"
+             aria-hidden="true"
+        >
+        </svg>
+        <span>
+          Add filter
+        </span>
+      </button>
+    </div>
+  </div>
+  <button role="link"
+          aria-label="Remove all filters"
+          data-feature="filter.basic.clear"
+          aria-describedby="42"
+          type="button"
+          class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
+  >
+    <svg name="talend-trash"
+         class="theme-tc-svg-icon tc-svg-icon"
+         focusable="false"
+         aria-hidden="true"
+    >
+    </svg>
+    <span>
+    </span>
+  </button>
+</div>
+`;
+
 exports[`BasicSearch should render the default html output with no badges 1`] = `
 <div id="manager-id-basic-search"
      class="tc-basic-search theme-tc-basic-search"

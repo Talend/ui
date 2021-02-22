@@ -36,6 +36,7 @@ const isInCreation = badge => get(badge, 'metadata.isInCreation', true);
 const BasicSearch = ({
 	badgesDefinitions = [],
 	badgesFaceted,
+	initialBadges = [],
 	customBadgesDictionary,
 	customOperatorsDictionary,
 	initialFilterValue,
@@ -56,7 +57,7 @@ const BasicSearch = ({
 	const badges = useMemo(
 		() => filterBadgeDefinitionsWithDictionary(badgesDictionary, badgesDefinitions),
 		[badgesDictionary, badgesDefinitions],
-		);
+	);
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 	const quicksearchable = useMemo(
 		() => badgesDefinitions.filter(({ metadata = {} }) => metadata.isAvailableForQuickSearch),
@@ -68,6 +69,25 @@ const BasicSearch = ({
 			onSubmit({}, state.badges);
 		}
 	}, [state.badges, onSubmit]);
+
+	useEffect(() => {
+		initialBadges.forEach(initial => {
+			const facet = badges.find(
+				({ properties }) => properties.attribute === initial.attribute,
+			);
+			const operators = getOperatorsFromDict(
+				operatorsDictionary,
+				get(facet, 'metadata.operators'),
+			);
+			dispatch(
+				BADGES_ACTIONS.addWithValue(
+					generateBadge(operators)(facet),
+					operatorsDictionary[initial.operator],
+					initial.value,
+				),
+			);
+		});
+	}, []);
 
 	const onClickOverlayRow = setOverlayOpened => (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(
@@ -163,6 +183,13 @@ BasicSearch.propTypes = {
 	badgesFaceted: PropTypes.shape({
 		badges: badgesFacetedPropTypes,
 	}),
+	initialBadges: PropTypes.arrayOf(
+		PropTypes.shape({
+			attribute: PropTypes.string,
+			value: PropTypes.any,
+			operator: PropTypes.string,
+		}),
+	),
 	customBadgesDictionary: PropTypes.object,
 	customOperatorsDictionary: operatorsPropTypes,
 	initialFilterValue: PropTypes.string,

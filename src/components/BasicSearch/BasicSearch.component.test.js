@@ -41,7 +41,10 @@ describe('BasicSearch', () => {
 			initialValueOpened: false,
 			label: 'Name',
 			operator: {},
-			operators: [],
+			operators: [
+				{ label: 'Equals', name: '=', iconName: 'equal' },
+				{ label: 'Contains', name: 'contains', iconName: 'contains' },
+			],
 			type: 'text',
 		},
 		metadata: {
@@ -93,6 +96,28 @@ describe('BasicSearch', () => {
 		// Then
 		expect(wrapper.html()).toMatchSnapshot();
 	});
+
+	it('should render the default html output with initial badges', () => {
+		// Given
+		const props = {
+			badgesDefinitions,
+			initialBadges: [{
+				attribute: 'name',
+				operator: '=',
+				value: 'hello'
+			}],
+			onSubmit: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<FacetedManager id="manager-id">
+				<BasicSearch {...props} />
+			</FacetedManager>,
+		);
+		// Then
+		expect(wrapper.html()).toMatchSnapshot();
+	});
+
 	it('should render the default html output with some badges and the quick search input', () => {
 		// Given
 		const props = {

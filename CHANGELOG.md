@@ -26,6 +26,11 @@ Types of changes
 
 ## [unreleased]
 
+## [3.4.0]
+
+### Added
+
+- Add initial badges support
 
 ## [3.3.3]
 
