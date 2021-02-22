@@ -190,7 +190,9 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton').find('svg.theme-rotate-90');
+		const wrapper = mount(<ActionDropdown {...props} />)
+			.find('DropdownButton')
+			.find('svg.theme-rotate-90');
 
 		// then
 		expect(wrapper.html()).toMatchSnapshot();
