@@ -192,6 +192,7 @@ class ActionDropdown extends React.Component {
 			bsStyle = 'default',
 			hideLabel,
 			icon,
+			iconTransform,
 			items = [],
 			badge,
 			label,
@@ -211,7 +212,7 @@ class ActionDropdown extends React.Component {
 		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 		const title = [
-			icon && <Icon name={icon} key="icon" />,
+			icon && <Icon name={icon} transform={iconTransform} key="icon" />,
 			!hideLabel && (
 				<span className="tc-dropdown-button-title-label" key="label">
 					{label}
@@ -304,6 +305,7 @@ ActionDropdown.propTypes = {
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,
 	icon: PropTypes.string,
+	iconTransform: PropTypes.string,
 	items: PropTypes.oneOfType([
 		PropTypes.arrayOf(
 			PropTypes.shape({
