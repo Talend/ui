@@ -1,7 +1,7 @@
 
 /home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.js
-  55:2   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-  55:13  error  'step' is defined but never used                                                                                                                                           @typescript-eslint/no-unused-vars
+  50:2   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  50:13  error  'step' is defined but never used                                                                                                                                           @typescript-eslint/no-unused-vars
 
 /home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.test.js
   2:1  error  '@talend/react-cmf/lib/registry' import too deep. No more than @talend/react-cmf  @talend/import-depth
@@ -18,4 +18,7 @@
 /home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
   40:2  error  redirect should be placed after handleKeyPress  react/sort-comp
 
-✖ 7 problems (7 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/actionAPI.test.js
+  2:27  error  Unable to resolve path to module '@talend/react-cmf-router'  import/no-unresolved
+
+✖ 8 problems (8 errors, 0 warnings)
