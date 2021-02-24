@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-dataviz",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Talend charts and visualization components",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
@@ -76,8 +76,6 @@
   "peerDependencies": {
     "@talend/bootstrap-theme": "^6.1.7",
     "@talend/icons": "^6.2.2",
-    "@talend/locales-tui": ">=5.29.0",
-    "@talend/locales-tui-dataviz": "0.0.1",
     "@talend/react-components": "^6.4.0",
     "i18next": "^15.1.3",
     "react": "^16.14.0",
