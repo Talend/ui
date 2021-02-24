@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import { ThemeProvider } from '@talend/design-system';
 import Inject from '../Inject';
 import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
@@ -70,30 +71,38 @@ function Layout({
 	const safeFooter = Inject.getReactElement(getComponent, footer);
 
 	return (
-		<div id={id} className={appCSS}>
-			<div className={theme['skip-links']}>
-				<SkipLinks navigationId={skipLinkNavigationId} mainId="#tc-layout-main" />
-			</div>
-			{safeHeader && (
-				<header key="banner" role="banner" className={headerCSS}>
-					{safeHeader}
-				</header>
-			)}
-			{safeSubHeader && (
-				<div key="subheader" className="subheader">
-					{safeSubHeader}
+		<ThemeProvider>
+			<div id={id} className={appCSS}>
+				<div className={theme['skip-links']}>
+					<SkipLinks navigationId={skipLinkNavigationId} mainId="#tc-layout-main" />
 				</div>
-			)}
-			<Component key="main" drawers={safeDrawers} tabs={tabs} getComponent={getComponent} {...rest}>
-				{safeContent}
-				{children}
-			</Component>
-			{safeFooter && (
-				<footer key="footer" role="contentinfo" className={footerCSS}>
-					{safeFooter}
-				</footer>
-			)}
-		</div>
+				{safeHeader && (
+					<header key="banner" role="banner" className={headerCSS}>
+						{safeHeader}
+					</header>
+				)}
+				{safeSubHeader && (
+					<div key="subheader" className="subheader">
+						{safeSubHeader}
+					</div>
+				)}
+				<Component
+					key="main"
+					drawers={safeDrawers}
+					tabs={tabs}
+					getComponent={getComponent}
+					{...rest}
+				>
+					{safeContent}
+					{children}
+				</Component>
+				{safeFooter && (
+					<footer key="footer" role="contentinfo" className={footerCSS}>
+						{safeFooter}
+					</footer>
+				)}
+			</div>
+		</ThemeProvider>
 	);
 }
 

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
+import { OverlayTrigger, Panel, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import Status from '../Status';
+import Tag from '../Tag';
 import TooltipTrigger from '../TooltipTrigger';
 
 import css from './CollapsiblePanel.scss';
@@ -76,9 +77,9 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			const { label, tooltipLabel, tooltipPlacement, ...rest } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					<Label {...rest} className={css[className]}>
+					<Tag {...rest} className={css[className]}>
 						{label}
-					</Label>
+					</Tag>
 				</TooltipTrigger>
 			);
 		}
@@ -182,7 +183,7 @@ function getKeyValueContent(content) {
 		<dl className={css.content}>
 			{content.map((item, index) => [
 				<dt className={css.label} key={`${index}_label`}>
-					<Label>{item.label}</Label>
+					<Tag>{item.label}</Tag>
 				</dt>,
 				<dd className={css.description} key={`${index}_desc`}>
 					{item.description}

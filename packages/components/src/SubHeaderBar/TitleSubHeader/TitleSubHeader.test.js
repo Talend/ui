@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Label } from 'react-bootstrap';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import Action from '../../Actions/Action';
+import Tag from '../../Tag';
 import EditableText from '../../EditableText';
 import TitleSubHeader, { SubTitle } from './TitleSubHeader.component';
 
@@ -108,10 +108,10 @@ describe('SubTitle', () => {
 		const wrapper = shallow(
 			<SubTitle
 				{...defaultProps}
-				subTitleAs={({ subTitle }) => <Label className="label-info">{subTitle}</Label>}
+				subTitleAs={({ subTitle }) => <Tag bsStyle="info">{subTitle}</Tag>}
 			/>,
 		);
-		expect(wrapper.find(Label)).not.toBe(null);
+		expect(wrapper.find(Tag)).not.toBe(null);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
