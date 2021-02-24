@@ -5,8 +5,7 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "prepublishOnly": "lerna exec -- yarn prepublishOnly && yarn prepublishOnly-router",
-    "prepublishOnly-router": "cd packages/cmf-router && yarn prepublishOnly && cd ../..",
+    "prepublishOnly": "lerna exec -- yarn prepublishOnly",
     "prepare": "lerna exec -- yarn prepare",
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
