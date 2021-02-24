@@ -24,6 +24,8 @@ Types of changes
 -   `Fixed` for any bug fixes.
 -   `Security` in case of vulnerabilities.
 
+## [unreleased]
+
 ## [0.4.2]
 
 ### Fixed
