@@ -24,7 +24,9 @@ Types of changes
 -   `Fixed` for any bug fixes.
 -   `Security` in case of vulnerabilities.
 
-## [unreleased]
+## [0.4.2]
+
+- [fix(dataviz): remove locale as peer dep](https://github.com/Talend/ui/pull/3216)
 
 ## [0.4.1]
 
