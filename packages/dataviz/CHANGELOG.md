@@ -26,7 +26,9 @@ Types of changes
 
 ## [0.4.2]
 
-- [fix(dataviz): remove locale as peer dep](https://github.com/Talend/ui/pull/3216)
+### Fixed
+
+- [remove locale as peer dep](https://github.com/Talend/ui/pull/3216)
 
 ## [0.4.1]
 
