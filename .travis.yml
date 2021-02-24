@@ -53,7 +53,7 @@ matrix:
         - yarn install
         - yarn prepublishOnly
         - yarn test:demo
-        - cd packages/router && yarn install && yarn prepublishOnly && cd "$TRAVIS_BUILD_DIR"
+        - cd packages/cmf-router && yarn install && yarn prepublishOnly && cd "$TRAVIS_BUILD_DIR"
         - .travis/after_success_static.sh
         - .travis/after_success_umd.sh
         - .travis/after_success_demo.sh
