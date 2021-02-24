@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import Label from 'react-bootstrap/lib/Label';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -12,6 +11,7 @@ import keycode from 'keycode';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 
+import Tag from '../Tag';
 import Icon from '../Icon';
 import TooltipTrigger from '../TooltipTrigger';
 import { ActionDropdown } from '../Actions';
@@ -175,7 +175,12 @@ function TabBar(props) {
 							label={badge && badge.label ? `${badge.label} ${item.label}` : item.label}
 							tooltipPlacement={tooltipPlacement}
 						>
-							<span>
+							<span
+								className={classnames(
+									theme['tc-tab-bar-item-container'],
+									'tc-tab-bar-item-container',
+								)}
+							>
 								{icon && (
 									<Icon
 										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
@@ -184,16 +189,16 @@ function TabBar(props) {
 								)}
 								<span className={classnames(theme['tc-tab-bar-item-label'])}>{item.label}</span>
 								{badge && (
-									<Label
+									<Tag
 										className={classnames(
 											theme['tc-tab-bar-item-badge'],
 											'tc-tab-bar-item-badge',
 											badge.className,
 										)}
-										bsStyle={badge.bsStyle || 'default'}
+										bsStyle={badge.bsStyle}
 									>
 										{getTabBarBadgeLabel(badge.label)}
-									</Label>
+									</Tag>
 								)}
 							</span>
 						</TooltipTrigger>
