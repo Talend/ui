@@ -26,6 +26,16 @@ Types of changes
 
 ## [unreleased]
 
+## [0.4.1]
+
+### Fixed
+
+- [Tooltip not hiding while cursor out of the chart](https://github.com/Talend/ui/pull/3216):
+
+## [0.4.0]
+
+- [Add GeoChart component](https://github.com/Talend/ui/pull/3209):
+
 ## [0.3.1]
 
 ### Fixed

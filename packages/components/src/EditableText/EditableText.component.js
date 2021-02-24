@@ -30,7 +30,7 @@ export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgr
 			</TooltipTrigger>
 			<Action
 				name="action-edit"
-				label={t('MODIFY_TOOLTIP', { defaultValue: 'Edit' })}
+				label={t('MODIFY_TOOLTIP', { defaultValue: 'Rename' })}
 				icon="talend-pencil"
 				onClick={onEdit}
 				bsStyle="link"
