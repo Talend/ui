@@ -1,0 +1,30 @@
+{
+  "name": "@talend/router-bridge",
+  "version": "1.0.0",
+  "description": "Bridge on top of cmf-router or react-router v5 + connected-react-router",
+  "main": "lib/index.js",
+  "scripts": {
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "prepublishOnly": "yarn build:dev && yarn build:prod",
+    "build": "talend-scripts build:lib",
+    "test": "talend-scripts test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ithub.com/Talend/ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
+  "dependencies": {
+    "@talend/scripts-core": "^9.3.0",
+    "@talend/scripts-preset-react-lib": "^9.3.0"
+  },
+  "devDependencies": {
+    "connected-react-router": "^6.9.1",
+    "history": "^5.0.0",
+    "react": "^16.0.0",
+    "react-router-dom": "^5.2.0"
+  }
+}
