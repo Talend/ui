@@ -71,7 +71,8 @@ export default function InputDatePicker(props) {
 				id={popoverId}
 				role="button"
 				className={theme.popper}
-				ref={setPopperElement}
+				onFocus={() => setReferenceElement(inputRef.current)}
+				ref={inputRef}
 				style={styles.popper}
 				{...attributes.popper}
 				onMouseDown={onMouseDown}
