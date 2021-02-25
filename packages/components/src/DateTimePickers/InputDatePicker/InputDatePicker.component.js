@@ -36,7 +36,6 @@ function onMouseDown(event) {
 export default function InputDatePicker(props) {
 	const popoverId = `date-picker-${props.id || uuid.v4()}`;
 
-	const inputRef = useRef(null);
 	const containerRef = useRef(null);
 
 	const [referenceElement, setReferenceElement] = useState(null);
@@ -71,8 +70,7 @@ export default function InputDatePicker(props) {
 				id={popoverId}
 				role="button"
 				className={theme.popper}
-				onFocus={() => setReferenceElement(inputRef.current)}
-				ref={inputRef}
+				ref={setPopperElement}
 				style={styles.popper}
 				{...attributes.popper}
 				onMouseDown={onMouseDown}
@@ -86,7 +84,7 @@ export default function InputDatePicker(props) {
 		<DatePicker.Manager
 			value={props.value}
 			dateFormat={props.dateFormat}
-			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+			onChange={(...args) => handlers.onChange(...args, referenceElement)}
 			useUTC={props.useUTC}
 			timezone={props.timezone}
 		>
@@ -97,7 +95,7 @@ export default function InputDatePicker(props) {
 				onFocusIn={handlers.onFocus}
 				onFocusOut={handlers.onBlur}
 				onKeyDown={event => {
-					handlers.onKeyDown(event, inputRef.current);
+					handlers.onKeyDown(event, referenceElement);
 				}}
 			>
 				{datePicker}
