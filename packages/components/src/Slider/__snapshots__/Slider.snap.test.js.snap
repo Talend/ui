@@ -303,7 +303,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
     <div
       className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
-      <Memo(Icon)
+      <Icon
         className=""
         name="talend-smiley-rating"
       />
@@ -311,7 +311,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
     <div
       className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
-      <Memo(Icon)
+      <Icon
         className=""
         name="talend-most-trusted"
       />
@@ -319,7 +319,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
     <div
       className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
-      <Memo(Icon)
+      <Icon
         className="theme-selected selected"
         name="talend-network"
       />
@@ -327,7 +327,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
     <div
       className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
-      <Memo(Icon)
+      <Icon
         className=""
         name="talend-streams"
       />
@@ -335,7 +335,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
     <div
       className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
-      <Memo(Icon)
+      <Icon
         className=""
         name="talend-tdc-negative"
       />

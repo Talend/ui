@@ -2,17 +2,17 @@
 
 exports[`FormatValue should replace the leading/trainling white space and the line feeding 1`] = `
 <span>
-  <Memo(Icon)
+  <Icon
     aria-label="white space character"
     className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
     name="talend-empty-char"
   />
-  <Memo(Icon)
+  <Icon
     aria-label="space character"
     className="theme-td-white-space-character td-white-space-character"
     name="talend-empty-space"
   />
-  <Memo(Icon)
+  <Icon
     aria-label="space character"
     className="theme-td-white-space-character td-white-space-character"
     name="talend-empty-space"
@@ -21,7 +21,7 @@ exports[`FormatValue should replace the leading/trainling white space and the li
     loreum lo
   </span>
   <span>
-    <Memo(Icon)
+    <Icon
       aria-label="line feeding character"
       className="theme-td-white-space-character td-white-space-character"
       name="talend-carriage-return"
@@ -29,27 +29,27 @@ exports[`FormatValue should replace the leading/trainling white space and the li
     
 
   </span>
-  <Memo(Icon)
+  <Icon
     aria-label="white space character"
     className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
     name="talend-empty-char"
   />
-  <Memo(Icon)
+  <Icon
     aria-label="tab character"
     className="theme-td-white-space-character theme-td-tab-character td-white-space-character"
     name="talend-empty-cell"
   />
-  <Memo(Icon)
+  <Icon
     aria-label="space character"
     className="theme-td-white-space-character td-white-space-character"
     name="talend-empty-space"
   />
-  <Memo(Icon)
+  <Icon
     aria-label="tab character"
     className="theme-td-white-space-character theme-td-tab-character td-white-space-character"
     name="talend-empty-cell"
   />
-  <Memo(Icon)
+  <Icon
     aria-label="space character"
     className="theme-td-white-space-character td-white-space-character"
     name="talend-empty-space"

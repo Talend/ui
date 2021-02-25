@@ -193,10 +193,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <svg
-              aria-hidden="true"
-              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-filter"
-              focusable="false"
+            <div
+              data-mock-component="Icon"
+              data-mock-module="@talend/design-system"
               name="fa fa-filter"
               title="icon"
             />
@@ -330,10 +329,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <svg
-              aria-hidden="true"
-              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-asterisk"
-              focusable="false"
+            <div
+              data-mock-component="Icon"
+              data-mock-module="@talend/design-system"
               name="fa fa-asterisk"
               title="icon"
             />
@@ -525,10 +523,9 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <svg
-              aria-hidden="true"
-              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-filter"
-              focusable="false"
+            <div
+              data-mock-component="Icon"
+              data-mock-module="@talend/design-system"
               name="fa fa-filter"
               title="icon"
             />
@@ -616,10 +613,9 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <svg
-              aria-hidden="true"
-              className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-asterisk"
-              focusable="false"
+            <div
+              data-mock-component="Icon"
+              data-mock-module="@talend/design-system"
               name="fa fa-asterisk"
               title="icon"
             />
@@ -841,10 +837,9 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       <div
         className="theme-no-result no-result"
       >
-        <svg
-          aria-hidden="true"
-          className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-fieldglass"
-          focusable="false"
+        <div
+          data-mock-component="Icon"
+          data-mock-module="@talend/design-system"
           name="talend-fieldglass"
           title="No result."
         />
@@ -948,10 +943,9 @@ exports[`Typeahead with toggle should render button 1`] = `
   onMouseOver={[Function]}
   type="button"
 >
-  <svg
-    aria-hidden="true"
-    className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-search"
-    focusable="false"
+  <div
+    data-mock-component="Icon"
+    data-mock-module="@talend/design-system"
     name="fa fa-search"
   />
 </button>

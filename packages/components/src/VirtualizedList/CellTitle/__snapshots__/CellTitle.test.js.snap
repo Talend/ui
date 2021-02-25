@@ -305,7 +305,7 @@ exports[`CellTitle icon should render icon with tooltip when iconLabelKey is pro
     tooltipPlacement="top"
   >
     <span>
-      <Memo(Icon)
+      <Icon
         className="theme-icon"
         name="talend-file-o"
       />
@@ -350,7 +350,7 @@ exports[`CellTitle should render title selector component 1`] = `
   className="theme-tc-list-title tc-list-title theme-tc-list-title-filter tc-list-title-filter"
   id="my-title-1-title-cell"
 >
-  <Memo(Icon)
+  <Icon
     className="theme-icon"
     name="talend-file-o"
   />

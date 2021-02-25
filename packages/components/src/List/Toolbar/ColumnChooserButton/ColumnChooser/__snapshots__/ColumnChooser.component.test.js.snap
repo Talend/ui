@@ -17,12 +17,12 @@ exports[`ColumnChooser should render with default props 1`] = `
       role="search"
 >
   <div class="form-group">
-    <svg name="talend-search"
-         focusable="false"
-         aria-hidden="true"
-         class="sc-EHOje iyUYnG tc-svg-icon theme-search-icon tc-icon-name-talend-search"
+    <div data-mock-module="@talend/design-system"
+         data-mock-component="Icon"
+         name="talend-search"
+         class="theme-search-icon"
     >
-    </svg>
+    </div>
     <input name="search"
            placeholder="Find a column"
            autocomplete="off"

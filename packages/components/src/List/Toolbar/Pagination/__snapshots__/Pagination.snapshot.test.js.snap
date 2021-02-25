@@ -104,10 +104,9 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-end"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-end"
       />
     </a>
@@ -129,10 +128,9 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-left"
       />
     </a>
@@ -156,11 +154,11 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-left"
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -175,11 +173,11 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-end"
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -284,10 +282,9 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-end"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-end"
       />
     </a>
@@ -303,10 +300,9 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-left"
       />
     </a>
@@ -336,11 +332,11 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-left"
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -361,11 +357,11 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-end"
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -740,10 +736,9 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-end"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-end"
       />
     </a>
@@ -759,10 +754,9 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-left"
       />
     </a>
@@ -786,11 +780,11 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-left"
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -805,11 +799,11 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-end"
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -915,10 +909,9 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-end"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-end"
       />
     </a>
@@ -935,10 +928,9 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-chevron-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-left"
       />
     </a>
@@ -963,11 +955,11 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-left"
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -983,11 +975,11 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon rotate-180 tc-icon-name-talend-chevron-end"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-chevron-end"
+        transform="rotate-180"
       />
     </a>
   </li>

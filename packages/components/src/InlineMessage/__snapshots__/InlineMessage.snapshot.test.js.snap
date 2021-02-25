@@ -7,10 +7,9 @@ exports[`InlineMessage should render with higligthed background 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <svg
-      aria-hidden="true"
-      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-check-circle"
-      focusable="false"
+    <div
+      data-mock-component="Icon"
+      data-mock-module="@talend/design-system"
       name="talend-check-circle"
     />
   </span>
@@ -38,10 +37,9 @@ exports[`InlineMessage should render with icon and description 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <svg
-      aria-hidden="true"
-      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-check-circle"
-      focusable="false"
+    <div
+      data-mock-component="Icon"
+      data-mock-module="@talend/design-system"
       name="talend-check-circle"
     />
   </span>
@@ -65,10 +63,9 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <svg
-      aria-hidden="true"
-      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-check-circle"
-      focusable="false"
+    <div
+      data-mock-component="Icon"
+      data-mock-module="@talend/design-system"
       name="talend-check-circle"
     />
   </span>
@@ -96,10 +93,9 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <svg
-      aria-hidden="true"
-      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-check-circle"
-      focusable="false"
+    <div
+      data-mock-component="Icon"
+      data-mock-module="@talend/design-system"
       name="talend-check-circle"
     />
   </span>
@@ -133,10 +129,9 @@ exports[`InlineMessage should render with title and description 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <svg
-      aria-hidden="true"
-      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-"
-      focusable="false"
+    <div
+      data-mock-component="Icon"
+      data-mock-module="@talend/design-system"
       name=""
     />
   </span>

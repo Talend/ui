@@ -6,11 +6,10 @@ exports[`Intercom button should render a button 1`] = `
         class="btn btn-link tc-intercom theme-tc-intercom"
         aria-describedby="42"
 >
-  <svg name="talend-bubbles"
-       focusable="false"
-       aria-hidden="true"
-       class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-bubbles"
+  <div data-mock-module="@talend/design-system"
+       data-mock-component="Icon"
+       name="talend-bubbles"
   >
-  </svg>
+  </div>
 </button>
 `;

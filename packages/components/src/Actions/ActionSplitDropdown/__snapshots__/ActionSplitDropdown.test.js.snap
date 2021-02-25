@@ -9,7 +9,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
   onClick={[MockFunction]}
   title={
     <span>
-      <Memo(Icon)
+      <Icon
         name="fa fa-plus"
       />
       <span>
@@ -39,7 +39,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
   onClick={[MockFunction]}
   title={
     <span>
-      <Memo(Icon)
+      <Icon
         name="fa fa-plus"
       />
       <span>
@@ -124,7 +124,7 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
   onClick={[MockFunction]}
   title={
     <span>
-      <Memo(Icon)
+      <Icon
         name="fa fa-plus"
       />
       <span>
@@ -143,7 +143,7 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
     label="From Local"
     onClick={[Function]}
   >
-    <Memo(Icon)
+    <Icon
       name="fa fa-plus"
     />
     From Local
@@ -157,7 +157,7 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
     label="From Remote"
     onClick={[Function]}
   >
-    <Memo(Icon)
+    <Icon
       name="fa fa-plus"
     />
     From Remote

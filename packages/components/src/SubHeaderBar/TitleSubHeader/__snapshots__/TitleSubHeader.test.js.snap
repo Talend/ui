@@ -24,7 +24,7 @@ exports[`TitleSubHeader should render 1`] = `
 <div
   className="tc-subheader-details theme-tc-subheader-details"
 >
-  <Memo(Icon)
+  <Icon
     className="tc-subheader-details-icon theme-tc-subheader-details-icon"
     name="myIconId"
   />

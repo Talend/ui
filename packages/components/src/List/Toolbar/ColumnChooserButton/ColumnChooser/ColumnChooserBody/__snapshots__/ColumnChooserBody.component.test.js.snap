@@ -32,23 +32,23 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
       </div>
       <div class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list">
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <svg name="talend-locked"
-               focusable="false"
-               aria-hidden="true"
-               class="sc-EHOje iyUYnG tc-svg-icon tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon tc-icon-name-talend-locked"
+          <div data-mock-module="@talend/design-system"
+               data-mock-component="Icon"
+               name="talend-locked"
+               class="tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
           >
-          </svg>
+          </div>
           <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
             col1
           </span>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <svg name="talend-locked"
-               focusable="false"
-               aria-hidden="true"
-               class="sc-EHOje iyUYnG tc-svg-icon tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon tc-icon-name-talend-locked"
+          <div data-mock-module="@talend/design-system"
+               data-mock-component="Icon"
+               name="talend-locked"
+               class="tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
           >
-          </svg>
+          </div>
           <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
             col2
           </span>

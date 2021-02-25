@@ -17,12 +17,12 @@ exports[`AppSwitcher should render the products 1`] = `
         <span class="tc-dropdown-button-title-label">
           My App
         </span>
-        <svg name="talend-caret-down"
-             focusable="false"
-             aria-hidden="true"
-             class="sc-EHOje iyUYnG tc-svg-icon theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+        <div data-mock-module="@talend/design-system"
+             data-mock-component="Icon"
+             name="talend-caret-down"
+             class="theme-tc-dropdown-caret"
         >
-        </svg>
+        </div>
       </button>
       <ul role="menu"
           class="dropdown-menu"
@@ -38,12 +38,11 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tdp-colored"
-                 focusable="false"
-                 aria-hidden="true"
-                 class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-tdp-colored"
+            <div data-mock-module="@talend/design-system"
+                 data-mock-component="Icon"
+                 name="talend-tdp-colored"
             >
-            </svg>
+            </div>
             Data Preparation
           </a>
         </li>
@@ -57,12 +56,11 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tic-colored"
-                 focusable="false"
-                 aria-hidden="true"
-                 class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-tic-colored"
+            <div data-mock-module="@talend/design-system"
+                 data-mock-component="Icon"
+                 name="talend-tic-colored"
             >
-            </svg>
+            </div>
             Integration Cloud
           </a>
         </li>
@@ -76,12 +74,11 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tmc-colored"
-                 focusable="false"
-                 aria-hidden="true"
-                 class="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-tmc-colored"
+            <div data-mock-module="@talend/design-system"
+                 data-mock-component="Icon"
+                 name="talend-tmc-colored"
             >
-            </svg>
+            </div>
             Management Console
           </a>
         </li>

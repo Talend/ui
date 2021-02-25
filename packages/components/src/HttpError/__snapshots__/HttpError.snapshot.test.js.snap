@@ -41,10 +41,9 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
       role="link"
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-arrow-left"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="talend-arrow-left"
       />
       <span>

@@ -27,10 +27,9 @@ exports[`Header should render filter header 1`] = `
     role="link"
     type="button"
   >
-    <svg
-      aria-hidden="true"
-      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-talend-cross"
-      focusable="false"
+    <div
+      data-mock-component="Icon"
+      data-mock-module="@talend/design-system"
       name="talend-cross"
     />
   </button>

@@ -14,7 +14,7 @@ exports[`CellIconText should render an icon cell with an icon 1`] = `
 <div
   className="tc-icon-text theme-tc-icon-text"
 >
-  <Memo(Icon)
+  <Icon
     name="talend-list"
   />
   <span
@@ -29,7 +29,7 @@ exports[`CellIconText should render an icon cell with an icon using the getIcon 
 <div
   className="tc-icon-text theme-tc-icon-text"
 >
-  <Memo(Icon)
+  <Icon
     name="hihihi-list"
   />
   <span

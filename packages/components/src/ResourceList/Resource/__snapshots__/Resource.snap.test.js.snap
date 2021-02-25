@@ -9,7 +9,7 @@ exports[`Resource component snaps renderers should render a Resource with CERTIF
   tabIndex="0"
 >
   <React.Fragment>
-    <Memo(Icon)
+    <Icon
       className="theme-icon"
       name="talend-file-xls-o"
     />
@@ -30,11 +30,11 @@ exports[`Resource component snaps renderers should render a Resource with CERTIF
     <div
       className="flags-container theme-flags-container"
     >
-      <Memo(Icon)
+      <Icon
         className="theme-flag theme-visible"
         name="talend-badge"
       />
-      <Memo(Icon)
+      <Icon
         className="theme-flag"
         name="talend-star"
       />
@@ -52,7 +52,7 @@ exports[`Resource component snaps renderers should render a Resource with FAVORI
   tabIndex="0"
 >
   <React.Fragment>
-    <Memo(Icon)
+    <Icon
       className="theme-icon"
       name="talend-file-xls-o"
     />
@@ -73,11 +73,11 @@ exports[`Resource component snaps renderers should render a Resource with FAVORI
     <div
       className="flags-container theme-flags-container"
     >
-      <Memo(Icon)
+      <Icon
         className="theme-flag"
         name="talend-badge"
       />
-      <Memo(Icon)
+      <Icon
         className="theme-flag theme-visible"
         name="talend-star"
       />
@@ -95,7 +95,7 @@ exports[`Resource component snaps renderers should render a Resource with both C
   tabIndex="0"
 >
   <React.Fragment>
-    <Memo(Icon)
+    <Icon
       className="theme-icon"
       name="talend-file-xls-o"
     />
@@ -116,11 +116,11 @@ exports[`Resource component snaps renderers should render a Resource with both C
     <div
       className="flags-container theme-flags-container"
     >
-      <Memo(Icon)
+      <Icon
         className="theme-flag theme-visible"
         name="talend-badge"
       />
-      <Memo(Icon)
+      <Icon
         className="theme-flag theme-visible"
         name="talend-star"
       />
@@ -138,7 +138,7 @@ exports[`Resource component snaps renderers should render a Resource with just a
   tabIndex="0"
 >
   <React.Fragment>
-    <Memo(Icon)
+    <Icon
       className="theme-icon"
       name="talend-file-xls-o"
     />
@@ -160,11 +160,11 @@ exports[`Resource component snaps renderers should render a Resource with just a
     <div
       className="flags-container theme-flags-container"
     >
-      <Memo(Icon)
+      <Icon
         className="theme-flag"
         name="talend-badge"
       />
-      <Memo(Icon)
+      <Icon
         className="theme-flag"
         name="talend-star"
       />
@@ -199,11 +199,11 @@ exports[`Resource component snaps renderers should render a Resource without ico
     <div
       className="flags-container theme-flags-container"
     >
-      <Memo(Icon)
+      <Icon
         className="theme-flag"
         name="talend-badge"
       />
-      <Memo(Icon)
+      <Icon
         className="theme-flag"
         name="talend-star"
       />
@@ -221,7 +221,7 @@ exports[`Resource component snaps renderers should render a regular Resource 1`]
   tabIndex="0"
 >
   <React.Fragment>
-    <Memo(Icon)
+    <Icon
       className="theme-icon"
       name="talend-file-xls-o"
     />
@@ -242,11 +242,11 @@ exports[`Resource component snaps renderers should render a regular Resource 1`]
     <div
       className="flags-container theme-flags-container"
     >
-      <Memo(Icon)
+      <Icon
         className="theme-flag"
         name="talend-badge"
       />
-      <Memo(Icon)
+      <Icon
         className="theme-flag"
         name="talend-star"
       />

@@ -27,10 +27,9 @@ exports[`Status should render a label 1`] = `
       role={null}
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-cancel"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="fa fa-cancel"
       />
       <span>
@@ -46,10 +45,9 @@ exports[`Status should render a label 1`] = `
       role={null}
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-delete"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="fa fa-delete"
       />
       <span>
@@ -68,10 +66,9 @@ exports[`Status should render a label with Icon 1`] = `
   <span
     className="theme-tc-status-icon tc-status-icon theme-success"
   >
-    <svg
-      aria-hidden="true"
-      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-check"
-      focusable="false"
+    <div
+      data-mock-component="Icon"
+      data-mock-module="@talend/design-system"
       name="fa fa-check"
     />
   </span>
@@ -92,10 +89,9 @@ exports[`Status should render a label with Icon 1`] = `
       role={null}
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-cancel"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="fa fa-cancel"
       />
       <span>
@@ -111,10 +107,9 @@ exports[`Status should render a label with Icon 1`] = `
       role={null}
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-delete"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="fa fa-delete"
       />
       <span>
@@ -133,10 +128,9 @@ exports[`Status should render a label with Icon without actions 1`] = `
   <span
     className="theme-tc-status-icon tc-status-icon theme-success"
   >
-    <svg
-      aria-hidden="true"
-      className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-check"
-      focusable="false"
+    <div
+      data-mock-component="Icon"
+      data-mock-module="@talend/design-system"
       name="fa fa-check"
     />
   </span>
@@ -198,10 +192,9 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       role={null}
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-cancel"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="fa fa-cancel"
       />
       <span>
@@ -217,10 +210,9 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       role={null}
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-delete"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="fa fa-delete"
       />
       <span>
@@ -278,10 +270,9 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       role={null}
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-cancel"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="fa fa-cancel"
       />
       <span>
@@ -297,10 +288,9 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       role={null}
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="sc-EHOje iyUYnG tc-svg-icon tc-icon-name-fa fa-delete"
-        focusable="false"
+      <div
+        data-mock-component="Icon"
+        data-mock-module="@talend/design-system"
         name="fa fa-delete"
       />
       <span>

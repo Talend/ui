@@ -14,7 +14,7 @@ exports[`ActionFile should apply transformation on icon 1`] = `
     data-feature="action.feature"
     htmlFor="42"
   >
-    <Memo(Icon)
+    <Icon
       name="talend-caret-down"
       transform="rotate-180"
     />
@@ -68,7 +68,7 @@ exports[`ActionFile should display a disabled Icon 1`] = `
     data-feature="action.feature"
     htmlFor="42"
   >
-    <Memo(Icon)
+    <Icon
       name="talend-caret-down"
     />
     <span>
@@ -94,7 +94,7 @@ exports[`ActionFile should pass all props to the Button 1`] = `
     data-feature="action.feature"
     htmlFor="42"
   >
-    <Memo(Icon)
+    <Icon
       name="talend-caret-down"
     />
     <span>
@@ -118,7 +118,7 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
     data-feature="action.feature"
     htmlFor="42"
   >
-    <Memo(Icon)
+    <Icon
       name="talend-caret-down"
     />
     <span>
@@ -144,7 +144,7 @@ exports[`ActionFile should render a div with a input[type="file"] with some clas
     data-feature="action.feature"
     htmlFor="42"
   >
-    <Memo(Icon)
+    <Icon
       name="talend-caret-down"
     />
     <span>
@@ -169,7 +169,7 @@ exports[`ActionFile should render action with html property name = props.name if
     data-feature="action.feature"
     htmlFor="42"
   >
-    <Memo(Icon)
+    <Icon
       name="talend-caret-down"
     />
     <span>
@@ -196,7 +196,7 @@ exports[`ActionFile should reverse icon/label 1`] = `
     <span>
       Click me
     </span>
-    <Memo(Icon)
+    <Icon
       name="talend-caret-down"
     />
   </label>
