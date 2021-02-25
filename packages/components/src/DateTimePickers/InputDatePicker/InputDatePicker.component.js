@@ -36,9 +36,6 @@ function onMouseDown(event) {
 export default function InputDatePicker(props) {
 	const popoverId = `date-picker-${props.id || uuid.v4()}`;
 
-	const inputRef = useRef(null);
-	const containerRef = useRef(null);
-
 	const [referenceElement, setReferenceElement] = useState(null);
 	const [popperElement, setPopperElement] = useState(null);
 	const { styles, attributes } = usePopper(referenceElement, popperElement, {
@@ -54,7 +51,7 @@ export default function InputDatePicker(props) {
 		disabled: props.disabled,
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
-		handleKeyDown: () => focusOnCalendar(containerRef.current),
+		handleKeyDown: () => focusOnCalendar(popperElement),
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
@@ -75,6 +72,7 @@ export default function InputDatePicker(props) {
 				style={styles.popper}
 				{...attributes.popper}
 				onMouseDown={onMouseDown}
+				key="popper"
 			>
 				<DatePicker.Picker {...props} />
 			</div>
@@ -85,18 +83,17 @@ export default function InputDatePicker(props) {
 		<DatePicker.Manager
 			value={props.value}
 			dateFormat={props.dateFormat}
-			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+			onChange={(...args) => handlers.onChange(...args, referenceElement)}
 			useUTC={props.useUTC}
 			timezone={props.timezone}
 		>
 			<FocusManager
 				className={classnames(theme['date-picker'], 'date-picker')}
-				divRef={containerRef}
 				onClick={handlers.onClick}
 				onFocusIn={handlers.onFocus}
 				onFocusOut={handlers.onBlur}
 				onKeyDown={event => {
-					handlers.onKeyDown(event, inputRef.current);
+					handlers.onKeyDown(event, referenceElement);
 				}}
 			>
 				{datePicker}
