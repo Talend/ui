@@ -25,6 +25,11 @@
 		float: none;
 		display: inline-block;
 
+		&-container {
+			display: flex;
+			align-items: baseline;
+		}
+
 		&-icon {
 			margin-right: $padding-smaller;
 			width: $svg-sm-size;

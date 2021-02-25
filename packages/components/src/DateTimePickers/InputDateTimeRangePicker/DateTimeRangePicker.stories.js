@@ -24,6 +24,15 @@ storiesOf('Form/Controls/DatePicker/Date Time Range', module)
 			useSeconds
 		/>
 	))
+	.add('Disabled', () => (
+		<InputDateTimeRangePicker
+			disabled
+			id="my-datetime-range-picker"
+			onChange={action('onChange')}
+			onBlur={action('onBlur')}
+			useSeconds
+		/>
+	))
 	.add('minWidth', () => (
 		<InputDateTimeRangePicker
 			id="my-datetime-range-picker"

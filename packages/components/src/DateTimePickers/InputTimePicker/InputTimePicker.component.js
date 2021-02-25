@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
-import { Popper } from 'react-popper';
+import { usePopper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import Time from '../Time';
@@ -26,10 +26,21 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 export default function InputTimePicker(props) {
 	const popoverId = `time-picker-${props.id || uuid.v4()}`;
 
-	const inputRef = useRef(null);
 	const containerRef = useRef(null);
 
+	const [referenceElement, setReferenceElement] = useState(null);
+	const [popperElement, setPopperElement] = useState(null);
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+		modifiers: [
+			{ name: 'hide', enabled: false },
+			{ name: 'preventOverflow', enabled: false },
+		],
+		strategy: 'fixed',
+		placement: 'bottom-start',
+	});
+
 	const handlers = useInputPickerHandlers({
+		disabled: props.disabled,
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
 		handleKeyDown: () => focusOnTime(containerRef.current),
@@ -41,29 +52,19 @@ export default function InputTimePicker(props) {
 			{...inputProps}
 			id={`${props.id}-input`}
 			key="input"
-			inputRef={inputRef}
+			inputRef={setReferenceElement}
 		/>,
 		handlers.showPicker && (
-			<Popper
+			<div
 				key="popper"
-				modifiers={{
-					hide: {
-						enabled: false,
-					},
-					preventOverflow: {
-						enabled: false,
-					},
-				}}
-				placement={handlers.getPopperPlacement(inputRef.current)}
-				positionFixed
-				referenceElement={inputRef.current}
+				id={popoverId}
+				className={theme.popper}
+				ref={setPopperElement}
+				style={styles.popper}
+				{...attributes.popper}
 			>
-				{({ ref, style }) => (
-					<div id={popoverId} className={theme.popper} style={style} ref={ref}>
-						<Time.Picker {...props} />
-					</div>
-				)}
-			</Popper>
+				<Time.Picker {...props} />
+			</div>
 		),
 		props.timezone && <TimeZone key="timezone" timezone={props.timezone} />,
 	].filter(Boolean);
@@ -72,7 +73,7 @@ export default function InputTimePicker(props) {
 			value={props.value}
 			useSeconds={props.useSeconds}
 			timezone={props.timezone}
-			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+			onChange={(...args) => handlers.onChange(...args, referenceElement)}
 		>
 			<FocusManager
 				className={classnames(theme['time-picker'], 'time-picker')}
@@ -81,7 +82,7 @@ export default function InputTimePicker(props) {
 				onFocusIn={handlers.onFocus}
 				onFocusOut={handlers.onBlur}
 				onKeyDown={event => {
-					handlers.onKeyDown(event, inputRef.current, containerRef.current);
+					handlers.onKeyDown(event, referenceElement, containerRef.current);
 				}}
 			>
 				{timePicker}
@@ -99,6 +100,7 @@ InputTimePicker.propTypes = {
 	onBlur: PropTypes.func,
 	timezone: PropTypes.string,
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+	disabled: PropTypes.bool,
 };
 
 InputTimePicker.defaultProps = {

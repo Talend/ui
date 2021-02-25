@@ -39,11 +39,9 @@ exports[`Typeahead injection should use render props to inject extra components 
     role="listbox"
     style={
       Object {
-        "left": 0,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "top": 0,
+        "left": "0",
+        "position": "fixed",
+        "top": "0",
       }
     }
   >
@@ -172,11 +170,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     role="listbox"
     style={
       Object {
-        "left": 0,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "top": 0,
+        "left": "0",
+        "position": "fixed",
+        "top": "0",
       }
     }
   >
@@ -441,11 +437,9 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
     role="listbox"
     style={
       Object {
-        "left": 0,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "top": 0,
+        "left": "0",
+        "position": "fixed",
+        "top": "0",
       }
     }
   >
@@ -508,11 +502,9 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     role="listbox"
     style={
       Object {
-        "left": 0,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "top": 0,
+        "left": "0",
+        "position": "fixed",
+        "top": "0",
       }
     }
   >
@@ -719,11 +711,9 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     role="listbox"
     style={
       Object {
-        "left": 0,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "top": 0,
+        "left": "0",
+        "position": "fixed",
+        "top": "0",
       }
     }
   >
@@ -834,11 +824,9 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     role="listbox"
     style={
       Object {
-        "left": 0,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "top": 0,
+        "left": "0",
+        "position": "fixed",
+        "top": "0",
       }
     }
   >

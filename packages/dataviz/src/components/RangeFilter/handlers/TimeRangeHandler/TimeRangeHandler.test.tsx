@@ -41,8 +41,16 @@ describe('TimeRangeHandler', () => {
 		expect(onChange).toHaveBeenCalledWith(H11_11_11_IN_SECS);
 	});
 
-	it('Should format tick', () => {
-		const max = TimeRangeHandler.tickFormatter(H11_11_11_IN_SECS);
-		expect(max).toEqual('11:11:11');
+	it('Should create ticks', () => {
+		const ticks = TimeRangeHandler.getTicks({
+			min: H11_11_11_IN_SECS,
+			max: H11_11_11_IN_SECS + 3600 * 4,
+		});
+		expect(ticks).toEqual({
+			'40271': '11:11:11',
+			'45000': '12:30:00',
+			'50000': '13:53:20',
+			'54671': '15:11:11',
+		});
 	});
 });

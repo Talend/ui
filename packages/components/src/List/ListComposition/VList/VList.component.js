@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import isEqual from 'lodash/isEqual';
+import map from 'lodash/map';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
@@ -16,12 +18,17 @@ function VList({ children, ...rest }) {
 		setSortParams,
 		sortParams,
 		setColumns,
+		columns,
 	} = useListContext();
 
 	React.useEffect(() => {
 		if (Array.isArray(children)) {
-			setColumns(children.filter(column => column.props?.dataKey).map(column => column.props));
+			const next = children.filter(column => column.props?.dataKey).map(column => column.props);
+			if (!isEqual(map(next, 'dataKey'), map(columns, 'dataKey'))) {
+				setColumns(next);
+			}
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [children, setColumns]);
 
 	return (

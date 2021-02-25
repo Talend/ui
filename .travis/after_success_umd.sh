@@ -32,8 +32,8 @@ cp -R packages/icons/dist/* .static/@talend/icons/dist
 echo "✓ Copy icons UMD to .static"
 
 mkdir -p .static/@talend/react-cmf-router/dist
-cp -R packages/router/dist/* .static/@talend/react-cmf-router/dist
-echo "✓ Copy router UMD to .static"
+cp -R packages/cmf-router/dist/* .static/@talend/react-cmf-router/dist
+echo "✓ Copy cmf-router UMD to .static"
 
 mkdir -p .static/@talend/react-sagas/dist
 cp -R packages/sagas/dist/* .static/@talend/react-sagas/dist
@@ -43,6 +43,6 @@ mkdir -p .static/@talend/react-stepper/dist
 cp -R packages/stepper/dist/* .static/@talend/react-stepper/dist
 echo "✓ Copy stepper UMD to .static"
 
-mkdir -p .static/@talend/bootrap-theme/dist
-cp -R packages/theme/dist/* .static/@talend/bootrap-theme/dist
-echo "✓ Copy bootrap-theme UMD to .static"
+mkdir -p .static/@talend/bootstrap-theme/dist
+cp -R packages/theme/dist/* .static/@talend/bootstrap-theme/dist
+echo "✓ Copy bootstrap-theme UMD to .static"

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -23,7 +24,7 @@ class CellTitle extends React.Component {
 	shouldComponentUpdate(nextProps) {
 		return (
 			this.props.cellData !== nextProps.cellData ||
-			this.props.columnData !== nextProps.columnData ||
+			!isEqual(this.props.columnData, nextProps.columnData) ||
 			this.props.getComponent !== nextProps.getComponent ||
 			this.props.rowData !== nextProps.rowData ||
 			this.props.rowIndex !== nextProps.rowIndex ||

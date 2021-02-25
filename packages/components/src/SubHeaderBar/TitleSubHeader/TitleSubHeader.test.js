@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Label } from 'react-bootstrap';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import Action from '../../Actions/Action';
+import Tag from '../../Tag';
 import EditableText from '../../EditableText';
 import TitleSubHeader, { SubTitle } from './TitleSubHeader.component';
 
@@ -51,6 +51,18 @@ describe('TitleSubHeader', () => {
 			'tc-subheader-details theme-tc-subheader-details tc-subheader-details-blink theme-tc-subheader-details-blink',
 		);
 	});
+	it('should go in edit mode', () => {
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
+		const findEditableText = () => wrapper.find('[feature="subheaderbar.rename"]');
+
+		findEditableText().props().onEdit();
+
+		expect(findEditableText().props().editMode).toEqual(true);
+
+		findEditableText().props().onCancel();
+
+		expect(findEditableText().props().editMode).toEqual(false);
+	});
 });
 
 describe('TitleSubHeader', () => {
@@ -96,10 +108,10 @@ describe('SubTitle', () => {
 		const wrapper = shallow(
 			<SubTitle
 				{...defaultProps}
-				subTitleAs={({ subTitle }) => <Label className="label-info">{subTitle}</Label>}
+				subTitleAs={({ subTitle }) => <Tag bsStyle="info">{subTitle}</Tag>}
 			/>,
 		);
-		expect(wrapper.find(Label)).not.toBe(null);
+		expect(wrapper.find(Tag)).not.toBe(null);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { distanceInWordsToNow, format } from 'date-fns';
+import { formatToTimeZone } from 'date-fns-timezone';
 
 import { computeValue, CellDatetimeComponent } from './CellDatetime.component';
 import getDefaultT from '../../translate';
@@ -11,6 +12,10 @@ jest.mock('../../i18n/DateFnsLocale/locale');
 jest.mock('date-fns', () => ({
 	format: jest.fn(() => '2016-09-22 09:00:00'),
 	distanceInWordsToNow: jest.fn(() => 'about 1 month ago'),
+}));
+
+jest.mock('date-fns-timezone', () => ({
+	formatToTimeZone: jest.fn(() => '2016-09-22 09:00:00'),
 }));
 
 describe('CellDatetime', () => {
@@ -47,6 +52,20 @@ describe('CellDatetime', () => {
 		expect(cellValue).toEqual('');
 	});
 
+	it('should render CellDatetime with invalid date', () => {
+		// when
+		const columnData = {
+			mode: 'format',
+		};
+
+		const cellData = 'not parsable date';
+
+		const wrapper = shallow(<CellDatetimeComponent cellData={cellData} columnData={columnData} />);
+		// then
+		const cellValue = wrapper.find('.cell-datetime-container').text();
+		expect(cellValue).toEqual(cellData);
+	});
+
 	it('should format with "ago"', () => {
 		// when
 		const columnData = {
@@ -79,7 +98,7 @@ describe('CellDatetime', () => {
 		expect(format).toHaveBeenCalledWith(cellDataWithOffset, columnData.pattern);
 	});
 
-	it('should test CellDatetime render with tooltip', () => {
+	it('should render CellDatetime with tooltip in ago mode', () => {
 		// when
 		const columnData = {
 			mode: 'ago',
@@ -91,5 +110,22 @@ describe('CellDatetime', () => {
 		expect(wrapper.find('TooltipTrigger').length).toBe(1);
 		expect(wrapper.find('TooltipTrigger').getElement().props.label).toBe('2016-09-22 09:00:00');
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should format with timezone', () => {
+		// when
+		const columnData = {
+			mode: 'format',
+			pattern: 'YYYY-MM-DD HH:mm:ss',
+			timeZone: 'Pacific/Niue',
+		};
+
+		const cellData = 1474495200000;
+		computeValue(cellData, columnData);
+
+		// then
+		expect(formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
+			timeZone: columnData.timeZone,
+		});
 	});
 });

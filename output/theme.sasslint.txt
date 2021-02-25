@@ -11,12 +11,13 @@ src/theme/_forms.scss
     6:24  error    Parenthesis should be removed                            empty-args
    34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  121:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  136:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  285:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  298:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  365:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  405:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   75:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  123:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  138:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  287:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  300:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  367:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  407:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_labels.scss
   42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
@@ -33,5 +34,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 18 problems (12 errors, 6 warnings)
+✖ 19 problems (13 errors, 6 warnings)
 
