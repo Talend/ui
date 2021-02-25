@@ -12,18 +12,13 @@ The library need to duplicate the route mapping
 - cmf-router: based on settings
 - react-router v5: Route component
 
-<div style="display: flex; margin: 10px">
-	<div style="margin-right: 3rem">
-		<h2>CMF-router mode</h2>
-		<img src="./img/route-mapping-cmf.png" alt="Applications with cmf-router will only use the route definition from settings">
-	</div>
-	<div>
-		<h2>React-router v5 mode</h2>
-		<img src="./img/route-mapping-rrv5.png" alt="Applications with react-router v5 will use the router-bridge routing definition that is a layer on top of react-router v5">
-	</div>
-</div>
+**CMF-router mode**
+![Applications with cmf-router will only use the route definition from settings](./img/route-mapping-cmf.png)
 
-`@talend/router-bridge` stay on top of `react-router-dom`. It serves react-router v5 components if it is loaded. Otherwise, nothing is rendered. So those route mapping can be used safely, they just won't set anything with `cmf-router`.
+**React-router v5 mode**
+![Applications with react-router v5 will use the router-bridge routing definition that is a layer on top of react-router v5](./img/route-mapping-rrv5.png)
+
+`@talend/router-bridge` stays on top of `react-router-dom`. It serves react-router v5 components if it is loaded. Otherwise, nothing is rendered. So those route mapping can be used safely, they just won't set anything with `cmf-router`.
 
 ```javascript
 import { Switch, Route } from '@talend/router-bridge';
