@@ -1,0 +1,36 @@
+name: Upgrade @storybook dependencies
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 10 * * MON"
+
+jobs:
+  upgrade:
+    name: Upgrade @storybook dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Upgrade storybook dependencies
+        run: |
+          npx sb@latest upgrade
+          npx yarn-deduplicate yarn.lock
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          assignees: frassinier
+          reviewers: frassinier
+          commit-message: "chore(Storybook): bump version"
+          title: "chore(Storybook): bump version"
+          body: "https://github.com/storybookjs/storybook/blob/master/CHANGELOG.md"
+          branch: chore/storybook
+          branch-suffix: timestamp
