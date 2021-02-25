@@ -32,23 +32,19 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
       </div>
       <div class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list">
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Icon"
-               name="talend-locked"
-               class="tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
+          <coral.icon name="talend-locked"
+                      class="tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
           >
-          </div>
+          </coral.icon>
           <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
             col1
           </span>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Icon"
-               name="talend-locked"
-               class="tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
+          <coral.icon name="talend-locked"
+                      class="tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
           >
-          </div>
+          </coral.icon>
           <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
             col2
           </span>

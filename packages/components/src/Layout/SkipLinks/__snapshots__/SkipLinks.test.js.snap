@@ -28,9 +28,7 @@ exports[`Skip links should render navigation link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <div
-                  data-mock-component="Icon"
-                  data-mock-module="@talend/design-system"
+                <Coral.Icon
                   name="talend-arrow-left"
                   transform="rotate-270"
                 />
@@ -61,9 +59,7 @@ exports[`Skip links should render navigation link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <div
-                  data-mock-component="Icon"
-                  data-mock-module="@talend/design-system"
+                <Coral.Icon
                   name="talend-arrow-left"
                   transform="rotate-270"
                 />
@@ -109,9 +105,7 @@ exports[`Skip links should render only main link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <div
-                  data-mock-component="Icon"
-                  data-mock-module="@talend/design-system"
+                <Coral.Icon
                   name="talend-arrow-left"
                   transform="rotate-270"
                 />

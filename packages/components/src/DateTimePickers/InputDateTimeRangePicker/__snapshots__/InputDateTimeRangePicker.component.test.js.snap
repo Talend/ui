@@ -297,10 +297,8 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           className="theme-icon icon"
           name="talend-arrow-right"
         >
-          <div
+          <Coral.Icon
             className="theme-icon icon"
-            data-mock-component="Icon"
-            data-mock-module="@talend/design-system"
             name="talend-arrow-right"
           />
         </Icon>
@@ -918,10 +916,8 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
           className="theme-icon icon"
           name="talend-arrow-right"
         >
-          <div
+          <Coral.Icon
             className="theme-icon icon"
-            data-mock-component="Icon"
-            data-mock-module="@talend/design-system"
             name="talend-arrow-right"
           />
         </Icon>

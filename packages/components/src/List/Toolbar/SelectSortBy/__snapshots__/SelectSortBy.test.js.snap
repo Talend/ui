@@ -72,15 +72,11 @@ exports[`SelectSortBy should render 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-sort-asc"
       />
-      <div
+      <Coral.Icon
         className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
         name="talend-caret-down"
         transform="rotate-180"
       />
@@ -164,15 +160,11 @@ exports[`SelectSortBy should render id if provided 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-sort-asc"
       />
-      <div
+      <Coral.Icon
         className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
         name="talend-caret-down"
         transform="rotate-180"
       />
@@ -202,15 +194,11 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-sort-asc"
       />
-      <div
+      <Coral.Icon
         className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
         name="talend-caret-down"
         transform="rotate-180"
       />

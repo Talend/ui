@@ -31,12 +31,10 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <div data-mock-module="@talend/design-system"
-         data-mock-component="Icon"
-         name="talend-caret-down"
-         class="theme-tc-dropdown-caret"
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
     >
-    </div>
+    </coral.icon>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -52,11 +50,8 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
          tabindex="-1"
          href="#"
       >
-        <div data-mock-module="@talend/design-system"
-             data-mock-component="Icon"
-             name="talend-icon"
-        >
-        </div>
+        <coral.icon name="talend-icon">
+        </coral.icon>
         document 1
       </a>
     </li>
@@ -89,12 +84,10 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <div data-mock-module="@talend/design-system"
-         data-mock-component="Icon"
-         name="talend-caret-down"
-         class="theme-tc-dropdown-caret"
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
     >
-    </div>
+    </coral.icon>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -110,11 +103,8 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
          tabindex="-1"
          href="#"
       >
-        <div data-mock-module="@talend/design-system"
-             data-mock-component="Icon"
-             name="talend-icon"
-        >
-        </div>
+        <coral.icon name="talend-icon">
+        </coral.icon>
         document 1
       </a>
     </li>
@@ -144,20 +134,15 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
           type="button"
           class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
   >
-    <div data-mock-module="@talend/design-system"
-         data-mock-component="Icon"
-         name="fa fa-file-excel-o"
-    >
-    </div>
+    <coral.icon name="fa fa-file-excel-o">
+    </coral.icon>
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <div data-mock-module="@talend/design-system"
-         data-mock-component="Icon"
-         name="talend-caret-down"
-         class="theme-tc-dropdown-caret"
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
     >
-    </div>
+    </coral.icon>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -173,11 +158,8 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
          tabindex="-1"
          href="#"
       >
-        <div data-mock-module="@talend/design-system"
-             data-mock-component="Icon"
-             name="talend-icon"
-        >
-        </div>
+        <coral.icon name="talend-icon">
+        </coral.icon>
         document 1
       </a>
     </li>
@@ -208,17 +190,12 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
           type="button"
           class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
   >
-    <div data-mock-module="@talend/design-system"
-         data-mock-component="Icon"
-         name="fa fa-file-excel-o"
+    <coral.icon name="fa fa-file-excel-o">
+    </coral.icon>
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
     >
-    </div>
-    <div data-mock-module="@talend/design-system"
-         data-mock-component="Icon"
-         name="talend-caret-down"
-         class="theme-tc-dropdown-caret"
-    >
-    </div>
+    </coral.icon>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -234,11 +211,8 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
          tabindex="-1"
          href="#"
       >
-        <div data-mock-module="@talend/design-system"
-             data-mock-component="Icon"
-             name="talend-icon"
-        >
-        </div>
+        <coral.icon name="talend-icon">
+        </coral.icon>
         document 1
       </a>
     </li>
@@ -273,11 +247,8 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
        tabindex="-1"
        href="#"
     >
-      <div data-mock-module="@talend/design-system"
-           data-mock-component="Icon"
-           name="talend-icon"
-      >
-      </div>
+      <coral.icon name="talend-icon">
+      </coral.icon>
     </a>
   </li>
   <li role="presentation"
@@ -307,12 +278,10 @@ exports[`ActionDropdown should render immutable items 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <div data-mock-module="@talend/design-system"
-         data-mock-component="Icon"
-         name="talend-caret-down"
-         class="theme-tc-dropdown-caret"
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
     >
-    </div>
+    </coral.icon>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -328,11 +297,8 @@ exports[`ActionDropdown should render immutable items 1`] = `
          tabindex="-1"
          href="#"
       >
-        <div data-mock-module="@talend/design-system"
-             data-mock-component="Icon"
-             name="talend-icon"
-        >
-        </div>
+        <coral.icon name="talend-icon">
+        </coral.icon>
         document 1
       </a>
     </li>
@@ -394,11 +360,8 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
        tabindex="-1"
        href="#"
     >
-      <div data-mock-module="@talend/design-system"
-           data-mock-component="Icon"
-           name="talend-icon"
-      >
-      </div>
+      <coral.icon name="talend-icon">
+      </coral.icon>
       document 1
     </a>
   </li>

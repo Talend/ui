@@ -20,9 +20,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
         role={null}
         type="button"
       >
-        <div
-          data-mock-component="Icon"
-          data-mock-module="@talend/design-system"
+        <Coral.Icon
           name="talend-plus"
         />
         <span>
@@ -64,9 +62,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
         role={null}
         type="button"
       >
-        <div
-          data-mock-component="Icon"
-          data-mock-module="@talend/design-system"
+        <Coral.Icon
           name="talend-trash"
         />
         <span>
@@ -219,9 +215,7 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <div
-              data-mock-component="Icon"
-              data-mock-module="@talend/design-system"
+            <Coral.Icon
               name="talend-chevron-end"
             />
           </a>
@@ -238,9 +232,7 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <div
-              data-mock-component="Icon"
-              data-mock-module="@talend/design-system"
+            <Coral.Icon
               name="talend-chevron-left"
             />
           </a>
@@ -265,9 +257,7 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <div
-              data-mock-component="Icon"
-              data-mock-module="@talend/design-system"
+            <Coral.Icon
               name="talend-chevron-left"
               transform="rotate-180"
             />
@@ -285,9 +275,7 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <div
-              data-mock-component="Icon"
-              data-mock-module="@talend/design-system"
+            <Coral.Icon
               name="talend-chevron-end"
               transform="rotate-180"
             />

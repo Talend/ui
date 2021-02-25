@@ -24,9 +24,7 @@ exports[`Notification should render 1`] = `
         role={null}
         type="button"
       >
-        <div
-          data-mock-component="Icon"
-          data-mock-module="@talend/design-system"
+        <Coral.Icon
           name="talend-cross"
         />
         <span>
@@ -49,9 +47,7 @@ exports[`Notification should render 1`] = `
             role={null}
             type="button"
           >
-            <div
-              data-mock-component="Icon"
-              data-mock-module="@talend/design-system"
+            <Coral.Icon
               name="talend-undo"
             />
             <span>
@@ -83,9 +79,7 @@ exports[`Notification should render 1`] = `
         role={null}
         type="button"
       >
-        <div
-          data-mock-component="Icon"
-          data-mock-module="@talend/design-system"
+        <Coral.Icon
           name="talend-cross"
         />
         <span>
@@ -113,9 +107,7 @@ exports[`Notification should render 1`] = `
             role={null}
             type="button"
           >
-            <div
-              data-mock-component="Icon"
-              data-mock-module="@talend/design-system"
+            <Coral.Icon
               name="talend-undo"
             />
             <span>
@@ -144,9 +136,7 @@ exports[`Notification should render 1`] = `
         role={null}
         type="button"
       >
-        <div
-          data-mock-component="Icon"
-          data-mock-module="@talend/design-system"
+        <Coral.Icon
           name="talend-cross"
         />
         <span>
@@ -190,9 +180,7 @@ exports[`Notification should render 1`] = `
         role={null}
         type="button"
       >
-        <div
-          data-mock-component="Icon"
-          data-mock-module="@talend/design-system"
+        <Coral.Icon
           name="talend-cross"
         />
         <span>

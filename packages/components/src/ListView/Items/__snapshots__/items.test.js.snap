@@ -1024,9 +1024,7 @@ exports[`Items should render with nested items 1`] = `
                                       key="icon"
                                       name="talend-caret-down"
                                     >
-                                      <div
-                                        data-mock-component="Icon"
-                                        data-mock-module="@talend/design-system"
+                                      <Coral.Icon
                                         name="talend-caret-down"
                                       />
                                     </Icon>

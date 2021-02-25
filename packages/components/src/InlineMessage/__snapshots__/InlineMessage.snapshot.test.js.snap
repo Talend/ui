@@ -7,9 +7,7 @@ exports[`InlineMessage should render with higligthed background 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <div
-      data-mock-component="Icon"
-      data-mock-module="@talend/design-system"
+    <Coral.Icon
       name="talend-check-circle"
     />
   </span>
@@ -37,9 +35,7 @@ exports[`InlineMessage should render with icon and description 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <div
-      data-mock-component="Icon"
-      data-mock-module="@talend/design-system"
+    <Coral.Icon
       name="talend-check-circle"
     />
   </span>
@@ -63,9 +59,7 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <div
-      data-mock-component="Icon"
-      data-mock-module="@talend/design-system"
+    <Coral.Icon
       name="talend-check-circle"
     />
   </span>
@@ -93,9 +87,7 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <div
-      data-mock-component="Icon"
-      data-mock-module="@talend/design-system"
+    <Coral.Icon
       name="talend-check-circle"
     />
   </span>
@@ -129,9 +121,7 @@ exports[`InlineMessage should render with title and description 1`] = `
   <span
     className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
   >
-    <div
-      data-mock-component="Icon"
-      data-mock-module="@talend/design-system"
+    <Coral.Icon
       name=""
     />
   </span>

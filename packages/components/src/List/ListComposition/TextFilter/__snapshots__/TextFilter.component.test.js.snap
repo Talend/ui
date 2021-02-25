@@ -90,9 +90,7 @@ exports[`TextFilter should render text filter component 1`] = `
                 key="icon"
                 name="talend-search"
               >
-                <div
-                  data-mock-component="Icon"
-                  data-mock-module="@talend/design-system"
+                <Coral.Icon
                   name="talend-search"
                 />
               </Icon>
@@ -196,9 +194,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                 key="icon"
                 name="talend-search"
               >
-                <div
-                  data-mock-component="Icon"
-                  data-mock-module="@talend/design-system"
+                <Coral.Icon
                   name="talend-search"
                 />
               </Icon>

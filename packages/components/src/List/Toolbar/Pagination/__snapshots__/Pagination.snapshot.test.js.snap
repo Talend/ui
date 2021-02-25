@@ -104,9 +104,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       }
       tabIndex={-1}
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-end"
       />
     </a>
@@ -128,9 +126,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       }
       tabIndex={-1}
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-left"
       />
     </a>
@@ -154,9 +150,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-left"
         transform="rotate-180"
       />
@@ -173,9 +167,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-end"
         transform="rotate-180"
       />
@@ -282,9 +274,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-end"
       />
     </a>
@@ -300,9 +290,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-left"
       />
     </a>
@@ -332,9 +320,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       }
       tabIndex={-1}
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-left"
         transform="rotate-180"
       />
@@ -357,9 +343,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       }
       tabIndex={-1}
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-end"
         transform="rotate-180"
       />
@@ -736,9 +720,7 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-end"
       />
     </a>
@@ -754,9 +736,7 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-left"
       />
     </a>
@@ -780,9 +760,7 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-left"
         transform="rotate-180"
       />
@@ -799,9 +777,7 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-end"
         transform="rotate-180"
       />
@@ -909,9 +885,7 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-end"
       />
     </a>
@@ -928,9 +902,7 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-left"
       />
     </a>
@@ -955,9 +927,7 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-left"
         transform="rotate-180"
       />
@@ -975,9 +945,7 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-chevron-end"
         transform="rotate-180"
       />

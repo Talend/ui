@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgeIcon should default render 1`] = `
-<div data-mock-module="@talend/design-system"
-     data-mock-component="Icon"
-     name="my icon name"
-     class="tc-badge-label-icon theme-tc-badge-label-icon"
+<coral.icon name="my icon name"
+            class="tc-badge-label-icon theme-tc-badge-label-icon"
 >
-</div>
+</coral.icon>
 `;

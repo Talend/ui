@@ -25,9 +25,7 @@ exports[`Header should render header with one button 1`] = `
       role="link"
       type="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-search"
       />
     </button>

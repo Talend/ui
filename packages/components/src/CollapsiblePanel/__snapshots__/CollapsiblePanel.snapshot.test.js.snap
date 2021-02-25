@@ -14,11 +14,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                    class="theme-tc-status tc-status theme-action"
               >
                 <span class="theme-tc-status-icon tc-status-icon theme-info">
-                  <div data-mock-module="@talend/design-system"
-                       data-mock-component="Icon"
-                       name="fa fa-check"
-                  >
-                  </div>
+                  <coral.icon name="fa fa-check">
+                  </coral.icon>
                 </span>
                 <span class="theme-tc-status-label tc-status-label theme-info">
                   inProgress
@@ -28,11 +25,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                           type="button"
                           class="btn btn-default"
                   >
-                    <div data-mock-module="@talend/design-system"
-                         data-mock-component="Icon"
-                         name="fa fa-cancel"
-                    >
-                    </div>
+                    <coral.icon name="fa fa-cancel">
+                    </coral.icon>
                     <span>
                       cancel
                     </span>
@@ -41,11 +35,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                           type="button"
                           class="btn btn-default"
                   >
-                    <div data-mock-module="@talend/design-system"
-                         data-mock-component="Icon"
-                         name="fa fa-delete"
-                    >
-                    </div>
+                    <coral.icon name="fa fa-delete">
+                    </coral.icon>
                     <span>
                       delete
                     </span>
@@ -60,11 +51,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                       type="button"
                       class="theme-undefined btn-icon-only btn btn-link"
               >
-                <div data-mock-module="@talend/design-system"
-                     data-mock-component="Icon"
-                     name="fa fa-edit"
-                >
-                </div>
+                <coral.icon name="fa fa-edit">
+                </coral.icon>
               </button>
             </div>
             <div class="theme-undefined theme-col-4">
@@ -80,13 +68,11 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               >
                 on TDP
               </div>
-              <div data-mock-module="@talend/design-system"
-                   data-mock-component="Tag"
-                   class="theme-undefined"
-                   aria-describedby="42"
+              <coral.tag class="theme-undefined"
+                         aria-describedby="42"
               >
                 XML
-              </div>
+              </coral.tag>
             </div>
           </div>
         </button>
@@ -97,12 +83,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 aria-describedby="42"
                 class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
         >
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Icon"
-               name="talend-caret-down"
-               transform="flip-vertical"
+          <coral.icon name="talend-caret-down"
+                      transform="flip-vertical"
           >
-          </div>
+          </coral.icon>
         </button>
       </div>
     </div>
@@ -111,11 +95,9 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
     <div class="panel-body">
       <dl class="theme-content">
         <dt class="theme-label">
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Tag"
-          >
+          <coral.tag>
             Content
-          </div>
+          </coral.tag>
         </dt>
         <dd class="theme-description">
           Description3
@@ -140,11 +122,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                    class="theme-tc-status tc-status theme-action"
               >
                 <span class="theme-tc-status-icon tc-status-icon theme-info">
-                  <div data-mock-module="@talend/design-system"
-                       data-mock-component="Icon"
-                       name="fa fa-check"
-                  >
-                  </div>
+                  <coral.icon name="fa fa-check">
+                  </coral.icon>
                 </span>
                 <span class="theme-tc-status-label tc-status-label theme-info">
                   inProgress
@@ -154,11 +133,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                           type="button"
                           class="btn btn-default"
                   >
-                    <div data-mock-module="@talend/design-system"
-                         data-mock-component="Icon"
-                         name="fa fa-cancel"
-                    >
-                    </div>
+                    <coral.icon name="fa fa-cancel">
+                    </coral.icon>
                     <span>
                       cancel
                     </span>
@@ -167,11 +143,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                           type="button"
                           class="btn btn-default"
                   >
-                    <div data-mock-module="@talend/design-system"
-                         data-mock-component="Icon"
-                         name="fa fa-delete"
-                    >
-                    </div>
+                    <coral.icon name="fa fa-delete">
+                    </coral.icon>
                     <span>
                       delete
                     </span>
@@ -186,11 +159,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                       type="button"
                       class="theme-undefined btn-icon-only btn btn-link"
               >
-                <div data-mock-module="@talend/design-system"
-                     data-mock-component="Icon"
-                     name="fa fa-edit"
-                >
-                </div>
+                <coral.icon name="fa fa-edit">
+                </coral.icon>
               </button>
             </div>
             <div class="theme-undefined theme-col-4">
@@ -206,13 +176,11 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               >
                 on TDP
               </div>
-              <div data-mock-module="@talend/design-system"
-                   data-mock-component="Tag"
-                   class="theme-undefined"
-                   aria-describedby="42"
+              <coral.tag class="theme-undefined"
+                         aria-describedby="42"
               >
                 XML
-              </div>
+              </coral.tag>
             </div>
           </div>
         </button>
@@ -222,11 +190,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 aria-describedby="42"
                 class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
         >
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Icon"
-               name="talend-caret-down"
-          >
-          </div>
+          <coral.icon name="talend-caret-down">
+          </coral.icon>
         </button>
       </div>
     </div>
@@ -235,11 +200,9 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
     <div class="panel-body">
       <dl class="theme-content">
         <dt class="theme-label">
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Tag"
-          >
+          <coral.tag>
             Content
-          </div>
+          </coral.tag>
         </dt>
         <dd class="theme-description">
           Description3
@@ -264,11 +227,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                    class="theme-tc-status tc-status theme-action"
               >
                 <span class="theme-tc-status-icon tc-status-icon theme-info">
-                  <div data-mock-module="@talend/design-system"
-                       data-mock-component="Icon"
-                       name="fa fa-check"
-                  >
-                  </div>
+                  <coral.icon name="fa fa-check">
+                  </coral.icon>
                 </span>
                 <span class="theme-tc-status-label tc-status-label theme-info">
                   inProgress
@@ -278,11 +238,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                           type="button"
                           class="btn btn-default"
                   >
-                    <div data-mock-module="@talend/design-system"
-                         data-mock-component="Icon"
-                         name="fa fa-cancel"
-                    >
-                    </div>
+                    <coral.icon name="fa fa-cancel">
+                    </coral.icon>
                     <span>
                       cancel
                     </span>
@@ -291,11 +248,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                           type="button"
                           class="btn btn-default"
                   >
-                    <div data-mock-module="@talend/design-system"
-                         data-mock-component="Icon"
-                         name="fa fa-delete"
-                    >
-                    </div>
+                    <coral.icon name="fa fa-delete">
+                    </coral.icon>
                     <span>
                       delete
                     </span>
@@ -310,11 +264,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                       type="button"
                       class="theme-undefined btn-icon-only btn btn-link"
               >
-                <div data-mock-module="@talend/design-system"
-                     data-mock-component="Icon"
-                     name="fa fa-edit"
-                >
-                </div>
+                <coral.icon name="fa fa-edit">
+                </coral.icon>
               </button>
             </div>
             <div class="theme-undefined theme-col-4">
@@ -330,13 +281,11 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               >
                 on TDP
               </div>
-              <div data-mock-module="@talend/design-system"
-                   data-mock-component="Tag"
-                   class="theme-undefined"
-                   aria-describedby="42"
+              <coral.tag class="theme-undefined"
+                         aria-describedby="42"
               >
                 XML
-              </div>
+              </coral.tag>
             </div>
           </div>
         </button>
@@ -430,11 +379,8 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
                 aria-describedby="42"
                 class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
         >
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Icon"
-               name="talend-caret-down"
-          >
-          </div>
+          <coral.icon name="talend-caret-down">
+          </coral.icon>
         </button>
       </div>
     </div>

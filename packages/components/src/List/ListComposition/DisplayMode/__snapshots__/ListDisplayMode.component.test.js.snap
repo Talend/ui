@@ -73,9 +73,7 @@ exports[`List DisplayMode should render 1`] = `
               <Icon
                 name="talend-table"
               >
-                <div
-                  data-mock-component="Icon"
-                  data-mock-module="@talend/design-system"
+                <Coral.Icon
                   name="talend-table"
                 />
               </Icon>
@@ -144,9 +142,7 @@ exports[`List DisplayMode should render 1`] = `
               <Icon
                 name="talend-expanded"
               >
-                <div
-                  data-mock-component="Icon"
-                  data-mock-module="@talend/design-system"
+                <Coral.Icon
                   name="talend-expanded"
                 />
               </Icon>

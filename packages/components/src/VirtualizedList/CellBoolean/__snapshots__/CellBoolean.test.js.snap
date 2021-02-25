@@ -2,11 +2,9 @@
 
 exports[`CellBoolean should render an check icon for a truthy value in icon mode 1`] = `
 <div class="cell-boolean-container theme-cell-boolean-container">
-  <div data-mock-module="@talend/design-system"
-       data-mock-component="Icon"
-       name="talend-check-circle"
-       title="Required"
+  <coral.icon name="talend-check-circle"
+              title="Required"
   >
-  </div>
+  </coral.icon>
 </div>
 `;

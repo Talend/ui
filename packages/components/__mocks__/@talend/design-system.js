@@ -1,37 +1,35 @@
 import React from 'react';
 
-const mocks = {};
-
 const Coral = jest.requireActual('@talend/design-system');
+
+const mocks = {};
 
 function startsWithUpperCase(name) {
 	return name[0] === name[0].toUpperCase();
 }
 
-function getFakeJSX(name) {
-	return props => (
-		<div data-mock-module="@talend/design-system" data-mock-component={name} {...props} />
-	);
+function getMock(name) {
+	return props => React.createElement(`Coral.${name}`, props);
 }
 
-function mockComponentVariation(name) {
-	return variation => {
-		const variationName = `${name}.${variation}`;
-		mocks[name][variation] = getFakeJSX(variationName);
-		mocks[name][variation].displayName = variationName;
-	};
-}
-
-function mockComponent(name) {
-	mocks[name] = getFakeJSX(name);
-	mocks[name].displayName = name;
-	Object.keys(Coral[name])
-		.filter(startsWithUpperCase)
-		.forEach(mockComponentVariation(name));
+function registerMock(componentName, variationName) {
+	if (variationName) {
+		const variationDisplayName = `${componentName}.${variationName}`;
+		mocks[componentName][variationName] = getMock(variationDisplayName);
+		mocks[componentName][variationName].displayName = variationDisplayName;
+	} else {
+		mocks[componentName] = getMock(componentName);
+		mocks[componentName].displayName = componentName;
+	}
 }
 
 Object.keys(Coral)
 	.filter(startsWithUpperCase)
-	.forEach(mockComponent);
+	.forEach(name => {
+		registerMock(name);
+		Object.keys(Coral[name])
+			.filter(startsWithUpperCase)
+			.forEach(variation => registerMock(name, variation));
+	});
 
 module.exports = mocks;

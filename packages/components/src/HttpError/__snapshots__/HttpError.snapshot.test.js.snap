@@ -41,9 +41,7 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
       role="link"
       type="button"
     >
-      <div
-        data-mock-component="Icon"
-        data-mock-module="@talend/design-system"
+      <Coral.Icon
         name="talend-arrow-left"
       />
       <span>

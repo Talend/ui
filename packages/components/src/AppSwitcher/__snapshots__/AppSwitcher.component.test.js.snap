@@ -17,12 +17,10 @@ exports[`AppSwitcher should render the products 1`] = `
         <span class="tc-dropdown-button-title-label">
           My App
         </span>
-        <div data-mock-module="@talend/design-system"
-             data-mock-component="Icon"
-             name="talend-caret-down"
-             class="theme-tc-dropdown-caret"
+        <coral.icon name="talend-caret-down"
+                    class="theme-tc-dropdown-caret"
         >
-        </div>
+        </coral.icon>
       </button>
       <ul role="menu"
           class="dropdown-menu"
@@ -38,11 +36,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <div data-mock-module="@talend/design-system"
-                 data-mock-component="Icon"
-                 name="talend-tdp-colored"
-            >
-            </div>
+            <coral.icon name="talend-tdp-colored">
+            </coral.icon>
             Data Preparation
           </a>
         </li>
@@ -56,11 +51,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <div data-mock-module="@talend/design-system"
-                 data-mock-component="Icon"
-                 name="talend-tic-colored"
-            >
-            </div>
+            <coral.icon name="talend-tic-colored">
+            </coral.icon>
             Integration Cloud
           </a>
         </li>
@@ -74,11 +66,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <div data-mock-module="@talend/design-system"
-                 data-mock-component="Icon"
-                 name="talend-tmc-colored"
-            >
-            </div>
+            <coral.icon name="talend-tmc-colored">
+            </coral.icon>
             Management Console
           </a>
         </li>

@@ -13,12 +13,10 @@ exports[`BadgeDropdown should render a dropdown 1`] = `
     <span class="tc-dropdown-button-title-label">
       Label
     </span>
-    <div data-mock-module="@talend/design-system"
-         data-mock-component="Icon"
-         name="talend-caret-down"
-         class="theme-tc-dropdown-caret"
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
     >
-    </div>
+    </coral.icon>
   </button>
   <ul role="menu"
       class="dropdown-menu"

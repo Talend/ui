@@ -8,10 +8,7 @@ exports[`BadgeDelete should render 1`] = `
         type="button"
         class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
 >
-  <div data-mock-module="@talend/design-system"
-       data-mock-component="Icon"
-       name="talend-cross"
-  >
-  </div>
+  <coral.icon name="talend-cross">
+  </coral.icon>
 </button>
 `;
