@@ -55,6 +55,9 @@
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTimeRange/Manager/Manager.component.js
   26:5  warning  React Hook useEffect has missing dependencies: 'state.endDateTime' and 'state.startDateTime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDatePicker/InputDatePicker.component.js
+  1:17  error  'useRef' is defined but never used  @typescript-eslint/no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
   94:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
@@ -302,5 +305,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 145 problems (126 errors, 19 warnings)
+✖ 146 problems (127 errors, 19 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
