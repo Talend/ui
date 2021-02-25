@@ -12,6 +12,17 @@ The library need to duplicate the route mapping
 - cmf-router: based on settings
 - react-router v5: Route component
 
+<div style="display: flex; margin: 10px">
+	<div style="margin-right: 3rem">
+		<h2>CMF-router mode</h2>
+		<img src="./img/route-mapping-cmf.png" alt="Applications with cmf-router will only use the route definition from settings">
+	</div>
+	<div>
+		<h2>React-router v5 mode</h2>
+		<img src="./img/route-mapping-rrv5.png" alt="Applications with react-router v5 will use the router-bridge routing definition that is a layer on top of react-router v5">
+	</div>
+</div>
+
 `@talend/router-bridge` stay on top of `react-router-dom`. It serves react-router v5 components if it is loaded. Otherwise, nothing is rendered. So those route mapping can be used safely, they just won't set anything with `cmf-router`.
 
 ```javascript
@@ -39,6 +50,8 @@ export function Home() {
 | url               | string | The url to redirect to.                                                                                                                |
 | historyState?     | object | This state will be pushed to history state.                                                                                            |
 | customBaseAction? | object | cmf-router doesn't put an action type. This can be used to set one. In cmf-router mode, this will be spread into the resulting action. |
+
+![@talend/router-bridge redirect to cmf or connected-react-router action depending of the loaded library](./img/action-creator.png)
 
 The push/replace bridge will either 
 - call `connected-react-router` push/replace if it is loaded
