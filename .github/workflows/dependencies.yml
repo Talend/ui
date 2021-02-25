@@ -1,13 +1,13 @@
-name: Upgrade @storybook dependencies
+name: Upgrade dependencies
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 10 * * MON"
+    - cron: "0 10 * * WED"
 
 jobs:
   upgrade:
-    name: Upgrade @storybook dependencies
+    name: Upgrade dependencies
     runs-on: ubuntu-latest
 
     steps:
@@ -19,9 +19,17 @@ jobs:
         with:
           node-version: 12
 
-      - name: Upgrade storybook dependencies
+      - name: Upgrade @talend dependencies
+        run: |
+          npx npm-check-updates "/@talend\/.*/" -u
+          yarn
+
+      - name: Upgrade @storybook dependencies
         run: |
           npx sb@latest upgrade
+
+      - name: Dedupe dependencies
+        run: |
           npx yarn-deduplicate yarn.lock
 
       - name: Create Pull Request
@@ -29,8 +37,8 @@ jobs:
         with:
           assignees: frassinier
           reviewers: frassinier
-          commit-message: "chore(Storybook): bump version"
-          title: "chore(Storybook): bump version"
+          commit-message: "chore(deps): bump deps versions"
+          title: "chore(deps): bump deps versions"
           body: "https://github.com/storybookjs/storybook/blob/master/CHANGELOG.md"
-          branch: chore/storybook
+          branch: chore/dependencies
           branch-suffix: timestamp
