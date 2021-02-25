@@ -55,5 +55,5 @@ jobs:
       - name: Update Talend CDN content
         id: cdn
         run: |
-          curl -XPOST -u "frassinier:${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/talend/cdn-content/actions/workflows/download.yml/dispatches --data '{"ref": "main"}'
+          curl -XPOST -u "frassinier:${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/talend/cdn-content/actions/workflows/download-talend-ui.yml/dispatches --data '{"ref": "main"}'
 
