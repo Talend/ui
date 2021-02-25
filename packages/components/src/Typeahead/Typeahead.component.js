@@ -69,9 +69,9 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			fn: ({ state }) => {
 				const GAP = 45; // the offset between the end of items container and screen boundaries
 				const inputDimensions = state.rects.reference;
-				const { x, height } = inputDimensions;
-				const offsetTop = x - GAP;
-				const offsetBottom = window.innerHeight - x - height - GAP;
+				const { y, height } = inputDimensions;
+				const offsetTop = y - GAP;
+				const offsetBottom = window.innerHeight - y - height - GAP;
 				const placements = state.placement.split('-');
 				let newPlacement = state.placement;
 				if (placements[0] === 'top' && offsetBottom > offsetTop) {
