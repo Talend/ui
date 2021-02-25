@@ -40,29 +40,6 @@ exports[`InputDateTimePicker should render 1`] = `
           >
             <FocusManager
               className="theme-date-picker date-picker"
-              divRef={
-                Object {
-                  "current": <div
-                    class="theme-date-picker date-picker"
-                    tabindex="-1"
-                  >
-                    <input
-                      autocomplete="off"
-                      class="form-control"
-                      id="my-picker-date-picker-input"
-                      placeholder="YYYY-MM-DD"
-                      style="width: 47px;"
-                      type="text"
-                      value="2017-04-04"
-                    />
-                    <span
-                      style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
-                    >
-                      YYYY-MM-DD
-                    </span>
-                  </div>,
-                }
-              }
               onClick={[Function]}
               onFocusIn={[Function]}
               onFocusOut={[Function]}
