@@ -887,12 +887,8 @@ exports[`List should render 1`] = `
                                 <Icon
                                   name="talend-chevron-end"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
-                                    focusable="false"
+                                  <Coral.Icon
                                     name="talend-chevron-end"
-                                    title={null}
                                   />
                                 </Icon>
                               </a>
@@ -928,12 +924,8 @@ exports[`List should render 1`] = `
                                 <Icon
                                   name="talend-chevron-left"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
-                                    focusable="false"
+                                  <Coral.Icon
                                     name="talend-chevron-left"
-                                    title={null}
                                   />
                                 </Icon>
                               </a>
@@ -979,12 +971,9 @@ exports[`List should render 1`] = `
                                   name="talend-chevron-left"
                                   transform="rotate-180"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-                                    focusable="false"
+                                  <Coral.Icon
                                     name="talend-chevron-left"
-                                    title={null}
+                                    transform="rotate-180"
                                   />
                                 </Icon>
                               </a>
@@ -1021,12 +1010,9 @@ exports[`List should render 1`] = `
                                   name="talend-chevron-end"
                                   transform="rotate-180"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-                                    focusable="false"
+                                  <Coral.Icon
                                     name="talend-chevron-end"
-                                    title={null}
+                                    transform="rotate-180"
                                   />
                                 </Icon>
                               </a>
@@ -1894,12 +1880,8 @@ exports[`List should render id if provided 1`] = `
                                 <Icon
                                   name="talend-chevron-end"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
-                                    focusable="false"
+                                  <Coral.Icon
                                     name="talend-chevron-end"
-                                    title={null}
                                   />
                                 </Icon>
                               </a>
@@ -1938,12 +1920,8 @@ exports[`List should render id if provided 1`] = `
                                 <Icon
                                   name="talend-chevron-left"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon"
-                                    focusable="false"
+                                  <Coral.Icon
                                     name="talend-chevron-left"
-                                    title={null}
                                   />
                                 </Icon>
                               </a>
@@ -1992,12 +1970,9 @@ exports[`List should render id if provided 1`] = `
                                   name="talend-chevron-left"
                                   transform="rotate-180"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-                                    focusable="false"
+                                  <Coral.Icon
                                     name="talend-chevron-left"
-                                    title={null}
+                                    transform="rotate-180"
                                   />
                                 </Icon>
                               </a>
@@ -2037,12 +2012,9 @@ exports[`List should render id if provided 1`] = `
                                   name="talend-chevron-end"
                                   transform="rotate-180"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-                                    focusable="false"
+                                  <Coral.Icon
                                     name="talend-chevron-end"
-                                    title={null}
+                                    transform="rotate-180"
                                   />
                                 </Icon>
                               </a>

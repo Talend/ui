@@ -274,12 +274,9 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           className="theme-icon icon"
           name="talend-arrow-right"
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon theme-icon icon"
-            focusable="false"
+          <Coral.Icon
+            className="theme-icon icon"
             name="talend-arrow-right"
-            title={null}
           />
         </Icon>
       </span>
@@ -850,12 +847,9 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
           className="theme-icon icon"
           name="talend-arrow-right"
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon theme-icon icon"
-            focusable="false"
+          <Coral.Icon
+            className="theme-icon icon"
             name="talend-arrow-right"
-            title={null}
           />
         </Icon>
       </span>

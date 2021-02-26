@@ -77,10 +77,7 @@ describe('Item', () => {
 
 		// when
 		const wrapper = mount(itemInstance);
-		const buttons = wrapper
-			.find('.tc-enumeration-item-actions')
-			.at(0)
-			.find(Button);
+		const buttons = wrapper.find('.tc-enumeration-item-actions').at(0).find(Button);
 
 		// then
 		expect(buttons.length).toBe(1);
@@ -95,12 +92,7 @@ describe('Item', () => {
 		};
 
 		const wrapper = mount(<Item {...props} />);
-		expect(
-			wrapper
-				.find('.tc-enumeration-item-label')
-				.at(0)
-				.text(),
-		).toEqual('toto');
+		expect(wrapper.find('.tc-enumeration-item-label').at(0).text()).toEqual('toto');
 	});
 
 	it('should display the item with an icon appended', () => {
@@ -115,14 +107,9 @@ describe('Item', () => {
 		};
 
 		const wrapper = mount(<Item {...props} />);
-		expect(
-			wrapper
-				.find('TooltipTrigger')
-				.at(0)
-				.props().label,
-		).toBe('mad world');
+		expect(wrapper.find('TooltipTrigger').at(0).props().label).toBe('mad world');
 		expect(wrapper.find('Icon').props().title).toBe('mad world');
-		expect(wrapper.find('svg').length).toBe(1);
+		expect(wrapper.find('Icon').length).toBe(1);
 	});
 
 	it('should display the item with a class on button', () => {
@@ -133,10 +120,7 @@ describe('Item', () => {
 			},
 		};
 		const wrapper = mount(<Item {...props} />);
-		const buttons = wrapper
-			.find('.tc-enumeration-item')
-			.at(0)
-			.find(Button);
+		const buttons = wrapper.find('.tc-enumeration-item').at(0).find(Button);
 		const button = buttons.at(0);
 		expect(button.props().className.includes('special'));
 	});

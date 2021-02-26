@@ -90,7 +90,7 @@ describe('ActionDropdown', () => {
 		// when
 		const wrapper = mount(<ActionDropdown {...props} />)
 			.find('DropdownButton')
-			.find('svg.theme-rotate-90');
+			.find('Icon[transform="rotate-90"]');
 
 		// then
 		expect(wrapper.exists()).toBeTruthy();

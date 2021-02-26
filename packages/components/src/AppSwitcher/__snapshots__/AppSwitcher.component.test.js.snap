@@ -17,12 +17,10 @@ exports[`AppSwitcher should render the products 1`] = `
         <span class="tc-dropdown-button-title-label">
           My App
         </span>
-        <svg name="talend-caret-down"
-             class="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-             focusable="false"
-             aria-hidden="true"
+        <coral.icon name="talend-caret-down"
+                    class="theme-tc-dropdown-caret"
         >
-        </svg>
+        </coral.icon>
       </button>
       <ul role="menu"
           class="dropdown-menu"
@@ -38,12 +36,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tdp-colored"
-                 class="theme-tc-svg-icon tc-svg-icon"
-                 focusable="false"
-                 aria-hidden="true"
-            >
-            </svg>
+            <coral.icon name="talend-tdp-colored">
+            </coral.icon>
             Data Preparation
           </a>
         </li>
@@ -57,12 +51,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tic-colored"
-                 class="theme-tc-svg-icon tc-svg-icon"
-                 focusable="false"
-                 aria-hidden="true"
-            >
-            </svg>
+            <coral.icon name="talend-tic-colored">
+            </coral.icon>
             Integration Cloud
           </a>
         </li>
@@ -76,12 +66,8 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <svg name="talend-tmc-colored"
-                 class="theme-tc-svg-icon tc-svg-icon"
-                 focusable="false"
-                 aria-hidden="true"
-            >
-            </svg>
+            <coral.icon name="talend-tmc-colored">
+            </coral.icon>
             Management Console
           </a>
         </li>

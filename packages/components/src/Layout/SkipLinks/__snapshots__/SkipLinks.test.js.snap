@@ -28,12 +28,9 @@ exports[`Skip links should render navigation link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon theme-rotate-270"
-                  focusable="false"
+                <Coral.Icon
                   name="talend-arrow-left"
-                  title={null}
+                  transform="rotate-270"
                 />
               </Icon>
             </span>
@@ -62,12 +59,9 @@ exports[`Skip links should render navigation link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon theme-rotate-270"
-                  focusable="false"
+                <Coral.Icon
                   name="talend-arrow-left"
-                  title={null}
+                  transform="rotate-270"
                 />
               </Icon>
             </span>
@@ -111,12 +105,9 @@ exports[`Skip links should render only main link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon theme-rotate-270"
-                  focusable="false"
+                <Coral.Icon
                   name="talend-arrow-left"
-                  title={null}
+                  transform="rotate-270"
                 />
               </Icon>
             </span>

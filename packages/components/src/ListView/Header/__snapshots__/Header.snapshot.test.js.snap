@@ -25,12 +25,8 @@ exports[`Header should render header with one button 1`] = `
       role="link"
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-search"
-        title={null}
       />
     </button>
   </div>

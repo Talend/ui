@@ -1024,12 +1024,8 @@ exports[`Items should render with nested items 1`] = `
                                       key="icon"
                                       name="talend-caret-down"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon"
-                                        focusable="false"
+                                      <Coral.Icon
                                         name="talend-caret-down"
-                                        title={null}
                                       />
                                     </Icon>
                                   </button>
