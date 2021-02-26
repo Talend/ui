@@ -80,13 +80,11 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               >
                 on TDP
               </div>
-              <div data-mock-module="@talend/design-system"
-                   data-mock-component="Tag"
-                   class="theme-undefined"
-                   aria-describedby="42"
+              <coral.tag class="theme-undefined"
+                         aria-describedby="42"
               >
                 XML
-              </div>
+              </coral.tag>
             </div>
           </div>
         </button>
@@ -111,11 +109,9 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
     <div class="panel-body">
       <dl class="theme-content">
         <dt class="theme-label">
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Tag"
-          >
+          <coral.tag>
             Content
-          </div>
+          </coral.tag>
         </dt>
         <dd class="theme-description">
           Description3
@@ -206,13 +202,11 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               >
                 on TDP
               </div>
-              <div data-mock-module="@talend/design-system"
-                   data-mock-component="Tag"
-                   class="theme-undefined"
-                   aria-describedby="42"
+              <coral.tag class="theme-undefined"
+                         aria-describedby="42"
               >
                 XML
-              </div>
+              </coral.tag>
             </div>
           </div>
         </button>
@@ -236,11 +230,9 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
     <div class="panel-body">
       <dl class="theme-content">
         <dt class="theme-label">
-          <div data-mock-module="@talend/design-system"
-               data-mock-component="Tag"
-          >
+          <coral.tag>
             Content
-          </div>
+          </coral.tag>
         </dt>
         <dd class="theme-description">
           Description3
@@ -331,13 +323,11 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               >
                 on TDP
               </div>
-              <div data-mock-module="@talend/design-system"
-                   data-mock-component="Tag"
-                   class="theme-undefined"
-                   aria-describedby="42"
+              <coral.tag class="theme-undefined"
+                         aria-describedby="42"
               >
                 XML
-              </div>
+              </coral.tag>
             </div>
           </div>
         </button>
