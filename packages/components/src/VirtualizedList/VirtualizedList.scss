@@ -1,25 +1,3 @@
-:global(.tc-list) {
-	&-item {
-		// Specific case for Win7/IE11 which it cannot compute width with float
-		:global(.btn-group) {
-			white-space: nowrap;
-
-			> :global(.btn-group) {
-				float: none;
-			}
-
-			&,
-			&-vertical {
-				display: inline-block;
-
-				> :global(.btn) {
-					float: none;
-				}
-			}
-		}
-	}
-}
-
 :global(.tc-virtualizedlist-default-cell) {
 	min-width: 0;
 	text-overflow: ellipsis;
