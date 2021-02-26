@@ -14,23 +14,18 @@ exports[`Notification should render 1`] = `
       role="status"
       tabIndex={0}
     >
-      <button
+      <Coral.Button
         aria-label="Close notification"
-        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close"
+        className="btn-icon-only"
         data-feature="close-notification-undefined"
         disabled={false}
+        icon="talend-cross"
         onClick={[Function]}
         onMouseDown={[Function]}
-        role={null}
-        type="button"
       >
-        <Coral.Icon
-          name="talend-cross"
-        />
-        <span>
-          
-        </span>
-      </button>
+        
+      </Coral.Button>
       <article
         className="theme-article"
       >
@@ -38,22 +33,17 @@ exports[`Notification should render 1`] = `
           className="theme-tc-notification-message tc-notification-message"
         >
           This is a feedback of your operation1, This is a feedback of your operation1
-          <button
+          <Coral.Button
             aria-label="Haha"
-            className="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action-default"
+            bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action"
+            className=""
             disabled={false}
+            icon="talend-undo"
             onClick={[Function]}
             onMouseDown={[Function]}
-            role={null}
-            type="button"
           >
-            <Coral.Icon
-              name="talend-undo"
-            />
-            <span>
-              Haha
-            </span>
-          </button>
+            Haha
+          </Coral.Button>
         </p>
       </article>
       <div
@@ -69,23 +59,18 @@ exports[`Notification should render 1`] = `
       role="alert"
       tabIndex={0}
     >
-      <button
+      <Coral.Button
         aria-label="Close notification"
-        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close"
+        className="btn-icon-only"
         data-feature="close-notification-error"
         disabled={false}
+        icon="talend-cross"
         onClick={[Function]}
         onMouseDown={[Function]}
-        role={null}
-        type="button"
       >
-        <Coral.Icon
-          name="talend-cross"
-        />
-        <span>
-          
-        </span>
-      </button>
+        
+      </Coral.Button>
       <article
         className="theme-article"
       >
@@ -98,22 +83,17 @@ exports[`Notification should render 1`] = `
           className="theme-tc-notification-message tc-notification-message"
         >
           This is a feedback of your operation1, This is a feedback of your operation1
-          <button
+          <Coral.Button
             aria-label="undo"
-            className="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action-default"
+            bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action"
+            className=""
             disabled={false}
+            icon="talend-undo"
             onClick={[Function]}
             onMouseDown={[Function]}
-            role={null}
-            type="button"
           >
-            <Coral.Icon
-              name="talend-undo"
-            />
-            <span>
-              undo
-            </span>
-          </button>
+            undo
+          </Coral.Button>
         </p>
       </article>
     </div>
@@ -126,23 +106,18 @@ exports[`Notification should render 1`] = `
       role="status"
       tabIndex={0}
     >
-      <button
+      <Coral.Button
         aria-label="Close notification"
-        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close"
+        className="btn-icon-only"
         data-feature="close-notification-warning"
         disabled={false}
+        icon="talend-cross"
         onClick={[Function]}
         onMouseDown={[Function]}
-        role={null}
-        type="button"
       >
-        <Coral.Icon
-          name="talend-cross"
-        />
-        <span>
-          
-        </span>
-      </button>
+        
+      </Coral.Button>
       <article
         className="theme-article"
       >
@@ -170,23 +145,18 @@ exports[`Notification should render 1`] = `
       role="status"
       tabIndex={0}
     >
-      <button
+      <Coral.Button
         aria-label="Close notification"
-        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close"
+        className="btn-icon-only"
         data-feature="close-notification-warning"
         disabled={false}
+        icon="talend-cross"
         onClick={[Function]}
         onMouseDown={[Function]}
-        role={null}
-        type="button"
       >
-        <Coral.Icon
-          name="talend-cross"
-        />
-        <span>
-          
-        </span>
-      </button>
+        
+      </Coral.Button>
       <article
         className="theme-article"
       >

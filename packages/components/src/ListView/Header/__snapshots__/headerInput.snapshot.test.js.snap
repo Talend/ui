@@ -12,24 +12,21 @@ exports[`Header should render filter header 1`] = `
     placeholder="Search"
     type="text"
   />
-  <button
-    aria-describedby="42"
-    aria-label="Abort"
-    className="btn-icon-only btn btn-link"
-    disabled={false}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyPress={[Function]}
-    onMouseDown={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-    role="link"
-    type="button"
+  <Coral.Tooltip
+    placement="bottom"
+    title="Abort"
   >
-    <Coral.Icon
-      name="talend-cross"
-    />
-  </button>
+    <Coral.Button
+      aria-label="Abort"
+      className="btn-icon-only"
+      disabled={false}
+      hideText={true}
+      icon="talend-cross"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Abort
+    </Coral.Button>
+  </Coral.Tooltip>
 </header>
 `;

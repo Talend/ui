@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgeDelete should render 1`] = `
-<button role="button"
-        aria-label="Delete"
-        id="tc-badge-delete-my-id"
-        aria-describedby="42"
-        type="button"
-        class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+<coral.tooltip title="Delete"
+               placement="top"
 >
-  <coral.icon name="talend-cross">
-  </coral.icon>
-</button>
+  <coral.button aria-label="Delete"
+                icon="talend-cross"
+                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only"
+                id="tc-badge-delete-my-id"
+                role="button"
+  >
+    Delete
+  </coral.button>
+</coral.tooltip>
 `;

@@ -10,23 +10,17 @@ exports[`Toolbar should render actions toolbar 1`] = `
     <div
       className="theme-navbar-left navbar-left"
     >
-      <button
+      <Coral.Button.Primary
         aria-label="Add"
-        className="btn btn-primary"
+        className=""
         disabled={false}
+        icon="talend-plus"
         id="my-toolbar-actions-add"
         onClick={[Function]}
         onMouseDown={[Function]}
-        role={null}
-        type="button"
       >
-        <Coral.Icon
-          name="talend-plus"
-        />
-        <span>
-          Add
-        </span>
-      </button>
+        Add
+      </Coral.Button.Primary>
     </div>
     <div
       className="theme-navbar-right navbar-right"
@@ -52,23 +46,17 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       >
         1 selected
       </span>
-      <button
+      <Coral.Button
         aria-label="Delete selection"
-        className="btn btn-default"
+        className=""
         disabled={false}
+        icon="talend-trash"
         id="my-toolbar-actions-delete"
         onClick={[Function]}
         onMouseDown={[Function]}
-        role={null}
-        type="button"
       >
-        <Coral.Icon
-          name="talend-trash"
-        />
-        <span>
-          Delete selection
-        </span>
-      </button>
+        Delete selection
+      </Coral.Button>
     </div>
     <div
       className="theme-navbar-right navbar-right"

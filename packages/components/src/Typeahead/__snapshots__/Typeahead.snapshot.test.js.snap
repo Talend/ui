@@ -919,22 +919,20 @@ exports[`Typeahead should pass input extra props 1`] = `
 `;
 
 exports[`Typeahead with toggle should render button 1`] = `
-<button
-  aria-describedby="42"
-  aria-label="Toggle search bar"
-  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
-  disabled={false}
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseOut={[Function]}
-  onMouseOver={[Function]}
-  type="button"
+<Coral.Tooltip
+  placement="top"
+  title="Toggle search bar"
 >
-  <Coral.Icon
-    name="fa fa-search"
-  />
-</button>
+  <Coral.Button
+    aria-label="Toggle search bar"
+    className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only"
+    disabled={false}
+    hideText={true}
+    icon="fa fa-search"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    Toggle search bar
+  </Coral.Button>
+</Coral.Tooltip>
 `;

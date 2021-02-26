@@ -32,22 +32,16 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
     <p>
       The page you are looking for cannot be found
     </p>
-    <button
+    <Coral.Button
       aria-label="Start over"
-      className="btn btn-link"
+      className=""
       disabled={false}
+      icon="talend-arrow-left"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role="link"
-      type="button"
     >
-      <Coral.Icon
-        name="talend-arrow-left"
-      />
-      <span>
-        Start over
-      </span>
-    </button>
+      Start over
+    </Coral.Button>
   </div>
 </div>
 `;

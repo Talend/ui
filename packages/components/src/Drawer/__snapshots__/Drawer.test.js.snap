@@ -381,34 +381,23 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
               tooltipPlacement="top"
             >
               <Button
-                active={false}
                 aria-label="ActionCenter-tab-2"
-                block={false}
-                bsClass="btn"
-                bsStyle="default"
                 className=""
                 disabled={false}
                 id="view-center-tab-2"
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
               >
-                <button
+                <Coral.Button
                   aria-label="ActionCenter-tab-2"
-                  className="btn btn-default"
+                  className=""
                   disabled={false}
                   id="view-center-tab-2"
                   onClick={[Function]}
                   onMouseDown={[Function]}
-                  role={null}
-                  type="button"
                 >
-                  <span
-                    key="label"
-                  >
-                    ActionCenter-tab-2
-                  </span>
-                </button>
+                  ActionCenter-tab-2
+                </Coral.Button>
               </Button>
             </withI18nextTranslation(ActionButton)>
           </Action>

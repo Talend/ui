@@ -10,25 +10,22 @@ exports[`Header should render header with one button 1`] = `
   <div
     className="actions"
   >
-    <button
-      aria-describedby="42"
-      aria-label="Search for specific values"
-      className="btn-icon-only btn btn-link"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseOut={[Function]}
-      onMouseOver={[Function]}
-      role="link"
-      type="button"
+    <Coral.Tooltip
+      placement="top"
+      title="Search for specific values"
     >
-      <Coral.Icon
-        name="talend-search"
-      />
-    </button>
+      <Coral.Button
+        aria-label="Search for specific values"
+        className="btn-icon-only"
+        disabled={false}
+        hideText={true}
+        icon="talend-search"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+      >
+        Search for specific values
+      </Coral.Button>
+    </Coral.Tooltip>
   </div>
 </header>
 `;

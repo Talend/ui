@@ -46,57 +46,41 @@ exports[`TextFilter should render text filter component 1`] = `
         t={[Function]}
         tooltipPlacement="top"
       >
-        <TooltipTrigger
-          label="Toggle filter"
-          tooltipPlacement="top"
+        <Tooltip
+          placement="top"
+          title="Toggle filter"
         >
-          <Button
-            active={false}
-            aria-describedby="42"
-            aria-label="Toggle filter"
-            block={false}
-            bsClass="btn"
-            bsStyle="link"
-            className="btn-icon-only"
-            disabled={false}
-            id="myTextFilter"
-            key=".0"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            role="search"
+          <Coral.Tooltip
+            placement="top"
+            title="Toggle filter"
           >
-            <button
-              aria-describedby="42"
+            <Button
               aria-label="Toggle filter"
-              className="btn-icon-only btn btn-link"
+              className="btn-icon-only"
               disabled={false}
+              hideText={true}
+              icon="talend-search"
               id="myTextFilter"
-              onBlur={[Function]}
               onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
               onMouseDown={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
               role="search"
-              type="button"
             >
-              <Icon
-                key="icon"
-                name="talend-search"
+              <Coral.Button
+                aria-label="Toggle filter"
+                className="btn-icon-only"
+                disabled={false}
+                hideText={true}
+                icon="talend-search"
+                id="myTextFilter"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role="search"
               >
-                <Coral.Icon
-                  name="talend-search"
-                />
-              </Icon>
-            </button>
-          </Button>
-        </TooltipTrigger>
+                Toggle filter
+              </Coral.Button>
+            </Button>
+          </Coral.Tooltip>
+        </Tooltip>
       </withI18nextTranslation(ActionButton)>
     </Action>
   </withI18nextTranslation(FilterBar)>
@@ -150,57 +134,41 @@ exports[`TextFilter should render text filter component with defined docked stat
         t={[Function]}
         tooltipPlacement="top"
       >
-        <TooltipTrigger
-          label="Toggle filter"
-          tooltipPlacement="top"
+        <Tooltip
+          placement="top"
+          title="Toggle filter"
         >
-          <Button
-            active={false}
-            aria-describedby="42"
-            aria-label="Toggle filter"
-            block={false}
-            bsClass="btn"
-            bsStyle="link"
-            className="btn-icon-only"
-            disabled={false}
-            id="myTextFilter"
-            key=".0"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            role="search"
+          <Coral.Tooltip
+            placement="top"
+            title="Toggle filter"
           >
-            <button
-              aria-describedby="42"
+            <Button
               aria-label="Toggle filter"
-              className="btn-icon-only btn btn-link"
+              className="btn-icon-only"
               disabled={false}
+              hideText={true}
+              icon="talend-search"
               id="myTextFilter"
-              onBlur={[Function]}
               onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
               onMouseDown={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
               role="search"
-              type="button"
             >
-              <Icon
-                key="icon"
-                name="talend-search"
+              <Coral.Button
+                aria-label="Toggle filter"
+                className="btn-icon-only"
+                disabled={false}
+                hideText={true}
+                icon="talend-search"
+                id="myTextFilter"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role="search"
               >
-                <Coral.Icon
-                  name="talend-search"
-                />
-              </Icon>
-            </button>
-          </Button>
-        </TooltipTrigger>
+                Toggle filter
+              </Coral.Button>
+            </Button>
+          </Coral.Tooltip>
+        </Tooltip>
       </withI18nextTranslation(ActionButton)>
     </Action>
   </withI18nextTranslation(FilterBar)>

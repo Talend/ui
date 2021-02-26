@@ -43,36 +43,28 @@ exports[`ConfirmDialog should render with a large container 1`] = `
       <div
         className="theme-navbar-left navbar-left"
       >
-        <button
+        <Coral.Button
           aria-label="CANCEL"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            CANCEL
-          </span>
-        </button>
+          CANCEL
+        </Coral.Button>
       </div>
       <div
         className="theme-navbar-right navbar-right"
       >
-        <button
+        <Coral.Button
           aria-label="OK"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            OK
-          </span>
-        </button>
+          OK
+        </Coral.Button>
       </div>
     </div>
   </div>
@@ -146,36 +138,28 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       <div
         className="theme-navbar-left navbar-left"
       >
-        <button
+        <Coral.Button
           aria-label="CANCEL"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            CANCEL
-          </span>
-        </button>
+          CANCEL
+        </Coral.Button>
       </div>
       <div
         className="theme-navbar-right navbar-right"
       >
-        <button
+        <Coral.Button
           aria-label="OK"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            OK
-          </span>
-        </button>
+          OK
+        </Coral.Button>
       </div>
     </div>
   </div>
@@ -225,36 +209,28 @@ exports[`ConfirmDialog should render with a small container 1`] = `
       <div
         className="theme-navbar-left navbar-left"
       >
-        <button
+        <Coral.Button
           aria-label="CANCEL"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            CANCEL
-          </span>
-        </button>
+          CANCEL
+        </Coral.Button>
       </div>
       <div
         className="theme-navbar-right navbar-right"
       >
-        <button
+        <Coral.Button
           aria-label="OK"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            OK
-          </span>
-        </button>
+          OK
+        </Coral.Button>
       </div>
     </div>
   </div>
@@ -303,49 +279,37 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
       <div
         className="theme-navbar-left navbar-left"
       >
-        <button
+        <Coral.Button
           aria-label="CANCEL"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            CANCEL
-          </span>
-        </button>
+          CANCEL
+        </Coral.Button>
       </div>
       <div
         className="theme-navbar-right navbar-right"
       >
-        <button
+        <Coral.Button.Secondary
           aria-label="Keep on Github"
-          className="btn btn-info"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            Keep on Github
-          </span>
-        </button>
-        <button
+          Keep on Github
+        </Coral.Button.Secondary>
+        <Coral.Button
           aria-label="OK"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            OK
-          </span>
-        </button>
+          OK
+        </Coral.Button>
       </div>
     </div>
   </div>
@@ -394,36 +358,28 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
       <div
         className="theme-navbar-left navbar-left"
       >
-        <button
+        <Coral.Button
           aria-label="CANCEL"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            CANCEL
-          </span>
-        </button>
+          CANCEL
+        </Coral.Button>
       </div>
       <div
         className="theme-navbar-right navbar-right"
       >
-        <button
+        <Coral.Button
           aria-label="OK"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            OK
-          </span>
-        </button>
+          OK
+        </Coral.Button>
       </div>
     </div>
   </div>
@@ -460,36 +416,28 @@ exports[`ConfirmDialog should render without header 1`] = `
       <div
         className="theme-navbar-left navbar-left"
       >
-        <button
+        <Coral.Button
           aria-label="CANCEL"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            CANCEL
-          </span>
-        </button>
+          CANCEL
+        </Coral.Button>
       </div>
       <div
         className="theme-navbar-right navbar-right"
       >
-        <button
+        <Coral.Button
           aria-label="OK"
-          className="btn btn-default"
+          className=""
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
-          type="button"
         >
-          <span>
-            OK
-          </span>
-        </button>
+          OK
+        </Coral.Button>
       </div>
     </div>
   </div>

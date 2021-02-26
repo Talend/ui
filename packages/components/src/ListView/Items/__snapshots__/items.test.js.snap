@@ -982,55 +982,37 @@ exports[`Items should render with nested items 1`] = `
                               t={[Function]}
                               tooltipPlacement="top"
                             >
-                              <TooltipTrigger
-                                label="Expand Lorem ipsum dolor Parent"
-                                tooltipPlacement="top"
+                              <Tooltip
+                                placement="top"
+                                title="Expand Lorem ipsum dolor Parent"
                               >
-                                <Button
-                                  active={false}
-                                  aria-describedby="42"
-                                  aria-label="Expand Lorem ipsum dolor Parent"
-                                  block={false}
-                                  bsClass="btn"
-                                  bsStyle="link"
-                                  className="btn-icon-only"
-                                  disabled={false}
-                                  key=".0"
-                                  onBlur={[Function]}
-                                  onClick={[Function]}
-                                  onFocus={[Function]}
-                                  onKeyPress={[Function]}
-                                  onMouseDown={[Function]}
-                                  onMouseOut={[Function]}
-                                  onMouseOver={[Function]}
-                                  role={null}
+                                <Coral.Tooltip
+                                  placement="top"
+                                  title="Expand Lorem ipsum dolor Parent"
                                 >
-                                  <button
-                                    aria-describedby="42"
+                                  <Button
                                     aria-label="Expand Lorem ipsum dolor Parent"
-                                    className="btn-icon-only btn btn-link"
+                                    className="btn-icon-only"
                                     disabled={false}
-                                    onBlur={[Function]}
+                                    hideText={true}
+                                    icon="talend-caret-down"
                                     onClick={[Function]}
-                                    onFocus={[Function]}
-                                    onKeyPress={[Function]}
                                     onMouseDown={[Function]}
-                                    onMouseOut={[Function]}
-                                    onMouseOver={[Function]}
-                                    role={null}
-                                    type="button"
                                   >
-                                    <Icon
-                                      key="icon"
-                                      name="talend-caret-down"
+                                    <Coral.Button
+                                      aria-label="Expand Lorem ipsum dolor Parent"
+                                      className="btn-icon-only"
+                                      disabled={false}
+                                      hideText={true}
+                                      icon="talend-caret-down"
+                                      onClick={[Function]}
+                                      onMouseDown={[Function]}
                                     >
-                                      <Coral.Icon
-                                        name="talend-caret-down"
-                                      />
-                                    </Icon>
-                                  </button>
-                                </Button>
-                              </TooltipTrigger>
+                                      Expand Lorem ipsum dolor Parent
+                                    </Coral.Button>
+                                  </Button>
+                                </Coral.Tooltip>
+                              </Tooltip>
                             </withI18nextTranslation(ActionButton)>
                           </Action>
                         </div>

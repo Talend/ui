@@ -18,38 +18,28 @@ exports[`Status should render a label 1`] = `
   <div
     className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
   >
-    <button
+    <Coral.Button
       aria-label="cancel"
-      className="btn btn-sm btn-default"
+      bsSize="small"
+      className=""
       disabled={false}
+      icon="fa fa-cancel"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
-      type="button"
     >
-      <Coral.Icon
-        name="fa fa-cancel"
-      />
-      <span>
-        cancel
-      </span>
-    </button>
-    <button
+      cancel
+    </Coral.Button>
+    <Coral.Button
       aria-label="delete"
-      className="btn btn-sm btn-default"
+      bsSize="small"
+      className=""
       disabled={false}
+      icon="fa fa-delete"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
-      type="button"
     >
-      <Coral.Icon
-        name="fa fa-delete"
-      />
-      <span>
-        delete
-      </span>
-    </button>
+      delete
+    </Coral.Button>
   </div>
 </div>
 `;
@@ -74,38 +64,28 @@ exports[`Status should render a label with Icon 1`] = `
   <div
     className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
   >
-    <button
+    <Coral.Button
       aria-label="cancel"
-      className="btn btn-sm btn-default"
+      bsSize="small"
+      className=""
       disabled={false}
+      icon="fa fa-cancel"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
-      type="button"
     >
-      <Coral.Icon
-        name="fa fa-cancel"
-      />
-      <span>
-        cancel
-      </span>
-    </button>
-    <button
+      cancel
+    </Coral.Button>
+    <Coral.Button
       aria-label="delete"
-      className="btn btn-sm btn-default"
+      bsSize="small"
+      className=""
       disabled={false}
+      icon="fa fa-delete"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
-      type="button"
     >
-      <Coral.Icon
-        name="fa fa-delete"
-      />
-      <span>
-        delete
-      </span>
-    </button>
+      delete
+    </Coral.Button>
   </div>
 </div>
 `;
@@ -171,38 +151,28 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
   <div
     className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
   >
-    <button
+    <Coral.Button
       aria-label="cancel"
-      className="btn btn-sm btn-default"
+      bsSize="small"
+      className=""
       disabled={false}
+      icon="fa fa-cancel"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
-      type="button"
     >
-      <Coral.Icon
-        name="fa fa-cancel"
-      />
-      <span>
-        cancel
-      </span>
-    </button>
-    <button
+      cancel
+    </Coral.Button>
+    <Coral.Button
       aria-label="delete"
-      className="btn btn-sm btn-default"
+      bsSize="small"
+      className=""
       disabled={false}
+      icon="fa fa-delete"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
-      type="button"
     >
-      <Coral.Icon
-        name="fa fa-delete"
-      />
-      <span>
-        delete
-      </span>
-    </button>
+      delete
+    </Coral.Button>
   </div>
 </div>
 `;
@@ -245,38 +215,28 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
   <div
     className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
   >
-    <button
+    <Coral.Button
       aria-label="cancel"
-      className="btn btn-sm btn-default"
+      bsSize="small"
+      className=""
       disabled={false}
+      icon="fa fa-cancel"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
-      type="button"
     >
-      <Coral.Icon
-        name="fa fa-cancel"
-      />
-      <span>
-        cancel
-      </span>
-    </button>
-    <button
+      cancel
+    </Coral.Button>
+    <Coral.Button
       aria-label="delete"
-      className="btn btn-sm btn-default"
+      bsSize="small"
+      className=""
       disabled={false}
+      icon="fa fa-delete"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
-      type="button"
     >
-      <Coral.Icon
-        name="fa fa-delete"
-      />
-      <span>
-        delete
-      </span>
-    </button>
+      delete
+    </Coral.Button>
   </div>
 </div>
 `;

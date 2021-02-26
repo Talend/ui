@@ -21,39 +21,32 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                   inProgress
                 </span>
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">
-                  <button aria-label="cancel"
-                          type="button"
-                          class="btn btn-default"
+                  <coral.button aria-label="cancel"
+                                icon="fa fa-cancel"
+                                class
                   >
-                    <coral.icon name="fa fa-cancel">
-                    </coral.icon>
-                    <span>
-                      cancel
-                    </span>
-                  </button>
-                  <button aria-label="delete"
-                          type="button"
-                          class="btn btn-default"
+                    cancel
+                  </coral.button>
+                  <coral.button aria-label="delete"
+                                icon="fa fa-delete"
+                                class
                   >
-                    <coral.icon name="fa fa-delete">
-                    </coral.icon>
-                    <span>
-                      delete
-                    </span>
-                  </button>
+                    delete
+                  </coral.button>
                 </div>
               </div>
             </div>
             <div class="theme-undefined theme-col-4">
-              <button role="link"
-                      aria-label="edit"
-                      aria-describedby="42"
-                      type="button"
-                      class="theme-undefined btn-icon-only btn btn-link"
+              <coral.tooltip title="edit"
+                             placement="right"
               >
-                <coral.icon name="fa fa-edit">
-                </coral.icon>
-              </button>
+                <coral.button aria-label="edit"
+                              icon="fa fa-edit"
+                              class="theme-undefined btn-icon-only"
+                >
+                  edit
+                </coral.button>
+              </coral.tooltip>
             </div>
             <div class="theme-undefined theme-col-4">
               <div class="theme-undefined"
@@ -129,39 +122,32 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                   inProgress
                 </span>
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">
-                  <button aria-label="cancel"
-                          type="button"
-                          class="btn btn-default"
+                  <coral.button aria-label="cancel"
+                                icon="fa fa-cancel"
+                                class
                   >
-                    <coral.icon name="fa fa-cancel">
-                    </coral.icon>
-                    <span>
-                      cancel
-                    </span>
-                  </button>
-                  <button aria-label="delete"
-                          type="button"
-                          class="btn btn-default"
+                    cancel
+                  </coral.button>
+                  <coral.button aria-label="delete"
+                                icon="fa fa-delete"
+                                class
                   >
-                    <coral.icon name="fa fa-delete">
-                    </coral.icon>
-                    <span>
-                      delete
-                    </span>
-                  </button>
+                    delete
+                  </coral.button>
                 </div>
               </div>
             </div>
             <div class="theme-undefined theme-col-4">
-              <button role="link"
-                      aria-label="edit"
-                      aria-describedby="42"
-                      type="button"
-                      class="theme-undefined btn-icon-only btn btn-link"
+              <coral.tooltip title="edit"
+                             placement="right"
               >
-                <coral.icon name="fa fa-edit">
-                </coral.icon>
-              </button>
+                <coral.button aria-label="edit"
+                              icon="fa fa-edit"
+                              class="theme-undefined btn-icon-only"
+                >
+                  edit
+                </coral.button>
+              </coral.tooltip>
             </div>
             <div class="theme-undefined theme-col-4">
               <div class="theme-undefined"
@@ -234,39 +220,32 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                   inProgress
                 </span>
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">
-                  <button aria-label="cancel"
-                          type="button"
-                          class="btn btn-default"
+                  <coral.button aria-label="cancel"
+                                icon="fa fa-cancel"
+                                class
                   >
-                    <coral.icon name="fa fa-cancel">
-                    </coral.icon>
-                    <span>
-                      cancel
-                    </span>
-                  </button>
-                  <button aria-label="delete"
-                          type="button"
-                          class="btn btn-default"
+                    cancel
+                  </coral.button>
+                  <coral.button aria-label="delete"
+                                icon="fa fa-delete"
+                                class
                   >
-                    <coral.icon name="fa fa-delete">
-                    </coral.icon>
-                    <span>
-                      delete
-                    </span>
-                  </button>
+                    delete
+                  </coral.button>
                 </div>
               </div>
             </div>
             <div class="theme-undefined theme-col-4">
-              <button role="link"
-                      aria-label="edit"
-                      aria-describedby="42"
-                      type="button"
-                      class="theme-undefined btn-icon-only btn btn-link"
+              <coral.tooltip title="edit"
+                             placement="right"
               >
-                <coral.icon name="fa fa-edit">
-                </coral.icon>
-              </button>
+                <coral.button aria-label="edit"
+                              icon="fa fa-edit"
+                              class="theme-undefined btn-icon-only"
+                >
+                  edit
+                </coral.button>
+              </coral.tooltip>
             </div>
             <div class="theme-undefined theme-col-4">
               <div class="theme-undefined"

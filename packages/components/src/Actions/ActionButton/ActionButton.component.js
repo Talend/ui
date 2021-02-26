@@ -3,11 +3,12 @@ import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
-
-import TooltipTrigger from '../../TooltipTrigger';
-import CircularProgress from '../../CircularProgress';
-import Skeleton from '../../Skeleton';
-import Icon from '../../Icon';
+import {
+	Button as CoralButton,
+	Skeleton as CoralSkeleton,
+	Link as CoralLink,
+	Tooltip as CoralTooltip,
+} from '@talend/design-system';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -16,64 +17,6 @@ import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
 
 const LEFT = 'left';
 const RIGHT = 'right';
-
-function getIcon({ icon, iconTransform, inProgress, loading }) {
-	if (inProgress) {
-		return <CircularProgress size="small" key="icon" />;
-	}
-
-	if (loading) {
-		return (
-			<Skeleton
-				key="icon-skeleton"
-				size="small"
-				type="circle"
-				className={classNames(
-					theme['tc-action-button-skeleton-circle'],
-					'tc-action-button-skeleton-circle',
-				)}
-			/>
-		);
-	}
-
-	if (icon) {
-		return <Icon name={icon} transform={iconTransform} key="icon" />;
-	}
-
-	return null;
-}
-getIcon.propTypes = {
-	icon: PropTypes.string,
-	iconTransform: PropTypes.string,
-	inProgress: PropTypes.bool,
-};
-
-function getLabel({ hideLabel, label, loading }) {
-	if (hideLabel) {
-		return null;
-	}
-	if (loading) {
-		return <Skeleton key="label-skeleton" type="text" size="medium" />;
-	}
-	return <span key="label">{label}</span>;
-}
-
-getLabel.propTypes = {
-	label: PropTypes.string,
-	loading: PropTypes.bool,
-	hideLabel: PropTypes.bool,
-};
-
-function adjustContentPlacement(icon, label, iconPosition) {
-	if (iconPosition === RIGHT) {
-		return [label, icon];
-	}
-	return [icon, label];
-}
-
-function getContent(props) {
-	return adjustContentPlacement(getIcon(props), getLabel(props), props.iconPosition);
-}
 
 function getHandler(func, model, label, rest) {
 	return (
@@ -85,19 +28,17 @@ function getHandler(func, model, label, rest) {
 			}))
 	);
 }
-
 function noOp() {}
-
 /**
  * @param {object} props react props
  * @example
  const props = {
-	label: 'edit',
-	icon: 'fa fa-edit',
-	onClick: action('onEdit'),
-	tooltipPlacement: 'right',
-	hideLabel: true,
-	link: true,
+   label: 'edit',
+   icon: 'fa fa-edit',
+   onClick: action('onEdit'),
+   tooltipPlacement: 'right',
+   hideLabel: true,
+   link: true,
 };
  <Action {...props} />
  */
@@ -132,26 +73,21 @@ function ActionButton(props) {
 	if (!available) {
 		return null;
 	}
-
 	if (loading && !link) {
-		return <Skeleton type="button" />;
+		return <CoralSkeleton.Button />;
 	}
-
 	const buttonProps = getPropsFrom(Button, rest);
-	const buttonContent = getContent(props);
+	const buttonContent = props.label;
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
-
 	const rClick = getHandler(onClick, model, label, rest);
 	const rMouseDown = getHandler(onMouseDown, model, label, rest);
 	const rMouseEnter = getHandler(onMouseEnter, model, label, rest);
 	const rMouseLeave = getHandler(onMouseLeave, model, label, rest);
-
 	buttonProps.className = classNames(buttonProps.className, {
 		'btn-icon-only': hideLabel || !label,
 		[theme['btn-disabled']]: btnIsDisabled,
 	});
-
 	let ariaLabel = tooltipLabel || label;
 	if (inProgress) {
 		ariaLabel = t('ACTION_IN_PROGRESS', {
@@ -162,31 +98,46 @@ function ActionButton(props) {
 	if (loading) {
 		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} (loading)', type: ariaLabel });
 	}
-
 	const hasPopup = !inProgress && overlayComponent;
 	if (hasPopup) {
 		buttonProps['aria-haspopup'] = true;
 	}
-	// enforce security on target="_blank"
-	if (buttonProps.target === '_blank') {
-		buttonProps.rel = 'noopener noreferrer';
+	let StyledCoralComponent = CoralButton;
+	switch (style) {
+		case 'primary':
+			StyledCoralComponent = CoralButton.Primary;
+			break;
+		case 'info':
+			StyledCoralComponent = CoralButton.Secondary;
+			break;
+		case 'success':
+			StyledCoralComponent = CoralButton.Tertiary;
+			break;
+		case 'danger':
+			StyledCoralComponent = CoralButton.Destructive;
+			break;
+		default:
+			break;
+	}
+	if (props.href) {
+		StyledCoralComponent = CoralLink;
 	}
 	let btn = (
-		<Button
+		<StyledCoralComponent
 			onMouseDown={!overlayComponent ? rMouseDown : null}
 			onClick={!overlayComponent ? rClick : null}
 			onMouseEnter={!overlayComponent ? rMouseEnter : null}
 			onMouseLeave={!overlayComponent ? rMouseLeave : null}
-			bsStyle={style}
 			disabled={btnIsDisabled}
-			role={link ? 'link' : null}
 			aria-label={ariaLabel}
 			ref={buttonRef}
 			download={download}
+			icon={props.icon}
+			hideText={hideLabel}
 			{...buttonProps}
 		>
 			{buttonContent}
-		</Button>
+		</StyledCoralComponent>
 	);
 	if (hasPopup) {
 		btn = (
@@ -205,23 +156,16 @@ function ActionButton(props) {
 			</OverlayTrigger>
 		);
 	}
-
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
-			<TooltipTrigger
-				label={tooltipLabel || label}
-				tooltipPlacement={tooltipPlacement}
-				className={tooltipClassName}
-			>
+			<CoralTooltip title={tooltipLabel || label} placement={tooltipPlacement}>
 				{btn}
-			</TooltipTrigger>
+			</CoralTooltip>
 		);
 	}
 	return btn;
 }
-
 ActionButton.propTypes = {
-	...getIcon.propTypes,
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,
@@ -242,7 +186,6 @@ ActionButton.propTypes = {
 	tooltipClassName: PropTypes.string,
 	...overlayPropTypes,
 };
-
 ActionButton.defaultProps = {
 	available: true,
 	bsStyle: 'default',
@@ -252,6 +195,5 @@ ActionButton.defaultProps = {
 	disabled: false,
 	t: getDefaultT(),
 };
-
 ActionButton.displayName = 'ActionButton';
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionButton);
