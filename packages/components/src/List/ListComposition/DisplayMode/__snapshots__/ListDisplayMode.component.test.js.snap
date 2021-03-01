@@ -32,54 +32,43 @@ exports[`List DisplayMode should render 1`] = `
         tick={false}
         tooltipPlacement="top"
       >
-        <TooltipTrigger
-          label="Set Table as current display mode."
-          tooltipPlacement="top"
+        <Tooltip
+          placement="top"
+          title="Set Table as current display mode."
         >
-          <Button
-            active={false}
-            aria-describedby="42"
-            aria-label="Set Table as current display mode."
-            aria-pressed={true}
-            block={false}
-            bsClass="btn"
-            bsStyle="link"
-            className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
-            disabled={true}
-            id="myDisplayMode-table"
-            key=".0"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
+          <Coral.Tooltip
+            placement="top"
+            title="Set Table as current display mode."
           >
-            <button
-              aria-describedby="42"
+            <Toggle
               aria-label="Set Table as current display mode."
               aria-pressed={true}
-              className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
-              disabled={true}
+              bsStyle="link"
+              className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
+              icon="talend-table"
               id="myDisplayMode-table"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-              type="button"
+              isActive={true}
             >
-              <Icon
-                name="talend-table"
+              <Coral.Toggle
+                aria-label="Set Table as current display mode."
+                aria-pressed={true}
+                bsStyle="link"
+                className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
+                icon="talend-table"
+                id="myDisplayMode-table"
+                isActive={true}
               >
-                <Coral.Icon
+                <Icon
                   name="talend-table"
-                />
-              </Icon>
-            </button>
-          </Button>
-        </TooltipTrigger>
+                >
+                  <Coral.Icon
+                    name="talend-table"
+                  />
+                </Icon>
+              </Coral.Toggle>
+            </Toggle>
+          </Coral.Tooltip>
+        </Tooltip>
       </ActionIconToggle>
     </Memo()>
     <Memo()
@@ -101,54 +90,43 @@ exports[`List DisplayMode should render 1`] = `
         tick={false}
         tooltipPlacement="top"
       >
-        <TooltipTrigger
-          label="Set Expanded as current display mode."
-          tooltipPlacement="top"
+        <Tooltip
+          placement="top"
+          title="Set Expanded as current display mode."
         >
-          <Button
-            active={false}
-            aria-describedby="42"
-            aria-label="Set Expanded as current display mode."
-            aria-pressed={false}
-            block={false}
-            bsClass="btn"
-            bsStyle="link"
-            className="tc-icon-toggle theme-tc-icon-toggle"
-            disabled={false}
-            id="myDisplayMode-large"
-            key=".0"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
+          <Coral.Tooltip
+            placement="top"
+            title="Set Expanded as current display mode."
           >
-            <button
-              aria-describedby="42"
+            <Toggle
               aria-label="Set Expanded as current display mode."
               aria-pressed={false}
-              className="tc-icon-toggle theme-tc-icon-toggle btn btn-link"
-              disabled={false}
+              bsStyle="link"
+              className="tc-icon-toggle theme-tc-icon-toggle"
+              icon="talend-expanded"
               id="myDisplayMode-large"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-              type="button"
+              isActive={false}
             >
-              <Icon
-                name="talend-expanded"
+              <Coral.Toggle
+                aria-label="Set Expanded as current display mode."
+                aria-pressed={false}
+                bsStyle="link"
+                className="tc-icon-toggle theme-tc-icon-toggle"
+                icon="talend-expanded"
+                id="myDisplayMode-large"
+                isActive={false}
               >
-                <Coral.Icon
+                <Icon
                   name="talend-expanded"
-                />
-              </Icon>
-            </button>
-          </Button>
-        </TooltipTrigger>
+                >
+                  <Coral.Icon
+                    name="talend-expanded"
+                  />
+                </Icon>
+              </Coral.Toggle>
+            </Toggle>
+          </Coral.Tooltip>
+        </Tooltip>
       </ActionIconToggle>
     </Memo()>
   </div>

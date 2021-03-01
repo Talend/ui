@@ -1,53 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionIconToggle should render a button 1`] = `
-<TooltipTrigger
-  label="Click me, I'm inactive"
-  tooltipPlacement="top"
+<Tooltip
+  placement="top"
+  title="Click me, I'm inactive"
 >
-  <Button
-    active={false}
+  <Toggle
     aria-label="Click me, I'm inactive"
     aria-pressed={false}
-    block={false}
-    bsClass="btn"
     bsStyle="link"
     className="my-icon-toggle tc-icon-toggle theme-tc-icon-toggle"
     data-feature="action.feature"
-    disabled={false}
+    icon="talend-panel-opener-right"
     id="my-inactive-action"
-    onClick={[MockFunction]}
+    isActive={false}
   >
     <Icon
       name="talend-panel-opener-right"
       transform="rotate-90"
     />
-  </Button>
-</TooltipTrigger>
+  </Toggle>
+</Tooltip>
 `;
 
 exports[`ActionIconToggle should render an active button 1`] = `
-<TooltipTrigger
-  label="Click me, I'm inactive"
-  tooltipPlacement="top"
+<Tooltip
+  placement="top"
+  title="Click me, I'm inactive"
 >
-  <Button
-    active={false}
+  <Toggle
     aria-label="Click me, I'm inactive"
     aria-pressed={true}
-    block={false}
-    bsClass="btn"
     bsStyle="link"
     className="my-icon-toggle tc-icon-toggle theme-tc-icon-toggle theme-active active"
     data-feature="action.feature"
-    disabled={false}
+    icon="talend-panel-opener-right"
     id="my-inactive-action"
-    onClick={[MockFunction]}
+    isActive={true}
   >
     <Icon
       name="talend-panel-opener-right"
       transform="rotate-90"
     />
-  </Button>
-</TooltipTrigger>
+  </Toggle>
+</Tooltip>
 `;

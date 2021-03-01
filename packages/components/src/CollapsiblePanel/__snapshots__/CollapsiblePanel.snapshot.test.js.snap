@@ -352,15 +352,19 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             </div>
           </div>
         </button>
-        <button type="button"
-                aria-label="Expand panel"
-                aria-pressed="false"
-                aria-describedby="42"
-                class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+        <coral.tooltip title="Expand panel"
+                       placement="top"
         >
-          <coral.icon name="talend-caret-down">
-          </coral.icon>
-        </button>
+          <coral.toggle class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle"
+                        aria-label="Expand panel"
+                        aria-pressed="false"
+                        bsstyle="link"
+                        icon="talend-caret-down"
+          >
+            <coral.icon name="talend-caret-down">
+            </coral.icon>
+          </coral.toggle>
+        </coral.tooltip>
       </div>
     </div>
   </div>

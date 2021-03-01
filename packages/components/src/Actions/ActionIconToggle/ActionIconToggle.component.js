@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button, OverlayTrigger } from 'react-bootstrap';
+import {
+	Button as CoralButton,
+	Toggle as CoralToggle,
+	Tooltip as CoralTooltip,
+} from '@talend/design-system';
 
-import Icon from '../../Icon';
-import TooltipTrigger from '../../TooltipTrigger';
 import getPropsFrom from '../../utils/getPropsFrom';
 
 import theme from './ActionIconToggle.scss';
@@ -24,26 +26,24 @@ function ActionIconToggle(props) {
 	} = props;
 
 	const cn = classNames(className, 'tc-icon-toggle', theme['tc-icon-toggle'], {
-		[theme.active]: active,
 		active,
 		[theme.tick]: tick,
 		tick,
 	});
 
 	return (
-		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-			<Button
-				{...getPropsFrom(Button, rest)}
+		<CoralTooltip title={label} placement={tooltipPlacement}>
+			<CoralToggle
+				{...getPropsFrom(CoralButton, rest)}
 				id={id}
 				className={cn}
-				aria-label={label}
-				aria-pressed={active}
-				bsStyle="link"
+				isActive={active}
+				icon={icon}
 				ref={buttonRef}
 			>
-				<Icon name={icon} transform={iconTransform} />
-			</Button>
-		</TooltipTrigger>
+				{label}
+			</CoralToggle>
+		</CoralTooltip>
 	);
 }
 
@@ -56,7 +56,7 @@ ActionIconToggle.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: CoralTooltip.propTypes.placement,
 	buttonRef: PropTypes.func,
 };
 
@@ -67,4 +67,5 @@ ActionIconToggle.defaultProps = {
 };
 
 ActionIconToggle.displayName = 'ActionIconToggle';
+
 export default ActionIconToggle;
