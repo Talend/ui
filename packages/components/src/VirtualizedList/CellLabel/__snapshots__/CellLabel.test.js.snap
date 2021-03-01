@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CellLabel should default render 1`] = `
-<div data-mock-module="@talend/design-system"
-     data-mock-component="Tag.Information"
-     id="25"
->
+<coral.tag.information id="25">
   my label
-</div>
+</coral.tag.information>
 `;

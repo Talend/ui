@@ -350,12 +350,8 @@ exports[`EnumerationWidget delete all 1`] = `
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -434,12 +430,8 @@ exports[`EnumerationWidget delete all 1`] = `
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -920,12 +912,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                           key="icon"
                           name="talend-cross"
                         >
-                          <svg
-                            aria-hidden="true"
-                            className="theme-tc-svg-icon tc-svg-icon"
-                            focusable="false"
+                          <Coral.Icon
                             name="talend-cross"
-                            title={null}
                           />
                         </Icon>
                       </button>
@@ -1394,12 +1382,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -1478,12 +1462,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -1959,12 +1939,8 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -2043,12 +2019,8 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -2570,12 +2542,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -2654,12 +2622,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -3187,12 +3151,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                             key="icon"
                                             name="talend-check"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-check"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -3266,12 +3226,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                             key="icon"
                                             name="talend-cross"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-cross"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -3639,12 +3595,8 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                           key="icon"
                           name="talend-cross"
                         >
-                          <svg
-                            aria-hidden="true"
-                            className="theme-tc-svg-icon tc-svg-icon"
-                            focusable="false"
+                          <Coral.Icon
                             name="talend-cross"
-                            title={null}
                           />
                         </Icon>
                       </button>
@@ -4125,12 +4077,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -4209,12 +4157,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -4725,12 +4669,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -4809,12 +4749,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -5693,12 +5629,8 @@ exports[`EnumerationWidget should select an item 1`] = `
                           key="icon"
                           name="talend-trash"
                         >
-                          <svg
-                            aria-hidden="true"
-                            className="theme-tc-svg-icon tc-svg-icon"
-                            focusable="false"
+                          <Coral.Icon
                             name="talend-trash"
-                            title={null}
                           />
                         </Icon>
                       </button>
@@ -6237,12 +6169,8 @@ exports[`EnumerationWidget should select an item 1`] = `
                                             key="icon"
                                             name="talend-pencil"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-pencil"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -6320,12 +6248,8 @@ exports[`EnumerationWidget should select an item 1`] = `
                                             key="icon"
                                             name="talend-trash"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-trash"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -6743,12 +6667,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -6827,12 +6747,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -7408,12 +7324,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                             key="icon"
                                             name="talend-pencil"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-pencil"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -7491,12 +7403,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                             key="icon"
                                             name="talend-trash"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-trash"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -7688,12 +7596,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                             key="icon"
                                             name="talend-pencil"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-pencil"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -7771,12 +7675,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                             key="icon"
                                             name="talend-trash"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-trash"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -8133,12 +8033,8 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -8217,12 +8113,8 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -8780,12 +8672,8 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -8963,12 +8851,8 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                       key="icon"
                                       name="talend-download"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon"
-                                        focusable="false"
+                                      <Coral.Icon
                                         name="talend-download"
-                                        title={null}
                                       />
                                     </Icon>
                                     <Icon
@@ -8976,12 +8860,9 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                       key="caret"
                                       name="talend-caret-down"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-                                        focusable="false"
+                                      <Coral.Icon
+                                        className="theme-tc-dropdown-caret"
                                         name="talend-caret-down"
-                                        title={null}
                                       />
                                     </Icon>
                                   </button>
@@ -9194,12 +9075,8 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -10308,12 +10185,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             key="icon"
                                             name="talend-pencil"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-pencil"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -10390,12 +10263,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             key="icon"
                                             name="talend-trash"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-trash"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -10584,12 +10453,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             key="icon"
                                             name="talend-pencil"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-pencil"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -10666,12 +10531,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             key="icon"
                                             name="talend-trash"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-trash"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -11168,12 +11029,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             key="icon"
                             name="talend-search"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-search"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -11346,12 +11203,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       key="icon"
                                       name="talend-download"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon"
-                                        focusable="false"
+                                      <Coral.Icon
                                         name="talend-download"
-                                        title={null}
                                       />
                                     </Icon>
                                     <Icon
@@ -11359,12 +11212,9 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       key="caret"
                                       name="talend-caret-down"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
-                                        focusable="false"
+                                      <Coral.Icon
+                                        className="theme-tc-dropdown-caret"
                                         name="talend-caret-down"
-                                        title={null}
                                       />
                                     </Icon>
                                   </button>
@@ -11571,12 +11421,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             key="icon"
                             name="talend-plus"
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="theme-tc-svg-icon tc-svg-icon"
-                              focusable="false"
+                            <Coral.Icon
                               name="talend-plus"
-                              title={null}
                             />
                           </Icon>
                         </button>
@@ -12156,12 +12002,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             key="icon"
                                             name="talend-pencil"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-pencil"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -12238,12 +12080,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             key="icon"
                                             name="talend-trash"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-trash"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -12432,12 +12270,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             key="icon"
                                             name="talend-pencil"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-pencil"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>
@@ -12514,12 +12348,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             key="icon"
                                             name="talend-trash"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Coral.Icon
                                               name="talend-trash"
-                                              title={null}
                                             />
                                           </Icon>
                                         </button>

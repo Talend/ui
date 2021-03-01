@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgeIcon should default render 1`] = `
-<svg name="my icon name"
-     class="theme-tc-svg-icon tc-svg-icon tc-badge-label-icon theme-tc-badge-label-icon"
-     focusable="false"
-     aria-hidden="true"
+<coral.icon name="my icon name"
+            class="tc-badge-label-icon theme-tc-badge-label-icon"
 >
-</svg>
+</coral.icon>
 `;

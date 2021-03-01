@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Icon from '../Icon/Icon.component';
+import Icon from '../Icon';
 import InlineMessageCss from './InlineMessage.scss';
 import { getTheme } from '../theme';
 

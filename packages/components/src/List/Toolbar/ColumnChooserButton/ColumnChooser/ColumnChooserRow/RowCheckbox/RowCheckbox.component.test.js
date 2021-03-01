@@ -33,7 +33,7 @@ describe('RowCheckBox', () => {
 		// When
 		const wrapper = mount(<Component {...props} />);
 		// Then
-		expect(wrapper.find('svg[name="talend-locked"]')).toHaveLength(1);
+		expect(wrapper.find('Icon[name="talend-locked"]')).toHaveLength(1);
 	});
 	it('should call the onClick when checkbox trigger change', () => {
 		// Given
