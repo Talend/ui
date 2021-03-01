@@ -10,7 +10,6 @@ import {
 	Tooltip as CoralTooltip,
 } from '@talend/design-system';
 import getPropsFrom from '../../utils/getPropsFrom';
-import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
@@ -165,6 +164,7 @@ function ActionButton(props) {
 	}
 	return btn;
 }
+
 ActionButton.propTypes = {
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
@@ -186,6 +186,7 @@ ActionButton.propTypes = {
 	tooltipClassName: PropTypes.string,
 	...overlayPropTypes,
 };
+
 ActionButton.defaultProps = {
 	available: true,
 	bsStyle: 'default',
@@ -195,5 +196,7 @@ ActionButton.defaultProps = {
 	disabled: false,
 	t: getDefaultT(),
 };
+
 ActionButton.displayName = 'ActionButton';
+
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionButton);
