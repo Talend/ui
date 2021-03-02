@@ -261,39 +261,37 @@ class ActionDropdown extends React.Component {
 				}}
 				noCaret
 				items={[]
-						.concat(
-							!children && !items.length && !items.size && !loading && !components && (
-								<span key="empty">
-									{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
-								</span>
-							),
-						)
-						.concat(injected('beforeItemsDropdown'))
-						.concat(
-							items.map((item, key) => getMenuItem(item, key, getComponent)).toJS
-								? items.map((item, key) => getMenuItem(item, key, getComponent)).toJS()
-								: items.map((item, key) => getMenuItem(item, key, getComponent)),
-						)
-						.concat(
-							loading && (
-								<Renderers.MenuItem
-									key={items ? items.length + 1 : 0}
-									header
-									className={classNames(
-										theme['tc-dropdown-item'],
-										'tc-dropdown-item',
-										theme['tc-dropdown-loader'],
-										'tc-dropdown-loader',
-									)}
-								>
-									<CircularProgress />
-								</Renderers.MenuItem>
-							),
-						)
-						.concat(injected('itemsDropdown'))
-						.concat(children && children.toJS ? children.toJS() : children)
-						.concat(injected('afterItemsDropdown'))
-						.filter(Boolean)}
+					.concat(
+						!children && !items.length && !items.size && !loading && !components && (
+							<span key="empty">{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}</span>
+						),
+					)
+					.concat(injected('beforeItemsDropdown'))
+					.concat(
+						items.map((item, key) => getMenuItem(item, key, getComponent)).toJS
+							? items.map((item, key) => getMenuItem(item, key, getComponent)).toJS()
+							: items.map((item, key) => getMenuItem(item, key, getComponent)),
+					)
+					.concat(
+						loading && (
+							<Renderers.MenuItem
+								key={items ? items.length + 1 : 0}
+								header
+								className={classNames(
+									theme['tc-dropdown-item'],
+									'tc-dropdown-item',
+									theme['tc-dropdown-loader'],
+									'tc-dropdown-loader',
+								)}
+							>
+								<CircularProgress />
+							</Renderers.MenuItem>
+						),
+					)
+					.concat(injected('itemsDropdown'))
+					.concat(children && children.toJS ? children.toJS() : children)
+					.concat(injected('afterItemsDropdown'))
+					.filter(Boolean)}
 			>
 				{label}
 			</Renderers.DropdownButton>
