@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { SplitButton, MenuItem } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import uuid from 'uuid';
-import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.scss';
 import wrapOnClick from '../wrapOnClick';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
+import ActionButton from '../ActionButton';
+import ActionDropdown from '../ActionDropdown';
 
 /**
  * @param {object} props react props
@@ -33,36 +33,33 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 export default function ActionSplitDropdown(props) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const { icon, items, label, emptyDropdownLabel, className, ...rest } = props;
-
-	const Title = (
-		<span>
-			{icon ? <Icon name={icon} /> : null}
-			<span>{label}</span>
-		</span>
-	);
+	const { items, label, emptyDropdownLabel, className, ...rest } = props;
 
 	return (
-		<SplitButton
-			onClick={wrapOnClick(props)}
-			title={Title}
-			id={uuid.v4()}
-			className={classNames(className, theme['tc-split-dropdown'])}
-			aria-label={label}
-			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open "{{label}}" menu', label })}
-			{...rest}
-		>
-			{items.length ? (
-				items.map((item, index) => (
-					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
-						{item.icon && <Icon name={item.icon} />}
-						{item.label}
-					</MenuItem>
-				))
-			) : (
-				<MenuItem disabled>{emptyDropdownLabel}</MenuItem>
-			)}
-		</SplitButton>
+		<>
+			<ActionButton
+				onClick={wrapOnClick(props)}
+				title={label}
+				id={uuid.v4()}
+				className={classNames(className, theme['tc-split-dropdown'])}
+				{...rest}
+			/>
+			<ActionDropdown
+				items={
+					items.length ? (
+						items.map((item, index) => (
+							<ActionButton {...item} key={index} onClick={wrapOnClick(item)} icon={item.icon}>
+								{item.label}
+							</ActionButton>
+						))
+					) : (
+						<span>{emptyDropdownLabel}</span>
+					)
+				}
+			>
+				{t('ACTION_MENU_OPEN', { defaultValue: 'Open "{{label}}" menu', label })}
+			</ActionDropdown>
+		</>
 	);
 }
 
@@ -74,7 +71,6 @@ ActionSplitDropdown.propTypes = {
 		PropTypes.shape({
 			icon: PropTypes.string,
 			label: PropTypes.string,
-			...MenuItem.propTypes,
 		}),
 	),
 	label: PropTypes.string.isRequired,

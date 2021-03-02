@@ -69,18 +69,16 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             </div>
           </div>
         </button>
-        <button aria-expanded="true"
-                type="button"
-                aria-label="Collapse panel"
-                aria-pressed="true"
-                aria-describedby="42"
-                class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
+        <coral.tooltip title="Collapse panel"
+                       placement="top"
         >
-          <coral.icon name="talend-caret-down"
-                      transform="flip-vertical"
+          <coral.toggle aria-expanded="true"
+                        class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle active"
+                        icon="talend-caret-down"
           >
-          </coral.icon>
-        </button>
+            Collapse panel
+          </coral.toggle>
+        </coral.tooltip>
       </div>
     </div>
   </div>
@@ -170,15 +168,15 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             </div>
           </div>
         </button>
-        <button type="button"
-                aria-label="Expand panel"
-                aria-pressed="false"
-                aria-describedby="42"
-                class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+        <coral.tooltip title="Expand panel"
+                       placement="top"
         >
-          <coral.icon name="talend-caret-down">
-          </coral.icon>
-        </button>
+          <coral.toggle class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle"
+                        icon="talend-caret-down"
+          >
+            Expand panel
+          </coral.toggle>
+        </coral.tooltip>
       </div>
     </div>
   </div>
@@ -356,13 +354,9 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
                        placement="top"
         >
           <coral.toggle class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle"
-                        aria-label="Expand panel"
-                        aria-pressed="false"
-                        bsstyle="link"
                         icon="talend-caret-down"
           >
-            <coral.icon name="talend-caret-down">
-            </coral.icon>
+            Expand panel
           </coral.toggle>
         </coral.tooltip>
       </div>

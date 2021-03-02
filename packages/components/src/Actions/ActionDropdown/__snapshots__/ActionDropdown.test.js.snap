@@ -13,12 +13,7 @@ exports[`InjectDropdownMenuItem should render MenuItem with Inject 1`] = `
 </MenuItem>
 `;
 
-exports[`InjectDropdownMenuItem should render MenuItem with props divider 1`] = `
-<MenuItem
-  divider={true}
-  stuff="MyItemProps"
-/>
-`;
+exports[`InjectDropdownMenuItem should render MenuItem with props divider 1`] = `<React.Fragment />`;
 
 exports[`InjectDropdownMenuItem should render li with Inject 1`] = `
 <li
@@ -32,22 +27,15 @@ exports[`InjectDropdownMenuItem should render li with Inject 1`] = `
 </li>
 `;
 
-exports[`getMenuItem should return a MenuItem with divider 1`] = `
-<MenuItem
-  bsClass="dropdown"
-  disabled={false}
-  divider={true}
-  header={false}
-/>
-`;
+exports[`getMenuItem should return a MenuItem with divider 1`] = `<React.Fragment />`;
 
 exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
-<MenuItem
-  bsClass="dropdown"
+<withI18nextTranslation(ActionButton)
+  available={true}
+  bsStyle="default"
   className="theme-tc-dropdown-item tc-dropdown-item"
   data-feature="action.feature"
   disabled={false}
-  divider={false}
   eventKey={
     Object {
       "data-feature": "action.feature",
@@ -55,37 +43,43 @@ exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
       "label": "Toto",
     }
   }
-  header={false}
   icon="talend-bell"
+  inProgress={false}
   label="Toto"
+  loading={false}
   onClick={[Function]}
+  t={[Function]}
   title="Toto"
+  tooltipPlacement="top"
 >
   <Icon
     name="talend-bell"
   />
   Toto
-</MenuItem>
+</withI18nextTranslation(ActionButton)>
 `;
 
 exports[`getMenuItem should return a MenuItem with label 1`] = `
-<MenuItem
-  bsClass="dropdown"
+<withI18nextTranslation(ActionButton)
+  available={true}
+  bsStyle="default"
   className="theme-tc-dropdown-item tc-dropdown-item"
   data-feature="action.feature"
   disabled={false}
-  divider={false}
   eventKey={
     Object {
       "data-feature": "action.feature",
       "label": "Toto",
     }
   }
-  header={false}
+  inProgress={false}
   label="Toto"
+  loading={false}
   onClick={[Function]}
+  t={[Function]}
   title="Toto"
+  tooltipPlacement="top"
 >
   Toto
-</MenuItem>
+</withI18nextTranslation(ActionButton)>
 `;

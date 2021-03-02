@@ -41,30 +41,18 @@ exports[`List DisplayMode should render 1`] = `
             title="Set Table as current display mode."
           >
             <Toggle
-              aria-label="Set Table as current display mode."
-              aria-pressed={true}
-              bsStyle="link"
-              className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
+              className="tc-icon-toggle theme-tc-icon-toggle active"
               icon="talend-table"
               id="myDisplayMode-table"
               isActive={true}
             >
               <Coral.Toggle
-                aria-label="Set Table as current display mode."
-                aria-pressed={true}
-                bsStyle="link"
-                className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
+                className="tc-icon-toggle theme-tc-icon-toggle active"
                 icon="talend-table"
                 id="myDisplayMode-table"
                 isActive={true}
               >
-                <Icon
-                  name="talend-table"
-                >
-                  <Coral.Icon
-                    name="talend-table"
-                  />
-                </Icon>
+                Set Table as current display mode.
               </Coral.Toggle>
             </Toggle>
           </Coral.Tooltip>
@@ -99,30 +87,18 @@ exports[`List DisplayMode should render 1`] = `
             title="Set Expanded as current display mode."
           >
             <Toggle
-              aria-label="Set Expanded as current display mode."
-              aria-pressed={false}
-              bsStyle="link"
               className="tc-icon-toggle theme-tc-icon-toggle"
               icon="talend-expanded"
               id="myDisplayMode-large"
               isActive={false}
             >
               <Coral.Toggle
-                aria-label="Set Expanded as current display mode."
-                aria-pressed={false}
-                bsStyle="link"
                 className="tc-icon-toggle theme-tc-icon-toggle"
                 icon="talend-expanded"
                 id="myDisplayMode-large"
                 isActive={false}
               >
-                <Icon
-                  name="talend-expanded"
-                >
-                  <Coral.Icon
-                    name="talend-expanded"
-                  />
-                </Icon>
+                Set Expanded as current display mode.
               </Coral.Toggle>
             </Toggle>
           </Coral.Tooltip>

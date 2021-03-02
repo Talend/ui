@@ -5,19 +5,19 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
-import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
+import { Dropdown as CoralDropdown, Tooltip as CoralTooltip } from '@talend/design-system';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
 import Tag from '../../Tag';
-import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getTabBarBadgeLabel from '../../utils/getTabBarBadgeLabel';
+import ActionButton from '../ActionButton';
 
 export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
 
@@ -32,9 +32,9 @@ function InjectDropdownMenuItem({
 	onKeyDown,
 	...rest
 }) {
-	const Renderers = Inject.getAll(getComponent, { MenuItem });
+	const Renderers = Inject.getAll(getComponent, { MenuItem: ActionButton });
 	if (divider) {
-		return <Renderers.MenuItem {...menuItemProps} divider />;
+		return <></>;
 	}
 	if (withMenuItem) {
 		return (
@@ -63,9 +63,9 @@ InjectDropdownMenuItem.propTypes = {
 InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
 function renderMutableMenuItem(item, index, getComponent) {
-	const Renderers = Inject.getAll(getComponent, { MenuItem });
+	const Renderers = Inject.getAll(getComponent, { MenuItem: ActionButton });
 	if (item.divider) {
-		return <Renderers.MenuItem key={index} divider />;
+		return <></>;
 	}
 
 	const title = item.title || item.label;
@@ -198,6 +198,7 @@ class ActionDropdown extends React.Component {
 			label,
 			link,
 			onSelect,
+			// eslint-disable-next-line react/prop-types
 			tooltipPlacement = 'top',
 			tooltipLabel,
 			getComponent,
@@ -209,7 +210,10 @@ class ActionDropdown extends React.Component {
 			...rest
 		} = this.props;
 
-		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
+		const Renderers = Inject.getAll(getComponent, {
+			MenuItem: ActionButton,
+			DropdownButton: CoralDropdown,
+		});
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 		const title = [
 			icon && <Icon name={icon} transform={iconTransform} key="icon" />,
@@ -256,39 +260,50 @@ class ActionDropdown extends React.Component {
 					this.ref = ref;
 				}}
 				noCaret
+				items={[]
+						.concat(
+							!children && !items.length && !items.size && !loading && !components && (
+								<span key="empty">
+									{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
+								</span>
+							),
+						)
+						.concat(injected('beforeItemsDropdown'))
+						.concat(
+							items.map((item, key) => getMenuItem(item, key, getComponent)).toJS
+								? items.map((item, key) => getMenuItem(item, key, getComponent)).toJS()
+								: items.map((item, key) => getMenuItem(item, key, getComponent)),
+						)
+						.concat(
+							loading && (
+								<Renderers.MenuItem
+									key={items ? items.length + 1 : 0}
+									header
+									className={classNames(
+										theme['tc-dropdown-item'],
+										'tc-dropdown-item',
+										theme['tc-dropdown-loader'],
+										'tc-dropdown-loader',
+									)}
+								>
+									<CircularProgress />
+								</Renderers.MenuItem>
+							),
+						)
+						.concat(injected('itemsDropdown'))
+						.concat(children && children.toJS ? children.toJS() : children)
+						.concat(injected('afterItemsDropdown'))
+						.filter(Boolean)}
 			>
-				{!children && !items.length && !items.size && !loading && !components && (
-					<Renderers.MenuItem key="empty" disabled>
-						{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
-					</Renderers.MenuItem>
-				)}
-				{injected('beforeItemsDropdown')}
-				{items.map((item, key) => getMenuItem(item, key, getComponent))}
-				{loading && (
-					<Renderers.MenuItem
-						key={items ? items.length + 1 : 0}
-						header
-						className={classNames(
-							theme['tc-dropdown-item'],
-							'tc-dropdown-item',
-							theme['tc-dropdown-loader'],
-							'tc-dropdown-loader',
-						)}
-					>
-						<CircularProgress />
-					</Renderers.MenuItem>
-				)}
-				{injected('itemsDropdown')}
-				{children}
-				{injected('afterItemsDropdown')}
+				{label}
 			</Renderers.DropdownButton>
 		);
 
 		if (hideLabel || tooltipLabel) {
 			return (
-				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+				<CoralTooltip title={tooltipLabel || label} placement={tooltipPlacement}>
 					{dropdown}
-				</TooltipTrigger>
+				</CoralTooltip>
 			);
 		}
 		return dropdown;
@@ -311,7 +326,6 @@ ActionDropdown.propTypes = {
 			PropTypes.shape({
 				icon: PropTypes.string,
 				label: PropTypes.string,
-				...MenuItem.propTypes,
 			}),
 		),
 		ImmutablePropTypes.list,
@@ -326,7 +340,6 @@ ActionDropdown.propTypes = {
 	loading: PropTypes.bool,
 	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltipLabel: PropTypes.string,
 	getComponent: PropTypes.func,
 	components: PropTypes.shape({

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import {
 	Button as CoralButton,
@@ -9,7 +8,6 @@ import {
 	Link as CoralLink,
 	Tooltip as CoralTooltip,
 } from '@talend/design-system';
-import getPropsFrom from '../../utils/getPropsFrom';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
@@ -75,7 +73,7 @@ function ActionButton(props) {
 	if (loading && !link) {
 		return <CoralSkeleton.Button />;
 	}
-	const buttonProps = getPropsFrom(Button, rest);
+	const buttonProps = rest; // getPropsFrom(Button, rest);
 	const buttonContent = props.label;
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
@@ -85,7 +83,7 @@ function ActionButton(props) {
 	const rMouseLeave = getHandler(onMouseLeave, model, label, rest);
 	buttonProps.className = classNames(buttonProps.className, {
 		'btn-icon-only': hideLabel || !label,
-		[theme['btn-disabled']]: btnIsDisabled,
+		// [theme['btn-disabled']]: btnIsDisabled,
 	});
 	let ariaLabel = tooltipLabel || label;
 	if (inProgress) {
@@ -179,7 +177,7 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
-	tooltipPlacement: BaseOverlayTrigger.propTypes.placement,
+	// tooltipPlacement: BaseOverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,

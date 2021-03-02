@@ -11,7 +11,7 @@ exports[`Header should render header with one button 1`] = `
     className="actions"
   >
     <Coral.Tooltip
-      placement="top"
+      placement="bottom"
       title="Search for specific values"
     >
       <Coral.Button

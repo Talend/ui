@@ -56,7 +56,7 @@ ActionIconToggle.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func,
-	tooltipPlacement: CoralTooltip.propTypes.placement,
+	// tooltipPlacement: CoralTooltip.propTypes.placement,
 	buttonRef: PropTypes.func,
 };
 

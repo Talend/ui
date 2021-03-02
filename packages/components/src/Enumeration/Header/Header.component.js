@@ -25,7 +25,7 @@ function getAction(action, index) {
 				noCaret
 				key={`${index}-enum-header-action`}
 				onClick={onClick}
-				btooltipPlacement="bottom"
+				tooltipPlacement="bottom"
 				hideLabel
 				pullRight
 				link

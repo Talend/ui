@@ -9,19 +9,25 @@ exports[`ActionFile should apply transformation on icon 1`] = `
     onChange={[Function]}
     type="file"
   />
-  <label
-    className="btn btn-default theme-btn-file"
+  <withI18nextTranslation(ActionButton)
+    as="label"
+    available={true}
+    bsStyle="default"
     data-feature="action.feature"
+    disabled={false}
     htmlFor="42"
+    icon="talend-caret-down"
+    inProgress={false}
+    loading={false}
+    t={[Function]}
+    tooltipPlacement="top"
   >
-    <Icon
-      name="talend-caret-down"
-      transform="rotate-180"
-    />
     <span>
       Click me
     </span>
-  </label>
+     
+    default
+  </withI18nextTranslation(ActionButton)>
 </span>
 `;
 
@@ -36,19 +42,25 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
     onChange={[Function]}
     type="file"
   />
-  <label
-    className="btn btn-default theme-btn-file disabled"
+  <withI18nextTranslation(ActionButton)
+    as="label"
+    available={true}
+    bsStyle="default"
     data-feature="action.feature"
+    disabled={false}
     htmlFor="42"
+    icon="talend-caret-down"
+    inProgress={false}
+    loading={false}
+    t={[Function]}
+    tooltipPlacement="top"
   >
-    <withI18nextTranslation(CircularProgress)
-      size="small"
-      t={[Function]}
-    />
     <span>
       Click me
     </span>
-  </label>
+     
+    default
+  </withI18nextTranslation(ActionButton)>
 </span>
 `;
 
@@ -63,18 +75,25 @@ exports[`ActionFile should display a disabled Icon 1`] = `
     onChange={[Function]}
     type="file"
   />
-  <label
-    className="btn btn-default theme-btn-file disabled"
+  <withI18nextTranslation(ActionButton)
+    as="label"
+    available={true}
+    bsStyle="default"
     data-feature="action.feature"
+    disabled={false}
     htmlFor="42"
+    icon="talend-caret-down"
+    inProgress={false}
+    loading={false}
+    t={[Function]}
+    tooltipPlacement="top"
   >
-    <Icon
-      name="talend-caret-down"
-    />
     <span>
       Click me
     </span>
-  </label>
+     
+    default
+  </withI18nextTranslation(ActionButton)>
 </span>
 `;
 
@@ -89,18 +108,25 @@ exports[`ActionFile should pass all props to the Button 1`] = `
     onChange={[Function]}
     type="file"
   />
-  <label
-    className="btn btn-default theme-btn-file"
+  <withI18nextTranslation(ActionButton)
+    as="label"
+    available={true}
+    bsStyle="default"
     data-feature="action.feature"
+    disabled={false}
     htmlFor="42"
+    icon="talend-caret-down"
+    inProgress={false}
+    loading={false}
+    t={[Function]}
+    tooltipPlacement="top"
   >
-    <Icon
-      name="talend-caret-down"
-    />
     <span>
       Click me
     </span>
-  </label>
+     
+    default
+  </withI18nextTranslation(ActionButton)>
 </span>
 `;
 
@@ -113,18 +139,25 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
     onChange={[Function]}
     type="file"
   />
-  <label
-    className="btn btn-default theme-btn-file"
+  <withI18nextTranslation(ActionButton)
+    as="label"
+    available={true}
+    bsStyle="default"
     data-feature="action.feature"
+    disabled={false}
     htmlFor="42"
+    icon="talend-caret-down"
+    inProgress={false}
+    loading={false}
+    t={[Function]}
+    tooltipPlacement="top"
   >
-    <Icon
-      name="talend-caret-down"
-    />
     <span>
       Click me
     </span>
-  </label>
+     
+    default
+  </withI18nextTranslation(ActionButton)>
 </span>
 `;
 
@@ -139,18 +172,25 @@ exports[`ActionFile should render a div with a input[type="file"] with some clas
     onChange={[Function]}
     type="file"
   />
-  <label
-    className="btn btn-default theme-btn-file"
+  <withI18nextTranslation(ActionButton)
+    as="label"
+    available={true}
+    bsStyle="default"
     data-feature="action.feature"
+    disabled={false}
     htmlFor="42"
+    icon="talend-caret-down"
+    inProgress={false}
+    loading={false}
+    t={[Function]}
+    tooltipPlacement="top"
   >
-    <Icon
-      name="talend-caret-down"
-    />
     <span>
       Click me
     </span>
-  </label>
+     
+    default
+  </withI18nextTranslation(ActionButton)>
 </span>
 `;
 
@@ -164,18 +204,25 @@ exports[`ActionFile should render action with html property name = props.name if
     onChange={[Function]}
     type="file"
   />
-  <label
-    className="btn btn-default theme-btn-file"
+  <withI18nextTranslation(ActionButton)
+    as="label"
+    available={true}
+    bsStyle="default"
     data-feature="action.feature"
+    disabled={false}
     htmlFor="42"
+    icon="talend-caret-down"
+    inProgress={false}
+    loading={false}
+    t={[Function]}
+    tooltipPlacement="top"
   >
-    <Icon
-      name="talend-caret-down"
-    />
     <span>
       Click me
     </span>
-  </label>
+     
+    default
+  </withI18nextTranslation(ActionButton)>
 </span>
 `;
 
@@ -188,17 +235,24 @@ exports[`ActionFile should reverse icon/label 1`] = `
     onChange={[Function]}
     type="file"
   />
-  <label
-    className="btn btn-default theme-btn-file"
+  <withI18nextTranslation(ActionButton)
+    as="label"
+    available={true}
+    bsStyle="default"
     data-feature="action.feature"
+    disabled={false}
     htmlFor="42"
+    icon="talend-caret-down"
+    inProgress={false}
+    loading={false}
+    t={[Function]}
+    tooltipPlacement="top"
   >
     <span>
       Click me
     </span>
-    <Icon
-      name="talend-caret-down"
-    />
-  </label>
+     
+    default
+  </withI18nextTranslation(ActionButton)>
 </span>
 `;

@@ -5,74 +5,16 @@ exports[`AppSwitcher should render the products 1`] = `
     class="tc-app-switcher-action theme-tc-app-switcher-action"
 >
   <span role="heading">
-    <div class="dropdown btn-group btn-group-link">
-      <button aria-label="Switch to another application. Current application: My App"
-              id="brand"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              type="button"
-              class="theme-tc-dropdown-button tc-dropdown-button tc-app-switcher theme-tc-app-switcher dropdown-toggle btn btn-link"
-      >
-        <span class="tc-dropdown-button-title-label">
-          My App
-        </span>
-        <coral.icon name="talend-caret-down"
-                    class="theme-tc-dropdown-caret"
-        >
-        </coral.icon>
-      </button>
-      <ul role="menu"
-          class="dropdown-menu"
-          aria-labelledby="brand"
-      >
-        <li role="presentation"
-            class="theme-tc-dropdown-item tc-dropdown-item"
-        >
-          <a icon="talend-tdp-colored"
-             label="Data Preparation"
-             title="Data Preparation"
-             role="menuitem"
-             tabindex="-1"
-             href="#"
-          >
-            <coral.icon name="talend-tdp-colored">
-            </coral.icon>
-            Data Preparation
-          </a>
-        </li>
-        <li role="presentation"
-            class="theme-tc-dropdown-item tc-dropdown-item"
-        >
-          <a icon="talend-tic-colored"
-             label="Integration Cloud"
-             title="Integration Cloud"
-             role="menuitem"
-             tabindex="-1"
-             href="#"
-          >
-            <coral.icon name="talend-tic-colored">
-            </coral.icon>
-            Integration Cloud
-          </a>
-        </li>
-        <li role="presentation"
-            class="theme-tc-dropdown-item tc-dropdown-item"
-        >
-          <a icon="talend-tmc-colored"
-             label="Management Console"
-             title="Management Console"
-             role="menuitem"
-             tabindex="-1"
-             href="#"
-          >
-            <coral.icon name="talend-tmc-colored">
-            </coral.icon>
-            Management Console
-          </a>
-        </li>
-      </ul>
-    </div>
+    <coral.dropdown title="[object Object],[object Object]"
+                    bsstyle="link"
+                    role="button"
+                    class="theme-tc-dropdown-button tc-dropdown-button tc-app-switcher theme-tc-app-switcher"
+                    aria-label="Switch to another application. Current application: My App"
+                    id="brand"
+                    items="[object Object],[object Object],[object Object]"
+    >
+      My App
+    </coral.dropdown>
   </span>
 </li>
 `;

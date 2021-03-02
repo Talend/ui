@@ -3,11 +3,12 @@ import React from 'react';
 import { OverlayTrigger } from 'react-bootstrap';
 import classNames from 'classnames';
 import uuid from 'uuid';
+import { Button as CoralButton, Tooltip as CoralTooltip } from '@talend/design-system';
 
-import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
 import Icon from '../../Icon';
 import theme from './ActionFile.scss';
+import ActionButton from '../ActionButton/ActionButton.component';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -114,16 +115,22 @@ class ActionFile extends React.Component {
 					disabled={inProgress || disabled}
 					className={classNames(theme['action-file-input'], 'sr-only')}
 				/>
-				<label htmlFor={localId} className={labelClasses} data-feature={dataFeature}>
-					{iconPosition === RIGHT ? [labelInstance, iconInstance] : [iconInstance, labelInstance]}
-				</label>
+				<ActionButton
+					as="label"
+					htmlFor={localId}
+					icon={icon}
+					bsStyle={bsStyle}
+					data-feature={dataFeature}
+				>
+					{labelInstance} {bsStyle}
+				</ActionButton>
 			</span>
 		);
 		if (hideLabel || tooltip || tooltipLabel) {
 			return (
-				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+				<CoralTooltip title={tooltipLabel || label} placement={tooltipPlacement}>
 					{btn}
-				</TooltipTrigger>
+				</CoralTooltip>
 			);
 		}
 		return btn;

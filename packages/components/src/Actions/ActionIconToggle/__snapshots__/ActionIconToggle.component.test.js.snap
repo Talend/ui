@@ -6,19 +6,13 @@ exports[`ActionIconToggle should render a button 1`] = `
   title="Click me, I'm inactive"
 >
   <Toggle
-    aria-label="Click me, I'm inactive"
-    aria-pressed={false}
-    bsStyle="link"
     className="my-icon-toggle tc-icon-toggle theme-tc-icon-toggle"
     data-feature="action.feature"
     icon="talend-panel-opener-right"
     id="my-inactive-action"
     isActive={false}
   >
-    <Icon
-      name="talend-panel-opener-right"
-      transform="rotate-90"
-    />
+    Click me, I'm inactive
   </Toggle>
 </Tooltip>
 `;
@@ -29,19 +23,13 @@ exports[`ActionIconToggle should render an active button 1`] = `
   title="Click me, I'm inactive"
 >
   <Toggle
-    aria-label="Click me, I'm inactive"
-    aria-pressed={true}
-    bsStyle="link"
-    className="my-icon-toggle tc-icon-toggle theme-tc-icon-toggle theme-active active"
+    className="my-icon-toggle tc-icon-toggle theme-tc-icon-toggle active"
     data-feature="action.feature"
     icon="talend-panel-opener-right"
     id="my-inactive-action"
     isActive={true}
   >
-    <Icon
-      name="talend-panel-opener-right"
-      transform="rotate-90"
-    />
+    Click me, I'm inactive
   </Toggle>
 </Tooltip>
 `;
