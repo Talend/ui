@@ -50,6 +50,7 @@ exports[`Typeahead injection should use render props to inject extra components 
       style={
         Object {
           "maxHeight": undefined,
+          "minHeight": undefined,
         }
       }
     >
@@ -181,6 +182,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
       style={
         Object {
           "maxHeight": undefined,
+          "minHeight": undefined,
         }
       }
     >
@@ -442,6 +444,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
       style={
         Object {
           "maxHeight": undefined,
+          "minHeight": undefined,
         }
       }
     >
@@ -507,6 +510,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       style={
         Object {
           "maxHeight": undefined,
+          "minHeight": undefined,
         }
       }
     >
@@ -710,6 +714,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       style={
         Object {
           "maxHeight": undefined,
+          "minHeight": undefined,
         }
       }
     >
@@ -823,6 +828,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       style={
         Object {
           "maxHeight": undefined,
+          "minHeight": undefined,
         }
       }
     >
