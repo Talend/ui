@@ -14,7 +14,7 @@ addDecorator(withInfo);
 addDecorator(checkA11y);
 addDecorator(story => (
 	<React.Fragment>
-		<IconsProvider />
+		<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 		{story()}
 	</React.Fragment>
 ));
