@@ -10685,6 +10685,11 @@ mdurl@^1.0.0:
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
+mdx-embed@^0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/mdx-embed/-/mdx-embed-0.0.19.tgz#07220a7a7f3ab6aa9ced1e1c79de1c9896bef337"
+  integrity sha512-0HEXkQqP7GuNE3kOWoj4FPdOWbACNpObeoUpTQe1BXrqcTR0KBGckCs30K+ypRuutQPo0L3IZsCLBMQqLMYaug==
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -14537,6 +14542,11 @@ store2@^2.7.1:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
+
+storybook-addon-mdx-embed@^0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/storybook-addon-mdx-embed/-/storybook-addon-mdx-embed-0.0.19.tgz#200307ffcf700b776ffb8146085f035ca3d883bd"
+  integrity sha512-xYvLALtxPl21rony/ODBs4RFhjMBEHKCBxYyALbzcM8vUwoM0HsvjhMFFfh1pqH+tKfp+as5Ool3fBF+mggSdw==
 
 storybook-addon-pseudo-states@^1.0.0:
   version "1.0.0"

@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { CodeSandbox } from 'mdx-embed';
 
 <Meta title="Getting Started" />
 
@@ -11,40 +12,13 @@ Check it out on [Figma](https://www.figma.com/file/hMYM9HGXajJpWdGwRb5ITR/Coral)
 ## For developers
 
 ```sh
-npm i -S react react-dom react-i18next styled-components @talend/design-system
+npm i -S react react-dom react-is classnames styled-components reakit @talend/design-system
 ```
 
-Or, use CDN versions:
+or
 
-```html
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>Talend Design System example</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-	</head>
-	<body>
-		<div id="root"></div>
-		<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-		<script
-			crossorigin
-			src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
-		></script>
-		<script
-			crossorigin
-			src="https://unpkg.com/styled-components/dist/styled-components.min.js"
-		></script>
-		<script crossorigin src="https://statics.cloud.talend.com/@talend/design-system/next/dist/TalendDesignSystem.min.js"></script>
-		<script>
-			const { Button, ThemeProvider } = TalendDesignSystem;
-			const App = React.createElement(
-				ThemeProvider,
-				null,
-				React.createElement(Button, {}, 'Example'),
-			);
-			ReactDOM.render(App, document.getElementById('root'));
-		</script>
-	</body>
-</html>
+```sh
+yarn add react react-dom react-is classnames styled-components reakit @talend/design-system
 ```
+
+<CodeSandbox codeSandboxId="coral-e4w8h" />
