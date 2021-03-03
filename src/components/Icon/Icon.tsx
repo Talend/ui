@@ -159,41 +159,38 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 			}
 		}, [border, safeRef]);
 
-		if (isImg) {
-			return (
-				<img alt="" src={name.substring(4)} className="tc-icon" {...accessibility} {...rest} />
-			);
-		}
-
-		const classname = classnames('tc-svg-icon', className, transform, {
+		const classname = classnames('tc-icon', className, transform, {
 			[`tc-icon-name-${name}`]: !(isImg || isRemote),
 		});
 
-		let iconElement = (
-			<SVG
-				{...rest}
-				name={!(isImg || isRemote) ? name : null}
-				{...accessibility}
-				className={classname}
-				border={border}
-				ref={safeRef}
-			/>
-		);
+		if (isImg) {
+			return (
+				<img alt="" src={name.substring(4)} className={classname} {...accessibility} {...rest} />
+			);
+		}
 
 		if (isRemote && content && !isRemoteSVG) {
-			const classNames = classnames('tc-icon', className);
-			iconElement = (
+			return (
 				<img
 					alt=""
 					src={name.replace('remote-', '')}
-					className={classNames}
+					className={className}
 					{...accessibility}
 					{...rest}
 				/>
 			);
 		}
 
-		return iconElement;
+		return (
+			<SVG
+				{...rest}
+				name={!(isImg || isRemote) ? name : null}
+				{...accessibility}
+				className={classnames('tc-svg-icon', classname)}
+				border={border}
+				ref={safeRef}
+			/>
+		);
 	},
 );
 

@@ -1,5 +1,5 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
+import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle } from './';
 
 <Meta title="Component catalog" />
 
@@ -12,6 +12,14 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 		<Button.Secondary icon="talend-datagrid">Secondary button</Button.Secondary>
 		<Button.Tertiary icon="talend-datagrid">Tertiary button</Button.Tertiary>
 		<Button.Icon icon="talend-datagrid">Datagrid</Button.Icon>
+        <Button
+            icon={
+                <Icon name="src-https://fonts.gstatic.com/s/i/materialiconsoutlined/favorite/v11/24px.svg" />
+            }
+            hideText
+        >
+            Button with custom icon
+        </Button>
 	</Story>
 </Canvas>
 
@@ -29,10 +37,11 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 ## Dropdowns
 
 <Canvas>
-	<Story name="Dropdowns">
+	<Story name="Dropdowns" height="20rem">
 		<Dropdown
 			as={Button.Primary}
 			aria-label="Custom menu"
+			icon="talend-datagrid"
 			items={[
 				<button>Custom item 1</button>,
 				<button>Custom item 2</button>,
@@ -44,6 +53,7 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 		<Dropdown
 			as={Button.Destructive}
 			aria-label="Custom menu"
+			icon="talend-datagrid"
 			items={[
 				<button>Custom item 1</button>,
 				<button>Custom item 2</button>,
@@ -55,6 +65,7 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 		<Dropdown
 			as={Button.Secondary}
 			aria-label="Custom menu"
+			icon="talend-datagrid"
 			items={[
 				<button>Custom item 1</button>,
 				<button>Custom item 2</button>,
@@ -66,6 +77,7 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 		<Dropdown
 			as={Button.Tertiary}
 			aria-label="Custom menu"
+			icon="talend-datagrid"
 			items={[
 				<button>Custom item 1</button>,
 				<button>Custom item 2</button>,
@@ -74,6 +86,18 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 		>
 			Tertiary Dropdown
 		</Dropdown>
+		<Dropdown
+			as={Button.Icon}
+			aria-label="Custom menu"
+			icon={<Icon name="talend-datagrid" />}
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Icon Dropdown
+		</Dropdown>
 	</Story>
 </Canvas>
 
@@ -81,7 +105,21 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 
 <Canvas>
 	<Story name="Links">
-		<Link>Link</Link>
+		<Link href="#">Link</Link>
+		<Link href="#" iconBefore="talend-info-circle">
+			Inline help
+		</Link>
+		<Link href="https://www.talend.com">Talend</Link>
+		<Button
+			as={Link}
+			iconBefore={<Icon name="talend-arrow-left" transform="rotate-90" />}
+			onClick={() => {
+				document.body.scrollTop = 0; // For Safari
+				document.documentElement.scrollTop = 0; // For others
+			}}
+		>
+			Scroll to top
+		</Button>
 	</Story>
 </Canvas>
 
@@ -100,14 +138,14 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 				<Form.Datalist label="Datalist" values={['foo', 'bar']} />
 				<Form.Search label="Search" />
 				<Form.Textarea label="Textarea" />
-                <Form.Select label="Select">
-                    <option selected>Foo</option>
-                    <option>Bar</option>
-                </Form.Select>
-                <Form.Select label="Select multiple" multiple>
-                    <option selected>Foo</option>
-                    <option selected>Bar</option>
-                </Form.Select>
+				<Form.Select label="Select">
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Select label="Select multiple" multiple>
+					<option selected>Foo</option>
+					<option selected>Bar</option>
+				</Form.Select>
 				<Form.Checkbox label="Checkbox" checked />
 				<Form.Radio label="Radio" checked />
 				<Form.Switch label="Switch" checked />
@@ -168,5 +206,22 @@ import { Button, Dropdown, Form, InlineMessage, Link, Tag, Toggle } from './';
 			link={<Link href={'#'}>See more</Link>}
 			withBackground
 		/>
+	</Story>
+</Canvas>
+
+### Popovers
+
+<Canvas>
+	<Story name="Popovers" height="10rem">
+		<Popover
+			aria-label="Custom popover"
+			disclosure={
+				<Button.Icon icon={<Icon name="talend-ellipsis" transform="rotate-90" />}>
+					Open popover
+				</Button.Icon>
+			}
+		>
+			Custom popover
+		</Popover>
 	</Story>
 </Canvas>

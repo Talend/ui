@@ -39,13 +39,11 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 	`,
 );
 
-const ICONS = ['https://statics-dev.cloud.talend.com/@talend/icons/6.7.0/dist/svg-bundle/all.svg'];
-
 const withThemeProvider = (Story, context) => {
 	const theme = getTheme(context.globals.theme);
 	return (
 		<ThemeProvider theme={theme}>
-			<IconsProvider bundles={ICONS} />
+			<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 			<ThemeProvider.GlobalStyle />
 			<StorybookGlobalStyle />
 			<Story {...context} />

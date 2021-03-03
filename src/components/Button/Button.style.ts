@@ -23,14 +23,11 @@ export const Button = styled(ReakitButton)`
 		border-radius: ${tokens.radii.rectRadius};
 	}
 
-	svg {
+	.btn__icon {
 		flex-grow: 0;
 		flex-shrink: 0;
-	}
-
-	.btn__loading {
-		width: ${tokens.sizes.l};
 		height: ${tokens.sizes.l};
+		max-width: 100%;
 	}
 
 	.btn__loading,
