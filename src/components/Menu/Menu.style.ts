@@ -113,7 +113,7 @@ export const MenuItem = styled(Link).attrs(({ active }) => ({
 		}
 
         &:hover {
-            color: ${active ? theme.colors.primary : 'inherit'};
+            color: ${active ? theme.colors.primaryColor : 'inherit'};
             background: ${transparentize(active ? 0.12 : 0.88, tokens.colors.gray[0])};
         }
     `,

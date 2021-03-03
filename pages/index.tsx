@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Button, Link, Tag, ThemeProvider } from '../src';
+import { Button, IconsProvider, Link, Tag, ThemeProvider } from '../src';
 
 export default function () {
 	return (
 		<ThemeProvider>
 			<ThemeProvider.GlobalStyle />
+			<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 			<h1>Catalog</h1>
 			<section>
 				<h2>Links</h2>
