@@ -132,6 +132,8 @@ function ActionButton(props) {
 			icon={props.icon}
 			hideText={hideLabel}
 			{...buttonProps}
+			className={`${buttonProps.className} btn-${bsStyle}`}
+
 		>
 			{buttonContent}
 		</StyledCoralComponent>
