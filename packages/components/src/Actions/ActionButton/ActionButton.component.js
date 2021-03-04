@@ -102,10 +102,8 @@ function ActionButton(props) {
 	let StyledCoralComponent = CoralButton;
 	switch (style) {
 		case 'primary':
-			StyledCoralComponent = CoralButton.Primary;
-			break;
 		case 'info':
-			StyledCoralComponent = CoralButton.Secondary;
+			StyledCoralComponent = CoralButton.Primary;
 			break;
 		case 'success':
 			StyledCoralComponent = CoralButton.Tertiary;
@@ -115,6 +113,9 @@ function ActionButton(props) {
 			break;
 		default:
 			break;
+	}
+	if (bsStyle.includes('inverse')) {
+		StyledCoralComponent = CoralButton.Secondary;
 	}
 	if (props.href) {
 		StyledCoralComponent = CoralLink;
