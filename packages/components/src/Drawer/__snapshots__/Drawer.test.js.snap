@@ -382,7 +382,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
             >
               <Button
                 aria-label="ActionCenter-tab-2"
-                className=""
+                className=" btn btn-default"
                 disabled={false}
                 id="view-center-tab-2"
                 onClick={[Function]}
@@ -390,7 +390,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
               >
                 <Coral.Button
                   aria-label="ActionCenter-tab-2"
-                  className=""
+                  className=" btn btn-default"
                   disabled={false}
                   id="view-center-tab-2"
                   onClick={[Function]}

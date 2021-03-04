@@ -56,7 +56,7 @@ exports[`TextFilter should render text filter component 1`] = `
           >
             <Button
               aria-label="Toggle filter"
-              className="btn-icon-only"
+              className="btn-icon-only btn btn-link"
               disabled={false}
               hideText={true}
               icon="talend-search"
@@ -67,7 +67,7 @@ exports[`TextFilter should render text filter component 1`] = `
             >
               <Coral.Button
                 aria-label="Toggle filter"
-                className="btn-icon-only"
+                className="btn-icon-only btn btn-link"
                 disabled={false}
                 hideText={true}
                 icon="talend-search"
@@ -144,7 +144,7 @@ exports[`TextFilter should render text filter component with defined docked stat
           >
             <Button
               aria-label="Toggle filter"
-              className="btn-icon-only"
+              className="btn-icon-only btn btn-link"
               disabled={false}
               hideText={true}
               icon="talend-search"
@@ -155,7 +155,7 @@ exports[`TextFilter should render text filter component with defined docked stat
             >
               <Coral.Button
                 aria-label="Toggle filter"
-                className="btn-icon-only"
+                className="btn-icon-only btn btn-link"
                 disabled={false}
                 hideText={true}
                 icon="talend-search"

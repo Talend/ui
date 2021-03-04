@@ -16,7 +16,7 @@ exports[`Header should render header with one button 1`] = `
     >
       <Coral.Button
         aria-label="Search for specific values"
-        className="btn-icon-only"
+        className="btn-icon-only btn btn-default"
         disabled={false}
         hideText={true}
         icon="talend-search"

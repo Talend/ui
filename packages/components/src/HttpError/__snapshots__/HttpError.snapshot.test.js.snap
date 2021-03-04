@@ -34,7 +34,7 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
     </p>
     <Coral.Button
       aria-label="Start over"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="talend-arrow-left"
       onClick={[Function]}

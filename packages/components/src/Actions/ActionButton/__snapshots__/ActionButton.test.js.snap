@@ -3,7 +3,7 @@
 exports[`Action should apply transformation on icon 1`] = `
 <Button
   aria-label="Click me"
-  className=""
+  className=" btn btn-default"
   data-feature="action.feature"
   disabled={false}
   icon="talend-caret-down"
@@ -19,7 +19,7 @@ exports[`Action should apply transformation on icon 1`] = `
 exports[`Action should display a Progress indicator if set 1`] = `
 <Button
   aria-label="Click me (in progress)"
-  className="navbar-btn"
+  className="navbar-btn btn btn-default"
   data-feature="action.feature"
   disabled={true}
   icon="talend-caret-down"
@@ -34,7 +34,7 @@ exports[`Action should display a Progress indicator if set 1`] = `
 exports[`Action should display a disabled Icon 1`] = `
 <Button
   aria-label="Click me"
-  className="navbar-btn"
+  className="navbar-btn btn btn-default"
   data-feature="action.feature"
   disabled={true}
   icon="talend-caret-down"
@@ -49,7 +49,7 @@ exports[`Action should display a disabled Icon 1`] = `
 exports[`Action should pass all props to the Button 1`] = `
 <Button
   aria-label="Click me"
-  className="navbar-btn"
+  className="navbar-btn btn btn-default"
   data-feature="action.feature"
   disabled={false}
   icon="talend-caret-down"
@@ -65,7 +65,7 @@ exports[`Action should pass all props to the Button 1`] = `
 exports[`Action should render a button 1`] = `
 <Button
   aria-label="Click me"
-  className=""
+  className=" btn btn-default"
   data-feature="action.feature"
   disabled={false}
   icon="talend-caret-down"
@@ -88,7 +88,7 @@ exports[`Action should render a button with a overlay component 1`] = `
   <Button
     aria-haspopup={true}
     aria-label="Click me"
-    className=""
+    className=" btn btn-default"
     data-feature="action.feature"
     disabled={false}
     icon="talend-caret-down"
@@ -108,7 +108,7 @@ exports[`Action should render a button with loading state 1`] = `<Skeleton.Butto
 exports[`Action should render a button without an overlay component if inProgress is true 1`] = `
 <Button
   aria-label="Click me (in progress)"
-  className=""
+  className=" btn btn-default"
   data-feature="action.feature"
   disabled={true}
   icon="talend-caret-down"
@@ -125,7 +125,7 @@ exports[`Action should render a button without an overlay component if inProgres
 exports[`Action should render a link button with loading state 1`] = `
 <Button
   aria-label=" (loading)"
-  className="btn-icon-only"
+  className="btn-icon-only btn btn-default"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
@@ -135,7 +135,7 @@ exports[`Action should render a link button with loading state 1`] = `
 exports[`Action should render action with html property name = props.name if set 1`] = `
 <Button
   aria-label="Click me"
-  className=""
+  className=" btn btn-default"
   data-feature="action.feature"
   disabled={false}
   icon="talend-caret-down"
@@ -151,7 +151,7 @@ exports[`Action should render action with html property name = props.name if set
 exports[`Action should reverse icon/label 1`] = `
 <Button
   aria-label="Click me"
-  className=""
+  className=" btn btn-default"
   data-feature="action.feature"
   disabled={false}
   icon="talend-caret-down"

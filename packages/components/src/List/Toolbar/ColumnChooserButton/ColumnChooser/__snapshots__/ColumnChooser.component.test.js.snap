@@ -203,13 +203,13 @@ exports[`ColumnChooser should render with default props 1`] = `
   <footer id="column-chooser-footer"
           class="theme-footer tc-tooltip-footer tc-column-chooser-footer theme-tc-column-chooser-footer"
   >
-    <coral.button.secondary aria-label="Apply"
-                            id="my-id-submit-button"
-                            type="submit"
-                            class
+    <coral.button.primary aria-label="Apply"
+                          id="my-id-submit-button"
+                          type="submit"
+                          class=" btn btn-info"
     >
       Apply
-    </coral.button.secondary>
+    </coral.button.primary>
   </footer>
 </form>
 `;

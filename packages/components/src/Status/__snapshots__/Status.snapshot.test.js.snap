@@ -21,7 +21,7 @@ exports[`Status should render a label 1`] = `
     <Coral.Button
       aria-label="cancel"
       bsSize="small"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="fa fa-cancel"
       onClick={[Function]}
@@ -32,7 +32,7 @@ exports[`Status should render a label 1`] = `
     <Coral.Button
       aria-label="delete"
       bsSize="small"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="fa fa-delete"
       onClick={[Function]}
@@ -67,7 +67,7 @@ exports[`Status should render a label with Icon 1`] = `
     <Coral.Button
       aria-label="cancel"
       bsSize="small"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="fa fa-cancel"
       onClick={[Function]}
@@ -78,7 +78,7 @@ exports[`Status should render a label with Icon 1`] = `
     <Coral.Button
       aria-label="delete"
       bsSize="small"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="fa fa-delete"
       onClick={[Function]}
@@ -154,7 +154,7 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     <Coral.Button
       aria-label="cancel"
       bsSize="small"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="fa fa-cancel"
       onClick={[Function]}
@@ -165,7 +165,7 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     <Coral.Button
       aria-label="delete"
       bsSize="small"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="fa fa-delete"
       onClick={[Function]}
@@ -218,7 +218,7 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     <Coral.Button
       aria-label="cancel"
       bsSize="small"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="fa fa-cancel"
       onClick={[Function]}
@@ -229,7 +229,7 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     <Coral.Button
       aria-label="delete"
       bsSize="small"
-      className=""
+      className=" btn btn-default"
       disabled={false}
       icon="fa fa-delete"
       onClick={[Function]}

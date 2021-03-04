@@ -12,7 +12,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
     >
       <Coral.Button.Primary
         aria-label="Add"
-        className=""
+        className=" btn btn-primary"
         disabled={false}
         icon="talend-plus"
         id="my-toolbar-actions-add"
@@ -48,7 +48,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       </span>
       <Coral.Button
         aria-label="Delete selection"
-        className=""
+        className=" btn btn-default"
         disabled={false}
         icon="talend-trash"
         id="my-toolbar-actions-delete"

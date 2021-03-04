@@ -18,7 +18,7 @@ exports[`Header should render filter header 1`] = `
   >
     <Coral.Button
       aria-label="Abort"
-      className="btn-icon-only"
+      className="btn-icon-only btn btn-default"
       disabled={false}
       hideText={true}
       icon="talend-cross"

@@ -6,7 +6,7 @@ exports[`BadgeDelete should render 1`] = `
 >
   <coral.button aria-label="Delete"
                 icon="talend-cross"
-                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only"
+                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-default"
                 id="tc-badge-delete-my-id"
                 role="button"
   >

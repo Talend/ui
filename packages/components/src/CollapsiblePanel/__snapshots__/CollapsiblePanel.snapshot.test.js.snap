@@ -23,13 +23,13 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">
                   <coral.button aria-label="cancel"
                                 icon="fa fa-cancel"
-                                class
+                                class=" btn btn-default"
                   >
                     cancel
                   </coral.button>
                   <coral.button aria-label="delete"
                                 icon="fa fa-delete"
-                                class
+                                class=" btn btn-default"
                   >
                     delete
                   </coral.button>
@@ -42,7 +42,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               >
                 <coral.button aria-label="edit"
                               icon="fa fa-edit"
-                              class="theme-undefined btn-icon-only"
+                              class="theme-undefined btn-icon-only btn btn-default"
                 >
                   edit
                 </coral.button>
@@ -122,13 +122,13 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">
                   <coral.button aria-label="cancel"
                                 icon="fa fa-cancel"
-                                class
+                                class=" btn btn-default"
                   >
                     cancel
                   </coral.button>
                   <coral.button aria-label="delete"
                                 icon="fa fa-delete"
-                                class
+                                class=" btn btn-default"
                   >
                     delete
                   </coral.button>
@@ -141,7 +141,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               >
                 <coral.button aria-label="edit"
                               icon="fa fa-edit"
-                              class="theme-undefined btn-icon-only"
+                              class="theme-undefined btn-icon-only btn btn-default"
                 >
                   edit
                 </coral.button>
@@ -220,13 +220,13 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">
                   <coral.button aria-label="cancel"
                                 icon="fa fa-cancel"
-                                class
+                                class=" btn btn-default"
                   >
                     cancel
                   </coral.button>
                   <coral.button aria-label="delete"
                                 icon="fa fa-delete"
-                                class
+                                class=" btn btn-default"
                   >
                     delete
                   </coral.button>
@@ -239,7 +239,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               >
                 <coral.button aria-label="edit"
                               icon="fa fa-edit"
-                              class="theme-undefined btn-icon-only"
+                              class="theme-undefined btn-icon-only btn btn-default"
                 >
                   edit
                 </coral.button>

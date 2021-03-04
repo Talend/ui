@@ -17,7 +17,7 @@ exports[`Notification should render 1`] = `
       <Coral.Button
         aria-label="Close notification"
         bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close"
-        className="btn-icon-only"
+        className="btn-icon-only btn btn-default"
         data-feature="close-notification-undefined"
         disabled={false}
         icon="talend-cross"
@@ -36,7 +36,7 @@ exports[`Notification should render 1`] = `
           <Coral.Button
             aria-label="Haha"
             bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action"
-            className=""
+            className=" btn btn-default"
             disabled={false}
             icon="talend-undo"
             onClick={[Function]}
@@ -62,7 +62,7 @@ exports[`Notification should render 1`] = `
       <Coral.Button
         aria-label="Close notification"
         bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close"
-        className="btn-icon-only"
+        className="btn-icon-only btn btn-default"
         data-feature="close-notification-error"
         disabled={false}
         icon="talend-cross"
@@ -86,7 +86,7 @@ exports[`Notification should render 1`] = `
           <Coral.Button
             aria-label="undo"
             bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action"
-            className=""
+            className=" btn btn-default"
             disabled={false}
             icon="talend-undo"
             onClick={[Function]}
@@ -109,7 +109,7 @@ exports[`Notification should render 1`] = `
       <Coral.Button
         aria-label="Close notification"
         bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close"
-        className="btn-icon-only"
+        className="btn-icon-only btn btn-default"
         data-feature="close-notification-warning"
         disabled={false}
         icon="talend-cross"
@@ -148,7 +148,7 @@ exports[`Notification should render 1`] = `
       <Coral.Button
         aria-label="Close notification"
         bsClass="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close"
-        className="btn-icon-only"
+        className="btn-icon-only btn btn-default"
         data-feature="close-notification-warning"
         disabled={false}
         icon="talend-cross"

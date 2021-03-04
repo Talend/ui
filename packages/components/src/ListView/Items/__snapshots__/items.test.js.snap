@@ -992,7 +992,7 @@ exports[`Items should render with nested items 1`] = `
                                 >
                                   <Button
                                     aria-label="Expand Lorem ipsum dolor Parent"
-                                    className="btn-icon-only"
+                                    className="btn-icon-only btn btn-link"
                                     disabled={false}
                                     hideText={true}
                                     icon="talend-caret-down"
@@ -1001,7 +1001,7 @@ exports[`Items should render with nested items 1`] = `
                                   >
                                     <Coral.Button
                                       aria-label="Expand Lorem ipsum dolor Parent"
-                                      className="btn-icon-only"
+                                      className="btn-icon-only btn btn-link"
                                       disabled={false}
                                       hideText={true}
                                       icon="talend-caret-down"

@@ -925,7 +925,7 @@ exports[`Typeahead with toggle should render button 1`] = `
 >
   <Coral.Button
     aria-label="Toggle search bar"
-    className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only"
+    className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
     disabled={false}
     hideText={true}
     icon="fa fa-search"
