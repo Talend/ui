@@ -132,7 +132,7 @@ function ActionButton(props) {
 			icon={props.icon}
 			hideText={hideLabel}
 			{...buttonProps}
-			className={`${buttonProps.className} btn-${bsStyle}`}
+			className={`${buttonProps.className} btn btn-${bsStyle}`}
 
 		>
 			{buttonContent}
