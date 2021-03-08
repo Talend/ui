@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tag as CoralTag } from '@talend/design-system';
+import { Tag as CoralTag, ThemeProvider as CoralThemeProvider } from '@talend/design-system';
 
 /**
  * Proxy to https://design.talend.com/?path=/docs/components-tag--default-story#tag
@@ -23,7 +23,11 @@ const Tag = ({ bsStyle, ...rest }) => {
 		default:
 			break;
 	}
-	return <StyledTag {...rest} />;
+	return (
+		<CoralThemeProvider>
+			<StyledTag {...rest} />
+		</CoralThemeProvider>
+	);
 };
 
 Tag.displayName = 'Tag';
