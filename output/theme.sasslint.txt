@@ -1,2 +1,331 @@
 > stylelint src/**/*.scss
 
+
+src/theme/_animation.scss
+ 10:2  ✖  Expected empty line before rule   rule-empty-line-before
+ 20:2  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/theme/_breadcrumbs.scss
+ 33:3   ✖  Unnecessary nesting selector (&)                scss/selector-no-redundant-nesting-selector
+ 35:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 46:17  ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+ 67:9   ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+
+src/theme/_buttons.scss
+  14:2  ✖  Unexpected value "all 0.1s ease-out" for property "transition"   declaration-property-value-disallowed-list 
+  17:2  ✖  Unnecessary nesting selector (&)                                 scss/selector-no-redundant-nesting-selector
+  79:3  ✖  Expected empty line before rule                                  rule-empty-line-before                     
+ 113:3  ✖  Expected empty line before rule                                  rule-empty-line-before                     
+ 120:3  ✖  Expected empty line before rule                                  rule-empty-line-before                     
+ 153:3  ✖  Expected empty line before rule                                  rule-empty-line-before                     
+
+src/theme/_colors.scss
+   9:16  ✖  Expected "#b6be00" to be "#B6BE00"   color-hex-case
+  14:9   ✖  Expected "#ff6d70" to be "#FF6D70"   color-hex-case
+  21:14  ✖  Expected "#19426c" to be "#19426C"   color-hex-case
+  33:16  ✖  Expected "#b6be00" to be "#B6BE00"   color-hex-case
+  53:15  ✖  Expected "#323e48" to be "#323E48"   color-hex-case
+  60:11  ✖  Expected "#4d4d4d" to be "#4D4D4D"   color-hex-case
+  65:18  ✖  Expected "#ababab" to be "#ABABAB"   color-hex-case
+  70:10  ✖  Expected "#c6c6c6" to be "#C6C6C6"   color-hex-case
+  76:14  ✖  Expected "#82bd41" to be "#82BD41"   color-hex-case
+  77:17  ✖  Expected "#6ec01e" to be "#6EC01E"   color-hex-case
+  84:11  ✖  Expected "#66bdff" to be "#66BDFF"   color-hex-case
+  90:17  ✖  Expected "#e96065" to be "#E96065"   color-hex-case
+  96:20  ✖  Expected "#f3c446" to be "#F3C446"   color-hex-case
+ 101:9   ✖  Expected "#ea8330" to be "#EA8330"   color-hex-case
+ 102:12  ✖  Expected "#8c4e1c" to be "#8C4E1C"   color-hex-case
+ 107:12  ✖  Expected "#0675c1" to be "#0675C1"   color-hex-case
+ 113:9   ✖  Expected "#fff" to be "#FFF"         color-hex-case
+ 113:9   ✖  Expected "#fff" to be "white"        color-named   
+ 118:12  ✖  Expected "#f2f2f2" to be "#F2F2F2"   color-hex-case
+ 123:8   ✖  Expected "#d5d5d5" to be "#D5D5D5"   color-hex-case
+ 128:11  ✖  Expected "#eaeaea" to be "#EAEAEA"   color-hex-case
+ 138:13  ✖  Expected "#f6f6f6" to be "#F6F6F6"   color-hex-case
+
+src/theme/_dropdowns.scss
+ 41:28  ✖  Expected single space before "/"   scss/operator-no-unspaced
+ 41:28  ✖  Expected single space after "/"    scss/operator-no-unspaced
+
+src/theme/_forms.checkbox.scss
+ 10:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 11:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 12:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 13:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 18:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 19:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 25:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 26:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 32:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 33:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 38:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 39:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 48:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 49:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 54:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 55:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 69:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 70:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 79:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 80:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 86:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 87:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 91:22  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 92:26  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 97:12  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 98:16  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/theme/_forms.radio.scss
+ 10:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 11:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 12:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 13:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 20:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 21:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 27:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 28:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 34:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 35:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 40:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 41:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 50:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 51:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 60:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 61:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 67:12  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 68:16  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 72:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 73:3   ✖  Unnecessary nesting selector (&)                scss/selector-no-redundant-nesting-selector
+ 73:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 74:12  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 75:16  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+
+src/theme/_forms.scss
+  36:20  ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+  48:7   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+  62:21  ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+  69:7   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+  75:7   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+  94:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+  94:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 100:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 100:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 102:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 102:11  ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 107:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 123:7   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 143:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 143:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 158:8   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 201:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 202:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 203:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 204:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 210:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 211:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 212:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 213:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 287:22  ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 300:7   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 382:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 383:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/theme/_forms.switch-nested.scss
+   8:3   ✖  Expected empty line before rule                 rule-empty-line-before                
+  11:4   ✖  Expected empty line before rule                 rule-empty-line-before                
+  16:3   ✖  Expected empty line before rule                 rule-empty-line-before                
+  22:2   ✖  Expected empty line before rule                 rule-empty-line-before                
+  37:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  38:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  39:17  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  40:17  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  49:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  50:17  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  60:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  61:17  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  75:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  79:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  86:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  93:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  98:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 105:9   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 109:9   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/theme/_forms.switch.scss
+ 23:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 24:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 25:16  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 26:16  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 32:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 33:16  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 41:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 42:16  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 57:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 61:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 68:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 75:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 80:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 87:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 91:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/theme/_guidelines.scss
+ 65:27  ✖  Expected "#000" to be "black"   color-named
+
+src/theme/_labels.scss
+  4:2  ✖  Expected empty line before rule       rule-empty-line-before     
+ 42:1  ✖  Unexpected qualifying type selector   selector-no-qualifying-type
+
+src/theme/_navbar.scss
+ 9:5  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/theme/_navs.scss
+  29:4   ✖  Unnecessary nesting selector (&)                scss/selector-no-redundant-nesting-selector
+  36:6   ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+  36:33  ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+  40:17  ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+  88:30  ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+  89:27  ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+ 122:2   ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+ 129:7   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation     
+ 143:6   ✖  Expected empty line before rule                 rule-empty-line-before                     
+ 149:16  ✖  Unexpected qualifying type selector             selector-no-qualifying-type                
+
+src/theme/_paddings.scss
+ 12:15  ✖  Expected single space after ":"   scss/dollar-variable-colon-space-after
+ 20:15  ✖  Expected single space after ":"   scss/dollar-variable-colon-space-after
+
+src/theme/_tables.scss
+ 21:27  ✖  Expected quotes         function-url-quotes     
+ 23:30  ✖  Unexpected !important   declaration-no-important
+ 29:27  ✖  Unexpected !important   declaration-no-important
+ 34:26  ✖  Unexpected !important   declaration-no-important
+
+src/theme/_type.scss
+ 10:9  ✖  Expected "#000" to be "black"   color-named
+
+src/theme/_variables.scss
+  35:11  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+  35:11  ✖  Expected "#fff" to be "white"           color-named   
+ 146:19  ✖  Expected "#f9f9f9" to be "#F9F9F9"      color-hex-case
+ 148:18  ✖  Expected "#f5f5f5" to be "#F5F5F5"      color-hex-case
+ 148:18  ✖  Expected "#f5f5f5" to be "whitesmoke"   color-named   
+ 152:22  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 160:21  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 160:21  ✖  Expected "#fff" to be "white"           color-named   
+ 162:22  ✖  Expected "#ccc" to be "#CCC"            color-hex-case
+ 164:21  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 164:21  ✖  Expected "#fff" to be "white"           color-named   
+ 168:23  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 168:23  ✖  Expected "#fff" to be "white"           color-named   
+ 175:24  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 175:24  ✖  Expected "#fff" to be "white"           color-named   
+ 179:21  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 179:21  ✖  Expected "#fff" to be "white"           color-named   
+ 183:18  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 183:18  ✖  Expected "#fff" to be "white"           color-named   
+ 187:21  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 187:21  ✖  Expected "#fff" to be "white"           color-named   
+ 191:20  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 191:20  ✖  Expected "#fff" to be "white"           color-named   
+ 216:16  ✖  Expected "#ccc" to be "#CCC"            color-hex-case
+ 228:22  ✖  Expected "#66afe9" to be "#66AFE9"      color-hex-case
+ 244:23  ✖  Expected "#e5e5e5" to be "#E5E5E5"      color-hex-case
+ 263:28  ✖  Expected "#ccc" to be "#CCC"            color-hex-case
+ 265:23  ✖  Expected "#e5e5e5" to be "#E5E5E5"      color-hex-case
+ 386:21  ✖  Expected "#f8f8f8" to be "#F8F8F8"      color-hex-case
+ 395:38  ✖  Expected "#ccc" to be "#CCC"            color-hex-case
+ 404:34  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 406:38  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 415:29  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 415:29  ✖  Expected "#fff" to be "white"           color-named   
+ 425:36  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 425:36  ✖  Expected "#fff" to be "white"           color-named   
+ 430:37  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 430:37  ✖  Expected "#fff" to be "white"           color-named   
+ 445:25  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 451:43  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 453:40  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 466:17  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 466:17  ✖  Expected "#fff" to be "white"           color-named   
+ 467:21  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 471:27  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 473:27  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 473:27  ✖  Expected "#fff" to be "white"           color-named   
+ 478:26  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 478:26  ✖  Expected "#fff" to be "white"           color-named   
+ 479:30  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 534:17  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 534:17  ✖  Expected "#fff" to be "white"           color-named   
+ 536:14  ✖  Expected "#000" to be "black"           color-named   
+ 549:14  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 549:14  ✖  Expected "#fff" to be "white"           color-named   
+ 555:33  ✖  Expected "#ccc" to be "#CCC"            color-hex-case
+ 590:15  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 590:15  ✖  Expected "#fff" to be "white"           color-named   
+ 592:26  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 592:26  ✖  Expected "#fff" to be "white"           color-named   
+ 616:21  ✖  Expected "#000" to be "black"           color-named   
+ 620:29  ✖  Expected "#e5e5e5" to be "#E5E5E5"      color-hex-case
+ 657:15  ✖  Expected "#f5f5f5" to be "#F5F5F5"      color-hex-case
+ 657:15  ✖  Expected "#f5f5f5" to be "whitesmoke"   color-named   
+ 659:22  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 659:22  ✖  Expected "#fff" to be "white"           color-named   
+ 679:17  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 679:17  ✖  Expected "#fff" to be "white"           color-named   
+ 681:21  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 686:23  ✖  Expected "#f5f5f5" to be "#F5F5F5"      color-hex-case
+ 686:23  ✖  Expected "#f5f5f5" to be "whitesmoke"   color-named   
+ 711:12  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 711:12  ✖  Expected "#fff" to be "white"           color-named   
+ 718:22  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 719:19  ✖  Expected "#f5f5f5" to be "#F5F5F5"      color-hex-case
+ 719:19  ✖  Expected "#f5f5f5" to be "whitesmoke"   color-named   
+ 725:22  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 725:22  ✖  Expected "#fff" to be "white"           color-named   
+ 754:20  ✖  Expected "#ddd" to be "#DDD"            color-hex-case
+ 767:11  ✖  Expected "#f5f5f5" to be "#F5F5F5"      color-hex-case
+ 767:11  ✖  Expected "#f5f5f5" to be "whitesmoke"   color-named   
+ 774:15  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 774:15  ✖  Expected "#fff" to be "white"           color-named   
+ 776:26  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 776:26  ✖  Expected "#fff" to be "white"           color-named   
+ 782:19  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 782:19  ✖  Expected "#fff" to be "white"           color-named   
+ 795:17  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 795:17  ✖  Expected "#fff" to be "white"           color-named   
+ 809:26  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 809:26  ✖  Expected "#fff" to be "white"           color-named   
+ 814:32  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 814:32  ✖  Expected "#fff" to be "white"           color-named   
+ 815:35  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 815:35  ✖  Expected "#fff" to be "white"           color-named   
+ 817:26  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 817:26  ✖  Expected "#fff" to be "white"           color-named   
+ 824:15  ✖  Expected "#000" to be "black"           color-named   
+ 825:29  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 825:29  ✖  Expected "#fff" to be "white"           color-named   
+ 831:14  ✖  Expected "#c7254e" to be "#C7254E"      color-hex-case
+ 832:11  ✖  Expected "#f9f2f4" to be "#F9F2F4"      color-hex-case
+ 834:13  ✖  Expected "#fff" to be "#FFF"            color-hex-case
+ 834:13  ✖  Expected "#fff" to be "white"           color-named   
+ 837:10  ✖  Expected "#f5f5f5" to be "#F5F5F5"      color-hex-case
+ 837:10  ✖  Expected "#f5f5f5" to be "whitesmoke"   color-named   
+ 839:20  ✖  Expected "#ccc" to be "#CCC"            color-hex-case
+
+src/theme/_visual-helpers.scss
+ 103:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 118:6   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 155:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 169:27  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 199:3   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 204:3   ✖  Expected empty line before rule                 rule-empty-line-before
+
