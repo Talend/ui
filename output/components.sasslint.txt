@@ -1,45 +1,235 @@
-> sass-lint -v -q
+> stylelint src/**/*.scss
 
+
+src/ActionBar/ActionBar.scss
+ 15:3   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 59:23  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 74:2   ✖  Expected empty line before rule                 rule-empty-line-before                
+
+src/ActionIntercom/Intercom.scss
+  4:8   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 10:10  ✖  Expected "#015a8e" to be "#015A8E"              color-hex-case                        
+
+src/AppSwitcher/AppSwitcher.scss
+ 15:30  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/Badge/Badge.scss
+ 150:4  ✖  Expected empty line before rule   rule-empty-line-before
+ 297:3  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/CircularProgress/CircularProgress.scss
+  2:35  ✖  Expected "#eee" to be "#EEE"       color-hex-case                             
+ 21:2   ✖  Unnecessary nesting selector (&)   scss/selector-no-redundant-nesting-selector
+ 27:2   ✖  Unnecessary nesting selector (&)   scss/selector-no-redundant-nesting-selector
 
 src/CollapsiblePanel/CollapsiblePanel.scss
-  160:5  error  Mixins should come before declarations  mixins-before-declarations
+   5:62  ✖  Expected "#808080" to be "gray"                          color-named                                
+   7:32  ✖  Expected "#dfdfdf" to be "#DFDFDF"                       color-hex-case                             
+  91:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 100:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 107:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 110:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 119:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 128:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 144:3   ✖  Unnecessary nesting selector (&)                         scss/selector-no-redundant-nesting-selector
+ 144:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 147:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 157:4   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 160:5   ✖  Expected blockless @include to come before declaration   order/order                                
+ 172:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 187:4   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 190:4   ✖  Expected empty line before rule                          rule-empty-line-before                     
+ 282:3   ✖  Expected empty line before rule                          rule-empty-line-before                     
 
-src/DataViewer/RecordsViewer/RecordsViewer.scss
-   7:18  error  Variable 'backgroundColor' should be written in lowercase with hyphens  variable-name-format
-   8:14  error  Variable 'backgroundColor' should be written in lowercase with hyphens  variable-name-format
-  30:22  error  !important not allowed                                                  no-important
+src/Datalist/Datalist.scss
+ 47:3  ✖  Expected empty line before rule   rule-empty-line-before
 
-src/DateTimePickers/LegacyDateTimePickers/pickers/TimePicker/TimePicker.scss
-  26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+src/Dialog/Dialog.scss
+ 14:3  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/Drawer/Drawer.scss
+   4:21  ✖  Expected "#fff" to be "#FFF"       color-hex-case                             
+   4:21  ✖  Expected "#fff" to be "white"      color-named                                
+  86:3   ✖  Expected empty line before rule    rule-empty-line-before                     
+ 125:3   ✖  Unnecessary nesting selector (&)   scss/selector-no-redundant-nesting-selector
+
+src/EditableText/EditableText.scss
+  18:2  ✖  Expected empty line before rule            rule-empty-line-before                     
+  21:2  ✖  Expected empty line before rule            rule-empty-line-before                     
+  26:2  ✖  Expected empty line before rule            rule-empty-line-before                     
+  69:3  ✖  Unnecessary nesting selector (&)           scss/selector-no-redundant-nesting-selector
+  72:4  ✖  Expected empty line before rule            rule-empty-line-before                     
+ 114:6  ✖  Unnecessary nesting selector (&)           scss/selector-no-redundant-nesting-selector
+ 114:6  ✖  Expected empty line before rule            rule-empty-line-before                     
+ 118:5  ✖  Expected declaration to come before rule   order/order                                
+ 126:4  ✖  Expected empty line before rule            rule-empty-line-before                     
+
+src/Enumeration/Enumeration.scss
+ 23:5  ✖  Expected empty line before rule   rule-empty-line-before
 
 src/Enumeration/Enumeration.stories.scss
-  3:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+ 5:7  ✖  Unexpected qualifying type selector   selector-no-qualifying-type
 
 src/FilterBar/FilterBar.scss
-  53:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+ 26:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 66:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 77:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 85:2  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/FormatValue/FormatValue.scss
+ 3:13  ✖  Expected "#ccc" to be "#CCC"   color-hex-case
+
+src/GridLayout/Grid.scss
+ 1:8  ✖  Expected single space before "{"   block-opening-brace-space-before
 
 src/GuidedTour/GuidedTour.scss
-  77:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
-  86:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
+  9:9  ✖  Expected ID selector "#___reactour" to match pattern "^(?!_).*$"   selector-id-pattern   
+ 13:2  ✖  Expected empty line before rule                                    rule-empty-line-before
 
-src/List/Toolbar/Toolbar.scss
-  70:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
-  74:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
-  79:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
-  92:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+src/HeaderBar/HeaderBar.scss
+  16:38  ✖  Expected "#19426c" to be "#19426C"              color-hex-case                        
+  16:50  ✖  Expected "#2c1f56" to be "#2C1F56"              color-hex-case                        
+  16:65  ✖  Unexpected !important                           declaration-no-important              
+  26:2   ✖  Expected empty line before rule                 rule-empty-line-before                
+  29:2   ✖  Expected empty line before rule                 rule-empty-line-before                
+  50:32  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 147:4   ✖  Expected empty line before rule                 rule-empty-line-before                
+
+src/HttpError/HttpError.scss
+ 11:3  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/InlineMessage/InlineMessage.scss
+ 30:5  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/JSONSchemaRenderer/JSONSchemaRenderer.scss
+ 23:7   ✖  Unexpected qualifying type selector             selector-no-qualifying-type           
+ 25:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 29:16  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/MultiSelect/ItemOption.scss
+  3:2  ✖  Expected empty line before rule   rule-empty-line-before
+ 10:2  ✖  Expected empty line before rule   rule-empty-line-before
+ 15:1  ✖  Expected empty line before rule   rule-empty-line-before
+ 17:2  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/MultiSelect/MultiSelect.scss
+ 15:1  ✖  Expected empty line before rule   rule-empty-line-before
+ 21:1  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/Notification/Notification.scss
+   1:30  ✖  Expected "#3c763d" to be "#3C763D"         color-hex-case        
+   2:32  ✖  Expected "#e8f2cc" to be "#E8F2CC"         color-hex-case        
+   4:33  ✖  Expected "#8a6d3b" to be "#8A6D3B"         color-hex-case        
+   5:35  ✖  Expected "#fdeecc" to be "#FDEECC"         color-hex-case        
+   7:31  ✖  Expected "#a94442" to be "#A94442"         color-hex-case        
+   8:33  ✖  Expected "#f5e0e0" to be "#F5E0E0"         color-hex-case        
+  65:3   ✖  Expected declaration to come before rule   order/order           
+  94:11  ✖  Expected "#1babcd" to be "#1BABCD"         color-hex-case        
+ 160:1   ✖  Expected empty line before rule            rule-empty-line-before
+
+src/PieChart/PieChart.scss
+ 43:2  ✖  Expected empty line before rule   rule-empty-line-before
 
 src/QualityBar/QualityRatioBar.scss
-   8:10  error  @extend must be used with a %placeholder  placeholder-in-extend
-  12:10  error  @extend must be used with a %placeholder  placeholder-in-extend
-  16:10  error  @extend must be used with a %placeholder  placeholder-in-extend
+  8:2  ✖  Expected a placeholder selector (e.g. %placeholder) to be used in @extend   scss/at-extend-no-missing-placeholder
+ 11:1  ✖  Expected empty line before rule                                             rule-empty-line-before               
+ 12:2  ✖  Expected a placeholder selector (e.g. %placeholder) to be used in @extend   scss/at-extend-no-missing-placeholder
+ 15:1  ✖  Expected empty line before rule                                             rule-empty-line-before               
+ 16:2  ✖  Expected a placeholder selector (e.g. %placeholder) to be used in @extend   scss/at-extend-no-missing-placeholder
+
+src/RadarChart/RadarChart.scss
+ 6:3  ✖  Expected empty line before rule   rule-empty-line-before
 
 src/RatioBar/RatioBar.scss
-  42:11  error  @extend must be used with a %placeholder  placeholder-in-extend
-  47:11  error  @extend must be used with a %placeholder  placeholder-in-extend
+ 27:3  ✖  Expected empty line before rule                                             rule-empty-line-before               
+ 30:3  ✖  Expected empty line before rule                                             rule-empty-line-before               
+ 33:3  ✖  Expected empty line before rule                                             rule-empty-line-before               
+ 36:3  ✖  Expected empty line before rule                                             rule-empty-line-before               
+ 42:3  ✖  Expected a placeholder selector (e.g. %placeholder) to be used in @extend   scss/at-extend-no-missing-placeholder
+ 47:3  ✖  Expected a placeholder selector (e.g. %placeholder) to be used in @extend   scss/at-extend-no-missing-placeholder
+
+src/ResourcePicker/ResourcePicker.scss
+ 27:4  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/SidePanel/SidePanel.scss
+  25:38  ✖  Expected "#19426c" to be "#19426C"              color-hex-case                        
+  25:50  ✖  Expected "#2c1f56" to be "#2C1F56"              color-hex-case                        
+  25:65  ✖  Unexpected !important                           declaration-no-important              
+  28:3   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  47:22  ✖  Unexpected !important                           declaration-no-important              
+  48:22  ✖  Unexpected !important                           declaration-no-important              
+  64:4   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 139:4   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 194:4   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 198:5   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 207:27  ✖  Unexpected !important                           declaration-no-important              
+ 209:4   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+
+src/Skeleton/Skeleton.scss
+ 34:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 38:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 42:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 46:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 55:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 58:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 61:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 64:3  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/Slider/Slider.scss
+ 24:2  ✖  Expected empty line before rule   rule-empty-line-before
+ 36:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 44:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 46:4  ✖  Expected empty line before rule   rule-empty-line-before
+ 52:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 57:4  ✖  Expected empty line before rule   rule-empty-line-before
+ 71:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 74:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 77:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 95:5  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/Stepper/Stepper.component.scss
+ 25:3  ✖  Expected empty line before rule   rule-empty-line-before
+ 35:3  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/SubHeaderBar/SubHeaderBar.scss
+ 85:3  ✖  Expected empty line before rule   rule-empty-line-before
+
+src/TabBar/TabBar.scss
+ 53:3  ✖  Unnecessary nesting selector (&)   scss/selector-no-redundant-nesting-selector
+
+src/TooltipTrigger/TooltipTrigger.scss
+  38:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  50:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  61:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  67:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  77:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  87:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  98:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 106:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 116:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 125:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 135:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 145:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 155:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 165:4  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
 
 src/Typeahead/Typeahead.scss
-   33:5  error  Mixins should come before declarations               mixins-before-declarations
-  185:2  error  Duplicate properties are not allowed within a block  no-duplicate-properties
+   3:28  ✖  Expected "#000" to be "black"                            color-named                              
+   6:45  ✖  Expected "#aaa" to be "#AAA"                             color-hex-case                           
+   7:56  ✖  Expected "#fff" to be "#FFF"                             color-hex-case                           
+   7:56  ✖  Expected "#fff" to be "white"                            color-named                              
+   9:37  ✖  Expected "#e0e0e0" to be "#E0E0E0"                       color-hex-case                           
+  12:32  ✖  Expected "#ccc" to be "#CCC"                             color-hex-case                           
+  13:37  ✖  Expected "#63aebd" to be "#63AEBD"                       color-hex-case                           
+  33:5   ✖  Expected blockless @include to come before declaration   order/order                              
+ 185:2   ✖  Unexpected duplicate "align-items"                       declaration-block-no-duplicate-properties
+ 195:2   ✖  Expected declaration to come before rule                 order/order                              
+ 196:2   ✖  Expected empty line before rule                          rule-empty-line-before                   
 
-✖ 20 problems (19 errors, 1 warning)
+src/VirtualizedList/VirtualizedList.scss
+  8:9   ✖  Unexpected qualifying type selector   selector-no-qualifying-type
+  8:9   ✖  Unexpected qualifying type selector   selector-no-qualifying-type
+ 19:2   ✖  Expected empty line before rule       rule-empty-line-before     
+ 19:10  ✖  Unexpected qualifying type selector   selector-no-qualifying-type
+ 19:10  ✖  Unexpected qualifying type selector   selector-no-qualifying-type
 

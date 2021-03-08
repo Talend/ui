@@ -1,2 +1,7 @@
-> sass-lint -v -q
+> stylelint src/**/*.scss
+
+
+src/UIForm/UIForm.scss
+ 35:2  ✖  Expected empty line before rule   rule-empty-line-before
+ 52:3  ✖  Expected empty line before rule   rule-empty-line-before
 
