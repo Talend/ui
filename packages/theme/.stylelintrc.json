@@ -5,7 +5,7 @@ options:
 
 # File Options
 files:
-  include: 'src/app/**/*.s+(a|c)ss'
+  include: 'src/**/*.s+(a|c)ss'
   ignore:
     - 'src/app/css/vendors/libs/**/*.*'
 
@@ -62,7 +62,7 @@ rules:
   indentation:
     - 1
     -
-      size: 1
+      size: tab
   leading-zero:
     - 2
     -
@@ -167,3 +167,28 @@ rules:
     - 1
     -
       include: false
+      {
+        "extends": "stylelint-config-sass-guidelines",
+        "rules": {
+          "at-rule-disallowed-list": ["debug", "warn"],
+          "color-hex-case": "upper",
+          "color-named": "always-where-possible",
+          "declaration-block-no-duplicate-properties": true,
+          "declaration-property-value-disallowed-list": {
+            "transition": ["/all/"]
+          },
+          "declaration-no-important": true,
+          "indentation": "tab",
+          "function-calc-no-unspaced-operator": true,
+          "max-nesting-depth": 5,
+          "order/properties-alphabetical-order": null,
+          "scss/at-import-partial-extension-blacklist": ["scss", "css"],
+          "scss/operator-no-unspaced": true,
+          "selector-class-pattern": ["^(?!_).*$", { "resolveNestedSelectors": true }],
+          "selector-id-pattern": "^(?!_).*$",
+          "selector-max-compound-selectors": null,
+          "selector-max-id": null,
+          "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }],
+          "value-list-comma-space-after": "always"
+        }
+      }

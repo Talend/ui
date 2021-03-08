@@ -52,6 +52,6 @@ test
 .babelrc
 .editorconfig
 .eslintrc
-.sass-lint.yml
+.stylelintc.json
 screenshots.config.json
 yarn.lock

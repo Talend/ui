@@ -13,7 +13,7 @@
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
     "test:demo": "build-storybook",
-    "lint:style": "sass-lint -v -q",
+    "lint:style": "stylelint src/**/*.scss",
     "lint:es": "talend-scripts lint:es",
     "lint": "yarn lint:es && yarn lint:style",
     "start": "start-storybook -p 6006"
@@ -97,9 +97,11 @@
     "react-i18next": "^10.11.4",
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^16.13.1",
-    "sass-lint": "^1.13.1",
     "storybook-addon-i18next": "^1.2.1",
-    "style-loader": "^0.23.0"
+    "style-loader": "^0.23.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-sass-guidelines": "^7.1.0",
+    "stylelint-config-standard": "^20.0.0"
   },
   "peerDependencies": {
     "@talend/bootstrap-theme": "^6.0.0",
