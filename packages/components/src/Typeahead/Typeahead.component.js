@@ -83,6 +83,8 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				state.placement = newPlacement;
 				// eslint-disable-next-line no-param-reassign
 				state.styles.popper.maxHeight = `${maxHeight}px`;
+				// eslint-disable-next-line no-param-reassign
+				state.styles.popper.minHeight = `${height}px`;
 			},
 		}),
 		[],
