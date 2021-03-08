@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CellLabel should default render 1`] = `
-<coral.tag.information id="25">
-  my label
-</coral.tag.information>
+<coral.themeprovider>
+  <coral.tag.information id="25">
+    my label
+  </coral.tag.information>
+</coral.themeprovider>
 `;

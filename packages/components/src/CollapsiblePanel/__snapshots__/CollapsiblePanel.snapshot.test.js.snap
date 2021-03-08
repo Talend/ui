@@ -68,11 +68,13 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               >
                 on TDP
               </div>
-              <coral.tag class="theme-undefined"
-                         aria-describedby="42"
-              >
-                XML
-              </coral.tag>
+              <coral.themeprovider>
+                <coral.tag class="theme-undefined"
+                           aria-describedby="42"
+                >
+                  XML
+                </coral.tag>
+              </coral.themeprovider>
             </div>
           </div>
         </button>
@@ -95,9 +97,11 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
     <div class="panel-body">
       <dl class="theme-content">
         <dt class="theme-label">
-          <coral.tag>
-            Content
-          </coral.tag>
+          <coral.themeprovider>
+            <coral.tag>
+              Content
+            </coral.tag>
+          </coral.themeprovider>
         </dt>
         <dd class="theme-description">
           Description3
@@ -176,11 +180,13 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               >
                 on TDP
               </div>
-              <coral.tag class="theme-undefined"
-                         aria-describedby="42"
-              >
-                XML
-              </coral.tag>
+              <coral.themeprovider>
+                <coral.tag class="theme-undefined"
+                           aria-describedby="42"
+                >
+                  XML
+                </coral.tag>
+              </coral.themeprovider>
             </div>
           </div>
         </button>
@@ -200,9 +206,11 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
     <div class="panel-body">
       <dl class="theme-content">
         <dt class="theme-label">
-          <coral.tag>
-            Content
-          </coral.tag>
+          <coral.themeprovider>
+            <coral.tag>
+              Content
+            </coral.tag>
+          </coral.themeprovider>
         </dt>
         <dd class="theme-description">
           Description3
@@ -281,11 +289,13 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               >
                 on TDP
               </div>
-              <coral.tag class="theme-undefined"
-                         aria-describedby="42"
-              >
-                XML
-              </coral.tag>
+              <coral.themeprovider>
+                <coral.tag class="theme-undefined"
+                           aria-describedby="42"
+                >
+                  XML
+                </coral.tag>
+              </coral.themeprovider>
             </div>
           </div>
         </button>
