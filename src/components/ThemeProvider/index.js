@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { hideVisually } from 'polished';
 import 'modern-css-reset';
 
 import Toggle from '../Toggle';
@@ -34,6 +35,10 @@ const GlobalStyle = createGlobalStyle`
 	::selection {
 		color: ${tokens.colors.gray[900]};
 		background-color: ${tokens.colors.coral[100]};
+	}
+	
+	.sr-only {
+		${hideVisually()}
 	}
 `;
 

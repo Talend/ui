@@ -74,8 +74,7 @@ function addBundle(response: Response) {
 		return response.text().then(content => {
 			if (content.startsWith('<svg')) {
 				const container = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-				container.setAttribute('class', 'tc-iconsprovider');
-				container.setAttribute('style', 'display: none');
+				container.setAttribute('class', 'tc-iconsprovider sr-only');
 				container.setAttribute('aria-hidden', 'true');
 				container.setAttribute('focusable', 'false');
 				container.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -135,8 +134,7 @@ export function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, ic
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			focusable="false"
-			className="tc-iconsprovider"
-			style={{ display: 'none' }}
+			className="tc-iconsprovider sr-only"
 			ref={ref}
 		>
 			{Object.keys(iconset).map((id, index) => (
