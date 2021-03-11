@@ -137,7 +137,6 @@ function getActions(state, ownProps, currentRoute) {
 
 export function mapStateToProps(state, ownProps) {
 	const props = {};
-	// const currentRoute = routerAPI.selectors.getPath(state, true /* with hash */);
 	const currentRoute = window.location.pathname;
 	props.actions = getActions(state, ownProps, currentRoute);
 	if (ownProps.actions) {
