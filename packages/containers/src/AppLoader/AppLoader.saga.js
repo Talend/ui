@@ -1,5 +1,5 @@
 import api from '@talend/react-cmf';
-import { call, select, all, take, takeEvery } from 'redux-saga/effects';
+import { call, select, all, take } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import invariant from 'invariant';
 
@@ -46,18 +46,13 @@ export function* handleStep(step) {
 	);
 }
 
-function* handleSteps({ steps }) {
-	for (const step of steps) {
-		yield call(handleStep, step);
-	}
-}
-
 /**
  * This saga load the actionCreator or wait on some steps
  * @param {object} props the saga props
  * @param {array} props.steps an array of steps to handle
  */
 export function* appLoaderSaga({ steps }) {
-	yield call(handleSteps, { steps });
-	yield takeEvery('APP_LOADER_STEPS', handleSteps);
+	for (const step of steps) {
+		yield call(handleStep, step);
+	}
 }
