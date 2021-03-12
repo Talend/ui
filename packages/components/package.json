@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
-    "@talend/design-system": "^1.0.7",
+    "@talend/design-system": "^1.0.8",
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
     "d3": "^6.3.0",
