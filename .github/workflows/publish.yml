@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12
+      - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
 
@@ -51,6 +51,10 @@ jobs:
       - name: Install
         if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version && steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
+
+      - name: Test
+        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version
+        run: yarn test
 
       - name: Build
         if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version
