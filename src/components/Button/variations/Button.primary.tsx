@@ -5,22 +5,20 @@ import { ButtonProps } from '../Button';
 
 const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase).attrs({
 	className: 'btn--primary',
-})(
-	({ theme }) => `
-	color: ${theme.colors.buttonPrimaryColor};
-	background-color: ${theme.colors.buttonPrimaryBackgroundColor};
-	border-color: ${theme.colors.buttonPrimaryBackgroundColor};
+})`
+	color: ${({ theme }) => theme.colors.buttonPrimaryColor};
+	background-color: ${({ theme }) => theme.colors.buttonPrimaryBackgroundColor};
+	border-color: ${({ theme }) => theme.colors.buttonPrimaryBackgroundColor};
 
 	&:hover {
-		background-color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
-        border-color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
+		background-color: ${({ theme }) => theme.colors.buttonPrimaryHoverBackgroundColor};
+		border-color: ${({ theme }) => theme.colors.buttonPrimaryHoverBackgroundColor};
 	}
 
 	&:active {
-		background-color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
-        border-color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
+		background-color: ${({ theme }) => theme.colors.buttonPrimaryActiveBackgroundColor};
+		border-color: ${({ theme }) => theme.colors.buttonPrimaryActiveBackgroundColor};
 	}
-`,
-);
+`;
 
 export default ButtonPrimary;
