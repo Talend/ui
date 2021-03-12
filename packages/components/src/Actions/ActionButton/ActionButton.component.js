@@ -5,8 +5,10 @@ import { withTranslation } from 'react-i18next';
 import {
 	Button as CoralButton,
 	Skeleton as CoralSkeleton,
+	Icon as CoralIcon,
 	Link as CoralLink,
 	Tooltip as CoralTooltip,
+	ThemeProvider as CoralThemeProvider,
 } from '@talend/design-system';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -103,10 +105,8 @@ function ActionButton(props) {
 	switch (style) {
 		case 'primary':
 		case 'info':
-			StyledCoralComponent = CoralButton.Primary;
-			break;
 		case 'success':
-			StyledCoralComponent = CoralButton.Tertiary;
+			StyledCoralComponent = CoralButton.Primary;
 			break;
 		case 'danger':
 			StyledCoralComponent = CoralButton.Destructive;
@@ -114,7 +114,7 @@ function ActionButton(props) {
 		default:
 			break;
 	}
-	if (bsStyle.includes('inverse')) {
+	if (buttonProps.className.includes('inverse') || bsStyle.includes('inverse')) {
 		StyledCoralComponent = CoralButton.Secondary;
 	}
 	if (props.href) {
@@ -130,8 +130,34 @@ function ActionButton(props) {
 			aria-label={ariaLabel}
 			ref={buttonRef}
 			download={download}
-			icon={props.icon}
+			icon={
+				props.icon &&
+				(props.iconTransform ? (
+					<CoralIcon name={props.icon} transform={props.iconTransform} />
+				) : (
+					props.icon
+				))
+			}
+			iconBefore={
+				props.icon &&
+				props.iconPosition !== 'LEFT' &&
+				(props.iconTransform ? (
+					<CoralIcon name={props.icon} transform={props.iconTransform} />
+				) : (
+					props.icon
+				))
+			}
+			iconAfter={
+				props.icon &&
+				props.iconPosition === 'LEFT' &&
+				(props.iconTransform ? (
+					<CoralIcon name={props.icon} transform={props.iconTransform} />
+				) : (
+					props.icon
+				))
+			}
 			hideText={hideLabel}
+			hideExternalIcon={hideLabel}
 			{...buttonProps}
 			className={`${buttonProps.className} btn btn-${bsStyle}`}
 		>
@@ -162,7 +188,7 @@ function ActionButton(props) {
 			</CoralTooltip>
 		);
 	}
-	return btn;
+	return <CoralThemeProvider>{btn}</CoralThemeProvider>;
 }
 
 ActionButton.propTypes = {

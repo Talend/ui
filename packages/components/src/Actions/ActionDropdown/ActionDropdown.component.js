@@ -65,7 +65,7 @@ InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 function renderMutableMenuItem(item, index, getComponent) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem: ActionButton });
 	if (item.divider) {
-		return <></>;
+		return <React.Fragment></React.Fragment>;
 	}
 
 	const title = item.title || item.label;
@@ -250,16 +250,16 @@ class ActionDropdown extends React.Component {
 			<Renderers.DropdownButton
 				title={title}
 				bsStyle={style}
-				role="button"
-				onSelect={onItemSelect}
+				// role="button"
+				// onSelect={onItemSelect}
 				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
-				aria-label={tooltipLabel || label}
+				// aria-label={tooltipLabel || label}
 				{...omit(rest, 'tReady')}
-				onToggle={this.onToggle}
+				// onToggle={this.onToggle}
 				ref={ref => {
 					this.ref = ref;
 				}}
-				noCaret
+				// noCaret
 				items={[]
 					.concat(
 						!children && !items.length && !items.size && !loading && !components && (

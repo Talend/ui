@@ -5,6 +5,7 @@ import {
 	Button as CoralButton,
 	Toggle as CoralToggle,
 	Tooltip as CoralTooltip,
+	ThemeProvider as CoralThemeProvider,
 } from '@talend/design-system';
 
 import getPropsFrom from '../../utils/getPropsFrom';
@@ -32,18 +33,21 @@ function ActionIconToggle(props) {
 	});
 
 	return (
-		<CoralTooltip title={label} placement={tooltipPlacement}>
-			<CoralToggle
-				{...getPropsFrom(CoralButton, rest)}
-				id={id}
-				className={cn}
-				isActive={active}
-				icon={icon}
-				ref={buttonRef}
-			>
-				{label}
-			</CoralToggle>
-		</CoralTooltip>
+		<CoralThemeProvider>
+			<CoralTooltip title={label} placement={tooltipPlacement}>
+				<CoralToggle
+					{...getPropsFrom(CoralButton, rest)}
+					id={id}
+					className={cn}
+					isActive={active}
+					icon={icon}
+					onChange={rest.onClick}
+					ref={buttonRef}
+				>
+					{label}
+				</CoralToggle>
+			</CoralTooltip>
+		</CoralThemeProvider>
 	);
 }
 

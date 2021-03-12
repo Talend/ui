@@ -121,9 +121,9 @@ class ActionFile extends React.Component {
 					icon={icon}
 					bsStyle={bsStyle}
 					data-feature={dataFeature}
-				>
-					{labelInstance} {bsStyle}
-				</ActionButton>
+					label={label}
+					className={labelClasses}
+				/>
 			</span>
 		);
 		if (hideLabel || tooltip || tooltipLabel) {

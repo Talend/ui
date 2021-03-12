@@ -5,12 +5,12 @@
 
 .navbar {
 	.btn {
-		display: inline-flex;
-		align-items: center;
+		// display: inline-flex;
+		// align-items: center;
 		padding-top: 0;
 		padding-bottom: 0;
-		height: $navbar-height;
-		min-height: $navbar-height;
+		// height: $navbar-height;
+		// min-height: $navbar-height;
 
 		&:hover,
 		&:active,
@@ -27,8 +27,8 @@
 		&-group {
 			margin-left: $padding-smaller;
 			margin-right: $padding-smaller;
-			min-height: inherit;
-			height: auto;
+			// min-height: inherit;
+			// height: auto;
 		}
 
 		&-group > .btn {
@@ -40,7 +40,7 @@
 			line-height: $navbar-height;
 		}
 	}
-
+/*
 	&-inverse {
 		.btn-link {
 			&:hover,
@@ -50,4 +50,5 @@
 			}
 		}
 	}
+*/
 }
