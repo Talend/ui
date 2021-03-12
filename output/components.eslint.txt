@@ -2,15 +2,24 @@
 /home/travis/build/Talend/ui/packages/components/src/ActionIntercom/Intercom.component.js
   32:66  warning  React Hook useLayoutEffect has an unnecessary dependency: 'ref.current'. Either exclude it or remove the dependency array. Mutable values like 'ref.current' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionButton/ActionButton.component.js
+  217:2  error  defaultProp "available" has no corresponding propTypes declaration         react/default-props-match-prop-types
+  219:2  error  defaultProp "tooltipPlacement" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  220:2  error  defaultProp "inProgress" has no corresponding propTypes declaration        react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.component.js
+   68:10  error  Empty components are self-closing         react/self-closing-comp
+  243:12  error  'onItemSelect' is defined but never used  @typescript-eslint/no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionFile/ActionFile.component.js
-    6:20  error  'CoralButton' is defined but never used            @typescript-eslint/no-unused-vars
-   82:4   error  'iconPosition' is assigned a value but never used  @typescript-eslint/no-unused-vars
-   95:9   error  'iconInstance' is assigned a value but never used  @typescript-eslint/no-unused-vars
-  101:9   error  'labelClasses' is assigned a value but never used  @typescript-eslint/no-unused-vars
+    6:20  error  'CoralButton' is defined but never used             @typescript-eslint/no-unused-vars
+   82:4   error  'iconPosition' is assigned a value but never used   @typescript-eslint/no-unused-vars
+   95:9   error  'iconInstance' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  100:9   error  'labelInstance' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionIconToggle/ActionIconToggle.component.js
-  23:3  error  'tooltipPlacement' is missing in props validation                          react/prop-types
-  66:2  error  defaultProp "tooltipPlacement" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  24:3  error  'tooltipPlacement' is missing in props validation                          react/prop-types
+  70:2  error  defaultProp "tooltipPlacement" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/AppSwitcher/AppSwitcher.component.js
   40:10  error  Elements with the ARIA role "heading" must have the following attributes defined: aria-level  jsx-a11y/role-has-required-aria-props
@@ -312,5 +321,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 151 problems (132 errors, 19 warnings)
-  7 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 156 problems (137 errors, 19 warnings)
+  8 errors and 0 warnings potentially fixable with the `--fix` option.
