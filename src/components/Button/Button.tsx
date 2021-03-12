@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledProps } from 'styled-components';
 import { IconName } from '@talend/icons';
 
-import { Icon, IconProps } from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 import Loading from '../Loading';
 
 import * as S from './Button.style';
@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(
 					<Icon className="btn__icon" name={icon} />
 				) : (
 					React.cloneElement(icon, {
-						className: `${icon.props.className} btn__icon`,
+						className: `${icon.props?.className} btn__icon`,
 					})
 				))}
 			<span className={`btn__text ${hideText ? 'btn__text--hidden' : ''}`}>{children}</span>
