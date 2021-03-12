@@ -2,9 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import omit from 'lodash/omit';
 import { withTranslation } from 'react-i18next';
-import{
-	Icon
-} from '@talend/design-system';
+import { Icon } from '@talend/design-system';
 import Inject from '../Inject';
 import Action from '../Actions/Action';
 import ActionIntercom from '../ActionIntercom';
