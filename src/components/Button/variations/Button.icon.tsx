@@ -17,6 +17,11 @@ const ButtonIcon: React.FC<ButtonProps> = styled(ButtonSecondary).attrs({
 	&:active {
 		background: none;
 	}
+
+	.btn__icon {
+		height: ${tokens.sizes.s};
+		width: ${tokens.sizes.s};
+	}
 `;
 
 export default ButtonIcon;
