@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { hideVisually } from 'polished';
-import 'modern-css-reset';
+import 'modern-css-reset/dist/reset.min.css';
 
 import Toggle from '../Toggle';
 import defaultTheme, { dark, light } from '../../themes';
