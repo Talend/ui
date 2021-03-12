@@ -11,7 +11,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 
 	.icon,
 	.span > .icon {
-		filter: grayscale(70%);
+		filter: url('#talend-grayscale');
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
