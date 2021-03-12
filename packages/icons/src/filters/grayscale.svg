@@ -1,0 +1,14 @@
+<svg>
+	<defs>
+		<filter id="talend-grayscale" color-interpolation-filters="sRGB">
+			<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale"/>
+			<feComponentTransfer in="grayscale" result="gammadarken">
+				<feFuncR type="gamma" exponent="7"/>
+				<feFuncG type="gamma" exponent="7"/>
+				<feFuncB type="gamma" exponent="7"/>
+				<feFuncA type="gamma"/>
+			</feComponentTransfer>
+			<feColorMatrix in="gammadarken" values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"/>
+		</filter>
+	</defs>
+</svg>

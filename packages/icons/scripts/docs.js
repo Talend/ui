@@ -42,7 +42,7 @@ const HTML_TPL = (icons, style) => `
 			}
 
 			.grayscale > svg > g {
-				filter: grayscale(70%);
+				filter: url(#talend-grayscale);
 			}
 			.grayscale:hover > svg > g {
 				filter: none;
