@@ -39,6 +39,6 @@ jobs:
           reviewers: frassinier
           commit-message: "chore(deps): bump deps versions"
           title: "chore(deps): bump deps versions"
-          body: "https://github.com/storybookjs/storybook/blob/master/CHANGELOG.md"
+          body: "https://github.com/storybookjs/storybook/blob/next/CHANGELOG.md"
           branch: chore/dependencies
           branch-suffix: timestamp
