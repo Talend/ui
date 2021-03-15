@@ -43,9 +43,9 @@ const withThemeProvider = (Story, context) => {
 	const theme = getTheme(context.globals.theme);
 	return (
 		<ThemeProvider theme={theme}>
-			<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 			<ThemeProvider.GlobalStyle />
 			<StorybookGlobalStyle />
+			<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 			<Story {...context} />
 		</ThemeProvider>
 	);
