@@ -1,0 +1,40 @@
+name: Yarn talend auto upgrade
+on:
+  workflow_dispatch:
+  schedule:
+    # Every tuesday
+    - cron: "0 13 * * TUE"
+
+jobs:
+  upgrade:
+    name: Upgrade yarn @talend dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+
+      # NODE_AUTH_TOKEN is not working with "npx" command..
+      - name: Upgrade talend dependencies
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
+          npx npm-check-updates "/@talend\/.*/" -u
+          yarn
+          npx yarn-deduplicate yarn.lock
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          assignees: tlnd-mhuchet
+          reviewers: tlnd-mhuchet
+          commit-message: "chore(scripts): Upgrade talend scripts libs"
+          title: "chore(scripts): Upgrade talend scripts libs"
+          branch: ci/chore/upgrade_webapp_talend_libs
+          branch-suffix: timestamp
