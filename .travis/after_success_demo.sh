@@ -34,5 +34,9 @@ cp -R packages/icons/docs/index.html .static/icons
 cp -R packages/icons/dist .static/icons
 echo "✓ Copy icons showcase to .static"
 
+ls -larth packages/theme/dist
+
 cp -R packages/theme/dist .static/theme
 echo "✓ Copy theme showcase to .static"
+
+ls -larth .static
