@@ -10,7 +10,8 @@
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",
-    "test:demo": "echo nothing to demo in @talend/bootstrap-theme"
+    "test:demo": "echo nothing to demo in @talend/bootstrap-theme",
+    "lint:style": "sass-lint -q -v"
   },
   "keywords": [
     "talend",
@@ -41,6 +42,7 @@
     "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^6.7.0",
     "rimraf": "^3.0.2",
+    "sass-lint": "^1.13.1",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
