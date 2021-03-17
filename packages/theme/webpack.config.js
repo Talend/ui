@@ -62,7 +62,7 @@ module.exports = (env, argv) => {
 		devtool: 'source-map',
 		optimization: {
 			minimize: true,
-			minimizer: ['...', new CssMinimizerPlugin()],
+			minimizer: ['...', new CssMinimizerPlugin()], // '...' used to access the defaults.
 		},
 		plugins: [
 			new HtmlWebpackPlugin({
