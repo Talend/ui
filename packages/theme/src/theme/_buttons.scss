@@ -4,14 +4,24 @@
 ////
 
 .btn {
-	border: none;
+	@include btn-colors;
+	position: relative;
 	font-size: $btn-font-size;
-	font-weight: 500;
+	font-weight: $font-weight-semi-bold;
 	line-height: $btn-line-height;
 	min-height: $btn-line-height;
 	padding: 0 $padding-normal;
-	text-transform: uppercase;
+	border: none;
 	transition: all 0.1s ease-out;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: $padding-smaller;
+		right: $padding-smaller;
+		bottom: $padding-smaller;
+		left: $padding-smaller;
+	}
 
 	&,
 	& > span {
@@ -28,132 +38,65 @@
 		fill: currentColor;
 		height: $svg-md-size;
 		width: $svg-md-size;
-		margin: 0 0.4rem;
+		margin: 0 0.5rem;
 	}
+
 
 	&-primary,
 	&-success,
 	&-info,
 	&-warning,
-	&-danger {
-		border-color: transparent;
+	&--primary {
+		@include btn-colors($btn-primary-color, $btn-primary-bg, $btn-primary-bg-hover, $btn-primary-bg-active);
 	}
 
-	&-default {
-		@include btn-colors;
-		@include btn-inverse-colors;
-		@include btn-tertiary-colors;
+	&.btn-inverse,
+	&--secondary,
+	&-tertiary,
+	&--tertiary {
+		@include btn-inverse-colors($btn-primary-bg, $btn-primary-bg-hover, $btn-primary-bg-active);
 	}
 
-	&-primary {
-		@include button-variant($btn-validation-color, $btn-validation-bg, $btn-validation-border);
-		@include btn-colors($btn-validation-bg);
-		@include btn-inverse-colors($btn-validation-bg);
+	&-tertiary,
+	&--tertiary {
+			border: none;
 	}
 
-	&-success {
-		@include btn-colors($btn-success-bg);
-		@include btn-inverse-colors($btn-success-bg);
-	}
+	&-danger,
+	&--destructive {
+		@include btn-colors($btn-danger-color, $btn-danger-bg, $btn-danger-bg-hover, $btn-danger-bg-active);
 
-	&-info {
-		@include btn-colors($btn-info-bg);
-		@include btn-inverse-colors($btn-info-bg);
-		@include btn-tertiary-colors($btn-info-bg);
-	}
-
-	&-warning {
-		@include btn-colors($btn-warning-bg);
-		@include btn-inverse-colors($btn-warning-bg);
-	}
-
-	&-danger {
-		@include btn-colors($btn-danger-bg);
-		@include btn-inverse-colors($btn-danger-bg);
+		&.btn-inverse {
+			@include btn-inverse-colors($btn-primary-bg, $btn-primary-bg-hover, $btn-primary-bg-active);
+		}
 	}
 
 	&-link {
 		font-size: $font-size-base;
 		font-weight: inherit;
-		color: $dove-gray;
-		&:hover {
-			color: $scooter;
-		}
+		color: $link-color;
 
-		&:focus {
-			color: $dove-gray;
+		&:hover {
+			color: $link-hover-color;
 		}
 
 		&:active {
-			color: darken($scooter, 12%);
-		}
-	}
-
-	&-icon-only {
-		display: inline-block;
-
-		svg {
-			vertical-align: middle;
+			color: $link-active-color;
 		}
 	}
 
 	&-icon-text {
 		padding: 0;
-		color: $dove-gray;
 		border: none;
 		background-color: transparent;
 		box-shadow: none;
-
-		&:hover,
-		&:hover:focus {
-			background-color: transparent;
-			color: $scooter;
-			opacity: 0.8;
-		}
-		&:active,
-		&:active:focus {
-			background-color: transparent;
-			color: $scooter;
-			opacity: 1;
-			box-shadow: none;
-		}
-		&:focus {
-			background-color: transparent;
-			color: $dove-gray;
-		}
 	}
 
-	&-xs {
-		align-items: baseline;
-		padding: 0 $padding-xs-horizontal;
-		font-size: 1rem;
-		line-height: 1.5rem;
-		min-height: 1.5rem;
-
-		svg {
-			height: $svg-xs-size;
-			width: $svg-xs-size;
-		}
-	}
-
+	&-xs,
 	&-sm {
 		padding: 0 $padding-small-horizontal;
-		line-height: 2rem;
-		min-height: 2rem;
-
-		svg {
-			height: $svg-sm-size;
-			width: $svg-sm-size;
-		}
-	}
-
-	&-lg {
-		@include button-size($padding-normal, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
-		min-height: 5.6rem;
-		svg {
-			height: $svg-lg-size;
-			width: $svg-lg-size;
-		}
+		line-height: 2.8rem;
+		min-height: 2.8rem;
 	}
 
 	.caret.caret {
