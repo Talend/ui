@@ -1,10 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-module.exports = () => {
+module.exports = (env, argv) => {
+	const isDev = argv.mode === 'development';
 	return {
+		mode: isDev ? 'development' : 'production',
 		entry: './src/index.js',
 		output: {
 			filename: 'bootstrap.js',
@@ -26,62 +29,59 @@ module.exports = () => {
 				},
 				{
 					test: /bootstrap\.scss$/,
-					loader: ExtractTextPlugin.extract({
-						fallback: 'style-loader',
-						use: [
-							{
-								loader: 'css-loader',
-								options: {
-									importLoaders: 3,
-									minimize: true,
-									sourceMap: false,
+					use: [
+						{
+							loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+						},
+						{
+							loader: 'css-loader',
+							options: {
+								importLoaders: 3,
+								sourceMap: true,
+							},
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								postcssOptions: {
+									ident: 'postcss',
+									plugins: [['postcss-preset-env', { browsers: 'last 2 versions' }]],
 								},
 							},
-							{
-								loader: 'postcss-loader',
-								options: {
-									plugins: () => [
-										autoprefixer({
-											browsers: ['>0.25%', 'IE 11', 'not op_mini all'],
-										}),
-									],
-								},
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: true,
 							},
-							{
-								loader: 'sass-loader',
-								options: {
-									sourceMap: true,
-								},
-							},
-						],
-					}),
+						},
+					],
 				},
 			],
 		},
 		devtool: 'source-map',
+		optimization: {
+			minimize: true,
+			minimizer: ['...', new CssMinimizerPlugin()], // '...' used to access the defaults.
+		},
 		plugins: [
-			/**
-			 * Loader options plugin helps people move from webpack 1 to webpack 2.
-			 * @reference https://webpack.js.org/plugins/loader-options-plugin
-			 */
-			new webpack.LoaderOptionsPlugin({
-				options: {
-					context: __dirname,
-				},
+			new HtmlWebpackPlugin({
+				template: path.resolve(__dirname, './example/index.html'),
 			}),
-			new ExtractTextPlugin({
-				filename: 'bootstrap.css',
-				allChunks: true,
-			}),
+			isDev
+				? new webpack.HotModuleReplacementPlugin()
+				: new MiniCssExtractPlugin({
+						filename: 'bootstrap.css',
+				  }),
 		],
 		devServer: {
+			port: 1234,
+			stats: 'errors-only',
+			historyApiFallback: true,
+			contentBase: path.join(process.cwd(), 'dist'),
+			compress: true,
 			inline: true,
-			noInfo: true,
-			contentBase: `${__dirname}/example`,
-			watchContentBase: true,
-			watchOptions: {
-				poll: true,
-			},
+			hot: true,
 		},
 	};
 };
