@@ -14,9 +14,11 @@ exports[`InputDateTimeRangePicker should render 1`] = `
     startDateTime="2019-12-01 00:00:00"
   >
     <div
-      className="theme-range-picker range-picker"
+      className="range-picker theme-range-picker"
     >
-      <div>
+      <div
+        className="range-picker-start"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -280,7 +282,9 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           />
         </Icon>
       </span>
-      <div>
+      <div
+        className="range-picker-end"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -556,9 +560,11 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
 >
   <DateTimeRange.Manager>
     <div
-      className="theme-range-picker range-picker"
+      className="range-picker theme-range-picker"
     >
-      <div>
+      <div
+        className="range-picker-start"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -853,7 +859,9 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
           />
         </Icon>
       </span>
-      <div>
+      <div
+        className="range-picker-end"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"

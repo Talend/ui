@@ -24,15 +24,22 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 ];
 
 function InputDateTimeRangePicker(props) {
-	const { id, dateFormat, useSeconds, onChange, onBlur } = props;
+	const { id, dateFormat, useSeconds, onChange, onBlur, display } = props;
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 
 	const [vertical, setVertical] = useState(false);
 	const containerRef = useRef();
 
-	const className = vertical
-		? classnames(theme['range-picker-vertical'], 'range-picker-vertical')
-		: classnames(theme['range-picker'], 'range-picker');
+	const isDisplayInline = display === 'inline';
+
+	const className = classnames({
+		'range-picker': !vertical,
+		[theme['range-picker']]: !vertical,
+		'range-picker-vertical': vertical,
+		[theme['range-picker-vertical']]: vertical,
+		'range-picker-inline': isDisplayInline,
+		[theme['range-picker-inline']]: isDisplayInline,
+	});
 
 	const showHorizontalAndTest = React.useMemo(() => {
 		return function showHorizontal() {
@@ -67,7 +74,7 @@ function InputDateTimeRangePicker(props) {
 			<DateTimeRangeContext.Consumer>
 				{({ startDateTime, endDateTime, onStartChange, onEndChange }) => (
 					<div className={className} ref={containerRef}>
-						<div>
+						<div className="range-picker-start">
 							<label htmlFor={props.id} className="control-label">
 								{props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 							</label>
@@ -86,7 +93,7 @@ function InputDateTimeRangePicker(props) {
 						<span className={classnames(theme.arrow, 'arrow')}>
 							<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
 						</span>
-						<div>
+						<div className="range-picker-end">
 							<label htmlFor={props.id} className="control-label">
 								{props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
 							</label>
@@ -139,6 +146,7 @@ InputDateTimeRangePicker.propTypes = {
 		PropTypes.number,
 		PropTypes.string,
 	]),
+	display: PropTypes.string,
 	t: PropTypes.func,
 };
 

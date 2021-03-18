@@ -30,3 +30,15 @@
 		}
 	}
 }
+
+.range-picker-inline {
+	:global(.range-picker-start),
+	:global(.range-picker-end) {
+		display: flex;
+		align-items: center;
+	}
+
+	:global(.control-label) {
+		margin-right: $padding-small;
+	}
+}

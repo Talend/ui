@@ -1,4 +1,5 @@
 import React from 'react';
+import noop from 'lodash/noop';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
@@ -60,5 +61,16 @@ describe('InputDateTimeRangePicker', () => {
 			// then
 			expect(onChange).toBeCalledWith(event, payload);
 		});
+	});
+
+	describe('should display inline', () => {
+		let wrapper = mount(<InputDateTimeRangePicker id="range-picker" onChange={noop} />);
+		expect(wrapper.find('div.range-picker-inline').length).toEqual(0);
+		
+		const display = 'inline';
+		wrapper = mount(
+			<InputDateTimeRangePicker id="range-picker" onChange={noop} display={display} />,
+		);
+		expect(wrapper.find('div.range-picker-inline').length).toEqual(1);
 	});
 });
