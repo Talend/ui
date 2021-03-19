@@ -25,7 +25,7 @@
 	position: relative;
 	font-size: $btn-font-size;
 	font-weight: $font-weight-semi-bold;
-	min-height: var(--btn-height); ;
+	min-height: var(--btn-height);
 	padding: var(--btn-padding);
 	box-shadow: none;
 	transition: all 0.1s ease-out;
@@ -87,7 +87,7 @@
 	&,
 	& > span {
 		display: inline-flex;
-		gap: .5rem;
+		gap: 0.5rem;
 		align-items: center;
 		justify-content: center;
 
