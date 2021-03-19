@@ -44,6 +44,17 @@
 	align-items: flex-end;
 }
 
+@mixin range-picker-inline {
+	:global(.range-input) {
+		display: flex;
+		align-items: center;
+	}
+
+	:global(.control-label) {
+		margin: 0 $padding-small;
+	}
+}
+
 @mixin arrow {
 	height: $tc-range-picker-arrow-height;
 	padding: 0 $padding-smaller;

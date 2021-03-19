@@ -51,4 +51,13 @@ storiesOf('Form/Controls/DatePicker/Date Range', module)
 				<DatePicker selectedDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} />
 			</DateManager>
 		</div>
+	))
+	.add('Inline', () => (
+		<InputDateRangePicker
+			id="my-date-picker"
+			name="daterange"
+			onBlur={action('onBlur')}
+			onChange={action('onChange')}
+			display="inline"
+		/>
 	));

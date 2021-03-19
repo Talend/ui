@@ -60,6 +60,12 @@ export default function InputDateRangePicker(props) {
 		}
 		handlers.onChange(event, payload, referenceElement);
 	}
+
+	const isDisplayInline = props.display === 'inline';
+	const className = classnames('date-picker', theme['date-picker'], {
+		'date-range-picker-inline': isDisplayInline,
+		[theme['date-range-picker-inline']]: isDisplayInline,
+	});
 	return (
 		<DateRange.Manager
 			startDate={props.startDate}
@@ -72,7 +78,7 @@ export default function InputDateRangePicker(props) {
 					const { onStartChange, onEndChange } = inputManagement;
 					return (
 						<FocusManager
-							className={classnames(theme['date-picker'], 'date-picker')}
+							className={className}
 							divRef={containerRef}
 							onClick={handlers.onClick}
 							onFocusIn={handlers.onFocus}
@@ -134,5 +140,6 @@ InputDateRangePicker.propTypes = {
 	onBlur: PropTypes.func,
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	display: PropTypes.string,
 	t: PropTypes.func,
 };

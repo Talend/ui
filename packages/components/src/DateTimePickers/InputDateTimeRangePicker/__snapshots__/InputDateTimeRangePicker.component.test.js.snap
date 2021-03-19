@@ -17,7 +17,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
       className="range-picker theme-range-picker"
     >
       <div
-        className="range-picker-start"
+        className="range-input"
       >
         <label
           className="control-label"
@@ -283,7 +283,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
         </Icon>
       </span>
       <div
-        className="range-picker-end"
+        className="range-input"
       >
         <label
           className="control-label"
@@ -563,7 +563,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
       className="range-picker theme-range-picker"
     >
       <div
-        className="range-picker-start"
+        className="range-input"
       >
         <label
           className="control-label"
@@ -860,7 +860,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
         </Icon>
       </span>
       <div
-        className="range-picker-end"
+        className="range-input"
       >
         <label
           className="control-label"
