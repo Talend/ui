@@ -9,7 +9,7 @@
 	--btn-border-color: transparent;
 
 	--btn-padding: 0 #{$padding-normal};
-	--btn-height: #{$btn-line-height - .2rem};
+	--btn-height: #{$btn-line-height - 0.2rem};
 
 	--btn-primary-color: #{$btn-primary-color};
 	--btn-primary-background: #{$btn-primary-bg};
@@ -199,7 +199,7 @@
 	&-xs,
 	&-sm {
 		--btn-padding: 0 #{$padding-small-horizontal};
-		--btn-height: 2.8rem - .2rem;
+		--btn-height: 2.8rem - 0.2rem;
 	}
 
 	.caret.caret {
