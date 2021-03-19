@@ -3,13 +3,13 @@
 /// @group Buttons
 ////
 
-.btn.btn {
+.btn {
 	--btn-color: currentColor;
 	--btn-background-color: transparent;
 	--btn-border-color: transparent;
 
 	--btn-padding: 0 #{$padding-normal};
-	--btn-height: #{$btn-line-height};
+	--btn-height: #{$btn-line-height - .2rem};
 
 	--btn-primary-color: #{$btn-primary-color};
 	--btn-primary-background: #{$btn-primary-bg};
@@ -26,6 +26,7 @@
 	font-size: $btn-font-size;
 	font-weight: $font-weight-semi-bold;
 	min-height: var(--btn-height);
+	line-height: var(--btn-height);
 	padding: var(--btn-padding);
 	box-shadow: none;
 	transition: all 0.1s ease-out;
@@ -198,7 +199,7 @@
 	&-xs,
 	&-sm {
 		--btn-padding: 0 #{$padding-small-horizontal};
-		--btn-height: 2.8rem;
+		--btn-height: 2.8rem - .2rem;
 	}
 
 	.caret.caret {
