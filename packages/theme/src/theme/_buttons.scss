@@ -106,9 +106,9 @@
 	&-success,
 	&-info,
 	&-warning,
-	&-danger,
+	&.btn-danger,
 	&--primary,
-	&--destructive {
+	&.btn--destructive {
 		--btn-color: var(--btn-primary-color);
 	}
 
@@ -128,20 +128,7 @@
 		}
 	}
 
-	&-danger,
-	&--destructive {
-		--btn-background-color: var(--btn-destructive-background);
-
-		&:hover {
-			--btn-background-color: var(--btn-destructive-background--hover);
-		}
-
-		&:active {
-			--btn-background-color: var(--btn-destructive-background--active);
-		}
-	}
-
-	&.btn-inverse,
+	&-inverse,
 	&--secondary,
 	&-tertiary,
 	&--tertiary {
@@ -162,9 +149,31 @@
 		}
 	}
 
-	&.btn-inverse,
+	&-inverse,
 	&--secondary {
 		--btn-border-color: var(--btn-primary-background);
+	}
+
+	&.btn-danger,
+	&.btn--destructive {
+		--btn-background-color: var(--btn-destructive-background);
+		--btn-border-color: var(--btn-destructive-background);
+
+		&,
+		&:hover,
+		&:active {
+			--btn-color: var(--btn-primary-color);
+		}
+
+		&:hover {
+			--btn-background-color: var(--btn-destructive-background--hover);
+			--btn-border-color: var(--btn-destructive-background--hover);
+		}
+
+		&:active {
+			--btn-background-color: var(--btn-destructive-background--active);
+			--btn-border-color: var(--btn-destructive-background--active);
+		}
 	}
 
 	&-link {
