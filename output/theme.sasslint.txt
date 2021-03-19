@@ -2,8 +2,8 @@
 
 
 src/theme/_buttons.scss
-  31:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
-  90:3  error  Property `gap` appears to be spelled incorrectly                     no-misspelled-properties
+  32:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  91:3  error  Property `gap` appears to be spelled incorrectly                     no-misspelled-properties
 
 src/theme/_dropdowns.scss
   41:28  warning  Space expected around operator  space-around-operator
