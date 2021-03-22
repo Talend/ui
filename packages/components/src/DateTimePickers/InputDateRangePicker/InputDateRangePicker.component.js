@@ -61,7 +61,7 @@ export default function InputDateRangePicker(props) {
 		handlers.onChange(event, payload, referenceElement);
 	}
 
-	const isDisplayInline = props.display === 'inline';
+	const isDisplayInline = !!props.inline;
 	const className = classnames('date-picker', theme['date-picker'], {
 		'date-range-picker-inline': isDisplayInline,
 		[theme['date-range-picker-inline']]: isDisplayInline,
@@ -140,6 +140,6 @@ InputDateRangePicker.propTypes = {
 	onBlur: PropTypes.func,
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
-	display: PropTypes.string,
+	inline: PropTypes.bool,
 	t: PropTypes.func,
 };

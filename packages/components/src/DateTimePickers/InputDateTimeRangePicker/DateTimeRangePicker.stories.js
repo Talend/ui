@@ -68,7 +68,7 @@ storiesOf('Form/Controls/DatePicker/Date Time Range', module)
 				id="my-datetime-range-picker"
 				onChange={action('onChange')}
 				onBlur={action('onBlur')}
-				display="inline"
+				inline
 			/>
 		</div>
 	));

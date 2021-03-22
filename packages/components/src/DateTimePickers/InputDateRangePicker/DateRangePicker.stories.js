@@ -58,6 +58,6 @@ storiesOf('Form/Controls/DatePicker/Date Range', module)
 			name="daterange"
 			onBlur={action('onBlur')}
 			onChange={action('onChange')}
-			display="inline"
+			inline
 		/>
 	));

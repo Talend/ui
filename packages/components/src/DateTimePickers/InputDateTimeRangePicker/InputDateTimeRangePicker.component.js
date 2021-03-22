@@ -24,13 +24,13 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 ];
 
 function InputDateTimeRangePicker(props) {
-	const { id, dateFormat, useSeconds, onChange, onBlur, display } = props;
+	const { id, dateFormat, useSeconds, onChange, onBlur, inline } = props;
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 
 	const [vertical, setVertical] = useState(false);
 	const containerRef = useRef();
 
-	const isDisplayInline = display === 'inline';
+	const isDisplayInline = !!inline;
 
 	const className = classnames({
 		'range-picker': !vertical,
@@ -146,7 +146,7 @@ InputDateTimeRangePicker.propTypes = {
 		PropTypes.number,
 		PropTypes.string,
 	]),
-	display: PropTypes.string,
+	inline: PropTypes.string,
 	t: PropTypes.func,
 };
 
