@@ -67,9 +67,8 @@ describe('InputDateTimeRangePicker', () => {
 		let wrapper = mount(<InputDateTimeRangePicker id="range-picker" onChange={noop} />);
 		expect(wrapper.find('div.date-time-range-picker-inline').length).toEqual(0);
 
-		const display = 'inline';
 		wrapper = mount(
-			<InputDateTimeRangePicker id="range-picker" onChange={noop} display={display} />,
+			<InputDateTimeRangePicker id="range-picker" onChange={noop} inline />,
 		);
 		expect(wrapper.find('div.date-time-range-picker-inline').length).toEqual(1);
 	});
