@@ -35,4 +35,5 @@ cp -R packages/icons/dist .static/icons
 echo "✓ Copy icons showcase to .static"
 
 cp -R packages/theme/dist/* .static/theme
+cp -R packages/theme/dist .static/theme
 echo "✓ Copy theme showcase to .static"
