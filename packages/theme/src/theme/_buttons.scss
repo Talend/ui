@@ -22,31 +22,30 @@
 	--btn-destructive-background--hover: #{$btn-danger-bg-hover};
 	--btn-destructive-background--active: #{$btn-danger-bg-active};
 
-	position: relative;
 	font-size: $btn-font-size;
 	font-weight: $font-weight-semi-bold;
 	min-height: var(--btn-height);
 	line-height: var(--btn-height);
 	padding: var(--btn-padding);
+	border: 1px solid;
 	box-shadow: none;
 	transition: all 0.1s ease-out;
 
 	&,
-	&:hover,
 	&:focus,
-	&.focus {
+	&:hover {
 		color: var(--btn-color);
 		background-color: var(--btn-background-color);
-		border: 1px solid var(--btn-border-color);
+		border-color: var(--btn-border-color);
 	}
 
 	&:active,
-	&.active,
 	.open > &.dropdown-toggle {
+		box-shadow: none;
+
 		&,
 		&:hover,
-		&:focus,
-		&.focus {
+		{
 			color: var(--btn-color);
 			background-color: var(--btn-background-color);
 			border-color: var(--btn-border-color);
@@ -54,10 +53,8 @@
 	}
 
 	&,
-	&:active,
-	&.active {
-		&:focus,
-		&.focus {
+	&:active {
+		&:focus {
 			outline: 2px solid $moody-purple500;
 			outline-offset: 1px;
 		}
@@ -73,16 +70,6 @@
 			opacity: 0.54;
 			cursor: not-allowed;
 		}
-	}
-
-	&:after {
-		content: '';
-		position: absolute;
-		top: -1 * $padding-smaller;
-		right: -1 * $padding-smaller;
-		bottom: -1 * $padding-smaller;
-		left: -1 * $padding-smaller;
-		border-radius: $btn-border-radius-base;
 	}
 
 	&,
@@ -132,14 +119,9 @@
 	&-inverse,
 	&--secondary,
 	&-tertiary,
-	&--tertiary {
+	&--tertiary,
+	&-link {
 		--btn-color: var(--btn-primary-background);
-		--btn-background-color: transparent;
-
-		&:hover,
-		&:active {
-			--btn-background-color: var(--btn-secondary-background--hover);
-		}
 
 		&:hover {
 			--btn-color: var(--btn-primary-background--hover);
@@ -147,6 +129,18 @@
 
 		&:active {
 			--btn-color: var(--btn-primary-background--active);
+		}
+	}
+
+	&-inverse,
+	&--secondary,
+	&-tertiary,
+	&--tertiary {
+		--btn-background-color: transparent;
+
+		&:hover,
+		&:active {
+			--btn-background-color: var(--btn-secondary-background--hover);
 		}
 	}
 
@@ -174,19 +168,6 @@
 		&:active {
 			--btn-background-color: var(--btn-destructive-background--active);
 			--btn-border-color: var(--btn-destructive-background--active);
-		}
-	}
-
-	&-link {
-		font-weight: inherit;
-		--btn-color: #{$link-color};
-
-		&:hover {
-			--btn-color: #{$link-hover-color};
-		}
-
-		&:active {
-			--btn-color: #{$link-active-color};
 		}
 	}
 
