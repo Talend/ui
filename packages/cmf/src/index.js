@@ -1,7 +1,7 @@
 /**
  * @module react-cmf
  */
-
+import * as SentryReact from '@sentry/react';
 import actions from './actions';
 import actionCreator from './actionCreator';
 
@@ -43,6 +43,9 @@ function registerInternals(context) {
 	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);
 	expression.registerMany(expressions, context);
 }
+
+// make it global because we can t share sentry
+window.SentryReact = SentryReact;
 
 export {
 	App,

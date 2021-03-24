@@ -3,7 +3,7 @@ import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
 
-jest.mock('@sentry/browser', () => ({
+jest.mock('@sentry/react', () => ({
 	captureException: jest.fn(),
 	configureScope: jest.fn(),
 	init: jest.fn(config => {
@@ -219,7 +219,6 @@ describe('onError', () => {
 			onError.bootstrap(config, store);
 			expect(init).toHaveBeenCalledWith({
 				integrations: expect.anything(),
-				_metadata: expect.anything(),
 				dsn: config.onError.SENTRY_DSN
 			});
 			const onJSError = window.addEventListener.mock.calls[0][1];
@@ -241,7 +240,6 @@ describe('onError', () => {
 			};
 			onError.bootstrap(config, store);
 			expect(init).toHaveBeenCalledWith({
-				_metadata: expect.anything(),
 				integrations: expect.anything(),
 				dsn: config.onError.SENTRY_DSN,
 
@@ -274,7 +272,6 @@ describe('onError', () => {
 			});
 			expect(init).toHaveBeenCalledWith({
 				integrations: expect.anything(),
-				_metadata: expect.anything(),
 				dsn: 'foo',
 			});
 		});
