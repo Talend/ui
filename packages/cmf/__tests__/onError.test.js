@@ -1,4 +1,4 @@
-import { captureException, configureScope, init, withScope } from '@sentry/browser';
+import { captureException, configureScope, init, withScope } from '@sentry/react';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
@@ -217,7 +217,11 @@ describe('onError', () => {
 				},
 			};
 			onError.bootstrap(config, store);
-			expect(init).toHaveBeenCalledWith({ dsn: config.onError.SENTRY_DSN });
+			expect(init).toHaveBeenCalledWith({
+				integrations: expect.anything(),
+				_metadata: expect.anything(),
+				dsn: config.onError.SENTRY_DSN
+			});
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
 			expect(onError.hasReportFeature()).toBe(true);
@@ -237,7 +241,10 @@ describe('onError', () => {
 			};
 			onError.bootstrap(config, store);
 			expect(init).toHaveBeenCalledWith({
+				_metadata: expect.anything(),
+				integrations: expect.anything(),
 				dsn: config.onError.SENTRY_DSN,
+
 				release: config.onError.sentry.release,
 				environnement: config.onError.sentry.environnement,
 			});
@@ -265,7 +272,11 @@ describe('onError', () => {
 					},
 				},
 			});
-			expect(init).toHaveBeenCalledWith({ dsn: 'foo' });
+			expect(init).toHaveBeenCalledWith({
+				integrations: expect.anything(),
+				_metadata: expect.anything(),
+				dsn: 'foo',
+			});
 		});
 		it('report should call captureException', () => {
 			config = {
