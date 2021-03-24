@@ -44,8 +44,7 @@
 		box-shadow: none;
 
 		&,
-		&:hover,
-		{
+		&:hover {
 			color: var(--btn-color);
 			background-color: var(--btn-background-color);
 			border-color: var(--btn-border-color);
