@@ -71,6 +71,12 @@ $tc-tabbar-active-color: $lochmara;
 				width: 100%;
 				text-align: left;
 				background-color: transparent;
+
+				&:focus,
+				&:hover,
+				&:active {
+					--btn-color: var(--btn-color-primary);
+				}
 			}
 		}
 	}
