@@ -2813,10 +2813,10 @@
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-prettier/-/scripts-config-prettier-9.6.2.tgz#879508e4bb4c1bdeaaffbe51b6dc5a735bc18e1f"
   integrity sha512-4dJCkFUr15lpKq5fAMsJypcVhAUKApSxhIpAx5BJl5jRQXx6X2TgC2XJDir0rlbTSVg0K+wPkk4YyR7v5oMRzA==
 
-"@talend/scripts-config-react-webpack@^9.6.2":
-  version "9.6.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-9.6.2.tgz#75c26859564816739d6f2a538f920eb1ddf0d70c"
-  integrity sha512-KQFEX2rdYvpil+yRJt9t657569rxmras56KATvUSSwWjeMVkdTCLRLfLggvf8T1t1dVAHNfVjTkN0x6IYyEE/w==
+"@talend/scripts-config-react-webpack@^9.7.0":
+  version "9.8.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-9.8.0.tgz#2c068c4c395b13e4caf894cf73a0f5be54aa2d4a"
+  integrity sha512-IZ/rCnxlujGgIlbhXBOE7D6HCVXl6z0Rjz+s6KSYIJzackEx/jvblK99xVKQXXIPG4hQbTFISY3O8ZbyzOmROg==
   dependencies:
     "@talend/react-cmf-webpack-plugin" ">=3.4.0"
     "@talend/scripts-config-babel" "^9.6.2"
@@ -2834,6 +2834,7 @@
     fork-ts-checker-webpack-plugin "^4.0.5"
     html-loader "^0.5.5"
     html-webpack-plugin "^4.5.0"
+    inspectpack "^4.6.1"
     mini-css-extract-plugin "^0.9.0"
     optimize-css-assets-webpack-plugin "^5.0.3"
     postcss-loader "^3.0.0"
@@ -2861,10 +2862,10 @@
   dependencies:
     typescript "^3.8.3"
 
-"@talend/scripts-core@^9.6.2":
-  version "9.6.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-9.6.2.tgz#3d960f0d12418632dee3301cf2ed64a9f22baa98"
-  integrity sha512-F+P9rxnfe3meVQvrXmi6R2nxiWQA3pWFZcVyzYxxiZJboQ3A/SenOJPn/6+LtQCH3jv1G6ICkaUaQvp2dnpi6Q==
+"@talend/scripts-core@^9.7.0":
+  version "9.7.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-9.7.0.tgz#9629464fac49555f6374bbd6a53f05f13f8edc47"
+  integrity sha512-q5N1EX9cejeppb/CUIfVwHekEgp/89kLCJJ4LVDL7MQXjC0F4s8MDqr9IZGuXpJotS5/fYiCCu46pXywDQPifg==
   dependencies:
     "@babel/cli" "^7.8.3"
     "@babel/core" "^7.8.7"
@@ -2874,23 +2875,22 @@
     lodash.get "^4.4.2"
     lodash.template "^4.5.0"
     rimraf "^3.0.2"
-    webpack-bundle-analyzer "^3.8.0"
     webpack-cli "^3.3.11"
     webpack-merge "^4.2.2"
     which "^2.0.1"
     yargs "^15.3.0"
 
-"@talend/scripts-preset-react-lib@^9.6.2":
-  version "9.6.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.6.2.tgz#26916f1d36851954baf0794b38200e5ffef81e8a"
-  integrity sha512-Ookkj+H0xPRntQyhC2soZC4KcGz9CQ6H01na/XhAT1JG6AWLRZwvzB1hUsIFpuFYstYvIu1hcL67mWgl9K2MZQ==
+"@talend/scripts-preset-react-lib@^9.7.0":
+  version "9.7.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.7.0.tgz#60bf6edf0425bd115e6181c15e193567f595c5a7"
+  integrity sha512-Ejd1EJUHCAIaEs87o+2OY+v3Ae+2l3mlhLaQ1HPEJXhK4ae+BysVnb9/3FykHJUlel/VhpUsI5Jpb8AGPG5Ubw==
   dependencies:
     "@talend/scripts-config-babel" "^9.6.2"
     "@talend/scripts-config-cdn" "^9.6.2"
     "@talend/scripts-config-eslint" "^9.6.2"
     "@talend/scripts-config-jest" "^9.6.2"
     "@talend/scripts-config-prettier" "^9.6.2"
-    "@talend/scripts-config-react-webpack" "^9.6.2"
+    "@talend/scripts-config-react-webpack" "^9.7.0"
     "@talend/scripts-config-typescript" "^9.6.2"
 
 "@testing-library/dom@^7.28.1":
@@ -5227,6 +5227,15 @@ cliui@^6.0.0:
     string-width "^4.2.0"
     strip-ansi "^6.0.0"
     wrap-ansi "^6.2.0"
+
+cliui@^7.0.2:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/cliui/-/cliui-7.0.4.tgz#a0265ee655476fc807aea9df3df8df7783808b4f"
+  integrity sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==
+  dependencies:
+    string-width "^4.2.0"
+    strip-ansi "^6.0.0"
+    wrap-ansi "^7.0.0"
 
 clone-deep@^4.0.1:
   version "4.0.1"
@@ -7853,6 +7862,11 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
+fp-ts@^2.6.1:
+  version "2.9.5"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.9.5.tgz#6690cd8b76b84214a38fc77cbbbd04a38f86ea90"
+  integrity sha512-MiHrA5teO6t8zKArE3DdMPT/Db6v2GUt5yfWnhBTrrsVfeCJUUnV6sgFvjGNBKDmEMqVwRFkEePL7wPwqrLKKA==
+
 fragment-cache@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
@@ -7998,7 +8012,7 @@ gensync@^1.0.0-beta.1:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
-get-caller-file@^2.0.1:
+get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
@@ -8940,6 +8954,19 @@ inquirer@^7.0.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
+inspectpack@^4.6.1:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/inspectpack/-/inspectpack-4.7.0.tgz#355e2543a8f1d43d9f320b8a4a6a28e087ae3952"
+  integrity sha512-H9pNVJyNAMr0ljpC0Op2UB96xlVbQ9VARmeg7SEWR7hsZi4RIBc1tkn06eqxpJNNV7JhDyWWxo1nJTV5slfO/A==
+  dependencies:
+    chalk "^4.1.0"
+    fp-ts "^2.6.1"
+    io-ts "^2.2.13"
+    io-ts-reporters "^1.2.2"
+    pify "^5.0.0"
+    semver-compare "^1.0.0"
+    yargs "^16.2.0"
+
 internal-ip@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/internal-ip/-/internal-ip-4.3.0.tgz#845452baad9d2ca3b69c635a137acb9a0dad0907"
@@ -8973,6 +9000,16 @@ invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
   dependencies:
     loose-envify "^1.0.0"
+
+io-ts-reporters@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/io-ts-reporters/-/io-ts-reporters-1.2.2.tgz#4d3219777ea5219c7d8f6ffac01fd68e72426dd1"
+  integrity sha512-igASwWWkDY757OutNcM6zTtdJf/eTZYkoe2ymsX2qpm5bKZLo74FJYjsCtMQOEdY7dRHLLEulCyFQwdN69GBCg==
+
+io-ts@^2.2.13:
+  version "2.2.16"
+  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.16.tgz#597dffa03db1913fc318c9c6df6931cb4ed808b2"
+  integrity sha512-y5TTSa6VP6le0hhmIyN0dqEXkrZeJLeC5KApJq6VLci3UEKF80lZ+KuoUs02RhBxNWlrqSNxzfI7otLX1Euv8Q==
 
 ip-regex@^2.1.0:
   version "2.1.0"
@@ -11999,6 +12036,11 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
+pify@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/pify/-/pify-5.0.0.tgz#1f5eca3f5e87ebec28cc6d54a0e4aaf00acc127f"
+  integrity sha512-eW/gHNMlxdSP6dmG6uJip6FXN0EQBwm2clYYd8Wul42Cwu/DK8HEftzsapcNdYe2MfLiIwZqsDk2RDEsTE79hA==
+
 pinkie-promise@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa"
@@ -13948,6 +13990,11 @@ selfsigned@^1.10.8:
   integrity sha512-2P4PtieJeEwVgTU9QEcwIRDQ/mXJLX8/+I3ur+Pg16nS8oNbrGxEso9NyYWy8NAmXiNl4dlAp5MwoNeCWzON4w==
   dependencies:
     node-forge "^0.10.0"
+
+semver-compare@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/semver-compare/-/semver-compare-1.0.0.tgz#0dee216a1c941ab37e9efb1788f6afc5ff5537fc"
+  integrity sha1-De4hahyUGrN+nvsXiPavxf9VN/w=
 
 "semver@2 || 3 || 4 || 5", semver@^5.4.1, semver@^5.5.0, semver@^5.6.0, semver@^5.7.0, semver@^5.7.1:
   version "5.7.1"
@@ -16291,6 +16338,15 @@ wrap-ansi@^6.2.0:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
 
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
@@ -16350,6 +16406,11 @@ y18n@^4.0.0:
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.1.tgz#8db2b83c31c5d75099bb890b23f3094891e247d4"
   integrity sha512-wNcy4NvjMYL8gogWWYAO7ZFWFfHcbdbE57tZO8e4cbpj8tfUcwrwqSl3ad8HxpYWCdXcJUCeKKZS62Av1affwQ==
 
+y18n@^5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-5.0.5.tgz#8769ec08d03b1ea2df2500acef561743bbb9ab18"
+  integrity sha512-hsRUr4FFrvhhRH12wOdfs38Gy7k2FFzB9qgN9v3aLykRq0dRcdcpz5C9FxdS2NuhOrI/628b/KSTJ3rwHysYSg==
+
 yallist@^3.0.2:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
@@ -16365,10 +16426,10 @@ yaml@^1.10.0, yaml@^1.7.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
 
-yargs-parser@20.x, yargs-parser@^20.2.3:
-  version "20.2.4"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.4.tgz#b42890f14566796f85ae8e3a25290d205f154a54"
-  integrity sha512-WOkpgNhPTlE73h4VFAFsOnomJVaovO8VqLDzy5saChRBFQFBoMYirowyW+Q9HB4HFF4Z7VZTiG3iSzJJA29yRA==
+yargs-parser@20.x, yargs-parser@^20.2.2, yargs-parser@^20.2.3:
+  version "20.2.7"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.7.tgz#61df85c113edfb5a7a4e36eb8aa60ef423cbc90a"
+  integrity sha512-FiNkvbeHzB/syOjIUxFDCnhSfzAL8R5vs40MgLFBorXACCOAEaWu0gRZl14vG8MR9AOJIZbmkjhusqBYZ3HTHw==
 
 yargs-parser@^13.1.2:
   version "13.1.2"
@@ -16418,6 +16479,19 @@ yargs@^15.3.0, yargs@^15.4.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
+
+yargs@^16.2.0:
+  version "16.2.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
+  integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
+  dependencies:
+    cliui "^7.0.2"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.0"
+    y18n "^5.0.5"
+    yargs-parser "^20.2.2"
 
 yarn-or-npm@^3.0.1:
   version "3.0.1"
