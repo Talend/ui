@@ -14,12 +14,8 @@ exports[`BadgeOperatorPopover should render the html output 1`] = `
               type="button"
               class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
       >
-        <svg name="talend-my-icon-equal"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-        </svg>
+        <coral.icon name="talend-my-icon-equal">
+        </coral.icon>
         <span>
           My icon operator equal
         </span>
@@ -30,12 +26,8 @@ exports[`BadgeOperatorPopover should render the html output 1`] = `
               type="button"
               class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
       >
-        <svg name="talend-my-icon-not-equal"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-        </svg>
+        <coral.icon name="talend-my-icon-not-equal">
+        </coral.icon>
         <span>
           My icon operator not equal
         </span>

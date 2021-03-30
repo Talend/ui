@@ -17,12 +17,8 @@ exports[`BasicSearch should render the default html output with initial badges 1
         Search
       </label>
       <div class="icon-cls theme-icon-cls">
-        <svg name="talend-search"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-        </svg>
+        <coral.icon name="talend-search">
+        </coral.icon>
       </div>
       <input autocomplete="off"
              aria-autocomplete="list"
@@ -56,12 +52,10 @@ exports[`BasicSearch should render the default html output with initial badges 1
                     aria-describedby="42"
                     class="btn btn-link"
             >
-              <svg name="talend-contains"
-                   class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-                   focusable="false"
-                   aria-hidden="true"
+              <coral.icon name="talend-contains"
+                          class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
               >
-              </svg>
+              </coral.icon>
             </button>
           </div>
         </div>
@@ -84,12 +78,8 @@ exports[`BasicSearch should render the default html output with initial badges 1
                 type="button"
                 class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
         >
-          <svg name="talend-cross"
-               class="theme-tc-svg-icon tc-svg-icon"
-               focusable="false"
-               aria-hidden="true"
-          >
-          </svg>
+          <coral.icon name="talend-cross">
+          </coral.icon>
         </button>
       </div>
     </div>
@@ -101,12 +91,10 @@ exports[`BasicSearch should render the default html output with initial badges 1
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
-        <svg name="talend-plus-circle"
-             class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-             focusable="false"
-             aria-hidden="true"
+        <coral.icon name="talend-plus-circle"
+                    class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
         >
-        </svg>
+        </coral.icon>
         <span>
           Add filter
         </span>
@@ -120,12 +108,8 @@ exports[`BasicSearch should render the default html output with initial badges 1
           type="button"
           class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
   >
-    <svg name="talend-trash"
-         class="theme-tc-svg-icon tc-svg-icon"
-         focusable="false"
-         aria-hidden="true"
-    >
-    </svg>
+    <coral.icon name="talend-trash">
+    </coral.icon>
     <span>
     </span>
   </button>
@@ -149,12 +133,8 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
         Search
       </label>
       <div class="icon-cls theme-icon-cls">
-        <svg name="talend-search"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-        </svg>
+        <coral.icon name="talend-search">
+        </coral.icon>
       </div>
       <input autocomplete="off"
              aria-autocomplete="list"
@@ -178,12 +158,10 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
-        <svg name="talend-plus-circle"
-             class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-             focusable="false"
-             aria-hidden="true"
+        <coral.icon name="talend-plus-circle"
+                    class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
         >
-        </svg>
+        </coral.icon>
         <span>
           Add filter
         </span>
@@ -210,12 +188,8 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
         Search
       </label>
       <div class="icon-cls theme-icon-cls">
-        <svg name="talend-search"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-        </svg>
+        <coral.icon name="talend-search">
+        </coral.icon>
       </div>
       <input autocomplete="off"
              aria-autocomplete="list"
@@ -249,12 +223,10 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                     aria-describedby="42"
                     class="btn btn-link"
             >
-              <svg name="talend-equal"
-                   class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-                   focusable="false"
-                   aria-hidden="true"
+              <coral.icon name="talend-equal"
+                          class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
               >
-              </svg>
+              </coral.icon>
             </button>
           </div>
         </div>
@@ -277,12 +249,8 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                 type="button"
                 class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
         >
-          <svg name="talend-cross"
-               class="theme-tc-svg-icon tc-svg-icon"
-               focusable="false"
-               aria-hidden="true"
-          >
-          </svg>
+          <coral.icon name="talend-cross">
+          </coral.icon>
         </button>
       </div>
     </div>
@@ -294,12 +262,10 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
-        <svg name="talend-plus-circle"
-             class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-             focusable="false"
-             aria-hidden="true"
+        <coral.icon name="talend-plus-circle"
+                    class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
         >
-        </svg>
+        </coral.icon>
         <span>
           Add filter
         </span>
@@ -313,12 +279,8 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
           type="button"
           class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
   >
-    <svg name="talend-trash"
-         class="theme-tc-svg-icon tc-svg-icon"
-         focusable="false"
-         aria-hidden="true"
-    >
-    </svg>
+    <coral.icon name="talend-trash">
+    </coral.icon>
     <span>
     </span>
   </button>
@@ -342,12 +304,8 @@ exports[`BasicSearch should render the default html output with some badges and 
         Search
       </label>
       <div class="icon-cls theme-icon-cls">
-        <svg name="talend-search"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-        </svg>
+        <coral.icon name="talend-search">
+        </coral.icon>
       </div>
       <input autocomplete="off"
              aria-autocomplete="list"
@@ -381,12 +339,10 @@ exports[`BasicSearch should render the default html output with some badges and 
                     aria-describedby="42"
                     class="btn btn-link"
             >
-              <svg name="talend-equal"
-                   class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-                   focusable="false"
-                   aria-hidden="true"
+              <coral.icon name="talend-equal"
+                          class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
               >
-              </svg>
+              </coral.icon>
             </button>
           </div>
         </div>
@@ -409,12 +365,8 @@ exports[`BasicSearch should render the default html output with some badges and 
                 type="button"
                 class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
         >
-          <svg name="talend-cross"
-               class="theme-tc-svg-icon tc-svg-icon"
-               focusable="false"
-               aria-hidden="true"
-          >
-          </svg>
+          <coral.icon name="talend-cross">
+          </coral.icon>
         </button>
       </div>
     </div>
@@ -426,12 +378,10 @@ exports[`BasicSearch should render the default html output with some badges and 
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
-        <svg name="talend-plus-circle"
-             class="theme-tc-svg-icon tc-svg-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-             focusable="false"
-             aria-hidden="true"
+        <coral.icon name="talend-plus-circle"
+                    class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
         >
-        </svg>
+        </coral.icon>
         <span>
           Add filter
         </span>
@@ -445,12 +395,8 @@ exports[`BasicSearch should render the default html output with some badges and 
           type="button"
           class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
   >
-    <svg name="talend-trash"
-         class="theme-tc-svg-icon tc-svg-icon"
-         focusable="false"
-         aria-hidden="true"
-    >
-    </svg>
+    <coral.icon name="talend-trash">
+    </coral.icon>
     <span>
     </span>
   </button>

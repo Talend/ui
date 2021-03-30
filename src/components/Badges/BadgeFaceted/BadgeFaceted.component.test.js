@@ -146,7 +146,7 @@ describe('BadgeFaceted', () => {
 				{renderProps => <TestChildren {...renderProps} />}
 			</MyWrappedBadge>,
 		);
-		expect(wrapper.find('#my-id-action-overlay svg[name="talend-empty-space"]')).toHaveLength(
+		expect(wrapper.find('#my-id-action-overlay Icon[name="talend-empty-space"]')).toHaveLength(
 			1,
 		);
 	});

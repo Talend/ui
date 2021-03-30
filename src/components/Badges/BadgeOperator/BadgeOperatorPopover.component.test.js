@@ -47,7 +47,7 @@ describe('BadgeOperatorPopover', () => {
 		).toEqual('My icon operator equal');
 		expect(
 			wrapper
-				.find('svg')
+				.find('Icon')
 				.at(0)
 				.prop('name'),
 		).toEqual('talend-my-icon-equal');
@@ -59,12 +59,12 @@ describe('BadgeOperatorPopover', () => {
 		).toEqual('My icon operator not equal');
 		expect(
 			wrapper
-				.find('svg')
+				.find('Icon')
 				.at(1)
 				.prop('name'),
 		).toEqual('talend-my-icon-not-equal');
 		expect(wrapper.find('button')).toHaveLength(2);
-		expect(wrapper.find('svg')).toHaveLength(2);
+		expect(wrapper.find('Icon')).toHaveLength(2);
 	});
 	it('should render a button with text as operator', () => {
 		// Given

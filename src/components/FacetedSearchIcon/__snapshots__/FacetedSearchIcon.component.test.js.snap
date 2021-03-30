@@ -8,12 +8,8 @@ exports[`FacetedSearchIcon should render by default 1`] = `
         type="button"
         class="faceted-search-icon theme-faceted-search-icon tc-icon-toggle theme-tc-icon-toggle btn btn-link"
 >
-  <svg name="talend-search"
-       class="theme-tc-svg-icon tc-svg-icon"
-       focusable="false"
-       aria-hidden="true"
-  >
-  </svg>
+  <coral.icon name="talend-search">
+  </coral.icon>
 </button>
 `;
 

@@ -26,6 +26,11 @@ Types of changes
 
 ## [unreleased]
 
+## [3.4.1]
+### Security
+
+- Upgrade dependencies
+
 ## [3.4.0]
 
 ### Added
