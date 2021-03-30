@@ -217,14 +217,7 @@ describe('onError', () => {
 				},
 			};
 			onError.bootstrap(config, store);
-<<<<<<< HEAD
-			expect(init).toHaveBeenCalledWith({
-				integrations: expect.anything(),
-				dsn: config.onError.SENTRY_DSN
-			});
-=======
 			expect(init).toHaveBeenCalledWith({ dsn: config.onError.SENTRY_DSN });
->>>>>>> parent of 86a80df69... chore(cmf): upgrade sentry
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
 			expect(onError.hasReportFeature()).toBe(true);
@@ -244,10 +237,6 @@ describe('onError', () => {
 			};
 			onError.bootstrap(config, store);
 			expect(init).toHaveBeenCalledWith({
-<<<<<<< HEAD
-				integrations: expect.anything(),
-=======
->>>>>>> parent of 86a80df69... chore(cmf): upgrade sentry
 				dsn: config.onError.SENTRY_DSN,
 				release: config.onError.sentry.release,
 				environnement: config.onError.sentry.environnement,
