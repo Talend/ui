@@ -8,25 +8,30 @@ import { generateId, generateDescriptionId, generateErrorId } from '../../Messag
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-const AceEditor = lazy(() => new Promise((resolve, reject) => {
-	if (!document.createElement) {
-		reject(new Error('no document.createElement available'));
-		return;
-	}
-	if (document.querySelectorAll('script[src~="/react-ace/"]').length === 0) {
-		const script = document.createElement('script');
-		script.setAttribute('src', 'https://statics.cloud.talend.com/react-ace/6.2.0/dist/react-ace.min.js');
-		script.setAttribute('type', 'text/javascript');
-		document.body.appendChild(script);
-
-	}
-	const intervalId = setInterval(() => {
-		if (window.ReactAce) {
-			clearInterval(intervalId);
-			resolve(window.ReactAce);
-		}
-	}, 200);
-}));
+const AceEditor = lazy(
+	() =>
+		new Promise((resolve, reject) => {
+			if (!document.createElement) {
+				reject(new Error('no document.createElement available'));
+				return;
+			}
+			if (document.querySelectorAll('script[src~="/react-ace/"]').length === 0) {
+				const script = document.createElement('script');
+				script.setAttribute(
+					'src',
+					'https://statics.cloud.talend.com/react-ace/6.2.0/dist/react-ace.min.js',
+				);
+				script.setAttribute('type', 'text/javascript');
+				document.body.appendChild(script);
+			}
+			const intervalId = setInterval(() => {
+				if (window.ReactAce) {
+					clearInterval(intervalId);
+					resolve(window.ReactAce);
+				}
+			}, 200);
+		}),
+);
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,

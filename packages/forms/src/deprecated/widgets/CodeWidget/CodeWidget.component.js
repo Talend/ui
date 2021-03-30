@@ -2,25 +2,30 @@ import React, { lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import TextareaWidget from 'react-jsonschema-form/lib/components/widgets/TextareaWidget';
 
-
-const AceEditor = lazy(() => new Promise((resolve, reject) => {
-	if (!document.createElement) {
-		reject(new Error('no document.createElement available'));
-		return;
-	}
-	if (document.querySelectorAll('script[src~="/react-ace/"]').length) {
-		const script = document.createElement('script');
-		script.setAttribute('src', 'https://statics.cloud.talend.com/react-ace/6.2.0/dist/react-ace.min.js');
-		script.setAttribute('type', 'text/javascript');
-		document.body.appendChild(script);
-	}
-	const cancel = setInterval(() => {
-		if (window.ReactAce) {
-			resolve(window.ReactAce);
-			cancel();
-		}
-	}, 200);
-}));
+const AceEditor = lazy(
+	() =>
+		new Promise((resolve, reject) => {
+			if (!document.createElement) {
+				reject(new Error('no document.createElement available'));
+				return;
+			}
+			if (document.querySelectorAll('script[src~="/react-ace/"]').length) {
+				const script = document.createElement('script');
+				script.setAttribute(
+					'src',
+					'https://statics.cloud.talend.com/react-ace/6.2.0/dist/react-ace.min.js',
+				);
+				script.setAttribute('type', 'text/javascript');
+				document.body.appendChild(script);
+			}
+			const cancel = setInterval(() => {
+				if (window.ReactAce) {
+					resolve(window.ReactAce);
+					cancel();
+				}
+			}, 200);
+		}),
+);
 
 let CodeWidget; // eslint-disable-line import/no-mutable-exports
 
