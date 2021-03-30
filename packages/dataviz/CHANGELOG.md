@@ -30,7 +30,7 @@ Types of changes
 
 ### Fixed
 
-- [upgrade talend-scripts to fix manifest](https://github.com/Talend/ui/pull/3216)
+- [upgrade talend-scripts to fix manifest](https://github.com/Talend/ui/pull/3259)
 
 ## [0.4.2]
 
