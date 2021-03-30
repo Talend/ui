@@ -59,7 +59,7 @@ describe('Emphasis', () => {
 	});
 
 	it('should emphasize if value is not string', () => {
-		const text = '85';
+		const text = 85;
 		// given
 		const wrapper = shallow(<Emphasis text={text} value={8} />);
 

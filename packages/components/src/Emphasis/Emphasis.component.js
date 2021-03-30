@@ -17,9 +17,10 @@ function emphasiseAll(text, value) {
 	if (!value) {
 		return text;
 	}
+	const strText = `${text}`;
 	const strValue = `${value}`;
 
-	return text
+	return strText
 		.split(new RegExp(`(${escapeRegexCharacters(strValue)})`, 'gi'))
 		.filter(isNotEmpty)
 		.map((part, index) => {
