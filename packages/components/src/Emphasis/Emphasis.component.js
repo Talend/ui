@@ -17,7 +17,6 @@ function emphasiseAll(text, value) {
 	if (!value) {
 		return text;
 	}
-
 	const strValue = typeof value !== 'string' ? `${value}` : value;
 
 	return text
