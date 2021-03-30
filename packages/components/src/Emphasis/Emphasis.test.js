@@ -57,4 +57,13 @@ describe('Emphasis', () => {
 		// then
 		expect(wrapper.find('em').length).toBe(2);
 	});
+
+	it('should emphasize if value is not string', () => {
+		const text = '85';
+		// given
+		const wrapper = shallow(<Emphasis text={text} value={8} />);
+
+		// then
+		expect(wrapper.find('em').length).toBe(1);
+	});
 });

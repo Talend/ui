@@ -18,11 +18,13 @@ function emphasiseAll(text, value) {
 		return text;
 	}
 
+	const strValue = typeof value !== 'string' ? `${value}` : value;
+
 	return text
-		.split(new RegExp(`(${escapeRegexCharacters(value)})`, 'gi'))
+		.split(new RegExp(`(${escapeRegexCharacters(strValue)})`, 'gi'))
 		.filter(isNotEmpty)
 		.map((part, index) => {
-			if (part.toUpperCase() === value.toUpperCase()) {
+			if (part.toUpperCase() === strValue.toUpperCase()) {
 				return (
 					<em key={index} className={theme.highlight}>
 						{part}
