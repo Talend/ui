@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import TextareaWidget from 'react-jsonschema-form/lib/components/widgets/TextareaWidget';
 import { importFromCDN } from '@talend/react-components';
 
-const AceEditor = lazy(() => importFromCDN({
-	name: 'react-ace',
-	varName: 'ReactAce',
-	version: '6.2.0',
-	path: '/dist/react-ace.min.js'
-}));
-
+const AceEditor = lazy(() =>
+	importFromCDN({
+		name: 'react-ace',
+		varName: 'ReactAce',
+		version: '6.2.0',
+		path: '/dist/react-ace.min.js',
+	}),
+);
 
 let CodeWidget; // eslint-disable-line import/no-mutable-exports
 

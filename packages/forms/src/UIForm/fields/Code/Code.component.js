@@ -9,12 +9,14 @@ import { generateId, generateDescriptionId, generateErrorId } from '../../Messag
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-const AceEditor = lazy(() => importFromCDN({
-	name: 'react-ace',
-	varName: 'ReactAce',
-	version: '6.2.0',
-	path: '/dist/react-ace.min.js'
-}));
+const AceEditor = lazy(() =>
+	importFromCDN({
+		name: 'react-ace',
+		varName: 'ReactAce',
+		version: '6.2.0',
+		path: '/dist/react-ace.min.js',
+	}),
+);
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
