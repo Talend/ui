@@ -3,7 +3,7 @@ import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
 
-jest.mock('@sentry/react', () => ({
+jest.mock('@sentry/browser', () => ({
 	captureException: jest.fn(),
 	configureScope: jest.fn(),
 	init: jest.fn(config => {
