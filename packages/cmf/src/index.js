@@ -1,6 +1,7 @@
 /**
  * @module react-cmf
  */
+
 import actions from './actions';
 import actionCreator from './actionCreator';
 

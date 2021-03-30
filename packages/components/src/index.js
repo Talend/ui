@@ -22,6 +22,7 @@ import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import { ModelViewer, RecordsViewer } from './DataViewer';
+import { importFromCDN } from './importFromCDN';
 import {
 	DatePicker,
 	InputDatePicker,
@@ -163,4 +164,5 @@ export {
 	VirtualizedList,
 	WithDrawer,
 	getTheme,
+	importFromCDN,
 };

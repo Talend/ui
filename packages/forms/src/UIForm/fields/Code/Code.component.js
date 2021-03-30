@@ -2,30 +2,18 @@ import PropTypes from 'prop-types';
 import React, { lazy, Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
+import { importFromCDN } from '@talend/react-components';
 import FieldTemplate from '../FieldTemplate';
 
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-const AceEditor = lazy(() => new Promise((resolve, reject) => {
-	if (!document.createElement) {
-		reject(new Error('no document.createElement available'));
-		return;
-	}
-	if (document.querySelectorAll('script[src~="/react-ace/"]').length === 0) {
-		const script = document.createElement('script');
-		script.setAttribute('src', 'https://statics.cloud.talend.com/react-ace/6.2.0/dist/react-ace.min.js');
-		script.setAttribute('type', 'text/javascript');
-		document.body.appendChild(script);
-
-	}
-	const intervalId = setInterval(() => {
-		if (window.ReactAce) {
-			clearInterval(intervalId);
-			resolve(window.ReactAce);
-		}
-	}, 200);
+const AceEditor = lazy(() => importFromCDN({
+	name: 'react-ace',
+	varName: 'ReactAce',
+	version: '6.2.0',
+	path: '/dist/react-ace.min.js'
 }));
 
 const DEFAULT_SET_OPTIONS = {
