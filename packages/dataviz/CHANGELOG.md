@@ -26,6 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+## [0.4.3]
+
+### Fixed
+
+- [upgrade talend-scripts to fix manifest](https://github.com/Talend/ui/pull/3216)
+
 ## [0.4.2]
 
 ### Fixed
