@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import TextareaWidget from 'react-jsonschema-form/lib/components/widgets/TextareaWidget';
+
+
+const AceEditor = lazy(() => new Promise((resolve, reject) => {
+	if (!document.createElement) {
+		reject(new Error('no document.createElement available'));
+		return;
+	}
+	if (document.querySelectorAll('script[src~="/react-ace/"]').length) {
+		const script = document.createElement('script');
+		script.setAttribute('src', 'https://statics.cloud.talend.com/react-ace/6.2.0/dist/react-ace.min.js');
+		script.setAttribute('type', 'text/javascript');
+		document.body.appendChild(script);
+	}
+	const cancel = setInterval(() => {
+		if (window.ReactAce) {
+			resolve(window.ReactAce);
+			cancel();
+		}
+	}, 200);
+}));
 
 let CodeWidget; // eslint-disable-line import/no-mutable-exports
 
 try {
 	// eslint-disable-next-line import/no-extraneous-dependencies, global-require
-	const AceEditor = require('react-ace').default;
 
 	const SET_OPTIONS = {
 		enableBasicAutocompletion: true,
@@ -45,25 +64,27 @@ try {
 				delete contextProps.setOptions;
 			}
 			return (
-				<AceEditor
-					className="tf-widget-code form-control"
-					focus={autofocus || false}
-					name={id}
-					width="auto"
-					mode={options && options.language}
-					onLoad={this.onLoad}
-					onChange={this.onChange}
-					readOnly={readonly}
-					disabled={disabled}
-					setOptions={setOptions}
-					enableSnippets
-					value={value}
-					theme="chrome"
-					showGutter={false}
-					showPrintMargin={false}
-					{...contextProps}
-					{...options}
-				/>
+				<Suspense fallback={<div>Loading...</div>}>
+					<AceEditor
+						className="tf-widget-code form-control"
+						focus={autofocus || false}
+						name={id}
+						width="auto"
+						mode={options && options.language}
+						onLoad={this.onLoad}
+						onChange={this.onChange}
+						readOnly={readonly}
+						disabled={disabled}
+						setOptions={setOptions}
+						enableSnippets
+						value={value}
+						theme="chrome"
+						showGutter={false}
+						showPrintMargin={false}
+						{...contextProps}
+						{...options}
+					/>
+				</Suspense>
 			);
 		}
 	}

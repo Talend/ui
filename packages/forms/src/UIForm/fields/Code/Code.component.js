@@ -1,32 +1,38 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
 import FieldTemplate from '../FieldTemplate';
-import TextArea from '../TextArea';
+
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-let CodeWidget = TextArea;
-let AceEditor;
+const AceEditor = lazy(() => new Promise((resolve, reject) => {
+	if (!document.createElement) {
+		reject(new Error('no document.createElement available'));
+		return;
+	}
+	if (document.querySelectorAll('script[src~="/react-ace/"]').length === 0) {
+		const script = document.createElement('script');
+		script.setAttribute('src', 'https://statics.cloud.talend.com/react-ace/6.2.0/dist/react-ace.min.js');
+		script.setAttribute('type', 'text/javascript');
+		document.body.appendChild(script);
+
+	}
+	const intervalId = setInterval(() => {
+		if (window.ReactAce) {
+			clearInterval(intervalId);
+			resolve(window.ReactAce);
+		}
+	}, 200);
+}));
+
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
 	enableLiveAutocompletion: true,
 	enableSnippets: true,
 };
-
-class WrappedTextArea extends React.PureComponent {
-	constructor() {
-		super();
-		// eslint-disable-next-line no-console
-		console.warn('CodeWidget react-ace not found, fallback to Textarea');
-	}
-
-	render() {
-		return <TextArea {...this.props} />;
-	}
-}
 
 // eslint-disable-next-line react/no-multi-comp
 class Code extends React.Component {
@@ -127,34 +133,35 @@ class Code extends React.Component {
 							defaultValue: 'To focus out of the editor, press ESC key twice.',
 						})}
 					</div>
-					<AceEditor
-						key="ace"
-						className="tf-widget-code form-control"
-						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
-						focus={autoFocus}
-						name={`${id}_wrapper`}
-						mode={options && options.language}
-						onBlur={this.onFinish}
-						onLoad={this.onLoad}
-						onChange={this.onChange}
-						// disabled is not supported by ace use readonly
-						// https://github.com/ajaxorg/ace/issues/406
-						readOnly={readOnly || schema.disabled || valueIsUpdating}
-						setOptions={DEFAULT_SET_OPTIONS}
-						showGutter={false}
-						showPrintMargin={false}
-						theme="chrome"
-						value={value}
-						width="auto"
-						{...options}
-					/>
+					<Suspense fallback={<div>Loading...</div>}>
+						<AceEditor
+							key="ace"
+							className="tf-widget-code form-control"
+							editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
+							focus={autoFocus}
+							name={`${id}_wrapper`}
+							mode={options && options.language}
+							onBlur={this.onFinish}
+							onLoad={this.onLoad}
+							onChange={this.onChange}
+							// disabled is not supported by ace use readonly
+							// https://github.com/ajaxorg/ace/issues/406
+							readOnly={readOnly || schema.disabled || valueIsUpdating}
+							setOptions={DEFAULT_SET_OPTIONS}
+							showGutter={false}
+							showPrintMargin={false}
+							theme="chrome"
+							value={value}
+							width="auto"
+							{...options}
+						/>
+					</Suspense>
 				</div>
 			</FieldTemplate>
 		);
 	}
 }
 if (process.env.NODE_ENV !== 'production') {
-	WrappedTextArea.propTypes = TextArea.propTypes;
 	Code.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
@@ -183,14 +190,4 @@ Code.defaultProps = {
 	t: getDefaultT(),
 };
 
-try {
-	/* eslint-disable global-require, import/no-extraneous-dependencies */
-	AceEditor = require('react-ace').default;
-	require('brace/ext/language_tools'); // https://github.com/securingsincity/react-ace/issues/95
-	/* eslint-enable global-require, import/no-extraneous-dependencies */
-	CodeWidget = Code;
-} catch (error) {
-	CodeWidget = WrappedTextArea;
-}
-
-export default withTranslation(I18N_DOMAIN_FORMS)(CodeWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(Code);
