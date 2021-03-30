@@ -35,8 +35,7 @@
     "cmf-settings": "./scripts/cmf-settings.js"
   },
   "dependencies": {
-    "@sentry/react": "^6.2.3",
-    "@sentry/tracing": "^6.2.3",
+    "@sentry/browser": "^5.11.1",
     "deepmerge": "^1.5.1",
     "hoist-non-react-statics": "^2.5.5",
     "immutable": "^3.8.1",

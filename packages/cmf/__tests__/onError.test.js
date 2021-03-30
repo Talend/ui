@@ -1,9 +1,9 @@
-import { captureException, configureScope, init, withScope } from '@sentry/react';
+import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
 
-jest.mock('@sentry/react', () => ({
+jest.mock('@sentry/browser', () => ({
 	captureException: jest.fn(),
 	configureScope: jest.fn(),
 	init: jest.fn(config => {
@@ -217,10 +217,7 @@ describe('onError', () => {
 				},
 			};
 			onError.bootstrap(config, store);
-			expect(init).toHaveBeenCalledWith({
-				integrations: expect.anything(),
-				dsn: config.onError.SENTRY_DSN
-			});
+			expect(init).toHaveBeenCalledWith({ dsn: config.onError.SENTRY_DSN });
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
 			expect(onError.hasReportFeature()).toBe(true);
@@ -240,9 +237,7 @@ describe('onError', () => {
 			};
 			onError.bootstrap(config, store);
 			expect(init).toHaveBeenCalledWith({
-				integrations: expect.anything(),
 				dsn: config.onError.SENTRY_DSN,
-
 				release: config.onError.sentry.release,
 				environnement: config.onError.sentry.environnement,
 			});
@@ -270,10 +265,7 @@ describe('onError', () => {
 					},
 				},
 			});
-			expect(init).toHaveBeenCalledWith({
-				integrations: expect.anything(),
-				dsn: 'foo',
-			});
+			expect(init).toHaveBeenCalledWith({ dsn: 'foo' });
 		});
 		it('report should call captureException', () => {
 			config = {
