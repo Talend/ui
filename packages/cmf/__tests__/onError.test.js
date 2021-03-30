@@ -1,4 +1,4 @@
-import { captureException, configureScope, init, withScope } from '@sentry/react';
+import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import onError from '../src/onError';
 import CONSTANTS from '../src/constant';
 import { store as mock } from '../src/mock';
@@ -217,10 +217,14 @@ describe('onError', () => {
 				},
 			};
 			onError.bootstrap(config, store);
+<<<<<<< HEAD
 			expect(init).toHaveBeenCalledWith({
 				integrations: expect.anything(),
 				dsn: config.onError.SENTRY_DSN
 			});
+=======
+			expect(init).toHaveBeenCalledWith({ dsn: config.onError.SENTRY_DSN });
+>>>>>>> parent of 86a80df69... chore(cmf): upgrade sentry
 			const onJSError = window.addEventListener.mock.calls[0][1];
 			expect(window.removeEventListener).toHaveBeenCalledWith('error', onJSError);
 			expect(onError.hasReportFeature()).toBe(true);
@@ -240,9 +244,11 @@ describe('onError', () => {
 			};
 			onError.bootstrap(config, store);
 			expect(init).toHaveBeenCalledWith({
+<<<<<<< HEAD
 				integrations: expect.anything(),
+=======
+>>>>>>> parent of 86a80df69... chore(cmf): upgrade sentry
 				dsn: config.onError.SENTRY_DSN,
-
 				release: config.onError.sentry.release,
 				environnement: config.onError.sentry.environnement,
 			});
@@ -270,10 +276,7 @@ describe('onError', () => {
 					},
 				},
 			});
-			expect(init).toHaveBeenCalledWith({
-				integrations: expect.anything(),
-				dsn: 'foo',
-			});
+			expect(init).toHaveBeenCalledWith({ dsn: 'foo' });
 		});
 		it('report should call captureException', () => {
 			config = {

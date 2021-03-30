@@ -1,6 +1,5 @@
 import get from 'lodash/get';
-import { captureException, configureScope, init, withScope } from '@sentry/react';
-import { Integrations } from '@sentry/tracing';
+import { captureException, configureScope, init, withScope } from '@sentry/browser';
 import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
@@ -151,11 +150,7 @@ function setupSentry(options = {}) {
 
 	window.removeEventListener('error', onJSError);
 	try {
-		init({
-			dsn: ref.SENTRY_DSN,
-			...options,
-			integrations: [new Integrations.BrowserTracing()].concat(options.integrations || []),
-		});
+		init({ dsn: ref.SENTRY_DSN, ...options });
 	} catch (error) {
 		// eslint-disable-next-line no-console
 		console.error(error);
