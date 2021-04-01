@@ -32,7 +32,6 @@
   },
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.8.7",
     "immutable": "^3.8.1",
     "redux-saga": "^0.15.4"
   },
