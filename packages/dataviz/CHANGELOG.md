@@ -27,6 +27,12 @@ Types of changes
 ## [unreleased]
 
 
+## [0.4.4]
+
+### Fixed
+
+- [genereate dev UMD](https://github.com/Talend/ui/pull/3261)
+
 ## [0.4.3]
 
 ### Fixed
