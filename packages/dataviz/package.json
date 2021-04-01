@@ -1,13 +1,15 @@
 {
   "name": "@talend/react-dataviz",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Talend charts and visualization components",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
   "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "talend-scripts build:lib:umd",
+    "prepublishOnly": "yarn build:umd:dev && build:umd:prod",
+    "build:umd:dev": "talend-scripts build:lib:umd --dev",
+    "build:umd:prod": "talend-scripts build:lib:umd",
     "build": "talend-scripts build:ts:lib",
     "prepare": "npm run build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
