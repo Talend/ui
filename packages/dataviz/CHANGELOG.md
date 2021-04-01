@@ -27,7 +27,7 @@ Types of changes
 ## [unreleased]
 
 
-## [0.4.3]
+## [0.4.4]
 
 ### Fixed
 
