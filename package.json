@@ -27,15 +27,16 @@
   "homepage": "https://github.com/Talend/design-system#readme",
   "dependencies": {
     "classnames": "^2.2.6",
-    "i18next": "^15.1.3",
+    "i18next": "^20.1.0",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.0.5",
-    "react-i18next": "^10.11.4",
+    "react-i18next": "^11.8.12",
     "react-use": "^13.27.0",
     "reakit": "^1.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@changesets/cli": "^2.14.1",
     "@storybook/addon-a11y": "^6.2.0-beta.14",
     "@storybook/addon-essentials": "6.2.0-beta.14",
     "@storybook/addon-links": "6.2.0-beta.14",

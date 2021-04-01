@@ -2,78 +2,36 @@ name: Publish
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
-  build_and_publish:
-    name: Build and publish
+  release:
+    name: Release
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
+      - name: Checkout Repo
+        uses: actions/checkout@master
         with:
-          node-version: 14
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
 
-      - name: Get latest published version
-        id: published-version
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: |
-          npmVersion="$(yarn info @talend/design-system version | sed -n 2p)"
-          echo "Last published version is $npmVersion"
-          echo "::set-output name=published_version::$npmVersion"
-
-      - name: Get package.json version
-        id: current-version
-        run: |
-          localVersion="$(cat package.json | jq -r ".version")"
-          echo "Local version is $localVersion"
-          echo "::set-output name=current_version::$localVersion"
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node modules
-        uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version
+      - name: Setup Node.js 14.x
+        uses: actions/setup-node@master
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: 14.x
 
-      - name: Install
-        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version && steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+      - name: Install Dependencies
+        run: yarn
 
-      - name: Test
-        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version
-        run: yarn test
-
-      - name: Build
-        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version
-        run: yarn build
-
-      - name: Publish
-        id: publish
-        if: steps.published-version.outputs.published_version != steps.current-version.outputs.current_version
-        run: |
-          yarn publish --non-interactive
-          echo "::set-output name=published::done"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-      - name: Create a Release
-        if: steps.publish.outputs.published
-        uses: softprops/action-gh-release@v1
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@master
+        with:
+          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          publish: yarn release
+          commit: "chore: CI prepare release"
+          title: "chore: prepare release"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.current-version.outputs.current_version }}
-          body: Please update this message with the CHANGELOG content corresponding to this version
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
