@@ -1,18 +1,18 @@
 
 /home/travis/build/Talend/ui/packages/cmf/src/bootstrap.js
-  20:26  error  Missing file extension for "./httpInterceptors"        import/extensions
-  20:26  error  Unable to resolve path to module './httpInterceptors'  import/no-unresolved
+  7:30  error  Unable to resolve path to module '@talend/http'  import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/cmf/src/cmfModule.js
   17:3   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
   17:20  error  'current' is defined but never used                                                                                                                                        @typescript-eslint/no-unused-vars
 
 /home/travis/build/Talend/ui/packages/cmf/src/middlewares/http/middleware.js
-  7:26  error  Missing file extension for "../../httpInterceptors"        import/extensions
-  7:26  error  Unable to resolve path to module '../../httpInterceptors'  import/no-unresolved
+    3:24  error  Unable to resolve path to module '@talend/http'               import/no-unresolved
+  116:2   error  Expected exception block, space or tab after '//' in comment  spaced-comment
+  174:32  error  'middlewareDefaultConfig' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/http.js
-  13:26  error  Missing file extension for "../httpInterceptors"        import/extensions
-  13:26  error  Unable to resolve path to module '../httpInterceptors'  import/no-unresolved
+  5:42  error  Unable to resolve path to module '@talend/http'  import/no-unresolved
 
-✖ 8 problems (8 errors, 0 warnings)
+✖ 7 problems (7 errors, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
