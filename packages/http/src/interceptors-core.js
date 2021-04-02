@@ -2,7 +2,7 @@ import get from 'lodash/get';
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
 
-export function onRequest(config) {
+export function handleHeaders(config) {
 	/**
 	 * If the payload is an instance of FormData the body should be set to this object
 	 * and the Content-type header should be stripped since the browser

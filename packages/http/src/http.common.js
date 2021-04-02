@@ -19,15 +19,6 @@ export async function httpFetch(url, config, method, payload) {
 		'Content-Type': 'application/json',
 	};
 
-	/**
-	 * If the payload is an instance of FormData the body should be set to this object
-	 * and the Content-type header should be stripped since the browser
-	 * have to build a special headers with file boundary in if said FormData is used to upload file
-	 */
-	if (payload instanceof FormData) {
-		delete defaultHeaders['Content-Type'];
-	}
-
 	const params = merge(
 		{
 			credentials: 'same-origin',
@@ -46,5 +37,5 @@ export async function httpFetch(url, config, method, payload) {
 		interceptedConfig.url,
 		interceptedConfig,
 	);
-	return handleHttpResponse(response);
+	return interceptors.onResponse(response);
 }

@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 
-import { handleHttpResponse, encodePayload, onRequest } from './interceptors-core';
+import { handleHttpResponse, encodePayload, handleHeaders } from './interceptors-core';
 
 const interceptors = [
-	{ request: onRequest },
+	{ request: handleHeaders },
 	{ request: encodePayload },
 	{ response: handleHttpResponse },
 ];
