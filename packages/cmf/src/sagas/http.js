@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
 import curry from 'lodash/curry';
+import { interceptors } from '@talend/http';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -10,7 +11,6 @@ import {
 	HTTP_STATUS,
 	testHTTPCode,
 } from '../middlewares/http/constants';
-import interceptors from '../httpInterceptors';
 
 /**
  * Storage point for the doc setup using `setDefaultConfig`

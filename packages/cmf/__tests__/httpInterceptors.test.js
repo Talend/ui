@@ -1,4 +1,4 @@
-import interceptors from '../src/httpInterceptors';
+import { interceptors } from '@talend/http';
 /* eslint-disable no-underscore-dangle */
 
 describe('interceptors', () => {

@@ -1,11 +1,11 @@
 import { Headers, Response } from 'node-fetch';
 import { call, put } from 'redux-saga/effects';
+import { interceptors } from '@talend/http';
 import {
 	ACTION_TYPE_HTTP_ERRORS,
 	HTTP_METHODS,
 	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
-import interceptors from '../../src/httpInterceptors';
 
 import http, {
 	getDefaultConfig,

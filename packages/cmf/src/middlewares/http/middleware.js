@@ -1,10 +1,10 @@
 import flow from 'lodash/flow';
 import has from 'lodash/has';
 import get from 'lodash/get';
+import { interceptors } from '@talend/http';
 import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from './constants';
 import { mergeCSRFToken } from './csrfHandling';
 import http from '../../actions/http';
-import interceptors from '../../httpInterceptors';
 
 /**
  * @typedef {Object} Action
