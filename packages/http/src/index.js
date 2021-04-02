@@ -2,3 +2,4 @@
 export { http } from './async';
 export { setDefaultConfig } from './config';
 export * as interceptors from './httpInterceptors';
+export { httpFetch } from './http.common';

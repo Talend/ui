@@ -125,4 +125,3 @@ export function onResponse(response) {
 		.reverse();
 	return onData(array, response);
 }
-

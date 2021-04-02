@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 
 import { HTTP } from './config';
-import interceptors from './httpInterceptors';
+import * as interceptors from './httpInterceptors';
 
 /**
  * httpFetch - call the api fetch to request the url
