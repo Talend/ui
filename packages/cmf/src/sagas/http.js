@@ -6,13 +6,13 @@ import { create, interceptorsCore } from '@talend/http';
 import { ACTION_TYPE_HTTP_ERRORS, HTTP_METHODS } from '../middlewares/http/constants';
 
 export class HTTPError extends Error {
-       constructor({ data, response }) {
-               super(response.statusText);
+	constructor({ data, response }) {
+		super(response.statusText);
 
-               this.name = `HTTP ${response.status}`;
-               this.data = data;
-               this.response = response;
-       }
+		this.name = `HTTP ${response.status}`;
+		this.data = data;
+		this.response = response;
+	}
 }
 
 /**
@@ -22,16 +22,14 @@ export class HTTPError extends Error {
  * @return {Promise}           A promise that reject with the result of parsing the body
  */
 export function handleError(response) {
-       // in case of network issue
-       if (response instanceof Error) {
-               return new HTTPError({ response, data: response });
-       }
-       return interceptorsCore.handleBody(response).then(body => new HTTPError(body));
+	// in case of network issue
+	if (response instanceof Error) {
+		return new HTTPError({ response, data: response });
+	}
+	return interceptorsCore.handleBody(response).then(body => new HTTPError(body));
 }
 
-const httpFetch = create({interceptors: [
-	{ response: handleError },
-]});
+const httpFetch = create({ interceptors: [{ response: handleError }] });
 
 /**
  * function - wrap the fetch request with the actions errors
@@ -44,13 +42,7 @@ const httpFetch = create({interceptors: [
  * @return {object}                           the response of the request
  */
 export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
-	const answer = yield call(
-		httpFetch,
-		url,
-		config,
-		method,
-		payload,
-	);
+	const answer = yield call(httpFetch, url, config, method, payload);
 	const silent = get(options, 'silent');
 	if (silent !== true && answer instanceof Error) {
 		yield put({

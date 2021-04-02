@@ -4,7 +4,6 @@ import { create } from '@talend/http';
 import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from './constants';
 import http from '../../actions/http';
 
-
 /**
  * @typedef {Object} Action
  * @property {string} type - Action type
@@ -69,8 +68,6 @@ import http from '../../actions/http';
  * @property {String} CSRFTokenHeaderKey - on which header key the token should be sent
  */
 
-
-
 /**
  * check if the provided redux action contain element relative to a
  * fetch side effect.
@@ -90,7 +87,6 @@ export function isHTTPRequest(action) {
 export function getMethod(action) {
 	return HTTP_METHODS[action.type];
 }
-
 
 export function HTTPError(response) {
 	let headers = get(response, 'headers/values');
@@ -130,7 +126,6 @@ export function handleResponse(response) {
 	}
 	return Promise.reject(new HTTPError(response));
 }
-
 
 /**
  * Factory to create error handler.
@@ -209,14 +204,13 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 	const myFetch = create({
 		interceptors: [
 			{ request: onRequestDispatch },
-			{ response: status},
-			{ response: handleResponse},
+			{ response: status },
+			{ response: handleResponse },
 			{ response: onHTTPError },
 			{ response: onResponseDispatch },
-		]
+		],
 	});
 	const { type, ...config } = httpAction;
 
-	return myFetch(config.url, config)
-		.catch(onHTTPError);
+	return myFetch(config.url, config).catch(onHTTPError);
 };

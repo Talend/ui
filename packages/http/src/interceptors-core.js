@@ -90,8 +90,8 @@ export async function handleHttpResponse(response) {
 	return handleBody(response);
 }
 
-export  const defaultInterceptors = [
-    { request: handleHeaders },
-    { request: encodePayload },
-    { response: handleHttpResponse },
+export const defaultInterceptors = [
+	{ request: handleHeaders },
+	{ request: encodePayload },
+	{ response: handleHttpResponse },
 ];
