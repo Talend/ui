@@ -3,7 +3,6 @@ import merge from 'lodash/merge';
 import { HTTP } from './config';
 import interceptors from './httpInterceptors';
 
-
 /**
  * httpFetch - call the api fetch to request the url
  *
@@ -33,9 +32,6 @@ export async function httpFetch(url, config, method, payload) {
 		...params,
 		payload,
 	});
-	const response = await fetch(
-		interceptedConfig.url,
-		interceptedConfig,
-	);
+	const response = await fetch(interceptedConfig.url, interceptedConfig);
 	return interceptors.onResponse(response);
 }
