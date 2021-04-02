@@ -1,12 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 
-import { handleHttpResponse, encodePayload, handleHeaders } from './interceptors-core';
 
+// global interceptors
 const interceptors = [
-	{ request: handleHeaders },
-	{ request: encodePayload },
-	{ response: handleHttpResponse },
 ];
 
 /**
@@ -106,8 +103,8 @@ function onData(array, data) {
  * @param {Object} config http config object
  * @return {Promise} config object
  */
-export function onRequest(config) {
-	const array = interceptors
+export function onRequest(config, customInterceptors = interceptors) {
+	const array = customInterceptors
 		.filter(i => i.request || i.requestError)
 		.map(i => ({ on: i.request, onError: i.requestError }));
 	return onData(array, config);
@@ -118,8 +115,8 @@ export function onRequest(config) {
  * @param {Object} response http response object
  * @return {Promise} response object
  */
-export function onResponse(response) {
-	const array = interceptors
+export function onResponse(response, customInterceptors = interceptors) {
+	const array = customInterceptors
 		.filter(i => i.response || i.responseError)
 		.map(i => ({ on: i.response, onError: i.responseError }))
 		.reverse();

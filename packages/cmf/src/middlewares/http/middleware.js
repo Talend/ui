@@ -1,10 +1,9 @@
-import flow from 'lodash/flow';
 import has from 'lodash/has';
 import get from 'lodash/get';
-import { interceptors } from '@talend/http';
+import { create } from '@talend/http';
 import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from './constants';
-import { mergeCSRFToken } from './csrfHandling';
 import http from '../../actions/http';
+
 
 /**
  * @typedef {Object} Action
@@ -70,15 +69,7 @@ import http from '../../actions/http';
  * @property {String} CSRFTokenHeaderKey - on which header key the token should be sent
  */
 
-/**
- * @typedef {Object} Config
- * @property {Security} security
- */
 
-export const DEFAULT_HTTP_HEADERS = {
-	Accept: 'application/json',
-	'Content-Type': 'application/json',
-};
 
 /**
  * check if the provided redux action contain element relative to a
@@ -100,34 +91,6 @@ export function getMethod(action) {
 	return HTTP_METHODS[action.type];
 }
 
-export function mergeConfiguredHeader(config) {
-	// still need to keep the previous header added by action
-	return options => {
-		const headerMergedConfig = {
-			...options,
-			headers: { ...DEFAULT_HTTP_HEADERS, ...config.headers, ...options.headers },
-		};
-		if (headerMergedConfig.body instanceof FormData) {
-			delete headerMergedConfig.headers['Content-Type'];
-		}
-		return headerMergedConfig;
-	};
-}
-
-export function mergeOptions(action) {
-	const options = {
-		method: getMethod(action),
-		credentials: 'same-origin',
-		...action,
-	};
-
-	if (typeof options.body === 'object' && !(options.body instanceof FormData)) {
-		options.body = JSON.stringify(options.body);
-	}
-
-	delete options.type;
-	return options;
-}
 
 export function HTTPError(response) {
 	let headers = get(response, 'headers/values');
@@ -154,6 +117,7 @@ export function status(response) {
 	if (testHTTPCode.isSuccess(response.status)) {
 		return Promise.resolve(response);
 	}
+	//TODO move that to interceptors ?
 	return Promise.reject(new HTTPError(response));
 }
 
@@ -166,6 +130,7 @@ export function handleResponse(response) {
 	}
 	return Promise.reject(new HTTPError(response));
 }
+
 
 /**
  * Factory to create error handler.
@@ -218,38 +183,40 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 		return next(action);
 	}
 	const httpAction = get(action, 'cmf.http', action);
-	const config = flow([
-		mergeOptions,
-		mergeConfiguredHeader(middlewareDefaultConfig),
-		mergeCSRFToken(middlewareDefaultConfig),
-	])(action);
-
-	return interceptors.onRequest({ url: httpAction.url, ...config }).then(newConfig => {
-		dispatch(http.onRequest(newConfig.url, newConfig));
+	function onRequestDispatch(config) {
+		dispatch(http.onRequest(config.url, config));
 		if (httpAction.onSend) {
 			dispatch({
 				type: httpAction.onSend,
 				httpAction,
 			});
 		}
-		const onHTTPError = getOnError(dispatch, httpAction);
-		return fetch(newConfig.url, newConfig)
-			.then(status)
-			.then(handleResponse)
-			.then(interceptors.onResponse)
-			.then(response => {
-				const newAction = { ...action };
-				dispatch(http.onResponse(response.data));
-				if (newAction.transform) {
-					newAction.response = newAction.transform(response.data);
-				} else {
-					newAction.response = response.data;
-				}
-				if (newAction.onResponse) {
-					dispatch(http.onActionResponse(newAction, newAction.response, response.headers));
-				}
-				return next(newAction);
-			})
-			.catch(onHTTPError);
+	}
+	const onHTTPError = getOnError(dispatch, httpAction);
+	function onResponseDispatch(response) {
+		const newAction = { ...action };
+		dispatch(http.onResponse(response.data));
+		if (newAction.transform) {
+			newAction.response = newAction.transform(response.data);
+		} else {
+			newAction.response = response.data;
+		}
+		if (newAction.onResponse) {
+			dispatch(http.onActionResponse(newAction, newAction.response, response.headers));
+		}
+		return next(newAction);
+	}
+	const myFetch = create({
+		interceptors: [
+			{ request: onRequestDispatch },
+			{ response: status},
+			{ response: handleResponse},
+			{ response: onHTTPError },
+			{ response: onResponseDispatch },
+		]
 	});
+	const { type, ...config } = httpAction;
+
+	return myFetch(config.url, config)
+		.catch(onHTTPError);
 };

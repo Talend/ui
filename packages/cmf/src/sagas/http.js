@@ -2,8 +2,36 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
 import curry from 'lodash/curry';
-import { httpFetch } from '@talend/http';
+import { create, interceptorsCore } from '@talend/http';
 import { ACTION_TYPE_HTTP_ERRORS, HTTP_METHODS } from '../middlewares/http/constants';
+
+export class HTTPError extends Error {
+       constructor({ data, response }) {
+               super(response.statusText);
+
+               this.name = `HTTP ${response.status}`;
+               this.data = data;
+               this.response = response;
+       }
+}
+
+/**
+ * handleHttpResponse - handle the http error
+ *
+ * @param  {Response} response A response object
+ * @return {Promise}           A promise that reject with the result of parsing the body
+ */
+export function handleError(response) {
+       // in case of network issue
+       if (response instanceof Error) {
+               return new HTTPError({ response, data: response });
+       }
+       return interceptorsCore.handleBody(response).then(body => new HTTPError(body));
+}
+
+const httpFetch = create({interceptors: [
+	{ response: handleError },
+]});
 
 /**
  * function - wrap the fetch request with the actions errors

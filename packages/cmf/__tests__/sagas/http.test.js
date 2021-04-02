@@ -8,23 +8,13 @@ import {
 } from '../../src/middlewares/http/constants';
 
 import http, {
-	getDefaultConfig,
-	handleBody,
-	handleError,
-	handleHttpResponse,
-	httpFetch,
-	HTTPError,
-	encodePayload,
 	wrapFetch,
 	httpGet,
 	httpDelete,
 	httpPatch,
 	httpPost,
 	httpPut,
-	setDefaultConfig,
-	setDefaultLanguage,
 	handleDefaultHttpConfiguration,
-	HTTP,
 } from '../../src/sagas/http';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
