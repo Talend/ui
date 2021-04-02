@@ -1,6 +1,13 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
-const interceptors = [];
+
+import { handleHttpResponse, encodePayload, onRequest } from './interceptors-core';
+
+const interceptors = [
+	{ request: onRequest },
+	{ request: encodePayload },
+	{ response: handleHttpResponse },
+];
 
 /**
  * @private
