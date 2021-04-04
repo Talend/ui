@@ -3,6 +3,7 @@
   "version": "1.0.10",
   "description": "Talend Design System",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "release": "yarn changeset publish",
     "build": "npm run build:lib && npm run build:lib:umd && npm run build:lib:umd:min",
