@@ -12,7 +12,7 @@
     "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
     "start": "npm run storybook",
     "test": "talend-scripts test",
-    "storybook": "start-storybook -s static -p 6006",
+    "storybook": "BROWSER=none start-storybook -s static -p 6006",
     "build-storybook": "build-storybook -s static",
     "lint:es": "talend-scripts lint:es"
   },
@@ -56,6 +56,8 @@
     "@types/react-is": "^16.7.2",
     "@types/styled-components": "^5.1.7",
     "babel-plugin-styled-components": "^1.12.0",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "browser-sync": "^2.26.14",
     "chromatic": "^5.6.1",
     "core-js": "^3.8.3",
     "cypress": "^6.3.0",

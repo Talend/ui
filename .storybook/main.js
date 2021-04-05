@@ -1,3 +1,5 @@
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+
 module.exports = {
 	stories: [
 		'../src/Welcome.stories.mdx',
@@ -29,6 +31,11 @@ module.exports = {
 	],
 	webpackFinal: async config => {
 		config.entry.unshift('core-js');
+		config.plugins.push(new BrowserSyncPlugin({
+			host: 'localhost',
+			port: 3002,
+			proxy: 'http://localhost:6006/'
+		}));
 		return config;
 	},
 };
