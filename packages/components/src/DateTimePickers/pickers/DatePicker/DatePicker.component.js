@@ -12,6 +12,7 @@ import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 import setMonth from 'date-fns/set_month';
+import startOfDay from 'date-fns/start_of_day';
 import startOfMonth from 'date-fns/start_of_month';
 
 import theme from './DatePicker.scss';
@@ -70,7 +71,7 @@ class DatePicker extends React.PureComponent {
 	isDateWithinRange(date) {
 		const { selectedDate, startDate, endDate } = this.props;
 		if (startDate && isAfter(selectedDate, startDate)) {
-			return isWithinRange(date, startDate, selectedDate);
+			return isWithinRange(date, startOfDay(startDate), selectedDate);
 		} else if (endDate && isBefore(selectedDate, endDate)) {
 			return isWithinRange(date, selectedDate, endDate);
 		}
@@ -95,19 +96,6 @@ class DatePicker extends React.PureComponent {
 			return isSameDay(date, endDate);
 		}
 		return false;
-	}
-
-	/**
-	 * Check if selection is a valid range.
-	 * - if start/end not selected, then it's invalid;
-	 * - if start/end are selected, but end < start, then it's invalid
-	 */
-	isRangeValid() {
-		const { selectedDate, startDate, endDate } = this.props;
-		return (
-			(startDate && isAfter(selectedDate, startDate)) ||
-			(endDate && isBefore(selectedDate, endDate))
-		);
 	}
 
 	selectDate(event, date, year, monthIndex) {
@@ -170,10 +158,9 @@ class DatePicker extends React.PureComponent {
 								const dayTheme = {};
 								const isStart = this.isStartDate(date);
 								const isEnd = this.isEndDate(date);
-								const isRangeValid = this.isRangeValid();
-								const isInRange = isStart || isEnd || this.isDateWithinRange(date);
+								const isInRange = this.isDateWithinRange(date);
 
-								if (isRangeValid && isInRange) {
+								if (isInRange) {
 									const isMiddle = !isStart && !isEnd && isInRange;
 									cellTheme[theme['date-range']] = isInRange;
 									cellTheme[theme['range-middle']] = isMiddle;
