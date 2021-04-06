@@ -15,8 +15,9 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
  * This function round up the percentages to make it to 100%
  * based on https://stackoverflow.com/questions/13483430/how-to-make-rounded-percentages-add-up-to-100#answer-13483486
  * @param {number} invalidRaw number of invalid raw
- * @param {number} emptyRaw number of invalid raw
- * @param {number} validRaw number of invalid raw
+ * @param {number} emptyRaw number of empty raw
+ * @param {number} validRaw number of valid raw
+ * @param {number} naRaw number of not applicable raw
  * @param {number} digits number of digits we want to keep
  */
 export function getQualityPercentagesRounded(invalid, empty, valid, na, digits = 0) {
