@@ -38,6 +38,7 @@ export function getQualityPercentagesRounded(invalid, empty, valid, na, digits =
 
 	sumValues += (valid * multiplier) / total;
 	const validRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+	sumRounded = Math.round(sumValues);
 
 	sumValues += (na * multiplier) / total;
 	const naRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
