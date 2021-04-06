@@ -32,6 +32,7 @@ export const QualityType = {
 	VALID: 'valid',
 	INVALID: 'invalid',
 	EMPTY: 'empty',
+	NA: 'na',
 };
 
 export function QualityInvalidLine({ value, percentage, t, dataFeature, onClick }) {
@@ -93,3 +94,23 @@ export function QualityEmptyLine({ value, percentage, t, dataFeature, onClick })
 	);
 }
 QualityEmptyLine.propTypes = qualityBarLinePropTypes;
+
+export function QualityNotApplicableLine({ value, percentage, t, dataFeature, onClick }) {
+	return (
+		<RatioBar.Line
+			percentage={percentage}
+			tooltipLabel={t('NOT_APPLICABLE_VALUES', {
+				defaultValue: '{{value}} not applicable value ({{percentage}}%)',
+				defaultValue_plural: '{{value}} not applicable values ({{percentage}}%)',
+				count: value,
+				percentage,
+				value: formatNumber(value),
+			})}
+			dataFeature={dataFeature}
+			onClick={onClick}
+			value={value}
+			className={theme('tc-ratio-bar-line-quality-na')}
+		/>
+	);
+}
+QualityNotApplicableLine.propTypes = qualityBarLinePropTypes;

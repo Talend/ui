@@ -15,6 +15,8 @@ stories
 					<QualityBar invalid={30} valid={30} empty={30} />
 					<div>Very invalid</div>
 					<QualityBar invalid={30} valid={0} empty={0} />
+					<div>not applicable</div>
+					<QualityBar invalid={30} valid={0} empty={0} na={20} />
 					<div>Best quality ever</div>
 					<QualityBar invalid={0} valid={30} empty={0} />
 					<div>Nothing to see here</div>

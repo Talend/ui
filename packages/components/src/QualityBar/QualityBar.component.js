@@ -5,6 +5,7 @@ import RatioBar from '../RatioBar';
 import {
 	QualityEmptyLine,
 	QualityInvalidLine,
+	QualityNotApplicableLine,
 	QualityType,
 	QualityValidLine,
 } from './QualityRatioBar.component';
@@ -72,6 +73,20 @@ export function QualityBar({ invalid, valid, empty, onClick, getDataFeature, dig
 						? e =>
 								onClick(e, {
 									type: QualityType.EMPTY,
+								})
+						: null
+				}
+				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
+				value={empty}
+				percentage={emptyPercentage}
+				t={t}
+			/>
+			<QualityNotApplicableLine
+				onClick={
+					onClick
+						? e =>
+								onClick(e, {
+									type: QualityType.QualityNotApplicableLine,
 								})
 						: null
 				}

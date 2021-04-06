@@ -10,6 +10,7 @@ describe('QualityBar', () => {
 				valid: 523,
 				invalid: 123,
 				empty: 332,
+				na: 100,
 			};
 			// when
 			const wrapper = shallow(<QualityBar {...props} />);
@@ -20,6 +21,8 @@ describe('QualityBar', () => {
 			expect(wrapper.find('QualityEmptyLine').props().value).toBe(332);
 			expect(wrapper.find('QualityValidLine').props().percentage).toBe(53.5);
 			expect(wrapper.find('QualityValidLine').props().value).toBe(523);
+			expect(wrapper.find('QualityNotApplicableLine').props().percentage).toBe(9.3);
+			expect(wrapper.find('QualityNotApplicableLine').props().value).toBe(100);
 		});
 		it('should render an chart with action button', () => {
 			// given
