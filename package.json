@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "commander": "^2.9.0",
-    "i18next-scanner": "^2.9.1",
+    "i18next-scanner": "^3.0.0",
     "lerna": "^3.20.2"
   },
   "scripts": {
