@@ -3,7 +3,11 @@ import setSeconds from 'date-fns/set_seconds';
 import { convertToTimeZone } from 'date-fns-timezone';
 
 import getErrorMessage from '../shared/error-messages';
-import { convertDateToTimezone, extractDateOnly } from '../Date/date-extraction';
+import {
+	convertDateToTimezone,
+	DatePickerException,
+	extractDateOnly,
+} from '../Date/date-extraction';
 import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
@@ -15,22 +19,6 @@ export function DateTimePickerException(code, message) {
 
 function isEmpty(value) {
 	return value === undefined || value === null || value === '';
-}
-
-/**
- * Convert a date in local TZ to UTC
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
 }
 
 /**
@@ -233,7 +221,7 @@ function updatePartsOnDateChange(datePickerPayload, time, options) {
 		date: date || dateTextInput,
 		time,
 		datetime,
-		textInput: dateAndTimeToStr(date || dateTextInput, time, options),
+		textInput: dateAndTimeToStr(dateTextInput || date, time, options),
 		errors,
 		errorMessage: nextErrors[0] ? nextErrors[0].message : null,
 	};
@@ -270,7 +258,6 @@ function updatePartsOnTimeChange(timePickerPayload, date, options) {
 }
 
 export {
-	convertToUTC,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,

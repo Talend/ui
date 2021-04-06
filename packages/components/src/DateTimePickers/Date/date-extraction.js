@@ -5,7 +5,6 @@ import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
 import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
 
-import { convertToUTC } from '../DateTime/datetime-extraction';
 import getErrorMessage from '../shared/error-messages';
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
@@ -13,6 +12,23 @@ const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 export function DatePickerException(code, message) {
 	this.message = getErrorMessage(message);
 	this.code = code;
+}
+
+
+/**
+ * Convert a date in local TZ to UTC
+ */
+function convertToUTC(date) {
+	return new Date(
+		Date.UTC(
+			date.getFullYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+		),
+	);
 }
 
 /**
@@ -65,7 +81,7 @@ function convertDateToTimezone(date, { useUTC, timezone }) {
 /**
  * Convert string in dateFormat to date
  */
-function strToDate(strToParse, dateFormat) {
+function strToDate(strToParse, dateFormat, isDisabledChecker) {
 	const dateErrors = [];
 	const { partsOrder, regexp } = getDateRegexp(dateFormat);
 	const dateMatches = strToParse.match(regexp);
@@ -97,10 +113,16 @@ function strToDate(strToParse, dateFormat) {
 	if (day > getDate(lastDateOfMonth)) {
 		dateErrors.push(new DatePickerException('INVALID_DAY_OF_MONTH', 'INVALID_DAY_OF_MONTH'));
 	}
+
+	const date = setDate(monthDate, day);
+	if (isDisabledChecker && isDisabledChecker(date)) {
+		dateErrors.push(new DatePickerException('INVALID_SELECTED_DATE', 'INVALID_SELECTED_DATE'));
+	}
+
 	if (dateErrors.length > 0) {
 		throw dateErrors;
 	}
-	return setDate(monthDate, day);
+	return date;
 }
 
 /**
@@ -182,13 +204,14 @@ function extractPartsFromDate(date, options) {
  * Extract parts (date, textInput) from a string
  * @param textInput {string}
  * @param options {Object}
+ * @param isDisabledChecker {Function}
  * @returns
  *	{{
  *		date: Date,
  *		textInput: string
  * 	}}
  */
-function extractPartsFromTextInput(textInput, options) {
+function extractPartsFromTextInput(textInput, options, isDisabledChecker) {
 	if (textInput === '') {
 		return {
 			localDate: undefined,
@@ -202,7 +225,7 @@ function extractPartsFromTextInput(textInput, options) {
 	let errors = [];
 
 	try {
-		localDate = strToDate(textInput, options.dateFormat);
+		localDate = strToDate(textInput, options.dateFormat, isDisabledChecker);
 		date = convertDateToTimezone(localDate, options);
 	} catch (error) {
 		date = INTERNAL_INVALID_DATE;

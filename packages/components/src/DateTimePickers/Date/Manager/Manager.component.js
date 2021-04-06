@@ -50,7 +50,7 @@ function ContextualManager(props) {
 
 	function onInputChange(event) {
 		const textInput = event.target.value;
-		const nextState = extractPartsFromTextInput(textInput, getDateOptions());
+		const nextState = extractPartsFromTextInput(textInput, getDateOptions(), props.isDisabledChecker);
 		setState(nextState);
 		onChange(event, 'INPUT', nextState);
 	}
@@ -93,6 +93,7 @@ ContextualManager.propTypes = {
 	timezone: PropTypes.string,
 	useUTC: PropTypes.bool,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	isDisabledChecker: PropTypes.func,
 };
 
 ContextualManager.defaultProps = {

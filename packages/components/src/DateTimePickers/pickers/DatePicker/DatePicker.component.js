@@ -218,8 +218,22 @@ class DatePicker extends React.PureComponent {
 										date: ariaLabel,
 									});
 								}
+								if (disabled) {
+									ariaLabel = t('DATEPICKER_DAY_INVALID', {
+										defaultValue: 'Date is not allowed, {{date}}',
+										date: ariaLabel,
+									});
+								}
 
-								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
+								const buttonProps = {};
+								if (this.isCurrentMonth(date)) {
+									buttonProps['data-value'] = day;
+								}
+								if (disabled) {
+									buttonProps.title = t('DATEPICKER_DAY_NOT_ALLOWED', {
+										defaultValue: 'Not allowed',
+									});
+								}
 								return (
 									<td {...tdProps}>
 										<button
