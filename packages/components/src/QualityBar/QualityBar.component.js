@@ -19,13 +19,13 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
  * @param {number} validRaw number of invalid raw
  * @param {number} digits number of digits we want to keep
  */
-export function getQualityPercentagesRounded(invalid, empty, valid, digits = 0) {
+export function getQualityPercentagesRounded(invalid, empty, valid, na, digits = 0) {
 	let sumValues = 0;
 	let sumRounded = 0;
 	const digitMultiplier = Math.pow(10, digits);
 	const multiplier = 100 * digitMultiplier;
 
-	const total = invalid + empty + valid;
+	const total = invalid + empty + valid + na;
 
 	sumValues = (invalid * multiplier) / total;
 	const invalidRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
@@ -38,18 +38,21 @@ export function getQualityPercentagesRounded(invalid, empty, valid, digits = 0) 
 	sumValues += (valid * multiplier) / total;
 	const validRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
 
-	return [invalidRounded, emptyRounded, validRounded];
+	sumValues += (na * multiplier) / total;
+	const naRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+
+	return [invalidRounded, emptyRounded, validRounded, naRounded];
 }
 
-export function QualityBar({ invalid, valid, empty, onClick, getDataFeature, digits = 1 }) {
+export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature, digits = 1 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
-	const [invalidPercentage, emptyPercentage, validPercentage] = getQualityPercentagesRounded(
-		invalid,
-		empty,
-		valid,
-		digits,
-	);
+	const [
+		invalidPercentage,
+		emptyPercentage,
+		validPercentage,
+		naPercentage,
+	] = getQualityPercentagesRounded(invalid, empty, valid, na, digits);
 
 	return (
 		<RatioBar.Composition>
@@ -86,13 +89,13 @@ export function QualityBar({ invalid, valid, empty, onClick, getDataFeature, dig
 					onClick
 						? e =>
 								onClick(e, {
-									type: QualityType.QualityNotApplicableLine,
+									type: QualityType.NA,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
-				value={empty}
-				percentage={emptyPercentage}
+				dataFeature={getDataFeature ? getDataFeature(QualityType.NA) : null}
+				value={na}
+				percentage={naPercentage}
 				t={t}
 			/>
 			<QualityValidLine
@@ -117,6 +120,7 @@ QualityBar.propTypes = {
 	invalid: PropTypes.number.isRequired,
 	empty: PropTypes.number.isRequired,
 	valid: PropTypes.number.isRequired,
+	na: PropTypes.number.isRequired,
 	onClick: PropTypes.func,
 	getDataFeature: PropTypes.func,
 	digits: PropTypes.number,
