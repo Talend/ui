@@ -164,7 +164,6 @@ describe('DatePicker', () => {
 		expect(middleTableCell.prop('className')).toContain('theme-range-middle');
 	});
 
-
 	it('should apply range style to startDate when time is not 00:00', () => {
 		// given
 		const props = {
@@ -182,7 +181,7 @@ describe('DatePicker', () => {
 
 		// when
 		const wrapper = mount(<DatePicker {...props} />);
-		const startDateTableCell = wrapper.find('td').at(3);// 2021-04-01
+		const startDateTableCell = wrapper.find('td').at(3); // 2021-04-01
 
 		// then
 		expect(startDateTableCell.prop('className')).toContain('theme-range-start');
