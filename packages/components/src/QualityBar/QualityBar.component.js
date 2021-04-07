@@ -20,7 +20,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
  * @param {number} naRaw number of not applicable raw
  * @param {number} digits number of digits we want to keep
  */
-export function getQualityPercentagesRounded(invalid, empty, valid, na, digits = 0) {
+export function getQualityPercentagesRounded(invalid, empty, valid, na = 0, digits = 0) {
 	let sumValues = 0;
 	let sumRounded = 0;
 	const digitMultiplier = Math.pow(10, digits);
