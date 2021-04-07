@@ -21,7 +21,7 @@ describe('QualityBar', () => {
 			expect(wrapper.find('QualityValidLine').props().percentage).toBe(53.5);
 			expect(wrapper.find('QualityValidLine').props().value).toBe(523);
 		});
-		it('should render a chart with non applicable', () => {
+		it('should render a chart with not applicable', () => {
 			// given
 			const props = {
 				valid: 523,
