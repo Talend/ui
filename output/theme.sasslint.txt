@@ -21,6 +21,9 @@ src/theme/_forms.select.scss
    1:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   16:5  warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
+src/theme/_forms.switch.scss
+  26:4  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+
 src/theme/_labels.scss
   42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
@@ -36,5 +39,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 17 problems (12 errors, 5 warnings)
+✖ 18 problems (13 errors, 5 warnings)
 
