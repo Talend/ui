@@ -8,5 +8,7 @@ export default function getDefaultT() {
 if (!getI18n()) {
 	// eslint-disable-next-line no-console
 	console.warn('@talend/react-containers used without i18n host.');
-	setI18n(createInstance({}, () => {}));
+	if (createInstance) {
+		setI18n(createInstance({}, () => {}));
+	}
 }
