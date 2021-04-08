@@ -7,17 +7,19 @@ src/theme/_buttons.scss
 src/theme/_dropdowns.scss
   41:28  warning  Space expected around operator  space-around-operator
 
+src/theme/_forms.input.scss
+  8:8  warning  Vendor prefixes should not be used  no-vendor-prefixes
+
 src/theme/_forms.scss
-    6:24  error    Parenthesis should be removed                            empty-args
-   34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   75:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  123:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  138:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  287:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  300:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  367:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  407:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+    6:24  error  Parenthesis should be removed                            empty-args
+   31:14  error  No empty blocks allowed                                  no-empty-rulesets
+   35:20  error  No empty blocks allowed                                  no-empty-rulesets
+  110:14  error  No empty blocks allowed                                  no-empty-rulesets
+  159:22  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+
+src/theme/_forms.select.scss
+   1:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  16:5  warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_labels.scss
   42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
@@ -34,5 +36,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 19 problems (13 errors, 6 warnings)
+✖ 17 problems (12 errors, 5 warnings)
 
