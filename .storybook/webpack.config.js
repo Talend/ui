@@ -1,3 +1,4 @@
+const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 const SASS_DATA = "@import '~@talend/bootstrap-theme/src/theme/guidelines';";
 const autoprefixer = require.main.require('autoprefixer');
 const path = require('path');
@@ -7,6 +8,9 @@ const CopyPlugin = require('copy-webpack-plugin');
 const icons = require.resolve('@talend/icons/dist/info');
 const iconsDist = path.dirname(icons);
 const iconsSrc = path.join(iconsDist, '../src');
+
+const exclude = ['hoist-non-react-statics', 'react-popper', 'react-css-transition', 'timezone-support'];
+
 
 module.exports = ({ config }) => {
 	// Override css part to apply custom postcss config
@@ -74,6 +78,9 @@ module.exports = ({ config }) => {
 		}),
 		new webpack.DefinePlugin({
 			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
+		}),
+		new CDNPlugin({
+			exclude,
 		}),
 	);
 
