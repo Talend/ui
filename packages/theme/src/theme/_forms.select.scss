@@ -1,0 +1,34 @@
+select.form-control {
+  appearance: none;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
+  background-size: 13px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  font-size: $form-input-font-size;
+  font-weight: $form-base-font-weight;
+  line-height: 1.5;
+
+  &[multiple] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &::-ms-expand {
+    // sass-lint:disable-line no-vendor-prefixes
+    display: none;
+  }
+
+  &.input {
+    &-sm {
+      font-size: $font-size-small;
+    }
+
+    &-lg {
+      font-size: $font-size-large;
+    }
+  }
+
+  &:focus {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
+  }
+}
