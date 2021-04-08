@@ -30,7 +30,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 		+ *:before {
 			width: 3.2rem;
 			height: 1.6rem;
-			background: #E8E8E8;
+			background: #e8e8e8;
 			box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 		}
 
@@ -48,9 +48,9 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 			}
 		}
 
-		&:not(:disabled):hover{
+		&:not(:disabled):hover {
 			+ *:before {
-				background: #BCBCBC;
+				background: #bcbcbc;
 			}
 		}
 
@@ -65,7 +65,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 
 			&:not(:disabled):hover {
 				+ *:before {
-					background: #045D9A;
+					background: #045d9a;
 				}
 			}
 		}
