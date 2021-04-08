@@ -1,4 +1,5 @@
 const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
+const moduleToCdn = require('@talend/module-to-cdn');
 const SASS_DATA = "@import '~@talend/bootstrap-theme/src/theme/guidelines';";
 const autoprefixer = require.main.require('autoprefixer');
 const path = require('path');
@@ -9,8 +10,27 @@ const icons = require.resolve('@talend/icons/dist/info');
 const iconsDist = path.dirname(icons);
 const iconsSrc = path.join(iconsDist, '../src');
 
-const exclude = ['hoist-non-react-statics', 'react-popper', 'react-css-transition', 'timezone-support'];
+// cdn.moduleToCdn.add(cdn.umds); // activate custom build
+function addURL(info) {
+	info.url = `https://statics-dev.cloud.talend.com/${info.name}/${info.version}${info.path}`;
+	info.styleUrl = info.stylePath && `https://statics-dev.cloud.talend.com/${info.name}/${info.version}${info.stylePath}`;
+	return info;
+}
 
+function resolver(importPath, version, options) {
+	const info = moduleToCdn(importPath, version, options);
+	if (!info) {
+		return info;
+	}
+	addURL(info)
+	return info;
+}
+const cdnPlugin = new CDNPlugin({
+	resolver,
+	addURL,
+	// exclude those bad builds
+	exclude: ['i18next', 'react-i18next', 'react-popper', 'react-css-transition', 'timezone-support', 'hoist-non-react-statics'],
+});
 
 module.exports = ({ config }) => {
 	// Override css part to apply custom postcss config
@@ -79,9 +99,7 @@ module.exports = ({ config }) => {
 		new webpack.DefinePlugin({
 			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
 		}),
-		new CDNPlugin({
-			exclude,
-		}),
+		cdnPlugin,
 	);
 
 	const progressPluginIndex = config.plugins.findIndex(
