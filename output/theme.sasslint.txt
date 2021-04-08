@@ -12,17 +12,19 @@ src/theme/_forms.input.scss
 
 src/theme/_forms.scss
     6:24  error  Parenthesis should be removed                            empty-args
-   31:14  error  No empty blocks allowed                                  no-empty-rulesets
-   35:20  error  No empty blocks allowed                                  no-empty-rulesets
-  110:14  error  No empty blocks allowed                                  no-empty-rulesets
-  159:22  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   32:14  error  No empty blocks allowed                                  no-empty-rulesets
+   36:20  error  No empty blocks allowed                                  no-empty-rulesets
+  111:14  error  No empty blocks allowed                                  no-empty-rulesets
+  165:22  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/theme/_forms.select.scss
-   1:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  16:5  warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  1:7  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/theme/_forms.switch.scss
   26:4  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+
+src/theme/_forms.textarea.scss
+  1:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/theme/_labels.scss
   42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
@@ -39,5 +41,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 18 problems (13 errors, 5 warnings)
+✖ 18 problems (14 errors, 4 warnings)
 
