@@ -157,6 +157,7 @@ function InputDateTimePicker(props) {
 			useSeconds={props.useSeconds}
 			useTime={props.useTime}
 			useUTC={props.useUTC}
+			hybridMode={props.hybridMode}
 			onChange={onChange}
 		>
 			<DateTimeContext.Consumer>
@@ -210,6 +211,7 @@ InputDateTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	useTime: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	hybridMode: PropTypes.bool,
 	formMode: PropTypes.bool,
 	required: PropTypes.bool,
 };
