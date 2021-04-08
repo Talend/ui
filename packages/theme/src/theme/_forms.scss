@@ -17,6 +17,7 @@
 @import 'forms.switch-nested';
 @import 'forms.checkbox';
 @import 'forms.radio';
+@import 'forms.textarea';
 
 .form-control {
 	padding: 0 10px;
@@ -154,6 +155,11 @@
 	.btn {
 		line-height: $font-size-base * $line-height-base;
 	}
+}
+
+.input-group-btn .btn {
+	line-height: 3.2rem;
+	min-height: 3.2rem;
 }
 
 .form-group-lg select.form-control {
