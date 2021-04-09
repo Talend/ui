@@ -21,7 +21,7 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 	z-index: 1030;
 
 	:global(.btn) {
-		--btn-color: var(--btn-primary-color);
+		--t-button-color: var(--t-button-primary-color);
 	}
 
 	svg {

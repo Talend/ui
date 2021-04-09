@@ -3,30 +3,30 @@
 /// @group Buttons
 ////
 
+--t-button-color: currentColor;
+--t-button-background-color: transparent;
+--t-button-border-color: transparent;
+
+--t-button-padding: 0 #{$padding-normal};
+--t-button-height: #{$btn-line-height - 0.2rem};
+
+--t-button-primary-color: #{$btn-primary-color};
+--t-button-primary-background: #{$btn-primary-bg};
+--t-button-primary-background--hover: #{$btn-primary-bg-hover};
+--t-button-primary-background--active: #{$btn-primary-bg-active};
+
+--t-button-secondary-background--hover: #{$lochmara100};
+
+--t-button-destructive-background: #{$btn-danger-bg};
+--t-button-destructive-background--hover: #{$btn-danger-bg-hover};
+--t-button-destructive-background--active: #{$btn-danger-bg-active};
+
 .btn {
-	--btn-color: currentColor;
-	--btn-background-color: transparent;
-	--btn-border-color: transparent;
-
-	--btn-padding: 0 #{$padding-normal};
-	--btn-height: #{$btn-line-height - 0.2rem};
-
-	--btn-primary-color: #{$btn-primary-color};
-	--btn-primary-background: #{$btn-primary-bg};
-	--btn-primary-background--hover: #{$btn-primary-bg-hover};
-	--btn-primary-background--active: #{$btn-primary-bg-active};
-
-	--btn-secondary-background--hover: #{$lochmara100};
-
-	--btn-destructive-background: #{$btn-danger-bg};
-	--btn-destructive-background--hover: #{$btn-danger-bg-hover};
-	--btn-destructive-background--active: #{$btn-danger-bg-active};
-
 	font-size: $btn-font-size;
 	font-weight: $font-weight-semi-bold;
-	min-height: var(--btn-height);
-	line-height: var(--btn-height);
-	padding: var(--btn-padding);
+	min-height: var(--t-button-height);
+	line-height: var(--t-button-height);
+	padding: var(--t-button-padding);
 	border: 1px solid;
 	box-shadow: none;
 	transition: all 0.1s ease-out;
@@ -34,9 +34,9 @@
 	&,
 	&:focus,
 	&:hover {
-		color: var(--btn-color);
-		background-color: var(--btn-background-color);
-		border-color: var(--btn-border-color);
+		color: var(--t-button-color);
+		background-color: var(--t-button-background-color);
+		border-color: var(--t-button-border-color);
 	}
 
 	&:active,
@@ -45,9 +45,9 @@
 
 		&,
 		&:hover {
-			color: var(--btn-color);
-			background-color: var(--btn-background-color);
-			border-color: var(--btn-border-color);
+			color: var(--t-button-color);
+			background-color: var(--t-button-background-color);
+			border-color: var(--t-button-border-color);
 		}
 	}
 
@@ -96,7 +96,7 @@
 	&.btn-danger,
 	&--primary,
 	&.btn--destructive {
-		--btn-color: var(--btn-primary-color);
+		--t-button-color: var(--t-button-primary-color);
 	}
 
 	&-primary,
@@ -104,14 +104,14 @@
 	&-info,
 	&-warning,
 	&--primary {
-		--btn-background-color: var(--btn-primary-background);
+		--t-button-background-color: var(--t-button-primary-background);
 
 		&:hover {
-			--btn-background-color: var(--btn-primary-background--hover);
+			--t-button-background-color: var(--t-button-primary-background--hover);
 		}
 
 		&:active {
-			--btn-background-color: var(--btn-primary-background--active);
+			--t-button-background-color: var(--t-button-primary-background--active);
 		}
 	}
 
@@ -120,14 +120,14 @@
 	&-tertiary,
 	&--tertiary,
 	&-link {
-		--btn-color: var(--btn-primary-background);
+		--t-button-color: var(--t-button-primary-background);
 
 		&:hover {
-			--btn-color: var(--btn-primary-background--hover);
+			--t-button-color: var(--t-button-primary-background--hover);
 		}
 
 		&:active {
-			--btn-color: var(--btn-primary-background--active);
+			--t-button-color: var(--t-button-primary-background--active);
 		}
 	}
 
@@ -135,51 +135,51 @@
 	&--secondary,
 	&-tertiary,
 	&--tertiary {
-		--btn-background-color: transparent;
+		--t-button-background-color: transparent;
 
 		&:hover,
 		&:active {
-			--btn-background-color: var(--btn-secondary-background--hover);
+			--t-button-background-color: var(--t-button-secondary-background--hover);
 		}
 	}
 
 	&-inverse,
 	&--secondary {
-		--btn-border-color: var(--btn-primary-background);
+		--t-button-border-color: var(--t-button-primary-background);
 	}
 
 	&.btn-danger,
 	&.btn--destructive {
-		--btn-background-color: var(--btn-destructive-background);
-		--btn-border-color: var(--btn-destructive-background);
+		--t-button-background-color: var(--t-button-destructive-background);
+		--t-button-border-color: var(--t-button-destructive-background);
 
 		&,
 		&:hover,
 		&:active {
-			--btn-color: var(--btn-primary-color);
+			--t-button-color: var(--t-button-primary-color);
 		}
 
 		&:hover {
-			--btn-background-color: var(--btn-destructive-background--hover);
-			--btn-border-color: var(--btn-destructive-background--hover);
+			--t-button-background-color: var(--t-button-destructive-background--hover);
+			--t-button-border-color: var(--t-button-destructive-background--hover);
 		}
 
 		&:active {
-			--btn-background-color: var(--btn-destructive-background--active);
-			--btn-border-color: var(--btn-destructive-background--active);
+			--t-button-background-color: var(--t-button-destructive-background--active);
+			--t-button-border-color: var(--t-button-destructive-background--active);
 		}
 	}
 
 	&-icon-text {
-		--btn-padding: 0;
-		--btn-background-color: transparent;
-		--btn-border-color: transparent;
+		--t-button-padding: 0;
+		--t-button-background-color: transparent;
+		--t-button-border-color: transparent;
 	}
 
 	&-xs,
 	&-sm {
-		--btn-padding: 0 #{$padding-small-horizontal};
-		--btn-height: 2.8rem - 0.2rem;
+		--t-button-padding: 0 #{$padding-small-horizontal};
+		--t-button-height: 2.8rem - 0.2rem;
 	}
 
 	.caret.caret {
