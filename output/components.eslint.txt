@@ -61,16 +61,27 @@
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
   66:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/Input/Input.component.js
+  7:54  error  'date' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  7:60  error  'time' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/Manager/Manager.component.js
-   79:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
-  126:20  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
-  162:35  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
-  175:22  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
-  175:22  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
-  175:22  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
-  175:39  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
-  175:39  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
-  175:39  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+   81:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+  128:20  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+  179:35  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+  192:22  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+  192:22  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+  192:22  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+  192:39  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+  192:39  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+  192:39  error  Use callback in setState when referencing the previous state                                                                                                                                                                                                                                                 react/no-access-state-in-setstate
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/date-extraction.js
+  549:5  error  'dateMatched' is constant  no-const-assign
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/LegacyDateTimePicker.stories.js
+  55:24  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  68:24  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/pickers/DateTimePicker/DateTimePicker.component.js
    55:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
@@ -305,5 +316,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 146 problems (127 errors, 19 warnings)
-  7 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 151 problems (132 errors, 19 warnings)
+  9 errors and 0 warnings potentially fixable with the `--fix` option.
