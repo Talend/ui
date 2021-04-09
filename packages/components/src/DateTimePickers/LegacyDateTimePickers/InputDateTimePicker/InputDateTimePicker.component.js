@@ -189,6 +189,7 @@ function InputDateTimePicker(props) {
 
 InputDateTimePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
+	hybridMode: false,
 	useSeconds: false,
 	useTime: false,
 	useUTC: false,
