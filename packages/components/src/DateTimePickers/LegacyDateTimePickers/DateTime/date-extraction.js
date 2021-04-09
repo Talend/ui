@@ -249,6 +249,7 @@ function check(date, time, options) {
  * @param hours {string}
  * @param minutes {string}
  * @param seconds {string}
+ * @param hybridMode {boolean}
  * @returns {number}
  */
 function timeToSeconds(hours, minutes, seconds, hybridMode) {
@@ -303,6 +304,7 @@ function dateTimeToStr(date, time, options) {
  * @param date {Date} Date in current TZ
  * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
  * @param useUTC {boolean} Indicates that we ask for a date in UTC TZ
+ * @param hybridMode {hybridMode} Indicates that we allow the user to enter a time or date independently
  * @returns {Date}
  */
 function dateAndTimeToDateTime(date, time, { useUTC, hybridMode }) {
@@ -487,6 +489,16 @@ function extractPartsFromDateAndTime(date, time, options) {
 	};
 }
 
+/**
+ * Extract parts (date, time, date/time, textInput) from a Date and time definition
+ * @param textInput {Date}
+ * @param options {Object}
+ * @returns
+ *	{{
+ *		date: Date,
+ *		time: { hours: string, minutes: string, seconds: string }
+ * 	}}
+ */
 function extractDateOrTimeHybridMode(textInput, options) {
 	let date;
 	let time;
