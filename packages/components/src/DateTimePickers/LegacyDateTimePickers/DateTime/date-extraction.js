@@ -536,7 +536,7 @@ function extractPartsFromTextInput(textInput, options) {
 	let date;
 	let errors = [];
 	let dateTextToParse = textInput;
-	const dateMatched = false;
+	let dateMatched = false;
 
 	try {
 		if (options.useTime) {
