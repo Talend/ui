@@ -3,23 +3,25 @@
 /// @group Buttons
 ////
 
---t-button-color: currentColor;
---t-button-background-color: transparent;
---t-button-border-color: transparent;
+:root {
+	--t-button-color: currentColor;
+	--t-button-background-color: transparent;
+	--t-button-border-color: transparent;
 
---t-button-padding: 0 #{$padding-normal};
---t-button-height: #{$btn-line-height - 0.2rem};
+	--t-button-padding: 0 #{$padding-normal};
+	--t-button-height: #{$btn-line-height - 0.2rem};
 
---t-button-primary-color: #{$btn-primary-color};
---t-button-primary-background: #{$btn-primary-bg};
---t-button-primary-background--hover: #{$btn-primary-bg-hover};
---t-button-primary-background--active: #{$btn-primary-bg-active};
+	--t-button-primary-color: #{$btn-primary-color};
+	--t-button-primary-background: #{$btn-primary-bg};
+	--t-button-primary-background--hover: #{$btn-primary-bg-hover};
+	--t-button-primary-background--active: #{$btn-primary-bg-active};
 
---t-button-secondary-background--hover: #{$lochmara100};
+	--t-button-secondary-background--hover: #{$lochmara100};
 
---t-button-destructive-background: #{$btn-danger-bg};
---t-button-destructive-background--hover: #{$btn-danger-bg-hover};
---t-button-destructive-background--active: #{$btn-danger-bg-active};
+	--t-button-destructive-background: #{$btn-danger-bg};
+	--t-button-destructive-background--hover: #{$btn-danger-bg-hover};
+	--t-button-destructive-background--active: #{$btn-danger-bg-active};
+}
 
 .btn {
 	font-size: $btn-font-size;
