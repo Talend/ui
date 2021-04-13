@@ -17,6 +17,7 @@ import Modal from './components/Modal';
 import Popover from './components/Popover';
 import Skeleton from './components/Skeleton';
 import Switch from './components/Switch';
+import Stepper from './components/Stepper';
 import Tabs from './components/Tabs';
 import Tag from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
@@ -47,6 +48,7 @@ export {
 	Popover,
 	Skeleton,
 	Switch,
+	Stepper,
 	Tabs,
 	Tag,
 	ThemeProvider,

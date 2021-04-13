@@ -1,0 +1,118 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { FigmaImage, FigmaLink } from '../../../docs';
+import Stepper from '../Stepper';
+import Step from '../Step';
+
+<Meta title="Components/Stepper/Overview" component={Stepper} />
+
+<FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A5" />
+
+# Overview
+
+Stepper is used to display the different steps to take to complete an action.
+
+It helps users avoid frustration and successfully complete a primary task.
+
+The stepper displays progress through a sequence split into multiple logical and numbered steps.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=345%3A135"
+	alt="zoning image for the stepper"
+/>
+
+## Style
+
+### Variations
+
+A Stepper is **vertical by default** but can be horizontal.
+
+**Vertical**
+
+Consider using a vertical stepper when there are workflows greater than 3 steps.
+
+<Canvas>
+	<Story name="Vertical">
+		<Stepper>
+			<Step.Validated title="Lorem ipsum" />
+			<Step.InProgress title="Lorem ipsum" />
+			<Step.Enabled title="Enabled state" />
+			<Step.Disabled title="Disabled state" />
+			<Step.Error title="Error state" />
+		</Stepper>
+	</Story>
+</Canvas>
+
+**Horizontal**
+
+Consider using a horizontal stepper when full page components are used (such as Data grid or List)
+
+A horizontal stepper cannot have more than 3 steps.
+
+The sub-steps option is not available with the horizontal stepper.
+
+<FigmaImage
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=1%3A717"
+	alt="horizontal stepper example"
+/>
+
+## States
+
+### Loading
+
+<Canvas>
+    <Story name="Loading">
+        <Stepper>
+            <Step.Skeleton />
+            <Step.Skeleton />
+            <Step.Skeleton />
+            <Step.Skeleton />
+            <Step.Skeleton />
+        </Stepper>
+    </Story>
+</Canvas>
+
+## Content
+
+**Buttons**
+
+In case of multi-step form, we should always have at least 2 buttons:
+
+1. Cancel or Back button
+2. Continue or Next button
+
+Use a **cancel button** for the first step as the user can't step back. Use a **back button** from the second step to allow the user to step back.
+
+<FigmaImage
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=115%3A0"
+	alt="buttons mutli step form example"
+/>
+
+## Interactions
+
+**Error**
+
+In case of an error in the current step, please inform the user by using an inline message. Do not disable the next button.
+
+**Animation**
+
+_(coming later)_
+
+## Usage
+
+_Add demo_
+
+## Accessibility
+
+Stepper should follow related [WAI guidelines](https://www.w3.org/WAI/tutorials/forms/multi-page/).
+
+- Press <kbd>Tabs</kbd> to focus is on each step (icon + label) meaning max focus will be 15rem
+- Press <kbd>Shift</kbd>+<kbd>Tabs</kbd> to come back to the previous step
+
+## Changelog
+
+| Date       | Author         | Description           |
+| ---------- | -------------- | --------------------- |
+| 02/25/2021 | Monia Huet     | Init page             |
+| 04/09/2021 | Nicolas Comont | Add Stepper component |
