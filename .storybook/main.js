@@ -23,33 +23,84 @@ const designTokensPlugin = () => tree =>
 
 module.exports = {
 	stories: [
-		'../src/Welcome.stories.mdx',
-		'../src/GettingStarted.stories.mdx',
-		'../src/Status.stories.mdx',
-		'../src/Catalog.stories.mdx',
-		'../src/tokens/docs/*.stories.mdx',
-		'../src/content/docs/*.stories.mdx',
-		'../src/themes/docs/Light.stories.mdx',
-		'../src/themes/docs/*.stories.mdx',
-		'../src/components/**/*.stories.mdx',
-		'../src/components/**/*.stories.js',
-		'../src/templates/**/*.stories.mdx',
-		'../src/templates/**/*.stories.js',
-		'../src/pages/**/*.stories.mdx',
-		'../src/pages/**/*.stories.js',
+		'../src/Welcome.stories.@(js|tsx|mdx)',
+		'../src/GettingStarted.stories.@(js|tsx|mdx)',
+		'../src/Status.stories.@(js|tsx|mdx)',
+		'../src/Catalog.stories.@(js|tsx|mdx)',
+		'../src/tokens/docs/*.stories.@(js|tsx|mdx)',
+		'../src/content/docs/*.stories.@(js|tsx|mdx)',
+		'../src/themes/docs/Light.stories.@(js|tsx|mdx)',
+		'../src/themes/docs/*.stories.@(js|tsx|mdx)',
+		'../src/components/**/*.stories.@(js|tsx|mdx)',
+		'../src/templates/**/*.stories.@(js|tsx|mdx)',
+		'../src/pages/**/*.stories.@(js|tsx|mdx)',
 	],
+	reactOptions: {
+		fastRefresh: true,
+		strictMode: true,
+	},
 	addons: [
 		{
-			name: '@storybook/addon-essentials',
+			name: '@storybook/addon-docs',
 			options: {
-				backgrounds: false,
+				transcludeMarkdown: true,
+				sourceLoaderOptions: {
+					prettierConfig: {
+						arrowParens: 'avoid',
+						printWidth: 100,
+						singleQuote: true,
+						trailingComma: 'all',
+						semi: true,
+						useTabs: true,
+						overrides: [
+							{
+								files: '**/*.json',
+								options: {
+									tabWidth: 2,
+									useTabs: false,
+								},
+							},
+							{
+								files: '**/*.scss',
+								options: {
+									printWidth: 1000,
+								},
+							},
+						],
+					},
+				},
 			},
 		},
-		'@storybook/addon-links',
+		'@storybook/addon-controls',
 		'@storybook/addon-a11y',
+		'@storybook/addon-actions',
+		'@storybook/addon-backgrounds',
+		'@storybook/addon-viewport',
+		'@storybook/addon-toolbars',
+		'@storybook/addon-links',
 		'storybook-addon-pseudo-states',
 		'storybook-addon-mdx-embed',
 	],
+	features: {
+		postcss: false,
+	},
+	typescript: {
+		check: false,
+		checkOptions: {},
+		reactDocgen: 'react-docgen-typescript',
+		reactDocgenTypescriptOptions: {
+			shouldExtractLiteralValuesFromEnum: true,
+			propFilter: prop => {
+				if (prop.parent) {
+					// filter inherited props
+					return !prop.parent.fileName.includes('node_modules');
+				}
+
+				// filter inherited styled-components props
+				return !['theme', 'as', 'forwardedAs', 'ref'].includes(prop.name);
+			},
+		},
+	},
 	webpackFinal: async config => {
 		config.entry.unshift('core-js');
 		config.module.rules.map(rule => {

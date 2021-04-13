@@ -12,8 +12,8 @@
     "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
     "start": "npm run storybook",
     "test": "talend-scripts test",
-    "storybook": "npm run build:lib && BROWSER=none start-storybook -s static -p 6006",
-    "build-storybook": "npm run build:lib && build-storybook -s static",
+    "storybook": "npm run build:lib && BROWSER=none start-storybook -s static -p 6006 --docs",
+    "build-storybook": "npm run build:lib && build-storybook -s static --docs",
     "lint:es": "talend-scripts lint:es"
   },
   "repository": {
