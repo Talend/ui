@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.1.4
+
+### Patch Changes
+
+- 8725893: The Stepper related progress bar was discontinued when there is an error
+
 ## 1.1.3
 
 ### Patch Changes
