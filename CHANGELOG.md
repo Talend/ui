@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.1.1
+
+### Patch Changes
+
+- 9fb1b25: Post Install script was not defined and components were not released
+
 ## 1.1.0
 
 ### Minor Changes
