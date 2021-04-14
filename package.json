@@ -22,11 +22,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/Talend/design-system/issues"
   },
-  "homepage": "https://github.com/Talend/design-system#readme",
+  "homepage": "https://design.talend.com/",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
     "i18next": "^20.1.0",

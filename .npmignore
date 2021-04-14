@@ -3,10 +3,10 @@
 .next
 .storybook
 .test-cache
-
+.changeset
 coverage
-cypress/screenshots
-cypress/videos
+/cypress
+/pages
 node_modules
 out
 src
