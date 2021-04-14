@@ -243,10 +243,10 @@
   112:3  error    The attribute aria-expanded is not supported by the role navigation                                                                                                                                                                                                        jsx-a11y/role-supports-aria-props
 
 /home/travis/build/Talend/ui/packages/components/src/Stepper/Stepper.component.js
-  170:5  warning  React Hook useEffect has missing dependencies: 'children' and 'transitionState'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  171:5  warning  React Hook useEffect has missing dependencies: 'children' and 'transitionState'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/Stepper/Stepper.stories.js
-  135:13  error  'children' is missing in props validation  react/prop-types
+  146:13  error  'children' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/TitleSubHeader/TitleSubHeader.component.js
   130:2  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
