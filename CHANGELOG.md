@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.1.2
+
+### Patch Changes
+
+- 904ac6f: Remove postinstall script and build the project into the GitHub Action
+
 ## 1.1.1
 
 ### Patch Changes
