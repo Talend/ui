@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 1.1.3
+
+### Patch Changes
+
+- f5b291a: Cleanup release content
+- 5279096: Stepper does not have its steps exported
+
 ## 1.1.2
 
 ### Patch Changes
