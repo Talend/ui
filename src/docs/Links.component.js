@@ -19,7 +19,7 @@ const LinkGroup = styled.div`
 	height: 3.4rem;
 
 	a {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import tokens from '../tokens';
+
 const GitHubIcon = React.memo(() => (
 	<svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 120 120">
 		<defs />
@@ -12,7 +14,34 @@ const GitHubIcon = React.memo(() => (
 const Link = styled.a.attrs({
 	target: '_blank',
 	rel: 'noopener noreferrer',
-})``;
+})`
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	float: right;
+	cursor: pointer;
+	padding: 0.8rem;
+	color: ${tokens.colors.lochmara[500]};
+	border: 1px solid ${tokens.colors.lochmara[500]};
+	border-radius: ${tokens.radii.rectRadius} 0 0 ${tokens.radii.rectRadius};
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: ${tokens.colors.paleCyan[100]};
+	}
+
+	&:active {
+		color: ${tokens.colors.lochmara[600]};
+		cursor: grabbing;
+	}
+
+	svg {
+		margin-right: 0.5rem;
+		height: 1.6rem;
+		width: 1.6rem;
+	}
+`;
 
 const GitHubLink = props => {
 	return (
