@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
-import { FigmaImage, FigmaLink, Use } from '../../../docs';
+import { FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
 import Button from '../';
 import Skeleton from '../../Skeleton';
 import Tooltip from '../../Tooltip';
@@ -8,7 +8,10 @@ import { IconsProvider } from '../../IconsProvider';
 
 <Meta title="Components/Button" component={Button} />
 
-<FigmaLink href="https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons" />
+<Links>
+    <FigmaLink href="https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons" />
+    <GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Button" />
+</Links>
 
 # Button
 

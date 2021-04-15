@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FigmaIcon = () => (
+const FigmaIcon = React.memo(() => (
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
 		<g fill="none">
 			<path
@@ -30,35 +30,20 @@ const FigmaIcon = () => (
 			/>
 		</g>
 	</svg>
-);
+));
 
-const Link = styled.a`
-	position: relative;
-	float: right;
-	display: inline-flex;
-	padding: 1rem;
-	text-decoration: none;
-	color: #000;
-	background: #ffffff;
-	box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.25);
-	border-radius: 3rem;
-	cursor: pointer;
-	z-index: 1;
-
-	svg {
-		margin-right: 0.5rem;
-		height: 1.6rem;
-		width: 1.6rem;
-	}
-`;
+const Link = styled.a.attrs({
+	target: '_blank',
+	rel: 'noopener noreferrer',
+})``;
 
 const FigmaLink = props => {
 	return (
-		<Link target="_blank" {...props}>
-			<FigmaIcon />
-			See in Figma
+		<Link {...props}>
+			<FigmaIcon aria-hidden />
+			<span>Figma</span>
 		</Link>
 	);
 };
 
-export default FigmaLink;
+export default React.memo(FigmaLink);
