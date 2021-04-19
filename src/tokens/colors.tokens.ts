@@ -4,6 +4,7 @@ import { linearGradient, shade, tint } from 'polished';
 const black = '#202020';
 const russianViolet = '#2C1F56';
 const moodyPurple = '#6664D1';
+const indigoGray = '#323E48';
 const deepBlue = '#19426c';
 const lochmara = '#0675C1';
 const paleCyan = '#91D1ED';
@@ -15,16 +16,15 @@ const coral = '#FF6D70';
 export const brand = {
 	coral,
 	deepBlue,
+	indigoGray,
 	russianViolet,
 	paleCyan,
 };
 
 export const palette = {
-	russianViolet,
 	moodyPurple,
 	deepBlue,
 	lochmara,
-	paleCyan,
 	rioGrande,
 	lightningYellow,
 	jaffa,
@@ -55,6 +55,7 @@ function getColorSwatch(color: string): ColorSwatch {
 
 export const swatches = {
 	black: getColorSwatch(black),
+	indigoGray: getColorSwatch(indigoGray),
 	russianViolet: getColorSwatch(russianViolet),
 	moodyPurple: getColorSwatch(moodyPurple),
 	deepBlue: getColorSwatch(deepBlue),

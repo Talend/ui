@@ -7,6 +7,7 @@ import GitHubLink from './GitHubLink';
 import Grid from './Grid.component';
 import Links from './Links.component';
 import Table from './Table.component';
+import Themes from './Themes.component';
 import Row from './Row.component';
 import { Use } from './Use.component';
 import { Icons } from './Icons.component';
@@ -23,5 +24,6 @@ export {
 	Links,
 	Row,
 	Table,
+	Themes,
 	Use,
 };

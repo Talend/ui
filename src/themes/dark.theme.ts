@@ -20,7 +20,7 @@ const theme: DefaultTheme = {
 		...palette,
 
 		textColor: palette.grayColor[0],
-		backgroundColor: palette.grayColor[900],
+		backgroundColor: colors.indigoGray[500],
 
 		accordionBorderColor: palette.grayColor[800],
 		accordionBackgroundColor: palette.grayColor[700],
