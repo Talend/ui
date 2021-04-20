@@ -60,7 +60,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.8.12",
+    "react-i18next": "^11.8.13",
     "storybook-addon-i18next": "^1.2.1",
     "style-loader": "^0.23.0"
   },
@@ -71,7 +71,7 @@
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
-    "react-i18next": "^11.8.12"
+    "react-i18next": "^11.8.13"
   },
   "publishConfig": {
     "access": "public"

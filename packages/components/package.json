@@ -94,7 +94,7 @@
     "react-dnd-html5-backend": "^2.6.0",
     "react-dnd-test-backend": "^2.5.4",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.8.12",
+    "react-i18next": "^11.8.13",
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^16.13.1",
     "sass-lint": "^1.13.1",
@@ -108,7 +108,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-i18next": "^11.8.12"
+    "react-i18next": "^11.8.13"
   },
   "publishConfig": {
     "access": "public"
