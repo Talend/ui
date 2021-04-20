@@ -119,6 +119,8 @@ module.exports = {
 				host: 'localhost',
 				port: 3002,
 				proxy: 'http://localhost:6006/',
+				notify: false,
+				codeSync: false,
 			}),
 		);
 		return config;
