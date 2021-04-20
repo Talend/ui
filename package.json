@@ -31,6 +31,7 @@
     "@types/redux-mock-store": "^1.0.2",
     "@types/redux-thunk": "^2.1.0",
     "@typescript-eslint/parser": "^4.14.2",
+    "enzyme": "^3.11.0",
     "i18next": "^19.8.7",
     "immutable": "^3.8.2",
     "lodash": "^4.17.19",
@@ -57,7 +58,6 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "d3": "^6.5.0",
-    "enzyme": "^3.11.0",
     "invariant": "^2.2.4",
     "prop-types": "^15.7.2",
     "react-immutable-proptypes": "^2.2.0"
