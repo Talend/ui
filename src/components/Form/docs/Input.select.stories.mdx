@@ -1,5 +1,5 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { FigmaImage, Use } from '../../../docs';
+import { FigmaIframe, FigmaImage, Use } from '../../../docs';
 
 import Form from '../';
 
@@ -18,7 +18,10 @@ Select lets the user choose one option or multiple options from an options menu.
 
 ## Style
 
-N/C
+<FigmaIframe
+	light="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A229"
+	dark="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A188"
+/>
 
 ## States
 
@@ -82,7 +85,7 @@ N/C
 <Canvas>
 	<Story name="disabled multiple">
 		<Form.Select label="Disabled Multiple Select" multiple disabled>
-            <option selected>Foo</option>
+			<option selected>Foo</option>
 			<option selected>Bar</option>
 		</Form.Select>
 	</Story>
@@ -93,7 +96,7 @@ N/C
 <Canvas>
 	<Story name="read-only multiple">
 		<Form.Select label="Read-Only Multiple Select" multiple readOnly>
-            <option selected>Foo</option>
+			<option selected>Foo</option>
 			<option selected>Bar</option>
 		</Form.Select>
 	</Story>
@@ -104,14 +107,14 @@ N/C
 <Canvas>
 	<Story name="default object">
 		<Form.Select label="Select">
-            <optgroup label="Foo">
-                <option>Foo-Foo</option>
-                <option selected>Foo-Bar</option>
-            </optgroup>
-            <optgroup label="Bar">
-                <option>Bar-Foo</option>
-                <option>Bar-Bar</option>
-            </optgroup>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option>Bar-Bar</option>
+			</optgroup>
 		</Form.Select>
 	</Story>
 </Canvas>
@@ -121,14 +124,14 @@ N/C
 <Canvas>
 	<Story name="disabled object">
 		<Form.Select label="Disabled Select" disabled>
-            <optgroup label="Foo">
-                <option>Foo-Foo</option>
-                <option selected>Foo-Bar</option>
-            </optgroup>
-            <optgroup label="Bar">
-                <option>Bar-Foo</option>
-                <option>Bar-Bar</option>
-            </optgroup>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option>Bar-Bar</option>
+			</optgroup>
 		</Form.Select>
 	</Story>
 </Canvas>
@@ -138,14 +141,14 @@ N/C
 <Canvas>
 	<Story name="read-only object">
 		<Form.Select label="Read-Only Select" readOnly>
-            <optgroup label="Foo">
-                <option>Foo-Foo</option>
-                <option selected>Foo-Bar</option>
-            </optgroup>
-            <optgroup label="Bar">
-                <option>Bar-Foo</option>
-                <option>Bar-Bar</option>
-            </optgroup>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option>Bar-Bar</option>
+			</optgroup>
 		</Form.Select>
 	</Story>
 </Canvas>
@@ -155,14 +158,14 @@ N/C
 <Canvas>
 	<Story name="default multiple object">
 		<Form.Select label="Select" multiple>
-            <optgroup label="Foo">
-                <option>Foo-Foo</option>
-                <option selected>Foo-Bar</option>
-            </optgroup>
-            <optgroup label="Bar">
-                <option>Bar-Foo</option>
-                <option selected>Bar-Bar</option>
-            </optgroup>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option selected>Bar-Bar</option>
+			</optgroup>
 		</Form.Select>
 	</Story>
 </Canvas>
@@ -172,14 +175,14 @@ N/C
 <Canvas>
 	<Story name="disabled multiple object">
 		<Form.Select label="Disabled Select" multiple disabled>
-            <optgroup label="Foo">
-                <option>Foo-Foo</option>
-                <option selected>Foo-Bar</option>
-            </optgroup>
-            <optgroup label="Bar">
-                <option>Bar-Foo</option>
-                <option selected>Bar-Bar</option>
-            </optgroup>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option selected>Bar-Bar</option>
+			</optgroup>
 		</Form.Select>
 	</Story>
 </Canvas>

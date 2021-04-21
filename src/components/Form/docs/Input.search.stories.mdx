@@ -1,10 +1,7 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import InputBehaviors from './images/input-search-behaviors.png';
-import InputVariations from './images/input-search-variations.png';
-import { FigmaImage, Use } from '../../../docs';
+import { FigmaIframe, FigmaImage, Use } from '../../../docs';
 
 import Form from '../';
-import { Col, Row } from '../../../docs';
 
 <Meta title="Components/Form/Fields/Search" />
 
@@ -22,42 +19,52 @@ These are functionally identical to text inputs, but may be styled differently b
 
 ## Style
 
-N/C
+<FigmaIframe
+	light="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A281"
+	dark="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A243"
+/>
 
 ## States
 
 ### Default
 
 <Canvas>
-    <Story name="default">
-        <Form.Search label="Search" />
-    </Story>
+	<Story name="default">
+		<Form.Search label="Search" />
+	</Story>
 </Canvas>
 
 ### Disabled
 
 <Canvas>
-    <Story name="disabled">
-        <Form.Search label="Disabled Search" disabled />
-    </Story>
+	<Story name="disabled">
+		<Form.Search label="Disabled Search" disabled />
+	</Story>
 </Canvas>
 
 ### Read only
 
 <Canvas>
-    <Story name="read-only">
-        <Form.Search label="Read-Only Search" readOnly />
-    </Story>
+	<Story name="read-only">
+		<Form.Search label="Read-Only Search" readOnly />
+	</Story>
 </Canvas>
 
-
 ## Content
+
 The placeholder in the search field should read as either of the below texts depending on the context.
+
 <Use>
 	<Use.Do>
 		<ul>
-			<li>Use "Search XXX" when users are supposed to search somewhere globally. It's more about "where" users will be searching (e.g., Search projects, Search environments).</li>
-			<li>Use "Find a/an XXX" when users are supposed to find something in a page or a list. It's more about the object they want to find (e.g., Find a pipeline, Find a semnatic type).</li>
+			<li>
+				Use "Search XXX" when users are supposed to search somewhere globally. It's more about
+				"where" users will be searching (e.g., Search projects, Search environments).
+			</li>
+			<li>
+				Use "Find a/an XXX" when users are supposed to find something in a page or a list. It's more
+				about the object they want to find (e.g., Find a pipeline, Find a semnatic type).
+			</li>
 		</ul>
 	</Use.Do>
 </Use>
@@ -74,9 +81,8 @@ N/C
 
 - Press <kbd>ESC</kbd> to clear the search input
 
-
 ## Changelog
 
-| Date       | Author      | Description |
-| ---------- | ----------- | ----------- |
-| 07/09/2020 | Monia Huet  | Init page   |
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 07/09/2020 | Monia Huet | Init page   |

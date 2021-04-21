@@ -1,11 +1,10 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { FigmaImage, FigmaLink, Use } from '../../../docs';
+import { FigmaIframe, FigmaImage, FigmaLink, Use } from '../../../docs';
 
 import Tabs from '../';
 import { Icon } from '../../Icon';
 import Tag from '../../Tag';
 import Tooltip from '../../Tooltip';
-import Button from '../../Button';
 
 <Meta title="Components/Tabs" />
 
@@ -24,6 +23,11 @@ Tabs are used for switching between different views, functional aspects or categ
 
 ## Style
 
+<FigmaIframe
+	light="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A201"
+	dark="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=311%3A179"
+/>
+
 <Canvas>
 	<Story name="default">
 		<Tabs selectedId="tab3">
@@ -32,9 +36,7 @@ Tabs are used for switching between different views, functional aspects or categ
 				<Tabs.Tab>Tab 2</Tabs.Tab>
 				<Tabs.Tab id="tab3">Tab 3</Tabs.Tab>
 			</Tabs.TabList>
-			<Tabs.TabPanel>
-				Tab 1
-			</Tabs.TabPanel>
+			<Tabs.TabPanel>Tab 1</Tabs.TabPanel>
 			<Tabs.TabPanel>Tab 2</Tabs.TabPanel>
 			<Tabs.TabPanel>Tab 3</Tabs.TabPanel>
 		</Tabs>
@@ -46,11 +48,6 @@ Tabs are used for switching between different views, functional aspects or categ
 **Tabs with icons**
 
 Icons can be used with tabs to help users differentiate among them. Tabs with icons has the same behaviours.
-
-<FigmaImage
-	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A145"
-	alt="tabs with icons example"
-/>
 
 <Canvas>
 	<Story name="tabs-with-icons">
@@ -76,11 +73,6 @@ Labels can be used with tabs to indicate the number of items inside a category. 
 The default max value of an item is 999. When the value to display is greater than 999, display a + after.
 Mouse over the label will display the exact number item.
 
-<FigmaImage
-	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A132"
-	alt="tabs with tags example"
-/>
-
 <Canvas>
 	<Story name="tabs-with-tags">
 		<Tabs selectedId="tab2">
@@ -91,11 +83,11 @@ Mouse over the label will display the exact number item.
 				<Tabs.Tab id="tab2">
 					Calendar <Tag.Information>54</Tag.Information>
 				</Tabs.Tab>
-                <Tooltip title="1534" placement="top">
-                    <Tabs.Tab>
-                        Favorite <Tag>999+</Tag>
-                    </Tabs.Tab>
-                </Tooltip>
+				<Tooltip title="1534" placement="top">
+					<Tabs.Tab>
+						Favorite <Tag>999+</Tag>
+					</Tabs.Tab>
+				</Tooltip>
 				<Tabs.TabPanel>Tab 1</Tabs.TabPanel>
 				<Tabs.TabPanel>Tab 2</Tabs.TabPanel>
 				<Tabs.TabPanel>Tab</Tabs.TabPanel>
@@ -111,18 +103,13 @@ Mouse over the label will display the exact number item.
 Please display a tooltip on hover that contains the full name.
 Max width item: 20rem
 
-<FigmaImage
-	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A123"
-	alt="tabs with truncated label"
-/>
-
 <Canvas>
 	<Story name="tabs-with-truncated-label">
 		<Tabs selectedId="tab3">
 			<Tabs.TabList aria-label="My tabs">
-                <Tooltip title="Tab with a very mega supra long label" placement="top">
-                    <Tabs.Tab>Tab with a very mega supra long label</Tabs.Tab>
-                </Tooltip>
+				<Tooltip title="Tab with a very mega supra long label" placement="top">
+					<Tabs.Tab>Tab with a very mega supra long label</Tabs.Tab>
+				</Tooltip>
 				<Tabs.Tab>Tab 2</Tabs.Tab>
 				<Tabs.Tab id="tab3">Tab 3</Tabs.Tab>
 			</Tabs.TabList>
@@ -131,6 +118,7 @@ Max width item: 20rem
 </Canvas>
 
 ## Content
+
 The word/words on tabs should be accurate, specific, and explicit to help users smoothly switching to the right view or functional aspect. A good tab label should clearly describe the content contained within it.
 
 <Use>

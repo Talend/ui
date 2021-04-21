@@ -1,85 +1,98 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { FigmaImage, FigmaLink, Use } from '../../../docs';
+import { FigmaIframe, FigmaImage, FigmaLink, Use } from '../../../docs';
 import Form from '../';
 import { Col, Row } from '../../../docs';
 
-<Meta title="Components/Form/Fields/Checkbox"/>
+<Meta title="Components/Form/Fields/Checkbox" />
 
 <FigmaLink href="https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=0%3A1" />
-
 
 # Checkbox
 
 Checkbox should be used for item/option selection and only when more than one item can be selected at the same time.
 If there is only two options (on/off), consider using a <a href="/?path=/docs/components-form-fields-switch--default-story">switch</a>.
- 
+
 If the user should select only one option, use <a href="/?path=/docs/components-form-fields-radio--default-story">radio buttons</a>.
 
-Use a checkbox when you want to give your recipients the opportunity to select more than one option. 
+Use a checkbox when you want to give your recipients the opportunity to select more than one option.
 
 ## Zoning
 
-<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=44%3A59" alt="zoning image for checkbox" />
-
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=44%3A59"
+	alt="zoning image for checkbox"
+/>
 
 ## States
+
+<FigmaIframe
+	light="https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=1%3A78"
+	dark="https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=5%3A230"
+/>
 
 ### Default
 
 <Canvas>
-    <Story name="default">
-        <Form.Checkbox label="Checkbox" />
-    </Story>
-    <Story name="indeterminate">
-        <Form.Checkbox label="Indeterminate Checkbox" indeterminate />
-    </Story>
-    <Story name="checked">
-        <Form.Checkbox label="Checked Checkbox" checked />
-    </Story>
+	<Story name="default">
+		<Form.Checkbox label="Checkbox" />
+	</Story>
+	<Story name="indeterminate">
+		<Form.Checkbox label="Indeterminate Checkbox" indeterminate />
+	</Story>
+	<Story name="checked">
+		<Form.Checkbox label="Checked Checkbox" checked />
+	</Story>
 </Canvas>
 
 ### Disabled
 
 <Canvas>
-    <Story name="disabled">
-        <Form.Checkbox label="Disabled Checkbox" disabled />
-    </Story>
-    <Story name="disabled indeterminate">
-        <Form.Checkbox label="Disabled Indeterminate Checkbox" disabled indeterminate />
-    </Story>
-    <Story name="disabled checked">
-        <Form.Checkbox label="Disabled Checked Checkbox" disabled checked />
-    </Story>
+	<Story name="disabled">
+		<Form.Checkbox label="Disabled Checkbox" disabled />
+	</Story>
+	<Story name="disabled indeterminate">
+		<Form.Checkbox label="Disabled Indeterminate Checkbox" disabled indeterminate />
+	</Story>
+	<Story name="disabled checked">
+		<Form.Checkbox label="Disabled Checked Checkbox" disabled checked />
+	</Story>
 </Canvas>
 
 ### Read only
 
 <Canvas>
-    <Story name="read-only">
-        <Form.Checkbox label="Read-Only Checkbox" readOnly />
-    </Story>
-    <Story name="read-only indeterminate">
-        <Form.Checkbox label="Read-Only Indeterminate Checkbox" readOnly indeterminate />
-    </Story>
-    <Story name="read-only checked">
-        <Form.Checkbox label="Read-Only Checked Checkbox" readOnly checked />
-    </Story>
+	<Story name="read-only">
+		<Form.Checkbox label="Read-Only Checkbox" readOnly />
+	</Story>
+	<Story name="read-only indeterminate">
+		<Form.Checkbox label="Read-Only Indeterminate Checkbox" readOnly indeterminate />
+	</Story>
+	<Story name="read-only checked">
+		<Form.Checkbox label="Read-Only Checked Checkbox" readOnly checked />
+	</Story>
 </Canvas>
 
 ## Content
+
 Checkboxes appear as a list on UI so it's important to make their labels as parallel as possible without twisting the language too much. It’s important to have parallelism, but not at the expense of comprehension.
 
 <Use>
 	<Use.Do>
 		<ul>
 			<li>Use positive and active wording for checkbox lables.</li>
-			<li>Aim for parallel checkbox lables to ease reading flow and help users make the right choices. For example, use _Search profile, Delete profile, Create profile, Edit ptofile_ and don't use _Serach in profile, Delete profiles, Create a new profile, Edit existing profile_.</li>
+			<li>
+				Aim for parallel checkbox lables to ease reading flow and help users make the right choices.
+				For example, use _Search profile, Delete profile, Create profile, Edit ptofile_ and don't
+				use _Serach in profile, Delete profiles, Create a new profile, Edit existing profile_.
+			</li>
 			<li>Start each label with capital letter.</li>
 		</ul>
 	</Use.Do>
 	<Use.Dont>
 		<ul>
-			<li>Don’t use vague or misleading labels that are difficult to understand by average users.</li>
+			<li>
+				Don’t use vague or misleading labels that are difficult to understand by average users.
+			</li>
 			<li>Don’t use punctuations at the end of labels.</li>
 		</ul>
 	</Use.Dont>
@@ -99,15 +112,10 @@ Press <kbd>TABS</kbd> to focus on a checkbox.
 
 Press <kbd>TABS</kbd> or <kbd>Shift</kbd> + <kbd>TABS</kbd> to navigate between checkboxes.
 
-Press <kbd>SPACE</kbd> to toggle the checkbox between selected and not selected. 
- 
-
-
+Press <kbd>SPACE</kbd> to toggle the checkbox between selected and not selected.
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 06/15/2020 | Monia Huet  | Init page   |
-
-
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 06/15/2020 | Monia Huet | Init page   |

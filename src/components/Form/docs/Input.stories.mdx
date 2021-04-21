@@ -1,5 +1,5 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { FigmaImage } from '../../../docs';
+import { FigmaIframe, FigmaImage } from '../../../docs';
 
 import Form from '../';
 
@@ -18,7 +18,10 @@ An input enables the user to interact with and input short content and data.
 
 ## Style
 
-N/C
+<FigmaIframe
+	light="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A132"
+	dark="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A68"
+/>
 
 ## States
 
@@ -26,7 +29,7 @@ N/C
 
 <Canvas>
 	<Story name="default">
-		<Form.Text label="Default input" placeholder="Lorem ipsum"/>
+		<Form.Text label="Default input" placeholder="Lorem ipsum" />
 	</Story>
 </Canvas>
 
@@ -34,7 +37,7 @@ N/C
 
 <Canvas>
 	<Story name="filled">
-		<Form.Text label="Filled input" value="Lorem ipsum"/>
+		<Form.Text label="Filled input" value="Lorem ipsum" />
 	</Story>
 </Canvas>
 
