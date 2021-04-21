@@ -15,7 +15,7 @@ import { IconsProvider } from '../../IconsProvider';
 
 # Button
 
-Buttons are clickable items used for actions. They can have different style depending on the needs.
+Buttons are clickable items used for actions. They can have different styles depending on the needs.
 
 ## Zoning
 
@@ -28,11 +28,11 @@ Buttons are clickable items used for actions. They can have different style depe
 
 ### Sizes
 
-Coral support two buttons sizes: **default** and **small**.
+Coral supports two button sizes: `default` and `small`.
 
-The small size is available for primary, secondary and tertiary buttons — but shouldn't be use for buttons with icons or dropdown buttons.
+The small size is available for primary, secondary and tertiary buttons — but shouldn't be used for buttons with icon or dropdown buttons.
 
-Icon buttons has also two sizes: **default** and **small**. They can be used as dropdown but without the caret icon.
+Icon buttons can be used as dropdown but without the caret icon.
 
 <FigmaImage
 	src="https://www.figma.com/file/nLfALGpsfnvwlmm3Kix2TU/%F0%9F%A7%A9-Schema?node-id=4%3A57"
@@ -46,7 +46,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	dark="https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons?node-id=1%3A424"
 />
 
-**Primary**
+#### Primary
 
 <Canvas>
 	<Story name="primary">
@@ -74,7 +74,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Canvas>
 
-**Destructive**
+#### Destructive
 
 <Canvas>
 	<Story name="destructive">
@@ -102,7 +102,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Canvas>
 
-**Secondary**
+#### Secondary
 
 <Canvas>
 	<Story name="secondary">
@@ -130,7 +130,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Canvas>
 
-**Tertiary**
+#### Tertiary
 
 <Canvas>
 	<Story name="tertiary">
@@ -158,7 +158,7 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Canvas>
 
-**Icon button**
+#### Icon button
 
 <Canvas>
 	<Story name="icon">
@@ -183,18 +183,6 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Canvas>
 
-**Buttons should all have a tooltip on hover displaying the description**
-
-<Canvas>
-	<Story name="basic">
-		<Tooltip title="Relevant information about contacting the support">
-			<Button.Primary onClick={action('clicked')} icon={'talend-bubbles'}>
-				Contact support
-			</Button.Primary>
-		</Tooltip>
-	</Story>
-</Canvas>
-
 ## Interactions
 
 ### Button skeletons
@@ -211,7 +199,21 @@ Icon buttons has also two sizes: **default** and **small**. They can be used as 
 	</Story>
 </Canvas>
 
-### Async button
+### Button tooltips
+
+Buttons should all have a tooltip on hover displaying the description.
+
+<Canvas>
+	<Story name="basic">
+		<Tooltip title="Relevant information about contacting the support">
+			<Button.Primary onClick={action('clicked')} icon={'talend-bubbles'}>
+				Contact support
+			</Button.Primary>
+		</Tooltip>
+	</Story>
+</Canvas>
+
+### Async buttons
 
 When the user clicks on the button, and the action is asynchronous, a spinner will appear on the left of the label.
 If the button has an icon, the spinner will temporary replace this icon as long as it's loading.
@@ -244,7 +246,12 @@ export const LoadingButton = props => {
 
 ## Content
 
-The word/words on buttons should be accurate, specific, and explicit—not vague. A good button label invites users to take action. Best to use verbs, and label the button with what it actually does. Use OK sparingly—replace it with the specific action whenever possible. Users usually click OK to confirm the action they want to do. Name that action instead.
+The word(s) on buttons should be accurate, specific, and explicit—not vague. 
+A good button label invites users to take action. 
+Best to use verbs and label the button with what it actually does. 
+Use OK sparingly—replace it with the specific action whenever possible. 
+Users usually click OK to confirm the action they want to do. 
+Name that action instead.
 
 <Use>
 	<Use.Do>
@@ -258,7 +265,7 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 			<li>
 				Choose specific words over vague words: “Try it now” for example is a common call to action
 				(CTA), but doesn’t really tell the user what will happen next. It might be too vague. Use
-				your judgement according to what the user should be doing when they click the button.
+				your judgment according to what the user should be doing when they click the button.
 			</li>
 			<li>
 				Choose words that logically align with the preceding content: if your headline says "Sign up
@@ -277,7 +284,7 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 	</Use.Dont>
 </Use>
 
-## Usage
+## Demo
 
 <Canvas>
 	<Story
@@ -333,19 +340,13 @@ The word/words on buttons should be accurate, specific, and explicit—not vague
 
 ## Accessibility
 
-- Press <kbd>TABS</kbd> to focus on the button
+- Press <kbd>Tab</kbd> to focus on the button
 
-- Press <kbd>SPACE</kbd> or <kbd>ENTER</kbd> to activate the button
+- Press <kbd>Spacebar</kbd> or <kbd>Enter</kbd> to activate the button
 
-The clickable area around buttons is 0.5rem increased
+The clickable area around buttons is $space.xs increased
 
 <FigmaImage
 	src="https://www.figma.com/file/nLfALGpsfnvwlmm3Kix2TU/Schema?node-id=217%3A136"
 	alt="click area for buttons"
 />
-
-## Changelog
-
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 12/06/2019 | Monia  | Init page   |
