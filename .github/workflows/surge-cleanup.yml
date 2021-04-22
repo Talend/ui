@@ -16,6 +16,4 @@ jobs:
           node-version: 14
 
       - name: Push to surge
-        run: |
-          npm install -g surge
-          surge teardown ${{ github.event.pull_request.number }}.cdn.talend.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: npx surge teardown ${{ github.event.pull_request.number }}.cdn.talend.surge.sh --token ${{ secrets.SURGE_TOKEN }}
