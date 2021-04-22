@@ -1,4 +1,4 @@
-name: Cleanup - Production stacks NR
+name: Cleanup - Remove surge demo
 
 on:
   pull_request:
