@@ -10,7 +10,7 @@ const palette = {
 	warningColor: colors.jaffa,
 	successColor: colors.rioGrande,
 	destructiveColor: colors.coral,
-	activeColor: colors.lochmara,
+	activeColor: colors.paleCyan,
 	focusColor: colors.moodyPurple,
 	grayColor: colors.gray,
 };
@@ -42,9 +42,9 @@ const theme: DefaultTheme = {
 		buttonDisabledBackgroundColor: palette.grayColor[600],
 
 		inputColor: palette.grayColor[0],
-		inputBackgroundColor: palette.grayColor[800],
-		inputBorderColor: palette.grayColor[800],
-		inputHoverBorderColor: palette.grayColor[0],
+		inputBackgroundColor: palette.grayColor[600],
+		inputBorderColor: palette.grayColor[75],
+		inputHoverBorderColor: palette.activeColor[500],
 		inputFocusBorderColor: palette.primaryColor[500],
 		inputDisabledBorderColor: palette.grayColor[300],
 		inputReadOnlyBorderColor: palette.grayColor[600],
@@ -57,8 +57,8 @@ const theme: DefaultTheme = {
 		inputGroupInteractiveBackgroundColor: palette.grayColor[700],
 
 		linkColor: palette.activeColor[500],
-		linkHoverColor: palette.activeColor[600],
-		linkActiveColor: palette.activeColor[700],
+		linkHoverColor: palette.activeColor[400],
+		linkActiveColor: palette.activeColor[300],
 
 		modalBackground: palette.grayColor[700],
 		modalHeadingBackground: palette.grayColor[800],
