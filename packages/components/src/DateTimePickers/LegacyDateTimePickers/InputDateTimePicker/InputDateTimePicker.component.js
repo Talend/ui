@@ -24,6 +24,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 	'onBlur',
 	'onChange',
+	'hybridMode',
 ];
 
 function onMouseDown(event) {

@@ -52,7 +52,7 @@ storiesOf('Deprecated/LegacyDteTimePicker', module)
 						required={false}
 						useSeconds
 						hybridMode
-						selectedDateTime={'14:33:00'}
+						selectedDateTime="14:33:00"
 						formMode
 					/>
 					<div>With preselected date</div>
@@ -65,7 +65,7 @@ storiesOf('Deprecated/LegacyDteTimePicker', module)
 						required={false}
 						useSeconds
 						hybridMode
-						selectedDateTime={'2012-12-12'}
+						selectedDateTime="2012-12-12"
 						formMode
 					/>
 				</div>

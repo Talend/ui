@@ -120,8 +120,10 @@ class ContextualManager extends React.Component {
 	}
 
 	onPickerChange(event, { date, time, field }) {
-		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
+		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
+		const isTimeEmpty = !nextState.time.hours && !nextState.time.minutes && !nextState.time.seconds;
+		const isHybridMode = this.getDateOptions().hybridMode;
 
 		// we need to retrieve the input error from nextState to add them to the current one
 		// because, by changing the picker, we update the textInput so we need to update its errors
@@ -132,13 +134,7 @@ class ContextualManager extends React.Component {
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
 		if (isTimeUpdate) {
-			const timeToCheck = nextState.time;
-			if (
-				this.getDateOptions().hybridMode &&
-				!timeToCheck.hours &&
-				!timeToCheck.minutes &&
-				!timeToCheck.seconds
-			) {
+			if (isHybridMode && isTimeEmpty) {
 				nextErrors = nextErrors.filter(
 					error =>
 						!HOUR_ERRORS.includes(error.code) &&
