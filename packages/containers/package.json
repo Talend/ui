@@ -53,7 +53,6 @@
     "@talend/icons": "^6.21.0",
     "@talend/locales-tui": "^5.29.0",
     "@talend/react-cmf": "^6.21.0",
-    "@talend/react-cmf-router": "^3.5.0",
     "@talend/react-components": "^6.21.0",
     "@talend/react-forms": "^6.21.0",
     "@talend/react-storybook-cmf": "^6.21.0",
@@ -69,7 +68,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-i18next": "^11.8.13",
-    "react-router": "^3.2.0",
     "react-test-renderer": "^16.13.1",
     "redux-saga-tester": "^1.0.373",
     "storybook-addon-i18next": "^1.2.1",
@@ -78,14 +76,12 @@
   "peerDependencies": {
     "@talend/icons": "^6.0.0",
     "@talend/react-cmf": "^6.0.0",
-    "@talend/react-cmf-router": "^3.5.0",
     "@talend/react-components": "^6.0.0",
     "@talend/react-forms": "^6.0.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
-    "react-i18next": "^11.8.13",
-    "react-router": "^3.2.0"
+    "react-i18next": "^11.8.13"
   },
   "publishConfig": {
     "access": "public"
