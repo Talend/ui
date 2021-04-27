@@ -14,7 +14,7 @@ const Input = forwardRef((props, ref) => {
 	const { placeholder } = inputManagement;
 
 	return (
-		<div>
+		<div className="range-input">
 			<label htmlFor={props.id} className="control-label">
 				{label}
 			</label>
