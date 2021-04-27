@@ -87,7 +87,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				state.styles.popper.minHeight = `${height}px`;
 			},
 		}),
-		[],
+		[rest.items],
 	);
 
 	const withInitialState = useMemo(
