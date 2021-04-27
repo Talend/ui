@@ -17,10 +17,10 @@ export type StepProps = React.PropsWithRef<any> & {
  * Steps are the main elements for the stepper.
  */
 const Step: React.FC<StepProps> = React.forwardRef(
-	({ icon, title, className = '', ...rest }: StepProps, ref) => {
+	({ icon, title, className = '', children, ...rest }: StepProps, ref) => {
 		return (
 			<S.Step ref={ref} {...rest} className={`step ${className || ''}`}>
-				<span className="step__title">{title}</span>
+				<span className="step__title">{children || title}</span>
 				<span className="step__icon" aria-hidden>
 					{icon && <Icon name={icon} />}
 				</span>
