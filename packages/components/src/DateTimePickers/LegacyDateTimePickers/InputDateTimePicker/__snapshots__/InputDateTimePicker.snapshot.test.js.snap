@@ -49,14 +49,12 @@ exports[`InputDateTimePicker should render 1`] = `
         tabIndex={-1}
       >
         <Component
-          hybridMode={false}
           id="my-picker-input"
           inputRef={[Function]}
           key="input"
         >
           <Mock
             className="InputMock"
-            hybridMode={false}
             id="my-picker-input"
             inputRef={[Function]}
           >

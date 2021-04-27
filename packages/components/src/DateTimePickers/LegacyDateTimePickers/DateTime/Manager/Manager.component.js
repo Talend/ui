@@ -100,10 +100,10 @@ class ContextualManager extends React.Component {
 		if (!this.props.onChange) {
 			return;
 		}
-		const { errorMessage, datetime, textInput, errors, time, date } = this.state;
+		const { errorMessage, datetime, textInput, errors } = this.state;
 		// we need to update the initial state once it has been changed
 		this.initialState = { ...this.state };
-		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin, time, date });
+		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
 	}
 
 	onInputChange(event) {
