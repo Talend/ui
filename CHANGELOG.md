@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.1.5
+
+### Patch Changes
+
+- 2742837: prevent multiple IconProvider rendering
+
 ## 1.1.4
 
 ### Patch Changes
