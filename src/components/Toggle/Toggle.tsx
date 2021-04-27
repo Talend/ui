@@ -20,7 +20,7 @@ const Toggle: React.FC<ToggleProps> = React.forwardRef((props: ToggleProps, ref)
 	}
 
 	return (
-		<S.IconButton
+		<S.Toggle
 			ref={ref}
 			{...props}
 			className={`btn--toggle ${props.className || ''} ${isActive ? 'btn--is-active' : ''}`}

@@ -6,18 +6,18 @@ import { ButtonProps } from '../Button';
 const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase).attrs({
 	className: 'btn--primary',
 })`
-	color: ${({ theme }) => theme.colors.buttonPrimaryColor};
-	background-color: ${({ theme }) => theme.colors.buttonPrimaryBackgroundColor};
-	border-color: ${({ theme }) => theme.colors.buttonPrimaryBackgroundColor};
+	--t-button-color: ${({ theme }) => theme.colors?.buttonPrimaryColor};
+	--t-button-background-color: ${({ theme }) => theme.colors?.buttonPrimaryBackgroundColor};
+	--t-button-border-color: ${({ theme }) => theme.colors?.buttonPrimaryBackgroundColor};
 
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.buttonPrimaryHoverBackgroundColor};
-		border-color: ${({ theme }) => theme.colors.buttonPrimaryHoverBackgroundColor};
+		--t-button-background-color: ${({ theme }) => theme.colors?.buttonPrimaryHoverBackgroundColor};
+		--t-button-border-color: ${({ theme }) => theme.colors?.buttonPrimaryHoverBackgroundColor};
 	}
 
 	&:active {
-		background-color: ${({ theme }) => theme.colors.buttonPrimaryActiveBackgroundColor};
-		border-color: ${({ theme }) => theme.colors.buttonPrimaryActiveBackgroundColor};
+		--t-button-background-color: ${({ theme }) => theme.colors?.buttonPrimaryActiveBackgroundColor};
+		--t-button-border-color: ${({ theme }) => theme.colors?.buttonPrimaryActiveBackgroundColor};
 	}
 `;
 

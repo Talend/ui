@@ -4,8 +4,9 @@ import tokens from '../../tokens';
 
 export const Link = styled.a`
 	font-family: ${tokens.fonts.sansSerif};
-	color: ${({ theme }) => theme.colors.linkColor};
+	color: var(--t-link-color, ${({ theme }) => theme.colors?.linkColor});
 	text-decoration: none;
+	border-bottom-color: currentColor;
 
 	.link__text {
 		border-bottom: 0.1rem solid transparent;
@@ -33,19 +34,26 @@ export const Link = styled.a`
 		}
 	}
 
-	&:hover,
-	&:active {
+	&:hover {
+		color: var(--t-link-color--hover, ${({ theme }) => theme.colors?.linkHoverColor});
+
 		.link__text {
-			border-bottom-color: ${({ theme }) => theme.colors.linkColor};
+			border-bottom-color: var(
+				--t-link-color--hover,
+				${({ theme }) => theme.colors?.linkHoverColor}
+			);
 		}
 	}
 
-	&:hover {
-		color: ${({ theme }) => theme.colors.linkHoverColor};
-	}
-
 	&:active {
-		color: ${({ theme }) => theme.colors.linkActiveColor};
+		color: var(--t-link-color--active, ${({ theme }) => theme.colors?.linkActiveColor});
+
+		.link__text {
+			border-bottom-color: var(
+				--t-link-color--active,
+				${({ theme }) => theme.colors?.linkActiveColor}
+			);
+		}
 	}
 
 	&.link--disabled {

@@ -32,6 +32,11 @@ const GlobalStyle = createGlobalStyle`
 		outline: none;
 	}
 
+	*:focus-visible {
+		outline: 2px solid ${({ theme }) => theme.colors?.focusColor[500]};
+		outline-offset: 1px;
+	}
+
 	::selection {
 		color: ${tokens.colors.gray[900]};
 		background-color: ${tokens.colors.coral[100]};

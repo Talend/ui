@@ -1,33 +1,31 @@
 import styled from 'styled-components';
 import Button from '../Button';
 
-export const IconButton = styled(Button.Icon)(
-	({ theme }) => `
-		&.btn--is-active {
-			color: ${theme.colors.buttonPrimaryColor};
-			background-color: ${theme.colors.buttonPrimaryBackgroundColor};
-			border: 1px solid ${theme.colors.buttonPrimaryBackgroundColor};
-				
-			&:hover,
-			&:active {
-				color: ${theme.colors.buttonPrimaryColor};
-			}
-					
-			&:hover {
-				background-color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
-				border-color: ${theme.colors.buttonPrimaryHoverBackgroundColor};
-			}
-				
-			&:active {
-				background-color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
-				border-color: ${theme.colors.buttonPrimaryActiveBackgroundColor};
-			}
-			
-			&[aria-disabled='true'] {
-				color: ${theme.colors.buttonDisabledBackgroundColor};
-				background-color: ${theme.colors.buttonDisabledColor};
-				border-color: ${theme.colors.buttonDisabledColor};
-			}
+export const Toggle = styled(Button.Icon)`
+	&.btn--is-active {
+		--t-button-color: ${({ theme }) => theme.colors?.buttonPrimaryColor};
+		--t-button-background-color: ${({ theme }) => theme.colors?.buttonPrimaryBackgroundColor};
+		--t-button-border-color: ${({ theme }) => theme.colors?.buttonPrimaryBackgroundColor};
+
+		&:hover,
+		&:active {
+			--t-button-color: ${({ theme }) => theme.colors?.buttonPrimaryColor};
 		}
-`,
-);
+
+		&:hover {
+			--t-button-background-color: ${({ theme }) => theme.colors?.buttonPrimaryHoverBackgroundColor};
+			--t-button-border-color: ${({ theme }) => theme.colors?.buttonPrimaryHoverBackgroundColor};
+		}
+
+		&:active {
+			--t-button-background-color: ${({ theme }) => theme.colors?.buttonPrimaryActiveBackgroundColor};
+			--t-button-border-color: ${({ theme }) => theme.colors?.buttonPrimaryActiveBackgroundColor};
+		}
+
+		&[aria-disabled='true'] {
+			--t-button-color: ${({ theme }) => theme.colors?.buttonDisabledBackgroundColor};
+			--t-button-background-color: ${({ theme }) => theme.colors?.buttonDisabledColor};
+			--t-button-border-color: ${({ theme }) => theme.colors?.buttonDisabledColor};
+		}
+	}
+`;

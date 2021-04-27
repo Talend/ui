@@ -10,7 +10,7 @@ const ButtonTertiary: React.FC<ButtonProps> = styled(ButtonSecondary).attrs({
 	&,
 	&:hover,
 	&:active {
-		border-color: ${tokens.colors.transparent};
+		--t-button-border-color: ${tokens.colors?.transparent};
 	}
 `;
 
