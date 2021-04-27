@@ -1,16 +1,17 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, RefObject, createRef, useState, useEffect } from 'react';
 
 type GenericObject = { [key: string]: Promise<Response> };
 
 const DEFAULT_BUNDLES = ['/all.svg'];
 const FETCHING_BUNDLES: GenericObject = {};
+const ICONS_PROVIDER_CLASS = '.tc-iconsprovider';
 
 function hasBundle(url: string) {
 	if (FETCHING_BUNDLES[url]) {
 		return true;
 	}
 
-	const results = document.querySelectorAll('.tc-iconsprovider');
+	const results = document.querySelectorAll(ICONS_PROVIDER_CLASS);
 	return (
 		Array.prototype.slice.call(results).filter(e => {
 			return e.getAttribute('data-url') === url;
@@ -23,7 +24,7 @@ function hasBundle(url: string) {
  * @returns <Array<string>> Array of id if available icons
  */
 function getCurrentIconIds() {
-	const symbols = document.querySelectorAll('.tc-iconsprovider symbol');
+	const symbols = document.querySelectorAll(`${ICONS_PROVIDER_CLASS} symbol`);
 	return Array.from(symbols)
 		.map(symbol => symbol.getAttribute('id'))
 		.filter(Boolean);
@@ -42,7 +43,7 @@ function getAllIconIds() {
  * @returns {Array<string>} Array of id if available filters
  */
 function getAllFilterIds() {
-	const symbols = document.querySelectorAll('.tc-iconsprovider filter');
+	const symbols = document.querySelectorAll(`${ICONS_PROVIDER_CLASS} filter`);
 	return Array.from(symbols)
 		.map(symbol => symbol.getAttribute('id'))
 		.filter(Boolean);
@@ -54,7 +55,7 @@ function getAllFilterIds() {
  * @param {Element} container
  */
 function injectIcon(id: string, container: Element) {
-	const element = document.querySelector(`.tc-iconsprovider #${id}`);
+	const element = document.querySelector(`${ICONS_PROVIDER_CLASS} #${id}`);
 	if (element) {
 		while (container.hasChildNodes()) {
 			// @ts-ignores
@@ -67,7 +68,7 @@ function injectIcon(id: string, container: Element) {
 }
 
 /**
- * add the content of the reponse into the dom if it starts with SVG
+ * add the content of the response into the dom if it starts with SVG
  */
 function addBundle(response: Response) {
 	if (response.status === 200 && response.ok) {
@@ -90,12 +91,12 @@ function addBundle(response: Response) {
 
 type IconSet = Record<string, ReactElement>;
 
-function isRootProvider(ref: React.RefObject<any>) {
-	const providers = document.querySelectorAll('.tc-iconsprovider');
+function isRootProvider(ref: RefObject<any>) {
+	const providers = document.querySelectorAll(ICONS_PROVIDER_CLASS);
 	if (ref !== null && ref.current && providers.length > 0) {
 		return providers[0] === ref.current;
 	}
-	return providers.length === 0;
+	return providers.length === 1;
 }
 
 /**
@@ -109,8 +110,10 @@ function isRootProvider(ref: React.RefObject<any>) {
  */
 export function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, icons = {} }) {
 	const iconset: IconSet = { ...defaultIcons, ...icons };
-	const ref = React.createRef<SVGSVGElement>();
-	React.useEffect(() => {
+	const ref = createRef<SVGSVGElement>();
+	const [ shouldRender, setShouldRender ] = useState(true);
+
+	useEffect(() => {
 		if (!Array.isArray(bundles)) {
 			return;
 		}
@@ -125,12 +128,14 @@ export function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, ic
 			});
 	}, [bundles]);
 
-	if (isRootProvider(ref)) {
-		console.warn('IconsProvider Error: multiple instance escape, return null');
-		return null;
-	}
+	useEffect(() => {
+		if (!isRootProvider(ref)) {
+			console.warn('IconsProvider Error: multiple instance escape');
+			setShouldRender(false);
+		}
+	}, [ ref ]);
 
-	return (
+	return shouldRender && (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			focusable="false"
@@ -143,7 +148,7 @@ export function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, ic
 				</symbol>
 			))}
 		</svg>
-	);
+	) || null;
 }
 
 IconsProvider.displayName = 'IconsProvider';
