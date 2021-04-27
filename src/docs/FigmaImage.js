@@ -73,7 +73,13 @@ const FigmaImage = ({ src, alt = '', ...rest }) => {
 			.fileImages(projectId, {
 				ids: [nodeId],
 			})
-			.then(({ data }) => setData(data));
+			.then(({ data }) => setData(data))
+			.catch(reason => {
+				console.error(
+					'[FigmaImage] Verify that you use STORYBOOK_FIGMA_ACCESS_TOKEN correctly!',
+					reason,
+				);
+			});
 	}, [src]);
 
 	if (!figma.isConfigured) {
