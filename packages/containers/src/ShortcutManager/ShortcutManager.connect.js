@@ -1,11 +1,10 @@
 import { cmfConnect } from '@talend/react-cmf';
-import { routerAPI } from '@talend/react-cmf-router';
 
 import Container from './ShortcutManager.container';
 
-function mapStateToProps(state) {
+function mapStateToProps() {
 	return {
-		pathname: routerAPI.selectors.getPath(state),
+		pathname: window.location.pathname,
 	};
 }
 

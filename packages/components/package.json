@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
-    "@talend/design-system": "^1.0.10",
+    "@talend/design-system": "^1.1.4",
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
     "d3": "^6.3.0",
@@ -73,8 +73,8 @@
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/bootstrap-theme": "^6.18.0",
-    "@talend/icons": "^6.18.0",
+    "@talend/bootstrap-theme": "^6.22.0",
+    "@talend/icons": "^6.22.0",
     "@talend/locales-tui": "^5.6.0",
     "@talend/scripts-core": "^9.4.1",
     "@talend/scripts-preset-react-lib": "^9.4.1",
@@ -94,7 +94,7 @@
     "react-dnd-html5-backend": "^2.6.0",
     "react-dnd-test-backend": "^2.5.4",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.8.12",
+    "react-i18next": "^11.8.13",
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^16.13.1",
     "sass-lint": "^1.13.1",
@@ -108,10 +108,10 @@
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-i18next": "^11.8.12"
+    "react-i18next": "^11.8.13"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.18.0"
+  "version": "6.22.0"
 }

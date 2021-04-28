@@ -1,5 +1,4 @@
 import { mock } from '@talend/react-cmf';
-import { routerAPI } from '@talend/react-cmf-router';
 
 import action, { getActionsProps } from './actionAPI';
 
@@ -90,7 +89,6 @@ describe('actionAPI.evalExpressions', () => {
 	it('should eval props', () => {
 		const actionInfo = {
 			active: 'isActive',
-			available: 'isInTest',
 			disabled: 'isDisabled',
 			inProgress: 'isInProgress',
 			label: 'Run',
@@ -100,9 +98,6 @@ describe('actionAPI.evalExpressions', () => {
 		};
 		function isActive({ payload }) {
 			return payload.model.value;
-		}
-		function isInTest({ context }) {
-			return routerAPI.selectors.getPath(context.store.getState()) === '/test';
 		}
 		function isDisabled({ payload }) {
 			return payload.model.value;
@@ -123,7 +118,6 @@ describe('actionAPI.evalExpressions', () => {
 		const context = {
 			registry: {
 				'expression:isActive': isActive,
-				'expression:isInTest': isInTest,
 				'expression:isDisabled': isDisabled,
 				'expression:isInProgress': isInProgress,
 				'expression:getLabel': getLabel,
@@ -141,7 +135,6 @@ describe('actionAPI.evalExpressions', () => {
 		};
 		const truthyAction = action.evalExpressions(actionInfo, context, { model: modelTruthy });
 		expect(truthyAction.active).toBe(true);
-		expect(truthyAction.available).toBe(true);
 		expect(truthyAction.disabled).toBe(true);
 		expect(truthyAction.inProgress).toBe(true);
 		expect(truthyAction.label).toBe('Running');
@@ -149,7 +142,6 @@ describe('actionAPI.evalExpressions', () => {
 
 		const falsyAction = action.evalExpressions(actionInfo, context, { model: modelFalsy });
 		expect(falsyAction.active).toBe(false);
-		expect(falsyAction.available).toBe(true);
 		expect(falsyAction.disabled).toBe(false);
 		expect(falsyAction.inProgress).toBe(false);
 		expect(falsyAction.label).toBe('Run');
@@ -159,7 +151,6 @@ describe('actionAPI.evalExpressions', () => {
 	it('try to evaluate any action properties ending with `Expression`', () => {
 		const actionInfo = {
 			active: 'isActive',
-			available: 'isInTest',
 			disabled: 'isDisabled',
 			inProgress: 'isInProgress',
 			label: 'Run',
@@ -171,9 +162,6 @@ describe('actionAPI.evalExpressions', () => {
 
 		function isActive({ payload }) {
 			return payload.model.value;
-		}
-		function isInTest({ context }) {
-			return routerAPI.selectors.getPath(context.store.getState()) === '/test';
 		}
 		function isDisabled({ payload }) {
 			return payload.model.value;
@@ -198,7 +186,6 @@ describe('actionAPI.evalExpressions', () => {
 		const context = {
 			registry: {
 				'expression:isActive': isActive,
-				'expression:isInTest': isInTest,
 				'expression:isDisabled': isDisabled,
 				'expression:isInProgress': isInProgress,
 				'expression:getLabel': getLabel,
@@ -217,7 +204,6 @@ describe('actionAPI.evalExpressions', () => {
 		};
 		const truthyAction = action.evalExpressions(actionInfo, context, { model: modelTruthy });
 		expect(truthyAction.active).toBe(true);
-		expect(truthyAction.available).toBe(true);
 		expect(truthyAction.disabled).toBe(true);
 		expect(truthyAction.inProgress).toBe(true);
 		expect(truthyAction.label).toBe('Running');
@@ -226,7 +212,6 @@ describe('actionAPI.evalExpressions', () => {
 
 		const falsyAction = action.evalExpressions(actionInfo, context, { model: modelFalsy });
 		expect(falsyAction.active).toBe(false);
-		expect(falsyAction.available).toBe(true);
 		expect(falsyAction.disabled).toBe(false);
 		expect(falsyAction.inProgress).toBe(false);
 		expect(falsyAction.label).toBe('Run');

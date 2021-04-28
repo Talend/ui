@@ -17,16 +17,6 @@ jest.mock('@talend/react-cmf', () => {
 	};
 });
 
-jest.mock('@talend/react-cmf-router', () => ({
-	routerAPI: {
-		selectors: {
-			matchPath: jest.fn(),
-			getPath: jest.fn(),
-		},
-		matchPath: jest.fn(),
-	},
-}));
-
 describe('#register contianers', () => {
 	it('should register all component', () => {
 		cmf.component.registerMany = jest.fn();
