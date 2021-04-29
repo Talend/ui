@@ -27,12 +27,8 @@ exports[`Header should render filter header 1`] = `
     role="link"
     type="button"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
-      focusable="false"
+    <Coral.Icon
       name="talend-cross"
-      title={null}
     />
   </button>
 </header>

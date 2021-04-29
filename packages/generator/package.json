@@ -42,9 +42,8 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/polyfill": "^7.8.7",
-    "@babel/preset-env": "^7.11.6",
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.8.3",
     "babel-eslint": "^10.0.3",
     "eslint": "^4.0.0",
@@ -53,5 +52,5 @@
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   },
-  "version": "6.12.0"
+  "version": "6.22.0"
 }

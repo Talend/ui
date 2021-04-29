@@ -36,7 +36,7 @@ addDecorator(withA11y);
 addDecorator(storyFn => (
 	<>
 		<IconsProvider
-			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
+			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
 		/>
 		{storyFn()}
 	</>

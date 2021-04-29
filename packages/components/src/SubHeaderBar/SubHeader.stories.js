@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Label } from 'react-bootstrap';
 import FilterBar from '../FilterBar';
+import Tag from '../Tag';
 import SubHeaderBar from './SubHeaderBar.component';
 
 const viewProps = {
@@ -101,7 +101,7 @@ stories
 				{...viewProps}
 				subTitle="mySubTitle"
 				onGoBack={backAction}
-				subTitleAs={({ subTitle }) => <Label className="label-info">{subTitle}</Label>}
+				subTitleAs={({ subTitle }) => <Tag bsStyle="info">{subTitle}</Tag>}
 			/>
 		</div>
 	))

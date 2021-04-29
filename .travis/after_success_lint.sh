@@ -13,7 +13,7 @@ if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
 	(lerna exec --scope=@talend/react-containers -- npm run lint:es -- -o ../../output/containers.eslint.txt --no-color)
 	(lerna exec --scope=@talend/react-forms -- npm run lint:es -- -o ../../output/forms.eslint.txt --no-color)
 	# not in lerna
-	cd packages/router/ && (yarn run lint:es -- -o ../../output/router.eslint.txt --no-color | awk '{if(NR>2)print}') 2>/dev/null && cd ../../
+	cd packages/cmf-router && (yarn run lint:es -- -o ../../output/router.eslint.txt --no-color | awk '{if(NR>2)print}') 2>/dev/null && cd ../../
 
 	echo "Linting Sass files"
 	(lerna exec --scope=@talend/bootstrap-theme -- npm run lint:style | awk '{if(NR>2)print}') 1> output/theme.sasslint.txt 2>/dev/null

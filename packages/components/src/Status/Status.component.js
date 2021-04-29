@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import Actions from '../Actions/Actions.component';
 import CircularProgress from '../CircularProgress/CircularProgress.component';
-import Icon from '../Icon/Icon.component';
+import Icon from '../Icon';
 import Skeleton from '../Skeleton';
 
 import css from './Status.scss';

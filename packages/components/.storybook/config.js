@@ -1,6 +1,7 @@
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import React from 'react';
+import { ThemeProvider } from '@talend/design-system';
 
 import { configure, addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
@@ -21,11 +22,11 @@ addDecorator(
 	}),
 );
 addDecorator(withA11y);
-
+addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 addDecorator(storyFn => (
 	<>
 		<IconsProvider
-			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg']}
+			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
 		/>
 		{storyFn()}
 	</>

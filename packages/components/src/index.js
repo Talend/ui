@@ -44,9 +44,9 @@ import Gesture from './Gesture';
 import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
-import i18n from './i18n';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
+import i18n from './i18n';
 import Inject from './Inject';
 import { InlineMessage } from './InlineMessage';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
@@ -73,6 +73,7 @@ import Status from './Status';
 import Stepper from './Stepper';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
+import Tag from './Tag';
 import Toggle from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import TreeView from './TreeView';
@@ -154,6 +155,7 @@ export {
 	Stepper,
 	SubHeaderBar,
 	TabBar,
+	Tag,
 	Toggle,
 	TooltipTrigger,
 	TreeView,

@@ -1,4 +1,5 @@
 import cmf from '@talend/react-cmf';
+import get from 'lodash/get';
 
 /**
  * add support for expression in actions.
@@ -36,19 +37,24 @@ export function getActionsProps(context, ids, model) {
 		return id;
 	});
 
-	const props = infos.map(info => ({
-		onClick(event, data) {
-			if (info.actionCreator) {
-				context.store.dispatch(cmf.action.getActionObject(context, info.id, event, data));
-			} else {
-				context.store.dispatch({
-					model,
-					...info.payload,
-				});
-			}
-		},
-		...evalExpressions(info, context, { model }),
-	}));
+	const props = infos.map(info => {
+		const newprops = {};
+		const dispatch = get(context, 'store.dispatch');
+		if (dispatch) {
+			newprops.onClick = (event, data) => {
+				if (info.actionCreator) {
+					dispatch(cmf.action.getActionObject(context, info.id, event, data));
+				} else {
+					dispatch({
+						model,
+						...info.payload,
+					});
+				}
+			};
+		}
+		Object.assign(newprops, evalExpressions(info, context, { model }));
+		return newprops;
+	});
 
 	if (onlyOne) {
 		return props[0];

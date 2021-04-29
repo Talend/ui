@@ -17,3 +17,6 @@
 		}
 	}
 }
+.date-range-picker-inline {
+	@include range-picker-inline;
+}

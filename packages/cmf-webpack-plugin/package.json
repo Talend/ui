@@ -30,18 +30,18 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/react-cmf": "^6.12.0",
+    "@talend/react-cmf": "^6.22.0",
     "chokidar": "^2.0.2",
     "deepmerge": "^1.5.1",
     "lodash": "^4.17.15",
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^10.0.0-alpha.1",
-    "@talend/scripts-preset-react-lib": "^10.0.0-alpha.1"
+    "@talend/scripts-core": "^9.4.1",
+    "@talend/scripts-preset-react-lib": "^9.4.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.12.0"
+  "version": "6.22.0"
 }

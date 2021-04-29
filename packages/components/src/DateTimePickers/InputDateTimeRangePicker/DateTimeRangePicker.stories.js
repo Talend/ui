@@ -61,4 +61,14 @@ storiesOf('Form/Controls/DatePicker/Date Time Range', module)
 				useSeconds
 			/>
 		</div>
+	))
+	.add('Inline', () => (
+		<div>
+			<InputDateTimeRangePicker
+				id="my-datetime-range-picker"
+				onChange={action('onChange')}
+				onBlur={action('onBlur')}
+				inline
+			/>
+		</div>
 	));

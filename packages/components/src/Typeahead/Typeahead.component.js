@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
 import keycode from 'keycode';
+import { usePopper } from 'react-popper';
 
 import theme from './Typeahead.scss';
 import {
@@ -36,10 +37,95 @@ function getItems(items, dataFeature) {
  *
  * <Typeahead {...props} />
  */
-function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const inputRef = useRef(null);
 
+	const [referenceElement, setReferenceElement] = useState(null);
+	const [popperElement, setPopperElement] = useState(null);
+	const [focus, setFocus] = useState(false);
+	const withSameWidth = useMemo(
+		() => ({
+			name: 'withSameWidth',
+			enabled: true,
+			phase: 'beforeWrite',
+			requires: ['computeStyles'],
+			fn: ({ state }) => {
+				// eslint-disable-next-line no-param-reassign
+				state.styles.popper.width = `${state.rects.reference.width}px`;
+			},
+			effect: ({ state }) => {
+				// eslint-disable-next-line no-param-reassign
+				state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
+			},
+		}),
+		[],
+	);
+	const withInViewport = useMemo(
+		() => ({
+			name: 'withInViewport',
+			enabled: true,
+			phase: 'beforeWrite',
+			requires: ['computeStyles'],
+			fn: ({ state }) => {
+				const GAP = 45; // the offset between the end of items container and screen boundaries
+				const inputDimensions = state.rects.reference;
+				const { y, height } = inputDimensions;
+				const offsetTop = y - GAP;
+				const offsetBottom = window.innerHeight - y - height - GAP;
+				const placements = state.placement.split('-');
+				let newPlacement = state.placement;
+				if (placements[0] === 'top' && offsetBottom > offsetTop) {
+					newPlacement = `bottom-${placements[1]}`;
+				}
+				const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
+
+				// eslint-disable-next-line no-param-reassign
+				state.placement = newPlacement;
+				// eslint-disable-next-line no-param-reassign
+				state.styles.popper.maxHeight = `${maxHeight}px`;
+				// eslint-disable-next-line no-param-reassign
+				state.styles.popper.minHeight = `${height}px`;
+			},
+		}),
+		[items],
+	);
+
+	const withInitialState = useMemo(
+		() => ({
+			name: 'withInitialState',
+			enabled: true,
+			phase: 'write',
+			requires: ['computeStyles'],
+			fn: ({ state }) => {
+				if (!focus) {
+					// eslint-disable-next-line no-param-reassign
+					state.styles.popper.opacity = 0;
+				} else {
+					// eslint-disable-next-line no-param-reassign
+					delete state.styles.popper.opacity;
+				}
+			},
+		}),
+		[focus],
+	);
+
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+		modifiers: [
+			{ name: 'hide', enabled: false },
+			{ name: 'preventOverflow', enabled: false },
+			{
+				name: 'computeStyles',
+				options: {
+					adaptive: false,
+				},
+			},
+			withSameWidth,
+			withInViewport,
+			withInitialState,
+		],
+		strategy: 'fixed',
+		placement: 'bottom-start',
+	});
 	const [highlightedSectionIndex, setHighlightedSectionIndex] = useState(0);
 	const [highlightedItemIndex, setHighlightedItemIndex] = useState(0);
 
@@ -119,10 +205,17 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			debounceTimeout: rest.debounceTimeout,
 			disabled: rest.disabled,
 			id: rest.id,
-			inputRef,
+			setReferenceElement,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
-			onFocus: rest.onFocus,
+			onFocus: event => {
+				if (!focus) {
+					setFocus(true);
+				}
+				if (rest.onFocus) {
+					rest.onFocus(event);
+				}
+			},
 			onClick: rest.onClick,
 			onKeyDown: rest.onKeyDown || handleKeyDown,
 			placeholder: rest.placeholder,
@@ -143,14 +236,18 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 	const defaultRenderersProps = {
 		renderItem,
 		renderItemsContainer: renderItemsContainerFactory(
-			rest.items,
+			items,
 			noResultText,
 			rest.searching,
 			searchingText,
 			rest.isLoading,
 			isLoadingText,
-			inputRef,
+			referenceElement,
 			rest.children,
+
+			setPopperElement,
+			styles,
+			attributes,
 		),
 		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};
@@ -163,11 +260,11 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...inputProps,
 		highlightedSectionIndex: rest.onKeyDown ? rest.focusedSectionIndex : highlightedSectionIndex,
 		highlightedItemIndex: rest.onKeyDown ? rest.focusedItemIndex : highlightedItemIndex,
-		items: getItems(rest.items, rest.dataFeature),
+		items: getItems(items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
 			onMouseDown: event => event.preventDefault(),
 			onClick: rest.onSelect,
-			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
+			'aria-disabled': items[itemIndex] && items[itemIndex].disabled,
 		}),
 	};
 
