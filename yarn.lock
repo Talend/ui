@@ -3064,9 +3064,11 @@
     loader-utils "^2.0.0"
 
 "@talend/babel-plugin-import-from-index@^1.4.3":
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-1.4.7.tgz#9c19b385fa014b580ce94fc00fe209b2eaefcb58"
-  integrity sha512-M76ghVIGhiaKXWrw/nPNfix3nBG5BVjRmxgVPQm1iyZVqxU6BEttGwarcmMSayT7KCklEbFoKQFkSsUozLrL/w==
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-1.5.0.tgz#f91904a07e098ba7e6359cbc86e76355b3c71c8f"
+  integrity sha512-oC3k2h47tcK8HiiQ6hsnFzGqMRlfdcNut6bIu73Ue5FkGGLpDw4FH/I4cjI+U7qNh+JVGvtFQLM4o39nT3bwVg==
+  dependencies:
+    semver "^7.3.5"
 
 "@talend/design-system@^1.1.4":
   version "1.1.5"
