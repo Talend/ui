@@ -7,6 +7,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
   <AgGridReact
     columnDefs={Array []}
     deltaRowDataMode={true}
+    disableStaticMarkup={false}
     frameworkComponents={
       Object {
         "cellRenderer": [Function],
@@ -16,6 +17,8 @@ exports[`#DataGrid should render DataGrid 1`] = `
     }
     getRowNodeId={[Function]}
     headerHeight={55}
+    legacyComponentRendering={false}
+    maxComponentCreationTimeMs={1000}
     navigateToNextCell={[Function]}
     onCellFocused={[Function]}
     onGridReady={[Function]}
@@ -132,6 +135,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
       ]
     }
     deltaRowDataMode={true}
+    disableStaticMarkup={false}
     frameworkComponents={
       Object {
         "cellRenderer": [Function],
@@ -141,6 +145,8 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
     }
     getRowNodeId={[Function]}
     headerHeight={55}
+    legacyComponentRendering={false}
+    maxComponentCreationTimeMs={1000}
     navigateToNextCell={[Function]}
     onCellFocused={[Function]}
     onGridReady={[Function]}

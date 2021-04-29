@@ -12,7 +12,9 @@ exports[`Date.Input should render 1`] = `
   onChange={[MockFunction]}
   onFocus={[MockFunction]}
 >
-  <div>
+  <div
+    className="range-input"
+  >
     <label
       className="control-label"
     >
