@@ -506,7 +506,7 @@ function extractDateOrTimeHybridMode(textInput, options) {
 		} else {
 			try {
 				time = strToTime(textInput, options.useSeconds);
-				checkTime(time, options.hybridMode);
+				checkTime(time, options);
 			} catch (timError) {
 				errors = errors.concat(timError);
 			}
@@ -561,7 +561,7 @@ function extractPartsFromTextInput(textInput, options) {
 				try {
 					const timeTextToParse = splitMatches[2];
 					time = strToTime(timeTextToParse, options.useSeconds);
-					checkTime(time, hybridMode);
+					checkTime(time, options);
 				} catch (error) {
 					errors = errors.concat(error);
 				}
