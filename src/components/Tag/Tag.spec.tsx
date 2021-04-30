@@ -1,11 +1,12 @@
 /// <reference types="cypress" />
 
-context('<Tag />', () => {
-	beforeEach(() => {
-		cy.visit('/iframe.html?id=components-tag--usage');
-	});
+import React from 'react';
 
+import Tag from './';
+
+context('<Tag />', () => {
 	it('should render', () => {
+		cy.mount(<Tag>Lorem ipsum</Tag>);
 		cy.get('.tag').should('have.text', 'Lorem ipsum');
 	});
 });
