@@ -224,7 +224,7 @@
   63:31  error  'parent.props.rowCount' is missing in props validation                                          react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/ResourceList/ResourceList.component.js
-  51:3  warning  React Hook React.useCallback has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  52:3  warning  React Hook React.useCallback has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/ResourceList/ResourceList.stories.js
   253:13  error    'collection' is missing in props validation                                                                              react/prop-types
