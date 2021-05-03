@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { FigmaImage } from '../../../docs';
+
+<Meta title="Components/Form/Form Field" />
+
+# Form Field
+
+The Form Field could be composed by a label, an input and a [small inline message](/?path=/docs/components-inlinemessage--information). 
+
+## Zoning 
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=349%3A206"
+	alt="zoning image for form field"
+/>
+
+## Style 
+
+## States
+
+## Interactions
+
+### Validation
+
+The validation of the field should appear when the field loses the focus. Two types of validation message are available: 
+
+- warning: which is not blocking the form validation
+- error: which is blocking the form validation
+
+The user must correct the error within the field. Once the error is corrected, the message is disappearing.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A229"
+	alt="warning or error message image example"
+/>
+
+## Content
+
+### Mandatory vs Optionnal
+
+The default behavior is to highlight the mandatory fields by using the asterisk next to the label.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A98"
+	alt="mandatory image example"
+/>
+
+### Information
+
+A message can be displayed below the input to help the user by recommending appropriate content or suggesting an action.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A188"
+	alt="helper message image example"
+/>
+
+### Link
+
+For the [password input](/?path=/docs/components-form-fields-password--default-story), a link could be added at the top right of the input.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A404"
+	alt="password input with link example"
+/>
+
+## Usage
+
+## Accessibility
+
+- The label is mandatory (even if it's not always visible)
+

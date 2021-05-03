@@ -1,19 +1,3 @@
-import React from 'react';
-import styled from 'styled-components';
-import tokens from '../../tokens';
+import * as S from './Form.style';
 
-export const StyledForm = styled.form`
-	width: 100%;
-	font-family: ${tokens.fonts.sansSerif};
-
-	fieldset {
-		padding: 0;
-		border: none;
-	}
-`;
-
-function Form({ children }) {
-	return <StyledForm>{children}</StyledForm>;
-}
-
-export default Form;
+export default S.Form;

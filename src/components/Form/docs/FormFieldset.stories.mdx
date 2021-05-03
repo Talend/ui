@@ -1,0 +1,82 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { FigmaImage } from '../../../docs';
+
+<Meta title="Components/Form/Form Fieldset" />
+
+# Form Fieldset
+
+The fieldset is a field group in a form.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=349%3A227"
+	alt="zoning image for form fieldset"
+/>
+
+## Style 
+
+Group logical blocks into fieldset. If the fields are related, display them on the same row. 
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=191%3A352"
+	alt="example image for form fieldset"
+/>
+
+## States
+
+### Skeleton
+
+_to do_
+
+### Error
+
+_Non applicaple_
+
+Only individual fields could be errored, not the full fieldset.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=224%3A13927"
+	alt="error on a field into a fieldset"
+/>
+
+In case of more than one error or a horizontal fieldset, display the errors under each other.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A0"
+	alt="two errors into a fieldset"
+/>
+
+## Content
+
+### Title
+
+By default, provide a title to the fieldset. 
+
+### Inline message
+
+By default, the inline message is displayed using the inline message component, it appears at the bottom of the field.
+When a fieldset or a field is bigger than 15rem, the [inline message](/?path=/docs/components-inlinemessage--information) (often error message) should appear on top instead of bottom.
+
+_add image_
+
+## Interactions
+
+### Conditional field
+
+Conditional fields allow the user to access a fieldset only when conditions are met in a previous field. 
+
+Conditional fields can appear following:
+- checkbox
+- radio button
+- switch
+- select
+- button
+
+## Usage
+
+_to do_
+
+## Accessibility
+
+_to do_

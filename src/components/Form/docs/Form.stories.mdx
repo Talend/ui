@@ -1,5 +1,6 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
+import { FigmaImage, FigmaLink } from '../../../docs';
 
 import Form from '../';
 import Button from '../../Button';
@@ -13,11 +14,43 @@ export function getColumnTypes() {
 	return ['String', 'Long', 'Date', 'Boolean', 'Decimal'];
 }
 
-<Meta title="Components/Form" />
+<Meta title="Components/Form/Form" />
+
+<FigmaLink href="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=58%3A0" />
 
 # Form
 
+A form allows a user to configure multiple options and set data across different form fields.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=349%3A135"
+	alt="zoning image for form"
+/>
+
+## Style
+
+The form width depends on the form container size. The form is horizontally **centered** in its container.
+
+| Container            | Width            |
+| -------------------- | ---------------- |
+| By default           | 100%             |
+| From $breakpoints.m  | 55%              |
+| From $breakpoints.xl | max-width: 78rem |
+
+## Variations
+
+Forms can be horizontal or vertical. They are vertical by default. For horizontal one, please refer to the [Inline form page](/?path=/docs/components-form-inline-form--page).
+
 ## States
+
+### Skeleton
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A25"
+	alt="skeleton image for form"
+/>
 
 ### Default
 
@@ -84,6 +117,13 @@ export function getColumnTypes() {
 		</Form>
 	</Story>
 </Canvas>
+
+### Error
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A704"
+	alt="error state image for form"
+/>
 
 ### Disabled
 
@@ -155,7 +195,7 @@ export function getColumnTypes() {
 	</Story>
 </Canvas>
 
-### Read only
+### Read-only
 
 <Canvas>
 	<Story name="Overview-readonly">
@@ -167,8 +207,8 @@ export function getColumnTypes() {
 					readOnly
 					prefix={
 						<Form.Select
-                            label="Phone prefix"
-                            readOnly
+							label="Phone prefix"
+							readOnly
 							value="France (+33)"
 							style={{ width: '13rem' }}
 						>
@@ -216,3 +256,44 @@ export function getColumnTypes() {
 		</Form>
 	</Story>
 </Canvas>
+
+## Content
+
+### Form inline help
+
+Consider using an [Inline message](/?path=/docs/components-inlinemessage--information) when help is needed to fill the form.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A1028"
+	alt="form inline help example"
+/>
+
+## Interactions
+
+### Synchronous action
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A9"
+	alt="loading state image for form"
+/>
+
+### Data loss message
+
+When the user clicks on the cancel button or go back to the previous page, provide a confirm dialog.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
+	alt="example for data loss message"
+/>
+
+### Error focus
+
+In case of error after submission, the focus on the screen should be on the first field errored. If more than one field in error, the focus should be placed on the first one.
+
+## Usage
+
+_to do_
+
+## Accessibility
+
+Non applicable
