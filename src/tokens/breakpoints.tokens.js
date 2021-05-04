@@ -4,7 +4,7 @@
  */
 export default {
 	s: '640px',
-	m: '834px',
-	l: '1366px',
-	xl: '1536px',
+	m: '768px',
+	l: '1024px',
+	xl: '1280px',
 };
