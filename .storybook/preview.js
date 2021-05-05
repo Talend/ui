@@ -34,6 +34,9 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 
 addParameters({
 	docs: {
+		source: {
+			state: 'open',
+		},
 		container: props => {
 			const [hasDarkMode, setDarkMode] = useLocalStorage('talend-coral--has-dark-mode', false);
 			const [hasFigmaIframe, setFigmaIframe] = useLocalStorage(
