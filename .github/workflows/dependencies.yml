@@ -26,7 +26,7 @@ jobs:
 
       - name: Upgrade @storybook dependencies
         run: |
-          npx sb@next upgrade
+          npx sb@next upgrade --prerelease
 
       - name: Dedupe dependencies
         run: |
