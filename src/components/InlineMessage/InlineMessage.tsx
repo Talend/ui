@@ -35,17 +35,15 @@ const InlineMessage = React.forwardRef(
 				className={`inline-message ${className || ''}`}
 				ref={ref}
 			>
+				{icon && (
+					<span className="inline-message__icon">
+						<Icon name={icon} />
+					</span>
+				)}
 				<p>
-					{(icon || title) && (
+					{title && (
 						<>
-							<span className="inline-message__icon">
-								<Icon name={icon} />
-							</span>
-							{title && (
-								<>
-									<span className="inline-message__title">{title}</span>{' '}
-								</>
-							)}
+							<span className="inline-message__title">{title}</span>{' '}
 						</>
 					)}
 					{description && (
