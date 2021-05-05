@@ -14,13 +14,10 @@ function hasChildren(item) {
  * @param {String} searchCriteria
  * @returns {Array}
  */
-export function getDisplayedItems(items, value, searchCriteria) {
-	let textFilter;
-	if (searchCriteria) {
-		textFilter = ({ label }) => label.toLowerCase().includes(searchCriteria.toLowerCase());
-	}
+export function getDisplayedItems(items, value, searchCriteria = '') {
+	const textFilter = searchCriteria.toLowerCase();
 
-	return items
+	const checkedItems = items
 		.map(item => {
 			const newChildren = item.children.map(child => ({
 				...child,
@@ -30,10 +27,24 @@ export function getDisplayedItems(items, value, searchCriteria) {
 			return {
 				...item,
 				checked: newChildren.some(child => child.checked),
-				children: textFilter ? newChildren.filter(textFilter) : newChildren,
+				children: newChildren,
 			};
 		})
 		.filter(hasChildren);
+
+	return checkedItems.reduce((filtered, item) => {
+		if (item.label.toLowerCase().includes(textFilter)) {
+			return [...filtered, item];
+		}
+
+		const filteredChildren = item.children.filter(child =>
+			child.label.toLowerCase().includes(textFilter),
+		);
+
+		return filteredChildren.length > 0
+			? [...filtered, { ...item, children: filteredChildren }]
+			: filtered;
+	}, []);
 }
 
 /**
