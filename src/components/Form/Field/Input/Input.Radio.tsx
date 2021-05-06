@@ -6,7 +6,7 @@ import tokens from '../../../../tokens';
 
 import InlineStyle from './styles/Input.Inline.style';
 
-const InlineField = styled(InlineStyle)`
+const InlineField = styled(InlineStyle)<{ readOnly: boolean; checked: boolean }>`
 	span:before,
 	span:after {
 		border-radius: ${tokens.radii.circleRadius};
@@ -25,15 +25,23 @@ const InlineField = styled(InlineStyle)`
 	}
 `;
 
-function Radio({ label, checked, readOnly, ...rest }) {
-	return (
-		<InlineField readOnly={readOnly} checked={checked}>
-			{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-			<label>
-				{!readOnly && <ReakitRadio checked={checked} {...rest} />} <span>{label}</span>
-			</label>
-		</InlineField>
-	);
-}
+export type RadioProps = HTMLInputElement & {
+	label: string;
+};
+
+const Radio = ({ id = `radio--${Date.now()}`, label, checked, readOnly, ...rest }: RadioProps) => (
+	<InlineField readOnly={readOnly} checked={checked}>
+		<label htmlFor={id}>
+			{!readOnly && (
+				<>
+					{/*
+					// @ts-ignore */}
+					<ReakitRadio id={id} checked={checked} {...rest} />
+				</>
+			)}{' '}
+			<span>{label}</span>
+		</label>
+	</InlineField>
+);
 
 export default Radio;

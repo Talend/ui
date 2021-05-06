@@ -1,10 +1,13 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { FigmaIframe, FigmaImage, FigmaLink, Use } from '../../../docs';
+import {Meta, Canvas, Story, ArgsTable} from '@storybook/addon-docs/blocks';
+import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
 import Form from '../';
 
 <Meta title="Components/Form/Fields/Radio" />
 
-<FigmaLink href="https://www.figma.com/file/Ux9flIa7RJXED6xnsajju8/Radio?node-id=1%3A66" />
+<Links>
+    <FigmaLink href="https://www.figma.com/file/Ux9flIa7RJXED6xnsajju8/Radio?node-id=1%3A66" />
+    <GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Form/Field/Input" />
+</Links>
 
 # Radio
 
@@ -69,9 +72,9 @@ Radio buttons appear as a list of two or more options on UI where users can sele
 <Use>
 	<Use.Do>
 		<ul>
-			<li>Use positive and active wording for lables.</li>
+			<li>Use positive and active wording for labels.</li>
 			<li>
-				Aim for clear and distinct lables to ease the reading flow and help users make the right
+				Aim for clear and distinct labels to ease the reading flow and help users make the right
 				choice.
 			</li>
 			<li>Start each label with capital letter.</li>
@@ -93,18 +96,52 @@ Radio buttons appear as a list of two or more options on UI where users can sele
 
 ## Usage
 
-N/C
+<Canvas>
+    <Story
+        name="basic"
+        args={{
+            label: 'Radio',
+            checked: false,
+            readOnly: false,
+            disabled: false,
+        }}
+        argTypes={{
+            label: {
+                description: 'Radio label',
+                control: {
+                    type: 'text',
+                },
+            },
+            checked: {
+                description: 'Radio is checked or  not',
+                control: {
+                    type: 'boolean',
+                },
+            },
+            readOnly: {
+                description: 'Radio is read only or not',
+                control: {
+                    type: 'boolean',
+                },
+            },
+            disabled: {
+                description: 'Radio is disabled or not',
+                control: {
+                    type: 'boolean',
+                },
+            },
+        }}
+    >
+        {props => <Form.Radio {...props} />}
+    </Story>
+</Canvas>
+
+<ArgsTable story="basic" />
 
 ## Accessibility
 
-Press <kbd>TABS</kbd> to focus on a radio button.
+Press <kbd>Tab</kbd> to focus on a radio button.
 
-Press <kbd>TABS</kbd> or <kbd>Shift</kbd> + <kbd>TABS</kbd> to navigate between radio buttons.
+Press <kbd>Tab</kbd> or <kbd>Shift</kbd> + <kbd>Tab</kbd> to navigate between radio buttons.
 
 Press the arrows keys to change the selection.
-
-## Changelog
-
-| Date       | Author     | Description |
-| ---------- | ---------- | ----------- |
-| 06/15/2020 | Monia Huet | Init page   |

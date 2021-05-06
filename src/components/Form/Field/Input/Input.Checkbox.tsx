@@ -5,7 +5,7 @@ import tokens from '../../../../tokens';
 import InlineStyle from './styles/Input.Inline.style';
 import { Icon } from '../../../Icon/Icon';
 
-const InlineField = styled(InlineStyle)`
+const InlineField = styled(InlineStyle)<{ readOnly: boolean; checked: boolean }>`
 	span:before,
 	span:after {
 		border-radius: ${tokens.radii.inputBorderRadius};
@@ -24,6 +24,7 @@ const InlineField = styled(InlineStyle)`
 		top: 1px;
 		left: 1px;
 		width: 1rem;
+		cursor: pointer;
 	}
 
 	// FIXME
@@ -33,13 +34,23 @@ const InlineField = styled(InlineStyle)`
 		}
 
 		path {
-			fill: ${({ readOnly, theme }) =>
-				readOnly ? 'currentColor' : theme.colors.inputBackgroundColor};
+			fill: ${({ readOnly, theme }) => (readOnly ? 'currentColor' : theme.colors.backgroundColor)};
 		}
 	}
 `;
 
-function Checkbox({ label, indeterminate, checked, readOnly, ...rest }) {
+export type CheckboxProps = HTMLInputElement & {
+	label: string;
+};
+
+const Checkbox = ({
+	id = `checkbox--${Date.now()}`,
+	label,
+	indeterminate,
+	checked,
+	readOnly,
+	...rest
+}: CheckboxProps) => {
 	const checkbox = useCheckboxState({ state: (indeterminate && 'indeterminate') || checked });
 
 	const icon =
@@ -51,14 +62,19 @@ function Checkbox({ label, indeterminate, checked, readOnly, ...rest }) {
 
 	return (
 		<InlineField readOnly={readOnly} checked={checked}>
-			{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-			<label>
-				{!readOnly && <ReakitCheckbox {...rest} {...checkbox} />}
+			<label htmlFor={id}>
+				{!readOnly && (
+					<>
+						{/*
+						// @ts-ignore */}
+						<ReakitCheckbox id={id} {...rest} {...checkbox} />
+					</>
+				)}
 				<span>{label}</span>
 				{icon}
 			</label>
 		</InlineField>
 	);
-}
+};
 
 export default Checkbox;
