@@ -205,13 +205,14 @@ class ActionDropdown extends React.Component {
 			className,
 			loading,
 			children,
+			ellipsis,
 			t = getDefaultT(),
 			...rest
 		} = this.props;
 
 		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
-		const title = [
+		const title = !ellipsis && [
 			icon && <Icon name={icon} transform={iconTransform} key="icon" />,
 			!hideLabel && (
 				<span className="tc-dropdown-button-title-label" key="label">
@@ -234,7 +235,7 @@ class ActionDropdown extends React.Component {
 				})}
 			/>,
 		].filter(Boolean);
-		const style = link ? 'link' : bsStyle;
+		const style = (link || ellipsis) ? 'link' : bsStyle;
 
 		function onItemSelect(object, event) {
 			if (onSelect) {
@@ -248,7 +249,9 @@ class ActionDropdown extends React.Component {
 				bsStyle={style}
 				role="button"
 				onSelect={onItemSelect}
-				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
+				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className, {
+					[theme.ellipsis]: ellipsis,
+				})}
 				aria-label={tooltipLabel || label}
 				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
@@ -284,7 +287,7 @@ class ActionDropdown extends React.Component {
 			</Renderers.DropdownButton>
 		);
 
-		if (hideLabel || tooltipLabel) {
+		if (hideLabel || tooltipLabel || ellipsis) {
 			return (
 				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 					{dropdown}
@@ -324,6 +327,7 @@ ActionDropdown.propTypes = {
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	loading: PropTypes.bool,
+	ellipsis: PropTypes.bool,
 	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,

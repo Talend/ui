@@ -41,7 +41,7 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
     />
     <withI18nextTranslation(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
-      hideLabel={true}
+      ellipsis={true}
       id="my-actions-ellispsis-actions"
       items={
         Array [
@@ -62,7 +62,6 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
         ]
       }
       label="Open menu"
-      link={true}
       t={[Function]}
     />
   </div>
@@ -221,7 +220,7 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
     />
     <withI18nextTranslation(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
-      hideLabel={true}
+      ellipsis={true}
       id="my-actions-ellispsis-actions"
       items={
         Array [
@@ -249,7 +248,6 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
         ]
       }
       label="Open menu"
-      link={true}
       t={[Function]}
     />
   </div>
@@ -329,7 +327,7 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
     />
     <withI18nextTranslation(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
-      hideLabel={true}
+      ellipsis={true}
       id="my-actions-ellispsis-actions"
       items={
         Array [
@@ -371,7 +369,6 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
         ]
       }
       label="Open menu"
-      link={true}
       t={[Function]}
     />
   </div>

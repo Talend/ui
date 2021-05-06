@@ -102,6 +102,25 @@ describe('ActionDropdown', () => {
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 
+
+	it('should render an ellipsis dropdown', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'related items',
+			icon: 'fa fa-file-excel-o',
+			items,
+			tooltipPlacement: 'right',
+			ellipsis: true,
+		};
+
+		// when
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
+
+		// then
+		expect(wrapper.html()).toMatchSnapshot();
+	});
+
 	it('should render a button with "link" theme', () => {
 		// given
 		const props = {

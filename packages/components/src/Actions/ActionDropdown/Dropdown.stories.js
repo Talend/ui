@@ -211,6 +211,10 @@ storiesOf('Buttons/Dropdown', module).add('default', () => (
 		<div id="hidelabel">
 			<ActionDropdown {...myAction} hideLabel />
 		</div>
+		<h3>With ellipsis option</h3>
+		<div id="ellipsis">
+			<ActionDropdown {...myAction} ellipsis />
+		</div>
 		<h3>Empty option</h3>
 		<div id="empty">
 			<ActionDropdown {...myAction} items={[]} hideLabel />
