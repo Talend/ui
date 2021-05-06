@@ -26,7 +26,12 @@ Types of changes
 
 ## [unreleased]
 
+### Fixed
+
+-   Fix translation key
+
 ## [3.4.1]
+
 ### Security
 
 - Upgrade dependencies
@@ -35,31 +40,31 @@ Types of changes
 
 ### Added
 
-- Add initial badges support
+-   Add initial badges support
 
 ## [3.3.3]
 
 ### Fixed
 
-- Fix Expose BadgeCheckboxesForm
+-   Fix Expose BadgeCheckboxesForm
 
 ## [3.3.2]
 
 ### Fixed
 
-- Expose BadgeCheckboxesForm
+-   Expose BadgeCheckboxesForm
 
 ## [3.3.1]
 
 ### Fixed
 
-- Expose all badges components
+-   Expose all badges components
 
 ## [3.3.0]
 
 ### Added
 
-- Ability to customize Badge Checkboxes Form placeholder
+-   Ability to customize Badge Checkboxes Form placeholder
 
 ## [3.2.0]
 
