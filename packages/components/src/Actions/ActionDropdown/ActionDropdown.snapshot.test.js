@@ -102,7 +102,6 @@ describe('ActionDropdown', () => {
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 
-
 	it('should render an ellipsis dropdown', () => {
 		// given
 		const props = {

@@ -212,30 +212,32 @@ class ActionDropdown extends React.Component {
 
 		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
-		const title = !ellipsis && [
-			icon && <Icon name={icon} transform={iconTransform} key="icon" />,
-			!hideLabel && (
-				<span className="tc-dropdown-button-title-label" key="label">
-					{label}
-				</span>
-			),
-			badge && (
-				<Tag
-					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
-					bsStyle={badge.bsStyle || 'default'}
-				>
-					{getTabBarBadgeLabel(badge.label)}
-				</Tag>
-			),
-			<Icon
-				key="caret"
-				name="talend-caret-down"
-				className={classNames(theme['tc-dropdown-caret'], {
-					[theme['tc-dropdown-caret-open']]: this.state.isOpen,
-				})}
-			/>,
-		].filter(Boolean);
-		const style = (link || ellipsis) ? 'link' : bsStyle;
+		const title =
+			!ellipsis &&
+			[
+				icon && <Icon name={icon} transform={iconTransform} key="icon" />,
+				!hideLabel && (
+					<span className="tc-dropdown-button-title-label" key="label">
+						{label}
+					</span>
+				),
+				badge && (
+					<Tag
+						className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
+						bsStyle={badge.bsStyle || 'default'}
+					>
+						{getTabBarBadgeLabel(badge.label)}
+					</Tag>
+				),
+				<Icon
+					key="caret"
+					name="talend-caret-down"
+					className={classNames(theme['tc-dropdown-caret'], {
+						[theme['tc-dropdown-caret-open']]: this.state.isOpen,
+					})}
+				/>,
+			].filter(Boolean);
+		const style = link || ellipsis ? 'link' : bsStyle;
 
 		function onItemSelect(object, event) {
 			if (onSelect) {
