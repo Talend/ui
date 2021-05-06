@@ -14,22 +14,20 @@ function hasChildren(item) {
  * @param {String} searchCriteria
  * @returns {Array}
  */
-export function getDisplayedItems(items, value, searchCriteria = '') {
-	const textFilter = searchCriteria.toLowerCase();
+export function getDisplayedItems(items, value, searchCriteria) {
+	const textFilter = searchCriteria ? searchCriteria.toLowerCase() : '';
 
 	const checkedItems = items
-		.map(item => {
+		.reduce((acc, item) => {
 			const newChildren = item.children.map(child => ({
 				...child,
 				checked: (value[item.key] || []).includes(child.value),
 			}));
-
-			return {
-				...item,
-				checked: newChildren.some(child => child.checked),
-				children: newChildren,
-			};
-		})
+			return [
+				...acc,
+				{ ...item, checked: newChildren.some(child => child.checked), children: newChildren },
+			];
+		}, [])
 		.filter(hasChildren);
 
 	return checkedItems.reduce((filtered, item) => {
