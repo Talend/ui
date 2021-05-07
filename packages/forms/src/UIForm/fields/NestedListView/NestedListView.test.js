@@ -355,16 +355,17 @@ describe('NestedListView utils', () => {
 
 		it('should filter displayed parent items according to given search criteria', () => {
 			// given
-			const searchCriteria = 'foo';
+			const searchCriteria = 'bar';
 
 			// when
 			const displayedItems = getDisplayedItems(items, value, searchCriteria);
 
 			// then
 			expect(displayedItems).toHaveLength(1); // Number of displayed items and sub items
-			expect(displayedItems[0].children).toHaveLength(2);
-			expect(displayedItems[0].checked).toBe(true); // Sections checked
-			expect(displayedItems[0].children[0].checked).toBe(true); // Elements checked
+			expect(displayedItems[0].children).toHaveLength(3);
+			expect(displayedItems[0].checked).toBe(false); // Sections checked
+			expect(displayedItems[0].children[0].checked).toBe(false); // Elements checked
+			expect(displayedItems[0].children[1].checked).toBe(false);
 			expect(displayedItems[0].children[1].checked).toBe(false);
 		});
 	});
