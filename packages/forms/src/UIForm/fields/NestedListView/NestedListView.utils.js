@@ -15,7 +15,7 @@ function hasChildren(item) {
  * @returns {Array}
  */
 export function getDisplayedItems(items, value, searchCriteria) {
-	const textFilter = searchCriteria ? searchCriteria.toLowerCase() : '';
+	const textCriteria = searchCriteria ? searchCriteria.toLowerCase() : '';
 
 	const checkedItems = items
 		.reduce((acc, item) => {
@@ -31,12 +31,12 @@ export function getDisplayedItems(items, value, searchCriteria) {
 		.filter(hasChildren);
 
 	return checkedItems.reduce((filtered, item) => {
-		if (item.label.toLowerCase().includes(textFilter)) {
+		if (item.label.toLowerCase().includes(textCriteria)) {
 			return [...filtered, item];
 		}
 
 		const filteredChildren = item.children.filter(child =>
-			child.label.toLowerCase().includes(textFilter),
+			child.label.toLowerCase().includes(textCriteria),
 		);
 
 		return filteredChildren.length > 0

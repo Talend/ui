@@ -352,5 +352,20 @@ describe('NestedListView utils', () => {
 			expect(displayedItems[0].children[0].checked).toBe(false); // Elements checked
 			expect(displayedItems[1].children[0].checked).toBe(false);
 		});
+
+		it('should filter displayed parent items according to given search criteria', () => {
+			// given
+			const searchCriteria = 'foo';
+
+			// when
+			const displayedItems = getDisplayedItems(items, value, searchCriteria);
+
+			// then
+			expect(displayedItems).toHaveLength(1); // Number of displayed items and sub items
+			expect(displayedItems[0].children).toHaveLength(2);
+			expect(displayedItems[0].checked).toBe(true); // Sections checked
+			expect(displayedItems[0].children[0].checked).toBe(true); // Elements checked
+			expect(displayedItems[0].children[1].checked).toBe(false);
+		});
 	});
 });
