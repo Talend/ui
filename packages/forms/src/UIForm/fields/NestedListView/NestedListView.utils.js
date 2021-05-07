@@ -17,32 +17,30 @@ function hasChildren(item) {
 export function getDisplayedItems(items, value, searchCriteria) {
 	const textCriteria = searchCriteria ? searchCriteria.toLowerCase() : '';
 
-	const checkedItems = items
+	return items
 		.reduce((acc, item) => {
 			const newChildren = item.children.map(child => ({
 				...child,
 				checked: (value[item.key] || []).includes(child.value),
 			}));
-			return [
-				...acc,
-				{ ...item, checked: newChildren.some(child => child.checked), children: newChildren },
-			];
-		}, [])
-		.filter(hasChildren);
+			const newItem = { ...item, checked: newChildren.some(child => child.checked), children: newChildren };
+			if (!hasChildren(newItem)) {
+				return acc;
+			}
+			if (!newItem.label.toLowerCase().includes(textCriteria)) {
+				const filteredChildren = newItem.children.filter(child =>
+					child.label.toLowerCase().includes(textCriteria),
+				);
 
-	return checkedItems.reduce((filtered, item) => {
-		if (item.label.toLowerCase().includes(textCriteria)) {
-			return [...filtered, item];
-		}
-
-		const filteredChildren = item.children.filter(child =>
-			child.label.toLowerCase().includes(textCriteria),
-		);
-
-		return filteredChildren.length > 0
-			? [...filtered, { ...item, children: filteredChildren }]
-			: filtered;
-	}, []);
+				if (filteredChildren.length > 0) {
+					newItem.children = filteredChildren;
+				} else {
+					return acc;
+				}
+			}
+			acc.push(newItem);
+			return acc;
+		}, []);
 }
 
 /**
