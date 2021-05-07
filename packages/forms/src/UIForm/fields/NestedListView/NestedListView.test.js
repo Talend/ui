@@ -39,12 +39,18 @@ describe('NestedListView component', () => {
 					{
 						key: ['bar'],
 						title: 'Bar',
-						titleMap: [{ name: 'Bar 1', value: 'bar_1' }, { name: 'Bar 2', value: 'bar_2' }],
+						titleMap: [
+							{ name: 'Bar 1', value: 'bar_1' },
+							{ name: 'Bar 2', value: 'bar_2' },
+						],
 					},
 					{
 						key: ['foo'],
 						title: 'Foo',
-						titleMap: [{ name: 'Foo 1', value: 'foo_1' }, { name: 'Foo 2', value: 'foo_2' }],
+						titleMap: [
+							{ name: 'Foo 1', value: 'foo_1' },
+							{ name: 'Foo 2', value: 'foo_2' },
+						],
 					},
 				],
 				value: {},
@@ -264,7 +270,10 @@ describe('NestedListView utils', () => {
 					{
 						title: 'Bar',
 						key: ['foo', 'bar'],
-						titleMap: [{ label: 'Baz', value: 'baz' }, { label: 'Boo', value: 'boo' }],
+						titleMap: [
+							{ label: 'Baz', value: 'baz' },
+							{ label: 'Boo', value: 'boo' },
+						],
 					},
 				],
 				required: true,
@@ -294,7 +303,10 @@ describe('NestedListView utils', () => {
 			{
 				key: 'foo',
 				label: 'Foo',
-				children: [{ label: 'Foo 1', value: 'foo_1' }, { label: 'Foo 2', value: 'foo_2' }],
+				children: [
+					{ label: 'Foo 1', value: 'foo_1' },
+					{ label: 'Foo 2', value: 'foo_2' },
+				],
 			},
 			{
 				key: 'bar',
