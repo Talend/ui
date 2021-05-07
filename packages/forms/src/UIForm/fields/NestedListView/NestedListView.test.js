@@ -294,7 +294,10 @@ describe('NestedListView utils', () => {
 			{
 				key: 'fruits',
 				label: 'Fruits',
-				children: [{ label: 'Orange', value: 'orange' }, { label: 'Apple', value: 'apple' }],
+				children: [
+					{ label: 'Orange', value: 'orange' },
+					{ label: 'Apple', value: 'apple' },
+				],
 			},
 			{
 				key: 'vegetables',
