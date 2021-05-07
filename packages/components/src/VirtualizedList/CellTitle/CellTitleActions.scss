@@ -23,19 +23,6 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 			content: '|';
 			color: $dark-silver;
 		}
-
-		.cell-title-actions-menu {
-			&:after {
-				content: $tc-list-title-actions-ellipsis;
-				font-size: 2em;
-				font-weight: bold;
-				vertical-align: inherit;
-			}
-
-			+ ul {
-				min-width: auto;
-			}
-		}
 	}
 
 	:global {

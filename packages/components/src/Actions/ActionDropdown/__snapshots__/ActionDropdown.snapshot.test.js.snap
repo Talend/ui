@@ -179,6 +179,53 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
 </div>
 `;
 
+exports[`ActionDropdown should render an ellipsis dropdown 1`] = `
+<div class="dropdown btn-group btn-group-link">
+  <button aria-label="related items"
+          aria-describedby="42"
+          id="dropdown-id"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button theme-ellipsis dropdown-toggle btn btn-link"
+  >
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="dropdown-id"
+  >
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a icon="talend-icon"
+         label="document 1"
+         title="document 1"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        <coral.icon name="talend-icon">
+        </coral.icon>
+        document 1
+      </a>
+    </li>
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a label="document 2"
+         title="document 2"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
 <div class="dropdown btn-group btn-group-default">
   <button aria-label="related items"

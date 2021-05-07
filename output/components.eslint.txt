@@ -275,8 +275,8 @@
   63:2  error  defaultProp "columnData" defined for isRequired propType  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
-  171:3  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
-  199:2  error  defaultProp "t" defined for isRequired propType          react/default-props-match-prop-types
+  170:3  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
+  198:2  error  defaultProp "t" defined for isRequired propType          react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.component.js
   54:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
