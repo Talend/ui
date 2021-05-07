@@ -1,16 +1,16 @@
-import i18next, { createInstance } from 'i18next';
+import i18next from 'i18next';
 import { setI18n, getI18n } from 'react-i18next';
 
 if (!getI18n()) {
 	// eslint-disable-next-line no-console
 	console.warn('@talend/react-components used without i18n host.');
 	// https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-	setI18n(createInstance({}, () => {}));
+	setI18n(i18next.createInstance({}, () => {}));
 }
 
 export function getI18nInstance() {
 	if (!getI18n()) {
-		return createInstance({}, () => {});
+		return i18next.createInstance({}, () => {});
 	}
 	return i18next;
 }
