@@ -1,5 +1,5 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { FigmaImage, FigmaLink, Use } from '../../../docs';
+import { FigmaImage, FigmaLink, Use, WithSelector } from '../../../docs';
 import { IconsProvider } from '../../IconsProvider';
 import Link from '../';
 
@@ -29,6 +29,16 @@ Still need to be convinced? Please, take the time to read [this article written 
 <Canvas>
 	<Story name="default">
 		<Link href="#">Link example</Link>
+	</Story>
+	<Story name="hover">
+		<WithSelector selector=":hover">
+			<Link href="#">Link example</Link>
+		</WithSelector>
+	</Story>
+	<Story name="active">
+		<WithSelector selector=":active">
+			<Link href="#">Link example</Link>
+		</WithSelector>
 	</Story>
 </Canvas>
 

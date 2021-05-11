@@ -12,6 +12,7 @@ import Themes from './Themes.component';
 import Row from './Row.component';
 import { Use } from './Use.component';
 import { Icons } from './Icons.component';
+import WithSelector from './WithSelector.component';
 
 export {
 	Card,
@@ -28,4 +29,5 @@ export {
 	Table,
 	Themes,
 	Use,
+	WithSelector,
 };
