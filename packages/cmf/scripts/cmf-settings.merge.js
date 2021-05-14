@@ -83,6 +83,9 @@ function merge(options, errorCallback) {
 				overrideRoutes(route, settings);
 			});
 		}
+		if (settings.routes && options.publicPath) {
+			settings.routes.path = options.publicPath;
+		}
 		if (settings.overrideActions) {
 			Object.keys(settings.overrideActions).forEach(id => {
 				overrideActions(id, settings);

@@ -7,6 +7,7 @@ program
 	.version('0.0.2')
 	.option('-d, --dev', 'dev sources instead of sources')
 	.option('-q, --quiet', 'display nothing')
+	.option('-p, --public-path <type>', 'publicPath of webpack to rewrite routes')
 	.option('-r, --recursive', 'allow recursive search for json files')
 	.parse(process.argv);
 
