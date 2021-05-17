@@ -59,7 +59,7 @@
   94:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
-  66:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  69:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/Manager/Manager.component.js
    81:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
