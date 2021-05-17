@@ -102,6 +102,9 @@ describe('#handleHttpResponse', () => {
 			}),
 		).catch(response => {
 			expect(response instanceof Error).toBe(true);
+			expect(response.data).toEqual({
+				foo: 42,
+			});
 			done();
 		});
 	});
