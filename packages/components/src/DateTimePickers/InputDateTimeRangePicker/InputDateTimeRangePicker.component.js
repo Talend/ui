@@ -49,7 +49,10 @@ function InputDateTimeRangePicker(props) {
 			// delay for the display to update
 			setTimeout(() => {
 				const rangeContainer = containerRef.current;
-				if (rangeContainer && rangeContainer.scrollWidth > rangeContainer.offsetParent.offsetWidth) {
+				if (
+					rangeContainer &&
+					rangeContainer.scrollWidth > rangeContainer.offsetParent.offsetWidth
+				) {
 					setVertical(true);
 				}
 			});
