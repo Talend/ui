@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^5.11.1",
+    "@talend/http": "./packages/http",
     "deepmerge": "^1.5.1",
     "hoist-non-react-statics": "^2.5.5",
     "immutable": "^3.8.1",

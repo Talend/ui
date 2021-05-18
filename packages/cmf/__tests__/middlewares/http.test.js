@@ -1,3 +1,4 @@
+import { interceptors } from '@talend/http';
 import http from '../../src/middlewares/http';
 
 import {
@@ -11,7 +12,6 @@ import {
 	status,
 	handleResponse,
 } from '../../src/middlewares/http/middleware';
-import interceptors from '../../src/httpInterceptors';
 
 import {
 	HTTP_METHODS,

@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { batchedSubscribe } from 'redux-batched-subscribe';
 import { spawn } from 'redux-saga/effects';
 import compose from 'redux';
-
+import { interceptors } from '@talend/http';
 import App from './App';
 import actionCreator from './actionCreator';
 import actions from './actions';
@@ -17,7 +17,6 @@ import registry from './registry';
 import sagas from './sagas';
 import { registerInternals } from './register';
 import cmfModule from './cmfModule';
-import interceptors from './httpInterceptors';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);

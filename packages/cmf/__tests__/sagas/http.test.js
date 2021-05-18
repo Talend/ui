@@ -1,30 +1,20 @@
 import { Headers, Response } from 'node-fetch';
 import { call, put } from 'redux-saga/effects';
+import { interceptors } from '@talend/http';
 import {
 	ACTION_TYPE_HTTP_ERRORS,
 	HTTP_METHODS,
 	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
-import interceptors from '../../src/httpInterceptors';
 
 import http, {
-	getDefaultConfig,
-	handleBody,
-	handleError,
-	handleHttpResponse,
-	httpFetch,
-	HTTPError,
-	encodePayload,
 	wrapFetch,
 	httpGet,
 	httpDelete,
 	httpPatch,
 	httpPost,
 	httpPut,
-	setDefaultConfig,
-	setDefaultLanguage,
 	handleDefaultHttpConfiguration,
-	HTTP,
 } from '../../src/sagas/http';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';

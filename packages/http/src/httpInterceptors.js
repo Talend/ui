@@ -1,12 +1,16 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
-const interceptors = [];
+
+
+// global interceptors
+const interceptors = [
+];
 
 /**
  * @private
  * this function remove all interceptors. Should be used only in tests.
  */
-function _clear() {
+export function _clear() {
 	interceptors.length = 0;
 }
 
@@ -58,7 +62,7 @@ function isInterceptor(interceptor) {
  * Both are simple functions which take the config, response and returns enriched value
  * @param {Object} interceptor object to configure the interception
  */
-function push(interceptor) {
+export function push(interceptor) {
 	if (isInterceptor(interceptor)) {
 		interceptors.push(interceptor);
 	} else {
@@ -99,8 +103,8 @@ function onData(array, data) {
  * @param {Object} config http config object
  * @return {Promise} config object
  */
-function onRequest(config) {
-	const array = interceptors
+export function onRequest(config, customInterceptors = interceptors) {
+	const array = customInterceptors
 		.filter(i => i.request || i.requestError)
 		.map(i => ({ on: i.request, onError: i.requestError }));
 	return onData(array, config);
@@ -111,17 +115,10 @@ function onRequest(config) {
  * @param {Object} response http response object
  * @return {Promise} response object
  */
-function onResponse(response) {
-	const array = interceptors
+export function onResponse(response, customInterceptors = interceptors) {
+	const array = customInterceptors
 		.filter(i => i.response || i.responseError)
 		.map(i => ({ on: i.response, onError: i.responseError }))
 		.reverse();
 	return onData(array, response);
 }
-
-export default {
-	push,
-	onRequest,
-	onResponse,
-	_clear,
-};
