@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import { getTheme } from '../theme';
 
 import Resource from './Resource';
@@ -29,7 +30,7 @@ function ResourceList({
 	rowProps,
 	...rest
 }) {
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const Renderer = getRowSelectionRenderer(Resource, {
 		as: renderAs,
 		getRowData: ({ index }) => collection[index],
