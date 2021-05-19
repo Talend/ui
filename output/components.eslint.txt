@@ -59,7 +59,7 @@
   94:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
-  66:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  69:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/LegacyDateTimePickers/DateTime/Manager/Manager.component.js
    81:2   error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
@@ -224,7 +224,7 @@
   63:31  error  'parent.props.rowCount' is missing in props validation                                          react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/ResourceList/ResourceList.component.js
-  51:3  warning  React Hook React.useCallback has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  52:3  warning  React Hook React.useCallback has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/ResourceList/ResourceList.stories.js
   253:13  error    'collection' is missing in props validation                                                                              react/prop-types
@@ -275,8 +275,8 @@
   63:2  error  defaultProp "columnData" defined for isRequired propType  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
-  171:3  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
-  199:2  error  defaultProp "t" defined for isRequired propType          react/default-props-match-prop-types
+  170:3  error  Static HTML elements with event handlers require a role  jsx-a11y/no-static-element-interactions
+  198:2  error  defaultProp "t" defined for isRequired propType          react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.component.js
   54:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus

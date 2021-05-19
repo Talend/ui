@@ -14,7 +14,7 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 	height: $btn-line-height;
 
 	.cell-title-actions {
-		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
+		background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-hover-bg, 100%) $padding-large);
 		opacity: 0;
 		width: 0;
 		overflow: hidden;
@@ -22,19 +22,6 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 		&:not(:last-child):after {
 			content: '|';
 			color: $dark-silver;
-		}
-
-		.cell-title-actions-menu {
-			&:after {
-				content: $tc-list-title-actions-ellipsis;
-				font-size: 2em;
-				font-weight: bold;
-				vertical-align: inherit;
-			}
-
-			+ ul {
-				min-width: auto;
-			}
 		}
 	}
 
