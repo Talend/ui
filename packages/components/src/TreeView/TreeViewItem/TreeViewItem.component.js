@@ -252,7 +252,7 @@ class TreeViewItem extends React.Component {
 				<div
 					className={classNames('tc-treeview-item', css['tc-treeview-item'], {
 						[css.disabled]: disabled,
-						'disabled': disabled,
+						disabled: disabled,
 					})}
 					style={{ paddingLeft }}
 				>
