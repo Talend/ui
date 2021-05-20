@@ -216,7 +216,8 @@ const structureWithDisabledActions = [
 		],
 	},
 	{
-		name: 'pikachu',
+		id: 'selected',
+		name: 'Selected item',
 		isOpened: true,
 		actions,
 	},
