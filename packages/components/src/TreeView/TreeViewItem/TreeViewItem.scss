@@ -26,6 +26,19 @@ $item-height: 4rem;
 
 		transition: 200ms ease-out;
 
+		&.disabled {
+			opacity: 0.54;
+			cursor: not-allowed;
+
+			.tc-treeview-item-name {
+				color: $black;
+			}
+
+			svg {
+				fill: rgba($black, 0.25);
+			}
+		}
+
 		.tc-treeview-toggle {
 			position: absolute;
 			padding: 1rem;
@@ -90,6 +103,10 @@ $item-height: 4rem;
 
 		:global(.btn-link) {
 			visibility: visible;
+		}
+
+		&.disabled {
+			background: none;
 		}
 	}
 
