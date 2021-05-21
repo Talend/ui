@@ -47,7 +47,14 @@ export class HTTPError extends Error {
  * @param  {Response} response A response object
  * @return {Promise}           A promise that resolves with the result of parsing the body
  */
-export function handleBody(response) {
+export function handleBody(response, method) {
+	if (response.status === HTTP_STATUS.NO_CONTENT || method === HTTP_METHODS.HEAD) {
+		return Promise.resolve({
+			data: '',
+			response,
+		});
+	}
+
 	let methodBody = 'text';
 
 	const headers = get(response, 'headers', new Headers());
@@ -69,12 +76,13 @@ export function handleBody(response) {
  * @param  {Response} response A response object
  * @return {Promise}           A promise that reject with the result of parsing the body
  */
-export function handleError(response) {
+export function handleError(response, { method } = {}) {
 	// in case of network issue
 	if (response instanceof Error) {
 		return new HTTPError({ response, data: response });
 	}
-	return handleBody(response).then(body => new HTTPError(body));
+
+	return handleBody(response, method).then(body => new HTTPError(body));
 }
 
 /**
@@ -85,18 +93,12 @@ export function handleError(response) {
  * - resolves with the result of parsing the body
  * - reject the response
  */
-export function handleHttpResponse(response) {
+export function handleHttpResponse(response, { method } = {}) {
 	if (!testHTTPCode.isSuccess(response.status)) {
 		return Promise.reject(response);
 	}
-	if (response.status === HTTP_STATUS.NO_CONTENT) {
-		return Promise.resolve({
-			data: '',
-			response,
-		});
-	}
 
-	return handleBody(response);
+	return handleBody(response, method);
 }
 /**
  * encodePayload - encore the payload if necessary
@@ -159,8 +161,8 @@ export function httpFetch(url, config, method, payload) {
 			body: encodePayload(params.headers, payload),
 		}),
 	)
-		.then(handleHttpResponse)
-		.catch(handleError);
+		.then(response => handleHttpResponse(response, params))
+		.catch(response => handleError(response, params));
 }
 
 /**
@@ -284,6 +286,21 @@ export function* httpGet(url, config, options) {
 }
 
 /**
+ * function - fetch a url with GET method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.get, '/foo');
+ */
+export function* httpHead(url, config, options) {
+	return yield* wrapFetch(url, config, HTTP_METHODS.HEAD, undefined, options);
+}
+
+/**
  * setDefaultHeader - define a default config to use with the saga http
  * this default config is stored in this module for the whole application
  *
@@ -344,6 +361,7 @@ export function getDefaultConfig() {
 export default {
 	delete: httpDelete,
 	get: httpGet,
+	head: httpHead,
 	post: httpPost,
 	put: httpPut,
 	patch: httpPatch,
@@ -368,6 +386,9 @@ export default {
 			},
 			patch: function* configuredPatch(url, payload, config = {}, options = {}) {
 				return yield call(httpPatch, url, payload, configEnhancer(config), options);
+			},
+			head: function* configuredPatch(url, config = {}, options = {}) {
+				return yield call(httpHead, url, configEnhancer(config), options);
 			},
 		};
 	},
