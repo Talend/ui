@@ -120,6 +120,26 @@ describe('TreeView item', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('test disabled item not calling onSelect', () => {
+		// when
+		const onSelect = jest.fn();
+		const stopPropagation = jest.fn();
+		const props = {
+			...defaultProps,
+			item: {
+				...defaultProps.item,
+				disabled: true,
+			}
+		};
+
+		const wrapper = shallow(<TreeViewItem {...props} onSelect={onSelect} />);
+		wrapper.find('li').simulate('click', { stopPropagation });
+
+		// then
+		expect(onSelect.mock.calls.length).toBe(0);
+		expect(stopPropagation.mock.calls.length).toBe(1);
+	});
+
 	it('should render items with icon and tooltip', () => {
 		// when
 		const propsWithIconAndTooltip = {

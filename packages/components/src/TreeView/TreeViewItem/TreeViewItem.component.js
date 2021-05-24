@@ -232,7 +232,7 @@ class TreeViewItem extends React.Component {
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
 				onClick={e => {
 					e.stopPropagation();
-					return onSelect(e, item);
+					return !disabled && onSelect(e, item);
 				}}
 				onKeyDown={e =>
 					onKeyDown(e, this.containerRef, {
