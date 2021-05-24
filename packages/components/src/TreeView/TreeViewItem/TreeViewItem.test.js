@@ -129,7 +129,7 @@ describe('TreeView item', () => {
 			item: {
 				...defaultProps.item,
 				disabled: true,
-			}
+			},
 		};
 
 		const wrapper = shallow(<TreeViewItem {...props} onSelect={onSelect} />);
@@ -149,12 +149,7 @@ describe('TreeView item', () => {
 
 		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);
 
-		expect(
-			wrapper
-				.find('TreeViewIcon')
-				.dive()
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.find('TreeViewIcon').dive().getElement()).toMatchSnapshot();
 	});
 
 	it('should toggle item on toggle button click', () => {
