@@ -1,7 +1,19 @@
 import React, { lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import TextareaWidget from 'react-jsonschema-form/lib/components/widgets/TextareaWidget';
-import { importFromCDN } from '@talend/react-components';
+import { importFromCDN, Skeleton } from '@talend/react-components';
+
+function CodeSkeleton() {
+	return (
+		<div>
+			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />
+			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+			<Skeleton type={Skeleton.TYPES.button} />
+		</div>
+	);
+}
 
 const AceEditor = lazy(() =>
 	importFromCDN({
@@ -54,7 +66,7 @@ try {
 				delete contextProps.setOptions;
 			}
 			return (
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<CodeSkeleton />}>
 					<AceEditor
 						className="tf-widget-code form-control"
 						focus={autofocus || false}
