@@ -23,7 +23,6 @@ const AceEditor = lazy(() =>
 	}),
 );
 
-
 const SET_OPTIONS = {
 	enableBasicAutocompletion: true,
 	enableLiveAutocompletion: true,
@@ -31,7 +30,6 @@ const SET_OPTIONS = {
 };
 
 function AceCodeWidget(props) {
-
 	function onChange(value) {
 		if (props.onChange) {
 			props.onChange(value);
@@ -77,7 +75,6 @@ function AceCodeWidget(props) {
 		</Suspense>
 	);
 }
-
 
 if (process.env.NODE_ENV !== 'production') {
 	AceCodeWidget.propTypes = {

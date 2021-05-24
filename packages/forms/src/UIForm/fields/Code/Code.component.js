@@ -49,10 +49,7 @@ function Code(props) {
 		if (editor) {
 			const textarea = editor.textInput.getElement();
 			textarea.setAttribute('id', id);
-			textarea.setAttribute(
-				'aria-describedby',
-				`${instructionsId} ${descriptionId} ${errorId}`,
-			);
+			textarea.setAttribute('aria-describedby', `${instructionsId} ${descriptionId} ${errorId}`);
 		}
 	}, [editor, instructionsId, descriptionId, errorId, id]);
 
