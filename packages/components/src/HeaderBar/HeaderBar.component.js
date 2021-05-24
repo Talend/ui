@@ -219,6 +219,21 @@ function HeaderBar(props) {
 	const AppSwitcherComponent =
 		props.AppSwitcher || Inject.get(props.getComponent, 'AppSwitcher', AppSwitcher);
 
+	let notificationCenter;
+	const { NotificationCenter } = props;
+	if (NotificationCenter) {
+		notificationCenter = <NotificationCenter />;
+	} else if (props.notification) {
+		console.warn('Deprecated: use @talend/notification-center');
+		notificationCenter = (
+			<Components.AppNotification
+				getComponent={props.getComponent}
+				{...props.notification}
+				t={props.t}
+			/>
+		);
+	}
+
 	let intercom;
 	const { Intercom: CustomIntercom } = props;
 	if (CustomIntercom) {
@@ -242,13 +257,7 @@ function HeaderBar(props) {
 					<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
 				)}
 				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
-				{props.notification && (
-					<Components.AppNotification
-						getComponent={props.getComponent}
-						{...props.notification}
-						t={props.t}
-					/>
-				)}
+				{notificationCenter}
 				{intercom && (
 					<li
 						role="presentation"
@@ -363,6 +372,7 @@ if (process.env.NODE_ENV !== 'production') {
 	HeaderBar.propTypes = {
 		AppSwitcher: PropTypes.func,
 		Intercom: PropTypes.func,
+		NotificationCenter: PropTypes.func,
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape({
 			isSeparated: PropTypes.bool,
