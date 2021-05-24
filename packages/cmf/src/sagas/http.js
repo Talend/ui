@@ -47,7 +47,7 @@ export class HTTPError extends Error {
  * @param  {Response} response A response object
  * @return {Promise}           A promise that resolves with the result of parsing the body
  */
-export function handleBody(response, method) {
+export function handleBody(response, { method } = {}) {
 	if (response.status === HTTP_STATUS.NO_CONTENT || method === HTTP_METHODS.HEAD) {
 		return Promise.resolve({
 			data: '',
@@ -76,13 +76,13 @@ export function handleBody(response, method) {
  * @param  {Response} response A response object
  * @return {Promise}           A promise that reject with the result of parsing the body
  */
-export function handleError(response, { method } = {}) {
+export function handleError(response, request = {}) {
 	// in case of network issue
 	if (response instanceof Error) {
 		return new HTTPError({ response, data: response });
 	}
 
-	return handleBody(response, method).then(body => new HTTPError(body));
+	return handleBody(response, request).then(body => new HTTPError(body));
 }
 
 /**
@@ -93,12 +93,12 @@ export function handleError(response, { method } = {}) {
  * - resolves with the result of parsing the body
  * - reject the response
  */
-export function handleHttpResponse(response, { method } = {}) {
+export function handleHttpResponse(response, request = {}) {
 	if (!testHTTPCode.isSuccess(response.status)) {
 		return Promise.reject(response);
 	}
 
-	return handleBody(response, method);
+	return handleBody(response, request);
 }
 /**
  * encodePayload - encore the payload if necessary
