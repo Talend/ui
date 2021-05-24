@@ -65,7 +65,7 @@
     "enzyme": "^3.11.0",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.4",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.6.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
@@ -79,5 +79,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.17.0"
+  "version": "6.25.0"
 }

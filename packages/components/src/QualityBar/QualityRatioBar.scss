@@ -16,3 +16,8 @@
 	@extend .tc-ratio-bar-lines;
 	background-color: $chestnut-rose;
 }
+
+.tc-ratio-bar-line-quality-na {
+	@extend .tc-ratio-bar-lines;
+	background-color: $alto;
+}

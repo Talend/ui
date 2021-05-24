@@ -1,12 +1,13 @@
 {
   "name": "@talend/router-bridge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bridge on top of cmf-router or react-router v5 + connected-react-router",
   "main": "lib/index.js",
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "prepublishOnly": "yarn build:dev && yarn build:prod",
+    "prepare": "talend-scripts build:lib",
     "build": "talend-scripts build:lib",
     "test": "talend-scripts test"
   },

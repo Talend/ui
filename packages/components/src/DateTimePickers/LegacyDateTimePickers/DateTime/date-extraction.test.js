@@ -674,6 +674,102 @@ describe('Date extraction', () => {
 				errors: [],
 			});
 		});
+
+		it('should extract date only with valid date in hybrid mode', () => {
+			// given
+			const textInput = '2018-12-25';
+			const options = { dateFormat: 'YYYY-MM-DD', hybridMode: true };
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2018, 11, 25),
+				time: { hours: '', minutes: '', seconds: '' },
+				datetime: new Date(2018, 11, 25),
+				textInput,
+				errorMessage: null,
+				errors: [],
+			});
+		});
+
+		it('should extract time only with valid time in hybrid mode', () => {
+			// given
+			const textInput = '14:33:00';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				hybridMode: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				date: undefined,
+				time: { hours: '14', minutes: '33', seconds: '00' },
+				datetime: undefined,
+				textInput,
+				errorMessage: null,
+				errors: [],
+			});
+		});
+
+		it('should extract valid datetime in hybrid mode', () => {
+			// given
+			const textInput = '2018-12-25 22:58:12';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+				hybridMode: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2018, 11, 25),
+				time: { hours: '22', minutes: '58', seconds: '12' },
+				datetime: new Date(2018, 11, 25, 22, 58, 12),
+				textInput,
+				errorMessage: null,
+				errors: [],
+			});
+		});
+
+		it('should extract an invalid date in hybrid mode', () => {
+			// given
+			const textInput = '2018-12-44';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				hybridMode: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				date: undefined,
+				time: { hours: '', minutes: '', seconds: '' },
+				datetime: undefined,
+				textInput,
+				errorMessage: "Day value doesn't match an existing day in the month",
+				errors: [
+					{
+						code: 'INVALID_DAY_OF_MONTH',
+						message: "Day value doesn't match an existing day in the month",
+					},
+				],
+			});
+		});
 	});
 
 	describe('getFullDateFormat', () => {
