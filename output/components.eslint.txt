@@ -265,8 +265,8 @@
   104:2  error  defaultProp "id" defined for isRequired propType  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
-   98:3  error  defaultProp "level" defined for isRequired propType  react/default-props-match-prop-types
-  209:4  error  'item.hidden' is missing in props validation         react/prop-types
+   99:3  error  defaultProp "level" defined for isRequired propType  react/default-props-match-prop-types
+  210:4  error  'item.hidden' is missing in props validation         react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.js
   90:3  warning  React Hook useMemo has an unnecessary dependency: 'items'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps

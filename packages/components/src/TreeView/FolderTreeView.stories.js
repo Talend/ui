@@ -188,6 +188,41 @@ const structureWithActions = [
 	},
 ];
 
+const structureWithDisabledActions = [
+	{
+		name: 'doge',
+		isOpened: true,
+		children: [
+			{
+				name: 'dogecoin',
+				actions,
+			},
+		],
+		actions,
+	},
+	{
+		name: 'hitmonlee',
+		isOpened: false,
+		disabled: true,
+		icon: {
+			name: 'talend-warning',
+			tooltipLabel: 'New version of the Pokemon is available',
+		},
+		children: [
+			{
+				name: 'raichu',
+				actions,
+			},
+		],
+	},
+	{
+		id: 'selected',
+		name: 'Selected item',
+		isOpened: true,
+		actions,
+	},
+];
+
 const defaultProps = {
 	id: 'my-treeview',
 	structure,
@@ -217,6 +252,12 @@ const withActions = {
 	...withAddAction,
 };
 withActions.structure = structureWithActions;
+
+const withDisabledItems = {
+	...withAddAction,
+};
+
+withDisabledItems.structure = structureWithDisabledActions;
 
 const hugeStructure = [
 	{
@@ -394,6 +435,20 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<h3>Default property-set with remove action example: </h3>
 			<div style={style}>
 				<TreeView {...withActions} />
+			</div>
+		</div>
+	))
+	.add('with disabled items', () => (
+		<div>
+			<h1>TreeView</h1>
+			<h3>Definition</h3>
+			<p>
+				When an element cannot be selected the whole line is 0.54 opacity, with a not-allowed
+				cursor.
+			</p>
+			<h3>An example with disabled items: </h3>
+			<div style={style}>
+				<TreeView {...withDisabledItems} />
 			</div>
 		</div>
 	))
