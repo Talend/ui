@@ -236,7 +236,8 @@ class TreeViewItem extends React.Component {
 					return !disabled && onSelect(e, item);
 				}}
 				onKeyDown={e =>
-					!disabled && onKeyDown(e, this.containerRef, {
+					!disabled &&
+					onKeyDown(e, this.containerRef, {
 						...item,
 						hasChildren: children.length,
 						isOpened,
