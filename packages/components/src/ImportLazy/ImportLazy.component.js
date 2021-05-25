@@ -28,7 +28,7 @@ export function ImportLazy(props) {
 		setAdded(true);
 	}
 	if (added && loaded) {
-        console.log(props.children);
+		console.log(props.children);
 		if (typeof props.children[0] === 'function') {
 			return props.children[0](loaded);
 		}

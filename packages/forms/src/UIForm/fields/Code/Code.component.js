@@ -100,7 +100,13 @@ function Code(props) {
 						defaultValue: 'To focus out of the editor, press ESC key twice.',
 					})}
 				</div>
-				<ImportLazy skeleton={<CodeSkeleton />} name="react-ace" version="6.2.0" varName="ReactAce" path="/dist/react-ace.min.js">
+				<ImportLazy
+					skeleton={<CodeSkeleton />}
+					name="react-ace"
+					version="6.2.0"
+					varName="ReactAce"
+					path="/dist/react-ace.min.js"
+				>
 					{AceEditor => (
 						<AceEditor
 							key="ace"
