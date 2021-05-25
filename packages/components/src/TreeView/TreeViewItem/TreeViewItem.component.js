@@ -229,13 +229,14 @@ class TreeViewItem extends React.Component {
 				aria-posinset={index}
 				aria-setsize={siblings.length}
 				aria-selected={this.isSelected()}
+				aria-disabled={disabled}
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
 				onClick={e => {
 					e.stopPropagation();
 					return !disabled && onSelect(e, item);
 				}}
 				onKeyDown={e =>
-					onKeyDown(e, this.containerRef, {
+					!disabled && onKeyDown(e, this.containerRef, {
 						...item,
 						hasChildren: children.length,
 						isOpened,

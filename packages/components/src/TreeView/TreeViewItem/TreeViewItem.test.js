@@ -134,10 +134,12 @@ describe('TreeView item', () => {
 
 		const wrapper = shallow(<TreeViewItem {...props} onSelect={onSelect} />);
 		wrapper.find('li').simulate('click', { stopPropagation });
+		wrapper.find('li').simulate('keyDown', { keyCode: 13 });
 
 		// then
 		expect(onSelect.mock.calls.length).toBe(0);
 		expect(stopPropagation.mock.calls.length).toBe(1);
+		expect(wrapper.find('li').props()['aria-disabled']).toBeTruthy();
 	});
 
 	it('should render items with icon and tooltip', () => {
