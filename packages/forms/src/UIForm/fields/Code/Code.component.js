@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
-import { importFromCDN, Skeleton } from '@talend/react-components';
+import { ImportLazy, Skeleton } from '@talend/react-components';
 import FieldTemplate from '../FieldTemplate';
 
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -20,15 +20,6 @@ function CodeSkeleton() {
 		</div>
 	);
 }
-
-const AceEditor = lazy(() =>
-	importFromCDN({
-		name: 'react-ace',
-		varName: 'ReactAce',
-		version: '6.2.0',
-		path: '/dist/react-ace.min.js',
-	}),
-);
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
@@ -49,10 +40,7 @@ function Code(props) {
 		if (editor) {
 			const textarea = editor.textInput.getElement();
 			textarea.setAttribute('id', id);
-			textarea.setAttribute(
-				'aria-describedby',
-				`${instructionsId} ${descriptionId} ${errorId}`,
-			);
+			textarea.setAttribute('aria-describedby', `${instructionsId} ${descriptionId} ${errorId}`);
 		}
 	}, [editor, instructionsId, descriptionId, errorId, id]);
 
@@ -112,29 +100,31 @@ function Code(props) {
 						defaultValue: 'To focus out of the editor, press ESC key twice.',
 					})}
 				</div>
-				<Suspense fallback={<CodeSkeleton />}>
-					<AceEditor
-						key="ace"
-						className="tf-widget-code form-control"
-						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
-						focus={autoFocus}
-						name={`${id}_wrapper`}
-						mode={options && options.language}
-						onBlur={onFinish}
-						onLoad={onLoad}
-						onChange={onChange}
-						// disabled is not supported by ace use readonly
-						// https://github.com/ajaxorg/ace/issues/406
-						readOnly={readOnly || schema.disabled || valueIsUpdating}
-						setOptions={DEFAULT_SET_OPTIONS}
-						showGutter={false}
-						showPrintMargin={false}
-						theme="chrome"
-						value={value}
-						width="auto"
-						{...options}
-					/>
-				</Suspense>
+				<ImportLazy skeleton={<CodeSkeleton />} name="react-ace" version="6.2.0" varName="ReactAce" path="/dist/react-ace.min.js">
+					{AceEditor => (
+						<AceEditor
+							key="ace"
+							className="tf-widget-code form-control"
+							editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
+							focus={autoFocus}
+							name={`${id}_wrapper`}
+							mode={options && options.language}
+							onBlur={onFinish}
+							onLoad={onLoad}
+							onChange={onChange}
+							// disabled is not supported by ace use readonly
+							// https://github.com/ajaxorg/ace/issues/406
+							readOnly={readOnly || schema.disabled || valueIsUpdating}
+							setOptions={DEFAULT_SET_OPTIONS}
+							showGutter={false}
+							showPrintMargin={false}
+							theme="chrome"
+							value={value}
+							width="auto"
+							{...options}
+						/>
+					)}
+				</ImportLazy>
 			</div>
 		</FieldTemplate>
 	);
