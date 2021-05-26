@@ -1,0 +1,85 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { WithSelector, FigmaImage } from '../../../docs';
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Color" />
+
+# Color
+
+It provides a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in #rrggbb hexadecimal format. Only simple colors (without alpha channel) are allowed though CSS colors has more formats, e.g. color names, functional notations and a hexadecimal format with an alpha channel.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=548%3A0"
+	alt="zoning image for color input"
+/>
+
+
+## Style
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Color label="Color" />
+	</Story>
+</Canvas>
+
+### Hover
+
+<Canvas withSource="none">
+	<Story
+		name="hover"
+		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
+	>
+		<Form.Color label="Color" />
+	</Story>
+</Canvas>
+
+### Focus
+
+<Canvas withSource="none">
+	<Story
+		name="focus"
+		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
+	>
+		<Form.Color label="Color" />
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.Color label="Color" value="#FF6D70" />
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Color label="Color" value="#FF6D70" disabled />
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Color label="Color" value="#FF6D70" readOnly />
+	</Story>
+</Canvas>
+
+## Interactions
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C

@@ -1,5 +1,7 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-import { FigmaImage } from '../../../docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { FigmaImage, FigmaIframe } from '../../../docs';
+import Form from '../.';
+import Button from '../../Button';
 
 <Meta title="Components/Form/Form Fieldset" />
 
@@ -14,44 +16,119 @@ The fieldset is a field group in a form.
 	alt="zoning image for form fieldset"
 />
 
-## Style 
+## Style
 
-Group logical blocks into fieldset. If the fields are related, display them on the same row. 
+Group logical blocks into fieldset. If the fields are related, display them on the same row.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=191%3A352"
-	alt="example image for form fieldset"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=191%3A352"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=348%3A0"
 />
+
+<Canvas>
+	<Story name="default">
+		<Form>
+			<Form.Fieldset legend="Frequency">
+				<Form.Select label="Repeat" />
+				<Form.Row>
+					<Form.InputGroup label="Minutes" suffix="minutes">
+						<Form.Number />
+					</Form.InputGroup>
+					<Form.Time label="Repeat from" required />
+					<Form.Time label="Repeat to" required />
+				</Form.Row>
+			</Form.Fieldset>
+			<Form.Buttons>
+				<Button.Secondary>Cancel</Button.Secondary>
+				<Button.Primary>Submit</Button.Primary>
+			</Form.Buttons>
+		</Form>
+	</Story>
+</Canvas>
 
 ## States
 
-### Skeleton
-
-_to do_
-
 ### Error
-
-_Non applicaple_
 
 Only individual fields could be errored, not the full fieldset.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=224%3A13927"
-	alt="error on a field into a fieldset"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=224%3A13927"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A497"
 />
+
+<Canvas>
+	<Story name="error">
+		<Form>
+			<Form.Fieldset legend="Frequency">
+				<Form.Select label="Repeat" />
+				<Form.Row>
+					<Form.InputGroup label="Minutes" suffix="minutes">
+						<Form.Number />
+					</Form.InputGroup>
+					<Form.Time
+						label="Repeat from"
+						required
+						value="14:k"
+						hasError
+						description="Repeat from is invalid"
+					/>
+					<Form.Time label="Repeat to" required />
+				</Form.Row>
+			</Form.Fieldset>
+			<Form.Buttons>
+				<Button.Secondary>Cancel</Button.Secondary>
+				<Button.Primary>Submit</Button.Primary>
+			</Form.Buttons>
+		</Form>
+	</Story>
+</Canvas>
 
 In case of more than one error or a horizontal fieldset, display the errors under each other.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A0"
-	alt="two errors into a fieldset"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A0"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A583"
 />
+
+<Canvas>
+	<Story name="errors">
+		<Form>
+			<Form.Fieldset legend="Frequency">
+				<Form.Select label="Repeat" />
+				<Form.Row>
+					<Form.InputGroup label="Minutes" suffix="minutes">
+						<Form.Number />
+					</Form.InputGroup>
+					<Form.Time
+						label="Repeat from"
+						required
+						value="14:k"
+						hasError
+						description="Repeat from is invalid"
+					/>
+					<Form.Time
+						label="Repeat to"
+						required
+						value="k"
+						hasError
+						description="Repeat to is invalid"
+					/>
+				</Form.Row>
+			</Form.Fieldset>
+			<Form.Buttons>
+				<Button.Secondary>Cancel</Button.Secondary>
+				<Button.Primary>Submit</Button.Primary>
+			</Form.Buttons>
+		</Form>
+	</Story>
+</Canvas>
 
 ## Content
 
 ### Title
 
-By default, provide a title to the fieldset. 
+By default, provide a title to the fieldset.
 
 ### Inline message
 
@@ -64,9 +141,10 @@ _add image_
 
 ### Conditional field
 
-Conditional fields allow the user to access a fieldset only when conditions are met in a previous field. 
+Conditional fields allow the user to access a fieldset only when conditions are met in a previous field.
 
 Conditional fields can appear following:
+
 - checkbox
 - radio button
 - switch
@@ -75,8 +153,8 @@ Conditional fields can appear following:
 
 ## Usage
 
-_to do_
+N/A
 
 ## Accessibility
 
-_to do_
+N/A

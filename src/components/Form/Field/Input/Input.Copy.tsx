@@ -1,52 +1,45 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useCopyToClipboard } from 'react-use';
 import Button from '../../../Button';
-import InlineMessage from '../../../InlineMessage';
-import InputGroup from './../InputGroup';
+import InputGroup from '../InputGroup';
 import Text from './Input.Text';
+import { InputProps } from './Input';
 
-import tokens from '../../../../tokens';
+const InputCopy = React.forwardRef<HTMLInputElement, InputProps>(
+	({ label, value = '', disabled, readOnly, ...rest }: InputProps, ref) => {
+		const [text, setText] = React.useState<string>(value.toString());
+		const [state, copyToClipboard] = useCopyToClipboard();
 
-const CopyButton = styled(Button.Icon)`
-	padding: 0 ${tokens.space.s};
-	height: ${tokens.sizes.xxl};
-	background: ${({ theme }) => theme.colors.inputGroupInteractiveBackgroundColor};
-	border-color: ${({ theme }) => theme.colors.inputBorderColor};
-	border-radius: 0 ${tokens.radii.inputBorderRadius} ${tokens.radii.inputBorderRadius} 0;
-`;
+		React.useEffect(() => {
+			setText(value);
+		}, [value]);
 
-export type InputCopyProps = React.PropsWithChildren<any> & {
-	value?: string;
-};
-
-const InputCopy = ({ value, ...rest }: InputCopyProps) => {
-	const [text, setText] = React.useState(value);
-	const [state, copyToClipboard] = useCopyToClipboard();
-
-	return (
-		<InputGroup
-			label="Copy to clipboard"
-			prefix={null}
-			suffix={
-				<CopyButton icon="talend-files-o" onClick={() => copyToClipboard(text)}>
-					Copy to clipboard
-				</CopyButton>
-			}
-		>
-			<Text
-				label="Token"
-				value={text}
-				onChange={(event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value)}
-				{...rest}
-			/>
-			{state.error ? (
-				<InlineMessage.Destructive title="Unable to copy value" description={state.error.message} />
-			) : (
-				state.value && <InlineMessage.Success description={`Copied ${state.value}`} />
-			)}
-		</InputGroup>
-	);
-};
+		return (
+			<InputGroup
+				label={label}
+				suffix={
+					!readOnly && (
+						<Button.Icon
+							icon="talend-files-o"
+							onClick={() => copyToClipboard(text)}
+							disabled={disabled}
+						>
+							Copy to clipboard
+						</Button.Icon>
+					)
+				}
+				readOnly={!disabled}
+				disabled={!!disabled}
+				hasError={!!state.error}
+				hasSuccess={!!state.value}
+				description={state.error ? state.error.message : state.value && 'Copied to clipboard'}
+			>
+				{/*
+				// @ts-ignore */}
+				<Text {...rest} label="Copy to clipboard" value={text} ref={ref} />
+			</InputGroup>
+		);
+	},
+);
 
 export default InputCopy;

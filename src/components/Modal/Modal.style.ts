@@ -29,37 +29,38 @@ export const DialogBackdrop = styled(ReakitDialogBackdrop)`
 	}
 `;
 
-export const Dialog = styled(ReakitDialog)(
-	({ theme }) => `
-		max-height: 80vh;
-		border-radius: ${tokens.radii.rectRadius};
-		padding: 3rem;
-		border: 1px solid rgba(33, 33, 33, 0.25);
-		color: ${theme.colors.textColor};
-		background-color: ${theme.colors.modalBackground};
-		box-shadow: 0 2px 7px 0px rgba(0,0,0,0.2);
-		z-index: ${tokens.zIndices.modal};		
-		transition: ${tokens.transitions.normal};
-		opacity: ${tokens.opacity.transparent};
-		transform-origin: top center;
-		transform: translate3d(-50%, -10%, 0) rotateX(90deg);
-		&[data-enter] {
-			opacity: ${tokens.opacity.opaque};
-			transform: translate3d(-50%, 0, 0);
-		}
-`,
-);
+export const Dialog = styled.div`
+	max-height: 80vh;
+	border-radius: ${tokens.radii.rectRadius};
+	padding: 3rem;
+	color: ${({ theme }) => theme.colors.textColor};
+	background-color: ${({ theme }) => theme.colors.modalBackground};
+	box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
+	z-index: ${tokens.zIndices.modal};
+	transition: ${tokens.transitions.normal};
+	opacity: ${tokens.opacity.transparent};
+	transform-origin: top center;
+	transform: translate3d(0, -10%, 0);
 
-export const DialogHeading = styled.header(
-	({ theme }) => `
-		display: flex;
-		align-items: center;
-		margin: -3rem -3rem 3rem;
-		padding: 1.5rem 3rem;
-		background: ${theme.colors.modalHeadingBackground};
-		border-bottom: 1px solid ${theme.colors.modalHeadingBorderColor};
-`,
-);
+	&[data-enter] {
+		opacity: ${tokens.opacity.opaque};
+		transform: translate3d(0, 0, 0);
+	}
+`;
+
+export const DialogHeading = styled.header`
+	display: flex;
+	align-items: center;
+	margin: -3rem -3rem 3rem;
+	padding: 1.5rem 3rem;
+	background: ${({ theme }) => theme.colors.modalHeadingBackground};
+	border-bottom: 1px solid ${({ theme }) => theme.colors.modalHeadingBorderColor};
+
+	h1 {
+		font-size: ${tokens.fontSizes.large};
+		color: ${({ theme }) => theme.colors.textColor};
+	}
+`;
 
 export const DialogButtons = styled.footer`
 	display: flex;

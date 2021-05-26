@@ -1,4 +1,4 @@
-import {Meta, Canvas, Story, ArgsTable} from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
 import Form from '../';
 
@@ -107,49 +107,50 @@ Checkboxes appear as a list on UI so it's important to make their labels as para
 ## Usage
 
 <Canvas>
-    <Story
-        name="basic"
-        args={{
-            label: 'Checkbox',
-            indeterminate: false,
-            checked: false,
-            readOnly: false,
-            disabled: false,
-        }}
-        argTypes={{
-            label: {
-                description: 'Checkbox label',
-                control: {
-                    type: 'text',
-                },
-            },
-            indeterminate: {
-                description: 'Checkbox is indeterminate or  not',
-                control: {
-                    type: 'boolean',
-                },
-            },checked: {
-                description: 'Checkbox is checked or  not',
-                control: {
-                    type: 'boolean',
-                },
-            },
-            readOnly: {
-                description: 'Checkbox is read only or not',
-                control: {
-                    type: 'boolean',
-                },
-            },
-            disabled: {
-                description: 'Checkbox is disabled or not',
-                control: {
-                    type: 'boolean',
-                },
-            },
-        }}
-    >
-        {props => <Form.Checkbox {...props} />}
-    </Story>
+	<Story
+		name="basic"
+		args={{
+			label: 'Checkbox',
+			indeterminate: false,
+			checked: false,
+			readOnly: false,
+			disabled: false,
+		}}
+		argTypes={{
+			label: {
+				description: 'Checkbox label',
+				control: {
+					type: 'text',
+				},
+			},
+			indeterminate: {
+				description: 'Checkbox is indeterminate or  not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			checked: {
+				description: 'Checkbox is checked or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			readOnly: {
+				description: 'Checkbox is read only or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			disabled: {
+				description: 'Checkbox is disabled or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+		}}
+	>
+		{props => <Form.Checkbox {...props} />}
+	</Story>
 </Canvas>
 
 <ArgsTable story="basic" />

@@ -1,7 +1,6 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, FigmaLink, Use } from '../../../docs';
-import Button from '../../Button';
-import Modal from '../';
+import * as stories from '../Modal.stories';
 
 <Meta title="Components/Modal" />
 
@@ -11,9 +10,16 @@ import Modal from '../';
 
 ## Zoning
 
-<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=10%3A29" alt="zoning image for modal" />
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=10%3A29"
+	alt="zoning image for modal"
+/>
 
 ## Style
+
+<Canvas>
+	<Story story={stories.Confirm} />
+</Canvas>
 
 ### Sizes
 
@@ -33,14 +39,22 @@ import Modal from '../';
 ## States
 
 ## Content
-Use modals for short direct dialog with users. They provide information or help users complete tasks. 
+
+Use modals for short direct dialog with users. They provide information or help users complete tasks.
+
 <Use>
 	<Use.Do>
 		<ul>
 			<li>Use sentence case in modal headers and prioritize keywords.</li>
-			<li>Use a verb-noun combination in modal headers that clearly describes the purpose (e.g., "Add a dataset").</li>
+			<li>
+				Use a verb-noun combination in modal headers that clearly describes the purpose (e.g., "Add
+				a dataset").
+			</li>
 			<li>Use clear action-oriented words on call-to-action buttons (CTAs).</li>
-			<li>When appropriate, match the header and primary button text, e.g. header is “Delete dataset” and primary button is “Delete”.</li>
+			<li>
+				When appropriate, match the header and primary button text, e.g. header is “Delete dataset”
+				and primary button is “Delete”.
+			</li>
 		</ul>
 	</Use.Do>
 	<Use.Dont>
@@ -61,16 +75,7 @@ Use modals for short direct dialog with users. They provide information or help 
 ## Usage
 
 <Canvas>
-	<Story name="default">
-		<Modal
-			disclosure={<Button.Primary>Send invitation email</Button.Primary>}
-			title="Send invitation email"
-		>
-			Invitation email will be send to this address: <strong>test@email.com</strong>
-			<br />
-			Do you want to send this email now?
-		</Modal>
-	</Story>
+	<Story story={stories.Invite} />
 </Canvas>
 
 ### Where to place buttons?
@@ -86,9 +91,3 @@ One main action should be expected from the user emphasized by the use of a prim
 
 In Confirmation dialog box, close icon cannot be displayed.
 A Cancel button shall be displayed on the left side. Closing icon can be used only for informative dialog box.
-
-## Changelog
-
-| Date       | Author           | Description |
-| ---------- | ---------------- | ----------- |
-| 08/24/2020 | Fabien Rassinier | Init page   |

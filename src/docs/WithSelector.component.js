@@ -38,15 +38,23 @@ const WithSelector = ({ children, selector }) => {
 		}
 	}, [ref, selector]);
 
+	React.useEffect(() => {
+		if (!ref.current) return;
+		ref.current.className = ref.current.className + ' ' + className;
+	}, [ref, className]);
+
 	return (
 		<>
 			{styles && <style>{styles.join(' ')}</style>}
 			{React.cloneElement(children, {
 				ref,
-				className,
 			})}
 		</>
 	);
 };
+
+WithSelector.decorator = selector => storyFn => (
+	<WithSelector selector={selector}>{storyFn()}</WithSelector>
+);
 
 export default WithSelector;

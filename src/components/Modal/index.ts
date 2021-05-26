@@ -5,6 +5,7 @@ const ModalComponent = Modal as typeof Modal & {
 	useDialogState: typeof useModalState;
 	Disclosure: typeof ModalDisclosure;
 	Dialog: typeof ModalDialog;
+	Body: typeof S.Dialog;
 	Heading: typeof S.DialogHeading;
 	Buttons: typeof S.DialogButtons;
 };
@@ -12,6 +13,7 @@ const ModalComponent = Modal as typeof Modal & {
 ModalComponent.useDialogState = useModalState;
 ModalComponent.Disclosure = ModalDisclosure;
 ModalComponent.Dialog = ModalDialog;
+ModalComponent.Body = S.Dialog;
 ModalComponent.Heading = S.DialogHeading;
 ModalComponent.Buttons = S.DialogButtons;
 

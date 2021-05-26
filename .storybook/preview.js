@@ -78,7 +78,7 @@ addParameters({
 					'Divider',
 					'Dropdown',
 					'Form',
-					['Form', 'Form Fieldset', 'Form Field', 'Fields', 'Form Buttons'],
+					['Form', 'Form Fieldset', 'Form Field', 'Form Field Group', 'Fields', 'Form Buttons'],
 					'HeaderBar',
 					'Icon',
 					'Inline Editing',

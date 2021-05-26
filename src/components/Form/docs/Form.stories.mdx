@@ -1,18 +1,7 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { FigmaImage, FigmaLink } from '../../../docs';
-
-import Form from '../';
-import Button from '../../Button';
-
-import CountryCodes from './data/CountryCodes.json';
-
-export function getCountryCodes() {
-	return CountryCodes.map(({ name, dial_code }) => `${name} (${dial_code})`);
-}
-export function getColumnTypes() {
-	return ['String', 'Long', 'Date', 'Boolean', 'Decimal'];
-}
+import { FigmaIframe, FigmaImage, FigmaLink } from '../../../docs';
+import * as stories from '../Form.stories';
+import { Confirm } from '../../Modal/Modal.stories';
 
 <Meta title="Components/Form/Form" />
 
@@ -47,214 +36,47 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 
 ### Skeleton
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A25"
-	alt="skeleton image for form"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A25"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A206"
 />
+
+<Canvas>
+	<Story story={stories.FormSkeleton} />
+</Canvas>
 
 ### Default
 
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A699"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A717"
+/>
+
 <Canvas>
-	<Story name="Overview">
-		<Form>
-			<Form.Fieldset legend="Fieldset">
-				<Form.Text label="Input" />
-				<Form.Text
-					label="Input with error"
-					errorMessage="Lorem ipsum dolor sit amet Quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaLorem ipsum dolor sit ame"
-				/>
-				<Form.InputGroup
-					label="Phone"
-					prefix={
-						<Form.Select label="Phone prefix" value="France (+33)" style={{ width: '13rem' }}>
-							{getCountryCodes().map(countryCode => (
-								<option>{countryCode}</option>
-							))}
-						</Form.Select>
-					}
-				>
-					<Form.Tel label="Phone number" />
-				</Form.InputGroup>
-				<Form.InputGroup
-					label="Column"
-					suffix={
-						<Form.Select label="Column type" value="Date">
-							{getColumnTypes().map(columnType => (
-								<option>{columnType}</option>
-							))}
-						</Form.Select>
-					}
-				>
-					<Form.Text label="Column name" />
-				</Form.InputGroup>
-				<Form.InputGroup label="Amount" prefix="$" suffix=".00">
-					<Form.Number label="Amount without decimal" min="1" step="1" />
-				</Form.InputGroup>
-				<Form.File label="File" />
-				<Form.Password label="Password" />
-				<Form.Datalist label="Datalist" values={['foo', 'bar']} />
-				<Form.Search label="Search" />
-				<Form.Textarea label="Textarea" />
-				<Form.Range label="Range" />
-				<Form.Select label="Select">
-					<option selected>Foo</option>
-					<option>Bar</option>
-				</Form.Select>
-				<Form.Select label="Select multiple" multiple>
-					<option selected>Foo</option>
-					<option>Bar</option>
-				</Form.Select>
-				<Form.Checkbox label="Checkbox" checked />
-				<Form.Radio label="Radio" checked />
-				<Form.Switch label="Switch" checked />
-			</Form.Fieldset>
-			<Form.Buttons>
-				<Button.Secondary type="reset" onClick={action('clicked')}>
-					Reset
-				</Button.Secondary>
-				<Button.Primary onClick={action('clicked')}>Submit</Button.Primary>
-			</Form.Buttons>
-		</Form>
-	</Story>
+	<Story story={stories.Default} />
 </Canvas>
 
 ### Error
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A704"
-	alt="error state image for form"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A704"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=340%3A1"
 />
+
+<Canvas>
+	<Story story={stories.Error} />
+</Canvas>
 
 ### Disabled
 
 <Canvas>
-	<Story name="Overview-disabled">
-		<Form>
-			<Form.Fieldset legend="Fieldset">
-				<Form.Text label="Input" disabled />
-				<Form.InputGroup
-					label="Phone"
-					disabled
-					prefix={
-						<Form.Select
-							disabled
-							label="Phone prefix"
-							value="France (+33)"
-							style={{ width: '13rem' }}
-						>
-							{getCountryCodes().map(countryCode => (
-								<option>{countryCode}</option>
-							))}
-						</Form.Select>
-					}
-				>
-					<Form.Tel disabled label="Phone number" />
-				</Form.InputGroup>
-				<Form.InputGroup
-					label="Column"
-					suffix={
-						<Form.Select disabledlabel="Column type" value="Date">
-							{getColumnTypes().map(columnType => (
-								<option>{columnType}</option>
-							))}
-						</Form.Select>
-					}
-				>
-					<Form.Text disabled label="Column name" />
-				</Form.InputGroup>
-				<Form.InputGroup label="Amount" prefix="$" suffix=".00">
-					<Form.Number disabled label="Amount without decimal" min="1" step="1" />
-				</Form.InputGroup>
-				<Form.File disabled label="File" />
-				<Form.Password disabled label="Password" />
-				<Form.Datalist disabled label="Datalist" values={['foo', 'bar']} />
-				<Form.Search disabled label="Search" />
-				<Form.Textarea disabled label="Textarea" />
-				<Form.Range disabledlabel="Range" />
-				<Form.Select disabled label="Select">
-					<option selected>Foo</option>
-					<option>Bar</option>
-				</Form.Select>
-				<Form.Select disabled label="Select multiple" multiple>
-					<option selected>Foo</option>
-					<option>Bar</option>
-				</Form.Select>
-				<Form.Checkbox disabled label="Checkbox" checked />
-				<Form.Radio disabled label="Radio" checked />
-				<Form.Switch disabled label="Switch" checked />
-			</Form.Fieldset>
-			<Form.Buttons>
-				<Button.Secondary type="reset" disabled onClick={action('clicked')}>
-					Reset
-				</Button.Secondary>
-				<Button.Primary disabled onClick={action('clicked')}>
-					Submit
-				</Button.Primary>
-			</Form.Buttons>
-		</Form>
-	</Story>
+	<Story story={stories.Disabled} />
 </Canvas>
 
 ### Read-only
 
 <Canvas>
-	<Story name="Overview-readonly">
-		<Form>
-			<Form.Fieldset legend="Fieldset">
-				<Form.Text label="Input" readOnly />
-				<Form.InputGroup
-					label="Phone"
-					readOnly
-					prefix={
-						<Form.Select
-							label="Phone prefix"
-							readOnly
-							value="France (+33)"
-							style={{ width: '13rem' }}
-						>
-							{getCountryCodes().map(countryCode => (
-								<option>{countryCode}</option>
-							))}
-						</Form.Select>
-					}
-				>
-					<Form.Tel readOnly label="Phone number" />
-				</Form.InputGroup>
-				<Form.InputGroup
-					label="Column"
-					suffix={
-						<Form.Select readOnly label="Column type" value="Date">
-							{getColumnTypes().map(columnType => (
-								<option>{columnType}</option>
-							))}
-						</Form.Select>
-					}
-				>
-					<Form.Text readOnly label="Column name" />
-				</Form.InputGroup>
-				<Form.InputGroup label="Amount" prefix="$" suffix=".00">
-					<Form.Number readOnly label="Amount without decimal" min="1" step="1" />
-				</Form.InputGroup>
-				<Form.File readOnly label="File" />
-				<Form.Password readOnly label="Password" />
-				<Form.Datalist readOnly label="Datalist" values={['foo', 'bar']} />
-				<Form.Search readOnly label="Search" />
-				<Form.Textarea readOnly label="Textarea" />
-				<Form.Range readOnlylabel="Range" />
-				<Form.Select readOnly label="Select">
-					<option selected>Foo</option>
-					<option>Bar</option>
-				</Form.Select>
-				<Form.Select readOnly label="Select multiple" multiple>
-					<option selected>Foo</option>
-					<option>Bar</option>
-				</Form.Select>
-				<Form.Checkbox readOnly label="Checkbox" checked />
-				<Form.Radio readOnly label="Radio" checked />
-				<Form.Switch readOnly label="Switch" checked />
-			</Form.Fieldset>
-		</Form>
-	</Story>
+	<Story story={stories.ReadOnly} />
 </Canvas>
 
 ## Content
@@ -263,28 +85,40 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 
 Consider using an [Inline message](/?path=/docs/components-inlinemessage--information) when help is needed to fill the form.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A1028"
-	alt="form inline help example"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A1028"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A683"
 />
+
+<Canvas>
+	<Story story={stories.InlineHelp} />
+</Canvas>
 
 ## Interactions
 
 ### Synchronous action
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A9"
-	alt="loading state image for form"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A9"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A46"
 />
+
+<Canvas>
+	<Story story={stories.Loading} />
+</Canvas>
 
 ### Data loss message
 
 When the user clicks on the cancel button or go back to the previous page, provide a confirm dialog.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
-	alt="example for data loss message"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
 />
+
+<Canvas>
+	<Story story={Confirm} />
+</Canvas>
 
 ### Error focus
 
@@ -292,7 +126,10 @@ In case of error after submission, the focus on the screen should be on the firs
 
 ## Usage
 
-_to do_
+Choosing between `readonly` and `disabled` states is not really easy!
+A readonly element is just not editable, but gets sent when the according form submits.
+A disabled element isn't editable and isn't sent on submit.
+Another difference is that readonly elements can be focused (and getting focused when "tabbing" through a form) while disabled elements can't.
 
 ## Accessibility
 

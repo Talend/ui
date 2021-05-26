@@ -1,0 +1,101 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { WithSelector, FigmaImage } from '../../../docs';
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Datetime Local" />
+
+# Datetime Local
+
+It creates input controls that let the user easily enter both a date and a time, including the year, month, and day as well as the time in hours and minutes.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A219"
+	alt="zoning image for inputs"
+/>
+
+## Style
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.DatetimeLocal label="Datetime Local" min="2018-06-07T00:00" max="2018-06-14T00:00" />
+	</Story>
+</Canvas>
+
+### Hover
+
+<Canvas withSource="none">
+	<Story
+		name="hover"
+		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
+	>
+		<Form.DatetimeLocal label="Datetime" />
+	</Story>
+</Canvas>
+
+### Focus
+
+<Canvas withSource="none">
+	<Story
+		name="focus"
+		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
+	>
+		<Form.DatetimeLocal label="Datetime " />
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.DatetimeLocal
+			label="Datetime Local"
+			value="2018-06-12T19:30"
+			min="2018-06-07T00:00"
+			max="2018-06-14T00:00"
+		/>
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.DatetimeLocal
+			label="Datetime Local"
+			value="2018-06-12T19:30"
+			min="2018-06-07T00:00"
+			max="2018-06-14T00:00"
+			disabled
+		/>
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.DatetimeLocal
+			label="Datetime Local"
+			value="2018-06-12T19:30"
+			min="2018-06-07T00:00"
+			max="2018-06-14T00:00"
+			readOnly
+		/>
+	</Story>
+</Canvas>
+
+## Interactions
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C

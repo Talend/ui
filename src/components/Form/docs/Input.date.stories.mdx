@@ -1,0 +1,84 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { WithSelector, FigmaImage } from '../../../docs';
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Date" />
+
+# Date
+
+It creates input fields that let the user enter a date, either with a textbox that validates the input or a special date picker interface.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A219"
+	alt="zoning image for inputs"
+/>
+
+## Style
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Date label="Date" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+	</Story>
+</Canvas>
+
+### Hover
+
+<Canvas withSource="none">
+	<Story
+		name="hover"
+		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
+	>
+		<Form.Date label="Date" />
+	</Story>
+</Canvas>
+
+### Focus
+
+<Canvas withSource="none">
+	<Story
+		name="focus"
+		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
+	>
+		<Form.Date label="Date" />
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.Date label="Date" value="09:00" />
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Date label="Date" value="09:00" disabled />
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Date label="Date" value="09:00" readOnly />
+	</Story>
+</Canvas>
+
+## Interactions
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C

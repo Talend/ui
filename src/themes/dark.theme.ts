@@ -42,7 +42,7 @@ const theme: DefaultTheme = {
 		buttonDisabledBackgroundColor: palette.grayColor[600],
 
 		inputColor: palette.grayColor[0],
-		inputBackgroundColor: palette.grayColor[600],
+		inputBackgroundColor: palette.grayColor[800],
 		inputBorderColor: palette.grayColor[75],
 		inputHoverBorderColor: palette.activeColor[500],
 		inputFocusBorderColor: palette.primaryColor[500],
@@ -55,8 +55,12 @@ const theme: DefaultTheme = {
 		inputRadioBackgroundColor: palette.grayColor[600],
 		inputGroupColor: palette.grayColor[0],
 		inputGroupBackgroundColor: palette.grayColor[600],
-		inputGroupInteractiveColor: palette.primaryColor[500],
-		inputGroupInteractiveBackgroundColor: palette.grayColor[700],
+		inputGroupInteractiveColor: palette.activeColor[500],
+		inputGroupInteractiveBackgroundColor: palette.activeColor[900],
+		inputGroupInteractiveHoverColor: palette.activeColor[400],
+		inputGroupInteractiveHoverBackgroundColor: palette.activeColor[800],
+		inputGroupInteractiveActiveColor: palette.activeColor[300],
+		inputGroupInteractiveActiveBackgroundColor: palette.activeColor[700],
 
 		linkColor: palette.activeColor[500],
 		linkHoverColor: palette.activeColor[400],

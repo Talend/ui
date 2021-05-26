@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDialogState, DialogProps } from 'reakit';
+import { useDialogState, DialogProps, Dialog as ReakitDialog } from 'reakit';
 
 import Button from '../Button';
 import { Icon } from '../Icon';
@@ -43,7 +43,7 @@ const Modal = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>
 					</S.DialogDisclosure>
 				)}
 				<S.DialogBackdrop {...dialog}>
-					<S.Dialog {...dialog} {...props}>
+					<ReakitDialog {...dialog} {...props} as={S.Dialog} ref={ref}>
 						<S.DialogHeading>
 							{icon && <Icon name={icon} />}
 							<div>
@@ -56,7 +56,7 @@ const Modal = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>
 							<Button.Secondary onClick={onCloseHandler}>Cancel</Button.Secondary>
 							<Button.Primary onClick={onValidateHandler}>Validate</Button.Primary>
 						</S.DialogButtons>
-					</S.Dialog>
+					</ReakitDialog>
 				</S.DialogBackdrop>
 			</>
 		);
@@ -70,9 +70,9 @@ export const ModalDisclosure = React.forwardRef<React.ReactElement, React.PropsW
 );
 
 export const ModalDialog = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>(
-	({ children, ...rest }, ref) => (
+	({ children, ...rest }: React.PropsWithChildren<any>, ref) => (
 		<S.DialogBackdrop {...rest}>
-			<S.Dialog ref={ref} {...rest}>
+			<S.Dialog {...rest} as={ReakitDialog} ref={ref}>
 				{children}
 			</S.Dialog>
 		</S.DialogBackdrop>

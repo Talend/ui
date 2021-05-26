@@ -1,17 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Checkbox as ReakitCheckbox, useCheckboxState } from 'reakit';
-import tokens from '../../../../tokens';
-import InlineStyle from './styles/Input.Inline.style';
+import styled from 'styled-components';
+
+import { InputProps } from './Input';
 import { Icon } from '../../../Icon/Icon';
 
-const InlineField = styled(InlineStyle)<{ readOnly: boolean; checked: boolean }>`
-	span:before,
-	span:after {
+import { InlineStyle } from '../Field.style';
+
+import tokens from '../../../../tokens';
+
+export const SCheckbox = styled(InlineStyle)<{ readOnly: boolean; checked: boolean }>`
+	label > span:before,
+	label > span:after {
 		border-radius: ${tokens.radii.inputBorderRadius};
 	}
 
-	span:after {
+	label > span:after {
 		background-color: transparent;
 	}
 
@@ -39,42 +43,45 @@ const InlineField = styled(InlineStyle)<{ readOnly: boolean; checked: boolean }>
 	}
 `;
 
-export type CheckboxProps = HTMLInputElement & {
-	label: string;
-};
+const Checkbox = React.forwardRef<HTMLInputElement, InputProps>(
+	(
+		{
+			id = `checkbox--${Date.now()}`,
+			label,
+			indeterminate,
+			checked,
+			readOnly,
+			required,
+			children,
+			...rest
+		},
+		ref,
+	) => {
+		const checkbox = useCheckboxState({ state: (indeterminate && 'indeterminate') || checked });
 
-const Checkbox = ({
-	id = `checkbox--${Date.now()}`,
-	label,
-	indeterminate,
-	checked,
-	readOnly,
-	...rest
-}: CheckboxProps) => {
-	const checkbox = useCheckboxState({ state: (indeterminate && 'indeterminate') || checked });
+		const icon =
+			checkbox.state === 'indeterminate' ? (
+				<Icon name="talend-minus-circle" />
+			) : (
+				checkbox.state && <Icon name="talend-check" />
+			);
 
-	const icon =
-		checkbox.state === 'indeterminate' ? (
-			<Icon name="talend-minus-circle" />
-		) : (
-			checkbox.state && <Icon name="talend-check" />
+		return (
+			<SCheckbox readOnly={!!readOnly} checked={!!checked}>
+				<label htmlFor={id}>
+					{!readOnly && (
+						// @ts-ignore
+						<ReakitCheckbox id={id} {...rest} {...checkbox} ref={ref} />
+					)}
+					<span>
+						{label || children}
+						{required && '*'}
+					</span>
+					{icon}
+				</label>
+			</SCheckbox>
 		);
-
-	return (
-		<InlineField readOnly={readOnly} checked={checked}>
-			<label htmlFor={id}>
-				{!readOnly && (
-					<>
-						{/*
-						// @ts-ignore */}
-						<ReakitCheckbox id={id} {...rest} {...checkbox} />
-					</>
-				)}
-				<span>{label}</span>
-				{icon}
-			</label>
-		</InlineField>
-	);
-};
+	},
+);
 
 export default Checkbox;

@@ -1,20 +1,23 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-import { FigmaImage } from '../../../docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { FigmaIframe, FigmaImage } from '../../../docs';
+import * as Stories from '../Field/Field.stories';
+import Form from './../';
+import Input from './../Field/Input';
 
 <Meta title="Components/Form/Form Field" />
 
 # Form Field
 
-The Form Field could be composed by a label, an input and a [small inline message](/?path=/docs/components-inlinemessage--information). 
+The Form Field could be composed by a label, an input and a [small inline message](/?path=/docs/components-inlinemessage--information).
 
-## Zoning 
+## Zoning
 
 <FigmaImage
 	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=349%3A206"
 	alt="zoning image for form field"
 />
 
-## Style 
+## Style
 
 ## States
 
@@ -22,17 +25,25 @@ The Form Field could be composed by a label, an input and a [small inline messag
 
 ### Validation
 
-The validation of the field should appear when the field loses the focus. Two types of validation message are available: 
+The validation of the field should appear when the field loses the focus. Two types of validation message are available:
 
 - warning: which is not blocking the form validation
 - error: which is blocking the form validation
 
 The user must correct the error within the field. Once the error is corrected, the message is disappearing.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A229"
-	alt="warning or error message image example"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A229"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A447"
 />
+
+<Canvas>
+	<Story story={Stories.FormFieldError} />
+</Canvas>
+
+<Canvas>
+	<Story story={Stories.FormFieldWarning} />
+</Canvas>
 
 ## Content
 
@@ -40,32 +51,121 @@ The user must correct the error within the field. Once the error is corrected, t
 
 The default behavior is to highlight the mandatory fields by using the asterisk next to the label.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A98"
-	alt="mandatory image example"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A98"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A673"
 />
+
+<Canvas>
+	<Story story={Stories.FormFieldRequired} />
+</Canvas>
 
 ### Information
 
 A message can be displayed below the input to help the user by recommending appropriate content or suggesting an action.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A188"
-	alt="helper message image example"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A188"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A482"
 />
+
+<Canvas>
+	<Story story={Stories.FormFieldInformation} />
+</Canvas>
 
 ### Link
 
 For the [password input](/?path=/docs/components-form-fields-password--default-story), a link could be added at the top right of the input.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A404"
-	alt="password input with link example"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A404"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A382"
 />
 
+<Canvas>
+	<Story story={Stories.FormFieldPassword} />
+</Canvas>
+
 ## Usage
+
+<Canvas>
+	<Story
+		name="usage"
+		args={{
+			label: 'Label',
+			field: 'Date',
+			required: false,
+			disabled: false,
+			readOnly: false,
+			hasError: false,
+			hasWarning: false,
+			hasSuccess: false,
+			hasInformation: false,
+			description: '',
+		}}
+		argTypes={{
+			field: {
+				description: 'Field',
+				control: {
+					type: 'select',
+					options: Object.keys(Input)
+						.filter(key => /^[A-Z]/.test(key))
+						.concat(['Select', 'Datalist', 'Textarea']),
+				},
+			},
+			required: {
+				description: 'Field is required or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			disabled: {
+				description: 'Field is disabled or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			hasError: {
+				description: 'Field has inline message as error',
+				control: {
+					type: 'boolean',
+				},
+			},
+			hasWarning: {
+				description: 'Field has inline message as warning',
+				control: {
+					type: 'boolean',
+				},
+			},
+			hasSuccess: {
+				description: 'Field has inline message as success',
+				control: {
+					type: 'boolean',
+				},
+			},
+			hasInformation: {
+				description: 'Field has inline message as information',
+				control: {
+					type: 'boolean',
+				},
+			},
+			description: {
+				description: 'Field inline message',
+				control: {
+					type: 'text',
+				},
+			},
+		}}
+	>
+		{({ field, ...rest }) => {
+			const Component = Form[field];
+			return <Component {...rest} />;
+		}}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />
 
 ## Accessibility
 
 - The label is mandatory (even if it's not always visible)
-

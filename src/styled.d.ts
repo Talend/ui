@@ -69,6 +69,10 @@ declare module 'styled-components' {
 			inputGroupBackgroundColor: string;
 			inputGroupInteractiveColor: string;
 			inputGroupInteractiveBackgroundColor: string;
+			inputGroupInteractiveHoverColor: string;
+			inputGroupInteractiveHoverBackgroundColor: string;
+			inputGroupInteractiveActiveColor: string;
+			inputGroupInteractiveActiveBackgroundColor: string;
 
 			// Links
 			linkColor: string;

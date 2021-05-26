@@ -1,5 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-import { FigmaImage, FigmaLink } from '../../../docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { FigmaIframe, FigmaImage, FigmaLink } from '../../../docs';
+import * as FormButtonsStories from '../Buttons/Buttons.stories';
 
 <Meta title="Components/Form/Form Buttons" />
 
@@ -9,14 +10,14 @@ import { FigmaImage, FigmaLink } from '../../../docs';
 
 A Form has always buttons in order to be cancelled or validated.
 
-## Zoning 
+## Zoning
 
 <FigmaImage
 	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=545%3A0"
 	alt="zoning image for form buttons"
 />
 
-## Style 
+## Style
 
 _to do_
 
@@ -24,44 +25,61 @@ _to do_
 
 ### Skeleton
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A0"
-	alt="skeleton form buttons"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A0"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A330"
 />
 
-### Default 
+<Canvas>
+	<Story story={FormButtonsStories.FormButtonsSkeleton} />
+</Canvas>
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A27"
-	alt="default state form buttons"
+### Default
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A27"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A333"
 />
 
-### Loading 
+<Canvas>
+	<Story story={FormButtonsStories.FormButtonsDefault} />
+</Canvas>
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A1191"
-	alt="loading state form buttons"
+### Loading
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A1191"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A360"
 />
+
+<Canvas>
+	<Story story={FormButtonsStories.FormButtonsLoading} />
+</Canvas>
 
 ## Content
 
 ### Buttons order
 
 Sort the buttons from the less to the more important.
+
 - The main action button is placed on the right
 - Avoid to use more than one primary button per form
 - Other form buttons should be secondary buttons
 - Depending on the context, consider using a back or cancel button. This button should always be placed at the very left.
 - The other action buttons are placed on the right side.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=57%3A81"
-	alt="buttons order image"
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=57%3A81"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A215"
 />
+
+<Canvas>
+    <Story story={FormButtonsStories.FormButtonsOrder} />
+</Canvas>
 
 ### Buttons with icons
 
-Consider using Buttons with icons only for the main action when the label isn't enough understable. 
+Consider using Buttons with icons only for the main action when the label isn't enough understable.
 
 ## Interactions
 

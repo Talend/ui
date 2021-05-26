@@ -1,0 +1,84 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { WithSelector, FigmaImage } from '../../../docs';
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Copy" />
+
+# Copy
+
+It's used to let the user copy a generated text to clipboard.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=548%3A11"
+	alt="zoning image for copy input"
+/>
+
+## Style
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+	</Story>
+</Canvas>
+
+### Hover
+
+<Canvas withSource="none">
+	<Story
+		name="hover"
+		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
+	>
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+	</Story>
+</Canvas>
+
+### Focus
+
+<Canvas withSource="none">
+	<Story
+		name="focus"
+		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
+	>
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+	</Story>
+</Canvas>
+
+### Empty
+
+<Canvas>
+	<Story name="empty">
+		<Form.Copy label="Copy" />
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" disabled />
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" readOnly />
+	</Story>
+</Canvas>
+
+## Interactions
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C
