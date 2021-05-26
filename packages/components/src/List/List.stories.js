@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
-import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import cloneDeep from 'lodash/cloneDeep';
 
 import List from './List.component';
@@ -582,12 +580,10 @@ const itemsForListWithIcons = [
 const ListTemplate = args => {
 	const [propsMemo, setState] = React.useState(args.listProps);
 	React.useEffect(() => {
-		console.log('useMemo');
 		if (args.patch && args.listProps) {
 			setState(args.patch(args.listProps));
 		}
 	}, []);
-	console.log('render with ', args, propsMemo);
 	if (!propsMemo) {
 		return <div />;
 	}
@@ -615,9 +611,8 @@ export const TableWithNumber = () => (
 	<ListTemplate
 		message="Display the list in table mode with the total number of items."
 		listProps={props}
-		patch={props => {
-			console.log('patch', props);
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			customProps.toolbar.itemsNumber = {
 				totalItems: customProps.list.items.length,
 				label: `${customProps.list.items.length} users`,
@@ -651,9 +646,9 @@ export const LargeDisplay = () => (
 	<ListTemplate
 		message="displayMode large"
 		listProps={props}
-		patch={props => {
+		patch={newProps => {
 			return {
-				...props,
+				...newProps,
 				rowHeight: 140,
 				displayMode: 'large',
 			};
@@ -665,8 +660,8 @@ export const LargeArrayOfActions = () => (
 	<ListTemplate
 		message="Display the list in table mode using arrays of actions"
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			const separatorActions = [
 				{
 					id: 'monitoring',
@@ -690,9 +685,9 @@ export const LargeDisplayOverridesByRownRenderers = () => (
 	<ListTemplate
 		message="Display large"
 		listProps={props}
-		patch={props => {
+		patch={newProps => {
 			return {
-				...props,
+				...newProps,
 				rowHeight: 116,
 				displayMode: 'large',
 				rowRenderers: { LARGE: MyCustomRow },
@@ -705,8 +700,8 @@ export const LargeDisplayWithIcons = () => (
 	<ListTemplate
 		message="Display large with icons"
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			customProps.list.columns = [
 				{ key: 'id', label: 'Id' },
 				{ key: 'name', label: 'Name' },
@@ -723,8 +718,8 @@ export const EmptyTable = () => (
 	<ListTemplate
 		message="Empty"
 		listProps={props}
-		patch={props => {
-			const emptyListProps = cloneDeep(props);
+		patch={newProps => {
+			const emptyListProps = cloneDeep(newProps);
 			emptyListProps.list.items = [];
 			return emptyListProps;
 		}}
@@ -735,18 +730,10 @@ export const EmptyLarge = () => (
 	<ListTemplate
 		message="Empty List display large"
 		listProps={props}
-		patch={props => {
-			const emptyListProps = cloneDeep(props);
+		patch={newProps => {
+			const emptyListProps = cloneDeep(newProps);
 			emptyListProps.list.items = [];
 			emptyListProps.displayMode = 'large';
-
-			const customEmptyRendererListProps = cloneDeep(props);
-			customEmptyRendererListProps.list.items = [];
-			customEmptyRendererListProps.list.noRowsRenderer = () => (
-				<span className="tc-virtualizedlist-no-result" role="status" aria-live="polite">
-					I'm a custom NoRowsRenderer
-				</span>
-			);
 			return emptyListProps;
 		}}
 	/>
@@ -756,8 +743,8 @@ export const EmptyListCustom = () => (
 	<ListTemplate
 		message="Empty list with custom renderer"
 		listProps={props}
-		patch={props => {
-			const customEmptyRendererListProps = cloneDeep(props);
+		patch={newProps => {
+			const customEmptyRendererListProps = cloneDeep(newProps);
 			customEmptyRendererListProps.list.items = [];
 			customEmptyRendererListProps.list.noRowsRenderer = () => (
 				<span className="tc-virtualizedlist-no-result" role="status" aria-live="polite">
@@ -772,8 +759,8 @@ export const EmptyListCustom = () => (
 export const ListInProgressTable = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const loadingListProps = cloneDeep(props);
+		patch={newProps => {
+			const loadingListProps = cloneDeep(newProps);
 			loadingListProps.list.inProgress = true;
 			return loadingListProps;
 		}}
@@ -783,8 +770,8 @@ export const ListInProgressLarge = () => (
 	<ListTemplate
 		message="Display large"
 		listProps={props}
-		patch={props => {
-			const loadingListProps = cloneDeep(props);
+		patch={newProps => {
+			const loadingListProps = cloneDeep(newProps);
 			loadingListProps.list.inProgress = true;
 			loadingListProps.displayMode = 'large';
 			return loadingListProps;
@@ -795,7 +782,7 @@ export const ColumnActions = () => (
 	<ListTemplate
 		message="A column can contains only actions that appear on mouseover."
 		listProps={props}
-		patch={props => {
+		patch={() => {
 			return getActionsProps();
 		}}
 	/>
@@ -804,8 +791,8 @@ export const Selection = () => (
 	<ListTemplate
 		message="A column can contains only actions that appear on mouseover."
 		listProps={props}
-		patch={props => {
-			const selectedItemsProps = cloneDeep(props);
+		patch={newProps => {
+			const selectedItemsProps = cloneDeep(newProps);
 			selectedItemsProps.toolbar.actionBar = {
 				selected: 1,
 				multiSelectActions: {
@@ -828,8 +815,8 @@ export const SelectionWithNumberOfItems = () => (
 	<ListTemplate
 		message="A column can contains only actions that appear on mouseover."
 		listProps={props}
-		patch={props => {
-			const selectedItemsProps = cloneDeep(props);
+		patch={newProps => {
+			const selectedItemsProps = cloneDeep(newProps);
 			selectedItemsProps.toolbar.actionBar = {
 				selected: 1,
 				hideCount: true,
@@ -859,8 +846,8 @@ export const SelectionLarge = () => (
 	<ListTemplate
 		message="A column can contains only actions that appear on mouseover."
 		listProps={props}
-		patch={props => {
-			const selectedItemsProps = cloneDeep(props);
+		patch={newProps => {
+			const selectedItemsProps = cloneDeep(newProps);
 
 			selectedItemsProps.toolbar.actionBar.multiSelectActions = {
 				left: [
@@ -881,8 +868,8 @@ export const Activation = () => (
 	<ListTemplate
 		message="A column can contains only actions that appear on mouseover."
 		listProps={props}
-		patch={props => {
-			const selectedItemsProps = cloneDeep(props);
+		patch={newProps => {
+			const selectedItemsProps = cloneDeep(newProps);
 
 			selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
 			selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
@@ -895,8 +882,8 @@ export const NoToolbar = () => (
 	<ListTemplate
 		message="A column can contains only actions that appear on mouseover."
 		listProps={props}
-		patch={props => {
-			const tprops = cloneDeep(props);
+		patch={newProps => {
+			const tprops = cloneDeep(newProps);
 			tprops.toolbar = undefined;
 			return tprops;
 		}}
@@ -906,8 +893,8 @@ export const NoToolbar = () => (
 export const SortList = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const tprops = cloneDeep(props);
+		patch={newProps => {
+			const tprops = cloneDeep(newProps);
 			// disable sort on column author
 			const authorColumn = tprops.list.columns.find(e => e.key === 'author');
 			authorColumn.disableSort = true;
@@ -920,8 +907,8 @@ export const SortList = () => (
 export const SortLargeList = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const tprops = cloneDeep(props);
+		patch={newProps => {
+			const tprops = cloneDeep(newProps);
 			// disable sort on column author
 			const authorColumn = tprops.list.columns.find(e => e.key === 'author');
 			authorColumn.disableSort = true;
@@ -936,8 +923,8 @@ export const CustomCellRenderer = () => (
 	<ListTemplate
 		message="CellWithHello"
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 
 			customProps.list.columns = [
 				{ key: 'id', label: 'Id' },
@@ -956,8 +943,8 @@ export const CustomCellRenderer = () => (
 export const FilterDefault = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			customProps.list.items = [customProps.list.items[0]];
 			customProps.toolbar.filter.docked = false;
 			return customProps;
@@ -968,8 +955,8 @@ export const FilterDefault = () => (
 export const FilterHighlited = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			customProps.list.items = [customProps.list.items[0]];
 			customProps.toolbar.filter.docked = false;
 			customProps.toolbar.filter.highlight = true;
@@ -981,8 +968,8 @@ export const FilterHighlited = () => (
 export const FilterDebounce = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			customProps.list.items = [customProps.list.items[0]];
 			customProps.toolbar.filter.docked = false;
 			customProps.toolbar.filter.debounceTimeout = 300;
@@ -994,8 +981,8 @@ export const FilterDebounce = () => (
 export const TitleWithoutClick = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			customProps.list.titleProps.onClick = null;
 			return customProps;
 		}}
@@ -1005,8 +992,8 @@ export const TitleWithoutClick = () => (
 export const HiddenHeaderLabels = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			customProps.list.columns[0].hideHeader = true;
 			return customProps;
 		}}
@@ -1021,7 +1008,7 @@ export const ListResizable = () => <ListTemplate listProps={propsWithResizable} 
 export const TableWithActionOverlay = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
+		patch={newProps => {
 			const items = [...Array(100)].map((_, index) => ({
 				id: index,
 				name: 'Title with actions',
@@ -1035,7 +1022,7 @@ export const TableWithActionOverlay = () => (
 			}));
 
 			return {
-				...props,
+				...newProps,
 				list: {
 					...props.list,
 					items,
@@ -1054,8 +1041,8 @@ export const TableWithColumnChooser = () => (
 export const PaginationToBeDeprecated = () => (
 	<ListTemplate
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 			customProps.toolbar.pagination = {
 				itemsPerPage: 5,
 				totalResults: 10,
