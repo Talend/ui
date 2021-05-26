@@ -2,10 +2,10 @@ import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
-import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
 
 import { convertToUTC } from '../DateTime/datetime-extraction';
 import getErrorMessage from '../shared/error-messages';
+import { convertToLocalTime, convertToTimeZone } from '../../utils/date';
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
