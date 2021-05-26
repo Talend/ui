@@ -75,7 +75,6 @@ function formatTimeZoneTokens(dateFormat, timeZone) {
 	});
 }
 
-
 /**
  * Converts the given date from the given time zone to the local time and returns a new Date object.
  * @param {Date|Number|String} date Date to format
