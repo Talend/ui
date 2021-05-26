@@ -6,7 +6,11 @@ const AllTheProviders = ({ children }) => {
 	return <ThemeProvider>{children}</ThemeProvider>;
 };
 
-const customRender = (ui, options) => render(ui, { wrapper: AllTheProviders, ...options });
+const customRender = (ui, options) => {
+	const result = render(ui, { wrapper: AllTheProviders, ...options });
+	result.getElement = () => result.container.childNodes[0];
+	return result;
+};
 
 // re-export everything
 export * from '@testing-library/react';
