@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import tokens from '../../tokens';
-import { ellipsis } from '../ThemeProvider/mixins';
+import { ellipsis } from '../ThemeProvider/ThemeProvider.style';
 
 export const Tag = styled.span.attrs({
 	className: 'tag',

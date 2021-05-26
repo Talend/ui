@@ -3,5 +3,11 @@
   "copy": [
     { "from": "src/icons", "to": "icons" },
     { "from": "src/images", "to": "images" }
-  ]
+  ],
+  "webpack": {
+    "config": {
+      "development": "./webpack.config.js",
+      "production": "./webpack.config.js"
+    }
+  }
 }

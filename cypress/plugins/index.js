@@ -9,7 +9,7 @@ module.exports = (on, config) => {
 			module: {
 				rules: [
 					{
-						test: /\.css$/i,
+						test: /\.css$/,
 						use: ['style-loader', 'css-loader'],
 					},
 					{
@@ -21,6 +21,13 @@ module.exports = (on, config) => {
 							},
 						},
 						exclude: /node_modules/,
+					},
+					{
+						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
+						loader: 'url-loader',
+						options: {
+							mimetype: 'application/font-woff',
+						},
 					},
 				],
 			},
