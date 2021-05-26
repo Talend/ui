@@ -1,4 +1,4 @@
-import React, { ReactElement, RefObject, createRef, useState, useEffect } from 'react';
+import React, { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
 
 type GenericObject = { [key: string]: Promise<Response> };
 
@@ -70,7 +70,7 @@ function injectIcon(id: string, container: Element) {
 /**
  * add the content of the response into the dom if it starts with SVG
  */
-function addBundle(response: Response) {
+function addBundle(response: Response, url: string) {
 	if (response.status === 200 && response.ok) {
 		return response.text().then(content => {
 			if (content.startsWith('<svg')) {
@@ -79,7 +79,7 @@ function addBundle(response: Response) {
 				container.setAttribute('aria-hidden', 'true');
 				container.setAttribute('focusable', 'false');
 				container.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-				container.setAttribute('data-url', response.url);
+				container.setAttribute('data-url', url);
 				container.innerHTML = content;
 				document.body.appendChild(container);
 			}
@@ -110,8 +110,8 @@ function isRootProvider(ref: RefObject<any>) {
  */
 export function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, icons = {} }) {
 	const iconset: IconSet = { ...defaultIcons, ...icons };
-	const ref = createRef<SVGSVGElement>();
-	const [ shouldRender, setShouldRender ] = useState(true);
+	const ref = useRef<SVGSVGElement>(null);
+	const [shouldRender, setShouldRender] = useState(true);
 
 	useEffect(() => {
 		if (!Array.isArray(bundles)) {
@@ -121,7 +121,7 @@ export function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, ic
 			.filter(url => !hasBundle(url))
 			.forEach(url => {
 				FETCHING_BUNDLES[url] = fetch(url)
-					.then(addBundle)
+					.then(res => addBundle(res, url))
 					.finally(() => {
 						delete FETCHING_BUNDLES[url];
 					});
@@ -133,22 +133,25 @@ export function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, ic
 			console.warn('IconsProvider Error: multiple instance escape');
 			setShouldRender(false);
 		}
-	}, [ ref ]);
+	}, [ref]);
 
-	return shouldRender && (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			focusable="false"
-			className="tc-iconsprovider sr-only"
-			ref={ref}
-		>
-			{Object.keys(iconset).map((id, index) => (
-				<symbol key={index} id={id}>
-					{iconset[id]}
-				</symbol>
-			))}
-		</svg>
-	) || null;
+	return (
+		(shouldRender && (
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				focusable="false"
+				className="tc-iconsprovider sr-only"
+				ref={ref}
+			>
+				{Object.keys(iconset).map((id, index) => (
+					<symbol key={index} id={id}>
+						{iconset[id]}
+					</symbol>
+				))}
+			</svg>
+		)) ||
+		null
+	);
 }
 
 IconsProvider.displayName = 'IconsProvider';
