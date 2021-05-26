@@ -112,7 +112,7 @@ renderHeaderItem.propTypes = PropTypes.oneOfType([
 
 function CollapsiblePanelHeader(props) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const { header, content, id, onSelect, onToggle, expanded } = props;
+	const { header, content, id, onSelect, onToggle, expanded, dataFeature } = props;
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
 		const isHeaderItemArray = Array.isArray(headerItem);
@@ -167,6 +167,7 @@ function CollapsiblePanelHeader(props) {
 				active={expanded}
 				icon="talend-caret-down"
 				iconTransform={expanded ? 'flip-vertical' : null}
+				data-feature={dataFeature}
 			/>
 		);
 		wrappedHeader.push(defaultCaret);
