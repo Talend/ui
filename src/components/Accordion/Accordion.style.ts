@@ -43,8 +43,17 @@ export const DisclosureArrow = styled.span`
 `;
 
 export const DisclosureContent = styled(ReakitDisclosureContent)`
-	padding: ${tokens.space.m};
+	padding: 0;
+	height: 0;
 	border-radius: 0 0 ${tokens.radii.rectRadius} ${tokens.radii.rectRadius};
+	transition: opacity ${tokens.transitions.slow};
+	opacity: 0;
+
+	&[data-enter] {
+		padding: ${tokens.space.m};
+		height: auto;
+		opacity: 1;
+	}
 
 	@media (min-width: ${tokens.breakpoints.l}) {
 		max-height: 37rem;

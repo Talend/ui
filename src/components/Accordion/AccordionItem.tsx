@@ -1,7 +1,9 @@
 import React from 'react';
 import { CompositeItem, useDisclosureState } from 'reakit';
-import * as S from './Accordion.style';
+
 import { Icon } from '../Icon';
+
+import * as S from './Accordion.style';
 
 export type AccordionItemProps = React.PropsWithChildren<any> & {
 	disclosure: React.ReactElement;
@@ -9,7 +11,7 @@ export type AccordionItemProps = React.PropsWithChildren<any> & {
 };
 
 const AccordionItem = ({ id, disclosure, children, visible, ...rest }: AccordionItemProps) => {
-	const disclosureState = useDisclosureState({ visible });
+	const disclosureState = useDisclosureState({ animated: true, visible });
 
 	React.useEffect(() => (rest.currentId === id ? disclosureState.show() : disclosureState.hide()), [
 		id,
