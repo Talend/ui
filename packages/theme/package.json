@@ -45,7 +45,6 @@
     "sass-lint": "^1.13.1",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
-    "url-loader": "^4.1.1",
     "webpack": "^5.26.1",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
