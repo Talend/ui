@@ -18,22 +18,6 @@ function isEmpty(value) {
 }
 
 /**
- * Convert a date in local TZ to UTC
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
-}
-
-/**
  * Extract time
  * @param date {Date} The date to extract
  * @param useSeconds {boolean} Indicates if we should extract seconds
@@ -270,7 +254,6 @@ function updatePartsOnTimeChange(timePickerPayload, date, options) {
 }
 
 export {
-	convertToUTC,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,

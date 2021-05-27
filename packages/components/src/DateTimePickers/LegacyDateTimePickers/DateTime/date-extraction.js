@@ -5,6 +5,7 @@ import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
 import getErrorMessage from './error-messages';
+import { convertToUTC } from '../../utils/date';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
@@ -108,23 +109,6 @@ function isDateValid(date, options) {
 	}
 
 	return date instanceof Date && !isNaN(date.getTime());
-}
-
-/**
- * Convert a date in local TZ to UTC
- * Ex: 2015-05-23 23:58:46 (current TZ) --> 2015-05-23 23:58:46 (UTC)
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
 }
 
 /**
