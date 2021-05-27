@@ -126,6 +126,7 @@ export function formatToTimeZone(date, formatString, options) {
 
 /**
  * Convert a date in local TZ to UTC
+ * 20:00 in local TZ become 20:00 in UTC
  */
 export function convertToUTC(date) {
 	return new Date(
