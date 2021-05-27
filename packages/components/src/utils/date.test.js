@@ -1,4 +1,4 @@
-import { formatToTimeZone, convertToLocalTime, convertToTimeZone } from './date';
+import { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC } from './date';
 
 describe('date', () => {
 	// "Locale date" here means Europe/Paris, according to the test command described in package.json
@@ -72,6 +72,14 @@ describe('date', () => {
 
 			// then
 			expect(localDate).toEqual('2020-05-13T23:00:00+0500');
+		});
+	});
+	describe('convertToUTC', () => {
+		it('should do convertion of bad date', () => {
+			// lets create Date object in local TZ
+			const dateObj = new Date('2020-05-13, 20:00');
+			expect(convertToUTC(dateObj).getUTCHours()).toBe(20);
+			expect(convertToUTC(dateObj).getUTCMinutes()).toBe(0);
 		});
 	});
 });
