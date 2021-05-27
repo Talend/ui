@@ -32,7 +32,11 @@ export default class SingleButton extends React.Component {
 			<Renderer.Action
 				{...props}
 				id={id}
-				className={classNames('btn', className)}
+				className={classNames(
+					// FIXME update forms to use .btn--secondary instead
+					{ 'btn--secondary': !props.bsStyle || props.bsStyle?.includes('default') },
+					className,
+				)}
 				label={label || title}
 				onClick={this.onClick}
 				type={type}
