@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '../../../docs';
 
 import Form from '../';
@@ -23,25 +23,25 @@ Datalist is a set of options that represent the suggested values. It works like 
 ### Default
 
 <Canvas>
-    <Story name="default">
-        <Form.Datalist label="Datalist" values={['', 'foo', 'bar']}/>
-    </Story>
+	<Story name="default">
+		<Form.Datalist label="Datalist" values={['', 'foo', 'bar']} />
+	</Story>
 </Canvas>
 
 ### Disabled
 
 <Canvas>
-    <Story name="disabled">
-        <Form.Datalist label="Disabled Datalist" disabled  values={['', 'foo', 'bar']}/>
-    </Story>
+	<Story name="disabled">
+		<Form.Datalist label="Disabled Datalist" disabled values={['', 'foo', 'bar']} />
+	</Story>
 </Canvas>
 
 ### Read only
 
 <Canvas>
-    <Story name="read-only">
-        <Form.Datalist label="Read-Only Datalist" readOnly value="foo" values={['', 'foo', 'bar']} />
-    </Story>
+	<Story name="read-only">
+		<Form.Datalist label="Read-Only Datalist" readOnly value="foo" values={['', 'foo', 'bar']} />
+	</Story>
 </Canvas>
 
 ## Content
@@ -59,12 +59,12 @@ N/C
 ## Accessibility
 
 The keyboard gestures are the default ones, such as:
+
 - Press arrows keys to display and navigate into the menu.
 - Press <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to select the option.
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 27/07/2020 | Fabien Rassinier  | Init page   |
-
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 27/07/2020 | Fabien Rassinier | Init page   |

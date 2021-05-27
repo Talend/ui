@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '../../../docs';
 
 import Switch from '../';
@@ -7,21 +7,22 @@ import Switch from '../';
 
 # Switch
 
-Switches are a quick way to make a selection between two states (or three sometimes)  or on-off state instantly. There is always a default selection for switches. 
-
+Switches are a quick way to make a selection between two states (or three sometimes) or on-off state instantly. There is always a default selection for switches.
 
 ## Zoning
 
-<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=36%3A0" alt="zoning image for switch" />
-
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=36%3A0"
+	alt="zoning image for switch"
+/>
 
 ## Style
 
 <Canvas>
-    <Story name="default">
-        <Switch values={['input', 'both', 'output']} />
+	<Story name="default">
+		<Switch values={['input', 'both', 'output']} />
 	</Story>
- </Canvas>
+</Canvas>
 
 ## States
 
@@ -34,7 +35,10 @@ Use switches to change the state of system functionalities and preferences on or
 		<ul>
 			<li>Use sentence case in switch labels.</li>
 			<li>Keep labels for switches short and direct.</li>
-			<li>For on/off switches, use the label to describe what the control will do when the switch is on.</li>
+			<li>
+				For on/off switches, use the label to describe what the control will do when the switch is
+				on.
+			</li>
 		</ul>
 	</Use.Do>
 	<Use.Dont>
@@ -45,7 +49,6 @@ Use switches to change the state of system functionalities and preferences on or
 	</Use.Dont>
 </Use>
 
-
 ## Interaction
 
 ## Accessibility
@@ -54,6 +57,6 @@ Use switches to change the state of system functionalities and preferences on or
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 08/04/2020 | Fabien Rassinier  | Init page   |
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 08/04/2020 | Fabien Rassinier | Init page   |

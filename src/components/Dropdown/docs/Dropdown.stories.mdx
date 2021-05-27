@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '../../../docs';
 
 import Button from '../../Button';
@@ -15,7 +15,10 @@ A dropdown menu displays a list of actions to take.
 
 ## Zoning
 
-<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=1%3A22" alt="zoning image for dropdown" />
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=1%3A22"
+	alt="zoning image for dropdown"
+/>
 
 ## Style
 
@@ -23,18 +26,24 @@ A dropdown menu displays a list of actions to take.
 
 **With icons**
 
-<FigmaImage src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A319" alt="dropdown with icons" />
+<FigmaImage
+	src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A319"
+	alt="dropdown with icons"
+/>
 
+**With dividers**
 
-**With dividers** 
-
-<FigmaImage src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A391" alt="dropdown with dividers" />
-
+<FigmaImage
+	src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A391"
+	alt="dropdown with dividers"
+/>
 
 **With categories**
 
-<FigmaImage src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A357" alt="dropdown with categories" />
-
+<FigmaImage
+	src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A357"
+	alt="dropdown with categories"
+/>
 
 **Max height**
 
@@ -43,8 +52,10 @@ This rule is not applicable for the header-bar dropdowns.
 
 ## States
 
-<FigmaImage src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A250" alt="dropdown behaviors" />
-
+<FigmaImage
+	src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A250"
+	alt="dropdown behaviors"
+/>
 
 ## Content
 
@@ -52,35 +63,34 @@ This rule is not applicable for the header-bar dropdowns.
 	<Use.Do>
 		<ul>
 			<li>
-				Keep menu items to a single line of text as much as possible. If not, when the label is too long for the available horizontal space, it wraps to form another line.
+				Keep menu items to a single line of text as much as possible. If not, when the label is too
+				long for the available horizontal space, it wraps to form another line.
 			</li>
-    </ul>
+		</ul>
 	</Use.Do>
 </Use>
-
 
 ## Interactions
 
 <Canvas>
-  <Story name="information">
-	<Dropdown
-		as={Button}
-		aria-label="Custom menu"
-		items={[
-			<button>Custom item 1</button>,
-			<button>Custom item 2</button>,
-			<button>Custom item 3</button>,
-		]}
-	>
-		Menu
-	</Dropdown>
-  </Story>
+	<Story name="information">
+		<Dropdown
+			as={Button}
+			aria-label="Custom menu"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Menu
+		</Dropdown>
+	</Story>
 </Canvas>
 
 **Dropdown menu items should all have a tooltip on hover displaying the description**
 
 // To Do Add story
-
 
 ## Accessibility
 
@@ -95,29 +105,30 @@ This rule is not applicable for the header-bar dropdowns.
 ## Usage
 
 <Canvas>
-  <Story
-    name="usage"
-    height="20rem"
-    args={{
-      children: 'Lorem ipsum',
-    }}
-  >
-    {({ children, ...rest}) => <Dropdown
-                                {...rest}
-                                as={Link}
-                           		items={[
-                                   <button>Custom item 1</button>,
-                                   <button>Custom item 2</button>,
-                                   <button>Custom item 3</button>,
-                               ]}
-                            >
-                                {children}
-                            </Dropdown>}
-  </Story>
+	<Story
+		name="usage"
+		height="20rem"
+		args={{
+			children: 'Lorem ipsum',
+		}}
+	>
+		{({ children, ...rest }) => (
+			<Dropdown
+				{...rest}
+				as={Link}
+				items={[
+					<button>Custom item 1</button>,
+					<button>Custom item 2</button>,
+					<button>Custom item 3</button>,
+				]}
+			>
+				{children}
+			</Dropdown>
+		)}
+	</Story>
 </Canvas>
 
 <ArgsTable story="usage" />
-
 
 ## Changelog
 

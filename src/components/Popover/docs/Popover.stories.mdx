@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import Button from '../../Button';
 import Popover from '../';
 
@@ -14,9 +14,9 @@ Popover displays floating informative and actionable content in relation to its 
 
 <Canvas>
 	<Story name="default" height="10rem">
-        <Popover aria-label="Custom popover" disclosure={<Button.Primary>Open popover</Button.Primary>}>
-            Custom popover
-        </Popover>
+		<Popover aria-label="Custom popover" disclosure={<Button.Primary>Open popover</Button.Primary>}>
+			Custom popover
+		</Popover>
 	</Story>
 </Canvas>
 

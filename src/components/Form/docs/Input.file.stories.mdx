@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '../../../docs';
 import InputZoning from './images/input-file-zoning.jpg';
 import InputFileFilledZoning from './images/input-file-filled-zoning.jpg';
@@ -12,67 +12,70 @@ import { Col, Row } from '../../../docs';
 
 File uploader allows the user to transfer a file by drag and drop or by clicking on the link.
 
-
 ## Zoning
 
 ### Empty
 
-<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A247" alt="zoning image for the file upload input" />
-
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A247"
+	alt="zoning image for the file upload input"
+/>
 
 ### Filled
 
-<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A233" alt="zoning image for the file upload input" />
-
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A233"
+	alt="zoning image for the file upload input"
+/>
 
 ## States
 
 ### Default
 
 <Canvas>
-    <Story name="default">
-        <Form.File label="File" />
-    </Story>
+	<Story name="default">
+		<Form.File label="File" />
+	</Story>
 </Canvas>
 
 ### Multiple
 
 <Canvas>
-    <Story name="multiple">
-        <Form.File label="Files" multiple />
-    </Story>
+	<Story name="multiple">
+		<Form.File label="Files" multiple />
+	</Story>
 </Canvas>
 
 ### Filled
 
 <Canvas>
-    <Story name="filled">
-        <Form.File label="File" files={["filename.xlsx"]} />
-    </Story>
+	<Story name="filled">
+		<Form.File label="File" files={['filename.xlsx']} />
+	</Story>
 </Canvas>
 
 ### Multiple filled
 
 <Canvas>
-    <Story name="multiple-filled">
-        <Form.File label="File" files={["dataset_a.xlsx", "dataset_b.csv"]} />
-    </Story>
+	<Story name="multiple-filled">
+		<Form.File label="File" files={['dataset_a.xlsx', 'dataset_b.csv']} />
+	</Story>
 </Canvas>
 
 ### Disabled
 
 <Canvas>
-    <Story name="disabled">
-        <Form.File label="File" disabled />
-    </Story>
+	<Story name="disabled">
+		<Form.File label="File" disabled />
+	</Story>
 </Canvas>
 
 ### Read only
 
 <Canvas>
-    <Story name="read-only">
-        <Form.File label="File" readOnly files={["filename.xlsx"]} />
-    </Story>
+	<Story name="read-only">
+		<Form.File label="File" readOnly files={['filename.xlsx']} />
+	</Story>
 </Canvas>
 
 ## Content
@@ -80,7 +83,10 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 <Use>
 	<Use.Do>
 		<ul>
-			<li>Use the following text for the uploader and link: _Drop your files here or browse to find them_</li>
+			<li>
+				Use the following text for the uploader and link: _Drop your files here or browse to find
+				them_
+			</li>
 			<li>Use ellipses if the filename is too long.</li>
 		</ul>
 	</Use.Do>
@@ -101,7 +107,6 @@ N/C
 
 ## Changelog
 
-| Date       | Author | Description |
-| ---------- | ------ | ----------- |
-| 06/16/2020 | Monia Huet  | Init page   |
-
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 06/16/2020 | Monia Huet | Init page   |

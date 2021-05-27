@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink } from '../../../docs';
 import Combobox from '../';
 
@@ -13,7 +13,10 @@ Custom values are still possible like a datalist.
 
 ## Zoning
 
-<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=64%3A0" alt="zoning for combobox" />
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=64%3A0"
+	alt="zoning for combobox"
+/>
 
 ## Style
 
@@ -21,89 +24,95 @@ Custom values are still possible like a datalist.
 
 **With categories**
 
-<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A422" alt="combobox with categories" />
-
+<FigmaImage
+	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A422"
+	alt="combobox with categories"
+/>
 
 **With icons**
 
-<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A468" alt="combobox with icons" />
-
+<FigmaImage
+	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A468"
+	alt="combobox with icons"
+/>
 
 **Multi-selection**
 
-<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A547" alt="combobox for multiselection" />
-
+<FigmaImage
+	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A547"
+	alt="combobox for multiselection"
+/>
 
 export const fruits = [
-    "Acerola",
-    "Apple",
-    "Apricots",
-    "Avocado",
-    "Banana",
-    "Blackberries",
-    "Blackcurrant",
-    "Blueberries",
-    "Breadfruit",
-    "Cantaloupe",
-    "Carambola",
-    "Cherimoya",
-    "Cherries",
-    "Clementine",
-    "Coconut Meat",
-    "Cranberries",
-    "Custard-Apple",
-    "Date Fruit",
-    "Durian",
-    "Elderberries",
-    "Feijoa",
-    "Figs",
-    "Gooseberries",
-    "Grapefruit",
-    "Grapes",
-    "Guava",
-    "Honeydew Melon",
-    "Jackfruit",
-    "Java-Plum",
-    "Jujube Fruit",
-    "Kiwifruit",
-    "Kumquat",
-    "Lemon",
-    "Lime",
-    "Longan",
-    "Loquat",
-    "Lychee",
-    "Mandarin",
-    "Mango",
-    "Mangosteen",
-    "Mulberries",
-    "Nectarine",
-    "Olives",
-    "Orange",
-    "Papaya",
-    "Passion Fruit",
-    "Peaches",
-    "Pear",
-    "Persimmon",
-    "Pitaya",
-    "Pineapple",
-    "Pitanga",
-    "Plantain",
-    "Plums",
-    "Pomegranate",
-    "Prickly Pear",
-    "Prunes",
-    "Pummelo",
-    "Quince",
-    "Raspberries",
-    "Rhubarb",
-    "Rose-Apple",
-    "Sapodilla",
-    "Soursop",
-    "Strawberries",
-    "Sugar-Apple",
-    "Tamarind",
-    "Tangerine",
-    "Watermelon",
+	'Acerola',
+	'Apple',
+	'Apricots',
+	'Avocado',
+	'Banana',
+	'Blackberries',
+	'Blackcurrant',
+	'Blueberries',
+	'Breadfruit',
+	'Cantaloupe',
+	'Carambola',
+	'Cherimoya',
+	'Cherries',
+	'Clementine',
+	'Coconut Meat',
+	'Cranberries',
+	'Custard-Apple',
+	'Date Fruit',
+	'Durian',
+	'Elderberries',
+	'Feijoa',
+	'Figs',
+	'Gooseberries',
+	'Grapefruit',
+	'Grapes',
+	'Guava',
+	'Honeydew Melon',
+	'Jackfruit',
+	'Java-Plum',
+	'Jujube Fruit',
+	'Kiwifruit',
+	'Kumquat',
+	'Lemon',
+	'Lime',
+	'Longan',
+	'Loquat',
+	'Lychee',
+	'Mandarin',
+	'Mango',
+	'Mangosteen',
+	'Mulberries',
+	'Nectarine',
+	'Olives',
+	'Orange',
+	'Papaya',
+	'Passion Fruit',
+	'Peaches',
+	'Pear',
+	'Persimmon',
+	'Pitaya',
+	'Pineapple',
+	'Pitanga',
+	'Plantain',
+	'Plums',
+	'Pomegranate',
+	'Prickly Pear',
+	'Prunes',
+	'Pummelo',
+	'Quince',
+	'Raspberries',
+	'Rhubarb',
+	'Rose-Apple',
+	'Sapodilla',
+	'Soursop',
+	'Strawberries',
+	'Sugar-Apple',
+	'Tamarind',
+	'Tangerine',
+	'Watermelon',
 ];
 
 <Canvas>
@@ -114,33 +123,43 @@ export const fruits = [
 
 ## States
 
-<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A202" alt="combobox behaviors" />
-
+<FigmaImage
+	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A202"
+	alt="combobox behaviors"
+/>
 
 ## Content
+
 _Not applicable_
 
 ## Interaction
 
-### Filtering 
+### Filtering
 
 Typing in the field will filter the predefined list options and highlight the searching value.
 
-<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A846" alt="combobox filtering values" />
+<FigmaImage
+	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A846"
+	alt="combobox filtering values"
+/>
 
-
-### Searching 
+### Searching
 
 The asynchronous scenario allows for lazy loading of the pre-selected options. In that case there is a "loading" spinner and message that's displayed before the options load is complete.
 
-<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A287" alt="combobox searching for a value" />
+<FigmaImage
+	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A287"
+	alt="combobox searching for a value"
+/>
 
-### Add a  value
+### Add a value
 
-If a value is not available in the predefined list options the user may have the possibility to add a new value by clicking on the button. 
+If a value is not available in the predefined list options the user may have the possibility to add a new value by clicking on the button.
 
-<FigmaImage src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A207" alt="combobox add a new value" />
-
+<FigmaImage
+	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A207"
+	alt="combobox add a new value"
+/>
 
 ## Accessibility
 
@@ -151,4 +170,3 @@ If a value is not available in the predefined list options the user may have the
 | Date       | Author           | Description |
 | ---------- | ---------------- | ----------- |
 | 09/30/2020 | Fabien Rassinier | Init page   |
-

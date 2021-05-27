@@ -1,12 +1,12 @@
-import {Meta, Canvas, Story, ArgsTable} from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
 import Form from '../';
 
 <Meta title="Components/Form/Fields/Radio" />
 
 <Links>
-    <FigmaLink href="https://www.figma.com/file/Ux9flIa7RJXED6xnsajju8/Radio?node-id=1%3A66" />
-    <GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Form/Field/Input" />
+	<FigmaLink href="https://www.figma.com/file/Ux9flIa7RJXED6xnsajju8/Radio?node-id=1%3A66" />
+	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Form/Field/Input" />
 </Links>
 
 # Radio
@@ -97,43 +97,43 @@ Radio buttons appear as a list of two or more options on UI where users can sele
 ## Usage
 
 <Canvas>
-    <Story
-        name="basic"
-        args={{
-            label: 'Radio',
-            checked: false,
-            readOnly: false,
-            disabled: false,
-        }}
-        argTypes={{
-            label: {
-                description: 'Radio label',
-                control: {
-                    type: 'text',
-                },
-            },
-            checked: {
-                description: 'Radio is checked or  not',
-                control: {
-                    type: 'boolean',
-                },
-            },
-            readOnly: {
-                description: 'Radio is read only or not',
-                control: {
-                    type: 'boolean',
-                },
-            },
-            disabled: {
-                description: 'Radio is disabled or not',
-                control: {
-                    type: 'boolean',
-                },
-            },
-        }}
-    >
-        {props => <Form.Radio {...props} />}
-    </Story>
+	<Story
+		name="basic"
+		args={{
+			label: 'Radio',
+			checked: false,
+			readOnly: false,
+			disabled: false,
+		}}
+		argTypes={{
+			label: {
+				description: 'Radio label',
+				control: {
+					type: 'text',
+				},
+			},
+			checked: {
+				description: 'Radio is checked or  not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			readOnly: {
+				description: 'Radio is read only or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			disabled: {
+				description: 'Radio is disabled or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+		}}
+	>
+		{props => <Form.Radio {...props} />}
+	</Story>
 </Canvas>
 
 <ArgsTable story="basic" />
