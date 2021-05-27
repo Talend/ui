@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -65,6 +66,14 @@ module.exports = (env, argv) => {
 			minimizer: ['...', new CssMinimizerPlugin()], // '...' used to access the defaults.
 		},
 		plugins: [
+			new CopyPlugin({
+				patterns: [
+					{
+						from: 'dependencies.json',
+						to: 'bootstrap.js.dependencies.json',
+					},
+				],
+			}),
 			new HtmlWebpackPlugin({
 				template: path.resolve(__dirname, './example/index.html'),
 			}),

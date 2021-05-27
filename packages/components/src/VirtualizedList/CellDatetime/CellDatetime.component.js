@@ -6,13 +6,14 @@ import pick from 'lodash/pick';
 import { distanceInWordsToNow, format } from 'date-fns';
 import isValid from 'date-fns/is_valid';
 import parse from 'date-fns/parse';
-import { formatToTimeZone } from 'date-fns-timezone';
 import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
 import styles from './CellDatetime.scss';
 import TooltipTrigger from '../../TooltipTrigger';
+
+import { formatToTimeZone } from '../../utils/date';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
