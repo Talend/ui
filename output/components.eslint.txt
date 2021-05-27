@@ -41,7 +41,7 @@
   31:5  warning  React Hook useEffect has missing dependencies: 'getDateOptions' and 'state.date'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/date-extraction.js
-  7:1  error  Dependency cycle detected  import/no-cycle
+  6:1  error  Dependency cycle detected  import/no-cycle
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.js
   49:5  warning  React Hook useEffect has missing dependencies: 'options', 'state.endDate.value', and 'state.startDate.value'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
@@ -50,7 +50,7 @@
   42:5  warning  React Hook useEffect has missing dependencies: 'getDateOptions', 'onChange', and 'state.datetime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/datetime-extraction.js
-  6:1  error  Dependency cycle detected  import/no-cycle
+  5:1  error  Dependency cycle detected  import/no-cycle
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTimeRange/Manager/Manager.component.js
   26:5  warning  React Hook useEffect has missing dependencies: 'state.endDateTime' and 'state.startDateTime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
