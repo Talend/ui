@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.2.0
+
+### Minor Changes
+
+- 07abcde: For on-prem usage, we need to embed Source Sans Pro and Inconsolata fonts in the UMD for convenience
+
 ## 1.1.5
 
 ### Patch Changes
