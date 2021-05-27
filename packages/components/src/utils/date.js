@@ -16,7 +16,7 @@ function getUTCOffset(timeZone) {
 		month: 'numeric',
 		day: 'numeric',
 		hour: 'numeric',
-		minute: 'numeric'
+		minute: 'numeric',
 	};
 
 	const locale = 'en-US';
@@ -123,7 +123,6 @@ export function formatToTimeZone(date, formatString, options) {
 
 	return format(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue);
 }
-
 
 /**
  * Convert a date in local TZ to UTC
