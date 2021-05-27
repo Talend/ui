@@ -579,11 +579,12 @@ const itemsForListWithIcons = [
 
 const ListTemplate = args => {
 	const [propsMemo, setState] = React.useState(args.listProps);
+	const { patch, listProps } = args;
 	React.useEffect(() => {
-		if (args.patch && args.listProps) {
-			setState(args.patch(args.listProps));
+		if (patch && listProps) {
+			setState(patch(listProps));
 		}
-	}, []);
+	}, [patch, listProps]);
 	if (!propsMemo) {
 		return <div />;
 	}
@@ -626,8 +627,8 @@ export const TableIcons = () => (
 	<ListTemplate
 		message="Display with icons in status"
 		listProps={props}
-		patch={props => {
-			const customProps = cloneDeep(props);
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 
 			customProps.list.columns = [
 				{ key: 'id', label: 'Id' },
