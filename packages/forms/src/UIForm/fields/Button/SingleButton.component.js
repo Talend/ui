@@ -35,6 +35,7 @@ export default class SingleButton extends React.Component {
 				className={classNames(
 					// FIXME update forms to use .btn--secondary instead
 					{ 'btn--secondary': !props.bsStyle || props.bsStyle?.includes('default') },
+					'btn',
 					className,
 				)}
 				label={label || title}
