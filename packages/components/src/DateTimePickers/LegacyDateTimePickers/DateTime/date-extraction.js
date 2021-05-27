@@ -5,7 +5,7 @@ import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
 import getErrorMessage from './error-messages';
-import { convertToUTC } from '../../utils/date';
+import { convertToUTC } from '../../../utils/date';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
