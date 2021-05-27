@@ -120,6 +120,28 @@ describe('TreeView item', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('test disabled item not calling onSelect', () => {
+		// when
+		const onSelect = jest.fn();
+		const stopPropagation = jest.fn();
+		const props = {
+			...defaultProps,
+			item: {
+				...defaultProps.item,
+				disabled: true,
+			},
+		};
+
+		const wrapper = shallow(<TreeViewItem {...props} onSelect={onSelect} />);
+		wrapper.find('li').simulate('click', { stopPropagation });
+		wrapper.find('li').simulate('keyDown', { keyCode: 13 });
+
+		// then
+		expect(onSelect.mock.calls.length).toBe(0);
+		expect(stopPropagation.mock.calls.length).toBe(1);
+		expect(wrapper.find('li').props()['aria-disabled']).toBeTruthy();
+	});
+
 	it('should render items with icon and tooltip', () => {
 		// when
 		const propsWithIconAndTooltip = {
@@ -129,12 +151,7 @@ describe('TreeView item', () => {
 
 		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);
 
-		expect(
-			wrapper
-				.find('TreeViewIcon')
-				.dive()
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.find('TreeViewIcon').dive().getElement()).toMatchSnapshot();
 	});
 
 	it('should toggle item on toggle button click', () => {

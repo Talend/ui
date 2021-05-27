@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
-import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import cloneDeep from 'lodash/cloneDeep';
 
 import List from './List.component';
@@ -579,574 +577,479 @@ const itemsForListWithIcons = [
 	},
 ];
 
-storiesOf('Data/List/List', module)
-	.add('Table display', () => (
+const ListTemplate = args => {
+	const [propsMemo, setState] = React.useState(args.listProps);
+	const { patch, listProps } = args;
+	React.useEffect(() => {
+		if (patch && listProps) {
+			setState(patch(listProps));
+		}
+	}, [patch, listProps]);
+	if (!propsMemo) {
+		return <div />;
+	}
+	return (
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
-			<p>
-				Display the list in table mode.
-				<br />
-				This is the default mode.
-			</p>
-			<List {...props} />
+			<p>{args.message}</p>
+			{args.children ? args.children : <List {...propsMemo} />}
 		</div>
-	))
-	.add('Table with number of items', () => {
-		const customProps = cloneDeep(props);
-		customProps.toolbar.itemsNumber = {
-			totalItems: customProps.list.items.length,
-			label: `${customProps.list.items.length} users`,
-		};
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Display the list in table mode with the total number of items.</p>
-				<List {...customProps} />
-			</div>
-		);
-	})
-	.add('Table icons', () => {
-		const customProps = cloneDeep(props);
+	);
+};
 
-		customProps.list.columns = [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
-			{ key: 'cat', label: 'Cat' },
-		];
+export default {
+	title: 'Data/List/List',
+};
 
-		customProps.list.items = itemsForListWithIcons;
+export const TableDisplay = () => (
+	<ListTemplate
+		message="Display the list in table mode. This is the default mode."
+		listProps={props}
+	/>
+);
 
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>
-					Display the list in table mode.
-					<br />
-					This is the default mode.
-				</p>
-				<List {...customProps} />
-			</div>
-		);
-	})
-	.add('Large display', () => (
-		<div style={{ height: '70vh' }} className="virtualized-list">
-			<h1>List</h1>
-			<p>
-				Display the list in large mode.
-				<br />
-				You just need to pass the props displayMode.
-			</p>
-			<pre>&lt;List displayMode="large" ... &gt;</pre>
-			<List {...props} rowHeight={140} displayMode="large" />
-		</div>
-	))
-	.add('Large arrays of actions display', () => {
-		const customProps = cloneDeep(props);
-		const separatorActions = [
-			{
-				id: 'monitoring',
-				label: 'monitor something',
-				'data-feature': 'list.item.monitor',
-				icon: 'talend-line-charts',
-				onClick: action('onMonitor'),
-				hideLabel: true,
-			},
-		];
-		customProps.list.items = customProps.list.items.map(item => ({
-			...item,
-			actions: [separatorActions, actions],
-		}));
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>
-					Display the list in table mode using arrays of actions.
-					<br />
-					This is the default mode.
-				</p>
-				<List {...customProps} displayMode="large" />
-			</div>
-		);
-	})
-	.add('Large display overrides by rowRenderers', () => (
-		<div style={{ height: '70vh' }} className="virtualized-list">
-			<h1>List</h1>
-			<p>
-				Display the list in large mode.
-				<br />
-				You just need to pass the props displayMode.
-			</p>
-			<pre>&lt;List displayMode="large" rowRenderers= ... &gt;</pre>
-			<List {...props} rowHeight={116} displayMode="large" rowRenderers={{ LARGE: MyCustomRow }} />
-		</div>
-	))
-	.add('Large display with icons', () => {
-		const customProps = cloneDeep(props);
-		customProps.list.columns = [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
-			{ key: 'cat', label: 'Cat' },
-		];
-		customProps.list.items = itemsForListWithIcons;
+export const TableWithNumber = () => (
+	<ListTemplate
+		message="Display the list in table mode with the total number of items."
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			customProps.toolbar.itemsNumber = {
+				totalItems: customProps.list.items.length,
+				label: `${customProps.list.items.length} users`,
+			};
+			return customProps;
+		}}
+	/>
+);
 
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<List {...customProps} rowHeight={140} displayMode="large" />
-			</div>
-		);
-	})
-	.add('Empty list', () => {
-		const emptyListProps = cloneDeep(props);
-		emptyListProps.list.items = [];
+export const TableIcons = () => (
+	<ListTemplate
+		message="Display with icons in status"
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
 
-		const customEmptyRendererListProps = cloneDeep(props);
-		customEmptyRendererListProps.list.items = [];
-		customEmptyRendererListProps.list.noRowsRenderer = () => (
-			<span className="tc-virtualizedlist-no-result" role="status" aria-live="polite">
-				I'm a custom NoRowsRenderer
-			</span>
-		);
+			customProps.list.columns = [
+				{ key: 'id', label: 'Id' },
+				{ key: 'name', label: 'Name' },
+				{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
+				{ key: 'cat', label: 'Cat' },
+			];
 
-		return (
-			<div style={{ height: '70vh' }}>
-				<h1>List</h1>
-				<p>When the list is empty, a message is displayed instead of the rows.</p>
-				<h2>Table</h2>
-				<List {...emptyListProps} />
-				<h2>Large</h2>
-				<List {...emptyListProps} displayMode="large" />
-				<h2>Custom no row renderer</h2>
-				<List {...customEmptyRendererListProps} />
-			</div>
-		);
-	})
-	.add('List in progress', () => {
-		const loadingListProps = cloneDeep(props);
-		loadingListProps.list.inProgress = true;
-		return (
-			<div style={{ height: '70vh' }}>
-				<h1>List</h1>
-				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
-				<h2>Table</h2>
-				<List {...loadingListProps} />
-				<h2>Large</h2>
-				<List {...loadingListProps} displayMode="large" />
-			</div>
-		);
-	})
-	.add('Column actions', () => {
-		const columnActionsProps = getActionsProps();
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>A column can contains only actions that appear on mouseover.</p>
-				<List {...columnActionsProps} />
-			</div>
-		);
-	})
-	.add('Selection', () => {
-		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.toolbar.actionBar = {
-			selected: 1,
-			multiSelectActions: {
-				left: [
-					{
-						id: 'remove',
-						label: 'Delete selection',
-						icon: 'talend-trash',
-						onClick: action('remove'),
-					},
-				],
-			},
-		};
-		selectedItemsProps.list.itemProps = itemPropsForItems;
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>
-					You can manage selection by passing 2 props : onSelect and isSelected.
-					<br />
-					<b>onSelect(event, item)</b> : item selection callback
-					<b>isSelected(item)</b> : returns true if the item is selected
-				</p>
-				<pre>
-					listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);
-					<br />
-					listProps.itemProps.isSelected = (item) => item.id === 2;
-					<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;
-					<br />
-				</pre>
-				<List {...selectedItemsProps} />
-			</div>
-		);
-	})
-	.add('Selection with number of items', () => {
-		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.toolbar.actionBar = {
-			selected: 1,
-			hideCount: true,
-			multiSelectActions: {
-				left: [
-					{
-						id: 'remove',
-						label: 'Delete selection',
-						icon: 'talend-trash',
-						onClick: action('remove'),
-					},
-				],
-			},
-		};
-		selectedItemsProps.list.itemProps = itemPropsForItems;
-		selectedItemsProps.toolbar.itemsNumber = {
-			totalItems: selectedItemsProps.list.items.length,
-			label: `${selectedItemsProps.list.items.length} books`,
-			labelSelected: `${selectedItemsProps.toolbar.actionBar.selected}/${selectedItemsProps.list.items.length} books`,
-		};
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Display the list in table mode with selected items and the total number of items.</p>
-				<List {...selectedItemsProps} />
-			</div>
-		);
-	})
-	.add('Selection - large', () => {
-		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
-			left: [
+			customProps.list.items = itemsForListWithIcons;
+			return customProps;
+		}}
+	/>
+);
+
+export const LargeDisplay = () => (
+	<ListTemplate
+		message="displayMode large"
+		listProps={props}
+		patch={newProps => {
+			return {
+				...newProps,
+				rowHeight: 140,
+				displayMode: 'large',
+			};
+		}}
+	/>
+);
+
+export const LargeArrayOfActions = () => (
+	<ListTemplate
+		message="Display the list in table mode using arrays of actions"
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			const separatorActions = [
 				{
-					id: 'remove',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('remove'),
+					id: 'monitoring',
+					label: 'monitor something',
+					'data-feature': 'list.item.monitor',
+					icon: 'talend-line-charts',
+					onClick: action('onMonitor'),
+					hideLabel: true,
 				},
-			],
-		};
-		selectedItemsProps.list.itemProps = itemPropsForItems;
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>
-					For table view, user toggle column header to select/disselect all items.
-					<br />
-					When List displayed in large view, there's a one-line checkbox of "Select All" above the
-					list.
-					<br />
-				</p>
-				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
-			</div>
-		);
-	})
-	.add('Activation', () => {
-		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
-		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>
-					You can manage selection by passing 2 props : onRowClick and isActive.
-					<br />
-					<b>onRowClick(event, item)</b> : item selection callback
-					<br />
-					<b>isActive(item)</b> : returns true if the item is selected
-				</p>
-				<pre>
-					listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);
-					<br />
-					listProps.itemProps.isActive = (item) => item.id === 0;
-					<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;
-					<br />
-				</pre>
-				<h2>Table</h2>
-				<List {...selectedItemsProps} displayMode="table" />
-				<h2>Large</h2>
-				<List {...cloneDeep(selectedItemsProps)} rowHeight={140} displayMode="large" />
-			</div>
-		);
-	})
-	.add('No toolbar', () => {
-		const tprops = cloneDeep(props);
-		tprops.toolbar = undefined;
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Table without toolbar</p>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('Sort', () => {
-		const tprops = cloneDeep(props);
-		// disable sort on column author
-		const authorColumn = tprops.list.columns.find(e => e.key === 'author');
-		authorColumn.disableSort = true;
-		tprops.list.sort = sort;
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>You add sort management with column header click.</p>
-				<pre>
-					listProps.sort.field = 'modified';
-					<br />
-					listProps.sort.isDescending = false;
-					<br />
-					listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
-					isDescending);
-					<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;
-					<br />
-				</pre>
-				<p>
-					To disable sort on a column, add the <strong>disableSort</strong> props (see Author
-					column).
-				</p>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('Sort - large', () => {
-		const tprops = cloneDeep(props);
-		tprops.list.sort = sort;
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Show Sort widgets on List toolbar when display in large view</p>
-				<List {...tprops} rowHeight={140} displayMode="large" />
-			</div>
-		);
-	})
-	.add('Custom cell renderer', () => {
-		const customProps = cloneDeep(props);
+			];
+			customProps.list.items = customProps.list.items.map(item => ({
+				...item,
+				actions: [separatorActions, actions],
+			}));
+			return customProps;
+		}}
+	/>
+);
 
-		customProps.list.columns = [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'status', label: 'Status', type: 'hello' },
-			{ key: 'cat', label: 'Cat' },
-		];
+export const LargeDisplayOverridesByRownRenderers = () => (
+	<ListTemplate
+		message="Display large"
+		listProps={props}
+		patch={newProps => {
+			return {
+				...newProps,
+				rowHeight: 116,
+				displayMode: 'large',
+				rowRenderers: { LARGE: MyCustomRow },
+			};
+		}}
+	/>
+);
 
-		customProps.list.items = itemsForListWithIcons;
-		customProps.list.cellDictionary = { hello: { cellRenderer: CellWithHello } };
+export const LargeDisplayWithIcons = () => (
+	<ListTemplate
+		message="Display large with icons"
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			customProps.list.columns = [
+				{ key: 'id', label: 'Id' },
+				{ key: 'name', label: 'Name' },
+				{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
+				{ key: 'cat', label: 'Cat' },
+			];
+			customProps.list.items = itemsForListWithIcons;
+			return customProps;
+		}}
+	/>
+);
 
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Display the list with a custom renderer for the status column.</p>
-				<List {...customProps} />
-			</div>
-		);
-	})
-	.add('Filter', () => {
-		const dockedProps = cloneDeep(props);
-		dockedProps.list.items = [dockedProps.list.items[0]];
+export const EmptyTable = () => (
+	<ListTemplate
+		message="Empty"
+		listProps={props}
+		patch={newProps => {
+			const emptyListProps = cloneDeep(newProps);
+			emptyListProps.list.items = [];
+			return emptyListProps;
+		}}
+	/>
+);
 
-		const inputProps = Immutable.fromJS(dockedProps).toJS();
-		inputProps.toolbar.filter.docked = false;
+export const EmptyLarge = () => (
+	<ListTemplate
+		message="Empty List display large"
+		listProps={props}
+		patch={newProps => {
+			const emptyListProps = cloneDeep(newProps);
+			emptyListProps.list.items = [];
+			emptyListProps.displayMode = 'large';
+			return emptyListProps;
+		}}
+	/>
+);
 
-		const highlightedProps = Immutable.fromJS(inputProps).toJS();
-		highlightedProps.toolbar.filter.highlight = true;
+export const EmptyListCustom = () => (
+	<ListTemplate
+		message="Empty list with custom renderer"
+		listProps={props}
+		patch={newProps => {
+			const customEmptyRendererListProps = cloneDeep(newProps);
+			customEmptyRendererListProps.list.items = [];
+			customEmptyRendererListProps.list.noRowsRenderer = () => (
+				<span className="tc-virtualizedlist-no-result" role="status" aria-live="polite">
+					I'm a custom NoRowsRenderer
+				</span>
+			);
+			return customEmptyRendererListProps;
+		}}
+	/>
+);
 
-		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
-		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
-
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<h2>Definition</h2>
-				<p>
-					Filter in toolbar can have multiple states.
-					<br />
-					Its state, input, and callbacks are customizable.
-				</p>
-				<h2>Docked</h2>
-				<div style={{ height: '15vh' }}>
-					<List {...dockedProps} />
-				</div>
-				<h2>Input</h2>
-				<div style={{ height: '15vh' }}>
-					<List {...inputProps} />
-				</div>
-				<h2>Highlighted</h2>
-				<div style={{ height: '15vh' }}>
-					<List {...highlightedProps} />
-				</div>
-				<h2>Input with 300ms debounce</h2>
-				<div style={{ height: '15vh' }}>
-					<List {...inputDebounceProps} />
-				</div>
-			</div>
-		);
-	})
-	.add('Filtered DisplayMode', () => {
-		const tprops = {
-			...props,
-			toolbar: {
-				actionBar: {},
-				display: {
-					onChange: action('display.onChange'),
-					displayModes: ['large', 'table'],
+export const ListInProgressTable = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const loadingListProps = cloneDeep(newProps);
+			loadingListProps.list.inProgress = true;
+			return loadingListProps;
+		}}
+	/>
+);
+export const ListInProgressLarge = () => (
+	<ListTemplate
+		message="Display large"
+		listProps={props}
+		patch={newProps => {
+			const loadingListProps = cloneDeep(newProps);
+			loadingListProps.list.inProgress = true;
+			loadingListProps.displayMode = 'large';
+			return loadingListProps;
+		}}
+	/>
+);
+export const ColumnActions = () => (
+	<ListTemplate
+		message="A column can contains only actions that appear on mouseover."
+		listProps={props}
+		patch={() => {
+			return getActionsProps();
+		}}
+	/>
+);
+export const Selection = () => (
+	<ListTemplate
+		message="A column can contains only actions that appear on mouseover."
+		listProps={props}
+		patch={newProps => {
+			const selectedItemsProps = cloneDeep(newProps);
+			selectedItemsProps.toolbar.actionBar = {
+				selected: 1,
+				multiSelectActions: {
+					left: [
+						{
+							id: 'remove',
+							label: 'Delete selection',
+							icon: 'talend-trash',
+							onClick: action('remove'),
+						},
+					],
 				},
-			},
-		};
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>You can get limited options for displayMode.</p>
-				<pre>
-					toolbarProps.display.displayModes = ['large', 'table'];
-					<br />
-					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;
-					<br />
-				</pre>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('i18n', () => (
-		<div>
-			<h1>List with i18n</h1>
-			<p>Change language in the toolbar</p>
-			<List {...props} />
-		</div>
-	))
-	.add('Title without click', () => {
-		const tprops = cloneDeep(props);
+			};
+			selectedItemsProps.list.itemProps = itemPropsForItems;
+			return selectedItemsProps;
+		}}
+	/>
+);
+export const SelectionWithNumberOfItems = () => (
+	<ListTemplate
+		message="A column can contains only actions that appear on mouseover."
+		listProps={props}
+		patch={newProps => {
+			const selectedItemsProps = cloneDeep(newProps);
+			selectedItemsProps.toolbar.actionBar = {
+				selected: 1,
+				hideCount: true,
+				multiSelectActions: {
+					left: [
+						{
+							id: 'remove',
+							label: 'Delete selection',
+							icon: 'talend-trash',
+							onClick: action('remove'),
+						},
+					],
+				},
+			};
+			selectedItemsProps.list.itemProps = itemPropsForItems;
+			selectedItemsProps.toolbar.itemsNumber = {
+				totalItems: selectedItemsProps.list.items.length,
+				label: `${selectedItemsProps.list.items.length} books`,
+				labelSelected: `${selectedItemsProps.toolbar.actionBar.selected}/${selectedItemsProps.list.items.length} books`,
+			};
+			return selectedItemsProps;
+		}}
+	/>
+);
 
-		tprops.list.titleProps.onClick = null;
+export const SelectionLarge = () => (
+	<ListTemplate
+		message="A column can contains only actions that appear on mouseover."
+		listProps={props}
+		patch={newProps => {
+			const selectedItemsProps = cloneDeep(newProps);
 
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>To have not clickable titles, just don't pass any onClick callback</p>
-				<pre>
-					const props = &#123;...&#125;;
-					<br />
-					props.list.titleProps.onClick = null;
-					<br />
-					&lt;List &#123;...props&#125; /&gt;
-				</pre>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('Hidden header labels', () => {
-		const tprops = cloneDeep(props);
+			selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+				left: [
+					{
+						id: 'remove',
+						label: 'Delete selection',
+						icon: 'talend-trash',
+						onClick: action('remove'),
+					},
+				],
+			};
+			selectedItemsProps.list.itemProps = itemPropsForItems;
+			return selectedItemsProps;
+		}}
+	/>
+);
+export const Activation = () => (
+	<ListTemplate
+		message="A column can contains only actions that appear on mouseover."
+		listProps={props}
+		patch={newProps => {
+			const selectedItemsProps = cloneDeep(newProps);
 
-		tprops.list.columns[0].hideHeader = true;
+			selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
+			selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
+			return selectedItemsProps;
+		}}
+	/>
+);
 
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Display the list with hidden header labels.</p>
-				<pre>
-					const props = &#123;...&#125;;
-					<br />
-					props.list.columns[0].hideHeader = true;
-					<br />
-					&lt;List &#123;...props&#125; /&gt;
-				</pre>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('Custom classnames', () => (
-		<div style={{ height: '70vh' }} className="virtualized-list virtualized-list-customized-row">
-			<h1>List</h1>
-			<p>Display the list with hidden header labels.</p>
-			<List {...props} />
-		</div>
-	))
-	.add('Inline parent', () => (
-		<div className="virtualized-list">
-			<h1>List</h1>
-			{/* Do not reproduce! */}
-			<span>
-				<List {...props} />
-			</span>
-		</div>
-	))
-	.add('List cell renderer', () => (
-		<div className="virtualized-list" style={{ height: '70vh' }}>
-			<h1>List with specified VirtualizedList cell renderer</h1>
-			<p>CellDatetimeRenderer in action.</p>
-			<span>
-				<List {...propsWithVirtualized} />
-			</span>
-		</div>
-	))
-	.add('List resizable', () => (
-		<div className="virtualized-list" style={{ height: '70vh' }}>
-			<h1>List with resizable columns</h1>
-			<span>
-				<List {...propsWithResizable} />
-			</span>
-		</div>
-	))
-	.add('Table display with action overlay', () => {
-		const items = [...Array(100)].map((_, index) => ({
-			id: index,
-			name: 'Title with actions',
-			created: 1518596913333,
-			modified: minusThreeHours,
-			author: 'Jean-Pierre DUPONT',
-			actions: [overlayAction, ...actions],
-			icon: 'talend-file-xls-o',
-			display: 'text',
-			className: 'item-0-class',
-		}));
+export const NoToolbar = () => (
+	<ListTemplate
+		message="A column can contains only actions that appear on mouseover."
+		listProps={props}
+		patch={newProps => {
+			const tprops = cloneDeep(newProps);
+			tprops.toolbar = undefined;
+			return tprops;
+		}}
+	/>
+);
 
-		const listProps = {
-			...props,
-			list: {
-				...props.list,
-				items,
-			},
-		};
+export const SortList = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const tprops = cloneDeep(newProps);
+			// disable sort on column author
+			const authorColumn = tprops.list.columns.find(e => e.key === 'author');
+			authorColumn.disableSort = true;
+			tprops.list.sort = sort;
+			return tprops;
+		}}
+	/>
+);
 
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>
-					Display the list in table mode.
-					<br />
-					This is the default mode.
-				</p>
-				<List {...listProps} />
-			</div>
-		);
-	})
-	.add('Table with column chooser', () => (
-		<div style={{ height: '100vh' }} className="virtualized-list">
-			<h1>List</h1>
-			<p>
-				Display the list with the column chooser.
-				<br />
-				Using columnChooserClientHook.
-			</p>
-			<ListColumnChooser {...props} />
-		</div>
-	))
-	.add('Pagination - to be deprecated', () => {
-		const customProps = cloneDeep(props);
-		customProps.toolbar.pagination = {
-			itemsPerPage: 5,
-			totalResults: 10,
-			onChange: action('pagination.onChange'),
-		};
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p style={{ color: '#ea8330' }}>
-					Warning: Pagination is deprecated and will be removed in the next major version.
-					<br />
-					For now pagination will show on second toolbar if you use it.
-				</p>
-				<List {...customProps} />
-			</div>
-		);
-	});
+export const SortLargeList = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const tprops = cloneDeep(newProps);
+			// disable sort on column author
+			const authorColumn = tprops.list.columns.find(e => e.key === 'author');
+			authorColumn.disableSort = true;
+			tprops.list.sort = sort;
+			tprops.displayMode = 'large';
+			return tprops;
+		}}
+	/>
+);
+
+export const CustomCellRenderer = () => (
+	<ListTemplate
+		message="CellWithHello"
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+
+			customProps.list.columns = [
+				{ key: 'id', label: 'Id' },
+				{ key: 'name', label: 'Name' },
+				{ key: 'status', label: 'Status', type: 'hello' },
+				{ key: 'cat', label: 'Cat' },
+			];
+
+			customProps.list.items = itemsForListWithIcons;
+			customProps.list.cellDictionary = { hello: { cellRenderer: CellWithHello } };
+			return customProps;
+		}}
+	/>
+);
+
+export const FilterDefault = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			customProps.list.items = [customProps.list.items[0]];
+			customProps.toolbar.filter.docked = false;
+			return customProps;
+		}}
+	/>
+);
+
+export const FilterHighlited = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			customProps.list.items = [customProps.list.items[0]];
+			customProps.toolbar.filter.docked = false;
+			customProps.toolbar.filter.highlight = true;
+			return customProps;
+		}}
+	/>
+);
+
+export const FilterDebounce = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			customProps.list.items = [customProps.list.items[0]];
+			customProps.toolbar.filter.docked = false;
+			customProps.toolbar.filter.debounceTimeout = 300;
+			return customProps;
+		}}
+	/>
+);
+
+export const TitleWithoutClick = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			customProps.list.titleProps.onClick = null;
+			return customProps;
+		}}
+	/>
+);
+
+export const HiddenHeaderLabels = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			customProps.list.columns[0].hideHeader = true;
+			return customProps;
+		}}
+	/>
+);
+
+export const ListCellRenderer = () => (
+	<ListTemplate message="datetime pattern" listProps={propsWithVirtualized} />
+);
+
+export const ListResizable = () => <ListTemplate listProps={propsWithResizable} />;
+export const TableWithActionOverlay = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const items = [...Array(100)].map((_, index) => ({
+				id: index,
+				name: 'Title with actions',
+				created: 1518596913333,
+				modified: minusThreeHours,
+				author: 'Jean-Pierre DUPONT',
+				actions: [overlayAction, ...actions],
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-0-class',
+			}));
+
+			return {
+				...newProps,
+				list: {
+					...props.list,
+					items,
+				},
+			};
+		}}
+	/>
+);
+
+export const TableWithColumnChooser = () => (
+	<ListTemplate listProps={{}}>
+		<ListColumnChooser {...props} />
+	</ListTemplate>
+);
+
+export const PaginationToBeDeprecated = () => (
+	<ListTemplate
+		listProps={props}
+		patch={newProps => {
+			const customProps = cloneDeep(newProps);
+			customProps.toolbar.pagination = {
+				itemsPerPage: 5,
+				totalResults: 10,
+				onChange: action('pagination.onChange'),
+			};
+			return customProps;
+		}}
+	/>
+);
