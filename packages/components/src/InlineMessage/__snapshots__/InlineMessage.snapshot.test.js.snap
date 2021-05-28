@@ -3,6 +3,7 @@
 exports[`InlineMessage should render with higligthed background 1`] = `
 <Coral.InlineMessage.Success
   description="Validation and successful messages"
+  link={null}
   title="Validation title."
   withBackground={true}
 />
@@ -11,6 +12,7 @@ exports[`InlineMessage should render with higligthed background 1`] = `
 exports[`InlineMessage should render with icon and description 1`] = `
 <Coral.InlineMessage.Success
   description="Validation and successful messages"
+  link={null}
   title=""
 />
 `;
@@ -18,6 +20,7 @@ exports[`InlineMessage should render with icon and description 1`] = `
 exports[`InlineMessage should render with icon, title and description 1`] = `
 <Coral.InlineMessage.Success
   description="Validation and successful messages"
+  link={null}
   title="Validation title."
 />
 `;
@@ -28,8 +31,6 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
   link={
     <Link
       href="https://my.custom.link"
-      iconBefore="talend-check-circle"
-      label="See more"
     >
       See more
     </Link>
@@ -41,6 +42,7 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
 exports[`InlineMessage should render with title and description 1`] = `
 <Coral.InlineMessage.Success
   description="Validation and successful messages"
+  link={null}
   title="Validation title."
 />
 `;

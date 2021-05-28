@@ -45,18 +45,14 @@ export function InlineMessage({ type, icon, link, ...props }) {
 		default:
 			InlineMessageVariant = CoralInlineMessage;
 	}
-	return (
-		<InlineMessageVariant
-			{...props}
-			link={
-				link && (
-					<Link iconBefore={icon} {...link}>
-						{link.label}
-					</Link>
-				)
-			}
-		/>
-	);
+	const getLink = () => {
+		if (!link) {
+			return null;
+		}
+		const { label, ...rest } = link;
+		return <Link {...rest}>{label}</Link>;
+	};
+	return <InlineMessageVariant {...props} link={getLink()} />;
 }
 
 InlineMessage.TYPES = TYPES;
