@@ -21,15 +21,20 @@ describe('SidePanel', () => {
 });
 
 describe('SidePanel.mapStateToProps', () => {
+	const { location } = window;
 	let state;
+
 	beforeEach(() => {
 		state = mock.store.state();
-		state.routing = {
-			locationBeforeTransitions: {
-				pathname: '/test',
-			},
-		};
+
+		delete window.location;
+		window.location = { pathname: '/test' };
 	});
+
+	afterAll(() => {
+		window.location = location;
+	});
+
 	it('should check for each action if one goes to the current route', () => {
 		const props = mapStateToProps(state, {
 			actionIds: ['menu:routerReplace'],
@@ -41,13 +46,13 @@ describe('SidePanel.mapStateToProps', () => {
 		});
 		expect(notactive.actions[0].active).toBeUndefined();
 
-		state.routing.locationBeforeTransitions.pathname = '/push';
+		window.location.pathname = '/push';
 		const push = mapStateToProps(state, {
 			actionIds: ['menu:routerPush'],
 		});
 		expect(push.actions[0].active).toBe(true);
 
-		state.routing.locationBeforeTransitions.pathname = '/href';
+		window.location.pathname = '/href';
 		const href = mapStateToProps(state, {
 			actionIds: ['menu:href'],
 		});
@@ -55,7 +60,7 @@ describe('SidePanel.mapStateToProps', () => {
 	});
 
 	xit('should handle actionCreator with href', () => {
-		state.routing.locationBeforeTransitions.pathname = '/href';
+		window.location.pathname = '/href';
 		const href = mapStateToProps(state, {
 			actionIds: ['menu:href'],
 		});
@@ -70,7 +75,7 @@ describe('SidePanel.mapStateToProps', () => {
 		});
 
 		it('should construct the actions based on the props given in "actions" elements', () => {
-			state.routing.locationBeforeTransitions.pathname = '/whatever/current/path';
+			window.location.pathname = '/whatever/current/path';
 			const ownProps = {
 				componentId: 'compId',
 				actions: [
@@ -90,7 +95,7 @@ describe('SidePanel.mapStateToProps', () => {
 		});
 
 		it('should define the routing onClick for each "actions" item if "path" is specified', () => {
-			state.routing.locationBeforeTransitions.pathname = '/whatever/current/path';
+			window.location.pathname = '/whatever/current/path';
 			const props = mapStateToProps(state, {
 				componentId: 'compId',
 				actions: [
@@ -119,7 +124,7 @@ describe('SidePanel.mapStateToProps', () => {
 		cases(
 			'should define "selected" action based on the same "menuActions" item "path"',
 			({ currentRoute, itemRoute, isMatching }) => {
-				state.routing.locationBeforeTransitions.pathname = currentRoute;
+				window.location.pathname = currentRoute;
 				const actionSelectable = {
 					identity: 'The one',
 					href: itemRoute,
@@ -218,7 +223,7 @@ describe('SidePanel.mapStateToProps', () => {
 				},
 			];
 
-			state.routing.locationBeforeTransitions.pathname = 'whatever/path/to/route/somewhere';
+			window.location.pathname = 'whatever/path/to/route/somewhere';
 			const componentId = 'compId';
 			const propsStep1 = mapStateToProps(state, {
 				componentId,

@@ -54,10 +54,10 @@
     "@storybook/addon-knobs": "^5.3.1",
     "@storybook/addons": "^5.3.1",
     "@storybook/react": "^5.3.1",
-    "@talend/bootstrap-theme": "^6.18.0",
-    "@talend/icons": "^6.18.0",
+    "@talend/bootstrap-theme": "^6.27.0",
+    "@talend/icons": "^6.27.0",
     "@talend/locales-tui": "^5.29.0",
-    "@talend/react-components": "^6.18.0",
+    "@talend/react-components": "^6.27.0",
     "@talend/scripts-core": "^9.4.1",
     "@talend/scripts-preset-react-lib": "^9.4.1",
     "autoprefixer": "^7.1.4",
@@ -72,7 +72,7 @@
     "react": "^16.13.1",
     "react-ace": "6.2.0",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.8.12",
+    "react-i18next": "^11.8.13",
     "react-test-renderer": "^16.13.1",
     "sass-lint": "^1.13.1",
     "storybook-addon-i18next": "^1.2.1"
@@ -84,10 +84,10 @@
     "react": "^16.8.6",
     "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
-    "react-i18next": "^11.8.12"
+    "react-i18next": "^11.8.13"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.18.0"
+  "version": "6.27.0"
 }

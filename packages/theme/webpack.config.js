@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -15,17 +16,13 @@ module.exports = (env, argv) => {
 			library: 'TalendBootstrapTheme',
 			libraryTarget: 'umd',
 			globalObject: 'this',
+			assetModuleFilename: 'fonts/[name][ext]'
 		},
 		module: {
 			rules: [
 				{
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-					loader: 'url-loader',
-					options: {
-						limit: 10000,
-						mimetype: 'application/font-woff',
-						name: './fonts/[name].[ext]',
-					},
+					type: 'asset/resource'
 				},
 				{
 					test: /bootstrap\.scss$/,
@@ -65,6 +62,14 @@ module.exports = (env, argv) => {
 			minimizer: ['...', new CssMinimizerPlugin()], // '...' used to access the defaults.
 		},
 		plugins: [
+			new CopyPlugin({
+				patterns: [
+					{
+						from: 'dependencies.json',
+						to: 'bootstrap.js.dependencies.json',
+					},
+				],
+			}),
 			new HtmlWebpackPlugin({
 				template: path.resolve(__dirname, './example/index.html'),
 			}),

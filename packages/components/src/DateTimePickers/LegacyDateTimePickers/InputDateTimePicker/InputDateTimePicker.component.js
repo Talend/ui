@@ -24,6 +24,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 	'onBlur',
 	'onChange',
+	'hybridMode',
 ];
 
 function onMouseDown(event) {
@@ -157,6 +158,7 @@ function InputDateTimePicker(props) {
 			useSeconds={props.useSeconds}
 			useTime={props.useTime}
 			useUTC={props.useUTC}
+			hybridMode={props.hybridMode}
 			onChange={onChange}
 		>
 			<DateTimeContext.Consumer>
@@ -188,6 +190,7 @@ function InputDateTimePicker(props) {
 
 InputDateTimePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
+	hybridMode: false,
 	useSeconds: false,
 	useTime: false,
 	useUTC: false,
@@ -210,6 +213,7 @@ InputDateTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	useTime: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	hybridMode: PropTypes.bool,
 	formMode: PropTypes.bool,
 	required: PropTypes.bool,
 };
