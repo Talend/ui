@@ -1,0 +1,24 @@
+{
+	"doc": "TimezoneList/README.md",
+	"jsonSchema": {
+		"type": "object",
+		"properties": {
+			"timezone": {
+				"type": "string"
+			},
+			"required": [
+				"timezone"
+			]
+		}
+	},
+	"uiSchema": [
+		{
+			"key": "timezone",
+			"description": "This dropdown allows to select a timezone from a list. Timezones are sorted by UTC offset. For \"string\" properties, the IANA timezone key is returned.",
+			"placeholder": "Search filter",
+			"title": "TimezoneList",
+			"widget": "timezoneList",
+			"lang": "fr"
+		}
+	]
+}
