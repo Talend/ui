@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Icon from '../Icon';
-import InlineMessageCss from './InlineMessage.scss';
-import { getTheme } from '../theme';
+import { InlineMessage as CoralInlineMessage } from '@talend/design-system';
+import Link from '../Link';
 
 /**
  * @param {object} props react props
@@ -28,50 +27,35 @@ const TYPES = {
 	ERROR: 'error',
 };
 
-const getbsStyleFromType = type => {
-	const typesMap = {
-		[TYPES.INFO]: 'info',
-		[TYPES.SUCCESSFUL]: 'success',
-		[TYPES.WARNING]: 'warning',
-		[TYPES.ERROR]: 'danger',
-	};
-	return typesMap[type] || '';
-};
-
-const theme = getTheme(InlineMessageCss);
-
-export function InlineMessage({ type, title, description, icon, link, withBackground }) {
-	const rootClassnames = theme('tc-inline-message');
-
-	const textClasses = theme('tc-inline-message-text', getbsStyleFromType(type), {
-		background: withBackground,
-	});
-
-	const iconClassnames = theme('tc-inline-message-icon', getbsStyleFromType(type));
-
+export function InlineMessage({ type, icon, link, ...props }) {
+	let InlineMessageVariant;
+	switch (type) {
+		case TYPES.INFO:
+			InlineMessageVariant = CoralInlineMessage.Information;
+			break;
+		case TYPES.SUCCESSFUL:
+			InlineMessageVariant = CoralInlineMessage.Success;
+			break;
+		case TYPES.WARNING:
+			InlineMessageVariant = CoralInlineMessage.Warning;
+			break;
+		case TYPES.ERROR:
+			InlineMessageVariant = CoralInlineMessage.Destructive;
+			break;
+		default:
+			InlineMessageVariant = CoralInlineMessage;
+	}
 	return (
-		<div className={rootClassnames}>
-			<span className={iconClassnames}>
-				<Icon name={icon} />
-			</span>
-			<div className={textClasses}>
-				{title && (
-					<span className={theme('tc-inline-message-title', 'tc-inline-message-text-item')}>
-						{title}
-					</span>
-				)}
-				{description && (
-					<span className={theme('tc-inline-message-description', 'tc-inline-message-text-item')}>
-						{description}
-					</span>
-				)}
-				{link && (
-					<a className={theme('tc-inline-message-link')} href={link.href} {...link.props}>
+		<InlineMessageVariant
+			{...props}
+			link={
+				link && (
+					<Link iconBefore={icon} {...link}>
 						{link.label}
-					</a>
-				)}
-			</div>
-		</div>
+					</Link>
+				)
+			}
+		/>
 	);
 }
 

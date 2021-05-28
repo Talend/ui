@@ -1,143 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InlineMessage should render with higligthed background 1`] = `
-<div
-  className="tc-inline-message theme-tc-inline-message"
->
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <Coral.Icon
-      name="talend-check-circle"
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success background theme-background"
-  >
-    <span
-      className="tc-inline-message-title theme-tc-inline-message-title tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation title.
-    </span>
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-  </div>
-</div>
+<Coral.InlineMessage.Success
+  description="Validation and successful messages"
+  title="Validation title."
+  withBackground={true}
+/>
 `;
 
 exports[`InlineMessage should render with icon and description 1`] = `
-<div
-  className="tc-inline-message theme-tc-inline-message"
->
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <Coral.Icon
-      name="talend-check-circle"
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
-  >
-    
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-  </div>
-</div>
+<Coral.InlineMessage.Success
+  description="Validation and successful messages"
+  title=""
+/>
 `;
 
 exports[`InlineMessage should render with icon, title and description 1`] = `
-<div
-  className="tc-inline-message theme-tc-inline-message"
->
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <Coral.Icon
-      name="talend-check-circle"
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
-  >
-    <span
-      className="tc-inline-message-title theme-tc-inline-message-title tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation title.
-    </span>
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-  </div>
-</div>
+<Coral.InlineMessage.Success
+  description="Validation and successful messages"
+  title="Validation title."
+/>
 `;
 
 exports[`InlineMessage should render with icon, title, description and link 1`] = `
-<div
-  className="tc-inline-message theme-tc-inline-message"
->
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <Coral.Icon
-      name="talend-check-circle"
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
-  >
-    <span
-      className="tc-inline-message-title theme-tc-inline-message-title tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation title.
-    </span>
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-    <a
-      className="tc-inline-message-link theme-tc-inline-message-link"
+<Coral.InlineMessage.Success
+  description="Validation and successful messages"
+  link={
+    <Link
       href="https://my.custom.link"
+      iconBefore="talend-check-circle"
+      label="See more"
     >
       See more
-    </a>
-  </div>
-</div>
+    </Link>
+  }
+  title="Validation title."
+/>
 `;
 
 exports[`InlineMessage should render with title and description 1`] = `
-<div
-  className="tc-inline-message theme-tc-inline-message"
->
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <Coral.Icon
-      name=""
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
-  >
-    <span
-      className="tc-inline-message-title theme-tc-inline-message-title tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation title.
-    </span>
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-  </div>
-</div>
+<Coral.InlineMessage.Success
+  description="Validation and successful messages"
+  title="Validation title."
+/>
 `;
