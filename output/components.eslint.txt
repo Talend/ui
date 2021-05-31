@@ -283,5 +283,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 140 problems (120 errors, 20 warnings)
+✖ 138 problems (118 errors, 20 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.
