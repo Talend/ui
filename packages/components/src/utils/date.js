@@ -5,7 +5,7 @@ import parse from 'date-fns/parse';
  * Get the offset between a timezone and the UTC time (in minutes)
  * @param {String} timeZone Timezone IANA name
  * @returns {Number}
- * 
+ *
  * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  */
 function getUTCOffset(timeZone) {
@@ -16,7 +16,7 @@ function getUTCOffset(timeZone) {
 		month: 'numeric',
 		day: 'numeric',
 		hour: 'numeric',
-		minute: 'numeric'
+		minute: 'numeric',
 	};
 
 	const locale = 'en-US';
@@ -63,7 +63,7 @@ function formatUtcOffset(offset, separator) {
  * @param {String} dateFormat
  * @param {String} timeZone
  * @returns {String}
- * 
+ *
  * @see https://date-fns.org/v1.27.2/docs/format
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js#L131
  */
@@ -78,8 +78,8 @@ function formatTimeZoneTokens(dateFormat, timeZone) {
 /**
  * Converts the given date from the given time zone to the local time and returns a new Date object.
  * @param {Date|Number|String} date Date to format
- * @param {*} options 
- * 
+ * @param {*} options
+ *
  * @see https://github.com/prantlf/date-fns-timezone/blob/HEAD/docs/API.md#converttolocaltime
  */
 export function convertToLocalTime(date, options) {
@@ -95,7 +95,7 @@ export function convertToLocalTime(date, options) {
  * @param {*} options
  * @param {*} options.timeZone
  * @returns {Date}
- * 
+ *
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/convertToTimeZone.js
  */
 export function convertToTimeZone(date, options) {
@@ -112,7 +112,7 @@ export function convertToTimeZone(date, options) {
  * @param {Object} options
  * @param {String} options.timeZone Target timezone
  * @returns {String}
- * 
+ *
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js
  */
 export function formatToTimeZone(date, formatString, options) {
@@ -122,4 +122,21 @@ export function formatToTimeZone(date, formatString, options) {
 	const dateFnsFormatWithTimeZoneValue = formatTimeZoneTokens(formatString, options.timeZone);
 
 	return format(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue);
+}
+
+/**
+ * Convert a date in local TZ to UTC
+ * 20:00 in local TZ become 20:00 in UTC
+ */
+export function convertToUTC(date) {
+	return new Date(
+		Date.UTC(
+			date.getFullYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+		),
+	);
 }

@@ -16,17 +16,13 @@ module.exports = (env, argv) => {
 			library: 'TalendBootstrapTheme',
 			libraryTarget: 'umd',
 			globalObject: 'this',
+			assetModuleFilename: 'fonts/[name][ext]'
 		},
 		module: {
 			rules: [
 				{
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-					loader: 'url-loader',
-					options: {
-						limit: 10000,
-						mimetype: 'application/font-woff',
-						name: './fonts/[name].[ext]',
-					},
+					type: 'asset/resource'
 				},
 				{
 					test: /bootstrap\.scss$/,
