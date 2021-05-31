@@ -30,15 +30,11 @@ Still need to be convinced? Please, take the time to read [this article written 
 	<Story name="default">
 		<Link href="#">Link example</Link>
 	</Story>
-	<Story name="hover">
-		<WithSelector selector=":hover">
-			<Link href="#">Link example</Link>
-		</WithSelector>
+	<Story name="hover" decorators={[WithSelector.decorator(':hover')]}>
+		<Link href="#">Link example</Link>
 	</Story>
-	<Story name="active">
-		<WithSelector selector=":active">
-			<Link href="#">Link example</Link>
-		</WithSelector>
+	<Story name="active" decorators={[WithSelector.decorator(':active')]}>
+		<Link href="#">Link example</Link>
 	</Story>
 </Canvas>
 

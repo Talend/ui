@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-import Link from './';
+import Link from '.';
 
 context('<Link />', () => {
 	it('should render', () => {
 		cy.mount(
-			<Link iconBefore="information" href="https://help.talend.com">
+			<Link iconBefore="information" target="_blank" href="https://help.talend.com">
 				Help
 			</Link>,
 		);

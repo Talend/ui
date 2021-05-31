@@ -45,8 +45,8 @@ const Link = React.forwardRef(
 		const getTitle = React.useCallback(() => {
 			if (disabled && title) return `${title} (this link is disabled)`;
 			if (disabled) return 'This link is disabled';
-			if (isExternal && title) return `${title} (open in a new tab)`;
-			if (isExternal) return 'Open in a new tab';
+			if (isExternal && isBlank && title) return `${title} (open in a new tab)`;
+			if (isExternal && isBlank) return 'Open in a new tab';
 			return title;
 		}, [disabled, title, isExternal]);
 
