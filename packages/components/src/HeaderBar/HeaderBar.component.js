@@ -257,7 +257,18 @@ function HeaderBar(props) {
 					<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
 				)}
 				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
-				{notificationCenter}
+				{notificationCenter && (
+					<li
+						role="presentation"
+						className={theme(
+							'tc-header-bar-notification-center',
+							'tc-header-bar-action',
+							'separated',
+						)}
+					>
+						{notificationCenter}
+					</li>
+				)}
 				{intercom && (
 					<li
 						role="presentation"
