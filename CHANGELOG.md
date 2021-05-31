@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.2.1
+
+### Patch Changes
+
+- deb96f3: Links can have double underline
+
 ## 1.2.0
 
 ### Minor Changes
