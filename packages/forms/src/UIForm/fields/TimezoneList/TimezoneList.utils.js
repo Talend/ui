@@ -5,6 +5,8 @@ import enTimezones from 'cldr-dates-full/main/en/timeZoneNames.json';
 import jaTimezones from 'cldr-dates-full/main/ja/timeZoneNames.json';
 import deTimezones from 'cldr-dates-full/main/de/timeZoneNames.json';
 
+const TIMEZONES = { fr: frTimezones, en: enTimezones, ja: jaTimezones, de: deTimezones };
+
 /**
  * Get the offset between a timezone and the UTC time (in minutes)
  * @param {String} timeZone Timezone IANA name
@@ -68,26 +70,8 @@ function formatUtcOffset(offset, separator) {
  * @returns {Array}
  */
 export function getTimezones(lang, valueType = 'string') {
-	// Determine which translation set to use.
-	let zones;
-	switch (lang) {
-		case 'fr':
-			zones = frTimezones.main.fr.dates.timeZoneNames.zone;
-			break;
-
-		case 'de':
-			zones = deTimezones.main.de.dates.timeZoneNames.zone;
-			break;
-
-		case 'ja':
-			zones = jaTimezones.main.ja.dates.timeZoneNames.zone;
-			break;
-
-		case 'en':
-		default:
-			zones = enTimezones.main.en.dates.timeZoneNames.zone;
-			break;
-	}
+	const timezonesKey = lang in TIMEZONES ? lang : 'en';
+	const zones = TIMEZONES[timezonesKey].main[timezonesKey].dates.timeZoneNames.zone;
 
 	/**
 	 * Build timezone info object
