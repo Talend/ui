@@ -184,7 +184,6 @@ function ActionButton(props) {
 			ref={buttonRef}
 			download={download}
 			{...buttonProps}
-			style={{ color: 'red', backgroundColor: 'purple' }}
 		>
 			{buttonContent}
 		</Button>
