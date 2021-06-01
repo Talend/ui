@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import Tree from '../Tree';
 
 /**
  * Return the type of the current node.
@@ -59,12 +58,10 @@ export default class TreeNode extends React.Component {
 		isAllExpanded: PropTypes.bool,
 		jsonpath: PropTypes.string.isRequired,
 		leaf: PropTypes.func.isRequired,
-		level: PropTypes.number,
 		paths: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 		value: PropTypes.any,
+		recursive: PropTypes.func.isRequired,
 	};
-
-	recursiveTree = args => <Tree {...this.props} {...args} level={this.props.level + 1} />;
 
 	render() {
 		const type = this.props.getItemType(this.props.value);
@@ -84,7 +81,7 @@ export default class TreeNode extends React.Component {
 				...this.props,
 				nodeHighlighted: isDeepNodeHighlighted(opened, nodeHighlighted, type),
 				opened,
-				recursive: this.recursiveTree,
+				recursive: this.props.recursive,
 				type,
 			});
 		}
