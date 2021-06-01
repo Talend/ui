@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Datalist from '../Datalist';
@@ -8,9 +8,12 @@ import { getTimezones } from './TimezoneList.utils';
 function TimezoneList(props) {
 	const { schema } = props;
 	const { lang, schema: { type } } = schema;
-
-	// Compute timezones list options
-	const timezones = useMemo(() => getTimezones(lang, type), [lang, type]);
+	const [timezones, setZones] = React.useState([]);
+	React.useEffect(() => {
+		getTimezones(lang, type).then(zones => {
+			setZones(zones);
+		});
+	}, [lang, type]);
 
 	return <Datalist
 		{...props}

@@ -1,15 +1,11 @@
 import get from 'lodash/get';
-
-import frTimezones from 'cldr-dates-full/main/fr/timeZoneNames.json';
-import enTimezones from 'cldr-dates-full/main/en/timeZoneNames.json';
-import jaTimezones from 'cldr-dates-full/main/ja/timeZoneNames.json';
-import deTimezones from 'cldr-dates-full/main/de/timeZoneNames.json';
+import { getCdnUrl } from '../../../cdn';
 
 /**
  * Get the offset between a timezone and the UTC time (in minutes)
  * @param {String} timeZone Timezone IANA name
  * @returns {Number}
- * 
+ *
  * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  */
 export function getTimezoneUTCOffset(timeZone) {
@@ -20,7 +16,7 @@ export function getTimezoneUTCOffset(timeZone) {
 		month: 'numeric',
 		day: 'numeric',
 		hour: 'numeric',
-		minute: 'numeric'
+		minute: 'numeric',
 	};
 
 	const locale = 'en-US';
@@ -61,91 +57,89 @@ function formatUtcOffset(offset, separator) {
 	return `${sign}${padTwoDigits(hours)}${separator}${padTwoDigits(min)}`;
 }
 
+export function getZones(lang) {
+	// Determine which translation set to use.
+	const url = getCdnUrl({name: 'cldr-dates-full', version: '39.0.0', path: `/main/${lang}/timeZoneNames.json`});
+	return fetch(url)
+		.then(response => {
+			if (response.status >= 300) {
+				throw new Error('getZones error');
+			}
+			return response.json();
+		})
+		.then(data => {
+			return data.main[lang].dates.timeZoneNames.zone;
+		});
+}
+
 /**
  * Get the sorted list of timezones in a given language.
  * Sort is done by UTC offset first, then by timezone name.
- * @param {String} lang 
+ * @param {String} lang
  * @returns {Array}
  */
 export function getTimezones(lang, valueType = 'string') {
-	// Determine which translation set to use.
-	let zones;
-	switch (lang) {
-		case 'fr':
-			zones = frTimezones.main.fr.dates.timeZoneNames.zone;
-			break;
+	return getZones(lang).then(zones => {
+		/**
+		 * Build timezone info object
+		 * @param {String} timezone
+		 * @returns {Object}
+		 */
+		const getTimezoneInfo = timezone => {
+			const timezoneName = get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
+			const offset = getTimezoneUTCOffset(timezone);
+			const name = `(${formatUtcOffset(offset, ':')}) ${timezoneName}`;
 
-		case 'de':
-			zones = deTimezones.main.de.dates.timeZoneNames.zone;
-			break;
+			const timezoneInfo = {
+				timezone,
+				name, // "name" key is used by Typehead as search field
+				title: name, // "name" key is used by Typehead as search field
+				timezoneName,
+				offset,
+			};
 
-		case 'ja':
-			zones = jaTimezones.main.ja.dates.timeZoneNames.zone;
-			break;
-
-		case 'en':
-		default:
-			zones = enTimezones.main.en.dates.timeZoneNames.zone;
-			break;
-	}
-
-	/**
-	 * Build timezone info object
-	 * @param {String} timezone
-	 * @returns {Object}
-	 */
-	const getTimezoneInfo = timezone => {
-		const timezoneName = get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
-		const offset = getTimezoneUTCOffset(timezone);
-		const name = `(${formatUtcOffset(offset, ':')}) ${timezoneName}`;
-
-		const timezoneInfo = {
-			timezone,
-			name, // "name" key is used by Typehead as search field
-			title: name, // "name" key is used by Typehead as search field
-			timezoneName,
-			offset,
+			return {
+				...timezoneInfo,
+				// Format timezone value depending on the expected value format
+				value: valueType === 'string' ? timezone : timezoneInfo,
+			};
 		};
 
-		return {
-			...timezoneInfo,
-			// Format timezone value depending on the expected value format
-			value: valueType === 'string' ? timezone : timezoneInfo,
-		};
-	};
+		return (
+			Object.keys(zones)
+				.reduce((collectedTimezones, region) => {
+					if (region === 'Etc') {
+						// Skip "Etc" region
+						return collectedTimezones;
+					}
 
-	return Object.keys(zones)
-		.reduce((collectedTimezones, region) => {
-			if (region === 'Etc') {
-				// Skip "Etc" region
-				return collectedTimezones;
-			}
+					const newTimezones = [];
 
-			const newTimezones = [];
-
-			Object.keys(zones[region]).forEach(city => {
-				if (
-					'exemplarCity' in zones[region][city] ||
-					city === 'Honolulu' // Honolulu contains subkeys but they are deprecated in IANA references ("HST"/"HDT")
-				) {
-					// Ex: Europe/Paris, Asia/Yerevan ...
-					const timezone = `${region}/${city}`;
-					newTimezones.push(getTimezoneInfo(timezone));
-				} else {
-					// Ex: America/Argentina/Buenos_Aires ...
-					Object.keys(zones[region][city]).forEach(city2 => {
-						const timezone = `${region}/${city}/${city2}`;
-						newTimezones.push(getTimezoneInfo(timezone));
+					Object.keys(zones[region]).forEach(city => {
+						if (
+							'exemplarCity' in zones[region][city] ||
+							city === 'Honolulu' // Honolulu contains subkeys but they are deprecated in IANA references ("HST"/"HDT")
+						) {
+							// Ex: Europe/Paris, Asia/Yerevan ...
+							const timezone = `${region}/${city}`;
+							newTimezones.push(getTimezoneInfo(timezone));
+						} else {
+							// Ex: America/Argentina/Buenos_Aires ...
+							Object.keys(zones[region][city]).forEach(city2 => {
+								const timezone = `${region}/${city}/${city2}`;
+								newTimezones.push(getTimezoneInfo(timezone));
+							});
+						}
 					});
-				}
-			});
 
-			return [...collectedTimezones, ...newTimezones];
-		}, [])
-		// Sort by UTC offset, then by name
-		.sort((a, b) => {
-			return a.offset !== b.offset
-				? a.offset - b.offset
-				: a.timezoneName.localeCompare(b.timezoneName);
-		});
-};
+					return [...collectedTimezones, ...newTimezones];
+				}, [])
+				// Sort by UTC offset, then by name
+				.sort((a, b) => {
+					return a.offset !== b.offset
+						? a.offset - b.offset
+						: a.timezoneName.localeCompare(b.timezoneName);
+				})
+		);
+	});
+}

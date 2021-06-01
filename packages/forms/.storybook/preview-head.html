@@ -16,3 +16,11 @@
         margin-top: auto;
     }
 </style>
+<script type="text/javascript">
+// cdn utils
+window.Talend = {};
+window.Talend.getCdnUrl = function getCdnUrl({name, version, path}) {
+    return `https://statics-dev.cloud.talend.com/${name}/${version}${path}`;
+};
+
+</script>
