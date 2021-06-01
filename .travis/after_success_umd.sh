@@ -46,3 +46,8 @@ echo "✓ Copy stepper UMD to .static"
 mkdir -p .static/@talend/bootstrap-theme/dist
 cp -R packages/theme/dist/* .static/@talend/bootstrap-theme/dist
 echo "✓ Copy bootstrap-theme UMD to .static"
+
+if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
+    mkdir -p ".static/$TRAVIS_PULL_REQUEST"
+    cp -R .static/@talend ".static/$TRAVIS_PULL_REQUEST"
+fi
