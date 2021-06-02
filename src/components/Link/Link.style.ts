@@ -5,7 +5,10 @@ import tokens from '../../tokens';
 export const Link = styled.a`
 	font-family: ${tokens.fonts.sansSerif};
 	color: var(--t-link-color, ${({ theme }) => theme.colors?.linkColor});
+	background: none;
+	border: none;
 	border-bottom-color: currentColor;
+	cursor: pointer;
 
 	&,
 	&:hover,

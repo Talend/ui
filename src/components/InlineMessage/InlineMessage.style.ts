@@ -32,6 +32,7 @@ export const InlineMessage = styled.div<InlineMessageProps>`
 
 	p {
 		display: inline;
+		margin: 0;
 	}
 
 	.inline-message__title {
