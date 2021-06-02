@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.2.2
+
+### Patch Changes
+
+- 6e75e9a: CTA should keep their style if using as
+
 ## 1.2.1
 
 ### Patch Changes
