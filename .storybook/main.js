@@ -78,7 +78,6 @@ module.exports = {
 		'@storybook/addon-viewport',
 		'@storybook/addon-toolbars',
 		'@storybook/addon-links',
-		'storybook-addon-pseudo-states',
 		'storybook-addon-mdx-embed',
 	],
 	features: {

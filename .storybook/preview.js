@@ -1,6 +1,6 @@
 import React from 'react';
 import { addParameters } from '@storybook/react';
-import { DocsContainer } from '@storybook/addon-docs/blocks';
+import { DocsContainer } from '@storybook/addon-docs';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 import { useKeyPressEvent, useLocalStorage } from 'react-use';
 import 'focus-outline-manager';
@@ -8,6 +8,25 @@ import 'focus-outline-manager';
 import light, { dark } from '../src/themes';
 import ThemeProvider from '../src/components/ThemeProvider';
 import { IconsProvider } from '../src/components/IconsProvider';
+
+export const globalTypes = {
+	theme: {
+		name: 'Theme',
+		description: 'Choose a theme to apply to the design system',
+		toolbar: {
+			icon: 'paintbrush',
+			items: [
+				{ value: 'light', left: '⚪️', title: 'Default theme' },
+				{ value: 'dark', left: '⚫️', title: 'Dark theme' },
+			],
+		},
+	},
+};
+
+const getTheme = themeKey => {
+	if (themeKey === 'dark') return dark;
+	return light;
+};
 
 const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 	({ theme, hasFigmaIframe }) => `
@@ -97,3 +116,19 @@ addParameters({
 		} /**/,
 	},
 });
+
+export const decorators = [
+	(Story, context) => {
+		const theme = getTheme(context.globals.theme);
+		return (
+			<>
+				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+				<ThemeProvider theme={theme}>
+					<ThemeProvider.GlobalStyle />
+					<StorybookGlobalStyle />
+					<Story {...context} />
+				</ThemeProvider>
+			</>
+		);
+	},
+];

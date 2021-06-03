@@ -5414,10 +5414,10 @@ chownr@^2.0.0:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
-chromatic@^5.6.1:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-5.6.2.tgz#21ed613c498572b34cb7d27145b807699f1450f7"
-  integrity sha512-MJJcMugIjHXZ0Khm/xD3lQJ/clbIL6EGoX/TsVL7Q6WyVd+kvnD1YAABH0CwCSRlSAYj+JTjAIGFFodkBKAlIw==
+chromatic@^5.8.3:
+  version "5.8.3"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-5.8.3.tgz#9dcce827be5e87760afb7574bc4e7b388db4ae91"
+  integrity sha512-zTLQGhlGO/bz7LNbEv2qXtarE93aG7vz5CnYNPukhyE1LK2LZaPdzTgaWU5Ah+7ZFPQGFMMAmJ6I6fU4WCUnYA==
   dependencies:
     "@actions/core" "^1.2.4"
     "@actions/github" "^4.0.0"
@@ -5436,7 +5436,7 @@ chromatic@^5.6.1:
     jsonfile "^6.0.1"
     junit-report-builder "2.1.0"
     listr "0.14.3"
-    meow "^9.0.0"
+    meow "^8.0.0"
     node-ask "^1.0.1"
     node-fetch "^2.6.0"
     node-loggly-bulk "^2.2.4"
@@ -5447,6 +5447,7 @@ chromatic@^5.6.1:
     progress-stream "^2.0.0"
     semver "^7.3.4"
     slash "^3.0.0"
+    string-argv "^0.3.1"
     strip-ansi "6.0.0"
     tmp-promise "3.0.2"
     tree-kill "^1.2.2"
@@ -11399,6 +11400,23 @@ meow@^6.0.0:
     type-fest "^0.13.1"
     yargs-parser "^18.1.3"
 
+meow@^8.0.0:
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/meow/-/meow-8.1.2.tgz#bcbe45bda0ee1729d350c03cffc8395a36c4e897"
+  integrity sha512-r85E3NdZ+mpYk1C6RjPFEMSE+s1iZMuHtsHAqY0DT3jZczl0diWUZ8g6oU7h0M9cD2EL+PzaYghhCLzR0ZNn5Q==
+  dependencies:
+    "@types/minimist" "^1.2.0"
+    camelcase-keys "^6.2.2"
+    decamelize-keys "^1.1.0"
+    hard-rejection "^2.1.0"
+    minimist-options "4.1.0"
+    normalize-package-data "^3.0.0"
+    read-pkg-up "^7.0.1"
+    redent "^3.0.0"
+    trim-newlines "^3.0.0"
+    type-fest "^0.18.0"
+    yargs-parser "^20.2.3"
+
 meow@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/meow/-/meow-9.0.0.tgz#cd9510bc5cac9dee7d03c73ee1f9ad959f4ea364"
@@ -15118,11 +15136,6 @@ storybook-addon-mdx-embed@^0.0.19:
   resolved "https://registry.yarnpkg.com/storybook-addon-mdx-embed/-/storybook-addon-mdx-embed-0.0.19.tgz#200307ffcf700b776ffb8146085f035ca3d883bd"
   integrity sha512-xYvLALtxPl21rony/ODBs4RFhjMBEHKCBxYyALbzcM8vUwoM0HsvjhMFFfh1pqH+tKfp+as5Ool3fBF+mggSdw==
 
-storybook-addon-pseudo-states@^1.1.0-canary.8.ee5c388.0:
-  version "1.1.0-canary.8.ee5c388.0"
-  resolved "https://registry.yarnpkg.com/storybook-addon-pseudo-states/-/storybook-addon-pseudo-states-1.1.0-canary.8.ee5c388.0.tgz#63d44985781a6f1b8549e65f2781eaf67a717a2a"
-  integrity sha512-OsiTYqrDJvrr1Bnk4YS4jkToyolp05F0sPqeI69VPhTvLeuaEDrq1Ivcv2SyUMqyqlzF920bKnHYE9Udxpu3cA==
-
 storybook-docs-toc@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/storybook-docs-toc/-/storybook-docs-toc-1.4.1.tgz#21c10b4d27df7305717fc02ded75f63810d0daa9"
@@ -15201,6 +15214,11 @@ stream-transform@^2.1.0:
   integrity sha512-bwQO+75rzQbug7e5OOHnOR3FgbJ0fCjHmDIdynkwUaFzleBXugGmv2dx3sX3aIHUQRLjrcisRPgN9BWl63uGgw==
   dependencies:
     mixme "^0.5.0"
+
+string-argv@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.3.1.tgz#95e2fbec0427ae19184935f816d74aaa4c5c19da"
+  integrity sha512-a1uQGz7IyVy9YwhqjZIZu1c8JO8dNIe20xBmSS6qu9kv++k3JGzCVmprbNN5Kn+BgzD5E7YYwg1CcjuJMRNsvg==
 
 string-hash@1.1.3:
   version "1.1.3"
