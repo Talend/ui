@@ -120,8 +120,7 @@ function report(error, options = {}) {
 /**
  * bootstrap configure onError
  */
-function bootstrap() {
-}
+function bootstrap() {}
 
 /**
  * return reference to the array of errors
@@ -130,8 +129,7 @@ function getErrors() {
 	return ref.errors;
 }
 
-function setupFromSettings() {
-}
+function setupFromSettings() {}
 
 /**
  * onError redux middleware.
