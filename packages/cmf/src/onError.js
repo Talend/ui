@@ -1,6 +1,4 @@
 import get from 'lodash/get';
-import { captureException, configureScope, init, withScope } from '@sentry/browser';
-import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
 
@@ -63,7 +61,7 @@ function hasReportURL() {
  * @return {Boolean} true if we can do report to Sentry
  */
 function hasReportFeature() {
-	return !!ref.SENTRY_DSN || hasReportURL();
+	return window.Sentry || hasReportURL();
 }
 
 /**
@@ -71,14 +69,14 @@ function hasReportFeature() {
  * @param {Error} error instance of Error
  */
 function report(error, options = {}) {
-	if (ref.SENTRY_DSN) {
+	if (window.Sentry) {
 		if (options.tags) {
-			withScope(scope => {
+			window.Sentry.withScope(scope => {
 				options.tags.forEach(tag => scope.setTag(tag.key, tag.value));
-				captureException(error);
+				window.Sentry.captureException(error);
 			});
 		} else {
-			captureException(error);
+			window.Sentry.captureException(error);
 		}
 	} else {
 		const info = {
@@ -119,69 +117,10 @@ function report(error, options = {}) {
 	}
 }
 
-function onJSError(event) {
-	const error = event.error;
-	if (!error) {
-		return;
-	}
-	// remove duplicate in dev mode
-	// SEE: https://github.com/facebook/react/issues/10474
-	if (process.env.NODE_ENV !== 'production') {
-		if (error.ALREADY_THROWN) {
-			return;
-		}
-		error.ALREADY_THROWN = true;
-	}
-	report(error);
-}
-
-/**
- * init Sentry lib
- * @return {[type]} [description]
- */
-function setupSentry(options = {}) {
-	if (process.env.NODE_ENV !== 'production') {
-		delete ref.SENTRY_DSN;
-	}
-
-	if (!ref.SENTRY_DSN) {
-		return;
-	}
-
-	window.removeEventListener('error', onJSError);
-	try {
-		init({ dsn: ref.SENTRY_DSN, ...options });
-	} catch (error) {
-		// eslint-disable-next-line no-console
-		console.error(error);
-		delete ref.SENTRY_DSN;
-		window.addEventListener('error', onJSError);
-	}
-}
-
 /**
  * bootstrap configure onError
- * @param {Object} options to configure
- * @param {Object} store redux
  */
-function bootstrap(options, store) {
-	window.addEventListener('error', onJSError);
-	assertTypeOf(options, 'onError', 'object');
-	ref.SENTRY_DSN = undefined;
-	ref.actions = [];
-	ref.errors = [];
-	ref.store = store;
-	const opt = options.onError || {};
-	ref.serverURL = opt.reportURL;
-	if (opt.SENTRY_DSN) {
-		ref.SENTRY_DSN = opt.SENTRY_DSN;
-		setupSentry(opt.sentry);
-		if (ref.SENTRY_DSN && opt.onSentryScope) {
-			configureScope(scope => {
-				opt.onSentryScope(scope);
-			});
-		}
-	}
+function bootstrap() {
 }
 
 /**
@@ -191,12 +130,7 @@ function getErrors() {
 	return ref.errors;
 }
 
-function setupFromSettings(settings) {
-	const dsn = get(settings, 'env.SENTRY_DSN');
-	if (!ref.SENTRY_DSN && ref.SENTRY_DSN !== dsn) {
-		ref.SENTRY_DSN = dsn;
-		setupSentry();
-	}
+function setupFromSettings() {
 }
 
 /**
