@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { getCdnUrl } from '../../../cdn';
+import { getAssetUrl } from '../../../assets';
 
 /**
  * Get the offset between a timezone and the UTC time (in minutes)
@@ -59,7 +59,7 @@ function formatUtcOffset(offset, separator) {
 
 export function getZones(lang) {
 	// Determine which translation set to use.
-	const url = getCdnUrl({name: 'cldr-dates-full', version: '39.0.0', path: `/main/${lang}/timeZoneNames.json`});
+	const url = getAssetUrl({name: 'cldr-dates-full', version: '39.0.0', path: `/main/${lang}/timeZoneNames.json`});
 	return fetch(url)
 		.then(response => {
 			if (response.status >= 300) {

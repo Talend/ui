@@ -1,5 +1,5 @@
 
-export function getCdnUrl(info) {
+export function getAssetUrl(info) {
 	if (!window.Talend) {
 		window.Talend = {};
 	}
