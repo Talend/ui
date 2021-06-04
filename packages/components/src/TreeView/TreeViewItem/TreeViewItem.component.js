@@ -73,6 +73,7 @@ class TreeViewItem extends React.Component {
 		item: PropTypes.shape({
 			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 			name: PropTypes.string.isRequired,
+			disabled: PropTypes.bool,
 			isOpened: PropTypes.bool,
 			children: PropTypes.arrayOf(PropTypes.object),
 			icon: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.object]),
@@ -213,6 +214,7 @@ class TreeViewItem extends React.Component {
 			actions,
 			icon,
 			counter = children.length,
+			disabled,
 		} = item;
 		const paddingLeft = `${(level - 1) * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
 		const showOpenedFolder = !!(children.length && (isOpened || this.state.hovered));
@@ -227,12 +229,14 @@ class TreeViewItem extends React.Component {
 				aria-posinset={index}
 				aria-setsize={siblings.length}
 				aria-selected={this.isSelected()}
+				aria-disabled={disabled}
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
 				onClick={e => {
 					e.stopPropagation();
-					return onSelect(e, item);
+					return !disabled && onSelect(e, item);
 				}}
 				onKeyDown={e =>
+					!disabled &&
 					onKeyDown(e, this.containerRef, {
 						...item,
 						hasChildren: children.length,
@@ -248,7 +252,10 @@ class TreeViewItem extends React.Component {
 				}}
 			>
 				<div
-					className={classNames('tc-treeview-item', css['tc-treeview-item'])}
+					className={classNames('tc-treeview-item', css['tc-treeview-item'], {
+						[css.disabled]: disabled,
+						disabled,
+					})}
 					style={{ paddingLeft }}
 				>
 					{children.length ? (

@@ -17,6 +17,7 @@ import http, {
 	encodePayload,
 	wrapFetch,
 	httpGet,
+	httpHead,
 	httpDelete,
 	httpPatch,
 	httpPost,
@@ -48,6 +49,27 @@ describe('http.get', () => {
 
 		expect(gen.next($config).value).toEqual(
 			call(httpFetch, url, $config, HTTP_METHODS.GET, undefined),
+		);
+		gen.next();
+		expect(gen.next().done).toBe(true);
+	});
+});
+
+describe('http.head', () => {
+	it('should fetch /foo with a HEAD method', () => {
+		const url = '/foo';
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+
+		const gen = http.head('/foo', config);
+		const $config = { url, method: HTTP_METHODS.HEAD, ...config, data: { ok: true } };
+		gen.next();
+
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.HEAD, undefined),
 		);
 		gen.next();
 		expect(gen.next().done).toBe(true);
@@ -248,6 +270,19 @@ describe('#handleHttpResponse', () => {
 			new Response('', {
 				status: HTTP_STATUS.NO_CONTENT,
 			}),
+		).then(({ data, response }) => {
+			expect(data).toBe('');
+			expect(response instanceof Response).toBe(true);
+			done();
+		});
+	});
+
+	it('should handle the response for HEAD requests', done => {
+		handleHttpResponse(
+			new Response('{"foo": 42}', {
+				status: HTTP_STATUS.OK,
+			}),
+			{ method: HTTP_METHODS.HEAD }
 		).then(({ data, response }) => {
 			expect(data).toBe('');
 			expect(response instanceof Response).toBe(true);

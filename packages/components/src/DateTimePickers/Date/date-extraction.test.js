@@ -2,6 +2,7 @@ import isAfter from 'date-fns/is_after';
 import subHours from 'date-fns/sub_hours';
 import {
 	checkSupportedDateFormat,
+	checkSupportedTimezone,
 	extractDate,
 	extractPartsFromTextInput,
 	extractPartsFromDate,
@@ -339,6 +340,16 @@ describe('Date extraction', () => {
 
 			// then
 			expect(date).toEqual(new Date(2019, 8, 27));
+		});
+	});
+
+	describe('checkSupportedTimezone', () => {
+		it('should do nothing if the timezone exists', () => {
+			checkSupportedTimezone('Europe/Paris');
+		});
+
+		it('should throw an exception if the timezone does not exist', () => {
+			expect(() => checkSupportedTimezone('Europe/Beauvais')).toThrow();
 		});
 	});
 });

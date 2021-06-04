@@ -39,12 +39,18 @@ describe('NestedListView component', () => {
 					{
 						key: ['bar'],
 						title: 'Bar',
-						titleMap: [{ name: 'Bar 1', value: 'bar_1' }, { name: 'Bar 2', value: 'bar_2' }],
+						titleMap: [
+							{ name: 'Bar 1', value: 'bar_1' },
+							{ name: 'Bar 2', value: 'bar_2' },
+						],
 					},
 					{
 						key: ['foo'],
 						title: 'Foo',
-						titleMap: [{ name: 'Foo 1', value: 'foo_1' }, { name: 'Foo 2', value: 'foo_2' }],
+						titleMap: [
+							{ name: 'Foo 1', value: 'foo_1' },
+							{ name: 'Foo 2', value: 'foo_2' },
+						],
 					},
 				],
 				value: {},
@@ -264,7 +270,10 @@ describe('NestedListView utils', () => {
 					{
 						title: 'Bar',
 						key: ['foo', 'bar'],
-						titleMap: [{ label: 'Baz', value: 'baz' }, { label: 'Boo', value: 'boo' }],
+						titleMap: [
+							{ label: 'Baz', value: 'baz' },
+							{ label: 'Boo', value: 'boo' },
+						],
 					},
 				],
 				required: true,
@@ -292,17 +301,20 @@ describe('NestedListView utils', () => {
 	describe('getDisplayedItems', () => {
 		const items = [
 			{
-				key: 'foo',
-				label: 'Foo',
-				children: [{ label: 'Foo 1', value: 'foo_1' }, { label: 'Foo 2', value: 'foo_2' }],
+				key: 'fruits',
+				label: 'Fruits',
+				children: [
+					{ label: 'Orange', value: 'orange' },
+					{ label: 'Apple', value: 'apple' },
+				],
 			},
 			{
-				key: 'bar',
-				label: 'Bar',
+				key: 'vegetables',
+				label: 'Vegetables',
 				children: [
-					{ label: 'Bar 1', value: 'bar_1' },
-					{ label: 'Bar 2', value: 'bar_2' },
-					{ label: 'Bar 3', value: 'bar_3' },
+					{ label: 'Carrot', value: 'carrot' },
+					{ label: 'Pineapple', value: 'pineapple' },
+					{ label: 'Tomato', value: 'tomato' },
 				],
 			},
 			{
@@ -312,7 +324,7 @@ describe('NestedListView utils', () => {
 			},
 		];
 
-		const value = { foo: ['foo_1'] };
+		const value = { fruits: ['orange'] };
 
 		it('should get displayed items with preset values', () => {
 			// given
@@ -338,7 +350,7 @@ describe('NestedListView utils', () => {
 
 		it('should filter displayed items according to given search criteria', () => {
 			// given
-			const searchCriteria = '2';
+			const searchCriteria = 'apple';
 
 			// when
 			const displayedItems = getDisplayedItems(items, value, searchCriteria);
@@ -351,6 +363,22 @@ describe('NestedListView utils', () => {
 			expect(displayedItems[1].checked).toBe(false);
 			expect(displayedItems[0].children[0].checked).toBe(false); // Elements checked
 			expect(displayedItems[1].children[0].checked).toBe(false);
+		});
+
+		it('should filter displayed parent items according to given search criteria', () => {
+			// given
+			const searchCriteria = 'vegetables';
+
+			// when
+			const displayedItems = getDisplayedItems(items, value, searchCriteria);
+
+			// then
+			expect(displayedItems).toHaveLength(1); // Number of displayed items and sub items
+			expect(displayedItems[0].children).toHaveLength(3);
+			expect(displayedItems[0].checked).toBe(false); // Sections checked
+			expect(displayedItems[0].children[0].checked).toBe(false); // Elements checked
+			expect(displayedItems[0].children[1].checked).toBe(false);
+			expect(displayedItems[0].children[1].checked).toBe(false);
 		});
 	});
 });

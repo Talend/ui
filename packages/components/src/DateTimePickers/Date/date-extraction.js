@@ -1,11 +1,10 @@
-import { listTimeZones } from 'timezone-support';
 import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
-import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
 
 import getErrorMessage from '../shared/error-messages';
+import { convertToUTC, convertToLocalTime, convertToTimeZone } from '../../utils/date';
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
@@ -143,9 +142,17 @@ function checkSupportedDateFormat(dateFormat) {
 	}
 }
 
+/**
+ * Check if a given timezone exists. If not, an exception is thrown
+ * @param {String} timezone
+ * @returns
+ * @throws
+ */
 function checkSupportedTimezone(timezone) {
-	const timzones = listTimeZones();
-	if (!timzones.includes(timezone)) {
+	try {
+		// eslint-disable-next-line no-new
+		new Intl.DateTimeFormat(undefined, { timeZone: timezone });
+	} catch (ex) {
 		throw new Error(`Timezone: ${timezone} - NOT SUPPORTED`);
 	}
 }

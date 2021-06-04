@@ -32,6 +32,7 @@ src/QualityBar/QualityRatioBar.scss
    8:10  error  @extend must be used with a %placeholder  placeholder-in-extend
   12:10  error  @extend must be used with a %placeholder  placeholder-in-extend
   16:10  error  @extend must be used with a %placeholder  placeholder-in-extend
+  21:10  error  @extend must be used with a %placeholder  placeholder-in-extend
 
 src/RatioBar/RatioBar.scss
   42:11  error  @extend must be used with a %placeholder  placeholder-in-extend
@@ -41,5 +42,5 @@ src/Typeahead/Typeahead.scss
    33:5  error  Mixins should come before declarations               mixins-before-declarations
   185:2  error  Duplicate properties are not allowed within a block  no-duplicate-properties
 
-✖ 20 problems (19 errors, 1 warning)
+✖ 21 problems (20 errors, 1 warning)
 

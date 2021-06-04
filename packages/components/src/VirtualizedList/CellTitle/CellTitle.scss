@@ -101,7 +101,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
+			background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-active-hover-bg, 100%) $padding-large);
 		}
 	}
 }
@@ -112,7 +112,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
+			background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-selected-hover-bg, 100%) $padding-large);
 		}
 	}
 }
