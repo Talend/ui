@@ -13,23 +13,6 @@ export function DatePickerException(code, message) {
 	this.code = code;
 }
 
-
-/**
- * Convert a date in local TZ to UTC
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
-}
-
 /**
  * Build date regexep from date format.
  * It returns the YYYY, MM, DD parts order too.
