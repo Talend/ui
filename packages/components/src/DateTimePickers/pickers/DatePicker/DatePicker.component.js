@@ -227,7 +227,7 @@ class DatePicker extends React.PureComponent {
 								}
 
 								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
-								
+
 								return (
 									<td {...tdProps}>
 										<button
