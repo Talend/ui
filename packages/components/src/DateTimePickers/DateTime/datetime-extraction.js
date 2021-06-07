@@ -4,7 +4,6 @@ import setSeconds from 'date-fns/set_seconds';
 import getErrorMessage from '../shared/error-messages';
 import {
 	convertDateToTimezone,
-	DatePickerException,
 	extractDateOnly,
 } from '../Date/date-extraction';
 import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
