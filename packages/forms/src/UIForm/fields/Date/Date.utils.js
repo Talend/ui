@@ -25,4 +25,23 @@ function convertDate(value, textInput, schema) {
 	}
 	return converted;
 }
-export { convertDate, isoStrToDate };
+
+function isBefore(date, dateToCompare) {
+	const converted = typeof dateToCompare === 'string' ? isoStrToDate(dateToCompare) : dateToCompare;
+	if (converted instanceof Date) {
+		converted.setHours(0, 0, 0, 0);
+		return date.getTime() < converted.getTime();
+	}
+	return false;
+}
+
+function isAfter(date, dateToCompare) {
+	const converted = typeof dateToCompare === 'string' ? isoStrToDate(dateToCompare) : dateToCompare;
+	if (converted instanceof Date) {
+		converted.setHours(23, 59, 59, 999);
+		return date.getTime() > converted.getTime();
+	}
+	return false;
+}
+
+export { convertDate, isoStrToDate, isBefore, isAfter };
