@@ -226,15 +226,8 @@ class DatePicker extends React.PureComponent {
 									});
 								}
 
-								const buttonProps = {};
-								if (this.isCurrentMonth(date)) {
-									buttonProps['data-value'] = day;
-								}
-								if (disabled) {
-									buttonProps.title = t('DATEPICKER_DAY_NOT_ALLOWED', {
-										defaultValue: 'Not allowed',
-									});
-								}
+								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
+								
 								return (
 									<td {...tdProps}>
 										<button
