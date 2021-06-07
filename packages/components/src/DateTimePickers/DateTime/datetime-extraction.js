@@ -2,10 +2,7 @@ import format from 'date-fns/format';
 import setSeconds from 'date-fns/set_seconds';
 
 import getErrorMessage from '../shared/error-messages';
-import {
-	convertDateToTimezone,
-	extractDateOnly,
-} from '../Date/date-extraction';
+import { convertDateToTimezone, extractDateOnly } from '../Date/date-extraction';
 import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
 import { convertToTimeZone } from '../../utils/date';
 
