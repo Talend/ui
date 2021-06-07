@@ -50,7 +50,11 @@ function ContextualManager(props) {
 
 	function onInputChange(event) {
 		const textInput = event.target.value;
-		const nextState = extractPartsFromTextInput(textInput, getDateOptions(), props.isDisabledChecker);
+		const nextState = extractPartsFromTextInput(
+			textInput,
+			getDateOptions(),
+			props.isDisabledChecker,
+		);
 		setState(nextState);
 		onChange(event, 'INPUT', nextState);
 	}
