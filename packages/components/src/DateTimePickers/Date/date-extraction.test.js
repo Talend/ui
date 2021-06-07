@@ -285,7 +285,7 @@ describe('Date extraction', () => {
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
 			};
-			const isDisabledChecker = date => isAfter(date, new Date(2021,2,30));
+			const isDisabledChecker = date => isAfter(date, new Date(2021, 2, 30));
 
 			// when
 			const parts = extractPartsFromTextInput(textInput, options, isDisabledChecker);
