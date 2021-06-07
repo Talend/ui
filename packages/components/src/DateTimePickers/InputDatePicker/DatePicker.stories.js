@@ -112,7 +112,8 @@ storiesOf('Form/Controls/DatePicker/Date', module)
 				Disabled dates are not allowed to be selected.
 				<br />
 				You can pass a <b>isDisabledChecker</b> function, if isDisabledChecker(date) returns true,
-				then date will be disabled. If you input a date which is disabled, an "Invalid date" error will be thrown.
+				then date will be disabled. If you input a date which is disabled, an "Invalid date" error
+				will be thrown.
 				<br />
 				For example, this picker will disable past days:
 				<pre>
