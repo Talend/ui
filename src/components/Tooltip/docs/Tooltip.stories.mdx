@@ -1,10 +1,9 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { action } from '@storybook/addon-actions';
 import { FigmaIframe, FigmaImage, Use } from '../../../docs';
-import Tooltip from '../.';
-import Button from '../../Button';
 
-<Meta title="Components/Tooltip" component={Tooltip} />
+import * as Stories from '../Tooltip.stories';
+
+<Meta title="Components/Tooltip" />
 
 # Tooltip
 
@@ -25,26 +24,10 @@ Tooltips provide helpful, additional content for their paired elements on hover.
 />
 
 <Canvas>
-	<Story name="top">
-		<Tooltip title="Relevant information about this basic button" placement="top" visible>
-			<Button onClick={action('clicked')}>Top</Button>
-		</Tooltip>
-	</Story>
-	<Story name="left">
-		<Tooltip title="Relevant information about this basic button" placement="left">
-			<Button onClick={action('clicked')}>Left</Button>
-		</Tooltip>
-	</Story>
-	<Story name="bottom">
-		<Tooltip title="Relevant information about this basic button" placement="bottom">
-			<Button onClick={action('clicked')}>Bottom</Button>
-		</Tooltip>
-	</Story>
-	<Story name="right">
-		<Tooltip title="Relevant information about this basic button" placement="right">
-			<Button onClick={action('clicked')}>Right</Button>
-		</Tooltip>
-	</Story>
+	<Story story={Stories.Top} />
+	<Story story={Stories.Left} />
+	<Story story={Stories.Bottom} />
+	<Story story={Stories.Right} />
 </Canvas>
 
 ## Content
@@ -91,13 +74,34 @@ Otherwise, you’ll just add information pollution to your UI and waste the time
 		args={{
 			title: 'Meaningful description',
 			visible: true,
+			placement: 'left',
+		}}
+		argTypes={{
+			placement: {
+				control: {
+					type: 'select',
+					options: [
+						'auto-start',
+						'auto',
+						'auto-end',
+						'top-start',
+						'top',
+						'top-end',
+						'right-start',
+						'right',
+						'right-end',
+						'bottom-end',
+						'bottom',
+						'bottom-start',
+						'left-end',
+						'left',
+						'left-start',
+					],
+				},
+			},
 		}}
 	>
-		{({ text, ...props }) => (
-			<Tooltip {...props}>
-				<Button onClick={action('clicked')}>Lorem ipsum</Button>
-			</Tooltip>
-		)}
+		{Stories.Template.bind({})}
 	</Story>
 </Canvas>
 
@@ -106,10 +110,3 @@ Otherwise, you’ll just add information pollution to your UI and waste the time
 ## Accessibility
 
 - Press <kbd>TABS</kbd> to focus element and tooltip will be visible
-
-## Changelog
-
-| Date       | Author | Description    |
-| ---------- | ------ | -------------- |
-| 12/19/2019 | Monia  | Init page      |
-| 12/31/2019 | Fabien | Add basic demo |
