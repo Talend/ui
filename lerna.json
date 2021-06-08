@@ -16,7 +16,6 @@
     "packages/sagas",
     "packages/stepper",
     "packages/storybook-cmf",
-    "packages/theme",
-    "packages/utils"
+    "packages/theme"
   ]
 }
