@@ -27,6 +27,6 @@
     "cross-env": "^7.0.3"
   },
   "dependencies": {
-    "date-fns": "^2.22.1"
+    "date-fns": "^1.27.2"
   }
 }
