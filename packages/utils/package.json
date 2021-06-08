@@ -25,5 +25,8 @@
     "@talend/scripts-preset-react-lib": "^9.8.2",
     "@typescript-eslint/parser": "^4.26.1",
     "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "date-fns": "^2.22.1"
   }
 }
