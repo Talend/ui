@@ -25,5 +25,4 @@ function convertDate(value, textInput, schema) {
 	}
 	return converted;
 }
-
 export { convertDate, isoStrToDate };
