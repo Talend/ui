@@ -31,14 +31,6 @@ export const palette = {
 	coral,
 };
 
-export const gradients = {
-	twilight: linearGradient({
-		colorStops: [`${deepBlue} 0%`, `${russianViolet} 100%`],
-		toDirection: '133deg',
-		fallback: deepBlue,
-	}),
-};
-
 function getColorSwatch(color: string): ColorSwatch {
 	return {
 		900: shade(0.8, color),
@@ -82,6 +74,34 @@ export const grayscale = {
 		50: tint(0.95, black),
 		0: tint(1, black),
 	},
+};
+
+export const gradients = {
+	twilight: linearGradient({
+		colorStops: [`${deepBlue} 0%`, `${russianViolet} 100%`],
+		toDirection: '133deg',
+		fallback: deepBlue,
+	}),
+	indigoNight: linearGradient({
+		colorStops: ['#3C4857 0%', '#1D2024 100%'],
+		toDirection: '135deg',
+	}),
+	dusk: linearGradient({
+		colorStops: [`${coral} 0%`, `${russianViolet} 100%`],
+		toDirection: '135deg',
+	}),
+	cottonCandy: linearGradient({
+		colorStops: [`${swatches.coral[300]} 4.29%`, '#BDE6F6 93.86%'],
+		toDirection: '315deg',
+	}),
+	dawn: linearGradient({
+		colorStops: [`${paleCyan} -1.47%`, `${deepBlue} 101.64%`],
+		toDirection: '135deg',
+	}),
+	blueBird: linearGradient({
+		colorStops: ['#F8F3EF 1.23%', `${paleCyan} 96.04%`],
+		toDirection: '135deg',
+	}),
 };
 
 const colors = {

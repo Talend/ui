@@ -2,7 +2,7 @@ import { Meta } from '@storybook/addon-docs';
 import { ColorPalette, ColorItem, Typeset } from '@storybook/components';
 import { Table, ColorSwatches } from '../../docs';
 import tokens from './../index';
-import colors, { brand, palette, swatches } from './../colors.tokens';
+import colors, { brand, palette, gradients, swatches } from './../colors.tokens';
 
 <Meta title="Design Tokens/Design Tokens" />
 
@@ -23,24 +23,25 @@ We are using <a href="https://system-ui.com/theme/" target="_blank">the System U
 ### Brand
 
 <ColorPalette>
-	<ColorItem title="tokens.colors.brand" subtitle="Brand colors" colors={brand} />
-</ColorPalette>
-
-<ColorPalette>
-	<ColorItem
-		title="tokens.colors.gradients"
-		colors={{ twilight: colors.twilight.backgroundImage }}
-	/>
+	<ColorItem title="tokens.colors" subtitle="Brand colors" colors={brand} />
 </ColorPalette>
 
 ### Interactive colors
 
 <ColorPalette>
-	<ColorItem title="Clickable color" colors={{ lochmara: colors.lochmara[500] }} />
+	<ColorItem
+		title="tokens.colors.lochmara"
+		subtitle="Clickable color"
+		colors={{ lochmara: colors.lochmara[500] }}
+	/>
 </ColorPalette>
 
 <ColorPalette>
-	<ColorItem title="Focus color" colors={{ moodyPurple: colors.moodyPurple[500] }} />
+	<ColorItem
+		title="tokens.colors.moodyPurple"
+		subtitle="Focus color"
+		colors={{ moodyPurple: colors.moodyPurple[500] }}
+	/>
 </ColorPalette>
 
 ### Color swatches
@@ -50,6 +51,18 @@ We are using <a href="https://system-ui.com/theme/" target="_blank">the System U
 		<ColorSwatches key={color} title={`tokens.colors.${color}`} color={color} colors={swatches} />
 	))}
 </div>
+
+### Color gradients
+
+<ColorPalette>
+	{Object.keys(gradients).map(gradient => (
+		<ColorItem
+			key={gradient}
+			title={`tokens.colors.${gradient}`}
+			colors={{ [gradient]: gradients[gradient].backgroundImage }}
+		/>
+	))}
+</ColorPalette>
 
 ## fontSizes
 
