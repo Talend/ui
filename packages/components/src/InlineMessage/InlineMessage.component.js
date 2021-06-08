@@ -4,6 +4,11 @@ import React from 'react';
 import { InlineMessage as CoralInlineMessage } from '@talend/design-system';
 import Link from '../Link';
 
+import InlineMessageCss from './InlineMessage.scss';
+import { getTheme } from '../theme';
+
+const theme = getTheme(InlineMessageCss);
+
 /**
  * @param {object} props react props
  * @example
@@ -52,7 +57,7 @@ export function InlineMessage({ type, icon, link, ...props }) {
 		const { label, ...rest } = link;
 		return <Link {...rest}>{label}</Link>;
 	};
-	return <InlineMessageVariant {...props} link={getLink()} />;
+	return <InlineMessageVariant className={theme('tc-inline-message')} {...props} link={getLink()} />;
 }
 
 InlineMessage.TYPES = TYPES;
