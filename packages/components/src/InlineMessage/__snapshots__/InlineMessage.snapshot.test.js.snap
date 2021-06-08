@@ -1,53 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InlineMessage should render with higligthed background 1`] = `
-<Coral.InlineMessage.Success
+<div
   className="tc-inline-message theme-tc-inline-message"
-  description="Validation and successful messages"
-  link={null}
-  title="Validation title."
-  withBackground={true}
-/>
+>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={null}
+    title="Validation title."
+    withBackground={true}
+  />
+</div>
 `;
 
 exports[`InlineMessage should render with icon and description 1`] = `
-<Coral.InlineMessage.Success
+<div
   className="tc-inline-message theme-tc-inline-message"
-  description="Validation and successful messages"
-  link={null}
-  title=""
-/>
+>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={null}
+    title=""
+  />
+</div>
 `;
 
 exports[`InlineMessage should render with icon, title and description 1`] = `
-<Coral.InlineMessage.Success
+<div
   className="tc-inline-message theme-tc-inline-message"
-  description="Validation and successful messages"
-  link={null}
-  title="Validation title."
-/>
+>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={null}
+    title="Validation title."
+  />
+</div>
 `;
 
 exports[`InlineMessage should render with icon, title, description and link 1`] = `
-<Coral.InlineMessage.Success
+<div
   className="tc-inline-message theme-tc-inline-message"
-  description="Validation and successful messages"
-  link={
-    <Link
-      href="https://my.custom.link"
-    >
-      See more
-    </Link>
-  }
-  title="Validation title."
-/>
+>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={
+      <Link
+        href="https://my.custom.link"
+      >
+        See more
+      </Link>
+    }
+    title="Validation title."
+  />
+</div>
 `;
 
 exports[`InlineMessage should render with title and description 1`] = `
-<Coral.InlineMessage.Success
+<div
   className="tc-inline-message theme-tc-inline-message"
-  description="Validation and successful messages"
-  link={null}
-  title="Validation title."
-/>
+>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={null}
+    title="Validation title."
+  />
+</div>
 `;

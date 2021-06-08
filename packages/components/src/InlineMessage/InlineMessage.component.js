@@ -58,7 +58,9 @@ export function InlineMessage({ type, icon, link, ...props }) {
 		return <Link {...rest}>{label}</Link>;
 	};
 	return (
-		<InlineMessageVariant className={theme('tc-inline-message')} {...props} link={getLink()} />
+		<div className={theme('tc-inline-message')}>
+			<InlineMessageVariant {...props} link={getLink()} />
+		</div>
 	);
 }
 
