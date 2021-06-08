@@ -149,4 +149,19 @@ export function convertToUTC(date: Date): Date {
 	);
 }
 
-export default { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC };
+/**
+ * Check wether a timezone exists or not
+ * @param timezone {string}
+ * @returns {boolean}
+ */
+export function timezoneExists(timezone: string): boolean {
+	try {
+		// eslint-disable-next-line no-new
+		new Intl.DateTimeFormat(undefined, { timeZone: timezone });
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
+export default { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timezoneExists };
