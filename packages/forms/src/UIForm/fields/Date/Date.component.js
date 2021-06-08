@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
 import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
-import { convertDate, isAfter, isBefore, isoStrToDate } from './Date.utils';
+import { convertDate, isoStrToDate } from './Date.utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { extractDataAttributes } from '../../utils/properties';
 
@@ -50,22 +50,6 @@ function DateWidget(props) {
 		onFinish(event, { schema });
 	}
 
-	let isDisabledChecker;
-	if (props.options?.isDisabledChecker) {
-		const [method, param] = props.options.isDisabledChecker;
-		let checkerFunc;
-		switch (method) {
-			case 'before':
-				checkerFunc = isBefore;
-				break;
-			case 'after':
-				checkerFunc = isAfter;
-				break;
-			default:
-		}
-		isDisabledChecker = date => checkerFunc(date, param);
-	}
-
 	return (
 		<FieldTemplate
 			description={schema.description}
@@ -94,7 +78,6 @@ function DateWidget(props) {
 				aria-required={schema.required}
 				aria-describedby={`${descriptionId} ${errorId}`}
 				{...extractDataAttributes(schema)}
-				isDisabledChecker={isDisabledChecker}
 			/>
 		</FieldTemplate>
 	);
@@ -115,7 +98,6 @@ if (process.env.NODE_ENV !== 'production') {
 		options: PropTypes.shape({
 			dateFormat: PropTypes.string,
 			useUTC: PropTypes.string,
-			isDisabledChecker: PropTypes.array,
 		}),
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
