@@ -292,7 +292,6 @@ exports[`DatePicker should render a DatePicker 1`] = `
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
-                title="Not allowed"
                 type="button"
               >
                 6
@@ -452,7 +451,6 @@ exports[`DatePicker should render a DatePicker 1`] = `
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
-                title="Not allowed"
                 type="button"
               >
                 15
