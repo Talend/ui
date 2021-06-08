@@ -150,18 +150,18 @@ export function convertToUTC(date: Date): Date {
 }
 
 /**
- * Check wether a timezone exists or not
- * @param timezone {string}
+ * Check wether a timezone exists or not.
+ * @param timeZone {string}
  * @returns {boolean}
  */
-export function timezoneExists(timezone: string): boolean {
+export function timeZoneExists(timeZone: string): boolean {
 	try {
 		// eslint-disable-next-line no-new
-		new Intl.DateTimeFormat(undefined, { timeZone: timezone });
+		new Intl.DateTimeFormat(undefined, { timeZone });
 		return true;
 	} catch (e) {
 		return false;
 	}
 }
 
-export default { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timezoneExists };
+export default { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timeZoneExists };

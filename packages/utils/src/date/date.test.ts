@@ -1,4 +1,4 @@
-import { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timezoneExists } from './index';
+import { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timeZoneExists } from './index';
 
 describe('date', () => {
 	// "Locale date" here means Europe/Paris, according to the test command described in package.json
@@ -87,13 +87,13 @@ describe('date', () => {
 		});
 	});
 
-	describe('timezoneExists', () => {
+	describe('timeZoneExists', () => {
 		it('should return true when the timezone exists', () => {
 			// given
 			const timezone = 'Europe/Paris';
 
 			// when
-			const exists = timezoneExists(timezone);
+			const exists = timeZoneExists(timezone);
 
 			// then
 			expect(exists).toBe(true);
@@ -104,7 +104,7 @@ describe('date', () => {
 			const timezone = 'Europe/Beauvais';
 
 			// when
-			const exists = timezoneExists(timezone);
+			const exists = timeZoneExists(timezone);
 
 			// then
 			expect(exists).toBe(false);
