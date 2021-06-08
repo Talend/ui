@@ -1,6 +1,8 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use, WithSelector } from '../../../docs';
 import { IconsProvider } from '../../IconsProvider';
+import * as Stories from '../Link.stories';
+
 import Link from '../';
 
 <Meta title="Components/Link" component={Link} />
@@ -27,41 +29,21 @@ Still need to be convinced? Please, take the time to read [this article written 
 ### Default
 
 <Canvas>
-	<Story name="default">
-		<Link href="#">Link example</Link>
-	</Story>
-	<Story name="hover" decorators={[WithSelector.decorator(':hover')]}>
-		<Link href="#">Link example</Link>
-	</Story>
-	<Story name="active" decorators={[WithSelector.decorator(':active')]}>
-		<Link href="#">Link example</Link>
-	</Story>
+	<Story story={Stories.Default} />
+	<Story story={Stories.Hover} />
+	<Story story={Stories.Active} />
 </Canvas>
 
 ### With icon
 
 <Canvas>
-	<Story name="with icon">
-		<Link iconBefore="talend-info-circle" href="#">
-			Link example
-		</Link>
-	</Story>
+	<Story story={Stories.WithIcon} />
 </Canvas>
 
 ### Multi lines
 
 <Canvas>
-	<Story name="multi lines">
-		<Link iconBefore="talend-info-circle" href="https://www.talend.com" target="_blank">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et
-			massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci
-			maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique
-			accumsan eleifend. Mauris at nibh aliquet, blandit turpis quis, scelerisque eros. Cras semper
-			risus at felis convallis, ullamcorper rutrum augue ullamcorper. Donec malesuada felis tortor,
-			vel porttitor tortor tincidunt at. Pellentesque habitant morbi tristique senectus et netus et
-			malesuada fames ac turpis egestas.
-		</Link>
-	</Story>
+	<Story story={Stories.MultiLines} />
 </Canvas>
 
 ### Disabled
@@ -69,11 +51,7 @@ Still need to be convinced? Please, take the time to read [this article written 
 When the link is disabled the whole component is displayed with $opacity.disabled.
 
 <Canvas>
-	<Story name="disabled">
-		<Link iconBefore="talend-info-circle" href="#" disabled>
-			Link example
-		</Link>
-	</Story>
+	<Story story={Stories.Disabled} />
 </Canvas>
 
 ### External
@@ -81,11 +59,7 @@ When the link is disabled the whole component is displayed with $opacity.disable
 When the link targets a new domain, we add an external-link icon right after.
 
 <Canvas>
-	<Story name="external">
-		<Link href="https://www.talend.com" target="_blank">
-			talend.com
-		</Link>
-	</Story>
+	<Story story={Stories.External} />
 </Canvas>
 
 The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
@@ -138,7 +112,7 @@ Press <kbd>ENTER</kbd> to open a link
 	<Story
 		name="usage"
 		args={{
-			iconBefore: 'information',
+			iconBefore: 'talend-info-circle',
 			children: 'Help',
 			iconAfter: '',
 			href: 'https://help.talend.com',
@@ -174,14 +148,8 @@ Press <kbd>ENTER</kbd> to open a link
 			},
 		}}
 	>
-		{({ children, ...rest }) => <Link {...rest}>{children}</Link>}
+		{Stories.Template.bind({})}
 	</Story>
 </Canvas>
 
 <ArgsTable story="usage" />
-
-## Changelog
-
-| Date       | Author     | Description |
-| ---------- | ---------- | ----------- |
-| 07/16/2020 | Monia Huet | Init page   |
