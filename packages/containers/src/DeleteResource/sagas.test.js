@@ -23,7 +23,7 @@ describe('internals', () => {
 		it('should put a redirect action', () => {
 			const gen = internals.redirect('/foo');
 			const effect = gen.next().value;
-			expect(effect.PUT.action.cmf.routerReplace).toBe('/foo');
+			expect(effect.payload.action.cmf.routerReplace).toBe('/foo');
 		});
 		it('should throw if no redirectUrl provided', () => {
 			const gen = internals.redirect();
@@ -36,8 +36,9 @@ describe('internals', () => {
 			let effect = gen.next().value;
 			expect(effect).toEqual(take(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK));
 			effect = gen.next().value;
-			expect(effect.SELECT.args[0]).not.toBeDefined(); // resourceLocator
-			expect(effect.SELECT.args[1]).not.toBeDefined(); // safeId
+			expect(effect.type).toBe('SELECT');
+			expect(effect.payload.args[0]).not.toBeDefined(); // resourceLocator
+			expect(effect.payload.args[1]).not.toBeDefined(); // safeId
 			effect = gen.next().value;
 			expect(effect).not.toBeDefined(); // no http delete called
 		});
@@ -59,11 +60,11 @@ describe('internals', () => {
 			let effect = gen.next().value;
 			expect(effect).toEqual(take(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK));
 			effect = gen.next(action).value;
-			expect(effect.SELECT.args[0]).toBe('datasets'); // resourceLocator
-			expect(effect.SELECT.args[1]).toBe('123'); // safeId
+			expect(effect.payload.args[0]).toBe('datasets'); // resourceLocator
+			expect(effect.payload.args[1]).toBe('123'); // safeId
 			effect = gen.next(resource).value;
-			expect(effect.CALL).toBeDefined();
-			const httpAction = effect.CALL;
+			expect(effect.payload).toBeDefined();
+			const httpAction = effect.payload;
 			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
 			expect(httpAction.args[0]).toBe('/api/datasets/123');
 			effect = gen.next({ response: { ok: true } }).value;
@@ -81,8 +82,8 @@ describe('internals', () => {
 			);
 
 			effect = gen.next().value;
-			expect(effect.CALL.fn).toBe(internals.redirect);
-			expect(effect.CALL.args[0]).toBe('/resources');
+			expect(effect.payload.fn).toBe(internals.redirect);
+			expect(effect.payload.args[0]).toBe('/resources');
 		});
 		it('should use resourceUri as backend api to delete resource if provided', () => {
 			const action = {
@@ -102,8 +103,8 @@ describe('internals', () => {
 			gen.next();
 			gen.next(action);
 			const effect = gen.next(resource).value;
-			expect(effect.CALL).toBeDefined();
-			const httpAction = effect.CALL;
+			expect(effect.payload).toBeDefined();
+			const httpAction = effect.payload;
 			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
 			expect(httpAction.args[0]).toBe('/run-profiles/advanced/profileId');
 		});
@@ -131,8 +132,8 @@ describe('internals', () => {
 				gen.next();
 				gen.next(action);
 				const effect = gen.next(resource).value;
-				expect(effect.CALL).toBeDefined();
-				const httpAction = effect.CALL;
+				expect(effect.payload).toBeDefined();
+				const httpAction = effect.payload;
 				expect(httpAction.fn).toBe(cmf.sagas.http.delete);
 				expect(httpAction.args[0]).toBe('/services/run-profiles/runProfileId');
 			},
@@ -151,8 +152,8 @@ describe('internals', () => {
 			const gen = internals.deleteResourceValidate();
 			gen.next();
 			const effect = gen.next(action).value;
-			expect(effect.SELECT.args[0]).toBe('myCollection');
-			expect(effect.SELECT.args[1]).toBe('runProfileId');
+			expect(effect.payload.args[0]).toBe('myCollection');
+			expect(effect.payload.args[1]).toBe('runProfileId');
 		});
 		it('should use resourceType as collection to remove resource in state, if no collectionId provided', () => {
 			const action = {
@@ -167,8 +168,8 @@ describe('internals', () => {
 			const gen = internals.deleteResourceValidate();
 			gen.next();
 			const effect = gen.next(action).value;
-			expect(effect.SELECT.args[0]).toBe('myResource');
-			expect(effect.SELECT.args[1]).toBe('runProfileId');
+			expect(effect.payload.args[0]).toBe('myResource');
+			expect(effect.payload.args[1]).toBe('runProfileId');
 		});
 		it('should dispatch DIALOG_BOX_DELETE_RESOURCE_ERROR event when delete request fails', () => {
 			const action = {
@@ -208,11 +209,12 @@ describe('internals', () => {
 		it('should call redirect ', () => {
 			const gen = internals.deleteResourceCancel();
 			let effect = gen.next().value;
-			expect(effect.TAKE.pattern).toBe(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
+			expect(effect.type).toBe('TAKE');
+			expect(effect.payload.pattern).toBe(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
 			const action = { data: { model: { onCancelRedirectUrl: '/cancel' } } };
 			effect = gen.next(action).value;
-			expect(effect.CALL.fn).toBe(internals.redirect);
-			expect(effect.CALL.args[0]).toBe('/cancel');
+			expect(effect.payload.fn).toBe(internals.redirect);
+			expect(effect.payload.args[0]).toBe('/cancel');
 		});
 	});
 });
@@ -227,9 +229,13 @@ describe('sagas', () => {
 			// eslint-disable-next-line new-cap
 			const gen = sagas['DeleteResource#handle']();
 			const effect = gen.next().value;
-			expect(effect.RACE).toMatchObject({
-				deleteConfirmationCancel: { CALL: { fn: internals.deleteResourceCancel } },
-				deleteConfirmationValidate: { CALL: { fn: internals.deleteResourceValidate } },
+			expect(effect.type).toBe('RACE');
+			expect(effect.payload).toMatchObject({
+				deleteConfirmationCancel: { type: 'CALL', payload: { fn: internals.deleteResourceCancel } },
+				deleteConfirmationValidate: {
+					type: 'CALL',
+					payload: { fn: internals.deleteResourceValidate },
+				},
 			});
 		});
 		it('should throw a specific error if sth goes bad', () => {

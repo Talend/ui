@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Provider } from 'react-redux';
+import { RegistryProvider } from '../RegistryProvider';
 import mock from './store';
 
 const store = mock.store();
@@ -25,26 +27,26 @@ describe('AppMenu', () => {
 	});
 });
  */
-class MockProvider extends React.Component {
-	getChildContext() {
-		let st = this.props.store;
-		if (!st) {
-			st = store;
-		}
-		if (this.props.state) {
-			st.state = this.props.state;
-			st.getState = () => this.props.state;
-		}
-		const context = {
-			store: st,
-			registry: this.props.registry || {},
-		};
-		return context;
+function MockProvider(props) {
+	let st = props.store;
+	if (!st) {
+		st = store;
 	}
-
-	render() {
-		return <div className="mock-provider">{this.props.children}</div>;
+	if (props.state) {
+		st.state = props.state;
+		st.getState = () => props.state;
 	}
+	const context = {
+		store: st,
+		registry: props.registry || {},
+	};
+	return (
+		<div className="mock-provider">
+			<Provider store={context.store}>
+				<RegistryProvider value={context.registry}>{props.children}</RegistryProvider>
+			</Provider>
+		</div>
+	);
 }
 
 MockProvider.propTypes = {
@@ -54,9 +56,9 @@ MockProvider.propTypes = {
 	registry: PropTypes.object,
 };
 
-MockProvider.childContextTypes = {
-	store: PropTypes.object,
-	registry: PropTypes.object,
-};
+MockProvider.getEnzymeOption = context => ({
+	wrappingComponent: MockProvider,
+	wrappingComponentProps: context,
+});
 
 export default MockProvider;

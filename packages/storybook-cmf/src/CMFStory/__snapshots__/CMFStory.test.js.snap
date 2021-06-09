@@ -12,10 +12,10 @@ exports[`CMFStory should render its name 1`] = `
     }
   }
 >
-  <RegistryProvider>
+  <Context.Provider>
     <div>
       My Story
     </div>
-  </RegistryProvider>
+  </Context.Provider>
 </Provider>
 `;

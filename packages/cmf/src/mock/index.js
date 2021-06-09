@@ -13,9 +13,4 @@
 import store from './store';
 import Provider from './provider';
 
-export default store;
-
-export {
-	store,
-	Provider,
-};
+export { Provider, store };

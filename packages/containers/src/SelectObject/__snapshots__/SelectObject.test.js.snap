@@ -4,7 +4,7 @@ exports[`Component SelectObject should render 1`] = `
 <div
   className="tc-select-object theme-wrapper"
 >
-  <Connect(CMF(Container(FilterBar)))
+  <Memo(Connect(CMF(Container(FilterBar))))
     className="my-custom-filter theme-filter"
     dockable={false}
     id="my-tree"
@@ -13,7 +13,7 @@ exports[`Component SelectObject should render 1`] = `
   <div
     className="theme-container"
   >
-    <Connect(CMF(Container(TreeView)))
+    <Memo(Connect(CMF(Container(TreeView))))
       className="theme-tree"
       componentId="my-tree"
       data={

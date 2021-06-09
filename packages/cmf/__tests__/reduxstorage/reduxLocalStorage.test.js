@@ -1,6 +1,19 @@
 import reduxLocalStorage from '../../src/reduxstorage/reduxLocalStorage';
 
 describe('reduxLocalStorage', () => {
+	// eslint-disable-next-line no-console
+	const originalLog = console;
+	beforeEach(() => {
+		// eslint-disable-next-line no-console
+		global.console = {
+			warn: jest.fn(),
+			log: jest.fn(),
+		};
+	});
+	afterEach( () => {
+		// eslint-disable-next-line no-console
+		global.console = originalLog;
+	});
 	it('should expose API', () => {
 		expect(typeof reduxLocalStorage.loadInitialState).toBe('function');
 		expect(typeof reduxLocalStorage.saveOnReload).toBe('function');

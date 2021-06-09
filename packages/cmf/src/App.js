@@ -23,7 +23,7 @@ export default function App(props) {
 	}
 	return (
 		<Provider store={props.store}>
-			<RegistryProvider>
+			<RegistryProvider value={props.registry}>
 				<ErrorBoundary fullPage>{content}</ErrorBoundary>
 			</RegistryProvider>
 		</Provider>
@@ -33,6 +33,7 @@ export default function App(props) {
 App.displayName = 'CMFApp';
 App.propTypes = {
 	store: PropTypes.object.isRequired,
+	registry: PropTypes.object,
 	children: PropTypes.node,
 	withSettings: PropTypes.bool,
 	loading: PropTypes.func,

@@ -1,15 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { shallow, mount } from 'enzyme';
 import { Dispatcher } from '../src/Dispatcher';
 import CONST from '../src/constant';
+import { RegistryProvider } from '../src/RegistryProvider';
 
-const mockContext = {
-	registry: {
-		[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:actionCreator:id`]: jest.fn(),
-		[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:another:actionCreator:id`]: jest.fn(),
-	},
+const REGISTRY = {
+	[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:actionCreator:id`]: jest.fn(),
+	[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:another:actionCreator:id`]: jest.fn(),
 };
+
+function getEnzymeOption() {
+	return {
+		wrappingComponent: RegistryProvider,
+		wrappingComponentProps: { value: REGISTRY },
+	};
+}
 
 jest.mock('../src/action', () => ({
 	getOnProps() {
@@ -49,9 +54,7 @@ describe('Testing <Dispatcher />', () => {
 			>
 				<button />
 			</Dispatcher>,
-			{
-				context: mockContext,
-			},
+			getEnzymeOption(),
 		);
 		expect(
 			JSON.stringify(wrapper.find('button').props(), replacer).replace(/(\\t|\\n)/g, ''),
@@ -70,9 +73,7 @@ describe('Testing <Dispatcher />', () => {
 				>
 					<button />
 				</Dispatcher>,
-				{
-					context: mockContext,
-				},
+				getEnzymeOption(),
 			);
 		}).toThrow('action not found id: unknnown:actionCreator:id');
 	});
@@ -82,9 +83,7 @@ describe('Testing <Dispatcher />', () => {
 			<Dispatcher onClick="noOp" onDoubleClick="noOp">
 				<button />
 			</Dispatcher>,
-			{
-				context: mockContext,
-			},
+			getEnzymeOption(),
 		);
 		const buttonWrapper = wrapper.find('button').at(0);
 		const instance = wrapper.instance();
@@ -103,9 +102,7 @@ describe('Testing <Dispatcher />', () => {
 					<Dispatcher onClick="error:actionCreator:id" onDoubleClick="another:actionCreator:id">
 						<button />
 					</Dispatcher>,
-					{
-						context: mockContext,
-					},
+					getEnzymeOption(),
 				);
 			}).toThrowError('action not found id: error:actionCreator:id');
 		},
@@ -119,9 +116,7 @@ describe('Testing <Dispatcher />', () => {
 				<Dispatcher onClick="existingActionCreator:id" onDoubleClick="existingActionCreator:id">
 					<button />
 				</Dispatcher>,
-				{
-					context: mockContext,
-				},
+				getEnzymeOption(),
 			);
 			expect(() => {
 				wrapper.setProps({ onClick: 'error:another:actionCreator:id' });
@@ -142,12 +137,7 @@ describe('Testing <Dispatcher />', () => {
 					<a />
 				</Dispatcher>
 			</div>,
-			{
-				context: mockContext,
-				childContextTypes: {
-					registry: PropTypes.object.isRequired,
-				},
-			},
+			getEnzymeOption(),
 		);
 		wrapper.find('a').simulate('click');
 		expect(onClick).toHaveBeenCalled();
@@ -167,12 +157,7 @@ describe('Testing <Dispatcher />', () => {
 					<a />
 				</Dispatcher>
 			</div>,
-			{
-				context: mockContext,
-				childContextTypes: {
-					registry: PropTypes.object.isRequired,
-				},
-			},
+			getEnzymeOption(),
 		);
 		wrapper.find('a').simulate('click');
 		expect(onClick).not.toHaveBeenCalled();
@@ -188,9 +173,7 @@ describe('Testing <Dispatcher />', () => {
 			<Dispatcher dispatchActionCreator={dispatchActionCreator} preventDefault onClick="noOp">
 				<a />
 			</Dispatcher>,
-			{
-				context: mockContext,
-			},
+			getEnzymeOption(),
 		);
 		wrapper.find('a').simulate('click', event);
 		expect(event.preventDefault).toHaveBeenCalled();
@@ -210,9 +193,10 @@ describe('Testing <Dispatcher />', () => {
 			extra: 'foo',
 			children: <a />,
 		};
-		const wrapper = shallow(<Dispatcher {...props} />, {
-			context: mockContext,
-		});
+		const wrapper = shallow(
+			<Dispatcher {...props} />,
+			getEnzymeOption(),
+		);
 		wrapper.find('a').simulate('click', event);
 		expect(dispatchActionCreator).toHaveBeenCalledWith('noOp', event, props);
 	});

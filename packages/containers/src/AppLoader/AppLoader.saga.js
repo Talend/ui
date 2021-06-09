@@ -1,6 +1,5 @@
 import api from '@talend/react-cmf';
-import { call, select, all, take } from 'redux-saga/effects';
-import { delay } from 'redux-saga';
+import { delay, call, select, all, take } from 'redux-saga/effects';
 import invariant from 'invariant';
 
 export const ACTION_CREATORS = 'actionCreators';
@@ -20,7 +19,7 @@ export function* waitFor(collectionName, interval = 10) {
 		if (collection !== undefined) {
 			break;
 		}
-		yield call(delay, interval);
+		yield delay(interval);
 	}
 }
 /**
@@ -52,6 +51,7 @@ export function* handleStep(step) {
  * @param {array} props.steps an array of steps to handle
  */
 export function* appLoaderSaga({ steps }) {
+	// eslint-disable-next-line no-restricted-syntax
 	for (const step of steps) {
 		yield call(handleStep, step);
 	}

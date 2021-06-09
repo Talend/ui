@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { mock } from '@talend/react-cmf';
 
 import Action, { mapStateToProps, mergeProps } from './Action.connect';
@@ -7,7 +7,10 @@ import Action, { mapStateToProps, mergeProps } from './Action.connect';
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {
 		const context = mock.store.context();
-		const wrapper = shallow(<Action actionId="menu:article" extra="foo" />, { context });
+		const wrapper = mount(
+			<Action actionId="menu:article" extra="foo" />,
+			mock.Provider.getEnzymeOption(context),
+		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
