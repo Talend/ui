@@ -18,7 +18,7 @@ export default {
 		entries: [
 			{
 				key: 'First line',
-				value: '50',
+				value: '  5   0  ',
 			},
 			{
 				key: 'Second line',
