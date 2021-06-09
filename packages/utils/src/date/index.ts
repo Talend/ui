@@ -39,6 +39,15 @@ function getUTCOffset(timeZone: string): number {
 }
 
 /**
+ * Ensure a numeric value is expressed on two digits (01, 02, 10 ...)
+ * @param {Number} value
+ * @returns {string}
+ */
+function padTwoDigits(value: number): string {
+	return `${value > 9 ? '' : '0'}${value}`;
+}
+
+/**
  * Format an UTC offset from minutes to [+/-][HH][separator][mm]
  * @param {Number} offset UTC offset
  * @param {string} separator Separator between hours and minutes
@@ -51,10 +60,7 @@ function formatUtcOffset(offset: number, separator: string): string {
 	const min = absoluteOffset % 60;
 	const hours = (absoluteOffset - min) / 60;
 
-	const paddedHours = hours.toString().padStart(2, '0');
-	const paddedMin = min.toString().padStart(2, '0');
-
-	return `${sign}${paddedHours}${separator}${paddedMin}`;
+	return `${sign}${padTwoDigits(hours)}${separator}${padTwoDigits(min)}`;
 }
 
 /**
