@@ -1,6 +1,6 @@
 {
   "name": "@talend/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Various utilities",
   "main": "lib/index.js",
   "repository": {
@@ -28,5 +28,8 @@
   },
   "dependencies": {
     "date-fns": "^1.27.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
