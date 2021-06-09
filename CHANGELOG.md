@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.2.3
+
+### Patch Changes
+
+- 6fa4863: Using bootstrap, the progress bar of the stepper is darker
+
 ## 1.2.2
 
 ### Patch Changes
