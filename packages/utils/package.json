@@ -14,7 +14,7 @@
     "lint": "talend-scripts lint:es",
     "prepublishOnly": "npm run test",
     "prepare": "npm run build",
-    "test": "talend-scripts test --silent",
+    "test": "cross-env talend-scripts test --silent",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
