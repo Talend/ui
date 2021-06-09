@@ -1,3 +1,6 @@
 {
-	"extends": "./node_modules/@talend/scripts-config-eslint/.eslintrc"
+	"root": true,
+	"extends": ["./node_modules/@talend/scripts-config-eslint/.eslintrc"],
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"]
 }
