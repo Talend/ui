@@ -1,0 +1,34 @@
+name: Utils module CI
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths: packages/utils/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and test
+    defaults:
+      run:
+        working-directory: packages/utils
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Test
+        run: yarn test
+
+      - name: Lint
+        run: yarn lint
