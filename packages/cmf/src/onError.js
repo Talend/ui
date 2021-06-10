@@ -1,6 +1,7 @@
 import get from 'lodash/get';
 import CONST from './constant';
 import actions from './actions';
+import { assertTypeOf } from './assert';
 
 /* eslint-disable no-param-reassign */
 /**
@@ -120,7 +121,15 @@ function report(error, options = {}) {
 /**
  * bootstrap configure onError
  */
-function bootstrap() {}
+function bootstrap(options, store) {
+	assertTypeOf(options, 'onError', 'object');
+	ref.SENTRY_DSN = undefined;
+	ref.actions = [];
+	ref.errors = [];
+	ref.store = store;
+	const opt = options.onError || {};
+	ref.serverURL = opt.reportURL;
+}
 
 /**
  * return reference to the array of errors
