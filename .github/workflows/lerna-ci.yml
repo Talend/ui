@@ -1,0 +1,27 @@
+name: Lerna CI
+
+on:
+  pull_request:
+    branches: [main, master, jmfrancois/chore/lerna-independant]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and test
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Test
+        run: yarn test

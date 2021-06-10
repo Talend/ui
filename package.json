@@ -6,7 +6,6 @@
   },
   "scripts": {
     "prepublishOnly": "lerna exec -- yarn prepublishOnly",
-    "prepare": "lerna exec -- yarn prepare",
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "build": "lerna exec -- yarn",
@@ -47,19 +46,7 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/cmf",
-    "packages/cmf-cqrs",
-    "packages/cmf-webpack-plugin",
-    "packages/components",
-    "packages/containers",
-    "packages/datagrid",
-    "packages/forms",
-    "packages/generator",
-    "packages/icons",
-    "packages/sagas",
-    "packages/stepper",
-    "packages/storybook-cmf",
-    "packages/theme"
+    "packages/*"
   ],
   "resolutions": {
     "dot-prop": "^5.2.0",
