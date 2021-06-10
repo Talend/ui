@@ -1,9 +1,9 @@
-name: Validation module auto publish
+name: Utils module auto publish
 
 on:
   push:
     branches: [main, master]
-    paths: packages/validation/**
+    paths: packages/utils/**
 
 jobs:
   build_and_publish:
@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: packages/validation
+        working-directory: packages/utils
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12
+      - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
           registry-url: 'https://registry.npmjs.org/'
 
       - name: Get package.json version
@@ -31,7 +31,7 @@ jobs:
       - name: Check if package.json version is already published
         id: check-already-published
         run: |
-          alreadyPublished="$(yarn info @talend/validation versions | sed -n "/'${{ steps.current-version.outputs.current_version }}'/ p" | wc -l)"
+          alreadyPublished="$(yarn info @talend/utils versions | sed -n "/'${{ steps.current-version.outputs.current_version }}'/ p" | wc -l)"
           echo "Is local version already published ? $alreadyPublished"
           echo "::set-output name=already-published::$alreadyPublished"
 
@@ -55,5 +55,4 @@ jobs:
       - name: Update Talend CDN content
         id: cdn
         run: |
-          curl -XPOST -u "frassinier:${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/talend/cdn-content/actions/workflows/download.yml/dispatches --data '{"ref": "main"}'
-
+          curl -XPOST -u "build-travis-ci:${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/talend/cdn-content/actions/workflows/download.yml/dispatches --data '{"ref": "main"}'

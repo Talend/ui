@@ -2,6 +2,10 @@ $svg-tab-width: 2.6rem !default;
 $svg-other-characters: 0.3rem !default;
 $svg-color: #ccc !default;
 
+.td-value {
+	white-space: pre;
+}
+
 .td-white-space-character {
 	vertical-align: text-bottom;
 	color: $svg-color;

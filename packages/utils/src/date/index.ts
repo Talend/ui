@@ -1,16 +1,22 @@
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 
+type DateFnsFormatInput = Date | number | string;
+
+interface ConversionOptions {
+	timeZone: string,
+}
+
 /**
  * Get the offset between a timezone and the UTC time (in minutes)
- * @param {String} timeZone Timezone IANA name
+ * @param {string} timeZone Timezone IANA name
  * @returns {Number}
  *
  * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  */
-function getUTCOffset(timeZone) {
+function getUTCOffset(timeZone: string): number {
 	// Build localized formats for UTC and the target timezone
-	const formatOptions = {
+	const formatOptions: Intl.DateTimeFormatOptions = {
 		hourCycle: 'h23',
 		year: 'numeric',
 		month: 'numeric',
@@ -29,45 +35,39 @@ function getUTCOffset(timeZone) {
 	const timezoneDate = new Date(timezoneFormat.format(date));
 
 	// Compute delta between dates
-	return (timezoneDate - utcDate) / (1000 * 60);
-}
-
-/**
- * Ensure a numeric value is expressed on two digits (01, 02, 10 ...)
- * @param {Number} value
- * @returns {String}
- */
-function padTwoDigits(value) {
-	return value > 9 ? value : `0${value}`;
+	return (timezoneDate.getTime() - utcDate.getTime()) / (1000 * 60);
 }
 
 /**
  * Format an UTC offset from minutes to [+/-][HH][separator][mm]
  * @param {Number} offset UTC offset
- * @param {String} separator Separator between hours and minutes
- * @returns {String} Formatted UTC offset
+ * @param {string} separator Separator between hours and minutes
+ * @returns {string} Formatted UTC offset
  */
-function formatUtcOffset(offset, separator) {
+function formatUtcOffset(offset: number, separator: string): string {
 	const sign = offset >= 0 ? '+' : '-';
 
 	const absoluteOffset = Math.abs(offset);
 	const min = absoluteOffset % 60;
 	const hours = (absoluteOffset - min) / 60;
 
-	return `${sign}${padTwoDigits(hours)}${separator}${padTwoDigits(min)}`;
+	const paddedHours = hours.toString().padStart(2, '0');
+	const paddedMin = min.toString().padStart(2, '0');
+
+	return `${sign}${paddedHours}${separator}${paddedMin}`;
 }
 
 /**
  * Replace timezone token(s) in the date format pattern to a specific timezone's value(s).
  * This should be maintained along with the date-fns formats (see linked API doc).
- * @param {String} dateFormat
- * @param {String} timeZone
- * @returns {String}
+ * @param {string} dateFormat
+ * @param {string} timeZone
+ * @returns {string}
  *
  * @see https://date-fns.org/v1.27.2/docs/format
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js#L131
  */
-function formatTimeZoneTokens(dateFormat, timeZone) {
+function formatTimeZoneTokens(dateFormat: string, timeZone: string): string {
 	return dateFormat.replace(/z|ZZ?/g, match => {
 		const offset = getUTCOffset(timeZone);
 		const separator = match === 'Z' ? ':' : '';
@@ -77,12 +77,13 @@ function formatTimeZoneTokens(dateFormat, timeZone) {
 
 /**
  * Converts the given date from the given time zone to the local time and returns a new Date object.
- * @param {Date|Number|String} date Date to format
- * @param {*} options
+ * @param {DateFnsFormatInput} date Date to format
+ * @param {ConversionOptions} options
+ * @returns {Date}
  *
  * @see https://github.com/prantlf/date-fns-timezone/blob/HEAD/docs/API.md#converttolocaltime
  */
-export function convertToLocalTime(date, options) {
+export function convertToLocalTime(date: DateFnsFormatInput, options: ConversionOptions): Date {
 	const parsedDate = parse(date);
 	const offset = getUTCOffset(options.timeZone) + parsedDate.getTimezoneOffset();
 
@@ -91,14 +92,13 @@ export function convertToLocalTime(date, options) {
 
 /**
  * Converts the given date from the local time to the given time zone and returns a new Date object.
- * @param {Date|Number|String} date Date to format
- * @param {*} options
- * @param {*} options.timeZone
+ * @param {DateFnsFormatInput} date Date to format
+ * @param {ConversionOptions} options
  * @returns {Date}
  *
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/convertToTimeZone.js
  */
-export function convertToTimeZone(date, options) {
+export function convertToTimeZone(date: DateFnsFormatInput, options: ConversionOptions): Date {
 	const parsedDate = parse(date);
 	const offset = getUTCOffset(options.timeZone) + parsedDate.getTimezoneOffset();
 
@@ -107,15 +107,15 @@ export function convertToTimeZone(date, options) {
 
 /**
  * Returns the formatted date string in the given format, after converting it to the given time zone.
- * @param {Date|Number|String} date Date to format
- * @param {String} formatString Output format (see date-fns supported formats)
+ * @param {DateFnsFormatInput} date Date to format
+ * @param {string} formatString Output format (see date-fns supported formats)
  * @param {Object} options
- * @param {String} options.timeZone Target timezone
- * @returns {String}
+ * @param {string} options.timeZone Target timezone
+ * @returns {string}
  *
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js
  */
-export function formatToTimeZone(date, formatString, options) {
+export function formatToTimeZone(date: DateFnsFormatInput, formatString: string, options: ConversionOptions): string {
 	const dateConvertedToTimezone = convertToTimeZone(date, options);
 
 	// Replace timezone token(s) in the string format with timezone values, since format() will use local timezone
@@ -127,8 +127,10 @@ export function formatToTimeZone(date, formatString, options) {
 /**
  * Convert a date in local TZ to UTC
  * 20:00 in local TZ become 20:00 in UTC
+ * @param {Date} date
+ * @returns {Date}
  */
-export function convertToUTC(date) {
+export function convertToUTC(date: Date): Date {
 	return new Date(
 		Date.UTC(
 			date.getFullYear(),
@@ -140,3 +142,20 @@ export function convertToUTC(date) {
 		),
 	);
 }
+
+/**
+ * Check wether a timezone exists or not.
+ * @param timeZone {string}
+ * @returns {boolean}
+ */
+export function timeZoneExists(timeZone: string): boolean {
+	try {
+		// eslint-disable-next-line no-new
+		new Intl.DateTimeFormat(undefined, { timeZone });
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
+export default { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timeZoneExists };

@@ -1,4 +1,4 @@
-import { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC } from './date';
+import { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timeZoneExists } from './index';
 
 describe('date', () => {
 	// "Locale date" here means Europe/Paris, according to the test command described in package.json
@@ -74,12 +74,40 @@ describe('date', () => {
 			expect(localDate).toEqual('2020-05-13T23:00:00+0500');
 		});
 	});
+
 	describe('convertToUTC', () => {
 		it('should do convertion of bad date', () => {
+			// when
 			// lets create Date object in local TZ
 			const dateObj = new Date('2020-05-13, 20:00');
+
+			// then
 			expect(convertToUTC(dateObj).getUTCHours()).toBe(20);
 			expect(convertToUTC(dateObj).getUTCMinutes()).toBe(0);
+		});
+	});
+
+	describe('timeZoneExists', () => {
+		it('should return true when the timezone exists', () => {
+			// given
+			const timezone = 'Europe/Paris';
+
+			// when
+			const exists = timeZoneExists(timezone);
+
+			// then
+			expect(exists).toBe(true);
+		});
+
+		it('should return false when the timezone exists', () => {
+			// given
+			const timezone = 'Europe/Beauvais';
+
+			// when
+			const exists = timeZoneExists(timezone);
+
+			// then
+			expect(exists).toBe(false);
 		});
 	});
 });
