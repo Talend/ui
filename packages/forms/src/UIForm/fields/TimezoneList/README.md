@@ -37,3 +37,7 @@ JSON schema is simple, the field only requires to be declared as a `string` valu
     }
   ]
 ```
+
+## Result
+
+![TimezoneList](screenshot.gif)
