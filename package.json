@@ -3,13 +3,14 @@
     "@changesets/cli": "^2.16.0",
     "commander": "^2.9.0",
     "i18next-scanner": "^3.0.0",
-    "lerna": "^3.20.2"
+    "lerna": "^4.0.0"
   },
   "scripts": {
+    "postinstall": "lerna exec -- yarn",
     "release": "yarn changeset publish",
     "prepublishOnly": "lerna exec -- yarn prepublishOnly",
     "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test --silent",
-    "test:demo": "lerna exec -- yarn test:demo",
+    "test:demo": "lerna exec --no-bail -- yarn test:demo",
     "bump-version": "lerna version --force-publish --no-git-tag-version --yes",
     "build-demo": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish": "lerna publish from-package --yes --no-verify-access",
