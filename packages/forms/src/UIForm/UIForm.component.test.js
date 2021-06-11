@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import tv4 from 'tv4';
+import {tv4} from '@talend/json-schema-form-core';
 import { actions, data, nestedData, mergedSchema, initProps } from '../../__mocks__/data';
 import UIForm, { UIFormComponent } from './UIForm.component';
 
