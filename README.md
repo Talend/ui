@@ -3,17 +3,12 @@
 That repository was created in an effort to simplify the development of Talend's
 front-end stack.
 
-[![Travis CI][travis-ci-image] ][travis-ci-url]
-
-[travis-ci-image]: https://travis-ci.com/Talend/ui.svg?branch=master
-[travis-ci-url]: https://travis-ci.com/Talend/ui
-
 ## Goals
 
 - Single code repository / Multiple packages
 - Global (cross package) test and review tools
-- Unified stack versions
 - Easy cross packages development
+- Share and love opensource
 
 ## The stack
 
@@ -29,44 +24,20 @@ front-end stack.
 
 :warning: If you've used `lerna bootstrap` in the past, please start by running `lerna clean` or you will have bad behavior with the following tools.
 
-### yarn run build
+We have quick access from the root to the following npm scripts:
 
-Just build all the packages for static purpose.
-It execute the prepublish npm script in all sub packages.
+* prepublishOnly
+* test
+* lint
 
-### yarn run watch
+In each packages you will also find a start command to play with the package.
 
-The stack has one entry point:
-
-```
-yarn run watch
-```
-
-This watcher will trigger build and sync inside the stack for you.
-
-For example if you modify a component, it will rebuild `components` into lib folder. Because we use yarn workspace all dependencies use that lib folder content.
-
-Be warned the [delete or rename are not taken into account](https://github.com/remy/nodemon/issues/656).
-
-### yarn start
-
-To start to dev on a package and see it in action just use one of the following
-
-- yarn start-components on localhost:6006
-- yarn start-containers on localhost:6007
-- yarn start-forms on localhost:6008
-- yarn start-theme on localhost:1337
+The CI will ensure on each PR that test and lint are OK before you can merge your pull request. It will also provide you a demo so reviewers can play with your change and try to find impact of your PR on other packages.
 
 ## Versions and breaking changes
 
+The stack is stable and we do our best to not break APIs.
+To handle version we rely on [**changeset**](https://github.com/atlassian/changesets/). So on each PR you will be able to request an release intent with your change. It will fill the changelog at release time.
+
 [See the wiki](https://github.com/Talend/ui/wiki/Workflow#major--breaking-change-aka-next)
 
-## Visual regression
-
-The visual regression test aren't no launched by travis on each PR because they are slower and can generate false positive.
-
-The test is manually by this commander
-
-```
-node screenshots -p PULL_REQUEST_ID -c ./screenshots/SCENARIO_TO_TEST.json
-```
