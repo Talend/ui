@@ -6,7 +6,7 @@
   "mainSrc": "src/index.js",
   "scripts": {
     "prepublishOnly": "echo nothing to prepublish",
-    "prepare": "talend-scripts build:lib:umd",
+    "prepare": "rimraf dist && talend-scripts build:lib:umd",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "tslint": "tslint \"src/**/*.ts\"",
