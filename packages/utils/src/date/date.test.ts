@@ -1,4 +1,11 @@
-import { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timeZoneExists } from './index';
+import {
+	convertToLocalTime,
+	convertToTimeZone,
+	convertToUTC,
+	formatToTimeZone,
+	getUTCOffset,
+	timeZoneExists,
+} from './index';
 
 describe('date', () => {
 	// "Locale date" here means Europe/Paris, according to the test command described in package.json
@@ -85,6 +92,21 @@ describe('date', () => {
 			expect(convertToUTC(dateObj).getUTCHours()).toBe(20);
 			expect(convertToUTC(dateObj).getUTCMinutes()).toBe(0);
 		});
+	});
+
+	describe('getUTCOffset', () => {
+		test.each(
+			[
+				['Africa/Bamako', 0],
+				['Australia/Melbourne', 600],
+				['America/Swift_Current', -360],
+			]
+		)(
+			'it should get %s timezone offset',
+			(timezone: string, expectedOffset: number) => {
+				expect(getUTCOffset(timezone)).toEqual(expectedOffset);
+			}
+		);
 	});
 
 	describe('timeZoneExists', () => {
