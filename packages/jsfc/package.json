@@ -71,12 +71,12 @@
     "rimraf": "^2.6.2",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
-    "ts-loader": "^1.2.2",
-    "ts-node": "^1.2.1",
-    "tslint": "^4.0.2",
+    "ts-loader": "^6.2.2",
+    "ts-node": "^10.0.0",
+    "tslint": "^6.0.2",
     "tslint-loader": "^3.2.1",
-    "typescript": "~2.0.3",
-    "webpack": "^2.2.1"
+    "typescript": "^4.2.4",
+    "webpack": "^4.2.1"
   },
   "dependencies": {
     "objectpath": "^1.2.1",
