@@ -5,7 +5,7 @@
   "main": "dist/module.js",
   "mainSrc": "src/module.js",
   "scripts": {
-    "prepublish": "babel -d dist ./src/ && rimraf dist/**/*.spec.js",
+    "prepublishOnly": "babel -d dist ./src/ && rimraf dist/**/*.spec.js",
     "build": "webpack",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",

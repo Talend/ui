@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "prepublishOnly": "echo nothing to prepublishOnly",
     "test": "jest",
     "lint": "eslint lib/**"
   },
