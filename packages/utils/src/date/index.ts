@@ -57,6 +57,15 @@ function formatUTCOffset(offset: number, separator: string): string {
 }
 
 /**
+ * Format a human-readable UTC offset
+ * @param offset Timezone offset to UTC expressed in minutes
+ * @returns The human readable offset (+03:00, -06:000 ...)
+ */
+ export function formatReadableUTCOffset(offset: number): string {
+	return formatUTCOffset(offset, ':');
+}
+
+/**
  * Replace timezone token(s) in the date format pattern to a specific timezone's value(s).
  * This should be maintained along with the date-fns formats (see linked API doc).
  * @param {string} dateFormat
@@ -161,6 +170,7 @@ export default {
 	convertToLocalTime,
 	convertToTimeZone,
 	convertToUTC,
+	formatReadableUTCOffset,
 	formatToTimeZone,
 	getUTCOffset,
 	timeZoneExists,
