@@ -8,7 +8,9 @@ exports[`TooltipContent Should render 1`] = `
     </dt>
     <dd>
       <span class="theme-dataviz-tooltip__value">
-        value1
+        <span>
+          value1
+        </span>
       </span>
     </dd>
   </div>

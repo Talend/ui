@@ -63,6 +63,7 @@
   "react-redux": "^5.0.7",
   "react-router": "^3.2.0",
   "react-router-redux": "^4.0.8",
+  "react-router-dom": "^5.2.0",
   "react-test-renderer": "^16.13.1",
   "react-transition-group": "^2.3.1",
   "react-use": "^13.27.0",

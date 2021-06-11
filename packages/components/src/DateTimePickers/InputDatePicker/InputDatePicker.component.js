@@ -86,6 +86,7 @@ export default function InputDatePicker(props) {
 			onChange={(...args) => handlers.onChange(...args, referenceElement)}
 			useUTC={props.useUTC}
 			timezone={props.timezone}
+			isDisabledChecker={props.isDisabledChecker}
 		>
 			<FocusManager
 				className={classnames(theme['date-picker'], 'date-picker')}
@@ -120,4 +121,5 @@ InputDatePicker.propTypes = {
 	useUTC: PropTypes.bool,
 	required: PropTypes.bool,
 	disabled: PropTypes.bool,
+	isDisabledChecker: PropTypes.func,
 };

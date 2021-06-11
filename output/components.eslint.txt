@@ -8,25 +8,6 @@
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
   147:4  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
-/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/Tree.component.js
-  4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4                                             import/no-cycle
-  5:1  error  Dependency cycle via ./TreeNodeList.component:1=>../TreeNode:4=>./TreeNode.component:1=>../Tree:4  import/no-cycle
-
-/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/Tree/index.js
-  1:1  error  Dependency cycle via ../TreeNode:4=>./TreeNode.component:1  import/no-cycle
-
-/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/TreeNode/TreeNode.component.js
-  4:1  error  Dependency cycle via ./Tree.component:1=>../TreeNode:4  import/no-cycle
-
-/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/TreeNode/index.js
-  1:1  error  Dependency cycle via ../Tree:4=>./Tree.component:1  import/no-cycle
-
-/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/TreeNodeList/TreeNodeList.component.js
-  4:1  error  Dependency cycle via ./TreeNode.component:1=>../Tree:4=>./Tree.component:1=>../TreeNodeList:5  import/no-cycle
-
-/home/travis/build/Talend/ui/packages/components/src/DataViewer/Core/TreeNodeList/index.js
-  1:1  error  Dependency cycle via ../TreeNode:4=>./TreeNode.component:1=>../Tree:4=>./Tree.component:1  import/no-cycle
-
 /home/travis/build/Talend/ui/packages/components/src/DataViewer/ModelViewer/Branch/ModelViewerBranch.component.js
   93:6  error  A control must be associated with a text label  jsx-a11y/control-has-associated-label
 
@@ -40,23 +21,17 @@
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   31:5  warning  React Hook useEffect has missing dependencies: 'getDateOptions' and 'state.date'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/date-extraction.js
-  7:1  error  Dependency cycle detected  import/no-cycle
-
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.js
   49:5  warning  React Hook useEffect has missing dependencies: 'options', 'state.endDate.value', and 'state.startDate.value'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
   42:5  warning  React Hook useEffect has missing dependencies: 'getDateOptions', 'onChange', and 'state.datetime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/datetime-extraction.js
-  6:1  error  Dependency cycle detected  import/no-cycle
-
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTimeRange/Manager/Manager.component.js
   26:5  warning  React Hook useEffect has missing dependencies: 'state.endDateTime' and 'state.startDateTime'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
-  94:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  96:2  error  defaultProp "required" has no corresponding propTypes declaration  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimeRangePicker/InputDateTimeRangePicker.component.js
   69:5  warning  React Hook useEffect has a missing dependency: 'showHorizontalAndTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
@@ -81,8 +56,7 @@
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/CalendarPicker/CalendarPicker.component.js
    52:2  error  componentWillReceiveProps is deprecated since React 16.9.0, use UNSAFE_componentWillReceiveProps instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
-  172:5  error  `tabIndex` should only be declared on interactive elements                                                                                                                                                                                                                                                   jsx-a11y/no-noninteractive-tabindex
-  226:2  error  defaultProp "t" defined for isRequired propType                                                                                                                                                                                                                                                              react/default-props-match-prop-types
+  173:5  error  `tabIndex` should only be declared on interactive elements                                                                                                                                                                                                                                                   jsx-a11y/no-noninteractive-tabindex
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/TimePicker/TimePicker.component.js
   122:42  error  Arrow function should not return assignment                        no-return-assign
@@ -94,9 +68,6 @@
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/shared/InputSizer/InputSizer.component.js
   22:2  warning  React Hook useEffect contains a call to 'setWidth'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [minWidth] as a second argument to the useEffect Hook  react-hooks/exhaustive-deps
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/views/DateView/DateView.component.js
-  39:3  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/views/HeaderTitle/HeaderTitle.component.js
   25:45  error  't' is missing in props validation  react/prop-types
@@ -308,5 +279,5 @@
   673:44  error  ["icon"] is better written in dot notation       dot-notation
   679:56  error  ["resizable"] is better written in dot notation  dot-notation
 
-✖ 147 problems (127 errors, 20 warnings)
+✖ 136 problems (116 errors, 20 warnings)
   7 errors and 0 warnings potentially fixable with the `--fix` option.

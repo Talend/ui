@@ -46,6 +46,10 @@
 	&.open {
 		overflow: visible;
 
+		.dropdown-toggle {
+			box-shadow: none;
+		}
+
 		> .dropdown-menu {
 			display: block;
 			opacity: 1;
