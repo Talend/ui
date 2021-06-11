@@ -2,6 +2,7 @@ import {
 	convertToLocalTime,
 	convertToTimeZone,
 	convertToUTC,
+	formatReadableUTCOffset,
 	formatToTimeZone,
 	getUTCOffset,
 	timeZoneExists,
@@ -65,6 +66,21 @@ describe('date', () => {
 			// then
 			expect(localDate).toEqual(new Date('2020-05-13, 15:00'));
 		});
+	});
+
+	describe('formatReadableUTCOffset', () => {
+		test.each(
+			[
+				[0, '+00:00'],
+				[600, '+10:00'],
+				[-360, '-06:00'],
+			]
+		)(
+			'it should format a %s minutes offset',
+			(offset: number, expectedOffset: string) => {
+				expect(formatReadableUTCOffset(offset)).toEqual(expectedOffset);
+			}
+		);
 	});
 
 	describe('formatToTimeZone', () => {
