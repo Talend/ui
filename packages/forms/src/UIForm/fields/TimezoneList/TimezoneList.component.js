@@ -7,10 +7,10 @@ import { getTimezones } from './TimezoneList.utils';
 
 function TimezoneList(props) {
 	const { schema } = props;
-	const { lang, schema: { type } } = schema;
+	const { lang } = schema;
 
 	// Compute timezones list options
-	const timezones = useMemo(() => getTimezones(lang, type), [lang, type]);
+	const timezones = useMemo(() => getTimezones(lang), [lang]);
 
 	return <Datalist
 		{...props}

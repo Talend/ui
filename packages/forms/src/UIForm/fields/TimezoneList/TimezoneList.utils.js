@@ -13,7 +13,7 @@ const TIMEZONES = { fr: frTimezones, en: enTimezones, ja: jaTimezones, de: deTim
  * @param {String} lang 
  * @returns {Array}
  */
-export function getTimezones(lang, valueType = 'string') {
+export function getTimezones(lang) {
 	const timezonesKey = lang in TIMEZONES ? lang : 'en';
 	const zones = TIMEZONES[timezonesKey].main[timezonesKey].dates.timeZoneNames.zone;
 
@@ -25,21 +25,9 @@ export function getTimezones(lang, valueType = 'string') {
 	const getTimezoneInfo = timezone => {
 		const timezoneName = get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
 		const offset = talendUtils.date.getUTCOffset(timezone);
-		const name = `(${talendUtils.date.formatUTCOffset(offset, ':')}) ${timezoneName}`;
+		const name = `(${talendUtils.date.formatReadableUTCOffset(offset)}) ${timezoneName}`;
 
-		const timezoneInfo = {
-			timezone,
-			name, // "name" key is used by Typehead as search field
-			title: name, // "name" key is used by Typehead as search field
-			timezoneName,
-			offset,
-		};
-
-		return {
-			...timezoneInfo,
-			// Format timezone value depending on the expected value format
-			value: valueType === 'string' ? timezone : timezoneInfo,
-		};
+		return { name, timezoneName, offset, value: timezone };
 	};
 
 	return Object.keys(zones)
@@ -54,7 +42,7 @@ export function getTimezones(lang, valueType = 'string') {
 			Object.keys(zones[region]).forEach(city => {
 				if (
 					'exemplarCity' in zones[region][city] ||
-					city === 'Honolulu' // Honolulu contains subkeys but they are deprecated in IANA references ("HST"/"HDT")
+					city === 'Honolulu' // Honolulu contains sub-keys but they are deprecated in IANA references ("HST"/"HDT")
 				) {
 					// Ex: Europe/Paris, Asia/Yerevan ...
 					const timezone = `${region}/${city}`;

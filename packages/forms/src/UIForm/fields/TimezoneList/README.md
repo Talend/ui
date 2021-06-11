@@ -1,8 +1,8 @@
 # TimezoneList
 
-This widget can be used to provide a field to select a timezone (amongst IANA-listed timezones). Returned value is the standard name of the timezone ("Europe/Paris", "America/Los_Angeles" ...) or .
+This widget can be used to provide a field to select a timezone (amongst IANA-listed timezones). Returned value is the standard name of the timezone ("Europe/Paris", "America/Los_Angeles" ...).
 
-Technically, it's a wrapper around [`Datalist` widget](../Datalist/README.md) that automatically feeds the available options.
+Technically, it's just a wrapper around [`Datalist` widget](../Datalist/README.md) that automatically feeds the available options.
 
 ## Json Schema
 
