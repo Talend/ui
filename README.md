@@ -37,7 +37,6 @@ The CI will ensure on each PR that test and lint are OK before you can merge you
 ## Versions and breaking changes
 
 The stack is stable and we do our best to not break APIs.
-To handle version we rely on [**changeset**](https://github.com/atlassian/changesets/). So on each PR you will be able to request an release intent with your change. It will fill the changelog at release time.
+To handle versions we rely on [**changeset**](https://github.com/atlassian/changesets/). So on each PR you will be able to request a release intent with your change. It will fill automatically the changelog at release time.
 
 [See the wiki](https://github.com/Talend/ui/wiki/Workflow#major--breaking-change-aka-next)
-
