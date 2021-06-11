@@ -6,7 +6,7 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "postinstall": "lerna exec -- yarn",
+    "postinstall": "lerna exec --concurrency 1 -- yarn",
     "release": "yarn changeset publish",
     "prepublishOnly": "lerna exec -- yarn prepublishOnly",
     "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test --silent",
