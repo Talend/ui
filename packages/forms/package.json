@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@talend/json-schema-form-core": "1.0.0-alpha.4",
-    "@talend/utils": "^1.0.1",
+    "@talend/utils": "^1.1.0",
     "ajv": "^6.2.1",
     "classnames": "^2.2.5",
     "cldr-dates-full": "^39.0.0",

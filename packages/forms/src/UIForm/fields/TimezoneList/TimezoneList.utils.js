@@ -3,7 +3,7 @@ import frTimezones from 'cldr-dates-full/main/fr/timeZoneNames.json';
 import enTimezones from 'cldr-dates-full/main/en/timeZoneNames.json';
 import jaTimezones from 'cldr-dates-full/main/ja/timeZoneNames.json';
 import deTimezones from 'cldr-dates-full/main/de/timeZoneNames.json';
-import { date } from '@talend/utils';
+import talendUtils from '@talend/utils';
 
 const TIMEZONES = { fr: frTimezones, en: enTimezones, ja: jaTimezones, de: deTimezones };
 
@@ -24,8 +24,8 @@ export function getTimezones(lang, valueType = 'string') {
 	 */
 	const getTimezoneInfo = timezone => {
 		const timezoneName = get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
-		const offset = date.getTimezoneUTCOffset(timezone);
-		const name = `(${date.formatUtcOffset(offset, ':')}) ${timezoneName}`;
+		const offset = talendUtils.date.getUTCOffset(timezone);
+		const name = `(${talendUtils.date.formatUTCOffset(offset, ':')}) ${timezoneName}`;
 
 		const timezoneInfo = {
 			timezone,
