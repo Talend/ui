@@ -59,7 +59,7 @@ function formatUTCOffset(offset: number, separator: string): string {
 /**
  * Format a human-readable UTC offset
  * @param offset Timezone offset to UTC expressed in minutes
- * @returns The human readable offset (+03:00, -06:000 ...)
+ * @returns The human readable offset (+03:00, -06:00 ...)
  */
  export function formatReadableUTCOffset(offset: number): string {
 	return formatUTCOffset(offset, ':');
