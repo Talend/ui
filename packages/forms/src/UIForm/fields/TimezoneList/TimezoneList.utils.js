@@ -21,8 +21,8 @@ export function getTimezones(lang, cldrTimezones) {
 	 * @param {String} timezone
 	 * @returns {Object}
 	 */
-	const getTimezoneInfo = timezone => {
-		const timezoneName = get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
+	const getTimezoneInfo = (timezone, translatedName) => {
+		const timezoneName = translatedName || get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
 		const offset = talendUtils.date.getUTCOffset(timezone);
 		const name = `(${talendUtils.date.formatReadableUTCOffset(offset)}) ${timezoneName}`;
 
@@ -31,29 +31,29 @@ export function getTimezones(lang, cldrTimezones) {
 
 	return Object.keys(zones)
 		.reduce((collectedTimezones, region) => {
-			if (region === 'Etc') {
-				// Skip "Etc" region
-				return collectedTimezones;
-			}
-
 			const newTimezones = [];
 
-			Object.keys(zones[region]).forEach(city => {
-				if (
-					'exemplarCity' in zones[region][city] ||
-					city === 'Honolulu' // Honolulu contains sub-keys but they are deprecated in IANA references ("HST"/"HDT")
-				) {
-					// Ex: Europe/Paris, Asia/Yerevan ...
-					const timezone = `${region}/${city}`;
-					newTimezones.push(getTimezoneInfo(timezone));
-				} else {
-					// Ex: America/Argentina/Buenos_Aires ...
-					Object.keys(zones[region][city]).forEach(city2 => {
-						const timezone = `${region}/${city}/${city2}`;
+			if (region === 'Etc') {
+				// Only keep "Etc/UTC" for "Etc" region
+				newTimezones.push(getTimezoneInfo('Etc/UTC', zones.Etc.UTC.long.standard));
+			} else {
+				Object.keys(zones[region]).forEach(city => {
+					if (
+						'exemplarCity' in zones[region][city] ||
+						city === 'Honolulu' // Honolulu contains sub-keys but they are deprecated in IANA references ("HST"/"HDT")
+					) {
+						// Ex: Europe/Paris, Asia/Yerevan ...
+						const timezone = `${region}/${city}`;
 						newTimezones.push(getTimezoneInfo(timezone));
-					});
-				}
-			});
+					} else {
+						// Ex: America/Argentina/Buenos_Aires ...
+						Object.keys(zones[region][city]).forEach(city2 => {
+							const timezone = `${region}/${city}/${city2}`;
+							newTimezones.push(getTimezoneInfo(timezone));
+						});
+					}
+				});
+			}
 
 			return [...collectedTimezones, ...newTimezones];
 		}, [])
