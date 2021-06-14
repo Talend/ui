@@ -18,7 +18,37 @@
 			"placeholder": "Search filter",
 			"title": "TimezoneList",
 			"widget": "timezoneList",
-			"lang": "fr"
+			"lang": "fr",
+			"cldrTimezones": {
+				"fr": {
+					"main": {
+						"fr": {
+							"dates":{
+								"timeZoneNames": {
+									"zone": {
+										"Africa" : {
+											"Abidjan": {
+												"exemplarCity": "Abidjan"
+											},
+											"Freetown": {
+												"exemplarCity": "Freetown"
+											}
+										},
+										"Europe" : {
+											"Paris": {
+												"exemplarCity": "Paris"
+											},
+											"Kiev": {
+												"exemplarCity": "Kiev"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	]
 }

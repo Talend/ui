@@ -7,10 +7,14 @@ import { getTimezones } from './TimezoneList.utils';
 
 function TimezoneList(props) {
 	const { schema } = props;
-	const { lang } = schema;
+	const { lang, cldrTimezones } = schema;
+
+	if (!cldrTimezones) {
+		throw new Error('CLDR timezones (from "cldr-dates-full") must be provided in TimezoneList widget UI schema.');
+	}
 
 	// Compute timezones list options
-	const timezones = useMemo(() => getTimezones(lang), [lang]);
+	const timezones = useMemo(() => getTimezones(lang, cldrTimezones), [lang, cldrTimezones]);
 
 	return <Datalist
 		{...props}

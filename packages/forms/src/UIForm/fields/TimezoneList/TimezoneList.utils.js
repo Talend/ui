@@ -1,11 +1,5 @@
 import get from 'lodash/get';
-import frTimezones from 'cldr-dates-full/main/fr/timeZoneNames.json';
-import enTimezones from 'cldr-dates-full/main/en/timeZoneNames.json';
-import jaTimezones from 'cldr-dates-full/main/ja/timeZoneNames.json';
-import deTimezones from 'cldr-dates-full/main/de/timeZoneNames.json';
 import talendUtils from '@talend/utils';
-
-const TIMEZONES = { fr: frTimezones, en: enTimezones, ja: jaTimezones, de: deTimezones };
 
 /**
  * Get the sorted list of timezones in a given language.
@@ -13,9 +7,9 @@ const TIMEZONES = { fr: frTimezones, en: enTimezones, ja: jaTimezones, de: deTim
  * @param {String} lang 
  * @returns {Array}
  */
-export function getTimezones(lang) {
-	const timezonesKey = lang in TIMEZONES ? lang : 'en';
-	const zones = TIMEZONES[timezonesKey].main[timezonesKey].dates.timeZoneNames.zone;
+export function getTimezones(lang, cldrTimezones) {
+	const timezonesKey = lang in cldrTimezones ? lang : 'en';
+	const zones = cldrTimezones[timezonesKey].main[timezonesKey].dates.timeZoneNames.zone;
 
 	/**
 	 * Build timezone info object
