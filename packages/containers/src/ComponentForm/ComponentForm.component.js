@@ -46,15 +46,25 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	if (!schema.titleMap) {
 		return;
 	}
-
 	// Here we add a field side by side with the value
 	// to keep the title associated to the value
 	const valueIsArray = Array.isArray(value);
 	const uniformValue = valueIsArray ? value : [value];
 
-	const names = uniformValue
-		.map(nextValue => schema.titleMap.find(titleMap => titleMap.value === nextValue))
-		.map(entry => entry && entry.name);
+	const names = schema.titleMap
+		.map(item => {
+			if (item.suggestions) {
+				const suggestionItem = item.suggestions.find(subItem =>
+					uniformValue.includes(subItem.value),
+				);
+				return suggestionItem ? suggestionItem.name : undefined;
+			}
+			if (uniformValue.includes(item.value)) {
+				return item.name;
+			}
+			return undefined;
+		})
+		.filter(Boolean);
 
 	const parentKey = schema.key.slice();
 	const key = parentKey.pop();
