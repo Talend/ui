@@ -10,7 +10,7 @@ function TimezoneList(props) {
 	const { lang, cldrTimezones } = schema;
 
 	if (!cldrTimezones) {
-		throw new Error('CLDR timezones (from "cldr-dates-full") must be provided in TimezoneList widget UI schema.');
+		throw new Error('cldr timezones (from "cldr-dates-full") must be provided in TimezoneList widget UI schema.');
 	}
 
 	// Compute timezones list options

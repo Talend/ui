@@ -9,6 +9,11 @@ import talendUtils from '@talend/utils';
  */
 export function getTimezones(lang, cldrTimezones) {
 	const timezonesKey = lang in cldrTimezones ? lang : 'en';
+
+	if (!(timezonesKey in cldrTimezones)) {
+		throw new Error(`No cldr translation provided for language "${timezonesKey}"`);
+	}
+
 	const zones = cldrTimezones[timezonesKey].main[timezonesKey].dates.timeZoneNames.zone;
 
 	/**
