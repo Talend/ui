@@ -3227,10 +3227,10 @@
     "@talend/scripts-config-stylelint" "^1.0.0"
     "@talend/scripts-config-typescript" "^9.6.2"
 
-"@talend/utils@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@talend/utils/-/utils-1.0.1.tgz#dab2064c5d85cbc01df67af6eadb9137805c3846"
-  integrity sha512-OkYfAr+qUITZ/1Fv8DeSbvYeScRvtXLfSiO9WbUiZZuohtP6WNfnTqNL5osDRm0EwCEK6B2AjEP4mF0vjZip/g==
+"@talend/utils@^1.0.1", "@talend/utils@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@talend/utils/-/utils-1.2.0.tgz#4e1a592e1f76aa1d713bd6d09973af20f30bbcef"
+  integrity sha512-QjSYjo7N/M6MDf8VZJpdtEXbz6x80/iRVPuBtO8hd7eGcXLMYhJM5XIMdF+HnbWu21K6cwEYx2vwQ4GP7L6jRQ==
   dependencies:
     date-fns "^1.27.2"
 
