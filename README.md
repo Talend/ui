@@ -8,7 +8,7 @@ front-end stack.
 - Single code repository / Multiple packages
 - Global (cross package) test and review tools
 - Easy cross packages development
-- Share and love opensource
+- Share and love open source
 
 ## The stack
 
