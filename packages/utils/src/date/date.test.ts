@@ -1,4 +1,12 @@
-import { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timeZoneExists } from './index';
+import {
+	convertToLocalTime,
+	convertToTimeZone,
+	convertToUTC,
+	formatReadableUTCOffset,
+	formatToTimeZone,
+	getUTCOffset,
+	timeZoneExists,
+} from './index';
 
 describe('date', () => {
 	// "Locale date" here means Europe/Paris, according to the test command described in package.json
@@ -60,6 +68,21 @@ describe('date', () => {
 		});
 	});
 
+	describe('formatReadableUTCOffset', () => {
+		test.each(
+			[
+				[0, '+00:00'],
+				[600, '+10:00'],
+				[-360, '-06:00'],
+			]
+		)(
+			'it should format a %s minutes offset',
+			(offset: number, expectedOffset: string) => {
+				expect(formatReadableUTCOffset(offset)).toEqual(expectedOffset);
+			}
+		);
+	});
+
 	describe('formatToTimeZone', () => {
 		it('should format a locale date to a given timezone in a specifc format', () => {
 			// given
@@ -85,6 +108,21 @@ describe('date', () => {
 			expect(convertToUTC(dateObj).getUTCHours()).toBe(20);
 			expect(convertToUTC(dateObj).getUTCMinutes()).toBe(0);
 		});
+	});
+
+	describe('getUTCOffset', () => {
+		test.each(
+			[
+				['Africa/Bamako', 0],
+				['Australia/Melbourne', 600],
+				['America/Swift_Current', -360],
+			]
+		)(
+			'it should get %s timezone offset',
+			(timezone: string, expectedOffset: number) => {
+				expect(getUTCOffset(timezone)).toEqual(expectedOffset);
+			}
+		);
 	});
 
 	describe('timeZoneExists', () => {

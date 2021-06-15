@@ -14,10 +14,9 @@ interface ConversionOptions {
  *
  * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  */
-function getUTCOffset(timeZone: string): number {
+export function getUTCOffset(timeZone: string): number {
 	// Build localized formats for UTC and the target timezone
 	const formatOptions: Intl.DateTimeFormatOptions = {
-		hourCycle: 'h23',
 		year: 'numeric',
 		month: 'numeric',
 		day: 'numeric',
@@ -44,7 +43,7 @@ function getUTCOffset(timeZone: string): number {
  * @param {string} separator Separator between hours and minutes
  * @returns {string} Formatted UTC offset
  */
-function formatUtcOffset(offset: number, separator: string): string {
+function formatUTCOffset(offset: number, separator: string): string {
 	const sign = offset >= 0 ? '+' : '-';
 
 	const absoluteOffset = Math.abs(offset);
@@ -55,6 +54,15 @@ function formatUtcOffset(offset: number, separator: string): string {
 	const paddedMin = min.toString().padStart(2, '0');
 
 	return `${sign}${paddedHours}${separator}${paddedMin}`;
+}
+
+/**
+ * Format a human-readable UTC offset
+ * @param offset Timezone offset to UTC expressed in minutes
+ * @returns The human readable offset (+03:00, -06:00 ...)
+ */
+ export function formatReadableUTCOffset(offset: number): string {
+	return formatUTCOffset(offset, ':');
 }
 
 /**
@@ -71,7 +79,7 @@ function formatTimeZoneTokens(dateFormat: string, timeZone: string): string {
 	return dateFormat.replace(/z|ZZ?/g, match => {
 		const offset = getUTCOffset(timeZone);
 		const separator = match === 'Z' ? ':' : '';
-		return formatUtcOffset(offset, separator);
+		return formatUTCOffset(offset, separator);
 	});
 }
 
@@ -158,4 +166,12 @@ export function timeZoneExists(timeZone: string): boolean {
 	}
 }
 
-export default { formatToTimeZone, convertToLocalTime, convertToTimeZone, convertToUTC, timeZoneExists };
+export default {
+	convertToLocalTime,
+	convertToTimeZone,
+	convertToUTC,
+	formatReadableUTCOffset,
+	formatToTimeZone,
+	getUTCOffset,
+	timeZoneExists,
+};
