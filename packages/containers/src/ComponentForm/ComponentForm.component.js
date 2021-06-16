@@ -53,7 +53,7 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 
 	const names = uniformValue
 		.map(nextValue => {
-			const titleMap = schema.titleMap;
+			const { titleMap } = schema;
 			const isMultiSection = !!titleMap[0]?.suggestions;
 
 			if (isMultiSection) {
