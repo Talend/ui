@@ -117,7 +117,7 @@ describe('ComponentForm', () => {
 			// then
 			expect(properties.my.awesome).toEqual({
 				value: ['correct value', 'neither'],
-				$value_name: ['Yes this is the name', 'Neither this one'],
+				$value_name: ['Neither this one', 'Yes this is the name'],
 			});
 		});
 
@@ -133,6 +133,157 @@ describe('ComponentForm', () => {
 				],
 			};
 			const properties = { my: { awesome: { value: '', $value_name: 'Not this one' } } };
+			const value = '';
+
+			// when
+			resolveNameForTitleMap({ schema, properties, value });
+
+			// then
+			expect(properties.my.awesome).toEqual({ value: '' });
+		});
+
+		it('should add multi sections titleMap entry name', () => {
+			// given
+			const schema = {
+				key: ['my', 'awesome', 'value'],
+				titleMap: [
+					{
+						title: 'First section',
+						suggestions: [
+							{
+								name: 'Not this one',
+								value: 'no',
+							},
+							{
+								name: 'Neither this one',
+								value: 'neither',
+							},
+							{
+								name: 'Yes this is the name',
+								value: 'correct value',
+							},
+						],
+					},
+					{
+						title: 'Second section',
+						suggestions: [
+							{
+								name: 'Nope, really',
+								value: 'nope',
+							},
+							{
+								name: 'It is a no no',
+								value: 'nono',
+							},
+							{
+								name: 'Sadly not me',
+								value: 'notme',
+							},
+						],
+					},
+				],
+			};
+			const properties = { my: { awesome: { value: 'correct value' } } };
+			const value = 'correct value';
+
+			// when
+			resolveNameForTitleMap({ schema, properties, value });
+
+			// then
+			expect(properties.my.awesome).toEqual({
+				value: 'correct value',
+				$value_name: 'Yes this is the name',
+			});
+		});
+
+		it('should add multi sections titleMap entry name for array', () => {
+			// given
+			const schema = {
+				key: ['my', 'awesome', 'value'],
+				titleMap: [
+					{
+						title: 'First section',
+						suggestions: [
+							{
+								name: 'Not this one',
+								value: 'no',
+							},
+							{
+								name: 'Neither this one',
+								value: 'neither',
+							},
+							{
+								name: 'Yes this is the name',
+								value: 'correct value',
+							},
+						],
+					},
+					{
+						title: 'Second section',
+						suggestions: [
+							{
+								name: 'Nope, really',
+								value: 'nope',
+							},
+							{
+								name: 'Yeah, me',
+								value: 'me',
+							},
+							{
+								name: 'Sadly not me',
+								value: 'notme',
+							},
+						],
+					},
+				],
+			};
+			const properties = { my: { awesome: { value: ['correct value', 'me'] } } };
+			const value = ['correct value', 'me'];
+
+			// when
+			resolveNameForTitleMap({ schema, properties, value });
+
+			// then
+			expect(properties.my.awesome).toEqual({
+				value: ['correct value', 'me'],
+				$value_name: ['Yes this is the name', 'Yeah, me'],
+			});
+		});
+
+		it('should remove multi sections titleMap entry name when there is no value anymore', () => {
+			// given
+			const schema = {
+				key: ['my', 'awesome', 'value'],
+				titleMap: [
+					{
+						title: 'First section',
+						suggestions: [
+							{
+								name: 'Not this one',
+								value: 'no',
+							},
+							{
+								name: 'Neither this one',
+								value: 'neither',
+							},
+						],
+					},
+					{
+						title: 'Second section',
+						suggestions: [
+							{
+								name: 'Nope, really',
+								value: 'nope',
+							},
+							{
+								name: 'Sadly not me',
+								value: 'notme',
+							},
+						],
+					},
+				],
+			};
+			const properties = { my: { awesome: { value: '', $value_name: 'Sadly not me' } } };
 			const value = '';
 
 			// when
