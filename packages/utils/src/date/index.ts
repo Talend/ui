@@ -100,7 +100,8 @@ export function convertToLocalTime(date: DateFnsFormatInput, options: Conversion
 }
 
 /**
- * Converts the given date from the local time to the given time zone and returns a new Date object.
+ * Converts the given date from the local time (or from specified source timezone) to
+ * the given timezone and returns a new Date object.
  * @param {DateFnsFormatInput} date Date to format
  * @param {ConversionOptions} options
  * @returns {Date}
