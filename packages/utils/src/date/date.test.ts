@@ -113,6 +113,19 @@ describe('date', () => {
 			// then
 			expect(localDate).toEqual('2020-05-13T23:00:00+0500');
 		});
+
+		it('should not change timezone tokens that are wrapped in hooks', () => {
+			// given
+			const dateObj = new Date('2020-05-13, 20:00');
+			const formatString = 'YYYY-MM-DD[T]HH:mm:ss[Z]';
+			const options = { timeZone: timeZones['UTC+5'] };
+
+			// when
+			const localDate = formatToTimeZone(dateObj, formatString, options);
+
+			// then
+			expect(localDate).toEqual('2020-05-13T23:00:00Z');
+		});
 	});
 
 	describe('convertToUTC', () => {
