@@ -29,7 +29,19 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/cmf",
+    "packages/cmf-cqrs",
+    "packages/cmf-webpack-plugin",
+    "packages/components",
+    "packages/containers",
+    "packages/datagrid",
+    "packages/forms",
+    "packages/generator",
+    "packages/icons",
+    "packages/sagas",
+    "packages/stepper",
+    "packages/storybook-cmf",
+    "packages/theme"
   ],
   "resolutions": {
     "dot-prop": "^5.2.0",
