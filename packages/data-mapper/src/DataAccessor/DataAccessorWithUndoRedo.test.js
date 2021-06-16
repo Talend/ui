@@ -1,5 +1,5 @@
 import * as TestData from '../TestData';
-import { Constants } from '../index';
+import Constants from '../Constants';
 import DataAccessorWithUndoRedo from './DataAccessorWithUndoRedo';
 
 const dataAccessor = new DataAccessorWithUndoRedo();

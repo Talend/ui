@@ -4,7 +4,7 @@ import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import Mapping from './Mapping.js';
 import MappingSVG from './MappingSVG.js';
-import { Constants } from '../index';
+import Constants from '../Constants';
 
 const preferences = {
 	showAll: false,

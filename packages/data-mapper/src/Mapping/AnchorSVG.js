@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Constants } from '../index';
+import Constants from '../Constants';
 
 function getClassname(anchor) {
 	return classnames('anchor', anchor.side, anchor.classes);

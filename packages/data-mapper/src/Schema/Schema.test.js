@@ -5,7 +5,7 @@ import { DragDropContext } from 'react-dnd';
 import Schema from './Schema.js';
 import DataAccessorWrapper from '../DataAccessor/DataAccessorWrapper';
 import * as TestData from '../TestData';
-import { Constants } from '../index';
+import Constants from '../Constants';
 
 const columns = [TestData.Columns.NAME, TestData.Columns.TYPE, TestData.Columns.DESC];
 const sorters = {};

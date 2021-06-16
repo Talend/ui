@@ -1,4 +1,4 @@
-import { Constants } from '../index';
+import Constants from '../Constants';
 import DataAccessorWithSorterAndFilter from './DataAccessorWithSorterAndFilter';
 
 /**

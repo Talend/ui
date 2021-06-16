@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Table, DraggableComponent as draggable } from '@talend/react-components';
-import { Constants } from '../index';
+import { DraggableComponent as draggable } from '@talend/react-components';
+import Table from '../Table';
+import Constants from '../Constants';
 
 function isMapped(dataAccessor, element, mappedElements) {
 	return mappedElements == null ? false : dataAccessor.includes(mappedElements, element);

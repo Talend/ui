@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Connection from './ConnectionSVG';
 import Anchor from './AnchorSVG';
 import DraggableAnchor from './DraggableAnchor';
-import { Constants } from '../index';
+import Constants from '../Constants';
 
 const padding = 8;
 const extraWidth = 24;

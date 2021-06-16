@@ -5,7 +5,7 @@ import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
 import MapperComponent from './Mapper.component.js';
 import DataAccessorWrapper from './DataAccessor/DataAccessorWrapper';
-import { Constants } from './index';
+import Constants from './Constants';
 import * as TestData from './TestData';
 import { DraggableComponent } from '@talend/react-components';
 

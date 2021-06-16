@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Constants } from '../index';
+import Constants from '../Constants';
 
 function renderLine(params, style, connectionId) {
 	return <line id={connectionId} className={style} {...params} />;

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { DragDropContext } from 'react-dnd';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import HTML5Backend from 'react-dnd-html5-backend';
 
-import Schema from './Schema/Schema.js';
+import Schema from './Schema/Schema';
 import Mapping from './Mapping/Mapping';
-import { Constants } from './index';
+import Constants from './Constants';
 
 /**
  * This function returns the mapped elements for the specified side (input/output)

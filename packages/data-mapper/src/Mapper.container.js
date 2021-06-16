@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
-import { ActionBar, Table } from '@talend/react-components';
+import { ActionBar } from '@talend/react-components';
 import Mapper from './Mapper.component';
+import Table from './Table';
 import { Constants, DataAccessorWithUndoRedo } from './index';
 
 // SORTERS DEFINITION

@@ -1,5 +1,5 @@
 import * as TestData from '../TestData';
-import { Constants } from '../index';
+import Constants from '../Constants';
 import DataAccessorWrapper from './DataAccessorWrapper';
 
 const schema = TestData.schema1;
