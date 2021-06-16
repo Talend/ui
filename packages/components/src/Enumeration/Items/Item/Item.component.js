@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { removeDuplicates, allIndexOf } from './utils';
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
-import { Checkbox } from '../../../Toggle';
+import Checkbox from '../../../Checkbox';
 import ItemPropTypes from './Item.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import Icon from '../../../Icon';
@@ -51,16 +51,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 			}
 		}
 		return (
-			<Action
-				key={index}
-				label={action.label}
-				icon={action.icon}
-				onClick={onClick}
-				inProgress={action.inProgress}
-				tooltipPlacement="bottom"
-				hideLabel
-				link
-			/>
+			<Action {...action} key={index} onClick={onClick} tooltipPlacement="bottom" hideLabel link />
 		);
 	}
 
@@ -123,7 +114,9 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				<span>{actualLabel}</span>
 				{item.icon && (
 					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
-						<Icon {...item.icon} aria-hidden="false" />
+						<span>
+							<Icon {...item.icon} aria-hidden="false" />
+						</span>
 					</TooltipTrigger>
 				)}
 			</Button>
@@ -144,4 +137,4 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 
 Item.propTypes = ItemPropTypes;
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Item);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Item);

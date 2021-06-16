@@ -4,6 +4,8 @@
 const fs = require('fs');
 const path = require('path');
 const program = require('commander');
+const semver = require('semver');
+const colors = require('colors');
 
 program
 	.version('0.0.1')
@@ -46,6 +48,7 @@ const STACK_VERSION = {
 	'@talend/react-containers': stackVersion,
 	'@talend/react-datagrid': stackVersion,
 	'@talend/react-data-mapper': stackVersion,
+	'@talend/react-stepper': stackVersion,
 	'@talend/react-forms': stackVersion,
 	'@talend/icons': stackVersion,
 	'@talend/log': stackVersion,
@@ -53,7 +56,7 @@ const STACK_VERSION = {
 
 const VERSIONS = require('./dependencies');
 
-const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
+const REACT_VERSION_PEER = '^16.8.6';
 
 const files = [
 	path.join(__dirname, '../packages/cmf/package.json'),
@@ -61,13 +64,18 @@ const files = [
 	path.join(__dirname, '../packages/cmf-webpack-plugin/package.json'),
 	path.join(__dirname, '../packages/components/package.json'),
 	path.join(__dirname, '../packages/containers/package.json'),
+	path.join(__dirname, '../packages/datagrid/package.json'),
+	path.join(__dirname, '../packages/stepper/package.json'),
 	path.join(__dirname, '../packages/forms/package.json'),
 	path.join(__dirname, '../packages/generator/package.json'),
+	path.join(__dirname, '../packages/generator/generators/app/templates/package.json'),
+	path.join(__dirname, '../packages/html-webpack-plugin/package.json'),
 	path.join(__dirname, '../packages/icons/package.json'),
+	path.join(__dirname, '../packages/router/package.json'),
 	path.join(__dirname, '../packages/sagas/package.json'),
+	path.join(__dirname, '../packages/storybook-cmf/package.json'),
 	path.join(__dirname, '../packages/theme/package.json'),
-	path.join(__dirname, '../packages/datagrid/package.json'),
-	'./packages/data-mapper/package.json',
+	path.join(__dirname, '../packages/data-mapper/package.json'),
 ];
 
 const templates = [
@@ -103,7 +111,15 @@ function check(source, dep, version, category = 'dep') {
 			);
 		}
 		if (!program.quiet) {
-			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);
+			const willDowngrade = semver.gt(source[dep].replace('^', ''), safeVersion.replace('^', ''));
+			const message = `update ${dep}: '${safeVersion}' from ${source[dep]}`;
+
+			if (willDowngrade) {
+				console.log(colors.yellow(message));
+				console.log(colors.yellow(`Feel free to propose a version upgrade on Talend/UI : ${dep} -> ${source[dep]}`));
+			} else {
+				console.log(message);
+			}
 		}
 		// eslint-disable-next-line no-param-reassign
 		source[dep] = safeVersion;

@@ -3,7 +3,9 @@
 exports[`OneColumn should render 1`] = `
 <div
   className="tc-layout-one-column theme-main"
+  id="tc-layout-main"
   role="main"
+  tabIndex="-1"
 >
   <WithDrawer>
     <div

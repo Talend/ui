@@ -10,6 +10,12 @@ $td-grip-resize-width: 6px !default;
 	}
 }
 
+.td-header-type {
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
+
 .td-header-component {
 	height: 100%;
 
@@ -22,7 +28,7 @@ $td-grip-resize-width: 6px !default;
 		width: calc(100% - #{$td-grip-resize-width});
 		padding: 1rem;
 		text-align: left;
-		background-color: inherit;
+		background-color: transparent;
 		border: none;
 
 		&-title {

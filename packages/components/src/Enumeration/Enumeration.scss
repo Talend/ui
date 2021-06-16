@@ -1,5 +1,4 @@
 $tc-enumeration-height: 50vh !default;
-$tc-enumeration-svg-color: #666 !default;
 $tc-enumeration-font-size: 1.4rem !default;
 
 .tc-enumeration {
@@ -17,13 +16,11 @@ $tc-enumeration-font-size: 1.4rem !default;
 			justify-content: flex-start;
 			min-height: 100%;
 			text-decoration: none;
-			color: inherit;
 
 			&.btn-link {
 				padding: 0 $padding-normal;
-
+				outline-offset: 0.5rem;
 				svg {
-					fill: $tc-enumeration-svg-color;
 					height: $tc-enumeration-font-size;
 					width: $tc-enumeration-font-size;
 				}

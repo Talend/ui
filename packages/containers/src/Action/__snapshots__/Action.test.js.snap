@@ -2,16 +2,25 @@
 
 exports[`Action should render from name props keeping extra props 1`] = `
 <CMF(Action)
-  actionId="menu:article"
   deleteState={[Function]}
   dispatch={[Function]}
   dispatchActionCreator={[Function]}
-  displayMode={undefined}
   extra="foo"
   getComponent={[Function]}
+  icon="icon-article"
+  id="menu:article"
   initState={[Function]}
+  name="My article"
+  payload={
+    Object {
+      "args": Array [
+        "/myarticle",
+      ],
+      "method": "push",
+      "type": "@@router/CALL_HISTORY_METHOD",
+    }
+  }
   setState={[Function]}
-  state={undefined}
   updateState={[Function]}
 />
 `;

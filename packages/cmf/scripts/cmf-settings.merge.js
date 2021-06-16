@@ -17,6 +17,20 @@ const {
 
 const DEFAULT_CONFIG_FILENAME = 'cmf.json';
 
+function getCmfconfig(cmfconfigPath, onError) {
+	const cmfconfig = importAndValidate(cmfconfigPath, onError);
+	if (process.env.CMF_ENV) {
+		return cmfconfig[process.env.CMF_ENV];
+	}
+	return cmfconfig;
+}
+
+/**
+ * merge write a json settings file for CMF ready to be served
+ * @param {Object} options
+ * @param {function} errorCallback
+ * @return Array<string> source files used
+ */
 function merge(options, errorCallback) {
 	const onErrorCallback = errorCallback || Function.prototype;
 	function onError(...args) {
@@ -38,15 +52,14 @@ function merge(options, errorCallback) {
 
 	// Init some stuff to use next
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
-	const cmfconfig = options.cmfConfig || importAndValidate(cmfconfigPath, onError);
+	const cmfconfig = options.cmfConfig || getCmfconfig(cmfconfigPath, onError);
 	const sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
 	let destination = cmfconfig.settings.destination;
 	if (destination && !path.isAbsolute(destination)) {
 		destination = path.join(process.cwd(), cmfconfig.settings.destination);
 	}
 	let settings;
-	let jsonFiles;
-
+	let jsonFiles = [];
 	if (cmfconfig.settings.destination) {
 		// Extract json from sources
 		jsonFiles = sources.reduce(
@@ -80,7 +93,7 @@ function merge(options, errorCallback) {
 	// extract all keys from a folder
 	if (
 		cmfconfig.settings.i18n &&
-		cmfconfig.settings.i18n.languages &&
+		(cmfconfig.settings.i18n['extract-languages'] || cmfconfig.settings.i18n.languages) &&
 		cmfconfig.settings.i18n['extract-from'] &&
 		cmfconfig.settings.i18n['namespace-paths'] &&
 		cmfconfig.settings.i18n['extract-namespaces']
@@ -89,9 +102,12 @@ function merge(options, errorCallback) {
 			cmfconfig.settings.i18n['extract-namespaces'].includes(namespace.name),
 		);
 
+		const languages =
+			cmfconfig.settings.i18n['extract-languages'] || cmfconfig.settings.i18n.languages;
+
 		parseI18n(
 			namespaces,
-			cmfconfig.settings.i18n.languages,
+			languages,
 			cmfconfig.settings.i18n['extract-from'],
 			cmfconfig.settings.i18n['extract-sort'] || true,
 		);
@@ -101,16 +117,19 @@ function merge(options, errorCallback) {
 	if (
 		cmfconfig.settings.i18n &&
 		destination &&
-		cmfconfig.settings.i18n.languages &&
+		(cmfconfig.settings.i18n['source-languages'] || cmfconfig.settings.i18n.languages) &&
 		cmfconfig.settings.i18n['namespace-paths']
 	) {
+		const languages =
+			cmfconfig.settings.i18n['source-languages'] || cmfconfig.settings.i18n.languages;
+
 		const i18next = getI18Next(
-			cmfconfig.settings.i18n.languages,
+			languages,
 			cmfconfig.settings.i18n['namespace-paths'],
 		);
 
 		if (i18next) {
-			cmfconfig.settings.i18n.languages.forEach(locale => {
+			languages.forEach(locale => {
 				saveSettings(i18next, settings, locale, destination);
 			});
 		}
@@ -131,10 +150,8 @@ function merge(options, errorCallback) {
 		file.write(JSON.stringify(settingWithoutI18n) + String.fromCharCode(10));
 		file.end();
 		logger('CMF settings has been merged');
-		return jsonFiles.concat(cmfconfigPath);
 	}
-
-	return [];
+	return jsonFiles;
 }
 
 module.exports = merge;

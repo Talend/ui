@@ -2,29 +2,20 @@
 
 This is a library to help you to build configurable React App with CQRS pattern.
 
-[![NPM][npm-icon] ][npm-url]
 
 [![Travis CI][travis-ci-image] ][travis-ci-url]
-[![Quality][quality-badge] ][quality-url]
+[![NPM][npm-icon] ][npm-url]
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1e353b0f69c4cf99a4cb3f68b70ea7d)](https://www.codacy.com/app/Talend/ui/packages/cmf-cqrs)
 
-[npm-icon]: https://nodei.co/npm/react-cmf-cqrs.png?downloads=true
+[npm-icon]: https://img.shields.io/npm/v/@talend/react-cmf-cqrs.svg
 [npm-url]: https://npmjs.org/package/@talend/react-cmf-cqrs
-[travis-ci-image]: https://travis-ci.org/Talend/react-cmf-cqrs.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/Talend/react-cmf-cqrs
-[dependencies-image]: https://david-dm.org/Talend/react-cmf-cqrs/status.svg
-[dependencies-url]: https://david-dm.org/Talend/react-cmf-cqrs
-[devdependencies-image]: https://david-dm.org/Talend/react-cmf-cqrs/dev-status.svg
-[devdependencies-url]: https://david-dm.org/Talend/react-cmf-cqrs#info=devDependencies
-[quality-badge]: http://npm.packagequality.com/shield/react-cmf-cqrs.svg
-[quality-url]: http://packagequality.com/#?package=react-cmf-cqrs
-
-## Breaking changes log
-
-Before 1.0, `@talend/react-cmf-cqrs` do NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
+[travis-ci-image]: https://travis-ci.org/Talend/ui.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/ui
+[dependencies-image]: https://david-dm.org/Talend/ui/status.svg?path=packages/cmf-cqrs
+[dependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf-cqrs
+[devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.svg?path=packages/cmf-cqrs
+[devdependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf-cqrs&type=dev
 
 ## Content
 
@@ -91,30 +82,22 @@ listening to message comming from the websocket and dispatching message to the r
 ### Configuration
 
 ```javascript
-import { createStore } from 'redux';
-import { middlewares as cqrsMiddlewares } from '@talend/react-cmf-cqrs';
+import cmf from '@talend/react-cmf';
+import cqrsModule, { middlewares as cqrsMiddlewares } from '@talend/react-cmf-cqrs';
 
 const websocketMiddleware = cqrsMiddlewares.createWebsocketMiddleware(
-	API['stream-websocket'],
-	[...actionListeners],
-	[...socketListener],
-	{ ...socketOptions },
-);
-const store = createStore(reducer, initialState, applyMiddleware(websocketMiddleware));
-```
-
-```javascript
-import { store as cmfstore } from '@talend/react-cmf';
-import { middlewares as cqrsMiddlewares } from '@talend/react-cmf-cqrs';
-
-const websocketMiddleware = cqrsMiddlewares.createWebsocketMiddleware(
-	API['stream-websocket'],
+	API['cqrs-websocket'],
 	[...actionListeners],
 	[...socketListener],
 	{ ...socketOptions },
 );
 
-const store = cmfstore.initialize(reducer, initialState, enhancer, [websocketMiddleware]);
+cmf.bootstrap({
+	appId: 'app',
+	// ...
+	modules: [cqrsModule]
+	middlewares: [websocketMiddleware]
+});
 ```
 
 the action listener recieve for each action

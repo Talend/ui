@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
-import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
+import get from 'lodash/get';
 import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
 import kit from './kit';
@@ -22,6 +22,7 @@ const TO_OMIT = [
 
 export const DEFAULT_STATE = new Map({
 	dirty: false,
+	initialState: new Map(),
 });
 
 /**
@@ -58,7 +59,7 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	const parentKey = schema.key.slice();
 	const key = parentKey.pop();
 	const nameKey = `$${key}_name`;
-	const parentValue = getValue(properties, { key: parentKey });
+	const parentValue = Form.UIForm.utils.properties.getValue(properties, { key: parentKey });
 
 	if (names.some(name => name !== undefined)) {
 		parentValue[nameKey] = valueIsArray ? names : names[0];
@@ -74,17 +75,21 @@ export class TCompForm extends React.Component {
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onReset = this.onReset.bind(this);
 		this.getUISpec = this.getUISpec.bind(this);
 		this.setupTrigger = this.setupTrigger.bind(this);
 		this.setupTrigger(props);
 
 		this.getMemoizedJsonSchema = memoizeOne(toJS);
 		this.getMemoizedUiSchema = memoizeOne(toJS);
+		this.getMemoizedInitialState = memoizeOne(toJS);
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props.state.get('properties') !== nextProps.state.get('properties')) {
-			this.setState({ properties: nextProps.state.get('properties').toJS() });
+		const nextProperties = nextProps.state.get('properties', Map());
+
+		if (this.props.state.get('properties') !== nextProperties) {
+			this.setState({ properties: nextProperties.toJS() });
 		}
 	}
 
@@ -99,14 +104,12 @@ export class TCompForm extends React.Component {
 			this.props.dispatch({
 				type: TCompForm.ON_DEFINITION_URL_CHANGED,
 				...this.props,
+				properties: this.state.properties,
 			});
 		}
 	}
 
-	onChange(event, payload) {
-		if (event.persist) {
-			event.persist();
-		}
+	onChange(_, payload) {
 		if (!this.props.state.get('dirty')) {
 			this.props.setState({ dirty: true });
 		}
@@ -119,7 +122,6 @@ export class TCompForm extends React.Component {
 				type: TCompForm.ON_CHANGE,
 				component: TCompForm.displayName,
 				componentId: this.props.componentId,
-				event,
 				...payload,
 			});
 		}
@@ -130,37 +132,48 @@ export class TCompForm extends React.Component {
 			type: TCompForm.ON_TRIGGER_BEGIN,
 			...payload,
 		});
-		return this.trigger(event, payload).then(data => {
-			this.props.dispatch({
-				type: TCompForm.ON_TRIGGER_END,
-				...payload,
+		// Trigger definitions from tacokit can precise the fields that are impacted by the trigger.
+		// Those fields are the jsonSchema path.
+		// trigger = { options: [{ path: 'user.firstname' }, { path: 'user.lastname' }] }
+		if (Array.isArray(get(payload, 'trigger.options'))) {
+			const updating = payload.trigger.options.map(op => op.path);
+			this.setState({ updating });
+		}
+		return this.trigger(event, payload)
+			.then(data => {
+				this.props.dispatch({
+					type: TCompForm.ON_TRIGGER_END,
+					...payload,
+				});
+				if (data.jsonSchema || data.uiSchema) {
+					this.props.setState(data);
+				}
+				return data;
+			})
+			.finally(() => {
+				this.setState({ updating: [] });
 			});
-			// Today there is a need to give control to the trigger to modify the properties
-			// But this will override what user change in the meantime
-			// need to rethink that, there are lots of potential issues :
-			// - race conditions,
-			// - trigger result that is does not fit user entry anymore,
-			// - erase a good value put by the enduser
-			if (data.properties) {
-				this.setState({ properties: data.properties });
-			}
-			if (data.jsonSchema || data.uiSchema) {
-				this.props.setState(data);
-			}
-			return data;
-		});
 	}
 
-	onSubmit(event, properties) {
-		if (event.persist) {
-			event.persist();
-		}
+	onSubmit(_, properties) {
 		this.props.dispatch({
 			type: TCompForm.ON_SUBMIT,
 			component: TCompForm.displayName,
 			componentId: this.props.componentId,
-			event,
 			properties,
+		});
+	}
+
+	onReset() {
+		this.props.setState(prev =>
+			prev.state
+				.set('jsonSchema', this.props.state.getIn(['initialState', 'jsonSchema']))
+				.set('uiSchema', this.props.state.getIn(['initialState', 'uiSchema']))
+				.set('properties', this.props.state.getIn(['initialState', 'properties']))
+				.set('dirty', false),
+		);
+		this.setState({
+			properties: this.props.state.getIn(['initialState', 'properties']).toJS(),
 		});
 	}
 
@@ -194,16 +207,19 @@ export class TCompForm extends React.Component {
 			if (response) {
 				return <p className="danger">{response.get('statusText')}</p>;
 			}
-			return <Form loading />;
+			return <Form loading displayMode={this.props.displayMode} />;
 		}
 
 		const props = {
 			...omit(this.props, TO_OMIT),
 			data: uiSpecs,
+			initialData: this.getMemoizedInitialState(this.props.state.get('initialState')),
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
-			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
+			onReset: this.onReset,
+			widgets: { ...tcompFieldsWidgets, ...this.props.widgets },
+			updating: this.state.updating,
 		};
 
 		return <Form {...props} />;
@@ -213,6 +229,7 @@ export class TCompForm extends React.Component {
 TCompForm.ON_CHANGE = 'TCOMP_FORM_CHANGE';
 TCompForm.ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
 TCompForm.ON_SUBMIT_SUCCEED = 'TCOMP_FORM_SUBMIT_SUCCEED';
+TCompForm.ON_SUBMIT_FAILED = 'TCOMP_FORM_SUBMIT_FAILED';
 TCompForm.ON_TRIGGER_BEGIN = 'TCOMP_FORM_TRIGGER_BEGIN';
 TCompForm.ON_TRIGGER_END = 'TCOMP_FORM_TRIGGER_END';
 TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
@@ -232,7 +249,14 @@ TCompForm.propTypes = {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
+
 	defaultProps: {
 		saga: 'ComponentForm#default',
 	},
+
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(TCompForm);

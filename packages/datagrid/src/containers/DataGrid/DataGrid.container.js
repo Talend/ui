@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Component from '../../components/';
+import Component from '../../components';
 import DATAGRID_PROPTYPES from '../../components/DataGrid/DataGrid.proptypes';
 
 export const DISPLAY_NAME = 'Container(DataGrid)';

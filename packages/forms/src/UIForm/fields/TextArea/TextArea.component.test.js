@@ -18,13 +18,13 @@ describe('TextArea field', () => {
 		// when
 		const wrapper = shallow(
 			<TextArea
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -42,13 +42,13 @@ describe('TextArea field', () => {
 		// when
 		const wrapper = shallow(
 			<TextArea
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -66,13 +66,13 @@ describe('TextArea field', () => {
 		// when
 		const wrapper = shallow(
 			<TextArea
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -90,13 +90,13 @@ describe('TextArea field', () => {
 		// when
 		const wrapper = shallow(
 			<TextArea
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schemaWithRows}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -109,13 +109,13 @@ describe('TextArea field', () => {
 		const onChange = jest.fn();
 		const wrapper = shallow(
 			<TextArea
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		const value = 'totoa';
@@ -133,13 +133,13 @@ describe('TextArea field', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<TextArea
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		const value = 'totoa';

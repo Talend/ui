@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Redirect should dispatch a redirect action 1`] = `
-<div>
-  <CircularProgress />
-  Redirect ...
-</div>
+<withI18nextTranslation(AppLoaderComponent)
+  t={[Function]}
+/>
 `;

@@ -1,6 +1,7 @@
-import { store } from '@talend/react-cmf/lib/mock';
-import { fromJS } from 'immutable';
+import cmf, { mock } from '@talend/react-cmf';
+import { fromJS, List } from 'immutable';
 import { mapStateToProps } from './List.connect';
+import { compare, getSortedResults } from './selector';
 
 const localConfig = {
 	collectionId: 'default',
@@ -17,14 +18,20 @@ const localConfig = {
 		},
 	],
 	list: {
-		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
+		columns: [
+			{ key: 'id', name: 'ID' },
+			{ key: 'value', name: 'Value' },
+		],
 	},
 };
 
-const state = store.state();
+const state = mock.store.state();
 state.cmf.collections = fromJS({
 	default: {
-		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
+		columns: [
+			{ key: 'id', name: 'ID' },
+			{ key: 'value', name: 'Value' },
+		],
 		items: localConfig.items,
 	},
 });
@@ -98,5 +105,114 @@ describe('List Selector tests', () => {
 		});
 		const props = mapStateToProps(state, { ...localConfig, toolbar: { pagination: {} } });
 		expect(props.items.size).toBe(1);
+	});
+
+	it('should sort a different column type correctly', () => {
+		expect(
+			fromJS([{ stringID: '1' }, { stringID: '11' }, { stringID: '12' }, { stringID: '2' }]).sort(
+				compare('stringID'),
+			),
+		).toEqual(
+			fromJS([{ stringID: '1' }, { stringID: '11' }, { stringID: '12' }, { stringID: '2' }]),
+		);
+		expect(
+			fromJS([
+				{ stringName: 'Uzbekistan' },
+				{ stringName: 'American Samoa' },
+				{ stringName: 'Djibouti' },
+				{ stringName: 'Luxembourg' },
+			]).sort(compare('stringName')),
+		).toEqual(
+			fromJS([
+				{ stringName: 'American Samoa' },
+				{ stringName: 'Djibouti' },
+				{ stringName: 'Luxembourg' },
+				{ stringName: 'Uzbekistan' },
+			]),
+		);
+		expect(
+			fromJS([{ intID: 1 }, { intID: 11 }, { intID: 12 }, { intID: 2 }]).sort(compare('intID')),
+		).toEqual(fromJS([{ intID: 1 }, { intID: 2 }, { intID: 11 }, { intID: 12 }]));
+		expect(
+			fromJS([{ mixedID: '1' }, { mixedID: '11' }, { mixedID: '-' }, { mixedID: '2' }]).sort(
+				compare('mixedID'),
+			),
+		).toEqual(fromJS([{ mixedID: '-' }, { mixedID: '1' }, { mixedID: '11' }, { mixedID: '2' }]));
+		expect(
+			fromJS([
+				{ mixedString: 'a' },
+				{ mixedString: 'b' },
+				{ mixedString: 'C' },
+				{ mixedString: 'D' },
+			]).sort(compare('mixedString')),
+		).toEqual(
+			fromJS([
+				{ mixedString: 'a' },
+				{ mixedString: 'b' },
+				{ mixedString: 'C' },
+				{ mixedString: 'D' },
+			]),
+		);
+	});
+
+	it('should test the getSortedResults method', () => {
+		cmf.registry.addToRegistry('myCustomSortFn', (sortBy, sortAsc) => (a, b) => {
+			if (sortAsc) {
+				return a.get(sortBy) > b.get(sortBy) ? -1 : 1;
+			}
+			return 0;
+		});
+
+		const componentState = fromJS({
+			sortOn: 'data',
+			sortAsc: true,
+		});
+		const config = {
+			columns: [
+				{
+					key: 'data',
+					label: 'Data Column',
+				},
+			],
+		};
+
+		// Sorting the list
+		expect(
+			getSortedResults(
+				componentState,
+				config,
+				fromJS([{ data: 0 }, { data: 4 }, { data: 2 }, { data: 11 }, { data: 1 }, { data: 23 }]),
+			),
+		).toEqual(
+			fromJS([{ data: 0 }, { data: 1 }, { data: 2 }, { data: 4 }, { data: 11 }, { data: 23 }]),
+		);
+
+		// Sorting by column and custom sort function
+		expect(
+			getSortedResults(
+				fromJS({ sortOn: 'a', sortAsc: true }),
+				{ columns: [{ key: 'a', sortFunction: 'myCustomSortFn' }] },
+				fromJS([{ a: 1 }, { a: 3 }, { a: 2 }]),
+			),
+		).toEqual(fromJS([{ a: 3 }, { a: 2 }, { a: 1 }]));
+
+		// Desc sort
+		expect(
+			getSortedResults(
+				fromJS({ sortOn: 'key', sortAsc: false }),
+				config,
+				fromJS([{ key: 1 }, { key: 3 }, { key: 2 }]),
+			),
+		).toEqual(fromJS([{ key: 3 }, { key: 2 }, { key: 1 }]));
+
+		// Edge cases
+		[null, undefined, 1, true, false, [], {}].forEach(val =>
+			expect(getSortedResults(val, val, fromJS([{ item: 'one' }]))).toEqual(
+				fromJS([{ item: 'one' }]),
+			),
+		);
+
+		// With no items
+		expect(getSortedResults(componentState, config, null)).toEqual(new List());
 	});
 });

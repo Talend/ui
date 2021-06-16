@@ -1,50 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Skeleton from '../Skeleton';
+import TooltipTrigger from '../TooltipTrigger';
 import { Action } from '../Actions';
 import InlineForm from './InlineForm.component';
 import theme from './EditableText.scss';
+import getDefaultT from '../translate';
+
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
+export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgress, feature, t }) {
 	const isDisabled = disabled || inProgress;
+	const ComponentClass = componentClass;
 	return (
 		<div className={theme['tc-editable-text-title']}>
-			<span
-				className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
-				onDoubleClick={isDisabled ? undefined : onEdit}
+			<TooltipTrigger
+				label={text}
+				tooltipPlacement="bottom"
+				className="tc-editable-text-wording-wrapper"
 			>
-				{text}
-			</span>
+				<ComponentClass
+					className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
+					onDoubleClick={isDisabled ? undefined : onEdit}
+				>
+					{text}
+				</ComponentClass>
+			</TooltipTrigger>
 			<Action
 				name="action-edit"
-				label={t('MODIFY_TOOLTIP', { defaultValue: 'Edit' })}
+				label={t('MODIFY_TOOLTIP', { defaultValue: 'Rename' })}
 				icon="talend-pencil"
 				onClick={onEdit}
 				bsStyle="link"
-				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil')}
+				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil', {
+					[theme['tc-editable-text-empty-pencil']]: !text,
+				})}
 				disabled={disabled || inProgress}
 				hideLabel
+				data-feature={feature}
 			/>
 		</div>
 	);
 }
-
 PlainTextTitle.propTypes = {
-	text: PropTypes.string.isRequired,
-	onEdit: PropTypes.func.isRequired,
+	componentClass: PropTypes.string,
 	disabled: PropTypes.bool,
+	feature: PropTypes.string,
 	inProgress: PropTypes.bool,
+	onEdit: PropTypes.func.isRequired,
+	text: PropTypes.string.isRequired,
 	t: PropTypes.func,
 };
 
-function EditableText({ editMode, loading, inProgress, ...rest }) {
+PlainTextTitle.defaultProps = {
+	componentClass: 'span',
+	t: getDefaultT(),
+};
+
+export function EditableTextComponent({ editMode, loading, inProgress, ...rest }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
-
 	const Component = editMode ? InlineForm : PlainTextTitle;
 	const allyProps = {};
 	if (inProgress) {
@@ -53,6 +71,7 @@ function EditableText({ editMode, loading, inProgress, ...rest }) {
 		});
 		allyProps['aria-busy'] = true;
 	}
+
 	return (
 		<div
 			className={classNames(theme['tc-editable-text'], 'tc-editable-text', {
@@ -66,22 +85,24 @@ function EditableText({ editMode, loading, inProgress, ...rest }) {
 	);
 }
 
-EditableText.displayName = 'EditableText';
+EditableTextComponent.displayName = 'EditableText';
 
-EditableText.propTypes = {
-	text: PropTypes.string.isRequired,
-	editMode: PropTypes.bool,
-	loading: PropTypes.bool,
-	inProgress: PropTypes.bool,
-	onEdit: PropTypes.func.isRequired,
+EditableTextComponent.propTypes = {
+	componentClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 	disabled: PropTypes.bool,
+	editMode: PropTypes.bool,
+	inProgress: PropTypes.bool,
+	loading: PropTypes.bool,
+	onEdit: PropTypes.func.isRequired,
+	text: PropTypes.string.isRequired,
 	t: PropTypes.func,
 };
 
-EditableText.defaultProps = {
+EditableTextComponent.defaultProps = {
 	editMode: false,
-	loading: false,
 	inProgress: false,
+	loading: false,
+	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(EditableText);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(EditableTextComponent);

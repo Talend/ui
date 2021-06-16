@@ -164,6 +164,7 @@ describe('Drawer', () => {
 				<h1>Hello world</h1>
 			</Drawer>,
 		);
+
 		expect(wrapper.find('ActionBar')).toHaveLength(1);
 		expect(toJsonWithoutI18n(wrapper.find('ActionBar'))).toMatchSnapshot();
 	});
@@ -220,18 +221,32 @@ describe('Drawer', () => {
 
 		expect(wrapper.find('TabBar')).toHaveLength(0);
 		expect(wrapper.find('CustomTabBar')).toHaveLength(1);
-		expect(
-			wrapper
-				.find('DrawerTitle')
-				.dive()
-				.find('Action'),
-		).toHaveLength(0);
-		expect(
-			wrapper
-				.find('DrawerTitle')
-				.dive()
-				.find('CustomAction'),
-		).toHaveLength(1);
+		expect(wrapper.find('DrawerTitle').dive().find('Action')).toHaveLength(0);
+		expect(wrapper.find('DrawerTitle').dive().find('CustomAction')).toHaveLength(1);
+	});
+
+	it('render children event if there is no title', () => {
+		function getComponent(name) {
+			if (name === 'EditableText') {
+				return function EditableText() {
+					return <input />;
+				};
+			}
+			return null;
+		}
+
+		const props = {
+			getComponent,
+			tabs: { items: [{ item: { key: 'tab1', label: 'tab1' }, onClick: jest.fn() }] },
+		};
+
+		const wrapper = shallow(
+			<Drawer {...props}>
+				<p>simple drawer</p>
+			</Drawer>,
+		);
+
+		expect(wrapper.find('DrawerTitle')).toHaveLength(1);
 	});
 
 	it('test combinedFooterActions with existing actions left and onCancelAction', () => {
@@ -348,5 +363,12 @@ describe('Drawer', () => {
 
 		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
 		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
+	});
+
+	it('should render cancelActionComponent with passed in className', () => {
+		const wrapper = mount(cancelActionComponent({ className: 'btn-inverse' }));
+		expect(wrapper.find('Action').prop('className')).toEqual(
+			'tc-drawer-close-action theme-tc-drawer-close-action btn-inverse theme-btn-inverse',
+		);
 	});
 });

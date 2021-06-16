@@ -1,5 +1,5 @@
 import { cmfConnect } from '@talend/react-cmf';
-import { Actions } from '@talend/react-components';
+import { Actions } from '@talend/react-components/lib/Actions';
 
 import Action from '../Action';
 import getRenderers from '../renderers';
@@ -18,7 +18,7 @@ function mapStateToProps(state, { actionIds, names, actions }) {
 }
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionIds;
 	delete props.names;
 	return props;
@@ -27,4 +27,9 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
 export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Actions);

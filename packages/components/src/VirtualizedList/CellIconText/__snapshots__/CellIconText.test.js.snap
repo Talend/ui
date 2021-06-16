@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellIconText should render an empty cell 1`] = `
+<div
+  className="tc-icon-text theme-tc-icon-text"
+>
+  <span
+    className="theme-label"
+  />
+</div>
+`;
+
+exports[`CellIconText should render an icon cell with an icon 1`] = `
+<div
+  className="tc-icon-text theme-tc-icon-text"
+>
+  <Icon
+    name="talend-list"
+  />
+  <span
+    className="theme-label"
+  >
+    list
+  </span>
+</div>
+`;
+
+exports[`CellIconText should render an icon cell with an icon using the getIcon method 1`] = `
+<div
+  className="tc-icon-text theme-tc-icon-text"
+>
+  <Icon
+    name="hihihi-list"
+  />
+  <span
+    className="theme-label"
+  >
+    List
+  </span>
+</div>
+`;

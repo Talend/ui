@@ -8,7 +8,6 @@ exports[`TreeView item should render 1`] = `
   aria-selected={false}
   aria-setsize={4}
   className="tc-treeview-item-li theme-tc-treeview-li"
-  data-hidden={undefined}
   id="my-treeview"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -37,7 +36,6 @@ exports[`TreeView item should render 1`] = `
       tabIndex="-1"
     />
     <TreeViewIcon
-      icon={undefined}
       isOpened={false}
     />
     <span
@@ -48,7 +46,7 @@ exports[`TreeView item should render 1`] = `
     <div
       className="theme-tc-treeview-item-ctrl"
     >
-      <Translate(Badge)
+      <Badge
         label="101"
       />
       <Action
@@ -67,13 +65,11 @@ exports[`TreeView item should render 1`] = `
 
 exports[`TreeView item should render items with icon 1`] = `
 <li
-  aria-expanded={undefined}
   aria-level={2}
   aria-posinset={1}
   aria-selected={false}
   aria-setsize={4}
   className="tc-treeview-item-li theme-tc-treeview-li"
-  data-hidden={undefined}
   id="my-treeview"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -107,7 +103,7 @@ exports[`TreeView item should render items with icon 1`] = `
     <div
       className="theme-tc-treeview-item-ctrl"
     >
-      <Translate(Badge)
+      <Badge
         label="101"
       />
       <Action
@@ -122,4 +118,18 @@ exports[`TreeView item should render items with icon 1`] = `
     </div>
   </div>
 </li>
+`;
+
+exports[`TreeView item should render items with icon and tooltip 1`] = `
+<TooltipTrigger
+  label="New version of the Pokemon is available"
+  tooltipPlacement="top"
+>
+  <span>
+    <Icon
+      className="theme-tc-treeview-img"
+      name="talend-versioning"
+    />
+  </span>
+</TooltipTrigger>
 `;

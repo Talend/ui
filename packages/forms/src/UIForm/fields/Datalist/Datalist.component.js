@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import get from 'lodash/get';
-import { translate } from 'react-i18next';
+import has from 'lodash/has';
+import { withTranslation } from 'react-i18next';
 import FieldTemplate from '../FieldTemplate';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { extractDataAttributes } from '../../utils/properties';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -40,6 +42,7 @@ class Datalist extends Component {
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
 	}
+
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection
@@ -61,7 +64,18 @@ class Datalist extends Component {
 			};
 		}
 
-		const payloadWithSchema = { ...payload, schema: mergedSchema };
+		let payloadWithSchema = {
+			...payload,
+			schema: { ...mergedSchema },
+		};
+
+		if (this.hasTitleMap()) {
+			payloadWithSchema = {
+				...payloadWithSchema,
+				schema: { ...payloadWithSchema.schema, titleMap: this.getTitleMap() },
+			};
+		}
+
 		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
@@ -87,29 +101,37 @@ class Datalist extends Component {
 		const type = this.props.schema.schema.type;
 		const propsValue = this.props.value;
 
-		let titleMapFind = titleMap;
-
-		if (!restricted) {
-			const isMultiple = type === 'array';
-			const values = isMultiple ? propsValue : [propsValue];
-
-			if (isMultiSection) {
-				titleMapFind = titleMap.reduce((prev, current) => {
-					prev.push(...current.suggestions);
-					return prev;
-				}, []);
-			}
-
-			const additionalOptions = values
-				.filter(value => !titleMapFind.find(option => option.value === value))
-				.map(value => this.addCustomValue(value, isMultiSection))
-				.reduce((acc, titleMapEntry) => {
-					acc.push(titleMapEntry);
-					return acc;
-				}, []);
-			return titleMap.concat(additionalOptions);
+		if (restricted || !propsValue) {
+			return titleMap;
 		}
-		return titleMap;
+
+		let titleMapFind = titleMap;
+		const isMultiple = type === 'array';
+		const values = isMultiple ? propsValue : [propsValue];
+
+		if (isMultiSection) {
+			titleMapFind = titleMap.reduce((prev, current) => {
+				prev.push(...current.suggestions);
+				return prev;
+			}, []);
+		}
+
+		const additionalOptions = values
+			.filter(value => !titleMapFind.find(option => option.value === value))
+			.map(value => this.addCustomValue(value, isMultiSection))
+			.reduce((acc, titleMapEntry) => {
+				acc.push(titleMapEntry);
+				return acc;
+			}, []);
+		return titleMap.concat(additionalOptions);
+	}
+
+	hasTitleMap() {
+		return (
+			has(this.state, 'titleMap') ||
+			has(this.props, 'schema.options.titleMap') ||
+			has(this.props, 'schema.titleMap')
+		);
 	}
 
 	addCustomValue(value, isMultiSection) {
@@ -138,6 +160,8 @@ class Datalist extends Component {
 		const errorId = generateErrorId(this.props.id);
 		return (
 			<FieldTemplate
+				hint={this.props.schema.hint}
+				className={this.props.schema.className}
 				description={this.props.schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
@@ -146,14 +170,15 @@ class Datalist extends Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
-				labelAfter
+				valueIsUpdating={this.props.valueIsUpdating}
 			>
 				<DataListComponent
 					{...props}
 					{...this.state}
+					dataFeature={this.props.schema.dataFeature}
 					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
-					disabled={this.props.schema.disabled || false}
+					disabled={this.props.schema.disabled || this.props.valueIsUpdating}
 					multiSection={get(this.props, 'schema.options.isMultiSection', false)}
 					onChange={this.onChange}
 					onFocus={this.callTrigger}
@@ -164,6 +189,7 @@ class Datalist extends Component {
 						'aria-invalid': !this.props.isValid,
 						'aria-required': this.props.schema.required,
 						'aria-describedby': `${descriptionId} ${errorId}`,
+						...extractDataAttributes(this.props.schema),
 					}}
 				/>
 			</FieldTemplate>
@@ -191,6 +217,7 @@ if (process.env.NODE_ENV !== 'production') {
 		resolveName: PropTypes.func,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
+				enum: PropTypes.array,
 				type: PropTypes.string,
 			}),
 			triggers: PropTypes.arrayOf(
@@ -199,12 +226,14 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 			autoFocus: PropTypes.bool,
+			dataFeature: PropTypes.string,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			restricted: PropTypes.bool,
+			className: PropTypes.string,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -212,6 +241,12 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				className: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 			options: PropTypes.shape({
 				isMultiSection: PropTypes.bool,
 				titleMap: PropTypes.arrayOf(
@@ -228,8 +263,9 @@ if (process.env.NODE_ENV !== 'production') {
 			}),
 		}),
 		value: PropTypes.string,
+		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(Datalist);
+export default withTranslation(I18N_DOMAIN_FORMS)(Datalist);

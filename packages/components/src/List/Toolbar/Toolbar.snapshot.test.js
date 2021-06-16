@@ -47,10 +47,7 @@ const sort = {
 	field: 'id',
 	isDescending: true,
 	onChange: jest.fn(),
-	options: [
-		{ id: 'id', name: 'Id' },
-		{ id: 'name', name: 'Name' },
-	],
+	options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 };
 
 const pagination = {
@@ -95,6 +92,7 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			actionBar,
+			getComponent: 'whatever',
 		};
 
 		// when

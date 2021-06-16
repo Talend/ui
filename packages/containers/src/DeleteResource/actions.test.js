@@ -3,15 +3,24 @@ import deleteResourceConst from './constants';
 
 describe('deleteResource actions', () => {
 	describe('deleteResource:open', () => {
+		beforeEach(() => {
+			delete window.location;
+			window.location = { pathname: '/test' };
+		});
+
+		afterAll(() => {
+			window.location = location;
+		});
+
 		it('should return an action DIALOG_BOX_DELETE_RESOURCE object', () => {
 			// Given
-			const context = {
-				router: { getCurrentLocation: jest.fn(() => ({ pathname: 'currentUrl' })) },
-			};
+			window.location.pathname = 'currentUrl';
 			const model = { id: 'modelId' };
 			const data = { model };
+
 			// When
-			const result = actions.open({}, data, context);
+			const result = actions.open({}, data);
+
 			// Then
 			expect(result).toEqual({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,

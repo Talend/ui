@@ -1,3 +1,8 @@
-> eslint --config ../../.eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+/home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
+  287:2  error  handleKeyboard should be placed before onBodyScroll  react/sort-comp
+
+/home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultValueRenderer.component.js
+  68:4  error  onMouseOver must be accompanied by onFocus for accessibility  jsx-a11y/mouse-events-have-key-events
+
+✖ 2 problems (2 errors, 0 warnings)

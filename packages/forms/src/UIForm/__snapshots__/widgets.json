@@ -1,90 +1,96 @@
 [
-	{
-		"title": "Widgets",
-		"widget": "fieldset",
-		"items": [
-			{
-				"key": "enumeration",
-				"title": "Enumeration",
-				"widget": "enumeration"
-			},
-			{
-				"key": "stringFormats",
-				"title": "String formats",
-				"widget": "fieldset",
-				"items": [
-					{
-						"key": "stringFormats.email",
-						"type": "email",
-						"widget": "text"
-					},
-					{
-						"key": "stringFormats.uri",
-						"widget": "text",
-						"type": "url"
-					}
-				]
-			},
-			{
-				"key": "boolean",
-				"title": "Boolean field",
-				"widget": "fieldset",
-				"items": [
-					{
-						"key": "boolean.default",
-						"title": "checkbox (default)"
-					},
-					{
-						"key": "boolean.radio",
-						"title": "radio buttons",
-						"widget": "radios"
-					},
-					{
-						"key": "boolean.select",
-						"title": "select box",
-						"widget": "select"
-					}
-				]
-			},
-			{
-				"key": "string",
-				"title": "String field",
-				"widget": "fieldset",
-				"items": [
-					{
-						"key": "string.default",
-						"title": "text input (default)",
-						"widget": "text"
-					},
-					{
-						"key": "string.textarea",
-						"title": "textarea",
-						"widget": "textarea"
-					},
-					{
-						"key": "string.color",
-						"title": "color picker",
-						"widget": "text",
-						"type": "color"
-					}
-				]
-			},
-			{
-				"key": "secret",
-				"widget": "hidden"
-			},
-			{
-				"key": "disabled",
-				"title": "A disabled field",
-				"widget": "text",
-				"disabled": true
-			},
-			{
-				"key": "readonly",
-				"title": "A readonly field",
-				"widget": "text",
-				"readonly": true
-			}
-		]
-	}
+  {
+    "title": "Widgets",
+    "widget": "fieldset",
+    "items": [
+      {
+        "key": "enumeration",
+        "title": "Enumeration",
+        "widget": "enumeration"
+      },
+      {
+        "key": "stringFormats",
+        "title": "String formats",
+        "widget": "fieldset",
+        "items": [
+          {
+            "key": "stringFormats.email",
+            "type": "email",
+            "widget": "text"
+          },
+          {
+            "key": "stringFormats.uri",
+            "widget": "text",
+            "type": "url"
+          }
+        ]
+      },
+      {
+        "key": "boolean",
+        "title": "Boolean field",
+        "widget": "fieldset",
+        "items": [
+          {
+            "key": "boolean.default",
+            "title": "checkbox (default)"
+          },
+          {
+            "key": "boolean.radio",
+            "title": "radio buttons",
+            "widget": "radios"
+          },
+          {
+            "key": "boolean.select",
+            "title": "select box",
+            "widget": "select"
+          }
+        ]
+      },
+      {
+        "key": "string",
+        "title": "String field",
+        "widget": "fieldset",
+        "items": [
+          {
+            "key": "string.default",
+            "title": "text input (default)",
+            "widget": "text"
+          },
+          {
+            "key": "string.textarea",
+            "title": "textarea",
+            "widget": "textarea"
+          },
+          {
+            "key": "string.color",
+            "title": "color picker",
+            "widget": "text",
+            "type": "color"
+          }
+        ]
+      },
+      {
+        "key": "secret",
+        "widget": "hidden"
+      },
+      {
+        "key": "disabled",
+        "title": "A disabled field",
+        "widget": "text",
+        "disabled": true
+      },
+      {
+        "key": "readonly",
+        "title": "A readonly field",
+        "widget": "text",
+        "readonly": true
+      },
+      {
+        "key": "readonlyEmpty",
+        "title": "An empty readonly field",
+        "widget": "text",
+        "readonly": true
+      }
+    ]
+  }
 ]

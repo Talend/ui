@@ -1,20 +1,109 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 import { action } from '@storybook/addon-actions';
-import { object } from '@storybook/addon-knobs';
-import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm } from '../src/UIForm';
+import Enumeration from '../src/UIForm/fields/Enumeration';
+import { PRESIGNED_URL_TRIGGER_ACTION } from '../src/UIForm/fields/File/File.component';
 
 const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);
 const fieldsetsFilenames = require.context('./json/fieldsets', true, /.(js|json)$/);
 const fieldsFilenames = require.context('./json/fields', true, /.(js|json)$/);
-const oldFilenames = require.context('../stories/json', true, /.(js|json)$/);
 
 const sampleFilenameRegex = /^.\/(.*).js/;
 const stories = [];
 
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function stringToB64(string) {
+	return window.btoa(
+		encodeURIComponent(string).replace(/%([0-9A-F]{2})/g, (match, p1) => {
+			return String.fromCharCode(`0x${p1}`);
+		}),
+	);
+}
+
+function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
+	const methods = {
+		asc: (a, b) => (a > b ? -1 : 1),
+		desc: (a, b) => (a < b ? -1 : 1),
+	};
+	const collection = [
+		{
+			id: '0',
+			name: 'Title with few actions',
+			modified: 1442880000000,
+			icon: 'talend-file-xls-o',
+			author: 'First Author',
+			flags: ['CERTIFIED', 'FAVORITE'],
+		},
+		{
+			id: '1',
+			name: 'Title with lot of actions',
+			modified: 1537574400000,
+			icon: 'talend-file-xls-o',
+			author: 'Second Author',
+		},
+		{
+			id: '2',
+			name: 'Title with persistant actions',
+			modified: 1474502400000,
+			author: 'Jean-Pierre DUPONT',
+			icon: 'talend-file-xls-o',
+			flags: ['FAVORITE'],
+		},
+		{
+			id: '3',
+			name: 'Title with icon',
+			modified: 1506038400000,
+			author: 'Third Author',
+			icon: 'talend-file-xls-o',
+			flags: ['CERTIFIED'],
+		},
+		{
+			id: '4',
+			name: 'Title in input mode',
+			modified: 1506038400000,
+			author: 'Jean-Pierre DUPONT',
+			icon: 'talend-file-xls-o',
+		},
+		{
+			id: '5',
+			name: 'Title with long long long long long long long long long long long text',
+			modified: 1547478328552,
+			author: 'Jean-Pierre DUPONT with super super super long text',
+			icon: 'talend-file-xls-o',
+			flags: ['CERTIFIED', 'FAVORITE'],
+		},
+	];
+
+	let c = collection;
+
+	if (name) {
+		c = c.filter(item => item.name.includes(name));
+	}
+	if (certified) {
+		c = c.filter(item => item.flags && item.flags.includes('CERTIFIED'));
+	}
+	if (favorites) {
+		c = c.filter(item => item.flags && item.flags.includes('FAVORITE'));
+	}
+	if (selection) {
+		c = c.filter(item => selected.includes(item.id));
+	}
+
+	if (orders) {
+		if (orders.name) {
+			c = c.sort((a, b) => methods[orders.name](a.name, b.name));
+		}
+		if (orders.date) {
+			c = c.sort((a, b) => methods[orders.date](a.modified, b.modified));
+		}
+	}
+
+	return c;
 }
 
 function createCommonProps(tab) {
@@ -34,6 +123,7 @@ function createCommonProps(tab) {
 			if (key && key.includes('fail')) {
 				return Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } });
 			}
+
 			if (key && (key.includes('asyncTitleMap') || key.includes('AsyncTitleMap'))) {
 				return new Promise(resolve => {
 					setTimeout(
@@ -52,6 +142,58 @@ function createCommonProps(tab) {
 					);
 				});
 			}
+
+			if (key === 'datasetId' && payload.trigger.onEvent === 'filter') {
+				return new Promise(resolve => {
+					setTimeout(
+						() =>
+							resolve({
+								collection: getFilteredCollection(payload.filters),
+							}),
+						3000,
+					);
+				});
+			}
+			if (key === 'datasetId' && payload.trigger.onEvent === 'change') {
+				return Promise.resolve({
+					properties: properties => {
+						const { datasetId, name } = properties;
+						return name && name.length
+							? properties
+							: {
+									...properties,
+									name: datasetId && `Resource ${datasetId} preparation`,
+							  };
+					},
+					errors: errors => {
+						const e = { ...errors };
+						delete e.name;
+						return e;
+					},
+				});
+			}
+			if (
+				key &&
+				key.startsWith('file') &&
+				payload.trigger &&
+				payload.trigger.action === PRESIGNED_URL_TRIGGER_ACTION &&
+				payload.trigger.onEvent === 'change'
+			) {
+				const { name } = event.target.files[0];
+				return new Promise(resolve => {
+					setTimeout(
+						() =>
+							resolve({
+								properties: properties => ({
+									...properties,
+									[key]: `${uuid.v4()}.${stringToB64(name)}`,
+								}),
+							}),
+						3000,
+					);
+				});
+			}
+
 			return Promise.resolve({});
 		},
 		onReset: action('onReset'),
@@ -78,12 +220,9 @@ class DisplayModeForm extends React.Component {
 	render() {
 		return (
 			<section>
-				<IconsProvider />
 				{this.props.doc && (
 					<a
-						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${
-							this.props.category
-						}/${this.props.doc}`}
+						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${this.props.category}/${this.props.doc}`}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -107,7 +246,11 @@ class DisplayModeForm extends React.Component {
 
 				<hr style={{ borderColor: 'black' }} />
 
-				<UIForm {...this.props} displayMode={this.state.displayMode} />
+				<UIForm
+					{...this.props}
+					displayMode={this.state.displayMode}
+					widgets={{ enumeration: Enumeration }}
+				/>
 			</section>
 		);
 	}
@@ -122,7 +265,7 @@ function createStory(category, sampleFilenames, filename) {
 		category,
 		name,
 		story() {
-			const { doc, ...data } = object(name, sampleFilenames(filename));
+			const { doc, ...data } = sampleFilenames(filename);
 			return (
 				<DisplayModeForm
 					{...createCommonProps('state')}
@@ -145,10 +288,6 @@ fieldsetsFilenames.keys().forEach(filename => {
 
 fieldsFilenames.keys().forEach(filename => {
 	stories.push(createStory('fields', fieldsFilenames, filename));
-});
-
-oldFilenames.keys().forEach(filename => {
-	stories.push(createStory('old', oldFilenames, filename));
 });
 
 export default stories;

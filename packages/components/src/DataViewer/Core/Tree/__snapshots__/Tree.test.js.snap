@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree should return a TreeNode 1`] = `
+<TreeNode
+  branch={[MockFunction]}
+  className="theme-tc-tree tc-tree"
+  dataKey="myDataKey"
+  getJSONPath={[MockFunction]}
+  getValueType={[MockFunction]}
+  index={0}
+  jsonpath="$"
+  leaf={[MockFunction]}
+  level={0}
+  recursive={[Function]}
+  value={Object {}}
+/>
+`;
+
+exports[`Tree should return a TreeNodeList 1`] = `
+<TreeNodeList
+  branch={[MockFunction]}
+  getJSONPath={[MockFunction]}
+  getValueType={[MockFunction]}
+  jsonpath="$"
+  leaf={[MockFunction]}
+  level={0}
+  recursive={[Function]}
+  treeClassName="theme-tc-tree tc-tree"
+  value={Array []}
+/>
+`;
+
+exports[`Tree should return a TreeNodeList with a level > 0 1`] = `
+<TreeNodeList
+  branch={[MockFunction]}
+  getJSONPath={[MockFunction]}
+  getValueType={[MockFunction]}
+  jsonpath="$"
+  leaf={[MockFunction]}
+  level={1}
+  nodeClassName="theme-tc-tree-node-border tc-tree-node-border"
+  recursive={[Function]}
+  treeClassName="theme-tc-tree-list tc-tree-list"
+  value={Array []}
+/>
+`;
+
+exports[`Tree should return a TreeNodeList with a level > 0 and no node border 1`] = `
+<TreeNodeList
+  branch={[MockFunction]}
+  getJSONPath={[MockFunction]}
+  getValueType={[MockFunction]}
+  jsonpath="$"
+  leaf={[MockFunction]}
+  level={1}
+  nodeClassName=""
+  recursive={[Function]}
+  treeClassName="theme-tc-tree-list tc-tree-list"
+  value={Array []}
+/>
+`;
+
+exports[`Tree should return a TreeNodeList with custom className 1`] = `
+<TreeNodeList
+  branch={[MockFunction]}
+  getJSONPath={[MockFunction]}
+  getValueType={[MockFunction]}
+  jsonpath="$"
+  leaf={[MockFunction]}
+  level={0}
+  recursive={[Function]}
+  treeClassName="theme-tc-tree tc-tree myCustomClass"
+  value={Array []}
+/>
+`;

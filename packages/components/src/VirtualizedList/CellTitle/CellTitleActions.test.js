@@ -145,6 +145,20 @@ const persistentActions = [
 	},
 ];
 
+const arraysActions = [
+	[
+		{
+			id: 'monitoring',
+			label: 'monitor something',
+			'data-feature': 'list.item.monitor',
+			icon: 'talend-line-charts',
+			onClick: jest.fn(),
+			hideLabel: true,
+		},
+	],
+	fewSimpleActions,
+];
+
 const props = {
 	id: 'my-actions',
 	actionsKey: 'actions',
@@ -294,5 +308,53 @@ describe('CellTitleActions', () => {
 
 		// then
 		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+	});
+
+	it('should stop keydown propagation', () => {
+		// given
+		const wrapper = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ persistentActions }}
+			/>,
+		);
+
+		const event = { stopPropagation: jest.fn() };
+
+		// when
+		wrapper.simulate('keydown', event);
+
+		// then
+		expect(event.stopPropagation).toBeCalled();
+	});
+
+	it('should render all type of actions', () => {
+		// when
+		const wrapper = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ actions: arraysActions, persistentActions }}
+			/>,
+		);
+
+		// then
+		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+	});
+
+	it('should render two actions group in separator case', () => {
+		// when
+		const wrapper = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ actions: arraysActions }}
+				type={LARGE}
+			/>,
+		);
+
+		// then
+		expect(wrapper.find('.cell-title-actions').length).toBe(2);
 	});
 });

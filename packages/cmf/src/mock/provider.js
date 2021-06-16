@@ -17,7 +17,7 @@ import AppMenu from './AppMenu.component';
 describe('AppMenu', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
-			<Provider registry={customRegistry} router={customRouter}>
+			<Provider registry={customRegistry}>
 				<AppMenu />
 			</Provider>
 		).toJSON();
@@ -37,17 +37,13 @@ class MockProvider extends React.Component {
 		}
 		const context = {
 			store: st,
-			router: this.props.router || {},
 			registry: this.props.registry || {},
 		};
 		return context;
 	}
+
 	render() {
-		return (
-			<div className="mock-provider">
-				{this.props.children}
-			</div>
-		);
+		return <div className="mock-provider">{this.props.children}</div>;
 	}
 }
 
@@ -55,13 +51,11 @@ MockProvider.propTypes = {
 	children: PropTypes.node.isRequired,
 	store: PropTypes.object,
 	state: PropTypes.object,
-	router: PropTypes.object,
 	registry: PropTypes.object,
 };
 
 MockProvider.childContextTypes = {
 	store: PropTypes.object,
-	router: PropTypes.object,
 	registry: PropTypes.object,
 };
 

@@ -1,31 +1,31 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import getDefaultT from '../translate';
 import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
 import Items from './Items/Items.component';
 import theme from './ListView.scss';
 
-export const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
-export const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
+const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
+const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 
 function listviewClasses() {
 	return classNames(theme['tc-listview'], 'tc-listview');
 }
 
 function ListView(props) {
-	const noResultLabel = props.t('LISTVIEW_NO_RESULT', { defaultValue: 'No result found.' });
-	const emptyLabel = props.t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const noResultLabel = t('NO_RESULT_FOUND', { defaultValue: 'No result found.' });
+	const emptyLabel = t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
 	const label = props.displayMode === DISPLAY_MODE_SEARCH ? noResultLabel : emptyLabel;
 	return (
 		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
-			{props.items && props.items.length ? (
-				<ItemsListView {...props} />
+			{props.items.length ? (
+				<Items {...props} />
 			) : (
 				<span className={theme['empty-message']}>{label}</span>
 			)}
@@ -33,32 +33,17 @@ function ListView(props) {
 	);
 }
 
+ListView.DISPLAY_MODES = { DISPLAY_MODE_DEFAULT, DISPLAY_MODE_SEARCH };
+
 ListView.displayName = 'ListView';
 
 ListView.propTypes = {
+	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
 	items: PropTypes.arrayOf(PropTypes.object),
-	t: PropTypes.func,
 };
 
 ListView.defaultProps = {
 	items: [],
-	isSwitchBox: false,
-};
-
-function ItemsListView(props) {
-	return <Items {...props} />;
-}
-
-ItemsListView.propTypes = {
-	getItemHeight: PropTypes.func,
-	id: PropTypes.string,
-	items: ListView.propTypes.items,
-	isSwitchBox: PropTypes.bool,
-	onToggleAll: PropTypes.func,
-	searchCriteria: PropTypes.string,
-	toggleAllChecked: PropTypes.bool,
-	showToggleAll: PropTypes.bool,
-	t: PropTypes.func,
 };
 
 function HeaderListView(props) {
@@ -72,7 +57,6 @@ function HeaderListView(props) {
 		items,
 		required,
 		searchPlaceholder,
-		t,
 	} = props;
 
 	switch (displayMode) {
@@ -82,7 +66,6 @@ function HeaderListView(props) {
 				onInputChange,
 				onAddKeyDown,
 				inputPlaceholder: searchPlaceholder,
-				t,
 			};
 			return <HeaderInput {...propsInput} />;
 		}
@@ -93,7 +76,6 @@ function HeaderListView(props) {
 				required,
 				nbItems: items.length,
 				nbItemsSelected: items.filter(item => !!item.checked).length,
-				t,
 			};
 			return <Header {...propsDefault} />;
 		}
@@ -102,11 +84,10 @@ function HeaderListView(props) {
 
 HeaderListView.defaultProps = {
 	displayMode: DISPLAY_MODE_DEFAULT,
-	t: getDefaultT(),
 };
 
 HeaderListView.propTypes = {
-	displayMode: PropTypes.string,
+	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
 	headerDefault: PropTypes.arrayOf(PropTypes.object),
 	headerInput: PropTypes.arrayOf(PropTypes.object),
 	headerLabel: PropTypes.string,
@@ -115,7 +96,6 @@ HeaderListView.propTypes = {
 	onAddKeyDown: PropTypes.func,
 	required: PropTypes.bool,
 	searchPlaceholder: PropTypes.string,
-	t: PropTypes.func,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(ListView);
+export default ListView;

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -25,6 +25,7 @@ function getIcon({ icon, iconTransform, inProgress, loading }) {
 	if (loading) {
 		return (
 			<Skeleton
+				key="icon-skeleton"
 				size="small"
 				type="circle"
 				className={classNames(
@@ -52,7 +53,7 @@ function getLabel({ hideLabel, label, loading }) {
 		return null;
 	}
 	if (loading) {
-		return <Skeleton type="text" size="medium" />;
+		return <Skeleton key="label-skeleton" type="text" size="medium" />;
 	}
 	return <span key="label">{label}</span>;
 }
@@ -74,6 +75,17 @@ function getContent(props) {
 	return adjustContentPlacement(getIcon(props), getLabel(props), props.iconPosition);
 }
 
+function getHandler(func, model, label, rest) {
+	return (
+		func &&
+		(event =>
+			func(event, {
+				action: { label, ...rest },
+				model,
+			}))
+	);
+}
+
 function noOp() {}
 
 /**
@@ -89,7 +101,7 @@ function noOp() {}
 };
  <Action {...props} />
  */
-export function ActionButton(props) {
+function ActionButton(props) {
 	const {
 		bsStyle,
 		buttonRef,
@@ -98,15 +110,19 @@ export function ActionButton(props) {
 		hideLabel,
 		label,
 		loading,
+		download,
 		link,
 		model,
 		onMouseDown = noOp,
 		onClick = noOp,
+		onMouseEnter,
+		onMouseLeave,
 		overlayId,
 		overlayComponent,
 		overlayPlacement,
 		overlayRef,
 		tooltipPlacement,
+		tooltipClassName,
 		tooltip,
 		tooltipLabel,
 		available,
@@ -126,18 +142,10 @@ export function ActionButton(props) {
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
 
-	const rClick =
-		onClick &&
-		(event =>
-			onClick(event, {
-				action: { label, ...rest },
-				model,
-			}));
-	const rMouseDown = event =>
-		onMouseDown(event, {
-			action: { label, ...rest },
-			model,
-		});
+	const rClick = getHandler(onClick, model, label, rest);
+	const rMouseDown = getHandler(onMouseDown, model, label, rest);
+	const rMouseEnter = getHandler(onMouseEnter, model, label, rest);
+	const rMouseLeave = getHandler(onMouseLeave, model, label, rest);
 
 	buttonProps.className = classNames(buttonProps.className, {
 		'btn-icon-only': hideLabel || !label,
@@ -152,22 +160,29 @@ export function ActionButton(props) {
 		});
 	}
 	if (loading) {
-		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} (loading)', type: ariaLabel });
 	}
 
 	const hasPopup = !inProgress && overlayComponent;
 	if (hasPopup) {
 		buttonProps['aria-haspopup'] = true;
 	}
+	// enforce security on target="_blank"
+	if (buttonProps.target === '_blank') {
+		buttonProps.rel = 'noopener noreferrer';
+	}
 	let btn = (
 		<Button
 			onMouseDown={!overlayComponent ? rMouseDown : null}
 			onClick={!overlayComponent ? rClick : null}
+			onMouseEnter={!overlayComponent ? rMouseEnter : null}
+			onMouseLeave={!overlayComponent ? rMouseLeave : null}
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
 			aria-label={ariaLabel}
 			ref={buttonRef}
+			download={download}
 			{...buttonProps}
 		>
 			{buttonContent}
@@ -177,6 +192,8 @@ export function ActionButton(props) {
 		btn = (
 			<OverlayTrigger
 				onClick={rClick}
+				onMouseEnter={rMouseEnter}
+				onMouseLeave={rMouseLeave}
 				overlayRef={overlayRef}
 				overlayId={overlayId}
 				overlayPlacement={overlayPlacement}
@@ -188,10 +205,15 @@ export function ActionButton(props) {
 			</OverlayTrigger>
 		);
 	}
+
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
-			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{btnIsDisabled ? <span>{btn}</span> : btn}
+			<TooltipTrigger
+				label={tooltipLabel || label}
+				tooltipPlacement={tooltipPlacement}
+				className={tooltipClassName}
+			>
+				{btn}
 			</TooltipTrigger>
 		);
 	}
@@ -204,6 +226,7 @@ ActionButton.propTypes = {
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
+	download: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
@@ -216,6 +239,7 @@ ActionButton.propTypes = {
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
+	tooltipClassName: PropTypes.string,
 	...overlayPropTypes,
 };
 
@@ -230,4 +254,4 @@ ActionButton.defaultProps = {
 };
 
 ActionButton.displayName = 'ActionButton';
-export default translate(I18N_DOMAIN_COMPONENTS)(ActionButton);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionButton);

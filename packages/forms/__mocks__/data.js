@@ -1,5 +1,4 @@
 import React from 'react';
-import configureMockStore from 'redux-mock-store';
 
 export const data = {
 	jsonSchema: {
@@ -15,9 +14,7 @@ export const data = {
 			},
 			check: {},
 		},
-		required: [
-			'firstname',
-		],
+		required: ['firstname'],
 	},
 	uiSchema: [
 		{
@@ -37,6 +34,55 @@ export const data = {
 			widget: 'button',
 			title: 'Check the thing',
 			triggers: ['after'],
+		},
+	],
+	properties: {},
+	errors: {},
+};
+
+export const nestedData = {
+	jsonSchema: {
+		type: 'object',
+		title: 'Comment',
+		properties: {
+			content: {
+				type: 'string',
+				minLength: 4,
+			},
+			timestamp: {
+				type: 'object',
+				title: 'Published at',
+				properties: {
+					value: { type: 'number' },
+					gmt: { type: 'string' },
+				},
+			},
+		},
+	},
+	uiSchema: [
+		{
+			key: 'content',
+			title: 'Content of the comment',
+			description: 'Hint: put you comment here',
+			autoFocus: true,
+		},
+		{
+			placeholder: 'timestampConfiguration',
+			required: true,
+			title: '',
+			widget: 'fieldset',
+			items: [
+				{
+					key: 'timestamp.value',
+					title: 'Published at ',
+					widget: 'text',
+				},
+				{
+					key: 'timestamp.gmt_offset',
+					title: '+ GMT offset ',
+					widget: 'text',
+				},
+			],
 		},
 	],
 	properties: {},
@@ -114,20 +160,9 @@ export function initProps() {
 		onChange: jest.fn(),
 		onSubmit: jest.fn(),
 		onReset: jest.fn(),
-		onTrigger: jest.fn(),
+		onTrigger: jest.fn(() => Promise.resolve()),
 		widgets: {
-			custom: () => (<div>Custom</div>),
+			custom: () => <div>Custom</div>,
 		},
 	};
-}
-
-export function initStore(formName, form) {
-	const mockStore = configureMockStore();
-	const state = { forms: {} };
-
-	if (formName && form) {
-		state.forms[formName] = { ...form };
-	}
-
-	return mockStore(state);
 }

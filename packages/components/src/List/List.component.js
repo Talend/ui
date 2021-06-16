@@ -8,14 +8,26 @@ import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 import Inject from '../Inject';
 
-function ListToolbar({ id, toolbar, displayMode, list, getComponent, components = {} }) {
+const SelectAll = Toolbar.SelectAll;
+
+function ListToolbar({
+	id,
+	columnChooser,
+	toolbar,
+	displayMode,
+	list,
+	getComponent,
+	components = {},
+}) {
 	if (!toolbar) {
 		return null;
 	}
-	const shouldHideSortOptions = !!(displayMode === 'table' && list.sort);
+	const shouldHideSortOptions = !!(displayMode === 'table' && toolbar.sort);
+	const shouldHideSelectAll = displayMode === 'table';
 	const toolbarProps = {
 		...toolbar,
 		id,
+		columnChooser,
 		getComponent,
 		components,
 	};
@@ -24,7 +36,12 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 		toolbarProps.display.mode = displayMode;
 	}
 
-	if (list.itemProps && list.itemProps.isSelected && list.itemProps.onToggleAll) {
+	if (
+		!shouldHideSelectAll &&
+		list.itemProps &&
+		list.itemProps.isSelected &&
+		list.itemProps.onToggleAll
+	) {
 		toolbarProps.selectAllCheckbox = {
 			id,
 			items: list.items,
@@ -32,7 +49,6 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-
 	return <Toolbar {...toolbarProps} sort={!shouldHideSortOptions && toolbarProps.sort} />;
 }
 
@@ -58,7 +74,17 @@ ListToolbar.propTypes = {
 		}),
 	}),
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
-	renderers: PropTypes.object,
+	columnChooser: PropTypes.shape({
+		submit: PropTypes.func,
+		columns: PropTypes.arrayOf(
+			PropTypes.shape({
+				hidden: PropTypes.bool,
+				label: PropTypes.string,
+				locked: PropTypes.bool,
+				order: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+			}),
+		),
+	}),
 };
 
 /**
@@ -71,7 +97,7 @@ ListToolbar.propTypes = {
 		columns: [
 			{key, label},
 			{key, label},
-		]
+		],
 	},
 	toolbar: {
 		display: {
@@ -97,17 +123,33 @@ ListToolbar.propTypes = {
  <List {...props}></List>
  */
 function List({
+	columnChooser,
+	components = {},
+	defaultHeight,
 	displayMode,
+	getComponent,
 	id,
 	list,
-	toolbar,
-	defaultHeight,
 	rowHeight,
-	getComponent,
-	components = {},
+	rowRenderers,
+	toolbar,
 }) {
 	const classnames = classNames('tc-list', theme.list);
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
+	let selectAllCheckbox;
+	if (
+		displayMode !== 'table' &&
+		list.itemProps &&
+		list.itemProps.isSelected &&
+		list.itemProps.onToggleAll
+	) {
+		selectAllCheckbox = {
+			id,
+			items: list.items,
+			isSelected: list.itemProps.isSelected,
+			onToggleAll: list.itemProps.onToggleAll,
+		};
+	}
 
 	return (
 		<div className={classnames}>
@@ -118,12 +160,14 @@ function List({
 				toolbar={toolbar}
 				displayMode={displayMode}
 				list={list}
+				columnChooser={columnChooser}
 				getComponent={getComponent}
 				components={components}
 			/>
 			{injected('after-toolbar')}
+			{selectAllCheckbox && <SelectAll {...selectAllCheckbox} />}
 			{injected('before-list-wrapper')}
-			<div className={'tc-list-display-virtualized'}>
+			<div className="tc-list-display-virtualized">
 				{injected('before-list')}
 				<ListToVirtualizedList
 					id={id}
@@ -131,6 +175,7 @@ function List({
 					defaultHeight={defaultHeight}
 					rowHeight={rowHeight}
 					getComponent={getComponent}
+					rowRenderers={rowRenderers}
 					{...list}
 				/>
 				{injected('after-list')}
@@ -150,5 +195,6 @@ List.propTypes = {
 List.defaultProps = {
 	displayMode: 'table',
 };
+List.Toolbar = Toolbar;
 
 export default List;

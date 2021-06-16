@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Map } from 'immutable';
 import omit from 'lodash/omit';
-import { ConfirmDialog as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/ConfirmDialog';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
@@ -11,15 +11,18 @@ export const DEFAULT_STATE = new Map({
 	show: false,
 });
 
+// This uses old react context, so no way to switch to stateless function instead of class
+// eslint-disable-next-line react/prefer-stateless-function
 class ConfirmDialog extends React.Component {
 	static displayName = 'CMFContainer(ConfirmDialog)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
 	};
+
 	static contextTypes = {
 		store: PropTypes.object,
 		registry: PropTypes.object,
-		router: PropTypes.object,
 	};
 
 	render() {

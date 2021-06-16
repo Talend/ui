@@ -17,10 +17,12 @@
 
 import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
-import { mergeCSRFToken } from '@talend/react-cmf/lib/middlewares/http/csrfHandling';
+import cmf from '@talend/react-cmf';
 
 import flatten from './flatten';
 import defaultRegistry from './defaultRegistry';
+
+const mergeCSRFToken = cmf.middlewares.http.csrf.mergeCSRFToken;
 
 const DEFAULT_HEADERS = {
 	'Content-Type': 'application/json',
@@ -77,10 +79,19 @@ export function extractParameters(parameters, properties, schema) {
 	if (!parameters || !Array.isArray(parameters)) {
 		return {};
 	}
-	const flattenProps = flatten(properties);
+	const flattenProps = flatten(properties, { includeObjects: true });
 	return parameters.reduce((acc, param) => {
 		const path = getPathWithArrayIndex(param.path, schema);
-		acc[param.key] = flattenProps[path];
+		const value = flattenProps[path];
+		if (typeof value === 'object') {
+			Object.keys(value)
+				.filter(key => typeof value[key] !== 'object')
+				.forEach(key => {
+					acc[`${param.key}${key}`] = value[key];
+				});
+		} else {
+			acc[param.key] = value;
+		}
 		return acc;
 	}, {});
 }
@@ -123,7 +134,7 @@ export default function createTriggers({
 	lang = 'en',
 	headers,
 	fetchConfig,
-	security,
+	security = {},
 }) {
 	if (!url) {
 		throw new Error('url params is required to createTriggers');
@@ -152,6 +163,7 @@ export default function createTriggers({
 			const result = (services[trigger.type] || passthroughTrigger)({
 				body,
 				errors,
+				event,
 				properties,
 				schema,
 				trigger,
@@ -165,13 +177,25 @@ export default function createTriggers({
 			return result;
 		}
 		function onError(error) {
-			services.error({
+			return services.error({
 				error,
 				errors,
 				properties,
 				schema,
 				trigger,
 			});
+		}
+		if (trigger.remote === false) {
+			const result = onSuccess({});
+			if (result && result.then) {
+				return result.catch(onError);
+			}
+			return new Promise(resolve => resolve(result));
+		}
+		const config = cmf.sagas.http.getDefaultConfig() || {};
+		let httpSecurity = config.security || {};
+		if (security.CSRFTokenCookieKey || security.CSRFTokenHeaderKey) {
+			httpSecurity = security;
 		}
 		const fetchUrl = `${url}?${toQueryParam({
 			lang,
@@ -181,7 +205,7 @@ export default function createTriggers({
 		})}`;
 		return fetch(
 			fetchUrl,
-			mergeCSRFToken({ security })({
+			mergeCSRFToken({ security: httpSecurity })({
 				method: 'POST',
 				headers: actualHeaders,
 				body: JSON.stringify(parameters),

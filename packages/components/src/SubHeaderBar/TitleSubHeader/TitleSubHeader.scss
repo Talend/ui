@@ -6,16 +6,8 @@
 	overflow: hidden;
 }
 
-@mixin input-text($weight) {
-	color: $black;
-	font-size: $tc-input-subheader-size-medium;
-	font-weight: $weight;
-}
-
 $tc-input-subheader-size-large: 2.4rem !default;
 $tc-input-subheader-size-medium: 1.4rem !default;
-$tc-input-subheader-title-weight: 900 !default;
-$tc-input-subheader-sub-title-weight: 300 !default;
 
 :global(.tc-subheader-details-blink) {
 	@include heartbeat(object-blink);
@@ -26,7 +18,7 @@ $tc-input-subheader-sub-title-weight: 300 !default;
 	margin: 0;
 	height: 100%;
 
-	&-icon {
+	& &-icon {
 		align-self: center;
 		width: $tc-input-subheader-size-large;
 		height: $tc-input-subheader-size-large;
@@ -42,6 +34,7 @@ $tc-input-subheader-sub-title-weight: 300 !default;
 		flex: 1 auto;
 		margin-right: 110px;
 		max-width: 90rem;
+		align-items: flex-start;
 
 		&-title {
 			display: inline-flex;
@@ -49,22 +42,54 @@ $tc-input-subheader-sub-title-weight: 300 !default;
 
 			&-wording,
 			&-wording-button {
-				@include input-text($tc-input-subheader-title-weight);
 				@include ellipsis;
-				text-transform: uppercase;
+				line-height: unset;
 				margin: 0;
 			}
 
-			:global(.tc-editable-text-form-input) {
-				width: 30rem;
+			:global {
+				.tc-editable-text-wording {
+					line-height: unset;
+					margin: 0;
+				}
+
+				.tc-editable-text-form-input {
+					width: 30rem;
+				}
+
+				.tc-editable-text-form-buttons-submit:hover {
+					background: $scooter;
+
+					& svg {
+						background: $scooter;
+					}
+				}
+
+				.tc-editable-text-pencil {
+					opacity: 0;
+
+					&:focus,
+					&:active {
+						opacity: 1;
+					}
+				}
+
+				:hover {
+					.tc-editable-text-pencil {
+						opacity: 1;
+					}
+				}
 			}
 		}
 
 		&-subtitle {
 			@include ellipsis;
-			color: $dark-silver;
+			color: $black;
 			font-size: $tc-input-subheader-size-medium;
-			font-weight: $tc-input-subheader-sub-title-weight;
 		}
+	}
+
+	& &-loading-subtitle {
+		margin-top: $padding-smaller;
 	}
 }

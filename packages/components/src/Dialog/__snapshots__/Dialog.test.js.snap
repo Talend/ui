@@ -8,7 +8,6 @@ exports[`Dialog should render 1`] = `
   autoFocus={true}
   backdrop={true}
   bsClass="modal"
-  bsSize={undefined}
   className=""
   dialogComponentClass={[Function]}
   enforceFocus={true}
@@ -50,7 +49,6 @@ exports[`Dialog should render action 1`] = `
   autoFocus={true}
   backdrop={true}
   bsClass="modal"
-  bsSize={undefined}
   className=""
   dialogComponentClass={[Function]}
   enforceFocus={true}
@@ -81,7 +79,7 @@ exports[`Dialog should render action 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -101,7 +99,7 @@ exports[`Dialog should render action 1`] = `
   >
     <Action
       label="OK"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     />
   </ModalFooter>
 </Modal>
@@ -115,7 +113,6 @@ exports[`Dialog should render error 1`] = `
   autoFocus={true}
   backdrop={true}
   bsClass="modal"
-  bsSize={undefined}
   className=""
   dialogComponentClass={[Function]}
   enforceFocus={true}
@@ -146,7 +143,7 @@ exports[`Dialog should render error 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -176,7 +173,6 @@ exports[`Dialog should render header 1`] = `
   autoFocus={true}
   backdrop={true}
   bsClass="modal"
-  bsSize={undefined}
   className=""
   dialogComponentClass={[Function]}
   enforceFocus={true}
@@ -207,7 +203,7 @@ exports[`Dialog should render header 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -250,7 +246,7 @@ exports[`Dialog should render large 1`] = `
       "remove": [Function],
     }
   }
-  onHide={[Function]}
+  onHide={[MockFunction]}
   renderBackdrop={[Function]}
   restoreFocus={true}
   role="dialog"
@@ -264,7 +260,7 @@ exports[`Dialog should render large 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -284,7 +280,7 @@ exports[`Dialog should render large 1`] = `
   >
     <Action
       label="OK"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     />
   </ModalFooter>
 </Modal>
@@ -316,7 +312,7 @@ exports[`Dialog should render small 1`] = `
       "remove": [Function],
     }
   }
-  onHide={[Function]}
+  onHide={[MockFunction]}
   renderBackdrop={[Function]}
   restoreFocus={true}
   role="dialog"
@@ -330,7 +326,7 @@ exports[`Dialog should render small 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -350,7 +346,7 @@ exports[`Dialog should render small 1`] = `
   >
     <Action
       label="OK"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     />
   </ModalFooter>
 </Modal>
@@ -364,7 +360,6 @@ exports[`Dialog should render subtitle 1`] = `
   autoFocus={true}
   backdrop={true}
   bsClass="modal"
-  bsSize={undefined}
   className=""
   dialogComponentClass={[Function]}
   enforceFocus={true}
@@ -395,7 +390,7 @@ exports[`Dialog should render subtitle 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world

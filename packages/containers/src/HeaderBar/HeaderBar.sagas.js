@@ -10,12 +10,11 @@ import Constants from './HeaderBar.constant';
  * @param {Object} action
  */
 export function* fetchProducts(action) {
-	const { url, lang } = action.payload;
-	const productsUrl = `${url}?lang=${lang}`;
+	const { url } = action.payload;
 
 	yield put(Connected.setStateAction({ productsFetchState: Constants.FETCHING_PRODUCTS }));
 
-	const { response, data } = yield call(cmf.sagas.http.get, productsUrl);
+	const { response, data } = yield call(cmf.sagas.http.get, url);
 
 	if (response.ok) {
 		// Success, update collection
@@ -34,8 +33,8 @@ export function* fetchProducts(action) {
  * @param {Object} action
  */
 export function handleOpenProduct(action) {
-	if ('uri' in action.payload) {
-		window.open(action.payload.uri, '_blank');
+	if ('url' in action.payload && !/^javascript:/.test(action.payload.url.toLowerCase())) {
+		window.location.assign(action.payload.url);
 	}
 }
 

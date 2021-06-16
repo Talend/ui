@@ -4,20 +4,18 @@ exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
 <nav
   aria-label="breadcrumb"
 >
-  <ol
+  <ul
     className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
     id="42"
-  >
-    
-  </ol>
+  />
 </nav>
 `;
 
-exports[`Breadcrumbs should not render dropdown because all items are shown 1`] = `
+exports[`Breadcrumbs should render all items without a dropdown menu if default max items is not reached 1`] = `
 <nav
   aria-label="breadcrumb"
 >
-  <ol
+  <ul
     className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
     id="42"
   >
@@ -25,166 +23,102 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
       className="tc-breadcrumb-item"
     >
       <span
-        aria-current={undefined}
         id="42-item-0"
-        title={undefined}
+        title="Go to Page Text A"
       >
         Text A
       </span>
     </li>
     <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
       className="tc-breadcrumb-item"
     >
       <span
-        aria-current={undefined}
         id="42-item-1"
-        title={undefined}
+        title="Go to Page Text B"
       >
         Text B
       </span>
     </li>
     <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
       className="tc-breadcrumb-item"
     >
       <span
-        aria-current={undefined}
         id="42-item-2"
-        title={undefined}
+        title="Go to Page Text C"
       >
         Text C
       </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-3"
-        title={undefined}
-      >
-        Text D
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
     </li>
     <li
       className="tc-breadcrumb-item active"
     >
       <span
         aria-current="page"
-        id="42-item-4"
-        title={undefined}
+        id="42-item-3"
+        title="Go to Page Text D"
       >
-        Text E
+        Text D
       </span>
     </li>
-  </ol>
+  </ul>
 </nav>
 `;
 
-exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
+exports[`Breadcrumbs should render items with a dropdown menu if default max items is reached 1`] = `
 <nav
   aria-label="breadcrumb"
 >
-  <ol
+  <ul
     className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
     id="42"
   >
     <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-0"
+        title="Go to Page Text A"
+      >
+        Text A
+      </span>
+    </li>
+    <li
       className="tc-breadcrumb-menu"
     >
-      <Translate(ActionDropdown)
+      <withI18nextTranslation(ActionDropdown)
         aria-label="Open first links menu"
         id="42-ellipsis"
         items={
           Array [
             Object {
-              "id": "42-item-0",
-              "label": "Text A",
-              "onClick": [Function],
-              "title": undefined,
-            },
-            Object {
               "id": "42-item-1",
               "label": "Text B",
               "onClick": [Function],
-              "title": undefined,
+              "title": "Go to Page Text B",
             },
             Object {
               "id": "42-item-2",
               "label": "Text C",
               "onClick": [Function],
-              "title": undefined,
+              "title": "Go to Page Text C",
             },
           ]
         }
         label="…"
         link={true}
         noCaret={true}
-      />
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
+        t={[Function]}
       />
     </li>
     <li
       className="tc-breadcrumb-item"
     >
       <span
-        aria-current={undefined}
         id="42-item-3"
-        title={undefined}
+        title="Go to Page Text D"
       >
         Text D
       </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
     </li>
     <li
       className="tc-breadcrumb-item active"
@@ -192,363 +126,11 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       <span
         aria-current="page"
         id="42-item-4"
-        title={undefined}
+        title="Go to Page Text E"
       >
         Text E
       </span>
     </li>
-  </ol>
-</nav>
-`;
-
-exports[`Breadcrumbs should render items ids when provided 1`] = `
-<nav
-  aria-label="breadcrumb"
->
-  <ol
-    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-    id="my-breadcrumb"
-  >
-    <li
-      className="tc-breadcrumb-menu"
-    >
-      <Translate(ActionDropdown)
-        aria-label="Open first links menu"
-        id="my-breadcrumb-ellipsis"
-        items={
-          Array [
-            Object {
-              "id": "my-breadcrumb-item-0",
-              "label": "Text A",
-              "onClick": [Function],
-              "title": "Go to Page Text A",
-            },
-          ]
-        }
-        label="…"
-        link={true}
-        noCaret={true}
-      />
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="my-breadcrumb-item-1"
-        title="Go to Page Text B"
-      >
-        Text B
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="my-breadcrumb-item-2"
-        title="Go to Page Text C"
-      >
-        Text C
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item active"
-    >
-      <span
-        aria-current="page"
-        id="my-breadcrumb-item-3"
-        title="Go to Page Text D"
-      >
-        Text D
-      </span>
-    </li>
-  </ol>
-</nav>
-`;
-
-exports[`Breadcrumbs should render items with ellipsis and 3 visible items by default 1`] = `
-<nav
-  aria-label="breadcrumb"
->
-  <ol
-    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-    id="42"
-  >
-    <li
-      className="tc-breadcrumb-menu"
-    >
-      <Translate(ActionDropdown)
-        aria-label="Open first links menu"
-        id="42-ellipsis"
-        items={
-          Array [
-            Object {
-              "id": "42-item-0",
-              "label": "Text A",
-              "onClick": [Function],
-              "title": "Go to Page Text A",
-            },
-          ]
-        }
-        label="…"
-        link={true}
-        noCaret={true}
-      />
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-1"
-        title="Go to Page Text B"
-      >
-        Text B
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-2"
-        title="Go to Page Text C"
-      >
-        Text C
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item active"
-    >
-      <span
-        aria-current="page"
-        id="42-item-3"
-        title="Go to Page Text D"
-      >
-        Text D
-      </span>
-    </li>
-  </ol>
-</nav>
-`;
-
-exports[`Breadcrumbs should render list of items without ellipsis when set enough max items to display 1`] = `
-<nav
-  aria-label="breadcrumb"
->
-  <ol
-    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-    id="42"
-  >
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-0"
-        title={undefined}
-      >
-        Text A
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-1"
-        title={undefined}
-      >
-        Text B
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-2"
-        title={undefined}
-      >
-        Text C
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-3"
-        title={undefined}
-      >
-        Text D
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item active"
-    >
-      <span
-        aria-current="page"
-        id="42-item-4"
-        title={undefined}
-      >
-        Text E
-      </span>
-    </li>
-  </ol>
-</nav>
-`;
-
-exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
-<nav
-  aria-label="breadcrumb"
->
-  <ol
-    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-    id="42"
-  >
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-0"
-        title="Text tile A"
-      >
-        Text A
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item"
-    >
-      <span
-        aria-current={undefined}
-        id="42-item-1"
-        title="Text tile B"
-      >
-        Text B
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      className="tc-breadcrumb-separator separator"
-    >
-      <Icon
-        name="talend-chevron-left"
-        transform="rotate-180"
-      />
-    </li>
-    <li
-      className="tc-breadcrumb-item active"
-    >
-      <span
-        aria-current="page"
-        id="42-item-2"
-        title={undefined}
-      >
-        Text C
-      </span>
-    </li>
-  </ol>
+  </ul>
 </nav>
 `;

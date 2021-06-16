@@ -7,7 +7,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
   autoFocus={true}
   backdrop={true}
   bsSize="large"
-  className="Modal"
+  className="Modal mocked-component"
   enforceFocus={true}
   keyboard={true}
   onHide={[Function]}
@@ -16,27 +16,28 @@ exports[`ConfirmDialog should render with a large container 1`] = `
   show={true}
 >
   <div
-    className="Header"
+    className="Header mocked-component"
     closeButton={false}
   >
     <div
-      className="Title"
+      className="Title mocked-component"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
     </div>
   </div>
   <div
-    className="Body"
+    className="Body mocked-component"
   >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer"
+    className="Footer mocked-component"
   >
-    <nav
+    <div
       className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
       <div
@@ -57,9 +58,6 @@ exports[`ConfirmDialog should render with a large container 1`] = `
         </button>
       </div>
       <div
-        className="theme-navbar-center"
-      />
-      <div
         className="theme-navbar-right navbar-right"
       >
         <button
@@ -76,7 +74,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
           </span>
         </button>
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 `;
@@ -88,7 +86,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
   autoFocus={true}
   backdrop={true}
   bsSize="large"
-  className="Modal"
+  className="Modal mocked-component"
   enforceFocus={true}
   keyboard={true}
   onHide={[Function]}
@@ -97,11 +95,12 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
   show={true}
 >
   <div
-    className="Header"
+    className="Header mocked-component"
     closeButton={false}
   >
     <div
-      className="Title"
+      className="Title mocked-component"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -113,12 +112,16 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
     aria-valuemin={0}
     aria-valuenow={25}
     className="theme-progress"
-    id={undefined}
     role="progressbar"
   >
     <div
+      aria-describedby="42"
       className="theme-progress-percent"
+      onBlur={[Function]}
+      onClick={[Function]}
       onFocus={[Function]}
+      onKeyPress={[Function]}
+      onMouseOut={[Function]}
       onMouseOver={[Function]}
       style={
         Object {
@@ -128,16 +131,16 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
     />
   </div>
   <div
-    className="Body"
+    className="Body mocked-component"
   >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer"
+    className="Footer mocked-component"
   >
-    <nav
+    <div
       className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
       <div
@@ -158,9 +161,6 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
         </button>
       </div>
       <div
-        className="theme-navbar-center"
-      />
-      <div
         className="theme-navbar-right navbar-right"
       >
         <button
@@ -177,7 +177,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
           </span>
         </button>
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 `;
@@ -189,7 +189,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
   autoFocus={true}
   backdrop={true}
   bsSize="small"
-  className="Modal"
+  className="Modal mocked-component"
   enforceFocus={true}
   keyboard={true}
   onHide={[Function]}
@@ -198,27 +198,28 @@ exports[`ConfirmDialog should render with a small container 1`] = `
   show={true}
 >
   <div
-    className="Header"
+    className="Header mocked-component"
     closeButton={false}
   >
     <div
-      className="Title"
+      className="Title mocked-component"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
     </div>
   </div>
   <div
-    className="Body"
+    className="Body mocked-component"
   >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer"
+    className="Footer mocked-component"
   >
-    <nav
+    <div
       className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
       <div
@@ -238,9 +239,6 @@ exports[`ConfirmDialog should render with a small container 1`] = `
           </span>
         </button>
       </div>
-      <div
-        className="theme-navbar-center"
-      />
       <div
         className="theme-navbar-right navbar-right"
       >
@@ -258,7 +256,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
           </span>
         </button>
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 `;
@@ -269,8 +267,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
   aria-modal="true"
   autoFocus={true}
   backdrop={true}
-  bsSize={undefined}
-  className="Modal"
+  className="Modal mocked-component"
   enforceFocus={true}
   keyboard={true}
   onHide={[Function]}
@@ -279,27 +276,28 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
   show={true}
 >
   <div
-    className="Header"
+    className="Header mocked-component"
     closeButton={false}
   >
     <div
-      className="Title"
+      className="Title mocked-component"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
     </div>
   </div>
   <div
-    className="Body"
+    className="Body mocked-component"
   >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer"
+    className="Footer mocked-component"
   >
-    <nav
+    <div
       className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
       <div
@@ -319,9 +317,6 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
           </span>
         </button>
       </div>
-      <div
-        className="theme-navbar-center"
-      />
       <div
         className="theme-navbar-right navbar-right"
       >
@@ -352,7 +347,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
           </span>
         </button>
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 `;
@@ -363,8 +358,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
   aria-modal="true"
   autoFocus={true}
   backdrop={true}
-  bsSize={undefined}
-  className="Modal"
+  className="Modal mocked-component"
   enforceFocus={true}
   keyboard={true}
   onHide={[Function]}
@@ -373,27 +367,28 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
   show={true}
 >
   <div
-    className="Header"
+    className="Header mocked-component"
     closeButton={false}
   >
     <div
-      className="Title"
+      className="Title mocked-component"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
     </div>
   </div>
   <div
-    className="Body"
+    className="Body mocked-component"
   >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer"
+    className="Footer mocked-component"
   >
-    <nav
+    <div
       className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
       <div
@@ -414,9 +409,6 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
         </button>
       </div>
       <div
-        className="theme-navbar-center"
-      />
-      <div
         className="theme-navbar-right navbar-right"
       >
         <button
@@ -433,7 +425,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
           </span>
         </button>
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 `;
@@ -444,8 +436,7 @@ exports[`ConfirmDialog should render without header 1`] = `
   aria-modal="true"
   autoFocus={true}
   backdrop={true}
-  bsSize={undefined}
-  className="Modal"
+  className="Modal mocked-component"
   enforceFocus={true}
   keyboard={true}
   onHide={[Function]}
@@ -454,16 +445,16 @@ exports[`ConfirmDialog should render without header 1`] = `
   show={true}
 >
   <div
-    className="Body"
+    className="Body mocked-component"
   >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer"
+    className="Footer mocked-component"
   >
-    <nav
+    <div
       className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
       <div
@@ -484,9 +475,6 @@ exports[`ConfirmDialog should render without header 1`] = `
         </button>
       </div>
       <div
-        className="theme-navbar-center"
-      />
-      <div
         className="theme-navbar-right navbar-right"
       >
         <button
@@ -503,7 +491,7 @@ exports[`ConfirmDialog should render without header 1`] = `
           </span>
         </button>
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 `;

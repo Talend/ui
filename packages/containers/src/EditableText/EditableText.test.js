@@ -22,7 +22,9 @@ describe('EditableText container', () => {
 		let state;
 		const props = {
 			state: Map({ editMode: true }),
-			setState: jest.fn(fn => (state = fn)),
+			setState: jest.fn(fn => {
+				state = fn;
+			}),
 			onCancel: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('submit', event);
@@ -60,7 +62,9 @@ describe('EditableText container', () => {
 		let state;
 		const props = {
 			state: Map({ editMode: true }),
-			setState: jest.fn(fn => (state = fn)),
+			setState: jest.fn(fn => {
+				state = fn;
+			}),
 			onCancel: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('cancel', event);
@@ -95,7 +99,9 @@ describe('EditableText container', () => {
 		let state;
 		const props = {
 			state: Map({ editMode: false }),
-			setState: jest.fn(fn => (state = fn)),
+			setState: jest.fn(fn => {
+				state = fn;
+			}),
 			onCancel: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('edit', event);

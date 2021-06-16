@@ -63,24 +63,38 @@ export function* deleteResourceValidate(
 	const safePath = get(action, 'data.model.resourcePath', resourcePath);
 	const resourceCollectionId = get(action, 'data.model.collectionId', collectionId);
 	const resourceLocator = getResourceLocator(resourceCollectionId || safeType, safePath);
-	const resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, safeId);
+
+	let resource;
+
+	if (get(action, 'data.model.resource')) {
+		resource = get(action, 'data.model.resource');
+	} else {
+		resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, safeId);
+	}
+
 	const safeResourceUri = get(
 		action,
 		'data.model.resourceUri',
 		resourceUri || `${safeURI}/${safeType}/${safeId}`,
 	);
 	if (resource && safeResourceUri) {
-		const { response } = yield call(cmf.sagas.http.delete, safeResourceUri);
-		if (response.ok) {
+		const result = yield call(cmf.sagas.http.delete, safeResourceUri);
+		if (result.response.ok) {
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 				model: {
+					...get(action, 'data.model', {}),
 					id: safeId,
 					labelResource: resource.get('label') || resource.get('name', ''),
 				},
 			});
+			yield call(redirect, get(action, 'data.model.redirectUrl'));
+		} else {
+			yield put({
+				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_ERROR,
+				error: result.data,
+			});
 		}
-		yield call(redirect, get(action, 'data.model.redirectUrl'));
 	}
 }
 

@@ -1,3 +1,6 @@
+$tc-tabbar-active-border-size: 0.2rem !default;
+$tc-tabbar-active-color: $lochmara;
+
 .nav {
 	.btn-link {
 		color: inherit;
@@ -68,6 +71,12 @@
 				width: 100%;
 				text-align: left;
 				background-color: transparent;
+
+				&:focus,
+				&:hover,
+				&:active {
+					--t-button-color: var(--t-button-color-primary);
+				}
 			}
 		}
 	}
@@ -92,41 +101,53 @@
 
 		> li {
 			margin: 0;
-			&:first-of-type > * {
-				padding-left: $padding-large;
-			}
-			&:last-of-type > * {
-				padding-right: $padding-large;
-			}
 
 			> a,
 			> button {
 				background: transparent;
 				border: none;
 				border-radius: 0;
-				color: $dark-silver;
-				line-height: 1;
+				color: $black;
 				margin-bottom: 0.5rem;
 				outline: none;
-				padding: $padding-normal;
-				text-transform: uppercase;
+				padding: $padding-smaller $padding-small;
+				padding-bottom: calc(#{$padding-smaller} + #{$tc-tabbar-active-border-size});
+
+				max-width: 20rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
 
 				&:hover,
 				&:focus {
-					color: $scooter;
+					color: $lochmara;
 				}
 			}
 
 			&.active {
 				> a,
 				> button {
-					box-shadow: 0 -2px 0 $brand-primary inset;
-					border: none;
-					color: $brand-primary;
+					color: $lochmara;
+					font-weight: $font-weight-semi-bold;
 
-					&:focus,
-					&:hover {
+					position: relative;
+
+					&:after {
+						position: absolute;
+						content: '';
+
+						left: $padding-small;
+						right: $padding-small;
+						bottom: 0;
+
+						border-bottom: solid $tc-tabbar-active-border-size $lochmara;
+					}
+
+					&:focus {
 						color: $scooter;
+					}
+					&:hover {
+						color: $lochmara;
 					}
 				}
 			}
@@ -135,7 +156,8 @@
 				> a,
 				> button {
 					cursor: not-allowed;
-					color: rgba(1, 1, 1, 0.4);
+					color: $black;
+					opacity: 0.54;
 
 					&,
 					&:focus,

@@ -15,9 +15,9 @@ describe('CheckBox field', () => {
 		// when
 		const wrapper = shallow(
 			<CheckBox
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
@@ -39,9 +39,9 @@ describe('CheckBox field', () => {
 		// when
 		const wrapper = shallow(
 			<CheckBox
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
@@ -58,9 +58,9 @@ describe('CheckBox field', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<CheckBox
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
 				onFinish={jest.fn()}
 				schema={schema}
@@ -81,9 +81,9 @@ describe('CheckBox field', () => {
 		const onFinish = jest.fn();
 		const wrapper = mount(
 			<CheckBox
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}

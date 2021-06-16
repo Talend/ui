@@ -59,7 +59,6 @@ describe('List sagas', () => {
 				Connected.setStateAction(
 					{
 						filterDocked: !data.payload.filterDocked,
-						searchQuery: '',
 					},
 					data.props.collectionId,
 				),

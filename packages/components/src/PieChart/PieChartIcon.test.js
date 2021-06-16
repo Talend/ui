@@ -1,14 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import {
-	PieChartIconComponent,
 	distributePercentages,
 	getAngle,
 	getCircle,
 	getDisplaySize,
-	getPercentageToIndex,
 	getEmptyPartCircle,
+	getLabel,
+	getPercentageToIndex,
+	PieChartIconComponent,
 	setMinimumPercentage,
+	PIECHART_SIZES,
 } from './PieChartIcon.component';
 
 describe('PieChart', () => {
@@ -41,7 +43,9 @@ describe('PieChart', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 		it('should render a PieChart', () => {
-			const wrapper = shallow(<PieChartIconComponent display="small" model={pieChartData} />);
+			const wrapper = shallow(
+				<PieChartIconComponent display={PIECHART_SIZES.SMALL} model={pieChartData} />,
+			);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 		it('should spread extra props on svg', () => {
@@ -257,7 +261,7 @@ describe('PieChart', () => {
 			expect(result).toEqual({
 				innerRadius: 18,
 				outerRadius: 22,
-				padAngle: 0.101,
+				padAngle: 0.161,
 				svgSize: 50,
 			});
 		});
@@ -271,9 +275,53 @@ describe('PieChart', () => {
 			expect(result).toEqual({
 				innerRadius: 9,
 				outerRadius: 12,
-				padAngle: 0.1736,
+				padAngle: 0.18960000000000002,
 				svgSize: 28,
 			});
+		});
+	});
+
+	describe('getLabel', () => {
+		const t = jest.fn((_, obj) => obj.percentage);
+
+		it('should show a rounded label', () => {
+			// given
+			const hideLabel = false;
+			const labelValue = { percentage: 12.2 };
+			// when
+			const value = getLabel(hideLabel, labelValue, t);
+			// then
+			expect(value).toBe('12');
+		});
+
+		it('should show no label when hideLabel is passed to true', () => {
+			// given
+			const hideLabel = true;
+			const labelValue = { percentage: 12.2 };
+			// when
+			const value = getLabel(hideLabel, labelValue, t);
+			// then
+			expect(value).toBe('');
+		});
+
+		it('should show < 1% when the value is < 1 & > 0', () => {
+			// given
+			const hideLabel = false;
+			const labelValue = { percentage: 0.1 };
+			// when
+			const value = getLabel(hideLabel, labelValue, t);
+			// then
+			expect(value).toBe('< 1');
+		});
+
+		it('should show > 99% when the value is < 100 & > 99', () => {
+			// given
+			const hideLabel = false;
+			const labelValue = { percentage: 99.9 };
+			// when
+			const value = getLabel(hideLabel, labelValue, t);
+			// then
+			expect(value).toBe('> 99');
 		});
 	});
 });

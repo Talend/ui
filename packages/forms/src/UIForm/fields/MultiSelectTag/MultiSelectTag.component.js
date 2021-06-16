@@ -4,6 +4,7 @@ import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import Badge from '@talend/react-components/lib/Badge';
+import FocusManager from '@talend/react-components/lib/FocusManager';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
@@ -36,6 +37,7 @@ export default class MultiSelectTag extends React.Component {
 			itemsList: theme.items,
 		};
 
+		this.onBlur = this.onBlur.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
@@ -49,7 +51,7 @@ export default class MultiSelectTag extends React.Component {
 	 * On Tags value change, we update suggestions if they are displayed
 	 * @param { Object } nextProps The new props
 	 */
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.value === this.props.value) {
 			return;
 		}
@@ -85,6 +87,12 @@ export default class MultiSelectTag extends React.Component {
 				break;
 			default:
 				break;
+		}
+	}
+
+	onBlur(event) {
+		if (this.props.onBlur) {
+			this.props.onBlur(event);
 		}
 	}
 
@@ -190,14 +198,18 @@ export default class MultiSelectTag extends React.Component {
 			const currentProps = props === undefined ? this.props : props;
 			let suggestions = this.getTitleMap(currentProps)
 				.map(item => ({ value: item.value, title: item.name }))
-				.filter(item => currentProps.value.indexOf(item.value) < 0);
+				.filter(item => !currentProps.value.includes(item.value));
 
 			if (currentValue) {
 				const escapedValue = escapeRegexCharacters(currentValue.trim());
-				const regex = new RegExp(escapedValue, 'i');
-				suggestions = suggestions.filter(item => regex.test(item.title));
-
-				if (!suggestions.length && currentProps.schema.restricted === false) {
+				const exactMatchRx = new RegExp(`^${escapedValue}$`, 'i');
+				const similarValueRx = new RegExp(escapedValue, 'i');
+				suggestions = suggestions.filter(item => similarValueRx.test(item.title));
+				if (
+					!suggestions.some(item => exactMatchRx.test(item.title)) &&
+					currentProps.schema.restricted === false &&
+					!currentProps.value.includes(currentValue)
+				) {
 					suggestions.push({ value: currentValue, title: getNewItemText(currentValue) });
 				}
 			}
@@ -211,7 +223,7 @@ export default class MultiSelectTag extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, errorMessage, schema } = this.props;
+		const { id, isValid, errorMessage, schema, valueIsUpdating } = this.props;
 		const names = this.props.resolveName(this.props.value);
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
@@ -226,6 +238,7 @@ export default class MultiSelectTag extends React.Component {
 				isValid={isValid}
 				label={schema.title}
 				required={schema.required}
+				valueIsUpdating={valueIsUpdating}
 			>
 				<div className={`${theme.wrapper} form-control`}>
 					{this.props.value.map((val, index) => {
@@ -236,31 +249,32 @@ export default class MultiSelectTag extends React.Component {
 						}
 						return <Badge {...badgeProps} />;
 					})}
-
-					<Typeahead
-						id={id}
-						autoFocus={schema.autoFocus || false}
-						disabled={schema.disabled || false}
-						focusedItemIndex={this.state.focusedItemIndex}
-						isLoading={this.state.isLoading}
-						items={this.state.suggestions}
-						multiSection={false}
-						onBlur={this.resetSuggestions}
-						onChange={this.onChange}
-						onFocus={this.onFocus}
-						onKeyDown={this.onKeyDown}
-						onSelect={this.onAddTag}
-						placeholder={schema.placeholder}
-						readOnly={schema.readOnly || false}
-						theme={this.theme}
-						value={this.state.value}
-						caret
-						inputProps={{
-							'aria-invalid': !isValid,
-							'aria-required': schema.required,
-							'aria-describedby': `${descriptionId} ${errorId}`,
-						}}
-					/>
+					<FocusManager onFocusOut={this.resetSuggestions} className={theme['focus-manager']}>
+						<Typeahead
+							id={id}
+							autoFocus={schema.autoFocus || false}
+							disabled={schema.disabled || valueIsUpdating}
+							focusedItemIndex={this.state.focusedItemIndex}
+							isLoading={this.state.isLoading}
+							items={this.state.suggestions}
+							multiSection={false}
+							onChange={this.onChange}
+							onFocus={this.onFocus}
+							onKeyDown={this.onKeyDown}
+							onSelect={this.onAddTag}
+							onBlur={this.onBlur}
+							placeholder={schema.placeholder}
+							readOnly={schema.readOnly || false}
+							theme={this.theme}
+							value={this.state.value}
+							caret
+							inputProps={{
+								'aria-invalid': !isValid,
+								'aria-required': schema.required,
+								'aria-describedby': `${descriptionId} ${errorId}`,
+							}}
+						/>
+					</FocusManager>
 				</div>
 			</FieldTemplate>
 		);
@@ -274,16 +288,19 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		errors: PropTypes.object,
 		resolveName: PropTypes.func,
+		onBlur: PropTypes.func,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
+		required: PropTypes.bool,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
@@ -299,6 +316,7 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

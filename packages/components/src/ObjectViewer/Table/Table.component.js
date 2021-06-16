@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import union from 'lodash/union';
 
 import toFlat from '../toflat';
 import JSONLike from '../JSONLike';
 import theme from './Table.scss';
 
+/**
+ * @param {Object} data
+ * @param {Bool} isFlat
+ * @return {Array<String>}
+ */
 export function getKeys(data, isFlat) {
 	if (isFlat) {
 		return Object.keys(toFlat(data));
@@ -74,7 +80,18 @@ function Table({ flat, data, title, ...props }) {
 
 	// The datas can be an array or an array in an object. We assign the value correctly here.
 	const dataset = Array.isArray(data) ? data : data.dataset;
-	const keys = getKeys(dataset[0], flat);
+	/**
+	 * because we want to display all the possible table header keys
+	 * for each row of the dataset we try to find each possible key
+	 * and merge them into a array of unique values
+	 * this may not be performant or good UX for huge heterogenous datasets
+	 * because it require to run a recursive exploratory function on each member of the dataset
+	 * and it may show to many column to the end user
+	 */
+	const keys = dataset.reduce(
+		(accumulator, currentValue) => union(getKeys(currentValue, flat), accumulator),
+		[],
+	);
 	const headers = getHeaders(keys, flat, props.id);
 	const tableClassName = classNames(
 		theme.table,

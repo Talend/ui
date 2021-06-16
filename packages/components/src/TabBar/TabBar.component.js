@@ -1,93 +1,231 @@
 /* eslint-disable react/no-find-dom-node */
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
+import { OverlayTrigger } from 'react-bootstrap';
 import keycode from 'keycode';
+import debounce from 'lodash/debounce';
+import classnames from 'classnames';
 
-class TabBar extends React.Component {
-	constructor(props) {
-		super(props);
-		this.handleSelect = this.handleSelect.bind(this);
-		this.handleKeyDown = this.handleKeyDown.bind(this);
+import Tag from '../Tag';
+import Icon from '../Icon';
+import TooltipTrigger from '../TooltipTrigger';
+import { ActionDropdown } from '../Actions';
+import getTabBarBadgeLabel from '../utils/getTabBarBadgeLabel';
+
+import theme from './TabBar.scss';
+
+function TabBar(props) {
+	const tabBarContainerRef = useRef();
+	const tabBarRef = useRef();
+	const needsRefocus = useRef();
+
+	const [showDropdown, setShowDropDown] = useState(false);
+
+	const { responsive = true } = props;
+
+	function tryShowDropdown() {
+		const tabContainer = tabBarContainerRef.current;
+		if (tabContainer) {
+			// There is a TabBar, test if the right boundary point of this TabBar
+			// is closer than the right boundary point of its last nav item.
+			const lastChild = tabContainer.querySelector('li:last-child');
+			if (lastChild) {
+				if (tabContainer.getBoundingClientRect().right < lastChild.getBoundingClientRect().right) {
+					setShowDropDown(true);
+				}
+			}
+		} else {
+			// There is no TabBar, show it to test if dropdown is needed
+			setShowDropDown(false);
+		}
 	}
 
-	componentDidUpdate() {
-		if (!this.needsRefocus || !this.ref) {
+	/**
+	 * Just show the tabBar and test if there is enough width.
+	 */
+	function showTabBarAndTest() {
+		setShowDropDown(false);
+		tryShowDropdown();
+	}
+
+	useEffect(() => {
+		if (responsive) {
+			const resizeListener = window.addEventListener('resize', debounce(showTabBarAndTest, 200));
+			return () => window.removeEventListener('resize', resizeListener);
+		}
+		return undefined;
+	}, []);
+
+	useEffect(() => {
+		if (!needsRefocus.current || !tabBarRef.current) {
 			return;
 		}
-
-		const activeChild = ReactDOM.findDOMNode(this.ref).querySelector('[aria-selected=true]');
-		if (activeChild) {
-			activeChild.focus();
-			this.needsRefocus = false;
+		const tabBarRefNode = ReactDOM.findDOMNode(tabBarRef.current);
+		if (tabBarRefNode && typeof tabBarRefNode.querySelector === 'function') {
+			const activeChild = tabBarRefNode.querySelector('[aria-selected=true]');
+			if (activeChild) {
+				activeChild.focus({ preventScroll: true });
+				needsRefocus.current = false;
+			}
 		}
-	}
+	});
 
-	handleSelect(selectedKey, event) {
-		if (selectedKey !== this.props.selectedKey) {
+	useEffect(() => {
+		if (responsive) {
+			tryShowDropdown();
+		}
+	}, []);
+
+	const { onSelect } = props; // to avoid react/no-unused-prop-types
+	function handleSelect(selectedKey, event) {
+		if (selectedKey !== props.selectedKey) {
 			if (event) {
 				event.preventDefault();
 			}
-			this.props.onSelect(event, this.props.items.find(({ key }) => selectedKey === key));
+			onSelect(
+				event,
+				props.items.find(({ key }) => selectedKey === key),
+			);
 		}
 	}
 
-	handleKeyDown(event) {
-		const { items } = this.props;
+	function handleKeyDown(event) {
+		const { items } = props;
 		switch (event.which) {
 			case keycode.codes.home:
-				this.needsRefocus = true;
-				this.handleSelect(items[0].key, event);
+				needsRefocus.current = true;
+				handleSelect(items[0].key, event);
 				break;
 			case keycode.codes.end:
-				this.needsRefocus = true;
-				this.handleSelect(items[items.length - 1].key, event);
+				needsRefocus.current = true;
+				handleSelect(items[items.length - 1].key, event);
 				break;
 			default:
 				break;
 		}
 	}
 
-	render() {
-		const { className, id, items, selectedKey, children, generateChildId } = this.props;
-		return (
-			<Tab.Container
+	const {
+		className,
+		id,
+		items,
+		selectedKey,
+		children,
+		generateChildId,
+		tooltipPlacement,
+		right,
+	} = props;
+	const hasChildren = children || items.some(item => item.children);
+	const tabContent = hasChildren && (
+		<Tab.Content>
+			{items.map(item => (
+				<Tab.Pane eventKey={item.key} key={item.key}>
+					{item.children}
+					{selectedKey === item.key ? children : null}
+				</Tab.Pane>
+			))}
+		</Tab.Content>
+	);
+
+	let tabMenu;
+	if (responsive && showDropdown) {
+		const selectedItem = items.find(item => item.key === selectedKey) || items[0];
+		const badgeLabel = get(selectedItem, 'badge.label', '');
+		tabMenu = (
+			<ActionDropdown
 				id={id}
-				activeKey={selectedKey}
-				className={className}
-				onSelect={this.handleSelect}
-				onKeyDown={this.handleKeyDown}
-				generateChildId={generateChildId}
+				className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
+				badge={selectedItem.badge}
+				tooltipLabel={badgeLabel ? `${badgeLabel} ${selectedItem.label}` : selectedItem.label}
+				label={selectedItem.label}
+				icon={selectedItem.icon && selectedItem.icon.name}
+				onSelect={(event, { key }) => handleSelect(key, event)}
+				items={items.map(item => ({
+					...item,
+					icon: item.icon && item.icon.name,
+				}))}
+				link
+			/>
+		);
+	} else {
+		tabMenu = (
+			<Nav
+				bsStyle="tabs"
+				className={classnames(
+					theme['tc-tab-bar'],
+					'tc-tab-bar',
+					responsive && theme['tc-tab-bar-responsive'],
+					responsive && 'tc-tab-bar-responsive',
+				)}
+				ref={tabBarRef}
 			>
-				<div>
-					<Nav
-						bsStyle="tabs"
-						className="tc-tab-bar"
-						ref={ref => {
-							this.ref = ref;
-						}}
+				{items.map(({ icon, badge, ...item }) => (
+					<NavItem
+						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
+						{...item}
+						eventKey={item.key}
+						componentClass="button"
 					>
-						{items.map(item => (
-							<NavItem {...item} eventKey={item.key} componentClass="button">
-								{item.label}
-							</NavItem>
-						))}
-					</Nav>
-					<Tab.Content>
-						{items.map(item => (
-							<Tab.Pane eventKey={item.key} key={item.key}>
-								{item.children}
-								{selectedKey === item.key ? children : null}
-							</Tab.Pane>
-						))}
-					</Tab.Content>
-				</div>
-			</Tab.Container>
+						<TooltipTrigger
+							label={badge && badge.label ? `${badge.label} ${item.label}` : item.label}
+							tooltipPlacement={tooltipPlacement}
+						>
+							<span
+								className={classnames(
+									theme['tc-tab-bar-item-container'],
+									'tc-tab-bar-item-container',
+								)}
+							>
+								{icon && (
+									<Icon
+										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
+										{...icon}
+									/>
+								)}
+								<span className={classnames(theme['tc-tab-bar-item-label'])}>{item.label}</span>
+								{badge && (
+									<Tag
+										className={classnames(
+											theme['tc-tab-bar-item-badge'],
+											'tc-tab-bar-item-badge',
+											badge.className,
+										)}
+										bsStyle={badge.bsStyle}
+									>
+										{getTabBarBadgeLabel(badge.label)}
+									</Tag>
+								)}
+							</span>
+						</TooltipTrigger>
+					</NavItem>
+				))}
+			</Nav>
 		);
 	}
+
+	return (
+		<Tab.Container
+			id={id}
+			activeKey={selectedKey}
+			className={className}
+			onSelect={handleSelect}
+			onKeyDown={handleKeyDown}
+			generateChildId={generateChildId}
+		>
+			<div ref={tabBarContainerRef}>
+				<div className={classnames(theme['tc-tab-bar-menu'], 'tc-tab-bar-menu')}>
+					{tabMenu}
+					{right}
+				</div>
+				{tabContent}
+			</div>
+		</Tab.Container>
+	);
 }
 
 TabBar.displayName = 'TabBar';
@@ -102,10 +240,23 @@ TabBar.propTypes = {
 			id: PropTypes.string,
 			key: PropTypes.any.isRequired,
 			label: PropTypes.string.isRequired,
+			icon: PropTypes.object,
+			badge: PropTypes.shape({
+				className: PropTypes.string,
+				label: PropTypes.string,
+				bsStyle: PropTypes.string,
+			}),
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,
+	responsive: PropTypes.bool,
 	selectedKey: PropTypes.any,
+	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	right: PropTypes.node,
+};
+
+TabBar.defaultProps = {
+	tooltipPlacement: 'top',
 };
 
 TabBar.Tab = Tab;

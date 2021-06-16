@@ -13,13 +13,11 @@ function ReactCMFWebpackPlugin(options = {}) {
 	this.lastRun = null;
 	this.lastWatch = null;
 	this.modifiedFiles = [];
-	this.options = Object.assign(
-		{
-			quiet: false,
-			watch: false,
-		},
-		options,
-	);
+	this.options = {
+		quiet: false,
+		watch: false,
+		...options,
+	};
 	this.log = (...args) => {
 		if (!this.options.quiet) {
 			console.error('[ReactCMFWebpackPlugin]', ...args); // eslint-disable-line no-console
@@ -27,17 +25,30 @@ function ReactCMFWebpackPlugin(options = {}) {
 	};
 }
 
+function getCmfconfig(cmfconfigPath) {
+	const cmfconfig = require(cmfconfigPath); // eslint-disable-line import/no-dynamic-require
+	if (process.env.CMF_ENV) {
+		return cmfconfig[process.env.CMF_ENV];
+	}
+	return cmfconfig;
+}
+
 ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(compiler) {
 	this.log('apply');
 
 	// adapt cmf settings result to output to /settings.json by default
-	const outputPath = get(compiler.options, ['devServer', 'outputPath'], compiler.options.output.path);
-	const cmfConfig = require(path.join(process.cwd(), 'cmf.json'));
-	const destination = cmfConfig.settings.destination;
+	const outputPath = get(
+		compiler.options,
+		['devServer', 'outputPath'],
+		compiler.options.output.path,
+	);
+	const cmfconfigPath = path.join(process.cwd(), 'cmf.json');
+	const cmfconfig = getCmfconfig(cmfconfigPath);
+	const destination = cmfconfig.settings.destination;
 	if (!destination) {
-		cmfConfig.settings.destination = path.join(outputPath, 'settings.json');
+		cmfconfig.settings.destination = path.join(outputPath, 'settings.json');
 	}
-	this.options.cmfConfig = cmfConfig;
+	this.options.cmfConfig = cmfconfig;
 
 	/**
 	 * Runs at each webpack run.
@@ -78,7 +89,9 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 		this.modifiedFiles
 			.filter(file => !compilationFileDependencies.has(file))
 			.forEach(file => compilation.fileDependencies.add(file));
-
+		if (!compilationFileDependencies.has(cmfconfigPath)) {
+			compilation.fileDependencies.add(cmfconfigPath);
+		}
 		callback();
 	}
 

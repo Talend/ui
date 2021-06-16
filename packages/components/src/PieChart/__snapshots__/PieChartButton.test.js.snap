@@ -6,18 +6,16 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
   block={false}
   bsClass="btn"
   bsStyle="link"
-  className="theme-tc-pie-chart-button tc-pie-chart-button"
+  className="tc-pie-chart-button theme-tc-pie-chart-button"
   disabled={false}
   onClick={null}
   onMouseDown={null}
   role="button"
 >
-  <Translate(PieChartIcon)
+  <withI18nextTranslation(PieChartIcon)
     display="small"
-    hideLabel={undefined}
-    labelIndex={undefined}
-    loading={undefined}
-    minimumPercentage={undefined}
+    labelIndex={0}
+    minimumPercentage={5}
     model={
       Array [
         Object {
@@ -42,7 +40,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
         },
       ]
     }
-    size={undefined}
+    t={[Function]}
   />
 </Button>
 `;
@@ -71,18 +69,16 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
       block={false}
       bsClass="btn"
       bsStyle="link"
-      className="theme-tc-pie-chart-button tc-pie-chart-button"
+      className="tc-pie-chart-button theme-tc-pie-chart-button"
       disabled={false}
       onClick={null}
       onMouseDown={null}
       role="button"
     >
-      <Translate(PieChartIcon)
+      <withI18nextTranslation(PieChartIcon)
         display="medium"
-        hideLabel={undefined}
         labelIndex={2}
-        loading={undefined}
-        minimumPercentage={undefined}
+        minimumPercentage={5}
         model={
           Array [
             Object {
@@ -107,7 +103,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
             },
           ]
         }
-        size={undefined}
+        t={[Function]}
       />
     </Button>
   </OverlayTrigger>

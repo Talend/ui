@@ -1,21 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SidePanel should render 1`] = `
-<Translate(SidePanel)
+<withI18nextTranslation(SidePanel)
+  actions={Array []}
+  dockable={true}
   docked={false}
+  large={false}
+  minimised={false}
   onToggleDock={[Function]}
+  reverse={false}
+  t={[Function]}
 />
 `;
 
 exports[`SidePanel should render provided actions as string 1`] = `
-<Translate(SidePanel)
+<withI18nextTranslation(SidePanel)
   actions={
     Array [
       "menu:article",
       "menu:demo",
     ]
   }
+  dockable={true}
   docked={false}
+  large={false}
+  minimised={false}
   onToggleDock={[Function]}
+  reverse={false}
+  t={[Function]}
 />
 `;

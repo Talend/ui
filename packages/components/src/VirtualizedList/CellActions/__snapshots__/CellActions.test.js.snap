@@ -11,7 +11,7 @@ exports[`CellActions should render actions 1`] = `
           "icon": "talend-pencil",
           "id": "action-1",
           "label": "Simple action",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "dropdown",
@@ -20,11 +20,11 @@ exports[`CellActions should render actions 1`] = `
           "items": Array [
             Object {
               "label": "Document 1",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "Document 2",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Dropdown action",
@@ -35,25 +35,20 @@ exports[`CellActions should render actions 1`] = `
           "items": Array [
             Object {
               "label": "File 1",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "File 2",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Split dropdown action",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     hideLabel={true}
     link={true}
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
   />
 </div>
 `;

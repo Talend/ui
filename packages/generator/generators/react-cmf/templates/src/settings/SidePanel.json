@@ -1,0 +1,31 @@
+{
+  "actions": {
+    "menu:datasets": {
+      "id": "menu:datasets",
+      "label": "Datasets",
+      "icon": "talend-folder",
+      "payload": {
+        "type": "MENU_LINK",
+        "cmf": {
+          "routerReplace": "/datasets"
+        }
+      }
+    },
+    "menu:datastores": {
+      "id": "menu:datastores",
+      "label": "Datastores",
+      "icon": "talend-datastore",
+      "payload": {
+        "type": "MENU_LINK",
+        "cmf": {
+          "routerReplace": "/datastores"
+        }
+      }
+    }
+  },
+  "props": {
+    "SidePanel#default" : {
+      "actionIds": ["menu:datastores", "menu:datasets"]
+    }
+  }
+}

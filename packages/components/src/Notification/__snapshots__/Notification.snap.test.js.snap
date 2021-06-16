@@ -17,23 +17,16 @@ exports[`Notification should render 1`] = `
       <button
         aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-undefined"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="talend-cross"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
-          />
-        </svg>
+        />
         <span>
           
         </span>
@@ -54,17 +47,9 @@ exports[`Notification should render 1`] = `
             role={null}
             type="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-undo"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-undo"
-              />
-            </svg>
+            />
             <span>
               Haha
             </span>
@@ -87,23 +72,16 @@ exports[`Notification should render 1`] = `
       <button
         aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-error"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="talend-cross"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
-          />
-        </svg>
+        />
         <span>
           
         </span>
@@ -129,17 +107,9 @@ exports[`Notification should render 1`] = `
             role={null}
             type="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-undo"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-undo"
-              />
-            </svg>
+            />
             <span>
               undo
             </span>
@@ -159,23 +129,16 @@ exports[`Notification should render 1`] = `
       <button
         aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-warning"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="talend-cross"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
-          />
-        </svg>
+        />
         <span>
           
         </span>
@@ -210,23 +173,16 @@ exports[`Notification should render 1`] = `
       <button
         aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-warning"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="talend-cross"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
-          />
-        </svg>
+        />
         <span>
           
         </span>

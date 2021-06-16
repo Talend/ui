@@ -1,7 +1,11 @@
 $tc-listview-height: 40vh !default;
 
+$row-height: 12px;
+$row-vertical-margin: $padding-small;
+$row-nested-inner-margin-top: $padding-normal - $padding-small;
+$row-nested-inner-margin-bottom: $padding-larger - $padding-small;
+
 .tc-listview-items {
-	padding-left: 0;
 	min-height: 0;
 	list-style: none;
 	box-shadow: inset 0 21px 3px -20px $shadow, inset 0 -21px 3px -20px $shadow;
@@ -9,8 +13,48 @@ $tc-listview-height: 40vh !default;
 	background-color: rgba(0, 0, 0, 0.025);
 
 	.tc-item-container {
+		:global {
+			.checkbox {
+				margin-left: $padding-smaller;
+			}
+
+			.with-icon {
+				display: inline-flex;
+				margin: 0;
+				margin-left: $padding-smaller;
+
+				.tc-svg-icon {
+					height: $row-height;
+					width: $row-height;
+					margin-left: $padding-smaller;
+				}
+			}
+
+			.checkbox-nested {
+				margin-top: $row-nested-inner-margin-top;
+				margin-bottom: $row-nested-inner-margin-bottom;
+			}
+
+			.checkbox-nested > .checkbox {
+				height: $row-height;
+				margin-top: $row-vertical-margin;
+				margin-bottom: 0;
+			}
+		}
+
 		&.toggle {
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		}
 	}
+}
+
+// This exported values are used to compute properly sizes
+// in react-virtualized's calculation method
+:export {
+	// sass-lint:disable no-misspelled-properties
+	row-height: $row-height;
+	row-vertical-margin: $row-vertical-margin;
+	row-nested-inner-margin-top: $row-nested-inner-margin-top;
+	row-nested-inner-margin-bottom: $row-nested-inner-margin-bottom;
+	// sass-lint:enable no-misspelled-properties
 }

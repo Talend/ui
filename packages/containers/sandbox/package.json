@@ -5,7 +5,9 @@
   "private": true,
   "main": "app/index.js",
   "scripts": {
-    "start": "talend-scripts start"
+    "build": "talend-scripts build",
+    "start": "talend-scripts start --open",
+    "start-dist": "talend-scripts build && node serve-dist"
   },
   "repository": {
     "type": "git",
@@ -18,41 +20,25 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts": "0.2.1"
+    "@talend/scripts-core": "^6.8.0",
+    "@talend/scripts-preset-react": "^6.8.0",
+    "compression": "^1.7.3",
+    "express": "^4.16.4"
   },
   "dependencies": {
     "@talend/bootstrap-theme": "link:../../theme",
     "@talend/icons": "link:../../icons",
     "@talend/react-cmf": "link:../../cmf",
+    "@talend/react-cmf-router": "3.5.1",
     "@talend/react-components": "link:../../components",
     "@talend/react-containers": "link:../../containers",
     "@talend/react-forms": "link:../../forms",
-    "bootstrap-sass": "3.3.7",
-    "bson-objectid": "^1.1.5",
-    "classnames": "^2.2.5",
-    "enzyme": "^3.1.0",
-    "i18next": "^9.0.0",
-    "immutable": "^3.8.1",
-    "invariant": "^2.2.2",
-    "lodash": "^4.17.4",
+    "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
-    "react": "^16.0.0",
-    "react-ace": "5.2.0",
-    "react-bootstrap": "0.31.5",
-    "react-css-transition": "^0.7.4",
-    "react-dom": "^16.0.0",
-    "react-i18next": "^7.6.1",
-    "react-immutable-proptypes": "^2.1.0",
-    "react-redux": "^5.0.7",
-    "react-router": "^3.2.0",
-    "react-router-redux": "^4.0.8",
-    "react-transition-group": "^2.3.1",
-    "redux": "^3.7.2",
-    "redux-batched-actions": "^0.2.0",
-    "redux-logger": "^3.0.6",
-    "redux-saga": "^0.15.4",
-    "redux-thunk": "^2.2.0",
-    "reselect": "^2.5.4",
-    "uuid": "^3.0.1"
+    "react": "^16.13.1",
+    "react-ace": "6.2.0",
+    "react-dom": "^16.13.1",
+    "react-i18next": "^11.8.12",
+    "redux-logger": "^3.0.6"
   }
 }

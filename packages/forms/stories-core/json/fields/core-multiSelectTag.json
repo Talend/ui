@@ -23,6 +23,12 @@
         "items": {
           "type": "string"
         }
+      },
+      "longList": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       }
     },
     "required": [
@@ -85,6 +91,87 @@
               "key":"asyncTitleMap"
             }
           ]
+        }
+      ]
+    },
+    {
+      "key": "longList",
+      "description": "Dropdown with long list of items",
+      "restricted": true,
+      "title": "Select your favorite movies from the list",
+      "widget": "multiSelectTag",
+      "titleMap": [
+        {
+          "name": "The Dark Knight",
+          "value": "movie1"
+        },
+        {
+          "name": "Star Wars",
+          "value": "movie2"
+        },
+        {
+          "name": "The Lord of the Rings",
+          "value": "movie3"
+        },
+        {
+          "name": "The Godfather",
+          "value": "movie4"
+        },
+        {
+          "name": "Pulp Fiction",
+          "value": "movie5"
+        },
+        {
+          "name": "Fight club",
+          "value": "movie6"
+        },
+        {
+          "name": "Joker",
+          "value": "movie7"
+        },
+        {
+          "name": "Inception",
+          "value": "movie8"
+        },
+        {
+          "name": "The Matrix",
+          "value": "movie9"
+        },
+        {
+          "name": "Seven Samurai",
+          "value": "movie10"
+        },
+        {
+          "name": "Forest Gump",
+          "value": "movie11"
+        },
+        {
+          "name": "Interstellar",
+          "value": "movie12"
+        },
+        {
+          "name": "Back to the Future",
+          "value": "movie13"
+        },
+        {
+          "name": "Gladiator",
+          "value": "movie14"
+        },
+        {
+          "name": "Avengers",
+          "value": "movie15"
+        },
+        {
+          "name": "The Shining",
+          "value": "movie16"
+        },
+        {
+          "name": "Alien",
+          "value": "movie17"
+        },
+        {
+          "name": "Snatch",
+          "value": "movie18"
         }
       ]
     }

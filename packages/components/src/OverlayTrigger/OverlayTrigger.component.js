@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { OverlayTrigger as BaseOverlayTrigger, Popover } from 'react-bootstrap';
+import BaseOverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
+import Popover from 'react-bootstrap/lib/Popover';
 import classNames from 'classnames';
 import Inject from '../Inject';
 import { getOverlayElement, getContainerElement, getAdaptedPlacement } from './overlay';
@@ -78,19 +79,24 @@ export default class OverlayTrigger extends React.Component {
 	}
 
 	render() {
+		const popoverContent = this.props.getComponent
+			? Inject.getReactElement(this.props.getComponent, this.props.overlayComponent)
+			: this.props.overlayComponent;
 		const props = {
 			placement: this.state.placement,
 			onClick: this.props.onClick,
 			onEntering: this.onEntering,
 			onExited: this.onExited,
-			overlay: (
-				<Popover id={this.props.overlayId}>
-					{Inject.getReactElement(this.props.getComponent, this.props.overlayComponent)}
-				</Popover>
-			),
+			overlay: <Popover id={this.props.overlayId}>{popoverContent}</Popover>,
 			ref: this.props.overlayRef,
 			rootClose: true,
 			trigger: 'click',
+		};
+		const tooltipProps = {
+			onMouseOver: this.props.onMouseOver,
+			onMouseOut: this.props.onMouseOut,
+			onFocus: this.props.onFocus,
+			onBlur: this.props.onBlur,
 		};
 
 		if (this.props.preventScrolling) {
@@ -100,9 +106,14 @@ export default class OverlayTrigger extends React.Component {
 		return (
 			<span
 				ref={this.setTriggerElement}
-				className={classNames(theme['tc-action-button-positionned'])}
+				className={classNames(
+					theme['tc-action-button-positionned'],
+					'tc-action-button-positionned',
+				)}
 			>
-				<BaseOverlayTrigger {...props}>{this.props.children}</BaseOverlayTrigger>
+				<BaseOverlayTrigger {...props}>
+					{cloneElement(this.props.children, tooltipProps)}
+				</BaseOverlayTrigger>
 			</span>
 		);
 	}

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import getDefaultT from '../translate';
 import headerPropTypes from './Header/Header.propTypes';
@@ -73,8 +73,14 @@ EnumerationComponent.propTypes = {
 		onSelectItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
 		onLoadData: PropTypes.func,
-		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
-		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+		actionsDefault: PropTypes.oneOfType([
+			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+			PropTypes.func,
+		]),
+		actionsEdit: PropTypes.oneOfType([
+			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+			PropTypes.func,
+		]),
 	}).isRequired,
 	onInputChange: PropTypes.func.isRequired,
 	onAddKeyDown: PropTypes.func,
@@ -221,4 +227,4 @@ HeaderEnumeration.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(EnumerationComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(EnumerationComponent);

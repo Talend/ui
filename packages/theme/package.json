@@ -2,16 +2,15 @@
   "name": "@talend/bootstrap-theme",
   "description": "Bootstrap theme based on Talend styleguide",
   "main": "dist/bootstrap.js",
+  "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "webpack -p",
-    "start": "webpack-dev-server --port 1337",
+    "prepublishOnly": "rimraf ./dist && webpack",
+    "prepare": "rimraf ./dist && webpack",
+    "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",
     "test:demo": "echo nothing to demo in @talend/bootstrap-theme",
-    "test:phantomcss": "babel -d .tmp test/ && casperjs test .tmp/screenshots.phantomcss.js",
-    "test:phantomcss-rebase": "yarn run test:phantomcss -- --rebase",
-    "test:slimerjs": "slimerjs test/screenshots.slimerjs.js",
     "lint:style": "sass-lint -q -v"
   },
   "keywords": [
@@ -30,29 +29,31 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "bootstrap-sass": "3.3.7"
+    "bootstrap-sass": "3.4.1"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.4",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "css-loader": "^0.28.7",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.5",
-    "node-sass": "^4.7.2",
-    "path": "^0.12.7",
-    "phantomcss": "^1.1.3",
-    "postcss-loader": "^2.0.8",
-    "sass-lint": "^1.9.1",
-    "sass-loader": "^6.0.6",
-    "slimerjs": "^0.10.2",
-    "style-loader": "^0.19.0",
-    "url-loader": "^0.6.2",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "@talend/icons": "^6.29.0",
+    "css-loader": "^5.1.3",
+    "css-minimizer-webpack-plugin": "^2.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.3.9",
+    "node-sass": "^5.0.0",
+    "postcss-loader": "^5.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "rimraf": "^3.0.2",
+    "sass-lint": "^1.13.1",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.26.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "peerDependencies": {
+    "@talend/icons": ">=6.16.0"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.210.0-0"
+  "version": "6.29.0"
 }

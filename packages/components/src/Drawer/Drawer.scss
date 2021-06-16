@@ -4,17 +4,14 @@ $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: #fff !default;
 $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
-$tc-action-bar-background-color: $concrete !default;
-$tc-drawer-content-max-width: 650px !default;
+$tc-drawer-padding: $padding-large !default;
+$tc-drawer-header-height: 5.5rem !default;
+$tc-drawer-header-color: $white !default;
+$tc-drawer-header-background: $brand-primary-lighter !default;
 $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
-
-@function set-text-color($color) {
-	@if (lightness($color) > 60) {
-		@return #000; // Lighter backgorund, return dark color
-	} @else {
-		@return #fff; // Darker background, return light color
-	}
-}
+$tc-drawer-content-max-width: 65rem !default;
+$tc-action-bar-background-color: $wild-sand !default;
+$tc-drawer-z-index: $drawer-z-index !default;
 
 .tc-drawer {
 	pointer-events: all;
@@ -25,8 +22,7 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	right: 0;
 	bottom: 0;
 	width: 50vw;
-	// should always stay lower than dialog z-index which is set to 1040
-	z-index: 100;
+	z-index: $tc-drawer-z-index;
 }
 
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
@@ -51,6 +47,10 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	background-color: $tc-drawer-tabs-background;
 }
 
+.tc-drawer-actionbar {
+	padding: 0;
+}
+
 .drawer-stacked {
 	width: 100%;
 }
@@ -59,31 +59,71 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	.drawer-stacked {
 		.tc-drawer-header-title,
 		.tc-drawer-tabs,
-		.tc-drawer-content,
+		.tc-drawer-content-wrapper,
 		.tc-drawer-actionbar,
 		.tc-drawer-footer > nav {
 			width: $tc-drawer-content-max-width;
 			margin: 0 auto;
 		}
+
+		:global {
+			.tc-actionbar-container {
+				margin: 0 auto;
+				padding: 0 $tc-drawer-padding;
+				width: $tc-drawer-content-max-width;
+			}
+		}
 	}
 }
 
 .tc-drawer-header {
-	background-color: $brand-primary-lighter;
+	background-color: $tc-drawer-header-background;
+
+	:global {
+		.tc-editable-text {
+			min-width: 0;
+		}
+		.tc-editable-text-pencil {
+			color: $tc-drawer-header-color;
+		}
+	}
 
 	&-title {
-		padding: $padding-normal;
 		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: $tc-drawer-header-height;
+		padding: $tc-drawer-padding;
 
 		h1 {
-			font-size: $font-size-large;
+			flex: 1;
 			margin: 0;
-			color: white;
-			text-transform: uppercase;
+			font-size: $font-size-h2;
+			color: $tc-drawer-header-color;
 			text-overflow: ellipsis;
-			width: 90%;
 			white-space: nowrap;
 			overflow: hidden;
+		}
+
+		.tc-drawer-close-action {
+			flex: 0;
+			margin-right: -$tc-drawer-padding;
+			color: $tc-drawer-header-color;
+		}
+
+		:global(.tc-editable-text) {
+			flex: 1;
+		}
+
+		.drawer-close-action-tooltip {
+			position: absolute;
+			right: 0;
+			bottom: $tc-drawer-padding / 2;
+		}
+
+		& > .tc-editable-text {
+			width: unset;
 		}
 	}
 }
@@ -93,40 +133,31 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	background-color: $gray-lighter;
 }
 
-.tc-drawer-close-action {
-	top: $padding-normal / 2;
-	right: 0;
-	position: absolute;
-	color: white;
-}
-
 .tc-drawer-content {
-	padding: $padding-large $padding-normal;
 	flex-grow: 1;
+	min-height: 0;
 	overflow-y: auto;
-}
 
-.tc-drawer-actionbar-container {
-	background: $tc-action-bar-background-color;
-}
-
-.tc-drawer-footer {
-	padding: $padding-small;
-	background: $tc-action-bar-background-color;
-
-	.navbar-left,
-	.navbar-right {
-		> * {
-			margin: $padding-small $padding-larger $padding-small 0;
-		}
-
-		> :last-child {
-			margin-right: 0;
-		}
+	&-wrapper {
+		padding: $tc-drawer-padding;
+		flex-grow: 1;
+		min-height: 0;
 	}
+}
 
-	.navbar-right {
-		margin-right: 0;
+.tc-drawer-footer,
+.tc-drawer-actionbar-container {
+	padding: $padding-small $tc-drawer-padding;
+	background: $tc-action-bar-background-color;
+
+	:global {
+		.navbar-left,
+		.navbar-right {
+			> * {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
 	}
 }
 

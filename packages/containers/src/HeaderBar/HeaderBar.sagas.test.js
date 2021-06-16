@@ -7,9 +7,8 @@ import Constants from './HeaderBar.constant';
 describe('HeaderBar sagas', () => {
 	describe('fetchProducts', () => {
 		const url = '/foo/bar';
-		const lang = 'en-EN';
 
-		const action = { payload: { url, lang } };
+		const action = { payload: { url } };
 
 		it('should fetch HeaderBar products', () => {
 			const data = 'foo';
@@ -25,7 +24,7 @@ describe('HeaderBar sagas', () => {
 			// HTTP call
 			effect = gen.next().value;
 			expect(effect.CALL.fn).toEqual(cmf.sagas.http.get);
-			expect(effect.CALL.args).toEqual([`${url}?lang=${lang}`]);
+			expect(effect.CALL.args).toEqual([url]);
 
 			// Toggle fetching flag (enable)
 			effect = gen.next(httpResponse).value;
@@ -56,7 +55,7 @@ describe('HeaderBar sagas', () => {
 			// HTTP call
 			effect = gen.next().value;
 			expect(effect.CALL.fn).toEqual(cmf.sagas.http.get);
-			expect(effect.CALL.args).toEqual([`${url}?lang=${lang}`]);
+			expect(effect.CALL.args).toEqual([url]);
 
 			// Toggle fetching flag (enable)
 			effect = gen.next(httpResponse).value;
@@ -71,24 +70,29 @@ describe('HeaderBar sagas', () => {
 	});
 
 	describe('handleOpenProduct', () => {
-		global.open = jest.fn();
+		const { location } = window;
 
 		beforeEach(() => {
-			global.open.mockReset();
+			delete window.location;
+			window.location = { assign: jest.fn() };
 		});
 
-		it("should open a product's page when an URI is provided", () => {
-			const action = { payload: { uri: 'productUri' } };
+		afterAll(() => {
+			window.location = location;
+		});
+
+		it("should open a product's page when an URL is provided", () => {
+			const action = { payload: { url: 'productUrl' } };
 
 			handleOpenProduct(action);
-			expect(global.open).toHaveBeenCalled();
+			expect(window.location.assign).toHaveBeenCalledWith('productUrl');
 		});
 
 		it('should do nothing if no product URI is provided', () => {
 			const action = { payload: { foo: 'bar' } };
 
 			handleOpenProduct(action);
-			expect(global.open).not.toHaveBeenCalled();
+			expect(window.location.assign).not.toHaveBeenCalled();
 		});
 	});
 });

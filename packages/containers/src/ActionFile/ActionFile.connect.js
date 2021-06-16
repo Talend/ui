@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import { ActionFile } from '@talend/react-components';
+import { ActionFile } from '@talend/react-components/lib/Actions';
 
 export function mapStateToProps(state, ownProps) {
 	if (!ownProps.actionId) {
@@ -19,28 +19,24 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionId;
 	props.name = stateProps.name;
 	return props;
 }
 
 export function ContainerActionFile({ onChange, ...props }) {
-	const newProps = Object.assign({}, props);
+	const newProps = { ...props };
 	if (!onChange) {
 		newProps.onChange = (event, data) => {
 			if (props.actionCreator) {
 				props.dispatchActionCreator(props.actionCreator, event, data);
 			} else {
-				props.dispatch(
-					Object.assign(
-						{
-							model: props.model,
-						},
-						props.payload,
-						{ file: data },
-					),
-				);
+				props.dispatch({
+					model: props.model,
+					...props.payload,
+					file: data,
+				});
 			}
 		};
 	}
@@ -61,4 +57,9 @@ ContainerActionFile.propTypes = {
 export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(ContainerActionFile);

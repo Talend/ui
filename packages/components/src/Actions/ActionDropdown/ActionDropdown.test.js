@@ -56,10 +56,7 @@ describe('ActionDropdown', () => {
 		const menuItems = actionDropdownInstance.find('MenuItem');
 
 		// when
-		menuItems
-			.at(0)
-			.find('SafeAnchor')
-			.simulate('click');
+		menuItems.at(0).find('SafeAnchor').simulate('click');
 
 		// then
 		expect(onSelectClick).toBeCalledWith(jasmine.anything(), props.items[0]);
@@ -70,10 +67,7 @@ describe('ActionDropdown', () => {
 		expect(onItemClick.mock.calls[0][0].type).toBe('click');
 
 		// when
-		menuItems
-			.at(1)
-			.find('SafeAnchor')
-			.simulate('click');
+		menuItems.at(1).find('SafeAnchor').simulate('click');
 
 		// then
 		expect(onSelectClick).toBeCalledWith(jasmine.anything(), props.items[1]);
@@ -82,6 +76,24 @@ describe('ActionDropdown', () => {
 			model: 'model',
 		});
 		expect(onItemClick.mock.calls[1][0].type).toBe('click');
+	});
+
+	it('should apply transformation on icon', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'Button label',
+			icon: 'talend-ellipsis',
+			iconTransform: 'rotate-90',
+		};
+
+		// when
+		const wrapper = mount(<ActionDropdown {...props} />)
+			.find('DropdownButton')
+			.find('Icon[transform="rotate-90"]');
+
+		// then
+		expect(wrapper.exists()).toBeTruthy();
 	});
 });
 
@@ -157,10 +169,7 @@ describe('Dropup', () => {
 		container.querySelector('.dropdown-menu').getBoundingClientRect = () => menuPosition;
 
 		// when
-		wrapper
-			.find('button')
-			.first()
-			.simulate('click');
+		wrapper.find('button').first().simulate('click');
 
 		// then
 		expect(container.firstChild.classList.contains('dropup')).toBe(isDropupExpected);
@@ -169,8 +178,8 @@ describe('Dropup', () => {
 	cases('dropdown/dropup switch', testSwitch, [
 		{
 			name: 'should dropup on dropdown bottom overflow',
-			containerPosition: { top: 0, bottom: 35 },
-			menuPosition: { top: 20, bottom: 40 },
+			containerPosition: { top: 60, bottom: 95 },
+			menuPosition: { top: 80, bottom: 100, height: 20 },
 			isInitialDropup: false,
 			isDropupExpected: true,
 		},
@@ -183,17 +192,24 @@ describe('Dropup', () => {
 		},
 		{
 			name: 'should do nothing on dropdown without overflow',
-			containerPosition: { top: 0, bottom: 35 },
-			menuPosition: { top: 20, bottom: 30 },
+			containerPosition: { top: 60, bottom: 95 },
+			menuPosition: { top: 80, bottom: 90, height: 10 },
 			isInitialDropup: false,
 			isDropupExpected: false,
 		},
 		{
 			name: 'should do nothing on dropup without overflow',
-			containerPosition: { top: 0, bottom: 35 },
+			containerPosition: { top: 0, bottom: 60 },
 			menuPosition: { top: 20, bottom: 30 },
 			isInitialDropup: true,
 			isDropupExpected: true,
+		},
+		{
+			name: 'should do nothing on dropdown without enough space (top and bottom)',
+			containerPosition: { top: 10, bottom: 30 },
+			menuPosition: { top: 20, bottom: 90, height: 60 },
+			isInitialDropup: false,
+			isDropupExpected: false,
 		},
 	]);
 });

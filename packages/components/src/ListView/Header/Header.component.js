@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -59,11 +59,13 @@ function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required
 		if (nbItems >= 1 && nbItemsSelected >= 1) {
 			return (
 				<small>
-					({t('LISTVIEW_HEADER_SELECTED', {
+					(
+					{t('LISTVIEW_HEADER_SELECTED', {
 						count: nbItemsSelected,
 						total: nbItems,
 						defaultValue: '{{count}}/{{total}} selected',
-					})})
+					})}
+					)
 				</small>
 			);
 		}
@@ -85,4 +87,4 @@ Header.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Header);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Header);

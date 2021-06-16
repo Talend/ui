@@ -1,17 +1,26 @@
 [
 	{
-		"icon": "talend-tdp-colored",
-		"uri": "http://www.talend.com/products#tdp",
-		"label": "My"
+		"id": "TMC",
+		"name": "Management Console",
+		"url": "https://www.talend.com/products#tmc",
+		"icon": "tmc"
 	},
 	{
-		"icon": "talend-tic-colored",
-		"uri": "http://www.talend.com/products#tic",
-		"label": "applications"
+		"id": "TDP",
+		"name": "Data Preparation",
+		"url": "https://www.talend.com/products#tdp",
+		"icon": "tdp"
 	},
 	{
-		"icon": "talend-tmc-colored",
-		"uri": "http://www.talend.com/products#tmc",
-		"label": "list"
+		"id": "TIPAAS",
+		"name": "TIPAAS",
+		"url": "https://www.talend.com/products#tipaas",
+		"icon": "tic"
+	},
+	{
+		"id": "TDC",
+		"name": "Catalog",
+		"url": "https://www.talend.com/products#tdc",
+		"icon": "tdc"
 	}
 ]

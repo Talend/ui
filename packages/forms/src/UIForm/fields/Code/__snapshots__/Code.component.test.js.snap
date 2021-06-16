@@ -5,11 +5,9 @@ exports[`Code field should render ace-editor in FieldTemplate 1`] = `
   description="my text input hint"
   descriptionId="myCodeWidget-description"
   errorId="myCodeWidget-error"
-  errorMessage={undefined}
   id="myCodeWidget"
   isValid={true}
   label="My input title"
-  required={undefined}
 >
   <div
     id="myCodeWidget-editor-container"
@@ -26,7 +24,6 @@ exports[`Code field should render ace-editor in FieldTemplate 1`] = `
     <ReactAce
       className="tf-widget-code form-control"
       cursorStart={1}
-      disabled={false}
       editorProps={
         Object {
           "$blockScrolling": Infinity,

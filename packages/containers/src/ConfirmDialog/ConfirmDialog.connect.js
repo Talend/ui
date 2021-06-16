@@ -22,4 +22,9 @@ export default cmfConnect({
 	defaultState: DEFAULT_STATE,
 	componentId: ownProps => (ownProps && ownProps.id) || 'ConfirmDialog',
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Container);

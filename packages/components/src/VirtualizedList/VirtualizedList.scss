@@ -1,22 +1,27 @@
-:global(.tc-list) {
-	&-item {
-		// Specific case for Win7/IE11 which it cannot compute width with float
-		:global(.btn-group) {
-			white-space: nowrap;
+:global(.tc-virtualizedlist-default-cell) {
+	min-width: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
 
-			> :global(.btn-group) {
-				float: none;
-			}
+:global(div[role='columnheader'].tc-header-resizable.ReactVirtualized__Table__headerColumn) {
+	height: calc(100% - 2px);
+	padding: 0 0 0 $padding-large;
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 
-			&,
-			&-vertical {
-				display: inline-block;
-
-				> :global(.btn) {
-					float: none;
-				}
-			}
-		}
+	&:hover {
+		cursor: pointer;
+	}
+	:global(.ReactVirtualized__Table__headerTruncatedText) {
+		align-self: center;
+		overflow: hidden;
+		padding-left: $padding-small;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 }
 
@@ -25,4 +30,5 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	height: 100%;
 }

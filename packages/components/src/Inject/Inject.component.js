@@ -2,14 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * This function is just here to handle the
- * case of null parameter in components
- */
-function nothing() {
-	return null;
-}
-
-/**
  * This is to render an not found component to alert developers
  * @param {object} props container of the error
  */
@@ -64,14 +56,19 @@ Inject.map = function injectMap(getComponent, array, CustomInject = Inject) {
 	}
  */
 Inject.all = function injectAll(getComponent, components, CustomInject = Inject) {
-	if (!getComponent || !components) {
-		return nothing;
-	}
 	return (key, props) => {
-		if (Array.isArray(components[key])) {
-			return Inject.map(getComponent, components[key], CustomInject);
-		} else if (typeof components[key] === 'object') {
-			return <CustomInject getComponent={getComponent} {...props} {...components[key]} />;
+		if (!components) {
+			return null;
+		}
+
+		const component = components[key];
+
+		if (Array.isArray(component)) {
+			return Inject.map(getComponent, component, CustomInject);
+		} else if (React.isValidElement(component)) {
+			return component;
+		} else if (typeof component === 'object') {
+			return <CustomInject getComponent={getComponent} {...props} {...component} />;
 		}
 		return null;
 	};
@@ -113,17 +110,30 @@ Inject.getAll = function injectGetAll(getComponent, config) {
  * @param {function} getComponent
  * @param {object|string|React Element} data
  */
-Inject.getReactElement = function getReactElement(getComponent, data, CustomInject = Inject) {
+Inject.getReactElement = function getReactElement(
+	getComponent,
+	data,
+	CustomInject = Inject,
+	withKey,
+) {
 	if (Array.isArray(data)) {
-		return data.map(info => getReactElement(getComponent, info, CustomInject));
+		return data.map(info => getReactElement(getComponent, info, CustomInject, true));
 	} else if (data === null) {
 		return data;
 	} else if (typeof data === 'string') {
-		return <CustomInject getComponent={getComponent} component={data} />;
+		const props = { getComponent, component: data };
+		if (withKey) {
+			props.key = `${data}#default`;
+		}
+		return <CustomInject {...props} />;
 	} else if (React.isValidElement(data)) {
 		return data;
 	} else if (typeof data === 'object') {
-		return <CustomInject getComponent={getComponent} {...data} />;
+		const props = { getComponent, ...data };
+		if (withKey) {
+			props.key = `${data.component}#${data.componentId || 'default'}`;
+		}
+		return <CustomInject {...props} />;
 	}
 	return data; // We do not throw anything, proptypes should do the job
 };
@@ -143,4 +153,5 @@ Inject.getReactElement.propTypes = PropTypes.oneOfType([
 
 Inject.displayName = 'Inject';
 
-export { Inject as default, NotFoundComponent };
+Inject.NotFound = NotFoundComponent;
+export default Inject;

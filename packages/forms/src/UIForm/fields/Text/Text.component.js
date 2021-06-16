@@ -1,13 +1,17 @@
+/* eslint-disable jsx-a11y/no-autofocus */
+
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-import { convertValue } from '../../utils/properties';
+import { convertValue, extractDataAttributes } from '../../utils/properties';
 
 export default function Text(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const {
+		autoComplete,
 		autoFocus,
 		description,
 		disabled = false,
@@ -15,6 +19,7 @@ export default function Text(props) {
 		readOnly = false,
 		title,
 		type,
+		...rest
 	} = schema;
 
 	if (type === 'hidden') {
@@ -25,6 +30,8 @@ export default function Text(props) {
 
 	return (
 		<FieldTemplate
+			hint={schema.hint}
+			className={schema.className}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
@@ -34,12 +41,14 @@ export default function Text(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<input
 				id={id}
+				autoComplete={autoComplete}
 				autoFocus={autoFocus}
 				className="form-control"
-				disabled={disabled}
+				disabled={disabled || valueIsUpdating}
 				onBlur={event => onFinish(event, { schema })}
 				onChange={event =>
 					onChange(event, { schema, value: convertValue(type, event.target.value) })
@@ -48,10 +57,14 @@ export default function Text(props) {
 				readOnly={readOnly}
 				type={type}
 				value={value}
+				min={get(schema, 'schema.minimum')}
+				max={get(schema, 'schema.maximum')}
+				step={get(schema, 'schema.step')}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
-				aria-required={schema.required}
+				aria-required={get(schema, 'required')}
 				aria-describedby={`${descriptionId} ${errorId}`}
+				{...extractDataAttributes(rest)}
 			/>
 		</FieldTemplate>
 	);
@@ -65,15 +78,26 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			className: PropTypes.string,
+			autoComplete: PropTypes.string,
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				className: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 			type: PropTypes.string,
+			schema: PropTypes.object,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

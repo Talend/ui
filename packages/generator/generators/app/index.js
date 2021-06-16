@@ -1,16 +1,9 @@
 const path = require('path');
 const yosay = require('yosay');
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const slug = require('slugg');
 
-module.exports = yeoman.Base.extend({
-	initializing() {
-		this.composeWith('talend:dotfiles', {
-			options: {
-				name: () => this.props.name,
-			},
-		});
-	},
+module.exports = class AppGenerator extends Generator {
 
 	prompting() {
 		this.log(yosay('Time to generate some libraries!'));
@@ -31,13 +24,13 @@ module.exports = yeoman.Base.extend({
 			default: `${process.env.USER}@talend.com`,
 		}];
 
-		return this.prompt(prompts).then((props) => {
+		return this.prompt(prompts).then(props => {
 			if (props.name !== slug(this.appname)) {
 				this.destinationRoot(props.name);
 			}
 			this.props = props;
 		});
-	},
+	}
 
 	writing() {
 		const d = new Date;
@@ -56,19 +49,9 @@ module.exports = yeoman.Base.extend({
 			path.join(__dirname, '../../LICENSE'),
 			this.destinationPath('LICENSE')
 		);
-
-		if (!this.fs.exists(this.destinationPath('.git/config'))) {
-			this.composeWith('git-init', {
-				options: {
-					commit: "Initial project setup by Talend's library generator",
-				},
-			}, {
-				local: require.resolve('generator-git-init'),
-			});
-		}
-	},
+	}
 
 	install() {
 		this.npmInstall();
-	},
-});
+	}
+};

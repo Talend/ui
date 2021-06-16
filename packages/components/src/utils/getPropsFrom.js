@@ -1,6 +1,7 @@
 const NATIVE_PROPS = [
 	'autoFocus',
 	'className',
+	'form',
 	'id',
 	'name',
 	'rel',

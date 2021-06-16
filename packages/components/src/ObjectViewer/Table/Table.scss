@@ -20,7 +20,10 @@
 		background-color: $brand-primary-dark;
 		color: $white;
 		font-family: 'Source Sans Pro';
-		text-transform: uppercase;
+
+		& > th {
+			font-weight: $font-weight-bold;
+		}
 
 		& > td {
 			padding: $padding-smaller;
@@ -32,7 +35,6 @@
 
 		:global(.btn) {
 			text-transform: none;
-			letter-spacing: 0;
 		}
 	}
 

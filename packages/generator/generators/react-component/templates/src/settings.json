@@ -1,0 +1,6 @@
+{
+  "props": {
+    "<%= props.name %>#default": {
+    }
+  }
+}

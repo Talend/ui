@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { ActionButton } from './ActionButton.component';
+import ActionButton from './ActionButton.component';
 
 const myAction = {
 	label: 'Click me',
@@ -70,6 +70,47 @@ describe('Action', () => {
 		);
 	});
 
+	it('should trigger the onmouseenter and onmouseleave props', () => {
+		const onMouseEnter = jest.fn();
+		const onMouseLeave = jest.fn();
+		const props = { ...myAction, onMouseEnter, onMouseLeave };
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
+
+		wrapper.simulate('mouseenter', {});
+
+		expect(onMouseEnter.mock.calls.length).toBe(1);
+		expect(onMouseEnter).toHaveBeenCalledWith(
+			{},
+			{
+				action: {
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				},
+				model: undefined,
+			},
+		);
+
+		wrapper.simulate('mouseleave', {});
+
+		expect(onMouseLeave.mock.calls.length).toBe(1);
+		expect(onMouseLeave).toHaveBeenCalledWith(
+			{},
+			{
+				action: {
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				},
+				model: undefined,
+			},
+		);
+	});
+
 	it('should trigger the onclick props when action has an overlay', () => {
 		// given
 		const onClick = jest.fn();
@@ -82,6 +123,47 @@ describe('Action', () => {
 		// then
 		expect(onClick.mock.calls.length).toBe(1);
 		expect(onClick).toHaveBeenCalledWith(
+			{},
+			{
+				action: {
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				},
+				model: undefined,
+			},
+		);
+	});
+
+	it('should trigger the onmouseenter and onmouseleave props when action has an overlay', () => {
+		const onMouseEnter = jest.fn();
+		const onMouseLeave = jest.fn();
+		const props = { ...myAction, overlayComponent: OverlayComponent, onMouseEnter, onMouseLeave };
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
+
+		wrapper.simulate('mouseenter', {});
+
+		expect(onMouseEnter.mock.calls.length).toBe(1);
+		expect(onMouseEnter).toHaveBeenCalledWith(
+			{},
+			{
+				action: {
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				},
+				model: undefined,
+			},
+		);
+
+		wrapper.simulate('mouseleave', {});
+
+		expect(onMouseLeave.mock.calls.length).toBe(1);
+		expect(onMouseLeave).toHaveBeenCalledWith(
 			{},
 			{
 				action: {
@@ -130,7 +212,7 @@ describe('Action', () => {
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = shallow(<ActionButton iconTransform={'rotate-180'} {...myAction} />);
+		const wrapper = shallow(<ActionButton iconTransform="rotate-180" {...myAction} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

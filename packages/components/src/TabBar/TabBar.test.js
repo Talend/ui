@@ -2,6 +2,7 @@ import React from 'react';
 import keycode from 'keycode';
 import { shallow, mount } from 'enzyme';
 import TabBar from './TabBar.component';
+import { ActionButton } from '../Actions';
 
 const tabProps = {
 	id: 'my-tabs',
@@ -37,8 +38,22 @@ const tabProps = {
 	selectedKey: '3',
 };
 
+const rightProps = {
+	...tabProps,
+	right: (
+		<ActionButton
+			id="rightButton"
+			className="btn-inverse"
+			label="Add"
+			bsStyle="info"
+			icon="talend-plus-circle"
+			onClick={() => {}}
+		/>
+	),
+};
+
 describe('TabBar component', () => {
-	it('should render', () => {
+	it('should render with selected children managed by user', () => {
 		// given
 
 		// when
@@ -48,7 +63,17 @@ describe('TabBar component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render items with defined children', () => {
+	it('should render with right children', () => {
+		// given
+
+		// when
+		const wrapper = mount(<TabBar {...rightProps}>I'm the content</TabBar>);
+
+		// then
+		expect(wrapper.find('button[id="rightButton"]').length).toBe(1);
+	});
+
+	it('should render with selected children from item definition', () => {
 		// given
 		const items = tabProps.items.map((item, index) => ({
 			...item,
@@ -68,10 +93,7 @@ describe('TabBar component', () => {
 		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		wrapper
-			.find('button')
-			.first()
-			.simulate('click');
+		wrapper.find('button').first().simulate('click');
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
@@ -103,5 +125,35 @@ describe('TabBar component', () => {
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[4]);
+	});
+
+	it('should render with badges', () => {
+		const props = {
+			...tabProps,
+			items: [
+				{
+					key: '1',
+					label: 'Tab1',
+					badge: {
+						label: 967,
+						className: 'custom-class-name',
+					},
+					'data-feature': 'action.1',
+				},
+				{
+					key: '2',
+					label: 'Tab2',
+					badge: {
+						label: '1287',
+						bsStyle: 'info',
+					},
+					'data-feature': 'action.2',
+				},
+			],
+		};
+
+		const wrapper = shallow(<TabBar {...props}>I'm the content</TabBar>);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { translate } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Icon from '../Icon';
-import theme from './Skeleton.scss';
+import skeletonCssModule from './Skeleton.scss';
+import { getTheme } from '../theme';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';
 
+const theme = getTheme(skeletonCssModule);
 const TYPES = {
 	icon: 'icon',
 	text: 'text',
@@ -45,11 +46,17 @@ function getTranslatedType(t, type) {
  * @param {number} props.height height to override size's height
  * @param {string} props.className classes to apply on skeleton
  */
-function Skeleton({ heartbeat, type, size, width, height, name, className, t }) {
-	const classes = classnames(
-		theme['tc-skeleton'],
-		theme[`tc-skeleton-${type}`],
-		theme[`tc-skeleton-${type}-${size}`],
+function Skeleton({
+	heartbeat = true,
+	type = TYPES.text,
+	size = SIZES.medium,
+	width,
+	height,
+	name,
+	className,
+}) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const classes = theme(
 		'tc-skeleton',
 		`tc-skeleton-${type}`,
 		`tc-skeleton-${type}-${size}`,
@@ -68,37 +75,18 @@ function Skeleton({ heartbeat, type, size, width, height, name, className, t }) 
 	return <span style={{ width, height }} className={classes} aria-label={ariaLabel} />;
 }
 
-Skeleton.TYPES = TYPES;
-
-Skeleton.SIZES = SIZES;
-
 Skeleton.propTypes = {
 	heartbeat: PropTypes.bool,
-	type: PropTypes.oneOf([
-		Skeleton.TYPES.button,
-		Skeleton.TYPES.circle,
-		Skeleton.TYPES.icon,
-		Skeleton.TYPES.text,
-	]).isRequired,
-	size: PropTypes.oneOf([
-		Skeleton.SIZES.small,
-		Skeleton.SIZES.medium,
-		Skeleton.SIZES.large,
-		Skeleton.SIZES.xlarge,
-	]),
-	width: PropTypes.number,
-	height: PropTypes.number,
+	type: PropTypes.oneOf([TYPES.button, TYPES.circle, TYPES.icon, TYPES.text]),
+	size: PropTypes.oneOf([SIZES.small, SIZES.medium, SIZES.large, SIZES.xlarge]),
+	width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	name: PropTypes.string,
 	className: PropTypes.string,
-	t: PropTypes.func,
-};
-
-Skeleton.defaultProps = {
-	type: Skeleton.TYPES.text,
-	size: Skeleton.SIZES.medium,
-	heartbeat: true,
 };
 
 Skeleton.displayName = 'Skeleton';
+Skeleton.TYPES = TYPES;
+Skeleton.SIZES = SIZES;
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Skeleton);
+export default Skeleton;

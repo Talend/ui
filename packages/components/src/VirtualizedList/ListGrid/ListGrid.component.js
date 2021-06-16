@@ -16,31 +16,37 @@ function ListGrid(props) {
 		collection,
 		isActive,
 		isSelected,
+		getRowState,
 		onRowClick,
 		onRowDoubleClick,
 		rowRenderer,
+		rowCount,
 		...restProps
 	} = props;
 
 	let enhancedRowRenderer = rowRenderer;
-	if (isActive || isSelected) {
+	if (isActive || isSelected || getRowState) {
 		enhancedRowRenderer = getRowSelectionRenderer(rowRenderer, {
 			isActive,
 			isSelected,
+			getRowState,
 			getRowData: ({ index }) => collection[index],
 		});
 	}
 
 	return (
 		<VirtualizedList
-			className={theme['tc-list-list']}
+			className={`tc-list-list ${theme['tc-list-list']}`}
 			collection={collection}
 			overscanRowCount={10}
 			onRowClick={decorateRowClick(onRowClick)}
 			onRowDoubleClick={decorateRowDoubleClick(onRowDoubleClick)}
-			rowCount={collection.length}
+			rowCount={rowCount || collection.length}
 			rowRenderer={enhancedRowRenderer}
-			rowGetter={index => collection[index]}
+			rowGetter={index => collection[index] || {}}
+			role="group"
+			aria-label="list"
+			containerRole="list"
 			{...restProps}
 		/>
 	);
@@ -54,16 +60,18 @@ ListGrid.propTypes = {
 	id: PropTypes.string,
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	getRowState: PropTypes.func,
 	noRowsRenderer: PropTypes.func,
 	onRowClick: PropTypes.func,
 	onRowDoubleClick: PropTypes.func,
+	rowCount: PropTypes.number,
 	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
 	width: PropTypes.number,
 };
 
 ListGrid.defaultProps = {
-	rowHeight: 135,
+	rowHeight: 170,
 };
 
 export default ListGrid;

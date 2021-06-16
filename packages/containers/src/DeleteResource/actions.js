@@ -5,9 +5,9 @@ import deleteResourceConst from './constants';
  * @param {object} event
  * @param {object} data
  */
-function deleteResource(event, data, context) {
+function open(event, data) {
 	const { model } = data;
-	const { pathname } = context.router ? context.router.getCurrentLocation() : { pathname: '/' };
+	const pathname = window.location.pathname;
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 		cmf: {
@@ -39,7 +39,7 @@ function cancel(event, data) {
 }
 
 export default {
-	open: deleteResource,
+	open,
 	validate,
 	cancel,
 };

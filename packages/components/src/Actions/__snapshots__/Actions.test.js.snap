@@ -10,70 +10,55 @@ exports[`Actions should render actions 1`] = `
 >
   <Action
     bsStyle="primary"
-    hideLabel={false}
     icon="fa fa-asterisk"
     label="Preparations"
-    link={false}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
-    hideLabel={false}
     icon="fa fa-file-excel-o"
     label="Datasets"
-    link={false}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
-    hideLabel={false}
     icon="fa fa-star"
     label="Favorites"
-    link={false}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
     displayMode="dropdown"
-    hideLabel={false}
     icon="fa fa-file-excel-o"
     id="dropdown-id"
     items={
       Array [
         Object {
           "label": "document 1",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "label": "document 2",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     label="related items"
-    link={false}
-    tooltipPlacement={undefined}
   />
   <Action
     displayMode="splitDropdown"
-    hideLabel={false}
     id="split-dropdown-id"
     items={
       Array [
         Object {
           "label": "file 1",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "label": "file 2",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     label="add file"
-    link={false}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
 </ButtonGroup>
 `;
@@ -88,70 +73,60 @@ exports[`Actions should render actions with "link" theme 1`] = `
 >
   <Action
     bsStyle="primary"
-    hideLabel={false}
     icon="fa fa-asterisk"
     label="Preparations"
     link={true}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
-    hideLabel={false}
     icon="fa fa-file-excel-o"
     label="Datasets"
     link={true}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
-    hideLabel={false}
     icon="fa fa-star"
     label="Favorites"
     link={true}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
     displayMode="dropdown"
-    hideLabel={false}
     icon="fa fa-file-excel-o"
     id="dropdown-id"
     items={
       Array [
         Object {
           "label": "document 1",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "label": "document 2",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     label="related items"
     link={true}
-    tooltipPlacement={undefined}
   />
   <Action
     displayMode="splitDropdown"
-    hideLabel={false}
     id="split-dropdown-id"
     items={
       Array [
         Object {
           "label": "file 1",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "label": "file 2",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     label="add file"
     link={true}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
 </ButtonGroup>
 `;
@@ -170,7 +145,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     icon="fa fa-asterisk"
     label="Preparations"
     link={true}
-    onClick={[Function]}
+    onClick={[MockFunction]}
     tooltipPlacement="right"
   />
   <Action
@@ -178,7 +153,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     icon="fa fa-file-excel-o"
     label="Datasets"
     link={true}
-    onClick={[Function]}
+    onClick={[MockFunction]}
     tooltipPlacement="right"
   />
   <Action
@@ -186,7 +161,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     icon="fa fa-star"
     label="Favorites"
     link={true}
-    onClick={[Function]}
+    onClick={[MockFunction]}
     tooltipPlacement="right"
   />
   <Action
@@ -198,11 +173,11 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       Array [
         Object {
           "label": "document 1",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "label": "document 2",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
@@ -218,17 +193,17 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       Array [
         Object {
           "label": "file 1",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "label": "file 2",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     label="add file"
     link={true}
-    onClick={[Function]}
+    onClick={[MockFunction]}
     tooltipPlacement="right"
   />
 </ButtonGroup>
@@ -247,25 +222,19 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     hideLabel={true}
     icon="fa fa-asterisk"
     label="Preparations"
-    link={false}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
     hideLabel={true}
     icon="fa fa-file-excel-o"
     label="Datasets"
-    link={false}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
     hideLabel={true}
     icon="fa fa-star"
     label="Favorites"
-    link={false}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
   <Action
     displayMode="dropdown"
@@ -276,17 +245,15 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       Array [
         Object {
           "label": "document 1",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "label": "document 2",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     label="related items"
-    link={false}
-    tooltipPlacement={undefined}
   />
   <Action
     displayMode="splitDropdown"
@@ -296,18 +263,16 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       Array [
         Object {
           "label": "file 1",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "label": "file 2",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     label="add file"
-    link={false}
-    onClick={[Function]}
-    tooltipPlacement={undefined}
+    onClick={[MockFunction]}
   />
 </ButtonGroup>
 `;

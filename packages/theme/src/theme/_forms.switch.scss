@@ -4,10 +4,9 @@ $switch-thumb-border-disabled: 1px solid rgba(198, 198, 198, 0.3);
 $switch-track-shadow: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.3);
 $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 
-.switch {
-	input[type='checkbox'],
-	.checkbox input[type='checkbox'],
-	&.checkbox input[type='checkbox'] {
+// needed to increase its weight
+.switch.switch {
+	input[type='checkbox'] {
 		position: absolute;
 		clip: rect(1px, 1px, 1px, 1px);
 		padding: 0;
@@ -17,7 +16,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 		overflow: hidden;
 
 		+ * {
-			padding-left: 2rem;
+			margin-left: $padding-normal;
 			color: tint($black, 50);
 		}
 
@@ -25,10 +24,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 		+ *:after,
 		&:checked + *:before,
 		&:checked + *:after {
-			position: absolute;
-			content: '';
-			top: 0;
-			left: 0;
+			top: 0.4rem;
 			transition: background 0.2s ease, transform 0.2s ease;
 			border-radius: 13rem;
 		}
@@ -37,18 +33,17 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 		&:checked + *:before {
 			width: 2.7rem;
 			height: 0.6rem;
-			margin-top: 0.5rem;
 			background: $alto;
 			border: none;
 			box-shadow: $switch-track-shadow;
-			transform: rotate(0deg);
 		}
 
 		+ *:after,
 		&:checked + *:after {
+			margin-top: -0.5rem;
 			width: 1.5rem;
 			height: 1.5rem;
-			background-color: $wild-sand;
+			background: $wild-sand;
 			border: 1px solid $silver;
 			box-shadow: $switch-thumb-shadow;
 			z-index: 1;

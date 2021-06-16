@@ -1,3 +1,5 @@
+import cmf from '@talend/react-cmf';
+
 import createTriggers, {
 	extractParameters,
 	createCacheKey,
@@ -31,6 +33,10 @@ describe('createTriggers', () => {
 		response = { body: { status: 'OK' } };
 		triggers = createTriggers({
 			url: '/foo',
+			customRegistry: {
+				// we declare a local trigger function
+				dotnotfecth: jest.fn(args => ({ ...args })),
+			},
 			fetchConfig: {
 				response: { ok: true, status: 200, json: () => Promise.resolve(response) },
 			},
@@ -50,6 +56,20 @@ describe('createTriggers', () => {
 			done();
 		});
 	});
+	it('should support remote property', done => {
+		const specialTrigger = {
+			type: 'dotnotfecth',
+			remote: false,
+			action: 'localAction',
+			familly: 'WhatEver',
+			parameters: [{ key: 'url', path: 'obj.url' }],
+		};
+		triggers({}, { trigger: specialTrigger, schema, properties, errors: {} }).then(data => {
+			expect(data.errors).toEqual({});
+			expect(fetch).not.toHaveBeenCalled();
+			done();
+		});
+	});
 	it('should handle security by default', done => {
 		triggers({}, { trigger, schema, properties }).then(() => {
 			expect(fetch.mock.calls[0][1].headers['X-CSRF-Token']).toBe('foo-token');
@@ -66,6 +86,42 @@ describe('createTriggers', () => {
 		});
 		triggers({}, { trigger, schema, properties }).then(() => {
 			expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
+			done();
+		});
+	});
+	it('should handle security specified by default', done => {
+		cmf.sagas.http.getDefaultConfig = jest.fn();
+		cmf.sagas.http.getDefaultConfig.mockReturnValue({
+			security: {
+				CSRFTokenCookieKey: 'otherToken',
+				CSRFTokenHeaderKey: 'X-CSRF-OTHER',
+			},
+		});
+		triggers = createTriggers({
+			url: '/foo',
+		});
+		triggers({}, { trigger, schema, properties }).then(() => {
+			expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
+			done();
+		});
+	});
+	it('should handle trigger status code 500', done => {
+		const errors = {};
+		triggers = createTriggers({
+			url: '/foo',
+			fetchConfig: {
+				response: {
+					ok: false,
+					status: 500,
+					text: () => Promise.resolve('{ "message": "Internal Server Error" }'),
+				},
+			},
+		});
+		triggers({}, { trigger, schema, properties, errors }).then(data => {
+			expect(errors).toEqual({});
+			expect(data.errors).toEqual({
+				'obj.url': 'Internal Server Error',
+			});
 			done();
 		});
 	});
@@ -95,6 +151,18 @@ describe('extractParameters', () => {
 	it('should return object with extracted value from properties', () => {
 		expect(extractParameters(trigger.parameters, properties, schema)).toEqual({
 			url: properties.obj.url,
+		});
+	});
+	it('should return extract complex values (object/array)', () => {
+		const parameters = [{ path: 'obj.myArray', key: 'lol-array' }];
+		const complexProperties = {
+			obj: {
+				myArray: ['lol', { toto: 'mdr' }],
+			},
+		};
+		expect(extractParameters(parameters, complexProperties, {})).toEqual({
+			'lol-array[0]': 'lol',
+			'lol-array[1].toto': 'mdr',
 		});
 	});
 	it('should return empty object if no parameters', () => {

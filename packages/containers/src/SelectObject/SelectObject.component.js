@@ -2,8 +2,9 @@ import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { JSONSchemaRenderer } from '@talend/react-components';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import JSONSchemaRenderer from '@talend/react-components/lib/JSONSchemaRenderer';
+import ListGroup from 'react-bootstrap/lib/ListGroup';
+import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import FilterBar from '../FilterBar';
 import List from '../List';
 import TreeView from '../TreeView';
@@ -36,25 +37,18 @@ function SelectObject({
 				navbar={false}
 			/>
 			<div className={theme.container}>
-				{!tree &&
-					!filteredData && (
-						<List
-							{...props.list}
-							id={`${props.id}-list`}
-							data={sourceData}
-							className={theme.list}
-						/>
-					)}
-				{tree &&
-					!filteredData && (
-						<TreeView
-							{...tree}
-							componentId={props.id}
-							noHeader
-							data={sourceData}
-							className={theme.tree}
-						/>
-					)}
+				{!tree && !filteredData && (
+					<List {...props.list} id={`${props.id}-list`} data={sourceData} className={theme.list} />
+				)}
+				{tree && !filteredData && (
+					<TreeView
+						{...tree}
+						componentId={props.id}
+						noHeader
+						data={sourceData}
+						className={theme.tree}
+					/>
+				)}
 				{filteredData && (
 					<ListGroup className={theme.results}>
 						{filteredData.map(data => (

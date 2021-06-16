@@ -9,7 +9,7 @@ function SelectAll({ id, items, isSelected, onToggleAll, t }) {
 	const isAllSelected = () => items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;
 	const checkboxId = id && `${id}-check-all`;
 	return (
-		<form className="navbar-form navbar-left">
+		<form className={classNames(theme.container, 'navbar-form navbar-left')}>
 			<div
 				className={classNames('checkbox-inline navbar-text', theme['tc-list-toolbar-select-all'])}
 			>
@@ -35,7 +35,7 @@ SelectAll.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object).isRequired,
 	isSelected: PropTypes.func.isRequired,
 	onToggleAll: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 SelectAll.defaultProps = {

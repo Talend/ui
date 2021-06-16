@@ -2,7 +2,7 @@
 
 exports[`tablerow #insertSelectionConfiguration should NOT insert selection column when selection callback is NOT provided 1`] = `
 Array [
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -13,8 +13,8 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
-  <Column
+  />,
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -25,7 +25,7 @@ Array [
     label="Name"
     style={Object {}}
     width={350}
-/>,
+  />,
 ]
 `;
 
@@ -35,10 +35,14 @@ Array [
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     columnData={
-        Object {
-            "label": "Select this element",
-            "onChange": [Function],
-          }
+      Object {
+        "collection": undefined,
+        "isSelected": [MockFunction],
+        "label": "Select this element",
+        "onChange": [MockFunction],
+        "onToggleAll": undefined,
+        "selectionMode": undefined,
+      }
     }
     dataKey=""
     defaultSortDirection="ASC"
@@ -50,8 +54,8 @@ Array [
     label=""
     style={Object {}}
     width={35}
-/>,
-  <Column
+  />,
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -62,8 +66,8 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
-  <Column
+  />,
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -74,7 +78,7 @@ Array [
     label="Name"
     style={Object {}}
     width={350}
-/>,
+  />,
 ]
 `;
 
@@ -85,10 +89,11 @@ Array [
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-        Object {
-            "custom": "lol",
-            "id": "my-id",
-          }
+      Object {
+        "custom": "lol",
+        "getRowState": undefined,
+        "id": "my-id",
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -99,7 +104,7 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
 ]
 `;
 
@@ -110,9 +115,10 @@ Array [
     cellRenderer={[Function]}
     className="my-classname theme-classname tc-list-cell-id"
     columnData={
-        Object {
-            "id": undefined,
-          }
+      Object {
+        "getRowState": undefined,
+        "id": undefined,
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -123,7 +129,7 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
 ]
 `;
 
@@ -134,9 +140,10 @@ Array [
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-        Object {
-            "id": undefined,
-          }
+      Object {
+        "getRowState": undefined,
+        "id": undefined,
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -147,6 +154,58 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
+]
+`;
+
+exports[`tablerow #toColumns should return a column with fixed width 1`] = `
+Array [
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="tc-list-cell-id"
+    columnData={
+      Object {
+        "custom": "lol",
+        "getRowState": undefined,
+        "id": "my-id",
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerClassName="tc-list-cell-id"
+    headerRenderer={[Function]}
+    label="Id"
+    style={Object {}}
+    width={50}
+  />,
+]
+`;
+
+exports[`tablerow #toColumns should return a column with resizable width and classname 1`] = `
+Array [
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="tc-list-cell-id"
+    columnData={
+      Object {
+        "custom": "lol",
+        "getRowState": undefined,
+        "id": "my-id",
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerClassName="tc-list-cell-id tc-header-resizable"
+    headerRenderer={[Function]}
+    label="Id"
+    style={Object {}}
+    width={50}
+  />,
 ]
 `;

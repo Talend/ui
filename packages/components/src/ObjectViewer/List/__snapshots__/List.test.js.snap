@@ -6,7 +6,7 @@ exports[`ObjectViewer.List should render List with props data as an array 1`] = 
   id="my-object-list"
 >
   <li>
-    <Translate(TreeGesture(JSONLike))
+    <TreeGesture(JSONLike)
       data={
         Object {
           "field0": "header1",
@@ -18,7 +18,7 @@ exports[`ObjectViewer.List should render List with props data as an array 1`] = 
     />
   </li>
   <li>
-    <Translate(TreeGesture(JSONLike))
+    <TreeGesture(JSONLike)
       data={
         Object {
           "field1": "header2",
@@ -38,7 +38,7 @@ exports[`ObjectViewer.List should render List with props data as an object 1`] =
   id="my-object-list"
 >
   <li>
-    <Translate(TreeGesture(JSONLike))
+    <TreeGesture(JSONLike)
       data={
         Object {
           "field0": "header1",
@@ -50,7 +50,7 @@ exports[`ObjectViewer.List should render List with props data as an object 1`] =
     />
   </li>
   <li>
-    <Translate(TreeGesture(JSONLike))
+    <TreeGesture(JSONLike)
       data={
         Object {
           "field1": "header2",

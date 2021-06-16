@@ -11,8 +11,13 @@ exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
   role="progressbar"
 >
   <div
+    aria-describedby="42"
     className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
       Object {
@@ -34,8 +39,13 @@ exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
   role="progressbar"
 >
   <div
+    aria-describedby="42"
     className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
       Object {
@@ -57,8 +67,13 @@ exports[`Progress should render a contained progress 1`] = `
   role="progressbar"
 >
   <div
+    aria-describedby="42"
     className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
       Object {
@@ -78,8 +93,13 @@ exports[`Progress should render an infinite progress 1`] = `
   role="status"
 >
   <div
+    aria-describedby="42"
     className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
       Object {
@@ -105,8 +125,13 @@ exports[`Progress should render hidden progress at 0% 1`] = `
   role="progressbar"
 >
   <div
+    aria-describedby="42"
     className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
       Object {
@@ -128,8 +153,13 @@ exports[`Progress should render progress with given percentage 1`] = `
   role="progressbar"
 >
   <div
+    aria-describedby="42"
     className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
       Object {

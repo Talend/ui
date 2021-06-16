@@ -17,25 +17,28 @@ const props = {
 };
 
 describe('AboutDialog', () => {
+	beforeAll(() => {
+		const RealDate = Date;
+		global.Date = jest.fn(() => new RealDate(2018, 1, 1));
+	});
+
 	it('should render', () => {
-		const wrapper = shallow(<AboutDialog.WrappedComponent {...props} />);
+		const wrapper = shallow(<AboutDialog {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render with custom copyright', () => {
-		const wrapper = shallow(
-			<AboutDialog.WrappedComponent copyrights="custom copyrights" {...props} />,
-		);
+		const wrapper = shallow(<AboutDialog copyrights="custom copyrights" {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render services', () => {
-		const wrapper = shallow(<AboutDialog.WrappedComponent {...props} expanded />);
+		const wrapper = shallow(<AboutDialog {...props} expanded />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render in loading mode', () => {
-		const wrapper = shallow(<AboutDialog.WrappedComponent {...props} loading />);
+		const wrapper = shallow(<AboutDialog {...props} loading />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

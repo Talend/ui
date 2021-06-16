@@ -3,7 +3,7 @@
     src: {{{src}}};
 }
 
-.{{baseClass}} {
+{{baseSelector}} {
     display: inline-block;
     font: normal normal normal 14px/1 {{fontName}};
     font-size: inherit;
@@ -13,7 +13,7 @@
     vertical-align: middle;
 }
 
-.{{baseClass}}:before {
+{{baseSelector}}:before {
     display: block;
 }
 

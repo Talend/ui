@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = `
+<div
+  className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
+>
+  <withI18nextTranslation(FilterBar)
+    autoFocus={true}
+    className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
+    disabled={false}
+    dockable={false}
+    docked={true}
+    focus={false}
+    navbar={true}
+    t={[Function]}
+  />
+  <withI18nextTranslation(SortOptions)
+    orders={
+      Object {
+        "date": "desc",
+        "name": "desc",
+      }
+    }
+    t={[Function]}
+    types={
+      Array [
+        "name",
+        "date",
+      ]
+    }
+  />
+  <withI18nextTranslation(StateFilter)
+    t={[Function]}
+    types={
+      Array [
+        "selection",
+        "favorites",
+        "certified",
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`Toolbar component snaps should render Toolbar without name widget 1`] = `
+<div
+  className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
+>
+  <withI18nextTranslation(SortOptions)
+    orders={
+      Object {
+        "date": "desc",
+        "name": "desc",
+      }
+    }
+    t={[Function]}
+    types={
+      Array [
+        "name",
+        "date",
+      ]
+    }
+  />
+  <withI18nextTranslation(StateFilter)
+    t={[Function]}
+    types={
+      Array [
+        "selection",
+        "favorites",
+        "certified",
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`Toolbar component snaps should render Toolbar without sort widgets 1`] = `
+<div
+  className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
+>
+  <withI18nextTranslation(FilterBar)
+    autoFocus={true}
+    className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
+    disabled={false}
+    dockable={false}
+    docked={true}
+    focus={false}
+    navbar={true}
+    t={[Function]}
+  />
+  <withI18nextTranslation(StateFilter)
+    t={[Function]}
+    types={
+      Array [
+        "selection",
+        "favorites",
+        "certified",
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`Toolbar component snaps should render Toolbar without state widgets 1`] = `
+<div
+  className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
+>
+  <withI18nextTranslation(FilterBar)
+    autoFocus={true}
+    className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
+    disabled={false}
+    dockable={false}
+    docked={true}
+    focus={false}
+    navbar={true}
+    t={[Function]}
+  />
+  <withI18nextTranslation(SortOptions)
+    orders={
+      Object {
+        "date": "desc",
+        "name": "desc",
+      }
+    }
+    t={[Function]}
+    types={
+      Array [
+        "name",
+        "date",
+      ]
+    }
+  />
+</div>
+`;

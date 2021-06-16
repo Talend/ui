@@ -10,6 +10,7 @@ It is possible to customize the title displayed as header.
   "jsonSchema": {
     "type": "object",
     "title": "Comment",
+    "description": "Description",
     "properties": {
       "lastname": {
         "type": "string"
@@ -37,6 +38,7 @@ It is possible to customize the title displayed as header.
 |---|---|---|
 | key | Mandatory, it indicates where to set the `isClosed` state flag. |  |
 | title | The default `CollapsiblePanel` displays this title in the header. |  |
+| description | The default `CollapsiblePanel` displays this description in the body. |  |
 | items | The UI schema of its body. |  |
 | widget | The widget to use. | `collapsibleFieldset` |
 
@@ -46,6 +48,7 @@ It is possible to customize the title displayed as header.
     "widget": "collapsibleFieldset",
     "key": "technical.basic",
     "title": "Basic",
+    "description": "Description",
     "items": [
       {
         "key": "lastname",
@@ -104,6 +107,7 @@ import { UIForms } from '@talend/react-forms';
     "widget": "myCustomCollapsibleFieldset",
     "key": "technical.basic",
     "title": "Basic title",
+    "description": "Basic description",
     "items": [
       {
         "key": "lastname",

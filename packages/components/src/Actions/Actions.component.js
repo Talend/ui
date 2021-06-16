@@ -63,21 +63,24 @@ const actions: [
  ];
  <Actions actions={actions} tooltipPlacement="right" hideLabel link />
  */
-function Actions({ getComponent, ...props }) {
+function Actions({ getComponent, hideLabel, link, tooltipPlacement, ...props }) {
 	const buttonGroupProps = getButtonGroupProps(props);
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
 		<ButtonGroup className={classNames('tc-actions', props.className)} {...buttonGroupProps}>
 			{props.actions.map((action, index) => {
-				const params = {
-					key: index,
-					hideLabel: props.hideLabel,
-					link: props.link,
-					tooltipPlacement: props.tooltipPlacement,
-					...action,
-				};
+				const extraParams = {};
+				if (hideLabel) {
+					extraParams.hideLabel = hideLabel;
+				}
+				if (link) {
+					extraParams.link = link;
+				}
+				if (tooltipPlacement) {
+					extraParams.tooltipPlacement = tooltipPlacement;
+				}
 
-				return <Renderers.Action {...params} />;
+				return <Renderers.Action key={index} {...action} {...extraParams} />;
 			})}
 		</ButtonGroup>
 	);
@@ -96,9 +99,6 @@ Actions.propTypes = {
 
 Actions.defaultProps = {
 	actions: [],
-	renderers: {
-		Action,
-	},
 };
 
 export default Actions;

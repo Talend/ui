@@ -2,36 +2,41 @@
  * @module react-cmf
  */
 
-import actions from './actions/';
+import actions from './actions';
 import actionCreator from './actionCreator';
 
 import bootstrap from './bootstrap';
 import cmfConnect from './cmfConnect';
+import cmfModule from './cmfModule';
 import component from './component';
 import ConnectedDispatcher from './Dispatcher';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
 import expression from './expression';
 import expressions from './expressions';
-import Inject from './Inject.component.js';
-import matchPath from './sagaRouter/matchPath';
+import Inject from './Inject.component';
+import matchPath from './matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
+import settings from './settings';
+import localStorage from './localStorage';
+import onError from './onError';
+import reduxStorage from './reduxstorage';
+import * as mock from './mock';
 
 // DEPRECATED APIs
 import action from './action';
 import App from './App';
 import reducers from './reducers';
 import registry from './registry';
-import route from './route';
-import sagaRouter from './sagaRouter';
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
-import history from './history';
 import store from './store';
-import getErrorMiddleware from './middlewares/error';
-import httpMiddleware from './middlewares/http';
+import middlewares from './middlewares';
 import componentState from './componentState';
+import constants from './constant';
 
 const Dispatcher = ConnectedDispatcher;
+const getErrorMiddleware = middlewares.error;
+const httpMiddleware = middlewares.http;
 
 function registerInternals(context) {
 	actionCreator.register('cmf.saga.start', actions.saga.start, context);
@@ -44,21 +49,20 @@ export {
 	actions,
 	cmfConnect,
 	Dispatcher,
+	ErrorBoundary,
 	Inject,
+	mock,
+	reduxStorage,
 	sagas,
 	selectors,
 	// DEPRECATED
 	componentState,
 	getErrorMiddleware,
-	history,
 	httpMiddleware,
 	reducers,
 	registry,
-	route,
 	RegistryProvider,
-	sagaRouter,
 	store,
-	UIRouter,
 };
 
 /**
@@ -81,15 +85,20 @@ export default {
 	bootstrap,
 	component,
 	connect: cmfConnect,
+	constants,
 	expression,
 	expressions,
+	middlewares,
+	module: cmfModule,
+	onError,
 	registerInternals,
 	registry,
-	route,
 	router: {
 		matchPath,
 	},
 	saga: sagas,
 	sagas,
 	selectors,
+	settings,
+	localStorage,
 };

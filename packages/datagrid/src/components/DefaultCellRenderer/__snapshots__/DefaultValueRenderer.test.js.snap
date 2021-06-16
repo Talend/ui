@@ -1,22 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom renderer) 1`] = `
-<div
-  className="theme-td-default-cell td-default-cell"
-  onMouseOver={[Function]}
->
-  <Translate(FormatValueComponent)
-    value=" loreum "
-  />
-</div>
-`;
-
 exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom renderer) with the tooltip when the label overflow in width 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  <Translate(FormatValueComponent)
+  <FormatValueComponent
     value=" loreum "
   />
 </div>
@@ -27,7 +16,7 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom render
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  <Translate(FormatValueComponent)
+  <FormatValueComponent
     value=" loreum "
   />
 </div>
@@ -69,7 +58,45 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer with the toolt
 </div>
 `;
 
-exports[`#DefaultValueRenderer should render DefaultValueRenderer without the tooltip 1`] = `
+exports[`#DefaultValueRenderer should render a boolean 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  false
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render a bytes 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  ejfiejifje
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render empty when the value is null 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render the leading/trailing special character 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  <FormatValueComponent
+    value=" loreum "
+  />
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render without the tooltip 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}

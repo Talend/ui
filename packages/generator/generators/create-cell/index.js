@@ -1,7 +1,7 @@
 const yosay = require('yosay');
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 
-module.exports = yeoman.Base.extend({
+ module.exports = class CellGenerator extends Generator {
 	prompting() {
 		this.log(yosay('Time to generate some cell for your virtualized list!'));
 		const prompts = [{
@@ -49,7 +49,7 @@ module.exports = yeoman.Base.extend({
 				cssSelector: `tc-list-${props.cssSelector}`,
 			});
 		});
-	},
+	}
 
 	writing() {
 		this.fs.copyTpl(
@@ -72,9 +72,9 @@ module.exports = yeoman.Base.extend({
 			this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.scss`),
 			this
 		);
-	},
+	}
 
 	install() {
 		this.npmInstall();
-	},
-});
+	}
+};

@@ -8,15 +8,9 @@ import toJsonWithoutI18n from '../../../../__mocks__/props-without-i18n';
 jest.useFakeTimers();
 
 function filter(wrapper, searchCriteria) {
-	wrapper
-		.find('.tc-listview-header button')
-		.at(0)
-		.simulate('click');
+	wrapper.find('.tc-listview-header button').at(0).simulate('click');
 	const event = { target: { value: searchCriteria } };
-	wrapper
-		.find('.tc-listview-header input')
-		.at(0)
-		.simulate('change', event);
+	wrapper.find('.tc-listview-header input').at(0).simulate('change', event);
 	jest.runAllTimers();
 }
 
@@ -75,9 +69,8 @@ describe('ListView field', () => {
 		it('should render ListView', () => {
 			// when
 			const wrapper = shallow(<ListView {...props} />);
-
 			// then
-			expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render no items message', () => {
@@ -89,7 +82,7 @@ describe('ListView field', () => {
 		});
 	});
 
-	describe('componentWillReceiveProps', () => {
+	describe('UNSAFE_componentWillReceiveProps', () => {
 		it('should update items on props.value change', () => {
 			// given
 			const node = document.createElement('div');
@@ -97,9 +90,7 @@ describe('ListView field', () => {
 			const instance = ReactDOM.render(<ListViewWidget {...props} value={[]} />, node);
 			const previousItems = instance.state.displayedItems;
 			expect(previousItems.length).toBe(4);
-			for (const item of previousItems) {
-				expect(item.checked).toBe(false);
-			}
+			previousItems.forEach(({ checked }) => expect(checked).toBe(false));
 
 			const allValues = props.schema.titleMap.map(option => option.value);
 
@@ -109,9 +100,7 @@ describe('ListView field', () => {
 			// then
 			const nextItems = instance.state.displayedItems;
 			expect(nextItems.length).toBe(4);
-			for (const item of nextItems) {
-				expect(item.checked).toBe(true);
-			}
+			nextItems.forEach(({ checked }) => expect(checked).toBe(true));
 		});
 
 		it('should update items on props.schema change', () => {
@@ -145,10 +134,7 @@ describe('ListView field', () => {
 			expect(initialHeader.text()).toBe('Countries*(2/4 selected)');
 
 			// when
-			initialHeader
-				.find('button')
-				.at(0)
-				.simulate('click');
+			initialHeader.find('button').at(0).simulate('click');
 
 			// then
 			const nextHeader = wrapper.find('.tc-listview-header').at(0);
@@ -165,19 +151,9 @@ describe('ListView field', () => {
 			wrapper.update();
 
 			// then
-			expect(wrapper.find('.tc-listview-item-label').length).toBe(2);
-			expect(
-				wrapper
-					.find('.tc-listview-item-label')
-					.at(0)
-					.text(),
-			).toBe('Albania');
-			expect(
-				wrapper
-					.find('.tc-listview-item-label')
-					.at(1)
-					.text(),
-			).toBe('Algeria');
+			expect(wrapper.find('input[id^="checkbox-my-list-view-"]').length).toBe(2);
+			expect(wrapper.find('.theme-tc-item-container label').at(1).text()).toBe('Albania');
+			expect(wrapper.find('.theme-tc-item-container label').at(2).text()).toBe('Algeria');
 		});
 
 		it('should show no result message', () => {
@@ -189,12 +165,7 @@ describe('ListView field', () => {
 			wrapper.update();
 
 			// then
-			expect(
-				wrapper
-					.find('.tc-listview > span')
-					.at(0)
-					.text(),
-			).toBe('No result found.');
+			expect(wrapper.find('.tc-listview > span').at(0).text()).toBe('No result found.');
 		});
 
 		it('should switch back to default mode on abort button click', () => {
@@ -205,10 +176,7 @@ describe('ListView field', () => {
 			expect(wrapper.state()).toMatchSnapshot();
 
 			// when
-			wrapper
-				.find('.tc-listview-header button')
-				.at(0)
-				.simulate('click');
+			wrapper.find('.tc-listview-header button').at(0).simulate('click');
 
 			// then
 			expect(wrapper.state()).toMatchSnapshot();
@@ -241,7 +209,7 @@ describe('ListView field', () => {
 
 			// when
 			wrapper
-				.find('#checkbox-my-list-view-1-item')
+				.find('input#checkbox-my-list-view-1-item')
 				.simulate('change', { target: { checked: true } });
 
 			// then

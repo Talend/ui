@@ -2,29 +2,32 @@
 
 `cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
-* It injects a state management on top of redux
-* It injects dispatch function
-* It lets you map the state to props
-* It lets you use registered actionCreator
-* It lets you use the component registry
-* It lets you evaluate props using expression
+Some of the key features:
 
-Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux) [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
+* tools (props) to write maintainable code
+* configuration (every component try to get props from settings)
+* mapStateToProps outside of the component (more reuse)
+* build onEvent handler using registered actionCreator or simple dispatch
+* component registry available for composition
+
+Note that CMFConnect itself uses [react-redux](https://github.com/reactjs/react-redux), [connect](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md), [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
 ## API
 
 ```javascript
 cmfConnect({
-    componentId, // string or function(props) to compute the id in the store
-    defaultState, // the default state when the component is mount
-    keepComponent, // boolean, when the component is unmount, to keep its state in redux store
-    mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
-    ...rest, // the rest is applied to connect function
+	defaultState, // active the state management on top of redux (`props.state`, `props.setState`)
+	keepComponent, // boolean, when the component is unmount, to keep its state in redux store
+	mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
+	withDispatch, // to receive `props.dispatch`
+	withDispatchActionCreator, // to receive `props.dispatchActionCreator`
+	withComponentRegistry, // to receive `props.getComponent`
+	withComponentId, // to receive `props.componentId`
+	...rest, // the rest is applied to connect function
 })(Component);
 ```
 
 ## How to use component state
-
 
 First, with CMF, you will not need to write reducer.
 If you want to use CMF state management, you must add a `displayName` to your component.
@@ -62,17 +65,18 @@ class Clock extends React.Component {
 	}
 
 	render() {
-		const state = this.props.state || DEFAULT_STATE;
 		return (
 			<div>
 				<h1>Hello, world!</h1>
-				<h2>It is {state.get(date, new Date()).toLocaleTimeString()}.</h2>
+				<h2>It is {this.props.state.get(date, new Date()).toLocaleTimeString()}.</h2>
 			</div>
 		);
 	}
 }
 
-export default cmfConnect({ defaultState: DEFAULT_STATE })(Clock);
+export default cmfConnect({
+	defaultState: DEFAULT_STATE,
+})(Clock);
 
 // This will create the state in redux at state.cmf.components.getIn(['Clock', 'default'])
 ```
@@ -148,7 +152,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default cmfConnect({ mapStateToProps })(SimpleButton);
+export default cmfConnect({
+	mapStateToProps,
+	withDispatchActionCreator: true,
+})(SimpleButton);
 ```
 
 Here instead of having click handler dispatcher hard coded into that component, we can delegate it to dispatchActionCreator, a utility that get automaticaly injected into your component props by CMFConnect.
@@ -272,16 +279,18 @@ Clock.setStateAction(
 ## How to test
 
 
-When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, router, ...).
+When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, ...).
 
 We want testing experience to be easy so CMF provides some mocks for you.
 
 ```javascript
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import MyComponent from './My.component';
+
+const { Provider, store } = mock;
 
 describe('App', () => {
 	it('should render the app container', () => {
@@ -297,7 +306,6 @@ describe('App', () => {
 
 This way MyComponent may request for the following context:
 
-* router
 * registry
 * store
 
@@ -305,5 +313,4 @@ you may change the following using simple props:
 
 * store
 * state
-* router
 * registry

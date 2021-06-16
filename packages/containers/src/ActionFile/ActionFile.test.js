@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ActionFile } from '@talend/react-components';
-import mock from '@talend/react-cmf/lib/mock';
+import { ActionFile } from '@talend/react-components/lib/Actions';
+import { mock } from '@talend/react-cmf';
 
 import Connected, { mapStateToProps, mergeProps, ContainerActionFile } from './ActionFile.connect';
 
@@ -16,7 +16,7 @@ describe('Connected ActionFile', () => {
 		expect(typeof props).toBe('object');
 	});
 	it('should render', () => {
-		const context = mock.context();
+		const context = mock.store.context();
 		const wrapper = shallow(<ActionFile id="42" actionId="menu:article" extra="foo" />, {
 			context,
 		});

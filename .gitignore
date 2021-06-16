@@ -44,6 +44,9 @@ hs_err_pid*
 
 # Talend web apps build directory
 build/
-i18n/
-packages/**/yarn.lock
-packages/**/package-lock.json
+/i18n/
+tmp/
+lib/
+storybook-static/
+dist/
+i18n-extract/

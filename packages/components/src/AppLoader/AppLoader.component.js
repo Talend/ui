@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 
@@ -27,10 +27,10 @@ export function AppLoaderComponent({ t }) {
 	);
 }
 AppLoaderComponent.propTypes = {
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 AppLoaderComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(AppLoaderComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(AppLoaderComponent);

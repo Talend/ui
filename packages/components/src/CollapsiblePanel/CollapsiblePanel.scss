@@ -4,6 +4,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
 $tc-collapsible-descriptive-panel-content-description-color: #808080 !default;
 $tc-toggle-color: #555964 !default;
+$tc-skeleton-background-color: #dfdfdf !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -55,53 +56,122 @@ $tc-toggle-color: #555964 !default;
 // due to react-bootstrap
 :global(.panel .panel) {
 	margin: 0;
-	border: none;
 }
 
 .tc-collapsible-panel {
 	position: relative;
 
 	&.selected {
-		border-left: 4px solid $brand-primary;
+		border-left: 5px solid $brand-primary;
 		padding-left: 1px;
+	}
+
+	&:not(.open) {
+		:global(.panel-heading) {
+			border-bottom: none;
+		}
 	}
 
 	&.info,
 	&.success,
 	&.danger,
 	&.muted,
-	&.warning {
-		padding-left: 1px;
-		border-left: 4px solid;
+	&.warning,
+	&.skeleton {
+		:global(.panel-heading) {
+			padding-left: 1px;
+			border-left: 5px solid;
+		}
 	}
 
 	&.info {
-		border-left-color: $brand-info;
+		:global(.panel-heading) {
+			border-left-color: $brand-info;
+		}
+		:global(.tc-status-label) {
+			color: $brand-info;
+		}
 	}
 
 	&.success {
-		border-left-color: $brand-success;
+		:global(.panel-heading) {
+			border-left-color: $brand-success;
+		}
+		:global(.tc-status-label) {
+			color: $brand-success;
+		}
 	}
 
 	&.danger {
-		border-left-color: $brand-danger;
+		border-color: $brand-danger;
+		:global(.panel-heading) {
+			border-color: $brand-danger;
+		}
+		:global(.tc-status-label) {
+			color: $brand-danger;
+		}
 	}
 
 	&.muted {
-		border-left-color: $gray;
+		:global(.panel-heading) {
+			border-left-color: $gray;
+		}
+		:global(.tc-status-label) {
+			color: $gray;
+		}
 	}
 
 	&.warning {
-		border-left-color: $brand-warning;
+		:global(.panel-heading) {
+			border-left-color: $brand-warning;
+		}
+		:global(.tc-status-label) {
+			color: $brand-warning;
+		}
 	}
 
-	.toggle svg {
+	&.skeleton {
+		:global(.panel-heading) {
+			border-color: $tc-skeleton-background-color;
+		}
+	}
+
+	.panel-header-content {
+		display: flex;
+		height: 4rem;
+		align-items: center;
+		padding: 0 $padding-normal;
+		& > a {
+			width: 100%;
+		}
+		.panel-title {
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-basis: 100%;
+			overflow: hidden;
+			font-size: 1.4rem;
+			width: 100%;
+			padding-right: $padding-smaller;
+			> * {
+				padding: 0;
+				text-decoration: none;
+				@include col-style;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+		}
+	}
+
+	:global(.tc-icon-toggle) {
+		height: 1.6rem;
+		width: 1.6rem;
 		transform-origin: center;
-	}
-
-	&.open {
-		.toggle svg {
-			transform: rotate(180deg);
+		svg {
+			height: 1rem;
+			width: 1rem;
 		}
 	}
 
@@ -109,50 +179,27 @@ $tc-toggle-color: #555964 !default;
 		display: flex;
 	}
 
-	.panel-heading {
-		display: flex;
-		justify-content: space-between;
-		padding: 0;
-
-		> * {
-			padding: 0;
-			letter-spacing: 0;
-			text-decoration: none;
-		}
-
-		.panel-title {
+	:global {
+		.panel-heading {
 			display: flex;
-			align-items: center;
 			justify-content: space-between;
-			flex-basis: 100%;
-			overflow: hidden;
-			text-decoration: none;
-			text-transform: none;
-			font-size: 1.4rem;
-			padding-left: 5px;
-			padding-right: 5px;
+			padding: 0;
+			.panel-title {
+				width: 100%;
+			}
+			&:hover {
+				background: $white;
+				cursor: pointer;
 
-			> * {
-				@include col-style;
-				display: flex;
-				align-items: center;
-				height: 4rem;
+				.tc-status-label {
+					text-decoration: underline;
+				}
 			}
 		}
 	}
 }
 
 .default-panel {
-	.panel-heading {
-		.panel-title {
-			flex-basis: calc(100% - 35px);
-
-			:global(.label) {
-				padding: 0.3em 0.6em;
-			}
-		}
-	}
-
 	:global(.label) {
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -209,6 +256,14 @@ $tc-toggle-color: #555964 !default;
 		}
 	}
 
+	&.open {
+		:global(.toggle) {
+			svg {
+				fill: $white;
+			}
+		}
+	}
+
 	&.selected {
 		.title,
 		.detail {
@@ -217,16 +272,19 @@ $tc-toggle-color: #555964 !default;
 	}
 
 	:global(.panel-heading) {
-		background-color: white;
+		padding: 0;
+		background-color: $white;
 		border-color: transparent;
 	}
 
 	.group {
 		justify-content: flex-start;
+		> * {
+			margin-right: $padding-smaller;
+		}
 	}
 
 	.title {
-		text-transform: none;
 		font-weight: bold;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -234,9 +292,8 @@ $tc-toggle-color: #555964 !default;
 	}
 
 	.tag {
-		margin-left: 2px;
 		white-space: nowrap;
-		font-size: 12px;
+		font-size: 1.2rem;
 	}
 
 	.detail {

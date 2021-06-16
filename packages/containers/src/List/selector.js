@@ -1,5 +1,6 @@
 import cmf from '@talend/react-cmf';
 import get from 'lodash/get';
+import isEmpty from 'lodash/isEmpty';
 import { createSelector } from 'reselect';
 import { Map, List } from 'immutable';
 
@@ -8,14 +9,11 @@ function contains(listItem, query, columns) {
 	if (Map.isMap(listItem)) {
 		item = listItem.toJS();
 	}
-	for (const column of columns) {
-		if (typeof item[column.key] === 'string') {
-			if (item[column.key].toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-				return true;
-			}
-		}
-	}
-	return false;
+	return columns.some(
+		column =>
+			typeof item[column.key] === 'string' &&
+			item[column.key].toLowerCase().indexOf(query.toLowerCase()) !== -1,
+	);
 }
 
 function getCollection(state, collectionId) {
@@ -65,53 +63,63 @@ export function configureGetFilteredItems(configure) {
 	return createSelector([getFilteredList, getComponentState], items => items);
 }
 
-export function configureGetSortedItems(configure, listItems) {
-	const localConfig = configure;
+export function compare(sortBy) {
+	return (a, b) => {
+		if (a.get(sortBy)) {
+			let aValue = a.get(sortBy);
+			let bValue = b.get(sortBy);
 
-	const getSortedList = createSelector(
-		getComponentState(localConfig.collectionId),
-		componentState => {
-			if (!List.isList(listItems)) {
-				return new List();
-			}
-			let results = listItems;
-			if (componentState) {
-				const sortBy = componentState.get('sortOn');
-				const sortAsc = componentState.get('sortAsc');
-				let compare = (a, b) => {
-					if (a.get(sortBy)) {
-						if (a.get(sortBy).localCompare) {
-							return a.get(sortBy).localeCompare(b.get(sortBy));
-						}
-						const aValue = `${a.get(sortBy) || ''}`.toLowerCase();
-						const bValue = `${b.get(sortBy) || ''}`.toLowerCase();
-						if (aValue < bValue) {
-							return -1;
-						}
-						if (aValue > bValue) {
-							return 1;
-						}
-						return 0;
-					}
-					if (!b[sortBy]) {
-						return 0;
-					}
-					return -1;
-				};
+			if (typeof aValue === 'string' && typeof bValue === 'string') {
+				aValue = aValue.toLowerCase();
+				bValue = bValue.toLowerCase();
 
-				const sortedColumn = get(localConfig, 'columns', [])
-					.filter(column => column.key === sortBy)
-					.pop();
-				if (sortedColumn && sortedColumn.sortFunction) {
-					compare = cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy);
-				}
-				results = results.sort(compare);
-				if (!sortAsc) {
-					results = results.reverse();
-				}
+				return aValue.localeCompare(bValue);
 			}
-			return results;
-		},
+
+			if (aValue < bValue) {
+				return -1;
+			}
+			if (aValue > bValue) {
+				return 1;
+			}
+			return 0;
+		}
+		if (!b[sortBy]) {
+			return 0;
+		}
+		return -1;
+	};
+}
+
+export function getSortedResults(componentState, config, listItems) {
+	if (!List.isList(listItems)) {
+		return new List();
+	}
+	let results = listItems;
+	if (!isEmpty(componentState)) {
+		const sortBy = componentState.get('sortOn');
+		const sortAsc = componentState.get('sortAsc');
+		const sortedColumn = get(config, 'columns', []).find(column => column.key === sortBy);
+
+		if (get(sortedColumn, 'sortFunction')) {
+			// Immutable sort method returns sorted array
+			results = results.sort(
+				cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc),
+			);
+		} else {
+			results = results.sort(compare(sortBy));
+		}
+
+		if (!sortAsc) {
+			results = results.reverse();
+		}
+	}
+	return results;
+}
+
+export function configureGetSortedItems(config, listItems) {
+	const getSortedList = createSelector(getComponentState(config.collectionId), componentState =>
+		getSortedResults(componentState, config, listItems),
 	);
 
 	return createSelector([getSortedList, getComponentState], items => items);

@@ -12,46 +12,6 @@ import theme from './ActionFile.scss';
 const LEFT = 'left';
 const RIGHT = 'right';
 
-function getIcon({ icon, iconTransform, inProgress }) {
-	if (inProgress) {
-		return <CircularProgress size="small" key="icon" />;
-	}
-
-	if (icon) {
-		return <Icon name={icon} transform={iconTransform} key="icon" />;
-	}
-
-	return null;
-}
-getIcon.propTypes = {
-	icon: PropTypes.string,
-	iconTransform: PropTypes.string,
-	inProgress: PropTypes.bool,
-};
-
-function getLabel({ hideLabel, label }) {
-	if (hideLabel) {
-		return null;
-	}
-	return <span key="label">{label}</span>;
-}
-
-getLabel.propTypes = {
-	label: PropTypes.string,
-	hideLabel: PropTypes.bool,
-};
-
-function adjustContentPlacement(icon, label, iconPosition) {
-	if (iconPosition === RIGHT) {
-		return [label, icon];
-	}
-	return [icon, label];
-}
-
-function getButtonContent(props) {
-	return adjustContentPlacement(getIcon(props), getLabel(props), props.iconPosition);
-}
-
 /**
  * Purpose of this component is to provide a simple direct upload button.
  * When the user click on this component a file picker is open,
@@ -65,21 +25,24 @@ class ActionFile extends React.Component {
 	static displayName = 'ActionFile';
 
 	static propTypes = {
-		...getIcon.propTypes,
-		id: PropTypes.string,
+		accept: PropTypes.string,
+		available: PropTypes.bool,
 		bsStyle: PropTypes.string,
 		className: PropTypes.string,
 		disabled: PropTypes.bool,
 		hideLabel: PropTypes.bool,
+		icon: PropTypes.string,
 		iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
+		iconTransform: PropTypes.string,
+		id: PropTypes.string,
+		inProgress: PropTypes.bool,
 		label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element.isRequired]),
-		link: PropTypes.bool,
-		model: PropTypes.object,
 		name: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		tooltipPlacement: OverlayTrigger.propTypes.placement,
 		tooltip: PropTypes.bool,
 		tooltipLabel: PropTypes.string,
+		'data-feature': PropTypes.string,
 	};
 
 	static defaultProps = {
@@ -94,6 +57,7 @@ class ActionFile extends React.Component {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
 	}
+
 	handleChange(event) {
 		event.preventDefault();
 		if (event.target.files.length > 0) {
@@ -105,24 +69,34 @@ class ActionFile extends React.Component {
 
 	render() {
 		const {
-			id,
-			bsStyle,
-			name,
-			className,
+			accept,
 			available,
+			bsStyle,
+			className,
+			'data-feature': dataFeature,
 			disabled,
 			inProgress,
 			hideLabel,
+			icon,
+			iconPosition,
+			iconTransform,
+			id,
+			label,
+			name,
 			tooltip,
 			tooltipLabel,
-			label,
 			tooltipPlacement,
 		} = this.props;
 		if (!available) {
 			return null;
 		}
 		const localId = id || uuid.v4();
-		const buttonContent = getButtonContent(this.props);
+		const iconInstance = inProgress ? (
+			<CircularProgress size="small" key="icon" />
+		) : (
+			icon && <Icon name={icon} transform={iconTransform} key="icon" />
+		);
+		const labelInstance = hideLabel ? null : <span key="label">{label}</span>;
 		const labelClasses = classNames(
 			`btn btn-${bsStyle}`,
 			theme['btn-file'],
@@ -134,13 +108,14 @@ class ActionFile extends React.Component {
 				<input
 					onChange={this.handleChange}
 					type="file"
+					accept={accept}
 					name={name}
 					id={localId}
 					disabled={inProgress || disabled}
 					className={classNames(theme['action-file-input'], 'sr-only')}
 				/>
-				<label htmlFor={localId} className={labelClasses}>
-					{buttonContent}
+				<label htmlFor={localId} className={labelClasses} data-feature={dataFeature}>
+					{iconPosition === RIGHT ? [labelInstance, iconInstance] : [iconInstance, labelInstance]}
 				</label>
 			</span>
 		);

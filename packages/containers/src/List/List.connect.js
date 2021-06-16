@@ -69,7 +69,7 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	if (props.actionIds) {
 		delete props.actionIds;
 	}
@@ -78,10 +78,17 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
+
 	defaultProps: {
 		saga: 'List#root',
 		listItems: new List(),
 	},
+
 	componentId,
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Container);

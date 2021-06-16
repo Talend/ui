@@ -1,5 +1,5 @@
 import { cmfConnect } from '@talend/react-cmf';
-import { ActionBar } from '@talend/react-components';
+import ActionBar from '@talend/react-components/lib/ActionBar';
 import Action from '../Action';
 import Actions from '../Actions';
 import ActionDropdown from '../ActionDropdown';
@@ -38,7 +38,7 @@ export function mapStateToProps(state, { actionIds }) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionIds;
 	return props;
 }
@@ -46,4 +46,9 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(ActionBar);

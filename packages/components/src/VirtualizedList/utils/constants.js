@@ -1,6 +1,7 @@
 export const listTypes = {
 	TABLE: 'TABLE',
 	LARGE: 'LARGE',
+	COLLAPSIBLE_PANEL: 'COLLAPSIBLE_PANEL',
 };
 
 export const cellTitleDisplayModes = {
@@ -11,6 +12,11 @@ export const cellTitleDisplayModes = {
 export const SORT_BY = {
 	ASC: 'ASC',
 	DESC: 'DESC',
+};
+
+export const SELECTION_MODE = {
+	MULTI: 'MULTI',
+	SINGLE: 'SINGLE',
 };
 
 export const internalIds = {

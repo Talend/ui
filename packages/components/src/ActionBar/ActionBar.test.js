@@ -17,10 +17,7 @@ describe('ActionBar', () => {
 		// when
 		const actionBar = <ActionBar {...props} />;
 		const wrapper = mount(actionBar);
-		wrapper
-			.find(Action)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Action).at(0).simulate('click');
 
 		// then
 		expect(onClickMock).toHaveBeenCalled();
@@ -53,5 +50,41 @@ describe('ActionBar', () => {
 		expect(render.hasClass('my-custom-action')).toBe(true);
 		expect(render.name()).toBe('div');
 		expect(render.props()).toMatchSnapshot();
+	});
+
+	it('should render the number of selected items', () => {
+		// given
+		const props = {
+			selected: 12,
+			multiSelectActions: {
+				left: [{ id: 'remove-items', label: 'Delete', icon: 'talend-trash' }],
+			},
+		};
+
+		// when
+		const wrapper = mount(<ActionBar {...props} />);
+		const count = wrapper.find('span.tc-actionbar-selected-count');
+
+		// then
+		expect(count.length).toBe(1);
+		expect(count.text()).toEqual(`${props.selected} selected`);
+	});
+
+	it('should not render the number of selected items', () => {
+		// given
+		const props = {
+			selected: 12,
+			hideCount: true,
+			multiSelectActions: {
+				left: [{ id: 'remove-items', label: 'Delete', icon: 'talend-trash' }],
+			},
+		};
+
+		// when
+		const wrapper = mount(<ActionBar {...props} />);
+		const count = wrapper.find('span.tc-actionbar-selected-count');
+
+		// then
+		expect(count.length).toBe(0);
 	});
 });

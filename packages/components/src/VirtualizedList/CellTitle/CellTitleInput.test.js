@@ -13,8 +13,8 @@ describe('CellTitleInput', () => {
 		// when
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell'}
-				cellData={'my value'}
+				id="my-cell"
+				cellData="my value"
 				onEditCancel={jest.fn()}
 				onEditSubmit={jest.fn()}
 				rowData={rowData}
@@ -33,8 +33,8 @@ describe('CellTitleInput', () => {
 
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell-input'}
-				cellData={'my value'}
+				id="my-cell-input"
+				cellData="my value"
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
@@ -59,8 +59,8 @@ describe('CellTitleInput', () => {
 
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell-input'}
-				cellData={'my value'}
+				id="my-cell-input"
+				cellData="my value"
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
@@ -86,8 +86,8 @@ describe('CellTitleInput', () => {
 
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell-input'}
-				cellData={'my value'}
+				id="my-cell-input"
+				cellData="my value"
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}

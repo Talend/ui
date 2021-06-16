@@ -2,23 +2,20 @@
 /// Breadcrumb
 /// @group Custom widgets
 ////
-
 .tc-breadcrumb {
-	> li {
-		margin: 0;
+	:global(.tc-dropdown-button) {
+		padding: 0;
+	}
 
-		& + li {
-			margin: 0;
+	&.loading {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		padding: $padding-small;
+		height: $breadcrumb-height;
 
-			&:before {
-				border: none;
-				box-shadow: none;
-			}
-
-			> button > span,
-			> span {
-				text-transform: none;
-			}
+		:global(.tc-skeleton) {
+			margin: 0 $padding-smaller;
 		}
 	}
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import bsonObjectid from 'bson-objectid';
+import uuid from 'uuid';
 import omit from 'lodash/omit';
 import expression from '../src/expression';
 import mock from '../src/mock';
@@ -17,8 +17,7 @@ import cmfConnect, {
 } from '../src/cmfConnect';
 import component from '../src/component';
 
-jest.mock('bson-objectid');
-bsonObjectid.mockImplementation(() => 42);
+jest.mock('uuid', () => ({ v4: () => '42' }));
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
@@ -206,6 +205,15 @@ describe('cmfConnect', () => {
 		};
 		Button.displayName = 'Button';
 		const CMFConnectedButton = cmfConnect({})(Button);
+		it('should create a connected component even without params', () => {
+			const TestComponent = jest.fn();
+			TestComponent.displayName = 'TestComponent';
+			mapStateToViewProps.cache.clear();
+			const CMFConnected = cmfConnect()(TestComponent);
+			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
+			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
+		});
+
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';
@@ -290,7 +298,9 @@ describe('cmfConnect', () => {
 				return <div className="test-component" {...rest} />;
 			};
 			TestComponent.displayName = 'TestComponent';
-			const CMFConnected = cmfConnect({})(TestComponent);
+			const CMFConnected = cmfConnect({
+				withDispatchActionCreator: true,
+			})(TestComponent);
 			const props = {
 				dispatchActionCreator: jest.fn(),
 			};
@@ -735,8 +745,8 @@ describe('cmfConnect', () => {
 		it('should check that component will not be rendered if renderIf equals false', () => {
 			const context = mock.context();
 			const CMFConnected = cmfConnect({})(Button);
-			const mounted = mount(<CMFConnected store={context.store} label={'text'} renderIf={false} />);
-			expect(mounted.html()).toBeNull();
+			const mounted = mount(<CMFConnected store={context.store} label="text" renderIf={false} />);
+			expect(mounted.html()).toBe('');
 		});
 
 		it('should not spread propTypes and defaultProps of wrappedComponent to the CMFContainer', () => {
@@ -760,6 +770,61 @@ describe('cmfConnect', () => {
 			expect(CMFContainer.propTypes.labelBase).toBeUndefined();
 			expect(CMFContainer.propTypes.labelSuffix).toBeUndefined();
 			expect(CMFContainer.defaultProps).toBeUndefined();
+		});
+	});
+	describe('#omitCMFProps', () => {
+		it('should cmfConnect({ omitCMFProps: false }) keep compatibility', () => {
+			const context = mock.context();
+			const TestComponent = props => <div {...props} />;
+			const WithCMFProps = cmfConnect({ omitCMFProps: false })(TestComponent);
+			const wrapperWithCMFProps = shallow(
+				shallow(<WithCMFProps className="foo" id="bar" />, {
+					context: { store: context.store },
+				}).getElement(),
+			);
+			expect(Object.keys(wrapperWithCMFProps.props())).toEqual([
+				'className',
+				'id',
+				'setState',
+				'initState',
+				'deleteState',
+				'updateState',
+				'dispatch',
+				'getComponent',
+				'dispatchActionCreator',
+				'state',
+			]);
+		});
+		it('should cmfConnect({ omitCMFProps: true }) remove all internals', () => {
+			const context = mock.context();
+			const TestComponent = props => <div {...props} />;
+			const WithoutCMFProps = cmfConnect({ omitCMFProps: true })(TestComponent);
+			const wrapperWithoutCMFProps = shallow(
+				shallow(<WithoutCMFProps className="foo" id="bar" />, {
+					context: { store: context.store },
+				}).getElement(),
+			);
+			expect(wrapperWithoutCMFProps.props()).toEqual({
+				className: 'foo',
+				id: 'bar',
+			});
+		});
+		it('should cmfConnect({ omitCMFProps: true, withComponentRegistry: true }) add getComponent', () => {
+			const context = mock.context();
+			const TestComponent = props => <div {...props} />;
+			const WithoutCMFProps = cmfConnect({ omitCMFProps: true, withComponentRegistry: true })(
+				TestComponent,
+			);
+			const wrapperWithoutCMFProps = shallow(
+				shallow(<WithoutCMFProps className="foo" id="bar" />, {
+					context: { store: context.store },
+				}).getElement(),
+			);
+			expect(wrapperWithoutCMFProps.props()).toEqual({
+				className: 'foo',
+				id: 'bar',
+				getComponent: component.get,
+			});
 		});
 	});
 });

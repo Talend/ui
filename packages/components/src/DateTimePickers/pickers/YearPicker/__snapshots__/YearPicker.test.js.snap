@@ -1,1213 +1,216 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`YearPicker should default render with current year in middle when "selectedYear" prop is not provided 1`] = `
+<div
+  className="theme-year-picker"
+>
+  <Action
+    className="theme-scroll theme-scroll-up tc-date-picker-scroll-up"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-90"
+    label="Go to previous year"
+    link={true}
+    onClick={[Function]}
+  />
+  <ol
+    onWheel={[Function]}
+  >
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2022
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2023
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2024
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        2025
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2026
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2027
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2028
+      </button>
+    </li>
+  </ol>
+  <Action
+    className="theme-scroll theme-scroll-down tc-date-picker-scroll-down"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-270"
+    label="Go to next year"
+    link={true}
+    onClick={[Function]}
+  />
+</div>
+`;
+
 exports[`YearPicker should render 1`] = `
-<IncrementableScrollList
-  initialIndex={147}
-  items={
-    Array [
-      Object {
-        "id": 1865,
-        "label": "1865",
-      },
-      Object {
-        "id": 1866,
-        "label": "1866",
-      },
-      Object {
-        "id": 1867,
-        "label": "1867",
-      },
-      Object {
-        "id": 1868,
-        "label": "1868",
-      },
-      Object {
-        "id": 1869,
-        "label": "1869",
-      },
-      Object {
-        "id": 1870,
-        "label": "1870",
-      },
-      Object {
-        "id": 1871,
-        "label": "1871",
-      },
-      Object {
-        "id": 1872,
-        "label": "1872",
-      },
-      Object {
-        "id": 1873,
-        "label": "1873",
-      },
-      Object {
-        "id": 1874,
-        "label": "1874",
-      },
-      Object {
-        "id": 1875,
-        "label": "1875",
-      },
-      Object {
-        "id": 1876,
-        "label": "1876",
-      },
-      Object {
-        "id": 1877,
-        "label": "1877",
-      },
-      Object {
-        "id": 1878,
-        "label": "1878",
-      },
-      Object {
-        "id": 1879,
-        "label": "1879",
-      },
-      Object {
-        "id": 1880,
-        "label": "1880",
-      },
-      Object {
-        "id": 1881,
-        "label": "1881",
-      },
-      Object {
-        "id": 1882,
-        "label": "1882",
-      },
-      Object {
-        "id": 1883,
-        "label": "1883",
-      },
-      Object {
-        "id": 1884,
-        "label": "1884",
-      },
-      Object {
-        "id": 1885,
-        "label": "1885",
-      },
-      Object {
-        "id": 1886,
-        "label": "1886",
-      },
-      Object {
-        "id": 1887,
-        "label": "1887",
-      },
-      Object {
-        "id": 1888,
-        "label": "1888",
-      },
-      Object {
-        "id": 1889,
-        "label": "1889",
-      },
-      Object {
-        "id": 1890,
-        "label": "1890",
-      },
-      Object {
-        "id": 1891,
-        "label": "1891",
-      },
-      Object {
-        "id": 1892,
-        "label": "1892",
-      },
-      Object {
-        "id": 1893,
-        "label": "1893",
-      },
-      Object {
-        "id": 1894,
-        "label": "1894",
-      },
-      Object {
-        "id": 1895,
-        "label": "1895",
-      },
-      Object {
-        "id": 1896,
-        "label": "1896",
-      },
-      Object {
-        "id": 1897,
-        "label": "1897",
-      },
-      Object {
-        "id": 1898,
-        "label": "1898",
-      },
-      Object {
-        "id": 1899,
-        "label": "1899",
-      },
-      Object {
-        "id": 1900,
-        "label": "1900",
-      },
-      Object {
-        "id": 1901,
-        "label": "1901",
-      },
-      Object {
-        "id": 1902,
-        "label": "1902",
-      },
-      Object {
-        "id": 1903,
-        "label": "1903",
-      },
-      Object {
-        "id": 1904,
-        "label": "1904",
-      },
-      Object {
-        "id": 1905,
-        "label": "1905",
-      },
-      Object {
-        "id": 1906,
-        "label": "1906",
-      },
-      Object {
-        "id": 1907,
-        "label": "1907",
-      },
-      Object {
-        "id": 1908,
-        "label": "1908",
-      },
-      Object {
-        "id": 1909,
-        "label": "1909",
-      },
-      Object {
-        "id": 1910,
-        "label": "1910",
-      },
-      Object {
-        "id": 1911,
-        "label": "1911",
-      },
-      Object {
-        "id": 1912,
-        "label": "1912",
-      },
-      Object {
-        "id": 1913,
-        "label": "1913",
-      },
-      Object {
-        "id": 1914,
-        "label": "1914",
-      },
-      Object {
-        "id": 1915,
-        "label": "1915",
-      },
-      Object {
-        "id": 1916,
-        "label": "1916",
-      },
-      Object {
-        "id": 1917,
-        "label": "1917",
-      },
-      Object {
-        "id": 1918,
-        "label": "1918",
-      },
-      Object {
-        "id": 1919,
-        "label": "1919",
-      },
-      Object {
-        "id": 1920,
-        "label": "1920",
-      },
-      Object {
-        "id": 1921,
-        "label": "1921",
-      },
-      Object {
-        "id": 1922,
-        "label": "1922",
-      },
-      Object {
-        "id": 1923,
-        "label": "1923",
-      },
-      Object {
-        "id": 1924,
-        "label": "1924",
-      },
-      Object {
-        "id": 1925,
-        "label": "1925",
-      },
-      Object {
-        "id": 1926,
-        "label": "1926",
-      },
-      Object {
-        "id": 1927,
-        "label": "1927",
-      },
-      Object {
-        "id": 1928,
-        "label": "1928",
-      },
-      Object {
-        "id": 1929,
-        "label": "1929",
-      },
-      Object {
-        "id": 1930,
-        "label": "1930",
-      },
-      Object {
-        "id": 1931,
-        "label": "1931",
-      },
-      Object {
-        "id": 1932,
-        "label": "1932",
-      },
-      Object {
-        "id": 1933,
-        "label": "1933",
-      },
-      Object {
-        "id": 1934,
-        "label": "1934",
-      },
-      Object {
-        "id": 1935,
-        "label": "1935",
-      },
-      Object {
-        "id": 1936,
-        "label": "1936",
-      },
-      Object {
-        "id": 1937,
-        "label": "1937",
-      },
-      Object {
-        "id": 1938,
-        "label": "1938",
-      },
-      Object {
-        "id": 1939,
-        "label": "1939",
-      },
-      Object {
-        "id": 1940,
-        "label": "1940",
-      },
-      Object {
-        "id": 1941,
-        "label": "1941",
-      },
-      Object {
-        "id": 1942,
-        "label": "1942",
-      },
-      Object {
-        "id": 1943,
-        "label": "1943",
-      },
-      Object {
-        "id": 1944,
-        "label": "1944",
-      },
-      Object {
-        "id": 1945,
-        "label": "1945",
-      },
-      Object {
-        "id": 1946,
-        "label": "1946",
-      },
-      Object {
-        "id": 1947,
-        "label": "1947",
-      },
-      Object {
-        "id": 1948,
-        "label": "1948",
-      },
-      Object {
-        "id": 1949,
-        "label": "1949",
-      },
-      Object {
-        "id": 1950,
-        "label": "1950",
-      },
-      Object {
-        "id": 1951,
-        "label": "1951",
-      },
-      Object {
-        "id": 1952,
-        "label": "1952",
-      },
-      Object {
-        "id": 1953,
-        "label": "1953",
-      },
-      Object {
-        "id": 1954,
-        "label": "1954",
-      },
-      Object {
-        "id": 1955,
-        "label": "1955",
-      },
-      Object {
-        "id": 1956,
-        "label": "1956",
-      },
-      Object {
-        "id": 1957,
-        "label": "1957",
-      },
-      Object {
-        "id": 1958,
-        "label": "1958",
-      },
-      Object {
-        "id": 1959,
-        "label": "1959",
-      },
-      Object {
-        "id": 1960,
-        "label": "1960",
-      },
-      Object {
-        "id": 1961,
-        "label": "1961",
-      },
-      Object {
-        "id": 1962,
-        "label": "1962",
-      },
-      Object {
-        "id": 1963,
-        "label": "1963",
-      },
-      Object {
-        "id": 1964,
-        "label": "1964",
-      },
-      Object {
-        "id": 1965,
-        "label": "1965",
-      },
-      Object {
-        "id": 1966,
-        "label": "1966",
-      },
-      Object {
-        "id": 1967,
-        "label": "1967",
-      },
-      Object {
-        "id": 1968,
-        "label": "1968",
-      },
-      Object {
-        "id": 1969,
-        "label": "1969",
-      },
-      Object {
-        "id": 1970,
-        "label": "1970",
-      },
-      Object {
-        "id": 1971,
-        "label": "1971",
-      },
-      Object {
-        "id": 1972,
-        "label": "1972",
-      },
-      Object {
-        "id": 1973,
-        "label": "1973",
-      },
-      Object {
-        "id": 1974,
-        "label": "1974",
-      },
-      Object {
-        "id": 1975,
-        "label": "1975",
-      },
-      Object {
-        "id": 1976,
-        "label": "1976",
-      },
-      Object {
-        "id": 1977,
-        "label": "1977",
-      },
-      Object {
-        "id": 1978,
-        "label": "1978",
-      },
-      Object {
-        "id": 1979,
-        "label": "1979",
-      },
-      Object {
-        "id": 1980,
-        "label": "1980",
-      },
-      Object {
-        "id": 1981,
-        "label": "1981",
-      },
-      Object {
-        "id": 1982,
-        "label": "1982",
-      },
-      Object {
-        "id": 1983,
-        "label": "1983",
-      },
-      Object {
-        "id": 1984,
-        "label": "1984",
-      },
-      Object {
-        "id": 1985,
-        "label": "1985",
-      },
-      Object {
-        "id": 1986,
-        "label": "1986",
-      },
-      Object {
-        "id": 1987,
-        "label": "1987",
-      },
-      Object {
-        "id": 1988,
-        "label": "1988",
-      },
-      Object {
-        "id": 1989,
-        "label": "1989",
-      },
-      Object {
-        "id": 1990,
-        "label": "1990",
-      },
-      Object {
-        "id": 1991,
-        "label": "1991",
-      },
-      Object {
-        "id": 1992,
-        "label": "1992",
-      },
-      Object {
-        "id": 1993,
-        "label": "1993",
-      },
-      Object {
-        "id": 1994,
-        "label": "1994",
-      },
-      Object {
-        "id": 1995,
-        "label": "1995",
-      },
-      Object {
-        "id": 1996,
-        "label": "1996",
-      },
-      Object {
-        "id": 1997,
-        "label": "1997",
-      },
-      Object {
-        "id": 1998,
-        "label": "1998",
-      },
-      Object {
-        "id": 1999,
-        "label": "1999",
-      },
-      Object {
-        "id": 2000,
-        "label": "2000",
-      },
-      Object {
-        "id": 2001,
-        "label": "2001",
-      },
-      Object {
-        "id": 2002,
-        "label": "2002",
-      },
-      Object {
-        "id": 2003,
-        "label": "2003",
-      },
-      Object {
-        "id": 2004,
-        "label": "2004",
-      },
-      Object {
-        "id": 2005,
-        "label": "2005",
-      },
-      Object {
-        "id": 2006,
-        "label": "2006",
-      },
-      Object {
-        "id": 2007,
-        "label": "2007",
-      },
-      Object {
-        "id": 2008,
-        "label": "2008",
-      },
-      Object {
-        "id": 2009,
-        "label": "2009",
-      },
-      Object {
-        "id": 2010,
-        "label": "2010",
-      },
-      Object {
-        "id": 2011,
-        "label": "2011",
-      },
-      Object {
-        "id": 2012,
-        "label": "2012",
-      },
-      Object {
-        "id": 2013,
-        "label": "2013",
-      },
-      Object {
-        "id": 2014,
-        "label": "2014",
-      },
-      Object {
-        "id": 2015,
-        "label": "2015",
-      },
-      Object {
-        "id": 2016,
-        "label": "2016",
-      },
-      Object {
-        "id": 2017,
-        "label": "2017",
-      },
-      Object {
-        "id": 2018,
-        "label": "2018",
-      },
-      Object {
-        "id": 2019,
-        "label": "2019",
-      },
-      Object {
-        "id": 2020,
-        "label": "2020",
-      },
-      Object {
-        "id": 2021,
-        "label": "2021",
-      },
-      Object {
-        "id": 2022,
-        "label": "2022",
-      },
-      Object {
-        "id": 2023,
-        "label": "2023",
-      },
-      Object {
-        "id": 2024,
-        "label": "2024",
-      },
-      Object {
-        "id": 2025,
-        "label": "2025",
-      },
-      Object {
-        "id": 2026,
-        "label": "2026",
-      },
-      Object {
-        "id": 2027,
-        "label": "2027",
-      },
-      Object {
-        "id": 2028,
-        "label": "2028",
-      },
-      Object {
-        "id": 2029,
-        "label": "2029",
-      },
-      Object {
-        "id": 2030,
-        "label": "2030",
-      },
-      Object {
-        "id": 2031,
-        "label": "2031",
-      },
-      Object {
-        "id": 2032,
-        "label": "2032",
-      },
-      Object {
-        "id": 2033,
-        "label": "2033",
-      },
-      Object {
-        "id": 2034,
-        "label": "2034",
-      },
-      Object {
-        "id": 2035,
-        "label": "2035",
-      },
-      Object {
-        "id": 2036,
-        "label": "2036",
-      },
-      Object {
-        "id": 2037,
-        "label": "2037",
-      },
-      Object {
-        "id": 2038,
-        "label": "2038",
-      },
-      Object {
-        "id": 2039,
-        "label": "2039",
-      },
-      Object {
-        "id": 2040,
-        "label": "2040",
-      },
-      Object {
-        "id": 2041,
-        "label": "2041",
-      },
-      Object {
-        "id": 2042,
-        "label": "2042",
-      },
-      Object {
-        "id": 2043,
-        "label": "2043",
-      },
-      Object {
-        "id": 2044,
-        "label": "2044",
-      },
-      Object {
-        "id": 2045,
-        "label": "2045",
-      },
-      Object {
-        "id": 2046,
-        "label": "2046",
-      },
-      Object {
-        "id": 2047,
-        "label": "2047",
-      },
-      Object {
-        "id": 2048,
-        "label": "2048",
-      },
-      Object {
-        "id": 2049,
-        "label": "2049",
-      },
-      Object {
-        "id": 2050,
-        "label": "2050",
-      },
-      Object {
-        "id": 2051,
-        "label": "2051",
-      },
-      Object {
-        "id": 2052,
-        "label": "2052",
-      },
-      Object {
-        "id": 2053,
-        "label": "2053",
-      },
-      Object {
-        "id": 2054,
-        "label": "2054",
-      },
-      Object {
-        "id": 2055,
-        "label": "2055",
-      },
-      Object {
-        "id": 2056,
-        "label": "2056",
-      },
-      Object {
-        "id": 2057,
-        "label": "2057",
-      },
-      Object {
-        "id": 2058,
-        "label": "2058",
-      },
-      Object {
-        "id": 2059,
-        "label": "2059",
-      },
-      Object {
-        "id": 2060,
-        "label": "2060",
-      },
-      Object {
-        "id": 2061,
-        "label": "2061",
-      },
-      Object {
-        "id": 2062,
-        "label": "2062",
-      },
-      Object {
-        "id": 2063,
-        "label": "2063",
-      },
-      Object {
-        "id": 2064,
-        "label": "2064",
-      },
-      Object {
-        "id": 2065,
-        "label": "2065",
-      },
-      Object {
-        "id": 2066,
-        "label": "2066",
-      },
-      Object {
-        "id": 2067,
-        "label": "2067",
-      },
-      Object {
-        "id": 2068,
-        "label": "2068",
-      },
-      Object {
-        "id": 2069,
-        "label": "2069",
-      },
-      Object {
-        "id": 2070,
-        "label": "2070",
-      },
-      Object {
-        "id": 2071,
-        "label": "2071",
-      },
-      Object {
-        "id": 2072,
-        "label": "2072",
-      },
-      Object {
-        "id": 2073,
-        "label": "2073",
-      },
-      Object {
-        "id": 2074,
-        "label": "2074",
-      },
-      Object {
-        "id": 2075,
-        "label": "2075",
-      },
-      Object {
-        "id": 2076,
-        "label": "2076",
-      },
-      Object {
-        "id": 2077,
-        "label": "2077",
-      },
-      Object {
-        "id": 2078,
-        "label": "2078",
-      },
-      Object {
-        "id": 2079,
-        "label": "2079",
-      },
-      Object {
-        "id": 2080,
-        "label": "2080",
-      },
-      Object {
-        "id": 2081,
-        "label": "2081",
-      },
-      Object {
-        "id": 2082,
-        "label": "2082",
-      },
-      Object {
-        "id": 2083,
-        "label": "2083",
-      },
-      Object {
-        "id": 2084,
-        "label": "2084",
-      },
-      Object {
-        "id": 2085,
-        "label": "2085",
-      },
-      Object {
-        "id": 2086,
-        "label": "2086",
-      },
-      Object {
-        "id": 2087,
-        "label": "2087",
-      },
-      Object {
-        "id": 2088,
-        "label": "2088",
-      },
-      Object {
-        "id": 2089,
-        "label": "2089",
-      },
-      Object {
-        "id": 2090,
-        "label": "2090",
-      },
-      Object {
-        "id": 2091,
-        "label": "2091",
-      },
-      Object {
-        "id": 2092,
-        "label": "2092",
-      },
-      Object {
-        "id": 2093,
-        "label": "2093",
-      },
-      Object {
-        "id": 2094,
-        "label": "2094",
-      },
-      Object {
-        "id": 2095,
-        "label": "2095",
-      },
-      Object {
-        "id": 2096,
-        "label": "2096",
-      },
-      Object {
-        "id": 2097,
-        "label": "2097",
-      },
-      Object {
-        "id": 2098,
-        "label": "2098",
-      },
-      Object {
-        "id": 2099,
-        "label": "2099",
-      },
-      Object {
-        "id": 2100,
-        "label": "2100",
-      },
-      Object {
-        "id": 2101,
-        "label": "2101",
-      },
-      Object {
-        "id": 2102,
-        "label": "2102",
-      },
-      Object {
-        "id": 2103,
-        "label": "2103",
-      },
-      Object {
-        "id": 2104,
-        "label": "2104",
-      },
-      Object {
-        "id": 2105,
-        "label": "2105",
-      },
-      Object {
-        "id": 2106,
-        "label": "2106",
-      },
-      Object {
-        "id": 2107,
-        "label": "2107",
-      },
-      Object {
-        "id": 2108,
-        "label": "2108",
-      },
-      Object {
-        "id": 2109,
-        "label": "2109",
-      },
-      Object {
-        "id": 2110,
-        "label": "2110",
-      },
-      Object {
-        "id": 2111,
-        "label": "2111",
-      },
-      Object {
-        "id": 2112,
-        "label": "2112",
-      },
-      Object {
-        "id": 2113,
-        "label": "2113",
-      },
-      Object {
-        "id": 2114,
-        "label": "2114",
-      },
-      Object {
-        "id": 2115,
-        "label": "2115",
-      },
-      Object {
-        "id": 2116,
-        "label": "2116",
-      },
-      Object {
-        "id": 2117,
-        "label": "2117",
-      },
-      Object {
-        "id": 2118,
-        "label": "2118",
-      },
-      Object {
-        "id": 2119,
-        "label": "2119",
-      },
-      Object {
-        "id": 2120,
-        "label": "2120",
-      },
-      Object {
-        "id": 2121,
-        "label": "2121",
-      },
-      Object {
-        "id": 2122,
-        "label": "2122",
-      },
-      Object {
-        "id": 2123,
-        "label": "2123",
-      },
-      Object {
-        "id": 2124,
-        "label": "2124",
-      },
-      Object {
-        "id": 2125,
-        "label": "2125",
-      },
-      Object {
-        "id": 2126,
-        "label": "2126",
-      },
-      Object {
-        "id": 2127,
-        "label": "2127",
-      },
-      Object {
-        "id": 2128,
-        "label": "2128",
-      },
-      Object {
-        "id": 2129,
-        "label": "2129",
-      },
-      Object {
-        "id": 2130,
-        "label": "2130",
-      },
-      Object {
-        "id": 2131,
-        "label": "2131",
-      },
-      Object {
-        "id": 2132,
-        "label": "2132",
-      },
-      Object {
-        "id": 2133,
-        "label": "2133",
-      },
-      Object {
-        "id": 2134,
-        "label": "2134",
-      },
-      Object {
-        "id": 2135,
-        "label": "2135",
-      },
-      Object {
-        "id": 2136,
-        "label": "2136",
-      },
-      Object {
-        "id": 2137,
-        "label": "2137",
-      },
-      Object {
-        "id": 2138,
-        "label": "2138",
-      },
-      Object {
-        "id": 2139,
-        "label": "2139",
-      },
-      Object {
-        "id": 2140,
-        "label": "2140",
-      },
-      Object {
-        "id": 2141,
-        "label": "2141",
-      },
-      Object {
-        "id": 2142,
-        "label": "2142",
-      },
-      Object {
-        "id": 2143,
-        "label": "2143",
-      },
-      Object {
-        "id": 2144,
-        "label": "2144",
-      },
-      Object {
-        "id": 2145,
-        "label": "2145",
-      },
-      Object {
-        "id": 2146,
-        "label": "2146",
-      },
-      Object {
-        "id": 2147,
-        "label": "2147",
-      },
-      Object {
-        "id": 2148,
-        "label": "2148",
-      },
-      Object {
-        "id": 2149,
-        "label": "2149",
-      },
-      Object {
-        "id": 2150,
-        "label": "2150",
-      },
-      Object {
-        "id": 2151,
-        "label": "2151",
-      },
-      Object {
-        "id": 2152,
-        "label": "2152",
-      },
-      Object {
-        "id": 2153,
-        "label": "2153",
-      },
-      Object {
-        "id": 2154,
-        "label": "2154",
-      },
-      Object {
-        "id": 2155,
-        "label": "2155",
-      },
-      Object {
-        "id": 2156,
-        "label": "2156",
-      },
-      Object {
-        "id": 2157,
-        "label": "2157",
-      },
-      Object {
-        "id": 2158,
-        "label": "2158",
-      },
-      Object {
-        "id": 2159,
-        "label": "2159",
-      },
-      Object {
-        "id": 2160,
-        "label": "2160",
-      },
-      Object {
-        "id": 2161,
-        "label": "2161",
-      },
-      Object {
-        "id": 2162,
-        "label": "2162",
-      },
-      Object {
-        "id": 2163,
-        "label": "2163",
-      },
-      Object {
-        "id": 2164,
-        "label": "2164",
-      },
-    ]
-  }
-  onSelect={[Function]}
-  selectedItemId={2012}
-/>
+<div
+  className="theme-year-picker"
+>
+  <Action
+    className="theme-scroll theme-scroll-up tc-date-picker-scroll-up"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-90"
+    label="Go to previous year"
+    link={true}
+    onClick={[Function]}
+  />
+  <ol
+    onWheel={[Function]}
+  >
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2009
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2010
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2011
+      </button>
+    </li>
+    <li
+      aria-current={true}
+    >
+      <button
+        aria-label="2012, selected"
+        className="theme-year theme-selected tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        2012
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2013
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2014
+      </button>
+    </li>
+    <li>
+      <button
+        className="theme-year tc-date-picker-year"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        2015
+      </button>
+    </li>
+  </ol>
+  <Action
+    className="theme-scroll theme-scroll-down tc-date-picker-scroll-down"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-270"
+    label="Go to next year"
+    link={true}
+    onClick={[Function]}
+  />
+</div>
 `;

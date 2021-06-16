@@ -1,0 +1,23 @@
+$tc-resource-picker-order-chooser-icon-size: 0.6rem !default;
+
+.tc-resource-picker-order-chooser {
+	display: flex;
+	padding: 0;
+	background: $white;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: inherit;
+		box-shadow: none;
+	}
+
+	.tc-resource-picker-order-indicator {
+		width: $tc-resource-picker-order-chooser-icon-size;
+		height: $tc-resource-picker-order-chooser-icon-size;
+
+		&.asc {
+			transform: rotate(180deg);
+		}
+	}
+}

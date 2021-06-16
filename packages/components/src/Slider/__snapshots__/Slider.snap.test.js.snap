@@ -1,161 +1,394 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider component snaps renderers should render Slider 1`] = `
-<span
-  className="theme-tc-slider tc-slider"
->
-  <ComponentEnhancer(undefined)
-    activeDotStyle={Object {}}
-    className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-    disabled={false}
-    dotStyle={Object {}}
-    dots={false}
-    emptyValueLabel="no label"
-    handle={[Function]}
-    handleStyle={
-      Array [
-        Object {},
-      ]
-    }
-    id="selectable"
-    included={true}
-    marks={Object {}}
-    max={100}
-    min={0}
-    onAfterChange={[Function]}
-    onBeforeChange={[Function]}
-    onChange={[Function]}
-    prefixCls="rc-slider"
-    railStyle={Object {}}
-    step={1}
-    trackStyle={
-      Array [
-        Object {},
-      ]
-    }
-    value={undefined}
-    vertical={false}
-  />
-</span>
+<div>
+  <div
+    className="theme-tc-slider tc-slider"
+  >
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      emptyValueLabel="no label"
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      vertical={false}
+    />
+  </div>
+</div>
+`;
+
+exports[`Slider component snaps renderers should render Slider disabled 1`] = `
+<div>
+  <div
+    className="theme-tc-slider tc-slider"
+  >
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      disabled={true}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={76}
+      vertical={false}
+    />
+  </div>
+  <div
+    className="theme-tc-slider-captions tc-slider-captions"
+  >
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+      data-feature="action"
+      disabled={true}
+      hideLabel={true}
+      icon="talend-smiley-angry"
+      id="icon1"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+      data-feature="action"
+      disabled={true}
+      hideLabel={true}
+      icon="talend-smiley-neutral"
+      id="icon2"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element theme-selected selected"
+      data-feature="action"
+      disabled={true}
+      hideLabel={true}
+      icon="talend-smiley-satisfied"
+      id="icon3"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Slider component snaps renderers should render Slider with captionActions 1`] = `
+<div>
+  <div
+    className="theme-tc-slider tc-slider"
+  >
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={76}
+      vertical={false}
+    />
+  </div>
+  <div
+    className="theme-tc-slider-captions tc-slider-captions"
+  >
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+      data-feature="action"
+      hideLabel={true}
+      icon="talend-smiley-angry"
+      id="icon1"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+      data-feature="action"
+      hideLabel={true}
+      icon="talend-smiley-neutral"
+      id="icon2"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element theme-selected selected"
+      data-feature="action"
+      hideLabel={true}
+      icon="talend-smiley-satisfied"
+      id="icon3"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+  </div>
+</div>
 `;
 
 exports[`Slider component snaps renderers should render Slider with captionTextStepNumber 1`] = `
-<span
-  className="theme-tc-slider tc-slider"
->
-  <ComponentEnhancer(undefined)
-    activeDotStyle={Object {}}
-    className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-    disabled={false}
-    dotStyle={Object {}}
-    dots={false}
-    handle={[Function]}
-    handleStyle={
-      Array [
-        Object {},
-      ]
-    }
-    id="selectable"
-    included={true}
-    label="Heeey"
-    marks={Object {}}
-    max={100}
-    min={0}
-    onAfterChange={[Function]}
-    onBeforeChange={[Function]}
-    onChange={[Function]}
-    prefixCls="rc-slider"
-    railStyle={Object {}}
-    step={1}
-    trackStyle={
-      Array [
-        Object {},
-      ]
-    }
-    value={45}
-    vertical={false}
-  />
+<div>
   <div
-    className="theme-tc-slider-captions tc-slider-text-captions"
+    className="theme-tc-slider tc-slider"
   >
-    <span>
-      0%
-    </span>
-    <span>
-      25%
-    </span>
-    <span>
-      50%
-    </span>
-    <span>
-      75%
-    </span>
-    <span>
-      100%
-    </span>
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      label="Heeey"
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={45}
+      vertical={false}
+    />
   </div>
-</span>
+  <div
+    className="theme-tc-slider-captions tc-slider-captions"
+  >
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      0%
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      25%
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      50%
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      75%
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      100%
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Slider component snaps renderers should render Slider with icons on status 1`] = `
-<span
-  className="theme-tc-slider tc-slider"
->
-  <ComponentEnhancer(undefined)
-    activeDotStyle={Object {}}
-    className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-    disabled={false}
-    dotStyle={Object {}}
-    dots={false}
-    handle={[Function]}
-    handleStyle={
-      Array [
-        Object {},
-      ]
-    }
-    id="selectable"
-    included={true}
-    label="Heeey"
-    marks={Object {}}
-    max={100}
-    min={0}
-    onAfterChange={[Function]}
-    onBeforeChange={[Function]}
-    onChange={[Function]}
-    prefixCls="rc-slider"
-    railStyle={Object {}}
-    step={1}
-    trackStyle={
-      Array [
-        Object {},
-      ]
-    }
-    value={45}
-    vertical={false}
-  />
+<div>
   <div
-    className="theme-tc-slider-captions tc-slider-icons"
+    className="theme-tc-slider tc-slider"
   >
-    <Icon
-      className=""
-      name="talend-smiley-rating"
-    />
-    <Icon
-      className=""
-      name="talend-most-trusted"
-    />
-    <Icon
-      className="theme-selected selected"
-      name="talend-network"
-    />
-    <Icon
-      className=""
-      name="talend-streams"
-    />
-    <Icon
-      className=""
-      name="talend-tdc-negative"
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      label="Heeey"
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={45}
+      vertical={false}
     />
   </div>
-</span>
+  <div
+    className="theme-tc-slider-captions tc-slider-captions"
+  >
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className=""
+        name="talend-smiley-rating"
+      />
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className=""
+        name="talend-most-trusted"
+      />
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className="theme-selected selected"
+        name="talend-network"
+      />
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className=""
+        name="talend-streams"
+      />
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className=""
+        name="talend-tdc-negative"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider component snaps renderers should render a range 1`] = `
+<div>
+  <div
+    className="theme-tc-slider tc-slider"
+  >
+    <ComponentEnhancer(Range)
+      activeDotStyle={Object {}}
+      allowCross={true}
+      className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      count={1}
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      pushable={false}
+      railStyle={Object {}}
+      step={1}
+      tabIndex={Array []}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={
+        Array [
+          10,
+          25,
+        ]
+      }
+      vertical={false}
+    />
+  </div>
+</div>
 `;

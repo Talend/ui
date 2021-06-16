@@ -2,20 +2,22 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import omit from 'lodash/omit';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
+import classNames from 'classnames';
 
-import SelectAll from './SelectAll';
-import SelectDisplayMode from './SelectDisplayMode';
-import SelectSortBy from './SelectSortBy';
 import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
+import ItemsNumber from './ItemsNumber';
 import ActionBar from '../../ActionBar';
+import ColumnChooserButton from './ColumnChooserButton';
+import DisplayModeToggle from './DisplayModeToggle';
 
 import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import '../../translate';
 import Inject from '../../Inject';
+import SelectSortBy from './SelectSortBy/SelectSortBy.component';
 
 function adaptActionsIds(actions, parentId) {
 	return (
@@ -36,7 +38,6 @@ function adaptLeftAndRightActions(actions, parentId) {
 	return (
 		actions && {
 			left: adaptActionsIds(actions.left, parentId),
-			right: adaptActionsIds(actions.right, parentId),
 		}
 	);
 }
@@ -44,7 +45,6 @@ function adaptLeftAndRightActions(actions, parentId) {
 /**
  * @param {string} id the id of Toolbar
  * @param {object} actionBar the ActionBar properties
- * @param {object} selectAllCheckbox the select all checkbox props
  * @param {object} display the SelectDisplayMode properties
  * @param {object} sort the SelectSortBy properties
  * @param {object} pagination the Pagination properties
@@ -54,16 +54,17 @@ function adaptLeftAndRightActions(actions, parentId) {
  <Toolbar id="my-toolbar"></Toolbar>
  */
 function Toolbar({
-	id,
 	actionBar,
-	selectAllCheckbox,
-	display,
-	sort,
-	pagination,
-	filter,
-	t,
-	getComponent,
+	columnChooser,
 	components,
+	display,
+	filter,
+	getComponent,
+	id,
+	itemsNumber,
+	pagination,
+	sort,
+	t,
 }) {
 	const Renderer = Inject.getAll(getComponent, {
 		ActionBar,
@@ -75,42 +76,67 @@ function Toolbar({
 		const { actions, multiSelectActions } = actionBar;
 		actionBarProps = {
 			...actionBar,
+			getComponent,
 			actions: adaptLeftAndRightActions(actions, id),
 			multiSelectActions: adaptLeftAndRightActions(multiSelectActions, id),
 		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
-	const hasToolbarItem = selectAllCheckbox || display || sort || pagination || filter;
-
 	return (
-		<div className="tc-list-toolbar">
+		<div className={classNames(theme['tc-list-toolbar'], 'tc-list-toolbar')}>
 			{injected('before-actionbar')}
-			{actionBar && <Renderer.ActionBar {...actionBarProps} />}
+			{actionBar && (
+				<Renderer.ActionBar {...actionBarProps} className="list-action-bar">
+					<ActionBar.Content right>
+						<ul>
+							{injected('before-itemsnumber')}
+							{itemsNumber && (
+								<li className="separated">
+									<ItemsNumber
+										id={id && `${id}-items-number`}
+										{...itemsNumber}
+										selected={actionBar.selected}
+										t={t}
+									/>
+								</li>
+							)}
+							{injected('before-filter')}
+							{filter && (
+								<li className="separated">
+									<Renderer.FilterBar id={id && `${id}-filter`} {...filter} t={t} navbar />
+								</li>
+							)}
+							{injected('after-filter')}
+							{injected('before-sort')}
+							{sort && (
+								<li className="select-sort-by separated">
+									<Label
+										text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
+										htmlFor={id && `${id}-sort-by`}
+									/>
+									<SelectSortBy id={id && `${id}-sort`} {...sort} t={t} />
+								</li>
+							)}
+							{injected('after-sort')}
+							{columnChooser && (
+								<li className="separated">
+									<ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} t={t} />
+								</li>
+							)}
+							{injected('before-displaymode')}
+							{display && (
+								<li className="separated">
+									<DisplayModeToggle id={displayModeId} {...display} t={t} />
+								</li>
+							)}
+							{injected('after-displaymode')}
+						</ul>
+					</ActionBar.Content>
+				</Renderer.ActionBar>
+			)}
 			{injected('after-actionbar')}
-			{injected('before-navbar')}
-			{hasToolbarItem && (
+			{pagination && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-					{injected('before-selectall')}
-					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
-					{injected('after-selectall')}
-					{injected('before-displaymode')}
-					{display && (
-						<Label
-							text={t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })}
-							htmlFor={displayModeId}
-						/>
-					)}
-					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
-					{injected('after-displaymode')}
-					{injected('before-sort')}
-					{sort && (
-						<Label
-							text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
-							htmlFor={id && `${id}-sort-by`}
-						/>
-					)}
-					{sort && <SelectSortBy id={id && `${id}-sort`} {...sort} t={t} />}
-					{injected('after-sort')}
 					{injected('before-pagination')}
 					{pagination && (
 						<Label
@@ -120,20 +146,8 @@ function Toolbar({
 					)}
 					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} t={t} />}
 					{injected('after-pagination')}
-					{injected('before-filter')}
-					{filter && (
-						<Renderer.FilterBar
-							id={id && `${id}-filter`}
-							{...filter}
-							t={t}
-							navbar
-							className="navbar-right"
-						/>
-					)}
-					{injected('after-filter')}
 				</Navbar>
 			)}
-			{injected('after-navbar')}
 		</div>
 	);
 }
@@ -141,16 +155,27 @@ function Toolbar({
 Toolbar.propTypes = {
 	id: PropTypes.string,
 	actionBar: PropTypes.shape(ActionBar.propTypes),
-	selectAllCheckbox: PropTypes.shape(omit(SelectAll.propTypes, 't')),
-	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
-	sort: PropTypes.bool,
+	display: PropTypes.shape(omit(DisplayModeToggle.propTypes, 't')),
+	sort: PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.shape({
+			field: PropTypes.string,
+			isDescending: PropTypes.bool,
+			onChange: PropTypes.func.isRequired,
+		}),
+	]),
 	pagination: PropTypes.shape(Pagination.propTypes),
 	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
+	itemsNumber: PropTypes.shape(omit(ItemsNumber.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 	getComponent: PropTypes.func,
 	components: PropTypes.object,
+	columnChooser: PropTypes.shape({
+		submit: PropTypes.func,
+		columns: PropTypes.array,
+	}),
 };
 
 Toolbar.defaultProps = {};
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Toolbar);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Toolbar);

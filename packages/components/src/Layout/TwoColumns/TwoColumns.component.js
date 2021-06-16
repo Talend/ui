@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import omit from 'lodash/omit';
 
 import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
@@ -25,9 +26,11 @@ function TwoColumns({ one, drawers, children, tabs, getComponent, ...props }) {
 	const safeOne = Inject.getReactElement(getComponent, one);
 
 	return (
-		<div className={containerCSS} {...props}>
-			<div className={sidemenuCSS}>{safeOne}</div>
-			<div className={mainCSS} role="main">
+		<div className={containerCSS} {...omit(props, 'getComponents')}>
+			<div className={sidemenuCSS} id="tc-layout-side-menu" tabIndex="-1">
+				{safeOne}
+			</div>
+			<div className={mainCSS} role="main" id="tc-layout-main" tabIndex="-1">
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}
 					<div style={style}>{children}</div>

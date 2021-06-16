@@ -10,12 +10,7 @@
         "properties": {
           "key": {
             "type": "string",
-            "enum": [
-              "foo",
-              "bar",
-              "fuzz",
-              "qux"
-            ]
+            "enum": ["foo", "bar", "fuzz", "qux"]
           },
           "value": { "type": "number" }
         },
@@ -32,12 +27,7 @@
           "properties": {
             "key": {
               "type": "string",
-              "enum": [
-                "foo",
-                "bar",
-                "fuzz",
-                "qux"
-              ]
+              "enum": ["foo", "bar", "fuzz", "qux"]
             },
             "value": { "type": "number" }
           },
@@ -81,12 +71,14 @@
     },
     {
       "key": "simpleVariables",
+      "title": "Simple Variables",
       "description": "This is a simple key/value array.",
       "itemWidget": "keyValue",
       "reorder": false
     },
     {
       "key": "advancedVariables",
+      "title": "Advanced Variables",
       "description": "This is an advanced key/value array.",
       "items": [
         {

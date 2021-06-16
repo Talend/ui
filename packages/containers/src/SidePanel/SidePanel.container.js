@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { SidePanel as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/SidePanel';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
 import omit from 'lodash/omit';
+import { ACTION_TYPE_LINK } from './constants';
 
 export const DEFAULT_STATE = new Map({
 	docked: false,
@@ -15,13 +15,9 @@ export const DEFAULT_STATE = new Map({
  */
 class SidePanel extends React.Component {
 	static displayName = 'Container(SidePanel)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
-	};
-	static contextTypes = {
-		store: PropTypes.object,
-		router: PropTypes.object,
-		registry: PropTypes.object,
 	};
 
 	constructor(props, context) {
@@ -36,16 +32,14 @@ class SidePanel extends React.Component {
 
 	render() {
 		const { state = DEFAULT_STATE } = this.props;
-		const props = Object.assign(
-			{},
-			{
-				docked: state.get('docked'),
-				onToggleDock: this.onToggleDock,
-			},
-			omit(this.props, cmfConnect.INJECTED_PROPS),
-		);
+		const props = {
+			docked: state.get('docked'),
+			onToggleDock: this.onToggleDock,
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
+		};
 		return <Component {...props} />;
 	}
 }
 
+SidePanel.ACTION_TYPE_LINK = ACTION_TYPE_LINK;
 export default SidePanel;

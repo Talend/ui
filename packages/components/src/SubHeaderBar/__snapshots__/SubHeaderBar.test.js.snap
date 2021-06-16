@@ -4,8 +4,9 @@ exports[`SubHeaderBar should render without i18n 1`] = `
 <header
   className="theme-tc-subheader tc-subheader myClassName"
 >
-  <Translate(ActionBar)
+  <ActionBar
     className="theme-tc-subheader-navbar tc-subheader-navbar"
+    components={Object {}}
   >
     <SubHeaderBarActions
       left={true}
@@ -17,11 +18,10 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         icon="talend-arrow-left"
         id="backArrow"
         label="Go Back"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       />
       <TitleSubHeader
         editable={false}
-        getComponent={undefined}
         inProgress={false}
         loading={false}
         t={[Function]}
@@ -36,7 +36,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         hideLabel={true}
         icon="talend-share-alt"
         label="action1"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       />
       <Action
         bsStyle="link"
@@ -44,7 +44,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         hideLabel={true}
         icon="talend-activity"
         label="action2"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       />
     </SubHeaderBarActions>
     <SubHeaderBarActions
@@ -57,7 +57,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         hideLabel={true}
         icon="talend-activity"
         label="action3"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       />
     </SubHeaderBarActions>
     <SubHeaderBarActions
@@ -70,9 +70,9 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         hideLabel={true}
         icon="talend-activity"
         label="action3"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       />
     </SubHeaderBarActions>
-  </Translate(ActionBar)>
+  </ActionBar>
 </header>
 `;

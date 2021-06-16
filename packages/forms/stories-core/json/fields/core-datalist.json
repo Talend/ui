@@ -88,13 +88,14 @@
   "uiSchema": [
     {
       "key": "simpleDatalist",
-      "restricted": false,
       "title": "Simple Datalist",
       "description": "This datalist accepts values that are not in the list of suggestions",
-      "widget": "datalist"
+      "widget": "datalist",
+      "data-test": "datalist.simple"
     },
     {
       "key": "restrictedDatalist",
+      "restricted": true,
       "title": "Datalist with restricted options",
       "description": "This datalist does not allow other values than the possible choices",
       "widget": "datalist"
@@ -171,6 +172,7 @@
     {
       "key": "datalistWithCategoryRestricted",
       "title": "Datalist With category and restricted value",
+      "restricted": true,
       "widget": "datalist",
       "options": {
         "isMultiSection": true,
@@ -304,7 +306,6 @@
       "key": "datalistWithCategoryNotRestricted",
       "title": "Datalist With category and without restricted value",
       "widget": "datalist",
-      "restricted": false,
       "options": {
         "isMultiSection": true,
 

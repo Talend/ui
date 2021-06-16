@@ -1,8 +1,0 @@
-{
-  "components/iframe.html?selectedKind=Breadcrumbs&selectedStory=default": [
-    {
-      "name": "breadcrumb-default",
-      "selector": ".tc-breadcrumb"
-    }
-  ]
-}

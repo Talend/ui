@@ -1,21 +1,21 @@
 {
   "name": "@talend/react-sagas",
-  "version": "0.210.0-0",
+  "version": "6.29.0",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "rimraf lib && babel -d lib ./src/",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "prepublishOnly": "yarn build:dev && yarn build:prod",
+    "prepare": "talend-scripts build:lib",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-sagas",
-    "lint:es": "eslint --config ../../.eslintrc src",
-    "lint:style": "sass-lint -v -q",
-    "lint": "npm run lint:es",
-    "storybook": "start-storybook -p 6008",
-    "start": "start-storybook -p 6008",
-    "build-storybook": "build-storybook"
+    "lint:es": "talend-scripts lint:es",
+    "lint:style": "sass-lint -v -q"
   },
   "keywords": [
     "react",
@@ -32,82 +32,22 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "peerDependencies": {
-    "classnames": "^2.2.5",
-    "immutable": "^3.8.1",
-    "invariant": "^2.2.2",
-    "lodash": "^4.17.4",
-    "path-to-regexp": "^2.0.0",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.2 || ^16.0.0",
-    "react-dom": "^15.6.2 || ^16.0.0",
-    "react-redux": "^5.0.7",
-    "react-router": "^3.2.0",
-    "react-router-redux": "^4.0.8",
-    "redux": "^3.7.2",
-    "redux-batched-actions": "^0.2.0",
-    "redux-storage": "^4.1.2",
-    "redux-storage-decorator-filter": "^1.1.8",
-    "redux-storage-decorator-immutablejs": "^1.0.4",
-    "redux-storage-engine-localstorage": "^1.1.4",
-    "redux-thunk": "^2.2.0"
-  },
   "dependencies": {
-    "@talend/react-cmf": "^0.210.0-0",
+    "@talend/react-cmf": "^6.29.0",
+    "immutable": "^3.8.1",
     "redux-saga": "^0.15.4"
   },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "8.0.1",
-    "babel-jest": "20.0.3",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "classnames": "^2.2.5",
-    "eslint": "^3.6.1",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "immutable": "^3.8.1",
-    "invariant": "^2.2.2",
-    "jest": "20.0.3",
-    "jest-cli": "20.0.3",
-    "lodash": "^4.17.4",
-    "path-to-regexp": "^2.0.0",
+  "peerDependencies": {
     "prop-types": "^15.5.10",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-redux": "^5.0.7",
-    "react-router": "^3.2.0",
-    "react-router-redux": "^4.0.8",
-    "redux": "^3.7.2",
-    "redux-batched-actions": "^0.2.0",
-    "redux-storage": "^4.1.2",
-    "redux-storage-decorator-filter": "^1.1.8",
-    "redux-storage-decorator-immutablejs": "^1.0.4",
-    "redux-storage-engine-localstorage": "^1.1.4",
-    "redux-thunk": "^2.2.0",
-    "rimraf": "^2.6.1"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/__snapshots__/**"
-    ],
-    "transform": {
-      "^.+\\.js$": "<rootDir>/../../node_modules/babel-jest"
-    },
-    "roots": [
-      "src"
-    ],
-    "testRegex": "&*\\.test\\.js$",
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+  "devDependencies": {
+    "@talend/scripts-core": "^9.4.1",
+    "@talend/scripts-preset-react-lib": "^9.4.1",
+    "prop-types": "^15.5.10",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "publishConfig": {
     "access": "public"

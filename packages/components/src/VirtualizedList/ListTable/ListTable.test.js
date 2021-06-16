@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import VirtualizedList from '../VirtualizedList.component';
+import VirtualizedList from '..';
 import ListTable from './ListTable.component';
 import collection from '../collection';
 
@@ -10,7 +10,7 @@ describe('ListGrid', () => {
 	it('should render react-virtualized table', () => {
 		// when
 		const wrapper = shallow(
-			<ListTable collection={collection} height={600} id={'my-list'} width={1024}>
+			<ListTable collection={collection} height={600} id="my-list" width={1024}>
 				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
 				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
 				<VirtualizedList.Content label="" dataKey="description" width={0} />
@@ -25,7 +25,7 @@ describe('ListGrid', () => {
 	it('should render react-virtualized table without header', () => {
 		// when
 		const wrapper = shallow(
-			<ListTable collection={collection} height={600} id={'my-list'} width={1024} disableHeader>
+			<ListTable collection={collection} height={600} id="my-list" width={1024} disableHeader>
 				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
 				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
 				<VirtualizedList.Content label="" dataKey="description" width={0} />
@@ -42,10 +42,10 @@ describe('ListGrid', () => {
 			<ListTable
 				collection={collection}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				width={1024}
 			>
 				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
@@ -64,7 +64,7 @@ describe('ListGrid', () => {
 			<ListTable
 				collection={collection}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
@@ -86,7 +86,7 @@ describe('ListGrid', () => {
 			<ListTable
 				collection={[]}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				isSelected={jest.fn()}
 				width={1024}
 				noRowsRenderer={() => <div>No rows</div>}

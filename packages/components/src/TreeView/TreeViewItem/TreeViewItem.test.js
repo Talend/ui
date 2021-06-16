@@ -18,7 +18,10 @@ const item = {
 			id: 11,
 			name: 'mami',
 			toggled: true,
-			children: [{ id: 111, name: 'me' }, { id: 112, name: 'bro' }],
+			children: [
+				{ id: 111, name: 'me' },
+				{ id: 112, name: 'bro' },
+			],
 		},
 		{
 			id: 12,
@@ -48,6 +51,15 @@ const itemWithIcon = {
 	counter: 101,
 	showCounter: true,
 };
+
+const itemWithIconAndTooltip = {
+	...itemWithIcon,
+	icon: {
+		name: 'talend-versioning',
+		tooltipLabel: 'New version of the Pokemon is available',
+	},
+};
+
 const items = [item, { id: 2, name: 'grandma' }, { id: 3, name: 'granduncle' }, itemWithIcon];
 
 const defaultProps = {
@@ -108,6 +120,40 @@ describe('TreeView item', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('test disabled item not calling onSelect', () => {
+		// when
+		const onSelect = jest.fn();
+		const stopPropagation = jest.fn();
+		const props = {
+			...defaultProps,
+			item: {
+				...defaultProps.item,
+				disabled: true,
+			},
+		};
+
+		const wrapper = shallow(<TreeViewItem {...props} onSelect={onSelect} />);
+		wrapper.find('li').simulate('click', { stopPropagation });
+		wrapper.find('li').simulate('keyDown', { keyCode: 13 });
+
+		// then
+		expect(onSelect.mock.calls.length).toBe(0);
+		expect(stopPropagation.mock.calls.length).toBe(1);
+		expect(wrapper.find('li').props()['aria-disabled']).toBeTruthy();
+	});
+
+	it('should render items with icon and tooltip', () => {
+		// when
+		const propsWithIconAndTooltip = {
+			...propsWithIcons,
+			item: itemWithIconAndTooltip,
+		};
+
+		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);
+
+		expect(wrapper.find('TreeViewIcon').dive().getElement()).toMatchSnapshot();
+	});
+
 	it('should toggle item on toggle button click', () => {
 		// given
 		const props = {
@@ -115,12 +161,13 @@ describe('TreeView item', () => {
 			onToggle: jest.fn(),
 		};
 		const wrapper = shallow(<TreeViewItem {...props} />);
-		const event = { target: {} };
+		const event = { target: {}, stopPropagation: jest.fn() };
 
 		// when
 		wrapper.find(`#${props.id}-toggle`).simulate('click', event);
 
 		// then
+		expect(event.stopPropagation).toBeCalled();
 		expect(props.onToggle).toBeCalledWith(event, props.item);
 	});
 
@@ -131,12 +178,13 @@ describe('TreeView item', () => {
 			onSelect: jest.fn(),
 		};
 		const wrapper = shallow(<TreeViewItem {...props} />);
-		const event = { target: {} };
+		const event = { target: {}, stopPropagation: jest.fn() };
 
 		// when
 		wrapper.simulate('click', event);
 
 		// then
+		expect(event.stopPropagation).toBeCalled();
 		expect(props.onSelect).toBeCalledWith(event, props.item);
 	});
 });

@@ -4,8 +4,6 @@ import mock from '../../src/mock';
 
 describe('expressions', () => {
 	it('should export some expressions', () => {
-		expect(expressions['cmf.router.matchPath']).toBeDefined();
-		expect(expressions['cmf.router.location']).toBeDefined();
 		expect(expressions['cmf.collections.get']).toBeDefined();
 		expect(expressions['cmf.components.get']).toBeDefined();
 		expect(expressions['cmf.collections.includes']).toBeDefined();
@@ -86,9 +84,9 @@ describe('expressions', () => {
 				}),
 			});
 			context.store.getState = () => state;
-			expect(expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test2', 'test4'])).toBe(
-				true,
-			);
+			expect(
+				expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test2', 'test4']),
+			).toBe(true);
 		});
 		it('should return false if all values are not present in the list', () => {
 			const context = mock.context();
@@ -100,18 +98,18 @@ describe('expressions', () => {
 				}),
 			});
 			context.store.getState = () => state;
-			expect(expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test4', 'test5'])).toBe(
-				false,
-			);
+			expect(
+				expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test4', 'test5']),
+			).toBe(false);
 		});
-		it('should return false if collection doesn\'t exist', () => {
+		it("should return false if collection doesn't exist", () => {
 			const context = mock.context();
 			const state = mock.state();
 			context.store.getState = () => state;
 			state.cmf.collections = new Immutable.Map({});
-			expect(expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test0', 'test1'])).toBe(
-				false,
-			);
+			expect(
+				expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test0', 'test1']),
+			).toBe(false);
 		});
 		it('should throw an error if values are not an array', () => {
 			const context = mock.context();
@@ -123,8 +121,66 @@ describe('expressions', () => {
 					tags: new Immutable.List(['test', 'test2', 'test3']),
 				}),
 			});
-			expect(() => expressions['cmf.collections.oneOf']({ context }, 'article.tags', 'test'))
-				.toThrow(/^You should pass an array of values to check if one of them is present$/);
+			expect(() =>
+				expressions['cmf.collections.oneOf']({ context }, 'article.tags', 'test'),
+			).toThrow(/^You should pass an array of values to check if one of them is present$/);
+		});
+	});
+	describe('cmf.collections.allOf', () => {
+		it('should return true if all of the values are present in the list', () => {
+			const context = mock.context();
+			const state = mock.state();
+			state.cmf.collections = new Immutable.Map({
+				article: new Immutable.Map({
+					title: 'title',
+					tags: new Immutable.List(['test', 'test2', 'test3']),
+				}),
+			});
+			context.store.getState = () => state;
+			expect(
+				expressions['cmf.collections.allOf']({ context }, 'article.tags', [
+					'test',
+					'test2',
+					'test3',
+				]),
+			).toBe(true);
+		});
+		it('should return false if not all values are not present in the list', () => {
+			const context = mock.context();
+			const state = mock.state();
+			state.cmf.collections = new Immutable.Map({
+				article: new Immutable.Map({
+					title: 'title',
+					tags: new Immutable.List(['test', 'test2', 'test3']),
+				}),
+			});
+			context.store.getState = () => state;
+			expect(
+				expressions['cmf.collections.allOf']({ context }, 'article.tags', ['test2', 'test3']),
+			).toBe(false);
+		});
+		it("should return false if collection doesn't exist", () => {
+			const context = mock.context();
+			const state = mock.state();
+			context.store.getState = () => state;
+			state.cmf.collections = new Immutable.Map({});
+			expect(
+				expressions['cmf.collections.allOf']({ context }, 'article.tags', ['test0', 'test1']),
+			).toBe(false);
+		});
+		it('should throw an error if values are not an array', () => {
+			const context = mock.context();
+			const state = mock.state();
+			context.store.getState = () => state;
+			state.cmf.collections = new Immutable.Map({
+				article: new Immutable.Map({
+					title: 'title',
+					tags: new Immutable.List(['test', 'test2', 'test3']),
+				}),
+			});
+			expect(() =>
+				expressions['cmf.collections.allOf']({ context }, 'article.tags', 'test'),
+			).toThrow(/^You should pass an array of values to check if all of them are present$/);
 		});
 	});
 

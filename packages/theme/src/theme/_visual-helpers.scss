@@ -46,17 +46,25 @@
 /// @param {Color} $btn-color [$btn-default-bg] - button background color to tint
 @mixin btn-inverse-colors($btn-color: $btn-default-bg) {
 	// we have a border but we cannot use box-sizing: border-box because we don't have a height.
-	// so we change the line-height and the min-height to match 3.5rem ($btn-line-height) - borders
-	$border-width: 1.5px;
-	$btn-inverse-line-height: calc(#{$btn-line-height} - (2 * #{$border-width}));
+	// so we change the line-height to match 3.5rem ($btn-line-height) - borders
+	$border-width: 0.15rem;
 
 	&.btn-inverse {
 		background-color: transparent;
 		color: $btn-color;
 		box-shadow: none;
 		border: $border-width solid $btn-color;
-		line-height: $btn-inverse-line-height;
-		min-height: $btn-inverse-line-height;
+		line-height: $btn-line-height - (2 * $border-width);
+		// this is to avoid background issue in case of an inverse button
+		// being in disabled and focused state
+		&:disabled,
+		&.disabled {
+			&:focus,
+			&:hover {
+				background-color: transparent;
+				border: $border-width solid $btn-color;
+			}
+		}
 
 		&:active,
 		&.active,
@@ -77,7 +85,8 @@
 /// @access public
 /// @param {Color} $brand-primary - primary color of product
 /// @param {Color} $brand-secondary [$brand-primary] - secondary color of product
-@mixin layout-colors($brand-primary, $brand-secondary: $brand-primary) {
+/// @param {String} $app-key - app key used by the icon as prefix in its name
+@mixin layout-colors($brand-primary, $brand-secondary: $brand-primary, $app-key: '') {
 	$logo-size: 31rem !default;
 
 	[role='banner'] {
@@ -86,35 +95,47 @@
 			background: linear-gradient(#{$gradient-angle}, $regal-blue 20%, $brand-primary 80%);
 		}
 
-		[role='heading'] span:last-of-type {
-			display: inline-flex;
-			align-items: center;
+		[role='heading'] {
+			span:first-child {
+				display: inline-flex;
+				align-items: center;
 
-			&:before {
-				display: block;
-				content: '';
-				margin-right: $padding-small;
-				height: $navbar-brand-logo-height;
-				width: $navbar-brand-logo-height;
-				background-repeat: no-repeat;
+				&:before {
+					display: block;
+					content: '';
+					margin-right: $padding-small;
+					height: $navbar-brand-logo-height;
+					width: $navbar-brand-logo-height;
+					background-repeat: no-repeat;
+					@if ($app-key != '') {
+						background-color: white;
+						mask-image: #{'url(~@talend/icons/src/svg/products/' + $app-key + '-negative.svg)'};
+					}
+				}
+			}
+
+			svg + span:first-child {
+				&:before {
+					display: none;
+				}
 			}
 		}
 
 		[role='presentation'] {
 			// Sorry, Bootstrap customization sucks
-			:global(.btn),
-			:global(.btn.open),
-			:global(.dropdown.open .btn) {
+			.btn,
+			.btn.open,
+			.dropdown.open .btn {
 				&,
 				&:hover {
 					background: none;
 				}
 			}
 
-			:global(.btn) {
+			.btn {
 				&:hover,
 				&:focus {
-					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+					box-shadow: 0 0 0 200px rgba(255, 255, 255, 0.12) inset;
 				}
 			}
 		}
@@ -139,6 +160,10 @@
 			height: $logo-size;
 			width: $logo-size;
 			background-repeat: no-repeat;
+			@if ($app-key != '') {
+				background-color: rgba(255, 255, 255, 0.1);
+				mask-image: #{'url(~@talend/icons/src/svg/products/' + $app-key + '-negative.svg)'};
+			}
 		}
 
 		&[aria-expanded='false']:before {
@@ -154,9 +179,30 @@
 			&:hover {
 				&:not([aria-current]) {
 					background: none;
-					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+					box-shadow: 0 0 0 200px rgba(255, 255, 255, 0.12) inset;
 				}
 			}
+		}
+	}
+}
+
+@mixin btn-tertiary-colors($color: $btn-default-bg) {
+	&.btn-tertiary {
+		background-color: transparent;
+		box-shadow: none;
+		font-weight: $btn-tertiary-font-weight;
+		line-height: $btn-tertiary-line-height;
+		min-height: $btn-tertiary-line-height;
+		padding: 0 $padding-small;
+		transition: background 0.2s ease-in;
+		color: $color;
+		&:hover,
+		&:focus {
+			color: $color;
+			background: tint($color, 90%);
+		}
+		&:active {
+			background: tint($color, 80%);
 		}
 	}
 }

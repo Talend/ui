@@ -5,17 +5,18 @@
   "license": "Apache-2.0",
   "scripts": {
     "start": "echo nothing to start",
+    "prepublishOnly": "echo nothing to prepublishOnly",
+    "prepare": "echo nothing to prepare",
     "prepublish": "echo nothing to prepublish",
     "test:cov": "istanbul cover _mocha",
     "test:demo": "echo nothing to demo in generator-talend",
     "test:lint": "eslint generator/**/index.js",
-    "test:unit": "mocha --compilers js:babel-register",
+    "test:unit": "mocha --compilers js:@babel/register",
     "test": "npm run test:lint && npm run test:unit"
   },
   "files": [
     "generators/app",
     "generators/create-cell",
-    "generators/dotfiles",
     "generators/react-cmf",
     "generators/react-component"
   ],
@@ -34,24 +35,22 @@
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "generator-git-init": "^1.1.3",
     "mkdirp": "^0.5.1",
+    "recast": "^0.15.5",
     "slugg": "^1.0.0",
-    "yeoman-generator": "^0.24.1",
-    "yeoman-remote": "^1.0.1",
+    "yeoman-generator": "^3.1.1",
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "8.0.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-register": "^6.14.0",
-    "coveralls": "^2.11.12",
-    "eslint": "^3.6.1",
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/register": "^7.8.3",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^4.0.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.0.2",
-    "yeoman-assert": "^2.0.0",
-    "yeoman-test": "^1.0.0"
+    "mocha": "^5.2.0",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.9.1"
   },
-  "version": "0.210.0-0"
+  "version": "6.29.0"
 }

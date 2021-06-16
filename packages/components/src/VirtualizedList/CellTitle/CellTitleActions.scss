@@ -1,11 +1,12 @@
 @import '../colors';
 
-$tc-list-title-actions-color: $brand-primary-darker !default;
 $tc-list-title-actions-ellipsis: '\22ee';
 $tc-list-title-dropdown-menu-triangle: '\25b2';
 $tc-list-title-dropup-menu-triangle: '\25bc';
 
 .main-title-actions-group {
+	display: flex;
+	align-items: center;
 	flex-grow: 0;
 	position: relative;
 	right: 0;
@@ -13,34 +14,29 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 	height: $btn-line-height;
 
 	.cell-title-actions {
-		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
+		background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-hover-bg, 100%) $padding-large);
 		opacity: 0;
-		visibility: hidden;
+		width: 0;
+		overflow: hidden;
 
-		position: absolute;
-		right: 100%;
-
-		padding-left: $padding-larger;
-		margin-right: $padding-smaller;
-
-		.cell-title-actions-menu {
-			&:after {
-				content: $tc-list-title-actions-ellipsis;
-				font-size: 2em;
-				font-weight: bold;
-				vertical-align: inherit;
-			}
-
-			+ ul {
-				min-width: auto;
-			}
+		&:not(:last-child):after {
+			content: '|';
+			color: $dark-silver;
 		}
 	}
 
 	:global {
 		.btn-link {
-			color: $tc-list-title-actions-color;
-			padding: 0 $padding-small;
+			padding: 0 $padding-smaller;
+			.tc-svg-icon[name='talend-caret-down'] {
+				display: none;
+			}
+
+			.tc-svg-icon {
+				margin: 0;
+				height: 2rem;
+				width: 2rem;
+			}
 		}
 
 		.btn-group > .dropdown-menu,

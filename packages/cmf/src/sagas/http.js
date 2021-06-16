@@ -10,6 +10,7 @@ import {
 	HTTP_STATUS,
 	testHTTPCode,
 } from '../middlewares/http/constants';
+import interceptors from '../httpInterceptors';
 
 /**
  * Storage point for the doc setup using `setDefaultConfig`
@@ -46,13 +47,24 @@ export class HTTPError extends Error {
  * @param  {Response} response A response object
  * @return {Promise}           A promise that resolves with the result of parsing the body
  */
-export function handleBody(response) {
+export function handleBody(response, { method } = {}) {
+	if (response.status === HTTP_STATUS.NO_CONTENT || method === HTTP_METHODS.HEAD) {
+		return Promise.resolve({
+			data: '',
+			response,
+		});
+	}
+
 	let methodBody = 'text';
 
 	const headers = get(response, 'headers', new Headers());
 	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
 		methodBody = 'json';
+	}
+
+	if (contentType && contentType.includes('application/zip')) {
+		methodBody = 'blob';
 	}
 
 	return response[methodBody]().then(data => ({ data, response }));
@@ -64,8 +76,13 @@ export function handleBody(response) {
  * @param  {Response} response A response object
  * @return {Promise}           A promise that reject with the result of parsing the body
  */
-export function handleError(response) {
-	return handleBody(response).then(body => new HTTPError(body));
+export function handleError(response, request = {}) {
+	// in case of network issue
+	if (response instanceof Error) {
+		return new HTTPError({ response, data: response });
+	}
+
+	return handleBody(response, request).then(body => new HTTPError(body));
 }
 
 /**
@@ -76,18 +93,29 @@ export function handleError(response) {
  * - resolves with the result of parsing the body
  * - reject the response
  */
-export function handleHttpResponse(response) {
+export function handleHttpResponse(response, request = {}) {
 	if (!testHTTPCode.isSuccess(response.status)) {
 		return Promise.reject(response);
 	}
-	if (response.status === HTTP_STATUS.NO_CONTENT) {
-		return Promise.resolve({
-			data: '',
-			response,
-		});
-	}
 
-	return handleBody(response);
+	return handleBody(response, request);
+}
+/**
+ * encodePayload - encore the payload if necessary
+ *
+ * @param  {object} headers request headers
+ * @param  {object} payload payload to send with the request
+ * @return {string|FormData} The encoded payload.
+ */
+export function encodePayload(headers, payload) {
+	const type = headers['Content-Type'];
+
+	if (payload instanceof FormData || typeof payload === 'string') {
+		return payload;
+	} else if (type && type.includes('json')) {
+		return JSON.stringify(payload);
+	}
+	return payload;
 }
 
 /**
@@ -100,41 +128,41 @@ export function handleHttpResponse(response) {
  * @return {Promise}                          A Promise that resolves to a Response object.
  */
 export function httpFetch(url, config, method, payload) {
-	let body;
 	const defaultHeaders = {
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
 	};
+
 	/**
 	 * If the playload is an instance of FormData the body should be set to this object
 	 * and the Content-type header should be stripped since the browser
 	 * have to build a special headers with file boundary in if said FormData is used to upload file
 	 */
 	if (payload instanceof FormData) {
-		body = payload;
 		delete defaultHeaders['Content-Type'];
-	} else {
-		body = JSON.stringify(payload);
 	}
+
+	const params = merge(
+		{
+			credentials: 'same-origin',
+			headers: defaultHeaders,
+			method,
+		},
+		{
+			...HTTP.defaultConfig,
+			...config,
+		},
+	);
+
 	return fetch(
 		url,
-		handleCSRFToken(
-			merge(
-				{
-					credentials: 'same-origin',
-					headers: defaultHeaders,
-					method,
-					body,
-				},
-				{
-					...HTTP.defaultConfig,
-					...config,
-				},
-			),
-		),
+		handleCSRFToken({
+			...params,
+			body: encodePayload(params.headers, payload),
+		}),
 	)
-		.then(handleHttpResponse)
-		.catch(handleError);
+		.then(response => handleHttpResponse(response, params))
+		.catch(response => handleError(response, params));
 }
 
 /**
@@ -148,11 +176,30 @@ export function httpFetch(url, config, method, payload) {
  * @return {object}                           the response of the request
  */
 export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
-	const answer = yield call(httpFetch, url, config, method, payload);
-
-	if (!get(options, 'silent') && answer instanceof Error) {
+	const newConfig = yield call(interceptors.onRequest, { url, method, payload, ...config });
+	const answer = yield call(
+		httpFetch,
+		newConfig.url,
+		newConfig,
+		newConfig.method,
+		newConfig.payload,
+	);
+	yield call(interceptors.onResponse, answer);
+	const silent = get(options, 'silent');
+	if (silent !== true && answer instanceof Error) {
 		yield put({
-			error: { message: answer.data.message, stack: { status: answer.response.status } },
+			error: {
+				// allow RFC-7807 compliance
+				...get(answer, 'data', {}),
+				// legacy properties
+				message: get(answer, 'data.message'),
+				stack: { status: get(answer, 'response.status') },
+			},
+			url,
+			config,
+			method,
+			payload,
+			options,
 			type: ACTION_TYPE_HTTP_ERRORS,
 		});
 	}
@@ -239,6 +286,21 @@ export function* httpGet(url, config, options) {
 }
 
 /**
+ * function - fetch a url with GET method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.get, '/foo');
+ */
+export function* httpHead(url, config, options) {
+	return yield* wrapFetch(url, config, HTTP_METHODS.HEAD, undefined, options);
+}
+
+/**
  * setDefaultHeader - define a default config to use with the saga http
  * this default config is stored in this module for the whole application
  *
@@ -299,6 +361,7 @@ export function getDefaultConfig() {
 export default {
 	delete: httpDelete,
 	get: httpGet,
+	head: httpHead,
 	post: httpPost,
 	put: httpPut,
 	patch: httpPatch,
@@ -323,6 +386,9 @@ export default {
 			},
 			patch: function* configuredPatch(url, payload, config = {}, options = {}) {
 				return yield call(httpPatch, url, payload, configEnhancer(config), options);
+			},
+			head: function* configuredPatch(url, config = {}, options = {}) {
+				return yield call(httpHead, url, configEnhancer(config), options);
 			},
 		};
 	},

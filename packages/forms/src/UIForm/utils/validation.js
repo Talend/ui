@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import omit from 'lodash/omit';
 import { validate } from '@talend/json-schema-form-core';
-import { getValue } from '../utils/properties';
+import { getValue } from './properties';
+import shouldValidate from './condition';
+import { getArrayElementItems } from './array';
 
 /**
  * Adapt merged schema from jsfc with additional rules
@@ -11,7 +14,7 @@ export function adaptAdditionalRules(mergedSchema) {
 	// skip enum validation if explicitly not restricted
 	const { schema } = mergedSchema;
 	if (mergedSchema.restricted === false) {
-		if (schema.type === 'array' && (schema.items && schema.items.enum)) {
+		if (schema.type === 'array' && schema.items && schema.items.enum) {
 			return {
 				...mergedSchema,
 				schema: {
@@ -66,7 +69,7 @@ export function validateValue(schema, value, properties, customValidationFn) {
  */
 export function validateArray(mergedSchema, value, properties, customValidationFn, deepValidation) {
 	const results = {};
-	const { key, items } = mergedSchema;
+	const { key } = mergedSchema;
 
 	// validate array definition, not its sub-items here
 	const schemaWithoutItems = {
@@ -76,23 +79,13 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 			items: [],
 		},
 	};
-	const error = validateValue(schemaWithoutItems, value, properties, customValidationFn);
-	if (error) {
-		results[key] = error;
-	}
+	results[key] = validateValue(schemaWithoutItems, value, properties, customValidationFn);
 
 	// validate each value of the array
 	if (deepValidation && value) {
 		for (let valueIndex = 0; valueIndex < value.length; valueIndex += 1) {
 			// adapt items schema with value index
-			const indexedItems = items.map(item => {
-				const indexedKey = [...item.key];
-				indexedKey[key.length] = valueIndex;
-				return {
-					...item,
-					key: indexedKey,
-				};
-			});
+			const indexedItems = getArrayElementItems(mergedSchema, valueIndex);
 			// eslint-disable-next-line no-use-before-define
 			const subResults = validateAll(indexedItems, properties, customValidationFn);
 			Object.assign(results, subResults);
@@ -121,11 +114,12 @@ export function validateSimple(
 ) {
 	const results = {};
 	const { key, items } = mergedSchema;
-
-	const error = validateValue(mergedSchema, value, properties, customValidationFn);
-	if (error) {
-		results[key] = error;
+	// do not break in case we do not have the key
+	// we need to keep deepValidation
+	if (key) {
+		results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
 	}
+
 	if (deepValidation && items) {
 		// eslint-disable-next-line no-use-before-define
 		const subResults = validateAll(items, properties, customValidationFn);
@@ -155,7 +149,6 @@ export function validateSingle(
 	if (mergedSchema.type === 'array') {
 		return validateArray(mergedSchema, value, properties, customValidationFn, deepValidation);
 	}
-
 	return validateSimple(mergedSchema, value, properties, customValidationFn, deepValidation);
 }
 
@@ -169,17 +162,14 @@ export function validateSingle(
  */
 export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
-	mergedSchema.forEach(schema => {
-		const value = getValue(properties, schema);
-		const subResults = validateSingle(
-			schema,
-			value,
-			properties,
-			customValidationFn,
-			true, // deep validation
-		);
-		Object.assign(results, subResults);
-	});
+	mergedSchema
+		.filter(schema => shouldValidate(schema.condition, properties, schema.key))
+		.forEach(schema => {
+			const value = getValue(properties, schema);
+			// deep validation
+			const subResults = validateSingle(schema, value, properties, customValidationFn, true);
+			Object.assign(results, subResults);
+		});
 	return results;
 }
 
@@ -199,11 +189,7 @@ export function isValid(schema, errors) {
 	}
 
 	if (items) {
-		for (const itemSchema of items) {
-			if (!isValid(itemSchema, errors)) {
-				return false;
-			}
-		}
+		return items.every(itemSchema => isValid(itemSchema, errors));
 	}
 
 	return true;

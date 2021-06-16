@@ -1,13 +1,91 @@
 import PropTypes from 'prop-types';
-import React, { cloneElement } from 'react';
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import React, { cloneElement, useState, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import uuid from 'uuid';
 import classNames from 'classnames';
-import keycode from 'keycode';
 import theme from './TooltipTrigger.scss';
+import useTooltipVisibility from './TooltipTrigger.hook';
 
-function getTooltipClass() {
-	return classNames({ [theme['tooltip-container']]: true, 'tooltip-container': true });
+const DEFAULT_OFFSET_X = 300;
+const DEFAULT_OFFSET_Y = 50;
+
+/**
+ * Adjust tooltip placement depending on its position in the viewport
+ * @param tooltipPlacement initial tooltip placement to adjust
+ * @param dimensions ref dimensions
+ * @param offsets tooltip offsets
+ * @returns {string} adjusted tooltip placement regarding ref position
+ */
+function getAdjustedTooltipPlacement(tooltipPlacement, dimensions, offsets) {
+	const { top, right, bottom, left } = dimensions;
+	const { tooltipHeight, tooltipWidth } = offsets;
+	const { innerWidth, innerHeight } = window;
+
+	let placement = tooltipPlacement;
+	if (bottom + tooltipHeight > innerHeight) {
+		if (['left', 'right'].includes(tooltipPlacement)) {
+			placement = `${tooltipPlacement}-bottom`;
+		} else if (tooltipPlacement === 'bottom') {
+			placement = 'top';
+		}
+	} else if (top - tooltipHeight < 0) {
+		if (tooltipPlacement === 'top') {
+			placement = 'bottom';
+		}
+	}
+	if (left - tooltipWidth / 2 < 0) {
+		if (['top', 'bottom'].includes(tooltipPlacement)) {
+			placement = `${placement}-right`;
+		} else if (tooltipPlacement === 'left') {
+			placement = placement.replace('left', 'right');
+		}
+	} else if (right + tooltipWidth / 2 > innerWidth) {
+		if (['top', 'bottom'].includes(tooltipPlacement)) {
+			placement = `${placement}-left`;
+		} else if (tooltipPlacement === 'right') {
+			placement = placement.replace('right', 'left');
+		}
+	}
+	return placement;
+}
+
+function getTop(placement, dimensions) {
+	if (placement.startsWith('bottom')) {
+		return dimensions.bottom;
+	}
+	if (['left', 'right'].includes(placement)) {
+		return (dimensions.top + dimensions.bottom) / 2;
+	}
+	return undefined;
+}
+
+function getLeft(placement, dimensions, tooltipWidth) {
+	if (placement === 'top-right' || placement === 'bottom-right') {
+		return (dimensions.left + dimensions.right) / 2;
+	}
+	if (placement === 'top-left' || placement === 'bottom-left') {
+		return (dimensions.left + dimensions.right) / 2 - tooltipWidth;
+	}
+	if (placement.includes('left')) {
+		return `calc(${Math.trunc(dimensions.left)}px - ${Math.trunc(tooltipWidth)}px)`;
+	}
+	if (placement.includes('right')) {
+		return Math.trunc(dimensions.right);
+	}
+	if (['top', 'bottom'].includes(placement)) {
+		return (dimensions.left + dimensions.right) / 2;
+	}
+	return undefined;
+}
+
+function getBottom(placement, dimensions) {
+	if (placement === 'top' || placement === 'top-right' || placement === 'top-left') {
+		return `calc(100vh - ${Math.trunc(dimensions.top)}px)`;
+	}
+	if (placement === 'right-bottom' || placement === 'left-bottom') {
+		return `calc(100vh - ${Math.trunc((dimensions.top + dimensions.bottom) / 2)}px)`;
+	}
+	return undefined;
 }
 
 /**
@@ -21,123 +99,161 @@ const props = {
 	<Icon name="my-icon" />
 </TooltipTrigger>
  */
-class TooltipTrigger extends React.Component {
-	static displayName = 'TooltipTrigger';
+function TooltipTrigger({
+	children,
+	label,
+	className,
+	tooltipDelay,
+	tooltipPlacement = 'right',
+	tooltipHeight = DEFAULT_OFFSET_Y,
+	tooltipWidth = DEFAULT_OFFSET_X,
+}) {
+	const refContainer = useRef();
 
-	state = {
-		hovered: false,
-		id: uuid.v4(),
-	};
+	const [visible, show, hide] = useTooltipVisibility(tooltipDelay);
 
-	shouldComponentUpdate(nextProps, nextState) {
-		return (
-			this.state !== nextState ||
-			this.props.children !== nextProps.children ||
-			this.props.label !== nextProps.label
-		);
+	const [id] = useState(uuid.v4());
+
+	const { props: childrenProps } = children;
+
+	function getTooltipPosition() {
+		if (!refContainer || !refContainer.current) {
+			return {
+				tooltipPlacement,
+			};
+		}
+
+		let dimensions;
+		try {
+			// eslint-disable-next-line react/no-find-dom-node
+			dimensions = ReactDOM.findDOMNode(refContainer.current).getBoundingClientRect();
+		} catch (e) {
+			dimensions = {};
+		}
+
+		const placement = getAdjustedTooltipPlacement(tooltipPlacement, dimensions, {
+			tooltipHeight,
+			tooltipWidth,
+		});
+
+		return {
+			placement,
+			style: {
+				top: getTop(placement, dimensions),
+				left: getLeft(placement, dimensions, tooltipWidth),
+				bottom: getBottom(placement, dimensions),
+			},
+		};
 	}
 
 	/**
-	 * Activate the tooltip when the children is hovered
+	 * Activate the tooltip when children are focused
 	 */
-	onMouseOver = (...args) => {
-		this.setState({ hovered: true });
-		if (this.props.children.props.onMouseOver) {
-			this.props.children.props.onMouseOver(...args);
+	const onFocus = (...args) => {
+		show();
+		if (childrenProps.onFocus) {
+			childrenProps.onFocus(...args);
 		}
 	};
 
 	/**
-	 * Activate the tooltip when the children is focused
+	 * Desactive the tooltip when children are not focused anymore
 	 */
-	onFocus = (...args) => {
-		this.setState({ hovered: true });
-		if (this.props.children.props.onFocus) {
-			this.props.children.props.onFocus(...args);
+	const onBlur = (...args) => {
+		hide();
+		if (childrenProps.onBlur) {
+			childrenProps.onBlur(...args);
 		}
 	};
 
-	/**
-	 * Hide the tooltip between mouseDown & mouseUp
-	 */
-	onMouseDown = (...args) => {
-		this.overlay.handleDelayedHide();
-		if (this.props.children.props.onMouseDown) {
-			this.props.children.props.onMouseDown(...args);
+	const onKeyPress = (...args) => {
+		hide();
+		if (childrenProps.onKeyPress) {
+			childrenProps.onKeyPress(...args);
 		}
 	};
 
-	/**
-	 * Show the tooltip after mouse up
-	 */
-	onMouseUp = (...args) => {
-		this.overlay.handleDelayedShow();
-		if (this.props.children.props.onMouseUp) {
-			this.props.children.props.onMouseUp(...args);
+	const onMouseOver = (...args) => {
+		show();
+		if (childrenProps.onMouseOver) {
+			childrenProps.onMouseOver(...args);
 		}
 	};
 
-	/**
-	 * when activate an element, hide the tooltip between keydown & keyup
-	 * @param {object} event the keyDown event
-	 */
-	onKeyDown = event => {
-		if (event.which === keycode.codes.enter || event.which === keycode.codes.space) {
-			this.overlay.handleDelayedHide();
+	const onMouseOut = (...args) => {
+		hide();
+		if (childrenProps.onMouseOut) {
+			childrenProps.onMouseOut(...args);
 		}
 	};
 
-	/**
-	 * when activate an element, hide the tooltip between keydown & keyup
-	 * @param {object} event the keyup event
-	 */
-	onKeyUp = event => {
-		if (event.which === keycode.codes.enter || event.which === keycode.codes.space) {
-			this.overlay.handleDelayedShow();
+	const onClick = (...args) => {
+		hide();
+		if (childrenProps.onClick) {
+			childrenProps.onClick(...args);
 		}
 	};
 
-	render() {
-		const child = React.Children.only(this.props.children);
+	const { placement, style } = getTooltipPosition();
 
-		if (!this.state.hovered) {
-			return cloneElement(child, {
-				onMouseOver: this.onMouseOver,
-				onFocus: this.onFocus,
-			});
-		}
+	return (
+		<React.Fragment>
+			{React.Children.map(children, child =>
+				cloneElement(child, {
+					'aria-describedby': id,
+					onFocus,
+					onBlur,
+					onKeyPress,
+					onMouseOver,
+					onMouseOut,
+					onClick,
+					// Because of React Fragment, we need to maintaining ref through cloneElement
+					// @see https://github.com/facebook/react/issues/8873#issuecomment-275423780
+					// We need to follow the status of this RFC to change it as soon as possible
+					// @see https://github.com/reactjs/rfcs/pull/97
+					ref: node => {
+						refContainer.current = node;
+						const { ref } = child;
+						if (typeof ref === 'function') ref(node);
+						else if (ref) ref.current = node;
+					},
+				}),
+			)}
 
-		const tooltip = (
-			<Tooltip className={getTooltipClass()} id={this.state.id}>
-				{this.props.label}
-			</Tooltip>
-		);
-		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
-		return (
-			<OverlayTrigger
-				ref={ref => {
-					this.overlay = ref;
-				}}
-				placement={this.props.tooltipPlacement}
-				overlay={tooltip}
-				delayShow={400}
-				animation={false}
-			>
-				{cloneElement(child, {
-					onMouseDown: this.onMouseDown,
-					onMouseUp: this.onMouseUp,
-					onKeyDown: this.onKeyDown,
-					onKeyUp: this.onKeyUp,
-				})}
-			</OverlayTrigger>
-		);
-	}
+			{visible &&
+				ReactDOM.createPortal(
+					<div
+						className={classNames(theme['tc-tooltip-container'], 'tc-tooltip-container', className)}
+						style={style}
+					>
+						<div
+							id={id}
+							className={classNames(
+								theme['tc-tooltip-body'],
+								theme[`tc-tooltip-${placement}`],
+								'tc-tooltip-body',
+								`tc-tooltip-${placement}`,
+							)}
+						>
+							{label}
+						</div>
+					</div>,
+					document.body,
+				)}
+		</React.Fragment>
+	);
 }
 
+TooltipTrigger.displayName = 'TooltipTrigger';
+
 TooltipTrigger.propTypes = {
-	children: PropTypes.element,
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+	tooltipHeight: PropTypes.number,
+	tooltipWidth: PropTypes.number,
+	tooltipDelay: PropTypes.number,
+	children: PropTypes.element,
+	className: PropTypes.string,
 };
 
 export default TooltipTrigger;

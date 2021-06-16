@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { store } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import Immutable from 'immutable';
 
 import { DeleteResource } from './DeleteResource.container';
 import Connected, { mapStateToProps } from './DeleteResource.connect';
 
-const state = store.state();
+const state = mock.store.state();
 const settings = {};
 state.cmf = {
 	settings,
@@ -53,7 +53,9 @@ describe('Container DeleteResource', () => {
 
 describe('Connected DeleteResource', () => {
 	it('should connect TestGenerator', () => {
-		expect(Connected.displayName).toBe('Connect(CMF(Translate(Container(DeleteResource))))');
+		expect(Connected.displayName).toBe(
+			'Connect(CMF(withI18nextTranslation(Container(DeleteResource))))',
+		);
 		expect(Connected.WrappedComponent).toBe(DeleteResource);
 	});
 	describe('mapStateToProps', () => {
@@ -72,6 +74,11 @@ describe('Connected DeleteResource', () => {
 			expect(mapStateToProps(state, { resourceType: 'foo', params: { id: '123' } }).resource).toBe(
 				state.cmf.collections.get('foo').get(0),
 			);
+		});
+
+		it('should return the props.resource from the own props', () => {
+			const resource = {};
+			expect(mapStateToProps(state, { resource }).resource).toBe(resource);
 		});
 	});
 });

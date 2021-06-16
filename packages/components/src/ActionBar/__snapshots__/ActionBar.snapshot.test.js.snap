@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionBar should render a btn-group 1`] = `
-<nav
+<div
   className="theme-tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
@@ -13,13 +13,13 @@ exports[`ActionBar should render a btn-group 1`] = `
               "hideLabel": true,
               "icon": "talend-cog",
               "label": "hidden mean tooltips",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "hideLabel": true,
               "icon": "talend-badge",
               "label": "you are a super star",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "displayMode": "btnGroup",
@@ -28,13 +28,22 @@ exports[`ActionBar should render a btn-group 1`] = `
     }
     key="0"
     left={true}
-    t={[Function]}
   />
-</nav>
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={Array []}
+    key="2"
+    right={true}
+  />
+</div>
 `;
 
 exports[`ActionBar should render no-selected actions, all on left  1`] = `
-<nav
+<div
   className="theme-tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
@@ -44,12 +53,12 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
           "bsStyle": "primary",
           "icon": "fa fa-asterisk",
           "label": "Primary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -58,564 +67,38 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     key="0"
     left={true}
-    selected={0}
-    t={[Function]}
   />
-</nav>
-`;
-
-exports[`ActionBar should render no-selected actions, all on right 1`] = `
-<nav
-  className="theme-tc-actionbar-container tc-actionbar-container nav"
->
   <SwitchActions
-    actions={
-      Array [
-        Object {
-          "bsStyle": "primary",
-          "icon": "fa fa-asterisk",
-          "label": "Primary",
-          "onClick": [Function],
-        },
-        Object {
-          "icon": "fa fa-asterisk",
-          "label": "Secondary",
-          "onClick": [Function],
-        },
-        Object {
-          "displayMode": "splitDropdown",
-          "emptyDropdownLabel": "No option",
-          "icon": "fa fa-plus",
-          "items": Array [
-            Object {
-              "label": "From Local",
-              "onClick": [Function],
-            },
-            Object {
-              "label": "From Remote",
-              "onClick": [Function],
-            },
-          ],
-          "label": "Add File",
-          "onClick": [Function],
-        },
-      ]
-    }
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={Array []}
     key="2"
     right={true}
-    selected={0}
-    t={[Function]}
-  >
-    <Content
-      right={true}
-    >
-      <div
-        className="theme-navbar-right navbar-right"
-      >
-        <Action
-          bsStyle="primary"
-          icon="fa fa-asterisk"
-          key="0"
-          label="Primary"
-          onClick={[Function]}
-        >
-          <Translate(ActionButton)
-            bsStyle="primary"
-            icon="fa fa-asterisk"
-            label="Primary"
-            onClick={[Function]}
-          >
-            <I18n
-              bindI18n="languageChanged loaded"
-              bindStore="added removed"
-              bsStyle="primary"
-              i18n={Object {}}
-              icon="fa fa-asterisk"
-              label="Primary"
-              ns={
-                Array [
-                  "tui-components",
-                ]
-              }
-              nsMode="default"
-              onClick={[Function]}
-              translateFuncName="t"
-              usePureComponent={false}
-              wait={false}
-              withRef={false}
-            >
-              <ActionButton
-                available={true}
-                bsStyle="primary"
-                disabled={false}
-                i18n={Object {}}
-                icon="fa fa-asterisk"
-                inProgress={false}
-                label="Primary"
-                loading={false}
-                onClick={[Function]}
-                t={[Function]}
-                tReady={false}
-                tooltipPlacement="top"
-              >
-                <Button
-                  active={false}
-                  aria-label="Primary"
-                  block={false}
-                  bsClass="btn"
-                  bsStyle="primary"
-                  className=""
-                  disabled={false}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                >
-                  <button
-                    aria-label="Primary"
-                    className="btn btn-primary"
-                    disabled={false}
-                    onClick={[Function]}
-                    onMouseDown={[Function]}
-                    role={null}
-                    type="button"
-                  >
-                    <Icon
-                      key="icon"
-                      name="fa fa-asterisk"
-                    >
-                      <i
-                        aria-hidden="true"
-                        className="fa fa-asterisk"
-                        focusable="false"
-                        title={null}
-                      />
-                    </Icon>
-                    <span
-                      key="label"
-                    >
-                      Primary
-                    </span>
-                  </button>
-                </Button>
-              </ActionButton>
-            </I18n>
-          </Translate(ActionButton)>
-        </Action>
-        <Action
-          icon="fa fa-asterisk"
-          key="1"
-          label="Secondary"
-          onClick={[Function]}
-        >
-          <Translate(ActionButton)
-            icon="fa fa-asterisk"
-            label="Secondary"
-            onClick={[Function]}
-          >
-            <I18n
-              bindI18n="languageChanged loaded"
-              bindStore="added removed"
-              i18n={Object {}}
-              icon="fa fa-asterisk"
-              label="Secondary"
-              ns={
-                Array [
-                  "tui-components",
-                ]
-              }
-              nsMode="default"
-              onClick={[Function]}
-              translateFuncName="t"
-              usePureComponent={false}
-              wait={false}
-              withRef={false}
-            >
-              <ActionButton
-                available={true}
-                bsStyle="default"
-                disabled={false}
-                i18n={Object {}}
-                icon="fa fa-asterisk"
-                inProgress={false}
-                label="Secondary"
-                loading={false}
-                onClick={[Function]}
-                t={[Function]}
-                tReady={false}
-                tooltipPlacement="top"
-              >
-                <Button
-                  active={false}
-                  aria-label="Secondary"
-                  block={false}
-                  bsClass="btn"
-                  bsStyle="default"
-                  className=""
-                  disabled={false}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                >
-                  <button
-                    aria-label="Secondary"
-                    className="btn btn-default"
-                    disabled={false}
-                    onClick={[Function]}
-                    onMouseDown={[Function]}
-                    role={null}
-                    type="button"
-                  >
-                    <Icon
-                      key="icon"
-                      name="fa fa-asterisk"
-                    >
-                      <i
-                        aria-hidden="true"
-                        className="fa fa-asterisk"
-                        focusable="false"
-                        title={null}
-                      />
-                    </Icon>
-                    <span
-                      key="label"
-                    >
-                      Secondary
-                    </span>
-                  </button>
-                </Button>
-              </ActionButton>
-            </I18n>
-          </Translate(ActionButton)>
-        </Action>
-        <Translate(ActionSplitDropdown)
-          emptyDropdownLabel="No option"
-          icon="fa fa-plus"
-          items={
-            Array [
-              Object {
-                "label": "From Local",
-                "onClick": [Function],
-              },
-              Object {
-                "label": "From Remote",
-                "onClick": [Function],
-              },
-            ]
-          }
-          key="2"
-          label="Add File"
-          onClick={[Function]}
-        >
-          <I18n
-            bindI18n="languageChanged loaded"
-            bindStore="added removed"
-            emptyDropdownLabel="No option"
-            i18n={Object {}}
-            icon="fa fa-plus"
-            items={
-              Array [
-                Object {
-                  "label": "From Local",
-                  "onClick": [Function],
-                },
-                Object {
-                  "label": "From Remote",
-                  "onClick": [Function],
-                },
-              ]
-            }
-            label="Add File"
-            ns={
-              Array [
-                "tui-components",
-              ]
-            }
-            nsMode="default"
-            onClick={[Function]}
-            translateFuncName="t"
-            usePureComponent={false}
-            wait={false}
-            withRef={false}
-          >
-            <ActionSplitDropdown
-              emptyDropdownLabel="No option"
-              i18n={Object {}}
-              icon="fa fa-plus"
-              items={
-                Array [
-                  Object {
-                    "label": "From Local",
-                    "onClick": [Function],
-                  },
-                  Object {
-                    "label": "From Remote",
-                    "onClick": [Function],
-                  },
-                ]
-              }
-              label="Add File"
-              onClick={[Function]}
-              t={[Function]}
-              tReady={false}
-            >
-              <SplitButton
-                aria-label="Add File"
-                className="theme-tc-split-dropdown"
-                i18n={Object {}}
-                id={42}
-                onClick={[Function]}
-                tReady={false}
-                title={
-                  <span>
-                    <Icon
-                      name="fa fa-plus"
-                    />
-                    <span>
-                      Add File
-                    </span>
-                  </span>
-                }
-                toggleLabel="Open \\"Add File\\" menu"
-              >
-                <Uncontrolled(Dropdown)
-                  id={42}
-                >
-                  <Dropdown
-                    bsClass="dropdown"
-                    componentClass={[Function]}
-                    id={42}
-                    onToggle={[Function]}
-                  >
-                    <ButtonGroup
-                      block={false}
-                      bsClass="btn-group"
-                      className="dropdown"
-                      justified={false}
-                      vertical={false}
-                    >
-                      <div
-                        className="dropdown btn-group"
-                      >
-                        <Button
-                          active={false}
-                          aria-label="Add File"
-                          block={false}
-                          bsClass="btn"
-                          bsStyle="default"
-                          className="theme-tc-split-dropdown"
-                          disabled={false}
-                          i18n={Object {}}
-                          key=".0"
-                          onClick={[Function]}
-                          tReady={false}
-                        >
-                          <button
-                            aria-label="Add File"
-                            className="theme-tc-split-dropdown btn btn-default"
-                            disabled={false}
-                            i18n={Object {}}
-                            onClick={[Function]}
-                            tReady={false}
-                            type="button"
-                          >
-                            <span>
-                              <Icon
-                                name="fa fa-plus"
-                              >
-                                <i
-                                  aria-hidden="true"
-                                  className="fa fa-plus"
-                                  focusable="false"
-                                  title={null}
-                                />
-                              </Icon>
-                              <span>
-                                Add File
-                              </span>
-                            </span>
-                          </button>
-                        </Button>
-                        <SplitToggle
-                          aria-label="Open \\"Add File\\" menu"
-                          bsClass="dropdown-toggle"
-                          bsRole="toggle"
-                          id={42}
-                          key=".1"
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
-                          open={false}
-                          useAnchor={false}
-                        >
-                          <DropdownToggle
-                            aria-label="Open \\"Add File\\" menu"
-                            bsClass="dropdown-toggle"
-                            bsRole="toggle"
-                            id={42}
-                            noCaret={false}
-                            onClick={[Function]}
-                            onKeyDown={[Function]}
-                            open={false}
-                            useAnchor={false}
-                          >
-                            <Button
-                              active={false}
-                              aria-expanded={false}
-                              aria-haspopup={true}
-                              aria-label="Open \\"Add File\\" menu"
-                              block={false}
-                              bsClass="btn"
-                              bsStyle="default"
-                              className="dropdown-toggle"
-                              disabled={false}
-                              id={42}
-                              onClick={[Function]}
-                              onKeyDown={[Function]}
-                              role="button"
-                            >
-                              <button
-                                aria-expanded={false}
-                                aria-haspopup={true}
-                                aria-label="Open \\"Add File\\" menu"
-                                className="dropdown-toggle btn btn-default"
-                                disabled={false}
-                                id={42}
-                                onClick={[Function]}
-                                onKeyDown={[Function]}
-                                role="button"
-                                type="button"
-                              >
-                                 
-                                <span
-                                  className="caret"
-                                />
-                              </button>
-                            </Button>
-                          </DropdownToggle>
-                        </SplitToggle>
-                        <DropdownMenu
-                          bsClass="dropdown-menu"
-                          bsRole="menu"
-                          key=".2"
-                          labelledBy={42}
-                          onClose={[Function]}
-                          onSelect={[Function]}
-                          pullRight={false}
-                        >
-                          <RootCloseWrapper
-                            disabled={true}
-                            event="click"
-                            onRootClose={[Function]}
-                          >
-                            <ul
-                              aria-labelledby={42}
-                              className="dropdown-menu"
-                              role="menu"
-                            >
-                              <MenuItem
-                                bsClass="dropdown"
-                                disabled={false}
-                                divider={false}
-                                header={false}
-                                key=".$0"
-                                label="From Local"
-                                onClick={[Function]}
-                                onKeyDown={[Function]}
-                                onSelect={[Function]}
-                              >
-                                <li
-                                  className=""
-                                  role="presentation"
-                                >
-                                  <SafeAnchor
-                                    componentClass="a"
-                                    label="From Local"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="menuitem"
-                                    tabIndex="-1"
-                                  >
-                                    <a
-                                      href="#"
-                                      label="From Local"
-                                      onClick={[Function]}
-                                      onKeyDown={[Function]}
-                                      role="menuitem"
-                                      tabIndex="-1"
-                                    >
-                                      From Local
-                                    </a>
-                                  </SafeAnchor>
-                                </li>
-                              </MenuItem>
-                              <MenuItem
-                                bsClass="dropdown"
-                                disabled={false}
-                                divider={false}
-                                header={false}
-                                key=".$1"
-                                label="From Remote"
-                                onClick={[Function]}
-                                onKeyDown={[Function]}
-                                onSelect={[Function]}
-                              >
-                                <li
-                                  className=""
-                                  role="presentation"
-                                >
-                                  <SafeAnchor
-                                    componentClass="a"
-                                    label="From Remote"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="menuitem"
-                                    tabIndex="-1"
-                                  >
-                                    <a
-                                      href="#"
-                                      label="From Remote"
-                                      onClick={[Function]}
-                                      onKeyDown={[Function]}
-                                      role="menuitem"
-                                      tabIndex="-1"
-                                    >
-                                      From Remote
-                                    </a>
-                                  </SafeAnchor>
-                                </li>
-                              </MenuItem>
-                            </ul>
-                          </RootCloseWrapper>
-                        </DropdownMenu>
-                      </div>
-                    </ButtonGroup>
-                  </Dropdown>
-                </Uncontrolled(Dropdown)>
-              </SplitButton>
-            </ActionSplitDropdown>
-          </I18n>
-        </Translate(ActionSplitDropdown)>
-      </div>
-    </Content>
-  </SwitchActions>
-</nav>
+  />
+</div>
 `;
+
+exports[`ActionBar should render no-selected actions, all on right 1`] = `null`;
 
 exports[`ActionBar should render no-selected actions, some on left, the other on right 1`] = `
-<nav
+<div
   className="theme-tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
@@ -625,14 +108,17 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
           "bsStyle": "primary",
           "icon": "fa fa-asterisk",
           "label": "Primary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     key="0"
     left={true}
-    selected={0}
-    t={[Function]}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
   />
   <SwitchActions
     actions={
@@ -640,7 +126,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -649,28 +135,26 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     key="2"
     right={true}
-    selected={0}
-    t={[Function]}
   />
-</nav>
+</div>
 `;
 
 exports[`ActionBar should render selected count and multi-selected actions, all on left 1`] = `
-<nav
+<div
   className="theme-tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
@@ -679,12 +163,12 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -693,36 +177,61 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
+    components={
+      Object {
+        "before-actions": <Count
+          selected={1}
+        />,
+      }
+    }
     key="0"
     left={true}
-    selected={1}
-    t={[Function]}
   />
-</nav>
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={Array []}
+    key="2"
+    right={true}
+  />
+</div>
 `;
 
 exports[`ActionBar should render selected count and multi-selected actions, all on right 1`] = `
-<nav
+<div
   className="theme-tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
     actions={Array []}
+    components={
+      Object {
+        "before-actions": <Count
+          selected={1}
+        />,
+      }
+    }
     key="0"
     left={true}
-    selected={1}
-    t={[Function]}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
   />
   <SwitchActions
     actions={
@@ -730,12 +239,12 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -744,28 +253,26 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     key="2"
     right={true}
-    selected={1}
-    t={[Function]}
   />
-</nav>
+</div>
 `;
 
 exports[`ActionBar should render selected count and multi-selected actions, count and some actions on left, the other on right 1`] = `
-<nav
+<div
   className="theme-tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
@@ -774,14 +281,24 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
+    components={
+      Object {
+        "before-actions": <Count
+          selected={1}
+        />,
+      }
+    }
     key="0"
     left={true}
-    selected={1}
-    t={[Function]}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
   />
   <SwitchActions
     actions={
@@ -789,7 +306,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -798,49 +315,35 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
     key="2"
     right={true}
-    selected={1}
-    t={[Function]}
   />
-</nav>
+</div>
 `;
 
 exports[`ActionBar.Count should render if selected 1`] = `
 <span
   className="theme-tc-actionbar-selected-count tc-actionbar-selected-count"
 >
-  1 ACTION_BAR_COUNT_SELECTED
+  1 selected
 </span>
-`;
-
-exports[`ActionBar.SwitchActions should not render selected on right 1`] = `
-<Content
-  center={undefined}
-  left={undefined}
-  right={true}
->
-  
-</Content>
 `;
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
 <Content
-  center={undefined}
   left={true}
-  right={undefined}
 >
   <Action
     label="action"
@@ -848,7 +351,7 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
 </Content>
 `;
 
-exports[`ActionBar.SwitchActions should render one Action on navbar-left with selected 1`] = `
+exports[`ActionBar.SwitchActions should render one Action on navbar-left with an injection 1`] = `
 <Content
   left={true}
 >
@@ -865,8 +368,6 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left with se
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = `
 <Content
-  center={undefined}
-  left={undefined}
   right={true}
 >
   <Action

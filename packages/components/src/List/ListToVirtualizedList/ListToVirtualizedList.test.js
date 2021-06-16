@@ -2,14 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import cloneDeep from 'lodash/cloneDeep';
 
-import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
+import VirtualizedList from '../../VirtualizedList';
 import {
 	ListToVirtualizedList,
 	HiddenHeader,
 	compareOrder,
 } from './ListToVirtualizedList.component';
-import CellActions from '../../VirtualizedList/CellActions';
-import CellBadge from '../../VirtualizedList/CellBadge';
 
 const props = {
 	id: 'mylistid',
@@ -114,6 +112,7 @@ describe('ListToVirtualizedList', () => {
 	it('should find supposedActions based on items', () => {
 		// when
 		const wrapper = shallow(<ListToVirtualizedList {...props} />);
+		const CellActions = VirtualizedList.cellDictionary.actions;
 
 		// then
 		wrapper.find(VirtualizedList.Content).forEach(element => {
@@ -126,6 +125,7 @@ describe('ListToVirtualizedList', () => {
 
 	it('should support multiple cell renderers through column type', () => {
 		const wrapper = shallow(<ListToVirtualizedList {...props} />);
+		const CellBadge = VirtualizedList.cellDictionary.badge;
 
 		// then
 		wrapper.find(VirtualizedList.Content).forEach(element => {
@@ -185,8 +185,8 @@ describe('ListToVirtualizedList', () => {
 
 		// then
 		expect(ascVirtualizedProps.sortBy).toBe('name');
-		expect(ascVirtualizedProps.sortDirection).toBe(SORT_BY.ASC);
-		expect(descVirtualizedProps.sortDirection).toBe(SORT_BY.DESC);
+		expect(ascVirtualizedProps.sortDirection).toBe(VirtualizedList.SORT_BY.ASC);
+		expect(descVirtualizedProps.sortDirection).toBe(VirtualizedList.SORT_BY.DESC);
 	});
 
 	it('should adapt sort onChange', () => {
@@ -197,7 +197,7 @@ describe('ListToVirtualizedList', () => {
 		).props();
 
 		// when
-		virtualizedProps.sort({ sortBy: 'name', sortDirection: SORT_BY.DESC });
+		virtualizedProps.sort({ sortBy: 'name', sortDirection: VirtualizedList.SORT_BY.DESC });
 
 		// then
 		expect(onChange).toBeCalledWith(null, { field: 'name', isDescending: true });

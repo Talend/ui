@@ -1,15 +1,18 @@
-import 'babel-polyfill';
-import { storiesOf, configure, setAddon } from '@storybook/react';
+import React from 'react';
+import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
+import { withA11y } from '@storybook/addon-a11y';
+import { withI18next } from 'storybook-addon-i18next';
+import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import createSagaMiddleware from 'redux-saga';
-import cmf from '@talend/react-storybook-cmf';
-import mock from '@talend/react-cmf/lib/mock';
+import withCMF from '@talend/react-storybook-cmf';
+import { mock } from '@talend/react-cmf';
 import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
+import { IconsProvider } from '@talend/react-components';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import 'focus-outline-manager';
+import i18n from './../../../.storybook/i18n';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
 import {
@@ -19,7 +22,25 @@ import {
 import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
 
-setAddon({ addWithCMF: cmf.addWithCMF });
+const languages = {};
+Object.keys(tuiLocales).forEach(key => (languages[key] = key));
+
+addDecorator(
+	withI18next({
+		i18n,
+		languages,
+	}),
+);
+addDecorator(withCMF);
+addDecorator(withA11y);
+addDecorator(storyFn => (
+	<>
+		<IconsProvider
+			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
+		/>
+		{storyFn()}
+	</>
+));
 
 registerAllContainers();
 const actionLogger = action('dispatch');
@@ -35,13 +56,25 @@ function flagToggleReducer(state = {}, { type, flagId }) {
 	}
 	return state;
 }
-
-function reducer(state = {}, action) {
+function appReducer(state = {}, action) {
 	actionLogger(action);
 	return {
 		flags: flagToggleReducer(state.flags, action),
 	};
 }
+
+function routerReducer(state = {}, action) {
+	actionLogger(action);
+	return {
+		locationBeforeTransitions: {
+			pathname: '/storybook',
+		},
+	};
+}
+const reducer = {
+	app: appReducer,
+	routing: routerReducer,
+};
 
 function objectView(event, data) {
 	return {
@@ -177,7 +210,12 @@ api.expression.register('modelHasLabel', context => {
 
 function loadStories() {
 	Object.keys(examples).forEach(example => {
-		const state = mock.state();
+		const state = mock.store.state();
+		state.routing = {
+			locationBeforeTransitions: {
+				pathname: '/storybook',
+			},
+		};
 		state.cmf.collections = state.cmf.collections.set(
 			'myResourceType',
 			List([Map({ id: 'myID', label: 'myLabel' })]),
@@ -459,24 +497,36 @@ function loadStories() {
 			activeExpression: { id: 'isFlagExpression', args: ['action:icon:creator:flag'] },
 			payload: { type: 'TOGGLE_FLAG_TYPE', flagId: 'action:icon:creator:flag' },
 		};
+		actions['show:guidedTour'] = {
+			label: 'Start guided tour',
+			payload: {
+				type: 'GUIDED_TOUR_SHOW',
+			},
+		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
-
-		const story = storiesOf(example);
-		story.addDecorator(checkA11y);
+		// migrate some actions to props:
+		state.cmf.settings.props['ActionButton#first'] = actions['menu:first'];
+		state.cmf.settings.props['ActionButton#second'] = actions['menu:second'];
+		state.cmf.settings.props['ActionButton#configuration'] = actions['menu:third'];
+		const story = storiesOf(example, examples[example]);
 
 		if (typeof examples[example] === 'function') {
-			story.addWithCMF('Default', examples[example], {
-				state,
-				reducer,
-				sagaMiddleware,
-			});
-		} else {
-			Object.keys(examples[example]).forEach(usecase => {
-				story.addWithCMF(usecase, examples[example][usecase], {
+			story.add('Default', examples[example], {
+				cmf: {
 					state,
 					reducer,
 					sagaMiddleware,
+				},
+			});
+		} else {
+			Object.keys(examples[example]).forEach(usecase => {
+				story.add(usecase, examples[example][usecase], {
+					cmf: {
+						state,
+						reducer,
+						sagaMiddleware,
+					},
 				});
 			});
 		}

@@ -13,19 +13,17 @@ $tc-svg-icon-size: $padding-large !default;
 	border-bottom: 0.1rem solid $gallery;
 	width: 100%;
 
-	button {
-		text-transform: none;
+	:global(.btn-link),
+	:global(.btn-icon-only) {
+		color: $tc-subheader-color;
 
-		&:global(.btn-link) {
-			color: $tc-subheader-color;
+		&:focus,
+		&:hover {
+			color: $scooter;
+		}
 
-			&:focus,
-			&:hover {
-				color: $tc-subheader-hover-focus-color;
-			}
-			&:active {
-				color: $tc-subheader-active-color;
-			}
+		&:active {
+			color: darken($scooter, 12%);
 		}
 	}
 
@@ -33,7 +31,10 @@ $tc-svg-icon-size: $padding-large !default;
 		height: $tc-subheader-bar-height;
 		background-color: $wild-sand;
 		display: flex;
-		padding-left: 0;
+		padding: {
+			left: 0;
+			right: $padding-large;
+		}
 
 		&-left,
 		&-center,
@@ -48,6 +49,13 @@ $tc-svg-icon-size: $padding-large !default;
 		&-right {
 			margin-left: $padding-normal;
 			justify-content: flex-end;
+
+			:global(.btn-icon-only) {
+				padding: {
+					left: 0;
+					right: 0;
+				}
+			}
 		}
 
 		&-center {

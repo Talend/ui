@@ -1,3 +1,6 @@
-import <%= props.name %> from './<%= props.name %>.component';
+import <%= props.name %> from './<%= props.indexPath %>';
+<%- props.indexImports %>
+
+<%- props.indexAssignments %>
 
 export default <%= props.name %>;

@@ -6,7 +6,7 @@ exports[`Component HomeListView should be able to render theme 1`] = `
     Array [
       <h1>
         Hello children
-    </h1>,
+      </h1>,
     ]
   }
   hasTheme={true}
@@ -15,7 +15,6 @@ exports[`Component HomeListView should be able to render theme 1`] = `
       hello app
     </div>
   }
-  id={undefined}
   mode="TwoColumns"
   one={
     <div>
@@ -70,16 +69,14 @@ exports[`Component HomeListView should render with element props 1`] = `
     Array [
       <h1>
         Hello children
-    </h1>,
+      </h1>,
     ]
   }
-  hasTheme={undefined}
   header={
     <div>
       hello app
     </div>
   }
-  id={undefined}
   mode="TwoColumns"
   one={
     <div>
@@ -99,19 +96,18 @@ exports[`Component HomeListView should render with object props 1`] = `
     Array [
       <h1>
         Hello children
-    </h1>,
+      </h1>,
     ]
   }
-  hasTheme={undefined}
   header={
-    <Translate(HeaderBar)
+    <withI18nextTranslation(HeaderBar)
       app="hello app"
+      t={[Function]}
     />
   }
-  id={undefined}
   mode="TwoColumns"
   one={
-    <withRouter(Connect(CMF(Container(SidePanel))))
+    <Connect(CMF(Container(SidePanel)))
       actionIds={
         Array [
           "menu:demo",
@@ -126,14 +122,14 @@ exports[`Component HomeListView should render with object props 1`] = `
     items={
       Immutable.List [
         Immutable.Map {
-          id: 1,
-          label: "Title with actions",
-          created: "2016-09-22",
-          modified: "2016-09-22",
-          author: "Jean-Pierre DUPONT",
-          icon: "fa fa-file-excel-o",
-          display: "text",
-          className: "item-0-class",
+          "id": 1,
+          "label": "Title with actions",
+          "created": "2016-09-22",
+          "modified": "2016-09-22",
+          "author": "Jean-Pierre DUPONT",
+          "icon": "fa fa-file-excel-o",
+          "display": "text",
+          "className": "item-0-class",
         },
       ]
     }

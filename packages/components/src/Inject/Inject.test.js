@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Action } from '../index';
 
-import Inject, { NotFoundComponent } from './Inject.component';
+import Inject from './Inject.component';
 
 const error = { message: 'MyError' };
 
@@ -165,6 +165,14 @@ describe('Inject.all', () => {
 		};
 		expect(Inject.all(null, components)()).toEqual(null);
 	});
+	it('should return a function which return a react component', () => {
+		const myComponent = <button>whatever</button>;
+		const components = {
+			slotX: myComponent,
+		};
+		const injections = Inject.all(undefined, components);
+		expect(injections('slotX')).toBe(myComponent);
+	});
 });
 
 describe('Inject.get', () => {
@@ -213,9 +221,10 @@ describe('Inject.getReactElement', () => {
 	});
 	it('should support element as Array', () => {
 		const getComponent = jest.fn();
-		const data = [{ component: 'what', extra: true }];
+		const data = [{ component: 'what', componentId: 'me', extra: true }, 'Foo'];
 		expect(Inject.getReactElement(getComponent, data)).toEqual([
-			<Inject getComponent={getComponent} component="what" extra />,
+			<Inject getComponent={getComponent} component="what" componentId="me" extra key="what#me" />,
+			<Inject getComponent={getComponent} component="Foo" key="Foo#default" />,
 		]);
 	});
 	it('should return undefined if data is undefined', () => {
@@ -237,7 +246,7 @@ describe('Inject.getReactElement', () => {
 
 describe('NotFoundComponent', () => {
 	it('should render', () => {
-		const wrapper = shallow(<NotFoundComponent error="MyError" />);
+		const wrapper = shallow(<Inject.NotFound error="MyError" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

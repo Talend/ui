@@ -15,7 +15,7 @@ const props = {
 		{ name: 'foo', value: 'foo', description: 'foo description' },
 		{ name: 'bar', value: 'bar' },
 		{ name: 'foobar', value: 'foobar', description: 'foobar description' },
-		{ name: 'lol', value: 'lol' },
+		{ name: 'mdr', value: 'lol' },
 	],
 };
 
@@ -37,10 +37,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 
@@ -57,10 +57,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...multiSectionProps}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -90,11 +90,14 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				titleMap={[{ name: 'A', value: 'a' }, { name: 'B', value: 'b' }]}
-				value={'a'}
+				titleMap={[
+					{ name: 'A', value: 'a' },
+					{ name: 'B', value: 'b' },
+				]}
+				value="a"
 			/>,
 		);
 
@@ -120,10 +123,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -147,10 +150,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -163,10 +166,9 @@ describe('Datalist component', () => {
 		// then
 		const payload = { value: 'foobar' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
-	it('should reset suggestions and change value on blur when not in restricted mode and value not in suggestions', () => {
+	it('should change the value on blur when not in restricted mode and value not in suggestions', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -174,10 +176,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -190,10 +192,9 @@ describe('Datalist component', () => {
 		// then
 		const payload = { value: 'foooo' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
-	it('should reset suggestions and not change value on blur in restricted mode and value does not exist', () => {
+	it('should not reset to old value when clearing input, in restricted mode, and then onBlur', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -201,10 +202,59 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="fooo"
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: '' } });
+		// when
+		input.simulate('blur');
+		// then
+		expect(input.text().length).toBe(0);
+	});
+
+	it('should clear input even if there was a previous filter', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage="This should be correct"
+				onChange={onChange}
+				{...props}
+				value="foo"
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'foobar' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
+
+		// when
+		input.simulate('change', { target: { value: '' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(4);
+		input.simulate('blur');
+
+		// then
+		expect(input.text().length).toBe(0);
+	});
+
+	it('should not change the value on blur in restricted mode and value does not exist', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage="This should be correct"
+				onChange={onChange}
+				{...props}
+				value="foo"
 				restricted
 			/>,
 		);
@@ -216,8 +266,35 @@ describe('Datalist component', () => {
 		input.simulate('blur');
 
 		// then
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
+	});
+
+	it('should change the value on blur in restricted mode and value matches with one suggestion', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage="This should be correct"
+				onChange={onChange}
+				{...props}
+				value="foo"
+				restricted
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'mdr' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
+
+		// when
+		input.simulate('blur');
+
+		// then
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'lol' });
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ name: 'mdr', value: 'lol' }]);
 	});
 
 	it('should update show all suggestions on focus even if a value is selected', () => {
@@ -227,26 +304,23 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		expect(wrapper.find(Typeahead).props().items).toEqual(null);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('input').at(0).simulate('focus');
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual([
 			{ name: 'foo', value: 'foo', description: 'foo description' },
 			{ name: 'bar', value: 'bar' },
 			{ name: 'foobar', value: 'foobar', description: 'foobar description' },
-			{ name: 'lol', value: 'lol' },
+			{ name: 'mdr', value: 'lol' },
 		]);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 	});
@@ -258,10 +332,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
@@ -272,10 +346,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().value).toBe('newValue');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('keydown', { which: keycode.codes.esc });
+		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.esc });
 
 		// then
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
@@ -288,19 +359,16 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('keydown', { which: keycode.codes.down });
+		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.down });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items.length).toBe(4);
@@ -314,10 +382,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -340,10 +408,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -366,11 +434,11 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={onChange}
 				restricted
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -381,7 +449,7 @@ describe('Datalist component', () => {
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 	});
 
 	it('should reset suggestions on ENTER keydown', () => {
@@ -391,10 +459,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
@@ -415,10 +483,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
@@ -427,12 +495,7 @@ describe('Datalist component', () => {
 		wrapper.setProps({ value: 'bar' });
 
 		// then
-		expect(
-			wrapper
-				.update()
-				.find(Typeahead)
-				.props().value,
-		).toBe('bar');
+		expect(wrapper.update().find(Typeahead).props().value).toBe('bar');
 	});
 
 	it('should set new mapping and suggestions on titleMap props change', () => {
@@ -442,10 +505,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foo'}
+				value="foo"
 			/>,
 		);
 		const instance = wrapper.instance();
@@ -456,9 +519,9 @@ describe('Datalist component', () => {
 			bar: 'bar',
 			foo: 'foo',
 			foobar: 'foobar',
-			lol: 'lol',
+			lol: 'mdr',
 		});
-		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol'] });
+		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol', 'mdr'] });
 		expect(instance.updateSuggestions).toHaveBeenCalledTimes(1);
 
 		const titleMap = [
@@ -482,10 +545,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection={false}
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...props}
-				value={'foobar'}
+				value="foobar"
 			/>,
 		);
 
@@ -506,10 +569,10 @@ describe('Datalist component', () => {
 				id="my-datalist"
 				isValid
 				multiSection
-				errorMessage={'This should be correct'}
+				errorMessage="This should be correct"
 				onChange={jest.fn()}
 				{...sectionProps}
-				value={'foobar'}
+				value="foobar"
 			/>,
 		);
 
@@ -539,6 +602,30 @@ describe('Datalist component', () => {
 		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
 	});
 
+	it('should update suggestions when clicking on the datalist', () => {
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				errorMessage="This should be correct"
+				onChange={jest.fn()}
+				{...props}
+				value="foobar"
+			/>,
+		);
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.updateSelectedIndexes = jest.fn();
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('click');
+
+		// then
+		expect(instance.updateSuggestions).toHaveBeenCalled();
+		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
+	});
+
 	it('should call onLiveChange when user type in the input', () => {
 		// given
 		const onLiveChange = jest.fn();
@@ -553,5 +640,19 @@ describe('Datalist component', () => {
 
 		// then
 		expect(onLiveChange).toBeCalledWith(expect.anything(), 'fo');
+	});
+
+	it('should call onBlur when focusing out', () => {
+		// given
+		const onBlur = jest.fn();
+		const wrapper = mount(<Datalist id="my-datalist" isValid onBlur={onBlur} {...props} />);
+		const event = { target: { value: 'fo' } };
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('blur', event);
+
+		// then
+		expect(onBlur).toBeCalled();
 	});
 });

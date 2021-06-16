@@ -4,7 +4,6 @@
 	&::before {
 		content: attr(data-content);
 		display: inline-block;
-		text-transform: uppercase;
 		margin: $padding-normal 0;
 	}
 

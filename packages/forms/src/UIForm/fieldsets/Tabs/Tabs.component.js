@@ -1,56 +1,47 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import TabBar from '@talend/react-components/lib/TabBar';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-import Fieldset from '../Fieldset';
+import Widget from '../../Widget';
 import { isValid } from '../../utils/validation';
 import theme from './Tabs.scss';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import getDefaultT from '../../../translate';
 
-class Tabs extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { selectedKey: 0 };
-		this.onSelect = this.onSelect.bind(this);
-	}
+function Tabs(props) {
+	const [selectedKey, setSelectedKey] = useState(0);
+	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 
-	onSelect(event, item) {
-		this.setState({ selectedKey: item.key });
-	}
+	const { schema, ...restProps } = props;
+	const tabs = schema.items.map((item, index) => {
+		const tabIsValid = isValid(item, restProps.errors);
+		return {
+			key: index,
+			label: item.title,
+			className: classNames({ [theme['has-error']]: !tabIsValid }),
+			'aria-label': tabIsValid
+				? undefined
+				: `${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`,
+			children: (
+				<Widget
+					{...restProps}
+					schema={{ widget: 'fieldset', ...item, options: { ...item.options, hideTitle: true } }}
+				/>
+			),
+		};
+	});
 
-	render() {
-		const { schema, t, ...restProps } = this.props;
-		const tabs = schema.items.map((item, index) => {
-			const tabIsValid = isValid(item, restProps.errors);
-			return {
-				key: index,
-				label: item.title,
-				className: classNames({ [theme['has-error']]: !tabIsValid }),
-				'aria-label': tabIsValid
-					? undefined
-					: `${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`,
-				children: <Fieldset {...restProps} schema={item} />,
-			};
-		});
-		const { selectedKey } = this.state;
-
-		return (
-			<TabBar
-				className={classNames(theme['tf-tabs'], 'tf-tabs')}
-				id={`${restProps.id}-tabs`}
-				items={tabs}
-				onSelect={this.onSelect}
-				selectedKey={selectedKey}
-			/>
-		);
-	}
+	return (
+		<TabBar
+			className={classNames(theme['tf-tabs'], 'tf-tabs')}
+			id={`${restProps.id}-tabs`}
+			items={tabs}
+			onSelect={(_, item) => setSelectedKey(item.key)}
+			selectedKey={selectedKey}
+		/>
+	);
 }
-Tabs.defaultProps = {
-	t: getDefaultT(),
-};
 
 if (process.env.NODE_ENV !== 'production') {
 	Tabs.propTypes = {
@@ -63,8 +54,7 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			).isRequired,
 		}).isRequired,
-		t: PropTypes.func,
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(Tabs);
+export default Tabs;

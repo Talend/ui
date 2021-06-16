@@ -3,100 +3,76 @@
 /// @group Breadcrumbs
 ////
 
-/// Breadcrumb item margin right
-/// @type Number
-$breadcrumb-li-margin-right: $padding-normal + 7px;
-
 .breadcrumb {
-	border-radius: 0;
 	display: flex;
 	flex-direction: row;
 	margin: 0;
-	padding: 0;
+	padding: 0 $padding-normal;
+	height: $breadcrumb-height;
 	white-space: nowrap;
+	color: $breadcrumb-items-color;
+	border-radius: 0;
 
 	> li {
-		align-items: center;
 		display: flex;
-		position: relative;
-		margin-right: $breadcrumb-li-margin-right;
+		align-items: center;
 
-		& > a,
-		& > span,
-		& > .btn {
-			background-color: $white;
-			color: tint($black, 40);
-			display: block;
+		> a,
+		> span,
+		> .btn {
+			display: inline-block;
 			flex: 1;
 			flex-basis: auto; // https://github.com/philipwalton/flexbugs#6-the-default-flex-value-has-changed
-			font-size: $font-size-base;
-			letter-spacing: 1px;
-			line-height: 1;
 			max-width: $breadcrumb-items-max-width;
-			padding: $padding-normal;
+			padding: 0;
 			text-overflow: ellipsis;
-			text-transform: capitalize;
 			white-space: nowrap;
 			overflow: hidden;
 		}
 
 		& + li {
-			margin: 0 $breadcrumb-li-margin-right 0 $padding-normal;
-
+			// https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html
 			&:before {
-				position: absolute;
+				display: block;
 				content: '';
-				padding: 0;
-				top: 47.5%;
-				left: -($breadcrumb-li-margin-right);
-				height: 5px;
-				width: 5px;
-				border: 1px solid tint($black, 50);
-				border-bottom-color: transparent;
-				border-left-color: transparent;
-				box-shadow: 1px -1px 0 tint($black, 50);
-				transform: rotate(45deg);
+				margin: 0 $padding-small $padding-smaller $padding-smaller;
+				padding: 0 0 0 $padding-small;
+				transform: rotate(30deg);
+				border-right: 0.1rem solid $breadcrumb-items-separator-color;
+				height: 1.25rem;
 			}
 		}
 
-		&:last-child {
-			margin-right: 0;
-		}
-
-		&.separator {
-			min-width: 0;
-		}
-
 		&.active span {
-			box-shadow: 0 -2px 0 $brand-primary inset;
-			color: tint($black, 25);
+			font-weight: $font-weight-semi-bold;
+			color: $breadcrumb-items-active-color;
 		}
 	}
 
 	// Buttons need to have the same behavior as links
+	a,
 	.btn {
 		font-size: inherit;
 		text-align: left;
+		text-transform: none;
+		background: transparent;
 		border: none;
-	}
 
-	a,
-	.btn {
 		&:focus,
 		&:hover,
 		&:active,
 		&:active:focus,
-		&.active,
-		&:visited {
-			background-color: tint($black, 97);
+		&.active {
+			color: $breadcrumb-items-color-hover;
+			background: transparent;
 			text-decoration: none;
 		}
-	}
 
-	.tc-svg-icon {
-		color: tint($black, 50);
-		height: $svg-xs-size;
-		margin: $padding-large $padding-normal;
-		width: $svg-xs-size;
+		> span {
+			display: block;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
 	}
 }

@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid/dist/styles/ag-grid.css';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
+import 'ag-grid-community/dist/styles/ag-grid.css';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -31,24 +31,28 @@ const COLUMN_MIN_WIDTH = 30;
 const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;
 
-export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn, onKeyDown) {
-	const Component = Inject.get(getComponent, headerRenderer, DefaultHeaderRenderer);
+export function injectHeaderRenderer(
+	getComponent,
+	injectedHeaderRenderer,
+	onFocusedColumn,
+	onKeyDown,
+) {
+	const Component = Inject.get(getComponent, injectedHeaderRenderer, DefaultHeaderRenderer);
 
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
-export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
+export function injectCellRenderer(getComponent, cellRenderer, avroRenderer) {
 	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
 
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
 }
 
-function getAvroRenderer(avroRenderer) {
+export function getAvroRenderer(avroRenderer) {
 	return {
-		booleanCellRenderer: 'DefaultBooleanCellRenderer',
-		dateCellRenderer: 'DefaultDateCellRenderer',
 		intCellRenderer: 'DefaultIntCellRenderer',
 		stringCellRenderer: 'DefaultStringCellRenderer',
+		dateCellRenderer: 'DefaultDateCellRenderer',
 		...avroRenderer,
 	};
 }
@@ -56,20 +60,20 @@ function getAvroRenderer(avroRenderer) {
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
-		getRowDataFn: serializer.getRowData,
-		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
-		getColumnDefsFn: serializer.getColumnDefs,
-		getCellValueFn: serializer.getCellValue,
-		headerHeight: HEADER_HEIGHT,
 		columnMinWidth: COLUMN_MIN_WIDTH,
+		deltaRowDataMode: true,
 		enableColResize: true,
-		startIndex: 0,
+		getCellValueFn: serializer.getCellValue,
+		getColumnDefsFn: serializer.getColumnDefs,
+		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
+		getRowDataFn: serializer.getRowData,
+		headerHeight: HEADER_HEIGHT,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
 		rowHeight: ROW_HEIGHT,
-		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
-		deltaRowDataMode: true,
 		rowNodeIdentifier: 'index.index',
+		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
+		startIndex: 0,
 	};
 
 	static propTypes = DATAGRID_PROPTYPES;
@@ -88,12 +92,20 @@ export default class DataGrid extends React.Component {
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 	}
 
+	/**
+	 * componentDidUpdate - call forceRedrawRows after props changes to redraw or
+	 * not the grid
+	 * @deprecated
+	 * @param  {object} prevProps previous props
+	 */
 	componentDidUpdate(prevProps) {
 		if (this.props.loading || !this.gridAPI) {
 			return;
 		}
 
 		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
+			// eslint-disable-next-line no-console
+			console.warn('DEPRECATED: forceRedrawRows is deprecated');
 			this.gridAPI.redrawRows();
 		}
 	}
@@ -133,7 +145,9 @@ export default class DataGrid extends React.Component {
 		this.setCurrentFocusedColumn(colId);
 		this.updateStyleFocusColumn();
 
-		this.props.onFocusedColumn({ colId });
+		if (this.props.onFocusedColumn) {
+			this.props.onFocusedColumn({ colId });
+		}
 	}
 
 	onKeyDownHeaderColumn(event, colId) {
@@ -169,24 +183,23 @@ export default class DataGrid extends React.Component {
 		}
 
 		const agGridOptions = {
+			deltaRowDataMode: this.props.deltaRowDataMode,
+			getRowNodeId: data => data[this.props.rowNodeIdentifier],
 			headerHeight: this.props.headerHeight,
-			tabToNextCell: this.handleKeyboard,
 			navigateToNextCell: this.handleKeyboard,
+			onCellFocused: this.onFocusedCell,
+			onGridReady: this.onGridReady,
 			onViewportChanged: this.updateStyleFocusColumn,
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
 			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
-			rowData,
-			deltaRowDataMode: this.props.deltaRowDataMode,
 			rowBuffer: this.props.rowBuffer,
-			getRowNodeId: data => data[this.props.rowNodeIdentifier],
+			rowData,
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
-			enableColResize: this.props.enableColResize,
-			onCellFocused: this.onFocusedCell,
-			onGridReady: this.onGridReady,
 			suppressPropertyNamesCheck: true,
+			tabToNextCell: this.handleKeyboard,
 		};
 
 		if (this.props.onVerticalScroll) {
@@ -194,7 +207,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
-		const columnDefs = this.props.getColumnDefsFn(this.props.data);
+		const columnDefs = this.props.getColumnDefsFn(this.props.data, this.props.columnsConf);
 		let adaptedColumnDefs = [];
 
 		if (pinnedColumnDefs) {
@@ -212,10 +225,11 @@ export default class DataGrid extends React.Component {
 		if (columnDefs) {
 			adaptedColumnDefs = adaptedColumnDefs.concat(
 				columnDefs.map(columnDef => ({
-					width: CELL_WIDTH,
 					lockPinned: true,
 					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
+					width: CELL_WIDTH,
+					resizable: this.props.enableColResize,
 					...columnDef,
 					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
@@ -225,12 +239,12 @@ export default class DataGrid extends React.Component {
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: injectedCellRenderer(
+			[CELL_RENDERER_COMPONENT]: injectCellRenderer(
 				this.props.getComponent,
 				this.props.cellRenderer,
 				getAvroRenderer(this.props.avroRenderer),
 			),
-			[HEADER_RENDERER_COMPONENT]: injectedHeaderRenderer(
+			[HEADER_RENDERER_COMPONENT]: injectHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,
 				this.onFocusedColumn,
@@ -252,9 +266,7 @@ export default class DataGrid extends React.Component {
 			`.${FOCUSED_COLUMN_CLASS_NAME}`,
 		);
 
-		for (const focusedCell of focusedCells) {
-			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
-		}
+		focusedCells.forEach(({ classList }) => classList.remove(FOCUSED_COLUMN_CLASS_NAME));
 	}
 
 	updateStyleFocusColumn() {
@@ -269,23 +281,21 @@ export default class DataGrid extends React.Component {
 			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
 		);
 
-		for (const columnCell of columnsCells) {
-			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
-		}
+		columnsCells.forEach(({ classList }) => classList.add(FOCUSED_COLUMN_CLASS_NAME));
 	}
 
-	handleKeyboard({ nextCellDef, previousCellDef }) {
-		if (!nextCellDef) {
+	handleKeyboard({ nextCellPosition, previousCellPosition }) {
+		if (!nextCellPosition || nextCellPosition.rowIndex < 0) {
 			return null;
 		}
 
-		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+		if (this.gridAPI && previousCellPosition.rowIndex !== nextCellPosition.rowIndex) {
 			// ag-grid workaround: ag-grid set a selected row only by a click by an user
 			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
-			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+			this.gridAPI.getDisplayedRowAtIndex(nextCellPosition.rowIndex).setSelected(true, true);
 		}
 
-		return nextCellDef;
+		return nextCellPosition;
 	}
 
 	render() {

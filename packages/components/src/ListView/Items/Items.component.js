@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from 'react-virtualized';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -12,6 +12,22 @@ import theme from './Items.scss';
 const listClasses = classNames(theme['tc-list-items'], 'tc-list-items');
 const itemsClasses = classNames(theme['tc-listview-items'], 'tc-listview-items');
 const itemContainer = classNames(theme['tc-item-container'], 'tc-item-container');
+
+/**
+ * Converts a string px size in a JS valid number
+ * @param {String} sizeInPixels
+ * @returns {Number}
+ */
+function pxToInt(sizeInPixels = '0') {
+	return parseFloat(sizeInPixels.replace('px', '')) || 0;
+}
+
+const TOGGLE_ALL_ROW_HEIGHT = 40;
+const ROW_LINE_HEIGHT = pxToInt(theme['row-height']);
+const ROW_VERTICAL_MARGIN = pxToInt(theme['row-vertical-margin']);
+const ROW_HEIGHT = ROW_LINE_HEIGHT + ROW_VERTICAL_MARGIN;
+const ROW_NESTED_INNER_MARGINS =
+	pxToInt(theme['row-nested-inner-margin-top']) + pxToInt(theme['row-nested-inner-margin-bottom']);
 
 export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
@@ -23,9 +39,8 @@ export class ItemsComponent extends React.PureComponent {
 		this.renderToggleAllOrItem = this.renderToggleAllOrItem.bind(this);
 		this.renderToggleAll = this.renderToggleAll.bind(this);
 
-		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
 		this.cache = new CellMeasurerCache({
-			defaultHeight: props.getItemHeight(),
+			defaultHeight: props.getItemHeight ? props.getItemHeight() : ROW_HEIGHT,
 			fixedWidth: true,
 		});
 	}
@@ -35,8 +50,47 @@ export class ItemsComponent extends React.PureComponent {
 	}
 
 	getRowHeight({ index }) {
+		if (this.props.getItemHeight) {
+			// If an height computation has been provided, use the "old"
+			// way of computing row height with the provided computation
+			return this.oldGetRowHeight.call(this, { index });
+		}
+
 		if (this.hasToggleAll && index === 0) {
-			return 40;
+			return TOGGLE_ALL_ROW_HEIGHT;
+		}
+
+		const isLastItem = index + (this.hasToggleAll ? 0 : 1) === this.props.items.length;
+		const currentItem = this.getItemByIndex(index);
+
+		let height = ROW_HEIGHT;
+
+		if (isLastItem) {
+			height += ROW_NESTED_INNER_MARGINS;
+			height += this.hasToggleAll ? 1 : 0; // Horizontal "Toggle all" separation height
+		}
+
+		if (!currentItem || !currentItem.children || !currentItem.expanded) {
+			return height;
+		}
+
+		return (
+			height + // Own height
+			currentItem.children.length * ROW_HEIGHT + // Children heights
+			ROW_NESTED_INNER_MARGINS // Inner nested margins
+		);
+	}
+
+	getRowCount() {
+		if (this.hasToggleAll) {
+			return this.props.items.length + 1;
+		}
+		return this.props.items.length;
+	}
+
+	oldGetRowHeight({ index }) {
+		if (this.hasToggleAll && index === 0) {
+			return TOGGLE_ALL_ROW_HEIGHT;
 		}
 
 		let extraHeight = 0;
@@ -46,13 +100,6 @@ export class ItemsComponent extends React.PureComponent {
 		}
 
 		return this.props.getItemHeight() + extraHeight;
-	}
-
-	getRowCount() {
-		if (this.hasToggleAll) {
-			return this.props.items.length + 1;
-		}
-		return this.props.items.length;
 	}
 
 	rowRenderer(props) {
@@ -151,6 +198,8 @@ export class ItemsComponent extends React.PureComponent {
 	}
 
 	render() {
+		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
+
 		return (
 			<div className={itemsClasses}>
 				<AutoSizer>
@@ -161,7 +210,9 @@ export class ItemsComponent extends React.PureComponent {
 							 * but only way to refresh component when items or actions change
 							 * See https://github.com/bvaughn/react-virtualized/#pure-components
 							 */
-							ref={node => (this.list = node)}
+							ref={node => {
+								this.list = node;
+							}}
 							items={this.props.items}
 							className={listClasses}
 							rowRenderer={this.rowRenderer}
@@ -205,4 +256,4 @@ ItemsComponent.defaultProps = {
 	showToggleAll: true,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(ItemsComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ItemsComponent);

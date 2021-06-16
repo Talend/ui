@@ -4,7 +4,9 @@ exports[`Fieldset widget should render fieldset 1`] = `
 <fieldset
   className="form-group"
 >
-  <legend>
+  <legend
+    className=""
+  >
     My fieldset
   </legend>
   <Widget

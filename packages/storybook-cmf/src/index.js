@@ -1,37 +1,24 @@
 import React from 'react';
+import { makeDecorator } from '@storybook/addons';
 import CMFStory from './CMFStory';
 import CMFDecorator from './CMFDecorator';
 import register from './register';
 
-export default {
-	addWithCMF(storyName, storyFn, options) {
-		let add = this.add;
-		if (this.addWithInfo) {
-			add = this.addWithInfo;
-		}
-		let state;
-		if (options) {
-			state = options.state;
-		}
-		if (!state) {
-			state = null;
-		}
-		add(
-			storyName,
-			() => (
-				<CMFStory
-					state={state}
-					reducer={options.reducer}
-					enhancer={options.enhancer}
-					middleware={options.middleware}
-					sagaMiddleware={options.sagaMiddleware}
-				>
-					{storyFn()}
-				</CMFStory>
-			),
-			{ showInline: true },
-		);
-	},
-};
+export default makeDecorator({
+	name: 'withCMF',
+	parameterName: 'cmf',
+	skipIfNoParametersOrOptions: false,
+	wrapper: (getStory, context, { parameters = {} }) => (
+		<CMFStory
+			state={parameters.state}
+			reducer={parameters.reducer}
+			enhancer={parameters.enhancer}
+			middleware={parameters.middleware}
+			sagaMiddleware={parameters.sagaMiddleware}
+		>
+			{getStory(context)}
+		</CMFStory>
+	),
+});
 
 export { CMFDecorator, CMFStory, register };

@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
+
+import 'simplebar';
+import 'simplebar/dist/simplebar.css';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';
@@ -9,6 +12,18 @@ import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
 import theme from './SidePanel.scss';
+
+const DOCKED_MIN_WIDTH = '6rem';
+const LARGE_DOCKED_MIN_WIDTH = '7rem';
+
+function getInitialWidth(docked, large) {
+	if (docked && large) {
+		return LARGE_DOCKED_MIN_WIDTH;
+	} else if (docked) {
+		return DOCKED_MIN_WIDTH;
+	}
+	return undefined;
+}
 
 /**
  * This component aims to display links as a menu.
@@ -36,21 +51,54 @@ function SidePanel({
 	actions,
 	getComponent,
 	components,
-	docked,
+	docked: dockedProp,
 	reverse,
+	minimised,
 	large,
 	dockable,
 	onToggleDock,
 	t,
 }) {
+	const [dockState, setDockState] = useState(dockedProp);
+	const docked = onToggleDock ? dockedProp : dockState;
+	const [width, setWidth] = useState(() => getInitialWidth(docked, large));
+	const [animation, setAnimation] = useState(false);
+	const ref = React.createRef();
+
+	useLayoutEffect(() => {
+		if (docked || minimised) {
+			setWidth(large ? LARGE_DOCKED_MIN_WIDTH : DOCKED_MIN_WIDTH);
+		} else if (ref) {
+			const actionList = ref.current.querySelector('.tc-action-list');
+			setWidth(actionList.offsetWidth);
+		}
+	}, [ref, docked]);
+
+	useEffect(() => {
+		// animation is disabled at first to avoid the panel to be animated at first render
+		// when the width is initialized, then we enable animation
+		if (!animation && width) {
+			setAnimation(true);
+		}
+	}, [width]);
+
+	const onToggle = (...args) => {
+		if (onToggleDock) {
+			onToggleDock(...args);
+		} else {
+			setDockState(!dockState);
+		}
+	};
+
 	const injected = Inject.all(getComponent, components);
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
 		docked,
-		[theme.docked]: docked,
+		[theme.docked]: docked || minimised,
 		large,
 		[theme.large]: large,
 		reverse,
 		[theme.reverse]: reverse,
+		[theme.animate]: animation,
 	});
 	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
 		'nav-inverse': !reverse,
@@ -61,13 +109,20 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav id={id} className={navCSS} role="navigation" aria-expanded={!(dockable && docked)}>
-			{dockable && (
+		<nav
+			id={id}
+			className={navCSS}
+			role="navigation"
+			aria-expanded={!((dockable && docked) || minimised)}
+			ref={ref}
+			style={{ width }}
+		>
+			{dockable && !minimised && (
 				<div className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}>
 					<Components.Action
 						id={id && `${id}-toggle-dock`}
 						bsStyle="link"
-						onClick={onToggleDock}
+						onClick={onToggle}
 						icon="talend-opener"
 						aria-controls={id}
 						label={toggleButtonTitle}
@@ -78,14 +133,22 @@ function SidePanel({
 			)}
 			{injected('before-actions')}
 			{actions && (
-				<Components.ActionList
-					className={listCSS}
-					onSelect={onSelect}
-					selected={selected}
-					actions={actions}
-					id={id}
-					isNav
-				/>
+				<div
+					data-simplebar
+					className={classNames(
+						theme['action-list-container'],
+						'tc-side-panel-action-list-container',
+					)}
+				>
+					<Components.ActionList
+						className={listCSS}
+						onSelect={onSelect}
+						selected={selected}
+						actions={actions}
+						id={id}
+						isNav
+					/>
+				</div>
 			)}
 			{injected('actions')}
 		</nav>
@@ -99,6 +162,7 @@ SidePanel.defaultProps = {
 	reverse: false,
 	large: false,
 	dockable: true,
+	minimised: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -122,9 +186,10 @@ if (process.env.NODE_ENV !== 'production') {
 		reverse: PropTypes.bool,
 		large: PropTypes.bool,
 		dockable: PropTypes.bool,
+		minimised: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(SidePanel);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(SidePanel);

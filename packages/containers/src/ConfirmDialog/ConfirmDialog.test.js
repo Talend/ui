@@ -1,16 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { fromJS, Map } from 'immutable';
-import mock, { store, Provider } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import Container from './ConfirmDialog.container';
 import Connected, { mapStateToProps } from './ConfirmDialog.connect';
 
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 
-jest.mock('@talend/react-components', () => ({
-	ConfirmDialog: props => <div className="tc-confirm-dialog" {...props} />,
-}));
+jest.mock('@talend/react-components/lib/ConfirmDialog', () => props => (
+	<div className="tc-confirm-dialog" {...props} />
+));
 
 describe('Container ConfirmDialog', () => {
 	it('should not render', () => {
@@ -33,6 +33,7 @@ describe('Container ConfirmDialog', () => {
 			cancelAction: 'menu:demo',
 			model: { foo: 'bar' },
 		});
+		const { Provider } = mock;
 		const wrapper = renderer
 			.create(
 				<Provider>
@@ -59,7 +60,7 @@ describe('Connected ConfirmDialog', () => {
 			validateAction: 'object:validate',
 			cancelAction: 'object:cancel',
 		});
-		const state = mock.state();
+		const state = mock.store.state();
 		state.cmf.settings.actions['object:validate'] = { name: 'foo' };
 		state.cmf.settings.actions['object:cancel'] = { name: 'foo1' };
 
@@ -71,7 +72,7 @@ describe('Connected ConfirmDialog', () => {
 
 describe('ConfirmDialog.show/hide', () => {
 	it('should change the visibility to true in the state', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({
 			ConfirmDialog: {
 				ConfirmDialog: {
@@ -106,7 +107,7 @@ describe('ConfirmDialog.show/hide', () => {
 	});
 
 	it('should change the visibility to false in the state', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({
 			ConfirmDialog: {
 				ConfirmDialog: {

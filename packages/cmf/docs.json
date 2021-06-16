@@ -1,7 +1,7 @@
 {
     "opts": {
       "recurse": true,
-      "destination": "docs/jsdoc",
+      "destination": "jsdoc",
       "readme": "README.md"
     },
     "source": {
@@ -25,10 +25,7 @@
           "src/Inject.component.js",
           "src/registry.js",
           "src/RegistryProvider.js",
-          "src/route.js",
-          "src/sagaRouter/router.js",
-          "src/store.js",
-          "src/UIRouter.js"
+          "src/store.js"
         ],
         "excludePattern": "(node_modules/*|docs/*|lib/*)"
     },

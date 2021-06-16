@@ -29,9 +29,9 @@ public class TableTest extends StorybookTest {
         assertThat(headers, hasSize(5));
         assertThat(headers.get(0).getText(), equalToIgnoringCase("id"));
         assertThat(headers.get(1).getText(), equalToIgnoringCase("name"));
-        assertThat(headers.get(2).getText(), equalToIgnoringCase("created"));
-        assertThat(headers.get(3).getText(), equalToIgnoringCase("author"));
-        assertThat(headers.get(4).getText(), equalToIgnoringCase(""));
+        assertThat(headers.get(2).getText(), equalToIgnoringCase("author"));
+        assertThat(headers.get(3).getText(), equalToIgnoringCase(""));        
+        assertThat(headers.get(4).getText(), equalToIgnoringCase("created"));
     }
 
     @Test
@@ -49,11 +49,12 @@ public class TableTest extends StorybookTest {
         final java.util.List<Item> items = tableObject.getDisplayedItems();
 
         // then
-        assertThat(items, hasSize(4));
+        assertThat(items, hasSize(5));
         assertThat(items.get(0).getCell("id").getText(), equalToIgnoringCase("0"));
         assertThat(items.get(1).getCell("id").getText(), equalToIgnoringCase("1"));
         assertThat(items.get(2).getCell("id").getText(), equalToIgnoringCase("2"));
         assertThat(items.get(3).getCell("id").getText(), equalToIgnoringCase("3"));
+        assertThat(items.get(4).getCell("id").getText(), equalToIgnoringCase("4"));
     }
 
     @Test
@@ -135,7 +136,7 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_scroll_and_click_on_item_title() {
         // given
-        goToStory("Virtualized List", "List > Table");
+        goToStory("VirtualizedList", "List > Table");
         assertThat(getActionLog(), not(startsWith("▶onTitleClick:")));
 
         // when
@@ -148,7 +149,7 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_mouseover_and_click_on_item_action() {
         // given
-        goToStory("Virtualized List", "List > Table");
+        goToStory("VirtualizedList", "List > Table");
         final Item item = tableObject.getItem("Title with lot of actions");
         assertThat(item.getAction("edit").isDisplayed(), is(false));
         assertThat(getActionLog(), not(startsWith("▶onEdit:")));
@@ -164,7 +165,7 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_mouseover_and_click_on_item_action_within_ellipsis_dropdown() {
         // given
-        goToStory("Virtualized List", "List > Table");
+        goToStory("VirtualizedList", "List > Table");
         final Item item = tableObject.getItem("Title with lot of actions");
         assertThat(item.getAction("copy").isDisplayed(), is(false));
         assertThat(getActionLog(), not(startsWith("▶onCopy:")));
@@ -180,7 +181,7 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_scroll_and_click_on_item_action() {
         // given
-        goToStory("Virtualized List", "List > Table");
+        goToStory("VirtualizedList", "List > Table");
         assertThat(getActionLog(), not(startsWith("▶onEdit:")));
 
         // when

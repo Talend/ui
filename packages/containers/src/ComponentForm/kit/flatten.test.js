@@ -1,7 +1,5 @@
 import flatten from './flatten';
 
-function noop() {}
-
 describe('flatten', () => {
 	it('should flat nested data structure', () => {
 		const foo = {
@@ -14,39 +12,31 @@ describe('flatten', () => {
 			},
 		};
 		expect(flatten(foo)).toEqual({
-			'root.nest.string': 'foo',
-			'root.nest.number': 3,
 			'root.nest.bool': false,
+			'root.nest.number': 3,
+			'root.nest.string': 'foo',
 		});
 	});
-	it('should flat arrays', () => {
+	it('should flatten arrays', () => {
 		const foo = {
 			root: {
 				array: ['foo'],
 			},
 		};
-		expect(flatten(foo)).toEqual({ 'root.array[0]': 'foo' });
-	});
-	it('should include objects and arrays in the flatten payload', () => {
-		const foo = {
-			root: {
-				array: ['foo'],
-			},
-		};
-		expect(flatten(foo, true)).toEqual({
-			root: {
-				array: ['foo'],
-			},
-			'root.array': ['foo'],
+		expect(flatten(foo)).toEqual({
 			'root.array[0]': 'foo',
 		});
 	});
-	it('should skip function', () => {
+	it('should include objects sub-flatten in payload', () => {
 		const foo = {
 			root: {
-				noop,
+				array: ['foo'],
 			},
 		};
-		expect(flatten(foo)).toEqual({ 'root.noop': undefined });
+		expect(flatten(foo, { includeObjects: true })).toEqual({
+			root: { '.array': { '[0]': 'foo' }, '.array[0]': 'foo' },
+			'root.array': { '[0]': 'foo' },
+			'root.array[0]': 'foo',
+		});
 	});
 });

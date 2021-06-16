@@ -5,6 +5,7 @@ import {
 	HTTP_METHODS,
 	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
+import interceptors from '../../src/httpInterceptors';
 
 import http, {
 	getDefaultConfig,
@@ -13,8 +14,10 @@ import http, {
 	handleHttpResponse,
 	httpFetch,
 	HTTPError,
+	encodePayload,
 	wrapFetch,
 	httpGet,
+	httpHead,
 	httpDelete,
 	httpPatch,
 	httpPost,
@@ -41,8 +44,34 @@ describe('http.get', () => {
 		};
 
 		const gen = http.get('/foo', config);
+		const $config = { url, method: HTTP_METHODS.GET, ...config, data: { ok: true } };
+		gen.next();
 
-		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.GET, undefined),
+		);
+		gen.next();
+		expect(gen.next().done).toBe(true);
+	});
+});
+
+describe('http.head', () => {
+	it('should fetch /foo with a HEAD method', () => {
+		const url = '/foo';
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+
+		const gen = http.head('/foo', config);
+		const $config = { url, method: HTTP_METHODS.HEAD, ...config, data: { ok: true } };
+		gen.next();
+
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.HEAD, undefined),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 });
@@ -60,8 +89,13 @@ describe('http.post', () => {
 		};
 
 		const gen = http.post('/foo', payload, config);
+		const $config = { url, method: HTTP_METHODS.POST, payload, ...config, data: { ok: true } };
+		gen.next();
 
-		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.POST, payload));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.POST, payload),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 });
@@ -79,8 +113,13 @@ describe('http.patch', () => {
 		};
 
 		const gen = http.patch('/foo', payload, config);
+		const $config = { url, method: HTTP_METHODS.PATCH, payload, ...config, data: { ok: true } };
+		gen.next();
 
-		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PATCH, payload));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.PATCH, payload),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 });
@@ -98,8 +137,13 @@ describe('http.put', () => {
 		};
 
 		const gen = http.put('/foo', payload, config);
+		const $config = { url, method: HTTP_METHODS.PUT, payload, ...config, data: { ok: true } };
+		gen.next();
 
-		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.PUT, payload),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 });
@@ -114,8 +158,13 @@ describe('http.delete', () => {
 		};
 
 		const gen = http.delete('/foo', config);
+		const $config = { url, method: HTTP_METHODS.DELETE, ...config, data: { ok: true } };
+		gen.next();
 
-		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.DELETE, undefined),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 });
@@ -142,6 +191,18 @@ describe('handleBody', () => {
 				foo: 42,
 			});
 			expect(response instanceof Response).toBe(true);
+			done();
+		});
+	});
+
+	it('should manage the body of the response like a blob', done => {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/zip');
+
+		const blob = jest.fn(() => Promise.resolve());
+
+		handleBody({ blob, headers }).then(() => {
+			expect(blob).toHaveBeenCalled();
 			done();
 		});
 	});
@@ -215,6 +276,19 @@ describe('#handleHttpResponse', () => {
 			done();
 		});
 	});
+
+	it('should handle the response for HEAD requests', done => {
+		handleHttpResponse(
+			new Response('{"foo": 42}', {
+				status: HTTP_STATUS.OK,
+			}),
+			{ method: HTTP_METHODS.HEAD }
+		).then(({ data, response }) => {
+			expect(data).toBe('');
+			expect(response instanceof Response).toBe(true);
+			done();
+		});
+	});
 });
 
 describe('#handleError', () => {
@@ -239,6 +313,43 @@ describe('#handleError', () => {
 	});
 });
 
+describe('#encodePayload', () => {
+	it('should json stringify the payload if content-type is application/json', () => {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+		const test = { abc: 'def' };
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, test)).toEqual('{"abc":"def"}');
+	});
+	it('should return the payload as it is if it is a string', () => {
+		const test = 'FooBar';
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload({}, test)).toEqual('FooBar');
+	});
+
+	it('should not json stringify the payload if content-type is not application/json', () => {
+		const headers = {
+			'Content-Type': 'plain/text',
+		};
+		const test = { abc: 'def' };
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, test)).toEqual({ abc: 'def' });
+	});
+
+	it('should not json stringify the payload if it is a FormData instance', () => {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, new FormData()) instanceof FormData).toBe(true);
+	});
+});
+
 describe('#httpFetch', () => {
 	it('should wrap the request as a GET by default and provide an undefined payload', () => {
 		const url = '/foo';
@@ -249,12 +360,13 @@ describe('#httpFetch', () => {
 		};
 
 		const gen = wrapFetch(url, config, HTTP_METHODS.GET);
+		const $config = { url, method: HTTP_METHODS.GET, ...config, data: { ok: true } };
+		gen.next();
 
-		expect(
-			gen.next({
-				data: { ok: true },
-			}).value,
-		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.GET, undefined),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 	it('should wrap the request as a GET when options are given', () => {
@@ -269,12 +381,231 @@ describe('#httpFetch', () => {
 		};
 
 		const gen = wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
+		const $config = { url, method: HTTP_METHODS.GET, ...config, data: { ok: true } };
+		gen.next();
 
-		expect(
-			gen.next({
-				data: { ok: true },
-			}).value,
-		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.GET, undefined),
+		);
+		gen.next();
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a POST when options are given and, if error send it, if option is provided and silent is false', () => {
+		const url = '/foo';
+		const headers = { 'Content-Type': 'application/json' };
+		const message = 'Error occured';
+		const status = HTTP_STATUS.FORBIDDEN;
+		const payload = {
+			bar: 42,
+		};
+		const config = {
+			headers,
+		};
+		const options = {
+			silent: false,
+		};
+		const error = new HTTPError({
+			data: {
+				message,
+			},
+			response: {
+				status,
+			},
+		});
+		const gen = wrapFetch(url, config, HTTP_METHODS.POST, payload, options);
+		const $config = { url, method: HTTP_METHODS.POST, payload, ...config, data: { ok: true } };
+		gen.next();
+
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.POST, payload),
+		);
+		gen.next(error);
+		expect(gen.next(error).value).toEqual(
+			put({
+				config,
+				options,
+				error: {
+					message,
+					stack: {
+						status,
+					},
+				},
+				method: HTTP_METHODS.POST,
+				payload,
+				url,
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a POST when options are given and if error senit if no option are provided', () => {
+		const url = '/foo';
+		const headers = { 'Content-Type': 'application/json' };
+		const message = 'Error occured';
+		const status = HTTP_STATUS.FORBIDDEN;
+		const payload = {
+			bar: 42,
+		};
+		const config = {
+			headers,
+		};
+		const error = new HTTPError({
+			data: {
+				message,
+			},
+			response: {
+				status,
+			},
+		});
+		const gen = wrapFetch(url, config, HTTP_METHODS.POST, payload);
+		const $config = { url, method: HTTP_METHODS.POST, payload, ...config, data: { ok: true } };
+		gen.next();
+
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.POST, payload),
+		);
+		gen.next(error);
+		expect(gen.next(error).value).toEqual(
+			put({
+				config: {
+					headers,
+				},
+				options: undefined,
+				error: {
+					message,
+					stack: {
+						status,
+					},
+				},
+				method: HTTP_METHODS.POST,
+				payload,
+				url,
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		gen.next();
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a POST when options are given and, if error send it, if option is provided and silent is undefined', () => {
+		const url = '/foo';
+		const headers = { 'Content-Type': 'application/json' };
+		const message = 'Error occured';
+		const status = HTTP_STATUS.FORBIDDEN;
+		const payload = {
+			bar: 42,
+		};
+		const config = {
+			headers,
+		};
+		const options = {};
+		const error = new HTTPError({
+			data: {
+				message,
+			},
+			response: {
+				status,
+			},
+		});
+		const gen = wrapFetch(url, config, HTTP_METHODS.POST, payload, options);
+		const $config = { url, method: HTTP_METHODS.POST, payload, ...config, data: { ok: true } };
+		gen.next();
+
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.POST, payload),
+		);
+		gen.next(error);
+		expect(gen.next(error).value).toEqual(
+			put({
+				config: {
+					headers,
+				},
+				options,
+				error: {
+					message,
+					stack: {
+						status,
+					},
+				},
+				method: HTTP_METHODS.POST,
+				payload,
+				url,
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a GET when options are given and do not send error if silent is true', () => {
+		const url = '/foo';
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+		const options = {
+			silent: true,
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
+		const $config = { url, method: HTTP_METHODS.GET, ...config, data: { ok: true } };
+		gen.next();
+
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.GET, undefined),
+		);
+		gen.next();
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a POST when options are given and, if error send it, if option is provided and silent is an object', () => {
+		const url = '/foo';
+		const headers = { 'Content-Type': 'application/json' };
+		const message = 'Error occured';
+		const status = HTTP_STATUS.FORBIDDEN;
+		const payload = {
+			bar: 42,
+		};
+		const config = {
+			headers,
+		};
+		const options = {
+			silent: {
+				notify: false,
+				redirect: true,
+			},
+		};
+		const error = new HTTPError({
+			data: {
+				message,
+			},
+			response: {
+				status,
+			},
+		});
+		const gen = wrapFetch(url, config, HTTP_METHODS.POST, payload, options);
+		const $config = { url, method: HTTP_METHODS.POST, payload, ...config, data: { ok: true } };
+		gen.next();
+
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.POST, payload),
+		);
+		gen.next(error);
+		expect(gen.next(error).value).toEqual(
+			put({
+				config: {
+					headers,
+				},
+				options,
+				error: {
+					message,
+					stack: {
+						status,
+					},
+				},
+				method: HTTP_METHODS.POST,
+				payload,
+				url,
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
 		expect(gen.next().done).toBe(true);
 	});
 	it('should wrap the request with action', () => {
@@ -289,12 +620,12 @@ describe('#httpFetch', () => {
 		};
 
 		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
-
-		expect(
-			gen.next({
-				data: { ok: true },
-			}).value,
-		).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		const $config = { url, method: HTTP_METHODS.PUT, payload, ...config, data: { ok: true } };
+		gen.next();
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.PUT, payload),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 	it('should wrap the DELETE request and an undefined payload', () => {
@@ -306,12 +637,12 @@ describe('#httpFetch', () => {
 		};
 
 		const gen = wrapFetch(url, config, HTTP_METHODS.DELETE);
-
-		expect(
-			gen.next({
-				data: { ok: true },
-			}).value,
-		).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
+		const $config = { url, method: HTTP_METHODS.DELETE, ...config, data: { ok: true } };
+		gen.next();
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.DELETE, undefined),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 
@@ -327,16 +658,16 @@ describe('#httpFetch', () => {
 		};
 
 		const gen = wrapFetch(url, config, HTTP_METHODS.DELETE, undefined, options);
-
-		expect(
-			gen.next({
-				data: { ok: true },
-			}).value,
-		).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
+		const $config = { url, method: HTTP_METHODS.DELETE, ...config, data: { ok: true } };
+		gen.next();
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.DELETE, undefined),
+		);
+		gen.next();
 		expect(gen.next().done).toBe(true);
 	});
 
-	it('should wrap the request and notify errors', () => {
+	it('should wrap the request and notify business error', () => {
 		const url = '/foo';
 		const config = {
 			headers: {
@@ -357,21 +688,152 @@ describe('#httpFetch', () => {
 		});
 
 		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
-
-		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		const $config = { url, method: HTTP_METHODS.PUT, payload, ...config };
+		gen.next();
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.PUT, payload),
+		);
+		gen.next(httpError);
 		expect(gen.next(httpError).value).toEqual(
 			put({
+				config: {
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				},
 				error: {
 					message: 'Error occured',
 					stack: {
 						status: HTTP_STATUS.FORBIDDEN,
 					},
 				},
+				method: 'PUT',
+				payload: {
+					bar: 42,
+				},
+				url: '/foo',
 				type: ACTION_TYPE_HTTP_ERRORS,
 			}),
 		);
 		expect(gen.next().value).toEqual(httpError);
 		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request and notify enriched business error if response payload follow RFC-7807', () => {
+		const url = '/foo';
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+		const rfcReponse = {
+			type: 'some-documentation-uri',
+			title: 'An expected error title',
+			detail: 'Some useful detail',
+			code: 'business-error-xxx'
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		const httpError = new HTTPError({
+			data: {
+				message: 'Error occured',
+				...rfcReponse,
+			},
+			response: {
+				status: HTTP_STATUS.FORBIDDEN,
+			},
+		});
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
+		const $config = { url, method: HTTP_METHODS.PUT, payload, ...config };
+		gen.next();
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.PUT, payload),
+		);
+		gen.next(httpError);
+		expect(gen.next(httpError).value).toEqual(
+			put({
+				config: {
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				},
+				options: undefined,
+				error: {
+					message: 'Error occured',
+					stack: {
+						status: HTTP_STATUS.FORBIDDEN,
+					},
+					...rfcReponse,
+				},
+				method: 'PUT',
+				payload: {
+					bar: 42,
+				},
+				url: '/foo',
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().value).toEqual(httpError);
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request and notify network error', () => {
+		const url = '/foo';
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+		const payload = {
+			bar: 42,
+		};
+		const response = new TypeError('Failed to fetch');
+		const httpError = new HTTPError({
+			data: response,
+			response,
+		});
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
+		const $config = { url, method: HTTP_METHODS.PUT, payload, ...config };
+		gen.next();
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.PUT, payload),
+		);
+		gen.next(httpError);
+		expect(gen.next(httpError).value).toEqual(
+			put({
+				config: {
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				},
+				error: {
+					message: 'Failed to fetch',
+					stack: {},
+				},
+				method: 'PUT',
+				payload: {
+					bar: 42,
+				},
+				url: '/foo',
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().value).toEqual(httpError);
+		expect(gen.next().done).toBe(true);
+	});
+	it('should call interceptors at every steps', () => {
+		const url = '/foo';
+		const config = {};
+		const response = { data: 'foo' };
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET);
+		const $config = { url, method: HTTP_METHODS.GET, undefined };
+		expect(gen.next().value).toEqual(call(interceptors.onRequest, $config));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.GET, undefined),
+		);
+		expect(gen.next(response).value).toEqual(call(interceptors.onResponse, response));
 	});
 });
 
@@ -400,8 +862,11 @@ it('should wrap the request and not notify with generic http error if silent opt
 	});
 
 	const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload, options);
+	const $config = { url, ...config, method: HTTP_METHODS.PUT, payload };
+	gen.next();
 
-	expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+	expect(gen.next($config).value).toEqual(call(httpFetch, url, $config, HTTP_METHODS.PUT, payload));
+	gen.next(httpError);
 	expect(gen.next(httpError).value).toEqual(httpError);
 	expect(gen.next().done).toBe(true);
 });
@@ -703,13 +1168,21 @@ describe('Http{Method} calls httpFetch with appropriate method', () => {
 		// when
 		const gen = httpGet(url, config, options);
 		// then
-		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		gen.next();
+		const $config = { url, ...config, method: HTTP_METHODS.GET };
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.GET, undefined),
+		);
 	});
 	it('check that httpFetch is called from httpDelete', () => {
 		// when
 		const gen = httpDelete(url, config, options);
 		// then
-		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
+		gen.next();
+		const $config = { url, ...config, method: HTTP_METHODS.DELETE };
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.DELETE, undefined),
+		);
 	});
 });
 describe('http module with instance created', () => {

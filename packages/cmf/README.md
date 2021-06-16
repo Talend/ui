@@ -18,11 +18,6 @@ It provides a set of base APIs and patterns.
 [devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.svg?path=packages/cmf
 [devdependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf&type=dev
 
-## Breaking changes log
-
-Before 1.0, `@talend/react-cmf` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-
 ## Requirements
 
 Before trying CMF you must know:
@@ -48,11 +43,17 @@ repetitive tasks and some boiler plate every time and on each components.
 When working with a framework like angular you have the tools plus a guideline on how to use them.
 With CMF the idea is the same. Provide the good set of tools plus the guideline.
 
-A brief overview of how to do a project with react-cmf:
+To start a project using react-cmf you can either:
+* use yeoman generator `yo talend:react-cmf`
+* or use [bootstrap API](https://github.com/Talend/ui/tree/master/packages/cmf/src/bootstrap.md) in your already existing project
+
+Working with react-cmf means:
 
 * you write a set of configurable pure component connected using `cmfConnect`
 * you configure them using the settings
 * events are handled in a saga (effects are the way to write business code)
+
+![diagram rendering cycle](./assets/diagram-rendering-cycle.svg "Diagram rendering cycle")
 
 Side by side with angular 1:
 
@@ -68,10 +69,12 @@ UI sends actions into redux which are handled by sagas.
 Under the hood it uses the connect function and create a container.
 
 Once your component is connected:
-* you can read data from the store using [expression](./src/expression.md)
-* you can dispatch actions using [onEvent handler](./src/onEvent.md)
+* you can read data from the store using [expression](https://github.com/Talend/ui/tree/master/packages/cmf/src/expression.md)
+* you can dispatch actions using [onEvent handler](https://github.com/Talend/ui/tree/master/packages/cmf/src/onEvent.md)
 
-Read more about [cmfConnect](./src/cmfConnect.md)
+![diagram cmfConnect](./assets/diagram-cmfConnect.svg "Diagram on cmfConnect")
+
+Read more about [cmfConnect](https://github.com/Talend/ui/tree/master/packages/cmf/src/cmfConnect.md)
 
 ## Store structure
 
@@ -104,7 +107,7 @@ Manage a local cache of your business data.
 You can connect your component to give it access to your data and being able
 to dispatch action to let CMF reducers write them.
 
-You can dispatch some actionCreators in [api.actions.collections](src/api.md) for that.
+You can dispatch some actionCreators in [api.actions.collections](https://github.com/Talend/ui/tree/master/packages/cmf/src/api.md) for that.
 
 ### Settings
 
@@ -148,16 +151,18 @@ So you can use them either in CLI or in npm scripts.
 ## Tests & mocks
 
 When you are in the context of CMF and you want to test your component you
-will need to mock some stuff (context, router, ...).
+will need to mock some stuff (context, ...).
 
 We want testing experience to be easy so CMF provides some mocks for you.
 
 ```javascript
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import MyComponent from './My.component';
+
+const { Provider, store } = mock;
 
 describe('App', () => {
 	it('should render the app container', () => {
@@ -175,7 +180,6 @@ describe('App', () => {
 
 This way MyComponent may request for the following context:
 
-* router
 * registry
 * store
 
@@ -183,38 +187,23 @@ you may change the following using simple props:
 
 * store
 * state
-* router
 * registry
 
 ## More
 
-* [App](src/App.md)
-* [cmfConnect](src/cmfConnect.md)
-* [settings](src/settings.md)
-* [api](src/api.md)
-* [store](src/store.md)
-* [Dispatcher](src/Dispatcher.md)
+* [App](https://github.com/Talend/ui/tree/master/packages/cmf/src/App.md)
+* [cmfConnect](https://github.com/Talend/ui/tree/master/packages/cmf/src/cmfConnect.md)
+* [settings](https://github.com/Talend/ui/tree/master/packages/cmf/src/settings.md)
+* [api](https://github.com/Talend/ui/tree/master/packages/cmf/src/api.md)
+* [store](https://github.com/Talend/ui/tree/master/packages/cmf/src/store.md)
+* [Dispatcher](https://github.com/Talend/ui/tree/master/packages/cmf/src/Dispatcher.md)
 * [how to](howto/index.md)
-* [sagas](src/sagas/index.md)
-* [sagaRouter](src/sagaRouter/index.md)
+* [sagas](https://github.com/Talend/ui/tree/master/packages/cmf/src/sagas/index.md)
+* [sagaRouter](https://github.com/Talend/ui/tree/master/packages/router/src/sagaRouter.md)
 * [scripts](scripts/index.md)
 
 ## Internals
 
-* [registry](./src/registry.md).
-* [middleware/cmf](./src/middlewares/cmf/index.md)
-* [middleware/http](./src/middlewares/http/index.md)
-
-## ROADMAP
-
-For 1.0
-
-* [ ] documentation review
-* [ ] provide an example OSS demo app
-* [ ] remove all deprecated code
-* [ ] update or remove react-router
-* [ ] move from peer dependencies to dependencies
-* [x] integrate redux-saga
-* [x] add a yeoman generator
-* [x] actionCreator should become first class
-* [x] embedable apps
+* [registry](https://github.com/Talend/ui/tree/master/packages/cmf/src/registry.md).
+* [middleware/cmf](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/cmf/index.md)
+* [middleware/http](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/http/index.md)

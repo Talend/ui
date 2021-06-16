@@ -22,6 +22,15 @@
           "qux"
         ]
       },
+      "choiceListWithPlaceholder": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
       "multipleChoicesList": {
         "type": "array",
         "items": {
@@ -44,7 +53,8 @@
   "uiSchema": [
     {
       "key": "simpleChoiceList",
-      "title": "Simple choice list"
+      "title": "Simple choice list",
+      "data-test": "simple.list"
     },
     {
       "key": "choiceListWithTitles",
@@ -55,6 +65,11 @@
         "fuzz": "My custom fuzz title",
         "qux": "my custom qux title"
       }
+    },
+    {
+      "key": "choiceListWithPlaceholder",
+      "title": "Choice list with placeholder",
+      "placeholder": "Please select..."
     },
     {
       "key": "multipleChoicesList",

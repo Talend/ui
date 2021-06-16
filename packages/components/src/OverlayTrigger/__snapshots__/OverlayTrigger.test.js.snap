@@ -3,7 +3,6 @@
 exports[`OverlayTrigger should inject the overlay 1`] = `
 <Popover
   bsClass="popover"
-  id={undefined}
   placement="right"
 >
   <Inject
@@ -15,11 +14,10 @@ exports[`OverlayTrigger should inject the overlay 1`] = `
 
 exports[`OverlayTrigger should wrap the children with an overlay 1`] = `
 <span
-  className="theme-tc-action-button-positionned"
+  className="theme-tc-action-button-positionned tc-action-button-positionned"
 >
   <OverlayTrigger
     defaultOverlayShown={false}
-    onClick={undefined}
     onEntering={[Function]}
     onExited={[Function]}
     overlay={

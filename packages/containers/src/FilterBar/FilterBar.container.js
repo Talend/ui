@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import Immutable from 'immutable';
-import { FilterBar as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/FilterBar';
 
 export const QUERY_ATTR = 'query';
 export const DEFAULT_STATE = new Immutable.Map({
@@ -59,7 +59,7 @@ class FilterBar extends React.Component {
 			if (this.props.dockable) {
 				state = state.set('docked', !this.props.state.get('docked'));
 			}
-			return state.set(QUERY_ATTR, '');
+			return state;
 		});
 		if (this.props.onToggle) {
 			this.props.onToggle(event);
@@ -68,12 +68,13 @@ class FilterBar extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
+		const props = {
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
 			docked: this.props.docked != null ? this.props.docked : state.get(DOCKED_ATTR),
 			value: this.props.value ? this.props.value : state.get(QUERY_ATTR, ''),
 			onToggle: this.onToggle,
 			onFilter: this.onFilter,
-		});
+		};
 		return <Component {...props} />;
 	}
 }

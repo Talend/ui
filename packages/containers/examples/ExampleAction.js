@@ -1,6 +1,6 @@
 import React from 'react';
 import { action as stAction } from '@storybook/addon-actions';
-import { IconsProvider } from '@talend/react-components';
+
 import { Action } from '../src';
 
 const myAction = {
@@ -22,7 +22,6 @@ const eAction = {
 export default function ExampleAction() {
 	return (
 		<div>
-			<IconsProvider />
 			<p>Using actionId</p>
 			<Action actionId="menu:first" />
 			<Action actionId="menu:items" />

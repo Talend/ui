@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import { ActionIconToggle } from '@talend/react-components';
+import { ActionIconToggle } from '@talend/react-components/lib/Actions';
 
 export function mapStateToProps(state, ownProps) {
 	let props = {};
@@ -20,13 +20,13 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	const props = { ...ownProps, ...stateProps, ...dispatchProps };
 	delete props.actionId;
 	return props;
 }
 
 export function ContainerActionIconToggle(props) {
-	const newProps = Object.assign({}, props);
+	const newProps = { ...props };
 
 	if (!newProps.onClick) {
 		newProps.onClick = (event, data) => {
@@ -52,4 +52,9 @@ ContainerActionIconToggle.propTypes = {
 export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(ContainerActionIconToggle);

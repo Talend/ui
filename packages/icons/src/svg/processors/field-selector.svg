@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+	<rect width="20" height="4" rx="1" transform="translate(12 14)"/>
+	<rect width="14" height="1" rx=".5" transform="translate(12 6)"/>
+	<rect width="17" height="1" rx=".5" transform="translate(12 10)"/>
+	<rect width="14" height="1" rx=".5" transform="translate(12 21)"/>
+	<rect width="17" height="1" rx=".5" transform="translate(12 25)"/>
+	<path d="M4.707 19.535a1 1 0 0 1 0-1.414L5.828 17H1a1 1 0 0 1 0-2h4.828l-1.121-1.122a1 1 0 1 1 1.414-1.414l2.829 2.828a1 1 0 0 1 0 1.415l-2.829 2.828a1 1 0 0 1-1.414 0z"/>
+</svg>

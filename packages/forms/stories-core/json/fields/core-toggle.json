@@ -19,7 +19,8 @@
     {
       "key": "standard",
       "title": "Check if you are happy (standard)",
-      "widget": "toggle"
+      "widget": "toggle",
+      "data-test": "simple.toggle"
     },
     {
       "key": "autofocused",

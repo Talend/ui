@@ -1,4 +1,3 @@
-import TimePicker, { twoDigits } from './TimePicker.component';
+import TimePickerWithGesture from './TimePicker.component';
 
-export default TimePicker;
-export { twoDigits };
+export default TimePickerWithGesture;

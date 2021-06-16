@@ -11,8 +11,6 @@
 @import './visual-helpers';
 @import './datagrid';
 
-$breadcrumb-items-max-width: 250px !default;
-
 /// Button font size
 /// @type Number (Unit)
 $btn-font-size: 14px !default;
@@ -52,6 +50,11 @@ $modal-header-color: $black !default;
 $navbar-brand-logo-height: 20px !default;
 $navbar-brand-logo-width: 75px !default;
 
+/// Drawer z-index
+/// should always stay lower than dialog z-index which is set to 1040
+/// @type Number (Unitless)
+$drawer-z-index: 100 !default;
+
 /// Navbar form top and bottom width
 /// @type Number (Unit)
 $navbar-form-margin: 0 !default;
@@ -73,6 +76,38 @@ $svg-sm-size: 1.2rem !default;
 /// @type Number (Unitless)
 $svg-md-size: 1.6rem !default;
 
+/// Default button svg size
+/// @type Number (Unitless)
+$svg-rg-size: 2rem !default;
+
 /// Large button svg size
 /// @type Number (Unitless)
 $svg-lg-size: 2.4rem !default;
+
+/// Extra large button svg size
+/// @type Number (Unitless)
+$svg-xlg-size: 3.2rem !default;
+
+/// Breadcrumb height
+/// @type Number (Unit)
+$breadcrumb-height: 5rem !default;
+
+/// Breadcrumb max width of each visible items
+/// @type Number (Unit)
+$breadcrumb-items-max-width: 30rem !default;
+
+/// Breadcrumb items color
+/// @type Number (Color)
+$breadcrumb-items-color: $black !default;
+
+/// Breadcrumb items color on hover
+/// @type Number (Color)
+$breadcrumb-items-color-hover: $scooter !default;
+
+/// Breadcrumb active item color
+/// @type Number (Color)
+$breadcrumb-items-active-color: $dove-gray !default;
+
+/// Breadcrumb separator color
+/// @type Number (Color)
+$breadcrumb-items-separator-color: $gray !default;

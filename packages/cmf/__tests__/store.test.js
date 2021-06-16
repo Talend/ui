@@ -15,14 +15,12 @@ describe('CMF store', () => {
 		expect(typeof s.getState).toBe('function');
 		expect(typeof s.replaceReducer).toBe('function');
 		const state = s.getState();
-		expect(typeof state.routing).toBe('object');
 		expect(typeof state.cmf.settings).toBe('object');
 		expect(typeof state.app).toBe('object');
 	});
 	it('should initialize the store without args', () => {
 		const s = store.initialize();
 		const state = s.getState();
-		expect(typeof state.routing).toBe('object');
 		expect(typeof state.cmf.settings).toBe('object');
 		expect(typeof state.app).toBe('undefined');
 	});
@@ -37,7 +35,6 @@ describe('CMF store', () => {
 		};
 		const s = store.initialize(reducer);
 		const state = s.getState();
-		expect(typeof state.routing).toBe('object');
 		expect(typeof state.cmf.settings).toBe('object');
 		expect(typeof state.app).toBe('object');
 		expect(typeof state.heyImRoot).toBe('object');

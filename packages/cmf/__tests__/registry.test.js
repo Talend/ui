@@ -49,7 +49,7 @@ describe('CMF registry', () => {
 
 	it('addToRegistry should warn that a registered item is overridden', () => {
 		// given
-		console.warn = jest.genMockFn();
+		console.warn = jest.fn();
 		registry.addToRegistry('jso', 'value');
 
 		expect(console.warn).not.toBeCalled();

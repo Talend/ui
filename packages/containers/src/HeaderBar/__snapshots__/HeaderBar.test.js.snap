@@ -1,25 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container HeaderBar should render HeaderBar container 1`] = `<Translate(HeaderBar) />`;
-
-exports[`Container HeaderBar should render HeaderBar container while fetching items 1`] = `<Translate(HeaderBar) />`;
-
-exports[`Container HeaderBar should render HeaderBar container with a list of items 1`] = `
-<Translate(HeaderBar)
-  products={
-    Object {
-      "items": Array [
-        Object {
-          "foo": "bar",
-          "onClickDispatch": Object {
-            "payload": Object {
-              "foo": "bar",
-            },
-            "type": "HEADER_BAR_OPEN_PRODUCT",
-          },
-        },
-      ],
-    }
-  }
+exports[`Container HeaderBar should render HeaderBar container 1`] = `
+<withI18nextTranslation(HeaderBar)
+  t={[Function]}
 />
 `;

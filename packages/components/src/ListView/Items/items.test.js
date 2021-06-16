@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { ItemsComponent } from './Items.component';
-import toJsonWithoutI18n from './../../../test/props-without-i18n';
+import toJsonWithoutI18n from '../../../test/props-without-i18n';
 
 jest.mock(
 	'react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
@@ -36,7 +36,7 @@ describe('Items', () => {
 
 	it('should render with provided id', () => {
 		// when
-		const wrapper = mount(<ItemsComponent {...props} id={'my-widget'} />);
+		const wrapper = mount(<ItemsComponent {...props} id="my-widget" />);
 
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();

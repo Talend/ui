@@ -13,10 +13,20 @@ exports[`Default Array Template component should render default array template 1
   <Action
     bsStyle="info"
     className="theme-tf-array-add tf-array-add"
-    label="New Element"
-    onClick={[Function]}
+    id="my-template-btn"
+    label="Add"
+    onClick={[MockFunction]}
+  />
+  <Message
+    description="Tnstructions to fill it"
+    descriptionId="my-template-description"
+    errorId="my-template-error"
+    errorMessage="This is an error"
+    isValid={true}
   />
   <ol
+    aria-describedby="my-template-description my-template-error"
+    aria-invalid={true}
     className="theme-tf-array tf-array"
     id="my-template"
   >
@@ -28,15 +38,11 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={false}
         id="my-template-control-0"
         index={0}
-        isClosed={undefined}
-        onRemove={[Function]}
-        onReorder={[Function]}
-      >
-        <div>
-          Render item 
-          0
-        </div>
-      </ArrayItem>
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
     </li>
     <li
       className="theme-item item item-1"
@@ -46,15 +52,11 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={true}
         id="my-template-control-1"
         index={1}
-        isClosed={undefined}
-        onRemove={[Function]}
-        onReorder={[Function]}
-      >
-        <div>
-          Render item 
-          1
-        </div>
-      </ArrayItem>
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
     </li>
     <li
       className="theme-item item item-2"
@@ -64,21 +66,12 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={true}
         id="my-template-control-2"
         index={2}
-        isClosed={undefined}
-        onRemove={[Function]}
-        onReorder={[Function]}
-      >
-        <div>
-          Render item 
-          2
-        </div>
-      </ArrayItem>
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
     </li>
   </ol>
-  <Message
-    description="Tnstructions to fill it"
-    errorMessage="This is an error"
-    isValid={true}
-  />
 </fieldset>
 `;

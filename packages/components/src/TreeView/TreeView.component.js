@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Action } from '../';
-import TreeViewItem from './TreeViewItem/';
+import Action from '../Actions/Action';
+import TreeViewItem from './TreeViewItem';
 
 import theme from './TreeView.scss';
-import withTreeGesture from '../Tree/withTreeGesture';
+import withTreeGesture from '../Gesture/withTreeGesture';
 
 /**
  * A view component to display any tree structure, like folders or categories.

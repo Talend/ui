@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const Ajv = require('ajv');
 const noop = require('lodash/noop');
 
 const DEFAULT_SETTINGS_EXT = '.json';
@@ -72,7 +71,6 @@ function findJson(fileOrFolder, recursive = false) {
 }
 
 function importAndValidate(filePath, onError) {
-	const ajv = new Ajv();
 	let file;
 
 	try {

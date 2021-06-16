@@ -7,14 +7,13 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -26,14 +25,13 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -48,7 +46,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -63,7 +60,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -78,7 +74,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -95,12 +90,10 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to first page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -111,28 +104,18 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to previous page. Current page: 1."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -143,23 +126,12 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="theme-page-index"
     onSelect={[Function]}
   >
@@ -170,53 +142,35 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to next page. Current page: 1."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+        transform="rotate-180"
+      />
     </a>
   </li>
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to last page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+        transform="rotate-180"
+      />
     </a>
   </li>
 </ul>
@@ -229,14 +183,13 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -248,14 +201,13 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -270,7 +222,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -285,7 +236,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -300,7 +250,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -317,59 +266,36 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to first page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to previous page. Current page: 2."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="theme-page-index"
     onSelect={[Function]}
   >
@@ -380,12 +306,10 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to next page. Current page: 2."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -396,28 +320,19 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+        transform="rotate-180"
+      />
     </a>
   </li>
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to last page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -428,17 +343,10 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+        transform="rotate-180"
+      />
     </a>
   </li>
 </ul>
@@ -451,14 +359,13 @@ exports[`Pagination should not render navigation when show all items 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -470,14 +377,13 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -492,7 +398,6 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -507,7 +412,6 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -522,7 +426,6 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -546,14 +449,13 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -565,14 +467,13 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -587,7 +488,6 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -602,7 +502,6 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -617,7 +516,6 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -641,14 +539,13 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -660,14 +557,13 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -682,7 +578,6 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -697,7 +592,6 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -712,7 +606,6 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -736,14 +629,13 @@ exports[`Pagination should render 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -755,14 +647,13 @@ exports[`Pagination should render 1`] = `
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -777,7 +668,6 @@ exports[`Pagination should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -792,7 +682,6 @@ exports[`Pagination should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -807,7 +696,6 @@ exports[`Pagination should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -824,59 +712,36 @@ exports[`Pagination should render 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to first page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to previous page. Current page: 2."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="theme-page-index"
     onSelect={[Function]}
   >
@@ -887,53 +752,35 @@ exports[`Pagination should render 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to next page. Current page: 2."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+        transform="rotate-180"
+      />
     </a>
   </li>
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to last page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+        transform="rotate-180"
+      />
     </a>
   </li>
 </ul>
@@ -946,7 +793,6 @@ exports[`Pagination should render id if provided 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -972,7 +818,6 @@ exports[`Pagination should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -987,7 +832,6 @@ exports[`Pagination should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1002,7 +846,6 @@ exports[`Pagination should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1017,7 +860,6 @@ exports[`Pagination should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1034,7 +876,6 @@ exports[`Pagination should render id if provided 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to first page."
@@ -1044,23 +885,14 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to previous page. Current page: 2."
@@ -1070,23 +902,12 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+      />
     </a>
   </li>
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="theme-page-index"
     onSelect={[Function]}
   >
@@ -1097,7 +918,6 @@ exports[`Pagination should render id if provided 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to next page. Current page: 2."
@@ -1107,23 +927,15 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-left"
-        />
-      </svg>
+        transform="rotate-180"
+      />
     </a>
   </li>
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to last page."
@@ -1133,17 +945,10 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-chevron-end"
-        />
-      </svg>
+        transform="rotate-180"
+      />
     </a>
   </li>
 </ul>
@@ -1156,14 +961,13 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -1175,14 +979,13 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1197,7 +1000,6 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1212,7 +1014,6 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1227,7 +1028,6 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"

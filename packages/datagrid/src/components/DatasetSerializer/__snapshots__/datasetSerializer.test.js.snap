@@ -52,7 +52,6 @@ Array [
       },
     },
     "avro": Object {
-      "doc": "Code UIC",
       "name": "field1",
       "type": Object {
         "@talend-quality@": Object {
@@ -67,7 +66,7 @@ Array [
       },
     },
     "field": "data.field1",
-    "headerName": "Code UIC",
+    "headerName": "field1",
     "type": "int*",
   },
 ]
@@ -125,7 +124,6 @@ Array [
       },
     },
     "avro": Object {
-      "doc": "Code UIC",
       "name": "field1",
       "type": Object {
         "@talend-quality@": Object {
@@ -140,7 +138,7 @@ Array [
       },
     },
     "field": "data.field1",
-    "headerName": "Code UIC",
+    "headerName": "field1",
     "type": "int*",
   },
 ]
@@ -198,7 +196,6 @@ Array [
       },
     },
     "avro": Object {
-      "doc": "Code UIC",
       "name": "field1",
       "type": Object {
         "@talend-quality@": Object {
@@ -213,7 +210,7 @@ Array [
       },
     },
     "field": "data.field1",
-    "headerName": "Code UIC",
+    "headerName": "field1",
     "type": "int*",
   },
 ]
@@ -292,7 +289,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 0,
-    "loading": false,
+    "loaded": undefined,
   },
   Object {
     "data.field0": Object {
@@ -356,7 +353,7 @@ Array [
       "value": "",
     },
     "index.index": 1,
-    "loading": false,
+    "loaded": undefined,
   },
 ]
 `;
@@ -425,7 +422,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 0,
-    "loading": false,
+    "loaded": undefined,
   },
   Object {
     "data.field0": Object {
@@ -489,7 +486,7 @@ Array [
       "value": "",
     },
     "index.index": 1,
-    "loading": false,
+    "loaded": undefined,
   },
 ]
 `;
@@ -558,7 +555,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 10,
-    "loading": false,
+    "loaded": undefined,
   },
   Object {
     "data.field0": Object {
@@ -622,9 +619,7 @@ Array [
       "value": "",
     },
     "index.index": 11,
-    "loading": false,
+    "loaded": undefined,
   },
 ]
 `;
-
-exports[`getFieldQuality should enrich the quality 1`] = `Object {}`;

@@ -11,7 +11,7 @@ function getButtonsList(id, buttons, onTrigger, onClick, getComponent) {
 	}
 	return buttons.map((itemSchema, index) => (
 		<SingleButton
-			className={theme[itemSchema.position]}
+			className={classNames(theme[itemSchema.position], itemSchema.className)}
 			key={index}
 			id={itemSchema.id || `${id}-${index}`}
 			onTrigger={onTrigger}

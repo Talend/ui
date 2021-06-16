@@ -1,8 +1,5 @@
-$tc-datalist-items-background-color: $white !default;
-$tc-datalist-items-max-height: 320px !default;
-$tc-datalist-items-shadow-color: $shadow !default;
-$tc-typeahead-input-width: 260px !default;
-$tc-datalist-item-height: 40px !default;
+$tc-datalist-items-max-height: 32rem !default;
+$tc-datalist-item-height: 4rem !default;
 
 .tc-datalist-form {
 	width: 100%;
@@ -17,25 +14,25 @@ $tc-datalist-item-height: 40px !default;
 }
 
 .items-container {
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	top: 100%;
-	right: 0;
-	left: 0;
 	max-height: $tc-datalist-items-max-height;
-	min-width: $tc-typeahead-input-width;
-	font-size: 1.5rem;
-	background-color: $tc-datalist-items-background-color;
-	border-radius: $border-radius-base;
-	box-shadow: 0 1px 3px 0 $tc-datalist-items-shadow-color;
-	overflow-y: auto;
 	z-index: 999;
 
 	:global(.tc-typeahead-section-container) {
 		:global(.tc-typeahead-section-header) {
 			border-bottom: none;
 		}
+	}
+}
+
+.tc-datalist-item {
+	display: flex;
+	align-items: center;
+
+	.tc-datalist-item-icon {
+		width: $svg-md-size;
+		height: $svg-md-size;
+		color: $black;
+		margin-right: $padding-normal;
 	}
 }
 
@@ -46,10 +43,7 @@ $tc-datalist-item-height: 40px !default;
 
 	> li > div {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		height: $tc-datalist-item-height;
-		padding: 0 $padding-normal;
 		&:hover {
 			background-color: $concrete;
 		}

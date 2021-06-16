@@ -345,59 +345,107 @@ Object {
 `;
 
 exports[`ListView field render should render ListView 1`] = `
-<I18n
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
+<FieldTemplate
+  description="This is the ListView field"
+  descriptionId="my-list-view-description"
+  errorId="my-list-view-error"
   errorMessage="This is wrong"
-  i18n={Object {}}
   id="my-list-view"
-  isSwitchBox={true}
   isValid={true}
-  ns={
-    Array [
-      "tui-forms",
-    ]
-  }
-  nsMode="default"
-  onChange={[Function]}
-  onFinish={[Function]}
-  schema={
-    Object {
-      "description": "This is the ListView field",
-      "disabled": false,
-      "required": true,
-      "title": "Countries",
-      "titleMap": Array [
+  required={true}
+>
+  <ListView
+    containerProps={
+      Object {
+        "aria-describedby": "my-list-view-description my-list-view-error",
+      }
+    }
+    displayedItems={
+      Array [
         Object {
-          "name": "Afghanistan",
+          "checked": false,
+          "index": 0,
+          "label": "Afghanistan",
+          "onChange": [Function],
           "value": "country1",
         },
         Object {
-          "name": "Albania",
+          "checked": true,
+          "index": 1,
+          "label": "Albania",
+          "onChange": [Function],
           "value": "country2",
         },
         Object {
-          "name": "Algeria",
+          "checked": true,
+          "index": 2,
+          "label": "Algeria",
+          "onChange": [Function],
           "value": "country3",
         },
         Object {
-          "name": "Andorra",
+          "checked": false,
+          "index": 3,
+          "label": "Andorra",
+          "onChange": [Function],
           "value": "country4",
         },
-      ],
+      ]
     }
-  }
-  translateFuncName="t"
-  usePureComponent={false}
-  value={
-    Array [
-      "country2",
-      "country3",
-    ]
-  }
-  wait={false}
-  withRef={false}
-/>
+    getItemHeight={[Function]}
+    headerDefault={
+      Array [
+        Object {
+          "icon": "talend-search",
+          "id": "my-list-view-search",
+          "label": "Search for specific values",
+          "onClick": [Function],
+        },
+      ]
+    }
+    headerLabel="Countries"
+    id="my-list-view"
+    items={
+      Array [
+        Object {
+          "checked": false,
+          "index": 0,
+          "label": "Afghanistan",
+          "onChange": [Function],
+          "value": "country1",
+        },
+        Object {
+          "checked": true,
+          "index": 1,
+          "label": "Albania",
+          "onChange": [Function],
+          "value": "country2",
+        },
+        Object {
+          "checked": true,
+          "index": 2,
+          "label": "Algeria",
+          "onChange": [Function],
+          "value": "country3",
+        },
+        Object {
+          "checked": false,
+          "index": 3,
+          "label": "Andorra",
+          "onChange": [Function],
+          "value": "country4",
+        },
+      ]
+    }
+    onAddKeyDown={[Function]}
+    onInputChange={[Function]}
+    onToggleAll={[Function]}
+    required={true}
+    searchCriteria={null}
+    t={[Function]}
+    toggleAllChecked={false}
+  />
+</FieldTemplate>
 `;
 
 exports[`ListView field render should render no items message 1`] = `
@@ -424,9 +472,7 @@ exports[`ListView field render should render no items message 1`] = `
       ]
     }
     headerLabel="Countries"
-    i18n={Object {}}
     id="my-list-view"
-    isSwitchBox={false}
     items={Array []}
     onAddKeyDown={[Function]}
     onInputChange={[Function]}
@@ -434,10 +480,9 @@ exports[`ListView field render should render no items message 1`] = `
     required={true}
     searchCriteria={null}
     t={[Function]}
-    tReady={false}
     toggleAllChecked={true}
   >
-    <Translate(Header)
+    <withI18nextTranslation(Header)
       headerDefault={
         Array [
           Object {
@@ -454,177 +499,94 @@ exports[`ListView field render should render no items message 1`] = `
       required={true}
       t={[Function]}
     >
-      <I18n
-        bindI18n="languageChanged loaded"
-        bindStore="added removed"
-        headerDefault={
-          Array [
-            Object {
-              "icon": "talend-search",
-              "id": "my-list-view-search",
-              "label": "Search for specific values",
-              "onClick": [Function],
-            },
-          ]
-        }
-        headerLabel="Countries"
-        i18n={Object {}}
-        nbItems={0}
-        nbItemsSelected={0}
-        ns={
-          Array [
-            "tui-components",
-          ]
-        }
-        nsMode="default"
-        required={true}
-        t={[Function]}
-        translateFuncName="t"
-        usePureComponent={false}
-        wait={false}
-        withRef={false}
+      <header
+        className="theme-tc-listview-header tc-listview-header"
       >
-        <Header
-          headerDefault={
-            Array [
-              Object {
-                "icon": "talend-search",
-                "id": "my-list-view-search",
-                "label": "Search for specific values",
-                "onClick": [Function],
-              },
-            ]
-          }
-          headerLabel="Countries"
-          i18n={Object {}}
-          nbItems={0}
-          nbItemsSelected={0}
-          required={true}
-          t={[Function]}
-          tReady={false}
+        <strong>
+          Countries
+          *
+        </strong>
+        <div
+          className="actions"
         >
-          <header
-            className="theme-tc-listview-header tc-listview-header"
+          <Action
+            btooltipPlacement="bottom"
+            hideLabel={true}
+            icon="talend-search"
+            key="0-listview-header-action"
+            label="Search for specific values"
+            link={true}
+            onClick={[Function]}
           >
-            <strong>
-              Countries
-              *
-            </strong>
-            <div
-              className="actions"
+            <withI18nextTranslation(ActionButton)
+              available={true}
+              bsStyle="default"
+              btooltipPlacement="bottom"
+              disabled={false}
+              hideLabel={true}
+              icon="talend-search"
+              inProgress={false}
+              label="Search for specific values"
+              link={true}
+              loading={false}
+              onClick={[Function]}
+              t={[Function]}
+              tooltipPlacement="top"
             >
-              <Action
-                btooltipPlacement="bottom"
-                hideLabel={true}
-                icon="talend-search"
-                key="0-listview-header-action"
+              <TooltipTrigger
                 label="Search for specific values"
-                link={true}
-                onClick={[Function]}
+                tooltipPlacement="top"
               >
-                <Translate(ActionButton)
-                  btooltipPlacement="bottom"
-                  hideLabel={true}
-                  icon="talend-search"
-                  label="Search for specific values"
-                  link={true}
+                <Button
+                  active={false}
+                  aria-describedby="42"
+                  aria-label="Search for specific values"
+                  block={false}
+                  bsClass="btn"
+                  bsStyle="link"
+                  className="btn-icon-only"
+                  disabled={false}
+                  key=".0"
+                  onBlur={[Function]}
                   onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
                 >
-                  <I18n
-                    bindI18n="languageChanged loaded"
-                    bindStore="added removed"
-                    btooltipPlacement="bottom"
-                    hideLabel={true}
-                    i18n={Object {}}
-                    icon="talend-search"
-                    label="Search for specific values"
-                    link={true}
-                    ns={
-                      Array [
-                        "tui-components",
-                      ]
-                    }
-                    nsMode="default"
+                  <button
+                    aria-describedby="42"
+                    aria-label="Search for specific values"
+                    className="btn-icon-only btn btn-link"
+                    disabled={false}
+                    onBlur={[Function]}
                     onClick={[Function]}
-                    translateFuncName="t"
-                    usePureComponent={false}
-                    wait={false}
-                    withRef={false}
+                    onFocus={[Function]}
+                    onKeyPress={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}
+                    role="link"
+                    type="button"
                   >
-                    <ActionButton
-                      available={true}
-                      bsStyle="default"
-                      btooltipPlacement="bottom"
-                      disabled={false}
-                      hideLabel={true}
-                      i18n={Object {}}
-                      icon="talend-search"
-                      inProgress={false}
-                      label="Search for specific values"
-                      link={true}
-                      loading={false}
-                      onClick={[Function]}
-                      t={[Function]}
-                      tReady={false}
-                      tooltipPlacement="top"
+                    <Icon
+                      key="icon"
+                      name="talend-search"
                     >
-                      <TooltipTrigger
-                        label="Search for specific values"
-                        tooltipPlacement="top"
-                      >
-                        <Button
-                          active={false}
-                          aria-label="Search for specific values"
-                          block={false}
-                          bsClass="btn"
-                          bsStyle="link"
-                          className="btn-icon-only"
-                          disabled={false}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseDown={[Function]}
-                          onMouseOver={[Function]}
-                          role="link"
-                        >
-                          <button
-                            aria-label="Search for specific values"
-                            className="btn-icon-only btn btn-link"
-                            disabled={false}
-                            onClick={[Function]}
-                            onFocus={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseOver={[Function]}
-                            role="link"
-                            type="button"
-                          >
-                            <Icon
-                              key="icon"
-                              name="talend-search"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                className="theme-tc-svg-icon tc-svg-icon"
-                                focusable="false"
-                                name="talend-search"
-                                title={null}
-                              >
-                                <use
-                                  xlinkHref="#talend-search"
-                                />
-                              </svg>
-                            </Icon>
-                          </button>
-                        </Button>
-                      </TooltipTrigger>
-                    </ActionButton>
-                  </I18n>
-                </Translate(ActionButton)>
-              </Action>
-            </div>
-          </header>
-        </Header>
-      </I18n>
-    </Translate(Header)>
+                      <Coral.Icon
+                        name="talend-search"
+                      />
+                    </Icon>
+                  </button>
+                </Button>
+              </TooltipTrigger>
+            </withI18nextTranslation(ActionButton)>
+          </Action>
+        </div>
+      </header>
+    </withI18nextTranslation(Header)>
   </HeaderListView>
   <span
     className="theme-empty-message"

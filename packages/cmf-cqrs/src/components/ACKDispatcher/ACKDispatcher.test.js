@@ -1,12 +1,10 @@
 import React from 'react';
 import { Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import { Provider, store } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 
 import Container, { DEFAULT_STATE } from './ACKDispatcher.container';
-import Connected, {
-	mapStateToProps,
-} from './ACKDispatcher.connect';
+import Connected, { mapStateToProps } from './ACKDispatcher.connect';
 
 describe('Container ACKDispatcher', () => {
 	let mockProcessACK;
@@ -33,7 +31,7 @@ describe('Container ACKDispatcher', () => {
 		expect(instance.shouldComponentUpdate({ acks: Map({ 123: {} }) })).toBe(true);
 	});
 	it('should render call process acks', () => {
-		const registry = store.registry();
+		const registry = mock.store.registry();
 		const mocked = jest.fn();
 
 		function myActionCreator() {
@@ -44,11 +42,8 @@ describe('Container ACKDispatcher', () => {
 		}
 
 		registry['actionCreator:myActionCreator'] = myActionCreator;
-		mount(
-			<Container acks={Map()} />,
-			{ context: { registry } });
+		mount(<Container acks={Map()} />, { context: { registry } });
 		expect(mockProcessACK).toHaveBeenCalled();
-		expect(mockProcessACK.mock.calls[0][0]).toEqual(Map());
 	});
 	it('should processACK call dispatch', () => {
 		const dispatch = jest.fn();
@@ -63,7 +58,7 @@ describe('Container ACKDispatcher', () => {
 				data: { foo: 'baz' },
 			}),
 		});
-		const registry = store.registry();
+		const registry = mock.store.registry();
 		const mocked = jest.fn();
 
 		function myActionCreator() {
@@ -75,9 +70,7 @@ describe('Container ACKDispatcher', () => {
 
 		registry['actionCreator:actionCreator'] = myActionCreator;
 		registry['actionCreator:actionCreatorBis'] = myActionCreator;
-		mount(
-			<Container acks={acks} dispatch={dispatch} />,
-			{ context: { registry } });
+		mount(<Container acks={acks} dispatch={dispatch} />, { context: { registry } });
 		expect(mockDispatchAndUpdateAck).toHaveBeenCalled();
 		const calls = mockDispatchAndUpdateAck.mock.calls;
 		expect(calls.length).toBe(1);
@@ -94,12 +87,14 @@ describe('Container ACKDispatcher', () => {
 			};
 		}
 
-		const registry = store.registry();
+		const registry = mock.store.registry();
 		registry['actionCreator:myActionCreator'] = myActionCreator;
-		const wrapper = shallow(
-			<Container dispatch={dispatch} acks={Map()} />,
-			{ context: { registry } });
-		wrapper.setProps({ acks: Map({ id1: Map({ actionCreator: 'myActionCreator', received: true }) }) });
+		const wrapper = shallow(<Container dispatch={dispatch} acks={Map()} />, {
+			context: { registry },
+		});
+		wrapper.setProps({
+			acks: Map({ id1: Map({ actionCreator: 'myActionCreator', received: true }) }),
+		});
 		expect(dispatch).toHaveBeenCalled();
 		const calls = dispatch.mock.calls;
 		const action = calls[0][0];
@@ -129,7 +124,7 @@ describe('Container ACKDispatcher', () => {
 				data: { foo: 'baz' },
 			}),
 		});
-		const registry = store.registry();
+		const registry = mock.store.registry();
 		const mocked = jest.fn();
 
 		function myActionCreator() {
@@ -141,9 +136,7 @@ describe('Container ACKDispatcher', () => {
 
 		registry['actionCreator:actionCreator'] = myActionCreator;
 		registry['actionCreator:actionCreatorBis'] = myActionCreator;
-		mount(
-			<Container dispatch={dispatch} acks={acks} />,
-			{ context: { registry } });
+		mount(<Container dispatch={dispatch} acks={acks} />, { context: { registry } });
 		expect(mockDispatchAndUpdateAck).toHaveBeenCalled();
 		const calls = mockDispatchAndUpdateAck.mock.calls;
 		expect(calls.length).toBe(1);

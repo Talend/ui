@@ -5,6 +5,10 @@ export default (engine, whitelist = []) => ({
 	...engine,
 
 	load() {
+		if (process.env.NODE_ENV !== 'production') {
+			// eslint-disable-next-line no-console
+			console.warn('DEPRECATED: this API will be removed in the next major release');
+		}
 		return engine.load().then(result => {
 			whitelist.forEach(keys => {
 				if (typeof keys === 'string') {

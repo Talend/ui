@@ -1,4 +1,4 @@
 import '../polyfills/focus-within';
-import { Status, getbsStyleFromStatus } from './Status.component';
+import { Status } from './Status.component';
 
-export { Status, getbsStyleFromStatus };
+export default Status;

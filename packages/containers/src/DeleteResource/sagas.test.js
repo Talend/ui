@@ -1,7 +1,7 @@
 // import SagaTester from 'redux-saga-tester';
 import { Map } from 'immutable';
 import cmf from '@talend/react-cmf';
-import { take } from 'redux-saga/effects';
+import { take, put } from 'redux-saga/effects';
 import CONSTANTS from './constants';
 // import actions from './actions';
 import sagas, * as internals from './sagas';
@@ -67,8 +67,19 @@ describe('internals', () => {
 			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
 			expect(httpAction.args[0]).toBe('/api/datasets/123');
 			effect = gen.next({ response: { ok: true } }).value;
-			expect(effect.PUT.action.type).toBe(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_SUCCESS);
-			expect(effect.PUT.action.model.labelResource).toBe('Foo');
+			expect(effect).toEqual(
+				put({
+					type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+					model: {
+						id: '123',
+						labelResource: 'Foo',
+						redirectUrl: '/resources',
+						resourceType: 'datasets',
+						uri: '/api',
+					},
+				}),
+			);
+
 			effect = gen.next().value;
 			expect(effect.CALL.fn).toBe(internals.redirect);
 			expect(effect.CALL.args[0]).toBe('/resources');
@@ -158,6 +169,39 @@ describe('internals', () => {
 			const effect = gen.next(action).value;
 			expect(effect.SELECT.args[0]).toBe('myResource');
 			expect(effect.SELECT.args[1]).toBe('runProfileId');
+		});
+		it('should dispatch DIALOG_BOX_DELETE_RESOURCE_ERROR event when delete request fails', () => {
+			const action = {
+				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
+				data: {
+					model: {
+						resourceType: 'myResource',
+						id: 'resourceId',
+					},
+				},
+			};
+			const resource = {
+				id: 'resourceId',
+			};
+			const failedRequest = {
+				response: {
+					ok: false,
+				},
+				data: {
+					error: "can't delete resource in use",
+				},
+			};
+
+			const gen = internals.deleteResourceValidate();
+			gen.next();
+			gen.next(action);
+			gen.next(resource);
+			expect(gen.next(failedRequest).value).toEqual(
+				put({
+					type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_ERROR,
+					error: failedRequest.data,
+				}),
+			);
 		});
 	});
 	describe('deleteResourceCancel', () => {

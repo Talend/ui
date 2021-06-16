@@ -26,13 +26,27 @@ $item-height: 4rem;
 
 		transition: 200ms ease-out;
 
+		&.disabled {
+			opacity: 0.54;
+			cursor: not-allowed;
+
+			.tc-treeview-item-name {
+				color: $black;
+			}
+
+			svg {
+				fill: rgba($black, 0.25);
+			}
+		}
+
 		.tc-treeview-toggle {
 			position: absolute;
 			padding: 1rem;
 			display: inline-flex;
 			min-height: auto;
-			height: auto;
+			height: 100%;
 			margin-left: -3rem;
+			top: 0;
 
 			svg {
 				width: $svg-sm-size;
@@ -57,6 +71,7 @@ $item-height: 4rem;
 		.tc-treeview-img {
 			max-height: 2rem;
 			margin-right: 1rem;
+			vertical-align: middle;
 		}
 
 		.tc-treeview-item-name {
@@ -68,26 +83,36 @@ $item-height: 4rem;
 	}
 
 	&[aria-selected='true'] > .tc-treeview-item {
-		background: rgba($black, 0.05);
+		background: rgba($scooter, 0.2);
 		font-weight: 600;
 		color: $black;
 
 		.tc-treeview-folder {
-			fill: $lightning-yellow;
+			fill: $brand-primary;
 		}
 	}
 
 	.tc-treeview-item:hover,
 	&:focus > .tc-treeview-item {
-		background: rgba($black, 0.05);
+		background: $wild-sand;
 		color: $scooter;
 
 		.tc-treeview-folder {
-			fill: $lightning-yellow;
+			fill: $brand-primary;
+		}
+
+		.tc-treeview-toggle {
+			svg {
+				fill: $scooter;
+			}
 		}
 
 		:global(.btn-link) {
 			visibility: visible;
+		}
+
+		&.disabled {
+			background: none;
 		}
 	}
 

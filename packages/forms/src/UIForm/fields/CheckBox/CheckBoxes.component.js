@@ -13,13 +13,16 @@ function getValues(value = [], itemValue, checked) {
 }
 
 export default function CheckBoxes(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const { description, title, titleMap } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
 	return (
 		<FieldTemplate
+			id={id}
+			hint={schema.hint}
+			className={schema.className}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
@@ -27,10 +30,12 @@ export default function CheckBoxes(props) {
 			isValid={isValid}
 			label={title}
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			{titleMap.map((item, index) => (
 				<SimpleCheckBox
 					describedby={`${descriptionId} ${errorId}`}
+					disabled={schema.disabled || valueIsUpdating}
 					id={id}
 					key={index}
 					isValid={isValid}
@@ -41,9 +46,15 @@ export default function CheckBoxes(props) {
 							value: getValues(value, item.value, payload.value),
 						})
 					}
-					onFinish={onFinish}
+					onFinish={(event, payload) =>
+						onFinish(event, {
+							schema: payload.schema,
+							value: getValues(value, item.value, payload.value),
+						})
+					}
 					schema={schema}
 					value={value && value.includes(item.value)}
+					index={index}
 				/>
 			))}
 		</FieldTemplate>
@@ -58,7 +69,15 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				className: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 			description: PropTypes.string,
+			disabled: PropTypes.bool,
+			required: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -66,8 +85,10 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string,
 				}),
 			),
+			className: PropTypes.string,
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 
@@ -75,3 +96,4 @@ CheckBoxes.defaultProps = {
 	isValid: true,
 	schema: {},
 };
+CheckBoxes.SimpleCheckBox = SimpleCheckBox;

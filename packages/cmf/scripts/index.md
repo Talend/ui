@@ -130,3 +130,41 @@ e.g. For the destination "src/assets/settings.json", each translated settings wi
 ```
 
 Warning : if the namespace is not define in the settings files or if it is not define in the config file the key will not be extracted
+
+### Multiple settings
+If you need to use multiple settings in one project you can do so with an environment variable `CMF_ENV`.
+
+`$ cross-env CMF_ENV=withoutMyOtherDep cmf-settings`
+
+```jsonc
+{
+	// will not be used
+	"settings": {
+		"sources": [
+			"src/settings",
+			"node_modules/@talend/dataset/lib/settings",
+			"node_modules/@talend/myOtherDep/lib/file.json"
+		],
+		"sources-dev": [
+			"src/settings",
+			"../../dataset/webapp/src/settings",
+			"../../myOtherDep/lib/file.json"
+		],
+		"destination": "src/assets/cmf-settings.json"
+	},
+	"withoutMyOtherDep": {
+		// will be used
+		"settings": {
+			"sources": [
+				"src/settings",
+				"node_modules/@talend/dataset/lib/settings"
+			],
+			"sources-dev": [
+				"src/settings",
+				"../../dataset/webapp/src/settings"
+			],
+			"destination": "src/assets/cmf-settings.json"
+		}
+	}
+}
+```

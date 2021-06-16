@@ -1,5 +1,43 @@
-.template {
-	&:global(.required) :global(.control-label):after {
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+.template:global(.required) {
+	> :global(.checkbox:after) {
+		position: static;
+		display: inline;
 		content: '*';
+	}
+	:global {
+		.control-label:after {
+			content: '*';
+		}
+		.checkbox {
+			.control-label:after {
+				content: '';
+			}
+		}
+		// Remove required stars for multi selection
+		.control-label ~ .checkbox:after {
+			content: '';
+		}
+	}
+}
+
+.updating {
+	@include heartbeat(object-blink);
+}
+
+.field-template-title {
+	display: flex;
+	align-items: center;
+
+	:global {
+		.btn {
+			padding: 0;
+			margin-left: 5px;
+		}
+
+		.tc-svg-icon {
+			fill: #1476be;
+		}
 	}
 }

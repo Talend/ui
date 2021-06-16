@@ -2,10 +2,6 @@
 
 This library provide a datagrid to show some datas !
 
-## Breaking changes log
-
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-
 ## Guidelines
 
 [Datagrid](https://company-57688.frontify.com/document/92132#/navigation-layout/data-grid)
@@ -20,24 +16,35 @@ yarn add @talend/react-datagrid
 import DataGrid from '@talend/react-datagrid'; //use the DataGrid Container
 ```
 
+Using CMF
+
+```javascript
+import cmf from '@talend/react-cmf';
+import datagridModule from '@talend/react-datagrid/lib/cmfModule';
+
+cmf.bootstrap({
+	modules: [datagridModule],
+});
+```
+
 ## DataGrid Component
 
-The dataGrid component used to show datagrid on all talend projects. This library use [Ag-Grid](http://ag-grid.com) to show the grid. It's an enhanced Ag-Grid.
+The dataGrid component used to show datagrid on all talend projects. This library uses [Ag-Grid](http://ag-grid.com) to show the grid. It's an enhanced Ag-Grid.
 
 Features:
 
-* Virtualized rows/columns
-* Drag & Drop columns
-* Custom Cell
-* Custom Avro Renderer
-* Custom Header/Pin Header
-* Row selection keyboard/mouse
+- Virtualized rows/columns
+- Drag & Drop columns
+- Custom Cell
+- Custom Avro Renderer
+- Custom Header/Pin Header
+- Row selection keyboard/mouse
 
 The DataGrid componnent provides 3 default renderers provides by Inject, it can be overrided to show anything:
 
-* defaultHeaderRenderer
-* defaultPinHeaderRenderer
-* defaultCellRenderer
+- defaultHeaderRenderer
+- defaultPinHeaderRenderer
+- defaultCellRenderer
 
 The grid is composed like this :
 
@@ -50,12 +57,10 @@ The grid is composed like this :
 
 The cellRenderer has :
 
-* QualityIndicator
-* AvroRenderer, the avro renderer handles this types with one renderer to each:
-  * BooleanCellRenderer: Renderer for the avro type _boolean_
-  * DateCellRenderer: Renderer for the avro type _date_
-  * IntCellRenderer: Renderer for the avro type _int_
-  * StringCellRenderer: Renderer for avro the type _string_
+- QualityIndicator
+- AvroRenderer, the avro renderer handles this types with one renderer to each:
+  - IntCellRenderer: Renderer for the avro type _int_
+  - StringCellRenderer: Renderer for avro the type _string_
 
 ### Concept
 
@@ -65,25 +70,27 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 
 ### Props
 
-| property              | description                                            | type     | default                  |
-| --------------------- | ------------------------------------------------------ | -------- | ------------------------ |
-| avroRenderer          | list of components to inject to the avro renderer      | object   |                          |
-| cellRenderer          | cell component to inject                               | string   | DefaultCellRenderer      |
-| forceRedrawRows          | function called when the component updated to know if ag-grid have to redraw the grid     . should return true or false                         | function   | null      |
-| getComponent          | method to provide the injected components              | function | cellRenderer             |
-| getPinnedColumnDefsFn | method to provide the definition of the pinned columns | function | dataset serializer       |
-| getColumnDefsFn       | method to provide the definition of the columns        | function | dataset serializer       |
-| getRowDataFn          | method to provide the row data                         | function | dataset serializer       |
-| getValueByCellFn      | method to provide the data by row/column               | function | dataset serializer       |
-| headerHeight          | height of the header                                   | int      | 69                       |
-| headerRenderer        | header component to inject                             | string   | DefaultHeaderRenderer    |
-| onFocusedCell         | callback when one cell is focused                      | function |                          |
-| onFocusedColumn       | callback when one column is focused                    | function |                          |
-| onVerticalScroll      | callback when the grid scroll vertical                 | function |                          |
-| pinHeaderRenderer     | pinHeader component to inject                          | string   | DefaultPinHeaderRenderer |
-| data                  | data to set into the datagrid                          | Array    |                          |
-| rowSelection          | set the type of selection (single or multiple)         | string   | single                   |
-| rowHeight             | height of the row                                      | int      | 39                       |
+| property                     | description                                                                                                         | type     | default                  |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------ |
+| avroRenderer                 | list of components to inject to the avro renderer                                                                   | object   |                          |
+| columnsConf                  | options pass to getColumnDefsFn. _hideSubType_(boolean) : hide the subtitle in the header hide                      | object   | { hideSubType : false }  |
+| cellRenderer                 | cell component to inject                                                                                            | string   | DefaultCellRenderer      |
+| forceRedrawRows - deprecated | function called when the component updated to know if ag-grid have to redraw the grid . should return true or false | function | null                     |
+| getComponent                 | method to provide the injected components                                                                           | function | cellRenderer             |
+| getPinnedColumnDefsFn        | method to provide the definition of the pinned columns                                                              | function | dataset serializer       |
+| getColumnDefsFn              | method to provide the definition of the columns                                                                     | function | dataset serializer       |
+| getRowDataFn                 | method to provide the row data                                                                                      | function | dataset serializer       |
+| getValueByCellFn             | method to provide the data by row/column                                                                            | function | dataset serializer       |
+| headerHeight                 | height of the header                                                                                                | int      | 69                       |
+| headerRenderer               | header component to inject                                                                                          | string   | DefaultHeaderRenderer    |
+| onFocusedCell                | callback when one cell is focused                                                                                   | function |                          |
+| onFocusedColumn              | callback when one column is focused                                                                                 | function |                          |
+| onVerticalScroll             | callback when the grid scroll vertical                                                                              | function |                          |
+| pinHeaderRenderer            | pinHeader component to inject                                                                                       | string   | DefaultPinHeaderRenderer |
+| data                         | data to set into the datagrid                                                                                       | Array    |                          |
+| rowData                      | pass the row data straight right to ag-grid                                                                         | Array    | single                   |
+| rowHeight                    | height of the row                                                                                                   | int      | 39                       |
+| rowSelection                 | set the type of selection (single or multiple)                                                                      | string   | single                   |
 
 ### Avro renderers
 
@@ -98,9 +105,9 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 
 The container DataGrid
 
-* connect the component DataGrid with the CMF settings
-* spread the data from the redux store and the CMF settings
-* dispatch the event by actioncreators.
+- connect the component DataGrid with the CMF settings
+- spread the data from the redux store and the CMF settings
+- dispatch the event by actioncreators.
 
 ### API
 
@@ -122,10 +129,10 @@ The component HeaderCell is enhanced by a method onFocusedColumn to detect when 
 
 Ag-Grid Events to update the active column style:
 
-* onCellFocused: trigger when the user select a new cell.
-* onViewportChanged: triggers when a new virtualized row is added, removed.
-* onVirtualColumnsChanged: triggers when a new virtualized column is added, removed.
-* click on the header updates the current cell to the selected column.
+- onCellFocused: trigger when the user select a new cell.
+- onViewportChanged: triggers when a new virtualized row is added, removed.
+- onVirtualColumnsChanged: triggers when a new virtualized column is added, removed.
+- click on the header updates the current cell to the selected column.
 
 _Workaround Active Column_
 
@@ -142,12 +149,12 @@ Ag-grid set the current cell selected by a click. If we naviguate with the keybo
 
 ### global configuration
 
-* suppressDragLeaveHidesColumns: Set to false to avoid, by default, ag-grid deletes a column when we drag an column outside the grid.
+- suppressDragLeaveHidesColumns: Set to false to avoid, by default, ag-grid deletes a column when we drag an column outside the grid.
 
 ### Columns definition
 
-* lockPosition: Set to true on the pinned column to avoid to drag a no pinned column before the pinned columns
-* lockPinned: Set to true on no pinned column to prevent when we drag a column to set it like to a pinned column
+- lockPosition: Set to true on the pinned column to avoid to drag a no pinned column before the pinned columns
+- lockPinned: Set to true on no pinned column to prevent when we drag a column to set it like to a pinned column
 
 ## Ag-Grid Performance
 

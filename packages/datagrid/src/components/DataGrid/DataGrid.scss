@@ -28,13 +28,18 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	/* ==== HEADER ==== */
-	:global(.ag-header-container) {
+	:global(.ag-header-viewport) {
 		background-color: $white;
 		color: $dove-gray;
 	}
 
 	:global(.ag-react-container) {
 		height: 100%;
+		width: 100%;
+	}
+
+	:global(.ag-header-cell-resize) {
+		cursor: col-resize;
 	}
 	/* ==== PIN ==== */
 	:global(.ag-pinned-left-header) {
@@ -58,11 +63,23 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	/* ==== BODY ==== */
+	:global(.ag-root-wrapper-body) {
+		height: 100%;
+	}
+
 	:global(.ag-pinned-left-cols-viewport) {
 		font-family: inherit;
 	}
 
-	:global(.ag-body) {
+	:global(.ag-horizontal-left-spacer) {
+		overflow-x: hidden;
+	}
+
+	:global(.ag-body-viewport) {
+		user-select: text;
+	}
+
+	:global(.ag-center-cols-clipper) {
 		background-color: $td-body-background-color;
 		font-family: $td-body-font-family;
 	}

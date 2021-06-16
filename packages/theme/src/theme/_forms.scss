@@ -3,17 +3,16 @@
 /// @group Forms
 ////
 
-$form-shadow: inset 0 -1px 0 $gallery;
-$form-focus-shadow: inset 0 -2px 0 $scooter;
-
 @mixin checkbox-outline() {
 	outline: 2px solid Highlight;
 	outline-offset: 1px;
 }
 
+@import 'forms.guideline';
 @import 'forms.switch';
 @import 'forms.switch-nested';
 @import 'forms.checkbox';
+@import 'forms.radio';
 
 form {
 	// Bootswatch Paper theme fork
@@ -59,7 +58,7 @@ form {
 
 		label {
 			&.control-label {
-				color: $silver-chalice;
+				color: $dove-gray;
 				font-weight: $form-base-font-weight;
 				font-size: $font-size-base;
 			}
@@ -73,6 +72,7 @@ form {
 	input[type='email'],
 	input[type='number'],
 	input[type='search'],
+	textarea.form-control,
 	[type='text'].form-control,
 	[type='password'].form-control,
 	[type='email'].form-control,
@@ -85,6 +85,7 @@ form {
 		font-size: $form-input-font-size;
 		font-weight: $form-base-font-weight;
 		box-shadow: $form-shadow;
+		text-overflow: ellipsis;
 
 		&:focus {
 			box-shadow: $form-focus-shadow;
@@ -100,6 +101,7 @@ form {
 		&[readonly]:focus {
 			background-color: transparent;
 			box-shadow: none;
+			border-color: $gallery;
 		}
 
 		&.input {
@@ -149,7 +151,7 @@ form {
 		}
 
 		&:focus {
-			@include box-shadow(inset 0 -2px 0 $brand-primary);
+			@include box-shadow(inset 0 -1px 0 $brand-primary);
 			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
 		}
 
@@ -158,115 +160,59 @@ form {
 		}
 	}
 
-	.switch .checkbox,
-	.checkbox.switch,
-	.checkbox.switch-nested {
-		label:hover {
-			input[type='checkbox'] + span {
-				color: $scooter;
-			}
-		}
-		&.disabled label {
-			&:hover {
-				input[type='checkbox'] + span {
-					color: inherit;
-				}
-			}
-		}
-	}
-
 	.radio,
 	.radio-inline,
 	.checkbox,
 	.checkbox-inline {
+		line-height: $form-checkbox-and-radio-size;
+		min-height: $form-checkbox-and-radio-size;
+
 		label {
-			cursor: pointer;
+			display: inline-block;
 			position: relative;
-			padding-left: 25px;
-			font-size: 16px;
-			color: $dove-gray;
-			&:hover {
-				color: $scooter;
-			}
+			padding-left: 12 + $padding-small;
+			font-size: 1.4rem;
+			color: $black;
 		}
 
-		input[type='radio'],
-		input[type='checkbox'] {
-			position: absolute;
-			left: 0;
-			margin: 0;
-			-moz-appearance: none;
-			-webkit-appearance: none;
+		label,
+		input {
+			cursor: pointer;
 		}
 
 		&.disabled label {
-			opacity: 0.4;
-			&:hover {
-				color: inherit;
-			}
+			opacity: 0.54;
 		}
-	}
 
-	input[type='radio'],
-	.radio input[type='radio'],
-	.radio-inline input[type='radio'] {
-		&:focus {
+		[type='radio'],
+		[type='checkbox'] {
+			margin: 0;
+			width: $form-checkbox-and-radio-size;
+			height: $form-checkbox-and-radio-size;
+			appearance: none;
 			outline: none;
-		}
 
-		&:before,
-		&:after,
-		+ *:before,
-		+ *:after {
-			@include transition(240ms);
-			position: absolute;
-			top: -1px; /* IE 11 */
-			left: -1px; /* IE 11 */
-			content: '';
-			width: 18px;
-			height: 18px;
-			border-radius: 50%;
-		}
+			&,
+			+ * {
+				display: inline-block;
+			}
 
-		&:before,
-		+ *:before {
-			@include scale(0);
-			background-color: $brand-primary;
-			z-index: 1;
-		}
+			&,
+			&:before,
+			&:after,
+			+ *:before,
+			+ *:after {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
 
-		&:after,
-		+ *:after {
-			border: 2px solid $gray;
-			background-color: $white;
-		}
-
-		&:checked:before,
-		&:checked + *:before {
-			@include scale(0.45);
-		}
-
-		&:disabled:checked:before,
-		&:disabled:checked + *:before {
-			background-color: $gray-light;
-		}
-
-		&:focus + span:after,
-		&:checked:after,
-		&:checked + *:after {
-			border-color: $brand-primary;
-		}
-
-		&:focus:after,
-		&:focus + span:after {
-			@include checkbox-outline;
-		}
-
-		&:disabled:after,
-		&:disabled:checked:after,
-		&:disabled + *:after,
-		&:disabled:checked + *:after {
-			border-color: $gray-light;
+			&:before,
+			&:after,
+			+ *:before,
+			+ *:after {
+				content: '';
+			}
 		}
 	}
 
@@ -278,7 +224,7 @@ form {
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
 		.form-control:focus {
-			@include box-shadow(inset 0 -2px 0 $brand-warning);
+			@include box-shadow(inset 0 -1px 0 $brand-warning);
 			border-bottom: none;
 		}
 	}
@@ -291,7 +237,7 @@ form {
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
 		.form-control:focus {
-			@include box-shadow(inset 0 -2px 0 $brand-danger);
+			@include box-shadow(inset 0 -1px 0 $brand-danger);
 			border-bottom: none;
 		}
 
@@ -308,6 +254,10 @@ form {
 				list-style-type: none;
 			}
 		}
+
+		.help-block {
+			font-size: $font-size-small;
+		}
 	}
 
 	.has-success {
@@ -318,7 +268,7 @@ form {
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
 		.form-control:focus {
-			@include box-shadow(inset 0 -2px 0 $brand-success);
+			@include box-shadow(inset 0 -1px 0 $brand-success);
 			border-bottom: none;
 		}
 	}
@@ -396,7 +346,7 @@ form {
 	}
 
 	&-control-container,
-	&-control:focus,
+	&-control:focus:not([readonly]),
 	&-control[placeholder]:not([placeholder='']),
 	&-control:not(:empty),
 	&-control:disabled,
@@ -414,11 +364,28 @@ form {
 	&-control:disabled,
 	&-control[value]:not([value='']):disabled {
 		color: $silver-chalice;
+		-webkit-text-fill-color: $silver-chalice;
 
 		+ label {
 			color: $form-label-base-color;
 			font-weight: $form-base-font-weight;
 			font-size: $font-size-base;
+		}
+	}
+
+	&-horizontal {
+		.radio-inline,
+		.checkbox-inline {
+			[type='checkbox'],
+			[type='radio'] {
+				&,
+				+ *:before,
+				+ *:after {
+					// Same as Bootstrap's padding-top
+					// @see ~bootstrap-sass/assets/stylesheets/bootstrap/forms
+					top: $padding-base-vertical + 1;
+				}
+			}
 		}
 	}
 }
@@ -427,7 +394,6 @@ form {
 	legend {
 		font-size: 1.7rem;
 		font-weight: 700;
-		text-transform: uppercase;
 		border-bottom: none;
 	}
 }

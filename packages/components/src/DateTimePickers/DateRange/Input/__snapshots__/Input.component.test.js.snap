@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date.Input should render 1`] = `
+<DateRange.Input
+  date={
+    Object {
+      "textInput": "2019-10-11",
+      "value": 2019-10-10T22:00:00.000Z,
+    }
+  }
+  label="start date"
+  onChange={[MockFunction]}
+  onFocus={[MockFunction]}
+>
+  <div
+    className="range-input"
+  >
+    <label
+      className="control-label"
+    >
+      start date
+    </label>
+    <InputSizer
+      inputText="YYYY-MM-DD"
+    >
+      <DebounceInput
+        autoComplete="off"
+        className="form-control"
+        debounceTimeout={300}
+        element="input"
+        forceNotifyByEnter={true}
+        forceNotifyOnBlur={true}
+        inputRef={null}
+        minLength={0}
+        onChange={[MockFunction]}
+        onFocus={[MockFunction]}
+        placeholder="YYYY-MM-DD"
+        style={
+          Object {
+            "width": 47,
+          }
+        }
+        type="text"
+        value="2019-10-11"
+      >
+        <input
+          autoComplete="off"
+          className="form-control"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[MockFunction]}
+          onKeyDown={[Function]}
+          placeholder="YYYY-MM-DD"
+          style={
+            Object {
+              "width": 47,
+            }
+          }
+          type="text"
+          value="2019-10-11"
+        />
+      </DebounceInput>
+      <span
+        style={
+          Object {
+            "fontSize": "1.6rem",
+            "fontWeight": 400,
+            "position": "absolute",
+            "visibility": "hidden",
+          }
+        }
+      >
+        YYYY-MM-DD
+      </span>
+    </InputSizer>
+  </div>
+</DateRange.Input>
+`;

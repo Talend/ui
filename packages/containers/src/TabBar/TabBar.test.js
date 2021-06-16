@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { TabBar as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/TabBar';
 import Connected, { DEFAULT_STATE } from './TabBar.connect';
 import { getComponentState, getSelectedKey } from './TabBar.selectors';
 

@@ -4,8 +4,6 @@ import { shallow, mount } from 'enzyme';
 import { FilterBarComponent } from './FilterBar.component';
 import Icon from '../Icon';
 
-jest.useFakeTimers();
-
 let defaultProps = {};
 
 describe('FilterBar', () => {
@@ -16,7 +14,6 @@ describe('FilterBar', () => {
 			onBlur: jest.fn(),
 			onFilter: jest.fn(),
 			onToggle: jest.fn(),
-			ref: 'inputFilter',
 		};
 	});
 	it('should call onToggle on search icon click', () => {
@@ -42,6 +39,42 @@ describe('FilterBar', () => {
 		);
 		// then
 		expect(filterInstance.props().className).toContain('custom-test');
+	});
+
+	it('should accept data-test attribute', () => {
+		// given
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} data-test="my.test" value="filter text" />,
+		);
+		// then
+		expect(filterInstance.find('input').prop('data-test')).toEqual('my.test');
+	});
+
+	it('should accept data-feature attribute', () => {
+		// given
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} data-feature="my.feature" />,
+		);
+		// then
+		expect(filterInstance.find('input').prop('data-feature')).toEqual('my.feature');
+	});
+
+	it('should propagate and compose data-test attribute to the clear selection button', () => {
+		// given
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} data-test="my.test" value="filter text" focus />,
+		);
+		// then
+		expect(filterInstance.find('button').prop('data-test')).toEqual('my.test-reset');
+	});
+
+	it('should propagate and compose data-feature attribute to the clear selection button', () => {
+		// given
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} data-test="my.test" value="filter text" focus />,
+		);
+		// then
+		expect(filterInstance.find('button').prop('data-test')).toEqual('my.test-reset');
 	});
 
 	it('should be able to switch autofocus to false', () => {
@@ -76,21 +109,13 @@ describe('FilterBar', () => {
 
 	it('should call onToggle on cross icon click', () => {
 		// given
-		const filterInstance = mount(<FilterBarComponent {...defaultProps} />);
+		const filterInstance = mount(
+			<FilterBarComponent {...defaultProps} value="initial value" id="id1" />,
+		);
 		// when
-		filterInstance.find('button').simulate('click');
+		filterInstance.find('button').simulate('mouseDown');
 		// then
-		expect(defaultProps.onToggle).toBeCalled();
-	});
-
-	it('should not have the icon visible on click', () => {
-		const props = { ...defaultProps, iconAlwaysVisible: false };
-		// given
-		const filterInstance = shallow(<FilterBarComponent {...props} />);
-		// when
-		filterInstance.find('FilterInput').simulate('focus');
-		// then
-		expect(filterInstance.find(Icon).length).toEqual(0);
+		expect(defaultProps.onFilter).toBeCalledWith({ target: { value: '' } }, '');
 	});
 
 	it('should still have the icon visible on click', () => {
@@ -124,27 +149,32 @@ describe('FilterBar', () => {
 
 	it('should call onToggle on ESC keydown', () => {
 		// given
-		const props = { ...defaultProps };
+		const props = { ...defaultProps, id: 'id1' };
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 27 });
 		// then
-		expect(props.onToggle).toBeCalled();
+		expect(props.onFilter).toBeCalledWith({ target: { value: '' } }, '');
 	});
 
 	it('should call onToggle on ENTER keydown', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<FilterBarComponent {...props} />);
+		const filterInstance = mount(<FilterBarComponent {...props} id="filter" />, {
+			attachTo: document.body,
+		});
+		expect(document.activeElement.id).toBe('filter-input');
+
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 13 });
+
 		// then
-		expect(props.onBlur).toBeCalled();
+		expect(document.activeElement.id).toBe('');
+		filterInstance.detach();
 	});
 
-	it('should call onFilter with debounce options', () => {
+	it('should call onFilter with debounce options', done => {
 		// given
-		const initialTimeoutCount = setTimeout.mock.calls.length;
 		const debounceTimeout = 300;
 		const props = {
 			...defaultProps,
@@ -153,14 +183,17 @@ describe('FilterBar', () => {
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('change');
+
 		// then
-		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
-		expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
+		expect(props.onFilter).not.toBeCalled();
+		setTimeout(() => {
+			expect(props.onFilter).toBeCalled();
+			done();
+		}, debounceTimeout);
 	});
 
-	it('should call onFilter with debounceMinLength options', () => {
+	it('should call onFilter with debounceMinLength options', done => {
 		// given
-		const initialTimeoutCount = setTimeout.mock.calls.length;
 		const debounceTimeout = 300;
 		const props = {
 			...defaultProps,
@@ -172,18 +205,34 @@ describe('FilterBar', () => {
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('change', underMinLengthEvent);
+
 		// then
-		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount);
+		expect(props.onFilter).not.toBeCalled();
+
 		// when
 		filterInstance.find('input').simulate('change', overMinLengthEvent);
+
 		// then
-		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
-		expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
+		setTimeout(() => {
+			expect(props.onFilter).toBeCalled();
+			done();
+		}, debounceTimeout);
+	});
+
+	it('when value is not empty search icon should be displayed', () => {
+		// given
+		const props = { ...defaultProps, dockable: false };
+		const filterInstance = mount(<FilterBarComponent {...props} />);
+		// when
+		// value is change by the user
+		filterInstance.setState({ value: 'test' });
+		// then the search icon should appear
+		expect(filterInstance.find(Icon).length).toEqual(2);
 	});
 
 	it('when value is reset to undefined form outside search icon should be displayed', () => {
 		// given
-		const props = { dockable: false };
+		const props = { ...defaultProps, dockable: false };
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		// value is change by the user
@@ -191,6 +240,20 @@ describe('FilterBar', () => {
 		// and reset by the host
 		filterInstance.setProps({ value: undefined });
 		// then the search icon should appear
-		expect(filterInstance.find(Icon).length).toEqual(2);
+		expect(filterInstance.find(Icon).length).toEqual(1);
+	});
+
+	it('should enable the input by default', () => {
+		// given
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} />);
+		// then
+		expect(filterInstance.find('input').prop('disabled')).toBe(false);
+	});
+
+	it('should disabled the input if have the props', () => {
+		// given
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} disabled />);
+		// then
+		expect(filterInstance.find('input').prop('disabled')).toBe(true);
 	});
 });

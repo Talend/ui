@@ -19,18 +19,19 @@ exports[`RendererSelector should render table list by default 1`] = `
   disableHeader={false}
   height={600}
   id="my-list-id"
-  isActive={[Function]}
-  isSelected={[Function]}
+  isActive={[MockFunction]}
+  isSelected={[MockFunction]}
   noRowsRenderer={[Function]}
-  onRowClick={[Function]}
-  onRowDoubleClick={[Function]}
+  onRowClick={[MockFunction]}
+  onRowDoubleClick={[MockFunction]}
+  onScroll={[MockFunction]}
   rowHeight={50}
-  sort={[Function]}
+  sort={[MockFunction]}
   sortBy="name"
   sortDirection="DESC"
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -42,7 +43,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     style={Object {}}
     width={50}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -54,7 +55,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     style={Object {}}
     width={350}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="description"
@@ -88,18 +89,19 @@ exports[`RendererSelector should render table list when requested 1`] = `
   disableHeader={false}
   height={600}
   id="my-list-id"
-  isActive={[Function]}
-  isSelected={[Function]}
+  isActive={[MockFunction]}
+  isSelected={[MockFunction]}
   noRowsRenderer={[Function]}
-  onRowClick={[Function]}
-  onRowDoubleClick={[Function]}
+  onRowClick={[MockFunction]}
+  onRowDoubleClick={[MockFunction]}
+  onScroll={[MockFunction]}
   rowHeight={50}
-  sort={[Function]}
+  sort={[MockFunction]}
   sortBy="name"
   sortDirection="DESC"
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -111,7 +113,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     style={Object {}}
     width={50}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -123,7 +125,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     style={Object {}}
     width={350}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="description"

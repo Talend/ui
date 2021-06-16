@@ -14,6 +14,7 @@ describe('Buttons field', () => {
 					title: 'Reset',
 					type: 'reset',
 					widget: 'button',
+					className: 'custom-class-name',
 				},
 				{
 					position: 'right',
@@ -34,7 +35,7 @@ describe('Buttons field', () => {
 		// when
 		const wrapper = shallow(
 			<Buttons
-				id={'myForm'}
+				id="myForm"
 				onTrigger={jest.fn()}
 				onClick={jest.fn()}
 				schema={schema}

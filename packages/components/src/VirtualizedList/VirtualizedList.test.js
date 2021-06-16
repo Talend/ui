@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import VirtualizedList from './VirtualizedList.component';
-import { listTypes } from './utils/constants';
+import VirtualizedList from '.';
 import collection from './collection';
 
-const { TABLE } = listTypes;
+const { TABLE } = VirtualizedList.LIST_TYPES;
 
 const contentFields = [
 	<VirtualizedList.Content
@@ -41,13 +40,13 @@ describe('VirtualizedList', () => {
 			<VirtualizedList
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isSelected={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={TABLE}
 			>
 				{contentFields}
@@ -64,13 +63,13 @@ describe('VirtualizedList', () => {
 			<span>
 				<VirtualizedList
 					collection={collection}
-					id={'my-list-id'}
+					id="my-list-id"
 					isSelected={jest.fn()}
 					rowHeight={50}
 					selectionToggle={jest.fn()}
 					sort={jest.fn()}
-					sortBy={'name'}
-					sortDirection={'DESC'}
+					sortBy="name"
+					sortDirection="DESC"
 					type={TABLE}
 				>
 					{contentFields}
@@ -84,32 +83,27 @@ describe('VirtualizedList', () => {
 
 	it('should render RendererSelector', () => {
 		// given
-		const wrapper = shallow(
+		const wrapper = mount(
 			<VirtualizedList
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
 				onRowDoubleClick={jest.fn()}
+				onScroll={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={TABLE}
 			>
 				{contentFields}
 			</VirtualizedList>,
 		);
-		const renderer = wrapper.getElement().props.children;
-
-		// when
-		const rendererInstance = renderer({ height: 600, width: 300 });
-
-		// then
-		expect(rendererInstance).toMatchSnapshot();
+		expect(wrapper.find('VirtualizedList(RendererSelector)')).toHaveLength(1);
 	});
 
 	it('should render CircularProgress', () => {
@@ -118,7 +112,7 @@ describe('VirtualizedList', () => {
 			<VirtualizedList
 				collection={collection}
 				height={600}
-				id={'my-list-id'}
+				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				inProgress
@@ -127,8 +121,8 @@ describe('VirtualizedList', () => {
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
+				sortBy="name"
+				sortDirection="DESC"
 				type={TABLE}
 			>
 				{contentFields}

@@ -74,14 +74,14 @@ function getLocalesFromNamespace(settings, namespace) {
  * @return {object}           return all locales by namespace
  */
 function getNameSpacesByLocale(namespaces, locale) {
-	return namespaces.reduce(
-		(state, namespace) => ({
+	return namespaces.reduce((state, namespace) => {
+		const name = namespace.name;
+		const filePath = namespace.sourcePath || namespace.path;
+		return {
 			...state,
-			// eslint-disable-next-line global-require
-			[namespace.name]: getJSON(getPathFromPattern(namespace.path, namespace.name, locale)),
-		}),
-		{},
-	);
+			[namespace.name]: getJSON(getPathFromPattern(filePath, name, locale)),
+		};
+	}, {});
 }
 
 /**
@@ -136,17 +136,16 @@ function parseSettings(i18next, settings, locale) {
 function saveSettings(i18next, settings, locale, destination) {
 	const translatedSetting = parseSettings(i18next, settings, locale);
 
-	mkdirp(path.dirname(destination), () => {
-		const basename = `${path.basename(
-			destination,
-			path.extname(destination),
-		)}.${locale}${path.extname(destination)}`;
-		const filePath = path.join(path.dirname(destination), basename);
-		const file = fs.createWriteStream(filePath);
-		file.write(JSON.stringify(translatedSetting) + String.fromCharCode(10));
-		file.end();
-		getLogger()('Settings created:', `${filePath}  settings has been created`);
-	});
+	mkdirp.sync(path.dirname(destination));
+	const basename = `${path.basename(
+		destination,
+		path.extname(destination),
+	)}.${locale}${path.extname(destination)}`;
+	const filePath = path.join(path.dirname(destination), basename);
+	const file = fs.createWriteStream(filePath);
+	file.write(JSON.stringify(translatedSetting) + String.fromCharCode(10));
+	file.end();
+	getLogger()('Settings created:', `${filePath}  settings has been created`);
 }
 
 /**
@@ -273,23 +272,24 @@ function updateLocales(i18nKeys, locales, namespace, pattern, sort) {
  *
  * @param  {Array<Namespace>} namespaces Array of Namespace to extract (name, path)
  * @param  {array<string>} languages              Locales to extract
- * @param  {string} from                          folder to parse
+ * @param  {string} froms                         Folders to parse
  */
 function parseI18n(namespaces, languages, froms, sort) {
-	if (typeof froms === 'string') {
-		// eslint-disable-next-line no-param-reassign
-		froms = [froms];
-	}
+	const foldersToParse = [].concat(froms);
 
-	froms.forEach(from => {
-		namespaces.forEach(namespace => {
-			const i18nKeys = getLocalesFromNamespaceInFolder(
-				path.join(process.cwd(), ...from.split('/')),
-				namespace.name,
-			);
+	namespaces.forEach(namespace => {
+		let i18nKeys = new Map();
+		const name = namespace.name;
+		const extractPath = namespace.extractPath || namespace.path;
 
-			updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
+		foldersToParse.forEach(from => {
+			i18nKeys = new Map([
+				...i18nKeys,
+				...getLocalesFromNamespaceInFolder(path.join(process.cwd(), ...from.split('/')), name),
+			]);
 		});
+
+		updateLocales(i18nKeys, languages, name, extractPath, sort);
 	});
 }
 

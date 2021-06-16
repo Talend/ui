@@ -363,250 +363,262 @@ Array [
     id="tc-enumeration-0-item"
     role="row"
     style={
-        Object {
-            "height": 42,
-            "left": 0,
-            "position": "absolute",
-            "top": 0,
-            "width": "100%",
-          }
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
     }
->
+  >
     <Button
-        active={false}
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="0"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
         aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
-        block={false}
-        bsClass="btn"
-        bsStyle="link"
-        className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
-        key="0"
         onClick={[Function]}
         role="gridcell"
-    >
-        <button
-            aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="gridcell"
-            type="button"
-        >
-            <span>
-                Lorem ipsum dolor sit amet 0
-            </span>
-        </button>
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
     </Button>
     <div
-        className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
-        role="gridcell"
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
     >
-        <Component
-            hideLabel={true}
-            icon="talend-pencil"
-            key="0"
-            label="Edit"
-            link={true}
-            onClick={[Function]}
-            tooltipPlacement="bottom"
-        >
-            <div
-                hideLabel={true}
-                icon="talend-pencil"
-                id="ActionMock"
-                label="Edit"
-                link={true}
-                onClick={[Function]}
-                tooltipPlacement="bottom"
-            />
-        </Component>
-        <Component
-            hideLabel={true}
-            icon="talend-trash"
-            key="1"
-            label="Delete"
-            link={true}
-            onClick={[Function]}
-            tooltipPlacement="bottom"
-        >
-            <div
-                hideLabel={true}
-                icon="talend-trash"
-                id="ActionMock"
-                label="Delete"
-                link={true}
-                onClick={[Function]}
-                tooltipPlacement="bottom"
-            />
-        </Component>
+      <Component
+        disabled={false}
+        hideLabel={true}
+        icon="talend-pencil"
+        id="edit"
+        key="0"
+        label="Edit"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          disabled={false}
+          hideLabel={true}
+          icon="talend-pencil"
+          id="edit"
+          label="Edit"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+      <Component
+        hideLabel={true}
+        icon="talend-trash"
+        id="delete"
+        key="1"
+        label="Delete"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          hideLabel={true}
+          icon="talend-trash"
+          id="delete"
+          label="Delete"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
     </div>
-</div>,
+  </div>,
   <div
     className="theme-tc-enumeration-item tc-enumeration-item"
     id="tc-enumeration-1-item"
     role="row"
     style={
-        Object {
-            "height": 42,
-            "left": 0,
-            "position": "absolute",
-            "top": 42,
-            "width": "100%",
-          }
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 42,
+        "width": "100%",
+      }
     }
->
+  >
     <Button
-        active={false}
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="1"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
         aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
-        block={false}
-        bsClass="btn"
-        bsStyle="link"
-        className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
-        key="1"
         onClick={[Function]}
         role="gridcell"
-    >
-        <button
-            aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="gridcell"
-            type="button"
-        >
-            <span>
-                Lorem ipsum dolor sit amet 1
-            </span>
-        </button>
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
     </Button>
     <div
-        className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
-        role="gridcell"
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
     >
-        <Component
-            hideLabel={true}
-            icon="talend-pencil"
-            key="0"
-            label="Edit"
-            link={true}
-            onClick={[Function]}
-            tooltipPlacement="bottom"
-        >
-            <div
-                hideLabel={true}
-                icon="talend-pencil"
-                id="ActionMock"
-                label="Edit"
-                link={true}
-                onClick={[Function]}
-                tooltipPlacement="bottom"
-            />
-        </Component>
-        <Component
-            hideLabel={true}
-            icon="talend-trash"
-            key="1"
-            label="Delete"
-            link={true}
-            onClick={[Function]}
-            tooltipPlacement="bottom"
-        >
-            <div
-                hideLabel={true}
-                icon="talend-trash"
-                id="ActionMock"
-                label="Delete"
-                link={true}
-                onClick={[Function]}
-                tooltipPlacement="bottom"
-            />
-        </Component>
+      <Component
+        disabled={false}
+        hideLabel={true}
+        icon="talend-pencil"
+        id="edit"
+        key="0"
+        label="Edit"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          disabled={false}
+          hideLabel={true}
+          icon="talend-pencil"
+          id="edit"
+          label="Edit"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+      <Component
+        hideLabel={true}
+        icon="talend-trash"
+        id="delete"
+        key="1"
+        label="Delete"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          hideLabel={true}
+          icon="talend-trash"
+          id="delete"
+          label="Delete"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
     </div>
-</div>,
+  </div>,
   <div
     className="theme-tc-enumeration-item tc-enumeration-item"
     id="tc-enumeration-2-item"
     role="row"
     style={
-        Object {
-            "height": 42,
-            "left": 0,
-            "position": "absolute",
-            "top": 84,
-            "width": "100%",
-          }
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 84,
+        "width": "100%",
+      }
     }
->
+  >
     <Button
-        active={false}
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="2"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
         aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
-        block={false}
-        bsClass="btn"
-        bsStyle="link"
-        className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
-        key="2"
         onClick={[Function]}
         role="gridcell"
-    >
-        <button
-            aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="gridcell"
-            type="button"
-        >
-            <span>
-                Lorem ipsum dolor sit amet 2
-            </span>
-        </button>
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
     </Button>
     <div
-        className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
-        role="gridcell"
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
     >
-        <Component
-            hideLabel={true}
-            icon="talend-pencil"
-            key="0"
-            label="Edit"
-            link={true}
-            onClick={[Function]}
-            tooltipPlacement="bottom"
-        >
-            <div
-                hideLabel={true}
-                icon="talend-pencil"
-                id="ActionMock"
-                label="Edit"
-                link={true}
-                onClick={[Function]}
-                tooltipPlacement="bottom"
-            />
-        </Component>
-        <Component
-            hideLabel={true}
-            icon="talend-trash"
-            key="1"
-            label="Delete"
-            link={true}
-            onClick={[Function]}
-            tooltipPlacement="bottom"
-        >
-            <div
-                hideLabel={true}
-                icon="talend-trash"
-                id="ActionMock"
-                label="Delete"
-                link={true}
-                onClick={[Function]}
-                tooltipPlacement="bottom"
-            />
-        </Component>
+      <Component
+        disabled={false}
+        hideLabel={true}
+        icon="talend-pencil"
+        id="edit"
+        key="0"
+        label="Edit"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          disabled={false}
+          hideLabel={true}
+          icon="talend-pencil"
+          id="edit"
+          label="Edit"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+      <Component
+        hideLabel={true}
+        icon="talend-trash"
+        id="delete"
+        key="1"
+        label="Delete"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          hideLabel={true}
+          icon="talend-trash"
+          id="delete"
+          label="Delete"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
     </div>
-</div>,
+  </div>,
 ]
 `;
 
@@ -617,185 +629,188 @@ Array [
     id="tc-enumeration-0-item"
     role="row"
     style={
-        Object {
-            "height": 42,
-            "left": 0,
-            "position": "absolute",
-            "top": 0,
-            "width": "100%",
-          }
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
     }
->
+  >
     <Button
-        active={false}
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="0"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
         aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
-        block={false}
-        bsClass="btn"
-        bsStyle="link"
-        className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
-        key="0"
         onClick={[Function]}
         role="gridcell"
-    >
-        <button
-            aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="gridcell"
-            type="button"
+        type="button"
+      >
+        <Checkbox
+          aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
+          checked={true}
+          className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
         >
-            <Checkbox
+          <div
+            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          >
+            <label>
+              <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
                 checked={true}
-                className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
-            >
-                <div
-                    className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
-                >
-                    <label>
-                        <input
-                            aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
-                            checked={true}
-                            type="checkbox"
-                        />
-                        <span />
-                    </label>
-                </div>
-            </Checkbox>
-            <span>
-                Lorem ipsum dolor sit amet 0
-            </span>
-        </button>
+                data-checked={2}
+                type="checkbox"
+              />
+              <span />
+            </label>
+          </div>
+        </Checkbox>
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
     </Button>
     <div
-        className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
-        role="gridcell"
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
     />
-</div>,
+  </div>,
   <div
     className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
     id="tc-enumeration-1-item"
     role="row"
     style={
-        Object {
-            "height": 42,
-            "left": 0,
-            "position": "absolute",
-            "top": 42,
-            "width": "100%",
-          }
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 42,
+        "width": "100%",
+      }
     }
->
+  >
     <Button
-        active={false}
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="1"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
         aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
-        block={false}
-        bsClass="btn"
-        bsStyle="link"
-        className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
-        key="1"
         onClick={[Function]}
         role="gridcell"
-    >
-        <button
-            aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="gridcell"
-            type="button"
+        type="button"
+      >
+        <Checkbox
+          aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
+          checked={true}
+          className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
         >
-            <Checkbox
+          <div
+            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          >
+            <label>
+              <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
                 checked={true}
-                className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
-            >
-                <div
-                    className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
-                >
-                    <label>
-                        <input
-                            aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
-                            checked={true}
-                            type="checkbox"
-                        />
-                        <span />
-                    </label>
-                </div>
-            </Checkbox>
-            <span>
-                Lorem ipsum dolor sit amet 1
-            </span>
-        </button>
+                data-checked={2}
+                type="checkbox"
+              />
+              <span />
+            </label>
+          </div>
+        </Checkbox>
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
     </Button>
     <div
-        className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
-        role="gridcell"
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
     />
-</div>,
+  </div>,
   <div
     className="theme-tc-enumeration-item tc-enumeration-item"
     id="tc-enumeration-2-item"
     role="row"
     style={
-        Object {
-            "height": 42,
-            "left": 0,
-            "position": "absolute",
-            "top": 84,
-            "width": "100%",
-          }
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 84,
+        "width": "100%",
+      }
     }
->
+  >
     <Button
-        active={false}
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="2"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
         aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
-        block={false}
-        bsClass="btn"
-        bsStyle="link"
-        className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
-        key="2"
         onClick={[Function]}
         role="gridcell"
-    >
-        <button
-            aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="gridcell"
-            type="button"
+        type="button"
+      >
+        <Checkbox
+          aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+          className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
         >
-            <Checkbox
+          <div
+            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          >
+            <label>
+              <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
-                className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
-            >
-                <div
-                    className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
-                >
-                    <label>
-                        <input
-                            aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
-                            type="checkbox"
-                        />
-                        <span />
-                    </label>
-                </div>
-            </Checkbox>
-            <span>
-                Lorem ipsum dolor sit amet 2
-            </span>
-        </button>
+                data-checked={0}
+                type="checkbox"
+              />
+              <span />
+            </label>
+          </div>
+        </Checkbox>
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
     </Button>
     <div
-        className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
-        role="gridcell"
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
     />
-</div>,
+  </div>,
 ]
 `;
 
@@ -804,11 +819,9 @@ exports[`Enumeration should render with EmptyListPlaceholder in default mode whe
   displayMode="DISPLAY_MODE_DEFAULT"
   headerDefault={Array []}
   headerInput={Array []}
-  i18n={Object {}}
   id="tc-enumeration"
   items={Array []}
   t={[Function]}
-  tReady={false}
 >
   <EmptyListPlaceholder
     displayMode="DISPLAY_MODE_DEFAULT"
@@ -828,11 +841,9 @@ exports[`Enumeration should render with EmptyListPlaceholder in search mode when
   displayMode="DISPLAY_MODE_SEARCH"
   headerDefault={Array []}
   headerInput={Array []}
-  i18n={Object {}}
   id="tc-enumeration"
   items={Array []}
   t={[Function]}
-  tReady={false}
 >
   <EmptyListPlaceholder
     displayMode="DISPLAY_MODE_SEARCH"

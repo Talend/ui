@@ -5,8 +5,8 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
   errorMessage="My Error Message"
   id="myRadioOrSelect"
   isValid={true}
-  onChange={[Function]}
-  onFinish={[Function]}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
   schema={
     Object {
       "description": "Select me",
@@ -41,8 +41,8 @@ exports[`RadioOrSelect field should render select when titleMap has more than 2 
   errorMessage="My Error Message"
   id="myRadioOrSelect"
   isValid={true}
-  onChange={[Function]}
-  onFinish={[Function]}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
   schema={
     Object {
       "description": "Select me",

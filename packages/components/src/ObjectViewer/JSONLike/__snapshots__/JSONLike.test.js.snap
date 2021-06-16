@@ -9,7 +9,7 @@ exports[`JSONLike ComplexItem should render 1`] = `
       tooltipPlacement="right"
     >
       <sup
-        aria-label="Contains  children"
+        aria-label="Contains  child"
         className="theme-badge badge"
       >
         (undefined)
@@ -24,7 +24,6 @@ exports[`JSONLike ComplexItem should render 1`] = `
       className="theme-toggle tc-object-viewer-toggle"
       icon="talend-caret-down"
       iconTransform="rotate-270"
-      id={undefined}
       label=""
       link={true}
       onClick={[Function]}
@@ -34,10 +33,10 @@ exports[`JSONLike ComplexItem should render 1`] = `
   info={Object {}}
   isOpened={false}
   name="name"
-  onKeyDown={[Function]}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onToggleAllSiblings={[Function]}
+  onKeyDown={[MockFunction]}
+  onSelect={[MockFunction]}
+  onToggle={[MockFunction]}
+  onToggleAllSiblings={[MockFunction]}
   opened={Array []}
   t={[Function]}
   type={null}
@@ -48,11 +47,8 @@ exports[`JSONLike should render 1`] = `
 <div
   className="tc-object-viewer theme-container"
   id="my-object-container"
-  style={undefined}
 >
   <ul
-    aria-label={undefined}
-    aria-labelledby={undefined}
     className="theme-tc-object-viewer-list"
     role="tree"
   >
@@ -72,9 +68,9 @@ exports[`JSONLike should render 1`] = `
       level={1}
       onEdit={[Function]}
       onKeyDown={[Function]}
-      onSelect={undefined}
-      onToggle={undefined}
-      onToggleAllSiblings={[Function]}
+      onSelect={[MockFunction]}
+      onToggle={[MockFunction]}
+      onToggleAllSiblings={[MockFunction]}
       opened={Array []}
       siblings={
         Array [

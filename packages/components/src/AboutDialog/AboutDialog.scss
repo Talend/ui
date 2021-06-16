@@ -21,9 +21,12 @@
 				margin: 0 auto;
 				margin-top: 3rem;
 				text-align: justify;
+				table-layout: fixed;
 
-				th {
-					text-transform: uppercase;
+				th,
+				td {
+					padding: $padding-smaller;
+					text-align: left;
 				}
 
 				td + td,

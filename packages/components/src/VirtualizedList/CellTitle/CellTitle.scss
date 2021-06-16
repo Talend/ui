@@ -1,6 +1,7 @@
 @import '../colors';
+
 $tc-list-title-color: $black !default;
-$tc-list-title-icon-size: $svg-lg-size !default;
+$tc-list-title-icon-size: $svg-rg-size !default;
 
 .tc-list-title {
 	display: flex;
@@ -8,16 +9,18 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	position: relative;
 	height: 100%;
 
-	.icon {
+	.icon,
+	.span > .icon {
 		filter: url('#talend-grayscale');
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
 		vertical-align: middle;
+	}
 
-		+ .edit-form {
-			padding-left: $padding-normal;
-		}
+	.icon + .edit-form,
+	span + .edit-form {
+		padding-left: $padding-normal;
 	}
 
 	.edit-form {
@@ -39,12 +42,10 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		display: block;
 
 		padding: 0 $padding-normal;
-		height: 100%;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
-		font-weight: 700;
-		letter-spacing: inherit;
+		font-weight: 600;
 		text-transform: none;
 		text-align: left;
 
@@ -64,51 +65,54 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 }
 
 .tc-list-title-filter {
-	&:hover,
-	&:global(.ally-focus-within) {
-		.icon {
-			color: $brand-primary;
-			filter: none;
-		}
+	&:not(.tc-list-title-disabled) {
+		&:hover,
+		&:global(.ally-focus-within) {
+			.icon {
+				color: $brand-primary;
+				filter: none;
+			}
 
-		.main-title {
-			color: $scooter;
+			.main-title {
+				color: $lochmara;
+			}
 		}
 	}
 }
 
 // manage actions display on row hover
-:global(.tc-list-large-row),
+:global(.tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
 			opacity: 1;
+			width: 100%;
 			transition: opacity 0.15s ease-in;
-			visibility: visible;
+			overflow: visible;
 		}
 	}
 }
 
-:global(.tc-list-large-row.active),
+:global(.tc-list-large-row.active .tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row.active) {
 	&:hover,
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
+			background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-active-hover-bg, 100%) $padding-large);
 		}
 	}
 }
 
-:global(.tc-list-large-row.selected),
+:global(.tc-list-large-row.selected .tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row.selected) {
 	&:hover,
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
+			background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-selected-hover-bg, 100%) $padding-large);
 		}
 	}
 }

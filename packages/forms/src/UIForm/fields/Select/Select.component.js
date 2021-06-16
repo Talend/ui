@@ -1,7 +1,11 @@
+/* eslint-disable jsx-a11y/no-autofocus */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+
+import { extractDataAttributes } from '../../utils/properties';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
@@ -14,8 +18,25 @@ function getSelectedOptions(select, multiple) {
 	return select.value;
 }
 
-export default function Select({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
-	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
+export default function Select({
+	id,
+	isValid,
+	errorMessage,
+	onChange,
+	onFinish,
+	schema,
+	value,
+	valueIsUpdating,
+}) {
+	const {
+		autoFocus,
+		description,
+		disabled = false,
+		placeholder,
+		readOnly = false,
+		title,
+		...rest
+	} = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
@@ -25,18 +46,21 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 		<FieldTemplate
 			description={description}
 			errorMessage={errorMessage}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			id={id}
 			isValid={isValid}
 			label={title}
 			labelAfter
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<select
 				id={id}
 				multiple={multiple}
 				autoFocus={autoFocus}
 				className="form-control"
-				disabled={disabled}
+				disabled={disabled || valueIsUpdating}
 				onChange={event => {
 					const payload = { schema, value: getSelectedOptions(event.target, multiple) };
 					onChange(event, payload);
@@ -48,8 +72,13 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				aria-invalid={!isValid}
 				aria-required={schema.required}
 				aria-describedby={`${descriptionId} ${errorId}`}
+				{...extractDataAttributes(rest)}
 			>
-				<option disabled>{placeholder}</option>
+				{placeholder ? (
+					<option disabled value="">
+						{placeholder}
+					</option>
+				) : null}
 				{schema.titleMap &&
 					schema.titleMap.map((option, index) => {
 						const optionProps = {
@@ -76,6 +105,11 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
+			schema: PropTypes.shape({
+				type: PropTypes.string,
+				uniqueItems: PropTypes.bool,
+			}),
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -86,6 +120,7 @@ if (process.env.NODE_ENV !== 'production') {
 			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

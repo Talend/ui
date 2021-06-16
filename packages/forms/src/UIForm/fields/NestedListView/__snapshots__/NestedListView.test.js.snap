@@ -5,13 +5,12 @@ exports[`NestedListView component should render component 1`] = `
   className="theme-nested-list-view"
 >
   <FieldTemplate
-    description={undefined}
-    errorMessage={undefined}
+    descriptionId="NestedListView-description"
+    errorId="NestedListView-error"
     id="NestedListView"
     isValid={true}
-    required={undefined}
   >
-    <Translate(ListView)
+    <ListView
       displayedItems={
         Array [
           Object {
@@ -123,9 +122,7 @@ exports[`NestedListView component should render component 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={undefined}
       searchCriteria={null}
-      searchPlaceholder={undefined}
       showToggleAll={false}
     />
   </FieldTemplate>

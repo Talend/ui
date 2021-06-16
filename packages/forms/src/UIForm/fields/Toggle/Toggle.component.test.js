@@ -15,9 +15,9 @@ describe('Toggle field', () => {
 		// when
 		const wrapper = shallow(
 			<Toggle
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
@@ -39,9 +39,9 @@ describe('Toggle field', () => {
 		// when
 		const wrapper = shallow(
 			<Toggle
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={autoFocusedSchema}
@@ -63,9 +63,9 @@ describe('Toggle field', () => {
 		// when
 		const wrapper = shallow(
 			<Toggle
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
@@ -77,16 +77,17 @@ describe('Toggle field', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should trigger onChange', () => {
+	it('should trigger onChange and onFinish', () => {
 		// given
 		const onChange = jest.fn();
+		const onFinish = jest.fn();
 		const wrapper = mount(
 			<Toggle
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
-				onFinish={jest.fn()}
+				onFinish={onFinish}
 				schema={schema}
 				value
 			/>,
@@ -97,27 +98,6 @@ describe('Toggle field', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });
-	});
-
-	it('should trigger onFinish on input blur', () => {
-		// given
-		const onFinish = jest.fn();
-		const wrapper = mount(
-			<Toggle
-				id={'myForm'}
-				isValid
-				errorMessage={'My error message'}
-				onChange={jest.fn()}
-				onFinish={onFinish}
-				schema={schema}
-				value
-			/>,
-		);
-
-		// when
-		wrapper.find('input').simulate('blur');
-
-		// then
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema });
+		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });
 	});
 });

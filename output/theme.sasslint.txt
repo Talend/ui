@@ -2,30 +2,29 @@
 
 
 src/theme/_buttons.scss
-  15:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  34:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  79:3  error  Property `gap` appears to be spelled incorrectly                     no-misspelled-properties
 
 src/theme/_dropdowns.scss
   41:28  warning  Space expected around operator  space-around-operator
 
-src/theme/_forms.checkbox.scss
-  14:2  warning  Vendor prefixes should not be used      no-vendor-prefixes
-  15:2  warning  Vendor prefixes should not be used      no-vendor-prefixes
-  66:4  error    Mixins should come before declarations  mixins-before-declarations
-
 src/theme/_forms.scss
-    9:24  error    Parenthesis should be removed                            empty-args
-   35:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   70:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  121:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  136:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  198:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  199:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  337:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  350:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  441:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+    6:24  error    Parenthesis should be removed                            empty-args
+   34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   75:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  123:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  138:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  287:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  300:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  367:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  407:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+
+src/theme/_labels.scss
+  42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/theme/_navbar.scss
-  18:6  warning  Expected indentation of 4 tabs but found 5  indentation
+  16:6  warning  Expected indentation of 4 tabs but found 5  indentation
 
 src/theme/_navbar.search.scss
   7:11  error  A value of `0` is not allowed. `none` must be used  border-zero
@@ -36,5 +35,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 21 problems (12 errors, 9 warnings)
+✖ 20 problems (14 errors, 6 warnings)
 

@@ -1,9 +1,9 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { all, fork } from 'redux-saga/effects';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import api, { store, RegistryProvider } from '@talend/react-cmf';
-import mock from '@talend/react-cmf/lib/mock';
+import api, { store, RegistryProvider, mock } from '@talend/react-cmf';
 
 function* initSagaMiddleWare() {
 	yield all([fork(api.sagas.component.handle)]);
@@ -22,7 +22,7 @@ class CMFStory extends React.Component {
 			state = props.state;
 		}
 		if (!state) {
-			state = mock.state();
+			state = mock.store.state();
 		}
 
 		let middlewares = this.props.middleware;
@@ -37,7 +37,18 @@ class CMFStory extends React.Component {
 	}
 
 	getChildContext() {
-		return { router: { route: { location: {}, match: true } } };
+		return {
+			router: {
+				push: location => console.log(`push to ${location}`),
+				replace: location => console.log(`replace to ${location}`),
+				go: location => console.log(`go to ${location}`),
+				goBack: location => console.log(`goBack to ${location}`),
+				goForward: location => console.log(`goForward to ${location}`),
+				setRouteLeaveHook: location => console.log(`setRouteLeaveHook to ${location}`),
+				isActive: location => console.log(`isActive to ${location}`),
+				route: { location: {}, match: true },
+			},
+		};
 	}
 
 	render() {

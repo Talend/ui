@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IconsProvider, Drawer } from '@talend/react-components';
+import { Drawer } from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';
-import { CSSTransitionGroup } from 'react-css-transition';
 
 import { ActionIconToggle } from '../src';
 
@@ -13,29 +12,34 @@ export function mapStateToProps(state) {
 }
 
 function MyDrawer({ opened }) {
-	return opened ?
-		(
-			<Drawer>
-				<form>
-					<div className="form-group">
-						<input className="form-control" id="my-input" type="text" autoFocus />
-						<label className="control-label" htmlFor="my-input">Your name</label>
-					</div>
-					<button className="btn btn-primary" onClick={e => { e.stopPropagation(); }} >
-						Submit
-					</button>
-				</form>
-			</Drawer>
-		) :
-		null;
+	return opened ? (
+		<Drawer>
+			<form>
+				<div className="form-group">
+					<input className="form-control" id="my-input" type="text" autoFocus />
+					<label className="control-label" htmlFor="my-input">
+						Your name
+					</label>
+				</div>
+				<button
+					className="btn btn-primary"
+					onClick={e => {
+						e.stopPropagation();
+					}}
+				>
+					Submit
+				</button>
+			</form>
+		</Drawer>
+	) : null;
 }
 MyDrawer.propTypes = { opened: PropTypes.bool };
+MyDrawer.displayName = 'MyDrawer';
 const MyconnectedDrawer = cmfConnect({ mapStateToProps })(MyDrawer);
 
 export default function ExampleActionIconToggle() {
 	return (
 		<div>
-			<IconsProvider />
 			<div style={{ padding: '3rem' }}>
 				<p>Click on the icon toggle below</p>
 				<ActionIconToggle actionId="action:icon:toggle" />

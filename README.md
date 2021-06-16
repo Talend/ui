@@ -5,15 +5,15 @@ front-end stack.
 
 [![Travis CI][travis-ci-image] ][travis-ci-url]
 
-[travis-ci-image]: https://travis-ci.org/Talend/ui.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/Talend/ui
+[travis-ci-image]: https://travis-ci.com/Talend/ui.svg?branch=master
+[travis-ci-url]: https://travis-ci.com/Talend/ui
 
 ## Goals
 
-* Single code repository / Multiple packages
-* Global (cross package) test and review tools
-* Unified stack versions
-* Easy cross packages development
+- Single code repository / Multiple packages
+- Global (cross package) test and review tools
+- Unified stack versions
+- Easy cross packages development
 
 ## The stack
 
@@ -23,7 +23,6 @@ front-end stack.
 - [react-talend-forms](https://github.com/Talend/ui/tree/master/packages/forms)
 - [generator-talend](https://github.com/Talend/ui/tree/master/packages/generator)
 - [talend-icons](https://github.com/Talend/ui/tree/master/packages/icons)
-- [talend-log](https://github.com/Talend/ui/tree/master/packages/logging)
 - [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/packages/theme)
 - [react-data-mapper](https://github.com/Talend/ui/tree/master/packages/data-mapper)
 
@@ -58,3 +57,17 @@ To start to dev on a package and see it in action just use one of the following
 - yarn start-containers on localhost:6007
 - yarn start-forms on localhost:6008
 - yarn start-theme on localhost:1337
+
+## Versions and breaking changes
+
+[See the wiki](https://github.com/Talend/ui/wiki/Workflow#major--breaking-change-aka-next)
+
+## Visual regression
+
+The visual regression test aren't no launched by travis on each PR because they are slower and can generate false positive.
+
+The test is manually by this commander
+
+```
+node screenshots -p PULL_REQUEST_ID -c ./screenshots/SCENARIO_TO_TEST.json
+```

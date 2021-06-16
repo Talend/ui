@@ -25,6 +25,7 @@ describe('Action', () => {
 			tabIndex: 1,
 			target: '_blank',
 			title: 'my title',
+			form: 'my-super-form-id',
 
 			// unknown props should be removed
 			waattt: 'the hell',
@@ -53,6 +54,7 @@ describe('Action', () => {
 			target: '_blank',
 			title: 'my title',
 			type: 'button',
+			form: 'my-super-form-id',
 		});
 	});
 });

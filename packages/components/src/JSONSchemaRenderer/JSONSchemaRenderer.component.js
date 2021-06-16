@@ -8,7 +8,7 @@ import css from './JSONSchemaRenderer.scss';
 
 const CLASS_NAME = 'json-schema-renderer';
 
-export const RendererProptypes = {
+const RendererProptypes = {
 	propertyKey: PropTypes.string.isRequired,
 	title: PropTypes.string,
 };
@@ -22,14 +22,14 @@ const SchemaProptypes = {
 };
 
 /**
- * UnkownTypeException
+ * UnknownTypeException
  *
- * @param {string} type - The unkown type
- * @returns {Object} An UnkownTypeException
+ * @param {string} type - The Unknown type
+ * @returns {Object} An UnknownTypeException
  */
-function UnkownTypeException(type) {
-	this.name = 'UnkownTypeException';
-	this.message = `Unkown type: ${type}`;
+function UnknownTypeException(type) {
+	this.name = 'UnknownTypeException';
+	this.message = `Unknown type: ${type}`;
 }
 
 /**
@@ -66,7 +66,7 @@ TextRenderer.propTypes = {
 	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-export function PasswordRenderer({ propertyKey, title }) {
+function PasswordRenderer({ propertyKey, title }) {
 	return [
 		<dt key={`${propertyKey}_key`}>{title || propertyKey}</dt>,
 		<dd key={`${propertyKey}_value`}>{'\u2022'.repeat(5)}</dd>,
@@ -113,14 +113,14 @@ const registry = {
 	integer: TextRenderer,
 	boolean: BooleanRenderer,
 	array: ArrayRenderer,
-	object: ObjectRenderer, // eslint-disable-line no-use-before-define
+	object: ObjectRenderer, // eslint-disable-line @typescript-eslint/no-use-before-define
 };
 
 function isHidden(uiSchema, element) {
 	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'hidden';
 }
 
-export function isPassword(uiSchema, element) {
+function isPassword(uiSchema, element) {
 	return get(uiSchema, [element, 'ui:widget'], '') === 'password';
 }
 
@@ -129,7 +129,7 @@ export function isPassword(uiSchema, element) {
  *
  * @param schema - The JSONSchema of the data being rendered
  * @param uiSchema
- * @throws {UnkownTypeException} Type must be part of the registry
+ * @throws {UnknownTypeException} Type must be part of the registry
  * @returns {Object} Resolved Renderer and props
  */
 function typeResolver(schema, uiSchema) {
@@ -157,7 +157,7 @@ function typeResolver(schema, uiSchema) {
 
 		const renderer = registry[type];
 		if (!renderer) {
-			throw new UnkownTypeException(type);
+			throw new UnknownTypeException(type);
 		}
 
 		return {
@@ -248,11 +248,11 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 JSONSchemaRenderer.displayName = 'JSONSchemaRenderer';
 
 JSONSchemaRenderer.propTypes = {
-	schema: PropTypes.shape({ ...SchemaProptypes }),
+	schema: PropTypes.shape(SchemaProptypes),
 	className: PropTypes.string,
 };
 
 JSONSchemaRenderer.InvalidSchemaException = InvalidSchemaException;
-JSONSchemaRenderer.UnkownTypeException = UnkownTypeException;
+JSONSchemaRenderer.UnknownTypeException = UnknownTypeException;
 
 export default JSONSchemaRenderer;

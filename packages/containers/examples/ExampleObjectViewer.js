@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { ObjectViewer } from '../src';
 
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
@@ -181,49 +181,41 @@ const selectedJsonpath = "$[0]['name']";
 const ExampleObjectViewer = {
 	default: () => (
 		<div>
-			<IconsProvider />
 			<ObjectViewer data={data} />
 		</div>
 	),
 	'JsonLike with rootLabel': () => (
 		<div>
-			<IconsProvider />
 			<ObjectViewer data={data} rootLabel="Dataset des cafés" />
 		</div>
 	),
 	'JsonLike with hightlight': () => (
 		<div>
-			<IconsProvider />
 			<ObjectViewer data={data} selectedJsonpath={selectedJsonpath} />
 		</div>
 	),
 	'JsonLike with types': () => (
 		<div>
-			<IconsProvider />
 			<ObjectViewer data={data} showType />
 		</div>
 	),
 	'JsonLike with types and tuple name': () => (
 		<div>
-			<IconsProvider />
 			<ObjectViewer data={data} showType tupleLabel="Record" />
 		</div>
 	),
 	'list default': () => (
 		<div>
-			<IconsProvider />
 			<ObjectViewer data={data} displayMode="list" openFirst />
 		</div>
 	),
 	'table default': () => (
 		<div>
-			<IconsProvider />
 			<ObjectViewer data={data} displayMode="table" />
 		</div>
 	),
 	'flat default': () => (
 		<div>
-			<IconsProvider />
 			<ObjectViewer data={data} displayMode="flat" />
 		</div>
 	),

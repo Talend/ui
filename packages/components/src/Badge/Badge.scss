@@ -1,121 +1,359 @@
-$tc-badge-label-font-size: 13px !default;
-$tc-badge-height: 25px !default;
-$tc-badge-delete-icon-size: $svg-xs-size !default;
-// it should sum up in 25px height:
-$tc-badge-vertical-padding: ($tc-badge-height - $tc-badge-label-font-size * $line-height-base) / 2 !default;
-$tc-badge-margin: $padding-smaller !default;
+$tc-badge-large-label-font-size: 1.4rem !default;
+$tc-badge-large-label-font-weight: normal !default;
+$tc-badge-large-label-with-categ-font-weight: $font-weight-semi-bold !default;
+$tc-badge-large-height: 2.4rem !default;
+$tc-badge-large-vertical-padding: ($tc-badge-large-height - $tc-badge-large-label-font-size * $line-height-base) / 2 !default;
+$tc-badge-large-margin: $padding-smaller !default;
+$tc-badge-large-delete-icon-size: $svg-xs-size !default;
+$tc-badge-large-icon-size: $svg-xs-size !default;
+$tc-badge-large-padding: $padding-small;
+
+$tc-badge-small-label-font-size: 1.2rem !default;
+$tc-badge-small-label-font-weight: normal !default;
+$tc-badge-small-label-with-categ-font-weight: $font-weight-semi-bold !default;
+$tc-badge-small-height: 2rem !default;
+$tc-badge-small-vertical-padding: ($tc-badge-small-height - $tc-badge-small-label-font-size * $line-height-base) / 2 !default;
+$tc-badge-small-margin: $padding-smaller !default;
+$tc-badge-small-delete-icon-size: $svg-sm-size / 2 !default;
+$tc-badge-small-icon-size: $svg-xs-size !default;
+$tc-badge-small-padding: 0.8rem;
+
+$tc-badge-disabled-opacity: 0.62;
+
+@mixin colored-badge($background-color, $color) {
+	.tc-badge-button {
+		background-color: $background-color;
+		color: $color;
+
+		.tc-badge-separator {
+			background-color: $color;
+		}
+
+		[class^='tc-badge-'],
+		:global(.btn-link),
+		.tc-badge-delete-icon svg {
+			color: inherit;
+		}
+	}
+}
 
 .tc-badge {
 	display: inline-flex;
-	max-width: 100%;
+	max-width: 23.5rem;
+
+	&:not(.tc-badge-readonly) {
+		cursor: pointer;
+	}
 
 	.tc-badge-button {
 		display: inline-flex;
-		height: $tc-badge-height;
-		margin: $tc-badge-margin;
-		padding: $tc-badge-vertical-padding $padding-small;
-		padding-right: calc(#{$padding-larger} + #{$tc-badge-delete-icon-size});
-		background-color: $gallery;
-		letter-spacing: 0.4px;
-		border: none;
+		background-color: rgba($wild-sand, 0.5);
+		border: solid 1px;
+		border-color: $gallery;
+		border-radius: 25px;
 		max-width: 100%;
 
-		.tc-badge-category {
-			background-color: $concrete;
-			font-size: $tc-badge-label-font-size;
-			text-transform: uppercase;
+		&.tc-badge-white {
+			background-color: $white;
+		}
 
-			margin-top: -$tc-badge-vertical-padding;
-			margin-right: $padding-small;
-			margin-left: -$padding-small;
-			margin-bottom: -$tc-badge-vertical-padding;
-			padding: $tc-badge-vertical-padding $padding-small;
+		.tc-badge-category {
+			flex-grow: 0;
+			flex-shrink: 0;
+			color: black;
+			max-width: 110px;
+			overflow: hidden;
+			white-space: pre;
+			text-overflow: ellipsis;
+		}
+
+		.tc-badge-separator {
+			flex-grow: 0;
+			flex-shrink: 0;
+			height: 12px;
+			width: 1px;
+			background-color: $gallery;
+			margin: $padding-smaller;
+
+			&.tc-badge-separator-icon {
+				margin-right: 0;
+			}
 		}
 
 		.tc-badge-label {
-			font-size: $tc-badge-label-font-size;
-			font-weight: 700;
-
+			display: flex;
+			flex-grow: 1;
+			flex-shrink: 1;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: pre;
+
+			&-text,
+			&-text-with-categ {
+				color: black;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			&-icon {
+				color: black;
+				flex-grow: 0;
+				flex-shrink: 0;
+				margin-left: $padding-smaller;
+			}
 		}
 
-		&:hover {
-			background-color: $alto;
+		.tc-badge-delete-icon {
+			display: flex;
+			flex-grow: 0;
+			flex-shrink: 0;
+			padding: 0;
+			background: transparent;
+			box-shadow: none;
+			padding-left: $padding-smaller;
 
-			.tc-badge-category {
-				background-color: $gallery;
+			svg {
+				color: $slate-gray;
+				display: block;
+				margin: 0;
+
+				&:hover {
+					color: $lochmara;
+				}
+			}
+		}
+
+		.tc-badge-dropdown {
+			display: flex;
+			flex-grow: 0;
+			flex-shrink: 0;
+			padding: 0;
+			padding-left: $padding-smaller;
+			text-transform: none;
+			color: black;
+
+			span {
+				max-width: 16rem;
+				display: block;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			svg {
+				color: $slate-gray;
+				margin: $padding-smaller;
+
+				&:hover {
+					color: $lochmara;
+				}
+			}
+			&:hover,
+			&:focus,
+			&:global(.ally-focus-within) {
+				outline: none;
 			}
 		}
 	}
 
-	svg,
-	.tc-badge-label,
-	.tc-badge-category {
-		color: $dark-silver;
+	&.tc-badge-display-large {
+		.tc-badge-separator {
+			margin-top: 0.4rem;
+		}
+
+		.tc-badge-button {
+			height: $tc-badge-large-height;
+			margin: $tc-badge-large-margin;
+			padding-top: 2px;
+			padding-left: $tc-badge-large-padding;
+			padding-right: $tc-badge-large-padding;
+
+			.tc-badge-category {
+				font-size: $tc-badge-large-label-font-size;
+				font-weight: $tc-badge-large-label-font-weight;
+			}
+
+			.tc-badge-label {
+				&-text {
+					font-size: $tc-badge-large-label-font-size;
+					font-weight: $tc-badge-large-label-font-weight;
+				}
+
+				&-text-with-categ {
+					font-size: $tc-badge-large-label-font-size;
+					font-weight: $tc-badge-large-label-with-categ-font-weight;
+				}
+
+				&-icon {
+					margin-top: $padding-smaller;
+					height: $tc-badge-large-icon-size;
+					width: $tc-badge-large-icon-size;
+					min-width: $tc-badge-large-icon-size;
+				}
+			}
+
+			.tc-badge-delete-icon {
+				height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+				min-height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+
+				svg {
+					height: $tc-badge-large-delete-icon-size;
+					width: $tc-badge-large-delete-icon-size;
+				}
+			}
+
+			.tc-badge-dropdown {
+				height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+				min-height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+				font-size: $tc-badge-large-label-font-size;
+				font-weight: $tc-badge-large-label-with-categ-font-weight;
+
+				svg {
+					height: $tc-badge-large-delete-icon-size;
+					width: $tc-badge-large-delete-icon-size;
+				}
+			}
+		}
 	}
 
-	&-readonly.tc-badge {
+	&.tc-badge-display-small {
+		.tc-badge-separator {
+			margin-top: 0.3rem;
+		}
+
 		.tc-badge-button {
-			padding-right: $padding-small;
+			height: $tc-badge-small-height;
+			margin: $tc-badge-small-margin;
+			padding-top: 0;
+			padding-left: $tc-badge-small-padding;
+			padding-right: $tc-badge-small-padding;
+
+			.tc-badge-category {
+				font-size: $tc-badge-small-label-font-size;
+				font-weight: $tc-badge-small-label-font-weight;
+			}
+
+			.tc-badge-label {
+				&-text {
+					font-size: $tc-badge-small-label-font-size;
+					font-weight: $tc-badge-small-label-font-weight;
+				}
+
+				&-text-with-categ {
+					font-size: $tc-badge-small-label-font-size;
+					font-weight: $tc-badge-small-label-with-categ-font-weight;
+				}
+
+				&-icon {
+					margin-top: $padding-smaller;
+					height: $tc-badge-small-icon-size;
+					width: $tc-badge-small-icon-size;
+					min-width: $tc-badge-small-icon-size;
+				}
+			}
+
+			.tc-badge-delete-icon {
+				height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+				min-height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+
+				svg {
+					height: $tc-badge-small-delete-icon-size;
+					width: $tc-badge-small-delete-icon-size;
+				}
+			}
+
+			.tc-badge-dropdown {
+				height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+				min-height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+				font-size: $tc-badge-small-label-font-size;
+				font-weight: $tc-badge-small-label-with-categ-font-weight;
+
+				svg {
+					height: $tc-badge-small-delete-icon-size;
+					width: $tc-badge-small-delete-icon-size;
+				}
+			}
+		}
+	}
+
+	&-aslink {
+		.tc-badge-button {
+			border-color: rgba($lochmara, 0.25);
+
+			.tc-badge-category {
+				display: none;
+			}
+
+			.tc-badge-separator {
+				display: none;
+			}
+
+			.tc-badge-label {
+				.tc-badge-label-text,
+				.tc-badge-label-icon {
+					color: $lochmara;
+				}
+			}
+		}
+		&:hover:not(.tc-badge-disabled) {
+			.tc-badge-button {
+				border-color: rgba($lochmara, 1);
+			}
+		}
+	}
+
+	&-edit:not(&-disabled) {
+		.tc-badge-label:hover {
+			.tc-badge-label-text,
+			.tc-badge-label-text-with-categ,
+			.tc-badge-label-icon {
+				color: $lochmara;
+			}
 		}
 	}
 
 	&-selected:not(&-disabled) {
-		svg,
-		.tc-badge-label,
-		.tc-badge-category {
-			color: $white;
-		}
-
-		.tc-badge-button {
-			background-color: $scooter;
-
-			.tc-badge-category {
-				background-color: rgba($white, 0.2);
-			}
-
-			&:hover {
-				background-color: darken($scooter, 10);
+		.tc-badge-label {
+			.tc-badge-label-text,
+			.tc-badge-label-text-with-categ,
+			.tc-badge-label-icon {
+				color: $lochmara;
 			}
 		}
 	}
 
 	&-disabled {
 		.tc-badge-button {
-			background-color: $gallery;
-
-			svg,
-			.tc-badge-label,
-			.tc-badge-category {
-				color: $silver;
-			}
-
-			.tc-badge-category {
-				background-color: $concrete;
-			}
-
-			& + span {
-				display: flex;
-			}
+			opacity: $tc-badge-disabled-opacity;
 		}
 	}
 
-	.tc-badge-delete-icon {
-		position: relative;
-		margin: auto;
-		height: $tc-badge-height - 2 * $tc-badge-vertical-padding;
-		padding: 0;
-		background: transparent;
-		box-shadow: none;
-		left: -$padding-large;
+	&--valid {
+		@include colored-badge(tint($rio-grande, 70%), shade($rio-grande, 30%));
+	}
 
-		svg {
-			display: block;
-			margin: 0;
-			height: $tc-badge-delete-icon-size;
-			width: $tc-badge-delete-icon-size;
+	&--invalid {
+		@include colored-badge(tint($chestnut-rose, 70%), shade($chestnut-rose, 30%));
+	}
+
+	&--empty {
+		@include colored-badge($alto, $dove-gray);
+	}
+
+	&--pattern {
+		@include colored-badge(tint($jaffa, 70%), shade($jaffa, 30%));
+	}
+
+	&--value {
+		@include colored-badge(tint($lochmara, 70%), shade($lochmara, 30%));
+	}
+
+	&-dropdown {
+		.tc-badge-button {
+			&:not(.tc-badge-disabled) {
+				&:global(.ally-focus-within) {
+					border-color: $lochmara;
+				}
+			}
 		}
 	}
 }

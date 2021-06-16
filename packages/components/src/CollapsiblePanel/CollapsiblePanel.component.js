@@ -1,21 +1,21 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { OverlayTrigger, Panel, Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
-import Icon from './../Icon/Icon.component';
-import { Status, getbsStyleFromStatus } from '../Status';
-import TooltipTrigger from './../TooltipTrigger';
-import getDefaultT from '../translate';
+import ActionIconToggle from '../Actions/ActionIconToggle';
+import Status from '../Status';
+import Tag from '../Tag';
+import TooltipTrigger from '../TooltipTrigger';
 
 import css from './CollapsiblePanel.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-export const TYPE_STATUS = 'status';
-export const TYPE_ACTION = 'action';
-export const TYPE_BADGE = 'badge';
+const TYPE_STATUS = 'status';
+const TYPE_ACTION = 'action';
+const TYPE_BADGE = 'badge';
 
 function getActionHandler(func, item) {
 	return function actionHandler(e) {
@@ -41,8 +41,10 @@ const actionPropTypes = {
 const simplePropTypes = {
 	displayMode: PropTypes.oneOf(displayModes),
 	className: PropTypes.string,
+	element: PropTypes.element,
 	label: PropTypes.string,
 	bsStyle: PropTypes.string,
+	tooltipLabel: OverlayTrigger.propTypes.label,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
 
@@ -50,10 +52,12 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 	switch (displayMode) {
 		case TYPE_STATUS: {
 			const { actions, ...restStatus } = headerItem;
-			const statusActions = actions.map(action => ({
-				...action,
-				onClick: getActionHandler(action.onClick, headerItem),
-			}));
+			const statusActions =
+				actions &&
+				actions.map(action => ({
+					...action,
+					onClick: getActionHandler(action.onClick, headerItem),
+				}));
 			return (
 				<Status key={key} actions={statusActions} {...restStatus} className={css[className]} />
 			);
@@ -70,22 +74,26 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			);
 		}
 		case TYPE_BADGE: {
-			const { label, tooltipPlacement, ...rest } = headerItem;
+			const { label, tooltipLabel, tooltipPlacement, ...rest } = headerItem;
 			return (
-				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
-					<Label {...rest} className={css[className]}>
+				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+					<Tag {...rest} className={css[className]}>
 						{label}
-					</Label>
+					</Tag>
 				</TooltipTrigger>
 			);
 		}
 		default: {
-			const { label, tooltipPlacement } = headerItem;
-			return (
-				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
-					<span className={css[className]}>{label}</span>
-				</TooltipTrigger>
-			);
+			const { element, label, tooltipLabel, tooltipPlacement } = headerItem;
+			const labelExist = tooltipLabel || label;
+			if (labelExist) {
+				return (
+					<TooltipTrigger key={key} label={labelExist} tooltipPlacement={tooltipPlacement}>
+						<div className={css[className]}>{element || label}</div>
+					</TooltipTrigger>
+				);
+			}
+			return <div className={css[className]}>{element || label}</div>;
 		}
 	}
 }
@@ -103,20 +111,22 @@ renderHeaderItem.propTypes = PropTypes.oneOfType([
 ]);
 
 function CollapsiblePanelHeader(props) {
-	const { header, content, onSelect, onToggle, expanded, t } = props;
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const { header, content, id, onSelect, onToggle, expanded, dataFeature } = props;
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
-		if (Array.isArray(headerItem)) {
-			const elements = headerItem.map(renderHeaderItem);
-			return (
-				<div key={index} className={classNames(css.group, css[headerColumnClass])}>
-					{elements}
-				</div>
-			);
-		}
+		const isHeaderItemArray = Array.isArray(headerItem);
+		const elements = isHeaderItemArray
+			? headerItem.map(renderHeaderItem)
+			: renderHeaderItem(headerItem);
+
+		const selectors = isHeaderItemArray
+			? classNames(css.group, css[headerColumnClass])
+			: classNames(css[headerItem.className], css[headerColumnClass]);
+
 		return (
-			<div key={index} className={classNames(css[headerItem.className], css[headerColumnClass])}>
-				{renderHeaderItem(headerItem)}
+			<div key={index} className={selectors}>
+				{elements}
 			</div>
 		);
 	});
@@ -125,15 +135,16 @@ function CollapsiblePanelHeader(props) {
 	const wrappedHeader = [
 		onSelect ? (
 			<Button
-				className={classNames(css['panel-title'], 'panel-title')}
+				className={classNames(css['panel-title'])}
 				bsStyle="link"
-				key={1}
+				key="panel-toggle"
 				onClick={onSelect}
 			>
-				<div className={classNames(css['panel-title'], 'panel-title')}>{headerItems}</div>
+				<div className={classNames(css['panel-title'])}>{headerItems}</div>
 			</Button>
 		) : (
-			<div className={classNames(css['panel-title'], 'panel-title')} key={1}>
+			/* eslint-disable jsx-a11y/no-static-element-interactions */
+			<div className={classNames(css['panel-title'])} key="panel-toggle" onClick={onToggle}>
 				{headerItems}
 			</div>
 		),
@@ -145,19 +156,27 @@ function CollapsiblePanelHeader(props) {
 			: t('COLLAPSIBLE_PANEL_EXPAND', { defaultValue: 'Expand panel' });
 
 		const defaultCaret = (
-			<Button
+			<ActionIconToggle
+				key={`collapse_header_${id}`}
+				aria-expanded={expanded}
 				className={classNames(css.toggle, 'toggle')}
-				bsStyle="link"
-				key={2}
 				onClick={onToggle}
-				title={caretText}
-			>
-				<Icon key={header.length} name="talend-caret-down" />
-			</Button>
+				id={id && `${id}__collapse`}
+				label={caretText}
+				type="button"
+				active={expanded}
+				icon="talend-caret-down"
+				iconTransform={expanded ? 'flip-vertical' : null}
+				data-feature={dataFeature}
+			/>
 		);
 		wrappedHeader.push(defaultCaret);
 	}
-	return <div className={classNames(css['panel-heading'], 'panel-heading')}>{wrappedHeader}</div>;
+	return (
+		<div className={classNames(css['panel-header-content'], 'panel-header-content')}>
+			{wrappedHeader}
+		</div>
+	);
 }
 
 function getKeyValueContent(content) {
@@ -165,7 +184,7 @@ function getKeyValueContent(content) {
 		<dl className={css.content}>
 			{content.map((item, index) => [
 				<dt className={css.label} key={`${index}_label`}>
-					<Label>{item.label}</Label>
+					<Tag>{item.label}</Tag>
 				</dt>,
 				<dd className={css.description} key={`${index}_desc`}>
 					{item.description}
@@ -180,9 +199,13 @@ function getTextualContent(content) {
 		<div className={css.content}>
 			<div className={css.head}>
 				{content.head.map((item, index) => {
-					const { label, tooltipPlacement, className } = item;
+					const { label, tooltipPlacement, tooltipLabel, className } = item;
 					return (
-						<TooltipTrigger key={index} label={label} tooltipPlacement={tooltipPlacement}>
+						<TooltipTrigger
+							key={index}
+							label={tooltipLabel || label}
+							tooltipPlacement={tooltipPlacement}
+						>
 							<span className={className}>{label}</span>
 						</TooltipTrigger>
 					);
@@ -195,29 +218,13 @@ function getTextualContent(content) {
 	);
 }
 
-/**
- * Show collapsible panels
- * @example
- *
- * @param header required, an array gathering the header elements except the caret
- * @param onSelect optional, on header click callback function
- * @param onToggle optional, on caret click callback function
- * @param expanded optional, defines if the panel should be expanded or not
- * @param theme optional, defines the theme of the collapsible, there is a default theme
- * @param status optional, defines the status of the panel
- * @param content optional, defines the content of the panel's body:
- * if content is an array a key value content list is rendered otherwise it is a textual content
- *
- * @example
- * <CollapsiblePanel {...props} />
- */
 function CollapsiblePanel(props) {
-	const { content, status, expanded, theme } = props;
+	const { content, id, onToggle, status, expanded, theme, onEntered, onExited } = props;
 	const className = classNames('panel panel-default', css['tc-collapsible-panel'], {
 		[css['default-panel']]: !theme,
 		[css[theme]]: !!theme,
 		[css.open]: expanded,
-		[css[getbsStyleFromStatus(status) || status]]: !!status,
+		[css[Status.getBsStyleFromStatus(status) || status]]: !!status,
 		status,
 	});
 
@@ -226,23 +233,30 @@ function CollapsiblePanel(props) {
 		children = Array.isArray(content) ? getKeyValueContent(content) : getTextualContent(content);
 	}
 	return (
-		<div className={className}>
-			<CollapsiblePanelHeader {...props} />
-			<Panel collapsible={!!content || !!props.children} expanded={expanded}>
-				{children}
-				{props.children}
-			</Panel>
-		</div>
+		<Panel id={id} className={className} expanded={expanded} onToggle={onToggle}>
+			<Panel.Heading>
+				<Panel.Title toggle={(content || props.children) && !onToggle}>
+					<CollapsiblePanelHeader {...props} />
+				</Panel.Title>
+			</Panel.Heading>
+			<Panel.Collapse onEntered={onEntered} onExited={onExited}>
+				<Panel.Body>
+					{children}
+					{props.children}
+				</Panel.Body>
+			</Panel.Collapse>
+		</Panel>
 	);
 }
 
 CollapsiblePanel.displayName = 'CollapsiblePanel';
-CollapsiblePanel.defaultProps = {
-	t: getDefaultT(),
-};
 
 if (process.env.NODE_ENV !== 'production') {
 	CollapsiblePanelHeader.propTypes = {
+		/** Content of the panel body
+		 *  If content is an array a key value content list is rendered
+		 *  otherwise it is a textual content
+		 */
 		content: PropTypes.oneOfType([
 			PropTypes.arrayOf(
 				PropTypes.shape({
@@ -255,18 +269,25 @@ if (process.env.NODE_ENV !== 'production') {
 				description: PropTypes.string,
 			}),
 		]),
+		/** Expanded state for controlled panel */
 		expanded: PropTypes.bool,
+		/** Header elements */
 		header: PropTypes.arrayOf(renderHeaderItem.propTypes).isRequired,
+		id: PropTypes.string.isRequired,
+		/** Header click callback function */
 		onSelect: PropTypes.func,
+		/** Caret click callback function, needed for controlled panel */
 		onToggle: PropTypes.func,
-		t: PropTypes.func.isRequired,
 	};
 
 	CollapsiblePanel.propTypes = {
 		...CollapsiblePanelHeader.propTypes,
+		/** Apply a status style */
 		status: PropTypes.string,
+		/** Styling theme to apply */
 		theme: PropTypes.string,
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CollapsiblePanel);
+CollapsiblePanel.displayModes = { TYPE_STATUS, TYPE_ACTION, TYPE_BADGE };
+export default CollapsiblePanel;

@@ -17,6 +17,18 @@ describe('Slider component snaps', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
+		it('should render a range', () => {
+			// given
+			const props = {
+				id: 'selectable',
+				value: [10, 25],
+			};
+			// when
+			const wrapper = shallow(<Slider {...props} />);
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
 		it('should render Slider with icons on status', () => {
 			// given
 			const props = {
@@ -49,6 +61,72 @@ describe('Slider component snaps', () => {
 			};
 			// when
 			const wrapper = shallow(<Slider {...props} />);
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+		it('should render Slider with captionActions', () => {
+			// given
+			const actions = [
+				{
+					id: 'icon1',
+					label: 'Click Me',
+					icon: 'talend-smiley-angry',
+					'data-feature': 'action',
+					link: true,
+					hideLabel: true,
+				},
+				{
+					id: 'icon2',
+					label: 'Click Me',
+					icon: 'talend-smiley-neutral',
+					'data-feature': 'action',
+					link: true,
+					hideLabel: true,
+				},
+				{
+					id: 'icon3',
+					label: 'Click Me',
+					icon: 'talend-smiley-satisfied',
+					'data-feature': 'action',
+					link: true,
+					hideLabel: true,
+				},
+			];
+			// when
+			const wrapper = shallow(<Slider captionActions={actions} value={76} />);
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+		it('should render Slider disabled', () => {
+			// given
+			const actions = [
+				{
+					id: 'icon1',
+					label: 'Click Me',
+					icon: 'talend-smiley-angry',
+					'data-feature': 'action',
+					link: true,
+					hideLabel: true,
+				},
+				{
+					id: 'icon2',
+					label: 'Click Me',
+					icon: 'talend-smiley-neutral',
+					'data-feature': 'action',
+					link: true,
+					hideLabel: true,
+				},
+				{
+					id: 'icon3',
+					label: 'Click Me',
+					icon: 'talend-smiley-satisfied',
+					'data-feature': 'action',
+					link: true,
+					hideLabel: true,
+				},
+			];
+			// when
+			const wrapper = shallow(<Slider captionActions={actions} value={76} disabled />);
 			// then
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeHeader should render a simple tree header 1`] = `
+<div
+  className="theme-tc-tree-header tc-tree-header"
+>
+  myTitle
+  <div
+    className="theme-tc-tree-header-actions tc-tree-header-actions"
+  />
+</div>
+`;
+
+exports[`TreeHeader should render other actions 1`] = `
+<div
+  className="theme-tc-tree-header tc-tree-header"
+>
+  myTitle
+  <div
+    className="theme-tc-tree-header-actions tc-tree-header-actions"
+  />
+  <div>
+    MyOtherActions
+  </div>
+</div>
+`;
+
+exports[`TreeHeader should render with the collapse button 1`] = `
+<div
+  className="theme-tc-tree-header tc-tree-header"
+>
+  myTitle
+  <div
+    className="theme-tc-tree-header-actions tc-tree-header-actions"
+  >
+    <Action
+      className="theme-tc-tree-header-actions-icon tc-tree-header-actions-icon"
+      hideLabel={true}
+      icon="talend-minus-circle"
+      id="CollapseAllRecords"
+      link={true}
+      onClick={[MockFunction]}
+      tooltipLabel="Close all"
+    />
+  </div>
+</div>
+`;
+
+exports[`TreeHeader should render with the expand button 1`] = `
+<div
+  className="theme-tc-tree-header tc-tree-header"
+>
+  myTitle
+  <div
+    className="theme-tc-tree-header-actions tc-tree-header-actions"
+  >
+    <Action
+      className="theme-tc-tree-header-actions-icon tc-tree-header-actions-icon"
+      hideLabel={true}
+      icon="talend-table"
+      id="ExpandAllRecords"
+      link={true}
+      onClick={[MockFunction]}
+      tooltipLabel="Expand all"
+    />
+  </div>
+</div>
+`;

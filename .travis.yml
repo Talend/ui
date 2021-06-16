@@ -19,56 +19,47 @@ matrix:
   fast_finish: true
   include:
     - language: node_js
-      env: NAME=test_react_15 REACT_VERSION="^15.6.2"
-      node_js:
-        - '8'
-      before_install:
-        # this install is necessary to get version.js dependencies
-        - npm install commander
-        - ./versions/version.js
-      script:
-        - yarn test
-
-    - language: node_js
       env: NAME=test_react_16 REACT_VERSION="^16.0.0"
       node_js:
-        - '10'
+        - '14'
       script:
         - yarn test
 
     - language: node_js
       node_js:
-        - '10'
+        - '14'
       env: NAME=analysis
       before_script:
-        - yarn global add prettier
+        - yarn global add prettier@2.0.4
         - .travis/before_script_icons.sh
       script:
+        - git branch
         - yarn install
+        - yarn install-router
       after_success:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Analysis skipped."; travis_terminate 0; fi
-        - yarn audit
         - .travis/after_success_prettier.sh
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
 
-    - language: java
-      jdk: oraclejdk8
-      env:
-        - NAME=demo NODE_VERSION=8 CC=clang CXX=clang++
-      before_install:
-        - nvm install $NODE_VERSION
+    - language: node_js
+      node_js:
+        - '14'
+      env: NAME=demo
       before_script:
         - yarn global add surge
-        - yarn install
-        - yarn test:demo
+      script:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
+        - yarn install
+        - yarn prepublishOnly
+        - yarn test:demo
+        - cd packages/cmf-router && yarn install && yarn prepublishOnly && cd "$TRAVIS_BUILD_DIR"
         - .travis/after_success_static.sh
+        - .travis/after_success_umd.sh
         - .travis/after_success_demo.sh
         - .travis/after_success_deploy.sh
-      script:
-        - .travis/after_success_e2e.sh
 
 branches:
   only:
     - master
+    - jsomsanith/chore/6_0

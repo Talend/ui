@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModelViewer should render the ModelViewer 1`] = `
+<div
+  className="theme-tc-model tc-model"
+>
+  <withI18nextTranslation(TreeHeader)
+    t={[Function]}
+    title="Data Model"
+  />
+  <Tree
+    index={0}
+    jsonpath="$"
+    level={0}
+    noRoot={true}
+    type="array"
+    withNodeBorder={true}
+  />
+</div>
+`;

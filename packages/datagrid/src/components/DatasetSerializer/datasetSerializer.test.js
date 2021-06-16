@@ -1,6 +1,8 @@
 import Immutable, { fromJS } from 'immutable';
+import omit from 'lodash/omit';
+import cloneDeep from 'lodash/cloneDeep';
 
-import { QUALITY_KEY } from '../../constants/';
+import { QUALITY_KEY } from '../../constants';
 import {
 	convertSample,
 	getCellValue,
@@ -44,7 +46,6 @@ const sample = {
 			},
 			{
 				name: 'field1',
-				doc: 'Code UIC',
 				type: {
 					'@talend-quality@': {
 						0: 0,
@@ -159,6 +160,37 @@ const sample = {
 	},
 };
 
+const sampleArrayStringType = {
+	schema: {
+		type: 'record',
+		name: 'StringArrayRecord',
+		fields: [
+			{
+				name: 'field1',
+				doc: 'Nom de la gare',
+				type: ['null', 'int'],
+			},
+		],
+	},
+	data: [
+		{
+			value: {
+				field1: {
+					value: '9560',
+					quality: 1,
+				},
+			},
+			quality: 1,
+		},
+	],
+	encoding: 'JSON',
+	'@talend-quality@': {
+		0: 30,
+		1: 62,
+		'-1': 7,
+	},
+};
+
 describe('#getColumnDefs', () => {
 	it('should returns the columns definitions', () => {
 		const columnDefs = getColumnDefs(sample);
@@ -178,10 +210,30 @@ describe('#getColumnDefs', () => {
 		expect(columnDefs).toEqual([]);
 	});
 
+	it('should remove the sub type', () => {
+		const columnDefs = getColumnDefs(sample, { hideSubType: true });
+
+		expect(columnDefs[0].type).toBe('');
+		expect(columnDefs[1].type).toBe('');
+	});
+
 	it('should returns the columns definitions with optional', () => {
 		const columnDefs = getColumnDefs(sample);
 
 		expect(columnDefs).toMatchSnapshot();
+	});
+
+	it('should returns the columns definitions with array string', () => {
+		const columnDefs = getColumnDefs(sampleArrayStringType);
+
+		expect(columnDefs).toEqual([
+			{
+				avro: { doc: 'Nom de la gare', name: 'field1', type: { type: 'int' } },
+				field: 'data.field1',
+				headerName: 'Nom de la gare',
+				type: 'int',
+			},
+		]);
 	});
 });
 
@@ -208,6 +260,22 @@ describe('#getRowData', () => {
 		const rowData = getRowData();
 
 		expect(rowData).toEqual([]);
+	});
+
+	it('should return the loaded state', () => {
+		const clonedSample = cloneDeep(sample);
+		clonedSample.data[0].loaded = false;
+		const rowData = getRowData(clonedSample);
+
+		expect(rowData[0].loaded).toBe(false);
+	});
+
+	it('should return the loaded state', () => {
+		const clonedSample = cloneDeep(sample);
+		clonedSample.data[0].loaded = true;
+		const rowData = getRowData(clonedSample);
+
+		expect(rowData[0].loaded).toBe(true);
 	});
 });
 
@@ -246,6 +314,13 @@ describe('#getTypeValue', () => {
 	});
 	it('should return the dqType', () => {
 		expect(getTypeValue({ type: 'hello', dqType: 'world' }, true)).toEqual('world');
+	});
+
+	it('should return the type with a star (type is string)', () => {
+		expect(getTypeValue('string')).toEqual('string*');
+	});
+	it('should return the optional type (type is string)', () => {
+		expect(getTypeValue('string', true)).toEqual('string');
 	});
 });
 
@@ -369,8 +444,18 @@ describe('getQuality', () => {
 });
 
 describe('getFieldQuality', () => {
-	it('should enrich the quality', () => {
-		expect(getFieldQuality(sample.schema.fields[0][QUALITY_KEY])).toMatchSnapshot();
+	it('should compute quality metrics if there are quality values', () => {
+		expect(getFieldQuality(sample.schema.fields[0].type)).toEqual({
+			'@talend-quality@': {
+				'-1': { percentage: 62, total: 62 },
+				0: { percentage: 0, total: 0 },
+				1: { percentage: 38, total: 38 },
+			},
+		});
+	});
+
+	it('should return if there are no quality metrics', () => {
+		expect(getFieldQuality(omit(sample.schema.fields[0].type, QUALITY_KEY))).toEqual({});
 	});
 });
 
@@ -395,7 +480,11 @@ describe('convertSample', () => {
 				name: 'field0',
 				doc: 'Nom de la gare',
 				type: [
-					'null',
+					{
+						type: 'null',
+						dqType: '',
+						dqTypeKey: '',
+					},
 					{
 						type: 'string',
 						dqType: 'FR Commune',

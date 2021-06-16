@@ -1,44 +1,44 @@
 const path = require('path');
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-const extractFonts = new ExtractTextPlugin({
-	filename: 'talend-icons-webfont.css',
-	allChunks: true,
-});
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+	mode: 'production',
 	context: path.resolve(__dirname),
 	entry: './index.js',
 	output: {
 		filename: 'bundle.js',
-		path: path.join(__dirname, 'dist')
+		path: path.join(__dirname, 'dist'),
 	},
 	module: {
 		rules: [
 			{
-				test: /\.font\.(js|json)$/,
-				loader: extractFonts.extract({
-					fallback: 'style-loader',
-					use: [
-						{
-							loader: 'css-loader',
+				test: /\.font\.(js)$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						// The replacer is used to create relative local paths instead of paths relative
+						// to publicPath, because it makes it processable by webpack.
+						loader: 'string-replace-loader',
+						options: {
+							search: /url\(\\"\//g, // The CSS output by css-loader is stringified, so the quotes are escaped
+							replace: 'url(\\"./'
 						},
-						{
-							loader: 'fontgen-loader',
-						}
-					],
-				}),
-			}, {
+					},
+					'css-loader',
+					'webfonts-loader'
+				],
+			},
+			{
 				test: /\.(woff|eot|ttf|svg)$/,
-				loader: 'url-loader'
-			}
-		]
+				loader: 'url-loader',
+			},
+		],
 	},
 	plugins: [
-		extractFonts,
+		new MiniCssExtractPlugin({ filename: 'talend-icons-webfont.css' }),
 	],
 	node: {
-		fs: 'empty'
-	}
+		fs: 'empty',
+	},
 };

@@ -1,12 +1,15 @@
 {
   "name": "@talend/react-storybook-cmf",
   "description": "react-storybook-cmf library.",
-  "version": "0.210.0-0",
+  "version": "6.29.0",
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/jmfrancois/react-storybook-cmf"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "react",
@@ -14,63 +17,35 @@
     "addon"
   ],
   "scripts": {
-    "prepublish": "babel -d lib ./src/",
-    "lint": "eslint --config ../../.eslintrc src",
-    "test": "jest",
-    "test:demo": "echo nothing to demo"
+    "prepublishOnly": "echo nothing to prepublishOnly",
+    "prepare": "talend-scripts build:lib",
+    "test": "talend-scripts test",
+    "test:demo": "echo nothing to demo",
+    "lint:es": "talend-scripts lint:es"
   },
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "devDependencies": {
-    "@storybook/react": "^3.3.14",
-    "@talend/react-cmf": "^0.210.0-0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "8.0.1",
-    "babel-jest": "20.0.3",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "classnames": "2.2.5",
-    "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "1.0.0",
-    "eslint": "^3.6.1",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "immutable": "3.8.1",
-    "invariant": "2.2.2",
-    "jest": "20.0.3",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
-    "react-redux": "5.0.5",
-    "react-router": "3.2.0",
-    "react-router-redux": "4.0.8",
-    "react-test-renderer": "^15.6.2",
-    "redux": "3.6.0",
-    "redux-batched-actions": "0.2.0",
-    "redux-saga": "0.15.4",
-    "redux-thunk": "2.2.0",
-    "webpack": "3.8.1"
+    "@storybook/react": "^5.3.1",
+    "@talend/react-cmf": "^6.29.0",
+    "@talend/scripts-core": "^9.4.1",
+    "@talend/scripts-preset-react-lib": "^9.4.1",
+    "enzyme": "^3.11.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^5.0.7",
+    "redux-saga": "^0.15.4"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^3.3.14",
-    "@storybook/addon-info": "^3.3.14",
-    "@storybook/addons": "^3.3.14",
-    "prop-types": "15.5.10"
+    "@storybook/addon-actions": "^5.3.1",
+    "@storybook/addons": "^5.3.1",
+    "prop-types": "^15.5.10"
   },
   "peerDependencies": {
-    "@kadira/storybook": "^2",
-    "@talend/react-cmf": "^0.210.0-0"
-  },
-  "jest": {
-    "transform": {
-      ".*": "<rootDir>/../../node_modules/babel-jest"
-    },
-    "roots": [
-      "src"
-    ],
-    "testRegex": "&*\\.test\\.js$",
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "@storybook/react": "^5.3.1",
+    "@talend/react-cmf": "^6.0.0",
+    "react": "^16.8.6",
+    "react-redux": "^5.0.7",
+    "redux-saga": "^0.15.4"
   }
 }

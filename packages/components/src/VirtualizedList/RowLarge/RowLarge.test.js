@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import RowLarge from './RowLarge.component';
-import VirtualizedList from '../VirtualizedList.component';
+import VirtualizedList from '..';
 import CellTitle from '../CellTitle';
 
 const titleProps = {
@@ -67,13 +67,22 @@ const parent = {
 };
 
 describe('RowLarge', () => {
+	const random = Math.random();
+
+	beforeAll(() => {
+		Math.random = () => 0.5;
+	});
+
+	afterAll(() => {
+		Math.random = random;
+	});
+
 	it('should render large row', () => {
 		// when
 		const wrapper = shallow(
 			<RowLarge
-				className={'my-class-names'}
+				className="my-class-names"
 				index={1}
-				key={18}
 				parent={parent}
 				style={{ background: 'red' }}
 			/>,
@@ -81,5 +90,22 @@ describe('RowLarge', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render RandomSizeSkeleton with empty data', () => {
+		// given
+		const noDataParent = {
+			...parent,
+			props: {
+				...parent.props,
+				rowGetter: () => ({}),
+			},
+		};
+
+		// when
+		const wrapper = mount(<RowLarge className="my-class-names" index={1} parent={noDataParent} />);
+
+		// then 3 columns on one line
+		expect(wrapper.find('RandomSizeSkeleton').length).toBe(3);
 	});
 });

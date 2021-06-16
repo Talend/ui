@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -52,7 +52,7 @@ class ListViewWidget extends React.Component {
 	 * @param { Object } schema The new mergedSchema
 	 * @param { Array } value The new value
 	 */
-	componentWillReceiveProps({ schema, value }) {
+	UNSAFE_componentWillReceiveProps({ schema, value }) {
 		if (schema !== this.props.schema) {
 			this.setState(oldState =>
 				initItems(schema, value, oldState.searchCriteria, this.onToggleItem.bind(this)),
@@ -82,7 +82,7 @@ class ListViewWidget extends React.Component {
 	onInputChange(event, { value }) {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
-			this.setState(getItemsProps(this.state.items, value));
+			this.setState(oldState => getItemsProps(oldState.items, value));
 		}, 400);
 	}
 
@@ -145,7 +145,10 @@ class ListViewWidget extends React.Component {
 			checkedItems = this.state.items;
 		}
 
-		this.onChange(event, checkedItems.map(item => item.value));
+		this.onChange(
+			event,
+			checkedItems.map(item => item.value),
+		);
 	}
 
 	/**
@@ -183,6 +186,7 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				required={this.props.schema.required}
+				valueIsUpdating={this.props.valueIsUpdating}
 			>
 				<ListView
 					{...this.state}
@@ -221,10 +225,11 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
 	};
 }
 
 export { ListViewWidget };
 
-export default translate(I18N_DOMAIN_FORMS)(ListViewWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(ListViewWidget);

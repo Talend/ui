@@ -2,49 +2,108 @@
 @import '../../shared/styles/variables';
 
 .container {
-	@include main;
-	display: flex;
-	height: 100%;
-	flex-direction: column;
-}
-
-.calendar-row {
-	display: flex;
-}
-
-.calendar-item {
-	display: flex;
-	flex: 1;
-	justify-content: center;
-	align-content: center;
+	width: 100%;
+	position: relative;
 }
 
 .calendar-header {
-	.calendar-row {
-		color: $gray;
+	&:after {
+		@include picker-underline;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 2.3rem;
+	}
 
-		abbr[title] {
-			font-variant: none;
-			border: none;
-			text-decoration: none;
-		}
+	th {
+		text-align: center;
+		padding-bottom: $padding-small;
+	}
+
+	abbr {
+		border: none;
+		font-weight: normal;
+		text-decoration: none;
 	}
 }
 
-.separator {
-	width: calc(100% - 2rem);
-	border: none;
-	border-bottom: $border-default;
-	margin: 0 auto;
-}
+.calendar-row {
+	height: 3.6rem;
+	text-align: center;
 
-.calendar-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	flex: 1;
+	.date-range {
+		position: relative;
 
-	.calendar-row {
-		flex: 1;
+		&.range-end:after,
+		&.range-start:before,
+		&.range-start:after,
+		&.range-middle:after,
+		&.range-end:before,
+		&.range-middle:before {
+			content: ' ';
+			position: absolute;
+			height: 2.5rem;
+			z-index: -1;
+			background-color: tint($lochmara, 80%);
+		}
+
+		&.range-end:after {
+			width: 2.4rem;
+			left: 0.65rem;
+			border-top-right-radius: 50%;
+			border-bottom-right-radius: 50%;
+		}
+
+		&.range-start:before {
+			width: 2.4rem;
+			right: 0.65rem;
+			border-top-left-radius: 50%;
+			border-bottom-left-radius: 50%;
+		}
+
+		&.range-start,
+		&.range-middle {
+			&:after {
+				width: 50%;
+				right: 0;
+			}
+		}
+		&.range-end,
+		&.range-middle {
+			&:before {
+				width: 50%;
+				left: 0;
+			}
+		}
+	}
+
+	.calendar-day {
+		&.today {
+			background-color: tint($lochmara, 90%);
+			color: $lochmara;
+			border: solid 1px $lochmara;
+		}
+
+		@include picker-action;
+
+		height: 2.4rem;
+		width: 2.4rem;
+		background: transparent;
+		border: none;
+		border-radius: 50%;
+		line-height: 2.4rem;
+		padding: 0;
+
+		&.not-current-month {
+			opacity: 0.54;
+		}
+
+		&.range:hover {
+			background-color: tint($lochmara, 70%);
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+		}
 	}
 }

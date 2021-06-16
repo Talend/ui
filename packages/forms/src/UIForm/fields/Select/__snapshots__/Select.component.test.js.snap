@@ -3,6 +3,8 @@
 exports[`Select field should render disabled input 1`] = `
 <FieldTemplate
   description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}
@@ -25,6 +27,7 @@ exports[`Select field should render disabled input 1`] = `
   >
     <option
       disabled={true}
+      value=""
     >
       Please select a value
     </option>
@@ -50,6 +53,8 @@ exports[`Select field should render disabled input 1`] = `
 exports[`Select field should render readOnly input 1`] = `
 <FieldTemplate
   description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}
@@ -63,7 +68,6 @@ exports[`Select field should render readOnly input 1`] = `
     aria-required={true}
     autoFocus={true}
     className="form-control"
-    disabled={false}
     id="mySelect"
     multiple={false}
     onChange={[Function]}
@@ -72,6 +76,7 @@ exports[`Select field should render readOnly input 1`] = `
   >
     <option
       disabled={true}
+      value=""
     >
       Please select a value
     </option>
@@ -97,6 +102,8 @@ exports[`Select field should render readOnly input 1`] = `
 exports[`Select field should render select multiple 1`] = `
 <FieldTemplate
   description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}
@@ -110,7 +117,6 @@ exports[`Select field should render select multiple 1`] = `
     aria-required={true}
     autoFocus={true}
     className="form-control"
-    disabled={false}
     id="mySelect"
     multiple={true}
     onChange={[Function]}
@@ -124,6 +130,7 @@ exports[`Select field should render select multiple 1`] = `
   >
     <option
       disabled={true}
+      value=""
     >
       Please select a value
     </option>
@@ -149,6 +156,8 @@ exports[`Select field should render select multiple 1`] = `
 exports[`Select field should render simple select 1`] = `
 <FieldTemplate
   description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}
@@ -162,7 +171,6 @@ exports[`Select field should render simple select 1`] = `
     aria-required={true}
     autoFocus={true}
     className="form-control"
-    disabled={false}
     id="mySelect"
     multiple={false}
     onChange={[Function]}
@@ -171,9 +179,53 @@ exports[`Select field should render simple select 1`] = `
   >
     <option
       disabled={true}
+      value=""
     >
       Please select a value
     </option>
+    <option
+      value="foo"
+    >
+      My foo title
+    </option>
+    <option
+      value="bar"
+    >
+      My bar title
+    </option>
+    <option
+      value="lol"
+    >
+      My lol title
+    </option>
+  </select>
+</FieldTemplate>
+`;
+
+exports[`Select field should render simple select without placeholder 1`] = `
+<FieldTemplate
+  description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
+  required={true}
+>
+  <select
+    aria-describedby="mySelect-description mySelect-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="mySelect"
+    multiple={false}
+    onChange={[Function]}
+    readOnly={false}
+    value="lol"
+  >
     <option
       value="foo"
     >

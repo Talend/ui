@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
-import { CircularProgress } from '@talend/react-components';
+import AppLoader from '@talend/react-components/lib/AppLoader';
 
 export const REDIRECT_ACTION_TYPE = 'REDIRECT';
 
@@ -10,29 +10,28 @@ export const REDIRECT_ACTION_TYPE = 'REDIRECT';
  * @example
 <Redirect name="Hello world"></Redirect>
  */
-export function RedirectContainer({ path, to }, context) {
-	context.store.dispatch({
+function Redirect({ path, to, dispatch, componentId }) {
+	dispatch({
 		type: REDIRECT_ACTION_TYPE,
+		componentId,
 		cmf: {
 			routerReplace: to || path,
 		},
 	});
-	return (
-		<div>
-			<CircularProgress />
-			Redirect ...
-		</div>
-	);
+	return <AppLoader />;
 }
 
-RedirectContainer.propTypes = {
+Redirect.propTypes = {
 	path: PropTypes.string,
 	to: PropTypes.string,
-};
-RedirectContainer.contextTypes = {
-	store: PropTypes.object.isRequired,
+	dispatch: PropTypes.func,
+	componentId: PropTypes.string,
 };
 
-RedirectContainer.displayName = 'RedirectContainer';
+Redirect.displayName = 'Redirect';
 
-export default cmfConnect({})(RedirectContainer);
+export default cmfConnect({
+	omitCMFProps: true,
+	withDispatch: true,
+	withComponentId: true,
+})(Redirect);

@@ -5,13 +5,35 @@ import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
+import isEmpty from 'lodash/isEmpty';
 
 import getRowSelectionRenderer from '../RowSelection';
 import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
+import Skeleton from '../../Skeleton';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
+
+function SkeletonRow({ columns }) {
+	return columns.map(column => (
+		<div key={column.key} {...column.props}>
+			<Skeleton type="text" size="xlarge" />
+		</div>
+	));
+}
+
+function ListTableRowRenderer(props) {
+	return isEmpty(props.rowData) ? (
+		<DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
+	) : (
+		<DefaultTableRowRenderer {...props} />
+	);
+}
+
+ListTableRowRenderer.propTypes = {
+	rowData: PropTypes.object,
+};
 
 /**
  * List renderer that renders a react-virtualized Table
@@ -22,16 +44,19 @@ function ListTable(props) {
 		id,
 		isActive,
 		isSelected,
+		getRowState,
 		onRowClick,
 		onRowDoubleClick,
+		rowCount,
 		...restProps
 	} = props;
 
-	let RowTableRenderer = DefaultTableRowRenderer;
-	if (isActive || isSelected) {
+	let RowTableRenderer = ListTableRowRenderer;
+	if (isActive || isSelected || getRowState) {
 		RowTableRenderer = getRowSelectionRenderer(RowTableRenderer, {
 			isSelected,
 			isActive,
+			getRowState,
 			getRowData: rowProps => rowProps.rowData,
 		});
 	}
@@ -43,21 +68,23 @@ function ListTable(props) {
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
 			gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
-			headerHeight={35}
+			headerHeight={40}
 			id={id}
 			onRowClick={onRowClickCallback}
 			onRowDoubleClick={onRowDoubleClickCallback}
 			rowClassName={({ index }) =>
 				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
 			}
-			rowCount={collection.length}
-			rowGetter={({ index }) => collection[index]}
+			rowCount={rowCount || collection.length}
+			rowGetter={({ index }) => collection[index] || {}}
 			rowRenderer={RowTableRenderer}
 			{...restProps}
 		/>
 	);
 }
+
 ListTable.displayName = 'VirtualizedList(ListTable)';
+
 ListTable.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
@@ -66,6 +93,7 @@ ListTable.propTypes = {
 	id: PropTypes.string,
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	getRowState: PropTypes.func,
 	noRowsRenderer: PropTypes.func,
 	onRowClick: PropTypes.func,
 	onRowDoubleClick: PropTypes.func,
@@ -74,6 +102,7 @@ ListTable.propTypes = {
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
+	rowCount: PropTypes.number,
 };
 
 ListTable.defaultProps = {

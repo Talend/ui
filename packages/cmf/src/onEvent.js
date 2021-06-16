@@ -4,7 +4,7 @@ import CONSTANT from './constant';
 
 function serializeEvent(event) {
 	if (event.persist) {
-		event.persist();
+		return {};
 	}
 	return event;
 }
@@ -28,13 +28,11 @@ function getOnEventActionCreatorHandler(instance, config, currentHandler) {
 
 function getOnEventDispatchHandler(instance, config, currentHandler) {
 	return function onEventDispatch(...args) {
-		const payload = Object.assign(
-			{
-				event: serializeEvent(args[0]),
-				data: args[1],
-			},
-			config,
-		);
+		const payload = {
+			event: serializeEvent(args[0]),
+			data: args[1],
+			...config,
+		};
 		instance.props.dispatch(payload);
 		if (currentHandler) {
 			currentHandler(...args);
@@ -100,7 +98,7 @@ function addOnEventSupport(handlerType, instance, props, key) {
 		}
 		props.toOmit.push(key);
 		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
-		const originalEventHandler = props[handlerKey];
+		const originalEventHandler = props[handlerKey] || instance.props[handlerKey];
 		// eslint-disable-next-line no-param-reassign
 		props[handlerKey] = GET_HANDLER[handlerType](
 			instance,

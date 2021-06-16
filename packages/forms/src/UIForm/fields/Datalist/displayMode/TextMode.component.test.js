@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import DatalistTextMode from './TextMode.component';
 
+jest.mock('ally.js');
+
 const schema = {
 	title: 'My List',
 	titleMap: [
@@ -14,13 +16,26 @@ const schema = {
 		type: 'string',
 	},
 };
+const schemaWithGroups = {
+	title: 'Datalist with groups',
+	type: 'string',
+	schema: {
+		type: 'string',
+	},
+	options: {
+		isMultiSection: true,
+		titleMap: [
+			{ title: 'Foo group', suggestions: [{ name: 'Foo', value: 'foo' }] },
+			{ title: 'Bar group', suggestions: [{ name: 'Bar', value: 'bar' }] },
+			{ title: 'Lol group', suggestions: [{ name: 'Lol', value: 'lol' }] },
+		],
+	},
+};
 
 describe('Datalist component in text display mode', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(
-			<DatalistTextMode.WrappedComponent id={'my-datalist'} schema={schema} value={'foo'} />,
-		);
+		const wrapper = shallow(<DatalistTextMode id="my-datalist" schema={schema} value="foo" />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -56,7 +71,7 @@ describe('Datalist component in text display mode', () => {
 		};
 
 		// when
-		wrapper = mount(<DatalistTextMode {...props} value={'foo'} />);
+		wrapper = mount(<DatalistTextMode {...props} value="foo" />);
 
 		// then
 		expect(props.onTrigger).toBeCalledWith(null, {
@@ -66,5 +81,14 @@ describe('Datalist component in text display mode', () => {
 			properties: props.properties,
 		});
 		expect(wrapper.find('dd').text()).toBe('foo (loading labels)');
+	});
+	it('should show name in text mode when have groups', () => {
+		// when
+		const wrapper = mount(
+			<DatalistTextMode id="my-datalist-with-groups" schema={schemaWithGroups} value="foo" />,
+		);
+
+		// then
+		expect(wrapper.find('dd').text()).toBe('Foo');
 	});
 });

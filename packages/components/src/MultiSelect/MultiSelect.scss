@@ -1,0 +1,31 @@
+// MultiSelect styles
+.container {
+	color: black;
+	position: relative;
+
+	// this is the overlaytrigger span
+	:global(.tc-action-button-positionned) {
+		width: 100%;
+	}
+
+	:global(.tc-list-list) {
+		padding: 0;
+	}
+}
+.clearall:global(.btn-link.btn-icon-only) {
+	position: absolute;
+	right: 20px;
+	padding: 0;
+	color: $chestnut-rose;
+}
+.caret {
+	// add this selector to force override of width defined in Icon
+	&:global(.tc-svg-icon) {
+		position: absolute;
+		color: $silver;
+		top: 10px;
+		right: 0;
+		width: 10px;
+		height: 10px;
+	}
+}

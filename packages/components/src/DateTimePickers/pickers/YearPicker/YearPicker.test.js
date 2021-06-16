@@ -1,83 +1,131 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
-import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
+import { mount, shallow } from 'enzyme';
 
 import YearPicker from './YearPicker.component';
-
-const NB_YEAR_RANGE = 300;
+import dateMock from '../../../../../../mocks/dateMock';
 
 describe('YearPicker', () => {
+	afterEach(() => {
+		dateMock.restore();
+	});
+
 	it('should render', () => {
-		mockDate(new Date(2015, 11, 31));
+		// given
+		dateMock.mock(new Date(2015, 11, 31));
 
-		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={() => {}} />);
+		// when
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={jest.fn()} />).shallow();
 
+		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
-
-		restoreDate();
-	});
-
-	it('should have the right number of years selectable', () => {
-		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
-
-		expect(wrapper.prop('items')).toHaveLength(NB_YEAR_RANGE);
-	});
-
-	it('should have the correct year range selectable', () => {
-		const todayYear = 2022;
-		mockDate(new Date(todayYear, 13, 5));
-
-		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
-
-		const firstYearExpected = todayYear - NB_YEAR_RANGE / 2 + 1;
-		const lastYearExpected = todayYear + NB_YEAR_RANGE / 2;
-
-		const items = wrapper.prop('items');
-		expect(items[0].id).toBe(firstYearExpected);
-		const lastIndex = items.length - 1;
-		expect(items[lastIndex].id).toBe(lastYearExpected);
-
-		restoreDate();
 	});
 
 	it('should default render with current year in middle when "selectedYear" prop is not provided', () => {
-		const currentYear = 2025;
-		mockDate(new Date(currentYear, 1, 20));
+		// given
+		dateMock.mock(new Date(2025, 1, 20));
 
-		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
+		// when
+		const wrapper = shallow(<YearPicker onSelect={jest.fn()} />).shallow();
 
-		expect(wrapper.prop('initialIndex')).toBe(150);
-
-		restoreDate();
-	});
-
-	it('should render with "selectedYear" prop in middle when provided', () => {
-		const todayYear = 2025;
-		const selectedYear = 2030;
-		mockDate(new Date(todayYear, 1, 20));
-
-		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={() => {}} />);
-
-		expect(wrapper.prop('initialIndex')).toBe(155);
-
-		restoreDate();
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should callback with the year picked', () => {
-		const selectedYear = 2012;
-		const yearToSelect = 2013;
-		const todayYear = 2014;
-		mockDate(new Date(todayYear, 1, 20));
-
+		// given
+		const firstSelectableYear = 2011;
+		const selectedYear = 2014;
 		const onSelect = jest.fn();
+		const wrapper = shallow(
+			<YearPicker selectedYear={selectedYear} onSelect={onSelect} />,
+		).shallow();
+		expect(onSelect).not.toBeCalled();
 
-		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={onSelect} />);
+		const event = { target: {} };
 
-		const yearItem = wrapper.prop('items').find(item => item.id === yearToSelect);
-		wrapper.prop('onSelect')(yearItem);
+		// when
+		wrapper.find('.tc-date-picker-year').at(0).simulate('click', event);
 
-		expect(onSelect).toHaveBeenCalledWith(yearToSelect);
-		restoreDate();
+		expect(onSelect).toBeCalledWith(event, firstSelectableYear);
+	});
+
+	it('should scroll up by 1 year', () => {
+		// given
+		const wrapper = mount(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2009');
+
+		// when
+		wrapper.find('button.tc-date-picker-scroll-up').simulate('click');
+
+		// then
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2008');
+	});
+
+	it('should scroll down by 1 year', () => {
+		// given
+		const wrapper = mount(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2009');
+
+		// when
+		wrapper.find('button.tc-date-picker-scroll-down').simulate('click');
+
+		// then
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2010');
+	});
+
+	it('should scroll down via mouse', () => {
+		// given
+		const wrapper = mount(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2009');
+
+		const event = { deltaY: 600.00131424, preventDefault: jest.fn() };
+
+		// when
+		wrapper.find('ol').simulate('wheel', event);
+
+		// then
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2012');
+	});
+
+	it('should scroll up via mouse', () => {
+		// given
+		const wrapper = mount(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2009');
+
+		const event = { deltaY: -600.00131424, preventDefault: jest.fn() };
+
+		// when
+		wrapper.find('ol').simulate('wheel', event);
+
+		// then
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2006');
+	});
+
+	it('should scroll slowly via mouse', () => {
+		// given
+		const wrapper = mount(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2009');
+
+		const event = { deltaY: 4.00131424, preventDefault: jest.fn() };
+
+		// when
+		wrapper.find('ol').simulate('wheel', event);
+
+		// then
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2010');
+	});
+
+	it('should scroll fastly via mouse', () => {
+		// given
+		const wrapper = mount(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2009');
+
+		const event = { deltaY: 800.00131424, preventDefault: jest.fn() };
+
+		// when
+		wrapper.find('ol').simulate('wheel', event);
+
+		// then
+		expect(wrapper.find('.tc-date-picker-year').at(0).text()).toBe('2012');
 	});
 });

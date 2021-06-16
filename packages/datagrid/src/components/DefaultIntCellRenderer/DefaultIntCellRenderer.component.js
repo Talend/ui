@@ -16,6 +16,6 @@ export default function DefaultIntCellRenderer({ data }) {
 
 DefaultIntCellRenderer.propTypes = {
 	data: PropTypes.shape({
-		value: PropTypes.string,
+		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	}),
 };

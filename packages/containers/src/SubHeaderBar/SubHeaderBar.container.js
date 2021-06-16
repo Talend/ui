@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SubHeaderBar as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/SubHeaderBar';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
@@ -50,20 +50,29 @@ class SubHeaderBar extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const hasGoBack = this.props.onGoBack || this.props.actionCreatorGoBack;
-		const props = Object.assign(
-			{},
-			omit(this.props, cmfConnect.INJECTED_PROPS),
-			{
-				onEdit: this.props.onEdit,
-				onCancel: this.props.onCancel,
-				onSubmit: this.props.onSubmit,
-				onChange: this.props.onChange,
-				onGoBack: hasGoBack && this.onGoBack,
-			},
-			{
-				...state.toJS(),
-			},
-		);
+		const { onEdit, onCancel, onSubmit, onChange } = this.props;
+		const eventHandlerProps = {};
+		if (onEdit) {
+			eventHandlerProps.onEdit = onEdit;
+		}
+		if (onCancel) {
+			eventHandlerProps.onCancel = onCancel;
+		}
+		if (onSubmit) {
+			eventHandlerProps.onSubmit = onSubmit;
+		}
+		if (onChange) {
+			eventHandlerProps.onChange = onChange;
+		}
+		if (hasGoBack) {
+			eventHandlerProps.onGoBack = this.onGoBack;
+		}
+		const props = {
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
+			...eventHandlerProps,
+			...state.toJS(),
+		};
+
 		return <Component {...props} />;
 	}
 }

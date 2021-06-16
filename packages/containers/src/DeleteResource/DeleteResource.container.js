@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
-import { ConfirmDialog } from '@talend/react-components';
-import { translate } from 'react-i18next';
+import ConfirmDialog from '@talend/react-components/lib/ConfirmDialog';
+import { Trans, withTranslation } from 'react-i18next';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
 import CONSTANTS from './constants';
@@ -25,25 +25,28 @@ function getLabel(resource) {
  */
 export class DeleteResource extends React.Component {
 	static displayName = 'Container(DeleteResource)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
-		'cancel-action': PropTypes.string.isRequired,
-		'validate-action': PropTypes.string.isRequired,
 		header: PropTypes.string,
 		uri: PropTypes.string.isRequired,
 		resourceType: PropTypes.string.isRequired,
 		resourceTypeLabel: PropTypes.string,
 		resourceId: PropTypes.string,
-		resourceUri: PropTypes.string,
 		collectionId: PropTypes.string,
 		female: PropTypes.string,
 		onCancelRedirectUrl: PropTypes.string,
+		validateActionProps: PropTypes.object,
+		t: PropTypes.func,
 	};
+
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
 		store: PropTypes.object.isRequired,
 	};
+
 	static defaultProps = {
+		validateActionProps: {},
 		t: getDefaultT(),
 	};
 
@@ -67,7 +70,6 @@ export class DeleteResource extends React.Component {
 	/**
 	 * Get the label from the collections.
 	 * Return the label and a boolean to confirm that the item has been found.
-	 * @param {object} resourceInfo
 	 */
 	getLabelInfo() {
 		return {
@@ -91,6 +93,7 @@ export class DeleteResource extends React.Component {
 			id: this.props.resourceId,
 			redirectUrl: this.props.redirectUrl,
 			onCancelRedirectUrl: this.props.onCancelRedirectUrl,
+			resource: this.props.resource,
 		};
 	}
 
@@ -102,6 +105,7 @@ export class DeleteResource extends React.Component {
 			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'REMOVE' }),
 			bsStyle: 'danger',
 			onClickActionCreator: 'DeleteResource#validate',
+			...this.props.validateActionProps,
 		};
 		const cancelAction = {
 			componentId: this.props[CONSTANTS.CANCEL_ACTION],
@@ -109,7 +113,27 @@ export class DeleteResource extends React.Component {
 			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'CANCEL' }),
 			className: 'btn-inverse',
 			onClickActionCreator: 'DeleteResource#cancel',
+			...this.props.cancelAction,
 		};
+
+		// Sorry for this duplication, but we need it because of the i18n scanner to create 2 keys
+		// DELETE_RESOURCE_MESSAGE and DELETE_RESOURCE_MESSAGE_female
+		let question;
+		const { resourceTypeLabel, label } = resourceInfo;
+		if (this.props.female) {
+			question = (
+				<Trans i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE" tOptions={{ context: 'female' }}>
+					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
+				</Trans>
+			);
+		} else {
+			question = (
+				<Trans i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE">
+					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
+				</Trans>
+			);
+		}
+
 		return (
 			<ConfirmDialog
 				show
@@ -119,19 +143,10 @@ export class DeleteResource extends React.Component {
 				getComponent={this.props.getComponent}
 				onHide={this.onHide}
 			>
-				<div>
-					{this.props.t('DELETE_RESOURCE_MESSAGE', {
-						defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
-						context: this.props.female ? 'female' : '',
-						resourceLabel: resourceInfo.resourceTypeLabel,
-					})}
-					&nbsp;
-					<strong>{resourceInfo.label}</strong>
-					{this.props.t('DELETE_RESOURCE_QUESTION_MARK', { defaultValue: '?' })}
-				</div>
+				{question}
 			</ConfirmDialog>
 		);
 	}
 }
 
-export default translate(I18N_DOMAIN_CONTAINERS)(DeleteResource);
+export default withTranslation(I18N_DOMAIN_CONTAINERS)(DeleteResource);

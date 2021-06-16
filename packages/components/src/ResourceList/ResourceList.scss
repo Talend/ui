@@ -1,0 +1,43 @@
+$tc-resource-list-margin-top: 2rem !default;
+$tc-resource-list-height: 25rem !default;
+
+.tc-resource-list {
+	:global(.tc-list-list) {
+		padding: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	:global(.tc-resource-list-toolbar) form {
+		margin-top: $padding-small;
+	}
+
+	&-items {
+		height: calc(#{$tc-resource-list-height} - #{$tc-resource-list-margin-top});
+		margin-top: $tc-resource-list-margin-top;
+
+		&.filtered {
+			:global(.flags-container) {
+				opacity: 1;
+			}
+		}
+	}
+
+	&--no-results {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+
+		&-text {
+			display: inline-flex;
+			align-items: center;
+			font-style: italic;
+			color: $gray;
+		}
+
+		&-icon {
+			margin: 0 $padding-small;
+		}
+	}
+}

@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IconsProvider } from '@talend/react-components';
+
 import api from '@talend/react-cmf';
 import Immutable from 'immutable';
-import { I18nextProvider } from 'react-i18next';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List } from '../src';
-import i18n from './config/i18n';
 
 /**
  * Cell renderer that displays hello + text
@@ -41,6 +39,7 @@ const list = {
 	columns: [
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Name' },
+		{ key: 'count', label: 'Count' },
 		{ key: 'author', label: 'Author' },
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
@@ -80,10 +79,23 @@ const actions = {
 	items: ['object:delete'],
 };
 
+const actionsWithPersistent = {
+	...actions,
+	persistentItemsActions: ['object:add'],
+};
+
+const actionsWithSeparator = {
+	items: [['object:add'], actions.items],
+	persistentItemsActions: ['object:add'],
+};
+
 const toolbar = {
 	sort: {
 		field: 'id',
-		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'label', name: 'Name' },
+		],
 	},
 	display: {
 		displayModes: ['large', 'table'],
@@ -116,6 +128,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'id1',
 		label: 'Title with actions',
+		count: 1,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
@@ -126,6 +139,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'ID2',
 		label: 'Title in input mode',
+		count: 11,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
@@ -136,6 +150,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'iD3',
 		label: 'Super long title to trigger overflow on some rendering',
+		count: 2,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
@@ -201,9 +216,22 @@ propsTimestampSorted.list.sort = sortUpdatedAsc;
 const ExampleList = {
 	default: () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List {...props} items={items} />
+			</div>
+		</div>
+	),
+	'with persistent actions': () => (
+		<div>
+			<div className="list-container">
+				<List {...props} actions={actionsWithPersistent} items={items} />
+			</div>
+		</div>
+	),
+	'with separator actions': () => (
+		<div>
+			<div className="list-container">
+				<List {...props} actions={actionsWithSeparator} items={items} />
 			</div>
 		</div>
 	),
@@ -279,7 +307,6 @@ const ExampleList = {
 		propsPg.toolbar.pagination = {};
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List {...propsPg} items={itemsPg} />
 				</div>
@@ -291,7 +318,6 @@ const ExampleList = {
 		props2.list.inProgress = true;
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List {...props2} items={items} />
 				</div>
@@ -306,7 +332,6 @@ const ExampleList = {
 		multiSelectionProps.idKey = 'id';
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List {...multiSelectionProps} items={items} />
 				</div>
@@ -315,7 +340,6 @@ const ExampleList = {
 	},
 	'no toolbar': () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List list={list} actions={actions} items={items} />
 			</div>
@@ -323,28 +347,13 @@ const ExampleList = {
 	),
 	CustomHeight: () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} />
 			</div>
 		</div>
 	),
-	i18n: () => (
-		<I18nextProvider i18n={i18n}>
-			<div>
-				<p>Change language on the toolbar</p>
-				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-				<button onClick={() => i18n.changeLanguage('it')}>it</button>
-				<IconsProvider />
-				<div className="list-container">
-					<List {...props} items={items} />
-				</div>
-			</div>
-		</I18nextProvider>
-	),
 	'sort on timestamps': () => (
 		<div>
-			<IconsProvider />
 			<div className="list-container">
 				<List
 					{...propsTimestampSorted}
@@ -361,7 +370,6 @@ const ExampleList = {
 
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List
 						virtualized
@@ -379,7 +387,6 @@ const ExampleList = {
 		};
 		return (
 			<div>
-				<IconsProvider />
 				<div className="list-container">
 					<List
 						virtualized

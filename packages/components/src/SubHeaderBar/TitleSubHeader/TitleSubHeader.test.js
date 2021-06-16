@@ -1,16 +1,22 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Skeleton, Icon, Action, EditableText } from '../../';
-import TitleSubHeader from './TitleSubHeader.component';
+import Skeleton from '../../Skeleton';
+import Icon from '../../Icon';
+import Action from '../../Actions/Action';
+import Tag from '../../Tag';
+import EditableText from '../../EditableText';
+import TitleSubHeader, { SubTitle } from './TitleSubHeader.component';
 
 describe('TitleSubHeader', () => {
 	let defaultProps;
-	beforeEach(() =>
-		(defaultProps = {
-			title: 'myTitle',
-			onEdit: jest.fn(),
-			onSubmit: jest.fn(),
-		}));
+	beforeEach(
+		() =>
+			(defaultProps = {
+				title: 'myTitle',
+				onEdit: jest.fn(),
+				onSubmit: jest.fn(),
+			}),
+	);
 	it('should render', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} iconId="myIconId" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -32,6 +38,7 @@ describe('TitleSubHeader', () => {
 	it('should render EditableText', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
 		expect(wrapper.find(EditableText)).toHaveLength(1);
+		expect(wrapper.find(EditableText).get(0).props.feature).toBe('subheaderbar.rename');
 		expect(wrapper.find('h1')).toHaveLength(0);
 	});
 	it('should render skeleton', () => {
@@ -41,8 +48,20 @@ describe('TitleSubHeader', () => {
 	it('should render inProgress', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} inProgress />);
 		expect(wrapper.props().className).toEqual(
-			'theme-tc-subheader-details tc-subheader-details theme-tc-subheader-details-blink tc-subheader-details-blink',
+			'tc-subheader-details theme-tc-subheader-details tc-subheader-details-blink theme-tc-subheader-details-blink',
 		);
+	});
+	it('should go in edit mode', () => {
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
+		const findEditableText = () => wrapper.find('[feature="subheaderbar.rename"]');
+
+		findEditableText().props().onEdit();
+
+		expect(findEditableText().props().editMode).toEqual(true);
+
+		findEditableText().props().onCancel();
+
+		expect(findEditableText().props().editMode).toEqual(false);
 	});
 });
 
@@ -65,13 +84,34 @@ describe('TitleSubHeader', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
 		expect(wrapper.find('h1').getElement().props.children).toEqual('myTitle');
 	});
-	it('should render with subTitle', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
-			'small',
+});
+
+describe('SubTitle', () => {
+	let defaultProps;
+	beforeEach(() => {
+		defaultProps = {
+			subTitle: 'mySubTitle',
+		};
+	});
+
+	it('should render', () => {
+		const wrapper = shallow(<SubTitle {...defaultProps} />);
+		expect(wrapper.html()).toMatchSnapshot();
+	});
+
+	it('should render in loading mode', () => {
+		const wrapper = shallow(<SubTitle subTitleLoading />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render with a custom subtitle', () => {
+		const wrapper = shallow(
+			<SubTitle
+				{...defaultProps}
+				subTitleAs={({ subTitle }) => <Tag bsStyle="info">{subTitle}</Tag>}
+			/>,
 		);
-		expect(wrapper.getElement().props.className).toEqual(
-			'theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle',
-		);
-		expect(wrapper.getElement().props.children).toEqual('mySubTitle');
+		expect(wrapper.find(Tag)).not.toBe(null);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

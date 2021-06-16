@@ -90,21 +90,62 @@ describe('Default Array Template component', () => {
 	it('should render default array template', () => {
 		// when
 		const wrapper = shallow(
-			<DefaultArrayTemplate.WrappedComponent
+			<DefaultArrayTemplate
 				canReorder
-				id={'my-template'}
+				id="my-template"
 				onAdd={jest.fn()}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
 				renderItem={index => <div>Render item {index}</div>}
 				schema={schema}
 				value={value}
-				errorMessage={'This is an error'}
+				errorMessage="This is an error"
 				isValid
 			/>,
 		);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render error with error classname', () => {
+		// when
+		const wrapper = shallow(
+			<DefaultArrayTemplate
+				canReorder
+				id="my-template"
+				onAdd={jest.fn()}
+				onRemove={jest.fn()}
+				onReorder={jest.fn()}
+				renderItem={index => <div>Render item {index}</div>}
+				schema={schema}
+				value={value}
+				errorMessage="This is an error"
+				isValid={false}
+			/>,
+		);
+
+		// then
+		const message = wrapper.find('Message');
+		expect(message.prop('className')).toBe('has-error');
+	});
+	it('should support readonly', () => {
+		// when
+		const wrapper = shallow(
+			<DefaultArrayTemplate
+				canReorder
+				id="my-template"
+				onAdd={jest.fn()}
+				onRemove={jest.fn()}
+				onReorder={jest.fn()}
+				renderItem={index => <div>Render item {index}</div>}
+				schema={{ ...schema, readOnly: true }}
+				value={value}
+				isValid
+			/>,
+		);
+
+		// then
+		expect(wrapper.find('Action').length).toBe(0);
 	});
 });

@@ -1,159 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UIForm container #onChange should update state properties 1`] = `
-Object {
-  "errors": Object {},
-  "jsonSchema": Object {
-    "properties": Object {
-      "check": Object {},
-      "firstname": Object {
-        "type": "string",
-      },
-      "lastname": Object {
-        "minLength": 10,
-        "type": "string",
-      },
-    },
-    "required": Array [
-      "firstname",
-    ],
-    "title": "Comment",
-    "type": "object",
-  },
-  "properties": Object {
-    "lastname": "toto",
-  },
-  "uiSchema": Array [
-    Object {
-      "autoFocus": true,
-      "description": "Hint: this is the last name",
-      "key": "lastname",
-      "title": "Last Name (with description)",
-    },
-    Object {
-      "key": "firstname",
-      "placeholder": "Enter your firstname here",
-      "title": "First Name (with placeholder)",
-      "triggers": Array [
-        "after",
-      ],
-    },
-    Object {
-      "key": "check",
-      "title": "Check the thing",
-      "triggers": Array [
-        "after",
-      ],
-      "widget": "button",
-    },
-  ],
-}
-`;
-
-exports[`UIForm container #setErrors should update state errors 1`] = `
-Object {
-  "errors": Object {
-    "firstname": "my firstname is invalid",
-  },
-  "jsonSchema": Object {
-    "properties": Object {
-      "check": Object {},
-      "firstname": Object {
-        "type": "string",
-      },
-      "lastname": Object {
-        "minLength": 10,
-        "type": "string",
-      },
-    },
-    "required": Array [
-      "firstname",
-    ],
-    "title": "Comment",
-    "type": "object",
-  },
-  "properties": Object {},
-  "uiSchema": Array [
-    Object {
-      "autoFocus": true,
-      "description": "Hint: this is the last name",
-      "key": "lastname",
-      "title": "Last Name (with description)",
-    },
-    Object {
-      "key": "firstname",
-      "placeholder": "Enter your firstname here",
-      "title": "First Name (with placeholder)",
-      "triggers": Array [
-        "after",
-      ],
-    },
-    Object {
-      "key": "check",
-      "title": "Check the thing",
-      "triggers": Array [
-        "after",
-      ],
-      "widget": "button",
-    },
-  ],
-}
-`;
-
 exports[`UIForm container should render form 1`] = `
 Object {
-  "errors": Object {},
-  "jsonSchema": Object {
-    "properties": Object {
-      "check": Object {},
-      "firstname": Object {
-        "type": "string",
+  "initialState": Object {
+    "errors": Object {},
+    "jsonSchema": Object {
+      "properties": Object {
+        "check": Object {},
+        "firstname": Object {
+          "type": "string",
+        },
+        "lastname": Object {
+          "minLength": 10,
+          "type": "string",
+        },
       },
-      "lastname": Object {
-        "minLength": 10,
-        "type": "string",
-      },
+      "required": Array [
+        "firstname",
+      ],
+      "title": "Comment",
+      "type": "object",
     },
-    "required": Array [
-      "firstname",
+    "properties": Object {},
+    "uiSchema": Array [
+      Object {
+        "autoFocus": true,
+        "description": "Hint: this is the last name",
+        "key": "lastname",
+        "title": "Last Name (with description)",
+      },
+      Object {
+        "key": "firstname",
+        "placeholder": "Enter your firstname here",
+        "title": "First Name (with placeholder)",
+        "triggers": Array [
+          "after",
+        ],
+      },
+      Object {
+        "key": "check",
+        "title": "Check the thing",
+        "triggers": Array [
+          "after",
+        ],
+        "widget": "button",
+      },
     ],
-    "title": "Comment",
-    "type": "object",
   },
-  "properties": Object {},
-  "uiSchema": Array [
-    Object {
-      "autoFocus": true,
-      "description": "Hint: this is the last name",
-      "key": "lastname",
-      "title": "Last Name (with description)",
-    },
-    Object {
-      "key": "firstname",
-      "placeholder": "Enter your firstname here",
-      "title": "First Name (with placeholder)",
-      "triggers": Array [
-        "after",
+  "liveState": Object {
+    "errors": Object {},
+    "jsonSchema": Object {
+      "properties": Object {
+        "check": Object {},
+        "firstname": Object {
+          "type": "string",
+        },
+        "lastname": Object {
+          "minLength": 10,
+          "type": "string",
+        },
+      },
+      "required": Array [
+        "firstname",
       ],
+      "title": "Comment",
+      "type": "object",
     },
-    Object {
-      "key": "check",
-      "title": "Check the thing",
-      "triggers": Array [
-        "after",
-      ],
-      "widget": "button",
-    },
-  ],
+    "properties": Object {},
+    "uiSchema": Array [
+      Object {
+        "autoFocus": true,
+        "description": "Hint: this is the last name",
+        "key": "lastname",
+        "title": "Last Name (with description)",
+      },
+      Object {
+        "key": "firstname",
+        "placeholder": "Enter your firstname here",
+        "title": "First Name (with placeholder)",
+        "triggers": Array [
+          "after",
+        ],
+      },
+      Object {
+        "key": "check",
+        "title": "Check the thing",
+        "triggers": Array [
+          "after",
+        ],
+        "widget": "button",
+      },
+    ],
+  },
 }
 `;
 
 exports[`UIForm container should render form 2`] = `
-<Translate(TalendUIForm)
+<withI18nextTranslation(TalendUIForm)
   autoComplete="off"
   buttonBlockClass="form-actions"
   className="my-form-class"
-  customValidation={[Function]}
+  customValidation={[MockFunction]}
   errors={Object {}}
   formName="myFormName"
   id="myFormId"

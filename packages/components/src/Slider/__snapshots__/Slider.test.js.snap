@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getActions should render some action 1`] = `
+<div
+  className="theme-tc-slider-captions tc-slider-captions"
+>
+  <Action
+    className="theme-tc-slider-captions-element tc-slider-captions-element"
+    data-feature="action"
+    hideLabel={true}
+    icon="talend-smiley-angry"
+    id="icon1"
+    label="Click Me"
+    link={true}
+    onClick={[Function]}
+  />
+  <Action
+    className="theme-tc-slider-captions-element tc-slider-captions-element"
+    data-feature="action"
+    hideLabel={true}
+    icon="talend-smiley-neutral"
+    id="icon2"
+    label="Click Me"
+    link={true}
+    onClick={[Function]}
+  />
+  <Action
+    className="theme-tc-slider-captions-element tc-slider-captions-element theme-selected selected"
+    data-feature="action"
+    hideLabel={true}
+    icon="talend-smiley-satisfied"
+    id="icon3"
+    label="Click Me"
+    link={true}
+    onClick={[Function]}
+  />
+</div>
+`;

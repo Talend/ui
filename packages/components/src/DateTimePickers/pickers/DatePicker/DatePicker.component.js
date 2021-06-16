@@ -2,55 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
-import chunk from 'lodash/chunk';
-import format from 'date-fns/format';
-import endOfMonth from 'date-fns/end_of_month';
-import startOfWeek from 'date-fns/start_of_week';
-import isToday from 'date-fns/is_today';
-import getDate from 'date-fns/get_date';
-import setDay from 'date-fns/set_day';
-import getMonth from 'date-fns/get_month';
+import isAfter from 'date-fns/is_after';
+import isBefore from 'date-fns/is_before';
 import isSameDay from 'date-fns/is_same_day';
-import differenceInCalendarWeeks from 'date-fns/difference_in_calendar_weeks';
+import isToday from 'date-fns/is_today';
+import isWithinRange from 'date-fns/is_within_range';
+import format from 'date-fns/format';
+import getDate from 'date-fns/get_date';
+import getMonth from 'date-fns/get_month';
+import getYear from 'date-fns/get_year';
+import setMonth from 'date-fns/set_month';
+import startOfDay from 'date-fns/start_of_day';
+import startOfMonth from 'date-fns/start_of_month';
 
-import addDays from 'date-fns/add_days';
 import theme from './DatePicker.scss';
-import DayPickerAction from './DayPickerAction';
-import BASE_DATE from '../../shared/utils/constants/baseDate';
-
-const FIRST_DAY_OF_WEEK = 1;
-const NB_DAYS_IN_WEEK = 7;
-
-function buildDayNames(firstDayOfweek) {
-	return new Array(NB_DAYS_IN_WEEK)
-		.fill(0)
-		.map((_, i) => (i + firstDayOfweek) % NB_DAYS_IN_WEEK)
-		.map(dayOfWeek => setDay(BASE_DATE, dayOfWeek))
-		.map(headerDate => format(headerDate, 'dddd'));
-}
+import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
+import { withCalendarGesture } from '../../../Gesture/withCalendarGesture';
+import getDefaultT from '../../../translate';
 
 const getDayNames = memoize(buildDayNames);
 
-function buildWeeks(year, monthIndex, firstDayOfWeek) {
-	const firstDateOfMonth = new Date(year, monthIndex);
-	const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
-		weekStartsOn: firstDayOfWeek,
-	});
-
-	const lastDateOfMonth = endOfMonth(firstDateOfMonth);
-	const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
-		weekStartsOn: firstDayOfWeek,
-	});
-	const nbWeeksToRender = diffWeeks + 1;
-
-	const dates = new Array(NB_DAYS_IN_WEEK * nbWeeksToRender)
-		.fill(0)
-		.map((_, i) => addDays(firstDateOfCalendar, i));
-
-	return chunk(dates, NB_DAYS_IN_WEEK);
-}
-
-class DatePicker extends React.Component {
+class DatePicker extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -76,75 +48,230 @@ class DatePicker extends React.Component {
 		return getMonth(date) === this.props.calendar.monthIndex;
 	}
 
-	render() {
-		const { year, monthIndex } = this.props.calendar;
+	isCurrentYear(date) {
+		return getYear(date) === this.props.calendar.year;
+	}
 
-		const weeks = this.getWeeks(year, monthIndex, FIRST_DAY_OF_WEEK);
-		const dayNames = getDayNames(FIRST_DAY_OF_WEEK);
+	isSelectedInCurrentCalendar() {
+		const { selectedDate } = this.props;
+
+		if (!selectedDate) {
+			return false;
+		}
+		return this.isCurrentYear(selectedDate) && this.isCurrentMonth(selectedDate);
+	}
+
+	isDateInCurrentCalendar(date) {
+		const { calendar } = this.props;
+		const { year, monthIndex } = calendar;
+		const weeks = this.getWeeks(year, monthIndex, 1);
+		return isWithinRange(date, weeks[0][0], weeks[5][6]);
+	}
+
+	isDateWithinRange(date) {
+		const { selectedDate, startDate, endDate } = this.props;
+		if (startDate && isAfter(selectedDate, startDate)) {
+			return isWithinRange(date, startOfDay(startDate), selectedDate);
+		} else if (endDate && isBefore(selectedDate, endDate)) {
+			return isWithinRange(date, selectedDate, endDate);
+		}
+		return false;
+	}
+
+	isStartDate(date) {
+		const { selectedDate, startDate, endDate } = this.props;
+		if (startDate) {
+			return isSameDay(date, startDate);
+		} else if (endDate) {
+			return isSameDay(date, selectedDate);
+		}
+		return false;
+	}
+
+	isEndDate(date) {
+		const { selectedDate, endDate, startDate } = this.props;
+		if (startDate) {
+			return isSameDay(date, selectedDate);
+		} else if (endDate) {
+			return isSameDay(date, endDate);
+		}
+		return false;
+	}
+
+	selectDate(event, date, year, monthIndex) {
+		if (!this.isCurrentMonth(date)) {
+			if (date < startOfMonth(new Date(year, monthIndex))) {
+				this.props.goToPreviousMonth();
+			} else {
+				this.props.goToNextMonth();
+			}
+		}
+		this.props.onSelect(event, date);
+	}
+
+	render() {
+		const { calendar, t } = this.props;
+		const { year, monthIndex } = calendar;
+		const pickerLocale = getPickerLocale(t);
+
+		const weeks = this.getWeeks(year, monthIndex, 1);
+		const dayNames = getDayNames(undefined, this.props.t);
+		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
+
+		const monthStr = format(setMonth(new Date(0), monthIndex), 'MMMM', pickerLocale);
 
 		return (
-			<div className={theme.container}>
-				<div className={classNames('tc-date-picker-calendar-header', theme['calendar-header'])}>
-					<div className={classNames('tc-date-picker-calendar-row', theme['calendar-row'])}>
+			<table
+				className={theme.container}
+				ref={ref => {
+					this.calendarRef = ref;
+				}}
+			>
+				<caption className="sr-only">{`${monthStr} ${year}`}</caption>
+				<thead>
+					<tr className={theme['calendar-header']}>
 						{dayNames.map((dayName, i) => (
-							<abbr
-								className={classNames('tc-date-picker-calendar-item', theme['calendar-item'])}
-								key={i}
-								title={dayName}
-							>
-								{dayName.charAt(0)}
-							</abbr>
+							<th scope="col" key={i}>
+								<abbr key={i} title={dayName.full}>
+									{dayName.abbr}
+								</abbr>
+							</th>
 						))}
-					</div>
-					<hr className={theme.separator} />
-				</div>
-
-				<div className={classNames('tc-date-picker-calendar-body', theme['calendar-body'])}>
+					</tr>
+				</thead>
+				<tbody>
 					{weeks.map((week, i) => (
-						<div
-							className={classNames('tc-date-picker-calendar-row', theme['calendar-row'])}
+						<tr
 							key={i}
+							className={classNames(theme['calendar-row'], 'tc-date-picker-calendar-row')}
 						>
 							{week.map((date, j) => {
-								const isDisabled = this.isDisabledDate(date);
-								const dateNumber = getDate(date);
+								const day = getDate(date);
+								const disabled = this.isDisabledDate(date);
+								const selected = this.isSelectedDate(date);
+								const today = isToday(date);
+								const shouldBeFocussable =
+									(selectedInCurrentCalendar && selected) ||
+									(!selectedInCurrentCalendar && day === 1);
+
+								const cellTheme = {};
+								const dayTheme = {};
+								const isStart = this.isStartDate(date);
+								const isEnd = this.isEndDate(date);
+								const isInRange = this.isDateWithinRange(date);
+
+								if (isInRange) {
+									const isMiddle = !isStart && !isEnd && isInRange;
+									cellTheme[theme['date-range']] = isInRange;
+									cellTheme[theme['range-middle']] = isMiddle;
+									cellTheme[theme['range-start']] = isStart;
+									cellTheme[theme['range-end']] = isEnd;
+									dayTheme[theme.range] = isMiddle;
+								}
+
+								const className = classNames(
+									theme['calendar-day'],
+									{
+										...dayTheme,
+										[theme.selected]: selected || isStart || isEnd,
+										[theme.today]: today,
+										[theme['not-current-month']]: !this.isCurrentMonth(date),
+									},
+									'tc-date-picker-day',
+									'btn-tertiary',
+									'btn-default',
+								);
+
+								const tdProps = {
+									key: j,
+									className: classNames(theme['calendar-col'], cellTheme),
+								};
+
+								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
+								if (isInRange) {
+									if (isStart) {
+										ariaLabel = t('DATEPICKER_DAY_RANGE_START', {
+											defaultValue: 'Range: start date, {{date}}',
+											date: ariaLabel,
+										});
+									} else if (isEnd) {
+										ariaLabel = t('DATEPICKER_DAY_RANGE_END', {
+											defaultValue: 'Range: end date, {{date}}',
+											date: ariaLabel,
+										});
+									} else {
+										ariaLabel = t('DATEPICKER_DAY_WITHIN_RANGE', {
+											defaultValue: 'Included in range, {{date}}',
+											date: ariaLabel,
+										});
+									}
+								}
+								if (selected) {
+									tdProps['aria-current'] = 'date';
+									ariaLabel = t('DATEPICKER_DAY_SELECTED', {
+										defaultValue: '{{date}}, selected',
+										date: ariaLabel,
+									});
+								}
+								if (today) {
+									ariaLabel = t('DATEPICKER_DAY_TODAY', {
+										defaultValue: 'Today, {{date}}',
+										date: ariaLabel,
+									});
+								}
+								if (disabled) {
+									ariaLabel = t('DATEPICKER_DAY_INVALID', {
+										defaultValue: 'Date is not allowed, {{date}}',
+										date: ariaLabel,
+									});
+								}
+
+								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
 
 								return (
-									<div
-										className={classNames('tc-date-picker-calendar-item', theme['calendar-item'])}
-										key={j}
-									>
-										{this.isCurrentMonth(date) && (
-											<DayPickerAction
-												label={dateNumber}
-												isSelected={this.isSelectedDate(date)}
-												isDisabled={isDisabled}
-												isToday={isToday(date)}
-												aria-label={isDisabled ? 'Unselectable date' : `Select '${dateNumber}'`}
-												onClick={() => {
-													this.props.onSelect(date);
-												}}
-											/>
-										)}
-									</div>
+									<td {...tdProps}>
+										<button
+											type="button"
+											className={className}
+											onClick={event => this.selectDate(event, date, year, monthIndex)}
+											disabled={disabled}
+											tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
+											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
+											aria-label={ariaLabel}
+											{...buttonProps}
+										>
+											{day}
+										</button>
+									</td>
 								);
 							})}
-						</div>
+						</tr>
 					))}
-				</div>
-			</div>
+				</tbody>
+			</table>
 		);
 	}
 }
-
+DatePicker.displayName = 'DatePicker';
 DatePicker.propTypes = {
+	allowFocus: PropTypes.bool,
 	calendar: PropTypes.shape({
 		monthIndex: PropTypes.number.isRequired,
 		year: PropTypes.number.isRequired,
 	}).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
+	startDate: PropTypes.instanceOf(Date),
+	endDate: PropTypes.instanceOf(Date),
 	isDisabledChecker: PropTypes.func,
+	onKeyDown: PropTypes.func.isRequired,
+	t: PropTypes.func,
+	goToPreviousMonth: PropTypes.func.isRequired,
+	goToNextMonth: PropTypes.func.isRequired,
 };
 
-export default DatePicker;
+DatePicker.defaultProps = {
+	t: getDefaultT(),
+};
+
+export default withCalendarGesture(DatePicker);

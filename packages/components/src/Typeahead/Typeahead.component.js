@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
+import { useTranslation } from 'react-i18next';
+import keycode from 'keycode';
+import { usePopper } from 'react-popper';
 
 import theme from './Typeahead.scss';
 import {
@@ -12,6 +15,21 @@ import {
 	renderItem,
 } from './Typeahead.component.renderers';
 import { Action } from '../Actions';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+
+function getItems(items, dataFeature) {
+	if (!items) {
+		return [];
+	}
+	if (!dataFeature) {
+		return items;
+	}
+
+	return items.map(item => ({
+		'data-feature': `${dataFeature}.${item.value}`,
+		...item,
+	}));
+}
 
 /**
  * Show suggestions for search bar
@@ -19,7 +37,98 @@ import { Action } from '../Actions';
  *
  * <Typeahead {...props} />
  */
-function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+
+	const [referenceElement, setReferenceElement] = useState(null);
+	const [popperElement, setPopperElement] = useState(null);
+	const [focus, setFocus] = useState(false);
+	const withSameWidth = useMemo(
+		() => ({
+			name: 'withSameWidth',
+			enabled: true,
+			phase: 'beforeWrite',
+			requires: ['computeStyles'],
+			fn: ({ state }) => {
+				// eslint-disable-next-line no-param-reassign
+				state.styles.popper.width = `${state.rects.reference.width}px`;
+			},
+			effect: ({ state }) => {
+				// eslint-disable-next-line no-param-reassign
+				state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
+			},
+		}),
+		[],
+	);
+	const withInViewport = useMemo(
+		() => ({
+			name: 'withInViewport',
+			enabled: true,
+			phase: 'beforeWrite',
+			requires: ['computeStyles'],
+			fn: ({ state }) => {
+				const GAP = 45; // the offset between the end of items container and screen boundaries
+				const inputDimensions = state.rects.reference;
+				const { y, height } = inputDimensions;
+				const offsetTop = y - GAP;
+				const offsetBottom = window.innerHeight - y - height - GAP;
+				const placements = state.placement.split('-');
+				let newPlacement = state.placement;
+				if (placements[0] === 'top' && offsetBottom > offsetTop) {
+					newPlacement = `bottom-${placements[1]}`;
+				}
+				const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
+
+				// eslint-disable-next-line no-param-reassign
+				state.placement = newPlacement;
+				// eslint-disable-next-line no-param-reassign
+				state.styles.popper.maxHeight = `${maxHeight}px`;
+				// eslint-disable-next-line no-param-reassign
+				state.styles.popper.minHeight = `${height}px`;
+			},
+		}),
+		[items],
+	);
+
+	const withInitialState = useMemo(
+		() => ({
+			name: 'withInitialState',
+			enabled: true,
+			phase: 'write',
+			requires: ['computeStyles'],
+			fn: ({ state }) => {
+				if (!focus) {
+					// eslint-disable-next-line no-param-reassign
+					state.styles.popper.opacity = 0;
+				} else {
+					// eslint-disable-next-line no-param-reassign
+					delete state.styles.popper.opacity;
+				}
+			},
+		}),
+		[focus],
+	);
+
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+		modifiers: [
+			{ name: 'hide', enabled: false },
+			{ name: 'preventOverflow', enabled: false },
+			{
+				name: 'computeStyles',
+				options: {
+					adaptive: false,
+				},
+			},
+			withSameWidth,
+			withInViewport,
+			withInitialState,
+		],
+		strategy: 'fixed',
+		placement: 'bottom-start',
+	});
+	const [highlightedSectionIndex, setHighlightedSectionIndex] = useState(0);
+	const [highlightedItemIndex, setHighlightedItemIndex] = useState(0);
+
 	if (docked && onToggle) {
 		return (
 			<Action
@@ -34,6 +143,31 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			/>
 		);
 	}
+
+	const handleKeyDown = (event, data) => {
+		switch (event.which) {
+			case keycode.codes.down:
+			case keycode.codes.up:
+				event.preventDefault();
+				setHighlightedSectionIndex(data.newHighlightedSectionIndex);
+				setHighlightedItemIndex(data.newHighlightedItemIndex);
+				break;
+			case keycode.codes.enter:
+				event.preventDefault();
+				if (highlightedItemIndex !== null && highlightedItemIndex !== null) {
+					rest.onSelect(event, {
+						sectionIndex: data.highlightedSectionIndex,
+						itemIndex: data.highlightedItemIndex,
+					});
+				}
+				break;
+			case keycode.codes.esc:
+				event.preventDefault();
+				rest.onBlur(event);
+				break;
+			default:
+		}
+	};
 
 	const sectionProps = rest.multiSection
 		? { getSectionItems: section => section.suggestions, renderSectionTitle }
@@ -71,11 +205,19 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			debounceTimeout: rest.debounceTimeout,
 			disabled: rest.disabled,
 			id: rest.id,
-			inputRef: rest.inputRef,
+			setReferenceElement,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
-			onFocus: rest.onFocus,
-			onKeyDown: rest.onKeyDown,
+			onFocus: event => {
+				if (!focus) {
+					setFocus(true);
+				}
+				if (rest.onFocus) {
+					rest.onFocus(event);
+				}
+			},
+			onClick: rest.onClick,
+			onKeyDown: rest.onKeyDown || handleKeyDown,
 			placeholder: rest.placeholder,
 			readOnly: rest.readOnly,
 			value: rest.value,
@@ -86,35 +228,44 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		},
 	};
 
+	const noResultText = rest.noResultText || t('NO_RESULT_FOUND', { defaultValue: 'No result.' });
+	const searchingText =
+		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
+	const isLoadingText =
+		rest.isLoadingText || t('TYPEAHEAD_LOADING', { defaultValue: 'Loading...' });
 	const defaultRenderersProps = {
 		renderItem,
 		renderItemsContainer: renderItemsContainerFactory(
-			rest.items,
-			rest.noResultText,
+			items,
+			noResultText,
 			rest.searching,
-			rest.searchingText,
+			searchingText,
 			rest.isLoading,
-			rest.isLoadingText,
-		),
-		renderItemData: { value: rest.value },
-	};
+			isLoadingText,
+			referenceElement,
+			rest.children,
 
-	const compatibilityProps = {
-		highlightedSectionIndex: rest.focusedSectionIndex,
-		highlightedItemIndex: rest.focusedItemIndex,
+			setPopperElement,
+			styles,
+			attributes,
+		),
+		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};
 
 	const autowhateverProps = {
 		...defaultRenderersProps,
 		...rest,
-		...compatibilityProps,
 		...sectionProps,
 		...themeProps,
 		...inputProps,
-		items: rest.items || [],
-		itemProps: {
-			onMouseDown: rest.onSelect,
-		},
+		highlightedSectionIndex: rest.onKeyDown ? rest.focusedSectionIndex : highlightedSectionIndex,
+		highlightedItemIndex: rest.onKeyDown ? rest.focusedItemIndex : highlightedItemIndex,
+		items: getItems(items, rest.dataFeature),
+		itemProps: ({ itemIndex }) => ({
+			onMouseDown: event => event.preventDefault(),
+			onClick: rest.onSelect,
+			'aria-disabled': items[itemIndex] && items[itemIndex].disabled,
+		}),
 	};
 
 	return <Autowhatever {...autowhateverProps} />;
@@ -128,12 +279,9 @@ Typeahead.defaultProps = {
 	id: uuid.v4().toString(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
-	noResultText: 'No result.',
 	position: 'left',
 	readOnly: false,
 	searching: false,
-	searchingText: 'Searching for matches...',
-	isLoadingText: 'Loading...',
 	docked: false,
 };
 
@@ -150,6 +298,7 @@ Typeahead.propTypes = {
 	onToggle: PropTypes.func,
 	docked: PropTypes.bool,
 	icon: PropTypes.shape({
+		tooltipPlacement: PropTypes.string,
 		name: PropTypes.string,
 		title: PropTypes.string,
 		bsStyle: PropTypes.string,
@@ -164,12 +313,13 @@ Typeahead.propTypes = {
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
-	inputRef: PropTypes.func,
+	onClick: PropTypes.func,
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,
 
 	// suggestions
+	dataFeature: PropTypes.string,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,
@@ -190,6 +340,7 @@ Typeahead.propTypes = {
 			}),
 		]),
 	),
+	children: PropTypes.func, // render props
 };
 
 export default Typeahead;

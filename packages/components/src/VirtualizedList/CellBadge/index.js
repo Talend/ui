@@ -1,8 +1,4 @@
-import React from 'react';
-import CellBadge from './CellBadge.component';
+import BadgeColumn, { cellType, badgeColumnConfiguration } from './BadgeColumn.component';
 
-export const cellType = 'badge';
-
-export default {
-	cellRenderer: props => <CellBadge {...props} />,
-};
+export { cellType, BadgeColumn };
+export default badgeColumnConfiguration;

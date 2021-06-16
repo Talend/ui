@@ -1,14 +1,12 @@
 import React from 'react';
-import { Drawer, IconsProvider } from '@talend/react-components';
-import {
-	TALEND_T7_THEME_APPS as apps,
-	TALEND_T7_THEME_CLASSNAME,
-} from '@talend/react-components/lib/Layout/constants';
-import talendIcons from '@talend/icons/dist/react';
+import { Drawer } from '@talend/react-components';
+import Layout from '@talend/react-components/lib/Layout';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable';
 
 import { HomeListView } from '../src';
+
+const { TALEND_T7_THEME_APPS: apps, TALEND_T7_THEME_CLASSNAME } = Layout;
 
 const primary = {
 	label: 'Primary',
@@ -65,39 +63,41 @@ const basicProps = {
 	multiSelectActions,
 };
 
-const icons = {
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-	'talend-badge': talendIcons['talend-badge'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-cog': talendIcons['talend-cog'],
-	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-expanded': talendIcons['talend-expanded'],
-	'talend-file': talendIcons['talend-file'],
-	'talend-file-json-o': talendIcons['talend-file-json-o'],
-	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-icons': talendIcons['talend-icons'],
-	'talend-logo': talendIcons['talend-logo'],
-	'talend-pencil': talendIcons['talend-pencil'],
-	'talend-plus': talendIcons['talend-plus'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-search': talendIcons['talend-search'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-streams': talendIcons['talend-streams'],
-	'talend-table': talendIcons['talend-table'],
-	'talend-tiles': talendIcons['talend-tiles'],
-	'talend-trash': talendIcons['talend-trash'],
-	'talend-opener': talendIcons['talend-opener'],
-	'talend-upload': talendIcons['talend-upload'],
-};
-
 const header = {
 	app: 'Example app',
 };
 
 const sidepanel = {
-	actionIds: ['menu:first', 'menu:second', 'menu:third'],
+	actionIds: [
+		'menu:first',
+		'menu:second',
+		'menu:third',
+		'menu:first',
+		'menu:second',
+		'menu:third',
+		'menu:first',
+		'menu:second',
+		'menu:third',
+		'menu:first',
+		'menu:first',
+		'menu:second',
+		'menu:third',
+		'menu:first',
+		'menu:second',
+		'menu:third',
+		'menu:first',
+		'menu:second',
+		'menu:third',
+		'menu:first',
+		'menu:second',
+		'menu:third',
+		'menu:first',
+		'menu:second',
+		'menu:third',
+		'menu:first',
+		'menu:second',
+		'menu:third',
+	],
 };
 
 const list = {
@@ -122,7 +122,10 @@ const actions = {
 const toolbar = {
 	sort: {
 		field: 'id',
-		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'label', name: 'Name' },
+		],
 	},
 	filter: {
 		placeholder: 'find an object',
@@ -169,7 +172,6 @@ const listProps = {
 const ExampleHomeListView = {
 	default: () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
 			<HomeListView sidepanel={sidepanel} list={listProps} />
 		</div>
 	),
@@ -181,7 +183,6 @@ apps.forEach(app => {
 	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => (
 		<div className={appStyle[app]}>
 			<div className={TALEND_T7_THEME_CLASSNAME}>
-				<IconsProvider defaultIcons={icons} />
 				<HomeListView
 					// hasTheme - option must be set if you import one and only one theme
 					sidepanel={sidepanel}
@@ -194,17 +195,12 @@ apps.forEach(app => {
 
 ExampleHomeListView.drawer = () => (
 	<div>
-		<IconsProvider defaultIcons={icons} />
 		<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
-			<Drawer
-				stacked
-				title="Im stacked drawer 1"
-				footerActions={Object.assign({}, basicProps, { selected: 0 })}
-			>
+			<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
 				<h1>Hello drawer 1</h1>
 				<p>You should not being able to read this because I&#39;m first</p>
 			</Drawer>
-			<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+			<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
 				<h1>Hello drawer 2</h1>
 				<p>The content dictate the width</p>
 			</Drawer>
@@ -216,20 +212,16 @@ apps.forEach(app => {
 	ExampleHomeListView[`🎨 ${app.toUpperCase()} drawer`] = () => (
 		<div className={appStyle[app]}>
 			<div className={TALEND_T7_THEME_CLASSNAME}>
-				<IconsProvider defaultIcons={icons} />
 				<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
 					<Drawer
 						stacked
 						title="Im stacked drawer 1"
-						footerActions={Object.assign({}, basicProps, { selected: 0 })}
+						footerActions={{ ...basicProps, selected: 0 }}
 					>
 						<h1>Hello drawer 1</h1>
 						<p>You should not being able to read this because I&#39;m first</p>
 					</Drawer>
-					<Drawer
-						title="Im drawer 2"
-						footerActions={Object.assign({}, basicProps, { selected: 0 })}
-					>
+					<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
 						<h1>Hello drawer 2</h1>
 						<p>The content dictate the width</p>
 					</Drawer>

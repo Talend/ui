@@ -2,7 +2,7 @@ import has from 'lodash/has';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import { Action } from '../Actions';
@@ -60,17 +60,19 @@ CustomInject.propTypes = {
 };
 
 function SubHeaderBar({
-	t,
 	onGoBack,
 	components,
 	getComponent,
+	goBackDataFeature,
 	className,
 	left,
 	center,
 	right,
 	rightActionsLoading,
+	children,
 	...rest
 }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const injected = Inject.all(getComponent, components, CustomInject);
 	const Renderer = Inject.getAll(getComponent, { Action, ActionBar });
 	const hasRight =
@@ -116,6 +118,7 @@ function SubHeaderBar({
 							label={t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go Back' })}
 							icon="talend-arrow-left"
 							bsStyle="link"
+							data-feature={goBackDataFeature}
 							className={classNames(theme['tc-subheader-back-button'], 'tc-subheader-back-button')}
 							hideLabel
 						/>
@@ -124,6 +127,7 @@ function SubHeaderBar({
 					<TitleSubHeader t={t} getComponent={getComponent} {...rest} />
 					{injected('after-title')}
 				</SubHeaderBarActions>
+				{children}
 				{Array.isArray(left) && (
 					<SubHeaderBarActions left>
 						{left.map((item, index) => (
@@ -165,6 +169,6 @@ SubHeaderBar.defaultProps = {
 	t: getDefaultT(),
 };
 SubHeaderBar.Content = SubHeaderBarActions;
+SubHeaderBar.Inject = CustomInject;
 
-export default translate(I18N_DOMAIN_COMPONENTS)(SubHeaderBar);
-export { SubHeaderBar, SubHeaderBarActions, CustomInject };
+export default SubHeaderBar;

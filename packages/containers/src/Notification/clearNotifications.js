@@ -7,7 +7,7 @@ export default function clearNotifications(state) {
 	}
 
 	notifs = notifs.clear();
-	const newState = Object.assign({}, state);
+	const newState = { ...state };
 	newState.cmf.components = state.cmf.components.setIn(path, notifs);
 	return newState;
 }

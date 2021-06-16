@@ -11,7 +11,7 @@ exports[`Status should render a label 1`] = `
     
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-success"
   >
     Successful
   </span>
@@ -27,11 +27,8 @@ exports[`Status should render a label 1`] = `
       role={null}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fa fa-cancel"
-        focusable="false"
-        title={null}
+      <Coral.Icon
+        name="fa fa-cancel"
       />
       <span>
         cancel
@@ -46,11 +43,8 @@ exports[`Status should render a label 1`] = `
       role={null}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fa fa-delete"
-        focusable="false"
-        title={null}
+      <Coral.Icon
+        name="fa fa-delete"
       />
       <span>
         delete
@@ -68,15 +62,12 @@ exports[`Status should render a label with Icon 1`] = `
   <span
     className="theme-tc-status-icon tc-status-icon theme-success"
   >
-    <i
-      aria-hidden="true"
-      className="fa fa-check"
-      focusable="false"
-      title={null}
+    <Coral.Icon
+      name="fa fa-check"
     />
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-success"
   >
     Successful
   </span>
@@ -92,11 +83,8 @@ exports[`Status should render a label with Icon 1`] = `
       role={null}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fa fa-cancel"
-        focusable="false"
-        title={null}
+      <Coral.Icon
+        name="fa fa-cancel"
       />
       <span>
         cancel
@@ -111,11 +99,8 @@ exports[`Status should render a label with Icon 1`] = `
       role={null}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fa fa-delete"
-        focusable="false"
-        title={null}
+      <Coral.Icon
+        name="fa fa-delete"
       />
       <span>
         delete
@@ -133,15 +118,12 @@ exports[`Status should render a label with Icon without actions 1`] = `
   <span
     className="theme-tc-status-icon tc-status-icon theme-success"
   >
-    <i
-      aria-hidden="true"
-      className="fa fa-check"
-      focusable="false"
-      title={null}
+    <Coral.Icon
+      name="fa fa-check"
     />
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-success"
   >
     Successful
   </span>
@@ -182,7 +164,7 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     </svg>
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-info"
   >
     In Progress
   </span>
@@ -198,11 +180,8 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       role={null}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fa fa-cancel"
-        focusable="false"
-        title={null}
+      <Coral.Icon
+        name="fa fa-cancel"
       />
       <span>
         cancel
@@ -217,11 +196,8 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       role={null}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fa fa-delete"
-        focusable="false"
-        title={null}
+      <Coral.Icon
+        name="fa fa-delete"
       />
       <span>
         delete
@@ -262,7 +238,7 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     </svg>
   </span>
   <span
-    className="theme-tc-status-label tc-status-label"
+    className="theme-tc-status-label tc-status-label theme-info"
   >
     In Progress
   </span>
@@ -278,11 +254,8 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       role={null}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fa fa-cancel"
-        focusable="false"
-        title={null}
+      <Coral.Icon
+        name="fa fa-cancel"
       />
       <span>
         cancel
@@ -297,16 +270,52 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       role={null}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fa fa-delete"
-        focusable="false"
-        title={null}
+      <Coral.Icon
+        name="fa fa-delete"
       />
       <span>
         delete
       </span>
     </button>
   </div>
+</div>
+`;
+
+exports[`Status should render a label with a skeleton 1`] = `
+<div
+  className="theme-tc-status tc-status"
+  role="status"
+>
+  <span
+    className="theme-tc-status-icon tc-status-icon theme-skeleton"
+  >
+    <span
+      aria-label="circle (loading)"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small theme-tc-status-skeleton-item tc-status-skeleton-item theme-theme-tc-status-skeleton-item tc-status-skeleton-item tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      style={
+        Object {
+          "height": undefined,
+          "width": undefined,
+        }
+      }
+    />
+  </span>
+  <span
+    className="theme-tc-status-label tc-status-label theme-skeleton"
+  >
+    <span
+      aria-label="text (loading)"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-large theme-tc-skeleton-text-large theme-tc-status-skeleton-item tc-status-skeleton-item theme-theme-tc-status-skeleton-item tc-status-skeleton-item tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      style={
+        Object {
+          "height": undefined,
+          "width": undefined,
+        }
+      }
+    />
+  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  />
 </div>
 `;

@@ -5,14 +5,10 @@
 
 /// Layout height of the header
 /// @type Number (Unit)
-$tc-layout-header-height: $navbar-height;
-
-body {
-	margin: 0;
-	max-height: 100vh;
-	overflow: hidden; /* due to borders */
-	width: 100vw;
-}
+$tc-drawer-z-index: $drawer-z-index !default;
+$tc-layout-header-height: $navbar-height !default;
+$tc-layout-skip-links-z-index: $tc-drawer-z-index + 20 !default;
+$tc-layout-header-z-index: $tc-drawer-z-index + 10 !default;
 
 .layout {
 	display: flex;
@@ -20,8 +16,13 @@ body {
 	height: 100vh;
 	width: 100vw;
 
+	.skip-links {
+		z-index: $tc-layout-skip-links-z-index;
+	}
+
 	.header {
 		flex: 0 0 $tc-layout-header-height;
+		z-index: $tc-layout-header-z-index;
 	}
 
 	.footer {

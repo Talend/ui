@@ -11,19 +11,22 @@ describe('Text field', () => {
 		required: true,
 		title: 'My input title',
 		type: 'text',
+		schema: {
+			type: 'string',
+		},
 	};
 
 	it('should render input', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -35,13 +38,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={{ ...schema, type: 'password' }}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -59,13 +62,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -83,13 +86,13 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
@@ -97,18 +100,94 @@ describe('Text field', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render input with min attribute', () => {
+		// given
+		const minSchema = {
+			...schema,
+			schema: {
+				...schema.schema,
+				type: 'number',
+				minimum: 0,
+			},
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id="myForm"
+				isValid
+				errorMessage="My error message"
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={minSchema}
+				value="toto"
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render input with max attribute', () => {
+		// given
+		const maxSchema = {
+			...schema,
+			schema: {
+				...schema.schema,
+				type: 'number',
+				maximum: 10,
+			},
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id="myForm"
+				isValid
+				errorMessage="My error message"
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={maxSchema}
+				value="toto"
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render input with step attribute', () => {
+		// given
+		const stepSchema = {
+			...schema,
+			type: 'number',
+			schema: {
+				type: 'number',
+				step: 0.01,
+			},
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text id="myForm" isValid onChange={jest.fn()} onFinish={jest.fn()} schema={stepSchema} />,
+		);
+
+		// then
+		expect(wrapper.find('[type="number"]').at(0).props().step).toEqual(0.01);
+	});
+
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
 				onFinish={jest.fn()}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		const event = { target: { value: 'totoa' } };
@@ -129,9 +208,9 @@ describe('Text field', () => {
 		const onChange = jest.fn();
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={onChange}
 				onFinish={jest.fn()}
 				schema={numberSchema}
@@ -152,13 +231,13 @@ describe('Text field', () => {
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				isValid
-				errorMessage={'My error message'}
+				errorMessage="My error message"
 				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 		const event = { target: { value: 'totoa' } };
@@ -180,15 +259,34 @@ describe('Text field', () => {
 		// when
 		const wrapper = shallow(
 			<Text
-				id={'myForm'}
+				id="myForm"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={hiddenSchema}
-				value={'toto'}
+				value="toto"
 			/>,
 		);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should pass autoComplete to input', () => {
+		// given
+		const autoCompleteSchema = {
+			...schema,
+			autoComplete: 'off',
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id="myForm"
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={autoCompleteSchema}
+				value="toto"
+			/>,
+		);
+		expect(wrapper.find('input').prop('autoComplete')).toBe('off');
 	});
 });

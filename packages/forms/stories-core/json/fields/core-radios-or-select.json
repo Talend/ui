@@ -27,13 +27,15 @@
       "key": "radios",
       "title": "Type of things",
       "description": "This field has less that 2 possible items, it should be rendered as Radios",
-      "widget": "radioOrSelect"
+      "widget": "radioOrSelect",
+      "data-test": "simple.radio"
     },
     {
       "key": "select",
       "title": "Type of things",
       "description": "This field has more that 2 possible items, it should be rendered as Select",
-      "widget": "radioOrSelect"
+      "widget": "radioOrSelect",
+      "data-test": "simple.select"
     }
   ],
   "properties": {}

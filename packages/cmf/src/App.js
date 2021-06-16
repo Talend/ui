@@ -1,47 +1,43 @@
 /**
- * The CMF App component which should be used to start your react application
+ * Internal module, you should not use it directly
  * @module react-cmf/lib/App
- * @example
-import React from 'react';
-import { render } from 'react-dom';
-import { App, store as cmfStore } from '@talend/react-cmf';
-import myreducer from './reducer';
-
-const store = cmfstore.initialize(myreducer);
-render(
-	<App store={store} history={syncHistoryWithStore(browserHistory, store)} />,
-	document.getElementById('app'),
-);
  */
 import PropTypes from 'prop-types';
 
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import history from './history';
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
+import { WaitForSettings } from './settings';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
 
 /**
  * The React component that render your app and provide CMF environment.
- * If you don't need the router, you just have to provide a children.
- * @param  {object} props { store, history }
+ * @param  {object} props { store }
  * @return {object} ReactElement
  */
 export default function App(props) {
-	const hist = props.history || history.get(props.store);
+	let content = props.children;
+	if (props.withSettings) {
+		content = <WaitForSettings loading={props.loading}>{content}</WaitForSettings>;
+	}
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				{props.children || <UIRouter history={hist} loading={props.loading} />}
+				<ErrorBoundary fullPage>{content}</ErrorBoundary>
 			</RegistryProvider>
 		</Provider>
 	);
 }
 
+App.displayName = 'CMFApp';
 App.propTypes = {
 	store: PropTypes.object.isRequired,
 	children: PropTypes.node,
-	history: PropTypes.object,
-	loading: PropTypes.string,
+	withSettings: PropTypes.bool,
+	loading: PropTypes.func,
+};
+
+App.defaultProps = {
+	loading: () => 'loading',
 };

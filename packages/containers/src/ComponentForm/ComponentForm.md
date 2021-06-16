@@ -43,17 +43,17 @@ function* handleForm() {
 
 ## Props
 
-| name             | type    | desc                                                             |
-| ---------------- | ------- | ---------------------------------------------------------------- |
-| definitionURL\*  | string  | url to GET the `uiSpec`                                          |
-| triggerURL\*     | string  | url to POST on event trigger                                     |
-| submitURL        | string  | url to POST the content if action is of type "submit"            |
-| uiSpecPath       | string  | to get the `uiSpec` from the result of GET definitionURL         |
-| lang             | string  | language code used by the backend to produce translated uiSpec   |
-| customTriggers   | object  | registry used to let uiSchema point to it                        |
-| dispatchOnChange | boolean | if this props is true an action is dispatch on every form change |
-| CSRFTokenCookieKey | string | control cookie key to read to get CSRF token value |
-| CSRFTokenHeaderKey | string | control http headers key to send to let server control CSRF token on each trigger called|
+| name               | type    | desc                                                                                                                                             |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| definitionURL\*    | string  | url to GET the `uiSpec`                                                                                                                          |
+| triggerURL\*       | string  | url to POST on event trigger                                                                                                                     |
+| submitURL          | string  | url to POST the content if action is of type "submit"                                                                                            |
+| uiSpecPath         | string  | to get the `uiSpec` from the result of GET definitionURL                                                                                         |
+| lang               | string  | language code used by the backend to produce translated uiSpec                                                                                   |
+| customTriggers     | object  | registry used to let uiSchema point to it                                                                                                        |
+| dispatchOnChange   | boolean | if this props is true an action is dispatch on every form change                                                                                 |
+| CSRFTokenCookieKey | string  | control cookie key to read to get CSRF token value (otherwise http saga default configuration will be used)                                      |
+| CSRFTokenHeaderKey | string  | control http header key to send to let server control CSRF token on each trigger called (otherwise http saga default configuration will be used) |
 
 All other props will be spread to the UIForm
 
@@ -61,14 +61,21 @@ All other props will be spread to the UIForm
 
 The component dispatch some actions in redux so you can take them to add your side effects. The types are available as static variables attached to the component `Form`.
 
-| name                                | value                              | when its dispatched                                 |
-| ----------------------------------- | ---------------------------------- | --------------------------------------------------- |
+| name                           | value                              | when its dispatched                                 |
+| ------------------------------ | ---------------------------------- | --------------------------------------------------- |
 | Form.ON_CHANGE                 | 'TCOMP_FORM_CHANGE'                | On every change if `dispatchOnChange` props is true |
 | Form.ON_SUBMIT                 | 'TCOMP_FORM_SUBMIT'                | On any of submit action is called                   |
 | Form.ON_SUBMIT_SUCCEED         | 'TCOMP_FORM_SUBMIT_SUCCEED'        | When the form submitURL POST response is OK         |
+| Form.ON_SUBMIT_FAILED          | 'TCOMP_FORM_SUBMIT_FAILED'         | When the form submitURL POST response is not OK     |
 | Form.ON_TRIGGER_BEGIN          | 'TCOMP_FORM_TRIGGER_BEGIN'         | Before calling the backend on a trigger             |
 | Form.ON_TRIGGER_END            | 'TCOMP_FORM_TRIGGER_END'           | On the trigger response OK                          |
 | Form.ON_DEFINITION_URL_CHANGED | 'TCOMP_FORM_DEFINITION_URL_CHANGE' | On props update if `definitionURL` has changed      |
+
+## Actions available
+
+An action is available to reset the dirty status of the form. The action is available in ComponentForm.actions.js :
+
+- setComponentFormDirtyState( componentId , dirty ) : set for the given component form (determined by the componentId) the dirty state passed
 
 ## Triggers
 
@@ -95,7 +102,8 @@ Example:
               "key": "query",
               "path": "asyncTitleMap"
             }
-          ]
+          ],
+          "options": ["asyncTitleMap"]
         }
       ]
     },
@@ -103,8 +111,11 @@ Example:
 
 `action`, `family` and `type` define the trigger identifier.
 `parameters` define the payload to send to the backend. the `key` attribute define key in the payload for this parameter and the `path` is used to get the value of it inside the current form payload.
+`options` define the list of path that will be modified by the trigger. Thoses path will be used to manage the _updating_ props of UIForm which make fields disabled and displayed using the heartbeat effect.
 
 A trigger is a piece of code on the backend and on the frontend. So your app can produce any wanted effects on a given form.
+
+A trigger can be only client side. For that you only have to add the property `"remote": false`. In that case the onTrigger function will not call fetch.
 
 You can read more on [default triggers](./kit/defaultRegistry.md)
 

@@ -2,10 +2,10 @@
 
 exports[`Toolbar should render actions toolbar 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 >
-  <nav
-    className="theme-tc-actionbar-container tc-actionbar-container nav"
+  <div
+    className="theme-tc-actionbar-container tc-actionbar-container nav list-action-bar"
   >
     <div
       className="theme-navbar-left navbar-left"
@@ -20,32 +20,29 @@ exports[`Toolbar should render actions toolbar 1`] = `
         role={null}
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="talend-plus"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-plus"
-          />
-        </svg>
+        />
         <span>
           Add
         </span>
       </button>
     </div>
-  </nav>
+    <div
+      className="theme-navbar-right navbar-right"
+    >
+      <ul />
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Toolbar should render actions toolbar with selected items 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 >
-  <nav
-    className="theme-tc-actionbar-container tc-actionbar-container nav"
+  <div
+    className="theme-tc-actionbar-container tc-actionbar-container nav list-action-bar"
   >
     <div
       className="theme-navbar-left navbar-left"
@@ -65,199 +62,44 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
         role={null}
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="talend-trash"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-trash"
-          />
-        </svg>
+        />
         <span>
           Delete selection
         </span>
       </button>
     </div>
-  </nav>
+    <div
+      className="theme-navbar-right navbar-right"
+    >
+      <ul />
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Toolbar should render display mode selector 1`] = `
 <div
-  className="tc-list-toolbar"
->
-  <div
-    className="theme-tc-list-toolbar navbar navbar-default"
-    role="toolbar"
-  >
-    <div
-      className="container-fluid"
-    >
-      <p
-        className="navbar-text"
-      >
-        <label
-          htmlFor="my-toolbar-display-mode"
-        >
-          Display:
-        </label>
-      </p>
-      <ul
-        className="nav navbar-nav"
-        role={null}
-      >
-        <li
-          className="dropdown"
-          style={undefined}
-        >
-          <a
-            aria-expanded={false}
-            aria-haspopup={true}
-            aria-label="Change display mode. Current display mode: table."
-            className="dropdown-toggle"
-            href="#"
-            id="my-toolbar-display-mode"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              name="talend-table"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-table"
-              />
-            </svg>
-             
-            <span
-              className="caret"
-            />
-          </a>
-          <ul
-            aria-labelledby="my-toolbar-display-mode"
-            className="dropdown-menu"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                aria-label="Set Table as current display mode."
-                href="#"
-                id="my-toolbar-display-mode-table"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  name="talend-table"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-table"
-                  />
-                </svg>
-                Table
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                aria-label="Set Expanded as current display mode."
-                href="#"
-                id="my-toolbar-display-mode-large"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  name="talend-expanded"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-expanded"
-                  />
-                </svg>
-                Expanded
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
 `;
 
 exports[`Toolbar should render empty toolbar 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 />
 `;
 
 exports[`Toolbar should render filter form 1`] = `
 <div
-  className="tc-list-toolbar"
->
-  <div
-    className="theme-tc-list-toolbar navbar navbar-default"
-    role="toolbar"
-  >
-    <div
-      className="container-fluid"
-    >
-      <button
-        aria-label="Toggle filter"
-        className="navbar-right btn-icon-only btn btn-link"
-        disabled={false}
-        id="my-toolbar-filter"
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseOver={[Function]}
-        role="search"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
-          name="talend-search"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-search"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
 `;
 
 exports[`Toolbar should render pagination 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 >
   <div
     className="theme-tc-list-toolbar navbar navbar-default"
@@ -281,7 +123,6 @@ exports[`Toolbar should render pagination 1`] = `
       >
         <li
           className="dropdown"
-          style={undefined}
         >
           <a
             aria-expanded={false}
@@ -307,7 +148,6 @@ exports[`Toolbar should render pagination 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 href="#"
@@ -322,7 +162,6 @@ exports[`Toolbar should render pagination 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 href="#"
@@ -337,7 +176,6 @@ exports[`Toolbar should render pagination 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 href="#"
@@ -352,7 +190,6 @@ exports[`Toolbar should render pagination 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 href="#"
@@ -369,7 +206,6 @@ exports[`Toolbar should render pagination 1`] = `
         <li
           className="btn-link"
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Go to first page."
@@ -379,23 +215,14 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-chevron-end"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-chevron-end"
-              />
-            </svg>
+            />
           </a>
         </li>
         <li
           className="btn-link"
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Go to previous page. Current page: 2."
@@ -405,23 +232,12 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-chevron-left"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-chevron-left"
-              />
-            </svg>
+            />
           </a>
         </li>
         <li
-          active={undefined}
-          activeHref={undefined}
-          activeKey={undefined}
           className="theme-page-index"
           onSelect={[Function]}
         >
@@ -432,7 +248,6 @@ exports[`Toolbar should render pagination 1`] = `
         <li
           className="btn-link"
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Go to next page. Current page: 2."
@@ -442,23 +257,15 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-              focusable="false"
+            <Coral.Icon
               name="talend-chevron-left"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-chevron-left"
-              />
-            </svg>
+              transform="rotate-180"
+            />
           </a>
         </li>
         <li
           className="btn-link"
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Go to last page."
@@ -468,17 +275,10 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-              focusable="false"
+            <Coral.Icon
               name="talend-chevron-end"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-chevron-end"
-              />
-            </svg>
+              transform="rotate-180"
+            />
           </a>
         </li>
       </ul>
@@ -489,147 +289,12 @@ exports[`Toolbar should render pagination 1`] = `
 
 exports[`Toolbar should render select all checkbox 1`] = `
 <div
-  className="tc-list-toolbar"
->
-  <div
-    className="theme-tc-list-toolbar navbar navbar-default"
-    role="toolbar"
-  >
-    <div
-      className="container-fluid"
-    >
-      <form
-        className="navbar-form navbar-left"
-      >
-        <div
-          className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
-        >
-          <label
-            className="tc-list-toolbar-select-all"
-            htmlFor={undefined}
-          >
-            <input
-              checked={false}
-              disabled={false}
-              id={undefined}
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <span>
-              Select All
-            </span>
-          </label>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
 `;
 
 exports[`Toolbar should render sort selector 1`] = `
 <div
-  className="tc-list-toolbar"
->
-  <div
-    className="theme-tc-list-toolbar navbar navbar-default"
-    role="toolbar"
-  >
-    <div
-      className="container-fluid"
-    >
-      <p
-        className="navbar-text"
-      >
-        <label
-          htmlFor="my-toolbar-sort-by"
-        >
-          Sort by:
-        </label>
-      </p>
-      <ul
-        className="theme-tc-list-toolbar-sort-by nav navbar-nav"
-        role={null}
-      >
-        <li
-          className="theme-sort-by-items dropdown"
-          style={undefined}
-        >
-          <a
-            aria-expanded={false}
-            aria-haspopup={true}
-            aria-label="Change sort criteria. Current sort by Id."
-            className="dropdown-toggle"
-            href="#"
-            id="my-toolbar-sort-by"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-          >
-            Id
-             
-            <span
-              className="caret"
-            />
-          </a>
-          <ul
-            aria-labelledby="my-toolbar-sort-by"
-            className="dropdown-menu"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                aria-label="Select Id as current sort criteria."
-                href="#"
-                id="my-toolbar-sort-by-item-id"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                Id
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                aria-label="Select Name as current sort criteria."
-                href="#"
-                id="my-toolbar-sort-by-item-name"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                Name
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            aria-label="Change sort order. Current order: Descending."
-            href="#"
-            id="my-toolbar-sort-order"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-          >
-            Descending
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
 `;

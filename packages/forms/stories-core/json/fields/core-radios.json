@@ -56,7 +56,8 @@
     {
       "key": "radios",
       "title": "Type of things",
-      "widget": "radios"
+      "widget": "radios",
+      "data-test": "simple.radio"
     },
     {
       "key": "autofocus",

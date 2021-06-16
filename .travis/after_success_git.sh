@@ -15,15 +15,10 @@ if [ -n "$GH_TOKEN" ]; then
 		echo "✓ Checkout $TRAVIS_PULL_REQUEST_BRANCH"
 
 		if [[ "$TALEND_COMMIT_MSG" =~ 'icon' ]]; then
-			git add packages/components/src
 			git add packages/icons/src/svg
 			git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): optimize icons"
-			echo "✓ Commit optimized icons and components snapshots to $TRAVIS_PULL_REQUEST_BRANCH"
+			echo "✓ Commit optimized icons to $TRAVIS_PULL_REQUEST_BRANCH"
 		fi
-
-		git add npm-audit/
-		git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): update libs security audit"
-		echo "✓ Commit updated audit output to $TRAVIS_PULL_REQUEST_BRANCH"
 
 		git add output/
 		git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): update code style outputs"

@@ -5,9 +5,7 @@ exports[`Code text display mode should render textarea 1`] = `
   id="myForm"
   label="My input title"
 >
-  <pre
-    style={undefined}
-  >
+  <pre>
     toto
   </pre>
 </FieldTemplate>

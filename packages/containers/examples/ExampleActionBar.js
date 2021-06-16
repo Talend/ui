@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
+
 import { action } from '@storybook/addon-actions';
 import { ActionBar } from '../src';
 
@@ -40,7 +40,6 @@ const infos = [
 export default function ExampleActions() {
 	return (
 		<div>
-			<IconsProvider />
 			<p>using action ids</p>
 			<ActionBar actionIds={{ left: ['menu:first', 'menu:second', 'menu:third', 'menu:fourth'] }} />
 			<p>using btn groups</p>

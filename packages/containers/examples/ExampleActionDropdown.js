@@ -1,7 +1,6 @@
 import React from 'react';
 import Immutable from 'immutable';
-import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
-import { IconsProvider } from '@talend/react-components';
+import { action } from '@storybook/addon-actions';
 
 import { ActionDropdown } from '../src';
 
@@ -51,10 +50,8 @@ export default function ExampleAction() {
 		]),
 	};
 
-
 	return (
 		<div>
-			<IconsProvider />
 			<p>ActionDropdown with items in the settings</p>
 			<ActionDropdown actionId="menu:items-id" />
 			<p>ActionDropdown with items from an expression</p>

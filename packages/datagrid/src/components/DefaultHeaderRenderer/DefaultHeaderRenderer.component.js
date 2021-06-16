@@ -22,22 +22,24 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 				className={classNames(theme['td-header'], 'td-header')}
 				onClick={onHeaderClick}
 				onKeyDown={onHeaderKeyDown}
+				type="button"
 			>
-				<div className={classNames(theme['td-header-title'], 'td-header-title')}>
-					<span
-						className={classNames(theme['td-header-title-ellipse'], 'td-header-title-ellipse')}
-						title={displayName}
+				<span>
+					<div className={classNames(theme['td-header-title'], 'td-header-title')}>
+						<span
+							className={classNames(theme['td-header-title-ellipse'], 'td-header-title-ellipse')}
+							title={displayName}
+						>
+							{displayName}
+						</span>
+					</div>
+					<div
+						className={classNames(theme['td-header-type'], 'td-header-type')}
+						title={column.colDef.type}
 					>
-						{displayName}
-					</span>
-					<span>...</span>
-				</div>
-				<div
-					className={classNames(theme['td-header-type'], 'td-header-type')}
-					title={column.colDef.type}
-				>
-					{column.colDef.type}
-				</div>
+						{column.colDef.type}
+					</div>
+				</span>
 			</button>
 			{column.colDef[QUALITY_KEY] && (
 				<QualityBar
@@ -58,7 +60,9 @@ DefaultHeaderRenderer.propTypes = {
 				[QUALITY_INVALID_KEY]: PropTypes.shape(QUALITY_PROPTYPE),
 				[QUALITY_VALID_KEY]: PropTypes.shape(QUALITY_PROPTYPE),
 			}),
+			type: PropTypes.string,
 		}),
+		colId: PropTypes.string,
 	}),
 	displayName: PropTypes.string,
 	onFocusedColumn: PropTypes.func,

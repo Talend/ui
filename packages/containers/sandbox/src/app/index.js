@@ -3,18 +3,23 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-
-import '@talend/bootstrap-theme/src/theme/theme.scss';
-import { registerAllContainers } from '@talend/react-containers/lib/register';
-import ComponentForm from '@talend/react-containers/lib/ComponentForm';
+import getRouter from '@talend/react-cmf-router';
 import cmf from '@talend/react-cmf';
-import { createLogger } from 'redux-logger';
+import containersModule from '@talend/react-containers';
+import ComponentForm from '@talend/react-containers/lib/ComponentForm';
+import ComponentFormSandbox from './ComponentFormSandbox';
 import actions from './actions';
 
-/**
- * This will register all containers in the CMF registry
- */
-registerAllContainers();
+const router = getRouter();
+
+const app = {
+	components: { ComponentForm, ComponentFormSandbox },
+	settingsURL: '/settings.json',
+	actionCreators: actions,
+	middlewares: [],
+	modules: [router.cmfModule, containersModule],
+	RootComponent: router.RootComponent,
+};
 
 /**
  * Initialize CMF
@@ -25,10 +30,4 @@ registerAllContainers();
  * - Fetch the settings
  * - render react-dom in the dom 'app' element
  */
-
-cmf.bootstrap({
-	components: Object.assign({ ComponentForm }),
-	settingsURL: '/settings.json',
-	actionCreators: actions,
-	middlewares: [createLogger({})],
-});
+cmf.bootstrap(app);

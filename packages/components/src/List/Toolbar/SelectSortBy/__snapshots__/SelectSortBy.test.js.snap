@@ -7,7 +7,6 @@ exports[`SelectSortBy should render 1`] = `
 >
   <li
     className="theme-sort-by-items dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -15,7 +14,7 @@ exports[`SelectSortBy should render 1`] = `
       aria-label="Change sort criteria. Current sort by Id."
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -27,19 +26,17 @@ exports[`SelectSortBy should render 1`] = `
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Id as current sort criteria."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -51,12 +48,10 @@ exports[`SelectSortBy should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Name as current sort criteria."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -68,20 +63,24 @@ exports[`SelectSortBy should render 1`] = `
     </ul>
   </li>
   <li
-    className=""
-    role="presentation"
-    style={undefined}
+    onSelect={null}
   >
-    <a
+    <button
       aria-label="Change sort order. Current order: Ascending."
-      href="#"
-      id={undefined}
+      className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn btn-link"
+      disabled={false}
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      type="button"
     >
-      Ascending
-    </a>
+      <Coral.Icon
+        name="talend-sort-asc"
+      />
+      <Coral.Icon
+        className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
+        name="talend-caret-down"
+        transform="rotate-180"
+      />
+    </button>
   </li>
 </ul>
 `;
@@ -93,7 +92,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
 >
   <li
     className="theme-sort-by-items dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -120,7 +118,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Id as current sort criteria."
@@ -137,7 +134,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Name as current sort criteria."
@@ -154,20 +150,25 @@ exports[`SelectSortBy should render id if provided 1`] = `
     </ul>
   </li>
   <li
-    className=""
-    role="presentation"
-    style={undefined}
+    onSelect={null}
   >
-    <a
+    <button
       aria-label="Change sort order. Current order: Ascending."
-      href="#"
-      id="toolbar-sort-order"
+      className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn btn-link"
+      disabled={false}
+      id="toolbar-sort-order-chooser"
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      type="button"
     >
-      Ascending
-    </a>
+      <Coral.Icon
+        name="talend-sort-asc"
+      />
+      <Coral.Icon
+        className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
+        name="talend-caret-down"
+        transform="rotate-180"
+      />
+    </button>
   </li>
 </ul>
 `;
@@ -178,29 +179,30 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
   role={null}
 >
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="navbar-text"
     onSelect={null}
   >
     Id
   </li>
   <li
-    className=""
-    role="presentation"
-    style={undefined}
+    onSelect={null}
   >
-    <a
+    <button
       aria-label="Change sort order. Current order: Ascending."
-      href="#"
-      id={undefined}
+      className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn btn-link"
+      disabled={false}
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      type="button"
     >
-      Ascending
-    </a>
+      <Coral.Icon
+        name="talend-sort-asc"
+      />
+      <Coral.Icon
+        className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
+        name="talend-caret-down"
+        transform="rotate-180"
+      />
+    </button>
   </li>
 </ul>
 `;
@@ -212,7 +214,6 @@ exports[`SelectSortBy should render without field selected 1`] = `
 >
   <li
     className="theme-sort-by-items dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -220,7 +221,7 @@ exports[`SelectSortBy should render without field selected 1`] = `
       aria-label="Change sort criteria. Current sort by N.C."
       className="dropdown-toggle"
       href="#"
-      id={42}
+      id="42"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -232,19 +233,17 @@ exports[`SelectSortBy should render without field selected 1`] = `
       />
     </a>
     <ul
-      aria-labelledby={42}
+      aria-labelledby="42"
       className="dropdown-menu"
       role="menu"
     >
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Id as current sort criteria."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -256,12 +255,10 @@ exports[`SelectSortBy should render without field selected 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Name as current sort criteria."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"

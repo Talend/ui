@@ -6,8 +6,8 @@ Object {
     "componentState": Object {
       "componentName": "name",
       "initialComponentState": Immutable.Map {
-        foo: "bar",
-},
+        "foo": "bar",
+      },
       "key": "id",
       "type": "REACT_CMF.COMPONENT_ADD_STATE",
     },

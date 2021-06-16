@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
-import theme from './Item.scss';
+import { withTranslation } from 'react-i18next';
 import ItemPropTypes from './Item.propTypes';
 import Action from '../../../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-
-function itemLabelClasses() {
-	return classNames(theme['tc-listview-item-label'], 'tc-listview-item-label');
-}
+import Checkbox from '../../../Checkbox';
+import Icon from '../../../Icon';
+import TooltipTrigger from '../../../TooltipTrigger';
 
 class Item extends Component {
 	componentDidUpdate(prevProps) {
@@ -43,6 +41,7 @@ class Item extends Component {
 			'checkbox',
 			{ 'switch-nested': children },
 			{ switch: isSwitchBox },
+			{ 'with-icon': item.icon },
 		);
 		const ariaLabel = item.checked
 			? t('TC_LISTVIEW_DESELECT', { defaultValue: 'Deselect {{ value }}', value: item.label })
@@ -63,18 +62,24 @@ class Item extends Component {
 				role="option"
 				aria-selected={item.checked}
 			>
-				<label htmlFor={itemId}>
-					<input
-						id={itemId}
-						type="checkbox"
-						checked={item.checked}
-						onChange={event => item.onChange(event, item, parentItem)}
-						aria-label={ariaLabel}
-					/>
-					<span className={itemLabelClasses()}>
-						{searchCriteria ? getSearchedLabel(item.label) : item.label}
-					</span>
-				</label>
+				<Checkbox
+					id={itemId}
+					onChange={event => item.onChange(event, item, parentItem)}
+					checked={item.checked}
+					label={
+						<>
+							{searchCriteria ? getSearchedLabel(item.label) : item.label}
+							{item.icon && (
+								<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+									<span>
+										<Icon {...item.icon} />
+									</span>
+								</TooltipTrigger>
+							)}
+						</>
+					}
+					aria-label={ariaLabel}
+				/>
 				{children && (
 					<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })}>
 						<Action
@@ -94,4 +99,4 @@ class Item extends Component {
 
 Item.propTypes = ItemPropTypes;
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Item);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Item);

@@ -1,16 +1,16 @@
 {
   "name": "@talend/react-cmf-webpack-plugin",
   "description": "@talend/react-cmf webpack plugin for merging CMF settings",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "scripts": {
-    "prepublish": "npm run build && npm run test",
-    "build": "rimraf ./dist && babel -d dist ./src/ --ignore **/*.test.js",
+    "prepublishOnly": "echo nothing to prepublishOnly",
+    "prepare": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
     "test:cov": "npm run test",
     "test:demo": "echo nothing to do",
-    "lint:es": "eslint --config ../../.eslintrc --ext .js src",
-    "lint": "npm run lint:es"
+    "lint:es": "talend-scripts lint:es"
   },
   "repository": {
     "type": "git",
@@ -30,29 +30,18 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/react-cmf": "^0.210.0-0",
+    "@talend/react-cmf": "^6.29.0",
     "chokidar": "^2.0.2",
     "deepmerge": "^1.5.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.15",
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "8.0.1",
-    "babel-jest": "20.0.3",
-    "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "eslint": "^3.6.1",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "rimraf": "^2.6.1"
+    "@talend/scripts-core": "^9.4.1",
+    "@talend/scripts-preset-react-lib": "^9.4.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.210.0-0"
+  "version": "6.29.0"
 }

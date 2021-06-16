@@ -1,9 +1,12 @@
-/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
 import React from 'react';
+import classnames from 'classnames';
+import { extractDataAttributes } from '../../utils/properties';
 
 export default function SimpleCheckBox({
 	describedby,
+	disabled,
 	id,
 	isValid,
 	label,
@@ -11,25 +14,41 @@ export default function SimpleCheckBox({
 	onFinish,
 	schema,
 	value,
+	index,
 }) {
-	const { autoFocus, disabled = false } = schema;
+	const { autoFocus } = schema;
+
+	function getDataFeature() {
+		const dataFeature = schema['data-feature'];
+		return dataFeature ? `${dataFeature}.${value ? 'uncheck' : 'check'}` : undefined;
+	}
+
+	function getDataChecked() {
+		if (value) {
+			return 2;
+		}
+		return 0;
+	}
 
 	return (
-		<div className="checkbox">
-			<label>
+		<div className={classnames('checkbox', { disabled })}>
+			<label data-feature={getDataFeature()}>
 				<input
-					id={id}
+					id={`${id}${index !== undefined ? `-${index}` : ''}`}
 					autoFocus={autoFocus}
 					disabled={disabled}
 					onChange={event => {
-						onChange(event, { schema, value: event.target.checked });
-						onFinish(event, { schema, value: event.target.checked });
+						const isChecked = event.target.checked;
+						onChange(event, { schema, value: isChecked });
+						onFinish(event, { schema, value: isChecked });
 					}}
 					type="checkbox"
 					checked={value}
+					data-checked={getDataChecked()}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-describedby={describedby}
+					{...extractDataAttributes(schema, index)}
 				/>
 				<span className="control-label" htmlFor={id}>
 					{label}
@@ -42,16 +61,19 @@ export default function SimpleCheckBox({
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
 		describedby: PropTypes.string.isRequired,
+		disabled: PropTypes.bool,
 		id: PropTypes.string,
-		isValid: PropTypes.string,
+		isValid: PropTypes.bool,
 		label: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			'data-feature': PropTypes.string,
 			autoFocus: PropTypes.bool,
 			disabled: PropTypes.bool,
 		}),
 		value: PropTypes.bool,
+		index: PropTypes.number,
 	};
 }
 

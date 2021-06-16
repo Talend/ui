@@ -16,9 +16,17 @@ if (window.location.protocol === 'https:') {
 }
 
 /**
+ * @param socketUrl
+ * @returns {boolean} true if it starts with a WS protocol
+ */
+export function isAbsoluteWebSocketUrl(socketUrl) {
+	return (typeof socketUrl === 'string' && (socketUrl.startsWith('ws://') || socketUrl.startsWith('wss://')));
+}
+
+/**
  * select part of the state to create patch between two state
  *
- * @param socketPath {string} path to websocket
+ * @param socketUrl {string} url to web socket relay
  * @param actionListeners {array<function>} function exectuted
  * on each action going trought this middleware
  * @param socketListener {array<function>} function executed
@@ -28,14 +36,20 @@ if (window.location.protocol === 'https:') {
  *
  */
 function createWebsocketMiddleware(
-	socketPath,
+	socketUrl,
 	actionListeners = [],
 	socketListener = [],
 	socketOptions = {},
 ) {
 	const buffer = [];
 	let ws;
-	const urlPrefix = `${protocol}://${host}${socketPath}`;
+	let url;
+
+	if (isAbsoluteWebSocketUrl(socketUrl)) {
+		url = socketUrl;
+	} else {
+		url = `${protocol}://${host}${socketUrl}`;
+	}
 
 	function send() {
 		actionListeners.forEach(actionListener => {
@@ -57,7 +71,7 @@ function createWebsocketMiddleware(
 
 	return ({ getState, dispatch }) => next => action => {
 		if (!ws) {
-			ws = new SmartWebsocket(urlPrefix, {
+			ws = new SmartWebsocket(url, {
 				onOpen: () => dispatch({ type: SOCKET_ON_OPEN }),
 				onClose: event => dispatch({ type: SOCKET_ON_CLOSE, event }),
 				onMessage: messageEvent => {

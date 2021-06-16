@@ -1,40 +1,11 @@
 import React from 'react';
-import { IconsProvider } from '@talend/react-components';
-import talendIcons from '@talend/icons/dist/react';
 
 import { Inject } from '@talend/react-cmf';
 import Immutable from 'immutable';
 
-const icons = {
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-	'talend-badge': talendIcons['talend-badge'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-cog': talendIcons['talend-cog'],
-	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-expanded': talendIcons['talend-expanded'],
-	'talend-file': talendIcons['talend-file'],
-	'talend-file-json-o': talendIcons['talend-file-json-o'],
-	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-icons': talendIcons['talend-icons'],
-	'talend-logo': talendIcons['talend-logo'],
-	'talend-pencil': talendIcons['talend-pencil'],
-	'talend-plus': talendIcons['talend-plus'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-search': talendIcons['talend-search'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-streams': talendIcons['talend-streams'],
-	'talend-table': talendIcons['talend-table'],
-	'talend-tiles': talendIcons['talend-tiles'],
-	'talend-trash': talendIcons['talend-trash'],
-	'talend-opener': talendIcons['talend-opener'],
-	'talend-upload': talendIcons['talend-upload'],
-};
-
 const header = {
 	component: 'HeaderBar',
-	brand: 'Example app',
+	brand: { label: 'Example app' },
 };
 
 const sidepanel = {
@@ -42,22 +13,19 @@ const sidepanel = {
 	actionIds: ['menu:first', 'menu:second', 'menu:third'],
 };
 
-
 const tabs = {
 	component: 'TabBar',
+	id: 'layout-example-tabs',
 	items: [
 		{
-			id: 1,
 			label: 'School',
 			key: 'school',
 		},
 		{
-			id: 2,
 			label: 'Office',
 			key: 'office',
 		},
 		{
-			id: 3,
 			label: 'Hospital',
 			key: 'hospital',
 		},
@@ -111,16 +79,18 @@ const list = {
 	]),
 };
 
-const content = [
-	tabs,
-	list,
-];
+const content = [tabs, list];
 
 const ExampleLayout = {
 	default: () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
-			<Inject component="Layout" mode="TwoColumns" header={header} one={sidepanel} content={content} />
+			<Inject
+				component="Layout"
+				mode="TwoColumns"
+				header={header}
+				one={sidepanel}
+				content={content}
+			/>
 		</div>
 	),
 };

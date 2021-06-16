@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS, Map } from 'immutable';
-import addSchemaMock from './ComponentForm.test.schema';
+import addSchemaMock from './ComponentForm.test.schema.json';
 
 import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
 
@@ -255,30 +255,33 @@ describe('ComponentForm', () => {
 			const dispatch = jest.fn();
 			const oldUrl = 'http://old';
 			const newUrl = 'http://new';
+			const componentState = { properties: { name: 'old' } };
 
 			// when
 			const wrapper = shallow(
 				<TCompForm state={state} definitionURL={oldUrl} dispatch={dispatch} />,
 			);
+			wrapper.setState(componentState);
 			wrapper.setProps({ definitionURL: newUrl });
 
 			// then
 			expect(dispatch).toBeCalledWith({
-				type: TCompForm.ON_DEFINITION_URL_CHANGED,
-				state,
 				definitionURL: newUrl,
 				dispatch,
+				state,
+				type: TCompForm.ON_DEFINITION_URL_CHANGED,
+				...componentState,
 			});
 		});
 	});
 
 	describe('events', () => {
-		const state = fromJS(addSchemaMock.ui);
+		const state = fromJS({ ...addSchemaMock.ui, initialState: addSchemaMock.ui });
 
 		// extract type field schema
 		const typeSchema = {
 			...addSchemaMock.ui.uiSchema[0].items[1],
-			key: ['$datasetMetadata', 'type'],
+			key: ['_datasetMetadata', 'type'],
 		};
 		const selectedType = typeSchema.titleMap[0];
 
@@ -287,7 +290,7 @@ describe('ComponentForm', () => {
 		const changePayload = {
 			schema: typeSchema,
 			properties: {
-				$datasetMetadata: {
+				_datasetMetadata: {
 					type: selectedType.value,
 				},
 			},
@@ -334,7 +337,7 @@ describe('ComponentForm', () => {
 				// then
 				expect(wrapper.state()).toEqual({
 					properties: {
-						$datasetMetadata: {
+						_datasetMetadata: {
 							type: selectedType.value,
 							$type_name: selectedType.name,
 						},
@@ -365,7 +368,7 @@ describe('ComponentForm', () => {
 				expect(args.type).toBe(TCompForm.ON_CHANGE);
 				expect(args.component).toBe(TCompForm.displayName);
 				expect(args.componentId).toBe(componentId);
-				expect(args.event).toBe(event);
+				expect(args.event).toBe(undefined);
 				expect(args.schema).toBe(changePayload.schema);
 				expect(args.value).toBe(changePayload.value);
 				expect(args.properties).toBe(changePayload.properties);
@@ -384,22 +387,6 @@ describe('ComponentForm', () => {
 
 				// then
 				expect(trigger.isCalled).toBe(true);
-			});
-
-			it('should register trigger result properties in state', () => {
-				// given
-				const wrapper = shallow(<TCompForm state={state} dispatch={jest.fn()} />);
-				const properties = { type: selectedType.value };
-				const trigger = wrapper.instance().trigger;
-				trigger.mockReturnWith({ properties });
-
-				// when
-				return wrapper
-					.instance()
-					.onTrigger(event, changePayload)
-					.then(() => {
-						expect(wrapper.state()).toEqual({ properties });
-					});
 			});
 
 			it('should set cmf state with schemas', () => {
@@ -447,8 +434,48 @@ describe('ComponentForm', () => {
 				expect(args.type).toBe(TCompForm.ON_SUBMIT);
 				expect(args.component).toBe(TCompForm.displayName);
 				expect(args.componentId).toBe(componentId);
-				expect(args.event).toBe(event);
+				expect(args.event).toBe(undefined);
 				expect(args.properties).toEqual(payload);
+			});
+		});
+
+		describe('#onReset', () => {
+			it('should reset form state', () => {
+				// given
+				const setState = jest.fn();
+				const dispatch = jest.fn();
+				const componentId = 'MyComponentId';
+				const wrapper = shallow(
+					<TCompForm
+						componentId={componentId}
+						setState={setState}
+						state={state}
+						dispatch={dispatch}
+					/>,
+				);
+
+				// when
+				wrapper.instance().onChange(event, changePayload);
+
+				// change state
+				expect(wrapper.state()).toEqual({
+					properties: {
+						_datasetMetadata: {
+							type: selectedType.value,
+							$type_name: selectedType.name,
+						},
+					},
+				});
+				// when
+				wrapper.instance().onReset();
+
+				// change state back to initial state provided by addSchemaMock.ui
+				// with dirty set to false since the form got reseted
+				expect(wrapper.state()).toEqual({
+					properties: {
+						_datasetMetadata: {},
+					},
+				});
 			});
 		});
 	});

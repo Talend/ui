@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import { ThemeProvider } from '@talend/design-system';
 import Inject from '../Inject';
 import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
+import SkipLinks from './SkipLinks';
+
 import theme from './Layout.scss';
-import {
-	DISPLAY_MODES,
-	DISPLAY_MODE_ONE_COLUMN,
-	DISPLAY_MODE_TWO_COLUMNS,
-	TALEND_T7_THEME_CLASSNAME,
-} from './constants';
+
+const DISPLAY_MODES = {
+	ONE_COLUMN: 'OneColumn',
+	TWO_COLUMNS: 'TwoColumns',
+};
+const TALEND_T7_THEME_APPS = ['portal', 'tdc', 'tdp', 'tds', 'tfd', 'tmc', 'mdm'];
+const TALEND_T7_THEME_CLASSNAME = 't7';
 
 /**
  * The Layout component is a container
@@ -47,12 +51,14 @@ function Layout({
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
+	let skipLinkNavigationId;
 	switch (mode) {
-		case DISPLAY_MODE_ONE_COLUMN:
+		case DISPLAY_MODES.ONE_COLUMN:
 			Component = OneColumn;
 			break;
-		case DISPLAY_MODE_TWO_COLUMNS:
+		case DISPLAY_MODES.TWO_COLUMNS:
 			Component = TwoColumns;
+			skipLinkNavigationId = '#tc-layout-side-menu';
 			break;
 		default:
 			Component = OneColumn;
@@ -65,27 +71,38 @@ function Layout({
 	const safeFooter = Inject.getReactElement(getComponent, footer);
 
 	return (
-		<div id={id} className={appCSS}>
-			{safeHeader && (
-				<header key="banner" role="banner" className={headerCSS}>
-					{safeHeader}
-				</header>
-			)}
-			{safeSubHeader && (
-				<div key="subheader" className="subheader">
-					{safeSubHeader}
+		<ThemeProvider>
+			<div id={id} className={appCSS}>
+				<div className={theme['skip-links']}>
+					<SkipLinks navigationId={skipLinkNavigationId} mainId="#tc-layout-main" />
 				</div>
-			)}
-			<Component key="main" drawers={safeDrawers} tabs={tabs} getComponent={getComponent} {...rest}>
-				{safeContent}
-				{children}
-			</Component>
-			{safeFooter && (
-				<footer key="footer" role="contentinfo" className={footerCSS}>
-					{safeFooter}
-				</footer>
-			)}
-		</div>
+				{safeHeader && (
+					<header key="banner" role="banner" className={headerCSS}>
+						{safeHeader}
+					</header>
+				)}
+				{safeSubHeader && (
+					<div key="subheader" className="subheader">
+						{safeSubHeader}
+					</div>
+				)}
+				<Component
+					key="main"
+					drawers={safeDrawers}
+					tabs={tabs}
+					getComponent={getComponent}
+					{...rest}
+				>
+					{safeContent}
+					{children}
+				</Component>
+				{safeFooter && (
+					<footer key="footer" role="contentinfo" className={footerCSS}>
+						{safeFooter}
+					</footer>
+				)}
+			</div>
+		</ThemeProvider>
 	);
 }
 
@@ -97,7 +114,7 @@ Layout.propTypes = {
 	content: Inject.getReactElement.propTypes,
 	footer: Inject.getReactElement.propTypes,
 	subHeader: Inject.getReactElement.propTypes,
-	mode: PropTypes.oneOf(DISPLAY_MODES),
+	mode: PropTypes.oneOf([DISPLAY_MODES.ONE_COLUMN, DISPLAY_MODES.TWO_COLUMNS]),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	hasTheme: PropTypes.bool,
@@ -105,4 +122,7 @@ Layout.propTypes = {
 	getComponent: PropTypes.func,
 };
 
+Layout.DISPLAY_MODES = DISPLAY_MODES;
+Layout.TALEND_T7_THEME_APPS = TALEND_T7_THEME_APPS;
+Layout.TALEND_T7_THEME_CLASSNAME = TALEND_T7_THEME_CLASSNAME;
 export default Layout;

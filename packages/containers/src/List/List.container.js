@@ -2,23 +2,45 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
-import { List as Component } from '@talend/react-components';
-import CellTitleRenderer, {
-	cellType as cellTitleType,
-} from '@talend/react-components/lib/VirtualizedList/CellTitle';
-import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle/CellTitle.component';
+import Component from '@talend/react-components/lib/List';
+import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
-import { cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 import Constants from './List.constant';
 
-const ConnectedCellTitle = cmfConnect({})(CellTitle);
+function mapStateToProps(state, ownProps) {
+	if (!ownProps.columnData) {
+		return {};
+	}
+
+	const exp = cmf.expression.mapStateToProps(state, ownProps.columnData, { props: ownProps });
+	if (Object.keys(exp).length) {
+		return {
+			columnData: {
+				...cmf.expression.mergeProps(ownProps.columnData),
+				...exp,
+			},
+		};
+	}
+
+	return {};
+}
+
+const ConnectedCellTitle = cmfConnect({
+	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
+})(VirtualizedList.cellDictionary.title.cellRenderer);
 export const connectedCellDictionary = {
-	[cellTitleType]: {
-		...CellTitleRenderer,
+	title: {
+		...VirtualizedList.cellDictionary.title,
 		cellRenderer: props => <ConnectedCellTitle {...props} />,
 	},
 };
@@ -42,15 +64,33 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.toJS().map(item =>
-		Object.assign({}, item, {
-			actions: getActionsProps(context, get(props, 'actions.items', []), item),
-		}),
-	);
+	return props.items.toJS().map(item => {
+		const actionsItems = get(props, 'actions.items', []);
+		let actions = [];
+		if (
+			Array.isArray(actionsItems) &&
+			actionsItems.every(actionsItem => Array.isArray(actionsItem))
+		) {
+			actions = actionsItems.map(actionArray => getActionsProps(context, actionArray, item));
+		} else {
+			// simple array of actions
+			actions = getActionsProps(context, actionsItems, item);
+		}
+		return {
+			...item,
+			actions,
+			persistentActions: getActionsProps(
+				context,
+				get(props, 'actions.persistentItemsActions', []),
+				item,
+			),
+		};
+	});
 }
 
 class List extends React.Component {
 	static displayName = 'Container(List)';
+
 	static propTypes = {
 		actions: PropTypes.shape({
 			title: PropTypes.string,
@@ -153,7 +193,7 @@ class List extends React.Component {
 	render() {
 		const state = this.props.state.toJS();
 		const items = getItems(this.context, this.props);
-		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
+		const props = { ...omit(this.props, cmfConnect.INJECTED_PROPS) };
 		if (!props.displayMode) {
 			props.displayMode = state.displayMode;
 		}
@@ -258,10 +298,7 @@ class List extends React.Component {
 				props.toolbar.filter.onToggle = (event, data) => {
 					this.props.dispatch({
 						type: Constants.LIST_TOGGLE_FILTER,
-						payload: Object.assign({}, data, {
-							filterDocked: state.filterDocked,
-							searchQuery: state.searchQuery,
-						}),
+						payload: { ...data, filterDocked: state.filterDocked, searchQuery: state.searchQuery },
 						collectionId: props.collectionId,
 						event,
 					});

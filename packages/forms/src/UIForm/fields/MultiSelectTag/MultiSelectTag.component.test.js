@@ -6,6 +6,8 @@ import Typeahead from '@talend/react-components/lib/Typeahead';
 import keycode from 'keycode';
 import MultiSelectTag from './MultiSelectTag.component';
 
+jest.mock('ally.js');
+
 describe('MultiSelectTag field', () => {
 	const props = {
 		id: 'my-select-tag',
@@ -13,6 +15,7 @@ describe('MultiSelectTag field', () => {
 		errorMessage: 'This is wrong',
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
+		onTrigger: jest.fn(),
 		schema: {
 			autoFocus: true,
 			description: 'This is the MultiSelectTag field',
@@ -22,7 +25,10 @@ describe('MultiSelectTag field', () => {
 			required: true,
 			restricted: false,
 			title: 'Tags',
-			titleMap: [{ name: 'toto', value: 'titi' }, { name: 'tata', value: 'tutu' }],
+			titleMap: [
+				{ name: 'toto', value: 'titi' },
+				{ name: 'tata', value: 'tutu' },
+			],
 		},
 		value: ['aze', 'tutu'],
 	};
@@ -96,6 +102,34 @@ describe('MultiSelectTag field', () => {
 		expect(wrapper.find(Typeahead).props().items).toEqual([]);
 	});
 
+	it('should NOT suggest new item creation when a value already matches', () => {
+		// given
+		const wrapper = mount(<MultiSelectTag {...props} value={['az']} />);
+
+		// when
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'az' } });
+
+		// then
+		expect(wrapper.find(Typeahead).props().items).toEqual([]);
+	});
+
+	it('should NOT suggest new item creation when a suggestion matches', () => {
+		// given
+		const wrapper = mount(<MultiSelectTag {...props} />);
+
+		// when
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'toto' } });
+
+		// then
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'toto', value: 'titi' }]);
+	});
+
 	it('should add tag', () => {
 		// given
 		const onChange = jest.fn();
@@ -120,10 +154,7 @@ describe('MultiSelectTag field', () => {
 		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
 
 		// when
-		wrapper
-			.find('.tc-badge-delete-icon')
-			.at(0)
-			.simulate('click');
+		wrapper.find('Button.tc-badge-delete-icon').at(0).simulate('click');
 
 		// then
 		const payload = { schema: props.schema, value: props.value.slice(1) };
@@ -160,10 +191,7 @@ describe('MultiSelectTag field', () => {
 		const event = { type: 'focus', target: wrapper.instance() };
 
 		// when
-		wrapper
-			.find('FieldTemplate')
-			.find(Typeahead)
-			.prop('onFocus')(event);
+		wrapper.find('FieldTemplate').find(Typeahead).prop('onFocus')(event);
 
 		// then
 		expect(triggerProps.onTrigger).toBeCalledWith(event, {
@@ -184,13 +212,22 @@ describe('MultiSelectTag field', () => {
 		const wrapper = shallow(<MultiSelectTag {...nameResolverProps} />);
 
 		// when
-		const firstLabel = wrapper
-			.find('FieldTemplate')
-			.find(Badge)
-			.first()
-			.prop('label');
+		const firstLabel = wrapper.find('FieldTemplate').find(Badge).first().prop('label');
 
 		// then
 		expect(firstLabel).toBe('aze_name');
+	});
+
+	it('should call onBlur when blurring the input', () => {
+		// given
+		const onBlur = jest.fn();
+		const propsWithBlur = { ...props, onBlur };
+		const wrapper = mount(<MultiSelectTag {...propsWithBlur} />);
+
+		// when
+		wrapper.find('input').at(0).simulate('blur');
+
+		// then
+		expect(onBlur).toHaveBeenCalled();
 	});
 });

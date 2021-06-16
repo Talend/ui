@@ -3,6 +3,8 @@ import React from 'react';
 import classnames from 'classnames';
 import theme from './CellCheckbox.scss';
 
+import { SELECTION_MODE } from '../utils/constants';
+
 /**
  * Cell renderer that displays a checkbox
  */
@@ -18,20 +20,24 @@ class CellCheckbox extends React.Component {
 
 	render() {
 		const { cellData, columnData, rowData, rowIndex } = this.props;
-		const { id, label, onChange } = columnData;
+		const { id, label, selectionMode, onChange, getRowState } = columnData;
+		const { disabled = false } = (getRowState && getRowState(rowData)) || {};
+		const type = selectionMode === SELECTION_MODE.SINGLE ? 'radio' : 'checkbox';
+
 		return (
 			<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 				<div className="checkbox">
 					<label htmlFor={id && `${id}-${rowIndex}-check`}>
 						<input
 							id={id && `${id}-${rowIndex}-check`}
-							type="checkbox"
+							type={type}
 							onChange={e => {
 								onChange(e, rowData);
 							}}
 							checked={cellData}
+							disabled={disabled}
 						/>
-						<span className={'tc-cell-checkbox'}>
+						<span className="tc-cell-checkbox">
 							<span className="sr-only">{label}</span>
 						</span>
 					</label>
@@ -47,6 +53,8 @@ CellCheckbox.propTypes = {
 	cellData: PropTypes.bool,
 	// The custom props passed to <VirtualizedList.Content columnData={}>.
 	columnData: PropTypes.shape({
+		selectionMode: PropTypes.string,
+		getRowState: PropTypes.func,
 		// The List id. This is used as the checkbox id prefix.
 		id: PropTypes.string,
 		// The checkbox label.

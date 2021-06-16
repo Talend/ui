@@ -11,11 +11,13 @@ $tc-layout-header-height: $navbar-height !default;
 	display: flex;
 	flex-direction: row;
 	height: 100vh;
+	overflow: hidden;
 }
 
 .sidemenu {
 	flex-shrink: 0;
 	flex-grow: 0;
+	min-width: 0;
 	> * {
 		height: 100%;
 	}

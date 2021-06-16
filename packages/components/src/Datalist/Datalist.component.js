@@ -6,6 +6,8 @@ import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
 import theme from './Datalist.scss';
+import FocusManager from '../FocusManager';
+import Icon from '../Icon';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -19,8 +21,10 @@ class Datalist extends Component {
 		this.onBlur = this.onBlur.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.onClick = this.onClick.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+		this.resetSuggestions = this.resetSuggestions.bind(this);
 
 		this.theme = {
 			container: classNames(theme.container, 'tc-datalist-container'),
@@ -59,11 +63,24 @@ class Datalist extends Component {
 	 * @param event The blur event
 	 */
 	onBlur(event) {
-		this.resetSuggestions();
+		if (this.props.onBlur) {
+			this.props.onBlur();
+		}
 		const { value, previousValue } = this.state;
 
 		if (value !== previousValue) {
-			this.updateValue(event, value, true);
+			let newValue = value;
+			if (!this.props.multiSection && this.state.suggestions && value) {
+				const hasMatchingSuggestion = this.state.suggestions.find(
+					item => !item.disabled && item.name.toLowerCase() === value.toLowerCase(),
+				);
+
+				if (hasMatchingSuggestion) {
+					newValue = hasMatchingSuggestion;
+				}
+			}
+
+			this.updateValue(event, newValue, true);
 		}
 	}
 
@@ -90,6 +107,18 @@ class Datalist extends Component {
 		event.target.select();
 		this.updateSuggestions();
 		this.updateSelectedIndexes(this.state.value);
+	}
+
+	/**
+	 * Display suggestions on click
+	 * @param event the click event
+	 */
+	onClick() {
+		if (!this.state.suggestions) {
+			// display all suggestions when they are not displayed
+			this.updateSuggestions();
+			this.updateSelectedIndexes(this.state.value);
+		}
 	}
 
 	/**
@@ -170,6 +199,12 @@ class Datalist extends Component {
 		if (this.props.multiSection) {
 			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
 		}
+		if (newValue.disabled) {
+			event.preventDefault();
+			return;
+		}
+
+		this.resetSuggestions();
 		this.updateValue(event, newValue, true);
 	}
 
@@ -182,6 +217,34 @@ class Datalist extends Component {
 			return this.state.titleMapping[this.state.value] || this.state.value;
 		}
 		return this.state.value;
+	}
+
+	/**
+	 * Returns the selected item's icon props if there's one or undefined.
+	 * @returns {Object|undefined}
+	 */
+	getSelectedIcon() {
+		if (this.props.titleMap) {
+			if (this.props.multiSection) {
+				const multiSection = this.props.titleMap.find(titleMap =>
+					titleMap.suggestions.find(suggestion => suggestion.name === this.state.value),
+				);
+				return get(
+					multiSection &&
+						multiSection.suggestions.find(suggestion => suggestion.name === this.state.value),
+					'icon',
+				);
+			}
+
+			let item = this.props.titleMap.find(titleMap => titleMap.name === this.state.value);
+			if (!item) {
+				item = this.props.titleMap.find(titleMap => titleMap.value === this.state.value);
+			}
+			if (item) {
+				return get(item, 'icon');
+			}
+		}
+		return undefined;
 	}
 
 	/**
@@ -202,7 +265,7 @@ class Datalist extends Component {
 	 */
 	buildTitleMapping(titleMap) {
 		return titleMap.reduce((obj, item) => {
-			if (this.props.multiSection && item.title && item.suggestions) {
+			if (this.props.multiSection && item.title !== undefined && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);
 				return { ...obj, ...children };
 			}
@@ -233,7 +296,7 @@ class Datalist extends Component {
 		} else {
 			const index = this.props.titleMap.findIndex(item => item.name === value);
 			this.setState({
-				focusedItemIndex: index,
+				focusedItemIndex: index === -1 ? null : index,
 			});
 		}
 	}
@@ -265,6 +328,7 @@ class Datalist extends Component {
 				}
 			}
 			const selectedEnumValue = get(enumValue, 'value');
+
 			if (selectedEnumValue || !this.props.restricted) {
 				this.props.onChange(event, { value: selectedEnumValue || value });
 				this.setState({
@@ -284,9 +348,9 @@ class Datalist extends Component {
 	 */
 	resetValue() {
 		this.resetSuggestions();
-		this.setState({
-			value: this.state.previousValue,
-		});
+		this.setState(oldState => ({
+			value: oldState.previousValue,
+		}));
 	}
 
 	/**
@@ -346,22 +410,27 @@ class Datalist extends Component {
 
 	render() {
 		const label = this.getSelectedLabel();
+		const icon = this.getSelectedIcon();
 		return (
-			<Typeahead
-				{...omit(this.props, PROPS_TO_OMIT)}
-				className={classNames('tc-datalist', this.props.className)}
-				focusedItemIndex={this.state.focusedItemIndex}
-				focusedSectionIndex={this.state.focusedSectionIndex}
-				items={this.state.suggestions}
-				onBlur={this.onBlur}
-				onChange={this.onChange}
-				onFocus={this.onFocus}
-				onKeyDown={this.onKeyDown}
-				onSelect={this.onSelect}
-				theme={this.theme}
-				value={label}
-				caret
-			/>
+			<FocusManager onFocusOut={this.resetSuggestions} className={theme['tc-datalist-item']}>
+				{icon && <Icon className={theme['tc-datalist-item-icon']} {...icon} />}
+				<Typeahead
+					{...omit(this.props, PROPS_TO_OMIT)}
+					className={classNames('tc-datalist', this.props.className)}
+					focusedItemIndex={this.state.focusedItemIndex}
+					focusedSectionIndex={this.state.focusedSectionIndex}
+					items={this.state.suggestions}
+					onBlur={this.onBlur}
+					onChange={this.onChange}
+					onFocus={this.onFocus}
+					onClick={this.onClick}
+					onKeyDown={this.onKeyDown}
+					onSelect={this.onSelect}
+					theme={this.theme}
+					value={label}
+					caret
+				/>
+			</FocusManager>
 		);
 	}
 }
@@ -377,11 +446,13 @@ Datalist.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
 		className: PropTypes.string,
+		onBlur: PropTypes.func,
 		onChange: PropTypes.func.isRequired,
 		onFocus: PropTypes.func,
+		onClick: PropTypes.func,
 		onLiveChange: PropTypes.func,
 		disabled: PropTypes.bool,
-		multiSection: PropTypes.bool.isRequired,
+		multiSection: PropTypes.bool,
 		readOnly: PropTypes.bool,
 		restricted: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(
@@ -392,7 +463,7 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 				PropTypes.shape({
 					title: PropTypes.string,
-					items: PropTypes.arrayOf(
+					suggestions: PropTypes.arrayOf(
 						PropTypes.shape({
 							name: PropTypes.string,
 							value: PropTypes.string,
@@ -400,7 +471,7 @@ if (process.env.NODE_ENV !== 'production') {
 					),
 				}),
 			]),
-		).isRequired,
+		),
 		value: PropTypes.string,
 	};
 }

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
+import TooltipTrigger from '../../TooltipTrigger';
 import { Action } from '../../Actions';
 import Icon from '../../Icon';
 import Badge from '../../Badge';
@@ -32,7 +33,15 @@ export function getItemIcon(iconName = 'talend-folder', isOpened) {
  */
 function TreeViewIcon({ icon, isOpened }) {
 	if (typeof icon === 'object') {
-		return <Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />;
+		return icon.tooltipLabel ? (
+			<TooltipTrigger label={icon.tooltipLabel} tooltipPlacement={icon.tooltipPlacement || 'top'}>
+				<span>
+					<Icon name={icon.name} className={classNames(css['tc-treeview-img'], icon.className)} />
+				</span>
+			</TooltipTrigger>
+		) : (
+			<Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />
+		);
 	}
 
 	return (
@@ -40,7 +49,7 @@ function TreeViewIcon({ icon, isOpened }) {
 	);
 }
 TreeViewIcon.propTypes = {
-	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(Icon.propTypes)]),
+	icon: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.shape(Icon.propTypes)]),
 	isOpened: PropTypes.bool,
 };
 
@@ -64,9 +73,10 @@ class TreeViewItem extends React.Component {
 		item: PropTypes.shape({
 			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 			name: PropTypes.string.isRequired,
+			disabled: PropTypes.bool,
 			isOpened: PropTypes.bool,
 			children: PropTypes.arrayOf(PropTypes.object),
-			icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+			icon: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.object]),
 			actions: PropTypes.arrayOf(
 				PropTypes.shape({
 					action: PropTypes.func,
@@ -204,6 +214,7 @@ class TreeViewItem extends React.Component {
 			actions,
 			icon,
 			counter = children.length,
+			disabled,
 		} = item;
 		const paddingLeft = `${(level - 1) * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
 		const showOpenedFolder = !!(children.length && (isOpened || this.state.hovered));
@@ -218,9 +229,14 @@ class TreeViewItem extends React.Component {
 				aria-posinset={index}
 				aria-setsize={siblings.length}
 				aria-selected={this.isSelected()}
+				aria-disabled={disabled}
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
-				onClick={e => onSelect(e, item)}
+				onClick={e => {
+					e.stopPropagation();
+					return !disabled && onSelect(e, item);
+				}}
 				onKeyDown={e =>
+					!disabled &&
 					onKeyDown(e, this.containerRef, {
 						...item,
 						hasChildren: children.length,
@@ -236,7 +252,10 @@ class TreeViewItem extends React.Component {
 				}}
 			>
 				<div
-					className={classNames('tc-treeview-item', css['tc-treeview-item'])}
+					className={classNames('tc-treeview-item', css['tc-treeview-item'], {
+						[css.disabled]: disabled,
+						disabled,
+					})}
 					style={{ paddingLeft }}
 				>
 					{children.length ? (
@@ -246,14 +265,17 @@ class TreeViewItem extends React.Component {
 							icon="talend-caret-down"
 							iconTransform={isOpened ? undefined : 'rotate-270'}
 							id={id && `${id}-toggle`}
-							onClick={e => onToggle(e, item)}
+							onClick={e => {
+								e.stopPropagation();
+								return onToggle(e, item);
+							}}
 							label=""
 							aria-hidden
 							tabIndex="-1"
 							link
 						/>
 					) : null}
-					<TreeViewIcon key="icon" icon={icon} isOpened={showOpenedFolder} />
+					{icon !== false && <TreeViewIcon key="icon" icon={icon} isOpened={showOpenedFolder} />}
 					<span
 						key="label"
 						className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}

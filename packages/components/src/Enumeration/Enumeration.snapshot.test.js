@@ -398,4 +398,58 @@ describe('Enumeration', () => {
 		const items = wrapper.find('.tc-enumeration-item');
 		expect(toJson(items)).toMatchSnapshot();
 	});
+	it('should render a dynamic height matching length of rows', () => {
+		const ROW_HEIGHT = 42;
+		const items = Array(3)
+			.fill('')
+			.map((_, index) => ({
+				values: [`Lorem ipsum dolor sit amet ${index}`],
+			}));
+		const props = {
+			displayMode: 'DISPLAY_MODE_DEFAULT',
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(),
+				},
+			],
+			items,
+			itemsProp: {
+				key: 'values',
+				calculateListHeight: listItems => {
+					if (listItems.length) {
+						return listItems.length * ROW_HEIGHT;
+					}
+					return 0;
+				},
+				onSubmitItem: jest.fn(),
+				onAbortItem: jest.fn(),
+				onSelectItem: jest.fn(),
+				getItemHeight: () => ROW_HEIGHT,
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(),
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(),
+					},
+				],
+			},
+			onAddChange: jest.fn(),
+			onAddKeyDown: jest.fn(),
+		};
+		const wrapper = mount(<Enumeration {...props} />);
+		expect(wrapper.find('div[test-id="enumeration-items-list"]').prop('style')).toEqual({
+			height: '126px',
+		});
+	});
 });

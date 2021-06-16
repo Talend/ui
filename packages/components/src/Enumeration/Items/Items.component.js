@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
-
+import get from 'lodash/get';
 import Action from '../../Actions/Action/Action.component';
 import Item from './Item/Item.component';
 import ItemEdit from './Item/ItemEdit.component';
@@ -32,9 +32,13 @@ class Items extends React.PureComponent {
 
 		switch (item.displayMode) {
 			case DISPLAY_MODE_EDIT: {
+				let actions = this.props.itemsProp.actionsEdit;
+				if (typeof actions === 'function') {
+					actions = actions(itemWithIndex);
+				}
 				itemWithIndex.itemProps = {
 					key: this.props.itemsProp.key,
-					actions: this.props.itemsProp.actionsEdit,
+					actions,
 					onSubmitItem: this.props.itemsProp.onSubmitItem,
 					onAbortItem: this.props.itemsProp.onAbortItem,
 					onChangeItem: this.props.itemsProp.onChangeItem,
@@ -51,9 +55,13 @@ class Items extends React.PureComponent {
 				);
 			}
 			default: {
+				let actions = this.props.itemsProp.actionsDefault;
+				if (typeof actions === 'function') {
+					actions = actions(itemWithIndex);
+				}
 				const itemPropDefault = {
 					key: this.props.itemsProp.key,
-					actions: this.props.itemsProp.actionsDefault,
+					actions,
 					onSelectItem: this.props.itemsProp.onSelectItem,
 				};
 				itemWithIndex.itemProps = itemPropDefault;
@@ -104,11 +112,14 @@ class Items extends React.PureComponent {
 	}
 
 	render() {
+		const calculateListHeight = get(this.props, 'itemsProp.calculateListHeight');
 		const actions = this.props.itemsProp && this.props.itemsProp.actionsDefault;
 		return (
 			<div
+				test-id="enumeration-items-list"
 				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
 				onScroll={this.scrollEnumeration}
+				style={calculateListHeight ? { height: `${calculateListHeight(this.props.items)}px` } : {}}
 			>
 				<AutoSizer>
 					{({ height, width }) => (
@@ -143,6 +154,7 @@ Items.propTypes = {
 	),
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
+		calculateListHeight: PropTypes.func,
 		key: PropTypes.string.isRequired,
 		getItemHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
 		onSubmitItem: PropTypes.func,

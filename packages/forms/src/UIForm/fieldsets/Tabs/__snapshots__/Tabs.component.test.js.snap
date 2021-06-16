@@ -8,61 +8,71 @@ exports[`Tabs widget should render fieldset 1`] = `
     Array [
       Object {
         "aria-label": undefined,
-        "children": <Fieldset
+        "children": <Widget
           errors={Object {}}
           schema={
+            Object {
+              "items": Array [
                 Object {
-                      "items": Array [
-                        Object {
-                          "key": Array [
-                            "user",
-                            "firstname",
-                          ],
-                          "schema": Object {
-                            "type": "string",
-                          },
-                          "type": "text",
-                        },
-                        Object {
-                          "key": Array [
-                            "user",
-                            "lastname",
-                          ],
-                          "schema": Object {
-                            "type": "string",
-                          },
-                          "type": "text",
-                        },
-                      ],
-                      "title": "User",
-                    }
+                  "key": Array [
+                    "user",
+                    "firstname",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+                Object {
+                  "key": Array [
+                    "user",
+                    "lastname",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+              ],
+              "options": Object {
+                "hideTitle": true,
+              },
+              "title": "User",
+              "widget": "fieldset",
+            }
           }
-    />,
+          widgets={Object {}}
+        />,
         "className": "",
         "key": 0,
         "label": "User",
       },
       Object {
         "aria-label": undefined,
-        "children": <Fieldset
+        "children": <Widget
           errors={Object {}}
           schema={
+            Object {
+              "items": Array [
                 Object {
-                      "items": Array [
-                        Object {
-                          "key": Array [
-                            "comment",
-                          ],
-                          "schema": Object {
-                            "type": "string",
-                          },
-                          "type": "text",
-                        },
-                      ],
-                      "title": "Other",
-                    }
+                  "key": Array [
+                    "comment",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+              ],
+              "options": Object {
+                "hideTitle": true,
+              },
+              "title": "Other",
+              "widget": "fieldset",
+            }
           }
-    />,
+          widgets={Object {}}
+        />,
         "className": "",
         "key": 1,
         "label": "Other",
@@ -71,5 +81,6 @@ exports[`Tabs widget should render fieldset 1`] = `
   }
   onSelect={[Function]}
   selectedKey={0}
+  tooltipPlacement="top"
 />
 `;

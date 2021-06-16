@@ -1,20 +1,6 @@
-> eslint --config ../../.eslintrc --ext .js src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+/home/travis/build/Talend/ui/packages/cmf/src/cmfModule.js
+  17:3   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+  17:20  error  'current' is defined but never used                                                                                                                                        @typescript-eslint/no-unused-vars
 
-/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  87:3  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
-  23:2  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
-  158:2   warning  Unexpected constant condition                no-constant-condition
-  163:54  error    There should be no spaces inside this paren  space-in-parens
-  177:51  error    There should be no spaces inside this paren  space-in-parens
-
-/home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
-  10:1  error  Prefer default export  import/prefer-default-export
-
-✖ 6 problems (3 errors, 3 warnings)
-
+✖ 2 problems (2 errors, 0 warnings)

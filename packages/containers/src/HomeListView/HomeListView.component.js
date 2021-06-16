@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Inject, Layout, HeaderBar } from '@talend/react-components';
+import Inject from '@talend/react-components/lib/Inject';
+import Layout from '@talend/react-components/lib/Layout';
+import HeaderBar from '@talend/react-components/lib/HeaderBar';
 
 import List from '../List';
 import SidePanel from '../SidePanel';

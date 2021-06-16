@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import ListGrid from './ListGrid.component';
-import VirtualizedList from '../VirtualizedList.component';
+import VirtualizedList from '..';
 import RowLarge from '../RowLarge';
 import collection from '../collection';
 
@@ -14,7 +14,7 @@ describe('ListGrid', () => {
 			<ListGrid
 				collection={collection}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				rowHeight={130}
 				rowRenderer={RowLarge}
 				onRowClick={jest.fn()}
@@ -29,7 +29,9 @@ describe('ListGrid', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
+		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
+			'ListGesture(withI18nextTranslation(VirtualizedList(RowLarge)))',
+		);
 	});
 
 	it('should enhance the rowRenderer with selection Higher Order renderer', () => {
@@ -38,7 +40,7 @@ describe('ListGrid', () => {
 			<ListGrid
 				collection={collection}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				isSelected={jest.fn()}
 				rowHeight={130}
 				rowRenderer={RowLarge}
@@ -51,7 +53,7 @@ describe('ListGrid', () => {
 
 		// then
 		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
-			'RowSelection(VirtualizedList(RowLarge))',
+			'RowSelection(ListGesture(withI18nextTranslation(VirtualizedList(RowLarge))))',
 		);
 	});
 
@@ -61,7 +63,7 @@ describe('ListGrid', () => {
 			<ListGrid
 				collection={[]}
 				height={600}
-				id={'my-list'}
+				id="my-list"
 				isSelected={jest.fn()}
 				rowHeight={130}
 				rowRenderer={RowLarge}

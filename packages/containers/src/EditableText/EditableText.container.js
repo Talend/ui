@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EditableText as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/EditableText';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
@@ -90,19 +90,14 @@ class EditableText extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		const props = Object.assign(
-			{},
-			omit(this.props, cmfConnect.INJECTED_PROPS),
-			{
-				onEdit: this.onEdit,
-				onCancel: this.onCancel,
-				onSubmit: this.onSubmit,
-				onChange: this.onChange,
-			},
-			{
-				...state.toJS(),
-			},
-		);
+		const props = {
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
+			onEdit: this.onEdit,
+			onCancel: this.onCancel,
+			onSubmit: this.onSubmit,
+			onChange: this.onChange,
+			...state.toJS(),
+		};
 		return <Component {...props} />;
 	}
 }

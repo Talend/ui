@@ -5,7 +5,7 @@ exports[`Filter container should render 1`] = `
   captionsFormat={[Function]}
   initialState={
     Immutable.Map {
-      value: 15,
+      "value": 15,
     }
   }
   max={100}
@@ -17,6 +17,6 @@ exports[`Filter container should render 1`] = `
       "id": "filter",
     }
   }
-  value={undefined}
+  step={1}
 />
 `;

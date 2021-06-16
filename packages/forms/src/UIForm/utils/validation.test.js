@@ -82,37 +82,41 @@ describe('Validation utils', () => {
 	describe('#validateArray', () => {
 		const schema = {
 			key: ['comments'],
-			items: [{
-				key: ['comments', '', 'name'],
-				title: 'Name',
-				required: true,
-				schema: { title: 'Name', type: 'string' },
-				type: 'text',
-			}, {
-				key: ['comments', '', 'email'],
-				title: 'Email',
-				description: 'Email will be used for evil.',
-				schema: {
+			items: [
+				{
+					key: ['comments', '', 'name'],
+					title: 'Name',
+					required: true,
+					schema: { title: 'Name', type: 'string' },
+					type: 'text',
+				},
+				{
+					key: ['comments', '', 'email'],
 					title: 'Email',
-					type: 'string',
-					pattern: '^\\S+@\\S+$',
 					description: 'Email will be used for evil.',
+					schema: {
+						title: 'Email',
+						type: 'string',
+						pattern: '^\\S+@\\S+$',
+						description: 'Email will be used for evil.',
+					},
+					type: 'text',
 				},
-				type: 'text',
-			}, {
-				key: ['comments', '', 'comment'],
-				type: 'textarea',
-				rows: 3,
-				title: 'Comment',
-				maxlength: 20,
-				validationMessage: "Don't be greedy!",
-				schema: {
+				{
+					key: ['comments', '', 'comment'],
+					type: 'textarea',
+					rows: 3,
 					title: 'Comment',
-					type: 'string',
-					maxLength: 20,
+					maxlength: 20,
 					validationMessage: "Don't be greedy!",
+					schema: {
+						title: 'Comment',
+						type: 'string',
+						maxLength: 20,
+						validationMessage: "Don't be greedy!",
+					},
 				},
-			}],
+			],
 			title: 'comments',
 			required: true,
 			schema: {
@@ -164,8 +168,14 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({
 				comments: 'Array is too long (3), maximum 2',
+				'comments,0,comment': null,
+				'comments,0,email': null,
 				'comments,0,name': 'Missing required property: name',
+				'comments,1,comment': null,
+				'comments,1,email': null,
 				'comments,1,name': 'Missing required property: name',
+				'comments,2,comment': null,
+				'comments,2,email': null,
 				'comments,2,name': 'Missing required property: name',
 			});
 		});
@@ -192,42 +202,99 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({ [schema.key]: 'Missing required property: firstname' });
 		});
+		it('should escape if no key and continue on deep validation', () => {
+			const schema = {
+				widget: 'columns',
+				items: [
+					{
+						placeholder: 'key',
+						widget: 'text',
+						title: 'Key',
+						key: ['columns', 0, 'key'],
+						required: true,
+						schema: {
+							title: 'Key',
+							type: 'string',
+						},
+						type: 'text',
+					},
+					{
+						widget: 'text',
+						title: 'Value',
+						key: ['columns', 0, 'value'],
+						schema: {
+							title: 'Value',
+							type: 'string',
+						},
+						type: 'text',
+					},
+				],
+				schema: {
+					type: 'object',
+					properties: {
+						value: {
+							title: 'Value',
+							type: 'string',
+						},
+						key: {
+							title: 'Key',
+							type: 'string',
+						},
+					},
+				},
+			};
+			const value = '';
+			const properties = { columns: [{ key: '', value: 'value' }] };
+
+			// when
+			const errors = validateSimple(schema, value, properties, undefined, true);
+
+			// then
+			expect(errors).toEqual({
+				'columns,0,key': 'Missing required property: key',
+				'columns,0,value': null,
+			});
+		});
 	});
 
 	describe('#validateSingle', () => {
 		const arraySchema = {
 			key: ['comments'],
-			items: [{
-				key: ['comments', '', 'name'],
-				title: 'Name',
-				required: true,
-				schema: { title: 'Name', type: 'string' },
-				type: 'text',
-			}, {
-				key: ['comments', '', 'email'],
-				title: 'Email',
-				description: 'Email will be used for evil.',
-				schema: {
+			items: [
+				{
+					key: ['comments', '', 'name'],
+					title: 'Name',
+					required: true,
+					schema: { title: 'Name', type: 'string' },
+					type: 'text',
+				},
+				{
+					key: ['comments', '', 'email'],
 					title: 'Email',
-					type: 'string',
-					pattern: '^\\S+@\\S+$',
 					description: 'Email will be used for evil.',
+					schema: {
+						title: 'Email',
+						type: 'string',
+						pattern: '^\\S+@\\S+$',
+						description: 'Email will be used for evil.',
+					},
+					type: 'text',
 				},
-				type: 'text',
-			}, {
-				key: ['comments', '', 'comment'],
-				type: 'textarea',
-				rows: 3,
-				title: 'Comment',
-				maxlength: 20,
-				validationMessage: "Don't be greedy!",
-				schema: {
+				{
+					key: ['comments', '', 'comment'],
+					type: 'textarea',
+					rows: 3,
 					title: 'Comment',
-					type: 'string',
-					maxLength: 20,
+					maxlength: 20,
 					validationMessage: "Don't be greedy!",
+					schema: {
+						title: 'Comment',
+						type: 'string',
+						maxLength: 20,
+						validationMessage: "Don't be greedy!",
+					},
 				},
-			}],
+			],
 			title: 'comments',
 			required: true,
 			schema: {
@@ -267,8 +334,14 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({
 				comments: 'Array is too long (3), maximum 2',
+				'comments,0,comment': null,
+				'comments,0,email': null,
 				'comments,0,name': 'Missing required property: name',
+				'comments,1,comment': null,
+				'comments,1,email': null,
 				'comments,1,name': 'Missing required property: name',
+				'comments,2,comment': null,
+				'comments,2,email': null,
 				'comments,2,name': 'Missing required property: name',
 			});
 		});
@@ -337,8 +410,104 @@ describe('Validation utils', () => {
 
 			// then
 			expect(errors).toEqual({
+				comment: null,
 				'user,firstname': 'This field is invalid', // custom validation
 				'user,lastname': 'Missing required property: lastname',
+			});
+		});
+
+		it('should validate all fields with condition not respected', () => {
+			// given
+			const mergedSchema = [
+				{
+					key: ['user', 'lastname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+				},
+				{
+					key: ['user', 'firstname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+					condition: { '==': [{ var: 'user.lastname' }, 'myName'] },
+				},
+				{
+					key: ['comment'],
+					customValidation: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'textarea',
+				},
+			];
+			const properties = {
+				user: {
+					lastname: 'badName',
+					firstname: '',
+				},
+				comment: '',
+			};
+
+			// when
+			const errors = validateAll(mergedSchema, properties, customValidationFn);
+
+			// then
+			expect(errors).toEqual({
+				comment: 'This field is invalid', // custom validation
+				'user,lastname': null,
+			});
+		});
+
+		it('should validate all fields with condition respected', () => {
+			// given
+			const mergedSchema = [
+				{
+					key: ['user', 'lastname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+				},
+				{
+					key: ['user', 'firstname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+					condition: { '==': [{ var: 'user.lastname' }, 'myName'] },
+				},
+				{
+					key: ['comment'],
+					customValidation: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'textarea',
+				},
+			];
+			const properties = {
+				user: {
+					lastname: 'myName',
+					firstname: '',
+				},
+				comment: '',
+			};
+
+			// when
+			const errors = validateAll(mergedSchema, properties, customValidationFn);
+
+			// then
+			expect(errors).toEqual({
+				comment: 'This field is invalid', // custom validation
+				'user,firstname': 'Missing required property: firstname',
+				'user,lastname': null,
 			});
 		});
 	});
@@ -362,10 +531,7 @@ describe('Validation utils', () => {
 			// given
 			const schema = {
 				key: ['user'],
-				items: [
-					{ key: ['user', 'lastname'] },
-					{ key: ['user', 'firstname'] },
-				],
+				items: [{ key: ['user', 'lastname'] }, { key: ['user', 'firstname'] }],
 			};
 			const errors = { 'user,firstname': 'this is not ok' };
 
@@ -380,10 +546,7 @@ describe('Validation utils', () => {
 			// given
 			const schema = {
 				key: ['user'],
-				items: [
-					{ key: ['user', 'lastname'] },
-					{ key: ['user', 'firstname'] },
-				],
+				items: [{ key: ['user', 'lastname'] }, { key: ['user', 'firstname'] }],
 			};
 			const errors = {};
 

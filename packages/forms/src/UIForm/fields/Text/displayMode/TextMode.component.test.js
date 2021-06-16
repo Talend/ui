@@ -11,7 +11,7 @@ describe('Text field text display mode', () => {
 
 	it('should render input', () => {
 		// when
-		const wrapper = shallow(<TextMode id={'myForm'} schema={schema} value={'toto'} />);
+		const wrapper = shallow(<TextMode id="myForm" schema={schema} value="toto" />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('Text field text display mode', () => {
 	it('should render password input', () => {
 		// when
 		const wrapper = shallow(
-			<TextMode id={'myForm'} schema={{ ...schema, type: 'password' }} value={'toto'} />,
+			<TextMode id="myForm" schema={{ ...schema, type: 'password' }} value="toto" />,
 		);
 
 		// then

@@ -2,19 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import get from 'lodash/get';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
+import Tag from '../../Tag';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
-import { wrapOnClick } from '../Action/Action.component';
+import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
+import getTabBarBadgeLabel from '../../utils/getTabBarBadgeLabel';
 
 export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
 
@@ -25,25 +28,24 @@ function InjectDropdownMenuItem({
 	withMenuItem,
 	liProps,
 	menuItemProps,
-	key,
 	onSelect,
 	onKeyDown,
 	...rest
 }) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (divider) {
-		return <Renderers.MenuItem key={key} {...menuItemProps} divider />;
+		return <Renderers.MenuItem {...menuItemProps} divider />;
 	}
 	if (withMenuItem) {
 		return (
-			<Renderers.MenuItem key={key} {...menuItemProps} onSelect={onSelect} onKeyDown={onKeyDown}>
+			<Renderers.MenuItem {...menuItemProps} onSelect={onSelect} onKeyDown={onKeyDown}>
 				<Inject component={component} getComponent={getComponent} {...rest} />
 			</Renderers.MenuItem>
 		);
 	}
 	return (
-		<li role="presentation" key={key} {...liProps}>
-			<Inject component={component} getComponent={getComponent} {...rest} />
+		<li role="presentation" {...liProps}>
+			<Inject component={component} getComponent={getComponent} onSelect={onSelect} {...rest} />
 		</li>
 	);
 }
@@ -55,7 +57,6 @@ InjectDropdownMenuItem.propTypes = {
 	withMenuItem: PropTypes.bool,
 	liProps: PropTypes.object,
 	menuItemProps: PropTypes.object,
-	key: PropTypes.number,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 };
@@ -66,17 +67,29 @@ function renderMutableMenuItem(item, index, getComponent) {
 	if (item.divider) {
 		return <Renderers.MenuItem key={index} divider />;
 	}
+
+	const title = item.title || item.label;
+	const badgeLabel = get(item, 'badge.label', '');
+
 	return (
 		<Renderers.MenuItem
 			{...item}
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}
-			title={item.title || item.label}
+			title={badgeLabel ? `${badgeLabel} ${title}` : title}
 			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item')}
 		>
-			{item.icon && <Icon name={item.icon} />}
+			{item.icon && <Icon key="icon" name={item.icon} />}
 			{!item.hideLabel && item.label}
+			{item.badge && (
+				<Tag
+					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
+					bsStyle={item.badge.bsStyle || 'default'}
+				>
+					{getTabBarBadgeLabel(item.badge.label)}
+				</Tag>
+			)}
 		</Renderers.MenuItem>
 	);
 }
@@ -153,7 +166,11 @@ class ActionDropdown extends React.Component {
 			if (dropdownContainer) {
 				const dropdownRect = dropdownMenu.getBoundingClientRect();
 				const containerRect = dropdownContainer.getBoundingClientRect();
-				if (!dropdown.classList.contains('dropup') && dropdownRect.bottom > containerRect.bottom) {
+				if (
+					!dropdown.classList.contains('dropup') &&
+					dropdownRect.bottom > containerRect.bottom &&
+					dropdownRect.height < containerRect.top
+				) {
 					dropdown.classList.add('dropup');
 				} else if (dropdown.classList.contains('dropup') && dropdownRect.top < containerRect.top) {
 					dropdown.classList.remove('dropup');
@@ -172,34 +189,55 @@ class ActionDropdown extends React.Component {
 
 	render() {
 		const {
-			bsStyle,
+			bsStyle = 'default',
 			hideLabel,
 			icon,
-			items,
+			iconTransform,
+			items = [],
+			badge,
 			label,
 			link,
 			onSelect,
-			tooltipPlacement,
+			tooltipPlacement = 'top',
 			tooltipLabel,
 			getComponent,
 			components,
 			className,
 			loading,
-			t,
+			children,
+			ellipsis,
+			t = getDefaultT(),
 			...rest
 		} = this.props;
 
 		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
-		const title = [
-			icon ? <Icon name={icon} key={'icon'} /> : null,
-			hideLabel ? null : (
-				<span className="tc-dropdown-button-title-label" key={'label'}>
-					{label}
-				</span>
-			),
-		];
-		const style = link ? 'link' : bsStyle;
+		const title =
+			!ellipsis &&
+			[
+				icon && <Icon name={icon} transform={iconTransform} key="icon" />,
+				!hideLabel && (
+					<span className="tc-dropdown-button-title-label" key="label">
+						{label}
+					</span>
+				),
+				badge && (
+					<Tag
+						className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
+						bsStyle={badge.bsStyle || 'default'}
+					>
+						{getTabBarBadgeLabel(badge.label)}
+					</Tag>
+				),
+				<Icon
+					key="caret"
+					name="talend-caret-down"
+					className={classNames(theme['tc-dropdown-caret'], {
+						[theme['tc-dropdown-caret-open']]: this.state.isOpen,
+					})}
+				/>,
+			].filter(Boolean);
+		const style = link || ellipsis ? 'link' : bsStyle;
 
 		function onItemSelect(object, event) {
 			if (onSelect) {
@@ -213,20 +251,22 @@ class ActionDropdown extends React.Component {
 				bsStyle={style}
 				role="button"
 				onSelect={onItemSelect}
-				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
+				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className, {
+					[theme.ellipsis]: ellipsis,
+				})}
 				aria-label={tooltipLabel || label}
 				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
-				ref={ref => (this.ref = ref)}
+				ref={ref => {
+					this.ref = ref;
+				}}
+				noCaret
 			>
-				{!items.length &&
-					!items.size &&
-					!loading &&
-					!components && (
-						<Renderers.MenuItem key="empty" disabled>
-							{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
-						</Renderers.MenuItem>
-					)}
+				{!children && !items.length && !items.size && !loading && !components && (
+					<Renderers.MenuItem key="empty" disabled>
+						{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
+					</Renderers.MenuItem>
+				)}
 				{injected('beforeItemsDropdown')}
 				{items.map((item, key) => getMenuItem(item, key, getComponent))}
 				{loading && (
@@ -244,11 +284,12 @@ class ActionDropdown extends React.Component {
 					</Renderers.MenuItem>
 				)}
 				{injected('itemsDropdown')}
+				{children}
 				{injected('afterItemsDropdown')}
 			</Renderers.DropdownButton>
 		);
 
-		if (hideLabel || tooltipLabel) {
+		if (hideLabel || tooltipLabel || ellipsis) {
 			return (
 				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 					{dropdown}
@@ -269,6 +310,7 @@ ActionDropdown.propTypes = {
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,
 	icon: PropTypes.string,
+	iconTransform: PropTypes.string,
 	items: PropTypes.oneOfType([
 		PropTypes.arrayOf(
 			PropTypes.shape({
@@ -278,10 +320,16 @@ ActionDropdown.propTypes = {
 			}),
 		),
 		ImmutablePropTypes.list,
-	]).isRequired,
+	]),
+	badge: PropTypes.shape({
+		className: PropTypes.string,
+		label: PropTypes.string,
+		bsStyle: PropTypes.string,
+	}),
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	loading: PropTypes.bool,
+	ellipsis: PropTypes.bool,
 	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
@@ -293,14 +341,8 @@ ActionDropdown.propTypes = {
 		afterItemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	}),
 	t: PropTypes.func,
-};
-
-ActionDropdown.defaultProps = {
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-	items: [],
-	t: getDefaultT(),
+	children: PropTypes.node,
 };
 
 export { getMenuItem, InjectDropdownMenuItem };
-export default translate(I18N_DOMAIN_COMPONENTS)(ActionDropdown);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionDropdown);

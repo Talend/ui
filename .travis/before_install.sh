@@ -16,20 +16,15 @@ if [[ $TRAVIS_BRANCH == 'master' ]]; then
 	git checkout $TRAVIS_BRANCH
 
 	git config credential.helper store
-	echo "https://build-travis-ci:${RELEASE_GH_TOKEN}@github.com/Talend/ui.git" > ~/.git-credentials
+	echo "https://build-travis-ci:${GH_TOKEN}@github.com/Talend/ui.git" > ~/.git-credentials
 
-	npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN -q
 	npm prune
 
 	git config --global user.email "build-travis-ci@talend.com"
 	git config --global user.name "Talend travis ci"
 	git config --global push.default simple
 
-	# git remote set-url origin "https://github.com/Talend/ui.git"
-	# git fetch --unshallow
 	git fetch --tags
 	git branch -u origin/$TRAVIS_BRANCH
 	git fsck --full #debug
-	#git tag --list #debug
-	npm whoami #debug
 fi

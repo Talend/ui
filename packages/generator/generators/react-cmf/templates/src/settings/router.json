@@ -1,0 +1,26 @@
+{
+  "props": {
+    "Redirect#default": {
+      "path": "/datastores"
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "indexRoute": {
+      "component": "Redirect"
+    },
+    "childRoutes": [
+      {
+        "path": "datasets",
+        "component": "HomeListView",
+        "componentId": "datasets"
+      },
+      {
+        "path": "datastores",
+        "component": "HomeListView",
+        "componentId": "datastores"
+      }
+    ]
+  }
+}

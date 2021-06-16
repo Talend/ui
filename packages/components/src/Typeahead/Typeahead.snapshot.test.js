@@ -88,6 +88,7 @@ describe('Typeahead', () => {
 				id: 'my-search',
 				items: itemsString,
 				multiSection: false,
+				'data-feature': 'data-feature-typeahead',
 			};
 			// when
 			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
@@ -148,6 +149,37 @@ describe('Typeahead', () => {
 
 			// when
 			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
+	describe('injection', () => {
+		it('should use render props to inject extra components', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				items: itemsString,
+				multiSection: false,
+			};
+			// when
+			const wrapper = renderer
+				.create(
+					<Typeahead {...props}>
+						{(content, { searching, loading, noResult, isShown }) => (
+							<div>
+								<div>Searching: {searching}</div>
+								<div>Loading: {loading}</div>
+								<div>No Result: {noResult}</div>
+								<div>Is Shown: {isShown}</div>
+								{content}
+								<button>Click</button>
+							</div>
+						)}
+					</Typeahead>,
+				)
+				.toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();

@@ -1,62 +1,72 @@
-$tc-drawer-content-max-width: 650px !default;
+$tc-drawer-content-max-width: 65rem !default;
+$tc-drawer-padding: $padding-large !default;
 
-.container {
+.container,
+.form-content,
+.form-content-wrapper {
 	display: flex;
 	flex-direction: column;
-	margin: $padding-normal;
 }
 
 .form-content {
-	display: flex;
-	flex-direction: column;
-	:global(.tc-skeleton) {
-		margin: $padding-normal 0;
+	:global {
+		.tc-skeleton {
+			margin: $padding-normal 0;
+
+			&.skeleton-fit-content {
+				width: auto;
+			}
+		}
 	}
 }
 
 .submit-wrapper {
 	display: flex;
 	justify-content: space-between;
-	margin: auto;
+	margin: $padding-normal auto;
 }
 
 :global(.tc-drawer-container) {
 	> .container {
-		display: flex;
-		flex-direction: column;
 		flex-grow: 1;
 		min-height: 0;
-		margin: 0;
 	}
 
 	.form-content {
 		flex-grow: 1;
 		min-height: 0;
-		padding: $padding-small;
 		overflow-y: auto;
-		margin: 0 $padding-small;
+	}
+
+	.form-content-wrapper,
+	.submit-wrapper {
+		margin: 0;
+		padding: $tc-drawer-padding;
+	}
+
+	.submit-wrapper {
+		padding: $padding-small $tc-drawer-padding;
 	}
 
 	.submit {
-		padding: 0;
-		width: 100%;
-		padding: $padding-small;
 		background-color: $wild-sand;
 	}
 }
 
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
-		.form-content {
-			width: $tc-drawer-content-max-width;
+		.form-content-wrapper,
+		.submit-wrapper {
 			margin: 0 auto;
+			padding: $tc-drawer-padding;
+			width: $tc-drawer-content-max-width;
 		}
 		.submit-wrapper {
-			max-width: $tc-drawer-content-max-width;
+			padding: $padding-small $tc-drawer-padding;
 		}
 		:global(.form-actions) {
-			max-width: $tc-drawer-content-max-width;
 			margin: auto;
+			max-width: $tc-drawer-content-max-width;
 		}
 	}
 }

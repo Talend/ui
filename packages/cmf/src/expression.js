@@ -12,7 +12,6 @@ const regexExpression = new RegExp('(.*)Expression');
  * @typedef {Object} Context
  * @property {string} store
  * @property {string} registry
- * @property {string} router
  */
 
 /**
@@ -82,7 +81,7 @@ function call(expression, context, payload) {
  * @deprecated the context will be replaced by the payload
  */
 function getProps(props, attrs, context, payload = {}) {
-	const newProps = Object.assign({}, props, payload);
+	const newProps = { ...props, ...payload };
 	attrs.forEach(attr => {
 		const value = props[attr];
 		if (typeof value === 'string' || typeof value === 'object') {
@@ -113,13 +112,14 @@ function getProps(props, attrs, context, payload = {}) {
  * @param {object} state redux state
  * @param {object} ownProps any props you want to process with expression
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state, ownProps, ctx = {}) {
 	const props = {};
 	const context = {
 		store: {
 			getState: () => state,
 		},
 		registry: registry.getRegistry(),
+		...ctx,
 	};
 	forIn(ownProps, (value, key) => {
 		const match = regexExpression.exec(key);
@@ -137,7 +137,7 @@ function mapStateToProps(state, ownProps) {
  * @param {object} props any props object
  */
 function mergeProps(props) {
-	const newProps = Object.assign({}, props);
+	const newProps = { ...props };
 	forIn(newProps, (value, key) => {
 		const match = regexExpression.exec(key);
 		if (match) {
@@ -157,8 +157,8 @@ function withExpression(Component, attrs) {
 	}
 	WithExpression.contextTypes = {
 		registry: PropTypes.object,
-		router: PropTypes.object,
 		store: PropTypes.object,
+		router: PropTypes.object,
 	};
 	WithExpression.displayName = `WithExpression(${Component.displayName || Component.name})`;
 	return WithExpression;

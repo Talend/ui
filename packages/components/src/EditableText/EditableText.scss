@@ -6,19 +6,7 @@
 	overflow: hidden;
 }
 
-@mixin input-text($weight) {
-	color: $black;
-	font-size: $tc-input-editable-text-size-medium;
-	font-weight: $weight;
-}
-
-$tc-input-editable-text-size-large: 2.4rem !default;
-$tc-input-editable-text-size-medium: 1.4rem !default;
-$tc-input-editable-text-size-small: 1rem !default;
-$tc-input-editable-text-title-weight: 900 !default;
-$tc-input-editable-text-input-weight: $form-base-font-weight !default;
-
-$tc-icon-editable-text-size: 8px !default;
+$tc-icon-editable-text-size: 0.8rem !default;
 $tc-circle-editable-text-size: 16px !default;
 
 :global(.tc-editable-text-blink) {
@@ -26,9 +14,15 @@ $tc-circle-editable-text-size: 16px !default;
 }
 
 .tc-editable-text {
-	margin: 0 110px 0 0;
-	max-width: 90rem;
-
+	width: 100%;
+	:global(.tc-editable-text-wording-wrapper) {
+		@include ellipsis;
+	}
+	&:hover {
+		.tc-editable-text-pencil {
+			position: static;
+		}
+	}
 	&-title {
 		display: flex;
 		align-items: center;
@@ -36,19 +30,27 @@ $tc-circle-editable-text-size: 16px !default;
 	}
 
 	&-wording {
-		@include input-text($tc-input-editable-text-title-weight);
 		@include ellipsis;
-		text-transform: uppercase;
 		flex: 0 1 auto;
 	}
 
 	&-pencil {
-		padding-left: $padding-small;
-		padding-right: $padding-small;
+		position: relative;
+		left: -2000px;
+		padding-left: $padding-smaller;
+		padding-right: $padding-smaller;
 		flex: 0 0 auto;
+		line-height: inherit;
+		min-height: inherit;
+		color: $white;
 
 		&:global(.btn-link) {
-			color: $silver;
+			color: $gray;
+		}
+
+		&:focus,
+		&:hover {
+			position: static;
 		}
 	}
 
@@ -57,10 +59,7 @@ $tc-circle-editable-text-size: 16px !default;
 		width: 100%;
 		display: flex;
 		align-items: center;
-		padding: {
-			left: $padding-large;
-			right: $padding-large;
-		}
+		padding-right: $padding-large;
 
 		:global(.form-group) {
 			width: 100%;
@@ -68,7 +67,6 @@ $tc-circle-editable-text-size: 16px !default;
 		}
 
 		& .tc-editable-text-form-input {
-			@include input-text($tc-input-editable-text-input-weight);
 			width: 100%;
 			padding-right: 2 * $tc-circle-editable-text-size + $padding-large;
 			&::selection {
@@ -86,8 +84,8 @@ $tc-circle-editable-text-size: 16px !default;
 			top: 0;
 
 			&-icon {
-				border: 0.1rem solid $dove-gray;
-				color: $dove-gray;
+				border: 0.1rem solid $dark-silver;
+				color: $dark-silver;
 				width: $tc-circle-editable-text-size;
 				height: $tc-circle-editable-text-size;
 				min-height: auto;
@@ -108,6 +106,15 @@ $tc-circle-editable-text-size: 16px !default;
 			}
 
 			&-submit {
+				&:focus,
+				&:hover {
+					color: $scooter;
+					background: $scooter;
+					border-color: $scooter;
+					& svg {
+						background: $scooter;
+					}
+				}
 				border-color: $rio-grande;
 				background: $rio-grande;
 				fill: white;
@@ -115,6 +122,11 @@ $tc-circle-editable-text-size: 16px !default;
 				> svg {
 					color: white;
 				}
+			}
+			&-cancel:focus,
+			&-cancel:hover {
+				color: $scooter;
+				border-color: $scooter;
 			}
 		}
 

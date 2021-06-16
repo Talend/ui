@@ -1,45 +1,84 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import get from 'lodash/get';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
+
+import { getTheme } from '../theme';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
-export function renderInputComponent(props) {
-	const { caret, key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
+const css = getTheme(theme);
 
-	const hasIcon = icon || caret;
+export function renderInputComponent(props) {
+	const {
+		caret,
+		key,
+		debounceMinLength,
+		debounceTimeout,
+		icon,
+		setReferenceElement,
+		disabled,
+		readOnly,
+		...rest
+	} = props;
+
+	const hasCaret = caret && !disabled && !readOnly;
+	const typeaheadContainerIconClasses = classNames(
+		'tc-typeahead-typeahead-input-icon',
+		theme['typeahead-input-container'],
+		icon && theme['typeahead-input-icon'],
+		hasCaret && theme['typeahead-input-caret'],
+	);
 	return (
-		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
+		<div className={typeaheadContainerIconClasses}>
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
+			{icon && (
+				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
+					{icon && <Icon {...icon} />}
+				</div>
+			)}
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
+					autoFocus
 					id={key}
 					{...rest}
-					autoFocus
+					disabled={disabled}
+					readOnly={readOnly}
 					debounceTimeout={debounceTimeout}
 					element={FormControl}
 					minLength={debounceMinLength}
-					ref={inputRef}
+					inputRef={node => {
+						// eslint-disable-next-line react/no-find-dom-node
+						setReferenceElement(ReactDOM.findDOMNode(node));
+					}}
 				/>
 			) : (
-				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
+				<FormControl
+					id={key}
+					autoFocus
+					{...rest}
+					disabled={disabled}
+					readOnly={readOnly}
+					inputRef={setReferenceElement}
+				/>
 			)}
-			{hasIcon && (
-				<div className={theme['icon-cls']}>
-					{icon && <Icon {...icon} />}
-					{caret && <Icon name="talend-caret-down" />}
+			{hasCaret && (
+				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
+					<Icon name="talend-caret-down" />
 				</div>
 			)}
 		</div>
 	);
 }
+
 renderInputComponent.propTypes = {
 	key: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -50,69 +89,8 @@ renderInputComponent.propTypes = {
 	}),
 	inputRef: PropTypes.func,
 	caret: PropTypes.bool,
-};
-
-function ItemContainer(props) {
-	const {
-		items,
-		loading,
-		loadingText,
-		noResultText,
-		searching,
-		searchingText,
-		containerProps,
-		children,
-	} = props;
-	const { className, ...restProps } = containerProps;
-	const containerClassName = classNames(className, theme['item-container']);
-	if (searching) {
-		return (
-			<div className={`${containerClassName} ${theme['is-searching']}`} {...restProps}>
-				<span className="is-searching">{searchingText}</span> <CircularProgress />
-			</div>
-		);
-	}
-	if (items && !items.length) {
-		if (loading) {
-			return (
-				<div className={`${containerClassName} ${theme['is-loading']}`} {...restProps}>
-					<span className="is-loading">{loadingText}</span>
-				</div>
-			);
-		}
-		return (
-			<div className={`${containerClassName} ${theme['no-result']}`} {...restProps}>
-				<span className="no-result">{noResultText}</span>
-			</div>
-		);
-	}
-	return <div {...containerProps} className={containerClassName} children={children} />;
-}
-ItemContainer.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-	containerProps: PropTypes.shape({
-		className: PropTypes.string,
-	}),
-	items: PropTypes.arrayOf(
-		PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.shape({
-				title: PropTypes.string,
-				description: PropTypes.string,
-				suggestions: PropTypes.arrayOf(
-					PropTypes.shape({
-						title: PropTypes.string,
-						description: PropTypes.string,
-					}),
-				),
-			}),
-		]),
-	),
-	loading: PropTypes.bool,
-	loadingText: PropTypes.string,
-	noResultText: PropTypes.string,
-	searching: PropTypes.bool,
-	searchingText: PropTypes.string,
+	disabled: PropTypes.bool,
+	readOnly: PropTypes.bool,
 };
 
 export function renderItemsContainerFactory(
@@ -122,40 +100,96 @@ export function renderItemsContainerFactory(
 	searchingText,
 	loading,
 	loadingText,
+	referenceElement,
+	render = content => content,
+
+	setPopperElement,
+	styles,
+	attributes,
 ) {
-	const renderItemsContainerComponent = props => {
-		const { id, key, ref, ...rest } = props;
+	const isShown = items;
+	const noResult = items && !items.length;
+
+	function ItemsContainerComponent({ containerProps, children }) {
+		if (!isShown) {
+			return undefined;
+		}
+
+		const containerClassName = classNames(containerProps.className, theme['items-container'], {
+			[theme['container-open']]: searching || noResult,
+		});
+
+		let content;
+		if (searching) {
+			content = (
+				<div key="searching" className={`${theme['is-searching']} is-searching`}>
+					<CircularProgress />
+					<span>{searchingText}</span>
+				</div>
+			);
+		} else if (noResult && loading) {
+			content = (
+				<div key="loading" className={`${theme['is-loading']} is-loading`}>
+					<span>{loadingText}</span>
+				</div>
+			);
+		} else if (noResult) {
+			content = (
+				<div key="no-result" className={`${theme['no-result']} no-result`}>
+					<Icon name="talend-fieldglass" title={noResultText} />
+					<span>{noResultText}</span>
+				</div>
+			);
+		} else {
+			content = children;
+		}
+
 		return (
-			<div id={id} ref={ref} key={key}>
-				<ItemContainer
-					{...rest}
-					items={items}
-					noResultText={noResultText}
-					searching={searching}
-					searchingText={searchingText}
-					loading={loading}
-					loadingText={loadingText}
-				/>
+			<div
+				className={containerClassName}
+				id={containerProps.id}
+				key={containerProps.key}
+				role={containerProps.role}
+				ref={setPopperElement}
+				style={styles.popper}
+				{...attributes.popper}
+			>
+				<div
+					ref={containerProps.ref}
+					className={theme['items-body']}
+					style={{ maxHeight: styles.popper.maxHeight, minHeight: styles.popper.minHeight }}
+				>
+					{render(
+						content,
+						{
+							isShown,
+							loading,
+							noResult,
+							searching,
+						},
+						containerProps.ref,
+					)}
+				</div>
 			</div>
 		);
+	}
+
+	ItemsContainerComponent.propTypes = {
+		containerProps: PropTypes.object,
+		children: PropTypes.node,
 	};
 
-	renderItemsContainerComponent.propTypes = {
-		id: PropTypes.string,
-		key: PropTypes.string,
-		ref: PropTypes.func,
-	};
-
-	return renderItemsContainerComponent;
+	return ItemsContainerComponent;
 }
 
 export function renderSectionTitle(section) {
 	if (section && (section.icon || section.title)) {
+		const { hint } = section;
 		return (
-			<div className={classNames(theme['section-header'], 'tc-typeahead-section-header')}>
+			<div className={css('section-header', 'tc-typeahead-section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
 				<span
-					className={classNames(theme['section-header-title'], 'tc-typeahead-section-header-title')}
+					className={css('section-header-title', 'tc-typeahead-section-header-title', { hint })}
 				>
 					{section.title}
 				</span>
@@ -165,7 +199,7 @@ export function renderSectionTitle(section) {
 	return null;
 }
 
-export function renderItem(item, { value }) {
+export function renderItem(item, { value, ...rest }) {
 	let title;
 	let description;
 	if (typeof item === 'string') {
@@ -175,15 +209,26 @@ export function renderItem(item, { value }) {
 		description = item.description;
 	}
 	return (
-		<div className={theme.item} title={title}>
-			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
-				<Emphasis value={value} text={title} />
-			</span>
-			{description && (
-				<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
-					<Emphasis value={value} text={description} />
-				</p>
-			)}
+		<div
+			className={classNames(theme.item, {
+				[theme.disabled]: item.disabled,
+				[theme.selected]: value === title,
+				[theme.multiline]: title && description,
+			})}
+			title={title}
+			data-feature={item['data-feature'] || rest['data-feature']}
+		>
+			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
+			<div className={theme['item-text']}>
+				<span className={css('item-title', 'tc-typeahead-item-title')}>
+					<Emphasis value={value} text={title} />
+				</span>
+				{description && (
+					<p className={css('item-description', 'tc-typeahead-item-description')}>
+						<Emphasis value={value} text={description} />
+					</p>
+				)}
+			</div>
 		</div>
 	);
 }

@@ -1,0 +1,16 @@
+.tc-radar-chart {
+	:global {
+		.recharts-polar-grid-concentric-polygon:not(:last-child) {
+			display: none;
+		}
+		.recharts-polar-angle-axis-ticks {
+			transform: scale(1.06);
+			transform-origin: center;
+		}
+	}
+}
+
+.tc-radar-chart-label--selected {
+	fill: $regal-blue;
+	font-weight: 600;
+}

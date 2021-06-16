@@ -1,29 +1,26 @@
 import api from '@talend/react-cmf';
 
 import register from './register';
-import DefaultCellRenderer from './components/DefaultCellRenderer';
-import DefaultHeaderRenderer from './components/DefaultHeaderRenderer';
-import DefaultPinHeaderRenderer from './components/DefaultPinHeaderRenderer';
-import DefaultIntCellRenderer from './components/DefaultIntCellRenderer';
 
 jest.mock('@talend/react-cmf', () => ({
 	component: {
-		register: () => {},
+		registerMany: () => {},
+	},
+}));
+
+jest.mock('./cmfModule', () => ({
+	components: {
+		foo: () => {},
 	},
 }));
 
 describe('#register components', () => {
 	it('should register all component', () => {
-		api.component.register = jest.fn();
+		api.component.registerMany = jest.fn();
 
 		register();
-
-		expect(api.component.register.mock.calls.length).toBe(4);
-		expect(api.component.register.mock.calls).toEqual([
-			['DefaultCellRenderer', DefaultCellRenderer],
-			['DefaultHeaderRenderer', DefaultHeaderRenderer],
-			['DefaultPinHeaderRenderer', DefaultPinHeaderRenderer],
-			['DefaultIntCellRenderer', DefaultIntCellRenderer],
-		]);
+		const calls = api.component.registerMany.mock.calls;
+		expect(calls.length).toBe(1);
+		expect(Object.keys(calls[0][0])).toEqual(['foo']);
 	});
 });

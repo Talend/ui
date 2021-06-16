@@ -1,16 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import has from 'lodash/has';
 import { TooltipTrigger } from '@talend/react-components';
 import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
 
 import theme from './DefaultValueRenderer.scss';
 
+export const DEFAULT_VALUE_PROP_TYPES = PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.bool,
+	PropTypes.number,
+	PropTypes.shape({
+		bytes: PropTypes.string,
+	}),
+]);
+
 export default class DefaultValueRenderer extends React.Component {
 	static propTypes = {
-		className: PropTypes.object,
-		value: PropTypes.string,
+		className: PropTypes.string,
+		value: DEFAULT_VALUE_PROP_TYPES,
 	};
+
+	static theme = theme;
 
 	constructor(props) {
 		super(props);
@@ -39,12 +51,18 @@ export default class DefaultValueRenderer extends React.Component {
 	}
 
 	render() {
-		const hasWhiteSpace = hasWhiteSpaceCharacters(this.props.value);
-		const formattedContent = hasWhiteSpace ? (
-			<FormatValue value={this.props.value} />
-		) : (
-			this.props.value
-		);
+		let stringValue;
+
+		if (this.props.value === null || this.props.value === undefined) {
+			stringValue = '';
+		} else if (has(this.props.value, 'bytes')) {
+			stringValue = this.props.value.bytes;
+		} else {
+			stringValue = String(this.props.value);
+		}
+
+		const hasWhiteSpace = hasWhiteSpaceCharacters(stringValue);
+		const formattedContent = hasWhiteSpace ? <FormatValue value={stringValue} /> : stringValue;
 
 		const content = (
 			<div

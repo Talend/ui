@@ -14,52 +14,52 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
   <div
     className="theme-wrapper form-control"
   >
-    <Translate(Badge)
+    <Badge
       label="aze"
       onDelete={[Function]}
     />
-    <Translate(Badge)
+    <Badge
       label="tata"
       onDelete={[Function]}
     />
-    <Typeahead
-      autoFocus={true}
-      caret={true}
-      disabled={false}
-      docked={false}
-      focusedItemIndex={undefined}
-      id="my-select-tag"
-      inputProps={
-        Object {
-          "aria-describedby": "my-select-tag-description my-select-tag-error",
-          "aria-invalid": false,
-          "aria-required": true,
+    <FocusManager
+      className="theme-focus-manager"
+      onFocusOut={[Function]}
+    >
+      <Typeahead
+        autoFocus={true}
+        caret={true}
+        disabled={false}
+        docked={false}
+        id="my-select-tag"
+        inputProps={
+          Object {
+            "aria-describedby": "my-select-tag-description my-select-tag-error",
+            "aria-invalid": false,
+            "aria-required": true,
+          }
         }
-      }
-      isLoading={undefined}
-      isLoadingText="Loading..."
-      items={null}
-      multiSection={false}
-      noResultText="No result."
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onSelect={[Function]}
-      placeholder="Type here"
-      position="left"
-      readOnly={false}
-      searching={false}
-      searchingText="Searching for matches..."
-      theme={
-        Object {
-          "container": "theme-typeahead",
-          "itemsContainer": "theme-items-container",
-          "itemsList": "theme-items",
+        items={null}
+        multiSection={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onSelect={[Function]}
+        placeholder="Type here"
+        position="left"
+        readOnly={false}
+        searching={false}
+        theme={
+          Object {
+            "container": "theme-typeahead",
+            "itemsContainer": "theme-items-container",
+            "itemsList": "theme-items",
+          }
         }
-      }
-      value=""
-    />
+        value=""
+      />
+    </FocusManager>
   </div>
 </FieldTemplate>
 `;

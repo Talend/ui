@@ -1,37 +1,40 @@
-import { call, take, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, select, put } from 'redux-saga/effects';
 import { fromJS, Map } from 'immutable';
 import cmf from '@talend/react-cmf';
 
 import * as sagas from './ComponentForm.sagas';
-import Component, { TCompForm } from './ComponentForm.component';
+import ConnectedTCompForm, { TCompForm } from './ComponentForm.component';
 
 describe('ComponentForm saga', () => {
-	describe('*handle', () => {
-		it('should trigger didMount saga and listen to url change', () => {
-			// given
-			const props = { componentId: 'MyComponentId', submitURL: '/foo' };
-			const gen = sagas.handle(props);
+	describe('*checkFormComponentId', () => {
+		it('checkFormComponentId return true if provided componentId and action type match action', () => {
+			const componentId = 'componentId';
+			const actionType = 'actionType';
 
-			// when / then
-			const didMount = gen.next().value;
-			expect(didMount).toEqual(call(sagas.onDidMount, props));
+			const testAction = { type: actionType, componentId };
 
-			// when / then
-			const listenToURLChanges = gen.next().value;
-			expect(listenToURLChanges).toEqual(
-				takeEvery(Component.ON_DEFINITION_URL_CHANGED, sagas.fetchDefinition),
-			);
+			const test = sagas.checkFormComponentId(componentId, actionType);
+			expect(test(testAction)).toBe(true);
+		});
 
-			// when / then
-			const onSubmit = gen.next().value;
-			expect(onSubmit).toEqual(
-				takeLatest(Component.ON_SUBMIT, expect.anything(), props.componentId, props.submitURL),
-			);
+		it('checkFormComponentId return false if provided componentId does not match action', () => {
+			const componentId = 'componentId';
+			const actionType = 'actionType';
 
-			// then should not quit
-			const shouldNotQuit = gen.next().value;
-			expect(shouldNotQuit).toEqual(take('DO_NOT_QUIT'));
-			expect(gen.next().done).toBe(true);
+			const testAction = { type: actionType, componentId };
+
+			const test = sagas.checkFormComponentId('anotherComponentId', actionType);
+			expect(test(testAction)).toBe(false);
+		});
+
+		it('checkFormComponentId return false if provided action type does not match action', () => {
+			const componentId = 'componentId';
+			const actionType = 'actionType';
+
+			const testAction = { type: actionType, componentId };
+
+			const test = sagas.checkFormComponentId(componentId, 'anotherActionType');
+			expect(test(testAction)).toBe(false);
 		});
 	});
 
@@ -234,6 +237,10 @@ describe('ComponentForm saga', () => {
 							definition: data,
 							jsonSchema,
 							uiSchema,
+							initialState: {
+								jsonSchema,
+								uiSchema,
+							},
 						},
 						key: 'MyComponentId',
 						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
@@ -261,13 +268,129 @@ describe('ComponentForm saga', () => {
 				cmf: {
 					componentState: {
 						componentName: 'ComponentForm',
-						componentState: data,
+						componentState: { ...data, initialState: data },
 						key: 'MyComponentId',
 						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 					},
 				},
 				type: 'ComponentForm.setState',
 			});
+		});
+	});
+
+	describe('onFormSubmit', () => {
+		const componentId = 'form';
+		const prevState = {
+			cmf: { components: fromJS({ [TCompForm.displayName]: { [componentId]: {} } }) },
+		};
+		const mergeStatePayload = {
+			cmf: {
+				componentState: {
+					componentName: 'ComponentForm',
+					componentState: fromJS({
+						initialState: { jsonSchema: undefined, uiSchema: undefined, properties: 'prop' },
+					}),
+					key: 'form',
+					type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+				},
+			},
+			type: 'ComponentForm.setState',
+		};
+		let submitUrl = 'http://test.com';
+		let action = { componentId: 'form', properties: 'prop' };
+		const data = { message: 'fetch failed' };
+
+		it('should return on submit success if the http request has worked', () => {
+			// given
+			const response = { ok: true };
+			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
+			// when
+			expect(gen.next().value).toEqual(select());
+			expect(gen.next(prevState).value).toEqual(put(mergeStatePayload));
+			expect(gen.next().value).toEqual(call(cmf.sagas.http.post, submitUrl, action.properties));
+			expect(gen.next({ response, data }).value).toEqual(
+				put({
+					type: TCompForm.ON_SUBMIT_SUCCEED,
+					data,
+					formData: action.properties,
+					response,
+					componentId,
+				}),
+			);
+			// then
+			expect(gen.next().value).toEqual(undefined);
+		});
+
+		it('should return on submit failed if the http request has failed', () => {
+			// given
+			const response = { ok: false };
+			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
+			// when
+			expect(gen.next().value).toEqual(select());
+			expect(gen.next(prevState).value).toEqual(put(mergeStatePayload));
+			expect(gen.next().value).toEqual(call(cmf.sagas.http.post, submitUrl, action.properties));
+			expect(gen.next({ response, data }).value).toEqual(
+				put({
+					type: TCompForm.ON_SUBMIT_FAILED,
+					data,
+					formData: action.properties,
+					response,
+					componentId,
+				}),
+			);
+			// then
+			expect(gen.next().value).toEqual(undefined);
+		});
+
+		it('should return nothing if there is not the matched component id', () => {
+			// given
+			action = { componentId: 'form2', properties: 'prop' };
+			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
+			// when
+			const value = gen.next().value;
+			// then
+			expect(value).toEqual(undefined);
+		});
+
+		it('should return nothing if there is no submit url', () => {
+			// given
+
+			submitUrl = '';
+			action = { componentId: 'form', properties: 'prop' };
+			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
+			// when
+			expect(gen.next().value).toEqual(select());
+			expect(gen.next(prevState).value).toEqual(put(mergeStatePayload));
+			// then
+			expect(gen.next().value).toEqual(undefined);
+		});
+	});
+
+	describe('handleSetDirtyState', () => {
+		it('should dispatch an action to update the component form statu', () => {
+			// given
+			const componentId = 'myId';
+			const dirty = true;
+			// when
+			const gen = sagas.handleSetDirtyState({ componentId, dirty });
+			// then
+			expect(gen.next().value).toEqual(select(ConnectedTCompForm.getState, componentId));
+			expect(gen.next(Map({})).value).toEqual(
+				put({
+					cmf: {
+						componentState: {
+							componentName: 'ComponentForm',
+							componentState: Map({
+								dirty: true,
+							}),
+							key: 'myId',
+							type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+						},
+					},
+					type: 'ComponentForm.setState',
+				}),
+			);
+			expect(gen.next().done).toBe(true);
 		});
 	});
 });

@@ -1,4 +1,7 @@
-$background-color-on-hover: shade($brand-primary, 30);
+$tc-headerbar-logo-width: 6rem !default;
+$tc-headerbar-logo-full-width: 8.5rem !default;
+$background-color-on-hover: rgba(255, 255, 255, 0.2);
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -10,20 +13,25 @@ $background-color-on-hover: shade($brand-primary, 30);
 }
 
 .tc-header-bar {
-	background-color: $brand-primary-darker;
+	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important; // sass-lint:disable-line no-important
 	display: flex;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 1030;
 
-	& {
-		svg {
-			margin: 0;
-		}
-		a svg {
-			margin: 0 $padding-smaller;
-		}
+	:global(.btn) {
+		--t-button-color: var(--t-button-primary-color);
+	}
+
+	svg {
+		margin: 0;
+	}
+	a svg {
+		margin: 0 $padding-smaller;
+	}
+	ul {
+		list-style: none;
 	}
 
 	.tc-header-bar-actions {
@@ -37,9 +45,19 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-action {
-			height: 100%;
 			list-style: none;
+			display: flex;
+			align-items: center;
+			height: 100%;
 			white-space: nowrap;
+
+			&.separated:not(:last-child):after {
+				content: ' ';
+				display: block;
+				width: 1px;
+				height: $font-size-large;
+				background-color: $white;
+			}
 
 			:global {
 				.tc-typeahead-item-title,
@@ -47,36 +65,44 @@ $background-color-on-hover: shade($brand-primary, 30);
 					white-space: initial;
 				}
 			}
-
-			&:not(:last-child).separated:after {
-				content: '|';
-				color: $white;
-			}
-
-			&.flex {
-				display: flex;
-				align-items: center;
-			}
 		}
 
-		.tc-header-bar-logo:global(.btn):global(.btn-link) {
-			line-height: $svg-lg-size;
-			padding: 12px $padding-large 12px $padding-normal;
+		.tc-header-bar-logo {
+			padding: 0;
+			width: $tc-headerbar-logo-width;
 
 			:global(.tc-svg-icon) {
-				height: $svg-lg-size;
-				vertical-align: top;
-				width: $svg-lg-size;
+				padding: 0;
+				height: 2.8rem;
+				width: 2.8rem;
 			}
 
-			&.full :global(.tc-svg-icon) {
-				width: 85px;
+			&.full {
+				width: auto;
+
+				:global(.tc-svg-icon) {
+					padding: 0 $padding-normal;
+					width: $tc-headerbar-logo-full-width;
+				}
 			}
 		}
 
 		.tc-header-bar-brand:global(.btn):global(.btn-link) {
 			font-size: $font-size-base;
-			text-transform: uppercase;
+		}
+
+		.tc-header-bar-call-to-action {
+			:global {
+				.btn.btn-info.btn-inverse {
+					background-color: $white;
+					border: none;
+					margin-right: $padding-normal;
+
+					&:hover {
+						background-color: $white;
+					}
+				}
+			}
 		}
 	}
 
@@ -86,27 +112,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 		width: $svg-lg-size;
 	}
 
-	.tc-header-bar-brand + :global(.dropdown-menu .tc-svg-icon) {
-		fill: $st-tropaz;
-		height: $svg-md-size;
-		width: $svg-md-size;
+	.tc-header-bar-brand :global(.tc-svg-icon:first-child) {
+		height: $svg-lg-size;
+		width: $svg-lg-size;
 	}
 
 	.tc-header-bar-brand + :global(.dropdown-menu) {
 		min-width: 100%;
 		width: auto;
-	}
-
-	:global(.btn):global(.btn-link) {
-		color: $white;
-		font-size: $font-size-base;
-		text-transform: none;
-		text-decoration: none;
-
-		&:hover,
-		&:active {
-			background-color: $background-color-on-hover;
-		}
 	}
 
 	:global(.dropdown) {
@@ -132,12 +145,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 	.tc-header-bar-search {
 		form {
 			height: $navbar-height;
+			padding-left: 0;
 
 			:global(.tc-typeahead-container) > div:first-child {
 				margin-top: 0;
 				margin-bottom: 0;
 
-				padding-left: $padding-small;
 				padding-right: $padding-large;
 				height: $navbar-height;
 				background: $white;
@@ -150,4 +163,18 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 		}
 	}
+
+	.tc-header-bar-intercom-default-component {
+		border-radius: 50%;
+		background: $st-tropaz;
+		min-height: auto;
+		height: 3.2rem;
+		width: 3.2rem;
+		margin: 0 $padding-small;
+		padding: 0;
+	}
+}
+
+:global(.intercom-namespace .intercom-app .intercom-messenger-frame) {
+	top: 7rem;
 }

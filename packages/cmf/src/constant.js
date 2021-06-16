@@ -1,7 +1,8 @@
 export default {
+	ERROR: 'REACT_CMF.ERROR',
+	ERROR_REPORTED: 'REACT_CMF.ERROR_REPORTED',
 	REGISTRY_EXPRESSION_PREFIX: 'expression',
 	REGISTRY_COMPONENT_PREFIX: '_.route.component',
-	REGISTRY_HOOK_PREFIX: '_.route.hook',
 	REGISTRY_ACTION_CREATOR_PREFIX: 'actionCreator',
 	SAGA_PREFIX: 'saga',
 	DID_MOUNT_SAGA_START: 'DID_MOUNT_SAGA_START',
@@ -13,8 +14,6 @@ export default {
 	IS_HANDLER_ACTION_CREATOR_REGEX: /^(on).*(ActionCreator)$/,
 	IS_HANDLER_SETSTATE: 'SetState',
 	IS_HANDLER_SETSTATE_REGEX: /^(on).*(SetState)$/,
-	ERROR_ROUTER_DONT_GET_PARAMS:
-		'You can t get params because it will change on every state mutation. Please take one of the params only',
 	COLLECTION_ADD_OR_REPLACE: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
 	COLLECTION_REMOVE: 'REACT_CMF.COLLECTION_REMOVE',
 	COLLECTION_MUTATE: 'REACT_CMF.COLLECTION_MUTATE',
@@ -33,6 +32,8 @@ export default {
 		'initialState',
 		'renderIf',
 	],
+	INJECTED_STATE_PROPS: ['setState', 'deleteState', 'updateState', 'state', 'initState'],
+	INJECTED_ROUTER_PROPS: ['location', 'params', 'route', 'routeParams', 'router', 'routes'],
 	INJECTED_PROPS: [
 		'setState',
 		'deleteState',
@@ -40,7 +41,6 @@ export default {
 		'componentId',
 		'state',
 		'initState',
-		'getCollection',
 		'dispatch',
 		'dispatchActionCreator',
 	],

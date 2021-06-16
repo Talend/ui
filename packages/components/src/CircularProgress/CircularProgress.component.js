@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 import theme from './CircularProgress.scss';
@@ -75,8 +75,8 @@ CircularProgress.propTypes = {
 	className: PropTypes.string,
 	size: PropTypes.oneOf(Object.keys(SIZE).map(key => SIZE[key])),
 	light: PropTypes.bool,
-	percent: PropTypes.number,
-	t: PropTypes.func.isRequired,
+	percent: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	t: PropTypes.func,
 };
 
 CircularProgress.defaultProps = {
@@ -84,4 +84,4 @@ CircularProgress.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CircularProgress);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(CircularProgress);

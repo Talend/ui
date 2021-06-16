@@ -7,7 +7,6 @@ exports[`HttpError should render a forbidden http error message 1`] = `
 >
   <div
     className="theme-http-error-content http-error-content http-error-403"
-    style={undefined}
   >
     <h1>
       Access denied
@@ -26,7 +25,6 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
 >
   <div
     className="theme-http-error-content http-error-content http-error-404"
-    style={undefined}
   >
     <h1>
       Oops...
@@ -43,17 +41,9 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
       role="link"
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-arrow-left"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-arrow-left"
-        />
-      </svg>
+      />
       <span>
         Start over
       </span>

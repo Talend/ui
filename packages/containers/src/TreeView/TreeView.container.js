@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
-import { TreeView as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/TreeView';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
@@ -100,7 +100,9 @@ export function transform(items, props, parent) {
  */
 class TreeView extends React.Component {
 	static displayName = DISPLAY_NAME;
+
 	static propTypes = {
+		childrenAttr: PropTypes.string,
 		data: ImmutablePropTypes.list,
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
@@ -112,6 +114,7 @@ class TreeView extends React.Component {
 
 		...cmfConnect.propTypes,
 	};
+
 	static defaultProps = DEFAULT_PROPS;
 
 	constructor(props) {
@@ -216,4 +219,9 @@ export function mapStateToProps(state, ownProps) {
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(TreeView);

@@ -2,11 +2,11 @@
 // Reset and dependencies
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/normalize';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/print';
-//@import '~bootstrap-sass/assets/stylesheets/bootstrap/glyphicons';
 
 // Core CSS
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/type';
+@import './type';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/code';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/grid';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/tables';
@@ -25,6 +25,8 @@
 @import './button-groups';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/input-groups';
 @import './input-groups';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/labels';
+@import './labels';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/navs';
 @import './navs';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/navbar';
@@ -36,7 +38,6 @@
 @import './breadcrumbs';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/pagination';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/pager';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/labels';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/badges';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/jumbotron';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails';

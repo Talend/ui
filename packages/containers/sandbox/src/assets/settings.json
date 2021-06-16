@@ -1,34 +1,12 @@
 {
   "actions": {
-    "menu:HeaderBar": {
-      "id": "menu:HeaderBar",
-      "label": "HeaderBar",
-      "icon": "talend-arrow-right",
-      "iconTransform": "rotate-270",
-      "payload": {
-        "type": "MENU_LINK",
-        "cmf": {
-          "routerReplace": "/HeaderBar"
-        }
-      }
-    },
-    "menu:tacokitTitleMap": {
+    "menu:ComponentForm": {
       "icon": "talend-burger",
-      "label": "TCK async",
+      "label": "ComponentForm",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
         "cmf": {
-          "routerPush": "/tacokit/titleMap"
-        }
-      }
-    },
-    "menu:tacokitValidation": {
-      "icon": "talend-burger",
-      "label": "TCK validation",
-      "onClickDispatch": {
-        "type": "MENU_COMPONENT_FORM_CLICKED",
-        "cmf": {
-          "routerPush": "/tacokit/validation"
+          "routerPush": "/ComponentForm"
         }
       }
     }
@@ -46,8 +24,8 @@
         ]
       }
     },
-    "RedirectContainer#default": {
-      "path": "/HeaderBar"
+    "Redirect#default": {
+      "path": "/ComponentForm"
     },
     "HeaderBar#default": {
       "keepComponentState": true,
@@ -61,16 +39,25 @@
         "label": "Choose a product"
       },
       "products": {
-        "id": "header-bar-demo-brands"
+        "id": "header-bar-demo-brands",
+        "items": [
+          {
+            "icon": "talend-star",
+            "label": "Static menu entry",
+            "dispatch": {
+              "type": "CUSTOM_ACTION_TYPE",
+              "payload": {
+                "foo": "bar"
+              }
+            }
+          }
+        ]
       },
-      "productsUrl": "/api/mock/header-bar/products-list",
-      "productsLang": "en-EN"
+      "productsUrl": "/api/mock/header-bar/products-list"
     },
     "SidePanel#default": {
       "actionIds": [
-        "menu:HeaderBar",
-        "menu:tacokitTitleMap",
-        "menu:tacokitValidation"
+        "menu:ComponentForm"
       ]
     },
     "Layout#default": {
@@ -79,23 +66,11 @@
       "one": { "component": "SidePanel" },
       "content": {}
     },
-    "Layout#HeaderBar": {
-      "mode": "TwoColumns",
-      "header": { "component": "HeaderBar" },
-      "one": { "component": "SidePanel" },
-      "content": {}
-    },
-    "ComponentForm#titleMap": {
-      "definitionURL": "/api/v1/forms/titleMap",
+    "ComponentForm#default": {
+      "definitionURL": "/api/v1/forms/example",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
-      "className": "well"
-    },
-    "ComponentForm#validation": {
-      "definitionURL": "/api/v1/forms/validation",
-      "uiSpecPath": "ui",
-      "triggerURL": "/api/v1/application/action",
-      "className": "well"
+      "className": "full-form"
     }
   },
   "routes": {
@@ -106,25 +81,8 @@
     },
     "childRoutes": [
       {
-        "path": "HeaderBar",
-        "component": "Layout",
-        "componentId": "HeaderBar"
-      },
-      {
-        "path": "tacokit",
-        "component": "Layout",
-        "childRoutes": [
-          {
-            "path": "validation",
-            "component": "ComponentForm",
-            "componentId": "validation"
-          },
-          {
-            "path": "titleMap",
-            "component": "ComponentForm",
-            "componentId": "titleMap"
-          }
-        ]
+        "path": "ComponentForm",
+        "component": "ComponentFormSandbox"
       },
       {
         "path": "*",

@@ -2,19 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { cmfConnect } from '@talend/react-cmf';
-import { AppLoader, Inject } from '@talend/react-components';
+import AppLoader from '@talend/react-components/lib/AppLoader';
+import Inject from '@talend/react-components/lib/Inject';
 import { appLoaderSaga } from './AppLoader.saga';
 
-const CustomInject = cmfConnect({})(Inject);
+const CustomInject = cmfConnect({
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
+})(Inject);
+
+const appLoaderRenderer = appLoaderElement => appLoaderElement;
+
 /**
  * This container show the application's loader & bootstrap the app
  * @param {object} props the component props
  * @param {boolean} props.loading tell if the app loader should show the loader or the content
+ * @param {function} props.renderer lets you customise the way we display the loader in the app
  * @param {object} props.children react element to show
  */
-export function AppLoaderContainer({ loading, children, ...rest }) {
+export function AppLoaderContainer({ loading, renderer = appLoaderRenderer, children, ...rest }) {
 	if (loading) {
-		return <AppLoader {...rest} />;
+		return renderer(<AppLoader {...rest} />);
 	}
 
 	const injected = Inject.all(rest.getComponent, rest.components, CustomInject);
@@ -31,6 +42,7 @@ AppLoaderContainer.displayName = 'AppLoader';
 AppLoaderContainer.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 	loading: PropTypes.bool,
+	renderer: PropTypes.func,
 };
 
 /**
@@ -48,6 +60,11 @@ export function mapStateToProps(state, ownProps) {
 
 const connected = cmfConnect({
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(AppLoaderContainer);
 
 connected.sagas = {

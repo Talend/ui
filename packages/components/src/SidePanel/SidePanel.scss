@@ -3,51 +3,100 @@
 /// @group Custom widgets
 ////
 
+$list-item-height: 3rem !default;
 $list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-reverse-hover-color: rgba($white, 0.5) !default;
+$list-item-reverse-hover-color: rgba($black, 0.12) !default;
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
+$toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-minwidth: 200px !default;
-$tc-side-panel-large-minwidth: 250px !default;
-$tc-side-panel-docked-width: 50px !default;
-$tc-side-panel-labels-width: 135px !default;
-$tc-side-panel-large-docked-width: 70px !default;
-$tc-side-panel-icons-size: 20px !default;
-$tc-side-panel-border-size: 2px !default;
-$tc-side-panel-large-toggle-padding: 4px !default;
-$toggle-button-padding: $padding-small - 1;
+$tc-side-panel-icons-size: $svg-rg-size;
+$toggle-button-padding: $padding-small;
 
-.tc-side-panel {
+$docked-width: 6rem;
+$large-docked-width: 7rem;
+
+.tc-side-panel,
+[role='navigation'] {
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
-	background: $list-item-reverse-color;
+	font-weight: 500;
+	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important; // sass-lint:disable-line no-important
+	overflow: hidden;
 
-	&,
-	> ul {
-		min-width: $tc-side-panel-minwidth;
-		transition: 0.2s min-width ease-out;
+	&:before {
+		left: 1rem;
+		bottom: -5rem;
 	}
 
-	:global(.tc-svg-icon) {
-		width: $tc-side-panel-icons-size;
-		height: $tc-side-panel-icons-size;
-		margin: 0;
+	&.animate {
+		transition: 0.2s width ease-out;
+	}
+
+	.action-list-container.action-list-container {
+		flex: 1;
+		height: calc(100vh - 12rem); // specific to Safari
+
+		:global .tc-side-panel-list {
+			background: none;
+		}
+
+		:global .tc-action-list-item {
+			width: calc(100% - 2rem);
+			background: none !important; // sass-lint:disable-line no-important
+			box-shadow: none !important; // sass-lint:disable-line no-important
+
+			.btn.btn-link {
+				display: flex;
+				align-items: center;
+				justify-content: start;
+				font-size: 1.6rem;
+				height: $list-item-height;
+				margin: $padding-smaller $padding-small;
+				padding: $padding-smaller;
+				border-radius: $border-radius-base;
+
+				> span {
+					margin-left: $padding-small;
+				}
+			}
+			.tc-svg-icon {
+				width: $tc-side-panel-icons-size;
+				height: $tc-side-panel-icons-size;
+				margin-left: $padding-smaller;
+			}
+
+			&:hover {
+				.btn.btn-link {
+					background: rgba(255, 255, 255, 0.12);
+				}
+			}
+
+			&.active {
+				.btn.btn-link {
+					color: $brand-primary;
+					background: $white;
+				}
+			}
+		}
 	}
 
 	.toggle-btn {
-		padding-top: $padding-small;
-		padding-bottom: $padding-smaller + $padding-large;
+		height: $toggle-height;
+		vertical-align: center;
+		padding-top: 0;
+		padding-bottom: 0;
 		padding-left: $toggle-button-padding;
 		text-align: left;
+		flex: 0 0 7rem;
 
 		:global {
 			.btn.btn-link {
 				color: $white;
 				line-height: 1;
-				padding: $padding-small;
+				height: $toggle-height;
+				padding: 0 $padding-small;
 				display: inline-block;
 				width: auto;
 				opacity: $toggle-button-opacity;
@@ -67,7 +116,6 @@ $toggle-button-padding: $padding-small - 1;
 
 				&:hover {
 					opacity: 1;
-					background-color: $list-item-hover-color;
 				}
 
 				.tc-svg-icon {
@@ -80,17 +128,17 @@ $toggle-button-padding: $padding-small - 1;
 	}
 
 	&.docked {
-		&,
-		> ul {
-			min-width: $tc-side-panel-docked-width;
-			width: $tc-side-panel-docked-width;
-		}
+		:global {
+			.btn.btn-link {
+				padding: $padding-normal;
 
-		:global(.btn.btn-link) {
-			padding: $padding-normal;
-
-			> span {
-				opacity: 0;
+				> span {
+					opacity: 0;
+				}
+			}
+			.tc-action-list {
+				width: $docked-width;
+				min-width: auto;
 			}
 		}
 
@@ -108,13 +156,8 @@ $toggle-button-padding: $padding-small - 1;
 	}
 
 	&.large {
-		&,
-		> ul {
-			min-width: $tc-side-panel-large-minwidth;
-		}
-
 		.toggle-btn {
-			padding-left: $tc-side-panel-large-toggle-padding;
+			padding-left: 0;
 
 			:global(.btn.btn-link) {
 				padding: $padding-small $tc-side-panel-large-padding;
@@ -122,61 +165,81 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		:global {
-			.btn.btn-link {
-				padding: $padding-normal $tc-side-panel-large-padding;
+			.tc-action-list {
+				padding: $padding-smaller 0;
+			}
 
-				.tc-svg-icon + span {
-					margin-left: $tc-side-panel-large-padding;
+			.tc-action-list-item {
+				.btn.btn-link {
+					padding: $padding-normal $tc-side-panel-large-padding;
+
+					.tc-svg-icon {
+						margin-left: $padding-small;
+					}
+
+					.tc-svg-icon + span {
+						margin-left: $tc-side-panel-large-padding;
+					}
 				}
 			}
 		}
 
 		&.docked {
-			&,
-			> ul,
-			:global(.tc-action-list-item) {
-				min-width: $tc-side-panel-large-docked-width;
-				width: $tc-side-panel-large-docked-width;
+			:global {
+				.tc-action-list {
+					width: $large-docked-width;
+					min-width: auto;
+				}
+			}
+			.toggle-btn {
+				height: $toggle-height;
+				vertical-align: center;
+				padding: 0;
+				.btn.btn-link {
+					height: $toggle-height;
+					padding: 0;
+				}
 			}
 		}
 	}
 
-	&.reverse {
-		background: $wild-sand;
-		border-right: $tc-side-panel-border-size solid $alto;
+	&.reverse[role='navigation'][aria-expanded] {
+		background: $wild-sand !important; // sass-lint:disable-line no-important
 
 		&:before {
-			background-image: none;
+			content: none;
 		}
+
 		.toggle-btn {
-			background-color: $wild-sand;
+			background-color: transparent;
 
 			:global {
 				.btn.btn-link,
 				.tc-svg-icon {
-					color: $dove-gray;
+					color: $gray700;
 				}
 			}
 		}
 
 		:global {
 			.tc-action-list-item {
-				color: $dove-gray;
+				color: $gray700;
 
 				&:hover {
-					background-color: $list-item-reverse-hover-color;
-
 					.btn.btn-link {
-						color: $dove-gray;
+						background: $list-item-reverse-hover-color;
 					}
 
+					.btn.btn-link,
 					.tc-svg-icon {
-						color: $silver;
+						color: $black;
 					}
 				}
 
 				&.active {
-					background-color: $list-item-color;
+					.btn.btn-link {
+						background: $list-item-color;
+					}
 
 					.btn.btn-link,
 					.tc-svg-icon {

@@ -5,16 +5,18 @@ exports[`ListGrid should render noRows 1`] = `
   collection={Array []}
   height={600}
   id="my-list"
-  isSelected={[Function]}
+  isSelected={[MockFunction]}
   noRowsRenderer={[Function]}
   rowHeight={130}
   rowRenderer={[Function]}
   width={1024}
 >
   <List
+    aria-label="list"
     autoHeight={false}
-    className="theme-tc-list-list"
+    className="tc-list-list theme-tc-list-list"
     collection={Array []}
+    containerRole="list"
     estimatedRowSize={30}
     height={600}
     id="my-list"
@@ -23,6 +25,7 @@ exports[`ListGrid should render noRows 1`] = `
     onScroll={[Function]}
     overscanIndicesGetter={[Function]}
     overscanRowCount={10}
+    role="group"
     rowCount={0}
     rowGetter={[Function]}
     rowHeight={130}
@@ -33,24 +36,25 @@ exports[`ListGrid should render noRows 1`] = `
     width={1024}
   >
     <Grid
-      aria-label="grid"
+      aria-label="list"
       aria-readonly={true}
       autoContainerWidth={true}
       autoHeight={false}
       autoWidth={false}
       cellRangeRenderer={[Function]}
       cellRenderer={[Function]}
-      className="ReactVirtualized__List theme-tc-list-list"
+      className="ReactVirtualized__List tc-list-list theme-tc-list-list"
       collection={Array []}
       columnCount={1}
       columnWidth={1024}
-      containerRole="rowgroup"
+      containerRole="list"
       containerStyle={Object {}}
       estimatedColumnSize={100}
       estimatedRowSize={30}
       getScrollbarSize={[Function]}
       height={600}
       id="my-list"
+      isScrollingOptOut={false}
       noContentRenderer={[Function]}
       noRowsRenderer={[Function]}
       onRowsRendered={[Function]}
@@ -60,7 +64,7 @@ exports[`ListGrid should render noRows 1`] = `
       overscanColumnCount={0}
       overscanIndicesGetter={[Function]}
       overscanRowCount={10}
-      role="grid"
+      role="group"
       rowCount={0}
       rowGetter={[Function]}
       rowHeight={130}
@@ -75,12 +79,12 @@ exports[`ListGrid should render noRows 1`] = `
       width={1024}
     >
       <div
-        aria-label="grid"
+        aria-label="list"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-list"
+        className="ReactVirtualized__Grid ReactVirtualized__List tc-list-list theme-tc-list-list"
         id="my-list"
         onScroll={[Function]}
-        role="grid"
+        role="group"
         style={
           Object {
             "WebkitOverflowScrolling": "touch",
@@ -107,8 +111,9 @@ exports[`ListGrid should render noRows 1`] = `
 
 exports[`ListGrid should render react-virtualized list 1`] = `
 <List
+  aria-label="list"
   autoHeight={false}
-  className="theme-tc-list-list"
+  className="tc-list-list theme-tc-list-list"
   collection={
     Array [
       Object {
@@ -123,6 +128,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
       },
     ]
   }
+  containerRole="list"
   estimatedRowSize={30}
   height={600}
   id="my-list"
@@ -133,6 +139,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   onScroll={[Function]}
   overscanIndicesGetter={[Function]}
   overscanRowCount={10}
+  role="group"
   rowCount={2}
   rowGetter={[Function]}
   rowHeight={130}
@@ -142,7 +149,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   style={Object {}}
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -154,7 +161,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     style={Object {}}
     width={0}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -166,7 +173,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     style={Object {}}
     width={0}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="description"

@@ -1,5 +1,5 @@
 import React from 'react';
-import VirtualizedList from '../VirtualizedList.component';
+import VirtualizedList from '..';
 import { insertSelectionConfiguration, toColumns } from './tablerow';
 
 describe('tablerow', () => {
@@ -43,7 +43,7 @@ describe('tablerow', () => {
 				<VirtualizedList.Content
 					label="Id"
 					dataKey="id"
-					headerClassName={'my-header-classname'}
+					headerClassName="my-header-classname"
 					width={50}
 				/>,
 			];
@@ -59,7 +59,7 @@ describe('tablerow', () => {
 			// given
 			const theme = { cell: 'theme-classname' };
 			const children = [
-				<VirtualizedList.Content label="Id" dataKey="id" className={'my-classname'} width={50} />,
+				<VirtualizedList.Content label="Id" dataKey="id" className="my-classname" width={50} />,
 			];
 
 			// when
@@ -85,6 +85,48 @@ describe('tablerow', () => {
 			const result = toColumns({ id, theme: {}, children });
 
 			// then
+			expect(result).toMatchSnapshot();
+		});
+		it('should return a column with fixed width', () => {
+			// given
+			const id = 'my-id';
+			const children = [
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+					columnData={{ custom: 'lol' }}
+					width={50}
+				/>,
+			];
+			// when
+			const result = toColumns({
+				id,
+				theme: {},
+				children,
+				columnsWidths: [{ dataKey: 'id', width: 50 }],
+			});
+			// them
+			expect(result).toMatchSnapshot();
+		});
+		it('should return a column with resizable width and classname', () => {
+			// given
+			const id = 'my-id';
+			const children = [
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+					columnData={{ custom: 'lol' }}
+					width={50}
+				/>,
+			];
+			// when
+			const result = toColumns({
+				id,
+				theme: {},
+				children,
+				columnsWidths: [{ dataKey: 'id', width: 50, resized: true, resizable: true }],
+			});
+			// them
 			expect(result).toMatchSnapshot();
 		});
 	});

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import get from 'lodash/get';
 import { Actions, ActionDropdown } from '../../Actions';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
@@ -14,10 +14,23 @@ import Action from '../../Actions/Action/Action.component';
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 const { LARGE } = listTypes;
 
-const MAX_DIRECT_NB_ICON = 3;
+const MAX_DIRECT_NB_ICON = 4;
 
 function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
+}
+
+function renderActionsGroup(getComponent) {
+	return actions => (
+		<Actions
+			getComponent={getComponent}
+			className={classNames('cell-title-actions', theme['cell-title-actions'])}
+			key="large-display-actions"
+			actions={actions}
+			hideLabel
+			link
+		/>
+	);
 }
 
 function getLargeDisplayActions(actions, getComponent) {
@@ -25,16 +38,11 @@ function getLargeDisplayActions(actions, getComponent) {
 		return null;
 	}
 
-	return (
-		<Actions
-			getComponent={getComponent}
-			className={classNames('cell-title-actions', theme['cell-title-actions'])}
-			key={'large-display-actions'}
-			actions={actions}
-			hideLabel
-			link
-		/>
-	);
+	if (Array.isArray(actions) && actions.every(item => Array.isArray(item))) {
+		return actions.map(renderActionsGroup(getComponent));
+	}
+
+	return renderActionsGroup(getComponent)(actions);
 }
 
 function getDefaultDisplayActions(actions, getComponent, t, id) {
@@ -48,13 +56,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 	// few actions : display them
 	if (hasFewActions) {
 		actionsBlocs.push(
-			<Actions
-				getComponent={getComponent}
-				key={'direct-actions'}
-				actions={actions}
-				hideLabel
-				link
-			/>,
+			<Actions getComponent={getComponent} key="direct-actions" actions={actions} hideLabel link />,
 		);
 	} else {
 		// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
@@ -95,20 +97,18 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 		actionsBlocs.push(
 			<ActionDropdown
 				id={`${id}-ellispsis-actions`}
-				key={'ellipsis-actions'}
+				key="ellipsis-actions"
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 				items={remainingActions}
 				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
-				hideLabel
-				link
-				noCaret
+				ellipsis
 			/>,
 		);
 	}
 
 	return (
 		<div
-			key={'cell-title-actions'}
+			key="cell-title-actions"
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
 		>
 			{actionsBlocs}
@@ -122,7 +122,7 @@ function getPersistentActions(actions, getComponent) {
 	}
 	return (
 		<Actions
-			key={'persistent-actions'}
+			key="persistent-actions"
 			getComponent={getComponent}
 			className={classNames('persistent-actions', theme['persistent-actions'])}
 			actions={actions}
@@ -146,7 +146,7 @@ export function CellTitleActionsComponent({
 	t,
 	type,
 }) {
-	const dataActions = get(rowData, actionsKey, []).filter(isAvailable);
+	let dataActions = get(rowData, actionsKey, []).filter(isAvailable);
 	const persistentActions = get(rowData, persistentActionsKey, []);
 	const hasActions = dataActions.length || persistentActions.length;
 	if (displayMode !== TITLE_MODE_TEXT || !hasActions) {
@@ -157,6 +157,10 @@ export function CellTitleActionsComponent({
 	if (type === LARGE) {
 		actions.push(getLargeDisplayActions(dataActions, getComponent));
 	} else {
+		// flatening in tab case
+		if (Array.isArray(dataActions) && dataActions.every(item => Array.isArray(item))) {
+			dataActions = dataActions.flatMap(item => item);
+		}
 		actions.push(getDefaultDisplayActions(dataActions, getComponent, t, id));
 	}
 
@@ -166,6 +170,9 @@ export function CellTitleActionsComponent({
 		<div
 			id={id}
 			className={classNames('main-title-actions-group', theme['main-title-actions-group'])}
+			onKeyDown={e => {
+				e.stopPropagation();
+			}}
 		>
 			{actions}
 		</div>
@@ -191,4 +198,4 @@ CellTitleActionsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);

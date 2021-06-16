@@ -1,18 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { store, Provider } from '@talend/react-cmf/lib/mock';
+import { mock } from '@talend/react-cmf';
 import Immutable, { fromJS } from 'immutable';
 import Container from './Notification.container';
 import Connected, { mergeProps, deleteNotification } from './Notification.connect';
 import pushNotification from './pushNotification';
 import clearNotifications from './clearNotifications';
 
-jest.mock('@talend/react-components', () => ({
-	Notification: props => <div className="tc-notifications" notifications={props.notifications} />,
-}));
+jest.mock('@talend/react-components/lib/Notification', () => props => (
+	<div className="tc-notifications" notifications={props.notifications} />
+));
 
 describe('Container Notification', () => {
 	it('should render', () => {
+		const { Provider } = mock;
 		const wrapper = renderer
 			.create(
 				<Provider>
@@ -48,17 +49,30 @@ describe('Connected Notification', () => {
 	});
 
 	it('deleteNotification should delete notification', () => {
-		const message = { message: 'hello world' };
+		const message = fromJS({ message: 'hello world' });
 		const stateProps = {
 			state: fromJS({ notifications: [message] }),
 		};
-		expect(deleteNotification(1)(stateProps).toJS()).toEqual({ notifications: [] });
+		expect(deleteNotification(message)(stateProps).toJS()).toEqual({
+			notifications: [],
+		});
+	});
+
+	it('deleteNotification should do nothing if the notification does not exist', () => {
+		const ok = fromJS({ message: 'ahah' });
+		const ko = fromJS({ message: 'hello world' });
+		const stateProps = {
+			state: fromJS({ notifications: [ok] }),
+		};
+		expect(deleteNotification(ko)(stateProps)).toEqual(
+			stateProps.state
+		);
 	});
 });
 
 describe('Notification.pushNotification', () => {
 	it('should add a Notification in the state', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({
 			'Container(Notification)': {
 				Notification: {
@@ -79,7 +93,7 @@ describe('Notification.pushNotification', () => {
 	});
 
 	it('should add a Notification in the state even if the state slot is not yet available', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = new Immutable.Map();
 		const notification = { message: 'hello world' };
 		const newState = pushNotification(state, notification);
@@ -93,7 +107,7 @@ describe('Notification.pushNotification', () => {
 	});
 
 	it('should delete all Notification in the state', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({
 			'Container(Notification)': {
 				Notification: {
@@ -112,7 +126,7 @@ describe('Notification.pushNotification', () => {
 	});
 
 	it('should not change the state if no notification', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({
 			'Container(Notification)': {
 				Notification: {
@@ -125,7 +139,7 @@ describe('Notification.pushNotification', () => {
 	});
 
 	it('should not change the state if notification state is not yet availbale', () => {
-		const state = store.state();
+		const state = mock.store.state();
 		state.cmf.components = fromJS({});
 		const newState = pushNotification(state);
 		expect(newState).toBe(state);

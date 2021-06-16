@@ -16,9 +16,10 @@
 
 import clonedeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
-import { removeError, addError, getError } from '@talend/react-forms/lib/UIForm/utils/errors';
-import { mutateValue } from '@talend/react-forms/lib/UIForm/utils/properties';
+import Form from '@talend/react-forms';
 
+const { removeError, addError, getError } = Form.UIForm.utils.errors;
+const { mutateValue } = Form.UIForm.utils.properties;
 /**
  * Change errors on the target input
  * Add the error if trigger results in an error
@@ -95,19 +96,33 @@ function suggestions({ body }) {
 	return { titleMap: (body.items || []).map(item => ({ name: item.label, value: item.id })) };
 }
 
+/**
+ * extract from error object valuable information for the user
+ * We have two cases:
+ * - js error object: https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Error
+ * - message sent from the backend: http 520 with description and may be code.
+ * @param {Object} error the error object
+ * @returns {string} the message
+ */
 function extractErrorMessage(error) {
-	if (error.errors && Array.isArray(error.errors) && error.errors.length > 0) {
-		return error.errors;
-	}
-	if (error.error) {
-		return JSON.stringify(error.error);
-	}
-	if (error.code && error.description && error.description.length > 0) {
+	if (error.code && error.description) {
 		return `${error.code !== 'ACTION_ERROR' ? `[${error.code}]` : ''} ${error.description}`;
+	} else if (error.description) {
+		return error.description;
 	}
+	// in case of JS error message (fetch fails and others)
+	if (typeof error.message === 'string') {
+		return error.message;
+	}
+	// fallback don't know what happens
 	return JSON.stringify(error);
 }
 
+/**
+ * Update errors status
+ * @param {Object} options with { errors, error, schema }
+ * @return {Object} { errors } status
+ */
 function onError({ errors, error, schema }) {
 	return { errors: getNewErrors(errors, schema, extractErrorMessage(error)) };
 }

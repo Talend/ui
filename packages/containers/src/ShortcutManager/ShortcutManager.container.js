@@ -12,12 +12,13 @@ import { cmfConnect } from '@talend/react-cmf';
  */
 class ShortcutManager extends React.Component {
 	static displayName = 'Container(ShortcutManager)';
+
 	static propTypes = {
 		...cmfConnect.propTypes,
 	};
 
 	static contextTypes = {
-		router: PropTypes.object.isRequired,
+		store: PropTypes.object.isRequired,
 	};
 
 	constructor(props) {
@@ -54,11 +55,10 @@ class ShortcutManager extends React.Component {
 	handleKeyPress(event) {
 		const redirectMap = this.props.redirectMap[keycode(event.keyCode)];
 		if (redirectMap) {
-			const currentLocation = this.context.router.getCurrentLocation();
-			if (redirectMap[currentLocation.pathname]) {
-				this.redirect(event, redirectMap[currentLocation.pathname]);
+			if (redirectMap[this.props.pathname]) {
+				this.redirect(event, redirectMap[this.props.pathname]);
 			} else {
-				this.handleRegexMatching(event, redirectMap, currentLocation.pathname);
+				this.handleRegexMatching(event, redirectMap, this.props.pathname);
 			}
 		}
 	}

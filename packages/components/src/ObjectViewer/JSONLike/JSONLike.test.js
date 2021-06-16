@@ -18,7 +18,7 @@ const callbacksProps = {
 
 describe('JSONLike', () => {
 	it('should have tree gestures', () => {
-		expect(Component.WrappedComponent.displayName).toBe('TreeGesture(JSONLike)');
+		expect(Component.displayName).toBe('TreeGesture(JSONLike)');
 	});
 
 	it('should render', () => {
@@ -28,9 +28,7 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(
-			<Component.WrappedComponent id="my-object" data={data} {...callbacksProps} />,
-		);
+		const wrapper = shallow(<Component id="my-object" data={data} {...callbacksProps} />);
 		expect(wrapper.dive().getElement()).toMatchSnapshot();
 	});
 
@@ -78,10 +76,18 @@ describe('JSONLike', () => {
 		};
 		const birthData = {
 			completeDateTime: '1985-03-01T12:19:58Z',
+			completeDateISOStringTime: '2014-09-03T08:56:13.000Z',
 			justDate: '1985-03-01',
 			justTime: '12:19:58',
 			notCompliantString: '1985-03-01 12:19:58Z',
 		};
+
+		it(`${birthData.completeDateISOStringTime} should have a type "datetime"`, () => {
+			expect(getDataInfo(birthData.completeDateISOStringTime)).toEqual({
+				type: 'datetime',
+				keys: Object.keys(birthData.completeDateISOStringTime),
+			});
+		});
 
 		it(`${birthData.completeDateTime} should have a type "datetime"`, () => {
 			expect(getDataInfo(birthData.completeDateTime)).toEqual({
@@ -104,9 +110,7 @@ describe('JSONLike', () => {
 			});
 		});
 
-		it(`${
-			birthData.notCompliantString
-		} should have a type "string" as it does not meet any of datetime, date or time regexp`, () => {
+		it(`${birthData.notCompliantString} should have a type "string" as it does not meet any of datetime, date or time regexp`, () => {
 			expect(getDataInfo(birthData.notCompliantString)).toEqual({
 				type: 'string',
 				keys: Object.keys(birthData.notCompliantString),
@@ -198,15 +202,10 @@ describe('JSONLike', () => {
 				/>,
 			);
 
-			expect(
-				wrapper
-					.find('TooltipTrigger+#injected')
-					.at(0)
-					.text(),
-			).toEqual('hello world');
+			expect(wrapper.find('TooltipTrigger+#injected').at(0).text()).toEqual('hello world');
 		});
 
-		it("don't trigger wrapping form submit when used", () => {
+		it("should toggle item but don't trigger form submit", () => {
 			// given
 			const mockOnToggle = jest.fn();
 			const mockOnSubmitClick = jest.fn();
@@ -226,13 +225,40 @@ describe('JSONLike', () => {
 
 			expect(mockOnToggle).not.toBeCalled();
 			expect(mockOnSubmitClick).not.toBeCalled();
+			const event = { stopPropagation: jest.fn() };
 
 			// when
-			wrapper.find('button.tc-object-viewer-toggle').simulate('click');
+			wrapper.find('button.tc-object-viewer-toggle').simulate('click', event);
 
 			// expect
+			expect(event.stopPropagation).toBeCalled();
 			expect(mockOnToggle).toBeCalled();
 			expect(mockOnSubmitClick).not.toBeCalled();
+		});
+
+		it('should select item', () => {
+			// given
+			const mockOnSelect = jest.fn();
+			const wrapper = mount(
+				<ComplexItem
+					{...callbacksProps}
+					name="name"
+					onSelect={mockOnSelect}
+					opened={[]}
+					edited={[]}
+					info={{}}
+				/>,
+			);
+
+			expect(mockOnSelect).not.toBeCalled();
+			const event = { stopPropagation: jest.fn() };
+
+			// when
+			wrapper.find('li').simulate('click', event);
+
+			// expect
+			expect(event.stopPropagation).toBeCalled();
+			expect(mockOnSelect).toBeCalled();
 		});
 	});
 });

@@ -8,16 +8,22 @@ import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes, TextModeCheckBox } from '../fields/CheckBox';
 import Code, { CodeTextMode } from '../fields/Code';
 import Datalist, { DatalistTextMode } from '../fields/Datalist';
+import { DateWidget, DateTimeWidget, TimeWidget } from '../fields/Date';
+import Enumeration from '../fields/Enumeration';
+import File, { FileTextMode } from '../fields/File';
 import KeyValue from '../fields/KeyValue';
+import Comparator, { TextModeComparator } from '../fields/Comparator';
 import ListView from '../fields/ListView';
 import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
 import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
-import Select from '../fields/Select';
+import ResourcePicker from '../fields/ResourcePicker';
+import Select, { TextModeSelect } from '../fields/Select';
 import Text, { TextTextMode } from '../fields/Text';
 import TextArea, { TextAreaTextMode } from '../fields/TextArea';
-import Toggle from '../fields/Toggle';
+import TimezoneList from '../fields/TimezoneList';
+import Toggle, { ToggleTextMode } from '../fields/Toggle';
 
 const widgets = {
 	// fieldsets
@@ -30,6 +36,7 @@ const widgets = {
 	// fields
 	button: Button,
 	checkbox: CheckBox,
+	file: File,
 	number: Text,
 	password: Text,
 	radios: Radios,
@@ -43,26 +50,40 @@ const widgets = {
 	fieldset_text: FieldsetTextMode,
 
 	// fields: text mode
+	button_text: () => null,
+	buttons_text: () => null,
 	checkbox_text: TextModeCheckBox,
 	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
+	comparator_text: TextModeComparator,
 	datalist_text: DatalistTextMode,
+	file_text: FileTextMode,
 	multiSelectTag_text: MultiSelectTagTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
+	radios_text: TextTextMode,
+	select_text: TextModeSelect,
 	text_text: TextTextMode,
 	textarea_text: TextAreaTextMode,
+	toggle_text: ToggleTextMode,
 
 	// widgets
 	buttons: Buttons,
 	checkboxes: CheckBoxes,
 	code: Code,
 	datalist: Datalist,
+	date: DateWidget,
+	datetime: DateTimeWidget,
+	enumeration: Enumeration,
+	time: TimeWidget,
 	keyValue: KeyValue,
 	listView: ListView,
 	multiSelectTag: MultiSelectTag,
 	nestedListView: NestedListView,
 	radioOrSelect: RadioOrSelect,
+	resourcePicker: ResourcePicker,
+	comparator: Comparator,
+	timezoneList: TimezoneList,
 	toggle: Toggle,
 };
 

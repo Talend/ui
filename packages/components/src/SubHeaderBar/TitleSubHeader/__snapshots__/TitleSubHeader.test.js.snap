@@ -1,50 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SubTitle should render 1`] = `
+<small class="tc-subheader-details-text-subtitle theme-tc-subheader-details-text-subtitle">
+  mySubTitle
+</small>
+`;
+
+exports[`SubTitle should render in loading mode 1`] = `
+<Skeleton
+  className="tc-subheader-details-loading-subtitle theme-tc-subheader-details-loading-subtitle"
+  size="large"
+  type="text"
+/>
+`;
+
+exports[`SubTitle should render with a custom subtitle 1`] = `
+<subTitleAs
+  subTitle="mySubTitle"
+/>
+`;
+
 exports[`TitleSubHeader should render 1`] = `
 <div
-  className="theme-tc-subheader-details tc-subheader-details"
+  className="tc-subheader-details theme-tc-subheader-details"
 >
   <Icon
-    className="theme-tc-subheader-details-icon tc-subheader-details-icon"
+    className="tc-subheader-details-icon theme-tc-subheader-details-icon"
     name="myIconId"
   />
   <div
-    className="theme-tc-subheader-details-text tc-subheader-details-text"
+    className="tc-subheader-details-text theme-tc-subheader-details-text"
   >
     <div
-      className="theme-tc-subheader-details-text-title tc-subheader-details-text-title"
+      className="tc-subheader-details-text-title theme-tc-subheader-details-text-title"
     >
-      <h1
-        className="theme-tc-subheader-details-text-title-wording tc-subheader-details-text-title-wording"
+      <TooltipTrigger
+        label="myTitle"
+        tooltipPlacement="bottom"
       >
-        myTitle
-      </h1>
+        <h1
+          className="tc-subheader-details-text-title-wording theme-tc-subheader-details-text-title-wording"
+        >
+          myTitle
+        </h1>
+      </TooltipTrigger>
     </div>
+    <SubTitle
+      t={[Function]}
+    />
   </div>
 </div>
 `;
 
 exports[`TitleSubHeader should render 2`] = `
 <div
-  className="theme-tc-subheader-details tc-subheader-details"
+  className="tc-subheader-details theme-tc-subheader-details"
 >
   <div
-    className="theme-tc-subheader-details-text tc-subheader-details-text"
+    className="tc-subheader-details-text theme-tc-subheader-details-text"
   >
     <div
-      className="theme-tc-subheader-details-text-title tc-subheader-details-text-title"
+      className="tc-subheader-details-text-title theme-tc-subheader-details-text-title"
     >
-      <h1
-        className="theme-tc-subheader-details-text-title-wording tc-subheader-details-text-title-wording"
+      <TooltipTrigger
+        label="myTitle"
+        tooltipPlacement="bottom"
       >
-        myTitle
-      </h1>
+        <h1
+          className="tc-subheader-details-text-title-wording theme-tc-subheader-details-text-title-wording"
+        >
+          myTitle
+        </h1>
+      </TooltipTrigger>
     </div>
-    <small
-      className="theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
-    >
-      mySubTitle
-    </small>
+    <SubTitle
+      subTitle="mySubTitle"
+      t={[Function]}
+    />
   </div>
 </div>
 `;
