@@ -41,7 +41,7 @@ describe('ComponentForm', () => {
 		});
 	});
 
-	describe.only('#resolveNameForTitleMap', () => {
+	describe('#resolveNameForTitleMap', () => {
 		it('should do nothing when there is no titleMap', () => {
 			// given
 			const schema = {
