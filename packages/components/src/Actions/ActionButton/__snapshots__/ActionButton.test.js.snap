@@ -129,6 +129,7 @@ exports[`Action should render a button with a overlay component 1`] = `
   overlayId="myOverlayId"
   overlayPlacement="bottom"
   preventScrolling={false}
+  trigger="click"
 >
   <Button
     active={false}
