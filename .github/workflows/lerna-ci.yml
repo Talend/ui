@@ -2,7 +2,7 @@ name: Lerna CI
 
 on:
   pull_request:
-    branches: [main, master, jmfrancois/chore/lerna-independant]
+    branches: [main, master]
 
 jobs:
   build:
