@@ -57,7 +57,7 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 				const suggestionItem = item.suggestions.find(subItem =>
 					uniformValue.includes(subItem.value),
 				);
-				return suggestionItem ? suggestionItem.name : undefined;
+				return suggestionItem?.name;
 			}
 			if (uniformValue.includes(item.value)) {
 				return item.name;
