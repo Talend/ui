@@ -41,7 +41,7 @@ describe('ComponentForm', () => {
 		});
 	});
 
-	describe('#resolveNameForTitleMap', () => {
+	describe.only('#resolveNameForTitleMap', () => {
 		it('should do nothing when there is no titleMap', () => {
 			// given
 			const schema = {
@@ -117,7 +117,7 @@ describe('ComponentForm', () => {
 			// then
 			expect(properties.my.awesome).toEqual({
 				value: ['correct value', 'neither'],
-				$value_name: ['Neither this one', 'Yes this is the name'],
+				$value_name: ['Yes this is the name', 'Neither this one'],
 			});
 		});
 

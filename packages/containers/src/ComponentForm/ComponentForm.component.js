@@ -51,20 +51,27 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	const valueIsArray = Array.isArray(value);
 	const uniformValue = valueIsArray ? value : [value];
 
-	const names = schema.titleMap
-		.map(item => {
-			if (item.suggestions) {
-				const suggestionItem = item.suggestions.find(subItem =>
-					uniformValue.includes(subItem.value),
-				);
-				return suggestionItem?.name;
+	const names = uniformValue
+		.map(nextValue => {
+			const titleMap = schema.titleMap;
+			const isMultiSection = !!titleMap[0]?.suggestions;
+
+			if (isMultiSection) {
+				// if we are here, it means we are facing a multi section list
+				// the titleMap contains sections which have their own list of values
+				// eslint-disable-next-line no-plusplus
+				for (let index = 0; index < titleMap.length; index++) {
+					const section = titleMap[index];
+
+					const result = section.suggestions.find(subItem => nextValue === subItem.value);
+
+					if (result) return result;
+				}
 			}
-			if (uniformValue.includes(item.value)) {
-				return item.name;
-			}
-			return undefined;
+
+			return titleMap.find(item => item.value === nextValue);
 		})
-		.filter(Boolean);
+		.map(entry => entry && entry.name);
 
 	const parentKey = schema.key.slice();
 	const key = parentKey.pop();
