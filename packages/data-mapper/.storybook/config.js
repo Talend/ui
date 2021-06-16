@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import { configure } from '@storybook/react';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';

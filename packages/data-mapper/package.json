@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@storybook/addon-actions": "^3.4.7",
-    "@storybook/react": "^3.4.7",
+    "@storybook/addon-actions": "^5.3.21",
+    "@storybook/react": "^5.3.21",
     "@talend/scripts-core": "^9.4.1",
     "@talend/scripts-preset-react-lib": "^9.4.1",
     "@talend/bootstrap-theme": "^6.29.0",

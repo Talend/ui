@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render-sort-header 1`] = `
+<button
+  aria-label="Name"
+  className="tc-table-sort-header sort-header btn btn-link"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role="link"
+  type="button"
+>
+  <span>
+    Name
+  </span>
+  <svg
+    aria-hidden="true"
+    className="theme-tc-svg-icon tc-svg-icon"
+    focusable="false"
+    name="none-icon"
+    title={null}
+  >
+    <use
+      xlinkHref="#none-icon"
+    />
+  </svg>
+</button>
+`;

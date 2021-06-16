@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { IconsProvider, Table } from '@talend/react-components';
+import { IconsProvider } from '@talend/react-components';
+import Table from '../src/Table';
 
 import DataMapper from '../src/index';
 

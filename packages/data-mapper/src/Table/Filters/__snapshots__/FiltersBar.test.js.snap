@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`two-filters 1`] = `
+<form
+  className="tc-table-filters-bar theme-tc-table-filters-bar"
+>
+  <button
+    aria-describedby="42"
+    aria-label="Toggle filter"
+    className="tc-string-filter tc-filter theme-tc-filter name-filter btn-icon-only btn btn-link"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseDown={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="search"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-search"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-search"
+      />
+    </svg>
+  </button>
+  <div
+    className="checkbox tc-toggle theme-tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
+  >
+    <label
+      htmlFor="mandatory-field-filter"
+    >
+      <input
+        checked={false}
+        data-checked={0}
+        disabled={false}
+        id="mandatory-field-filter"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span>
+        Show Mandatory Fields (*) Only
+      </span>
+    </label>
+  </div>
+</form>
+`;

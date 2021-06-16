@@ -1,0 +1,21 @@
+$tc-table-row-height: 25px !default;
+$tc-table-row-data-padding: 0.3rem !default;
+
+.tc-table-row {
+	display: flex;
+	justify-content: flex-start;
+	height: $tc-table-row-height;
+
+	&-cell {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: auto;
+	}
+
+	&-data {
+		padding: $tc-table-row-data-padding;
+		width: 100%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+}
