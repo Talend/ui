@@ -132,8 +132,11 @@ jobs:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: Comment PR
-        uses: thollander/actions-comment-pull-request@master
+        uses: daohoangson/comment-on-github@v2
         if: ${{ github.event_name == 'pull_request' }}
         env:
-          message: ':octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: ':octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)'
+          fingerprint: ${{ github.event.number }}
+          replace: please
