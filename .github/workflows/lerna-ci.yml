@@ -2,7 +2,7 @@ name: Lerna CI
 
 on:
   pull_request:
-    branches: [main, master]
+    branches: [master]
   push:
     branches: [master]
 

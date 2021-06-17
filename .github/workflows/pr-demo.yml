@@ -2,7 +2,7 @@ name: PR demo CI
 
 on:
   pull_request:
-    branches: [main, master]
+    branches: [master]
   push:
     branches: [master]
 
@@ -118,7 +118,7 @@ jobs:
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
         run: surge --project .static --domain "talend.surge.sh"
-        with:
+        env:
           SURGE_LOGIN: frontend@talend.com
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
