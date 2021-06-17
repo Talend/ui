@@ -2,9 +2,8 @@ name: Lerna CI
 
 on:
   pull_request:
-    branches: [main, master]
   push:
-    branches: [master]
+    branches: [master, maintenance/*]
 
 jobs:
   build:
