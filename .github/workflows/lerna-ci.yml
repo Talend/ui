@@ -1,0 +1,78 @@
+name: Lerna CI
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and test
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Test
+        run: yarn test
+
+      - name: Lint
+        continue-on-error: true
+        id: lint
+        run: |
+          echo "Linting JavaScript files"
+          rm -rf output
+          (lerna exec --scope=@talend/react-sagas -- npm run lint:es -- -o ../../output/sagas.eslint.txt --no-color)
+          (lerna exec --scope=@talend/react-datagrid -- npm run lint:es -- -o ../../output/datagrid.eslint.txt --no-color)
+          (lerna exec --scope=@talend/react-stepper -- npm run lint:es -- -o ../../output/stepper.eslint.txt --no-color)
+          (lerna exec --scope=@talend/react-cmf -- npm run lint:es -- -o ../../output/cmf.eslint.txt --no-color)
+          (lerna exec --scope=@talend/react-cmf-webpack-plugin -- npm run lint:es -- -o ../../output/cmf-webpack-plugin.eslint.txt --no-color)
+          (lerna exec --scope=@talend/react-components -- npm run lint:es -- -o ../../output/components.eslint.txt --no-color)
+          (lerna exec --scope=@talend/react-containers -- npm run lint:es -- -o ../../output/containers.eslint.txt --no-color)
+          (lerna exec --scope=@talend/react-forms -- npm run lint:es -- -o ../../output/forms.eslint.txt --no-color)
+          (lerna exec --scope=@talend/react-cmf-router -- npm run lint:es -- -o ../../output/router.eslint.txt --no-color)
+
+          echo "Linting Sass files"
+          (lerna exec --scope=@talend/bootstrap-theme -- npm run lint:style | awk '{if(NR>2)print}') 1> output/theme.sasslint.txt 2>/dev/null
+          (lerna exec --scope=@talend/react-components -- npm run lint:style | awk '{if(NR>2)print}') 1> output/components.sasslint.txt 2>/dev/null
+          (lerna exec --scope=@talend/react-forms -- npm run lint:style | awk '{if(NR>2)print}') 1> output/forms.sasslint.txt 2>/dev/null
+          STATUS=$(git status --short output)
+          echo "::set-output name=STATUS::$STATUS"
+
+      - name: Commit lint
+        uses: actions-js/push@master
+        if: steps.lint.outputs.STATUS
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'chore: lint output'
+
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          build-script: 'prepublishOnly'
+          pattern: './packages/*/dist/*.{js,css,json}'
+          exclude: '{**/*.html,**/*.map,**/node_modules/**}'
