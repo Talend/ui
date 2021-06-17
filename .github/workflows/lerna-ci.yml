@@ -2,7 +2,7 @@ name: Lerna CI
 
 on:
   pull_request:
-    branches: [master]
+    branches: [main, master]
   push:
     branches: [master]
 
@@ -63,18 +63,20 @@ jobs:
           STATUS=$(git status --short output)
           echo "::set-output name=STATUS::$STATUS"
 
-      - name: prettier
+      - name: Lint
         continue-on-error: true
+
         run: ./prettier.sh
 
-      - name: Commit lint and prettier
+      - name: Commit lint
         uses: actions-js/push@master
         if: steps.lint.outputs.STATUS
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'chore: lint and prettier output'
+          message: 'chore: lint output'
 
       - uses: preactjs/compressed-size-action@v2
+        if: github.ref != 'refs/heads/master'
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           build-script: 'prepublishOnly'
