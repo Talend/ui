@@ -63,12 +63,16 @@ jobs:
           STATUS=$(git status --short output)
           echo "::set-output name=STATUS::$STATUS"
 
-      - name: Commit lint
+      - name: prettier
+        continue-on-error: true
+        run: ./prettier.sh
+
+      - name: Commit lint and prettier
         uses: actions-js/push@master
         if: steps.lint.outputs.STATUS
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'chore: lint output'
+          message: 'chore: lint and prettier output'
 
       - uses: preactjs/compressed-size-action@v2
         with:
