@@ -118,10 +118,16 @@ jobs:
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
         run: surge --project .static --domain "talend.surge.sh"
+        with:
+          SURGE_LOGIN: frontend@talend.com
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
+        with:
+          SURGE_LOGIN: frontend@talend.com
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@master
