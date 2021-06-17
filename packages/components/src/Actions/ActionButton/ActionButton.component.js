@@ -16,6 +16,7 @@ import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
 
 const LEFT = 'left';
 const RIGHT = 'right';
+let foo = 'foo';
 
 function getIcon({ icon, iconTransform, inProgress, loading }) {
 	if (inProgress) {
