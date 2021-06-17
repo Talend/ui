@@ -38,6 +38,7 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn global add surge
+          echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn prepublishOnly
           yarn test:demo --quiet
           cd packages/cmf-router && yarn install && yarn prepublishOnly && cd ../..
