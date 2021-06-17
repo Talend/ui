@@ -51,11 +51,10 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	const valueIsArray = Array.isArray(value);
 	const uniformValue = valueIsArray ? value : [value];
 
+	const { titleMap } = schema;
+	const isMultiSection = !!titleMap[0]?.suggestions;
 	const names = uniformValue
 		.map(nextValue => {
-			const { titleMap } = schema;
-			const isMultiSection = !!titleMap[0]?.suggestions;
-
 			if (isMultiSection) {
 				// if we are here, it means we are facing a multi section list
 				// the titleMap contains sections which have their own list of values
