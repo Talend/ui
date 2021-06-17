@@ -13,7 +13,7 @@
     "start": "npm run storybook",
     "test": "talend-scripts test",
     "storybook": "npm run build:lib && BROWSER=none start-storybook -s static -p 6006",
-    "build-storybook": "npm run build:lib && build-storybook -s static --docs && npx sb extract",
+    "build-storybook": "npm run build:lib && npx sb extract && build-storybook -s static --docs",
     "lint:es": "talend-scripts lint:es"
   },
   "repository": {
