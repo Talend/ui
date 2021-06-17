@@ -285,7 +285,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
               key="2"
             >
               <button
-                aria-label="Wednesday 06 June 2018"
+                aria-label="Date is not allowed, Wednesday 06 June 2018"
                 className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 data-value={6}
                 disabled={true}
@@ -444,7 +444,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
               key="4"
             >
               <button
-                aria-label="Friday 15 June 2018"
+                aria-label="Date is not allowed, Friday 15 June 2018"
                 className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 data-value={15}
                 disabled={true}

@@ -1,10 +1,10 @@
 import format from 'date-fns/format';
 import setSeconds from 'date-fns/set_seconds';
+import talendUtils from '@talend/utils';
 
 import getErrorMessage from '../shared/error-messages';
 import { convertDateToTimezone, extractDateOnly } from '../Date/date-extraction';
 import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
-import { convertToTimeZone } from '../../utils/date';
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
@@ -34,7 +34,7 @@ function extractTimeOnly(date, { useSeconds, useUTC, timezone }) {
 		minutes = date.getUTCMinutes();
 		seconds = date.getUTCSeconds();
 	} else if (timezone) {
-		const converted = convertToTimeZone(date, { timeZone: timezone });
+		const converted = talendUtils.date.convertToTimeZone(date, { timeZone: timezone });
 		hours = converted.getHours();
 		minutes = converted.getMinutes();
 		seconds = converted.getSeconds();
@@ -217,7 +217,7 @@ function updatePartsOnDateChange(datePickerPayload, time, options) {
 		date: date || dateTextInput,
 		time,
 		datetime,
-		textInput: dateAndTimeToStr(date || dateTextInput, time, options),
+		textInput: dateAndTimeToStr(dateTextInput || date, time, options),
 		errors,
 		errorMessage: nextErrors[0] ? nextErrors[0].message : null,
 	};

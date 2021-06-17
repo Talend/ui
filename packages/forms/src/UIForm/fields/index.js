@@ -17,6 +17,7 @@ import ResourcePicker from './ResourcePicker';
 import Select from './Select';
 import Text from './Text';
 import TextArea from './TextArea';
+import TimezoneList from './TimezoneList';
 import Toggle from './Toggle';
 
 export default {
@@ -39,5 +40,6 @@ export default {
 	Select,
 	Text,
 	TextArea,
+	TimezoneList,
 	Toggle,
 };

@@ -47,6 +47,10 @@ export default function getErrorMessage(key) {
 			return i18next.t('INVALID_RANGE_START_AFTER_END', {
 				defaultValue: 'Start date should comes before end date',
 			});
+		case 'INVALID_SELECTED_DATE':
+			return i18next.t('INVALID_SELECTED_DATE', {
+				defaultValue: 'Invalid date is selected',
+			});
 		default:
 			return '';
 	}

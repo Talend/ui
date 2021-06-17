@@ -13,7 +13,7 @@ export const decorators = [
 		i18n.changeLanguage(context.globals.locale);
 		return (
 			<I18nextProvider i18n={i18n}>
-				<IconsProvider />
+				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 				<Story />
 			</I18nextProvider>
 		);

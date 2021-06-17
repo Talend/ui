@@ -4,8 +4,9 @@ import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
+import talendUtils from '@talend/utils';
+
 import getErrorMessage from './error-messages';
-import { convertToUTC } from '../../../utils/date';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
@@ -294,7 +295,7 @@ function dateAndTimeToDateTime(date, time, options) {
 	try {
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds, options);
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
+		return useUTC ? talendUtils.date.convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
 	}

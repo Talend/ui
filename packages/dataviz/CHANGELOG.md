@@ -26,6 +26,11 @@ Types of changes
 
 ## [unreleased]
 
+## [0.4.5]
+
+### Fixed
+
+- [show special chars in tooltip](https://github.com/Talend/ui/pull/3327)
 
 ## [0.4.4]
 

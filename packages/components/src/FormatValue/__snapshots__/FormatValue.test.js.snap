@@ -17,7 +17,9 @@ exports[`FormatValue should replace the leading/trainling white space and the li
     className="theme-td-white-space-character td-white-space-character"
     name="talend-empty-space"
   />
-  <span>
+  <span
+    className="theme-td-value td-value"
+  >
     loreum lo
   </span>
   <span>
