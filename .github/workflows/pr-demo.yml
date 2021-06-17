@@ -37,6 +37,7 @@ jobs:
       - name: Install and build
         run: |
           yarn install --frozen-lockfile
+          yarn global add surge
           yarn prepublishOnly
           yarn test:demo --quiet
           cd packages/cmf-router && yarn install && yarn prepublishOnly && cd ../..
