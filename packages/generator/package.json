@@ -10,9 +10,9 @@
     "prepublish": "echo nothing to prepublish",
     "test:cov": "istanbul cover _mocha",
     "test:demo": "echo nothing to demo in generator-talend",
-    "test:lint": "eslint generator/**/index.js",
+    "lint": "eslint generator/**/index.js",
     "test:unit": "mocha --compilers js:@babel/register",
-    "test": "npm run test:lint && npm run test:unit"
+    "test": "npm run lint && npm run test:unit"
   },
   "files": [
     "generators/app",
