@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and test
+    name: Build and deploy
 
     steps:
       - name: Checkout sources
@@ -38,9 +38,9 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn prepublishOnly
-          yarn test:demo
+          yarn test:demo --quiet
           cd packages/cmf-router && yarn install && yarn prepublishOnly && cd ../..
-          cd packages/dataviz && yarn install && yarn test:demo && cd ../..
+          cd packages/dataviz && yarn install && yarn test:demo --quiet && cd ../..
           echo prepare demo folder
           rm -rf .static
           mkdir .static
@@ -115,4 +115,17 @@ jobs:
           cp -R .static/@talend ".static/${{ github.event.number }}"
 
 
+      - name: deploy if master
+        if: github.ref == 'refs/heads/master'
+        run: surge --project .static --domain "talend.surge.sh"
 
+      - name: deploy if PR
+        if: github.ref != 'refs/heads/master'
+        run: surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@master
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          message: ':octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
