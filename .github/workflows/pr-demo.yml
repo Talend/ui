@@ -125,13 +125,13 @@ jobs:
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
-        with:
+        env:
           SURGE_LOGIN: frontend@talend.com
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@master
         if: ${{ github.event_name == 'pull_request' }}
-        with:
+        env:
           message: ':octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
