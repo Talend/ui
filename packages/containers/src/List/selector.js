@@ -65,7 +65,7 @@ export function configureGetFilteredItems(configure) {
 
 export function compare(sortBy) {
 	return (a, b) => {
-		if (a.get(sortBy)) {
+		if (a.get(sortBy) !== undefined) {
 			let aValue = a.get(sortBy);
 			let bValue = b.get(sortBy);
 
