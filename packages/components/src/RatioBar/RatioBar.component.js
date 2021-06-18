@@ -8,7 +8,7 @@ import ratioBarTheme from './RatioBar.scss';
 
 const theme = getTheme(ratioBarTheme);
 
-function getFilledValues(amount, total, errors) {
+function getFilledValues(amount, total) {
 	if (!amount || amount < 0) {
 		return { percentage: 0, amount: 0 };
 	}
@@ -18,17 +18,6 @@ function getFilledValues(amount, total, errors) {
 	}
 
 	return { percentage: (amount / total) * 100, amount };
-}
-function getErrorValues(amount, total, errors) {
-	if (!errors || errors < 0) {
-		return { percentage: 0, amount: 0 };
-	}
-
-	if (errors > total) {
-		return { percentage: 100, amount };
-	}
-
-	return { percentage: (errors / total) * 100, amount };
 }
 
 function getEmptyValues(amount, total) {
