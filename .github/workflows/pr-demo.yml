@@ -43,7 +43,6 @@ jobs:
           cd packages/cmf-router && yarn install && yarn prepublishOnly && cd ../..
           cd packages/dataviz && yarn install && yarn test:demo --quiet && cd ../..
           echo prepare demo folder
-          rm -rf .static
           mkdir .static
           mkdir .static/cmf
           mkdir .static/components
