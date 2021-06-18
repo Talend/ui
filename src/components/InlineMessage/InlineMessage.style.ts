@@ -9,19 +9,29 @@ export type InlineMessageProps = {
 
 export const InlineMessage = styled.div<InlineMessageProps>`
 	display: ${({ withBackground }) => (withBackground ? 'inline-flex' : 'inline')};
-	margin-bottom: ${tokens.space.m};
+	margin-bottom: ${tokens.space?.m};
 	${({ withBackground }) =>
-		withBackground ? `padding: ${tokens.space.xs} ${tokens.space.s};` : ''}
-	font-family: ${tokens.fonts.sansSerif};
-	${({ small }) => (small ? `font-size: ${tokens.fontSizes.small};` : '')}
-	border-radius: ${tokens.radii.inputBorderRadius};
+		withBackground ? `padding: ${tokens.space?.xs} ${tokens.space?.s};` : ''}
+	font-family: ${tokens.fonts?.sansSerif};
+	${({ small }) => (small ? `font-size: ${tokens.fontSizes?.small};` : '')}
+	border-radius: ${tokens.radii?.inputBorderRadius};
+
+	color: var(--t-inline-message-icon-color, ${({ theme }) => theme.colors?.textColor || 'initial'});
+	background: var(
+		--t-inline-message-background,
+		${({ theme }) => theme.colors?.backgroundColor || 'transparent'}
+	);
+	box-shadow: var(
+		--t-inline-message-box-shadow,
+		${({ theme }) => theme.colors?.backgroundColor || 'transparent'}
+	);
 
 	.inline-message__icon {
-		padding-right: ${tokens.space.xs};
+		padding-right: ${tokens.space?.xs};
 
 		svg {
-			height: ${({ small }) => (small ? tokens.sizes.s : tokens.sizes.l)};
-			width: ${({ small }) => (small ? tokens.sizes.s : tokens.sizes.l)};
+			height: ${({ small }) => (small ? tokens.sizes?.s : tokens.sizes?.l)};
+			width: ${({ small }) => (small ? tokens.sizes?.s : tokens.sizes?.l)};
 			vertical-align: middle;
 		}
 
@@ -36,13 +46,12 @@ export const InlineMessage = styled.div<InlineMessageProps>`
 	}
 
 	.inline-message__title {
-		font-weight: ${tokens.fontWeights.semiBold};
+		font-weight: ${tokens.fontWeights?.semiBold};
 	}
 
 	.inline-message__title,
 	.inline-message__description {
-		color: ${({ withBackground, theme }) =>
-			withBackground ? tokens.colors.gray[900] : theme.colors.textColor};
+		color: var(--t-inline-message-color, ${({ theme }) => theme.colors?.textColor || 'initial'});
 	}
 
 	.inline-message__title,

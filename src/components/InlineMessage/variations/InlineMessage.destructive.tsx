@@ -5,12 +5,12 @@ import InlineMessage from '../InlineMessage';
 
 const InlineMessageDestructive = styled(InlineMessage).attrs({
 	icon: 'talend-error',
-})(
-	({ withBackground, theme }) => `
-	color: ${theme.colors.destructiveColor[500]};
-	background: ${withBackground && tint(0.95, theme.colors.destructiveColor[500])};
-	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.destructiveColor[500])}`};
-`,
-);
+})`
+	--t-inline-message-icon-color: ${({ theme }) => theme.colors?.destructiveColor[500]};
+	--t-inline-message-background: ${({ withBackground, theme }) =>
+		withBackground && tint(0.95, theme.colors?.destructiveColor[500])};
+	--t-inline-message-box-shadow: ${({ withBackground, theme }) =>
+		withBackground && `0 1px 2px ${tint(0.75, theme.colors?.destructiveColor[500])}`};
+`;
 
 export default React.memo(InlineMessageDestructive);

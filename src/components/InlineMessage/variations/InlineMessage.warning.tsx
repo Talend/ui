@@ -5,12 +5,12 @@ import InlineMessage from '../InlineMessage';
 
 const InlineMessageWarning = styled(InlineMessage).attrs({
 	icon: 'talend-warning',
-})(
-	({ withBackground, theme }) => `
-	color: ${theme.colors.warningColor[500]};
-	background: ${withBackground && tint(0.95, theme.colors.warningColor[500])};
-	box-shadow: ${withBackground && `0 1px 2px ${tint(0.75, theme.colors.warningColor[500])}`};
-`,
-);
+})`
+	--t-inline-message-icon-color: ${({ theme }) => theme.colors?.warningColor[500]};
+	--t-inline-message-background: ${({ withBackground, theme }) =>
+		withBackground && tint(0.95, theme.colors?.warningColor[500])};
+	--t-inline-message-box-shadow: ${({ withBackground, theme }) =>
+		withBackground && `0 1px 2px ${tint(0.75, theme.colors?.warningColor[500])}`};
+`;
 
 export default React.memo(InlineMessageWarning);

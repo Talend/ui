@@ -26,7 +26,7 @@ It can be additional information related to system status, it can be a required 
 ### Icons
 
 <IconGallery>
-	{['talend-error', 'talend-warning', 'talend-check', 'talend-info-circle'].map(
+	{['talend-info-circle', 'talend-check', 'talend-warning', 'talend-error'].map(
 		(iconName, index) => (
 			<IconItem key={index} name={iconName}>
 				<Icon name={iconName} />
@@ -34,21 +34,6 @@ It can be additional information related to system status, it can be a required 
 		),
 	)}
 </IconGallery>
-
-### Colors
-
-<ColorPalette>
-	<ColorItem
-		title="theme.color.palette"
-		subtitle="Inline message colors"
-		colors={{
-			Error: tokens.colors.coral[500],
-			Warning: tokens.colors.jaffa[500],
-			Success: tokens.colors.rioGrande[500],
-			Information: tokens.colors.lochmara[500],
-		}}
-	/>
-</ColorPalette>
 
 ### Text
 
@@ -94,7 +79,7 @@ The text should adapt the surrounding layout. Depending on the context, if the t
 
 ## Interactions
 
-Inline messages are non clickable, except if there is a link. In that case, only the link will be clickable.
+Inline messages are non-clickable, except if there is a link. In that case, only the link will be clickable.
 Please refer to the hyperlink guidelines for more information.
 
 ## Content
@@ -104,7 +89,7 @@ Error messages should tell why there was a problem and what could be done to res
 
 <ul>
 	<li>
-		Errors whichdisplay to tell users something serious or less serious has gone wrong and need
+		Errors which display to tell users something serious or less serious has gone wrong and need
 		users' comprehension and may be action.
 	</li>
 	<li>
@@ -180,10 +165,4 @@ Error messages should tell why there was a problem and what could be done to res
 
 ## Accessibility
 
-_To do_
-
-## Changelog
-
-| Date       | Author     | Description |
-| ---------- | ---------- | ----------- |
-| 03/18/2020 | Monia Huet | Init page   |
+Each Inline Message has a role `status` and an aria-live attribute `polite` by default.
