@@ -2,7 +2,6 @@ name: PR demo CI
 
 on:
   pull_request:
-    branches: [master]
   push:
     branches: [master]
 
