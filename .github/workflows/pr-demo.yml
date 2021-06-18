@@ -119,14 +119,14 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: surge --project .static --domain "talend.surge.sh"
         env:
-          SURGE_LOGIN: frontend@talend.com
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
         env:
-          SURGE_LOGIN: frontend@talend.com
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: Comment PR
