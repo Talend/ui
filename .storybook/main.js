@@ -35,10 +35,6 @@ module.exports = {
 		'../src/templates/**/*.stories.@(js|tsx|mdx)',
 		'../src/pages/**/*.stories.@(js|tsx|mdx)',
 	],
-	reactOptions: {
-		fastRefresh: true,
-		strictMode: true,
-	},
 	addons: [
 		{
 			name: '@storybook/addon-docs',
@@ -71,18 +67,11 @@ module.exports = {
 				},
 			},
 		},
-		'@storybook/addon-controls',
 		'@storybook/addon-a11y',
-		'@storybook/addon-actions',
-		'@storybook/addon-backgrounds',
-		'@storybook/addon-viewport',
-		'@storybook/addon-toolbars',
+		'@storybook/addon-essentials',
 		'@storybook/addon-links',
 		'storybook-addon-mdx-embed',
 	],
-	features: {
-		postcss: false,
-	},
 	typescript: {
 		check: false,
 		checkOptions: {},
@@ -94,7 +83,6 @@ module.exports = {
 					// filter inherited props
 					return !prop.parent.fileName.includes('node_modules');
 				}
-
 				// filter inherited styled-components props
 				return !['theme', 'as', 'forwardedAs', 'ref'].includes(prop.name);
 			},

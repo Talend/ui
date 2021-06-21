@@ -66,6 +66,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, InputProps>(
 				checkbox.state && <Icon name="talend-check" />
 			);
 
+		React.useEffect(() => {
+			checkbox.setState((indeterminate && 'indeterminate') || checked);
+		}, [indeterminate, checked]);
+
 		return (
 			<SCheckbox readOnly={!!readOnly} checked={!!checked}>
 				<label htmlFor={id}>

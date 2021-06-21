@@ -1,13 +1,19 @@
 import React from 'react';
-import { addParameters } from '@storybook/react';
+
+import { addons } from '@storybook/addons';
+import { UPDATE_GLOBALS } from '@storybook/core-events';
 import { DocsContainer } from '@storybook/addon-docs';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
-import { useKeyPressEvent, useLocalStorage } from 'react-use';
+import { useLocalStorage } from 'react-use';
+
 import 'focus-outline-manager';
 
-import light, { dark } from '../src/themes';
+import Divider from '../src/components/Divider';
+import Form from '../src/components/Form';
 import ThemeProvider from '../src/components/ThemeProvider';
 import { IconsProvider } from '../src/components/IconsProvider';
+
+import light, { dark } from '../src/themes';
 
 export const globalTypes = {
 	theme: {
@@ -29,12 +35,13 @@ const getTheme = themeKey => {
 };
 
 const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
-	({ theme, hasFigmaIframe }) => `
+	({ theme, hasFigmaIframe }) =>
+		`
 	.sb-show-main.sb-main-padded {
 		padding: 0;
 	}
 	
-	.sbdocs .sbdocs-preview {
+	.sbdocs.sbdocs-preview {
 		color: ${theme?.colors.textColor};
 		background: ${theme?.colors.backgroundColor};
 	}
@@ -51,33 +58,56 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 	`,
 );
 
-addParameters({
+export const parameters = {
 	docs: {
-		source: {
-			state: 'open',
-		},
 		container: props => {
-			const [hasDarkMode, setDarkMode] = useLocalStorage('talend-coral--has-dark-mode', false);
-			const [hasFigmaIframe, setFigmaIframe] = useLocalStorage(
-				'talend-coral--has-figma-iframe',
-				false,
-			);
+			const [hasFigmaIframe, setFigmaIframe] = useLocalStorage('coral--has-figma-iframe', false);
 
-			useKeyPressEvent('m', () => setDarkMode(!hasDarkMode));
-			useKeyPressEvent('i', () => setFigmaIframe(!hasFigmaIframe));
+			const channel = addons.getChannel();
+
+			const hasDarkMode = props.context.globals.theme === 'dark';
 
 			return (
 				<>
+					{props.context.globals.theme}
 					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 					<ThemeProvider theme={hasDarkMode ? dark : light}>
 						<ThemeProvider.GlobalStyle />
 						<StorybookGlobalStyle hasFigmaIframe={hasFigmaIframe} />
-						<TableOfContents />
-						<DocsContainer {...props} />
-						<BackToTop />
 					</ThemeProvider>
+					<TableOfContents>
+						{['component', 'template', 'page'].find(allowedTerm =>
+							props.context.kind.split('/')[0].toLocaleLowerCase().includes(allowedTerm),
+						) && (
+							<ThemeProvider>
+								<Divider />
+								<Form.Switch
+									label={'Dark mode'}
+									onChange={() => {
+										channel.emit(UPDATE_GLOBALS, {
+											globals: { theme: hasDarkMode ? 'light' : 'dark' },
+										});
+									}}
+									checked={hasDarkMode}
+								/>
+								{/*
+								<Divider />
+								<Form.Switch
+									label={'Figma iframes'}
+									onChange={() => setFigmaIframe(!hasFigmaIframe)}
+									checked={!!hasFigmaIframe}
+								/>
+								*/}
+							</ThemeProvider>
+						)}
+					</TableOfContents>
+					<DocsContainer {...props} />
+					<BackToTop />
 				</>
 			);
+		},
+		source: {
+			state: 'open',
 		},
 	},
 	options: {
@@ -115,7 +145,7 @@ addParameters({
 			],
 		} /**/,
 	},
-});
+};
 
 export const decorators = [
 	(Story, context) => {

@@ -1,3 +1,3 @@
-import { Separator as Divider } from 'reakit';
+import Divider from './Divider';
 
 export default Divider;

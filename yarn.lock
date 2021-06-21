@@ -15241,10 +15241,10 @@ storybook-addon-outline@^1.3.3:
     "@storybook/core-events" "^6.3.0-beta.6"
     ts-dedent "^2.1.1"
 
-storybook-docs-toc@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/storybook-docs-toc/-/storybook-docs-toc-1.5.0.tgz#04a94f59388a2f6981349ab73463edd321cdab30"
-  integrity sha512-QE3oIkrs7ei6wD0ntTHVN5rCUZDJDJBoTsqsGorVOzGOeMt8r+21SnDVvXuPkvCAH3iKvodRYpq2uoclLXoFWA==
+storybook-docs-toc@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/storybook-docs-toc/-/storybook-docs-toc-1.6.0.tgz#e2759f8fa087a31eace15f085d74b0ed827ca73b"
+  integrity sha512-7JCHM5zqUlLmjo2AClwOGW6oHzMKGyAJwO/nCCA+q9a0c05JMuW/ACwywkew6acOYYFMmVBo05os5/ttHFh/8A==
   dependencies:
     tocbot "^4.12.0"
 

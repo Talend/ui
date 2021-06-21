@@ -1,19 +1,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link
-		href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
-		rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+	rel="stylesheet"
 />
 <style>
-	:root {
-		--toc-color: black;
-		--toc-background: white;
-		--toc-link-indicator-color: #f5f5f5;
-		--toc-link-indicator-color--active: #0675c1;
-		--toc-button-background: transparent;
-		--toc-button-background--hover: #ffffff;
-		--toc-button-background--active: #efefef;
-	}
-
 	html {
 		font-size: 62.5%;
 		scroll-behavior: smooth;
@@ -33,6 +23,28 @@
 		clip: rect(0, 0, 0, 0);
 		border: 0;
 	}
+
+	.sbdocs.sbdocs-toc,
+	.sbdocs.sbdocs-top {
+		border-radius: 0.5rem;
+	}
+
+	.sbdocs.sbdocs-toc {
+		--toc-color: #202020;
+		--toc-background: white;
+		--toc-indicator-color: #f5f5f5;
+		--toc-indicator-color--active: #0675c1;
+
+		box-shadow: 0 2px 6px rgb(0 0 0 / 25%);
+	}
+
+	.sbdocs.sbdocs-top {
+		--toc-button-color: #202020;
+		--toc-button-background: transparent;
+		--toc-button-background--hover: #ffffff;
+		--toc-button-background--active: #efefef;
+	}
+
 
 	.sbdocs.sbdocs-wrapper {
 		background: #f7f3ef;
@@ -181,7 +193,7 @@
 	}
 
 	.sbdocs .token.plain-text {
-		color: #91D1ED;
+		color: #91d1ed;
 	}
 
 	.sbdocs kbd {
