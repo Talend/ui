@@ -11,6 +11,16 @@ jobs:
     name: Build and test
 
     steps:
+      - name: Set PR Status to pending
+        if: github.ref != 'refs/heads/master'
+        uses: niteoweb/pull_request_status_action@v1.0.0
+        with:
+          pr_number: ${{ github.event.number }}
+          state: pending
+          repository: Talend/ui
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Checkout sources
         uses: actions/checkout@v2
 
@@ -88,10 +98,7 @@ jobs:
         uses: niteoweb/pull_request_status_action@v1.0.0
         with:
           pr_number: ${{ github.event.number }}
-          # Any of the (error | failure | pending | success) states
-          state: ${{ failure() ? 'failure'}}
+          state: ${{ steps.test.conclusion == 'success' && 'success' || 'failure'}}
           repository: Talend/ui
-
         env:
-          # Default Github Token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
