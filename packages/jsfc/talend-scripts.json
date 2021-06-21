@@ -1,0 +1,8 @@
+{
+  "preset": "@talend/scripts-preset-react-lib",
+  "webpack": {
+    "config": {
+      "production": "./webpack.config.js"
+    }
+  }
+}

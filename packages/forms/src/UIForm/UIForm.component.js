@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import tv4 from 'tv4';
+import { tv4 } from '@talend/json-schema-form-core';
 import { withTranslation } from 'react-i18next';
 
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';

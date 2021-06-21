@@ -1,7 +1,0 @@
-{
-    "reporterEnabled": "spec, markdown",
-    "markdownReporterOptions": {
-        "output": "test.md",
-	      "mochaFile": "test.md"
-    }
-}

@@ -10,7 +10,7 @@ import {
 	schemaDefaults,
 	canonicalTitleMap,
 	jsonref,
-} from './module';
+} from '.';
 
 chai.should();
 
