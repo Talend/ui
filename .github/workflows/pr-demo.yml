@@ -112,7 +112,7 @@ jobs:
           echo "✓ Copy bootstrap-theme UMD to .static"
 
           mkdir -p ".static/${{ github.event.number }}"
-          cp -R .static/@talend ".static/${{ github.event.number }}"
+          cp -Rf .static/@talend ".static/${{ github.event.number }}"
 
 
       - name: deploy if master
