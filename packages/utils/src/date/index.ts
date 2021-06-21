@@ -5,6 +5,7 @@ type DateFnsFormatInput = Date | number | string;
 
 interface ConversionOptions {
 	timeZone: string,
+	sourceTimeZone?: string,
 }
 
 /**
@@ -61,7 +62,7 @@ function formatUTCOffset(offset: number, separator: string): string {
  * @param offset Timezone offset to UTC expressed in minutes
  * @returns The human readable offset (+03:00, -06:00 ...)
  */
- export function formatReadableUTCOffset(offset: number): string {
+export function formatReadableUTCOffset(offset: number): string {
 	return formatUTCOffset(offset, ':');
 }
 
@@ -76,7 +77,7 @@ function formatUTCOffset(offset: number, separator: string): string {
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js#L131
  */
 function formatTimeZoneTokens(dateFormat: string, timeZone: string): string {
-	return dateFormat.replace(/z|ZZ?/g, match => {
+	return dateFormat.replace(/(?<!\[)(z|ZZ?)/g, match => {
 		const offset = getUTCOffset(timeZone);
 		const separator = match === 'Z' ? ':' : '';
 		return formatUTCOffset(offset, separator);
@@ -99,7 +100,8 @@ export function convertToLocalTime(date: DateFnsFormatInput, options: Conversion
 }
 
 /**
- * Converts the given date from the local time to the given time zone and returns a new Date object.
+ * Converts the given date from the local time (or from specified source timezone) to
+ * the given timezone and returns a new Date object.
  * @param {DateFnsFormatInput} date Date to format
  * @param {ConversionOptions} options
  * @returns {Date}
@@ -107,8 +109,16 @@ export function convertToLocalTime(date: DateFnsFormatInput, options: Conversion
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/convertToTimeZone.js
  */
 export function convertToTimeZone(date: DateFnsFormatInput, options: ConversionOptions): Date {
+	const { timeZone, sourceTimeZone } = options;
+
 	const parsedDate = parse(date);
-	const offset = getUTCOffset(options.timeZone) + parsedDate.getTimezoneOffset();
+
+	let offset = getUTCOffset(timeZone) + parsedDate.getTimezoneOffset();
+
+	if (sourceTimeZone) {
+		offset -= new Date().getTimezoneOffset();
+		offset -= getUTCOffset(sourceTimeZone);
+	}
 
 	return new Date(parsedDate.getTime() + offset * 60 * 1000);
 }
@@ -117,8 +127,7 @@ export function convertToTimeZone(date: DateFnsFormatInput, options: ConversionO
  * Returns the formatted date string in the given format, after converting it to the given time zone.
  * @param {DateFnsFormatInput} date Date to format
  * @param {string} formatString Output format (see date-fns supported formats)
- * @param {Object} options
- * @param {string} options.timeZone Target timezone
+ * @param {ConversionOptions} options
  * @returns {string}
  *
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js

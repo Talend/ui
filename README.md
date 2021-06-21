@@ -1,7 +1,6 @@
 # UI
 
-That repository was created in an effort to simplify the development of Talend's
-front-end stack.
+That repository was created in an effort to simplify the development of Talend's front-end stack.
 
 ## Goals
 
@@ -39,4 +38,6 @@ The CI will ensure on each PR that test and lint are OK before you can merge you
 The stack is stable and we do our best to not break APIs.
 To handle versions we rely on [**changeset**](https://github.com/atlassian/changesets/). So on each PR you will be able to request a release intent with your change. It will fill automatically the changelog at release time.
 
-[See the wiki](https://github.com/Talend/ui/wiki/Workflow#major--breaking-change-aka-next)
+## More
+
+If you want to know more (release, versions, etc ...) please take a look on [the wiki](https://github.com/Talend/ui/wiki)
