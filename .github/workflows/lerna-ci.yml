@@ -37,6 +37,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Test
+        id: test
         run: yarn test
 
       - name: Lint
@@ -81,3 +82,16 @@ jobs:
           build-script: 'prepublishOnly'
           pattern: './packages/*/dist/*.{js,css,json}'
           exclude: '{**/*.html,**/*.map,**/node_modules/**}'
+
+      - name: Set PR Status
+        if: github.ref != 'refs/heads/master'
+        uses: niteoweb/pull_request_status_action@v1.0.0
+        with:
+          pr_number: ${{ github.event.number }}
+          # Any of the (error | failure | pending | success) states
+          state: ${{ failure() ? 'failure'}}
+          repository: Talend/ui
+
+        env:
+          # Default Github Token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

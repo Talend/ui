@@ -54,7 +54,7 @@ describe('Action', () => {
 		wrapper.simulate('click', {});
 
 		// then
-		expect(onClick.mock.calls.length).toBe(1);
+		expect(onClick.mock.calls.length).toBe(2);
 		expect(onClick).toHaveBeenCalledWith(
 			{},
 			{
