@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { addons } from '@storybook/addons';
-import { UPDATE_GLOBALS } from '@storybook/core-events';
 import { DocsContainer } from '@storybook/addon-docs';
+import { UPDATE_GLOBALS } from '@storybook/core-events';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 import { useLocalStorage } from 'react-use';
 
@@ -29,10 +29,7 @@ export const globalTypes = {
 	},
 };
 
-const getTheme = themeKey => {
-	if (themeKey === 'dark') return dark;
-	return light;
-};
+const getTheme = themeKey => (themeKey === 'dark' ? dark : light);
 
 const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 	({ theme, hasFigmaIframe }) =>
@@ -69,15 +66,14 @@ export const parameters = {
 
 			return (
 				<>
-					{props.context.globals.theme}
 					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 					<ThemeProvider theme={hasDarkMode ? dark : light}>
 						<ThemeProvider.GlobalStyle />
 						<StorybookGlobalStyle hasFigmaIframe={hasFigmaIframe} />
 					</ThemeProvider>
 					<TableOfContents>
-						{['component', 'template', 'page'].find(allowedTerm =>
-							props.context.kind.split('/')[0].toLocaleLowerCase().includes(allowedTerm),
+						{['component', 'template', 'page'].find(term =>
+							props.context.kind.split('/')[0].toLocaleLowerCase().includes(term),
 						) && (
 							<ThemeProvider>
 								<Divider />
