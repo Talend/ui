@@ -226,6 +226,22 @@ describe('Action', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render tooltip when there is a label with hideLabel property', () => {
+		// when
+		const wrapper = shallow(<ActionButton name="custom_name" label="a label" hideLabel />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should NOT render tooltip when there is an empty label with hideLabel property', () => {
+		// when
+		const wrapper = shallow(<ActionButton name="custom_name" label="" hideLabel />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should trigger action if set up onMouseDown event', () => {
 		// given
 		const wrapper = shallow(<ActionButton extra="extra" {...mouseDownAction} />);
@@ -278,6 +294,7 @@ describe('Action', () => {
 		expect(wrapper.find('OverlayTrigger').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	it('should called ref method on overlay', () => {
 		// given
 		const myRefFunc = jest.fn();
@@ -294,6 +311,7 @@ describe('Action', () => {
 		// then
 		expect(myRefFunc).toHaveBeenCalled();
 	});
+
 	it('should called ref method on button', () => {
 		// Given
 		const myRefFunc = jest.fn();

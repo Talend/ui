@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Action should NOT render tooltip when there is an empty label with hideLabel property 1`] = `
+<Button
+  active={false}
+  aria-label=""
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="btn-icon-only"
+  disabled={false}
+  name="custom_name"
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+/>
+`;
+
 exports[`Action should apply transformation on icon 1`] = `
 <Button
   active={false}
@@ -239,6 +255,27 @@ exports[`Action should render action with html property name = props.name if set
     Click me
   </span>
 </Button>
+`;
+
+exports[`Action should render tooltip when there is a label with hideLabel property 1`] = `
+<TooltipTrigger
+  label="a label"
+  tooltipPlacement="top"
+>
+  <Button
+    active={false}
+    aria-label="a label"
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className="btn-icon-only"
+    disabled={false}
+    name="custom_name"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
+  />
+</TooltipTrigger>
 `;
 
 exports[`Action should reverse icon/label 1`] = `
