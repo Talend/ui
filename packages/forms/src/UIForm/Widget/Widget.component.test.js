@@ -200,7 +200,6 @@ describe('Widget component', () => {
 		);
 
 		// then
-		console.error(wrapper.debug());
 		expect(wrapper.find('InlineMessage').props().description).toBe('This is not ok');
 	});
 
