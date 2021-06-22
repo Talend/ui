@@ -180,7 +180,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.find('InlineMessage').props().description).toBe('My custom validation message');
+		expect(wrapper.find('InlineMessage').at(0).props().description).toBe('My custom validation message');
 	});
 
 	it('should pass message from errors when there is no validation message in schema', () => {
@@ -200,7 +200,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.find('InlineMessage').props().description).toBe('This is not ok');
+		expect(wrapper.find('InlineMessage').at(0).props().description).toBe('This is not ok');
 	});
 
 	it("should render null when widgetId is 'hidden'", () => {
