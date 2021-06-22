@@ -7,13 +7,13 @@ import { distanceInWordsToNow, format } from 'date-fns';
 import isValid from 'date-fns/is_valid';
 import parse from 'date-fns/parse';
 import { withTranslation } from 'react-i18next';
+import talendUtils from '@talend/utils';
+
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
 import styles from './CellDatetime.scss';
 import TooltipTrigger from '../../TooltipTrigger';
-
-import { formatToTimeZone } from '../../utils/date';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
@@ -28,7 +28,7 @@ export function computeValue(cellData, columnData, t) {
 			});
 		} else if (columnData.mode === 'format') {
 			if (columnData.timeZone) {
-				return formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+				return talendUtils.date.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
 					timeZone: columnData.timeZone,
 				});
 			}
@@ -64,7 +64,7 @@ export class CellDatetimeComponent extends React.Component {
 			let tooltipLabel = '';
 
 			if (columnData.timeZone) {
-				tooltipLabel = formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+				tooltipLabel = talendUtils.date.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
 					timeZone: columnData.timeZone,
 				});
 			} else {
