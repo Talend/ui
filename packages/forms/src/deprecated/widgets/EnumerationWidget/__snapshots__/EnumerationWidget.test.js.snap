@@ -5189,7 +5189,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     tooltipPlacement="bottom"
                                   >
                                     <TooltipTrigger
-                                      label="Loading"
+                                      label="Loading (in progress)"
                                       tooltipPlacement="bottom"
                                     >
                                       <Button
@@ -9573,7 +9573,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     tooltipPlacement="top"
                   >
                     <TooltipTrigger
-                      label="Loading"
+                      label="Loading (in progress)"
                       tooltipPlacement="top"
                     >
                       <Button
