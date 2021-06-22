@@ -51,6 +51,7 @@ import Inject from './Inject';
 import { InlineMessage } from './InlineMessage';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
+import Link from './Link';
 import List from './List';
 import ListView from './ListView';
 import Loader from './Loader';
@@ -133,6 +134,7 @@ export {
 	InlineMessage,
 	JSONSchemaRenderer,
 	Layout,
+	Link,
 	List,
 	ListView,
 	Loader,
