@@ -17,6 +17,7 @@ exports[`Message component should render provided error message and no descripti
   className="has-error"
 >
   <InlineMessage
+    aria-live="assertive"
     description="My error message"
     id="my-message-error"
     small={true}

@@ -27,6 +27,8 @@ function FieldTemplate(props) {
 						className={classNames({ 'sr-only': props.error })}
 						description={props.description}
 						small
+						role={undefined}
+						aria-live={undefined}
 					/>
 				)}
 				{props.error && (

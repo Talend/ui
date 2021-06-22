@@ -70,7 +70,8 @@ describe('TextArea RHF widget', () => {
 			textarea.getDOMNode().dispatchEvent(new Event('textarea'));
 			wrapper.find('form').simulate('submit');
 		});
+
 		wrapper.update();
-		expect(wrapper.find('InlineMessage').props().description).toBe('This should not be empty');
+		expect(wrapper.find('InlineMessage').at(0).props().description).toBe('This should not be empty');
 	});
 });

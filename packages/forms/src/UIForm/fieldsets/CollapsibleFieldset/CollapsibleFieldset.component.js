@@ -111,6 +111,8 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 							id={generateDescriptionId(id)}
 							description={schema.description}
 							small
+							role={undefined}
+							aria-live={undefined}
 						/>
 					) : (
 						''

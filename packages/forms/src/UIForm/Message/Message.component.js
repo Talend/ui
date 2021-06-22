@@ -13,6 +13,8 @@ export default function Message(props) {
 					id={descriptionId}
 					description={description}
 					small
+					role={undefined}
+					aria-live={undefined}
 				/>
 			) : errorMessage && (
 				<InlineMessage
@@ -20,6 +22,7 @@ export default function Message(props) {
 					type={InlineMessage.TYPES.ERROR}
 					description={errorMessage}
 					small
+					aria-live="assertive"
 				/>
 			)}
 		</div>

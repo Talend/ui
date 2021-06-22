@@ -33,6 +33,7 @@ exports[`Widget component should render widget 1`] = `
     <div class="tc-inline-message theme-tc-inline-message">
       <coral.inlinemessage.destructive id="myForm_user_firstname-error"
                                        description="This is not ok"
+                                       aria-live="assertive"
       >
       </coral.inlinemessage.destructive>
     </div>
