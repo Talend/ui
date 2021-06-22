@@ -20,20 +20,59 @@ exports[`FieldTemplate should render the common widget markup 1`] = `
       name="test"
     />
     <div>
-      <p
-        className="help-block sr-only"
+      <InlineMessage
+        className="sr-only"
+        description="This is the description"
         id="test-description"
+        small={true}
       >
-        This is the description
-      </p>
-      <p
+        <div
+          className="tc-inline-message theme-tc-inline-message"
+        >
+          <InlineMessage
+            className="sr-only"
+            description="This is the description"
+            id="test-description"
+            link={null}
+            small={true}
+          >
+            <Coral.InlineMessage
+              className="sr-only"
+              description="This is the description"
+              id="test-description"
+              link={null}
+              small={true}
+            />
+          </InlineMessage>
+        </div>
+      </InlineMessage>
+      <InlineMessage
         aria-live="assertive"
-        className="help-block"
+        description="This is the error"
         id="test-error"
-        role="status"
+        small={true}
+        type="error"
       >
-        This is the error
-      </p>
+        <div
+          className="tc-inline-message theme-tc-inline-message"
+        >
+          <InlineMessage.Destructive
+            aria-live="assertive"
+            description="This is the error"
+            id="test-error"
+            link={null}
+            small={true}
+          >
+            <Coral.InlineMessage.Destructive
+              aria-live="assertive"
+              description="This is the error"
+              id="test-error"
+              link={null}
+              small={true}
+            />
+          </InlineMessage.Destructive>
+        </div>
+      </InlineMessage>
     </div>
   </div>
 </FieldTemplate>

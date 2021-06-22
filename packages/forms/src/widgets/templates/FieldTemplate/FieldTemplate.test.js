@@ -39,12 +39,12 @@ describe('FieldTemplate', () => {
 			</FieldTemplate>,
 		);
 		// then
-		const descBlock = wrapper.find('.help-block').at(0);
-		expect(descBlock.text()).toEqual('This is the description');
-		expect(descBlock.getDOMNode().getAttribute('class')).toEqual('help-block sr-only');
+		const descBlock = wrapper.find('.tc-inline-message #test-description').at(0);
+		expect(descBlock.props().description).toEqual('This is the description');
+		expect(descBlock.props().className).toContain('sr-only');
 
-		const errorBlock = wrapper.find('.help-block').at(1);
-		expect(errorBlock.text()).toEqual('This is the error');
-		expect(errorBlock.getDOMNode().getAttribute('class')).toEqual('help-block');
+		const errorBlock = wrapper.find('.tc-inline-message #test-error').at(1);
+		expect(errorBlock.props().description).toEqual('This is the error');
+		expect(errorBlock.props().className).toBeUndefined();
 	});
 });

@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { InlineMessage } from '@talend/react-components';
+
 export default function Message(props) {
 	const { description, descriptionId, errorId, errorMessage, isValid } = props;
 
 	return (
 		<div className={props.className}>
-			<p key="description" className="help-block" id={descriptionId}>
-				{isValid ? description : ''}
-			</p>
-			<p key="error" className="help-block" role="status" aria-live="assertive" id={errorId}>
-				{isValid ? '' : errorMessage}
-			</p>
+			{isValid ? description && (
+				<InlineMessage
+					id={descriptionId}
+					description={description}
+					small
+				/>
+			) : errorMessage && (
+				<InlineMessage
+					id={errorId}
+					type={InlineMessage.TYPES.ERROR}
+					description={errorMessage}
+					small
+				/>
+			)}
 		</div>
 	);
 }

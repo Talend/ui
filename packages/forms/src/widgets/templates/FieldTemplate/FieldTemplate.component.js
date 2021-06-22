@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { InlineMessage } from '@talend/react-components';
 
 import theme from './FieldTemplate.scss';
 
@@ -20,15 +21,23 @@ function FieldTemplate(props) {
 			{props.children}
 
 			<div>
-				<p
-					id={props.descriptionId}
-					className={classNames('help-block', { 'sr-only': props.error })}
-				>
-					{props.description}
-				</p>
-				<p id={props.errorId} className="help-block" role="status" aria-live="assertive">
-					{props.error}
-				</p>
+				{props.description && (
+					<InlineMessage
+						id={props.descriptionId}
+						className={classNames({ 'sr-only': props.error })}
+						description={props.description}
+						small
+					/>
+				)}
+				{props.error && (
+					<InlineMessage
+						id={props.errorId}
+						type={InlineMessage.TYPES.ERROR}
+						description={props.error}
+						aria-live="assertive"
+						small
+					/>
+				)}
 			</div>
 		</div>
 	);

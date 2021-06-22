@@ -26,7 +26,7 @@ describe('TextArea RHF widget', () => {
 		// when
 		const wrapper = mount(
 			<FormWrapper onSubmit={onSubmit}>
-				<TextArea type="text" id="name" name="name" label="name" defaultValue="12" />
+				<TextArea id="name" name="name" label="name" defaultValue="12" />
 			</FormWrapper>,
 		);
 		// then
@@ -64,14 +64,13 @@ describe('TextArea RHF widget', () => {
 			</FormWrapper>,
 		);
 		// then
-		expect(wrapper.find('p[id="name-error"]').text()).toBe('');
-
 		await act(async () => {
 			const textarea = wrapper.find('textarea').at(0);
 			textarea.getDOMNode().value = '';
 			textarea.getDOMNode().dispatchEvent(new Event('textarea'));
 			wrapper.find('form').simulate('submit');
 		});
-		expect(wrapper.find('p[id="name-error"]').text()).toBe('This should not be empty');
+		wrapper.update();
+		expect(wrapper.find('InlineMessage').props().description).toBe('This should not be empty');
 	});
 });
