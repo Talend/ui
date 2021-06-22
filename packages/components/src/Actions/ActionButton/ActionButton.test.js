@@ -226,17 +226,33 @@ describe('Action', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render tooltip when there is a label with hideLabel property', () => {
+	it('should render tooltip when hideLabel property is set', () => {
 		// when
-		const wrapper = shallow(<ActionButton name="custom_name" label="a label" hideLabel />);
+		const wrapper = shallow(<ActionButton {...myAction} hideLabel />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should NOT render tooltip when there is an empty label with hideLabel property', () => {
+	it('should render tooltip when tooltip property is set', () => {
 		// when
-		const wrapper = shallow(<ActionButton name="custom_name" label="" hideLabel />);
+		const wrapper = shallow(<ActionButton {...myAction} tooltip />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should NOT render tooltip when tooltip property is set to false', () => {
+		// when
+		const wrapper = shallow(<ActionButton {...myAction} tooltip={false} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should NOT render tooltip when tooltip property is set to false with hideLabel property', () => {
+		// when
+		const wrapper = shallow(<ActionButton {...myAction} hideLabel tooltip={false} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

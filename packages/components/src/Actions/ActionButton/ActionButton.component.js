@@ -206,7 +206,7 @@ function ActionButton(props) {
 		);
 	}
 
-	if ((tooltipLabel || label) && (hideLabel || tooltip)) {
+	if ((tooltipLabel || label) && ((hideLabel && (tooltip === undefined || tooltip)) || tooltip)) {
 		btn = (
 			<TooltipTrigger
 				label={tooltipLabel || label}
