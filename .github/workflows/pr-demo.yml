@@ -123,7 +123,7 @@ jobs:
         run: |
           mkdir -p ".static/${{ github.event.number }}"
           cp -Rf .static/@talend ".static/${{ github.event.number }}"
-          surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
+          surge --project .static --domain "data-mapper.talend.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -134,6 +134,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          body: ':octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)'
+          body: ':octocat: [Demo is available here](http://data-mapper.talend.surge.sh)'
           fingerprint: ${{ github.event.number }}
           replace: please
