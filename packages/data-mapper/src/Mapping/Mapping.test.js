@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
-import Mapping from './Mapping.js';
-import MappingSVG from './MappingSVG.js';
+import Mapping from './Mapping';
+import MappingSVG from './MappingSVG';
 import Constants from '../Constants';
 
 const preferences = {

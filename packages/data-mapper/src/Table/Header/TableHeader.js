@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import TableHeaderCell from './TableHeaderCell';
 import TableSortHeader from './TableSortHeader';
 import theme from './TableHeader.scss';
+
+const PART = 'head';
 
 function getHeaderComponent(column, sorters, onSortChange) {
 	if (column.headRenderer) {
@@ -39,10 +41,18 @@ function renderHeaderCell(column, sorters, onSortChange) {
 /**
  * This component displays the header of the table.
  */
-export default function TableHeader({ columns, sorters, onSortChange, withHeader }) {
+export default function TableHeader({ columns, sorters, onSortChange, withHeader, renderingListener }) {
+	const node = useRef(null);
+	useEffect(() => {
+		if (renderingListener && renderingListener.onMounted) {
+			renderingListener.onMounted(PART, node.current);
+		}
+	}, [renderingListener, node]);
+
 	return (
 		<thead
 			className={classnames('tc-table-head', theme['tc-table-head'], { 'sr-only': !withHeader })}
+			ref={node}
 		>
 			<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
 				{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}

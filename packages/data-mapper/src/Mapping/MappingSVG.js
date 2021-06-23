@@ -346,12 +346,6 @@ class MappingSVG extends Component {
 		clearInterval(this.intervalRef);
 	}
 
-	checkMappingContentResize() {
-		const bounds = this.getBounds();
-		if (!boundsAreEqual(this.bounds, bounds)) {
-			this.forceUpdate();
-		}
-	}
 
 	getMousePos(offset) {
 		const rect = this.svg.getBoundingClientRect();
@@ -367,18 +361,6 @@ class MappingSVG extends Component {
 
 	getHeight() {
 		return this.mappingContentRef ? this.mappingContentRef.clientHeight : 0;
-	}
-
-	reveal(connectionKey) {
-		const styleKeys = Object.keys(Constants.Connection.STYLE);
-		for (let i = 0; i < styleKeys.length; i += 1) {
-			const style = Constants.Connection.STYLE[styleKeys[i]];
-			const animationId = `anim-${connectionKey}-${style}`;
-			const animation = document.getElementById(animationId);
-			if (animation && animation.beginElement) {
-				animation.beginElement();
-			}
-		}
 	}
 
 	getSVGAnchors(anchors, bounds) {
@@ -405,6 +387,25 @@ class MappingSVG extends Component {
 				? this.mappingContentRef.clientWidth + rightMargin
 				: rightMargin,
 		};
+	}
+
+	reveal(connectionKey) {
+		const styleKeys = Object.keys(Constants.Connection.STYLE);
+		for (let i = 0; i < styleKeys.length; i += 1) {
+			const style = Constants.Connection.STYLE[styleKeys[i]];
+			const animationId = `anim-${connectionKey}-${style}`;
+			const animation = document.getElementById(animationId);
+			if (animation && animation.beginElement) {
+				animation.beginElement();
+			}
+		}
+	}
+
+	checkMappingContentResize() {
+		const bounds = this.getBounds();
+		if (!boundsAreEqual(this.bounds, bounds)) {
+			this.forceUpdate();
+		}
 	}
 
 	updateDND() {

@@ -794,7 +794,7 @@ class MapperComponent extends Component {
 		const inputSide = Constants.MappingSide.INPUT;
 		const outputSide = Constants.MappingSide.OUTPUT;
 		return (
-			<div className="mapper" data-focusable tabIndex="0">
+			<div className="mapper" data-focusable>
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateInputSchemaRef}

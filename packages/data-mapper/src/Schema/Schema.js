@@ -263,12 +263,6 @@ export default class Schema extends Component {
 		return needUpdate;
 	}
 
-	getNode(element) {
-		const index = this.props.dataAccessor.getSchemaElementIndex(this.props.schema, element, true);
-		const children = this.getChildNodes();
-		const childrenArray = Array.from(children);
-		return childrenArray[index];
-	}
 
 	getYPosition(element) {
 		const scrollTop = this.getScrollTop();
@@ -339,6 +333,7 @@ export default class Schema extends Component {
 				break;
 			}
 		}
+
 		return visibleElements;
 	}
 
@@ -352,6 +347,9 @@ export default class Schema extends Component {
 	}
 
 	reveal(element) {
+		if (!element) {
+			return false;
+		}
 		const node = this.getNode(element);
 		const nodeHeight = node.clientHeight;
 		const elemYPos = this.getYPosition(element);
@@ -385,6 +383,13 @@ export default class Schema extends Component {
 
 	onSortChange(columnKey) {
 		this.props.onSortChange(columnKey, this.props.side);
+	}
+
+	getNode(element) {
+		const index = this.props.dataAccessor.getSchemaElementIndex(this.props.schema, element, true);
+		const children = this.getChildNodes();
+		const childrenArray = Array.from(children);
+		return childrenArray[index];
 	}
 
 	getChildNodes() {

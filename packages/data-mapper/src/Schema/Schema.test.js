@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
-import Schema from './Schema.js';
+import Schema from './Schema';
 import DataAccessorWrapper from '../DataAccessor/DataAccessorWrapper';
 import * as TestData from '../TestData';
 import Constants from '../Constants';
