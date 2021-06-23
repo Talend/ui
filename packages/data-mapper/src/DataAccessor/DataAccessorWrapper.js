@@ -1,5 +1,6 @@
 import Constants from '../Constants';
 import DataAccessorWithSorterAndFilter from './DataAccessorWithSorterAndFilter';
+/* eslint-disable class-methods-use-this */
 
 /**
  * Internal function.
