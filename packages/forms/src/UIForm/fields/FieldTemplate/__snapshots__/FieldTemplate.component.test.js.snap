@@ -53,6 +53,7 @@ exports[`FieldTemplate should render with hint 1`] = `
   overlayId="myAwesomeField-hint-overlay"
   overlayPlacement="top"
   preventScrolling={false}
+  trigger="click"
 >
   <Button
     active={false}
