@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimezoneList component should render the timezone dropdown widget 1`] = `
+<DataList
+  schema={
+    Object {
+      "cldrTimezones": Object {
+        "fr": Object {
+          "main": Object {
+            "fr": Object {
+              "dates": Object {
+                "timeZoneNames": Object {
+                  "zone": Object {
+                    "Africa": Object {
+                      "Abidjan": Object {
+                        "exemplarCity": "Abidjan",
+                      },
+                      "Freetown": Object {
+                        "exemplarCity": "Freetown",
+                      },
+                    },
+                    "Europe": Object {
+                      "Kiev": Object {
+                        "exemplarCity": "Kiev",
+                      },
+                      "Paris": Object {
+                        "exemplarCity": "Paris",
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      "lang": "fr",
+      "options": Object {
+        "titleMap": Array [
+          Object {
+            "name": "(UTC +00:00) Abidjan",
+            "offset": 0,
+            "timezoneName": "Abidjan",
+            "value": "Africa/Abidjan",
+          },
+          Object {
+            "name": "(UTC +00:00) Freetown",
+            "offset": 0,
+            "timezoneName": "Freetown",
+            "value": "Africa/Freetown",
+          },
+          Object {
+            "name": "(UTC +02:00) Paris",
+            "offset": 120,
+            "timezoneName": "Paris",
+            "value": "Europe/Paris",
+          },
+          Object {
+            "name": "(UTC +03:00) Kiev",
+            "offset": 180,
+            "timezoneName": "Kiev",
+            "value": "Europe/Kiev",
+          },
+        ],
+      },
+      "restricted": true,
+      "titleMap": Array [
+        Object {
+          "name": "(UTC +00:00) Abidjan",
+          "offset": 0,
+          "timezoneName": "Abidjan",
+          "value": "Africa/Abidjan",
+        },
+        Object {
+          "name": "(UTC +00:00) Freetown",
+          "offset": 0,
+          "timezoneName": "Freetown",
+          "value": "Africa/Freetown",
+        },
+        Object {
+          "name": "(UTC +02:00) Paris",
+          "offset": 120,
+          "timezoneName": "Paris",
+          "value": "Europe/Paris",
+        },
+        Object {
+          "name": "(UTC +03:00) Kiev",
+          "offset": 180,
+          "timezoneName": "Kiev",
+          "value": "Europe/Kiev",
+        },
+      ],
+    }
+  }
+/>
+`;
