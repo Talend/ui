@@ -53,7 +53,7 @@
     "@storybook/react": "6.3.0",
     "@storybook/theming": "6.3.0",
     "@svgr/webpack": "^5.5.0",
-    "@talend/icons": "^6.29.0",
+    "@talend/icons": "^6.30.0",
     "@talend/scripts-core": "^9.11.0",
     "@talend/scripts-preset-react-lib": "^9.8.2",
     "@testing-library/react": "^11.2.3",
@@ -82,7 +82,7 @@
     "styled-components": "^5.2.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^6.29.0",
+    "@talend/icons": "^6.30.0",
     "focus-outline-manager": "^1.0.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
