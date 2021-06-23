@@ -8,6 +8,44 @@ exports[`Schema empty-schema 1`] = `
     className="tc-table theme-tc-table"
   >
     <table>
+      <thead
+        className="tc-table-head theme-tc-table-head sr-only"
+      >
+        <tr
+          className="tc-table-head-row theme-tc-table-head-row"
+        >
+          <th
+            className="th-name theme-tc-table-head-th"
+            id="name-col-id"
+          >
+            <div
+              className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
+            >
+              Name
+            </div>
+          </th>
+          <th
+            className="th-type theme-tc-table-head-th"
+            id="type-col-id"
+          >
+            <div
+              className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
+            >
+              Type
+            </div>
+          </th>
+          <th
+            className="th-description theme-tc-table-head-th"
+            id="desc-col-id"
+          >
+            <div
+              className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-description"
+            >
+              Description
+            </div>
+          </th>
+        </tr>
+      </thead>
       <tbody
         className="tc-table-body theme-tc-table-body"
         onScroll={[Function]}
@@ -25,6 +63,44 @@ exports[`Schema should accept a single schema 1`] = `
     className="tc-table theme-tc-table"
   >
     <table>
+      <thead
+        className="tc-table-head theme-tc-table-head sr-only"
+      >
+        <tr
+          className="tc-table-head-row theme-tc-table-head-row"
+        >
+          <th
+            className="th-name theme-tc-table-head-th"
+            id="name-col-id"
+          >
+            <div
+              className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
+            >
+              Name
+            </div>
+          </th>
+          <th
+            className="th-type theme-tc-table-head-th"
+            id="type-col-id"
+          >
+            <div
+              className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
+            >
+              Type
+            </div>
+          </th>
+          <th
+            className="th-description theme-tc-table-head-th"
+            id="desc-col-id"
+          >
+            <div
+              className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-description"
+            >
+              Description
+            </div>
+          </th>
+        </tr>
+      </thead>
       <tbody
         className="tc-table-body theme-tc-table-body"
         onScroll={[Function]}

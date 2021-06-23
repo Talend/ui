@@ -13,16 +13,8 @@ exports[`render-sort-header 1`] = `
   <span>
     Name
   </span>
-  <svg
-    aria-hidden="true"
-    className="theme-tc-svg-icon tc-svg-icon"
-    focusable="false"
+  <Coral.Icon
     name="none-icon"
-    title={null}
-  >
-    <use
-      xlinkHref="#none-icon"
-    />
-  </svg>
+  />
 </button>
 `;

@@ -7,9 +7,9 @@
     "prepublish": "talend-scripts build:lib",
     "prepare": "talend-scripts build:lib",
     "start": "start-storybook -p 6060",
-    "test": "jest",
+    "test": "talend-scripts test",
     "test:demo": "build-storybook",
-    "lint:es": "eslint --config ../../.eslintrc src",
+    "lint:es": "talend-scripts lint:es",
     "lint": "npm run lint:es",
     "build-storybook": "build-storybook"
   },

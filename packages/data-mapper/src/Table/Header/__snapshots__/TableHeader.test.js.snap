@@ -64,17 +64,9 @@ exports[`three-columns-with-sorters 1`] = `
         <span>
           Name
         </span>
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="none-icon"
-          title={null}
-        >
-          <use
-            xlinkHref="#none-icon"
-          />
-        </svg>
+        />
       </button>
     </th>
     <th
@@ -93,17 +85,9 @@ exports[`three-columns-with-sorters 1`] = `
         <span>
           Type
         </span>
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="none-icon"
-          title={null}
-        >
-          <use
-            xlinkHref="#none-icon"
-          />
-        </svg>
+        />
       </button>
     </th>
     <th
@@ -122,17 +106,9 @@ exports[`three-columns-with-sorters 1`] = `
         <span>
           Description
         </span>
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="none-icon"
-          title={null}
-        >
-          <use
-            xlinkHref="#none-icon"
-          />
-        </svg>
+        />
       </button>
     </th>
   </tr>

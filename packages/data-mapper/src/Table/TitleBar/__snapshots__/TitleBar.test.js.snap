@@ -13,7 +13,7 @@ exports[`title-bar 1`] = `
     className="tc-table-filters-bar theme-tc-table-filters-bar"
   >
     <button
-      aria-describedby="42"
+      aria-describedby="b87edd89-cb2a-40c0-85cc-25952b701c53"
       aria-label="Toggle filter"
       className="tc-string-filter tc-filter theme-tc-filter name-filter btn-icon-only btn btn-link"
       disabled={false}
@@ -27,17 +27,9 @@ exports[`title-bar 1`] = `
       role="search"
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-search"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-search"
-        />
-      </svg>
+      />
     </button>
     <div
       className="checkbox tc-toggle theme-tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
