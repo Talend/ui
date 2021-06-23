@@ -54,15 +54,6 @@ input[type='radio'] {
 		}
 	}
 
-	&:focus {
-		outline: none;
-
-		&:after,
-		+ *:after {
-			@include checkbox-outline;
-		}
-	}
-
 	&:disabled {
 		&:checked:before,
 		&:checked + *:before {

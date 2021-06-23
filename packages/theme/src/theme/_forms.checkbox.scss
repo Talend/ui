@@ -73,15 +73,6 @@ input[type='checkbox'] {
 		}
 	}
 
-	&:focus {
-		outline: none;
-
-		&:before,
-		+ *:before {
-			@include checkbox-outline;
-		}
-	}
-
 	&:disabled {
 		&:before,
 		+ *:before {

@@ -1,12 +1,11 @@
 $tf-comparator-operator-height: 3.2rem !default;
 $tf-comparator-operator-width: 5rem !default;
-$tf-comparator-operator-top: 3.4rem !default;
-$tf-comparator-operator-color: $dove-gray !default;
-$tf-comparator-operator-background: $gallery !default;
+$tf-comparator-operator-top: 4.6rem !default;
+$tf-comparator-operator-color: $lochmara600 !default;
+$tf-comparator-operator-background: $pale-cyan100 !default;
 
 .comparator {
 	position: relative;
-	padding-top: $padding-normal;
 	margin-bottom: $padding-normal;
 
 	:global {
@@ -16,10 +15,7 @@ $tf-comparator-operator-background: $gallery !default;
 
 			&-menu {
 				min-width: auto;
-				border-top: {
-					left-radius: 0;
-					right-radius: 0;
-				}
+
 			}
 
 			.tc-svg-icon {
@@ -35,10 +31,12 @@ $tf-comparator-operator-background: $gallery !default;
 				min-height: $tf-comparator-operator-height;
 				width: $tf-comparator-operator-width;
 				color: $tf-comparator-operator-color;
-				border: {
-					radius: 0;
-					top-left-radius: 0.4rem;
-				}
+				background: $pale-cyan100;
+				border: 1px solid $input-border;
+
+				border-radius: 0;
+				border-top-left-radius: $input-border-radius;
+				border-bottom-left-radius: $input-border-radius;
 				z-index: 1;
 
 				&-default {

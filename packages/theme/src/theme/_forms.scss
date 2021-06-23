@@ -177,9 +177,6 @@
 .form {
 	&-group {
 		position: relative;
-		display: flex;
-		flex-direction: column;
-		padding-top: $padding-normal;
 		margin-bottom: $padding-normal;
 	}
 
@@ -215,6 +212,15 @@
 					top: $padding-base-vertical + 1;
 				}
 			}
+		}
+	}
+}
+
+.checkbox,
+.radio {
+	&:focus-within {
+		label {
+			outline: 2px solid $moody-purple500;
 		}
 	}
 }

@@ -6,6 +6,10 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 
 // needed to increase its weight
 .switch.switch {
+	label {
+		padding: 0;
+	}
+
 	input[type='checkbox'] {
 		position: absolute;
 		margin-left: -9999px;
