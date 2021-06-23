@@ -5,6 +5,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "talend-scripts build:lib",
+    "prepare": "talend-scripts build:lib",
     "start": "start-storybook -p 6060",
     "test": "jest",
     "test:demo": "build-storybook",
