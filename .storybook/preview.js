@@ -1,5 +1,8 @@
 import React from 'react';
 
+import prettier from 'prettier/standalone';
+import prettierBabel from 'prettier/parser-babel';
+
 import { addons } from '@storybook/addons';
 import { DocsContainer } from '@storybook/addon-docs';
 import { UPDATE_GLOBALS } from '@storybook/core-events';
@@ -43,6 +46,10 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 		background: ${theme?.colors.backgroundColor};
 	}
 	
+	.sbdocs .token {
+		tab-size: 2;
+	}
+	
 	.sbdocs .figma-iframe--light {
 		position: ${theme?.id === 'light' && hasFigmaIframe ? 'relative' : 'absolute'};
 		left:  ${theme?.id === 'light' && hasFigmaIframe ? 'auto' : '-9999rem'};
@@ -57,6 +64,14 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 
 export const parameters = {
 	docs: {
+		transformSource: input =>
+			prettier
+				.format(input, {
+					parser: 'babel',
+					plugins: [prettierBabel],
+				})
+				.trim()
+				.slice(0, -1),
 		container: props => {
 			const [hasFigmaIframe, setFigmaIframe] = useLocalStorage('coral--has-figma-iframe', false);
 
