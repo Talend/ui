@@ -213,6 +213,13 @@ const collection = [
 		display: 'text',
 		className: 'item-0-class',
 		titleActions: fewTitleActions,
+		quality: {
+			invalid: 1,
+			empty: 2,
+			valid: 3,
+			na: 4,
+			onClick: action('onQualityClick'),
+		}
 	},
 	{
 		id: 1,
@@ -224,6 +231,13 @@ const collection = [
 		display: 'text',
 		className: 'item-1-class',
 		titleActions: lotOfTitleActions,
+		quality: {
+			invalid: 1,
+			empty: 2,
+			valid: 3,
+			na: 4,
+			onClick: action('onQualityClick'),
+		}
 	},
 	{
 		id: 2,
@@ -864,6 +878,30 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
+					<VirtualizedList.Datetime
+						label="Created"
+						dataKey="created"
+						columnData={{ mode: 'format' }}
+					/>
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > with quality bar', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={[]} id="my-list">
+					<VirtualizedList.Text label="Id" dataKey="id" />
+					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Text label="Author" dataKey="author" />
+					<VirtualizedList.QualityBar label="Quality" dataKey="quality" />
 					<VirtualizedList.Datetime
 						label="Created"
 						dataKey="created"
