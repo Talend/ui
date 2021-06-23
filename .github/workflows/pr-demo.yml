@@ -52,6 +52,7 @@ jobs:
           mkdir .static/icons
           mkdir .static/theme
           mkdir .static/datagrid
+          mkdir .static/data-mapper
           mkdir .static/stepper
           cp .surge/index.html .static
           cp -R packages/cmf/jsdoc .static/cmf
@@ -62,6 +63,7 @@ jobs:
           cp -R packages/stepper/storybook-static/* .static/stepper
           cp -R packages/forms/storybook-static/* .static/forms
           cp -R packages/dataviz/storybook-static/* .static/dataviz
+          cp -R packages/data-mapper/storybook-static/* .static/data-mapper
           cp -R packages/icons/docs/index.html .static/icons
           cp -R packages/icons/dist .static/icons
           cp -R packages/theme/dist/* .static/theme
