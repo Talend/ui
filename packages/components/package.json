@@ -50,7 +50,7 @@
     "rc-slider": "8.6.3",
     "rc-tooltip": "3.7.3",
     "react-autowhatever": "10.2.0",
-    "react-bootstrap": "0.32.4",
+    "react-bootstrap": "^0.32.4",
     "react-debounce-input": "3.2.0",
     "react-dnd": "^2.5.4",
     "react-draggable": "^3.3.0",
