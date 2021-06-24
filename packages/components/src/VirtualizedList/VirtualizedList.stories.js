@@ -897,7 +897,7 @@ storiesOf('Data/List/VirtualizedList', module)
 			<h1>Virtualized List</h1>
 
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={[]} id="my-list">
+				<VirtualizedList collection={collection} id="my-list">
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />

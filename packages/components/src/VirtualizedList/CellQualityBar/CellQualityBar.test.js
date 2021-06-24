@@ -11,7 +11,6 @@ const props = {
 	na: 4,
 	onClick: noop,
 	getDataFeature: noop,
-	// digits: PropTypes.number,
 };
 
 describe('CellQualityBar', () => {
