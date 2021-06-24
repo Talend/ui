@@ -892,30 +892,6 @@ storiesOf('Data/List/VirtualizedList', module)
 			</section>
 		</div>
 	))
-	.add('List > with quality bar', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collection} id="my-list">
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.QualityBar label="Quality" dataKey="quality" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
 	.add('List > custom noRowsRenderer', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
