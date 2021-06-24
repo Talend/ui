@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { DraggableComponent as draggable } from '@talend/react-components';
 import Table from '../Table';
 import Constants from '../Constants';
+import { TableRow } from './Row/TableRow';
 
 function isMapped(dataAccessor, element, mappedElements) {
 	return mappedElements == null ? false : dataAccessor.includes(mappedElements, element);
@@ -144,7 +145,7 @@ class ColumnUpdater {
 
 	addDnd(column) {
 		if (!this.draggableCell) {
-			this.draggableCell = draggable(column.cellRenderer || Table.Cell, 'element');
+			this.draggableCell = draggable(column.cellRenderer || TableRow, 'element');
 		}
 		column.cellRenderer = this.draggableCell;
 		// add dnd callback methods

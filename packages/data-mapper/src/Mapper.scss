@@ -13,7 +13,6 @@
 		flex-direction: row;
 		padding: 8px;
 		margin: 8px;
-		background-color: #e9e9e9;
 		height: 500px;
 		width: 80vw;
 	}
@@ -35,7 +34,6 @@
 	*/
 
 	.schema {
-		background-color: #fff;
 		padding: 8px;
 		margin: 2px;
 		width: 100%;
@@ -85,22 +83,6 @@
 		margin: 2px;
 		width: 200px;
 		flex: none;
-	}
-
-	.mapping-actions {
-		display: flex;
-		justify-content: space-around;
-		font-weight: bold;
-		font-size: 1em;
-		height: 45px;
-		border-bottom: 1px solid #ddd;
-		margin: 0 0.5rem;
-	}
-
-	#auto-map {
-		color: #fff;
-		background-color: #66bdff;
-		font-weight: bold;
 	}
 
 	.mapping-content {
