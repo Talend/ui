@@ -3,12 +3,65 @@
 /// @group Forms
 ////
 
-@mixin checkbox-outline() {
-	outline: 2px solid Highlight;
+@mixin outline() {
+	outline: 2px solid $moody-purple500;
 	outline-offset: 1px;
 }
 
-@import 'forms.guideline';
+:root {
+	--t-form-color: #{$gray900};
+	--t-form-background-color: #{$gray0};
+	--t-form-border-color: #{$gray500};
+	--t-form-border-color--hover: #{$gray900};
+	--t-form-border-color--focus: #{$lochmara500};
+	--t-form-border-color--checked: #{$lochmara600};
+	--t-form-border-color--disabled: #{$gray300};
+
+	--t-form-color--readonly: #{$gray600};
+	--t-form-background-color--readonly: #{$gray50};
+	--t-form-border-color--readonly: transparent;
+
+	--t-form-placeholder-color: #{$gray500};
+
+	--t-form-radio-background-color: #{$gray100};
+
+	--t-form-group-color: #{$gray700};
+	--t-form-group-background-color: #{$gray75};
+	--t-form-group-interactive-color: #{$lochmara600};
+	--t-form-group-interactive-background-color: #{$lochmara100};
+	--t-form-group-interactive-color--hover: #{$pale-cyan700};
+	--t-form-group-interactive-background-color--hover: #{$pale-cyan200};
+	--t-form-group-interactive-color--active: #{$lochmara800};
+	--t-form-group-interactive-background-color--active: #{$pale-cyan300};
+}
+
+.theme--dark {
+	--t-form-color: #{$gray0};
+	--t-form-background-color: #{$gray800};
+	--t-form-border-color: #{$gray75};
+	--t-form-border-color--hover: #{$pale-cyan500};
+	--t-form-border-color--focus: #{$pale-cyan500};
+	--t-form-border-color--checked: #{$pale-cyan400};
+	--t-form-border-color--disabled: #{$gray300};
+
+	--t-form-color--readonly: #{$gray75};
+	--t-form-background-color--readonly: #{$gray600};
+	--t-form-border-color--readonly: #{$gray600};
+
+	--t-form-placeholder-color: #{$gray100};
+
+	--t-form-radio-background-color: #{$gray600};
+
+	--t-form-group-color: #{$gray0};
+	--t-form-group-background-color: #{$gray600};
+	--t-form-group-interactive-color: #{$pale-cyan500};
+	--t-form-group-interactive-background-color: #{$pale-cyan900};
+	--t-form-group-interactive-color--hover: #{$pale-cyan400};
+	--t-form-group-interactive-background-color--hover: #{$pale-cyan800};
+	--t-form-group-interactive-color--active: #{$pale-cyan300};
+	--t-form-group-interactive-background-color--active: #{$pale-cyan700};
+}
+
 @import 'forms.input';
 @import 'forms.label';
 @import 'forms.legend';
@@ -19,70 +72,35 @@
 @import 'forms.radio';
 @import 'forms.textarea';
 
-.form-control {
-	padding: 0 10px;
-	text-overflow: ellipsis;
-	box-shadow: none;
-
-	&:focus {
-		border-width: 2px;
-		box-shadow: none;
-	}
-
-	&[disabled] {
-	}
-
-	&[readonly],
-	&[readonly]:focus {
-	}
-
-	&.input {
-		&-sm {
-			font-size: $font-size-small;
-		}
-
-		&-lg {
-			font-size: $font-size-large;
-		}
-	}
-
-	&::placeholder {
-		color: $silver;
-		font-style: oblique;
-	}
-}
-
 .radio,
 .radio-inline,
 .checkbox,
 .checkbox-inline {
-	line-height: $form-checkbox-and-radio-size;
-	min-height: $form-checkbox-and-radio-size;
+	margin-top: 0;
+
+	&:focus-within label {
+		@include outline();
+	}
 
 	label {
 		display: inline-block;
 		position: relative;
-		padding-left: 12 + $padding-small;
+		padding-left: calc(1.4rem + #{$padding-small});
 		font-size: 1.4rem;
-		color: $black;
-	}
+		line-height: 1.5rem;
+		min-height: 1.5rem;
+		font-weight: 400;
 
-	label,
-	input {
-		cursor: pointer;
+
 	}
 
 	&.disabled label {
 		opacity: 0.54;
 	}
 
-	[type='radio'],
-	[type='checkbox'] {
+	input {
 		margin: 0;
-		width: $form-checkbox-and-radio-size;
-		height: $form-checkbox-and-radio-size;
 		appearance: none;
-		outline: none;
 
 		&,
 		+ * {
@@ -106,26 +124,29 @@
 			content: '';
 		}
 	}
+
+	+ .radio-inline,
+	+ .checkbox-inline {
+		margin: 0;
+	}
 }
 
 .has-warning {
 }
 
 .has-error {
-	.error-detail {
-		padding-left: 0;
-		margin-top: -10px;
-		margin-bottom: 0;
-
-		.text-danger {
-			line-height: 15px;
-			font-size: $font-size-small;
-			font-weight: $form-base-font-weight;
-			color: $chestnut-rose;
-			list-style-type: none;
+	.checkbox,
+	.checkbox-inline {
+		*:before {
+			border-color: $brand-danger;
 		}
 	}
-
+	.radio,
+	.radio-inline {
+		*:after {
+			border-color: $brand-danger;
+		}
+	}
 	.help-block {
 		font-size: $font-size-small;
 	}
@@ -158,8 +179,8 @@
 }
 
 .input-group-btn .btn {
-	line-height: 3.2rem;
-	min-height: 3.2rem;
+	line-height: $input-height-base;
+	min-height: $input-height-base;
 }
 
 .form-group-lg select.form-control {
@@ -170,10 +191,6 @@
 	font-style: normal;
 }
 
-.form-control + label {
-	order: -1;
-}
-
 .form {
 	&-group {
 		position: relative;
@@ -182,10 +199,6 @@
 
 	&-control-container,
 	&-control {
-		+ label {
-			color: $dove-gray;
-		}
-
 		&.input-sm + label {
 			font-size: $font-size-small;
 		}
@@ -212,15 +225,6 @@
 					top: $padding-base-vertical + 1;
 				}
 			}
-		}
-	}
-}
-
-.checkbox,
-.radio {
-	&:focus-within {
-		label {
-			outline: 2px solid $moody-purple500;
 		}
 	}
 }

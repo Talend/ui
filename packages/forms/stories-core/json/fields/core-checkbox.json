@@ -51,14 +51,14 @@
       "data-test": "checkbox.standard"
     },
     {
+      "key": "disabled",
+      "title": "Check if you are neutral (you can't, it's disabled)",
+      "disabled": true
+    },
+    {
       "key": "autofocused",
       "title": "Check if you are sad (autofocused)",
       "autoFocus": true
-    },
-    {
-      "key": "disabled",
-      "title": "Check if you are handicapped (you can't, disabled)",
-      "disabled": true
     },
     {
       "key": "multipleChoices",

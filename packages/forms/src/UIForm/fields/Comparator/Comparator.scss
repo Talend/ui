@@ -1,8 +1,6 @@
 $tf-comparator-operator-height: 3.2rem !default;
 $tf-comparator-operator-width: 5rem !default;
-$tf-comparator-operator-top: 4.6rem !default;
-$tf-comparator-operator-color: $lochmara600 !default;
-$tf-comparator-operator-background: $pale-cyan100 !default;
+$tf-comparator-operator-top: 2.6rem !default;
 
 .comparator {
 	position: relative;
@@ -30,25 +28,15 @@ $tf-comparator-operator-background: $pale-cyan100 !default;
 				height: $tf-comparator-operator-height;
 				min-height: $tf-comparator-operator-height;
 				width: $tf-comparator-operator-width;
-				color: $tf-comparator-operator-color;
-				background: $pale-cyan100;
-				border: 1px solid $input-border;
-
-				border-radius: 0;
-				border-top-left-radius: $input-border-radius;
-				border-bottom-left-radius: $input-border-radius;
+				color: var(--t-form-group-interactive-color);
+				background: var(--t-form-group-interactive-background-color);
+				border: 1px solid var(--t-form-border-color);
+				border-radius: $input-border-radius 0 0 $input-border-radius;
 				z-index: 1;
-
-				&-default {
-					box-shadow: none;
-					background-color: $tf-comparator-operator-background;
-				}
 			}
 		}
 
 		.form-group {
-			padding-top: $padding-large;
-
 			.control-label {
 				top: 0;
 			}

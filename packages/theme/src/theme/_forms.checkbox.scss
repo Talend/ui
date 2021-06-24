@@ -1,10 +1,4 @@
-$tt-checkbox-size: $form-checkbox-and-radio-size !default;
-$tt-checkbox-background-color: $wild-sand !default;
-$tt-checkbox-border-color: $dark-silver !default;
-$tt-checkbox-checked-background-color: $lochmara !default;
-$tt-checkbox-checked-border-color: shade($lochmara, 15) !default;
-$tt-checkbox-disabled-color: tint($tt-checkbox-border-color, 54);
-$tt-checkbox-hover-border-color: tint($lochmara, 15) !default;
+$tt-checkbox-size: 1.4rem !default;
 
 input[type='checkbox'] {
 	&:before,
@@ -17,8 +11,8 @@ input[type='checkbox'] {
 
 	&:before,
 	+ *:before {
-		background-color: $tt-checkbox-background-color;
-		border: 1px solid $tt-checkbox-border-color;
+		background-color: var(--t-form-background-color);
+		border: 1px solid var(--t-form-border-color);
 		border-radius: 2px;
 	}
 
@@ -31,8 +25,8 @@ input[type='checkbox'] {
 	&[data-checked='1'] {
 		&:before,
 		+ *:before {
-			background-color: $tt-checkbox-checked-background-color;
-			border-color: $tt-checkbox-checked-border-color;
+			background-color: var(--t-form-border-color--focus);
+			border-color: var(--t-form-border-color--checked);
 		}
 
 		&:after,
@@ -47,8 +41,8 @@ input[type='checkbox'] {
 	&:checked {
 		&:before,
 		+ *:before {
-			background-color: $tt-checkbox-checked-background-color;
-			border-color: $tt-checkbox-checked-border-color;
+			background-color: var(--t-form-border-color--focus);
+			border-color: var(--t-form-border-color--checked);
 		}
 
 		&:after,
@@ -68,7 +62,7 @@ input[type='checkbox'] {
 		&:checked {
 			&:before,
 			+ *:before {
-				border-color: $tt-checkbox-hover-border-color;
+				border-color: var(--t-form-border-color--hover);
 			}
 		}
 	}
@@ -76,19 +70,19 @@ input[type='checkbox'] {
 	&:disabled {
 		&:before,
 		+ *:before {
-			border-color: $tt-checkbox-disabled-color;
+			border-color: var(--t-form-border-color--disabled);
 		}
 
 		&[data-checked='1']:before,
 		&[data-checked='1'] + *:before {
-			background-color: $tt-checkbox-disabled-color;
-			border-color: $tt-checkbox-disabled-color;
+			background-color: var(--t-form-border-color--disabled);
+			border-color: var(--t-form-border-color--disabled);
 		}
 
 		&:checked:before,
 		&:checked + *:before {
-			background-color: $tt-checkbox-disabled-color;
-			border-color: $tt-checkbox-disabled-color;
+			background-color: var(--t-form-border-color--disabled);
+			border-color: var(--t-form-border-color--disabled);
 		}
 	}
 }

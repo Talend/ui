@@ -1,12 +1,33 @@
 select.form-control {
-	appearance: none;
-	background-position: right;
-	background-repeat: no-repeat;
-	background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSdibGFjaycgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTcgMTBsNSA1IDUtNXonLz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PC9zdmc+);
+	border-color: var(--t-form-border-color);
+	overflow: auto;
 	cursor: pointer;
+	border-radius: $input-border-radius;
 
 	&[multiple] {
-		padding-top: 10px;
-		padding-bottom: 10px;
+		padding-top: $padding-small;
+		padding-bottom: $padding-small;
+	}
+
+	&:hover {
+		&:not(:disabled) {
+			border: 1px solid var(--t-form-border-color--hover);
+		}
+	}
+
+	&:not([multiple]) {
+		appearance: none;
+		background-color: var(--t-form-background-color);
+		background-repeat: no-repeat;
+		background-size: $svg-xs-size;
+		background-position-x: calc(100% - 1rem);
+		background-position-y: center;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z'%3E%3C/path%3E%3C/svg%3E");
+
+		&:disabled {
+			border: 1px solid var(--t-form-border-color--disabled);
+			opacity: 0.54;
+			cursor: not-allowed;
+		}
 	}
 }

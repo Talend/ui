@@ -1,5 +1,3 @@
-@import '~@talend/bootstrap-theme/src/theme/forms.guideline';
-
 .file {
 	display: flex;
 
@@ -12,9 +10,7 @@
 	left: 0;
 	opacity: 0;
 }
-.file-input:focus + .file-replace {
-	box-shadow: $form-focus-shadow;
-}
+
 .file-replace {
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+Cgk8cGF0aCBkPSJNMTYgMTF2NUgwdi01aDJ2M2gxMnYtM3pNMi42IDVMNCA2LjRsMy0zVjEyaDJWMy40bDMgM0wxMy40IDUgOCAweiI+PC9wYXRoPgo8L3N2Zz4=);
 	background-size: $svg-sm-size;
