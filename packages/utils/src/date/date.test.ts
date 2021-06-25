@@ -2,9 +2,11 @@ import {
 	convertToLocalTime,
 	convertToTimeZone,
 	convertToUTC,
+	dateFormat,
 	formatReadableUTCOffset,
 	formatToTimeZone,
 	getUTCOffset,
+	localizedFormat,
 	timeZoneExists,
 } from './index';
 
@@ -104,7 +106,7 @@ describe('date', () => {
 		it('should format a locale date to a given timezone in a specifc format', () => {
 			// given
 			const dateObj = new Date('2020-05-13, 20:00');
-			const formatString = 'YYYY-MM-DD[T]HH:mm:ssZZ';
+			const formatString = "yyyy-MM-dd'T'HH:mm:ssXX";
 			const options = { timeZone: timeZones['UTC+5'] };
 
 			// when
@@ -117,7 +119,7 @@ describe('date', () => {
 		it('should not change timezone tokens that are wrapped in hooks', () => {
 			// given
 			const dateObj = new Date('2020-05-13, 20:00');
-			const formatString = 'YYYY-MM-DD[T]HH:mm:ss[Z]';
+			const formatString = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 			const options = { timeZone: timeZones['UTC+5'] };
 
 			// when
@@ -176,6 +178,32 @@ describe('date', () => {
 
 			// then
 			expect(exists).toBe(false);
+		});
+	});
+
+	describe('dateFormat', () => {
+		const t = (key: string, value: { defaultValue: string}) => value.defaultValue;
+
+		it('should format date according to the format and the lang', () => {
+			// given
+			const dateObj = new Date('2020-05-13, 20:00');
+
+			// when
+			const formatedDate = dateFormat(dateObj, localizedFormat(t).MDY_LONG, 'en');
+
+			// then
+			expect(formatedDate).toEqual('May 13th, 2020');
+		});
+
+		it('should format date according to the format and the lang', () => {
+			// given
+			const dateObj = new Date('2020-05-13, 20:00');
+
+			// when
+			const formatedDate = dateFormat(dateObj, localizedFormat(t).MY_LONG, 'fr');
+
+			// then
+			expect(formatedDate).toEqual('mai 2020');
 		});
 	});
 });

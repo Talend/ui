@@ -27,7 +27,7 @@
     "cross-env": "^7.0.3"
   },
   "dependencies": {
-    "date-fns": "^1.27.2"
+    "date-fns": "^2.22.1"
   },
   "publishConfig": {
     "access": "public"

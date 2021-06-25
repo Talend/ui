@@ -1,5 +1,7 @@
 import format from 'date-fns/format';
-import parse from 'date-fns/parse';
+import toDate from 'date-fns/toDate';
+import parseISO from 'date-fns/parseISO';
+import { enUS, fr, de, ja } from 'date-fns/locale';
 
 type DateFnsFormatInput = Date | number | string;
 
@@ -7,6 +9,10 @@ interface ConversionOptions {
 	timeZone: string,
 	sourceTimeZone?: string,
 }
+
+interface Map {
+	[key: string]: any
+  }
 
 /**
  * Get the offset between a timezone and the UTC time (in minutes)
@@ -73,15 +79,31 @@ export function formatReadableUTCOffset(offset: number): string {
  * @param {string} timeZone
  * @returns {string}
  *
- * @see https://date-fns.org/v1.27.2/docs/format
+ * @see https://date-fns.org/v2.22.1/docs/format
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js#L131
  */
 function formatTimeZoneTokens(dateFormat: string, timeZone: string): string {
-	return dateFormat.replace(/(?<!\[)(z|ZZ?)/g, match => {
+	return dateFormat.replace(/(?<!\[)(x|XX?)/g, match => {
 		const offset = getUTCOffset(timeZone);
-		const separator = match === 'Z' ? ':' : '';
+		const separator = match === 'X' ? ':' : '';
 		return formatUTCOffset(offset, separator);
 	});
+}
+
+/**
+ * No more parse method with Date, string or number in date-fns 2.x
+ * @param date DateFnsFormatInput
+ * @returns Date object
+ */
+function parse(date: DateFnsFormatInput) {
+	if (date instanceof Date) {
+		return date;
+	}
+	if (typeof date === 'number') {
+		return toDate(date);
+	}
+	// string
+	return parseISO(date);
 }
 
 /**
@@ -174,6 +196,26 @@ export function timeZoneExists(timeZone: string): boolean {
 		return false;
 	}
 }
+
+const locales: Map = { fr, ja, de, en: enUS };
+
+export const localizedFormat = (t: any) => ({
+	MDY_LONG: t('DATE_FORMAT_MONTH_DAY_YEAR_LONG', { defaultValue: 'MMMM do, yyyy' }), // June 25th, 2021
+	MY_LONG: t('DATE_FORMAT_MONTH_YEAR_LONG', { defaultValue: 'MMMM yyyy' }), // June 2021
+	MDY: t('DATE_FORMAT_MONTH_DAY_YEAR', { defaultValue: 'MM/dd/yyyy' }), // 06/25/2021
+	MDYHM: t('DATE_FORMAT_MONTH_DAY_YEAR_HOUR_MIN', { defaultValue: 'MM/dd/yyyy hh:mm aaa' }), // 06/25/2021 11:44 am
+});
+
+/**
+ * Format date using the user langguage.
+ * @param {Object} date A date object or String
+ * @param {String} localizedDateFormat The date format to use
+ * @param {string} lang The user language
+ * @returns {String} The date formated using the user language.
+ */
+export const dateFormat = (date: DateFnsFormatInput, localizedDateFormat: string, lang: string) => {
+	return format(parse(date), localizedDateFormat, { locale: locales[lang] });
+};
 
 export default {
 	convertToLocalTime,
