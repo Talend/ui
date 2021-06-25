@@ -6,13 +6,12 @@ $tc-filter-bar-width: 250px !default;
 	display: flex;
 	height: $padding-larger;
 	background-color: rgba($silver, 0.2);
-	color: $dove-gray;
-	align-items: top;
 	padding: 0;
 	border-radius: $border-radius-base;
 
 	.search-icon {
 		position: absolute;
+		left: 2rem;
 		margin: 8px 0;
 		height: $svg-md-size;
 		width: $svg-md-size;

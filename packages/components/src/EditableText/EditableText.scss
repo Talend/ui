@@ -77,11 +77,11 @@ $tc-circle-editable-text-size: 16px !default;
 		&-buttons {
 			display: flex;
 			position: absolute;
-			right: $padding-large;
 			align-items: center;
 			justify-content: center;
 			height: 32px;
 			top: 0;
+			right: 3rem;
 
 			&-icon {
 				border: 0.1rem solid $dark-silver;

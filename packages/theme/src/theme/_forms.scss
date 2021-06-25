@@ -87,11 +87,13 @@
 		position: relative;
 		padding-left: calc(1.4rem + #{$padding-small});
 		font-size: 1.4rem;
-		line-height: 1.5rem;
-		min-height: 1.5rem;
 		font-weight: 400;
 
-
+		&,
+		& > * {
+			line-height: 1.5rem;
+			min-height: 1.5rem;
+		}
 	}
 
 	&.disabled label {

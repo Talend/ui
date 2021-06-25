@@ -13,9 +13,12 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 	background-color: rgba(0, 0, 0, 0.025);
 
 	.tc-item-container {
+		margin: 0;
+
 		:global {
 			.checkbox {
-				margin-left: $padding-smaller;
+				margin: $padding-smaller;
+				margin-right: 0;
 			}
 
 			.with-icon {
@@ -37,12 +40,17 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 
 			.checkbox-nested > .checkbox {
 				height: $row-height;
-				margin-top: $row-vertical-margin;
 				margin-bottom: 0;
+
+				+ .checkbox {
+					margin-top: $row-vertical-margin;
+				}
 			}
 		}
 
 		&.toggle {
+			display: flex;
+			align-items: center;
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		}
 	}
