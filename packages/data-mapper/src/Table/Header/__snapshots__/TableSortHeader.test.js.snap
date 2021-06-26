@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render-sort-header 1`] = `
+<button
+  aria-label="Name"
+  className="tc-table-sort-header sort-header btn btn-link"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role="link"
+  type="button"
+>
+  <span>
+    Name
+  </span>
+  <Coral.Icon
+    name="none-icon"
+  />
+</button>
+`;

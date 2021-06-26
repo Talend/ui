@@ -18,6 +18,7 @@ That repository was created in an effort to simplify the development of Talend's
 - [generator-talend](https://github.com/Talend/ui/tree/master/packages/generator)
 - [talend-icons](https://github.com/Talend/ui/tree/master/packages/icons)
 - [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/packages/theme)
+- [react-data-mapper](https://github.com/Talend/ui/tree/master/packages/data-mapper)
 
 ## Tools (dev environment)
 

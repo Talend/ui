@@ -1,0 +1,76 @@
+<style>
+  .tc-table-row-data-type {
+    font-family: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
+    font-size: 0.9em;
+    text-align: left;
+    color: #66bdff;
+  }
+
+  .tc-table-row-data-description {
+    color: #aaa;
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .tc-table-row-data-mandatory {
+    color: #f00;
+    font-weight: bold;
+  }
+
+  .tc-table th:nth-child(1),
+  .tc-table td:nth-child(1) {
+    width: 10px;
+  }
+
+  .tc-table th:nth-child(2),
+  .tc-table td:nth-child(2) {
+    width: 150px;
+  }
+
+
+  .tc-table th:nth-child(3),
+  .tc-table td:nth-child(3) {
+    width: 100px;
+  }
+
+
+  .tc-table th:nth-child(4),
+  .tc-table td:nth-child(4) {
+    width: 400px;
+  }
+
+  .tc-table-row.highlighted {
+    background-color: #f2f2f2;
+  }
+
+  .tc-table tr td:first-child {
+    position: relative;
+  }
+
+  [draggable='true'] .tc-table-clickable-cell {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+  }
+
+  #mapper-container > div {
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+      flex-direction: column;
+  }
+
+  #mapper-container nav {
+      justify-content: center;
+  }
+
+  .mapping-actions .btn {
+    margin-bottom: 8px;
+    background-color: #66bdff;
+    font-weight: bold;
+    color: white;
+  }
+
+</style>

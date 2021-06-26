@@ -267,6 +267,15 @@
   71:6  error  Non-interactive elements should not be assigned mouse or keyboard event listeners  jsx-a11y/no-noninteractive-element-interactions
   79:7  error  `tabIndex` should only be declared on interactive elements                         jsx-a11y/no-noninteractive-tabindex
 
+/home/travis/build/Talend/ui/packages/components/src/Table/Filters/StringFilterComponent.js
+  4:1  error  '@talend/react-components' should be listed in the project's dependencies. Run 'npm i -S @talend/react-components' to add it  import/no-extraneous-dependencies
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Filters/ToggleFilterComponent.js
+  4:1  error  '@talend/react-components' should be listed in the project's dependencies. Run 'npm i -S @talend/react-components' to add it  import/no-extraneous-dependencies
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Table.js
+  9:7  error  'PART' is assigned a value but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   117:4  error  Non-interactive elements should not be assigned mouse or keyboard event listeners  jsx-a11y/no-noninteractive-element-interactions
   134:5  error  `tabIndex` should only be declared on interactive elements                         jsx-a11y/no-noninteractive-tabindex

@@ -47,6 +47,7 @@ const STACK_VERSION = {
 	'@talend/react-components': stackVersion,
 	'@talend/react-containers': stackVersion,
 	'@talend/react-datagrid': stackVersion,
+	'@talend/react-data-mapper': stackVersion,
 	'@talend/react-stepper': stackVersion,
 	'@talend/react-forms': stackVersion,
 	'@talend/icons': stackVersion,
@@ -74,6 +75,7 @@ const files = [
 	path.join(__dirname, '../packages/sagas/package.json'),
 	path.join(__dirname, '../packages/storybook-cmf/package.json'),
 	path.join(__dirname, '../packages/theme/package.json'),
+	path.join(__dirname, '../packages/data-mapper/package.json'),
 ];
 
 const templates = [

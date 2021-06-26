@@ -1,0 +1,12 @@
+$tc-filter-padding-horizontal: 10px;
+
+.tc-table-filters-bar {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	.tc-filter {
+		padding-left: $tc-filter-padding-horizontal;
+		padding-right: $tc-filter-padding-horizontal;
+	}
+}

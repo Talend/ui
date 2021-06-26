@@ -1,0 +1,38 @@
+.table-row {
+	display: flex;
+	list-style: none;
+	width: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	justify-content: space-between;
+	border: 1px solid #797979;
+	border-radius: 5px;
+	padding: 5px 10px;
+	align-items: center;
+	margin-top: 5px;
+
+	&__quality-bar{
+		width: 60px;
+		margin: 0 10px;
+	}
+	&__container {
+		display: block;
+	}
+	&__name {
+		font-family: Source Sans Pro;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 18px;
+		color: #202020;
+	}
+
+	&__type {
+		font-family: Source Sans Pro;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 15px;
+		color: #797979;
+	}
+}
