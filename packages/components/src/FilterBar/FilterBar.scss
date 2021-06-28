@@ -14,7 +14,7 @@ $tc-filter-bar-width: 250px !default;
 		left: 2rem;
 		margin: 8px 0;
 		height: $svg-md-size;
-		width: $svg-md-size;
+		width: 3rem;
 		fill: $gray;
 	}
 
@@ -26,11 +26,6 @@ $tc-filter-bar-width: 250px !default;
 			padding-left: 40px;
 			padding-right: $padding-normal;
 		}
-	}
-
-	:global(.form-group.form-group) {
-		padding: 0 0 0 $padding-small;
-		background: rgba($white, 0.5);
 	}
 
 	.animate {

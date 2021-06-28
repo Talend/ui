@@ -14,6 +14,7 @@ input::-ms-clear {
 	color: var(--t-form-color);
 	background-color: var(--t-form-background-color);
 	border: 1px solid var(--t-form-border-color);
+	font-weight: normal;
 	box-shadow: none;
 
 	&:hover {
