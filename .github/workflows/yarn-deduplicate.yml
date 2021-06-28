@@ -6,7 +6,7 @@ on:
       - 'yarn.lock'
 
 jobs:
-  build:
+  dedupe:
     runs-on: ubuntu-latest
     name: Deduplicate
 
