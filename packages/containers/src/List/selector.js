@@ -20,6 +20,16 @@ function getCollection(state, collectionId) {
 	return state.cmf.collections.get(collectionId);
 }
 
+function compareNumbers(aValue, bValue) {
+	if (aValue < bValue) {
+		return -1;
+	}
+	if (aValue > bValue) {
+		return 1;
+	}
+	return 0;
+}
+
 export function getCollectionItems(state, collectionId) {
 	const collection = getCollection(state, collectionId);
 
@@ -72,17 +82,23 @@ export function compare(sortBy) {
 			aValue = aValue.toLowerCase();
 			bValue = bValue.toLowerCase();
 
+			let aMaybeNumber = aValue.split('/').map(item => parseInt(item));
+			let bMaybeNumber = bValue.split('/').map(item => parseInt(item));
+
+			if(aMaybeNumber.length === 2
+				&& bMaybeNumber.length === 2
+				&& typeof aMaybeNumber[0] === 'number'
+				&& typeof aMaybeNumber[1] === 'number'
+				&& typeof bMaybeNumber[0] === 'number'
+				&& typeof bMaybeNumber[1] === 'number') {
+					return compareNumbers(aMaybeNumber[0], bMaybeNumber[0]);
+				}
+
 			return aValue.localeCompare(bValue);
 		}
 		
 		if(typeof aValue === 'number' && typeof bValue === 'number') {
-			if (aValue < bValue) {
-				return -1;
-			}
-			if (aValue > bValue) {
-				return 1;
-			}
-			return 0;
+			return compareNumbers(aValue, bValue);
 		}
 
 		if (!b[sortBy]) {
