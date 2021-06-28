@@ -5,6 +5,7 @@ import { FilterBarComponent } from './FilterBar.component';
 import Icon from '../Icon';
 
 let defaultProps = {};
+const debounceTimeout = 500;
 
 describe('FilterBar', () => {
 	beforeEach(() => {
@@ -175,7 +176,6 @@ describe('FilterBar', () => {
 
 	it('should call onFilter with debounce options', done => {
 		// given
-		const debounceTimeout = 300;
 		const props = {
 			...defaultProps,
 			debounceTimeout,
@@ -194,7 +194,6 @@ describe('FilterBar', () => {
 
 	it('should call onFilter with debounceMinLength options', done => {
 		// given
-		const debounceTimeout = 300;
 		const props = {
 			...defaultProps,
 			debounceTimeout,
