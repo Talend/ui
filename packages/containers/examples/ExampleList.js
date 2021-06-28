@@ -155,30 +155,6 @@ const items = Immutable.fromJS([
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
-	{
-		id: 'id4',
-		label: 'Simple title',
-		count: 0,
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
-	},
-	{
-		id: 'id5',
-		label: 'Simple title',
-		count: 11,
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
-	},
-	{
-		id: 'id6',
-		label: 'Simple title another one',
-		count: 0,
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
-	},
 ]);
 
 const referenceDatetime = Date.now();
