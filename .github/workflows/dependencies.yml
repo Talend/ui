@@ -1,0 +1,36 @@
+name: Upgrade dependencies
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 10 * * WED"
+
+jobs:
+  upgrade:
+    name: Upgrade dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Upgrade dependencies
+        run: |
+          yarn
+          talend-scripts upgrade:deps
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          assignees: jmfrancois
+          reviewers: jmfrancois
+          commit-message: "chore: upgrade dependencies"
+          title: "chore: upgrade dependencies"
+          body: "Upgrade dependencies using `talend-scripts upgrade:deps`"
+          branch: ci/chore/upgrade-dependencies
+          branch-suffix: timestamp

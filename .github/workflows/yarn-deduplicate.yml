@@ -15,4 +15,15 @@ jobs:
         uses: actions/checkout@v2
 
       - name: yarn-deduplicate
-        run: npx yarn-deduplicate
+        id: deduplicate
+        run: |
+          npx yarn-deduplicate
+          yarn
+          echo "::set-output name=diff::$(git status --short yarn.lock)"
+
+      - name: Commit dedup
+        if: steps.deduplicate.outputs.diff
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'chore: yarn-deduplicate'
