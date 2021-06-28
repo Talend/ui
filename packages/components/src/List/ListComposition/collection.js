@@ -298,6 +298,13 @@ for (let i = 0; i < 100; i += 1) {
 		className: 'item-0-class',
 		persistentActions,
 		titleActions,
+		quality: {
+			invalid: 1,
+			empty: 2,
+			valid: 3,
+			na: 4,
+			onClick: action('onQualityClick'),
+		},
 	});
 }
 

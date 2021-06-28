@@ -213,6 +213,13 @@ const collection = [
 		display: 'text',
 		className: 'item-0-class',
 		titleActions: fewTitleActions,
+		quality: {
+			invalid: 1,
+			empty: 2,
+			valid: 3,
+			na: 4,
+			onClick: action('onQualityClick'),
+		}
 	},
 	{
 		id: 1,
@@ -224,6 +231,13 @@ const collection = [
 		display: 'text',
 		className: 'item-1-class',
 		titleActions: lotOfTitleActions,
+		quality: {
+			invalid: 1,
+			empty: 2,
+			valid: 3,
+			na: 4,
+			onClick: action('onQualityClick'),
+		}
 	},
 	{
 		id: 2,
