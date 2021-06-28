@@ -59,7 +59,7 @@ function FieldTemplate(props) {
 			</div>
 		);
 	}
-	const labelAfter = props.hint || props.labelAfter;
+	const labelAfter = props.hint ?  false : props.labelAfter;
 
 	return (
 		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>

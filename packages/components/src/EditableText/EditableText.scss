@@ -81,7 +81,7 @@ $tc-circle-editable-text-size: 16px !default;
 			justify-content: center;
 			height: 32px;
 			top: 0;
-			right: 3rem;
+			right: $padding-larger;
 
 			&-icon {
 				border: 0.1rem solid $dark-silver;
