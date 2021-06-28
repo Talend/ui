@@ -21,7 +21,7 @@ jobs:
           yarn
           echo "::set-output name=diff::$(git status --short yarn.lock)"
 
-      - name: Commit dedup
+      - name: Commit dedupe
         if: steps.deduplicate.outputs.diff
         uses: actions-js/push@master
         with:
