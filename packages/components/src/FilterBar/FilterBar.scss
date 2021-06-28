@@ -11,10 +11,10 @@ $tc-filter-bar-width: 250px !default;
 
 	.search-icon {
 		position: absolute;
-		left: 2rem;
+		left: 0;
 		margin: 8px 0;
 		height: $svg-md-size;
-		width: 3rem;
+		width: $padding-larger;
 		fill: $gray;
 	}
 
@@ -23,7 +23,7 @@ $tc-filter-bar-width: 250px !default;
 		display: flex;
 		flex-grow: 1;
 		input {
-			padding-left: 40px;
+			padding-left: $padding-larger;
 			padding-right: $padding-normal;
 		}
 	}
@@ -37,7 +37,6 @@ $tc-filter-bar-width: 250px !default;
 		box-shadow: none;
 		color: $dove-gray;
 		font-size: $font-size-base;
-		margin: 0 $padding-small 0 0;
 
 		&::placeholder {
 			color: $dark-silver;
