@@ -1,4 +1,4 @@
-import FlowDesigner from './components/FlowDesigner.container';
+import FlowDesigner, { FlowDesigner as FlowDesignerComponent } from './components/FlowDesigner.container';
 import AbstractNode from './components/node/AbstractNode.component';
 import AbstractLink from './components/link/AbstractLink.component';
 import AbstractPort from './components/port/AbstractPort.component';
@@ -19,6 +19,7 @@ import * as flowModels from './constants/flowdesigner.model';
 export {
 	flowDesignerReducer,
 	FlowDesigner,
+	FlowDesignerComponent,
 	AbstractNode,
 	AbstractLink,
 	AbstractPort,

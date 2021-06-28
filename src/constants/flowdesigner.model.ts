@@ -1,6 +1,11 @@
 /* eslint-disable new-cap */
-import { Record, Map } from 'immutable';
-import { Size, PortDirection, PortRecord as PortRecordType } from '../customTypings/index.d';
+import { Record, Map, List } from 'immutable';
+import {
+	Size,
+	Position,
+	PortDirection,
+	PortRecord as PortRecordType,
+} from '../customTypings/index.d';
 
 export const NONE = 'NONE';
 export const SELECTED = 'SELECTED';
@@ -59,7 +64,7 @@ export const PortData = Record({
 	flowType: undefined,
 });
 
-export const NodeRecord = Record({
+const nodeRecordDefinition = {
 	id: undefined,
 	type: undefined,
 	data: Map({
@@ -76,18 +81,38 @@ export const NodeRecord = Record({
 		description: '',
 		properties: Map(),
 	}),
+};
 
-	/** methods TO BE REMOVED */
+export class NodeRecord extends Record({
+	...nodeRecordDefinition,
 	getPosition(): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
+
 	getSize(): Size {
 		return this.getIn(['graphicalAttributes', 'nodeSize']);
 	},
+
 	getNodeType(): string {
 		return this.getIn(['graphicalAttributes', 'nodeType']);
 	},
-});
+}) {}
+
+export class NestedNodeRecord extends Record({
+	...nodeRecordDefinition,
+	components: List(),
+	getPosition(): Position {
+		return this.getIn(['graphicalAttributes', 'position']);
+	},
+
+	getSize(): Size {
+		return this.getIn(['graphicalAttributes', 'nodeSize']);
+	},
+
+	getNodeType(): string {
+		return this.getIn(['graphicalAttributes', 'nodeType']);
+	},
+}) {}
 
 export const LinkRecord = Record({
 	id: undefined,

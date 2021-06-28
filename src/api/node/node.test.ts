@@ -13,7 +13,7 @@
  */
 import { Map } from 'immutable';
 
-import { NodeRecord } from '../../constants/flowdesigner.model';
+import { NodeRecord, NestedNodeRecord } from '../../constants/flowdesigner.model';
 
 import * as Node from './node';
 import * as Position from '../position/position';
@@ -49,6 +49,15 @@ describe('isNodeElseThrow', () => {
 	it('return true if parameter node is a NodeRecord', () => {
 		// given
 		const testNode = new NodeRecord();
+		// when
+		const test = Node.isNodeElseThrow(testNode);
+		// expect
+		expect(test).toEqual(true);
+	});
+
+	it('return true if parameter node is a NestedNodeRecord', () => {
+		// given
+		const testNode = new NestedNodeRecord();
 		// when
 		const test = Node.isNodeElseThrow(testNode);
 		// expect

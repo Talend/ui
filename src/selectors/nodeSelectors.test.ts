@@ -1,9 +1,15 @@
-import { Map, OrderedMap } from 'immutable';
+import { List, Map, OrderedMap } from 'immutable';
 import * as Selectors from './nodeSelectors';
-import { NodeRecord, PortRecord, LinkRecord } from '../constants/flowdesigner.model';
+import {
+	NodeRecord,
+	NestedNodeRecord,
+	PortRecord,
+	LinkRecord,
+} from '../constants/flowdesigner.model';
 import {
 	State,
 	NodeRecord as NodeRecordType,
+	NestedNodeRecord as NestedNodeRecordType,
 	PortRecord as PortRecordType,
 	LinkRecord as LinkRecordType,
 	Id,
@@ -251,5 +257,34 @@ describe('Testing node selectors', () => {
 
 	it('node4 should have node6, node7, node8 as successors', () => {
 		expect(Selectors.getSuccessors(givenState, 'id4')).toMatchSnapshot();
+	});
+});
+
+describe('Testing node selectors on nested nodes', () => {
+	const nodeA1 = new NestedNodeRecord({
+		id: 'nodeIdA1',
+		components: List(),
+	});
+	const nodeA = new NestedNodeRecord({
+		id: 'nodeIdA',
+		components: List([nodeA1]),
+	});
+
+	const nodeB = new NestedNodeRecord({
+		id: 'nodeIdB',
+	});
+
+	const givenState: State = Map({
+		nodes: Map<Id, NestedNodeRecordType>().set('nodeIdA', nodeA).set('nodeIdB', nodeB),
+		// eslint-disable-next-line new-cap
+		ports: OrderedMap<Id, PortRecordType>(),
+		links: Map<Id, LinkRecordType>(),
+		parents: Map<Id, Map<Id, Id>>(),
+		childrens: Map<Id, Map<Id, Id>>(),
+	});
+
+	it('nodeA should not have 1 embeded child and node B 0 children', () => {
+		expect(givenState.get('nodes').get('nodeIdA').get('components').size).toBe(1);
+		expect(givenState.get('nodes').get('nodeIdB').get('components').size).toBe(0);
 	});
 });
