@@ -37,7 +37,7 @@ module.exports = class AppGenerator extends Generator {
 		this.year = d.getFullYear();
 
 		const templates = ['package.json', 'README.md'];
-		templates.forEach((name) => {
+		templates.forEach(name => {
 			this.fs.copyTpl(
 					this.templatePath(name),
 					this.destinationPath(name),

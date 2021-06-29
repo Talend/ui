@@ -43,7 +43,7 @@ const Generator = require('yeoman-generator');
 			default: 'src/VirtualizedList/',
 		}];
 
-		return this.prompt(prompts).then((props) => {
+		return this.prompt(prompts).then(props => {
 			this.props = Object.assign(props, {
 				name: `Cell${props.name}`,
 				cssSelector: `tc-list-${props.cssSelector}`,
