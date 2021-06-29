@@ -11,7 +11,7 @@ interface ConversionOptions {
 }
 
 interface Map {
-	[key: string]: any
+	[key: string]: object,
   }
 
 /**
@@ -213,7 +213,7 @@ export const localizedFormat = (t: any) => ({
  * @param {string} lang The user language
  * @returns {String} The date formated using the user language.
  */
-export const dateFormat = (date: DateFnsFormatInput, localizedDateFormat: string, lang: string) => {
+export const dateFormat = (date: DateFnsFormatInput, localizedDateFormat: string, lang: string): string => {
 	return format(parse(date), localizedDateFormat, { locale: locales[lang] });
 };
 
