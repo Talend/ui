@@ -180,7 +180,7 @@ export const dateOptions = {
 	MY_LONG: { year: 'numeric', month: 'long' }, // en: June 2020 / fr: juin 2020 / ja: 2020年6月
 	MDY: { year: 'numeric', month: '2-digit', day: '2-digit' }, // en: 06/29/2020 / fr: 29/06/2020 / ja: 2020/06/29
 	MDYHM: { dateStyle: 'short', timeStyle: 'short' }, // en: 6/29/20, 10:00 PM / fr: 29/06/2020 22:00 / ja: 2020/06/29 22:00
-}
+};
 
 export const dateFormat = (date: DateFnsFormatInput, options: any, lang: string): string => {
 	return new Intl.DateTimeFormat(lang, options).format(parse(date));

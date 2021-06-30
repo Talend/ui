@@ -182,8 +182,6 @@ describe('date', () => {
 	});
 
 	describe('dateFormat', () => {
-		const t = (key: string, value: { defaultValue: string}) => value.defaultValue;
-
 		it('should format date according to the format and the lang', () => {
 			// given
 			const dateObj = new Date('2020-05-13, 20:00');
