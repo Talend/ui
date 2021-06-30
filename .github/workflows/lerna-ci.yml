@@ -44,7 +44,6 @@ jobs:
         id: lint
         run: |
           yarn lint
-          echo "::set-output name=STATUS::$STATUS"
 
       - name: Lint
         continue-on-error: true
