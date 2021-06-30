@@ -2,8 +2,8 @@ import {
 	convertToLocalTime,
 	convertToTimeZone,
 	convertToUTC,
-	dateFormat,
-	dateOptions,
+	format,
+	FORMAT,
 	formatReadableUTCOffset,
 	formatToTimeZone,
 	getUTCOffset,
@@ -187,7 +187,7 @@ describe('date', () => {
 			const dateObj = new Date('2020-05-13, 20:00');
 
 			// when
-			const formatedDate = dateFormat(dateObj, dateOptions.MDY_LONG, 'en');
+			const formatedDate = format(dateObj, FORMAT.MDY_LONG, 'en');
 
 			// then
 			expect(formatedDate).toEqual('May 13, 2020');
@@ -198,7 +198,7 @@ describe('date', () => {
 			const dateObj = new Date('2020-05-13, 20:00');
 
 			// when
-			const formatedDate = dateFormat(dateObj, dateOptions.MY_LONG, 'fr');
+			const formatedDate = format(dateObj, FORMAT.MY_LONG, 'fr');
 
 			// then
 			expect(formatedDate).toEqual('mai 2020');
