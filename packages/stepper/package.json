@@ -15,7 +15,7 @@
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
     "test:demo": "build-storybook",
     "lint:es": "talend-scripts lint:es --format compact",
-    "lint": "npm run lint:es --format compact",
+    "lint": "npm run lint:es",
     "start": "start-storybook -p 6009"
   },
   "keywords": [

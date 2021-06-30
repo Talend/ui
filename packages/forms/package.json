@@ -13,8 +13,8 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "build-storybook",
-    "lint:es": "talend-scripts lint:es --ignore-pattern deprecated",
-    "lint:style": "sass-lint -v -q",
+    "lint:es": "talend-scripts lint:es --format compact --ignore-pattern deprecated",
+    "lint:style": "talend-scripts lint:style -f compact",
     "lint": "yarn run lint:es && yarn run lint:style",
     "start": "start-storybook -p 6008"
   },
@@ -77,7 +77,6 @@
     "react-dom": "^16.13.1",
     "react-i18next": "^11.8.13",
     "react-test-renderer": "^16.13.1",
-    "sass-lint": "^1.13.1",
     "storybook-addon-i18next": "^1.2.1"
   },
   "peerDependencies": {

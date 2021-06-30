@@ -15,7 +15,7 @@
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-sagas",
     "lint:es": "talend-scripts lint:es --format compact",
-    "lint:style": "sass-lint -v -q"
+    "lint:style": "talend-scripts lint:style --format compact"
   },
   "keywords": [
     "react",
