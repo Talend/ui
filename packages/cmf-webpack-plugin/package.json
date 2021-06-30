@@ -10,7 +10,7 @@
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
     "test:cov": "npm run test",
     "test:demo": "echo nothing to do",
-    "lint:es": "talend-scripts lint:es"
+    "lint:es --format compact": "talend-scripts lint:es --format compact"
   },
   "repository": {
     "type": "git",

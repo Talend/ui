@@ -23,7 +23,7 @@
     "prepare": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
-    "lint:es": "talend-scripts lint:es"
+    "lint:es --format compact": "talend-scripts lint:es --format compact"
   },
   "devDependencies": {
     "@talend/scripts-core": "^9.4.1",

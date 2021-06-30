@@ -18,6 +18,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
+          check-latest: true
           registry-url: 'https://registry.npmjs.org/'
           scope: '@talend'
 
@@ -36,8 +37,8 @@ jobs:
       - name: Install
         run: yarn install --frozen-lockfile
 
-      - name: Test
-        run: yarn test
+      # - name: Test
+      #   run: yarn test
 
       - name: Lint
         continue-on-error: true
@@ -45,16 +46,20 @@ jobs:
         run: |
           yarn lint
 
-      - name: Lint
+      - name: Prettier
         continue-on-error: true
-        run: ./prettier.sh
+        id: prettier
+        run: |
+          ./prettier.sh
+          STATUS=$(git status --short output)
+          echo "::set-output name=STATUS::$STATUS"
 
-      # - name: Commit lint
-      #   uses: actions-js/push@master
-      #   if: steps.lint.outputs.STATUS
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     message: 'chore: lint output'
+      - name: Commit prettier
+        uses: actions-js/push@master
+        if: steps.prettier.outputs.STATUS
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'chore: apply prettier on modified files'
 
       - uses: preactjs/compressed-size-action@v2
         if: github.ref != 'refs/heads/master'

@@ -11,7 +11,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "talend-scripts build:ts:lib",
-    "lint": "talend-scripts lint:es",
+    "lint": "talend-scripts lint:es --format compact",
     "prepublishOnly": "npm run test",
     "prepare": "npm run build",
     "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
