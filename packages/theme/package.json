@@ -11,7 +11,7 @@
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",
     "test:demo": "echo nothing to demo in @talend/bootstrap-theme",
-    "lint:style": "sass-lint -q -v -f compact",
+    "lint:style": "sass-lint -q -v -f json -o stylelint-report.json",
     "lint": "yarn lint:style"
   },
   "keywords": [

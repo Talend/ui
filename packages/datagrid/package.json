@@ -16,8 +16,8 @@
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "build-storybook",
     "lint": "yarn lint:es && yarn lint:style",
-    "lint:es": "talend-scripts lint:es --format compact",
-    "lint:style": "talend-scripts lint:style -f compact"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json"
   },
   "keywords": [
     "react",

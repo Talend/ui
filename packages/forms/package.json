@@ -13,8 +13,8 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "build-storybook",
-    "lint:es": "talend-scripts lint:es --format compact --ignore-pattern deprecated",
-    "lint:style": "talend-scripts lint:style -f compact",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
+    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
     "lint": "yarn run lint:es && yarn run lint:style",
     "start": "start-storybook -p 6008"
   },

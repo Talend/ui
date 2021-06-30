@@ -14,7 +14,7 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "build-storybook",
-    "lint:es": "talend-scripts lint:es --format compact"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "keywords": [
     "react",
