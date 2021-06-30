@@ -15,6 +15,7 @@
     "test:demo": "build-storybook",
     "lint:es": "talend-scripts lint:es --ignore-pattern deprecated",
     "lint:style": "sass-lint -v -q",
+    "lint": "yarn run lint:es && yarn run lint:style",
     "start": "start-storybook -p 6008"
   },
   "keywords": [

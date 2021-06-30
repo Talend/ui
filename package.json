@@ -6,6 +6,7 @@
   },
   "scripts": {
     "prepublishOnly": "lerna exec -- yarn prepublishOnly",
+    "lint": "lerna run --concurrency 1 --no-bail lint",
     "prepare": "lerna exec -- yarn prepare",
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
