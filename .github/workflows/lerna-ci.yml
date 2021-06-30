@@ -48,7 +48,7 @@ jobs:
           node merge-report.js
 
       - name: Annotate Code Linting Results
-        uses: ataylorme/eslint-annotate-action@v1
+        uses: ataylorme/eslint-annotate-action@1.2.0
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           report-json: 'eslint-report.json'
