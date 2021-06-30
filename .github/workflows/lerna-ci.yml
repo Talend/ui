@@ -43,9 +43,10 @@ jobs:
       - name: Lint
         continue-on-error: true
         id: lint
-        run: |
-          yarn lint
-          node merge-report.js
+        run: yarn lint
+
+      - name: Merge lint
+        run: node merge-report.js
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@1.2.0
