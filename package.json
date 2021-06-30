@@ -31,7 +31,6 @@
     "start-theme": "cd packages/theme && yarn start",
     "storybook": "start-storybook -p 6006",
     "bump-version": "lerna version --force-publish --no-git-tag-version --yes",
-    "build-demo": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish": "lerna publish from-package --yes --no-verify-access",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers && npm run extract-i18n-datagrid",
