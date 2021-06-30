@@ -18,4 +18,8 @@ pkgs.forEach(pkg => {
         }
     });
 });
-fs.writeFileSync('eslint-report.json', JSON.stringify(buff, null, 2));
+const target = `${process.cwd()}/eslint-report.json`;
+
+// eslint-disable-next-line no-console
+console.log(`report merge into ${target}`);
+fs.writeFileSync(target, JSON.stringify(buff, null, 2));
