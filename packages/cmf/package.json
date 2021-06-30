@@ -14,7 +14,7 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "jsdoc -c docs.json && cd website && yarn",
-    "lint:es --format compact": "talend-scripts lint:es --format compact",
+    "lint:es": "talend-scripts lint:es --format compact",
     "lint": "talend-scripts lint:es --format compact"
   },
   "keywords": [

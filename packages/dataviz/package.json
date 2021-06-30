@@ -14,7 +14,7 @@
     "prepare": "npm run build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint": "yarn lint:es --format compact",
-    "lint:es --format compact": "talend-scripts lint:es --format compact",
+    "lint:es": "talend-scripts lint:es --format compact",
     "start": "start-storybook -p 6006",
     "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",

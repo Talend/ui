@@ -14,7 +14,7 @@
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",
-    "lint:es --format compact": "talend-scripts lint:es --format compact",
+    "lint:es": "talend-scripts lint:es --format compact",
     "lint": "yarn lint:es && yarn lint:style",
     "start": "start-storybook -p 6006"
   },
