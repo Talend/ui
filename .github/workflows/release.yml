@@ -53,7 +53,11 @@ jobs:
           body: ${{ steps.set-variables.outputs.CHANGELOG }}
           draft: false
           prerelease: false
-      - run: yarn && yarn build-demo && npx surge --project .static --domain ${{ steps.set-variables.outputs.DEMO_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: |
+          yarn
+          yarn test:demo
+          ./.github/workflows/before-surge.sh
+          npx surge --project .static --domain ${{ steps.set-variables.outputs.DEMO_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
 
   update-cdn-content:
     needs: publish-npm
