@@ -51,7 +51,7 @@ jobs:
         uses: ataylorme/eslint-annotate-action@1.2.0
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          report-json: 'eslint-report.json'
+          report-json: ./eslint-report.json
 
       - name: Prettier
         continue-on-error: true
