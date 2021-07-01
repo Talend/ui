@@ -35,7 +35,7 @@ function CustomList(props) {
 				columnData={{ displayMode: List.VList.Boolean.displayMode.ICON }}
 			/>
 			<List.VList.QualityBar label="Quality" dataKey="quality" />
-			<List.VList.Label label="TabLabel" dataKey="tagLabel" />
+			<List.VList.Label label="TagLabel" dataKey="tagLabel" />
 			<List.VList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} disableSort />
 			<List.VList.Text label="Description" dataKey="description" disableSort />
 			<List.VList.Text label="Author" dataKey="author" />
