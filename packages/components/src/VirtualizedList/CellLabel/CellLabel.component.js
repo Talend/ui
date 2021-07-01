@@ -5,10 +5,10 @@ import Tag from '../../Tag';
 /**
  * Cell renderer that displays a label
  */
-function CellLabel({ cellData, rowIndex, style = 'info', ...rest }) {
+function CellLabel({ cellData, rowIndex, ...rest }) {
 	return (
-		<Tag id={`${rowIndex}`} bsStyle={cellData.style}>
-			{cellData.label}
+		<Tag id={`${rowIndex}`} bsStyle={cellData.style || 'info'}>
+			{typeof cellData === 'string' ? cellData : cellData.label}
 		</Tag>
 	);
 }
@@ -16,11 +16,16 @@ function CellLabel({ cellData, rowIndex, style = 'info', ...rest }) {
 CellLabel.displayName = 'VirtualizedList(CellLabel)';
 CellLabel.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
-	cellData: PropTypes.string,
+	cellData: PropTypes.oneOf([
+		PropTypes.string,
+		PropTypes.shape({
+			label: PropTypes.string,
+			// the bootstrap style info, danger, warning, success
+			style: PropTypes.string,
+		}),
+	]),
 	// The collection item index.
 	rowIndex: PropTypes.number,
-	// the bootstrap style info, danger, warning, success
-	style: PropTypes.string,
 };
 
 export default CellLabel;
