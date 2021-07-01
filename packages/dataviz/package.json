@@ -67,8 +67,6 @@
     "@types/topojson-client": "^3.0.0",
     "@types/topojson-specification": "^1.0.1",
     "cross-env": "^5.2.0",
-    "enzyme": "^3.11.0",
-    "eslint": "^6.5.1",
     "i18next": "^20.1.0",
     "i18next-scanner": "^3.0.0",
     "i18next-scanner-typescript": "^1.0.6",
