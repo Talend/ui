@@ -27,6 +27,9 @@ jobs:
 
       - name: Install
         run: |
+          git fetch origin master
+          git checkout master
+          git checkout -
           git diff --name-only master > ../../master.diff.log
           yarn install --frozen-lockfile
 
