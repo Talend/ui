@@ -8,30 +8,35 @@ const pkgs = fs.readdirSync(ROOT);
 let buff = [];
 let files = [];
 
-const diffPath = `${process.cwd()}/master.diff.log`;
+// gather diff from trilom/file-changes-action
+const diffPath = `${process.cwd()}/files.json`;
+
 if (fs.existsSync(diffPath)) {
 	// eslint-disable-next-line no-console
 	console.log('found diff files');
-	files = fs.readFileSync(diffPath).toString().split(EOL);
+	files = JSON.parse(fs.readFileSync(diffPath).toString());
+	console.log(files);
 }
+
 function onlyIfInDiff(lint) {
-    return !!files.find(f => lint.filePath.endsWith(`/${f}`))
+	return !!files.find(f => lint.filePath.endsWith(`/${f}`));
 }
+
 function transform(item) {
-    if (item.source && !item.filePath) {
-        item.filePath = item.source;
-        delete item.source;
-    }
-    if (item.warnings && !item.messages) {
-        item.messages = item.warnings.map(w => ({
-            ...w,
-            severity: w.severity === 'error' ? 2 : 1,
-            message: w.text,
-            ruleId: w.rule,
-        }));
-        delete item.warning;
-    }
-    return item;
+	if (item.source && !item.filePath) {
+		item.filePath = item.source;
+		delete item.source;
+	}
+	if (item.warnings && !item.messages) {
+		item.messages = item.warnings.map(w => ({
+			...w,
+			severity: w.severity === 'error' ? 2 : 1,
+			message: w.text,
+			ruleId: w.rule,
+		}));
+		delete item.warning;
+	}
+	return item;
 }
 
 pkgs.forEach(pkg => {

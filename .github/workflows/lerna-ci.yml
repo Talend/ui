@@ -23,6 +23,9 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           scope: '@talend'
 
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -36,9 +39,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install
-        run: |
-          git diff --name-only master > master.diff.log
-          yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       # - name: Test
       #   run: yarn test

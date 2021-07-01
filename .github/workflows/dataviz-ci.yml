@@ -25,13 +25,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           scope: '@talend'
 
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+
       - name: Install
-        run: |
-          git fetch origin master
-          git checkout master
-          git checkout -
-          git diff --name-only HEAD..master > ../../master.diff.log
-          yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       - name: Test
         run: yarn test
