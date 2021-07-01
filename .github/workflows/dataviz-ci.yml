@@ -3,7 +3,8 @@ name: Dataviz module CI
 on:
   pull_request:
     branches: [main, master]
-    paths: packages/dataviz/**
+    paths:
+    - packages/dataviz/**
 
 jobs:
   build:

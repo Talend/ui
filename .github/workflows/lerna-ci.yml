@@ -41,14 +41,17 @@ jobs:
       # - name: Test
       #   run: yarn test
 
-      - name: Lint
+      - name: eslint
         continue-on-error: true
-        id: lint
-        # get the diff here to filter in the merge
+        id: eslint
         run: |
           git fetch origin master --depth=1
           git diff --name-only master > master.diff.log
-          yarn lint
+          yarn lint:es
+
+      - name: stylelint
+        continue-on-error: true
+        run: yarn lint:style
 
       - name: Merge lint
         run: node merge-report.js
