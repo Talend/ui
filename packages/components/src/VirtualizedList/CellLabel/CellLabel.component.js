@@ -6,8 +6,9 @@ import Tag from '../../Tag';
  * Cell renderer that displays a label
  */
 function CellLabel({ cellData, rowIndex }) {
+	const label = typeof cellData === 'string' ? cellData : cellData.label;
 	return (
-		<Tag id={`${rowIndex}`} bsStyle={cellData.style || 'info'}>
+		<Tag id={`${rowIndex}`} bsStyle={cellData.style || 'info'} title={label}>
 			{typeof cellData === 'string' ? cellData : cellData.label}
 		</Tag>
 	);
