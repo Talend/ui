@@ -36,7 +36,9 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: |
+          git diff --name-only master > master.diff.log
+          yarn install --frozen-lockfile
 
       # - name: Test
       #   run: yarn test
@@ -44,10 +46,7 @@ jobs:
       - name: eslint
         continue-on-error: true
         id: eslint
-        run: |
-          git fetch
-          git diff --name-only master > master.diff.log
-          yarn lint:es
+        run: yarn lint:es
 
       - name: stylelint
         continue-on-error: true
