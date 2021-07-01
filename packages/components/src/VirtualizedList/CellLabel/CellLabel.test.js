@@ -7,7 +7,7 @@ import CellLabel from './CellLabel.component';
 describe('CellLabel', () => {
 	it('should default render', () => {
 		// given
-		const label = 'my label';
+		const label = { label: 'my label', style: 'info' };
 		// when
 		const wrapper = mount(<CellLabel cellData={label} rowIndex={25} />);
 		// then

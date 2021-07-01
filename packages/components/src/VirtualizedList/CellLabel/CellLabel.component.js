@@ -5,10 +5,10 @@ import Tag from '../../Tag';
 /**
  * Cell renderer that displays a label
  */
-function CellLabel({ cellData, rowIndex }) {
+function CellLabel({ cellData, rowIndex, style = 'info', ...rest }) {
 	return (
-		<Tag id={`${rowIndex}`} bsStyle="info">
-			{cellData}
+		<Tag id={`${rowIndex}`} bsStyle={cellData.style}>
+			{cellData.label}
 		</Tag>
 	);
 }
@@ -19,6 +19,8 @@ CellLabel.propTypes = {
 	cellData: PropTypes.string,
 	// The collection item index.
 	rowIndex: PropTypes.number,
+	// the bootstrap style info, danger, warning, success
+	style: PropTypes.string,
 };
 
 export default CellLabel;
