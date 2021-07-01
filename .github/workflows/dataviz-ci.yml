@@ -31,5 +31,22 @@ jobs:
       - name: Test
         run: yarn test
 
-      - name: Lint
-        run: yarn lint
+      - name: eslint
+        continue-on-error: true
+        run: yarn lint:es
+
+      - name: stylelint
+        continue-on-error: true
+        run: yarn lint:style
+
+      - name: Annotate eslint Results
+        uses: ataylorme/eslint-annotate-action@1.2.0
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          report-json: ./eslint-report.json
+
+      - name: Annotate stylelint Results
+        uses: ataylorme/eslint-annotate-action@1.2.0
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          report-json: ./stylelint-report.json
