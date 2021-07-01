@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main, master]
     paths:
-    - packages/dataviz/**
+      - packages/dataviz/**
 
 jobs:
   build:
