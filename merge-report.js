@@ -17,19 +17,36 @@ if (fs.existsSync(diffPath)) {
 function onlyIfInDiff(lint) {
     return !!files.find(f => lint.filePath.endsWith(`/${f}`))
 }
+function transform(item) {
+    if (item.source && !item.filePath) {
+        item.filePath = item.source;
+        delete item.source;
+    }
+    if (item.warnings && !item.messages) {
+        item.messages = item.warnings.map(w => ({
+            ...w,
+            severity: w.severity === 'error' ? 2 : 1,
+            message: w.text,
+            ruleId: w.rule,
+        }));
+        delete item.warning;
+    }
+    return item;
+}
 
 pkgs.forEach(pkg => {
 	reports.forEach(report => {
 		const fpath = `${ROOT}/${pkg}/${report}`;
 		if (fs.existsSync(fpath)) {
 			try {
-				buff = buff.concat(JSON.parse(fs.readFileSync(fpath)).filter(onlyIfInDiff));
+				buff = buff.concat(JSON.parse(fs.readFileSync(fpath)).map(transform).filter(onlyIfInDiff));
 			} catch (e) {
 				console.error(e);
 			}
 		}
 	});
 });
+
 const target = `${process.cwd()}/eslint-report.json`;
 
 // eslint-disable-next-line no-console

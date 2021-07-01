@@ -26,7 +26,10 @@ jobs:
           scope: '@talend'
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: |
+          git fetch origin master --depth=1
+          git diff --name-only master > ../../master.diff.log
+          yarn install --frozen-lockfile
 
       - name: Test
         run: yarn test
@@ -39,14 +42,12 @@ jobs:
         continue-on-error: true
         run: yarn lint:style
 
-      - name: Annotate eslint Results
-        uses: ataylorme/eslint-annotate-action@1.2.0
-        with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          report-json: ./packages/dataviz/eslint-report.json
+      - name: Merge lint
+        working-directory: ./
+        run: node merge-report.js
 
-      - name: Annotate stylelint Results
+      - name: Annotate lint Results
         uses: ataylorme/eslint-annotate-action@1.2.0
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          report-json: ./packages/dataviz/stylelint-report.json
+          report-json: ./eslint-report.json
