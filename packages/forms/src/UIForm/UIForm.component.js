@@ -20,7 +20,7 @@ import theme from './UIForm.scss';
 import { WidgetContext } from './context';
 import widgets from './utils/widgets';
 
-var a = 'should trigger lint error';
+
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
 

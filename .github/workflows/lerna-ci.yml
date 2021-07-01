@@ -14,6 +14,7 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v2
 
+
       - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
@@ -43,7 +44,11 @@ jobs:
       - name: Lint
         continue-on-error: true
         id: lint
-        run: yarn lint
+        # get the diff here to filter in the merge
+        run: |
+          git fetch origin master --depth=1
+          git diff --name-only master > master.diff.log
+          yarn lint
 
       - name: Merge lint
         run: node merge-report.js
@@ -53,6 +58,8 @@ jobs:
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           report-json: ./eslint-report.json
+          # do not work, the option in the doc is not in the code
+          only-pr-files: true
 
       - name: Prettier
         continue-on-error: true
