@@ -43,10 +43,10 @@ jobs:
         uses: ataylorme/eslint-annotate-action@1.2.0
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          report-json: ./eslint-report.json
+          report-json: ./packages/dataviz/eslint-report.json
 
       - name: Annotate stylelint Results
         uses: ataylorme/eslint-annotate-action@1.2.0
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          report-json: ./stylelint-report.json
+          report-json: ./packages/dataviz/stylelint-report.json
