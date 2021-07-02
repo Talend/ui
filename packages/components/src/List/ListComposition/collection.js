@@ -305,6 +305,7 @@ for (let i = 0; i < 100; i += 1) {
 			na: 4,
 			onClick: action('onQualityClick'),
 		},
+		tagLabel: { label: 'incorrect', style: 'warning' },
 	});
 }
 
