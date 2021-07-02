@@ -35,9 +35,11 @@ function transform(item) {
 			message: w.text,
 			ruleId: w.rule,
 		}));
+		item.warningCount = item.warnings.length;
 		delete item.warning;
 	} else if (item.messages) {
 		item.messages = item.messages.map(w => ({ ...w, severity: 1 }));
+		item.warningCount += item.errorCount;
 	}
 	return item;
 }
