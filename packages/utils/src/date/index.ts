@@ -1,4 +1,4 @@
-import format from 'date-fns/format';
+import dateFnsFormat from 'date-fns/format';
 import parse from 'date-fns/parse';
 
 type DateFnsFormatInput = Date | number | string;
@@ -6,6 +6,10 @@ type DateFnsFormatInput = Date | number | string;
 interface ConversionOptions {
 	timeZone: string,
 	sourceTimeZone?: string,
+}
+
+interface DateFormatOptions {
+	[key: string]: Intl.DateTimeFormatOptions,
 }
 
 /**
@@ -138,7 +142,7 @@ export function formatToTimeZone(date: DateFnsFormatInput, formatString: string,
 	// Replace timezone token(s) in the string format with timezone values, since format() will use local timezone
 	const dateFnsFormatWithTimeZoneValue = formatTimeZoneTokens(formatString, options.timeZone);
 
-	return format(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue);
+	return dateFnsFormat(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue);
 }
 
 /**
@@ -175,10 +179,45 @@ export function timeZoneExists(timeZone: string): boolean {
 	}
 }
 
+/**
+ * Date format options
+ * @enum string
+ */
+export const FORMAT = {
+	/** en: June 29, 2021 / fr: 29 juin 2020 / ja: 2020年6月29日 / de 29. Juni 2020 */
+	MDY_LONG: 'MDY_LONG',
+	/** en: June 2020 / fr: juin 2020 / ja: 2020年6月 / Juni 2020 */
+	MY_LONG: 'MY_LONG',
+	/** en: 06/29/2020 / fr: 29/06/2020 / ja: 2020/06/29 / de: 29.06.2020 */
+	MDY: 'MDY',
+	/** en: 6/29/20, 10:00 PM / fr: 29/06/2020 22:00 / ja: 2020/06/29 22:00 / de: 29.06.20, 22:00 */
+	MDYHM: 'MDYHM',
+};
+
+const options: DateFormatOptions = {
+	[FORMAT.MDY_LONG]: { year: 'numeric', month: 'long', day: 'numeric' },
+	[FORMAT.MY_LONG]: { year: 'numeric', month: 'long' },
+	[FORMAT.MDY]: { year: 'numeric', month: '2-digit', day: '2-digit' },
+	[FORMAT.MDYHM]: { dateStyle: 'short', timeStyle: 'short' },
+};
+
+/**
+ * Format a date using Intl.
+ * @param date {DateFnsFormatInput} A date: Date, string or Number
+ * @param dateOption {string} Comes from `FORMAT` enum
+ * @param lang {string} language
+ * @returns The formated date
+ */
+export function format (date: DateFnsFormatInput, dateOption: string, lang: string): string {
+	return new Intl.DateTimeFormat(lang, options[dateOption]).format(parse(date));
+}; 
+
 export default {
 	convertToLocalTime,
 	convertToTimeZone,
 	convertToUTC,
+	format,
+	options,
 	formatReadableUTCOffset,
 	formatToTimeZone,
 	getUTCOffset,
