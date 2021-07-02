@@ -40,6 +40,7 @@ function transform(item) {
 	} else if (item.messages) {
 		item.messages = item.messages.map(w => ({ ...w, severity: 1 }));
 		item.warningCount += item.errorCount;
+		item.errorCount = 0;
 	}
 	return item;
 }
