@@ -9,7 +9,7 @@ let buff = [];
 let files = [];
 
 // gather diff from trilom/file-changes-action
-const diffPath = `${process.cwd()}/files.json`;
+const diffPath = `${process.env.HOME}/files.json`;
 
 if (fs.existsSync(diffPath)) {
 	// eslint-disable-next-line no-console

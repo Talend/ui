@@ -27,6 +27,10 @@ jobs:
 
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
+        with:
+          #https://github.com/trilom/file-changes-action
+          output: 'json'
+          fileOutput: 'json'
 
       - name: Install
         run: yarn install --frozen-lockfile
