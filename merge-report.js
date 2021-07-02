@@ -31,11 +31,13 @@ function transform(item) {
 	if (item.warnings && !item.messages) {
 		item.messages = item.warnings.map(w => ({
 			...w,
-			severity: w.severity === 'error' ? 2 : 1,
+			severity: 1,
 			message: w.text,
 			ruleId: w.rule,
 		}));
 		delete item.warning;
+	} else if (item.messages) {
+		item.messages = item.messages.map(w => ({ ...w, severity: 1 }));
 	}
 	return item;
 }
