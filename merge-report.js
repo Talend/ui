@@ -1,5 +1,5 @@
+/* eslint-disable no-param-reassign */
 const fs = require('fs');
-const EOL = require('os').EOL;
 
 const ROOT = './packages';
 const reports = ['eslint-report.json', 'stylelint-report.json'];
@@ -15,6 +15,7 @@ if (fs.existsSync(diffPath)) {
 	// eslint-disable-next-line no-console
 	console.log('found diff files');
 	files = JSON.parse(fs.readFileSync(diffPath).toString());
+	// eslint-disable-next-line no-console
 	console.log(files);
 }
 
