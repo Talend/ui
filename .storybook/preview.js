@@ -1,4 +1,6 @@
 import React from 'react';
+import prettier from 'prettier/standalone';
+import prettierBabel from 'prettier/parser-babel';
 
 import { addons } from '@storybook/addons';
 import { DocsContainer } from '@storybook/addon-docs';
@@ -104,6 +106,22 @@ export const parameters = {
 		},
 		source: {
 			state: 'open',
+		},
+		transformSource: input => {
+			try {
+				// try to format source
+				const prettierSource = prettier.format(input, {
+					parser: 'babel',
+					plugins: [prettierBabel],
+				});
+				// remove code snippet with selector since is redundant
+				if (prettierSource?.includes('WithSelector')) return ' ';
+				// remove last semicolon added by Prettier
+				if (prettierSource) return prettierSource.trim().slice(0, -1);
+			} catch (e) {
+				// otherwise, return the same string
+				return input;
+			}
 		},
 	},
 	options: {
