@@ -1,8 +1,6 @@
 name: Visual regression testing
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
     types: [labeled]
@@ -10,7 +8,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.label.name == 'need visual approval' }}
+    if: ${{ github.event.label.name == 'need visual approval' || contains(github.event.pull_request.title, 'Release')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
