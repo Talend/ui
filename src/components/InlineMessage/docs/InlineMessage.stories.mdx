@@ -1,9 +1,8 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { ColorPalette, ColorItem, IconItem, IconGallery } from '@storybook/components';
+import { IconItem, IconGallery } from '@storybook/components';
 import { FigmaImage, Use } from '../../../docs';
 import * as Stories from '../InlineMessage.stories';
 
-import tokens from '../../../tokens';
 import { Icon } from '../../Icon';
 import InlineMessage from '../';
 
@@ -144,7 +143,7 @@ Error messages should tell why there was a problem and what could be done to res
 			title: 'A title',
 			description: 'with a description',
 			small: false,
-			withBackground: true,
+			withBackground: false,
 		}}
 		argTypes={{
 			variant: {
