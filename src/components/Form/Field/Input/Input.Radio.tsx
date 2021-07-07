@@ -1,5 +1,4 @@
 import React from 'react';
-import { Radio as ReakitRadio } from 'reakit';
 import styled from 'styled-components';
 
 import { InputProps } from './Input';
@@ -27,12 +26,26 @@ export const SRadio = styled(InlineStyle)<{ readOnly: boolean; checked: boolean 
 `;
 
 const Radio = React.forwardRef<HTMLInputElement, InputProps>(
-	({ id = `radio--${Date.now()}`, label, checked, readOnly, required, children, ...rest }, ref) => (
+	(
+		{
+			id = `radio--${Math.floor(Math.random() * 100)}`,
+			label,
+			checked,
+			readOnly,
+			required,
+			children,
+			...rest
+		},
+		ref,
+	) => (
 		<SRadio readOnly={!!readOnly} checked={!!checked}>
 			<label htmlFor={id}>
-				{!readOnly && (
+				{readOnly ? (
 					// @ts-ignore
-					<ReakitRadio id={id} checked={checked} {...rest} ref={ref} />
+					<input type="hidden" id={id} {...rest} ref={ref} />
+				) : (
+					// @ts-ignore
+					<input type="radio" id={id} checked={checked} {...rest} ref={ref} />
 				)}{' '}
 				<span>
 					{label || children}
