@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.label.name == 'need visual approval' || contains(github.event.pull_request.title, 'Release')}}
+    if: ${{ github.event.label.name == 'need visual approval' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
