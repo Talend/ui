@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 1.3.1
+
+### Patch Changes
+
+- 1b09368: InlineMessage default colors should inherit
+- 215eabe: Read-only Checkbox was not sent to the server
+- e0b28e3: Radio don't change if they are not using Reakit hook
+
 ## 1.3.0
 
 ### Minor Changes
