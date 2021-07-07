@@ -208,7 +208,7 @@ const options: DateFormatOptions = {
  * @param lang {string} language
  * @returns The formated date
  */
-export function format (date: DateFnsFormatInput, dateOption: string, lang: string): string {
+export function format(date: DateFnsFormatInput, dateOption: string, lang: string): string {
 	return new Intl.DateTimeFormat(lang, options[dateOption]).format(parse(date));
 }; 
 
@@ -217,7 +217,7 @@ export default {
 	convertToTimeZone,
 	convertToUTC,
 	format,
-	options,
+	FORMAT,
 	formatReadableUTCOffset,
 	formatToTimeZone,
 	getUTCOffset,
