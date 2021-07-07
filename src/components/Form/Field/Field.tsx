@@ -29,7 +29,7 @@ const Field = React.forwardRef<HTMLInputElement, FieldProps>(
 			label,
 			before,
 			after,
-			id = `field--${new Date()}`,
+			id = `field--${Math.floor(Math.random() * 100)}`,
 			loading,
 			link,
 			hasError,

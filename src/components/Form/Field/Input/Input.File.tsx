@@ -187,7 +187,7 @@ const InputFile = React.forwardRef<HTMLInputElement, FieldProps>((props: FieldPr
 		};
 	}, []);
 
-	const id = `info--${new Date()}`;
+	const id = `info--${Math.floor(Math.random() * 100)}`;
 
 	return (
 		<FileField aria-describedby={id} ref={ref}>

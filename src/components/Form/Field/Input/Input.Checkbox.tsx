@@ -46,7 +46,7 @@ export const SCheckbox = styled(InlineStyle)<{ readOnly: boolean; checked: boole
 const Checkbox = React.forwardRef<HTMLInputElement, InputProps>(
 	(
 		{
-			id = `checkbox--${Date.now()}`,
+			id = `checkbox--${Math.floor(Math.random() * 100)}`,
 			label,
 			indeterminate,
 			checked,
