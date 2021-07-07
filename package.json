@@ -76,6 +76,7 @@
     "prettier": "^2.2.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-hook-form": "^7.10.1",
     "react-is": "^16.13.1",
     "storybook-addon-mdx-embed": "^0.0.19",
     "storybook-docs-toc": "^1.6.0",

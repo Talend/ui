@@ -73,7 +73,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, InputProps>(
 		return (
 			<SCheckbox readOnly={!!readOnly} checked={!!checked}>
 				<label htmlFor={id}>
-					{!readOnly && (
+					{readOnly ? (
+						// @ts-ignore
+						<input type="hidden" id={id} {...rest} {...checkbox} ref={ref} />
+					) : (
 						// @ts-ignore
 						<ReakitCheckbox id={id} {...rest} {...checkbox} ref={ref} />
 					)}

@@ -108,16 +108,24 @@ export const parameters = {
 			state: 'open',
 		},
 		transformSource: input => {
-			try {
-				// try to format source
-				const prettierSource = prettier.format(input, {
+			const format = source =>
+				prettier.format(source, {
 					parser: 'babel',
 					plugins: [prettierBabel],
 				});
-				// remove code snippet with selector since is redundant
-				if (prettierSource?.includes('WithSelector')) return ' ';
+			// remove code snippet with selector since is redundant
+			if (input?.includes('WithSelector')) {
+				return ' ';
+			}
+			try {
+				// if wrapped into an arrow function
+				if (input?.trim().startsWith('(')) {
+					const body = input.replace(/\((.*)\) => {((.|\n)*)}/gm, '$2');
+					return format(body).trim();
+				}
+				// try to format JSX
 				// remove last semicolon added by Prettier
-				if (prettierSource) return prettierSource.trim().slice(0, -1);
+				return format(input).trim().slice(0, -1);
 			} catch (e) {
 				// otherwise, return the same string
 				return input;

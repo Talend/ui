@@ -1,6 +1,9 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
+import InlineMessage from '../../InlineMessage';
+import Button from '../../Button';
 import Form from '../';
+import { useForm } from 'react-hook-form';
 
 <Meta title="Components/Form/Fields/Checkbox" />
 
@@ -74,6 +77,49 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 	</Story>
 </Canvas>
 
+### Multiple checkboxes
+
+<Canvas>
+	<Story name="checkboxes">
+		{() => {
+			const { register, handleSubmit } = useForm();
+			const [formData, setFormData] = React.useState();
+			return (
+				<Form onSubmit={handleSubmit(setFormData)}>
+					{formData && (
+						<InlineMessage.Information
+							title={'Form data'}
+							description={JSON.stringify(formData, null, 2)}
+							withBackground
+						/>
+					)}
+					<Form.Fieldset legend="Pick one or multiple options" required>
+						<Form.Checkbox label="Option A" {...register('option-a')} />
+						<Form.Checkbox label="Option B" checked {...register('option-b')} />
+					</Form.Fieldset>
+					<Form.Fieldset legend="Pick one or multiple inline options" required>
+						<Form.Row>
+							<Form.Checkbox label="Inline option A" {...register('inline-option-a')} />
+							<Form.Checkbox label="Inline option B" checked {...register('inline-option-b')} />
+						</Form.Row>
+					</Form.Fieldset>
+					<Form.Fieldset legend="Read only are sent" required readOnly>
+						<Form.Checkbox label="Option C" {...register('option-c')} />
+						<Form.Checkbox label="Option D" checked {...register('option-d')} />
+					</Form.Fieldset>
+					<Form.Fieldset legend="Disabled are not sent" required disabled>
+						<Form.Checkbox label="Option E" {...register('inline-option-e')} />
+						<Form.Checkbox label="Option F" checked {...register('inline-option-f')} />
+					</Form.Fieldset>
+					<Form.Buttons>
+						<Button.Primary type="submit">Submit</Button.Primary>
+					</Form.Buttons>
+				</Form>
+			);
+		}}
+	</Story>
+</Canvas>
+
 ## Content
 
 Checkboxes appear as a list on UI so it's important to make their labels as parallel as possible without twisting the language too much. It’s important to have parallelism, but not at the expense of comprehension.
@@ -106,13 +152,18 @@ Checkboxes appear as a list on UI so it's important to make their labels as para
 
 ## Usage
 
+export const Template = args => {
+	const Component = Form.Checkbox;
+	Component.displayName = 'Form.Checkbox';
+	return <Component {...args} />;
+};
+
 <Canvas>
 	<Story
 		name="basic"
 		args={{
 			label: 'Checkbox',
 			indeterminate: false,
-			checked: false,
 			readOnly: false,
 			disabled: false,
 		}}
@@ -149,7 +200,7 @@ Checkboxes appear as a list on UI so it's important to make their labels as para
 			},
 		}}
 	>
-		{props => <Form.Checkbox {...props} />}
+		{Template.bind({})}
 	</Story>
 </Canvas>
 
