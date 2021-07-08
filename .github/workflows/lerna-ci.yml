@@ -64,7 +64,6 @@ jobs:
 
       - name: Lint
         continue-on-error: true
-
         run: ./prettier.sh
 
       - name: Commit lint
