@@ -78,7 +78,7 @@
 .checkbox-inline {
 	margin-top: 0;
 
-	&:focus-within label {
+	&:focus-within > label {
 		@include outline();
 	}
 
@@ -132,6 +132,18 @@
 		margin: 0;
 	}
 }
+
+.focus-outline-hidden {
+	.radio,
+	.radio-inline,
+	.checkbox,
+	.checkbox-inline {
+		&.ally-focus-within label {
+			outline: none;
+		}
+	}
+}
+
 
 .has-warning {
 }
