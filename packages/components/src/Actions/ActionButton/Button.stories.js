@@ -166,6 +166,7 @@ storiesOf('Buttons/Button', module)
 			hideLabel: [false, true],
 			inProgress: [true, false],
 			disabled: [false, true],
-			tooltipLabel: [undefined, 'Tooltip custom label'],
+			tooltip: [true],
+			tooltipLabel: ['Tooltip custom label'],
 		}),
 	);
