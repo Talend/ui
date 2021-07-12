@@ -51,7 +51,6 @@ export default function Select({
 			id={id}
 			isValid={isValid}
 			label={title}
-			labelAfter
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>

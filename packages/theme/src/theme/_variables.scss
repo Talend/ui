@@ -77,7 +77,7 @@ $line-height-computed: floor(($font-size-base * $line-height-base)) !default; //
 
 $form-label-base-color: $gray400 !default;
 $form-base-font-weight: $font-weight-regular !default;
-$form-input-font-size: 16px !default;
+$form-input-font-size: 14px !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family: inherit !default;
@@ -222,36 +222,36 @@ $btn-line-height: 3.4rem !default;
 //##
 
 //** `<input>` background color
-$input-bg: transparent !default;
+$input-bg: $white !default;
 //** `<input disabled>` background color
 $input-bg-disabled: $gray-lighter !default;
 
 //** Text color for `<input>`s
 $input-color: $gray900 !default;
 //** `<input>` border color
-$input-border: #ccc !default;
+$input-border: #888 !default;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
-$input-border-radius: $border-radius-base !default;
+$input-border-radius: 2px !default;
 //** Large `.form-control` border radius
-$input-border-radius-large: $border-radius-large !default;
+$input-border-radius-large: $input-border-radius !default;
 //** Small `.form-control` border radius
-$input-border-radius-small: $border-radius-small !default;
+$input-border-radius-small: $input-border-radius !default;
 
 //** Border color for inputs on focus
-$input-border-focus: #66afe9 !default;
+$input-border-focus: #0675c1 !default;
 
 //** Placeholder text color
-$input-color-placeholder: #999 !default;
+$input-color-placeholder: #888 !default;
 
 //** Default `.form-control` height
-$input-height-base: ($line-height-computed + ($padding-smaller * 2) + 2) !default;
+$input-height-base: 32px !default;
 //** Large `.form-control` height
-$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-small * 2) + 2) !default;
+$input-height-large: $input-height-base !default;
 //** Small `.form-control` height
-$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-smaller * 2) + 2) !default;
+$input-height-small: $input-height-base !default;
 
 //** `.form-group` margin
 $form-group-margin-bottom: 25px !default;
@@ -260,7 +260,7 @@ $legend-color: $gray-dark !default;
 $legend-border-color: #e5e5e5 !default;
 
 //** Background color for textual input addons
-$input-group-addon-bg: $gray-lighter !default;
+$input-group-addon-bg: #eaeaea !default;
 //** Border color for textual input addons
 $input-group-addon-border-color: $input-border !default;
 

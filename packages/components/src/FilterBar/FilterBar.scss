@@ -6,16 +6,15 @@ $tc-filter-bar-width: 250px !default;
 	display: flex;
 	height: $padding-larger;
 	background-color: rgba($silver, 0.2);
-	color: $dove-gray;
-	align-items: top;
 	padding: 0;
 	border-radius: $border-radius-base;
 
 	.search-icon {
 		position: absolute;
+		left: 0;
 		margin: 8px 0;
 		height: $svg-md-size;
-		width: $svg-md-size;
+		width: $padding-larger;
 		fill: $gray;
 	}
 
@@ -24,14 +23,9 @@ $tc-filter-bar-width: 250px !default;
 		display: flex;
 		flex-grow: 1;
 		input {
-			padding-left: 40px;
+			padding-left: $padding-larger;
 			padding-right: $padding-normal;
 		}
-	}
-
-	:global(.form-group.form-group) {
-		padding: 0 0 0 $padding-small;
-		background: rgba($white, 0.5);
 	}
 
 	.animate {
@@ -43,7 +37,6 @@ $tc-filter-bar-width: 250px !default;
 		box-shadow: none;
 		color: $dove-gray;
 		font-size: $font-size-base;
-		margin: 0 $padding-small 0 0;
 
 		&::placeholder {
 			color: $dark-silver;

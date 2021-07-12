@@ -9,7 +9,6 @@ exports[`Select field should render disabled input 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={true}
 >
   <select
@@ -59,7 +58,6 @@ exports[`Select field should render readOnly input 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={true}
 >
   <select
@@ -108,7 +106,6 @@ exports[`Select field should render select multiple 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={true}
 >
   <select
@@ -162,7 +159,6 @@ exports[`Select field should render simple select 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={true}
 >
   <select
@@ -211,7 +207,6 @@ exports[`Select field should render simple select without placeholder 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={true}
 >
   <select

@@ -39,10 +39,10 @@ class Photos extends React.Component {
 						/>
 					</div>
 					<div className="form-group">
-						<input className="form-control" type="text" id="useless" />
 						<label className="control-label" htmlFor="useless">
 							another
 						</label>
+						<input className="form-control" type="text" id="useless" />
 					</div>
 				</form>
 			</section>

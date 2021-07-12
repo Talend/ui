@@ -10,7 +10,6 @@ $tc-enumeration-item-font-size: 14px;
 $tc-enumeration-item-error-padding: 0 $padding-normal;
 $selected-item-color: #fafafa;
 $item-checkbox-margin: 5px;
-$item-checkbox-height: 10px;
 $item-checkbox-width: 20px;
 
 .tc-enumeration-item {
@@ -101,7 +100,6 @@ $item-checkbox-width: 20px;
 .tc-enumeration-checkbox {
 	display: inline-block;
 	margin: 0 $item-checkbox-margin 0 0;
-	height: $item-checkbox-height;
 	width: $item-checkbox-width;
 	vertical-align: middle;
 	pointer-events: none;

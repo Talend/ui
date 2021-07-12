@@ -2,8 +2,6 @@
 
 .template:global(.required) {
 	> :global(.checkbox:after) {
-		position: static;
-		display: inline;
 		content: '*';
 	}
 	:global {
