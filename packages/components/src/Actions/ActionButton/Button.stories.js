@@ -159,6 +159,7 @@ storiesOf('Buttons/Button', module)
 		'combinations',
 		withPropsCombinations(ActionButton, {
 			label: ['Click me'],
+			bsStyle: ['default', 'primary', 'success', 'info', 'warning', 'danger', 'link', 'info btn-inverse'],
 			icon: ['talend-dataprep'],
 			'data-feature': ['my.feature'],
 			onClick: [action('You clicked me')],
