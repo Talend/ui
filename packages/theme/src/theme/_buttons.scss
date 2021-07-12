@@ -68,6 +68,9 @@
 		&:hover,
 		&:focus,
 		&.focus {
+			color: var(--t-button-color);
+			background-color: var(--t-button-background-color);
+			border-color: var(--t-button-border-color);
 			opacity: 0.54;
 			cursor: not-allowed;
 		}
@@ -142,6 +145,12 @@
 		&:hover,
 		&:active {
 			--t-button-background-color: var(--t-button-secondary-background--hover);
+		}
+
+		&[disabled] {
+			&:hover {
+				--t-button-background-color: transparent;
+			}
 		}
 	}
 
