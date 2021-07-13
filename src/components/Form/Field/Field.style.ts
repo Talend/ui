@@ -159,6 +159,15 @@ export const InlineStyle = styled.div.attrs<{ readOnly: boolean; checked: boolea
 	}
 
 	input:focus:not(:disabled) + span {
+		// Safari
+		outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor[500]};
+	}
+	input:focus:not(:focus-visible):not(:disabled) + span {
+		// Reset for others than Safari
+		outline: none;
+	}
+	input:focus-visible:not(:disabled) + span {
+		// For others than Safari
 		outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor[500]};
 	}
 
