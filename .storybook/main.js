@@ -22,6 +22,9 @@ const designTokensPlugin = () => tree =>
 	});
 
 module.exports = {
+	features: {
+		previewCsfV3: true,
+	},
 	stories: [
 		'../src/Welcome.stories.@(js|tsx|mdx)',
 		'../src/GettingStarted.stories.@(js|tsx|mdx)',
