@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.3.2
+
+### Patch Changes
+
+- 1449872: Focus outline should not be visible using mouse
+
 ## 1.3.1
 
 ### Patch Changes
