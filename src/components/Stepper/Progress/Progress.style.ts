@@ -5,7 +5,7 @@ const progress = keyframes`
 `;
 
 export const Progress = styled.div.attrs({
-	className: 'progress-bar',
+	className: 'c-stepper__progress-bar',
 })`
 	position: absolute;
 

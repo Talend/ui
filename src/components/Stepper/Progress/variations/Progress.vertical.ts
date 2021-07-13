@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Progress from '../Progress';
 
 const ProgressVertical = styled(Progress).attrs({
-	className: 'progress-bar--vertical',
+	className: 'c-stepper__progress-bar--vertical',
 	orientation: 'vertical',
 })`
 	top: 0.1rem;
