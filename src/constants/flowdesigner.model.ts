@@ -101,6 +101,12 @@ export class NodeRecord extends Record({
 export class NestedNodeRecord extends Record({
 	...nodeRecordDefinition,
 	components: List(),
+	getComponents(): Map<string, NestedNodeRecord> {
+		return this.get('components');
+	},
+	setComponents(components: Map<string, NestedNodeRecord>) {
+		return this.set('components', components);
+	},
 	getPosition(): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
