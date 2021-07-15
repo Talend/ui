@@ -219,7 +219,7 @@ const collection = [
 			valid: 3,
 			na: 4,
 			onClick: action('onQualityClick'),
-		}
+		},
 	},
 	{
 		id: 1,
@@ -237,7 +237,7 @@ const collection = [
 			valid: 3,
 			na: 4,
 			onClick: action('onQualityClick'),
-		}
+		},
 	},
 	{
 		id: 2,

@@ -2,6 +2,8 @@ import {
 	convertToLocalTime,
 	convertToTimeZone,
 	convertToUTC,
+	format,
+	FORMAT,
 	formatReadableUTCOffset,
 	formatToTimeZone,
 	getUTCOffset,
@@ -176,6 +178,30 @@ describe('date', () => {
 
 			// then
 			expect(exists).toBe(false);
+		});
+	});
+
+	describe('dateFormat', () => {
+		it('should format date according to the format and the lang', () => {
+			// given
+			const dateObj = new Date('2020-05-13, 20:00');
+
+			// when
+			const formatedDate = format(dateObj, FORMAT.MDY_LONG, 'en');
+
+			// then
+			expect(formatedDate).toEqual('May 13, 2020');
+		});
+
+		it('should format date according to the format and the lang', () => {
+			// given
+			const dateObj = new Date('2020-05-13, 20:00');
+
+			// when
+			const formatedDate = format(dateObj, FORMAT.MY_LONG, 'fr');
+
+			// then
+			expect(formatedDate).toEqual('mai 2020');
 		});
 	});
 });
