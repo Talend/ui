@@ -13,7 +13,7 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-cmf-cqrs",
-    "lint:es": "talend-scripts lint:es"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "repository": {
     "type": "git",

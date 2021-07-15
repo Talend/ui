@@ -14,8 +14,8 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-sagas",
-    "lint:es": "talend-scripts lint:es",
-    "lint:style": "sass-lint -v -q"
+    "lint": "yarn lint:es",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "keywords": [
     "react",

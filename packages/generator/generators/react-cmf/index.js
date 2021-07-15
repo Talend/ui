@@ -42,6 +42,7 @@ module.exports = class CMFAppGenerator extends Generator {
 			this.fs.copyTpl(this.templatePath(name), this.destinationPath(name), this);
 		});
 	}
+
 	install() {
 		if (this.options.yarn) {
 			this.yarnInstall();
