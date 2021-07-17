@@ -89,6 +89,7 @@ function sortObject(object) {
 		.reduce((state, key) => ({ ...state, [key]: object[key] }), {});
 }
 
+
 module.exports = {
 	concatMerge,
 	findJson,
