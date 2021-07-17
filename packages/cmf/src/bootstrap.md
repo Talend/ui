@@ -78,3 +78,32 @@ In bootstrap you can pass the following options
 | attribute | default value | description                                        |
 | --------- | ------------- | -------------------------------------------------- |
 | reportURL | undefined     | the error where to post. For example '/api/errors' |
+
+## The case of angular
+
+If you are using ngreact and you want to leverage cmf here is how you should call bootstrap:
+
+```javascript
+import cmf from '@talend/react-cmf';
+
+import containersModule from '@talend/react-containers';
+import components from './components';
+import saga from './saga';
+import sagas from './sagas';
+
+const setup = cmf.boostrap({
+	nostart: true,
+	components,
+	saga,
+	sagas,
+	modules: [containersModule],
+});
+```
+
+| attributes      | description                              |
+| --------------- | ---------------------------------------- |
+| store           | redux store instance                     |
+| saga.run        | if you want to start the saga middleware |
+| saga.middleware | the instance of saga middleware          |
+| App             | cmf App component to render a CMF App    |
+| cmfModule       | the merged options from all cmfModules   |
