@@ -154,6 +154,18 @@ describe('TreeView item', () => {
 		expect(wrapper.find('TreeViewIcon').dive().getElement()).toMatchSnapshot();
 	});
 
+	it('should render items with classNames', () => {
+		// when
+		const propsWithIconAndTooltip = {
+			...propsWithIcons,
+			item: { ...itemWithIcon, className: 'test-class'},
+		};
+
+		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);
+
+		expect(wrapper.find('li').props().className).toContain('test-class');
+	});
+
 	it('should toggle item on toggle button click', () => {
 		// given
 		const props = {
