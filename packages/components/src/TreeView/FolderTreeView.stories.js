@@ -279,7 +279,7 @@ const withClassNames = {
 			],
 		},
 	]
-}
+};
 
 withDisabledItems.structure = structureWithDisabledActions;
 
