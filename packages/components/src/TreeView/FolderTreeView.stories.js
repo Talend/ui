@@ -518,7 +518,7 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<style>
 				{`
 					.test-class {
-					  background: rgba(0,0,0,0.1);
+						background: rgba(0,0,0,0.1);
 						animation: mymove 2s infinite;
 					}
 					.test-class .tc-treeview-item {
