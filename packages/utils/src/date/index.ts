@@ -8,7 +8,7 @@ interface ConversionOptions {
 	sourceTimeZone?: string,
 }
 
-interface DateFormatOptions {
+export interface DateFormatOptions {
 	[key: string]: Intl.DateTimeFormatOptions,
 }
 
@@ -194,12 +194,12 @@ export const FORMAT = {
 	MDYHM: 'MDYHM',
 };
 
-const options: DateFormatOptions = {
+const options = {
 	[FORMAT.MDY_LONG]: { year: 'numeric', month: 'long', day: 'numeric' },
 	[FORMAT.MY_LONG]: { year: 'numeric', month: 'long' },
 	[FORMAT.MDY]: { year: 'numeric', month: '2-digit', day: '2-digit' },
 	[FORMAT.MDYHM]: { dateStyle: 'short', timeStyle: 'short' },
-};
+} as DateFormatOptions;
 
 /**
  * Format a date using Intl.
@@ -210,7 +210,7 @@ const options: DateFormatOptions = {
  */
 export function format(date: DateFnsFormatInput, dateOption: string, lang: string): string {
 	return new Intl.DateTimeFormat(lang, options[dateOption]).format(parse(date));
-}; 
+};
 
 export default {
 	convertToLocalTime,
