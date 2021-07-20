@@ -72,3 +72,15 @@ Check wether a timezone exists or not.
 | `timeZone`         | Timezone to check                                | Date |
 
 **Return**: Boolean
+
+### format(date, dateOption, lang)
+
+Format a date to a specific format and in the expected language.
+
+| Argument           |           Description                                       | Type                     |
+|--------------------|-------------------------------------------------------------|--------------------------|
+| `date`             | Date to format                                              | Date \| number \| string |
+| `dateOption`       | Comes from utils.FORMAT: MDY_LONG, MY_LONG, MDY, MDYHM, ... | string                   |
+| `lang`             | The lang: en, fr, ja, de, ...                               | string                   |
+
+**Return**: String

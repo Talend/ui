@@ -14,7 +14,8 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "jsdoc -c docs.json && cd website && yarn",
-    "lint:es": "talend-scripts lint:es"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "keywords": [
     "react",
@@ -79,5 +80,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.30.0"
+  "version": "6.32.0"
 }

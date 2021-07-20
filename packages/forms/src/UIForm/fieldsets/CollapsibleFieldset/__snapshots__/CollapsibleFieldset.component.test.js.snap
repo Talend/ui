@@ -17,14 +17,11 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
     id="my-fieldset"
     onToggle={[Function]}
   >
-    <div>
-      <p
-        className="help-block"
-        id="my-fieldset-description"
-      >
-        This is description
-      </p>
-    </div>
+    <InlineMessage
+      description="This is description"
+      id="my-fieldset-description"
+      small={true}
+    />
     <Widget
       id="my-fieldset"
       schema={
@@ -92,14 +89,11 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
     id="my-fieldset"
     onToggle={[Function]}
   >
-    <div>
-      <p
-        className="help-block"
-        id="my-fieldset-description"
-      >
-        This is description
-      </p>
-    </div>
+    <InlineMessage
+      description="This is description"
+      id="my-fieldset-description"
+      small={true}
+    />
     <Widget
       id="my-fieldset"
       schema={
@@ -167,14 +161,11 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
     id="my-fieldset"
     onToggle={[Function]}
   >
-    <div>
-      <p
-        className="help-block"
-        id="my-fieldset-description"
-      >
-        This is description
-      </p>
-    </div>
+    <InlineMessage
+      description="This is description"
+      id="my-fieldset-description"
+      small={true}
+    />
     <Widget
       id="my-fieldset"
       schema={
@@ -242,14 +233,11 @@ exports[`CollapsibleFieldset should render without value 1`] = `
     id="my-fieldset"
     onToggle={[Function]}
   >
-    <div>
-      <p
-        className="help-block"
-        id="my-fieldset-description"
-      >
-        This is description
-      </p>
-    </div>
+    <InlineMessage
+      description="This is description"
+      id="my-fieldset-description"
+      small={true}
+    />
     <Widget
       id="my-fieldset"
       schema={

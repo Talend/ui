@@ -5,6 +5,7 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "main": "index.js",
   "scripts": {
+    "prepare": "echo nothing to prepare",
     "prepublishOnly": "echo nothing to prepublishOnly",
     "test": "echo nothing to test"
   },

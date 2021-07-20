@@ -13,7 +13,7 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-cmf-cqrs",
-    "lint:es": "talend-scripts lint:es"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^6.30.0",
+    "@talend/react-cmf": "^6.32.0",
     "@talend/scripts-core": "^9.11.0",
     "@talend/scripts-preset-react-lib": "^9.8.2",
     "enzyme": "^3.11.0",
@@ -55,5 +55,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.30.0"
+  "version": "6.32.0"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "6.30.0",
+  "version": "6.32.0",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -14,8 +14,8 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-sagas",
-    "lint:es": "talend-scripts lint:es",
-    "lint:style": "sass-lint -v -q"
+    "lint": "yarn lint:es",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "keywords": [
     "react",
@@ -33,7 +33,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^6.30.0",
+    "@talend/react-cmf": "^6.32.0",
     "immutable": "^3.8.1",
     "redux-saga": "^0.15.4"
   },

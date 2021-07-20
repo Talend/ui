@@ -24,7 +24,7 @@ export function getTimezones(lang, cldrTimezones) {
 	const getTimezoneInfo = (timezone, translatedName) => {
 		const timezoneName = translatedName || get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
 		const offset = talendUtils.date.getUTCOffset(timezone);
-		const name = `(${talendUtils.date.formatReadableUTCOffset(offset)}) ${timezoneName}`;
+		const name = `(UTC ${talendUtils.date.formatReadableUTCOffset(offset)}) ${timezoneName}`;
 
 		return { name, timezoneName, offset, value: timezone };
 	};

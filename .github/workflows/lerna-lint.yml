@@ -1,0 +1,76 @@
+name: Lint CI
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Lint
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          check-latest: true
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
+
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: eslint
+        continue-on-error: true
+        id: eslint
+        run: yarn lint:es
+
+      - name: stylelint
+        continue-on-error: true
+        run: yarn lint:style
+
+      - name: Merge lint
+        run: node merge-report.js
+
+      - name: Annotate Code Linting Results
+        continue-on-error: true
+        uses: ataylorme/eslint-annotate-action@1.2.0
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          report-json: ./eslint-report.json
+          # do not work, the option in the doc is not in the code
+          only-pr-files: true
+
+      - name: Prettier
+        continue-on-error: true
+        id: prettier
+        run: |
+          ./prettier.sh
+          STATUS=$(git status --short output)
+          echo "::set-output name=STATUS::$STATUS"
+
+      - name: Commit prettier
+        uses: actions-js/push@master
+        if: steps.prettier.outputs.STATUS
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'chore: apply prettier on modified files'
+

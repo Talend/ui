@@ -10,9 +10,9 @@
     "prepublish": "echo nothing to prepublish",
     "test:cov": "istanbul cover _mocha",
     "test:demo": "echo nothing to demo in generator-talend",
-    "test:lint": "eslint generator/**/index.js",
+    "lint": "eslint generators/**/index.js",
     "test:unit": "mocha --compilers js:@babel/register",
-    "test": "npm run test:lint && npm run test:unit"
+    "test": "npm run lint && npm run test:unit"
   },
   "files": [
     "generators/app",
@@ -46,11 +46,11 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.8.3",
     "babel-eslint": "^10.0.3",
-    "eslint": "^4.0.0",
+    "eslint": "^6.8.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   },
-  "version": "6.30.0"
+  "version": "6.32.0"
 }

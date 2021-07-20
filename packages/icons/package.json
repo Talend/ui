@@ -16,6 +16,7 @@
     "test:cov": "echo no test",
     "test:demo": "node ./scripts/docs.js",
     "start": "echo nothing to start",
+    "lint": "echo nothing to lint",
     "svgo": "svgo -f src/svg --config=.svgo-icons.yml && svgo -f src/filters --config=.svgo-filters.yml"
   },
   "files": [
@@ -60,5 +61,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.30.0"
+  "version": "6.32.0"
 }
