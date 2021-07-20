@@ -13,7 +13,7 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "jsdoc -c docs.json && cd website && yarn",
+    "test:demo": "yarn jsdoc -c ./docs.json && cd website && yarn",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },

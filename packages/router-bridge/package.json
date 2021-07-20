@@ -9,7 +9,8 @@
     "prepublishOnly": "yarn build:dev && yarn build:prod",
     "prepare": "talend-scripts build:lib",
     "build": "talend-scripts build:lib",
-    "test": "talend-scripts test"
+    "test": "talend-scripts test",
+    "test:demo": "echo nothing to do"
   },
   "repository": {
     "type": "git",
