@@ -26,7 +26,7 @@ jobs:
         id: deduplicate
         run: |
           yarn
-          yarn-deduplicate
+          yarn yarn-deduplicate
           echo "::set-output name=diff::$(git status --short yarn.lock)"
 
       - name: Commit dedupe
