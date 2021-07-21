@@ -35,7 +35,7 @@ class CellIconText extends React.Component {
 	render() {
 		const icon = getCellIcon(this.props);
 		const label = getCellLabel(this.props);
-		const { columnData } = this.props;
+		const { columnData = {} } = this.props;
 		const iconTooltip = columnData.iconTooltip;
 
 		return (

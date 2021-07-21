@@ -4,9 +4,13 @@ exports[`CellIconText should render an empty cell 1`] = `
 <div
   className="tc-icon-text theme-tc-icon-text"
 >
-  <span
-    className="theme-label"
-  />
+  <TooltipTrigger
+    tooltipPlacement="top"
+  >
+    <span
+      className="theme-label"
+    />
+  </TooltipTrigger>
 </div>
 `;
 
@@ -17,11 +21,16 @@ exports[`CellIconText should render an icon cell with an icon 1`] = `
   <Icon
     name="talend-list"
   />
-  <span
-    className="theme-label"
+  <TooltipTrigger
+    label="list"
+    tooltipPlacement="top"
   >
-    list
-  </span>
+    <span
+      className="theme-label"
+    >
+      list
+    </span>
+  </TooltipTrigger>
 </div>
 `;
 
@@ -32,10 +41,15 @@ exports[`CellIconText should render an icon cell with an icon using the getIcon 
   <Icon
     name="hihihi-list"
   />
-  <span
-    className="theme-label"
+  <TooltipTrigger
+    label="List"
+    tooltipPlacement="top"
   >
-    List
-  </span>
+    <span
+      className="theme-label"
+    >
+      List
+    </span>
+  </TooltipTrigger>
 </div>
 `;
