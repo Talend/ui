@@ -25,7 +25,7 @@ function CustomList(props) {
 			<List.VList.IconText label="IconText" dataKey="iconAndText" />
 			<List.VList.IconText
 				label="IconText"
-				columnData={{ getIcon: () => 'talend-tdp-colored' }}
+				columnData={{ getIcon: () => 'talend-tdp-colored', iconTooltip: 'TDP' }}
 				dataKey="iconAndTextWithGetter"
 			/>
 			<List.VList.Boolean label="Valid" dataKey="isValid" />

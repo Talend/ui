@@ -2,9 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '../../Icon';
 import { getTheme } from '../../theme';
+import TooltipTrigger from '../../TooltipTrigger';
 import theme from './CellIconText.scss';
 
 const css = getTheme(theme);
+
+const DEFAULT_TOOLTIP_PLACEMENT = 'top';
 
 function getCellIcon({ cellData, rowData, columnData = {} }) {
 	const { getIcon } = columnData;
@@ -32,11 +35,28 @@ class CellIconText extends React.Component {
 	render() {
 		const icon = getCellIcon(this.props);
 		const label = getCellLabel(this.props);
+		const { columnData } = this.props;
+		const iconTooltip = columnData.iconTooltip;
 
 		return (
 			<div className={css('tc-icon-text')}>
-				{icon && <Icon name={icon} />}
-				<span className={theme.label}>{label}</span>
+				{icon &&
+					(iconTooltip ? (
+						<TooltipTrigger
+							label={iconTooltip}
+							tooltipPlacement={columnData.tooltipPlacement || DEFAULT_TOOLTIP_PLACEMENT}
+						>
+							<span><Icon name={icon} /></span>
+						</TooltipTrigger>
+					) : (
+						<Icon name={icon} />
+					))}
+				<TooltipTrigger
+					label={columnData.tooltip || label}
+					tooltipPlacement={columnData.tooltipPlacement || DEFAULT_TOOLTIP_PLACEMENT}
+				>
+					<span className={theme.label}>{label}</span>
+				</TooltipTrigger>
 			</div>
 		);
 	}
@@ -54,6 +74,9 @@ CellIconText.propTypes = {
 	]),
 	columnData: PropTypes.shape({
 		getIcon: PropTypes.func,
+		tooltip: PropTypes.string,
+		tooltipPlacement: PropTypes.string,
+		iconTooltip: PropTypes.string,
 	}).isRequired,
 };
 

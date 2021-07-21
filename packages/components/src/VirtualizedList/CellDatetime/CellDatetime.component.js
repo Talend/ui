@@ -81,7 +81,14 @@ export class CellDatetimeComponent extends React.Component {
 			);
 		}
 
-		return cell;
+		return (
+			<TooltipTrigger
+				label={columnData.tooltipLabel || computedValue}
+				tooltipPlacement={columnData.tooltipPlacement || 'top'}
+			>
+				{cell}
+			</TooltipTrigger>
+		);
 	}
 }
 
@@ -92,6 +99,7 @@ CellDatetimeComponent.propTypes = {
 	// Column data
 	columnData: PropTypes.shape({
 		tooltipPlacement: PropTypes.string,
+		tooltipLabel: PropTypes.string,
 		mode: PropTypes.string.isRequired,
 		pattern: PropTypes.string,
 	}).isRequired,
