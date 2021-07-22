@@ -6,7 +6,6 @@ import Actions from '../Actions/Actions.component';
 import CircularProgress from '../CircularProgress/CircularProgress.component';
 import Icon from '../Icon';
 import Skeleton from '../Skeleton';
-import TooltipTrigger from '../TooltipTrigger';
 
 import css from './Status.scss';
 
@@ -95,7 +94,7 @@ function renderLabel(status, label) {
 	return label;
 }
 
-export function Status({ status, label, icon, actions, progress, tooltipLabel, iconTooltip }) {
+export function Status({ status, label, icon, actions, progress }) {
 	const rootClassnames = classNames(css['tc-status'], 'tc-status', {
 		[css.action]: actions && actions.length,
 	});
@@ -114,16 +113,8 @@ export function Status({ status, label, icon, actions, progress, tooltipLabel, i
 
 	return (
 		<div role="status" className={rootClassnames}>
-			{iconTooltip ? (
-				<TooltipTrigger label={iconTooltip} tooltipPlacement="top">
-					<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
-				</TooltipTrigger>
-			) : (
-				<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
-			)}
-			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement="top">
-				<span className={labelClassNames}>{renderLabel(status, label)}</span>
-			</TooltipTrigger>
+			<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
+			<span className={labelClassNames}>{renderLabel(status, label)}</span>
 			<Actions
 				actions={actions}
 				className={classNames(css['tc-status-actions'], 'tc-status-actions')}
@@ -145,8 +136,6 @@ Status.propTypes = {
 	]),
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 	icon: PropTypes.string,
-	tooltipLabel: PropTypes.string,
-	iconTooltip: PropTypes.string,
 	actions: Actions.propTypes.actions,
 	progress: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

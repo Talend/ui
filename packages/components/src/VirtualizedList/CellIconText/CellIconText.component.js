@@ -24,6 +24,28 @@ function getCellLabel({ cellData }) {
 	return cellData;
 }
 
+function getCellLabelTooltip({ cellData, rowData, columnData = {} }) {
+	const { getLabelTooltip } = columnData;
+	let tooltip = '';
+	if (typeof getLabelTooltip === 'function') {
+		tooltip = getLabelTooltip(rowData);
+	} else if (typeof cellData === 'object') {
+		tooltip = cellData.labelTooltip;
+	}
+	return tooltip;
+}
+
+function getCellIconTooltip({ cellData, rowData, columnData = {} }) {
+	const { getIconTooltip } = columnData;
+	let tooltip = '';
+	if (typeof getIconTooltip === 'function') {
+		tooltip = getIconTooltip(rowData);
+	} else if (typeof cellData === 'object') {
+		tooltip = cellData.iconTooltip;
+	}
+	return tooltip;
+}
+
 /**
  * Cell renderer that displays a boolean
  */
@@ -33,10 +55,11 @@ class CellIconText extends React.Component {
 	}
 
 	render() {
+		const { columnData = {} } = this.props;
 		const icon = getCellIcon(this.props);
 		const label = getCellLabel(this.props);
-		const { columnData = {} } = this.props;
-		const iconTooltip = columnData.iconTooltip;
+		const labelTooltip = getCellLabelTooltip(this.props);
+		const iconTooltip = getCellIconTooltip(this.props);
 
 		return (
 			<div className={css('tc-icon-text')}>
@@ -52,7 +75,7 @@ class CellIconText extends React.Component {
 						<Icon name={icon} />
 					))}
 				<TooltipTrigger
-					label={columnData.tooltip || label}
+					label={labelTooltip || label}
 					tooltipPlacement={columnData.tooltipPlacement || DEFAULT_TOOLTIP_PLACEMENT}
 				>
 					<span className={theme.label}>{label}</span>
@@ -69,14 +92,16 @@ CellIconText.propTypes = {
 		PropTypes.shape({
 			label: PropTypes.string,
 			icon: PropTypes.string,
+			iconTooltip: PropTypes.string,
+			labelTooltip: PropTypes.string,
 		}),
 		PropTypes.string,
 	]),
 	columnData: PropTypes.shape({
 		getIcon: PropTypes.func,
-		tooltip: PropTypes.string,
+		getLabelTooltip: PropTypes.func,
+		getIconTooltip: PropTypes.func,
 		tooltipPlacement: PropTypes.string,
-		iconTooltip: PropTypes.string,
 	}).isRequired,
 };
 
