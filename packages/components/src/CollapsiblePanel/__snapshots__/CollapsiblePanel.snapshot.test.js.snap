@@ -17,9 +17,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                   <coral.icon name="fa fa-check">
                   </coral.icon>
                 </span>
-                <span class="theme-tc-status-label tc-status-label theme-info"
-                      aria-describedby="42"
-                >
+                <span class="theme-tc-status-label tc-status-label theme-info">
                   inProgress
                 </span>
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">
@@ -127,9 +125,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                   <coral.icon name="fa fa-check">
                   </coral.icon>
                 </span>
-                <span class="theme-tc-status-label tc-status-label theme-info"
-                      aria-describedby="42"
-                >
+                <span class="theme-tc-status-label tc-status-label theme-info">
                   inProgress
                 </span>
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">
@@ -234,9 +230,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                   <coral.icon name="fa fa-check">
                   </coral.icon>
                 </span>
-                <span class="theme-tc-status-label tc-status-label theme-info"
-                      aria-describedby="42"
-                >
+                <span class="theme-tc-status-label tc-status-label theme-info">
                   inProgress
                 </span>
                 <div class="tc-actions theme-tc-status-actions tc-status-actions btn-group">

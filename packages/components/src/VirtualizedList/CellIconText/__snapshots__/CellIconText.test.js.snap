@@ -18,9 +18,6 @@ exports[`CellIconText should render an icon cell with an icon 1`] = `
 <div
   className="tc-icon-text theme-tc-icon-text"
 >
-  <Icon
-    name="talend-list"
-  />
   <TooltipTrigger
     label="list"
     tooltipPlacement="top"

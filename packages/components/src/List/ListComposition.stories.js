@@ -15,6 +15,7 @@ const titleProps = rowData => ({
 	iconKey: 'icon',
 	onEditCancel: action('cancel-edit'),
 	onEditSubmit: action('submit-edit'),
+	iconTooltip: 'TDP',
 });
 
 function CustomList(props) {
@@ -25,7 +26,10 @@ function CustomList(props) {
 			<List.VList.IconText label="IconText" dataKey="iconAndText" />
 			<List.VList.IconText
 				label="IconText"
-				columnData={{ getIcon: () => 'talend-tdp-colored', iconTooltip: 'TDP' }}
+				columnData={{
+					getIcon: () => 'talend-tdp-colored',
+					getIconTooltip: ({ iconAndTextWithGetter }) => `${iconAndTextWithGetter}--icon tooltip`
+				}}
 				dataKey="iconAndTextWithGetter"
 			/>
 			<List.VList.Boolean label="Valid" dataKey="isValid" />
