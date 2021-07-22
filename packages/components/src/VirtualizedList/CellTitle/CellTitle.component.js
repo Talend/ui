@@ -87,6 +87,7 @@ class CellTitle extends React.Component {
 					onEditSubmit={onEditSubmit}
 					rowData={rowData}
 					columnData={columnDataRest}
+					tooltip={tooltip}
 				/>
 				<CellTitleActions
 					getComponent={getComponent}
@@ -111,8 +112,8 @@ class CellTitle extends React.Component {
 			>
 				{icon}
 				{disabled ? (
-					<TooltipTrigger label={tooltip} tooltipPlacement="top">
-						<span id={titleId} className={theme['main-title']} title={cellData}>
+					<TooltipTrigger label={tooltip || cellData} tooltipPlacement="top">
+						<span id={titleId} className={theme['main-title']}>
 							{cellData}
 						</span>
 					</TooltipTrigger>
