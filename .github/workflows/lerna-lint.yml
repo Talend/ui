@@ -21,7 +21,7 @@ jobs:
           scope: '@talend'
 
       - id: file_changes
-        uses: trilom/file-changes-action@v1.2.3
+        uses: trilom/file-changes-action@v1.2.4
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
