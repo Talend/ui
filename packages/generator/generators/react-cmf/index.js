@@ -41,7 +41,7 @@ module.exports = class CMFAppGenerator extends Generator {
 		tplToCopy.forEach(name => {
 			this.fs.copyTpl(this.templatePath(name), this.destinationPath(name), this);
 		});
-		this.fs.copy(this.templatePath('eslintrc'), this.destinationPath('.eslintrc'))
+		this.fs.copy(this.templatePath('eslintrc'), this.destinationPath('.eslintrc'));
 	}
 
 	install() {
