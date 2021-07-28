@@ -81,7 +81,7 @@ export function formatReadableUTCOffset(offset: number): string {
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js#L131
  */
 function formatTimeZoneTokens(dateFormat: string, timeZone: string): string {
-	return dateFormat.replace(/(?<!\[)(z|ZZ?)/g, match => {
+	return dateFormat.replace(/(z|ZZ?)(?!\])/g, match => {
 		const offset = getUTCOffset(timeZone);
 		const separator = match === 'Z' ? ':' : '';
 		return formatUTCOffset(offset, separator);
