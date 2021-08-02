@@ -7,6 +7,7 @@ $tc-enumeration-item-error-color: red !default;
 $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
 $tc-enumeration-item-font-size: 14px;
+$tc-enumeration-item-btn-height: 16px;
 $tc-enumeration-item-error-padding: 0 $padding-normal;
 $selected-item-color: #fafafa;
 $item-checkbox-margin: 5px;
@@ -32,7 +33,7 @@ $item-checkbox-width: 20px;
 
 	:global(.btn-link) {
 		padding: 0 $padding-smaller;
-		height: $tc-enumeration-item-font-size;
+		height: $tc-enumeration-item-btn-height;
 
 		:global(.tc-svg-icon) {
 			height: $tc-enumeration-item-font-size;
@@ -62,6 +63,10 @@ $item-checkbox-width: 20px;
 		flex-grow: 0;
 		align-items: center;
 		margin: auto $tc-enumeration-smaller-padding;
+
+		:global(.persistent) {
+			visibility: visible;
+		}
 	}
 
 	.editable {
@@ -122,4 +127,8 @@ $item-checkbox-width: 20px;
 .tc-enumeration-item:hover:not(.selected-item),
 .tc-enumeration-item:not(.selected-item):global(.ally-focus-within) {
 	background-color: rgba(250, 250, 250, 1);
+}
+
+.tc-enumeration-item-actions-persistent {
+	visibility: visible;
 }

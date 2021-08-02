@@ -77,6 +77,10 @@ EnumerationComponent.propTypes = {
 			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 			PropTypes.func,
 		]),
+		actionsDefaultPersistent: PropTypes.oneOfType([
+			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+			PropTypes.func,
+		]),
 		actionsEdit: PropTypes.oneOfType([
 			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 			PropTypes.func,
