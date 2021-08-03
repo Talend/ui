@@ -26,7 +26,7 @@ try {
 	useParams = reactRouterV5.useParams;
 	useRouteMatch = reactRouterV5.useRouteMatch;
 
-	history = createBrowserHistory();
+	history = createBrowserHistory({ basename: window.publicPath || '/' });
 	Router = (...props) => <reactRouterV5.Router {...props} history={history} />;
 } catch (e) {
 	if (process.env.NODE_ENV !== 'production') {
