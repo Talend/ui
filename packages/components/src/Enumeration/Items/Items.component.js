@@ -59,7 +59,7 @@ class Items extends React.PureComponent {
 				if (typeof actions === 'function') {
 					actions = actions(itemWithIndex);
 				}
-				let persistentActions = this.props.itemsProp.actionsDefaultPersistent || [];
+				let persistentActions = this.props.itemsProp.actionsDefaultPersistent;
 				if (typeof persistentActions === 'function') {
 					persistentActions = persistentActions(itemWithIndex);
 				}

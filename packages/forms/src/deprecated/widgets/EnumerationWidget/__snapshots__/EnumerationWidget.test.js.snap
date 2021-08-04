@@ -5086,7 +5086,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   ],
                                   "key": "values",
                                   "onSelectItem": [Function],
-                                  "persistentActions": Array [],
+                                  "persistentActions": undefined,
                                 },
                                 "values": Array [
                                   "titi",
@@ -5106,7 +5106,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 ],
                                 "key": "values",
                                 "onSelectItem": [Function],
-                                "persistentActions": Array [],
+                                "persistentActions": undefined,
                               }
                             }
                             key="0-item"
@@ -6017,7 +6017,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                   ],
                                   "key": "values",
                                   "onSelectItem": [Function],
-                                  "persistentActions": Array [],
+                                  "persistentActions": undefined,
                                 },
                                 "values": Array [
                                   "titi",
@@ -6045,7 +6045,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                 ],
                                 "key": "values",
                                 "onSelectItem": [Function],
-                                "persistentActions": Array [],
+                                "persistentActions": undefined,
                               }
                             }
                             key="0-item"
@@ -7174,7 +7174,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   ],
                                   "key": "values",
                                   "onSelectItem": [Function],
-                                  "persistentActions": Array [],
+                                  "persistentActions": undefined,
                                 },
                                 "values": Array [
                                   "titi",
@@ -7202,7 +7202,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 ],
                                 "key": "values",
                                 "onSelectItem": [Function],
-                                "persistentActions": Array [],
+                                "persistentActions": undefined,
                               }
                             }
                             key="0-item"
@@ -7448,7 +7448,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   ],
                                   "key": "values",
                                   "onSelectItem": [Function],
-                                  "persistentActions": Array [],
+                                  "persistentActions": undefined,
                                 },
                                 "values": Array [
                                   "titi2",
@@ -7476,7 +7476,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 ],
                                 "key": "values",
                                 "onSelectItem": [Function],
-                                "persistentActions": Array [],
+                                "persistentActions": undefined,
                               }
                             }
                             key="1-item"
@@ -10040,7 +10040,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   ],
                                   "key": "values",
                                   "onSelectItem": [Function],
-                                  "persistentActions": Array [],
+                                  "persistentActions": undefined,
                                 },
                                 "values": Array [
                                   "titi",
@@ -10068,7 +10068,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 ],
                                 "key": "values",
                                 "onSelectItem": [Function],
-                                "persistentActions": Array [],
+                                "persistentActions": undefined,
                               }
                             }
                             key="0-item"
@@ -10310,7 +10310,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   ],
                                   "key": "values",
                                   "onSelectItem": [Function],
-                                  "persistentActions": Array [],
+                                  "persistentActions": undefined,
                                 },
                                 "values": Array [
                                   "titi2",
@@ -10338,7 +10338,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 ],
                                 "key": "values",
                                 "onSelectItem": [Function],
-                                "persistentActions": Array [],
+                                "persistentActions": undefined,
                               }
                             }
                             key="1-item"
@@ -11861,7 +11861,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   ],
                                   "key": "values",
                                   "onSelectItem": [Function],
-                                  "persistentActions": Array [],
+                                  "persistentActions": undefined,
                                 },
                                 "values": Array [
                                   "titi",
@@ -11889,7 +11889,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 ],
                                 "key": "values",
                                 "onSelectItem": [Function],
-                                "persistentActions": Array [],
+                                "persistentActions": undefined,
                               }
                             }
                             key="0-item"
@@ -12131,7 +12131,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   ],
                                   "key": "values",
                                   "onSelectItem": [Function],
-                                  "persistentActions": Array [],
+                                  "persistentActions": undefined,
                                 },
                                 "values": Array [
                                   "titi2",
@@ -12159,7 +12159,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 ],
                                 "key": "values",
                                 "onSelectItem": [Function],
-                                "persistentActions": Array [],
+                                "persistentActions": undefined,
                               }
                             }
                             key="1-item"

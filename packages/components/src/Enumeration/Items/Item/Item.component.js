@@ -38,7 +38,7 @@ function itemDefaultActionsClasses() {
 }
 
 function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
-	const { key, actions, onSelectItem, persistentActions = [] } = item.itemProps;
+	const { key, actions, onSelectItem, persistentActions } = item.itemProps;
 	const actualLabel = item[key] instanceof Array ? item[key].join(',') : item[key];
 
 	function getAction(action, index) {
@@ -127,7 +127,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 		<div role="row" className={itemClasses(item.isSelected)} id={id} style={style}>
 			{getActionLabel()}
 			<div className={itemDefaultActionsClasses()} role="gridcell">
-				{persistentActions.length > 0 && (
+				{persistentActions && (
 					<div className="persistent">
 						{persistentActions
 							.filter(action => !action.disabled)
