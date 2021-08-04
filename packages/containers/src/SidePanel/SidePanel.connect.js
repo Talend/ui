@@ -72,8 +72,11 @@ function getActionsWrapped(actions) {
 	});
 }
 
-function getSelectedAction(currentRoute, actions) {
-	return actions.find(action => action.href && isBasePathOf(action.href, currentRoute));
+function getSelectedAction(currentRoute, actions, basename) {
+	const getFullPath = href => (basename ? `${basename}${href}`.replaceAll('//', '/') : href);
+	return actions.find(
+		action => action.href && isBasePathOf(getFullPath(action.href), currentRoute),
+	);
 }
 
 /**
@@ -140,7 +143,7 @@ export function mapStateToProps(state, ownProps) {
 	const currentRoute = window.location.pathname;
 	props.actions = getActions(state, ownProps, currentRoute);
 	if (ownProps.actions) {
-		props.selected = getSelectedAction(currentRoute, props.actions);
+		props.selected = getSelectedAction(currentRoute, props.actions, ownProps.basename);
 	}
 	return props;
 }
