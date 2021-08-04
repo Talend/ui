@@ -224,7 +224,7 @@ HeaderEnumeration.propTypes = {
 	inputValue: EnumerationComponent.propTypes.inputValue,
 	inputRef: EnumerationComponent.propTypes.inputRef,
 	label: EnumerationComponent.propTypes.label,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 HeaderEnumeration.defaultProps = {

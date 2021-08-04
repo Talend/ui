@@ -9,7 +9,7 @@ $tc-enumeration-input-margin: 10px;
 $tc-enumeration-item-font-size: 14px;
 $tc-enumeration-item-btn-height: 16px;
 $tc-enumeration-item-error-padding: 0 $padding-normal;
-$selected-item-color: #fafafa;
+$selected-item-color: #FAFAFA;
 $item-checkbox-margin: 5px;
 $item-checkbox-height: 10px;
 $item-checkbox-width: 20px;
@@ -129,6 +129,3 @@ $item-checkbox-width: 20px;
 	background-color: rgba(250, 250, 250, 1);
 }
 
-.tc-enumeration-item-actions-persistent {
-	visibility: visible;
-}
