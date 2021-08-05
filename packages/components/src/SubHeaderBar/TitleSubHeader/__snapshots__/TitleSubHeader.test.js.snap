@@ -24,10 +24,6 @@ exports[`TitleSubHeader should render 1`] = `
 <div
   className="tc-subheader-details theme-tc-subheader-details"
 >
-  <Icon
-    className="tc-subheader-details-icon theme-tc-subheader-details-icon"
-    name="myIconId"
-  />
   <div
     className="tc-subheader-details-text theme-tc-subheader-details-text"
   >
@@ -52,10 +48,14 @@ exports[`TitleSubHeader should render 1`] = `
 </div>
 `;
 
-exports[`TitleSubHeader should render 2`] = `
+exports[`TitleSubHeader should render with an icon 1`] = `
 <div
   className="tc-subheader-details theme-tc-subheader-details"
 >
+  <Icon
+    className="tc-subheader-details-icon theme-tc-subheader-details-icon"
+    name="myIconId"
+  />
   <div
     className="tc-subheader-details-text theme-tc-subheader-details-text"
   >
@@ -74,7 +74,6 @@ exports[`TitleSubHeader should render 2`] = `
       </TooltipTrigger>
     </div>
     <SubTitle
-      subTitle="mySubTitle"
       t={[Function]}
     />
   </div>
