@@ -17,7 +17,7 @@ export default function Radios({
 	value,
 	valueIsUpdating,
 }) {
-	const { autoFocus, description, disabled = false, inline, title, ...rest } = schema;
+	const { autoFocus, description, disabled = false, inline, title, labelProps, ...rest } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const radioClassNames = classNames({
@@ -37,6 +37,7 @@ export default function Radios({
 			errorMessage={errorMessage}
 			isValid={isValid}
 			label={title}
+			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
@@ -82,6 +83,7 @@ if (process.env.NODE_ENV !== 'production') {
 			inline: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
 					name: PropTypes.string.isRequired,

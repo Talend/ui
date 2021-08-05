@@ -215,6 +215,7 @@ class NestedListViewWidget extends React.Component {
 						onAddKeyDown={this.onInputKeyDown}
 						onInputChange={this.onInputChange}
 						headerLabel={schema.title}
+						labelProps={schema.labelProps}
 						required={schema.required}
 						searchPlaceholder={schema.placeholder}
 						showToggleAll={false}
@@ -244,6 +245,7 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			autosize: PropTypes.bool,
 		}),
 		value: PropTypes.object,
