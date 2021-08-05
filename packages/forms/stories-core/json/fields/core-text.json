@@ -30,7 +30,10 @@
     {
       "key": "text",
       "title": "Simple text",
-      "data-test": "simple.text"
+      "data-test": "simple.text",
+      "labelProps": {
+        "data-test": "simple.text.label"
+      }
     },
     {
       "key": "number",
