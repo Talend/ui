@@ -237,7 +237,6 @@ describe('Text field', () => {
 		const wrapper = shallow(<Text {...props} />);
 
 		// then
-		// console.log(wrapper.find('FieldTemplate').prop());
 		expect(wrapper.find('FieldTemplate').prop('labelProps')).toBe(labelProps);
 	});
 });
