@@ -9,6 +9,12 @@ import theme from './Notification.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 
+const TYPES = {
+	INFO: 'info',
+	WARNING: 'warning',
+	ERROR: 'error',
+};
+
 function CloseButtonComponent(props) {
 	return (
 		<Action
@@ -73,7 +79,7 @@ function Message({ notification }) {
 }
 
 function TimerBar({ type, autoLeaveError }) {
-	if (type === 'error' && !autoLeaveError) {
+	if (type === TYPES.ERROR && !autoLeaveError) {
 		return null;
 	}
 	return (
@@ -82,13 +88,16 @@ function TimerBar({ type, autoLeaveError }) {
 }
 
 function Notification({ notification, leaveFn, ...props }) {
-	const isError = notification.type === 'error';
-	const classes = classNames(theme['tc-notification'], 'tc-notification', {
-		[theme['tc-notification-info']]: !notification.type || notification.type === 'info',
-		'tc-notification-info': !notification.type || notification.type === 'info',
+	const isInfo = !notification.type || notification.type === TYPES.INFO;
+	const isWarning = notification.type === TYPES.WARNING;
+	const isError = notification.type === TYPES.ERROR;
 
-		[theme['tc-notification-warning']]: notification.type === 'warning',
-		'tc-notification-warning': notification.type === 'warning',
+	const classes = classNames(theme['tc-notification'], 'tc-notification', {
+		[theme['tc-notification-info']]: isInfo,
+		'tc-notification-info': isInfo,
+
+		[theme['tc-notification-warning']]: isWarning,
+		'tc-notification-warning': isWarning,
 
 		[theme['tc-notification-error']]: isError,
 		'tc-notification-error': isError,
@@ -194,7 +203,7 @@ class NotificationsContainer extends React.Component {
 	}
 
 	onClick(event, notification) {
-		if (notification.type !== 'error' || this.props.autoLeaveError) {
+		if (notification.type !== TYPES.ERROR || this.props.autoLeaveError) {
 			if (event.currentTarget.getAttribute('pin') !== 'true') {
 				event.currentTarget.setAttribute('pin', 'true');
 			} else {
@@ -211,14 +220,14 @@ class NotificationsContainer extends React.Component {
 	}
 
 	onMouseEnter(event, notification) {
-		if (notification.error !== 'error' || this.props.autoLeaveError) {
+		if (notification.type !== TYPES.ERROR || this.props.autoLeaveError) {
 			this.registry.pause(notification);
 		}
 	}
 
 	onMouseOut(event, notification) {
 		if (
-			(notification.type !== 'error' || this.props.autoLeaveError) &&
+			(notification.type !== TYPES.ERROR || this.props.autoLeaveError) &&
 			event.currentTarget.getAttribute('pin') !== 'true'
 		) {
 			this.registry.resume(notification);
@@ -228,7 +237,7 @@ class NotificationsContainer extends React.Component {
 	register(props) {
 		props.notifications
 			.filter(notification => !this.registry.isRegistered(notification))
-			.filter(notification => notification.type !== 'error' || props.autoLeaveError)
+			.filter(notification => notification.type !== TYPES.ERROR || props.autoLeaveError)
 			.forEach(notification => {
 				this.registry.register(
 					notification,
@@ -271,7 +280,7 @@ class NotificationsContainer extends React.Component {
 
 const notificationShape = {
 	id: PropTypes.any.isRequired,
-	type: PropTypes.oneOf(['info', 'warning', 'error']),
+	type: PropTypes.oneOf(Object.values(TYPES)),
 	title: PropTypes.string,
 	message: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
 	action: PropTypes.shape(Action.propTypes),
@@ -291,7 +300,7 @@ Message.propTypes = {
 };
 
 TimerBar.propTypes = {
-	type: PropTypes.oneOf(['info', 'warning', 'error']),
+	type: PropTypes.oneOf(Object.values(TYPES)),
 	autoLeaveError: PropTypes.bool,
 };
 
@@ -324,5 +333,7 @@ NotificationsContainer.defaultProps = {
 	autoLeaveTimeout: 4000,
 	autoLeaveError: false,
 };
+
+NotificationsContainer.TYPES = TYPES;
 
 export default NotificationsContainer;
