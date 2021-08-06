@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
@@ -7,8 +8,6 @@ import getDefaultT from '../../translate';
 
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
-
-import headerPropTypes from './Header.propTypes';
 
 export function headerClasses() {
 	return classNames(theme['tc-listview-header'], 'tc-listview-header');
@@ -28,7 +27,7 @@ function getAction(action, index) {
 			icon={action.icon}
 			onClick={onClick}
 			disabled={action.disabled}
-			btooltipPlacement="bottom"
+			tooltipPlacement="bottom"
 			inProgress={action.inProgress}
 			hideLabel
 			link
@@ -43,12 +42,12 @@ export function renderActions(headerDefault = []) {
 	return null;
 }
 
-function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required, t }) {
+function Header({ headerDefault, headerLabel, labelProps, nbItemsSelected, nbItems, required, t }) {
 	function renderTitle() {
 		const computedHeaderLabel =
 			headerLabel || t('LISTVIEW_HEADER_TITLE', { defaultValue: 'Values' });
 		return (
-			<strong>
+			<strong {...labelProps}>
 				{computedHeaderLabel}
 				{required && '*'}
 			</strong>
@@ -81,7 +80,15 @@ function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required
 	);
 }
 
-Header.propTypes = headerPropTypes;
+Header.propTypes = {
+	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
+	headerLabel: PropTypes.string,
+	labelProps: PropTypes.object,
+	required: PropTypes.bool,
+	nbItems: PropTypes.number,
+	nbItemsSelected: PropTypes.number,
+	t: PropTypes.func,
+};
 
 Header.defaultProps = {
 	t: getDefaultT(),

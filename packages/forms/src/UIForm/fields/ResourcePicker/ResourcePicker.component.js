@@ -184,6 +184,7 @@ class ResourcePicker extends Component {
 				id={id}
 				isValid={isValid}
 				label={schema.title}
+				labelProps={schema.labelProps}
 				required={schema.required}
 			>
 				<ResourcePickerComponent
@@ -226,6 +227,7 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			triggers: PropTypes.arrayOf(
 				PropTypes.shape({
 					onEvent: PropTypes.string,
