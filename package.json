@@ -8,6 +8,7 @@
   "scripts": {
     "prepublishOnly": "talend-scripts build:lib:umd --dev && talend-scripts build:lib:umd --prod",
     "prepare": "talend-scripts build:lib",
+    "build:dev": "talend-scripts build:lib:umd --dev",
     "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
