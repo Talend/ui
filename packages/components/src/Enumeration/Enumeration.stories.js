@@ -320,6 +320,19 @@ const withCustomActions = {
 				},
 			];
 		},
+		actionsDefaultPersistent: item => {
+			if (item.index % 2 === 0) {
+				return [
+					{
+						label: 'Added notification',
+						icon: 'talend-bell',
+						id: 'notification',
+						onClick: action('item.onNotify'),
+					},
+				];
+			}
+			return [];
+		}
 	},
 };
 
@@ -444,6 +457,10 @@ storiesOf('Form/Controls/Enumeration', module)
 				With custom actions: <br />
 				You can pass a function to{' '}
 				<i>
+					<b>itemsProp.actionsDefaultPersistent</b>
+				</i>{' '}
+				or{' '}
+				<i>
 					<b>itemsProp.actionsDefault</b>
 				</i>{' '}
 				or{' '}
@@ -452,7 +469,9 @@ storiesOf('Form/Controls/Enumeration', module)
 				</i>
 				<br />
 				The function takes a single argument, item data(including index). returns an array of
-				actions.
+				actions. 
+				<br />
+				actionsDefaultPersistent will always be visiable in default mode whereas actionsDefault will appear on hover.
 			</p>
 
 			<Enumeration {...withCustomActions} />
