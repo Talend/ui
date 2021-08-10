@@ -26,6 +26,8 @@ Types of changes
 
 ## [unreleased]
 
+## [3.5.0]
+
 ### Fixed
 
 -   Fix translation key
