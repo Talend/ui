@@ -30,6 +30,10 @@ Types of changes
 
 -   Fix translation key
 
+### Added
+
+-   Expose BadgeFaceted to create custom badge outside the library
+
 ## [3.4.1]
 
 ### Security

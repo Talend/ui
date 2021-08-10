@@ -9,11 +9,11 @@ import {
 	BadgeOverlay,
 	BadgeCheckboxes,
 	BadgeCheckboxesForm,
+	BadgeFaceted,
 } from './components';
 import * as constants from './constants';
 import dictionaryHelpers from './dictionary/helpers.dictionary';
 import * as queryClient from './queryClient';
-
 
 const components = {
 	Icon,
@@ -25,6 +25,7 @@ const components = {
 	BadgeOverlay,
 	BadgeCheckboxes,
 	BadgeCheckboxesForm,
+	BadgeFaceted,
 };
 
 const helpers = {
