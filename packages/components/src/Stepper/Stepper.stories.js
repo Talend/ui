@@ -78,6 +78,13 @@ stories
 			<Stepper.Form.Step.Enabled title="I'm enabled" />
 		</Stepper.Form>
 	))
+	.add('Horizontal form Stepper', () => (
+		<Stepper.Form.Horizontal>
+			<Stepper.Form.Step.Validated title="I'm ok" />
+			<Stepper.Form.Step.InProgress title="Hey, I'm in progress" />
+			<Stepper.Form.Step.Enabled title="I'm enabled" />
+		</Stepper.Form.Horizontal>
+	))
 	.add('Stepper successful with transition', () => {
 		const defaultSteps = [
 			{ label: 'Fetch Sample', status: Stepper.LOADING_STEP_STATUSES.SUCCESS },
