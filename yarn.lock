@@ -293,7 +293,7 @@
   dependencies:
     "@babel/types" "^7.12.13"
 
-"@babel/helper-validator-identifier@^7.12.11", "@babel/helper-validator-identifier@^7.14.0", "@babel/helper-validator-identifier@^7.14.5", "@babel/helper-validator-identifier@^7.14.9":
+"@babel/helper-validator-identifier@^7.12.11", "@babel/helper-validator-identifier@^7.14.5", "@babel/helper-validator-identifier@^7.14.9":
   version "7.14.9"
   resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.14.9.tgz#6654d171b2024f6d8ee151bf2509699919131d48"
   integrity sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==
@@ -2975,10 +2975,10 @@
     babel-eslint "^10.1.0"
     requireindex "~1.1.0"
 
-"@talend/icons@^6.35.0":
-  version "6.35.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-6.35.0.tgz#e5e3aa0cbfa67386998eed555befcb0ff0fd738e"
-  integrity sha512-dNAcbPaYKBlAgGnzeZW4OdJDuW6tQhkHJyg0PHzeI4B9LpZlvhz2+4fpBUN7W995+OygtJ8/kMT16PqO2tpcOg==
+"@talend/icons@^6.36.0":
+  version "6.36.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-6.36.0.tgz#bb8526a50efa0085e9c16ea247d3f7bede9b168a"
+  integrity sha512-T8xPgs29cFZ13ndZnsjY6p0i0elodUAZT3chtsG9XsG+BwinI9V76TGV7VeUOD67rLt0wxEKJscne05v4hLhAQ==
 
 "@talend/module-to-cdn@^9.6.2":
   version "9.6.2"
