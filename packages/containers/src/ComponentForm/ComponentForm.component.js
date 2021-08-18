@@ -141,6 +141,9 @@ export class TCompForm extends React.Component {
 				...payload,
 			});
 		}
+		if (this.props.onChange) {
+			this.props.onChange(_, payload);
+		}
 	}
 
 	onTrigger(event, payload) {
@@ -178,6 +181,9 @@ export class TCompForm extends React.Component {
 			componentId: this.props.componentId,
 			properties,
 		});
+		if (this.props.onSubmit) {
+			this.props.onSubmit(_, properties);
+		}
 	}
 
 	onReset() {
@@ -261,6 +267,8 @@ TCompForm.propTypes = {
 	dispatchOnChange: PropTypes.bool,
 	CSRFTokenCookieKey: PropTypes.string,
 	CSRFTokenHeaderKey: PropTypes.string,
+	onSubmit: PropTypes.func,
+	onChange: PropTypes.func,
 };
 
 export default cmfConnect({
