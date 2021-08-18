@@ -5,20 +5,18 @@ import Button from '../../components/Button';
 
 import tokens from '../../tokens';
 
-const SSignupCTA = styled.div(
-	({ theme }) => `
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 3rem;
-  
-      .signup-cta__text {
-          margin-bottom: 2rem;
-          font-weight: ${tokens.fontWeights.semiBold};
-          color: ${theme.colors.textColor};
-      }
-  `,
-);
+const SSignupCTA = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 3rem;
+
+	.signup-cta__text {
+		margin-bottom: 2rem;
+		font-weight: ${tokens.fontWeights.semiBold};
+		color: ${({ theme }) => theme.colors.textColor};
+	}
+`;
 
 export const SignupCTA = () => (
 	<SSignupCTA className="signup-cta">

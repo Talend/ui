@@ -4,17 +4,16 @@ import tokens from '../../tokens';
 
 export const Card = styled.div.attrs({
 	className: 'card',
-})(
-	({ theme }) => `
+})`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding: 5rem 2.5rem;
 	width: 100vw;
-	color: ${theme.colors.textColor};
-	background-color: ${theme.colors.backgroundColor};
-    border-radius: 6px;
-    box-shadow: 0px 0px 3rem -2rem ${tokens.colors.gray[900]};
+	color: ${({ theme }) => theme.colors.textColor};
+	background-color: ${({ theme }) => theme.colors.backgroundColor};
+	border-radius: 6px;
+	box-shadow: 0px 0px 3rem -2rem ${tokens.colors.gray[900]};
 
 	@media only screen and (min-width: 468px) {
 		margin: auto;
@@ -22,8 +21,7 @@ export const Card = styled.div.attrs({
 		width: 65rem;
 		min-height: 60rem;
 	}
-`,
-);
+`;
 
 export const Heading = styled.div.attrs({
 	className: 'card__heading',

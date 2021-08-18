@@ -29,17 +29,16 @@ export const HeaderBar = styled.div.attrs({
 `;
 export const Item = styled.span.attrs({
 	className: 'header-bar__item',
-})<{ freeze: boolean }>(
-	({ freeze }) => `
+})<{ freeze: boolean }>`
 	padding: 0 1.5rem;
 	transition: ${tokens.transitions.fast};
 
 	&:hover {
-		background: ${freeze ? 'none' : transparentize(0.8, tokens.colors.gray[0])};
+		background: ${({ freeze }) => (freeze ? 'none' : transparentize(0.8, tokens.colors.gray[0]))};
 	}
 
 	&:active {
-		background: ${freeze ? 'none' : transparentize(0.9, tokens.colors.gray[0])};
+		background: ${({ freeze }) => (freeze ? 'none' : transparentize(0.9, tokens.colors.gray[0]))};
 	}
 
 	&,
@@ -93,19 +92,16 @@ export const Item = styled.span.attrs({
 		flex-direction: column;
 		align-items: start;
 	}
-`,
-);
+`;
 export const Logo = styled(Item).attrs({
 	className: 'header-bar__logo',
-})<{ full: boolean }>(
-	({ full }) => `
+})<{ full: boolean }>`
 	svg {
 		height: ${tokens.sizes.xl};
-		width: ${full ? '6rem' : tokens.sizes.xl};
+		width: ${({ full }) => (full ? '6rem' : tokens.sizes.xl)};
 		vertical-align: middle;
 	}
-`,
-);
+`;
 export const Brand = styled(Item).attrs({
 	className: 'header-bar__brand',
 })`

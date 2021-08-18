@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 import tokens from '../../../tokens';
 
-export const SkipLinks = styled.div(
-	({ theme }) => `
+export const SkipLinks = styled.div`
 	.skip-links__link {
 		position: absolute;
 		top: 0;
@@ -11,8 +10,8 @@ export const SkipLinks = styled.div(
 		width: 1px;
 		height: 1px;
 		padding: ${tokens.space.m};
-		color: ${theme.colors.backgroundColor};
-		background: ${theme.colors.textColor};
+		color: ${({ theme }) => theme.colors.backgroundColor};
+		background: ${({ theme }) => theme.colors.textColor};
 		white-space: nowrap;
 		clip: rect(1px, 1px, 1px, 1px);
 		overflow: hidden;
@@ -21,9 +20,8 @@ export const SkipLinks = styled.div(
 			width: auto;
 			height: auto;
 			clip: auto;
-			overflow: auto;	
-			z-index: ${tokens.zIndices.skipLinks};		
+			overflow: auto;
+			z-index: ${tokens.zIndices.skipLinks};
 		}
 	}
-`,
-);
+`;

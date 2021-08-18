@@ -8,20 +8,19 @@ import tokens from '../../tokens';
 
 export const Nav = styled.nav.attrs({
 	className: 'c-menu',
-})<{ isCollapsed: boolean; variant: string }>(
-	({ isCollapsed, variant = '' }) => `
-		position: relative;		
-		flex: 0 1 ${isCollapsed ? '6rem' : '20rem'};
-		max-width: ${isCollapsed ? '6rem' : 'auto'};
-		min-height: 100%;
-		color: ${tokens.colors.gray[0]};
-		background: ${tokens.colors.twilight.backgroundImage};
-		transition: flex-basis ${tokens.transitions.normal};
-		overflow: hidden;
-		
-		${
-			!isCollapsed &&
-			`
+})<{ isCollapsed: boolean; variant: string }>`
+	position: relative;
+	flex: 0 1 ${({ isCollapsed }) => (isCollapsed ? '6rem' : '20rem')};
+	max-width: ${({ isCollapsed }) => (isCollapsed ? '6rem' : 'auto')};
+	min-height: 100%;
+	color: ${tokens.colors.gray[0]};
+	background: ${tokens.colors.twilight.backgroundImage};
+	transition: flex-basis ${tokens.transitions.normal};
+	overflow: hidden;
+
+	${({ isCollapsed }) =>
+		!isCollapsed &&
+		`
 		&:before {
 			position: absolute;
 			content: '';
@@ -29,12 +28,11 @@ export const Nav = styled.nav.attrs({
 			width: 29rem;
 			left: 0;
 			bottom: -6rem;
-			background-color: ${variant !== '' ? tokens.colors.gray[0] : tokens.colors.transparent};
+			background-color: ${({ variant = '' }) =>
+				variant !== '' ? tokens.colors.gray[0] : tokens.colors.transparent};
     		opacity: ${tokens.opacity.shade};
-		}`
-		}
-`,
-);
+		}`}
+`;
 
 export const NavButton = styled(Button.Icon)`
 	flex: 0;
@@ -83,38 +81,39 @@ export const Menu = styled.div`
 
 export const MenuItem = styled(Link).attrs(({ active }) => ({
 	'aria-current': active ? 'page' : null,
-}))(
-	({ active, theme }) => `
-        display: flex;
-        padding: 0.5rem 1rem;
-        color: ${active ? tokens.colors.deepBlue[500] : 'inherit'};
-        background: ${active ? tokens.colors.gray[0] : 'none'};
-        border-radius: ${tokens.radii.rectRadius};
-        min-width: 0;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        cursor: pointer;
-		
-		.link__icon {
-			height: 2rem;
-			width: 2rem; 
-			margin-right: 1rem;
-			overflow: visible;
-		}
+}))`
+	display: flex;
+	padding: 0.5rem 1rem;
+	color: ${({ active }) => (active ? tokens.colors.deepBlue[500] : 'inherit')};
+	background: ${({ active }) => (active ? tokens.colors.gray[0] : 'none')};
+	border-radius: ${tokens.radii.rectRadius};
+	min-width: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	cursor: pointer;
 
-		.link__text {
-			font-weight: ${tokens.fontWeights.semiBold};
-			min-width: 0;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			border: none !important;
-		}
+	.link__icon {
+		height: 2rem;
+		width: 2rem;
+		margin-right: 1rem;
+		overflow: visible;
+	}
 
-        &:hover {
-            color: ${active ? theme.colors.primaryColor : 'inherit'};
-            background: ${transparentize(active ? 0.12 : 0.88, tokens.colors.gray[0])};
-        }
-    `,
-);
+	.link__text {
+		font-weight: ${tokens.fontWeights.semiBold};
+		min-width: 0;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		border: none !important;
+	}
+
+	&:hover {
+		color: ${
+			// @ts-ignore
+			({ active, theme }) => (active ? theme.colors.primaryColor : 'inherit')
+		};
+		background: ${({ active }) => transparentize(active ? 0.12 : 0.88, tokens.colors.gray[0])};
+	}
+`;

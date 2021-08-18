@@ -26,6 +26,11 @@ export const GlobalStyle = createGlobalStyle`
 		text-decoration: none;
 	}
 	
+	[role="list"]  {
+		margin: 0;
+		padding: 0;
+	}
+	
 	.focus-outline-hidden *:focus {
 		outline: none;
 	}
