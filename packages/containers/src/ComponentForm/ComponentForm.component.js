@@ -223,7 +223,7 @@ export class TCompForm extends React.Component {
 			if (response) {
 				return <p className="danger">{response.get('statusText')}</p>;
 			}
-			return <Form loading displayMode={this.props.displayMode} />;
+			return <Form loading displayMode={this.props.displayMode} actions={this.props.actions} />;
 		}
 
 		const props = {
