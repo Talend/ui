@@ -25,6 +25,7 @@ describe('talend:react-cmf', function () {
 		it('generates base files', function () {
 			assert.file([
 				'package.json',
+				'.eslintrc',
 			]);
 		});
 	});
