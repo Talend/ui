@@ -3,7 +3,7 @@ name: Security scan
 on:
   schedule:
     - cron: '0 0 * * 0' # https://crontab.guru/every-week "At 00:00 on Sunday."
-  # push # to test on push, uncomment that
+  workflow_dispatch
 
 jobs:
   build:
