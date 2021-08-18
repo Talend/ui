@@ -336,8 +336,10 @@ export class UIFormComponent extends React.Component {
 			);
 		};
 
+		const Element = this.props.as;
+
 		return (
-			<form
+			<Element
 				acceptCharset={this.props.acceptCharset}
 				action={this.props.action}
 				autoComplete={this.props.autoComplete}
@@ -355,10 +357,11 @@ export class UIFormComponent extends React.Component {
 				<WidgetContext.Provider value={{ ...widgets, ...this.state.widgets }}>
 					{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
 				</WidgetContext.Provider>
-			</form>
+			</Element>
 		);
 	}
 }
+
 const I18NUIForm = withTranslation(I18N_DOMAIN_FORMS)(UIFormComponent);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -382,6 +385,10 @@ if (process.env.NODE_ENV !== 'production') {
 		 * If not provided, a single submit button is displayed.
 		 */
 		actions: PropTypes.arrayOf(Buttons.propTypes.schema),
+		/**
+		 * Tag used to render the form (defaults to "form")
+		 */
+		as: PropTypes.string,
 		/**
 		 * User callback: Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)
@@ -420,6 +427,7 @@ I18NUIForm.defaultProps = {
 	noHtml5Validate: true,
 	buttonBlockClass: 'form-actions',
 	properties: {},
+	as: 'form',
 };
 UIFormComponent.defaultProps = I18NUIForm.defaultProps;
 
