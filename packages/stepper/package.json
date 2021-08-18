@@ -39,11 +39,10 @@
     "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.3.1",
-    "@storybook/addon-actions": "^5.3.1",
-    "@storybook/addon-info": "^5.3.1",
-    "@storybook/addons": "^5.3.1",
-    "@storybook/react": "^5.3.1",
+    "@storybook/addon-a11y": "^6.3.7",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addons": "^6.3.7",
+    "@storybook/react": "^6.3.7",
     "@talend/icons": "^6.36.0",
     "@talend/react-components": "^6.36.0",
     "@talend/scripts-core": "^9.4.1",
@@ -54,7 +53,6 @@
     "i18next": "^20.1.0",
     "immutable": "^3.8.1",
     "jsdom": "^16.2.2",
-    "node-sass": "^4.13.1",
     "prop-types": "^15.5.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

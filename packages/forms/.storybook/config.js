@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
-import { withI18next } from 'storybook-addon-i18next';
+// import { withI18next } from 'storybook-addon-i18next';
 import { ThemeProvider } from '@talend/design-system';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
@@ -39,12 +39,12 @@ const withFormLayout = (story, options) => {
 	);
 };
 
-addDecorator(
-	withI18next({
-		i18n,
-		languages,
-	}),
-);
+// addDecorator(
+// 	withI18next({
+// 		i18n,
+// 		languages,
+// 	}),
+// );
 addDecorator(withIconsProvider);
 addDecorator(withA11y);
 addDecorator(withFormLayout);
