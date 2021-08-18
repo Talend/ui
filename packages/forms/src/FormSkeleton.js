@@ -5,7 +5,7 @@ import theme from './FormSkeleton.scss';
 
 export default function FormSkeleton({ displayMode, actions }) {
 	// null/undefined actions prop will display default buttons
-	const showButtons = displayMode !== 'text' && actions?.length !== 0;
+	const hasButtons = displayMode !== 'text' && actions?.length !== 0;
 	return (
 		<div className={`${theme.container} tc-skeleton-heartbeat`} aria-busy>
 			<div className={theme['form-content']}>
