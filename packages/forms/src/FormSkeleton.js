@@ -20,7 +20,7 @@ export default function FormSkeleton({ displayMode, actions }) {
 					<Skeleton heartbeat={false} type={Skeleton.TYPES.text} className="skeleton-fit-content" />
 				</div>
 			</div>
-			{showButtons && (
+			{hasButtons && (
 				<div className={theme.submit}>
 					<div className={theme['submit-wrapper']}>
 						<Skeleton heartbeat={false} type={Skeleton.TYPES.button} />
