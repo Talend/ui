@@ -348,7 +348,7 @@ export class UIFormComponent extends React.Component {
 				id={this.props.id}
 				method={this.props.method}
 				name={this.props.name}
-				noValidate={this.props.noHtml5Validate}
+				noValidate={this.props.as === 'form' ? this.props.noHtml5Validate : undefined}
 				onReset={this.props.onReset}
 				onSubmit={this.onSubmit}
 				target={this.props.target}
