@@ -11,14 +11,19 @@ function CellMappedData(props) {
 
 	let cellContent;
 
+	const getMappedValue = value => {
+		const mappedValue = valuesMap[value] || value;
+		return mappedValue !== undefined ? mappedValue : null;
+	};
+
 	if (Array.isArray(cellData)) {
 		cellContent = cellData
-			.map(value => valuesMap[value] || value || null)
+			.map(getMappedValue)
 			.filter(value => !!value)
 			.sort((a, b) => a.toString().localeCompare(b.toString()))
 			.join(', ');
 	} else {
-		cellContent = valuesMap[cellData] || cellData || null;
+		cellContent = getMappedValue(cellData);
 	}
 
 	return <DefaultCellRenderer {...props} cellData={cellContent} columnData={restColumnData} />;

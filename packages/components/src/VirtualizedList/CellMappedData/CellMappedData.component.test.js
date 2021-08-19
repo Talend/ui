@@ -26,7 +26,7 @@ describe('CellMappedData', () => {
 
 	it('should render checked mapped data cell for a collection of values', () => {
 		// given
-		const cellData = ['value_1', null, 'not_mapped', 1, 'two'];
+		const cellData = ['value_1', null, 'not_mapped', 1, 'two', undefined];
 
 		// when
 		const wrapper = shallow(<CellMappedData cellData={cellData} columnData={columnData} />);

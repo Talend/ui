@@ -302,7 +302,6 @@ for (let i = collection.length; i < 100; i += 1) {
 		modified: 1474495200,
 		description: 'Simple row with icon and actions',
 		author: 'Jean-Pierre DUPONT',
-		language: 'fr',
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-0-class',
