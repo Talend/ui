@@ -17,7 +17,7 @@ function withIconsProvider(story) {
 				bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
 			/>
 			<React.Suspense fallback={null}>
-				{storyFn()}
+				{story()}
 			</React.Suspense>
 		</>
 	);
