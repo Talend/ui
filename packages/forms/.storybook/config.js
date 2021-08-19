@@ -9,7 +9,7 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));
-console.log('### forms')
+
 function withIconsProvider(story) {
 	return (
 		<>
