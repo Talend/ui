@@ -29,7 +29,7 @@ const Layout: React.FC<LayoutProps> = ({
 				{header && <S.Header className="layout__header">{header}</S.Header>}
 				{nav || aside ? (
 					<S.LayoutGroup className="layout__group">
-						{nav}
+						<S.Nav>{nav}</S.Nav>
 						{aside && asideVisibility ? (
 							<S.AsideOverlay
 								className="layout__overlay"

@@ -26,7 +26,7 @@ const Box = styled.div`
 
 const args = {
 	header: <Box>Header</Box>,
-	nav: <Box>Nav</Box>,
+	nav: <Box style={{ width: '20rem' }}>Nav</Box>,
 	title: <Box>Title</Box>,
 	footer: <Box>Footer</Box>,
 };

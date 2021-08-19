@@ -3,9 +3,9 @@ import React, { PropsWithChildren } from 'react';
 import Layout from '../components/Layout';
 
 export type ListProps = PropsWithChildren<any> & {
-	header?: React.ReactElement<any>;
-	nav?: React.ReactElement<any>;
-	aside?: React.ReactElement<any>;
+	header?: React.ReactElement;
+	nav?: React.ReactElement;
+	aside?: React.ReactElement;
 };
 
 const List: React.FC<ListProps> = ({ header, nav, children, aside }: ListProps) => (

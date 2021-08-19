@@ -32,8 +32,9 @@ export const LayoutGroup = styled.div<LayoutProps>`
 
 export const Nav = styled.nav.attrs({
 	role: 'navigation',
-})<{ isNavCollapsed: boolean }>`
+})`
 	display: flex;
+	flex-direction: column;
 `;
 
 export const Main = styled.main.attrs({
