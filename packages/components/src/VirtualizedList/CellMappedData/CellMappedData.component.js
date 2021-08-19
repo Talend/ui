@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isArray from 'lodash/isArray';
 
 import { defaultColumnConfiguration } from '../Content.component';
 
@@ -12,7 +11,7 @@ function CellMappedData(props) {
 
 	let cellContent;
 
-	if (isArray(cellData)) {
+	if (Array.isArray(cellData)) {
 		cellContent = cellData
 			.map(value => valuesMap[value] || value || null)
 			.filter(value => !!value)
