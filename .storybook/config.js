@@ -6,7 +6,7 @@ import { locales as tuiLocales } from '@talend/locales-tui/locales';
 
 import 'focus-outline-manager';
 import './sortStories';
-console.log('### root config');
+
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));
 addDecorator(withA11y);

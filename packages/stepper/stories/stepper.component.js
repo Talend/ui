@@ -130,7 +130,7 @@ stories.add('Stepper successful', () => {
 						<Action onClick={init} label="init" />
 						<Action onClick={end} label="end" />
 					</div>
-					{/* {props.children(steps)} */}
+					{props.children(steps)}
 				</div>
 			);
 		}
