@@ -19,7 +19,7 @@ function CellMappedData(props) {
 	if (Array.isArray(cellData)) {
 		cellContent = cellData
 			.map(getMappedValue)
-			.filter(value => !!value)
+			.filter(value => value !== undefined && value !== null && value !== '')
 			.sort((a, b) => a.toString().localeCompare(b.toString()))
 			.join(', ');
 	} else {
