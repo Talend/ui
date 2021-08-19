@@ -2,7 +2,7 @@
 
 exports[`CellMappedData should render checked mapped data cell for a collection of values 1`] = `
 <DefaultRenderer
-  cellData="not_mapped, Value 1"
+  cellData="2, not_mapped, One, Value 1"
   columnData={Object {}}
 />
 `;

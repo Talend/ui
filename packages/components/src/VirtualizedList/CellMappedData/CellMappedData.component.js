@@ -15,7 +15,7 @@ function CellMappedData(props) {
 		cellContent = cellData
 			.map(value => valuesMap[value] || value || null)
 			.filter(value => !!value)
-			.sort((a, b) => a.localeCompare(b))
+			.sort((a, b) => a.toString().localeCompare(b.toString()))
 			.join(', ');
 	} else {
 		cellContent = valuesMap[cellData] || cellData || null;
