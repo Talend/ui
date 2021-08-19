@@ -11,7 +11,9 @@ function withIconsProvider(storyFn) {
 	return (
 		<>
 			<IconsProvider bundles={['https://statics.cloud.talend.com/@talend/icons/6.30.0/dist/svg-bundle/all.svg']} />
-			{storyFn()}
+			<React.Suspense fallback={null}>
+				{storyFn()}
+			</React.Suspense>
 		</>
 	);
 }

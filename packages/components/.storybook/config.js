@@ -20,7 +20,9 @@ addDecorator(storyFn => (
 		<IconsProvider
 			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
 		/>
-		{storyFn()}
+		<React.Suspense fallback={null}>
+			{storyFn()}
+		</React.Suspense>
 	</>
 ));
 
