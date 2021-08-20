@@ -56,7 +56,6 @@
     "packages/containers",
     "packages/datagrid",
     "packages/forms",
-    "packages/generator",
     "packages/icons",
     "packages/sagas",
     "packages/stepper",
