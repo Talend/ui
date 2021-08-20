@@ -16,13 +16,20 @@ module.exports = (env, argv) => {
 			library: 'TalendBootstrapTheme',
 			libraryTarget: 'umd',
 			globalObject: 'this',
-			assetModuleFilename: 'fonts/[name][ext]'
 		},
 		module: {
 			rules: [
 				{
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-					type: 'asset/resource'
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+							  outputPath: 'fonts',
+							  name: '[name].[ext]',
+							},
+						  },
+					],
 				},
 				{
 					test: /bootstrap\.scss$/,
@@ -58,8 +65,7 @@ module.exports = (env, argv) => {
 		},
 		devtool: 'source-map',
 		optimization: {
-			minimize: true,
-			minimizer: ['...', new CssMinimizerPlugin()], // '...' used to access the defaults.
+			minimizer: [new CssMinimizerPlugin()],
 		},
 		plugins: [
 			new CopyPlugin({
