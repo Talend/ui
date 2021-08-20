@@ -14,7 +14,9 @@ export const decorators = [
 		return (
 			<I18nextProvider i18n={i18n}>
 				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-				<Story />
+				<React.Suspense fallback={null}>
+					<Story />
+				</React.Suspense>
 			</I18nextProvider>
 		);
 	},
