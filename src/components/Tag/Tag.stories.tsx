@@ -2,6 +2,10 @@ import React from 'react';
 
 import Tag from './Tag';
 
+export default {
+	component: Tag,
+};
+
 export const Template = ({ variant, ...rest }) => {
 	const Component = Tag[variant] || Tag;
 	Component.displayName = variant ? `Tag.${variant}` : 'Tag';

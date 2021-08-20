@@ -1,5 +1,11 @@
 import { WithSelector } from '../../docs';
 
+import Link from '.';
+
+export default {
+	component: Link,
+};
+
 export const defaultProps = {
 	href: '#',
 	children: 'Link example',

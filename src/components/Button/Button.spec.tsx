@@ -1,29 +1,12 @@
 /// <reference types="cypress" />
 
 import React from 'react';
+import { composeStories } from '@storybook/testing-react';
 
-import { ButtonProps } from './Button';
-import Button from './';
-import Tooltip from '../Tooltip';
+import Button from '.';
+import * as Stories from './Button.stories';
 
-export const LoadingButton = (props: ButtonProps) => {
-	const [loading, isLoading] = React.useState(false);
-	return (
-		<Tooltip title="Relevant description of the basic button">
-			<Button.Primary
-				icon="talend-check"
-				loading={loading}
-				onClick={() => {
-					isLoading(true);
-					setTimeout(() => isLoading(false), 3000);
-				}}
-				{...props}
-			>
-				Async call to action
-			</Button.Primary>
-		</Tooltip>
-	);
-};
+const { Loading } = composeStories(Stories);
 
 context('<Button />', () => {
 	describe('default state', () => {
@@ -35,21 +18,16 @@ context('<Button />', () => {
 
 	describe('loading state', () => {
 		it('should load', () => {
-			cy.mount(<LoadingButton />);
+			cy.mount(<Loading />);
 			cy.get('.btn')
 				.should('have.attr', 'aria-busy', 'false')
 				.click()
 				.should('have.attr', 'aria-busy', 'true');
-			cy.get('.btn')
-				.should('have.attr', 'aria-busy', 'false');
+			cy.get('.btn').should('have.attr', 'aria-busy', 'false');
 		});
 
 		it('should have a tooltip', () => {
-			cy.mount(
-				<Tooltip title="Relevant description of the basic button">
-					<Button>Async</Button>
-				</Tooltip>,
-			);
+			cy.mount(<Loading />);
 			cy.get('.btn')
 				.focus()
 				.should('have.attr', 'aria-describedby')

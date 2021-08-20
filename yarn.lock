@@ -2784,6 +2784,11 @@
     prettier "^2.2.1"
     regenerator-runtime "^0.13.7"
 
+"@storybook/testing-react@1.0.0--canary.46.4a6c010.0":
+  version "1.0.0--canary.46.4a6c010.0"
+  resolved "https://registry.yarnpkg.com/@storybook/testing-react/-/testing-react-1.0.0--canary.46.4a6c010.0.tgz#cd6b81d6f49ebad77aeb5d89a39cdd85c6d9e67b"
+  integrity sha512-slWvhpugJ19upH9SNy6wDqDFLapHAVCx1X7YbNNEE3Ziol00NLlJzpb2HMwKP+NXY6WGC5cyAh9nNw+ROH1x/Q==
+
 "@storybook/theming@6.4.0-alpha.30":
   version "6.4.0-alpha.30"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.4.0-alpha.30.tgz#0619969aa256ef454c867783fcbf3a3ec8ed7b38"

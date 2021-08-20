@@ -2,6 +2,7 @@ import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { action } from '@storybook/addon-actions';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
 import Button from '../';
+import * as Stories from '../Button.stories';
 import Skeleton from '../../Skeleton';
 import Tooltip from '../../Tooltip';
 import { IconsProvider } from '../../IconsProvider';
@@ -219,29 +220,8 @@ When the user clicks on the button, and the action is asynchronous, a spinner wi
 If the button has an icon, the spinner will temporary replace this icon as long as it's loading.
 No action will be possible until it's done.
 
-export const LoadingButton = props => {
-	const [loading, isLoading] = React.useState(false);
-	return (
-		<Tooltip title="Relevant description of the basic button">
-			<Button.Primary
-				icon="talend-check"
-				loading={loading}
-				onClick={() => {
-					isLoading(true);
-					setTimeout(() => isLoading(false), 3000);
-				}}
-				{...props}
-			>
-				Async call to action
-			</Button.Primary>
-		</Tooltip>
-	);
-};
-
 <Canvas>
-	<Story name="loading">
-		<LoadingButton />
-	</Story>
+	<Story story={Stories.Loading} />
 </Canvas>
 
 ## Content
