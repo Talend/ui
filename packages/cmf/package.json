@@ -13,7 +13,7 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "jsdoc -c docs.json && cd website && yarn",
+    "test:demo": "yarn jsdoc -c ./docs.json && cd website && yarn",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },
@@ -61,8 +61,8 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^9.4.1",
-    "@talend/scripts-preset-react-lib": "^9.4.1",
+    "@talend/scripts-core": "^9.11.0",
+    "@talend/scripts-preset-react-lib": "^9.8.2",
     "enzyme": "^3.11.0",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.4",

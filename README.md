@@ -6,8 +6,8 @@ That repository was created in an effort to simplify the development of Talend's
 
 - Single code repository / Multiple packages
 - Global (cross package) test and review tools
-- Unified stack versions
 - Easy cross packages development
+- Share and love open source
 
 ## The stack
 
@@ -21,6 +21,21 @@ That repository was created in an effort to simplify the development of Talend's
 ## Tools (dev environment)
 
 :warning: If you've used `lerna bootstrap` in the past, please start by running `lerna clean` or you will have bad behavior with the following tools.
+
+We have quick access from the root to the following npm scripts:
+
+* prepublishOnly
+* test
+* lint
+
+In each packages you will also find a start command to play with the package.
+
+The CI will ensure on each PR that test and lint are OK before you can merge your pull request. It will also provide you a demo so reviewers can play with your change and try to find impact of your PR on other packages.
+
+## Versions and breaking changes
+
+The stack is stable and we do our best to not break APIs.
+To handle versions we rely on [**changeset**](https://github.com/atlassian/changesets/). So on each PR you will be able to request a release intent along your changes. It will fill automatically the changelog at release time. Do not forget to commit the file outputed by the changeset CLI.
 
 ## More
 
