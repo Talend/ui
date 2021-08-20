@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "commander": "^2.9.0",
+    "cross-env": "^7.0.3",
     "i18next-scanner": "^3.0.0"
   },
   "scripts": {
@@ -45,7 +46,6 @@
     "packages/containers",
     "packages/datagrid",
     "packages/forms",
-    "packages/generator",
     "packages/icons",
     "packages/sagas",
     "packages/stepper",

@@ -66,7 +66,7 @@
     "@types/recharts": "^1.8.16",
     "@types/topojson-client": "^3.0.0",
     "@types/topojson-specification": "^1.0.1",
-    "cross-env": "^5.2.0",
+    "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "i18next": "^20.1.0",
     "i18next-scanner": "^3.0.0",
