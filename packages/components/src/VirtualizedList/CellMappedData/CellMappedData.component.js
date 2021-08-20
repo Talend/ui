@@ -7,7 +7,7 @@ const { cellRenderer: DefaultCellRenderer } = defaultColumnConfiguration;
 
 function CellMappedData(props) {
 	const { cellData, columnData } = props;
-	const { valuesMap, ...restColumnData } = columnData;
+	const { valuesMap, separator = ', ', ...restColumnData } = columnData;
 
 	let cellContent;
 
@@ -21,7 +21,7 @@ function CellMappedData(props) {
 			.map(getMappedValue)
 			.filter(value => value !== undefined && value !== null && value !== '')
 			.sort((a, b) => a.toString().localeCompare(b.toString()))
-			.join(', ');
+			.join(separator);
 	} else {
 		cellContent = getMappedValue(cellData);
 	}
@@ -33,6 +33,7 @@ CellMappedData.propTypes = {
 	cellData: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 	columnData: PropTypes.shape({
 		valuesMap: PropTypes.object,
+		separator: PropTypes.string,
 	}),
 };
 

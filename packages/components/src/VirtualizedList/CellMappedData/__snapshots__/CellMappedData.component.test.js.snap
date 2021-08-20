@@ -7,6 +7,13 @@ exports[`CellMappedData should render checked mapped data cell for a collection 
 />
 `;
 
+exports[`CellMappedData should render checked mapped data cell for a collection of values 2`] = `
+<DefaultRenderer
+  cellData="Value 1 / Value 2"
+  columnData={Object {}}
+/>
+`;
+
 exports[`CellMappedData should render checked mapped data cell for a string value 1`] = `
 <DefaultRenderer
   cellData="Value 1"
