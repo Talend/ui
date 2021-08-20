@@ -15,7 +15,6 @@ That repository was created in an effort to simplify the development of Talend's
 - [react-talend-containers](https://github.com/Talend/ui/tree/master/packages/containers)
 - [react-talend-components](https://github.com/Talend/ui/tree/master/packages/components)
 - [react-talend-forms](https://github.com/Talend/ui/tree/master/packages/forms)
-- [generator-talend](https://github.com/Talend/ui/tree/master/packages/generator)
 - [talend-icons](https://github.com/Talend/ui/tree/master/packages/icons)
 - [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/packages/theme)
 

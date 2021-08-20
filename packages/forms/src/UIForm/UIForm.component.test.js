@@ -23,13 +23,36 @@ describe('UIForm component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render a custom tag', () => {
+		// when
+		const wrapper = mount(<UIFormComponent {...data} {...props} as="customtag" />);
+
+		// then
+		expect(wrapper.find('customtag.tf-uiform')).toHaveLength(1);
+	});
+
 	it('should render form with ids concatenated with ; if nested', () => {
 		// when
 		const instance = mount(<UIFormComponent {...nestedData} {...props} idSeparator=";" />);
 		// then
-		expect(instance.find('Text').at(0).prop('id')).toEqual('myFormId;content');
-		expect(instance.find('Text').at(1).prop('id')).toEqual('timestamp;value');
-		expect(instance.find('Text').at(2).prop('id')).toEqual('timestamp;gmt_offset');
+		expect(
+			instance
+				.find('Text')
+				.at(0)
+				.prop('id'),
+		).toEqual('myFormId;content');
+		expect(
+			instance
+				.find('Text')
+				.at(1)
+				.prop('id'),
+		).toEqual('timestamp;value');
+		expect(
+			instance
+				.find('Text')
+				.at(2)
+				.prop('id'),
+		).toEqual('timestamp;gmt_offset');
 	});
 
 	it('should render form in text display mode', () => {
@@ -107,7 +130,10 @@ describe('UIForm component', () => {
 			const event = { target: { value: newValue } };
 
 			// when
-			wrapper.find('input').at(0).simulate('change', event);
+			wrapper
+				.find('input')
+				.at(0)
+				.simulate('change', event);
 
 			// then
 			expect(props.onChange).toBeCalledWith(expect.anything(), {
@@ -172,7 +198,10 @@ describe('UIForm component', () => {
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper.find('input').at(1).simulate('blur');
+			wrapper
+				.find('input')
+				.at(1)
+				.simulate('blur');
 
 			// then
 			expect(props.onTrigger).not.toBeCalled();
@@ -258,7 +287,10 @@ describe('UIForm component', () => {
 			const wrapper = mount(<UIForm {...data} {...props} />);
 
 			// when
-			wrapper.find('button').at(0).simulate('click');
+			wrapper
+				.find('button')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {

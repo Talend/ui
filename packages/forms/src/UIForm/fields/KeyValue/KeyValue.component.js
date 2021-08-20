@@ -48,7 +48,7 @@ function KeyValue({
 	valueIsUpdating,
 	...restProps
 }) {
-	const { description, title } = schema;
+	const { description, title, labelProps } = schema;
 
 	const keySchema = getPartSchema(schema, 'key');
 	const valueSchema = getPartSchema(schema, 'value');
@@ -60,6 +60,7 @@ function KeyValue({
 			id={id}
 			isValid={isValid}
 			label={title}
+			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
@@ -107,6 +108,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 		}),
 		value: PropTypes.shape({
 			key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

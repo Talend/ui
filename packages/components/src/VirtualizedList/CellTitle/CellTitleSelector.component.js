@@ -3,6 +3,7 @@ import React from 'react';
 import { Action } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
 import CellTitleInput from './CellTitleInput.component';
+import TooltipTrigger from '../../TooltipTrigger';
 
 const { TITLE_MODE_TEXT, TITLE_MODE_INPUT } = cellTitleDisplayModes;
 
@@ -20,6 +21,7 @@ function CellTitleSelector(props) {
 		onEditCancel,
 		rowData,
 		columnData,
+		tooltip,
 	} = props;
 
 	if (displayMode === TITLE_MODE_INPUT) {
@@ -46,16 +48,18 @@ function CellTitleSelector(props) {
 				role="link"
 				bsStyle="link"
 				label={cellData}
-				title={cellData}
 				type="button"
+				tooltip={tooltip || cellData}
 			/>
 		);
 	}
 
 	return (
-		<span id={id} className={className} title={cellData}>
-			{cellData}
-		</span>
+		<TooltipTrigger label={tooltip || cellData} tooltipPlacement="top">
+			<span id={id} className={className}>
+				{cellData}
+			</span>
+		</TooltipTrigger>
 	);
 }
 
@@ -78,6 +82,8 @@ CellTitleSelector.propTypes = {
 	columnData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** The collection item. */
 	rowData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	/** The title element tooltip */
+	tooltip: PropTypes.string,
 };
 
 export default CellTitleSelector;

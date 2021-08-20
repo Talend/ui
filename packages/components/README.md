@@ -32,14 +32,6 @@ Please read our [style guidelines](http://guidelines.talend.com) first.
 
 Thanks to [BrowserStack](https://www.browserstack.com/) for providing real browser testing infrastructure.
 
-### How to create a new component
-
-All components are created using the [yeoman talend generator](https://github.com/Talend/generator-talend) using stateless option.
-
-    yo talend:react-component
-    > (nature) stateless
-    > (tests) snapshot
-
 ### No {children} for leaf
 
 We want to avoid {children} as much as possible.

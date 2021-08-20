@@ -237,6 +237,7 @@ export default class MultiSelectTag extends React.Component {
 				id={id}
 				isValid={isValid}
 				label={schema.title}
+				labelProps={schema.labelProps}
 				required={schema.required}
 				valueIsUpdating={valueIsUpdating}
 			>
@@ -303,6 +304,7 @@ if (process.env.NODE_ENV !== 'production') {
 			required: PropTypes.bool,
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
 					name: PropTypes.string.isRequired,

@@ -3,7 +3,8 @@
     "@changesets/cli": "^2.16.0",
     "commander": "^2.9.0",
     "i18next-scanner": "^3.0.0",
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "cross-env": "^7.0.3"
   },
   "scripts": {
     "postinstall": "lerna exec --concurrency 1 -- yarn  --pure-lockfile --no-progress --mutex network",
@@ -15,8 +16,10 @@
     "update-versions": "node version.js && yarn",
     "build": "lerna exec -- yarn",
     "install-router": "cd packages/cmf-router && yarn && cd ../..",
-    "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test --silent",
-    "test:demo": "lerna exec --no-bail -- yarn test:demo",
+    "test": "lerna exec --concurrency 1 -- cross-env TZ=Europe/Paris yarn test --silent",
+    "test:update": "lerna exec --concurrency 1 -- cross-env TZ=Europe/Paris yarn test --silent -u",
+    "test:cov": "lerna exec --concurrency 1 -- cross-env TZ=Europe/Paris yarn test:cov",
+    "test:demo": "lerna exec  --no-bail -- yarn test:demo",
     "bump-version": "lerna version --force-publish --no-git-tag-version --yes",
     "publish": "lerna publish from-package --yes --no-verify-access",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",

@@ -8,7 +8,7 @@ exports[`CellTitleSelector should render the button 1`] = `
   label="my value"
   onClick={[Function]}
   role="link"
-  title="my value"
+  tooltip="my value"
   type="button"
 />
 `;
@@ -28,11 +28,15 @@ exports[`CellTitleSelector should render the input 1`] = `
 `;
 
 exports[`CellTitleSelector should render the simple text 1`] = `
-<span
-  className="my-title-classname"
-  id="my-title"
-  title="my value"
+<TooltipTrigger
+  label="my value"
+  tooltipPlacement="top"
 >
-  my value
-</span>
+  <span
+    className="my-title-classname"
+    id="my-title"
+  >
+    my value
+  </span>
+</TooltipTrigger>
 `;
