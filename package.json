@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@changesets/cli": "^2.16.0",
     "commander": "^2.9.0",
     "cross-env": "^7.0.3",
     "i18next-scanner": "^3.0.0"
@@ -7,23 +8,21 @@
   "scripts": {
     "prepare": " yarn workspaces run prepare",
     "prepublishOnly": "yarn workspaces run prepublishOnly",
+    "release": "yarn changeset publish",
     "lint:es": "yarn workspaces run lint:es",
     "lint:style": "yarn workspaces run lint:style",
     "build": "yarn workspaces run build",
     "install-router": "cd packages/cmf-router && yarn && cd ../..",
-    "test": "TZ=Europe/Paris yarn workspaces run test --silent",
-    "test:update": "TZ=Europe/Paris yarn workspaces run test --silent -u",
-    "test:cov": "TZ=Europe/Paris yarn workspaces run test:cov",
+    "test": "crossenv TZ=Europe/Paris yarn workspaces run test --silent",
+    "test:update": "crossenv TZ=Europe/Paris yarn workspaces run test --silent -u",
+    "test:cov": "crossenv TZ=Europe/Paris yarn workspaces run test:cov",
     "test:demo": "yarn workspaces run yarn test:demo",
-    "start": "yarn storybook",
     "start-components": "yarn workspace @talend/react-components run start",
     "start-containers": "yarn workspace  @talend/react-containers run start",
     "start-datagrid": "yarn workspace  @talend/react-datagrid run start",
     "start-stepper": "yarn workspace  @talend/react-stepper run start",
     "start-forms": "yarn workspace  @talend/react-forms run start",
     "start-theme": "yarn workspace @talend/bootstrap-theme run start",
-    "storybook": "start-storybook -p 6006",
-    "publish": "lerna publish from-package --yes --no-verify-access",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers && npm run extract-i18n-datagrid",
     "extract-i18n-components": "i18next-scanner --config packages/components/i18next-scanner.config.js 'packages/components/src/**/*.js' '!packages/components/src/**/*.stories.js'",
@@ -39,18 +38,7 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/cmf",
-    "packages/cmf-cqrs",
-    "packages/cmf-webpack-plugin",
-    "packages/components",
-    "packages/containers",
-    "packages/datagrid",
-    "packages/forms",
-    "packages/icons",
-    "packages/sagas",
-    "packages/stepper",
-    "packages/storybook-cmf",
-    "packages/theme"
+    "packages/*"
   ],
   "resolutions": {
     "dot-prop": "^5.2.0",
