@@ -2,9 +2,9 @@
   "devDependencies": {
     "@changesets/cli": "^2.16.0",
     "commander": "^2.9.0",
+    "cross-env": "^7.0.3",
     "i18next-scanner": "^3.0.0",
-    "lerna": "^4.0.0",
-    "cross-env": "^7.0.3"
+    "lerna": "^4.0.0"
   },
   "scripts": {
     "postinstall": "lerna exec --concurrency 1 -- yarn  --pure-lockfile --no-progress --mutex network",
