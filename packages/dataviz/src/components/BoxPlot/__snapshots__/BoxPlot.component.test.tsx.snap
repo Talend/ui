@@ -63,7 +63,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
                 style="opacity: 1;"
                 text-anchor="middle"
           >
-            MINIMUM
+            Minimum
           </text>
         </g>
       </g>
@@ -105,7 +105,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
               style="opacity: 0.000001;"
               text-anchor="middle"
         >
-          MEANCOLON59.79
+          Mean:59.79
         </text>
         <text class="theme-box-plot__low-quantile-labels"
               x="45"
@@ -121,7 +121,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
               style="opacity: 1;"
               text-anchor="end"
         >
-          LOWER_QUANTILE
+          Lower quantile
         </text>
         <text class="theme-box-plot__up-quantile-labels"
               x="10"
@@ -129,7 +129,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
               style="opacity: 1;"
               text-anchor="end"
         >
-          UPPER_QUANTILE
+          Upper quantile
         </text>
         <text class="theme-box-plot__up-quantile-labels"
               x="45"
@@ -153,7 +153,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
               text-anchor="start"
               y="121.00000000000001"
         >
-          MEDIAN
+          Median
         </text>
       </g>
     </g>

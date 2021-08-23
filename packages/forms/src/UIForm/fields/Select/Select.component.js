@@ -35,6 +35,7 @@ export default function Select({
 		placeholder,
 		readOnly = false,
 		title,
+		labelProps,
 		...rest
 	} = schema;
 	const descriptionId = generateDescriptionId(id);
@@ -51,6 +52,7 @@ export default function Select({
 			id={id}
 			isValid={isValid}
 			label={title}
+			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
@@ -110,6 +112,7 @@ if (process.env.NODE_ENV !== 'production') {
 				uniqueItems: PropTypes.bool,
 			}),
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
 					name: PropTypes.string.isRequired,

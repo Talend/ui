@@ -77,6 +77,10 @@ EnumerationComponent.propTypes = {
 			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 			PropTypes.func,
 		]),
+		actionsDefaultPersistent: PropTypes.oneOfType([
+			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+			PropTypes.func,
+		]),
 		actionsEdit: PropTypes.oneOfType([
 			PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 			PropTypes.func,
@@ -220,7 +224,7 @@ HeaderEnumeration.propTypes = {
 	inputValue: EnumerationComponent.propTypes.inputValue,
 	inputRef: EnumerationComponent.propTypes.inputRef,
 	label: EnumerationComponent.propTypes.label,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 HeaderEnumeration.defaultProps = {

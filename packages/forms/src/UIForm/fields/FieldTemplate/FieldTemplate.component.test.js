@@ -4,18 +4,20 @@ import { shallow } from 'enzyme';
 import FieldTemplate from './FieldTemplate.component';
 
 describe('FieldTemplate', () => {
+	const defaultProps = {
+		isValid: true,
+		description: 'My awesome description',
+		descriptionId: 'myAwesomeField-description',
+		errorId: 'myAwesomeField-error',
+		errorMessage: 'This is wrong o_o',
+		id: 'myAwesomeField',
+		label: 'My awesome label',
+	};
+
 	it('should render with label before', () => {
 		// when
 		const wrapper = shallow(
-			<FieldTemplate
-				isValid
-				description="My awesome description"
-				descriptionId="myAwesomeField-description"
-				errorId="myAwesomeField-error"
-				errorMessage="This is wrong o_o"
-				id="myAwesomeField"
-				label="My awesome label"
-			>
+			<FieldTemplate {...defaultProps}>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
@@ -27,16 +29,7 @@ describe('FieldTemplate', () => {
 	it('should render with label after', () => {
 		// when
 		const wrapper = shallow(
-			<FieldTemplate
-				isValid
-				description="My awesome description"
-				descriptionId="myAwesomeField-description"
-				errorId="myAwesomeField-error"
-				errorMessage="This is wrong o_o"
-				id="myAwesomeField"
-				label="My awesome label"
-				labelAfter
-			>
+			<FieldTemplate {...defaultProps} labelAfter>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
@@ -53,17 +46,11 @@ describe('FieldTemplate', () => {
 		// when
 		const wrapper = shallow(
 			<FieldTemplate
-				isValid
+				{...defaultProps}
 				hint={{
 					overlayComponent: tooltipContent,
 					overlayPlacement: 'top',
 				}}
-				description="My awesome description"
-				descriptionId="myAwesomeField-description"
-				errorId="myAwesomeField-error"
-				errorMessage="This is wrong o_o"
-				id="myAwesomeField"
-				label="My awesome label"
 			>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
@@ -76,15 +63,7 @@ describe('FieldTemplate', () => {
 	it('should render invalid className', () => {
 		// when
 		const wrapper = shallow(
-			<FieldTemplate
-				isValid={false}
-				description="My awesome description"
-				descriptionId="myAwesomeField-description"
-				errorId="myAwesomeField-error"
-				errorMessage="This is wrong o_o"
-				id="myAwesomeField"
-				label="My awesome label"
-			>
+			<FieldTemplate {...defaultProps} isValid={false}>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
@@ -96,16 +75,19 @@ describe('FieldTemplate', () => {
 	it('should add animation on value with updating status', () => {
 		// when
 		const wrapper = shallow(
-			<FieldTemplate
-				isValid={false}
-				description="My awesome description"
-				descriptionId="myAwesomeField-description"
-				errorId="myAwesomeField-error"
-				errorMessage="This is wrong o_o"
-				id="myAwesomeField"
-				label="My awesome label"
-				valueIsUpdating
-			>
+			<FieldTemplate {...defaultProps} isValid={false} valueIsUpdating>
+				<input id="myAwesomeField" />
+			</FieldTemplate>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should pass label props to the label', () => {
+		// when
+		const wrapper = shallow(
+			<FieldTemplate {...defaultProps} labelProps={{ className: 'custom-label-class' }}>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);

@@ -169,6 +169,7 @@ class Datalist extends Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
+				labelProps={this.props.schema.labelProps}
 				required={this.props.schema.required}
 				valueIsUpdating={this.props.valueIsUpdating}
 			>
@@ -235,6 +236,7 @@ if (process.env.NODE_ENV !== 'production') {
 			restricted: PropTypes.bool,
 			className: PropTypes.string,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
 					name: PropTypes.string.isRequired,

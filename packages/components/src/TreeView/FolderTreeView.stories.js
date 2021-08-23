@@ -257,6 +257,30 @@ const withDisabledItems = {
 	...withAddAction,
 };
 
+const withClassNames = {
+	...withAddAction,
+	structure: [
+		{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], isOpened: false, className: 'test-class' },
+		{ name: 'pikachu', children: [{ name: 'raichu' }], isOpened: true, className: 'test-class' },
+		{
+			id: 'selected',
+			name: 'Abra',
+			isOpened: true,
+			children: [
+				{
+					name: 'Kadabra',
+					isOpened: true,
+					children: [
+						{
+							name: 'Alakazam',
+						},
+					],
+				},
+			],
+		},
+	]
+};
+
 withDisabledItems.structure = structureWithDisabledActions;
 
 const hugeStructure = [
@@ -482,6 +506,33 @@ storiesOf('Data/Tree/FolderTreeView', module)
 			<h3>Default property-set without icons: </h3>
 			<div style={style}>
 				<TreeView {...withAddAction} structure={structureWithoutIcons} />
+			</div>
+		</div>
+	))
+	.add('Items classNames', () => (
+		<div>
+			<h1>TreeView</h1>
+			<h3>Definition</h3>
+			<p>A view component to display any tree structure, like folders or categories.</p>
+			<h3>You can pass custom class names to a tree view items </h3>
+			<style>
+				{`
+					.test-class {
+						background: rgba(0,0,0,0.1);
+						animation: mymove 2s infinite;
+					}
+					.test-class .tc-treeview-item {
+						cursor: copy;
+					}
+
+					@keyframes mymove {
+						0% {opacity: 1;}
+						50% {opacity: 0.4;}
+						100% {opacity: 1;}
+					}`}
+			</style>
+			<div style={style}>
+				<TreeView {...withClassNames} />
 			</div>
 		</div>
 	));

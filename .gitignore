@@ -50,3 +50,5 @@ lib/
 storybook-static/
 dist/
 i18n-extract/
+eslint-report.json
+stylelint-report.json

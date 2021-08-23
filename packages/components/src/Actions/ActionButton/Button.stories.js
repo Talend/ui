@@ -159,12 +159,14 @@ storiesOf('Buttons/Button', module)
 		'combinations',
 		withPropsCombinations(ActionButton, {
 			label: ['Click me'],
+			bsStyle: ['default', 'primary', 'success', 'info', 'warning', 'danger', 'link', 'info btn-inverse'],
 			icon: ['talend-dataprep'],
 			'data-feature': ['my.feature'],
 			onClick: [action('You clicked me')],
 			hideLabel: [false, true],
 			inProgress: [true, false],
 			disabled: [false, true],
-			tooltipLabel: [undefined, 'Tooltip custom label'],
+			tooltip: [true],
+			tooltipLabel: ['Tooltip custom label'],
 		}),
 	);

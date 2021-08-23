@@ -9,10 +9,10 @@ import Message from '../../Message';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './FieldTemplate.scss';
 
-function Label(props) {
+function Label({ id, label, ...rest }) {
 	return (
-		<label htmlFor={props.id} className="control-label">
-			{props.label}
+		<label htmlFor={id} className="control-label" {...rest}>
+			{label}
 		</label>
 	);
 }
@@ -32,7 +32,7 @@ function FieldTemplate(props) {
 		[theme.updating]: props.valueIsUpdating,
 	});
 
-	let title = <Label id={props.id} label={props.label} />;
+	let title = <Label id={props.id} label={props.label} {...props.labelProps} />;
 
 	if (props.hint) {
 		title = (
@@ -94,6 +94,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		label: PropTypes.string,
+		labelProps: PropTypes.object,
 		labelAfter: PropTypes.bool,
 		required: PropTypes.bool,
 		valueIsUpdating: PropTypes.bool,

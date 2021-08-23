@@ -28,6 +28,7 @@ export default function FormSwitcher(props) {
 
 FormSwitcher.propTypes = {
 	loading: PropTypes.bool,
+	actions: PropTypes.array,
 	data: PropTypes.shape({
 		uiSchema: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 	}),

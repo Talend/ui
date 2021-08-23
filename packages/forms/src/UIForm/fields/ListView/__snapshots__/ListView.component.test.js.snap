@@ -510,18 +510,17 @@ exports[`ListView field render should render no items message 1`] = `
           className="actions"
         >
           <Action
-            btooltipPlacement="bottom"
             hideLabel={true}
             icon="talend-search"
             key="0-listview-header-action"
             label="Search for specific values"
             link={true}
             onClick={[Function]}
+            tooltipPlacement="bottom"
           >
             <withI18nextTranslation(ActionButton)
               available={true}
               bsStyle="default"
-              btooltipPlacement="bottom"
               disabled={false}
               hideLabel={true}
               icon="talend-search"
@@ -531,11 +530,11 @@ exports[`ListView field render should render no items message 1`] = `
               loading={false}
               onClick={[Function]}
               t={[Function]}
-              tooltipPlacement="top"
+              tooltipPlacement="bottom"
             >
               <TooltipTrigger
                 label="Search for specific values"
-                tooltipPlacement="top"
+                tooltipPlacement="bottom"
               >
                 <Button
                   active={false}
