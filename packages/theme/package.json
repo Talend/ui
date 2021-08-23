@@ -30,6 +30,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/icons": "^6.36.0",
     "bootstrap-sass": "3.4.1"
   },
   "devDependencies": {
@@ -42,7 +43,6 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@talend/icons": ">=6.16.0"
   },
   "publishConfig": {
     "access": "public"

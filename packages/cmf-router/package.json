@@ -19,6 +19,7 @@
     "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "dependencies": {
+    "@talend/react-cmf": "^6.36.0",
     "lodash": "^4.17.15",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
@@ -28,7 +29,6 @@
     "redux-saga": "^0.15.4"
   },
   "peerDependencies": {
-    "@talend/react-cmf": ">=5.27.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

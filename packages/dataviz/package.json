@@ -37,6 +37,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/react-components": "^6.14.2",
     "classnames": "^2.2.6",
     "d3": "^6.5.0",
     "date-fns": "^2.16.1",
@@ -76,9 +77,6 @@
     "react-i18next": "^11.8.13"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^6.14.2",
-    "@talend/icons": "^6.14.2",
-    "@talend/react-components": "^6.14.2",
     "i18next": "^20.1.0",
     "react": "^16.14.0",
     "react-i18next": "^11.8.13"

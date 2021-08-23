@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@talend/json-schema-form-core": "1.0.0",
+    "@talend/react-components": "^6.37.0",
     "@talend/utils": "^1.2.0",
     "ajv": "^6.2.1",
     "classnames": "^2.2.5",
@@ -78,7 +79,6 @@
     "react-test-renderer": "^16.13.1"
   },
   "peerDependencies": {
-    "@talend/react-components": "^6.0.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
