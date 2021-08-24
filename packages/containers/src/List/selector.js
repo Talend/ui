@@ -65,17 +65,17 @@ export function configureGetFilteredItems(configure) {
 
 export function compare(sortBy) {
 	return (a, b) => {
-		if (a.get(sortBy)) {
-			let aValue = a.get(sortBy);
-			let bValue = b.get(sortBy);
+		let aValue = a.get(sortBy);
+		let bValue = b.get(sortBy);
 
-			if (typeof aValue === 'string' && typeof bValue === 'string') {
-				aValue = aValue.toLowerCase();
-				bValue = bValue.toLowerCase();
+		if (typeof aValue === 'string' && typeof bValue === 'string') {
+			aValue = aValue.toLowerCase();
+			bValue = bValue.toLowerCase();
 
-				return aValue.localeCompare(bValue);
-			}
-
+			return aValue.localeCompare(bValue);
+		}
+		
+		if(typeof aValue === 'number' && typeof bValue === 'number') {
 			if (aValue < bValue) {
 				return -1;
 			}
@@ -84,6 +84,7 @@ export function compare(sortBy) {
 			}
 			return 0;
 		}
+
 		if (!b[sortBy]) {
 			return 0;
 		}

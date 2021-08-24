@@ -32,11 +32,13 @@ export default class OverlayTrigger extends React.Component {
 		children: PropTypes.element,
 		getComponent: PropTypes.func,
 		onClick: PropTypes.func,
+		trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 		...overlayPropTypes,
 	};
 
 	static defaultProps = {
 		preventScrolling: false,
+		trigger: 'click',
 	};
 
 	constructor(props) {
@@ -90,7 +92,7 @@ export default class OverlayTrigger extends React.Component {
 			overlay: <Popover id={this.props.overlayId}>{popoverContent}</Popover>,
 			ref: this.props.overlayRef,
 			rootClose: true,
-			trigger: 'click',
+			trigger: this.props.trigger,
 		};
 		const tooltipProps = {
 			onMouseOver: this.props.onMouseOver,

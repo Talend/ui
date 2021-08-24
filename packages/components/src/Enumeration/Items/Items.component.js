@@ -59,9 +59,14 @@ class Items extends React.PureComponent {
 				if (typeof actions === 'function') {
 					actions = actions(itemWithIndex);
 				}
+				let persistentActions = this.props.itemsProp.actionsDefaultPersistent;
+				if (typeof persistentActions === 'function') {
+					persistentActions = persistentActions(itemWithIndex);
+				}
 				const itemPropDefault = {
 					key: this.props.itemsProp.key,
 					actions,
+					persistentActions,
 					onSelectItem: this.props.itemsProp.onSelectItem,
 				};
 				itemWithIndex.itemProps = itemPropDefault;
@@ -161,6 +166,7 @@ Items.propTypes = {
 		onAbortItem: PropTypes.func,
 		onSelectItem: PropTypes.func,
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+		actionsDefaultPersistent: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
 	...ItemEditPropTypes,

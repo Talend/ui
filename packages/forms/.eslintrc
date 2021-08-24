@@ -1,6 +1,0 @@
-{
-	"extends": "../../.eslintrc",
-	"rules": {
-		"import/no-cycle": 0
-	}
-}

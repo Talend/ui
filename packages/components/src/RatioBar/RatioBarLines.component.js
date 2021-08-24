@@ -32,3 +32,16 @@ export function EmptyLine({ value, percentage }) {
 	);
 }
 EmptyLine.propTypes = ratioBarLinePropTypes;
+
+
+export function ErrorLine({ value, percentage }) {
+	return (
+		<RatioBarLine
+			percentage={percentage}
+			value={value}
+			className={theme('tc-ratio-bar-line-error')}
+		/>
+	);
+}
+ErrorLine.propTypes = ratioBarLinePropTypes;
+

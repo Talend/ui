@@ -1,5 +1,0 @@
---compilers js:babel-register
---require babel-polyfill
---reporter spec
---watch-extensions js
-src/**/*.spec.js

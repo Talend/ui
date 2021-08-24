@@ -13,4 +13,9 @@ describe('FormSkeleton', () => {
 		const wrapper = shallow(<FormSkeleton displayMode="text" />);
 		expect(wrapper.find(Skeleton).length).toBe(8);
 	});
+
+	it('should render skeleton without actions', () => {
+		const wrapper = shallow(<FormSkeleton actions={[]} />);
+		expect(wrapper.find(Skeleton).length).toBe(8);
+	});
 });

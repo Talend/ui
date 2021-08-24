@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
-import { withI18next } from 'storybook-addon-i18next';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import createSagaMiddleware from 'redux-saga';
 import withCMF from '@talend/react-storybook-cmf';
@@ -25,12 +24,6 @@ import { registerAllContainers } from '../src/register';
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));
 
-addDecorator(
-	withI18next({
-		i18n,
-		languages,
-	}),
-);
 addDecorator(withCMF);
 addDecorator(withA11y);
 addDecorator(storyFn => (
@@ -38,7 +31,9 @@ addDecorator(storyFn => (
 		<IconsProvider
 			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
 		/>
-		{storyFn()}
+		<React.Suspense fallback={null}>
+			{storyFn()}
+		</React.Suspense>
 	</>
 ));
 

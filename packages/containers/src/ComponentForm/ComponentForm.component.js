@@ -46,14 +46,30 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	if (!schema.titleMap) {
 		return;
 	}
-
 	// Here we add a field side by side with the value
 	// to keep the title associated to the value
 	const valueIsArray = Array.isArray(value);
 	const uniformValue = valueIsArray ? value : [value];
 
+	const { titleMap } = schema;
+	const isMultiSection = !!titleMap[0]?.suggestions;
 	const names = uniformValue
-		.map(nextValue => schema.titleMap.find(titleMap => titleMap.value === nextValue))
+		.map(nextValue => {
+			if (isMultiSection) {
+				// if we are here, it means we are facing a multi section list
+				// the titleMap contains sections which have their own list of values
+				// eslint-disable-next-line no-plusplus
+				for (let index = 0; index < titleMap.length; index++) {
+					const section = titleMap[index];
+
+					const result = section.suggestions.find(subItem => nextValue === subItem.value);
+
+					if (result) return result;
+				}
+			}
+
+			return titleMap.find(item => item.value === nextValue);
+		})
 		.map(entry => entry && entry.name);
 
 	const parentKey = schema.key.slice();
@@ -125,6 +141,9 @@ export class TCompForm extends React.Component {
 				...payload,
 			});
 		}
+		if (this.props.onChange) {
+			this.props.onChange(_, payload);
+		}
 	}
 
 	onTrigger(event, payload) {
@@ -162,6 +181,9 @@ export class TCompForm extends React.Component {
 			componentId: this.props.componentId,
 			properties,
 		});
+		if (this.props.onSubmit) {
+			this.props.onSubmit(_, properties);
+		}
 	}
 
 	onReset() {
@@ -207,7 +229,7 @@ export class TCompForm extends React.Component {
 			if (response) {
 				return <p className="danger">{response.get('statusText')}</p>;
 			}
-			return <Form loading displayMode={this.props.displayMode} />;
+			return <Form loading displayMode={this.props.displayMode} actions={this.props.actions} />;
 		}
 
 		const props = {
@@ -245,6 +267,8 @@ TCompForm.propTypes = {
 	dispatchOnChange: PropTypes.bool,
 	CSRFTokenCookieKey: PropTypes.string,
 	CSRFTokenHeaderKey: PropTypes.string,
+	onSubmit: PropTypes.func,
+	onChange: PropTypes.func,
 };
 
 export default cmfConnect({

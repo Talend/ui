@@ -452,4 +452,46 @@ describe('Enumeration', () => {
 			height: '126px',
 		});
 	});
+	it('should render a group of persistent actions which will be always visible', () => {
+		const props = {
+			displayMode: 'DISPLAY_MODE_DEFAULT',
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(),
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
+			itemsProp: {
+				key: 'values',
+				getItemHeight: () => 42,
+				actionsDefault:[],
+				actionsDefaultPersistent: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(),
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(),
+					},
+				],
+			},
+			onAddChange: jest.fn(),
+			onAddKeyDown: jest.fn(),
+		};
+		const wrapper = mount(<Enumeration {...props} />);
+		expect(wrapper.find('.persistent').at(0).children().length).toBe(2);
+	});
 });

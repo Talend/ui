@@ -41,6 +41,7 @@ function InputDateTimePicker(props) {
 							startDate={props.startDate}
 							endDate={props.endDate}
 							minWidth={props.minWidthDate}
+							isDisabledChecker={props.isDisabledChecker}
 						/>
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
@@ -84,6 +85,7 @@ InputDateTimePicker.propTypes = {
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	minWidthDate: PropTypes.number,
 	minWidthTime: PropTypes.number,
+	isDisabledChecker: PropTypes.bool,
 };
 
 InputDateTimePicker.defaultProps = {

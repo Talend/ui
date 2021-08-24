@@ -101,5 +101,9 @@
 		&.range:hover {
 			background-color: tint($lochmara, 70%);
 		}
+
+		&:disabled {
+			cursor: not-allowed;
+		}
 	}
 }

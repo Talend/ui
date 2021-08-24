@@ -11,6 +11,8 @@ import { TitleColumn } from './CellTitle';
 import { BooleanColumn } from './CellBoolean';
 import { LabelColumn } from './CellLabel';
 import { IconTextColumn } from './CellIconText';
+import { QualityBarColumn } from './CellQualityBar';
+import { MappedDataColumn } from './CellMappedData';
 import HeaderResizable from './HeaderResizable';
 import RowCollapsiblePanel from './RowCollapsiblePanel';
 
@@ -30,6 +32,8 @@ VirtualizedList.Title = TitleColumn;
 VirtualizedList.Boolean = BooleanColumn;
 VirtualizedList.Label = LabelColumn;
 VirtualizedList.IconText = IconTextColumn;
+VirtualizedList.QualityBar = QualityBarColumn;
+VirtualizedList.MappedData = MappedDataColumn;
 VirtualizedList.RowCollapsiblePanel = RowCollapsiblePanel;
 VirtualizedList.HeaderResizable = HeaderResizable;
 VirtualizedList.cellDictionary = cellDictionary;

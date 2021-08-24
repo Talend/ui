@@ -67,6 +67,31 @@ describe('RatioBar', () => {
 		});
 	});
 
+	it('should render a classic ratio bar with errors', () => {
+		// given
+		const props = {
+			amount: 5,
+			total: 12,
+			errors: 2,
+		};
+		// when
+		const wrapper = shallow(<RatioBar {...props} />);
+		// then
+		expect(wrapper.find('FilledLine').props()).toEqual({
+			percentage: 41.66666666666667,
+			value: 5,
+		});
+		expect(wrapper.find('EmptyLine').props()).toEqual({
+			percentage: 41.666666666666664,
+			value: 5,
+		});
+		expect(wrapper.find('ErrorLine').props()).toEqual({
+			percentage: 16.666666666666664,
+			value: 2,
+		});
+		expect(wrapper.find('.tc-ratio-bar-counter').text()).toEqual('7/12');
+	});
+
 	it('should render a classic ratio bar without label', () => {
 		// given
 		const props = {

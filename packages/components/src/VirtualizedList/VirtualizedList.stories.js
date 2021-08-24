@@ -210,9 +210,17 @@ const collection = [
 		modified: '2016-09-22',
 		description: 'Simple row with few actions',
 		author: 'Jean-Pierre DUPONT',
+		language: 'fr',
 		display: 'text',
 		className: 'item-0-class',
 		titleActions: fewTitleActions,
+		quality: {
+			invalid: 1,
+			empty: 2,
+			valid: 3,
+			na: 4,
+			onClick: action('onQualityClick'),
+		},
 	},
 	{
 		id: 1,
@@ -224,6 +232,13 @@ const collection = [
 		display: 'text',
 		className: 'item-1-class',
 		titleActions: lotOfTitleActions,
+		quality: {
+			invalid: 1,
+			empty: 2,
+			valid: 3,
+			na: 4,
+			onClick: action('onQualityClick'),
+		},
 	},
 	{
 		id: 2,
@@ -233,6 +248,7 @@ const collection = [
 		modified: '2016-09-22',
 		description: 'Simple row with icon and actions',
 		author: 'Jean-Pierre DUPONT',
+		language: ['de', 'en'],
 		display: 'text',
 		className: 'item-2-class',
 		persistentActions,
@@ -245,6 +261,7 @@ const collection = [
 		modified: '2016-09-22',
 		description: 'Simple row without icon',
 		author: '',
+		language: 'fr',
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-3-class',
@@ -257,6 +274,7 @@ const collection = [
 		modified: '2016-09-22',
 		description: 'Simple row with title in edit mode',
 		author: 'Jean-Pierre DUPONT',
+		language: 'en',
 		icon: 'talend-file-json-o',
 		display: 'input',
 		className: 'item-4-class',
@@ -437,6 +455,11 @@ storiesOf('Data/List/VirtualizedList', module)
 					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
 					<VirtualizedList.Text label="Description" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
+					<VirtualizedList.MappedData
+						label="Language"
+						dataKey="language"
+						columnData={{ valuesMap: { en: 'English', fr: 'French', de: 'German' } }}
+					/>
 					<VirtualizedList.Datetime
 						label="Created"
 						dataKey="created"

@@ -217,7 +217,7 @@ function updatePartsOnDateChange(datePickerPayload, time, options) {
 		date: date || dateTextInput,
 		time,
 		datetime,
-		textInput: dateAndTimeToStr(date || dateTextInput, time, options),
+		textInput: dateAndTimeToStr(dateTextInput || date, time, options),
 		errors,
 		errorMessage: nextErrors[0] ? nextErrors[0].message : null,
 	};

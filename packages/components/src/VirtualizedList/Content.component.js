@@ -1,12 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
+import TooltipTrigger from '../TooltipTrigger';
 
-function DefaultRenderer({ cellData }) {
-	return <div className="tc-virtualizedlist-default-cell">{cellData}</div>;
+function DefaultRenderer({ cellData, columnData, rowData }) {
+	const { getTooltipLabel } = columnData;
+	let tooltipLabel = columnData.tooltipLabel || cellData;
+	if (typeof getTooltipLabel === 'function') {
+		tooltipLabel = getTooltipLabel(rowData);
+	}
+	return tooltipLabel ? (
+		<TooltipTrigger
+			label={tooltipLabel}
+			tooltipPlacement={columnData.tooltipPlacement || 'top'}
+		>
+			<div className="tc-virtualizedlist-default-cell">{cellData}</div>
+		</TooltipTrigger>
+	) : (
+		<div className="tc-virtualizedlist-default-cell">{cellData}</div>
+	);
 }
 DefaultRenderer.propTypes = {
 	cellData: PropTypes.string,
+	rowData: PropTypes.object,
+	columnData: PropTypes.shape({
+		tooltipLabel: PropTypes.string,
+		tooltipPlacement: PropTypes.string,
+		getTooltipLabel: PropTypes.func,
+	}),
 };
 
 export const defaultColumnConfiguration = {
