@@ -4,6 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = (env, argv) => {
 	const isDev = argv.mode === 'development';
@@ -47,10 +48,10 @@ module.exports = (env, argv) => {
 						{
 							loader: 'postcss-loader',
 							options: {
-								postcssOptions: {
-									ident: 'postcss',
-									plugins: [['postcss-preset-env', { browsers: 'last 2 versions' }]],
-								},
+								ident: 'postcss',
+								plugins: [
+									postcssPresetEnv({ browsers: 'last 2 versions' })
+								],
 							},
 						},
 						{
