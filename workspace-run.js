@@ -54,7 +54,8 @@ function run(cmd, opts = {}) {
 		});
 	});
 }
-const script = process.argv.slice(2);
+const script = process.argv[2];
+const scriptArgs = process.argv.slice(3);
 
 function consume(cmds) {
 	if (cmds.length > 0) {
@@ -79,7 +80,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 		const commands = Object.keys(info).reduce((acc, pkg) => {
 			const packageJson = require(`./${info[pkg].location}/package.json`);
 			if (packageJson.scripts[script]) {
-				acc.push({ name: 'yarn', args: ['workspace', '--silent', pkg, 'run', script] });
+				acc.push({ name: 'yarn', args: ['workspace', '--silent', pkg, 'run', script].concat(scriptArgs) });
 			}
 			return acc;
 		}, []);
