@@ -1,3 +1,5 @@
+@use "sass:math";
+
 ////
 /// Bootstrap dropdowns customization
 /// @group Dropdowns
@@ -38,7 +40,7 @@ $dropdown-caret-up-axis: -45deg !default;
 			display: flex;
 			align-items: center;
 			flex-basis: 100%;
-			padding: $padding-normal/2 $padding-large;
+			padding: math.div($padding-normal, 2) $padding-large;
 			transition: 0.1s background-color ease-out;
 
 			> svg:first-child {

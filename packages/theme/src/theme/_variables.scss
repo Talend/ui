@@ -1,4 +1,5 @@
 // This is a fork but try to keep it as close to the original as possible
+@use "sass:math";
 
 $bootstrap-sass-asset-helper: false !default;
 //
@@ -394,8 +395,8 @@ $container-lg: $container-large-desktop !default;
 $navbar-height: 48px !default;
 $navbar-margin-bottom: $line-height-computed !default;
 $navbar-border-radius: 0 !default;
-$navbar-padding-horizontal: floor(($grid-gutter-width / 2)) !default;
-$navbar-padding-vertical: (($navbar-height - $line-height-computed) / 2) !default;
+$navbar-padding-horizontal: floor(math.div($grid-gutter-width, 2)) !default;
+$navbar-padding-vertical: math.div($navbar-height - $line-height-computed, 2) !default;
 $navbar-collapse-max-height: 340px !default;
 
 $navbar-default-color: #777 !default;
