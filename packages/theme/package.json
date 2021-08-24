@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "rimraf ./dist && webpack",
+    "prepublishOnly": "rimraf ./dist && webpack --display=none",
     "prepare": "rimraf ./dist && webpack",
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
@@ -30,6 +30,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/icons": "^6.36.0",
     "bootstrap-sass": "3.4.1"
   },
   "devDependencies": {
@@ -42,7 +43,6 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@talend/icons": ">=6.16.0"
   },
   "publishConfig": {
     "access": "public"

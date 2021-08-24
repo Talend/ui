@@ -7,7 +7,7 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "prepublishOnly": "yarn build:dev && yarn build:prod",
+    "prepublishOnly": "yarn build:dev --display=none && yarn build:prod --display=none",
     "prepare": "talend-scripts build:lib",
     "start": "start-storybook -p 6010",
     "test": "talend-scripts test --silent",
@@ -34,6 +34,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/icons": "^6.36.0",
+    "@talend/react-cmf": "^6.36.0",
+    "@talend/react-components": "^6.37.0",
     "ag-grid-community": "^25.1.0",
     "ag-grid-react": "^25.1.0",
     "classnames": "^2.3.1",
@@ -48,7 +51,7 @@
     "@talend/icons": "^6.36.0",
     "@talend/locales-tui": "^5.29.0",
     "@talend/react-cmf": "^6.36.0",
-    "@talend/react-components": "^6.36.0",
+    "@talend/react-components": "^6.37.0",
     "@talend/react-storybook-cmf": "^6.36.0",
     "@talend/scripts-core": "^9.10.0",
     "@talend/scripts-preset-react-lib": "^9.8.0",
@@ -65,9 +68,6 @@
     "style-loader": "^0.23.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^6.0.0",
-    "@talend/react-cmf": "^6.0.0",
-    "@talend/react-components": "^6.0.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
