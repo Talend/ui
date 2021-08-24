@@ -1,5 +1,5 @@
 ---
-'@talend/react-cmf': major
+'@talend/react-cmf': minor
 ---
 
 Remove sentry integration
