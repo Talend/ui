@@ -6,7 +6,8 @@
   "style": "assets/stylesheets/_bootstrap.scss",
   "sass": "assets/stylesheets/_bootstrap.scss",
   "scripts": {
-    "prepare": "echo nothing to prepare in bootsrap-sass"
+    "prepare": "echo nothing to prepare in bootsrap-sass",
+    "prepublishOnly": "echo nothing to prepublishOnly in bootsrap-sass"
   },
   "files": [
     "assets",
