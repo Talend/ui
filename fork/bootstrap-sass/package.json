@@ -5,6 +5,9 @@
   "main": "assets/javascripts/bootstrap.js",
   "style": "assets/stylesheets/_bootstrap.scss",
   "sass": "assets/stylesheets/_bootstrap.scss",
+  "scripts": {
+    "prepare": "echo nothing to prepare in bootsrap-sass"
+  },
   "files": [
     "assets",
     "eyeglass-exports.js",
