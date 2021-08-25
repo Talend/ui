@@ -10,7 +10,6 @@
   },
   "files": [
     "assets",
-    "eyeglass-exports.js",
     "CHANGELOG.md",
     "LICENSE",
     "README.md"
@@ -22,8 +21,7 @@
   "keywords": [
     "bootstrap",
     "sass",
-    "css",
-    "eyeglass-module"
+    "css"
   ],
   "contributors": [
     "Thomas McDonald",
@@ -34,10 +32,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Talend/ui/issues"
-  },
-  "eyeglass": {
-    "exports": "eyeglass-exports.js",
-    "needs": "^0.7.1"
   },
   "publishConfig": {
     "access": "public"
