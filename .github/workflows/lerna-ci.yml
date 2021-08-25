@@ -33,6 +33,6 @@ jobs:
         if: github.ref != 'refs/heads/master'
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          build-script: 'prepublishOnly'
+          build-script: 'pre-release'
           pattern: './packages/*/dist/*.{js,css,json}'
           exclude: '{**/*.html,**/*.map,**/node_modules/**}'
