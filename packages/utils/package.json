@@ -12,7 +12,7 @@
   "scripts": {
     "build": "talend-scripts build:ts:lib",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
-    "prepublishOnly": "npm run test",
+    "pre-release": "npm run test",
     "prepare": "npm run build",
     "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
     "test:demo": "echo nothing to do",

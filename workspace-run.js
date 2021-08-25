@@ -62,7 +62,13 @@ function consume(cmds) {
 		const cmd = cmds.pop();
 		run(cmd, { verbose: true })
 			.then(() => consume(cmds))
-			.catch(() => consume(cmds));
+			.catch(() => {
+				if (process.env.WORKSPACE_RUN_FAIL === 'no-bail') {
+					consume(cmds);
+				} else {
+					process.exit(exitCode);
+				}
+			});
 	} else {
 		process.exit(exitCode);
 	}

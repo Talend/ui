@@ -6,7 +6,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepare": "echo nothing to prepare",
-    "prepublishOnly": "echo nothing to prepublishOnly",
     "test": "jest",
     "test:demo": "echo nothing to do",
     "lint": "eslint lib/**"
