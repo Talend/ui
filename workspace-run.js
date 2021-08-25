@@ -1,7 +1,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 /* eslint-disable no-console */
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 
 let exitCode = 0;
 
@@ -16,36 +16,46 @@ let exitCode = 0;
  */
 function run(cmd, opts = {}) {
 	if (opts.verbose) {
-		console.log(`#### RUNNER: ${cmd}`);
+		console.log(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')}`);
 	}
 	return new Promise((resolve, reject) => {
-		const out = exec(cmd, (error, stdout, stderr) => {
-			if (error) {
-				console.error(error);
-				exitCode += 1;
-				return reject(error);
-			}
-			if (stderr) {
-				if (opts.verbose) {
-					console.error(`RUNNER: Child Process STDERR: ${stderr}`);
-				}
-			}
-			if (stdout) {
-				if (opts.verbose) {
-					console.log(`RUNNER: Child Process STDOUT: ${stdout}`);
-				}
-				return resolve(stdout);
-			}
-			return reject(stderr);
+		const out = spawn(cmd.name, cmd.args);
+		let stdout = '';
+		let stderr = '';
+		out.on('error', error => {
+			console.error(error);
+			exitCode += 1;
+			reject(error);
 		});
-		out.on('exit', code => {
-			if (opts.verbose) {
-				console.log(`RUNNER: Child process exited with exit code ${code}`);
+		out.on('close', () => {
+			resolve(stdout);
+		});
+		out.on('exit', () => {
+			if (opts.verbose && stderr) {
+				console.error(`RUNNER: Child Process STDERR: ${stderr}`);
+			}
+			if (opts.verbose && stdout) {
+				console.error(`RUNNER: Child Process STDOUT: ${stdout}`);
+			}
+			resolve(stdout);
+		});
+		out.stdout.on('data', data => {
+			const datastr = data.toString();
+			if (data && datastr) {
+				stdout += datastr;
+			}
+		});
+
+		out.stderr.on('data', data => {
+			const datastr = data.toString();
+			if (data && datastr) {
+				stderr += data.toString();
 			}
 		});
 	});
 }
-const script = process.argv.slice(2);
+const script = process.argv[2];
+const scriptArgs = process.argv.slice(3);
 
 function consume(cmds) {
 	if (cmds.length > 0) {
@@ -58,7 +68,7 @@ function consume(cmds) {
 	}
 }
 
-run('yarn workspaces --silent info')
+run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 	.then(infoOutput => {
 		let info = {};
 		try {
@@ -70,7 +80,7 @@ run('yarn workspaces --silent info')
 		const commands = Object.keys(info).reduce((acc, pkg) => {
 			const packageJson = require(`./${info[pkg].location}/package.json`);
 			if (packageJson.scripts[script]) {
-				acc.push(`yarn workspace --silent ${pkg} run ${script}`);
+				acc.push({ name: 'yarn', args: ['workspace', '--silent', pkg, 'run', script].concat(scriptArgs) });
 			}
 			return acc;
 		}, []);
