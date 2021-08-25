@@ -6,8 +6,12 @@
   "style": "assets/stylesheets/_bootstrap.scss",
   "sass": "assets/stylesheets/_bootstrap.scss",
   "scripts": {
+    "build": "echo nothing to build in bootsrap-sass",
     "prepare": "echo nothing to prepare in bootsrap-sass",
-    "prepublishOnly": "echo nothing to prepublishOnly in bootsrap-sass"
+    "prepublishOnly": "echo nothing to prepublishOnly in bootsrap-sass",
+    "test": "echo nothing to test in bootsrap-sass",
+    "test:update": "echo nothing to test in bootsrap-sass",
+    "test:cov": "echo nothing to test in bootsrap-sass"
   },
   "files": [
     "assets",
