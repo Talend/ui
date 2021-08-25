@@ -4,7 +4,6 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "prepublishOnly": "echo nothing to prepublishOnly",
     "prepare": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",

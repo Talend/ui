@@ -17,7 +17,6 @@
     "addon"
   ],
   "scripts": {
-    "prepublishOnly": "echo nothing to prepublishOnly",
     "prepare": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:demo": "echo nothing to demo",
