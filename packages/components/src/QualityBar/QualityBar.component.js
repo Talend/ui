@@ -46,19 +46,26 @@ export function getQualityPercentagesRounded(invalid, empty, valid, na = 0, digi
 	return [invalidRounded, emptyRounded, validRounded, naRounded];
 }
 
-export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature, digits = 1 }) {
+export function QualityBar({
+	digits = 1,
+	empty,
+	getDataFeature,
+	hasTooltip = true,
+	invalid,
+	na,
+	onClick,
+	valid,
+}) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
-	const [
-		invalidPercentage,
-		emptyPercentage,
-		validPercentage,
-		naPercentage,
-	] = getQualityPercentagesRounded(invalid, empty, valid, na, digits);
+	const [invalidPercentage, emptyPercentage, validPercentage, naPercentage] =
+		getQualityPercentagesRounded(invalid, empty, valid, na, digits);
 
 	return (
 		<RatioBar.Composition>
 			<QualityInvalidLine
+				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
+				hasTooltip={hasTooltip}
 				onClick={
 					onClick
 						? e =>
@@ -67,12 +74,13 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
-				value={invalid}
 				percentage={invalidPercentage}
 				t={t}
+				value={invalid}
 			/>
 			<QualityEmptyLine
+				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
+				hasTooltip={hasTooltip}
 				onClick={
 					onClick
 						? e =>
@@ -81,12 +89,13 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
-				value={empty}
 				percentage={emptyPercentage}
 				t={t}
+				value={empty}
 			/>
 			<QualityNotApplicableLine
+				dataFeature={getDataFeature ? getDataFeature(QualityType.NA) : null}
+				hasTooltip={hasTooltip}
 				onClick={
 					onClick
 						? e =>
@@ -95,12 +104,13 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.NA) : null}
-				value={na}
 				percentage={naPercentage}
 				t={t}
+				value={na}
 			/>
 			<QualityValidLine
+				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
+				hasTooltip={hasTooltip}
 				onClick={
 					onClick
 						? e =>
@@ -109,7 +119,6 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
 				value={valid}
 				percentage={validPercentage}
 				t={t}
@@ -119,11 +128,12 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 }
 
 QualityBar.propTypes = {
-	invalid: PropTypes.number.isRequired,
+	digits: PropTypes.number,
 	empty: PropTypes.number.isRequired,
-	valid: PropTypes.number.isRequired,
+	getDataFeature: PropTypes.func,
+	hasTooltip: PropTypes.bool,
+	invalid: PropTypes.number.isRequired,
 	na: PropTypes.number.isRequired,
 	onClick: PropTypes.func,
-	getDataFeature: PropTypes.func,
-	digits: PropTypes.number,
+	valid: PropTypes.number.isRequired,
 };

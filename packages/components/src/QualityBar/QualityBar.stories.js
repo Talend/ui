@@ -29,6 +29,8 @@ stories
 					<QualityBar invalid={122} valid={1088} empty={293} />
 					<div>I really like the digits !</div>
 					<QualityBar invalid={30} valid={30} empty={30} digits={5} />
+					<div>Don't want to have the tooltip</div>
+					<QualityBar invalid={30} valid={0} empty={0} na={70} hasTooltip={false} />
 					<div>Classic look with action button</div>
 					<QualityBar
 						invalid={2}

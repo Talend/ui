@@ -7,11 +7,12 @@ import RatioBar from '../RatioBar';
 const theme = getTheme(qualityBarTheme);
 
 const qualityBarLinePropTypes = {
-	value: PropTypes.number.isRequired,
+	dataFeature: PropTypes.string,
+	hasTooltip: PropTypes.bool,
+	onClick: PropTypes.func,
 	percentage: PropTypes.number.isRequired,
 	t: PropTypes.func.isRequired,
-	dataFeature: PropTypes.string,
-	onClick: PropTypes.func,
+	value: PropTypes.number.isRequired,
 };
 
 /**
@@ -35,17 +36,21 @@ export const QualityType = {
 	NA: 'na',
 };
 
-export function QualityInvalidLine({ value, percentage, t, dataFeature, onClick }) {
+export function QualityInvalidLine({ dataFeature, hasTooltip, onClick, percentage, t, value }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
-			tooltipLabel={t('INVALID_VALUES', {
-				defaultValue: '{{value}} invalid value ({{percentage}}%)',
-				defaultValue_plural: '{{value}} invalid values ({{percentage}}%)',
-				count: value,
-				percentage,
-				value: formatNumber(value),
-			})}
+			tooltipLabel={
+				hasTooltip
+					? t('INVALID_VALUES', {
+							defaultValue: '{{value}} invalid value ({{percentage}}%)',
+							defaultValue_plural: '{{value}} invalid values ({{percentage}}%)',
+							count: value,
+							percentage,
+							value: formatNumber(value),
+					  })
+					: null
+			}
 			dataFeature={dataFeature}
 			onClick={onClick}
 			value={value}
@@ -55,17 +60,21 @@ export function QualityInvalidLine({ value, percentage, t, dataFeature, onClick 
 }
 QualityInvalidLine.propTypes = qualityBarLinePropTypes;
 
-export function QualityValidLine({ value, percentage, t, dataFeature, onClick }) {
+export function QualityValidLine({ dataFeature, hasTooltip, onClick, percentage, t, value }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
-			tooltipLabel={t('VALID_VALUES', {
-				defaultValue: '{{value}} valid value ({{percentage}}%)',
-				defaultValue_plural: '{{value}} valid values ({{percentage}}%)',
-				count: value,
-				percentage,
-				value: formatNumber(value),
-			})}
+			tooltipLabel={
+				hasTooltip
+					? t('VALID_VALUES', {
+							defaultValue: '{{value}} valid value ({{percentage}}%)',
+							defaultValue_plural: '{{value}} valid values ({{percentage}}%)',
+							count: value,
+							percentage,
+							value: formatNumber(value),
+					  })
+					: null
+			}
 			dataFeature={dataFeature}
 			onClick={onClick}
 			value={value}
@@ -75,17 +84,21 @@ export function QualityValidLine({ value, percentage, t, dataFeature, onClick })
 }
 QualityValidLine.propTypes = qualityBarLinePropTypes;
 
-export function QualityEmptyLine({ value, percentage, t, dataFeature, onClick }) {
+export function QualityEmptyLine({ dataFeature, hasTooltip, onClick, percentage, t, value }) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
-			tooltipLabel={t('EMPTY_VALUES', {
-				defaultValue: '{{value}} empty value ({{percentage}}%)',
-				defaultValue_plural: '{{value}} empty values ({{percentage}}%)',
-				count: value,
-				percentage,
-				value: formatNumber(value),
-			})}
+			tooltipLabel={
+				hasTooltip
+					? t('EMPTY_VALUES', {
+							defaultValue: '{{value}} empty value ({{percentage}}%)',
+							defaultValue_plural: '{{value}} empty values ({{percentage}}%)',
+							count: value,
+							percentage,
+							value: formatNumber(value),
+					  })
+					: null
+			}
 			dataFeature={dataFeature}
 			onClick={onClick}
 			value={value}
@@ -95,17 +108,28 @@ export function QualityEmptyLine({ value, percentage, t, dataFeature, onClick })
 }
 QualityEmptyLine.propTypes = qualityBarLinePropTypes;
 
-export function QualityNotApplicableLine({ value, percentage, t, dataFeature, onClick }) {
+export function QualityNotApplicableLine({
+	dataFeature,
+	hasTooltip,
+	onClick,
+	percentage,
+	t,
+	value,
+}) {
 	return (
 		<RatioBar.Line
 			percentage={percentage}
-			tooltipLabel={t('NOT_APPLICABLE_VALUES', {
-				defaultValue: '{{value}} not applicable value ({{percentage}}%)',
-				defaultValue_plural: '{{value}} not applicable values ({{percentage}}%)',
-				count: value,
-				percentage,
-				value: formatNumber(value),
-			})}
+			tooltipLabel={
+				hasTooltip
+					? t('NOT_APPLICABLE_VALUES', {
+							defaultValue: '{{value}} not applicable value ({{percentage}}%)',
+							defaultValue_plural: '{{value}} not applicable values ({{percentage}}%)',
+							count: value,
+							percentage,
+							value: formatNumber(value),
+					  })
+					: null
+			}
 			dataFeature={dataFeature}
 			onClick={onClick}
 			value={value}
