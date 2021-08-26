@@ -125,4 +125,8 @@ export function QualityPlaceholderLine({ onClick, percentage, value }) {
 		/>
 	);
 }
-QualityPlaceholderLine.propTypes = qualityBarLinePropTypes;
+QualityPlaceholderLine.propTypes = {
+	onClick: PropTypes.func,
+	percentage: PropTypes.number.isRequired,
+	value: PropTypes.number.isRequired,
+};
