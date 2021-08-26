@@ -6,6 +6,7 @@ import {
 	QualityEmptyLine,
 	QualityInvalidLine,
 	QualityNotApplicableLine,
+	QualityPlaceholderLine,
 	QualityType,
 	QualityValidLine,
 } from './QualityRatioBar.component';
@@ -20,13 +21,13 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
  * @param {number} naRaw number of not applicable raw
  * @param {number} digits number of digits we want to keep
  */
-export function getQualityPercentagesRounded(invalid, empty, valid, na = 0, digits = 0) {
+export function getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits = 0) {
 	let sumValues = 0;
 	let sumRounded = 0;
 	const digitMultiplier = Math.pow(10, digits);
 	const multiplier = 100 * digitMultiplier;
 
-	const total = invalid + empty + valid + na;
+	const total = invalid + empty + valid + na + placeholder;
 
 	sumValues = (invalid * multiplier) / total;
 	const invalidRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
@@ -43,29 +44,36 @@ export function getQualityPercentagesRounded(invalid, empty, valid, na = 0, digi
 	sumValues += (na * multiplier) / total;
 	const naRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
 
-	return [invalidRounded, emptyRounded, validRounded, naRounded];
+	sumValues += (placeholder * multiplier) / total;
+	const placeholderRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+
+	return [invalidRounded, emptyRounded, validRounded, naRounded, placeholderRounded];
 }
 
 export function QualityBar({
 	digits = 1,
-	empty,
+	empty = 0,
 	getDataFeature,
-	hasTooltip = true,
-	invalid,
-	na,
+	invalid = 0,
+	na = 0,
+	placeholder = 0,
 	onClick,
-	valid,
+	valid = 0,
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
-	const [invalidPercentage, emptyPercentage, validPercentage, naPercentage] =
-		getQualityPercentagesRounded(invalid, empty, valid, na, digits);
+	const [
+		invalidPercentage,
+		emptyPercentage,
+		validPercentage,
+		naPercentage,
+		placeholderPercentage,
+	] = getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
 
 	return (
 		<RatioBar.Composition>
 			<QualityInvalidLine
 				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
-				hasTooltip={hasTooltip}
 				onClick={
 					onClick
 						? e =>
@@ -80,7 +88,6 @@ export function QualityBar({
 			/>
 			<QualityEmptyLine
 				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
-				hasTooltip={hasTooltip}
 				onClick={
 					onClick
 						? e =>
@@ -95,7 +102,6 @@ export function QualityBar({
 			/>
 			<QualityNotApplicableLine
 				dataFeature={getDataFeature ? getDataFeature(QualityType.NA) : null}
-				hasTooltip={hasTooltip}
 				onClick={
 					onClick
 						? e =>
@@ -110,7 +116,6 @@ export function QualityBar({
 			/>
 			<QualityValidLine
 				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
-				hasTooltip={hasTooltip}
 				onClick={
 					onClick
 						? e =>
@@ -123,17 +128,18 @@ export function QualityBar({
 				percentage={validPercentage}
 				t={t}
 			/>
+			<QualityPlaceholderLine percentage={placeholderPercentage} t={t} value={placeholder} />
 		</RatioBar.Composition>
 	);
 }
 
 QualityBar.propTypes = {
 	digits: PropTypes.number,
-	empty: PropTypes.number.isRequired,
+	empty: PropTypes.number,
 	getDataFeature: PropTypes.func,
-	hasTooltip: PropTypes.bool,
-	invalid: PropTypes.number.isRequired,
-	na: PropTypes.number.isRequired,
+	invalid: PropTypes.number,
+	na: PropTypes.number,
+	placeholder: PropTypes.number,
 	onClick: PropTypes.func,
-	valid: PropTypes.number.isRequired,
+	valid: PropTypes.number,
 };

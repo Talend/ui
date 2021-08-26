@@ -21,3 +21,11 @@
 	@extend .tc-ratio-bar-lines;
 	background-color: $alto;
 }
+
+.tc-ratio-bar-line-quality-placeholder {
+	@extend .tc-ratio-bar-lines;
+	background-color: $alto;
+	:global(.tc-ratio-bar) &:hover {
+		height: 5px;
+	}
+}
