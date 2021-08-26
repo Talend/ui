@@ -6,9 +6,9 @@ $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
 $tc-drawer-padding: $padding-large !default;
 $tc-drawer-header-height: 5.5rem !default;
-$tc-drawer-header-color: $white !default;
-$tc-drawer-header-background: $brand-primary-lighter !default;
-$tc-drawer-tabs-background: tint($brand-primary, 90) !default;
+$tc-drawer-header-color: inherit !default;
+$tc-drawer-header-background: transparent !default;
+$tc-drawer-tabs-background: transparent !default;
 $tc-drawer-content-max-width: 65rem !default;
 $tc-action-bar-background-color: $wild-sand !default;
 $tc-drawer-z-index: $drawer-z-index !default;
@@ -107,6 +107,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		}
 
 		.tc-drawer-close-action {
+			--t-button-border-color: transparent;
 			flex: 0;
 			margin-right: -$tc-drawer-padding;
 			color: $tc-drawer-header-color;
