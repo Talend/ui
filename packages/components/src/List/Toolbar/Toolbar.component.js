@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Navbar from 'react-bootstrap/lib/Navbar';
+import Navbar from '@talend/react-bootstrap/lib/Navbar';
 import omit from 'lodash/omit';
 import { withTranslation } from 'react-i18next';
 import classNames from 'classnames';

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'react-bootstrap';
+import { Button } from '@talend/react-bootstrap';
 import OverlayTrigger from '@talend/react-components/lib/OverlayTrigger';
 import Icon from '@talend/react-components/lib/Icon';
 import Message from '../../Message';

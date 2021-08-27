@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Overlay, Popover } from 'react-bootstrap';
+import { Overlay, Popover } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import ColumnChooser from './ColumnChooser';
 import ActionButton from '../../../Actions/ActionButton';

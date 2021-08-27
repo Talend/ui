@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Button } from 'react-bootstrap';
+import { Button } from '@talend/react-bootstrap';
 import ActionIconToggle from './ActionIconToggle.component';
 import Icon from '../../Icon';
 

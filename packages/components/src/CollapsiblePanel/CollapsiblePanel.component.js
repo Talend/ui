@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { OverlayTrigger, Panel, Button } from 'react-bootstrap';
+import { OverlayTrigger, Panel, Button } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';

@@ -5,7 +5,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
-import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
+import { DropdownButton, MenuItem, OverlayTrigger } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';

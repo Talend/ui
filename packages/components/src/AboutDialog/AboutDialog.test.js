@@ -22,7 +22,7 @@ function mockFakeComponent(name) {
 }
 
 jest.mock('react-dom');
-jest.mock('react-bootstrap/lib/Modal', () => {
+jest.mock('@talend/react-bootstrap/lib/Modal', () => {
 	const Modal = mockFakeComponent('Modal');
 	Modal.Header = mockFakeComponent('Header');
 	Modal.Title = mockFakeComponent('Title');

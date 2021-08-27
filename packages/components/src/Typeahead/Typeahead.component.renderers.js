@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import get from 'lodash/get';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
+import ControlLabel from '@talend/react-bootstrap/lib/ControlLabel';
+import FormControl from '@talend/react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
 

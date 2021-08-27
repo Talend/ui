@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Navbar from 'react-bootstrap/lib/Navbar';
+import Navbar from '@talend/react-bootstrap/lib/Navbar';
 
 import cssModule from './ListToolbar.scss';
 import { getTheme } from '../../../theme';
