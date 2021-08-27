@@ -4,6 +4,11 @@
   "description": "Tools configurations",
   "author": "Talend Frontend <frontend@talend.com>",
   "main": "index.js",
+  "scripts": {
+    "prepare": "echo nothing to prepare",
+    "test": "echo nothing to test",
+    "test:demo": "echo nothing to do"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"

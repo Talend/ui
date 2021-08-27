@@ -1,8 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = (env, argv) => {
 	const isDev = argv.mode === 'development';
@@ -20,12 +22,15 @@ module.exports = (env, argv) => {
 			rules: [
 				{
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-					loader: 'url-loader',
-					options: {
-						limit: 10000,
-						mimetype: 'application/font-woff',
-						name: './fonts/[name].[ext]',
-					},
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+							  outputPath: 'fonts',
+							  name: '[name].[ext]',
+							},
+						  },
+					],
 				},
 				{
 					test: /bootstrap\.scss$/,
@@ -43,10 +48,10 @@ module.exports = (env, argv) => {
 						{
 							loader: 'postcss-loader',
 							options: {
-								postcssOptions: {
-									ident: 'postcss',
-									plugins: [['postcss-preset-env', { browsers: 'last 2 versions' }]],
-								},
+								ident: 'postcss',
+								plugins: [
+									postcssPresetEnv({ browsers: 'last 2 versions' })
+								],
 							},
 						},
 						{
@@ -61,10 +66,17 @@ module.exports = (env, argv) => {
 		},
 		devtool: 'source-map',
 		optimization: {
-			minimize: true,
-			minimizer: ['...', new CssMinimizerPlugin()], // '...' used to access the defaults.
+			minimizer: [new CssMinimizerPlugin()],
 		},
 		plugins: [
+			new CopyPlugin({
+				patterns: [
+					{
+						from: 'dependencies.json',
+						to: 'bootstrap.js.dependencies.json',
+					},
+				],
+			}),
 			new HtmlWebpackPlugin({
 				template: path.resolve(__dirname, './example/index.html'),
 			}),

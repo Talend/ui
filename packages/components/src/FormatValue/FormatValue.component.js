@@ -71,7 +71,7 @@ function replaceCharacterByIcon(value, t) {
 					/>
 				);
 			}
-			return <span>{value}</span>;
+			return <span className={classNames(theme['td-value'], 'td-value')}>{value}</span>;
 	}
 }
 

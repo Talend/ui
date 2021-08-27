@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import isBefore from 'date-fns/is_before';
+import startOfDay from 'date-fns/start_of_day';
 
 import InputDatePicker from './InputDatePicker.component';
 
@@ -102,5 +104,33 @@ storiesOf('Form/Controls/DatePicker/Date', module)
 					onChange={action('onChange')}
 				/>
 			</div>
+		</div>
+	))
+	.add('Disabled dates', () => (
+		<div>
+			<p>
+				Disabled dates are not allowed to be selected.
+				<br />
+				You can pass a <b>isDisabledChecker</b> function, if isDisabledChecker(date) returns true,
+				then date will be disabled. If you input a date which is disabled, an "Invalid date" error
+				will be thrown.
+				<br />
+				For example, this picker will disable past days:
+				<pre>
+					{`
+<InputDatePicker
+	...
+	isDisabledChecker={date => isBefore(date, startOfDay(new Date()))}
+/>
+`}
+				</pre>
+			</p>
+			<InputDatePicker
+				id="my-date-picker"
+				name="date"
+				onChange={action('onChange')}
+				dateFormat="DD/MM/YYYY"
+				isDisabledChecker={date => isBefore(date, startOfDay(new Date()))}
+			/>
 		</div>
 	));

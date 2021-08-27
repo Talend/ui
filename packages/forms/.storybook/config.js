@@ -1,12 +1,11 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
-import { withI18next } from 'storybook-addon-i18next';
+import { ThemeProvider } from '@talend/design-system';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import i18n from '../../../.storybook/i18n';
 
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));
@@ -17,7 +16,9 @@ function withIconsProvider(story) {
 			<IconsProvider
 				bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
 			/>
-			{story()}
+			<React.Suspense fallback={null}>
+				{story()}
+			</React.Suspense>
 		</>
 	);
 }
@@ -38,15 +39,10 @@ const withFormLayout = (story, options) => {
 	);
 };
 
-addDecorator(
-	withI18next({
-		i18n,
-		languages,
-	}),
-);
 addDecorator(withIconsProvider);
 addDecorator(withA11y);
 addDecorator(withFormLayout);
+addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 configure(
 	[
 		require.context('../src', true, /\.stories\.js$/),

@@ -22,6 +22,28 @@ exports[`FieldTemplate should add animation on value with updating status 1`] = 
 </div>
 `;
 
+exports[`FieldTemplate should pass label props to the label 1`] = `
+<div
+  className="form-group theme-template"
+>
+  <Label
+    className="custom-label-class"
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;
+
 exports[`FieldTemplate should render invalid className 1`] = `
 <div
   className="form-group theme-template has-error"
@@ -53,6 +75,7 @@ exports[`FieldTemplate should render with hint 1`] = `
   overlayId="myAwesomeField-hint-overlay"
   overlayPlacement="top"
   preventScrolling={false}
+  trigger="click"
 >
   <Button
     active={false}

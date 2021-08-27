@@ -567,6 +567,24 @@
 
 				<div class="row">
 					<div class="col-lg-8">
+						<p id="btn-coral" class="bs-component">
+							<a href="#" class="btn btn-default">Default</a>
+							<a href="#" class="btn btn--primary">Primary</a>
+							<a href="#" class="btn btn--secondary">Secondary</a>
+							<a href="#" class="btn btn--tertiary">Tertiary</a>
+							<a href="#" class="btn btn--destructive">Destructive</a>
+							<a href="#" class="btn btn-link">Link</a>
+						</p>
+
+						<p id="btn-coral-disabled" class="bs-component">
+							<a href="#" class="btn btn-default" disabled>Default</a>
+							<a href="#" class="btn btn--primary" disabled>Primary</a>
+							<a href="#" class="btn btn--secondary" disabled>Secondary</a>
+							<a href="#" class="btn btn--tertiary" disabled>Tertiary</a>
+							<a href="#" class="btn btn--destructive" disabled>Destructive</a>
+							<a href="#" class="btn btn-link" disabled>Link</a>
+						</p>
+
 						<p id="btn" class="bs-component">
 							<a href="#" class="btn btn-default">Default</a>
 							<a href="#" class="btn btn-primary">Primary</a>
@@ -2127,8 +2145,10 @@
 									</div>
 									<div class="form-group">
 										<div class="col-lg-10 col-lg-offset-2">
-											<button type="reset" class="btn btn-default">Cancel</button>
-											<button type="submit" class="btn btn-primary">Submit</button>
+											<div style="display: flex; justify-content: space-between">
+												<button type="reset" class="btn btn--secondary">Cancel</button>
+												<button type="submit" class="btn btn--primary">Submit</button>
+											</div>
 										</div>
 									</div>
 								</fieldset>
@@ -3049,16 +3069,18 @@
 											</p>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">
-												Close
-											</button>
-											<button
-												onclick="add_content('.modal-content-tpl')"
-												type="button"
-												class="btn btn-primary"
-											>
-												Add content
-											</button>
+											<div style="display: flex; justify-content: space-between">
+												<button type="button" class="btn btn--secondary" data-dismiss="modal">
+													Close
+												</button>
+												<button
+													onclick="add_content('.modal-content-tpl')"
+													type="button"
+													class="btn btn--primary"
+												>
+													Add content
+												</button>
+											</div>
 										</div>
 									</div>
 								</div>

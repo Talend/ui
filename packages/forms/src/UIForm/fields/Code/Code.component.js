@@ -29,7 +29,7 @@ const DEFAULT_SET_OPTIONS = {
 
 function Code(props) {
 	const { id, isValid, errorMessage, schema, value, valueIsUpdating, t } = props;
-	const { autoFocus, description, options, readOnly = false, title } = schema;
+	const { autoFocus, description, options, readOnly = false, title, labelProps } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const instructionsId = generateId(id, 'instructions');
@@ -85,6 +85,7 @@ function Code(props) {
 			id={id}
 			isValid={isValid}
 			label={title}
+			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
@@ -151,6 +152,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			type: PropTypes.string,
 		}),
 		t: PropTypes.func,

@@ -32,7 +32,8 @@ class DateView extends React.PureComponent {
 		selectedDate: PropTypes.instanceOf(Date),
 		startDate: PropTypes.instanceOf(Date),
 		endDate: PropTypes.instanceOf(Date),
-		t: PropTypes.func.isRequired,
+		isDisabledChecker: PropTypes.func,
+		t: PropTypes.func,
 	};
 
 	static defaultProps = {
@@ -112,6 +113,7 @@ class DateView extends React.PureComponent {
 						onSelect={this.props.onSelectDate}
 						goToPreviousMonth={this.goToPreviousMonth}
 						goToNextMonth={this.goToNextMonth}
+						isDisabledChecker={this.props.isDisabledChecker}
 					/>
 				</div>
 			</div>

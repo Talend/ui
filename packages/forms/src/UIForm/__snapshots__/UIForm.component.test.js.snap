@@ -60,6 +60,7 @@ exports[`UIForm component should render form 1`] = `
         "textarea": [Function],
         "textarea_text": [Function],
         "time": [Function],
+        "timezoneList": [Function],
         "toggle": [Function],
         "toggle_text": [Function],
       }
@@ -242,6 +243,7 @@ exports[`UIForm component should render form in text display mode 1`] = `
         "textarea": [Function],
         "textarea_text": [Function],
         "time": [Function],
+        "timezoneList": [Function],
         "toggle": [Function],
         "toggle_text": [Function],
       }
@@ -404,6 +406,7 @@ exports[`UIForm component should render provided actions 1`] = `
         "textarea": [Function],
         "textarea_text": [Function],
         "time": [Function],
+        "timezoneList": [Function],
         "toggle": [Function],
         "toggle_text": [Function],
       }

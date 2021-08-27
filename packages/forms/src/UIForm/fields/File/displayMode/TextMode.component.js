@@ -5,10 +5,10 @@ import { getFileName } from '../File.component';
 
 export default function FileTextMode(props) {
 	const { id, schema, value } = props;
-	const { title } = schema;
+	const { title, labelProps } = schema;
 
 	return (
-		<FieldTemplate id={id} label={title}>
+		<FieldTemplate id={id} label={title} labelProps={labelProps}>
 			{getFileName(value, schema)}
 		</FieldTemplate>
 	);
@@ -19,6 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

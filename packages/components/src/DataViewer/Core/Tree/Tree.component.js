@@ -19,13 +19,15 @@ export function isRoot(level) {
  */
 export default function Tree({ className, noRoot, withNodeBorder, ...props }) {
 	const treeClassNames = classNames(theme['tc-tree'], 'tc-tree', className);
+	const recursiveTree = args => <Tree {...props} {...args} level={props.level + 1} />;
 	if (isRoot(props.level)) {
 		if (noRoot) {
-			return <TreeNodeList {...props} treeClassName={treeClassNames} />;
+			return <TreeNodeList {...props} recursive={recursiveTree} treeClassName={treeClassNames} />;
 		}
 		return (
 			<TreeNode
 				{...props}
+				recursive={recursiveTree}
 				className={treeClassNames}
 				dataKey={props.dataKey || 0}
 				index={props.index || 0}
@@ -35,6 +37,7 @@ export default function Tree({ className, noRoot, withNodeBorder, ...props }) {
 	return (
 		<TreeNodeList
 			{...props}
+			recursive={recursiveTree}
 			treeClassName={classNames(theme['tc-tree-list'], 'tc-tree-list')}
 			nodeClassName={classNames({
 				[theme['tc-tree-node-border']]: withNodeBorder,

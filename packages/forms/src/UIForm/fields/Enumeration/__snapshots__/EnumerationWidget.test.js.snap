@@ -565,18 +565,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
       <Message
         isValid={true}
       >
-        <div>
-          <p
-            className="help-block"
-            key="description"
-          />
-          <p
-            aria-live="assertive"
-            className="help-block"
-            key="error"
-            role="status"
-          />
-        </div>
+        <div />
       </Message>
     </div>
   </FieldTemplate>
@@ -1154,18 +1143,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
       <Message
         isValid={true}
       >
-        <div>
-          <p
-            className="help-block"
-            key="description"
-          />
-          <p
-            aria-live="assertive"
-            className="help-block"
-            key="error"
-            role="status"
-          />
-        </div>
+        <div />
       </Message>
     </div>
   </FieldTemplate>
@@ -1737,18 +1715,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
       <Message
         isValid={true}
       >
-        <div>
-          <p
-            className="help-block"
-            key="description"
-          />
-          <p
-            aria-live="assertive"
-            className="help-block"
-            key="error"
-            role="status"
-          />
-        </div>
+        <div />
       </Message>
     </div>
   </FieldTemplate>
@@ -2750,18 +2717,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
       <Message
         isValid={true}
       >
-        <div>
-          <p
-            className="help-block"
-            key="description"
-          />
-          <p
-            aria-live="assertive"
-            className="help-block"
-            key="error"
-            role="status"
-          />
-        </div>
+        <div />
       </Message>
     </div>
   </FieldTemplate>

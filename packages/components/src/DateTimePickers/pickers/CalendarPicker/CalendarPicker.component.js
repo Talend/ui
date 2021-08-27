@@ -145,6 +145,7 @@ class CalendarPicker extends React.Component {
 					selectedDate={this.state.selectedDate}
 					startDate={this.props.startDate}
 					endDate={this.props.endDate}
+					isDisabledChecker={this.props.isDisabledChecker}
 				/>
 			);
 		} else {
@@ -219,7 +220,11 @@ CalendarPicker.propTypes = {
 	 * Callback triggered when date is selected
 	 */
 	onSubmit: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
+	/**
+	 * a function to check if a date is disabled
+	 */
+	isDisabledChecker: PropTypes.func,
+	t: PropTypes.func,
 };
 
 CalendarPicker.defaultProps = {
