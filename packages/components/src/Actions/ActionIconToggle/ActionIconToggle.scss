@@ -41,7 +41,10 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 	&[disabled] {
 		&:hover,
 		&:focus {
-			color: $white;
+			border-color: $scooter;
+			svg {
+				color: $scooter;
+			}
 		}
 	}
 
