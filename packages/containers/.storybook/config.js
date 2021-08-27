@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, configure, addDecorator } from '@storybook/react';
+import { storiesOf, configure, addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
@@ -36,6 +36,8 @@ addDecorator(storyFn => (
 		</React.Suspense>
 	</>
 ));
+
+addParameters({ layout: 'fullscreen' });
 
 registerAllContainers();
 const actionLogger = action('dispatch');
