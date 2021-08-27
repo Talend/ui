@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from '@talend/design-system';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
@@ -13,12 +13,8 @@ Object.keys(tuiLocales).forEach(key => (languages[key] = key));
 function withIconsProvider(story) {
 	return (
 		<>
-			<IconsProvider
-				bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
-			/>
-			<React.Suspense fallback={null}>
-				{story()}
-			</React.Suspense>
+			<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+			<React.Suspense fallback={null}>{story()}</React.Suspense>
 		</>
 	);
 }
@@ -38,6 +34,8 @@ const withFormLayout = (story, options) => {
 		</div>
 	);
 };
+
+addParameters({ layout: 'fullscreen' });
 
 addDecorator(withIconsProvider);
 addDecorator(withA11y);
