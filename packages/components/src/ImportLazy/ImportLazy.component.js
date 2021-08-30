@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { importFromCDN } from '../importFromCDN';
 import Skeleton from '../Skeleton';
 
 function DefaultSkeleton() {
@@ -18,24 +17,34 @@ function DefaultSkeleton() {
 /**
  * ImportLazy component replace the need for react lazy
  */
-export function ImportLazy(props) {
+export function ImportLazy({skeleton, name, version, path, varName, children}) {
 	const [added, setAdded] = React.useState(false);
 	const [loaded, setLoaded] = React.useState(false);
-	if (!added) {
-		importFromCDN(props).then(mod => {
-			setLoaded(mod || true);
-		});
-		setAdded(true);
-	}
-	if (added && loaded) {
-		console.log(props.children);
-		if (typeof props.children[0] === 'function') {
-			return props.children[0](loaded);
+	React.useEffect(() => {
+		const src = window.Talend.getAssetUrl({name, version, path});
+		const onload = () => {
+			if (!varName) {
+				setLoaded(true);
+			}
+		};
+		window.Talend.addScript({src, onload});
+		if (varName) {
+			const intervalId = setInterval(() => {
+				if (window[varName]) {
+					clearInterval(intervalId);
+					setLoaded(true);
+				}
+			}, 200);
 		}
-		return props.children;
+	}, []);
+	if (added && loaded) {
+		if (typeof children[0] === 'function') {
+			return children[0](loaded);
+		}
+		return children;
 	}
-	if (props.skeleton) {
-		return props.skeleton;
+	if (skeleton) {
+		return skeleton;
 	}
 	return <DefaultSkeleton />;
 }
