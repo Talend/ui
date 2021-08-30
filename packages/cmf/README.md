@@ -43,9 +43,7 @@ repetitive tasks and some boiler plate every time and on each components.
 When working with a framework like angular you have the tools plus a guideline on how to use them.
 With CMF the idea is the same. Provide the good set of tools plus the guideline.
 
-To start a project using react-cmf you can either:
-* use yeoman generator `yo talend:react-cmf`
-* or use [bootstrap API](https://github.com/Talend/ui/tree/master/packages/cmf/src/bootstrap.md) in your already existing project
+To start a project using react-cmf you can use [bootstrap API](https://github.com/Talend/ui/tree/master/packages/cmf/src/bootstrap.md).
 
 Working with react-cmf means:
 

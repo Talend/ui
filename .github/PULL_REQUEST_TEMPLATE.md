@@ -4,6 +4,7 @@
 
 **Please check if the PR fulfills these requirements**
 
+* [ ] The PR have used `yarn changeset` to a request a release from the CI if wanted.
 * [ ] The PR commit message follows our [guidelines](https://github.com/talend/tools/blob/master/tools-root-github/CONTRIBUTING.md)
 * [ ] Tests for the changes have been added (for bug fixes / features) And [non reg](./screenshots.md) done before need review
 * [ ] Docs have been added / updated (for bug fixes / features)

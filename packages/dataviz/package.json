@@ -7,7 +7,7 @@
   "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "yarn build:umd:dev && yarn build:umd:prod",
+    "pre-release": "yarn build:umd:dev && yarn build:umd:prod",
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
     "build": "talend-scripts build:ts:lib",
@@ -37,6 +37,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/react-components": "^6.14.2",
     "classnames": "^2.2.6",
     "d3": "^6.5.0",
     "date-fns": "^2.16.1",
@@ -46,18 +47,18 @@
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.1.17",
-    "@storybook/addon-essentials": "^6.1.17",
-    "@storybook/addon-links": "^6.1.17",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.1.17",
+    "@storybook/react": "^6.3.7",
     "@talend/bootstrap-theme": "^6.14.2",
     "@talend/icons": "^6.14.2",
     "@talend/locales-tui": ">=5.29.0",
     "@talend/locales-tui-dataviz": "0.0.1",
     "@talend/react-components": "^6.14.2",
-    "@talend/scripts-core": "^9.4.1",
-    "@talend/scripts-preset-react-lib": "^9.4.1",
+    "@talend/scripts-core": "^9.11.0",
+    "@talend/scripts-preset-react-lib": "^9.8.2",
     "@types/classnames": "^2.2.11",
     "@types/d3": "^6.3.0",
     "@types/enzyme": "^3.10.8",
@@ -66,7 +67,7 @@
     "@types/recharts": "^1.8.16",
     "@types/topojson-client": "^3.0.0",
     "@types/topojson-specification": "^1.0.1",
-    "cross-env": "^5.2.0",
+    "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "i18next": "^20.1.0",
     "i18next-scanner": "^3.0.0",
@@ -76,9 +77,6 @@
     "react-i18next": "^11.8.13"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^6.14.2",
-    "@talend/icons": "^6.14.2",
-    "@talend/react-components": "^6.14.2",
     "i18next": "^20.1.0",
     "react": "^16.14.0",
     "react-i18next": "^11.8.13"

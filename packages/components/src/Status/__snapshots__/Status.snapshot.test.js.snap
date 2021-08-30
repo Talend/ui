@@ -11,7 +11,14 @@ exports[`Status should render a label 1`] = `
     
   </span>
   <span
+    aria-describedby="42"
     className="theme-tc-status-label tc-status-label theme-success"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     Successful
   </span>
@@ -67,7 +74,14 @@ exports[`Status should render a label with Icon 1`] = `
     />
   </span>
   <span
+    aria-describedby="42"
     className="theme-tc-status-label tc-status-label theme-success"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     Successful
   </span>
@@ -123,7 +137,14 @@ exports[`Status should render a label with Icon without actions 1`] = `
     />
   </span>
   <span
+    aria-describedby="42"
     className="theme-tc-status-label tc-status-label theme-success"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     Successful
   </span>
@@ -164,7 +185,14 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     </svg>
   </span>
   <span
+    aria-describedby="42"
     className="theme-tc-status-label tc-status-label theme-info"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     In Progress
   </span>
@@ -238,7 +266,14 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     </svg>
   </span>
   <span
+    aria-describedby="42"
     className="theme-tc-status-label tc-status-label theme-info"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     In Progress
   </span>
@@ -301,7 +336,14 @@ exports[`Status should render a label with a skeleton 1`] = `
     />
   </span>
   <span
+    aria-describedby="42"
     className="theme-tc-status-label tc-status-label theme-skeleton"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     <span
       aria-label="text (loading)"

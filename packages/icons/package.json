@@ -6,7 +6,7 @@
   "style": "build/octicons.css",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "node ./scripts/typescript.js",
+    "pre-release": "node ./scripts/typescript.js",
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env.production",
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
@@ -61,5 +61,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.35.0"
+  "version": "6.36.0"
 }
