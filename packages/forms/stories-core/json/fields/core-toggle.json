@@ -7,6 +7,9 @@
       "standard": {
         "type": "boolean"
       },
+      "required": {
+        "type": "boolean"
+      },
       "autofocused": {
         "type": "boolean"
       },
@@ -18,9 +21,15 @@
   "uiSchema": [
     {
       "key": "standard",
-      "title": "Check if you are happy (standard)",
+      "title": "Check if you are exciting",
       "widget": "toggle",
       "data-test": "simple.toggle"
+    },
+    {
+      "key": "required",
+      "title": "Check if you are happy (it's required)",
+      "required": true,
+      "widget": "toggle"
     },
     {
       "key": "disabled",
