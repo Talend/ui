@@ -11,6 +11,7 @@ input::-ms-clear {
 
 .form-control {
 	padding: 0 10px;
+	margin-bottom: $padding-smaller;
 	color: var(--t-form-color);
 	background-color: var(--t-form-background-color);
 	border: 1px solid var(--t-form-border-color);
