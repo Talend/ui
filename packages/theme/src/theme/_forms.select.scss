@@ -1,12 +1,12 @@
-// sass-lint:disable-next-line selector-no-qualifying-type
-select.form-control {
+select.form-control {// sass-lint:disable-line selector-no-qualifying-type
+
 	border-color: var(--t-form-border-color);
 	overflow: auto;
 	cursor: pointer;
 	border-radius: $input-border-radius;
 
-	// sass-lint:disable-next-line selector-no-qualifying-type
-	&[multiple] {
+	&[multiple] {// sass-lint:disable-line selector-no-qualifying-type
+
 		padding-top: $padding-small;
 		padding-bottom: $padding-small;
 	}
@@ -17,8 +17,7 @@ select.form-control {
 		}
 	}
 
-	// sass-lint:disable-next-line selector-no-qualifying-type
-	&:not([multiple]) {
+	&:not([multiple]) { // sass-lint:disable-line selector-no-qualifying-type
 		appearance: none;
 		background-color: var(--t-form-background-color);
 		background-repeat: no-repeat;

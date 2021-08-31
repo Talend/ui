@@ -37,7 +37,7 @@
 				color: tint($black, 50);
 			}
 
-			+ *:before,
+			+ *::before,
 			+ *::after,
 			&:checked + *::before,
 			&:checked + *::after {

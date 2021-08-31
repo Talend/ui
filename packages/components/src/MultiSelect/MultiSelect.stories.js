@@ -40,6 +40,7 @@ class Photos extends React.Component {
 						/>
 					</div>
 					<div className="form-group">
+						{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}}
 						<label className="control-label" htmlFor="useless">
 							another
 						</label>

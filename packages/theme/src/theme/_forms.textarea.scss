@@ -1,4 +1,3 @@
-// sass-lint:disable-next-line declaration-property-value-disallowed-list
-textarea.form-control {
+textarea.form-control { // sass-lint:disable-line declaration-property-value-disallowed-list
 	padding: $padding-small;
 }
