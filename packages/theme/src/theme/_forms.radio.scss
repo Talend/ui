@@ -1,38 +1,38 @@
 $tt-radio-size: 1.4rem !default;
 
 input[type='radio'] {
-	&:before,
-	&:after,
-	+ *:before,
-	+ *:after {
+	&::before,
+	&::after,
+	+ *::before,
+	+ *::after {
 		@include transition(240ms);
 		width: $tt-radio-size;
 		height: $tt-radio-size;
 		border-radius: 50%;
 	}
 
-	&:before,
-	+ *:before {
+	&::before,
+	+ *::before {
 		@include scale(0);
 		background-color: var(--t-form-background-color);
 		z-index: 1;
 	}
 
-	&:after,
-	+ *:after {
+	&::after,
+	+ *::after {
 		background-color: var(--t-form-background-color);
 		border: 1px solid var(--t-form-border-color);
 	}
 
 	&:checked {
-		&:before,
-		+ *:before {
+		&::before,
+		+ *::before {
 			@include scale(0.5);
 			background-color: var(--t-form-border-color--focus);
 		}
 
-		&:after,
-		+ *:after {
+		&::after,
+		+ *::after {
 			border-color: var(--t-form-border-color--focus);
 		}
 	}
@@ -41,23 +41,23 @@ input[type='radio'] {
 	+ *:hover {
 		&,
 		&:checked {
-			&:after,
-			+ *:after {
+			&::after,
+			+ *::after {
 				border-color: var(--t-form-border-color--focus);
 			}
 		}
 	}
 
 	&:disabled {
-		&:checked:before,
-		&:checked + *:before {
+		&:checked::before,
+		&:checked + *::before {
 			background-color: var(--t-form-border-color--disabled);
 		}
 
-		&:after,
-		& + *:after,
-		&:checked:after,
-		&:checked + *:after {
+		&::after,
+		+ *::after,
+		&:checked::after,
+		&:checked + *::after {
 			border-color: var(--t-form-border-color--disabled);
 		}
 	}

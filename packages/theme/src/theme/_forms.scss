@@ -90,7 +90,7 @@
 		font-weight: 400;
 
 		&,
-		& > * {
+		> * {
 			line-height: 1.5rem;
 			min-height: 1.5rem;
 		}
@@ -110,19 +110,19 @@
 		}
 
 		&,
-		&:before,
-		&:after,
-		+ *:before,
-		+ *:after {
+		&::before,
+		&::after,
+		+ *::before,
+		+ *::after {
 			position: absolute;
 			top: 0;
 			left: 0;
 		}
 
-		&:before,
-		&:after,
-		+ *:before,
-		+ *:after {
+		&::before,
+		&::after,
+		+ *::before,
+		+ *::after {
 			content: '';
 		}
 	}
@@ -144,23 +144,21 @@
 	}
 }
 
-
-.has-warning {
-}
-
 .has-error {
 	.checkbox,
 	.checkbox-inline {
-		*:before {
+		*::before {
 			border-color: $brand-danger;
 		}
 	}
+
 	.radio,
 	.radio-inline {
-		*:after {
+		*::after {
 			border-color: $brand-danger;
 		}
 	}
+
 	.help-block {
 		font-size: $font-size-small;
 	}
@@ -197,10 +195,6 @@
 	min-height: $input-height-base;
 }
 
-.form-group-lg select.form-control {
-	line-height: 1.5;
-}
-
 .form-control::placeholder {
 	font-style: normal;
 }
@@ -232,8 +226,8 @@
 			[type='checkbox'],
 			[type='radio'] {
 				&,
-				+ *:before,
-				+ *:after {
+				+ *::before,
+				+ *::after {
 					// Same as Bootstrap's padding-top
 					// @see ~bootstrap-sass/assets/stylesheets/bootstrap/forms
 					top: $padding-base-vertical + 1;

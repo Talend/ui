@@ -62,7 +62,7 @@ $navbar-form-margin: 0 !default;
 /// Navbar search text and border bottom color
 ///
 /// @type Color
-$navbar-search-btn-color: #000 !default;
+$navbar-search-btn-color: $black !default;
 
 /// Extra small button svg size
 /// @type Number (Unitless)

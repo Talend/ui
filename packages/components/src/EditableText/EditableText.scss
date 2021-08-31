@@ -15,14 +15,17 @@ $tc-circle-editable-text-size: 16px !default;
 
 .tc-editable-text {
 	width: 100%;
+
 	:global(.tc-editable-text-wording-wrapper) {
 		@include ellipsis;
 	}
+
 	&:hover {
 		.tc-editable-text-pencil {
 			position: static;
 		}
 	}
+
 	&-title {
 		display: flex;
 		align-items: center;
@@ -66,9 +69,10 @@ $tc-circle-editable-text-size: 16px !default;
 			margin: 0;
 		}
 
-		& .tc-editable-text-form-input {
+		.tc-editable-text-form-input {
 			width: 100%;
 			padding-right: 2 * $tc-circle-editable-text-size + $padding-large;
+
 			&::selection {
 				background: lighten($scooter, 25%);
 			}
@@ -106,23 +110,26 @@ $tc-circle-editable-text-size: 16px !default;
 			}
 
 			&-submit {
+				border-color: $rio-grande;
+				background: $rio-grande;
+				fill: white;
+
 				&:focus,
 				&:hover {
 					color: $scooter;
 					background: $scooter;
 					border-color: $scooter;
-					& svg {
+
+					svg {
 						background: $scooter;
 					}
 				}
-				border-color: $rio-grande;
-				background: $rio-grande;
-				fill: white;
 
 				> svg {
 					color: white;
 				}
 			}
+
 			&-cancel:focus,
 			&-cancel:hover {
 				color: $scooter;

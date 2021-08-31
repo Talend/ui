@@ -59,10 +59,10 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 // This exported values are used to compute properly sizes
 // in react-virtualized's calculation method
 :export {
-	// sass-lint:disable no-misspelled-properties
+	// sass-lint:disable property-no-unknown
 	row-height: $row-height;
 	row-vertical-margin: $row-vertical-margin;
 	row-nested-inner-margin-top: $row-nested-inner-margin-top;
 	row-nested-inner-margin-bottom: $row-nested-inner-margin-bottom;
-	// sass-lint:enable no-misspelled-properties
+	// sass-lint:enable property-no-unknown
 }

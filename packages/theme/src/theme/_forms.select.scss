@@ -1,9 +1,11 @@
+// sass-lint:disable-next-line selector-no-qualifying-type
 select.form-control {
 	border-color: var(--t-form-border-color);
 	overflow: auto;
 	cursor: pointer;
 	border-radius: $input-border-radius;
 
+	// sass-lint:disable-next-line selector-no-qualifying-type
 	&[multiple] {
 		padding-top: $padding-small;
 		padding-bottom: $padding-small;
@@ -15,6 +17,7 @@ select.form-control {
 		}
 	}
 
+	// sass-lint:disable-next-line selector-no-qualifying-type
 	&:not([multiple]) {
 		appearance: none;
 		background-color: var(--t-form-background-color);

@@ -22,6 +22,7 @@ $tc-filter-bar-width: 250px !default;
 		margin-bottom: 0;
 		display: flex;
 		flex-grow: 1;
+		
 		input {
 			padding-left: $padding-larger;
 			padding-right: $padding-normal;
@@ -56,6 +57,7 @@ $tc-filter-bar-width: 250px !default;
 		height: 100%;
 		position: absolute;
 		right: 0;
+
 		:global(.tc-svg-icon) {
 			height: $svg-xs-size;
 			width: $svg-xs-size;
@@ -67,6 +69,7 @@ $tc-filter-bar-width: 250px !default;
 	&.navbar {
 		margin-top: 8px;
 		margin-bottom: 8px;
+
 		.remove {
 			min-height: 2rem;
 		}
@@ -75,6 +78,7 @@ $tc-filter-bar-width: 250px !default;
 
 .highlight {
 	background-color: $tc-filter-bar-highlight-color;
+
 	.search-icon,
 	.search {
 		fill: rgba($black, 0.5);

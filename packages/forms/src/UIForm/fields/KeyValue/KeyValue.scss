@@ -16,7 +16,7 @@
 		padding-right: 1.5rem;
 		position: relative;
 
-		&:after {
+		&::after {
 			content: '=';
 			padding: 0 1rem;
 			position: absolute;

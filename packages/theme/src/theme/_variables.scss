@@ -1,5 +1,5 @@
 // This is a fork but try to keep it as close to the original as possible
-@use "sass:math";
+@use 'sass:math';
 
 $bootstrap-sass-asset-helper: false !default;
 //
@@ -148,7 +148,7 @@ $table-bg: transparent !default;
 //** Background color used for `.table-striped`.
 $table-bg-accent: #F9F9F9 !default;
 //** Background color used for `.table-hover`.
-$table-bg-hover: #F5F5F5 !default;
+$table-bg-hover: $gray50 !default;
 $table-bg-active: $table-bg-hover !default;
 
 //** Border color for table and cell borders.
@@ -550,7 +550,7 @@ $tooltip-max-width: 200px !default;
 //** Tooltip text color
 $tooltip-color: $gray0 !default;
 //** Tooltip background color
-$tooltip-bg: #000 !default;
+$tooltip-bg: $black !default;
 $tooltip-opacity: 0.9 !default;
 
 //** Tooltip arrow width
@@ -630,7 +630,7 @@ $modal-content-border-color: $shadow !default;
 $modal-content-fallback-border-color: #999 !default;
 
 //** Modal backdrop background color
-$modal-backdrop-bg: #000 !default;
+$modal-backdrop-bg: $black !default;
 //** Modal backdrop opacity
 $modal-backdrop-opacity: 0.5 !default;
 //** Modal header border color
@@ -671,7 +671,7 @@ $alert-danger-border: $state-danger-border !default;
 //##
 
 //** Background color of the whole progress component
-$progress-bg: #F5F5F5 !default;
+$progress-bg: $gray50 !default;
 //** Progress bar text color
 $progress-bar-color: $gray0 !default;
 //** Variable for setting rounded corners on progress bar.
@@ -700,7 +700,7 @@ $list-group-border: #DDD !default;
 $list-group-border-radius: $border-radius-base !default;
 
 //** Background color of single list items on hover
-$list-group-hover-bg: #F5F5F5 !default;
+$list-group-hover-bg: $gray50 !default;
 //** Text color of active list items
 $list-group-active-color: $component-active-color !default;
 //** Background color of active list items
@@ -733,7 +733,7 @@ $panel-border-radius: $border-radius-base !default;
 
 //** Border color for elements within panels
 $panel-inner-border: #DDD !default;
-$panel-footer-bg: #F5F5F5 !default;
+$panel-footer-bg: $gray50 !default;
 
 $panel-default-text: $gray-dark !default;
 $panel-default-border: $alto !default;
@@ -781,7 +781,7 @@ $thumbnail-caption-padding: 9px !default;
 //
 //##
 
-$well-bg: #F5F5F5 !default;
+$well-bg: $gray50 !default;
 $well-border: darken($well-bg, 7%) !default;
 
 //== Badges
@@ -838,7 +838,7 @@ $carousel-caption-color: $gray0 !default;
 //##
 
 $close-font-weight: bold !default;
-$close-color: #000 !default;
+$close-color: $black !default;
 $close-text-shadow: 0 1px 0 $gray0 !default;
 
 //== Code
@@ -851,7 +851,7 @@ $code-bg: #F9F2F4 !default;
 $kbd-color: $gray0 !default;
 $kbd-bg: #333 !default;
 
-$pre-bg: #F5F5F5 !default;
+$pre-bg: $gray50 !default;
 $pre-color: $gray-dark !default;
 $pre-border-color: #CCC !default;
 $pre-scrollable-max-height: 340px !default;

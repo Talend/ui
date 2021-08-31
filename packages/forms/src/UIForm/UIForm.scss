@@ -30,6 +30,7 @@ $tc-drawer-padding: $padding-large !default;
 	.form-content {
 		padding: $tc-drawer-padding;
 	}
+
 	.form-actions {
 		padding: $padding-small $tc-drawer-padding;
 		background-color: $wild-sand;
@@ -47,6 +48,7 @@ $tc-drawer-padding: $padding-large !default;
 				width: calc(#{$tc-drawer-content-max-width} - 2 * #{$tc-drawer-padding});
 			}
 		}
+
 		:global(.form-actions) {
 			margin: auto;
 			padding: 0 $tc-drawer-padding;

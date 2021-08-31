@@ -12,12 +12,14 @@
 		padding: 0;
 	}
 }
+
 .clearall:global(.btn-link.btn-icon-only) {
 	position: absolute;
 	right: 20px;
 	padding: 0;
 	color: $chestnut-rose;
 }
+
 .caret {
 	// add this selector to force override of width defined in Icon
 	&:global(.tc-svg-icon) {

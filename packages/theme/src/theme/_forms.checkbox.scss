@@ -1,36 +1,36 @@
 $tt-checkbox-size: 1.4rem !default;
 
 input[type='checkbox'] {
-	&:before,
-	&:after,
-	+ *:before,
-	+ *:after {
+	&::before,
+	&::after,
+	+ *::before,
+	+ *::after {
 		width: $tt-checkbox-size;
 		height: $tt-checkbox-size;
 	}
 
-	&:before,
-	+ *:before {
+	&::before,
+	+ *::before {
 		background-color: var(--t-form-background-color);
 		border: 1px solid var(--t-form-border-color);
 		border-radius: 2px;
 	}
 
-	&:after,
-	+ *:after {
+	&::after,
+	+ *::after {
 		background-size: contain;
 	}
 
 	// Indeterminate Checkboxes style
 	&[data-checked='1'] {
-		&:before,
-		+ *:before {
+		&::before,
+		+ *::before {
 			background-color: var(--t-form-border-color--focus);
 			border-color: var(--t-form-border-color--checked);
 		}
 
-		&:after,
-		+ *:after {
+		&::after,
+		+ *::after {
 			margin: 0;
 			width: $tt-checkbox-size;
 			height: $tt-checkbox-size;
@@ -39,14 +39,14 @@ input[type='checkbox'] {
 	}
 
 	&:checked {
-		&:before,
-		+ *:before {
+		&::before,
+		+ *::before {
 			background-color: var(--t-form-border-color--focus);
 			border-color: var(--t-form-border-color--checked);
 		}
 
-		&:after,
-		+ *:after {
+		&::after,
+		+ *::after {
 			$check-mark-margin: 0.1rem;
 			$check-mark-size: $tt-checkbox-size - 2 * $check-mark-margin;
 			margin: $check-mark-margin;
@@ -60,27 +60,27 @@ input[type='checkbox'] {
 	+ *:hover {
 		&,
 		&:checked {
-			&:before,
-			+ *:before {
+			&::before,
+			+ *::before {
 				border-color: var(--t-form-border-color--hover);
 			}
 		}
 	}
 
 	&:disabled {
-		&:before,
-		+ *:before {
+		&::before,
+		+ *::before {
 			border-color: var(--t-form-border-color--disabled);
 		}
 
-		&[data-checked='1']:before,
-		&[data-checked='1'] + *:before {
+		&[data-checked='1']::before,
+		&[data-checked='1'] + *::before {
 			background-color: var(--t-form-border-color--disabled);
 			border-color: var(--t-form-border-color--disabled);
 		}
 
-		&:checked:before,
-		&:checked + *:before {
+		&:checked::before,
+		&:checked + *::before {
 			background-color: var(--t-form-border-color--disabled);
 			border-color: var(--t-form-border-color--disabled);
 		}

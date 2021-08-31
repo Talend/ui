@@ -28,6 +28,7 @@ class Photos extends React.Component {
 			<section style={{ margin: 20 }}>
 				<form className="form">
 					<div className="form-group">
+						{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}}
 						<label className="control-label" htmlFor="storybook">
 							photos
 						</label>

@@ -1,6 +1,6 @@
 $dropdown-items-max-height: 320px !default;
-$tf-typeahead-section-header-color: #63aebd !default;
-$tf-typeahead-section-border-color: #e0e0e0 !default;
+$tf-typeahead-section-header-color: #63AEBD !default;
+$tf-typeahead-section-border-color: $gray75 !default;
 
 .dropdown-toggle {
 	position: absolute;

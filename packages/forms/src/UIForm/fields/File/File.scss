@@ -5,6 +5,7 @@
 		margin: $padding-small 0;
 	}
 }
+
 .file-input {
 	position: absolute;
 	left: 0;
@@ -12,7 +13,7 @@
 }
 
 .file-replace {
-	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+Cgk8cGF0aCBkPSJNMTYgMTF2NUgwdi01aDJ2M2gxMnYtM3pNMi42IDVMNCA2LjRsMy0zVjEyaDJWMy40bDMgM0wxMy40IDUgOCAweiI+PC9wYXRoPgo8L3N2Zz4=);
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+Cgk8cGF0aCBkPSJNMTYgMTF2NUgwdi01aDJ2M2gxMnYtM3pNMi42IDVMNCA2LjRsMy0zVjEyaDJWMy40bDMgM0wxMy40IDUgOCAweiI+PC9wYXRoPgo8L3N2Zz4=');
 	background-size: $svg-sm-size;
 	background-repeat: no-repeat;
 	background-position-x: calc(100% - 1rem);

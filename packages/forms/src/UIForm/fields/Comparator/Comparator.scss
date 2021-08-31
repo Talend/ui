@@ -21,10 +21,6 @@ $tf-comparator-operator-top: 2.6rem !default;
 			}
 
 			.btn {
-				padding: {
-					left: $padding-smaller;
-					right: $padding-smaller;
-				}
 				height: $tf-comparator-operator-height;
 				min-height: $tf-comparator-operator-height;
 				width: $tf-comparator-operator-width;
@@ -33,6 +29,10 @@ $tf-comparator-operator-top: 2.6rem !default;
 				border: 1px solid var(--t-form-border-color);
 				border-radius: $input-border-radius 0 0 $input-border-radius;
 				z-index: 1;
+				padding: {
+					left: $padding-smaller;
+					right: $padding-smaller;
+				}
 			}
 		}
 
