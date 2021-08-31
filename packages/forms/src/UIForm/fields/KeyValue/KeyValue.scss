@@ -13,21 +13,37 @@
 
 	dt {
 		font-weight: normal;
-		padding-right: 1.5rem;
 		position: relative;
 
-		&::after {
-			content: '=';
-			padding: 0 1rem;
-			position: absolute;
-			right: -1.25rem;
-			top: 50%;
-			height: $input-height-base;
-			transform: translateY(-50%);
+		:global(.form-group) {
+			display: grid;
+			grid-template-columns: auto 3rem;
+			grid-template-areas:
+				'label .....'
+				'input equal'
+				'message ...';
 		}
-	}
 
-	dd {
-		padding-left: 1.5rem;
+		:global(.form-group::after) {
+			grid-area: equal;
+			content: '=';
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: $input-height-base;
+			width: 3rem;
+		}
+
+		:global(.control-label) {
+			grid-area: label;
+		}
+
+		:global(.form-control) {
+			grid-area: input;
+		}
+
+		:global(.form-control) + div {
+			grid-area: message;
+		}
 	}
 }
