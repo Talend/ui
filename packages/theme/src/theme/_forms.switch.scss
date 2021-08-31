@@ -20,8 +20,8 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 			cursor: pointer;
 		}
 
-		+ *:before,
-		+ *:after {
+		+ *::before,
+		+ *::after {
 			content: '';
 			position: absolute;
 			top: 0;
@@ -31,14 +31,14 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 			border-radius: 9999px;
 		}
 
-		+ *:before {
+		+ *::before {
 			width: 3.2rem;
 			height: 1.6rem;
-			background: #e8e8e8;
+			background: $gray75;
 			box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 		}
 
-		+ *:after {
+		+ *::after {
 			margin: calc((1.2rem - 0.8rem) / 2);
 			width: 1.2rem;
 			height: 1.2rem;
@@ -53,23 +53,23 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 		}
 
 		&:not(:disabled):hover {
-			+ *:before {
-				background: #bcbcbc;
+			+ *::before {
+				background: $gray200;
 			}
 		}
 
 		&:checked {
-			+ *:before {
+			+ *::before {
 				background: $lochmara;
 			}
 
-			+ *:after {
+			+ *::after {
 				transform: translate(1.5rem, 0);
 			}
 
 			&:not(:disabled):hover {
-				+ *:before {
-					background: #045d9a;
+				+ *::before {
+					background: $lochmara600;
 				}
 			}
 		}

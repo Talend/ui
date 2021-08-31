@@ -1,16 +1,16 @@
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
-$tc-typeahead-input-color: #000 !default;
+$tc-typeahead-input-color: $black !default;
 $tc-typeahead-input-width: 26rem !default;
 
-$tc-typeahead-opened-items-container-color: #aaa !default;
-$tc-typeahead-opened-items-container-background-color: #fff !default;
+$tc-typeahead-opened-items-container-color: $gray300 !default;
+$tc-typeahead-opened-items-container-background-color: $white !default;
 
-$tc-typeahead-section-border-color: #e0e0e0 !default;
+$tc-typeahead-section-border-color: $gray75 !default;
 
 $tc-typeahead-icon-color: $gray !default;
-$tc-typeahead-only-icon-color: #ccc !default;
-$tc-typeahead-section-header-color: #63aebd !default;
+$tc-typeahead-only-icon-color: $gray200 !default;
+$tc-typeahead-section-header-color: #63AEBD !default;
 
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
@@ -29,8 +29,8 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 		.typeahead-input-container,
 		.items-container {
 			> * {
-				color: inherit;
 				@include heartbeat(object-blink);
+				color: inherit;
 			}
 		}
 	}
@@ -179,12 +179,11 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 }
 
 .item {
+	height: $tc-typeahead-item-height;
 	cursor: pointer;
 	white-space: pre;
 	align-items: center;
-
 	display: flex;
-	align-items: center;
 	padding: {
 		left: $padding-small;
 		right: $padding-small;
@@ -194,7 +193,6 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 		width: 100%;
 	}
 
-	height: $tc-typeahead-item-height;
 	&.multiline {
 		height: $tc-typeahead-item-height + $tc-typeahead-item-description-height;
 	}
