@@ -27,7 +27,8 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 			top: 0;
 			left: 0;
 			border: none;
-			transition: all 250ms ease-in-out; // sass-lint:disable-line declaration-property-value-disallowed-list
+			// stylelint-disable-next-line declaration-property-value-disallowed-list
+			transition: all 250ms ease-in-out;
 			border-radius: 9999px;
 		}
 
