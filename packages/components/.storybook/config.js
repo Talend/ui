@@ -3,7 +3,7 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 import React from 'react';
 import { ThemeProvider } from '@talend/design-system';
 
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 
@@ -17,13 +17,11 @@ addDecorator(withA11y);
 addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 addDecorator(storyFn => (
 	<>
-		<IconsProvider
-			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
-		/>
-		<React.Suspense fallback={null}>
-			{storyFn()}
-		</React.Suspense>
+		<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+		<React.Suspense fallback={null}>{storyFn()}</React.Suspense>
 	</>
 ));
+
+addParameters({ layout: 'fullscreen' });
 
 configure([require.context('../src', true, /\.stories\.js$/)], module);

@@ -1,6 +1,6 @@
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 
@@ -18,3 +18,5 @@ configure(
 	],
 	module,
 );
+
+addParameters({ layout: 'fullscreen' });

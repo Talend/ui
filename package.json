@@ -6,12 +6,12 @@
     "i18next-scanner": "^3.0.0"
   },
   "scripts": {
-    "prepare": " yarn workspaces run prepare",
-    "prepublishOnly": "yarn workspaces run prepublishOnly",
+    "prepare": "yarn workspaces run prepare",
+    "pre-release": "node workspace-run.js pre-release",
     "info": "yarn workspaces --silent info > info.json",
     "release": "yarn changeset publish",
-    "lint:es": "node workspace-run.js lint:es",
-    "lint:style": "node workspace-run.js lint:style",
+    "lint:es": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:es",
+    "lint:style": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:style",
     "build": "yarn workspaces run build",
     "test": "cross-env TZ=Europe/Paris yarn workspaces run test --silent",
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",

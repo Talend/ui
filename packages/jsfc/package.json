@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "prepublishOnly": "echo nothing to prepublish",
     "prepare": "rimraf dist && talend-scripts build:lib:umd",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",

@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "rimraf ./dist && webpack --display=none",
+    "pre-release": "rimraf ./dist && webpack --display=none",
     "prepare": "rimraf ./dist && webpack",
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
@@ -47,5 +47,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.36.0"
+  "version": "6.36.1"
 }
