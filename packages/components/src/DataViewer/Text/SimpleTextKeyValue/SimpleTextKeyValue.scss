@@ -15,7 +15,7 @@
 		vertical-align: top;
 	}
 
-	&-key::after {
+	&-key-with-value::after {
 		content: ':';
 	}
 
