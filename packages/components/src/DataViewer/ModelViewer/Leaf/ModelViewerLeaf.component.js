@@ -44,9 +44,9 @@ export function ModelViewerLeaf({
 	const ariaLabelButton = t('MODEL_VIEWER_LEAF_BUTTON_ARIA_LABEL_SELECT', {
 		defaultValue: 'Select',
 	});
-	const formattedKey = hasSemanticAwareness
-		? `${getDisplayValue(value)}${isOptional(value)}`
-		: getDisplayValue(value);
+	const displayValue = getDisplayValue(value);
+	const formattedKey =
+		displayValue && hasSemanticAwareness ? `${displayValue}${isOptional(value)}` : displayValue;
 	const formattedValue = hasSemanticAwareness ? `${getDisplayKey(value)}` : '';
 	const separator = ' ';
 
