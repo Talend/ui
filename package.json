@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@changesets/cli": "^2.16.0",
-    "commander": "^2.9.0",
+    "commander": "^2.20.3",
     "cross-env": "^7.0.3",
     "i18next-scanner": "^3.0.0"
   },
