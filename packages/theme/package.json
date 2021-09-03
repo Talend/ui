@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@talend/icons": "^6.36.0",
-    "@talend/scripts-core": "^9.12.0",
+    "@talend/scripts-core": "^9.12.1",
     "@talend/scripts-preset-react-lib": "^9.8.4",
     "copy-webpack-plugin": "^6.4.1",
     "css-minimizer-webpack-plugin": "^1.3.0",

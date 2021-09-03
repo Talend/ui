@@ -2981,10 +2981,10 @@
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-9.11.1.tgz#3311d212bb386ca1b4cf957756559a8262534279"
   integrity sha512-MJm2pLV9ZbFKnpT7wrs+rAqTedfhxjyB3EHzsDvVfoF1MnZgZuEWM0NBYfEBlAOYF5f9lDKsO3KyQ3VzPSQajA==
 
-"@talend/scripts-core@^9.12.0":
-  version "9.12.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-9.12.0.tgz#5f0a821bd5c9b4342e0a5e096d6bf9d05f71aed6"
-  integrity sha512-nmUbNEy1Juxbr7aS5cwp7hl7Z2A7W77FvFm36hxTBmoghz8NYw9WRhQj8JLcBr36kvHrUQnMFsURWGyjujnF6A==
+"@talend/scripts-core@^9.12.1":
+  version "9.12.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-9.12.1.tgz#7c825f636a1d3aae840ce5df069dd62f938aefe4"
+  integrity sha512-XlPXbjlKi5fJJL8yzbUqLM+GYGAjyPKBCzjgeGQ1mfqfGHP5SVGUx0oJ6jmARsrKPy/hNJzMiHn64w9pw5PbDA==
   dependencies:
     "@babel/cli" "^7.14.8"
     "@babel/core" "^7.15.0"

@@ -36,7 +36,7 @@
     "mkdirp": "^0.5.5"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^9.12.0",
+    "@talend/scripts-core": "^9.12.1",
     "@talend/scripts-preset-react-lib": "^9.8.4"
   },
   "publishConfig": {
