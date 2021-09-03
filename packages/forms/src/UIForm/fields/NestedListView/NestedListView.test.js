@@ -82,10 +82,10 @@ describe('NestedListView component', () => {
 			});
 
 			// when : trigger a props update
-			const allValues = {};
-			props.schema.items.forEach(({ key, titleMap }) => {
-				allValues[key] = titleMap.map(titleMapItem => titleMapItem.value);
-			});
+			const allValues = props.schema.items.reduce((acc, item) => {
+				acc[item.key] = item.titleMap.map(titleMapItem => titleMapItem.value);
+				return acc;
+			}, {});
 			ReactDOM.render(<NestedListViewWidget {...props} value={allValues} />, node);
 
 			// then
