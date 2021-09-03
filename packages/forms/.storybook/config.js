@@ -20,7 +20,7 @@ function withIconsProvider(story) {
 }
 
 const withFormLayout = (story, options) => {
-	if (options.kind === 'Layout') {
+	if (options.kind.includes('Layout')) {
 		return story();
 	}
 	return (
