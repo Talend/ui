@@ -61,7 +61,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^1.0.1",
     "enzyme": "^3.11.0",
-    "i18next": "^20.4.0",
+    "i18next": "^20.6.0",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",

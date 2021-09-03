@@ -67,7 +67,7 @@
     "autoprefixer": "^7.2.6",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
-    "i18next": "^20.4.0",
+    "i18next": "^20.6.0",
     "jest-in-case": "^1.0.2",
     "json-loader": "^0.5.7",
     "mutationobserver-shim": "^0.3.7",
