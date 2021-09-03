@@ -54,7 +54,7 @@
     "sinon": "^11.1.2",
     "sinon-chai": "^3.7.0",
     "json-refs": "^2.1.7",
-    "rimraf": "^2.7.1"
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "objectpath": "^1.2.2",

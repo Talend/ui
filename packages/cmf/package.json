@@ -42,7 +42,7 @@
     "invariant": "^2.2.4",
     "jsonpath": "^1.1.1",
     "lodash": "^4.17.21",
-    "mkdirp": "^0.5.5",
+    "mkdirp": "^1.0.4",
     "nested-combine-reducers": "^1.2.2",
     "path-to-regexp": "^2.4.0",
     "prop-types": "^15.7.2",

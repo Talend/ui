@@ -41,7 +41,7 @@
     "keycode": "^2.2.0",
     "lodash": "^4.17.21",
     "memoize-one": "^5.2.1",
-    "react-bootstrap": "^0.32.4",
+    "react-bootstrap": "0.32.4",
     "react-immutable-proptypes": "^2.2.0",
     "redux-saga": "^0.15.6",
     "reselect": "^2.5.4",
