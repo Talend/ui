@@ -81,7 +81,8 @@
     "react-is": "^16.13.1",
     "storybook-addon-mdx-embed": "^0.0.19",
     "storybook-docs-toc": "^1.6.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "typescript": "^4.4.2"
   },
   "peerDependencies": {
     "@talend/icons": "^6.36.0",

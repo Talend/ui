@@ -1,13 +1,11 @@
 import React, { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
 
-type GenericObject = { [key: string]: Promise<Response> };
-
 const DEFAULT_BUNDLES = ['/all.svg'];
-const FETCHING_BUNDLES: GenericObject = {};
+const FETCHING_BUNDLES: { [url: string]: Promise<Response> } = {};
 const ICONS_PROVIDER_CLASS = '.tc-iconsprovider';
 
 function hasBundle(url: string) {
-	if (FETCHING_BUNDLES[url]) {
+	if (Object.prototype.hasOwnProperty.call(FETCHING_BUNDLES, url)) {
 		return true;
 	}
 
