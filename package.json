@@ -68,5 +68,8 @@
     "/dist",
     "/lib",
     "/src"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
