@@ -92,7 +92,7 @@ import saga from './saga';
 import sagas from './sagas';
 
 const setup = cmf.boostrap({
-	nostart: true,
+	render: false,
 	components,
 	saga,
 	sagas,

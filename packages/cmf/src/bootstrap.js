@@ -143,7 +143,7 @@ export default async function bootstrap(appOptions = {}) {
 		cmfModule: options,
 	};
 
-	if (!options.nostart) {
+	if (options.render !== false) {
 		saga.run();
 
 		render(
