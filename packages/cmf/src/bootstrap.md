@@ -81,7 +81,7 @@ In bootstrap you can pass the following options
 
 ## The case of angular
 
-If you are using ngreact and you want to leverage cmf here is how you should call bootstrap:
+If you are using ngreact and you want to leverage cmf you must set the `render` option to `false`:
 
 ```javascript
 import cmf from '@talend/react-cmf';
@@ -99,6 +99,8 @@ const setup = cmf.boostrap({
 	modules: [containersModule],
 });
 ```
+
+The result from `cmf.boootstrap()` contains those attributes:
 
 | attributes      | description                              |
 | --------------- | ---------------------------------------- |
