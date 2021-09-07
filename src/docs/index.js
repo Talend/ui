@@ -1,3 +1,4 @@
+import Area from './Area.component';
 import Card from './Card.component';
 import Col from './Col.component';
 import ColorSwatches from './ColorSwatches.component';
@@ -15,6 +16,7 @@ import { Icons } from './Icons.component';
 import WithSelector from './WithSelector.component';
 
 export {
+	Area,
 	Card,
 	Col,
 	ColorSwatches,

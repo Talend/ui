@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import {
-	Dialog as ReakitDialog,
 	DialogDisclosure as ReakitDialogDisclosure,
 	DialogBackdrop as ReakitDialogBackdrop,
 } from 'reakit';
@@ -35,7 +34,7 @@ export const Dialog = styled.div`
 	padding: 3rem;
 	color: ${({ theme }) => theme.colors.textColor};
 	background-color: ${({ theme }) => theme.colors.modalBackground};
-	box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
+	box-shadow: ${tokens.shadows.above};
 	z-index: ${tokens.zIndices.modal};
 	transition: ${tokens.transitions.normal};
 	opacity: ${tokens.opacity.transparent};

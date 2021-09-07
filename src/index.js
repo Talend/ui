@@ -3,6 +3,7 @@ import Button from './components/Button';
 import Card from './components/Card';
 import Combobox from './components/Combobox';
 import Divider from './components/Divider';
+import Drawer from './components/Drawer';
 import Dropdown from './components/Dropdown';
 import Form from './components/Form';
 import HeaderBar from './components/HeaderBar';
@@ -34,6 +35,7 @@ export {
 	Card,
 	Combobox,
 	Divider,
+	Drawer,
 	Dropdown,
 	Form,
 	HeaderBar,

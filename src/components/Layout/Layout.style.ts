@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { transparentize } from 'polished';
+
 import tokens from '../../tokens';
 
 export type LayoutProps = {
@@ -37,9 +37,17 @@ export const Nav = styled.nav.attrs({
 	flex-direction: column;
 `;
 
+export const Content = styled.div.attrs({})`
+	display: flex;
+	flex: 1;
+`;
+
 export const Main = styled.main.attrs({
 	role: 'main',
 })<LayoutProps>`
+	position: relative;
+	flex-shrink: 0;
+	flex-basis: 100%;
 	display: flex;
 	color: ${({ theme }) => theme.colors.textColor};
 	background: ${tokens.colors.deepBlue[100]};
@@ -49,49 +57,11 @@ export const Main = styled.main.attrs({
 			? `
 		flex-grow: 1; 
 		min-height: 0; 
-		overflow: auto;
     `
 			: ''};
 `;
 
-export const AsideOverlay = styled.div`
-	position: relative;
-	display: flex;
-	flex: 1;
-
-	main {
-		&:before,
-		&:after {
-			content: '';
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		}
-
-		&::before {
-			pointer-events: none;
-		}
-
-		&::after {
-			background: ${transparentize(0.3, tokens.colors.gray[900])};
-			cursor: pointer;
-		}
-	}
-`;
-
-export const Aside = styled.aside`
-	position: absolute;
-	display: flex;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: 50rem;
-	max-width: 100vw;
-	background: ${({ theme }) => theme.colors.backgroundColor};
-	box-shadow: -5px 0px 20px 5px ${tokens.colors.gray[500]};
-`;
+export const Aside = styled.aside``;
 
 export const Footer = styled.footer.attrs({
 	role: 'contentinfo',

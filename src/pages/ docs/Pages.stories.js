@@ -5,9 +5,15 @@ import Page from '..';
 import Button from '../../components/Button';
 import Form from '../../components/Form';
 import Link from '../../components/Link';
+import Drawer from '../../components/Drawer';
 
 export default {
 	title: 'Pages/Pages',
+	parameters: {
+		docs: {
+			iframeHeight: 500,
+		},
+	},
 };
 
 const LoginPageWith = ({ children }) => (
@@ -69,4 +75,55 @@ export const PasswordRecovery = () => (
 	</LoginPageWith>
 );
 
-export const Home = () => <Page.Home />;
+const ItemWithDetails = ({ itemId, isActive, onClick }) => {
+	const [visible, setVisible] = React.useState(false);
+
+	React.useEffect(() => {
+		setVisible(isActive);
+	}, [isActive]);
+
+	return (
+		<>
+			<Drawer
+				disclosure={<Button onClick={() => onClick(itemId)}>Item {itemId + 1}</Button>}
+				heading={<h3>Item {itemId + 1}</h3>}
+				footer={<Button.Secondary onClick={() => setVisible(false)}>Close</Button.Secondary>}
+				visible={visible}
+			>
+				Item {itemId + 1} details
+			</Drawer>
+		</>
+	);
+};
+
+export const Home = () => {
+	const [selected, setSelected] = React.useState();
+
+	return (
+		<Page.Home>
+			<table>
+				{Array(10)
+					.fill()
+					.map((_, rowIndex) => (
+						<tr key={rowIndex}>
+							{Array(10)
+								.fill()
+								.map((_, cellIndex) =>
+									cellIndex === 0 ? (
+										<td key={`title-${rowIndex}`}>
+											<ItemWithDetails
+												itemId={rowIndex}
+												isActive={selected === rowIndex}
+												onClick={setSelected}
+											/>
+										</td>
+									) : (
+										<td key={`cell-${rowIndex}-${cellIndex}`}>Cell {cellIndex + 1}</td>
+									),
+								)}
+						</tr>
+					))}
+			</table>
+		</Page.Home>
+	);
+};

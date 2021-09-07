@@ -147,6 +147,7 @@ export const parameters = {
 					'Button',
 					'Combobox',
 					'Divider',
+					'Drawer',
 					'Dropdown',
 					'Form',
 					['Form', 'Form Fieldset', 'Form Field', 'Form Field Group', 'Fields', 'Form Buttons'],

@@ -17,6 +17,6 @@ export const AnimatedPopover = styled.div`
 	}
 
 	padding: ${tokens.space.m};
-	box-shadow: ${tokens.shadows.popover};
+	box-shadow: ${tokens.shadows.onTop};
 	border-radius: ${tokens.radii.rectRadius};
 `;
