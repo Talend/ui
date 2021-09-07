@@ -12,7 +12,7 @@ import Button from '../../Button';
 
 # Accordion
 
-The accordion component allows the user to display section of content; each item can be collapsed or expanded.
+The accordion component displays sections of content. Each section can be collapsed or expanded.
 
 ## Zoning
 
@@ -54,7 +54,7 @@ The accordion component allows the user to display section of content; each item
 | min-width  | 25rem    |
 
 The max-height of an accordion item is `37rem`.
-A scrollbar has to be added in the content after exceeding `37rem`.
+A scrollbar is added in the content after exceeding `37rem`.
 
 <Canvas>
 	<Story name="default">
@@ -69,6 +69,24 @@ A scrollbar has to be added in the content after exceeding `37rem`.
 				Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
 				dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
 				libero sagittis sit amet.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue augue, fringilla non
+				est at, eleifend sollicitudin turpis. Ut a pretium velit, quis imperdiet lacus. Cras sed
+				imperdiet lacus, non convallis felis. Proin nulla nunc, pharetra id hendrerit eget,
+				condimentum eget orci. Mauris eleifend augue sit amet elit feugiat, venenatis aliquet ante
+				pretium. Sed mi diam, scelerisque id diam quis, aliquam bibendum lacus. Sed tempor neque
+				massa, venenatis posuere risus feugiat nec. Praesent et egestas tortor, in laoreet tellus.
+				Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
+				dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
+				libero sagittis sit amet.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue augue, fringilla non
+                est at, eleifend sollicitudin turpis. Ut a pretium velit, quis imperdiet lacus. Cras sed
+                imperdiet lacus, non convallis felis. Proin nulla nunc, pharetra id hendrerit eget,
+                condimentum eget orci. Mauris eleifend augue sit amet elit feugiat, venenatis aliquet ante
+                pretium. Sed mi diam, scelerisque id diam quis, aliquam bibendum lacus. Sed tempor neque
+                massa, venenatis posuere risus feugiat nec. Praesent et egestas tortor, in laoreet tellus.
+                Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
+                dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
+                libero sagittis sit amet.
 			</Accordion.Item>
 			<Accordion.Item
 				disclosure={
@@ -116,7 +134,8 @@ A scrollbar has to be added in the content after exceeding `37rem`.
 
 ## States
 
-The accordion component is by default in the collapsed state with all content panels closed.
+By default, only the first panel of the accordion component is opened.
+Only one panel can be opened at a time.
 
 <FigmaImage
 	src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=2%3A88"
@@ -145,11 +164,11 @@ The accordion component is by default in the collapsed state with all content pa
 
 ## Accessibility
 
-- Press <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to expand or collapse the accordion when the area is focused.
+- Press <kbd>ARROW UP</kbd> or <kbd>ARROW DOWN</kbd> to expand or collapse the previous or next accordion sections.
 
 ## Usage
 
-The accordion component can be placed as main page content or placed inside the container such as a drawer or an overview tile.
+The accordion component can be used as main page content or placed inside a container such as a drawer or an overview tile.
 
 ## Changelog
 

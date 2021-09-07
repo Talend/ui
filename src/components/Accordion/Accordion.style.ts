@@ -48,6 +48,8 @@ export const DisclosureContent = styled(ReakitDisclosureContent)`
 	border-radius: 0 0 ${tokens.radii.rectRadius} ${tokens.radii.rectRadius};
 	transition: opacity ${tokens.transitions.slow};
 	opacity: 0;
+	max-height: 37rem;
+	overflow: auto;
 
 	&[data-enter] {
 		padding: ${tokens.space.m};
