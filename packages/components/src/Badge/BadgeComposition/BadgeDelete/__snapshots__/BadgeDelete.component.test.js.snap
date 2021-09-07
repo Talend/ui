@@ -8,11 +8,7 @@ exports[`BadgeDelete should render 1`] = `
         type="button"
         class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
 >
-  <svg name="talend-cross"
-       class="theme-tc-svg-icon tc-svg-icon"
-       focusable="false"
-       aria-hidden="true"
-  >
-  </svg>
+  <coral.icon name="talend-cross">
+  </coral.icon>
 </button>
 `;

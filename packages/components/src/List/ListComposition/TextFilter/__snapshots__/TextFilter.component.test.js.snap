@@ -90,12 +90,8 @@ exports[`TextFilter should render text filter component 1`] = `
                 key="icon"
                 name="talend-search"
               >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
+                <Coral.Icon
                   name="talend-search"
-                  title={null}
                 />
               </Icon>
             </button>
@@ -198,12 +194,8 @@ exports[`TextFilter should render text filter component with defined docked stat
                 key="icon"
                 name="talend-search"
               >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
+                <Coral.Icon
                   name="talend-search"
-                  title={null}
                 />
               </Icon>
             </button>

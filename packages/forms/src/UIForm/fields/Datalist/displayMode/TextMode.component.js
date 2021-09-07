@@ -35,7 +35,7 @@ class TextMode extends React.Component {
 
 	render() {
 		const { id, schema, value, t } = this.props;
-		const { title, options } = schema;
+		const { title, labelProps, options } = schema;
 		let titleEntry;
 
 		if (options && options.isMultiSection) {
@@ -58,7 +58,7 @@ class TextMode extends React.Component {
 		}
 
 		return (
-			<FieldTemplate id={id} label={title}>
+			<FieldTemplate id={id} label={title} labelProps={labelProps}>
 				{displayValue}
 			</FieldTemplate>
 		);
@@ -77,6 +77,7 @@ if (process.env.NODE_ENV !== 'production') {
 				titleMap: PropTypes.array,
 			}),
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
 					name: PropTypes.string.isRequired,

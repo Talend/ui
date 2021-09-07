@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { distanceInWordsToNow, format } from 'date-fns';
+import talendUtils from '@talend/utils';
 
 import { computeValue, CellDatetimeComponent } from './CellDatetime.component';
 import getDefaultT from '../../translate';
@@ -13,9 +14,27 @@ jest.mock('date-fns', () => ({
 	distanceInWordsToNow: jest.fn(() => 'about 1 month ago'),
 }));
 
+jest.mock('@talend/utils', () => {
+	const actualUtils = jest.requireActual('@talend/utils');
+
+	return {
+		...actualUtils,
+		date: {
+			...actualUtils.date,
+			formatToTimeZone: jest.fn(() => '2016-09-22 09:00:00'),
+		},
+	};
+});
+
 describe('CellDatetime', () => {
 	beforeAll(() => {
 		getLocale.mockImplementation(() => 'getLocale');
+	});
+
+	afterAll(() => {
+		jest.unmock('../../i18n/DateFnsLocale/locale');
+		jest.unmock('date-fns');
+		jest.unmock('../../utils/date');
 	});
 
 	it('should render CellDatetime', () => {
@@ -84,16 +103,14 @@ describe('CellDatetime', () => {
 		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
 		const hours = 11 + timezoneOffset / 60;
 		const isOneDigitHours = hours.toString().length === 1;
-		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${
-			11 + timezoneOffset / 60
-		}:00:00`;
+		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${11 + timezoneOffset / 60}:00:00`;
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData);
 		// then
 		expect(computedStrOffset).toEqual(expectedStrDate);
 		expect(format).toHaveBeenCalledWith(cellDataWithOffset, columnData.pattern);
 	});
 
-	it('should test CellDatetime render with tooltip', () => {
+	it('should render CellDatetime with tooltip in ago mode', () => {
 		// when
 		const columnData = {
 			mode: 'ago',
@@ -105,5 +122,22 @@ describe('CellDatetime', () => {
 		expect(wrapper.find('TooltipTrigger').length).toBe(1);
 		expect(wrapper.find('TooltipTrigger').getElement().props.label).toBe('2016-09-22 09:00:00');
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should format with timezone', () => {
+		// when
+		const columnData = {
+			mode: 'format',
+			pattern: 'YYYY-MM-DD HH:mm:ss',
+			timeZone: 'Pacific/Niue',
+		};
+
+		const cellData = 1474495200000;
+		computeValue(cellData, columnData);
+
+		// then
+		expect(talendUtils.date.formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
+			timeZone: columnData.timeZone,
+		});
 	});
 });

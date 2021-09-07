@@ -234,6 +234,7 @@ exports[`Drawer should render with tabs 1`] = `
               >
                 <span
                   aria-describedby="42"
+                  className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -265,6 +266,7 @@ exports[`Drawer should render with tabs 1`] = `
               >
                 <span
                   aria-describedby="42"
+                  className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}

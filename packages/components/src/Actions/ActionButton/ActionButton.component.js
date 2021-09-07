@@ -206,10 +206,13 @@ function ActionButton(props) {
 		);
 	}
 
-	if (hideLabel || tooltip || tooltipLabel) {
+	// 2 ways to display the tooltip via props: `hideLabel` and `tooltip`.
+	// warning: when `tooltip` is set to false, then no tooltip even if `hideLabel` is set
+	const shouldDisplayTooltip = (hideLabel || tooltip || tooltipLabel) && tooltip !== false;
+	if (ariaLabel && shouldDisplayTooltip) {
 		btn = (
 			<TooltipTrigger
-				label={tooltipLabel || label}
+				label={ariaLabel}
 				tooltipPlacement={tooltipPlacement}
 				className={tooltipClassName}
 			>

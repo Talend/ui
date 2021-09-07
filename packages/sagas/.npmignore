@@ -40,3 +40,8 @@ tests
 # Build and distribution folders
 build
 
+.babelrc.json
+eslint-report.json
+i18next-scanner.config.js
+stylelint-report.json
+talend-scripts.json

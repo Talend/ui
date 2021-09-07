@@ -1,6 +1,7 @@
 /// Define button colors based on its background
 /// @access public
 /// @param {Color} $btn-bg [$btn-default-bg] - button background color to tint
+/// @deprecated
 @mixin btn-colors($btn-bg: $btn-default-bg) {
 	box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0.15) inset;
 
@@ -44,6 +45,7 @@
 /// Define inverse button colors based on the button color
 /// @access public
 /// @param {Color} $btn-color [$btn-default-bg] - button background color to tint
+/// @deprecated
 @mixin btn-inverse-colors($btn-color: $btn-default-bg) {
 	// we have a border but we cannot use box-sizing: border-box because we don't have a height.
 	// so we change the line-height to match 3.5rem ($btn-line-height) - borders
@@ -186,6 +188,7 @@
 	}
 }
 
+/// @deprecated
 @mixin btn-tertiary-colors($color: $btn-default-bg) {
 	&.btn-tertiary {
 		background-color: transparent;

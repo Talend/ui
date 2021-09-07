@@ -37,7 +37,7 @@ function getItems(items, dataFeature) {
  *
  * <Typeahead {...props} />
  */
-function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	const [referenceElement, setReferenceElement] = useState(null);
@@ -69,9 +69,9 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			fn: ({ state }) => {
 				const GAP = 45; // the offset between the end of items container and screen boundaries
 				const inputDimensions = state.rects.reference;
-				const { x, height } = inputDimensions;
-				const offsetTop = x - GAP;
-				const offsetBottom = window.innerHeight - x - height - GAP;
+				const { y, height } = inputDimensions;
+				const offsetTop = y - GAP;
+				const offsetBottom = window.innerHeight - y - height - GAP;
 				const placements = state.placement.split('-');
 				let newPlacement = state.placement;
 				if (placements[0] === 'top' && offsetBottom > offsetTop) {
@@ -83,9 +83,11 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				state.placement = newPlacement;
 				// eslint-disable-next-line no-param-reassign
 				state.styles.popper.maxHeight = `${maxHeight}px`;
+				// eslint-disable-next-line no-param-reassign
+				state.styles.popper.minHeight = `${height}px`;
 			},
 		}),
-		[],
+		[items],
 	);
 
 	const withInitialState = useMemo(
@@ -234,7 +236,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 	const defaultRenderersProps = {
 		renderItem,
 		renderItemsContainer: renderItemsContainerFactory(
-			rest.items,
+			items,
 			noResultText,
 			rest.searching,
 			searchingText,
@@ -258,11 +260,11 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...inputProps,
 		highlightedSectionIndex: rest.onKeyDown ? rest.focusedSectionIndex : highlightedSectionIndex,
 		highlightedItemIndex: rest.onKeyDown ? rest.focusedItemIndex : highlightedItemIndex,
-		items: getItems(rest.items, rest.dataFeature),
+		items: getItems(items, rest.dataFeature),
 		itemProps: ({ itemIndex }) => ({
 			onMouseDown: event => event.preventDefault(),
 			onClick: rest.onSelect,
-			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
+			'aria-disabled': items[itemIndex] && items[itemIndex].disabled,
 		}),
 	};
 

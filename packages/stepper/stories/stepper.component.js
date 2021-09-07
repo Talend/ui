@@ -1,8 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
-import Action from '@talend/react-components/lib/Actions/Action';
-import Stepper from '@talend/react-components/lib/Stepper';
-
-// eslint-disable-next-line
+import { Action, Stepper } from '@talend/react-components';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -27,8 +25,7 @@ function renderActions(isInError) {
 	);
 }
 
-stories
-	.add('Stepper default', () => {
+stories.add('Stepper default', () => {
 		const steps = [
 			{ label: 'Fetch Sample', status: StepperConstants.LOADING_STEP_STATUSES.SUCCESS },
 			{
@@ -42,8 +39,8 @@ stories
 			},
 		];
 		return <Stepper steps={steps} title={title} />;
-	})
-	.add('Stepper with error', () => {
+	});
+stories.add('Stepper with error', () => {
 		const steps = [
 			{
 				label: 'Fetch Sample',
@@ -62,13 +59,13 @@ stories
 			},
 		];
 		return <Stepper steps={steps} title={title} renderActions={renderActions} />;
-	})
-	.add('Stepper without steps', () => (
+	});
+stories.add('Stepper without steps', () => (
 		<Stepper title={title} renderActions={renderActions}>
 			<p>No step to display here, it means content is already loaded.</p>
 		</Stepper>
-	))
-	.add('Stepper successful', () => {
+	));
+stories.add('Stepper successful', () => {
 		const defaultSteps = [
 			{ label: 'Fetch Sample', status: StepperConstants.LOADING_STEP_STATUSES.SUCCESS },
 			{

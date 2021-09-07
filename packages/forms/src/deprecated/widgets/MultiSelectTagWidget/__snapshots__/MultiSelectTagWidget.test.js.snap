@@ -68,6 +68,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
     style={
       Object {
         "maxHeight": undefined,
+        "minHeight": undefined,
       }
     }
   >
@@ -125,6 +126,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
     style={
       Object {
         "maxHeight": undefined,
+        "minHeight": undefined,
       }
     }
   >
@@ -201,6 +203,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
     style={
       Object {
         "maxHeight": undefined,
+        "minHeight": undefined,
       }
     }
   >
@@ -208,10 +211,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
       className="theme-no-result no-result"
       key="no-result"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-fieldglass"
         title="No result."
       />

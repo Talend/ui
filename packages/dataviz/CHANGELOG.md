@@ -1,30 +1,28 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## 0.4.5
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Fixed
 
-Guiding Principles
+- [show special chars in tooltip](https://github.com/Talend/ui/pull/3327)
 
--   Changelogs are for humans, not machines.
--   There should be an entry for every single version.
--   The same types of changes should be grouped.
--   Versions and sections should be linkable.
--   The latest version comes first.
--   The release date of each version is displayed.
--   Mention whether you follow Semantic Versioning.
+## [0.4.4]
 
-Types of changes
+### Fixed
 
--   `Added` for new features.
--   `Changed` for changes in existing functionality.
--   `Deprecated` for soon-to-be removed features.
--   `Removed` for now removed features.
--   `Fixed` for any bug fixes.
--   `Security` in case of vulnerabilities.
+- [genereate dev UMD](https://github.com/Talend/ui/pull/3261)
 
-## [unreleased]
+## [0.4.3]
+
+### Fixed
+
+- [upgrade talend-scripts to fix manifest](https://github.com/Talend/ui/pull/3259)
+
+## [0.4.2]
+
+### Fixed
+
+- [remove locale as peer dep](https://github.com/Talend/ui/pull/3216)
 
 ## [0.4.1]
 

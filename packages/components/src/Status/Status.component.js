@@ -4,8 +4,9 @@ import classNames from 'classnames';
 
 import Actions from '../Actions/Actions.component';
 import CircularProgress from '../CircularProgress/CircularProgress.component';
-import Icon from '../Icon/Icon.component';
+import Icon from '../Icon';
 import Skeleton from '../Skeleton';
+import TooltipTrigger from '../TooltipTrigger';
 
 import css from './Status.scss';
 
@@ -94,7 +95,7 @@ function renderLabel(status, label) {
 	return label;
 }
 
-export function Status({ status, label, icon, actions, progress }) {
+export function Status({ status, label, icon, actions, progress, tooltip }) {
 	const rootClassnames = classNames(css['tc-status'], 'tc-status', {
 		[css.action]: actions && actions.length,
 	});
@@ -110,11 +111,14 @@ export function Status({ status, label, icon, actions, progress }) {
 		'tc-status-label',
 		css[getbsStyleFromStatus(status)],
 	);
+	const labelText = renderLabel(status, label);
 
 	return (
 		<div role="status" className={rootClassnames}>
 			<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
-			<span className={labelClassNames}>{renderLabel(status, label)}</span>
+			<TooltipTrigger label={tooltip || labelText} tooltipPlacement="top">
+				<span className={labelClassNames}>{labelText}</span>
+			</TooltipTrigger>
 			<Actions
 				actions={actions}
 				className={classNames(css['tc-status-actions'], 'tc-status-actions')}
@@ -138,6 +142,7 @@ Status.propTypes = {
 	icon: PropTypes.string,
 	actions: Actions.propTypes.actions,
 	progress: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	tooltip: PropTypes.string,
 };
 
 Status.defaultProps = {

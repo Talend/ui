@@ -20,12 +20,8 @@ exports[`Toolbar should render actions toolbar 1`] = `
         role={null}
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="talend-plus"
-          title={null}
         />
         <span>
           Add
@@ -66,12 +62,8 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
         role={null}
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
+        <Coral.Icon
           name="talend-trash"
-          title={null}
         />
         <span>
           Delete selection
@@ -223,12 +215,8 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-chevron-end"
-              title={null}
             />
           </a>
         </li>
@@ -244,12 +232,8 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-chevron-left"
-              title={null}
             />
           </a>
         </li>
@@ -273,12 +257,9 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-              focusable="false"
+            <Coral.Icon
               name="talend-chevron-left"
-              title={null}
+              transform="rotate-180"
             />
           </a>
         </li>
@@ -294,12 +275,9 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-              focusable="false"
+            <Coral.Icon
               name="talend-chevron-end"
-              title={null}
+              transform="rotate-180"
             />
           </a>
         </li>

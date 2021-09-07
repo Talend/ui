@@ -7,6 +7,8 @@ import { distanceInWordsToNow, format } from 'date-fns';
 import isValid from 'date-fns/is_valid';
 import parse from 'date-fns/parse';
 import { withTranslation } from 'react-i18next';
+import talendUtils from '@talend/utils';
+
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
@@ -25,11 +27,35 @@ export function computeValue(cellData, columnData, t) {
 				locale: getLocale(t),
 			});
 		} else if (columnData.mode === 'format') {
+			if (columnData.timeZone) {
+				return talendUtils.date.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+					timeZone: columnData.timeZone,
+				});
+			}
 			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 		}
 	}
 
 	return cellData;
+}
+
+export function getTooltipLabel(cellData, columnData) {
+	if(typeof columnData.getTooltipLabel === 'function') {
+		return columnData.getTooltipLabel(cellData);
+	}
+	if (columnData.mode === 'ago') {
+		let tooltipLabel = '';
+		if (columnData.timeZone) {
+			tooltipLabel = talendUtils.date.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+				timeZone: columnData.timeZone,
+			});
+		} else {
+			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+		}
+		return tooltipLabel;
+	}
+
+	return columnData.tooltipLabel;
 }
 /**
  * Cell renderer that displays text + icon
@@ -45,24 +71,23 @@ export class CellDatetimeComponent extends React.Component {
 
 	render() {
 		const { cellData, columnData, t } = this.props;
+		const computedValue = computeValue(cellData, columnData, t);
+		const tooltipLabel = getTooltipLabel(cellData, columnData);
+
 		const cell = (
 			<div className={classnames('cell-datetime-container', styles['cell-datetime-container'])}>
-				{computeValue(cellData, columnData, t)}
+				{computedValue}
 			</div>
 		);
 
-		if (columnData.mode === 'ago') {
-			return (
-				<TooltipTrigger
-					label={format(cellData, columnData.pattern || DATE_TIME_FORMAT)}
-					tooltipPlacement={columnData.tooltipPlacement || 'bottom'}
-				>
-					{cell}
-				</TooltipTrigger>
-			);
-		}
-
-		return cell;
+		return (
+			<TooltipTrigger
+				label={tooltipLabel || computedValue}
+				tooltipPlacement={columnData.tooltipPlacement || 'top'}
+			>
+				{cell}
+			</TooltipTrigger>
+		);
 	}
 }
 
@@ -73,8 +98,10 @@ CellDatetimeComponent.propTypes = {
 	// Column data
 	columnData: PropTypes.shape({
 		tooltipPlacement: PropTypes.string,
+		tooltipLabel: PropTypes.string,
 		mode: PropTypes.string.isRequired,
 		pattern: PropTypes.string,
+		getTooltipLabel: PropTypes.func,
 	}).isRequired,
 	t: PropTypes.func,
 };

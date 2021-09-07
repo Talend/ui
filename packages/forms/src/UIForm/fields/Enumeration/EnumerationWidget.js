@@ -956,7 +956,9 @@ class EnumerationForm extends React.Component {
 	}
 
 	valueAlreadyExist(value, state, index) {
-		const foundIndex = state.items.findIndex(item => item.values[0] === value);
+		const foundIndex = state.items.findIndex(
+			item => item.values[0] === value && item.values.toString() === value,
+		);
 		const indexCheck = index > -1 ? foundIndex !== index : true;
 		return !this.allowDuplicate && foundIndex > -1 && indexCheck;
 	}
@@ -1013,12 +1015,13 @@ class EnumerationForm extends React.Component {
 			items = this.searchItems(this.state.searchCriteria);
 		}
 		const stateToShow = { ...this.state, items };
-		const { description, required, title } = this.props.schema;
+		const { description, required, title, labelProps } = this.props.schema;
 		const { errorMessage, isValid } = this.props;
 		return (
 			<FieldTemplate
 				description={description}
 				label={title}
+				labelProps={labelProps}
 				required={required}
 				isValid={isValid}
 				errorMessage={errorMessage}

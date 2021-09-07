@@ -73,12 +73,8 @@ exports[`List DisplayMode should render 1`] = `
               <Icon
                 name="talend-table"
               >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
+                <Coral.Icon
                   name="talend-table"
-                  title={null}
                 />
               </Icon>
             </button>
@@ -146,12 +142,8 @@ exports[`List DisplayMode should render 1`] = `
               <Icon
                 name="talend-expanded"
               >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
+                <Coral.Icon
                   name="talend-expanded"
-                  title={null}
                 />
               </Icon>
             </button>

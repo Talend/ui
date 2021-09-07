@@ -30,7 +30,6 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 	padding: 0;
 
 	svg {
-		display: block;
 		color: $gray;
 	}
 
@@ -42,7 +41,11 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 	&[disabled] {
 		&:hover,
 		&:focus {
-			color: $white;
+			border-color: $scooter;
+
+			svg {
+				color: $scooter;
+			}
 		}
 	}
 
@@ -64,6 +67,7 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 		svg {
 			color: white;
 		}
+
 		&:hover:not([disabled]),
 		&:active {
 			background-color: $scooter;
@@ -71,7 +75,7 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 		}
 	}
 
-	&.tick:after {
+	&.tick::after {
 		content: '';
 		position: absolute;
 		width: $tc-icon-toggle-tick-size;

@@ -4,6 +4,8 @@ import { mount } from 'enzyme';
 import { useForm, FormProvider } from 'react-hook-form';
 import Select from './RHFSelect.component';
 
+jest.mock('ally.js');
+
 /* eslint-disable-next-line react/prop-types */
 function FormWrapper({ children, onSubmit }) {
 	const rhf = useForm({ mode: 'onChange' });
@@ -77,14 +79,13 @@ describe('Input RHF widget', () => {
 			</FormWrapper>,
 		);
 		// then
-		expect(wrapper.find('p[id="name-error"]').text()).toBe('');
-
 		await act(async () => {
 			const select = wrapper.find('select').at(0);
 			select.getDOMNode().value = '';
 			select.getDOMNode().dispatchEvent(new Event('change'));
 		});
 
-		expect(wrapper.find('p[id="name-error"]').text()).toBe('This should not be empty');
+		wrapper.update();
+		expect(wrapper.find('InlineMessage').at(0).props().description).toBe('This should not be empty');
 	});
 });

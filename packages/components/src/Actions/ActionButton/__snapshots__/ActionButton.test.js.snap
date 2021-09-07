@@ -1,5 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Action should NOT render tooltip when tooltip property is set to false 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className=""
+  data-feature="action.feature"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should NOT render tooltip when tooltip property is set to false with hideLabel property 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="btn-icon-only"
+  data-feature="action.feature"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+  />
+</Button>
+`;
+
 exports[`Action should apply transformation on icon 1`] = `
 <Button
   active={false}
@@ -129,6 +174,7 @@ exports[`Action should render a button with a overlay component 1`] = `
   overlayId="myOverlayId"
   overlayPlacement="bottom"
   preventScrolling={false}
+  trigger="click"
 >
   <Button
     active={false}
@@ -238,6 +284,61 @@ exports[`Action should render action with html property name = props.name if set
     Click me
   </span>
 </Button>
+`;
+
+exports[`Action should render tooltip when hideLabel property is set 1`] = `
+<TooltipTrigger
+  label="Click me"
+  tooltipPlacement="top"
+>
+  <Button
+    active={false}
+    aria-label="Click me"
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className="btn-icon-only"
+    data-feature="action.feature"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
+    title="Title to describe click me button"
+  >
+    <Icon
+      name="talend-caret-down"
+    />
+  </Button>
+</TooltipTrigger>
+`;
+
+exports[`Action should render tooltip when tooltip property is set 1`] = `
+<TooltipTrigger
+  label="Click me"
+  tooltipPlacement="top"
+>
+  <Button
+    active={false}
+    aria-label="Click me"
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className=""
+    data-feature="action.feature"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
+    title="Title to describe click me button"
+  >
+    <Icon
+      name="talend-caret-down"
+    />
+    <span>
+      Click me
+    </span>
+  </Button>
+</TooltipTrigger>
 `;
 
 exports[`Action should reverse icon/label 1`] = `

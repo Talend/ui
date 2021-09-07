@@ -1,6 +1,8 @@
-import { subHours } from 'date-fns';
+import isAfter from 'date-fns/is_after';
+import subHours from 'date-fns/sub_hours';
 import {
 	checkSupportedDateFormat,
+	checkSupportedTimezone,
 	extractDate,
 	extractPartsFromTextInput,
 	extractPartsFromDate,
@@ -277,6 +279,25 @@ describe('Date extraction', () => {
 				errors: [],
 			});
 		});
+		it('should check if a date is valid', () => {
+			// given
+			const textInput = '2021-04-01';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+			};
+			const isDisabledChecker = date => isAfter(date, new Date(2021, 2, 30));
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options, isDisabledChecker);
+
+			// then
+			expect(isNaN(parts.date.getTime())).toBe(true);
+			expect(parts.textInput).toBe(textInput);
+			expect(parts.errorMessage).toBe('Invalid date is selected');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_SELECTED_DATE', message: 'Invalid date is selected' },
+			]);
+		});
 	});
 	describe('extractDateOnly', () => {
 		it('should extract date only', () => {
@@ -319,6 +340,16 @@ describe('Date extraction', () => {
 
 			// then
 			expect(date).toEqual(new Date(2019, 8, 27));
+		});
+	});
+
+	describe('checkSupportedTimezone', () => {
+		it('should do nothing if the timezone exists', () => {
+			checkSupportedTimezone('Europe/Paris');
+		});
+
+		it('should throw an exception if the timezone does not exist', () => {
+			expect(() => checkSupportedTimezone('Europe/Beauvais')).toThrow();
 		});
 	});
 });

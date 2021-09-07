@@ -3,7 +3,7 @@
 exports[`CellDatetime should render CellDatetime 1`] = `
 <TooltipTrigger
   label="2016-09-22 09:00:00"
-  tooltipPlacement="bottom"
+  tooltipPlacement="top"
 >
   <div
     className="cell-datetime-container theme-cell-datetime-container"
@@ -13,10 +13,10 @@ exports[`CellDatetime should render CellDatetime 1`] = `
 </TooltipTrigger>
 `;
 
-exports[`CellDatetime should test CellDatetime render with tooltip 1`] = `
+exports[`CellDatetime should render CellDatetime with tooltip in ago mode 1`] = `
 <TooltipTrigger
   label="2016-09-22 09:00:00"
-  tooltipPlacement="bottom"
+  tooltipPlacement="top"
 >
   <div
     className="cell-datetime-container theme-cell-datetime-container"

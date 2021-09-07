@@ -18,6 +18,7 @@ export default function Text(props) {
 		placeholder,
 		readOnly = false,
 		title,
+		labelProps,
 		type,
 		...rest
 	} = schema;
@@ -40,6 +41,7 @@ export default function Text(props) {
 			isValid={isValid}
 			label={title}
 			labelAfter
+			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
@@ -87,6 +89,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			hint: PropTypes.shape({
 				icon: PropTypes.string,
 				className: PropTypes.string,

@@ -12,6 +12,7 @@ import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 import setMonth from 'date-fns/set_month';
+import startOfDay from 'date-fns/start_of_day';
 import startOfMonth from 'date-fns/start_of_month';
 
 import theme from './DatePicker.scss';
@@ -70,7 +71,7 @@ class DatePicker extends React.PureComponent {
 	isDateWithinRange(date) {
 		const { selectedDate, startDate, endDate } = this.props;
 		if (startDate && isAfter(selectedDate, startDate)) {
-			return isWithinRange(date, startDate, selectedDate);
+			return isWithinRange(date, startOfDay(startDate), selectedDate);
 		} else if (endDate && isBefore(selectedDate, endDate)) {
 			return isWithinRange(date, selectedDate, endDate);
 		}
@@ -218,8 +219,15 @@ class DatePicker extends React.PureComponent {
 										date: ariaLabel,
 									});
 								}
+								if (disabled) {
+									ariaLabel = t('DATEPICKER_DAY_INVALID', {
+										defaultValue: 'Date is not allowed, {{date}}',
+										date: ariaLabel,
+									});
+								}
 
 								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
+
 								return (
 									<td {...tdProps}>
 										<button

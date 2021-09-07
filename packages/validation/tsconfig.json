@@ -1,9 +1,0 @@
-{
-  "extends": "./node_modules/@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/**/*"],
-  "compilerOptions": {
-    "declaration": true,
-    "target": "ES5",
-    "module": "CommonJs"
-  }
-}

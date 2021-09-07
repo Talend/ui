@@ -1,9 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
-
-jest.mock('react-dom');
 
 const props = {
 	header: [
@@ -132,53 +130,49 @@ const propsPanelWithCustomElement = {
 describe('CollapsiblePanel', () => {
 	it('should render default with key/value content', () => {
 		// when
-		const wrapper = renderer.create(<CollapsiblePanel {...props} />).toJSON();
+		const wrapper = mount(<CollapsiblePanel {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should render default with expanded key/value content', () => {
 		// when
-		const wrapper = renderer.create(<CollapsiblePanel {...props} expanded />).toJSON();
+		const wrapper = mount(<CollapsiblePanel {...props} expanded />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should render default without content', () => {
 		// when
-		const wrapper = renderer.create(<CollapsiblePanel {...props} content={null} />).toJSON();
+		const wrapper = mount(<CollapsiblePanel {...props} content={null} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should render themed with textual content', () => {
 		// when
-		const wrapper = renderer.create(<CollapsiblePanel {...propsDescriptivePanel} />).toJSON();
+		const wrapper = mount(<CollapsiblePanel {...propsDescriptivePanel} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should render themed without textual content', () => {
 		// when
-		const wrapper = renderer
-			.create(<CollapsiblePanel {...propsDescriptivePanelWithoutContent} content={null} />)
-			.toJSON();
-
+		const wrapper = mount(
+			<CollapsiblePanel {...propsDescriptivePanelWithoutContent} content={null} />,
+		);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should render panel with custom element', () => {
 		// when
-		const wrapper = renderer
-			.create(<CollapsiblePanel {...propsPanelWithCustomElement} content={null} />)
-			.toJSON();
-
+		const wrapper = mount(<CollapsiblePanel {...propsPanelWithCustomElement} content={null} />);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 });

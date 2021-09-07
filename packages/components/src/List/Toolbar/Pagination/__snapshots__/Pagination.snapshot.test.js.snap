@@ -104,12 +104,8 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
       />
     </a>
   </li>
@@ -130,12 +126,8 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
       />
     </a>
   </li>
@@ -158,12 +150,9 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -178,12 +167,9 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -288,12 +274,8 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
       />
     </a>
   </li>
@@ -308,12 +290,8 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
       />
     </a>
   </li>
@@ -342,12 +320,9 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -368,12 +343,9 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       }
       tabIndex={-1}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -748,12 +720,8 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
       />
     </a>
   </li>
@@ -768,12 +736,8 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
       />
     </a>
   </li>
@@ -796,12 +760,9 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -816,12 +777,9 @@ exports[`Pagination should render 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -927,12 +885,8 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
       />
     </a>
   </li>
@@ -948,12 +902,8 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
       />
     </a>
   </li>
@@ -977,12 +927,9 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-left"
-        title={null}
+        transform="rotate-180"
       />
     </a>
   </li>
@@ -998,12 +945,9 @@ exports[`Pagination should render id if provided 1`] = `
       onKeyDown={[Function]}
       role="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-        focusable="false"
+      <Coral.Icon
         name="talend-chevron-end"
-        title={null}
+        transform="rotate-180"
       />
     </a>
   </li>

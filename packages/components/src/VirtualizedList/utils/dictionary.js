@@ -8,6 +8,7 @@ import CellBadgeRenderer, { cellType as cellBadgeType } from '../CellBadge';
 import CellLabelRenderer, { cellType as cellLabelType } from '../CellLabel';
 import CellDatetimeRenderer, { cellType as cellDatetimeType } from '../CellDatetime';
 import CellTextIconRenderer, { cellType as cellTextType } from '../CellTextIcon';
+import CellMappedDataRenderer, { cellType as cellMappedDataType } from '../CellMappedData';
 import HeaderIconRenderer, { headerType as headerIconType } from '../HeaderIcon';
 import HeaderResizable, { headerType as headerResizableType } from '../HeaderResizable';
 
@@ -20,6 +21,7 @@ export const cellDictionary = {
 	[cellLabelType]: CellLabelRenderer,
 	[cellTextType]: CellTextIconRenderer,
 	[cellDatetimeType]: CellDatetimeRenderer,
+	[cellMappedDataType]: CellMappedDataRenderer,
 };
 
 /** Row renderers dictionary */

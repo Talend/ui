@@ -147,7 +147,12 @@ const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
 			style={style}
 		>
 			{!isNull(formattedKey) && (
-				<span className={classNames(theme['tc-simple-text-key'], 'tc-simple-text-key')}>
+				<span
+					className={classNames(theme['tc-simple-text-key'], 'tc-simple-text-key', {
+						[theme['tc-simple-text-key-with-value']]: value,
+						'tc-simple-text-key-with-value': value,
+					})}
+				>
 					{get(schema, 'talend.component.label', formattedKey)}
 					{separator}
 					{types}

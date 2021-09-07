@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { Stepper as CoralStepper } from '@talend/design-system';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import { getTheme } from '../theme';
@@ -222,4 +223,7 @@ Stepper.LOADING_STEP_STATUSES = LOADING_STEP_STATUSES;
 Stepper.isStepsLoading = isStepsLoading;
 Stepper.isAllSuccessful = isAllSuccessful;
 Stepper.isErrorInSteps = isErrorInSteps;
+
+Stepper.Form = CoralStepper;
+
 export default Stepper;

@@ -1,0 +1,47 @@
+{
+  "name": "@talend/react-cmf-router",
+  "version": "3.5.2",
+  "description": "",
+  "main": "lib/index.js",
+  "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "pre-release": "yarn build:dev --display=none && yarn build:prod --display=none",
+    "postinstall": "talend-scripts build:lib",
+    "start": "echo nothing to start",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
+    "test:demo": "echo no test-demo for cmf-router",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint": "talend-scripts lint:es --format json -o eslint-report.json"
+  },
+  "dependencies": {
+    "@talend/react-cmf": "^6.36.0",
+    "lodash": "^4.17.15",
+    "path-to-regexp": "^2.0.0",
+    "prop-types": "^15.5.10",
+    "react-redux": "^5.0.7",
+    "react-router": "^3.2.0",
+    "react-router-redux": "^4.0.8",
+    "redux-saga": "^0.15.4"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^9.11.0",
+    "@talend/scripts-preset-react-lib": "^9.8.2",
+    "enzyme": "^3.11.0",
+    "node-fetch": "^2.6.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "redux-saga-tester": "^1.0.345"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

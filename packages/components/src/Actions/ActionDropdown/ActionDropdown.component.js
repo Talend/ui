@@ -5,12 +5,12 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
-import Label from 'react-bootstrap/lib/Label';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
+import Tag from '../../Tag';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import wrapOnClick from '../wrapOnClick';
@@ -83,12 +83,12 @@ function renderMutableMenuItem(item, index, getComponent) {
 			{item.icon && <Icon key="icon" name={item.icon} />}
 			{!item.hideLabel && item.label}
 			{item.badge && (
-				<Label
+				<Tag
 					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
 					bsStyle={item.badge.bsStyle || 'default'}
 				>
 					{getTabBarBadgeLabel(item.badge.label)}
-				</Label>
+				</Tag>
 			)}
 		</Renderers.MenuItem>
 	);
@@ -192,6 +192,7 @@ class ActionDropdown extends React.Component {
 			bsStyle = 'default',
 			hideLabel,
 			icon,
+			iconTransform,
 			items = [],
 			badge,
 			label,
@@ -204,36 +205,39 @@ class ActionDropdown extends React.Component {
 			className,
 			loading,
 			children,
+			ellipsis,
 			t = getDefaultT(),
 			...rest
 		} = this.props;
 
 		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
-		const title = [
-			icon && <Icon name={icon} key="icon" />,
-			!hideLabel && (
-				<span className="tc-dropdown-button-title-label" key="label">
-					{label}
-				</span>
-			),
-			badge && (
-				<Label
-					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
-					bsStyle={badge.bsStyle || 'default'}
-				>
-					{getTabBarBadgeLabel(badge.label)}
-				</Label>
-			),
-			<Icon
-				key="caret"
-				name="talend-caret-down"
-				className={classNames(theme['tc-dropdown-caret'], {
-					[theme['tc-dropdown-caret-open']]: this.state.isOpen,
-				})}
-			/>,
-		].filter(Boolean);
-		const style = link ? 'link' : bsStyle;
+		const title =
+			!ellipsis &&
+			[
+				icon && <Icon name={icon} transform={iconTransform} key="icon" />,
+				!hideLabel && (
+					<span className="tc-dropdown-button-title-label" key="label">
+						{label}
+					</span>
+				),
+				badge && (
+					<Tag
+						className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
+						bsStyle={badge.bsStyle || 'default'}
+					>
+						{getTabBarBadgeLabel(badge.label)}
+					</Tag>
+				),
+				<Icon
+					key="caret"
+					name="talend-caret-down"
+					className={classNames(theme['tc-dropdown-caret'], {
+						[theme['tc-dropdown-caret-open']]: this.state.isOpen,
+					})}
+				/>,
+			].filter(Boolean);
+		const style = link || ellipsis ? 'link' : bsStyle;
 
 		function onItemSelect(object, event) {
 			if (onSelect) {
@@ -247,7 +251,9 @@ class ActionDropdown extends React.Component {
 				bsStyle={style}
 				role="button"
 				onSelect={onItemSelect}
-				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
+				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className, {
+					[theme.ellipsis]: ellipsis,
+				})}
 				aria-label={tooltipLabel || label}
 				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
@@ -283,7 +289,7 @@ class ActionDropdown extends React.Component {
 			</Renderers.DropdownButton>
 		);
 
-		if (hideLabel || tooltipLabel) {
+		if (hideLabel || tooltipLabel || ellipsis) {
 			return (
 				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 					{dropdown}
@@ -304,6 +310,7 @@ ActionDropdown.propTypes = {
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,
 	icon: PropTypes.string,
+	iconTransform: PropTypes.string,
 	items: PropTypes.oneOfType([
 		PropTypes.arrayOf(
 			PropTypes.shape({
@@ -322,6 +329,7 @@ ActionDropdown.propTypes = {
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	loading: PropTypes.bool,
+	ellipsis: PropTypes.bool,
 	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,

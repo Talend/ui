@@ -41,12 +41,8 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
       role="link"
       type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
+      <Coral.Icon
         name="talend-arrow-left"
-        title={null}
       />
       <span>
         Start over

@@ -4,13 +4,12 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "prepublishOnly": "echo nothing to prepublishOnly",
-    "prepare": "talend-scripts build:lib",
+    "postinstall": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
     "test:cov": "npm run test",
     "test:demo": "echo nothing to do",
-    "lint:es": "talend-scripts lint:es"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "repository": {
     "type": "git",
@@ -30,18 +29,18 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/react-cmf": "^6.13.0",
+    "@talend/react-cmf": "^6.36.0",
     "chokidar": "^2.0.2",
     "deepmerge": "^1.5.1",
     "lodash": "^4.17.15",
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^8.0.1",
-    "@talend/scripts-preset-react-lib": "^8.0.1"
+    "@talend/scripts-core": "^9.11.0",
+    "@talend/scripts-preset-react-lib": "^9.4.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.13.0"
+  "version": "6.36.0"
 }

@@ -14,9 +14,11 @@ exports[`InputDateTimeRangePicker should render 1`] = `
     startDateTime="2019-12-01 00:00:00"
   >
     <div
-      className="theme-range-picker range-picker"
+      className="range-picker theme-range-picker"
     >
-      <div>
+      <div
+        className="range-input"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -71,29 +73,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                   >
                     <FocusManager
                       className="theme-date-picker date-picker"
-                      divRef={
-                        Object {
-                          "current": <div
-                            class="theme-date-picker date-picker"
-                            tabindex="-1"
-                          >
-                            <input
-                              autocomplete="off"
-                              class="form-control"
-                              id="my-picker-start-date-picker-input"
-                              placeholder="YYYY-MM-DD"
-                              style="width: 47px;"
-                              type="text"
-                              value="2019-12-01"
-                            />
-                            <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
-                            >
-                              YYYY-MM-DD
-                            </span>
-                          </div>,
-                        }
-                      }
                       onClick={[Function]}
                       onFocusIn={[Function]}
                       onFocusOut={[Function]}
@@ -297,16 +276,15 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           className="theme-icon icon"
           name="talend-arrow-right"
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon theme-icon icon"
-            focusable="false"
+          <Coral.Icon
+            className="theme-icon icon"
             name="talend-arrow-right"
-            title={null}
           />
         </Icon>
       </span>
-      <div>
+      <div
+        className="range-input"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -361,29 +339,6 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                   >
                     <FocusManager
                       className="theme-date-picker date-picker"
-                      divRef={
-                        Object {
-                          "current": <div
-                            class="theme-date-picker date-picker"
-                            tabindex="-1"
-                          >
-                            <input
-                              autocomplete="off"
-                              class="form-control"
-                              id="my-picker-end-date-picker-input"
-                              placeholder="YYYY-MM-DD"
-                              style="width: 47px;"
-                              type="text"
-                              value="2019-12-11"
-                            />
-                            <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
-                            >
-                              YYYY-MM-DD
-                            </span>
-                          </div>,
-                        }
-                      }
                       onClick={[Function]}
                       onFocusIn={[Function]}
                       onFocusOut={[Function]}
@@ -605,9 +560,11 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
 >
   <DateTimeRange.Manager>
     <div
-      className="theme-range-picker range-picker"
+      className="range-picker theme-range-picker"
     >
-      <div>
+      <div
+        className="range-input"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -695,29 +652,6 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                   >
                     <FocusManager
                       className="theme-date-picker date-picker"
-                      divRef={
-                        Object {
-                          "current": <div
-                            class="theme-date-picker date-picker"
-                            tabindex="-1"
-                          >
-                            <input
-                              autocomplete="off"
-                              class="form-control"
-                              id="my-picker-start-date-picker-input"
-                              placeholder="YYYY-MM-DD"
-                              style="width: 47px;"
-                              type="text"
-                              value=""
-                            />
-                            <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
-                            >
-                              YYYY-MM-DD
-                            </span>
-                          </div>,
-                        }
-                      }
                       onClick={[Function]}
                       onFocusIn={[Function]}
                       onFocusOut={[Function]}
@@ -919,16 +853,15 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
           className="theme-icon icon"
           name="talend-arrow-right"
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon theme-icon icon"
-            focusable="false"
+          <Coral.Icon
+            className="theme-icon icon"
             name="talend-arrow-right"
-            title={null}
           />
         </Icon>
       </span>
-      <div>
+      <div
+        className="range-input"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -1016,29 +949,6 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                   >
                     <FocusManager
                       className="theme-date-picker date-picker"
-                      divRef={
-                        Object {
-                          "current": <div
-                            class="theme-date-picker date-picker"
-                            tabindex="-1"
-                          >
-                            <input
-                              autocomplete="off"
-                              class="form-control"
-                              id="my-picker-end-date-picker-input"
-                              placeholder="YYYY-MM-DD"
-                              style="width: 47px;"
-                              type="text"
-                              value=""
-                            />
-                            <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
-                            >
-                              YYYY-MM-DD
-                            </span>
-                          </div>,
-                        }
-                      }
                       onClick={[Function]}
                       onFocusIn={[Function]}
                       onFocusOut={[Function]}

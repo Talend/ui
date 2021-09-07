@@ -101,8 +101,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 				items={remainingActions}
 				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
-				hideLabel
-				link
+				ellipsis
 			/>,
 		);
 	}

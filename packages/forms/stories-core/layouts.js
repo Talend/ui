@@ -57,6 +57,10 @@ export default [
 		story: () => <Form loading />,
 	},
 	{
+		name: 'without buttons',
+		story: () => <Form loading actions={[]} />,
+	},
+	{
 		name: 'skeleton-drawer',
 		story: () => <LayoutDrawer loading title="Form in loading in drawer" />,
 	},

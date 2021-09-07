@@ -160,12 +160,9 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
             name="talend-caret-down"
             transform=""
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-caret-down"
-              title={null}
+              transform=""
             />
           </Icon>
         </button>
@@ -817,12 +814,9 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
             name="talend-caret-down"
             transform=""
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-caret-down"
-              title={null}
+              transform=""
             />
           </Icon>
         </button>
@@ -1474,12 +1468,9 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
             name="talend-caret-down"
             transform=""
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
+            <Coral.Icon
               name="talend-caret-down"
-              title={null}
+              transform=""
             />
           </Icon>
         </button>
@@ -2131,12 +2122,9 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
             name="talend-caret-down"
             transform="flip-vertical"
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon theme-flip-vertical"
-              focusable="false"
+            <Coral.Icon
               name="talend-caret-down"
-              title={null}
+              transform="flip-vertical"
             />
           </Icon>
         </button>

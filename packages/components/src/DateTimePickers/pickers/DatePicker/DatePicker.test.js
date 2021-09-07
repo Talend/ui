@@ -65,12 +65,9 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(1)
-				.prop('className'),
-		).not.toContain('theme-today');
+		expect(wrapper.find('.tc-date-picker-day').at(1).prop('className')).not.toContain(
+			'theme-today',
+		);
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
@@ -96,12 +93,9 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('className'),
-		).not.toContain('theme-selected');
+		expect(wrapper.find('.tc-date-picker-day').at(0).prop('className')).not.toContain(
+			'theme-selected',
+		);
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
@@ -127,12 +121,7 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('disabled'),
-		).toBe(false);
+		expect(wrapper.find('.tc-date-picker-day').at(0).prop('disabled')).toBe(false);
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
@@ -175,6 +164,30 @@ describe('DatePicker', () => {
 		expect(middleTableCell.prop('className')).toContain('theme-range-middle');
 	});
 
+	it('should apply range style to startDate when time is not 00:00', () => {
+		// given
+		const props = {
+			calendar: {
+				year: 2021,
+				monthIndex: 3,
+			},
+			startDate: new Date(2021, 3, 1, 1, 0, 0), // 2021-04-01 01:00:00
+			selectedDate: new Date(2021, 3, 7), // 2021-04-07 00:00:00
+			// add the following props to prevent prop type warnings
+			onSelect: jest.fn(),
+			goToPreviousMonth: jest.fn(),
+			goToNextMonth: jest.fn(),
+		};
+
+		// when
+		const wrapper = mount(<DatePicker {...props} />);
+		const startDateTableCell = wrapper.find('td').at(3); // 2021-04-01
+
+		// then
+		expect(startDateTableCell.prop('className')).toContain('theme-range-start');
+		expect(startDateTableCell.prop('className')).toContain('theme-date-range');
+	});
+
 	it('should select date', () => {
 		// given
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
@@ -209,29 +222,14 @@ describe('DatePicker', () => {
 				goToNextMonth={jest.fn()}
 			/>,
 		);
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
+		expect(wrapper.find('.tc-date-picker-day').at(0).prop('tabIndex')).toBe(-1);
 
 		// when
 		wrapper.setProps({ allowFocus: true });
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
-		expect(
-			wrapper
-				.find('.tc-date-picker-day[data-value]')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(wrapper.find('.tc-date-picker-day').at(0).prop('tabIndex')).toBe(-1);
+		expect(wrapper.find('.tc-date-picker-day[data-value]').at(0).prop('tabIndex')).toBe(0);
 	});
 
 	it('should have 6 weeks', () => {

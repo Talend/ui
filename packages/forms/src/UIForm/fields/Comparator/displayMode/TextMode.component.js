@@ -8,7 +8,7 @@ export default function TextMode(props) {
 	const { id, schema, value } = props;
 	const iconName = ICONS_MAPPING[value.operator];
 	return (
-		<FieldTemplate id={id} label={schema.title}>
+		<FieldTemplate id={id} label={schema.title} labelProps={schema.labelProps}>
 			{iconName && <Icon name={iconName} />}
 			{!iconName && value.operator}
 			{`${value.operator ? ' ' : ''}${value.value || ''}`}
@@ -21,6 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 		}),
 		value: PropTypes.shape({
 			operator: PropTypes.string,

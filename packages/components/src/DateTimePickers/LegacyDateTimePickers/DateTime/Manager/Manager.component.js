@@ -33,6 +33,7 @@ class ContextualManager extends React.Component {
 		formMode: PropTypes.bool,
 		id: PropTypes.string.isRequired,
 		onChange: PropTypes.func,
+		hybridMode: PropTypes.bool,
 		required: PropTypes.bool,
 		selectedDateTime: PropTypes.oneOfType([
 			PropTypes.instanceOf(Date),
@@ -47,6 +48,7 @@ class ContextualManager extends React.Component {
 	static defaultProps = {
 		dateFormat: 'YYYY-MM-DD',
 		formMode: false,
+		hybridMode: false,
 		// default behaviour is to forbid empty values
 		required: true,
 		useSeconds: false,
@@ -118,8 +120,10 @@ class ContextualManager extends React.Component {
 	}
 
 	onPickerChange(event, { date, time, field }) {
-		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
+		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
+		const isTimeEmpty = !nextState.time.hours && !nextState.time.minutes && !nextState.time.seconds;
+		const isHybridMode = this.getDateOptions().hybridMode;
 
 		// we need to retrieve the input error from nextState to add them to the current one
 		// because, by changing the picker, we update the textInput so we need to update its errors
@@ -130,32 +134,41 @@ class ContextualManager extends React.Component {
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
 		if (isTimeUpdate) {
-			// to avoid having errors on untouched time elements, we check only the updated part
-			let newError;
-			switch (field) {
-				case FIELD_HOURS:
-					newError = checkHours(time.hours);
-					break;
-				case FIELD_MINUTES:
-					newError = checkMinutes(time.minutes);
-					break;
-				case FIELD_SECONDS:
-					newError = checkSeconds(time.seconds);
-					break;
-				default:
-					break;
-			}
+			if (isHybridMode && isTimeEmpty) {
+				nextErrors = nextErrors.filter(
+					error =>
+						!HOUR_ERRORS.includes(error.code) &&
+						!MINUTES_ERRORS.includes(error.code) &&
+						!SECONDS_ERRORS.includes(error.code),
+				);
+			} else {
+				// to avoid having errors on untouched time elements, we check only the updated part
+				let newError;
+				switch (field) {
+					case FIELD_HOURS:
+						newError = checkHours(time.hours, this.getDateOptions().hybridMode);
+						break;
+					case FIELD_MINUTES:
+						newError = checkMinutes(time.minutes, this.getDateOptions().hybridMode);
+						break;
+					case FIELD_SECONDS:
+						newError = checkSeconds(time.seconds, this.getDateOptions().hybridMode);
+						break;
+					default:
+						break;
+				}
 
-			// remove old error on updated time part
-			nextErrors = nextErrors.filter(
-				error =>
-					(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
-					(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
-					(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
-			);
-			// add the new error on updated time part
-			if (newError) {
-				nextErrors.push(newError);
+				// remove old error on updated time part
+				nextErrors = nextErrors.filter(
+					error =>
+						(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
+						(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
+						(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
+				);
+				// add the new error on updated time part
+				if (newError) {
+					nextErrors.push(newError);
+				}
 			}
 		}
 
@@ -203,6 +216,7 @@ class ContextualManager extends React.Component {
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
 			required: this.props.required,
+			hybridMode: this.props.hybridMode,
 		};
 	}
 

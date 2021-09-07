@@ -2,12 +2,9 @@
 
 exports[`CellBoolean should render an check icon for a truthy value in icon mode 1`] = `
 <div class="cell-boolean-container theme-cell-boolean-container">
-  <svg name="talend-check-circle"
-       class="theme-tc-svg-icon tc-svg-icon"
-       focusable="false"
-       aria-hidden="true"
-       title="Required"
+  <coral.icon name="talend-check-circle"
+              title="Required"
   >
-  </svg>
+  </coral.icon>
 </div>
 `;

@@ -7,6 +7,7 @@
 	:global(.td-default-cell) {
 		font-weight: 400;
 	}
+
 	&-key {
 		margin-right: $padding-smaller;
 		white-space: nowrap;
@@ -15,16 +16,17 @@
 		vertical-align: top;
 	}
 
-	&-key::after {
+	&-key-with-value::after {
 		content: ':';
 	}
 
 	&-value {
+		text-transform: lowercase;
+		white-space: nowrap;
+
 		&::first-letter {
 			text-transform: uppercase;
 		}
-		text-transform: lowercase;
-		white-space: nowrap;
 
 		&.shrink-value {
 			overflow: hidden;

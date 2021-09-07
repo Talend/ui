@@ -18,7 +18,7 @@ $tc-input-subheader-size-medium: 1.4rem !default;
 	margin: 0;
 	height: 100%;
 
-	&-icon {
+	& &-icon {
 		align-self: center;
 		width: $tc-input-subheader-size-large;
 		height: $tc-input-subheader-size-large;

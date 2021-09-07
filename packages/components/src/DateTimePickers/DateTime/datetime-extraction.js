@@ -1,6 +1,6 @@
 import format from 'date-fns/format';
 import setSeconds from 'date-fns/set_seconds';
-import { convertToTimeZone } from 'date-fns-timezone';
+import talendUtils from '@talend/utils';
 
 import getErrorMessage from '../shared/error-messages';
 import { convertDateToTimezone, extractDateOnly } from '../Date/date-extraction';
@@ -15,22 +15,6 @@ export function DateTimePickerException(code, message) {
 
 function isEmpty(value) {
 	return value === undefined || value === null || value === '';
-}
-
-/**
- * Convert a date in local TZ to UTC
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
 }
 
 /**
@@ -50,7 +34,7 @@ function extractTimeOnly(date, { useSeconds, useUTC, timezone }) {
 		minutes = date.getUTCMinutes();
 		seconds = date.getUTCSeconds();
 	} else if (timezone) {
-		const converted = convertToTimeZone(date, { timeZone: timezone });
+		const converted = talendUtils.date.convertToTimeZone(date, { timeZone: timezone });
 		hours = converted.getHours();
 		minutes = converted.getMinutes();
 		seconds = converted.getSeconds();
@@ -233,7 +217,7 @@ function updatePartsOnDateChange(datePickerPayload, time, options) {
 		date: date || dateTextInput,
 		time,
 		datetime,
-		textInput: dateAndTimeToStr(date || dateTextInput, time, options),
+		textInput: dateAndTimeToStr(dateTextInput || date, time, options),
 		errors,
 		errorMessage: nextErrors[0] ? nextErrors[0].message : null,
 	};
@@ -270,7 +254,6 @@ function updatePartsOnTimeChange(timePickerPayload, date, options) {
 }
 
 export {
-	convertToUTC,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,

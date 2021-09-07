@@ -4,31 +4,12 @@ exports[`InlineMessage should render with higligthed background 1`] = `
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
-      focusable="false"
-      name="talend-check-circle"
-      title={null}
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success background theme-background"
-  >
-    <span
-      className="tc-inline-message-title theme-tc-inline-message-title tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation title.
-    </span>
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-  </div>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={null}
+    title="Validation title."
+    withBackground={true}
+  />
 </div>
 `;
 
@@ -36,27 +17,11 @@ exports[`InlineMessage should render with icon and description 1`] = `
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
-      focusable="false"
-      name="talend-check-circle"
-      title={null}
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
-  >
-    
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-  </div>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={null}
+    title=""
+  />
 </div>
 `;
 
@@ -64,31 +29,11 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
-      focusable="false"
-      name="talend-check-circle"
-      title={null}
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
-  >
-    <span
-      className="tc-inline-message-title theme-tc-inline-message-title tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation title.
-    </span>
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-  </div>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={null}
+    title="Validation title."
+  />
 </div>
 `;
 
@@ -96,37 +41,17 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon"
-      focusable="false"
-      name="talend-check-circle"
-      title={null}
-    />
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
-  >
-    <span
-      className="tc-inline-message-title theme-tc-inline-message-title tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation title.
-    </span>
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-    <a
-      className="tc-inline-message-link theme-tc-inline-message-link"
-      href="https://my.custom.link"
-    >
-      See more
-    </a>
-  </div>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={
+      <Link
+        href="https://my.custom.link"
+      >
+        See more
+      </Link>
+    }
+    title="Validation title."
+  />
 </div>
 `;
 
@@ -134,28 +59,10 @@ exports[`InlineMessage should render with title and description 1`] = `
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <span
-    className="tc-inline-message-icon theme-tc-inline-message-icon success theme-success"
-  >
-    <div
-      className="alert alert-danger"
-    >
-      Icon: no name provided
-    </div>
-  </span>
-  <div
-    className="tc-inline-message-text theme-tc-inline-message-text success theme-success"
-  >
-    <span
-      className="tc-inline-message-title theme-tc-inline-message-title tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation title.
-    </span>
-    <span
-      className="tc-inline-message-description theme-tc-inline-message-description tc-inline-message-text-item theme-tc-inline-message-text-item"
-    >
-      Validation and successful messages
-    </span>
-  </div>
+  <Coral.InlineMessage.Success
+    description="Validation and successful messages"
+    link={null}
+    title="Validation title."
+  />
 </div>
 `;

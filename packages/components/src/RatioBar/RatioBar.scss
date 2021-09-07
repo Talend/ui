@@ -40,11 +40,16 @@ $ratio-bar-hover-height: 8px;
 
 	.tc-ratio-bar-line-empty {
 		@extend .tc-ratio-bar-lines;
-		background-color: $silver;
+		background-color: $lochmara100;
 	}
 
 	.tc-ratio-bar-line-filled {
 		@extend .tc-ratio-bar-lines;
-		background-color: $regal-blue;
+		background-color: $lochmara500;
+	}
+
+	.tc-ratio-bar-line-error {
+		@extend .tc-ratio-bar-lines;
+		background-color: $chestnut-rose;
 	}
 }

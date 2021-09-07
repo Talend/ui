@@ -23,6 +23,19 @@ $tc-dropdown-button-right-padding: 0.8rem;
 				transform: rotate(-180deg);
 			}
 		}
+
+		&.ellipsis {
+			&:after {
+				content: '\22ee';
+				font-size: 2em;
+				font-weight: bold;
+				vertical-align: inherit;
+			}
+
+			+ ul {
+				min-width: auto;
+			}
+		}
 	}
 
 	&-item {
