@@ -17,7 +17,7 @@
     "addon"
   ],
   "scripts": {
-    "prepare": "talend-scripts build:lib",
+    "postinstall": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:demo": "echo nothing to demo",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"

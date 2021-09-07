@@ -11,7 +11,7 @@
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
     "docs": "node ./scripts/docs.js",
-    "prepare": "rimraf ./dist && npm run build-react && npm run build-webfont && npm run build-umd",
+    "postinstall": "rimraf ./dist && npm run build-react && npm run build-webfont && npm run build-umd",
     "test": "echo no test",
     "test:cov": "echo no test",
     "test:demo": "node ./scripts/docs.js",

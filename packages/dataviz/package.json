@@ -11,7 +11,7 @@
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
     "build": "talend-scripts build:ts:lib",
-    "prepare": "npm run build",
+    "postinstall": "npm run build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint": "yarn lint:es && yarn lint:style",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",

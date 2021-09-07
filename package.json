@@ -6,7 +6,7 @@
     "i18next-scanner": "^3.0.0"
   },
   "scripts": {
-    "prepare": "yarn workspaces run prepare",
+    "postinstall": "yarn workspaces run postinstall",
     "pre-release": "node workspace-run.js pre-release",
     "info": "yarn workspaces --silent info > info.json",
     "release": "yarn changeset publish",

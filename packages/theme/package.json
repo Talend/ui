@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "pre-release": "rimraf ./dist && webpack --display=none",
-    "prepare": "rimraf ./dist && webpack",
+    "postinstall": "rimraf ./dist && webpack",
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",

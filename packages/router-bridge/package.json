@@ -7,7 +7,7 @@
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev --display=none && yarn build:prod --display=none",
-    "prepare": "talend-scripts build:lib",
+    "postinstall": "talend-scripts build:lib",
     "build": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:demo": "echo nothing to do"
