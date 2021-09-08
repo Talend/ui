@@ -8,7 +8,6 @@ cypress/videos
 dist
 lib
 node_modules
-out
 storybook-static
 yarn-error.log
 package-lock.json
