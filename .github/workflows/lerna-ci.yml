@@ -36,3 +36,54 @@ jobs:
           build-script: 'pre-release'
           pattern: './packages/*/dist/*.{js,css,json}'
           exclude: '{**/*.html,**/*.map,**/node_modules/**}'
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: umd
+          path: packages/*/dist
+
+  check:
+    runs-on: ubuntu-latest
+    name: Check
+    needs: build
+
+    strategy:
+      matrix:
+        umd: [
+          { name: 'TalendReactComponents', package: 'components' },
+          { name: 'TalendReactContainers', package: 'containers' },
+          { name: 'TalendReactForms', package: 'forms' },
+        ]
+
+    steps:
+      - name: Download files
+        uses: actions/download-artifact@master
+        with:
+          name: umd
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Check UMDs
+        continue-on-error: true
+        run: |
+          rm -rf test-that-umd-for-god-sake.js
+          cat <<EOT >> test-that-umd-for-god-sake.js
+          Object.values(require('./packages/$UMD_PACKAGE/dist/$UMD_NAME.min.js.dependencies.json')).forEach(
+              function requireDependency(dependency) {
+                  global[dependency.var] = require(dependency.name);
+              },
+          );
+          global.$UMD_NAME = require('./packages/$UMD_PACKAGE/dist/$UMD_NAME.min.js');
+          const UMD = Object.keys(global.$UMD_NAME);
+          if (UMD.length > 0) {
+              console.log(UMD);
+              process.exit(0);
+          }
+          process.exit(1);
+          EOT
+          node ./test-that-umd-for-god-sake.js
+        env:
+          UMD_PACKAGE: ${{ matrix.umd.package }}
+          UMD_NAME: ${{ matrix.umd.name }}
