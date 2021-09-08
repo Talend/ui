@@ -24,7 +24,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --ignore-scripts
 
       - name: Test
         run: yarn test
@@ -41,7 +41,9 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: umd
-          path: packages/*/dist
+          path: |
+            node_modules
+            packages/*/dist
 
   check:
     runs-on: ubuntu-latest
