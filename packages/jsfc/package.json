@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "pre-release": "rimraf dist && talend-scripts build:lib:umd",
+    "build:lib": "rimraf dist && talend-scripts build:lib:umd",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "test:cov": "npm run test",
