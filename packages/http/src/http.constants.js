@@ -1,6 +1,3 @@
-import find from 'lodash/find';
-import inRange from 'lodash/inRange';
-
 export const OPTIONS = 'OPTIONS';
 export const GET = 'GET';
 export const HEAD = 'HEAD';
@@ -86,7 +83,11 @@ export const HTTP_STATUS = {
  * match the status code with the HTTP_STATUS collection
  * @param {number} code
  */
-export const isHTTPStatus = code => find(HTTP_STATUS, value => value === code);
+export const isHTTPStatus = code => Object.values(HTTP_STATUS).find(value => value === code);
+
+function inRange(number, start, end) {
+	return +number >= start && +number < end;
+}
 
 /**
  * suite of test to see if status code match in the following categories of status
