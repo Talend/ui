@@ -47,7 +47,29 @@ export default function Text(props) {
 			valueIsUpdating={valueIsUpdating}
 		>
 			{type === 'password' ? (
-				<PasswordWidget />
+				<PasswordWidget
+					id={id}
+					autoComplete={autoComplete}
+					autoFocus={autoFocus}
+					className="form-control"
+					disabled={disabled || valueIsUpdating}
+					onBlur={event => onFinish(event, { schema })}
+					onChange={event =>
+						onChange(event, { schema, value: convertValue(type, event.target.value) })
+					}
+					placeholder={placeholder}
+					readOnly={readOnly}
+					type={type}
+					value={value}
+					min={get(schema, 'schema.minimum')}
+					max={get(schema, 'schema.maximum')}
+					step={get(schema, 'schema.step')}
+					// eslint-disable-next-line jsx-a11y/aria-proptypes
+					aria-invalid={!isValid}
+					aria-required={get(schema, 'required')}
+					aria-describedby={`${descriptionId} ${errorId}`}
+					{...extractDataAttributes(rest)}
+				/>
 			) : (
 				<input
 					id={id}
