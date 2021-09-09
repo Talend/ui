@@ -1,5 +1,4 @@
-import { delay } from 'redux-saga';
-import { call, put, select, take } from 'redux-saga/effects';
+import { delay, call, put, select, take } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
 import { Map } from 'immutable';
 
@@ -40,7 +39,7 @@ export default function* pendingMaybeNeeded(asyncCallerId, actionId) {
 	let pending = false;
 
 	try {
-		yield call(delay, PENDING_DELAY_TO_SHOW);
+		yield delay(PENDING_DELAY_TO_SHOW);
 		pending = true;
 		yield call(ensurePendersCollectionExists);
 		let pendersCollection = yield select(findPenders);

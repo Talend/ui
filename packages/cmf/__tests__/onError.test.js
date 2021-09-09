@@ -23,7 +23,7 @@ describe('onError', () => {
 	let config;
 	beforeEach(() => {
 		state = { foo: { ok: 'should be kept', password: 'secret', keyUndefined: undefined } };
-		store = mock.store(state);
+		store = mock.store.store(state);
 		window.addEventListener.mockClear();
 		store.dispatch = jest.fn();
 		console.error = jest.fn();

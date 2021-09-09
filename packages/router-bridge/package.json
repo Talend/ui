@@ -7,7 +7,7 @@
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev --display=none && yarn build:prod --display=none",
-    "postinstall": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build:lib",
     "build": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:demo": "echo nothing to do"
@@ -20,8 +20,8 @@
   "license": "ISC",
   "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
   "devDependencies": {
-    "@talend/scripts-core": "^9.11.0",
-    "@talend/scripts-preset-react-lib": "^9.8.2",
+    "@talend/scripts-core": "^9.13.1",
+    "@talend/scripts-preset-react-lib": "^9.9.0",
     "connected-react-router": "^6.9.1",
     "history": "^5.0.0",
     "react": "^16.0.0",

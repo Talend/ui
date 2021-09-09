@@ -1,3 +1,4 @@
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 import React from 'react';
 import { storiesOf, configure, addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -10,7 +11,6 @@ import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
 import { IconsProvider } from '@talend/react-components';
-import '@talend/bootstrap-theme/src/theme/theme.scss';
 import i18n from './../../../.storybook/i18n';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';

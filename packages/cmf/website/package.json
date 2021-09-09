@@ -7,7 +7,6 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "postinstall": "yarn build",
     "examples": "docusaurus-examples",
     "start": "cross-env NODE_ENV=development docusaurus-start",
     "build": "docusaurus-build",
