@@ -31,7 +31,7 @@ module.exports = (env = {}) => ({
 		new CopyPlugin({
 			patterns: [
 				{
-					from: 'umd.dependencies.json',
+					from: `umd${env.production ? '.min' : ''}.dependencies.json`,
 					to: `TalendIcons${env.production ? '.min' : ''}.js.dependencies.json`,
 				},
 			],

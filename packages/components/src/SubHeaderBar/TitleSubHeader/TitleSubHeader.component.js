@@ -30,22 +30,27 @@ function TitleSubHeader({
 			onEdit(...args);
 		}
 	}
+
 	function handleCancel(...args) {
 		setIsEditMode(false);
 		if (onCancel) {
 			onCancel(...args);
 		}
 	}
+
 	function handleSubmit(...args) {
 		setIsEditMode(false);
 		if (onSubmit) {
 			onSubmit(...args);
 		}
 	}
+
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
+
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
+
 	return (
 		<div
 			className={theme('tc-subheader-details', {
@@ -69,7 +74,7 @@ function TitleSubHeader({
 						/>
 					) : (
 						<TooltipTrigger label={title} tooltipPlacement="bottom">
-							<h1 className={theme('tc-subheader-details-text-title-wording')}>{title}</h1>
+							<h1 className={theme('tc-subheader-details-text-title-wording')} {...rest.titleProps}>{title}</h1>
 						</TooltipTrigger>
 					)}
 				</div>
@@ -79,15 +84,16 @@ function TitleSubHeader({
 	);
 }
 
-function DefaultSubTitle({ subTitle }) {
-	return <small className={theme('tc-subheader-details-text-subtitle')}>{subTitle}</small>;
+function DefaultSubTitle({ subTitle, subTitleProps }) {
+	return <small className={theme('tc-subheader-details-text-subtitle')} {...subTitleProps}>{subTitle}</small>;
 }
 
 DefaultSubTitle.propTypes = {
 	subTitle: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+	subTitleProps: PropTypes.object,
 };
 
-function SubTitle({ subTitleLoading, subTitle, subTitleAs: SubTitleAs = DefaultSubTitle }) {
+function SubTitle({ subTitleLoading, subTitle, subTitleAs: SubTitleAs = DefaultSubTitle, ...rest }) {
 	if (subTitleLoading) {
 		return (
 			<Skeleton
@@ -99,7 +105,7 @@ function SubTitle({ subTitleLoading, subTitle, subTitleAs: SubTitleAs = DefaultS
 	}
 
 	if (subTitle) {
-		return <SubTitleAs subTitle={subTitle} />;
+		return <SubTitleAs subTitle={subTitle} {...rest} />;
 	}
 
 	return null;
@@ -121,6 +127,7 @@ TitleSubHeader.propTypes = {
 	onEdit: PropTypes.func,
 	onSubmit: PropTypes.func,
 	onCancel: PropTypes.func,
+	t: PropTypes.func,
 	...Inject.PropTypes,
 };
 

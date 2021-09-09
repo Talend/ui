@@ -15,8 +15,8 @@ describe('BarChartTooltip', () => {
 				ValueType.MAX,
 			),
 		).toEqual([
-			{ key: 'MAX', value: '20' },
-			{ key: 'RECORD', value: 'France' },
+			{ key: 'Max', value: '20' },
+			{ key: 'Record', value: 'France' },
 		]);
 	});
 	it('Should return content for an aggregation on filtered data', () => {
@@ -29,8 +29,8 @@ describe('BarChartTooltip', () => {
 				ValueType.MAX,
 			),
 		).toEqual([
-			{ key: 'MAX_MATCHING_FILTER_MAX', value: '10' },
-			{ key: 'RECORD', value: 'France' },
+			{ key: 'Max value matching your filter', value: '10' },
+			{ key: 'Record', value: 'France' },
 		]);
 	});
 	it('Should return a percentage when both filtered and full data are provided', () => {
@@ -44,9 +44,9 @@ describe('BarChartTooltip', () => {
 				ValueType.OCCURRENCES,
 			),
 		).toEqual([
-			{ key: 'OCCURRENCES_MATCHING_FILTER', value: '10 (50.0%)' },
-			{ key: 'OCCURRENCES_IN_DATASET', value: '20' },
-			{ key: 'RECORD', value: 'France' },
+			{ key: 'Occurrences matching your filter', value: '10 (50.0%)' },
+			{ key: 'Occurrences in entire dataset', value: '20' },
+			{ key: 'Record', value: 'France' },
 		]);
 	});
 	it('Should return content for a range', () => {
@@ -61,9 +61,9 @@ describe('BarChartTooltip', () => {
 				label: '[10, 20[',
 			}),
 		).toEqual([
-			{ key: 'OCCURRENCES_MATCHING_FILTER', value: '10 (50.0%)' },
-			{ key: 'OCCURRENCES_IN_DATASET', value: '20' },
-			{ key: 'RANGE', value: '[10, 20[' },
+			{ key: 'Occurrences matching your filter', value: '10 (50.0%)' },
+			{ key: 'Occurrences in entire dataset', value: '20' },
+			{ key: 'Range', value: '[10, 20[' },
 		]);
 	});
 	it('Should return content for a range with same min and max', () => {
@@ -78,9 +78,9 @@ describe('BarChartTooltip', () => {
 				label: '10',
 			}),
 		).toEqual([
-			{ key: 'OCCURRENCES_MATCHING_FILTER', value: '10 (50.0%)' },
-			{ key: 'OCCURRENCES_IN_DATASET', value: '20' },
-			{ key: 'VALUE', value: '10' },
+			{ key: 'Occurrences matching your filter', value: '10 (50.0%)' },
+			{ key: 'Occurrences in entire dataset', value: '20' },
+			{ key: 'Value', value: '10' },
 		]);
 	});
 });

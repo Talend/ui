@@ -1015,12 +1015,13 @@ class EnumerationForm extends React.Component {
 			items = this.searchItems(this.state.searchCriteria);
 		}
 		const stateToShow = { ...this.state, items };
-		const { description, required, title } = this.props.schema;
+		const { description, required, title, labelProps } = this.props.schema;
 		const { errorMessage, isValid } = this.props;
 		return (
 			<FieldTemplate
 				description={description}
 				label={title}
+				labelProps={labelProps}
 				required={required}
 				isValid={isValid}
 				errorMessage={errorMessage}

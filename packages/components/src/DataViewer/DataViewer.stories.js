@@ -77,6 +77,47 @@ stories
 			</div>
 		);
 	})
+	.add('DataTree without semantic awareness', () => {
+		const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
+		const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
+
+		const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
+		const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
+		const isUnion = item => Array.isArray(item.type);
+		const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
+
+		return (
+			<div className={layoutCn}>
+				<div
+					className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}
+				>
+					<ModelViewer
+						componentId="ModelViewer"
+						highlighted={highlighted}
+						jsonPathSelection={jsonPathSelection}
+						onSelect={onSelect}
+						sample={hierarchicSample}
+						renderLeafOptions={() => {}}
+						getDisplayValue={getDisplayValue}
+						isUnion={isUnion}
+						hasSemanticAwareness={false}
+					/>
+				</div>
+				<div
+					className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
+				>
+					<RecordsViewer
+						componentId="RecordsViewer"
+						highlighted={highlighted}
+						onVerticalScroll={() => {}}
+						sample={hierarchicSample}
+						renderLeafAdditionalValue={() => {}}
+						renderBranchAdditionalValue={() => {}}
+					/>
+				</div>
+			</div>
+		);
+	})
 	.add('DataTree with type display on records', () => {
 		return (
 			<div style={{ height: '100%' }}>

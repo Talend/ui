@@ -1,9 +1,9 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import keycode from 'keycode';
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { NestedListViewWidget } from './NestedListView.component';
-import { prepareItemsFromSchema, getDisplayedItems } from './NestedListView.utils';
+import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 
 jest.useFakeTimers();
 
@@ -66,6 +66,36 @@ describe('NestedListView component', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	describe('componentDidUpdate', () => {
+		it('should update items on props.value change', () => {
+			// given
+			const node = document.createElement('div');
+			// eslint-disable-next-line react/no-render-return-value
+			const instance = ReactDOM.render(<NestedListViewWidget {...props} value={{}} />, node);
+			const previousItems = instance.state.displayedItems;
+			expect(previousItems.length).toBe(2);
+			previousItems.forEach(({ checked, children }) => {
+				expect(checked).toBe(false);
+				children.forEach(childrenItem => expect(childrenItem.checked).toBe(false));
+			});
+
+			// when : trigger a props update
+			const allValues = props.schema.items.reduce((acc, item) => {
+				acc[item.key] = item.titleMap.map(titleMapItem => titleMapItem.value);
+				return acc;
+			}, {});
+			ReactDOM.render(<NestedListViewWidget {...props} value={allValues} />, node);
+
+			// then
+			const nextItems = instance.state.displayedItems;
+			expect(nextItems.length).toBe(2);
+			nextItems.forEach(({ checked, children }) => {
+				expect(checked).toBe(true);
+				children.forEach(childrenItem => expect(childrenItem.checked).toBe(true));
+			});
+		});
 	});
 
 	describe('onExpandToggle', () => {

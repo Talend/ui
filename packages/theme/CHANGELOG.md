@@ -1,0 +1,14 @@
+# @talend/bootstrap-theme
+
+## 6.37.0
+
+### Minor Changes
+
+- a0c468bb3: fix(theme): Fix chevron rotation on firefox
+- 533cde920: feat(theme/modals): Remove modal max height
+
+## 6.36.1
+
+### Patch Changes
+
+- 2be90ec26: Integrate @talend/bootstrap-sass fork and update theme to fix deprecation warning

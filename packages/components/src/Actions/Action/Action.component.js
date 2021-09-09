@@ -58,11 +58,7 @@ function getActionComponent({ displayMode, getComponent }) {
  * @param {ActionProps}
  */
 function Action({ displayMode, getComponent, ...props }) {
-	const ActionComponent = getActionComponent({
-		displayMode,
-		getComponent,
-		...props,
-	});
+	const ActionComponent = getActionComponent({ displayMode, getComponent });
 	return <ActionComponent {...props} />;
 }
 

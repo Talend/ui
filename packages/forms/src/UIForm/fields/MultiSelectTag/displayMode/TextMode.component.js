@@ -14,10 +14,10 @@ function getLabel(titleMap, value) {
 }
 
 export default function MultiSelectTagTextMode({ id, schema, value }) {
-	const { title } = schema;
+	const { title, labelProps } = schema;
 
 	return (
-		<FieldTemplate id={id} label={title}>
+		<FieldTemplate id={id} label={title} labelProps={labelProps}>
 			<ul aria-labelledby={id} className={theme['tc-badge-list']}>
 				{value.map((val, index) => (
 					<li>
@@ -34,6 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
 					name: PropTypes.string.isRequired,

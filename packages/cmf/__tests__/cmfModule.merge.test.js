@@ -241,4 +241,18 @@ describe('mergeModule', () => {
 		const mod3 = mod1.find('#mod3');
 		expect(mod3.length).toBe(1);
 	});
+	it('should merge render', () => {
+		const module1 = {};
+		const module2 = { render: true };
+		const module3 = { render: false };
+		const outputTrue = mergeModules(module1, module2);
+		const outputUndefined = mergeModules(module1, {});
+		const outputFalse1 = mergeModules(module2, module3);
+		const outputFalse2 = mergeModules(module2, module3);
+		expect(outputFalse1.render).toBe(false);
+		expect(outputFalse2.render).toBe(false);
+		expect(outputTrue.render).toBe(true);
+		expect(outputUndefined.render).toBe(undefined);
+		expect(mergeModules({}).render).toBe(undefined);
+	});
 });

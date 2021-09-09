@@ -226,6 +226,55 @@ describe('Action', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render tooltip when hideLabel property is set', () => {
+		// when
+		const wrapper = shallow(<ActionButton {...myAction} hideLabel />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render tooltip when tooltip property is set', () => {
+		// when
+		const wrapper = shallow(<ActionButton {...myAction} tooltip />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should NOT render tooltip when tooltip property is set to false', () => {
+		// when
+		const wrapper = shallow(<ActionButton {...myAction} tooltip={false} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should NOT render tooltip when tooltip property is set to false with hideLabel property', () => {
+		// when
+		const wrapper = shallow(<ActionButton {...myAction} hideLabel tooltip={false} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render tooltip with tooltipLabel when the tooltip property is not set', () => {
+		// when
+		const wrapper = shallow(<ActionButton {...myAction} tooltipLabel='My tooltip label' />);
+
+		// then
+		expect(wrapper.find('TooltipTrigger')).toHaveLength(1);
+		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('My tooltip label');
+	});
+
+	it('should not render tooltip with tooltipLabel when the tooltip property is set to false', () => {
+		// when
+		const wrapper = shallow(<ActionButton {...myAction} tooltip={false} tooltipLabel='My tooltip label' />);
+
+		// then
+		expect(wrapper.find('TooltipTrigger')).toHaveLength(0);
+	});
+
 	it('should trigger action if set up onMouseDown event', () => {
 		// given
 		const wrapper = shallow(<ActionButton extra="extra" {...mouseDownAction} />);
@@ -278,6 +327,7 @@ describe('Action', () => {
 		expect(wrapper.find('OverlayTrigger').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	it('should called ref method on overlay', () => {
 		// given
 		const myRefFunc = jest.fn();
@@ -294,6 +344,7 @@ describe('Action', () => {
 		// then
 		expect(myRefFunc).toHaveBeenCalled();
 	});
+
 	it('should called ref method on button', () => {
 		// Given
 		const myRefFunc = jest.fn();

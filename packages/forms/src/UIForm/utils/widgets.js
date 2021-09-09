@@ -22,6 +22,7 @@ import ResourcePicker from '../fields/ResourcePicker';
 import Select, { TextModeSelect } from '../fields/Select';
 import Text, { TextTextMode } from '../fields/Text';
 import TextArea, { TextAreaTextMode } from '../fields/TextArea';
+import TimezoneList from '../fields/TimezoneList';
 import Toggle, { ToggleTextMode } from '../fields/Toggle';
 
 const widgets = {
@@ -82,6 +83,7 @@ const widgets = {
 	radioOrSelect: RadioOrSelect,
 	resourcePicker: ResourcePicker,
 	comparator: Comparator,
+	timezoneList: TimezoneList,
 	toggle: Toggle,
 };
 
