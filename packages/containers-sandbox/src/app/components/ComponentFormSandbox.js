@@ -7,7 +7,7 @@ import UIForm from '@talend/react-forms';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
-import theme from './example.scss';
+import theme from '../example.scss';
 
 const { isComponentFormDirty } = ComponentForm.selectors;
 const { setComponentFormDirtyState } = ComponentForm.actions;
