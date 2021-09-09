@@ -153,6 +153,7 @@ class FileWidget extends React.Component {
 			placeholder,
 			readOnly = false,
 			title,
+			labelProps,
 			required,
 		} = schema;
 		const descriptionId = generateDescriptionId(id);
@@ -167,6 +168,7 @@ class FileWidget extends React.Component {
 				id={id}
 				isValid={isValid}
 				label={title}
+				labelProps={labelProps}
 				labelAfter={false}
 				required={required}
 				valueIsUpdating={valueIsUpdating}
@@ -234,6 +236,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			type: PropTypes.string,
 			triggers: PropTypes.arrayOf(PropTypes.object),
 		}),

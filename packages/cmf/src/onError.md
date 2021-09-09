@@ -79,37 +79,8 @@ export function ComplexComponent(props) {
 
 # Sentry
 
-If you have Sentry in your infrastructure you can add the following settings.
+If you have Sentry you have to init it yourself (often before the app).
+CMF will use global window.Sentry to capture exceptions
 
-```json
-{
-	"env": {
-		"SENTRY_DSN": "$SENTRY_DSN",
-	}
-}
-```
-
-If you have an other way to get the DSN you can use it in the bootstrap onError using the same key `SENTRY_DSN`. Bonus you can pass all options to sentry with this method like `release`, `environnement`.
-
-```javascript
-fetch('/api/webapp-config').then(config => {
-	cmf.bootstrap({
-		...
-		onError: {
-			SENTRY_DSN: config.SENTRY_DSN,
-			sentry: {
-				// options object for sentry: https://docs.sentry.io/error-reporting/configuration?platform=browser
-			},
-			/**
-			 * Here you can configure global scope
-			 */
-			onSentryScope: (scope) => {
-				scope.setUser({ id: 'user-42', email: 'foo@mycustomer.com' });
-				scope.setTag('tenantId': identity.tenantId);
-			},
-		}
-	});
-})
-```
 
 Note: to be compliant with [12 factors](https://12factor.net) the DSN must be read from a server environment variable.

@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "postinstall": "echo nothing to postinstall",
     "test": "jest",
+    "test:demo": "echo nothing to do",
     "lint": "eslint lib/**"
   },
   "keywords": [
@@ -27,6 +29,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "jest-cli": "^23.6.0"
+    "jest-cli": "^26.6.3"
   }
 }

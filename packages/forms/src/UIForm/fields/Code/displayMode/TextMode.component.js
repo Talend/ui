@@ -5,7 +5,7 @@ import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 function TextModeCode({ id, schema, value, options }) {
 	return (
-		<FieldTemplate id={id} label={schema.title}>
+		<FieldTemplate id={id} label={schema.title} labelProps={schema.labelProps}>
 			<pre style={options}>{value}</pre>
 		</FieldTemplate>
 	);
@@ -16,6 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
 		options: PropTypes.object,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};

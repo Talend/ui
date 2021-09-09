@@ -64,8 +64,6 @@ Every component do not change the API of the stateless componet which is behind.
 
 First please take a look at our contributing guildelines.
 
-To create a new widget, you can use the [talend yeoman generator](https://github.com/Talend/generator-talend)
-
 # List of containers
 
 You can find full demo at http://talend.surge.sh/containers
