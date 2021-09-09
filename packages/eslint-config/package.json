@@ -5,7 +5,6 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "main": "index.js",
   "scripts": {
-    "postinstall": "echo nothing to postinstall",
     "test": "echo nothing to test",
     "test:demo": "echo nothing to do"
   },

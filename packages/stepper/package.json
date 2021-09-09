@@ -8,7 +8,7 @@
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev --display=none && yarn build:prod --display=none",
-    "postinstall": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build:lib",
     "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
