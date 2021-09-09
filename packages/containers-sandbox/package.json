@@ -20,25 +20,24 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-core": "^6.8.0",
-    "@talend/scripts-preset-react": "^6.8.0",
+    "@talend/scripts-core": "^9.13.1",
+    "@talend/scripts-preset-react": "^9.8.7",
     "compression": "^1.7.3",
     "express": "^4.16.4"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "link:../../theme",
-    "@talend/icons": "link:../../icons",
-    "@talend/react-cmf": "link:../../cmf",
-    "@talend/react-cmf-router": "3.5.1",
-    "@talend/react-components": "link:../../components",
-    "@talend/react-containers": "link:../../containers",
-    "@talend/react-forms": "link:../../forms",
+    "@talend/bootstrap-theme": "^6.37.0",
+    "@talend/icons": "^6.36.0",
+    "@talend/react-cmf": "^6.38.0",
+    "@talend/react-cmf-router": "^3.5.2",
+    "@talend/react-components": "^6.38.0",
+    "@talend/react-containers": "^6.37.0",
+    "@talend/react-forms": "^6.38.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
-    "react": "^16.13.1",
-    "react-ace": "6.2.0",
-    "react-dom": "^16.13.1",
-    "react-i18next": "^11.8.12",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-i18next": "^11.8.13",
     "redux-logger": "^3.0.6"
   }
 }
