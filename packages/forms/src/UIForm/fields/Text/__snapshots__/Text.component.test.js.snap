@@ -139,7 +139,7 @@ exports[`Text field should render password input 1`] = `
   labelAfter={true}
   required={true}
 >
-  <input
+  <ForwardRef
     aria-describedby="myForm-description myForm-error"
     aria-invalid={false}
     aria-required={true}
