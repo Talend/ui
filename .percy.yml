@@ -1,0 +1,3 @@
+version: 2
+storybook:
+  waitForSelector: '.tc-iconsprovider #talend-logo'

@@ -46,6 +46,8 @@
     "@changesets/cli": "^2.14.1",
     "@cypress/react": "^5.4.0",
     "@cypress/webpack-dev-server": "^1.1.5",
+    "@percy/cli": "^1.0.0-beta.67",
+    "@percy/storybook": "^4.0.3",
     "@storybook/addon-a11y": "^6.4.0-alpha.32",
     "@storybook/addon-essentials": "6.4.0-alpha.32",
     "@storybook/addon-links": "6.4.0-alpha.32",
