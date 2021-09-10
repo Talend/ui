@@ -6,6 +6,7 @@
   "main": "app/index.js",
   "scripts": {
     "build": "talend-scripts build",
+    "test": "echo nothing to test in playground",
     "test:demo": "talend-scripts build",
     "start": "talend-scripts start --open",
     "start-dist": "talend-scripts build && node serve-dist"
