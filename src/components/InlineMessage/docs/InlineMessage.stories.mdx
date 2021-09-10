@@ -25,7 +25,7 @@ It can be additional information related to system status, it can be a required 
 ### Icons
 
 <IconGallery>
-	{['talend-info-circle', 'talend-check', 'talend-warning', 'talend-error'].map(
+	{['talend-info-circle', 'talend-check-circle', 'talend-warning', 'talend-error'].map(
 		(iconName, index) => (
 			<IconItem key={index} name={iconName}>
 				<Icon name={iconName} />
@@ -156,7 +156,7 @@ Error messages should tell why there was a problem and what could be done to res
 			},
 		}}
 	>
-		{Stories.Template.bind({})}
+		{Stories.render.bind({})}
 	</Story>
 </Canvas>
 

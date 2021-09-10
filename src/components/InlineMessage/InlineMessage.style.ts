@@ -7,52 +7,54 @@ export type InlineMessageProps = {
 	withBackground?: boolean;
 };
 
-export const InlineMessage = styled.div<InlineMessageProps>`
+export const InlineMessage = styled.div.attrs({
+	className: 'c-inline-message',
+})<InlineMessageProps>`
 	display: ${({ withBackground }) => (withBackground ? 'inline-flex' : 'inline')};
-	margin-bottom: ${tokens.space?.m};
-	${({ withBackground }) =>
-		withBackground ? `padding: ${tokens.space?.xs} ${tokens.space?.s};` : ''}
-	font-family: ${tokens.fonts?.sansSerif};
-	${({ small }) => (small ? `font-size: ${tokens.fontSizes?.small};` : '')}
-	border-radius: ${tokens.radii?.inputBorderRadius};
+	padding: ${({ withBackground }) =>
+		withBackground ? `${tokens.space.xs} ${tokens.space.s};` : 'inherit'};
+	font-family: ${tokens.fonts.sansSerif};
+	font-size: ${({ small }) => (small ? `${tokens.fontSizes.small};` : 'inherit')};
+	color: var(--c-inline-message-color, ${({ theme }) => theme.colors?.textColor});
+	background: var(--c-inline-message-background, transparent);
+	border-radius: ${tokens.radii.inputBorderRadius};
+	box-shadow: var(--c-inline-message-box-shadow, transparent);
+`;
 
+export const Icon = styled.span.attrs({
+	className: 'c-inline-message__icon',
+})<InlineMessageProps>`
+	padding-right: ${tokens.space.xs};
 	color: var(
-		--t-inline-message-icon-color,
+		--c-inline-message--icon-color,
 		${({ theme, withBackground }) =>
 			withBackground ? theme.colors?.backgroundColor : theme.colors?.textColor}
 	);
-	background: var(--t-inline-message-background, transparent);
-	box-shadow: var(--t-inline-message-box-shadow, transparent);
 
-	.inline-message__icon {
-		padding-right: ${tokens.space?.xs};
-
-		svg {
-			height: ${({ small }) => (small ? tokens.sizes?.s : tokens.sizes?.l)};
-			width: ${({ small }) => (small ? tokens.sizes?.s : tokens.sizes?.l)};
-		}
-
-		path {
-			fill: currentColor;
-		}
+	> svg {
+		height: ${({ small }) => (small ? tokens.sizes.s : tokens.sizes.l)};
+		width: ${({ small }) => (small ? tokens.sizes.s : tokens.sizes.l)};
+		// 🎩🐰
+		vertical-align: -2px;
 	}
 
-	.inline-message__icon,
-	p {
-		vertical-align: middle;
-	}
-
-	p {
-		display: inline;
-		margin: 0;
-	}
-
-	.inline-message__title {
-		font-weight: ${tokens.fontWeights?.semiBold};
-	}
-
-	.inline-message__title,
-	.inline-message__description {
-		color: var(--t-inline-message-color, ${({ theme }) => theme.colors?.textColor});
+	path {
+		fill: currentColor;
 	}
 `;
+export const Content = styled.p.attrs({})`
+	display: inline;
+	margin: 0;
+`;
+export const Text = styled.span``;
+export const Title = styled(Text).attrs({
+	className: 'c-inline-message__title',
+})`
+	font-weight: ${tokens.fontWeights.semiBold};
+`;
+export const Description = styled(Text).attrs({
+	className: 'c-inline-message__description',
+})``;
+export const Link = styled.span.attrs({
+	className: 'c-inline-message__link',
+})``;

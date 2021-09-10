@@ -30,49 +30,36 @@ export type InlineMessageProps = PropsWithChildren<any> &
  * */
 const InlineMessage = React.forwardRef(
 	(
-		{
-			icon,
-			title,
-			description,
-			link,
-			className = '',
-			withBackground,
-			theme,
-			...rest
-		}: InlineMessageProps,
+		{ icon, title, description, link, small, withBackground, theme, ...rest }: InlineMessageProps,
 		ref,
 	) => (
 		<S.InlineMessage
 			role="status"
 			aria-live="polite"
 			{...rest}
-			className={`inline-message ${className || ''}`}
-			theme={withBackground ? light : theme}
+			small={small}
 			withBackground={withBackground}
+			theme={withBackground ? light : theme}
 			ref={ref}
 		>
 			{icon && (
-				<span className="inline-message__icon">
+				<S.Icon small={small}>
 					<Icon name={icon} />
-				</span>
+				</S.Icon>
 			)}
-			<p>
+			<S.Content>
 				{title && (
 					<>
-						<span className="inline-message__title">{title}</span>{' '}
+						<S.Title>{title}</S.Title>{' '}
 					</>
 				)}
-				{description && (
-					<>
-						<span className="inline-message__description">{description}</span>{' '}
-					</>
-				)}
+				<>
+					<S.Description>{description}</S.Description>{' '}
+				</>
 				{link && (
-					<span className="inline-message__link">
-						{React.cloneElement(link, { theme: withBackground ? light : theme })}
-					</span>
+					<S.Link>{React.cloneElement(link, { theme: withBackground ? light : theme })}</S.Link>
 				)}
-			</p>
+			</S.Content>
 		</S.InlineMessage>
 	),
 );
