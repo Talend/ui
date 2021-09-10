@@ -30,7 +30,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/bootstrap-sass": "^3.4.1",
+    "@talend/bootstrap-sass": "^3.4.4",
     "@talend/icons": "^6.36.0"
   },
   "devDependencies": {
