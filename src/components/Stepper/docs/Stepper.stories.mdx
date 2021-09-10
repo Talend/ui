@@ -1,12 +1,12 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaImage, FigmaLink } from '../../../docs';
+import { FigmaImage, FigmaLink, Use } from '../../../docs';
 import Stepper from '../';
 
 <Meta title="Components/Stepper/Stepper" component={Stepper} />
 
 <FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A5" />
 
-# Overview
+# Stepper
 
 Stepper is used to display the different steps to take to complete an action.
 
@@ -91,6 +91,30 @@ The sub-steps option is not available with the horizontal stepper.
 
 ## Content
 
+Use action phrases, two-word labels, for steps.
+Start with a verb and follow it with a noun.
+Step labels should describe the purpose of the step to keep users informed about what does each step do.
+Use a longer version of the step label in the title of the step section to provide some more info and make the step clearer.
+For example, the step label could be "Add engine", while the section title could be "Add the engine on which to process data"
+Step sections could also have subtitles if necessary to provide users with extra important information—mostly used for complicated steps.
+Under the step section, use clear labels for all user input.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Keep step labels concise; use only two words if possible (verb + noun)</li>
+			<li>Use action phrases consistently through steps</li>
+			<li>Use step labels which logically sync with the title of the page they link to</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Use complex long words</li>
+			<li>Mix action and noun phrases in steps labels</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
 **Buttons**
 
 In case of multi-step form, we should always have at least 2 buttons:
@@ -103,6 +127,13 @@ Use a **cancel button** for the first step as the user can't step back. Use a **
 <FigmaImage
 	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=115%3A0"
 	alt="buttons mutli step form example"
+/>
+
+The back button can also be used in addition of the cancel button. In that case, the button order is the following one:
+
+<FigmaImage
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=408%3A5876"
+	alt="cancel and back buttons for multi step form"
 />
 
 ## Interactions
