@@ -92,12 +92,12 @@
     },
     "childRoutes": [
       {
-        "path": "ComponentForm",
-        "component": "ComponentFormSandbox"
-      },
-      {
         "path": "List",
         "component": "LeaguesList"
+      },
+      {
+        "path": "ComponentForm",
+        "component": "ComponentFormSandbox"
       },
       {
         "path": "*",

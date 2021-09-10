@@ -1,11 +1,12 @@
 {
-  "name": "sandbox",
+  "name": "@talend/ui-playground",
   "version": "1.0.0",
-  "description": "Showcase UI containers",
+  "description": "Showcase Talend/UI",
   "private": true,
   "main": "app/index.js",
   "scripts": {
     "build": "talend-scripts build",
+    "test:demo": "talend-scripts build",
     "start": "talend-scripts start --open",
     "start-dist": "talend-scripts build && node serve-dist"
   },
