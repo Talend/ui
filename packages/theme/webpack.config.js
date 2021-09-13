@@ -26,10 +26,11 @@ module.exports = (env, argv) => {
 						{
 							loader: 'file-loader',
 							options: {
-							  outputPath: 'fonts',
-							  name: '[name].[ext]',
+								outputPath: 'fonts',
+								name: '[name].[ext]',
+								esModule: false,
 							},
-						  },
+						},
 					],
 				},
 				{
@@ -49,9 +50,7 @@ module.exports = (env, argv) => {
 							loader: 'postcss-loader',
 							options: {
 								ident: 'postcss',
-								plugins: [
-									postcssPresetEnv({ browsers: 'last 2 versions' })
-								],
+								plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
 							},
 						},
 						{

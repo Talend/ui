@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 6.37.1
+
+### Patch Changes
+
+- 6cd686e30: fix(theme): resolve font url
+
 ## 6.37.0
 
 ### Minor Changes
