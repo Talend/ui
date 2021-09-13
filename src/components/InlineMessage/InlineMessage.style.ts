@@ -15,6 +15,7 @@ export const InlineMessage = styled.div.attrs({
 		withBackground ? `${tokens.space.xs} ${tokens.space.s};` : 'inherit'};
 	font-family: ${tokens.fonts.sansSerif};
 	font-size: ${({ small }) => (small ? `${tokens.fontSizes.small};` : 'inherit')};
+	text-align: start;
 	color: var(--c-inline-message-color, ${({ theme }) => theme.colors?.textColor});
 	background: var(--c-inline-message-background, transparent);
 	border-radius: ${tokens.radii.inputBorderRadius};
