@@ -1,5 +1,20 @@
 # @talend/design-system
 
+## 1.4.0
+
+### Minor Changes
+
+- 24a2416: Add Drawer layout
+
+### Patch Changes
+
+- 6e381e5: Step by step template to render multi pages form
+- 37d411f: Adjust the nav width when templates display a menu
+- 14749b4: className was missing for InlineMessage variations
+- ac6b51c: InlineMessage should have text-align at start
+- 34b079c: Be able to use dark mode using template Step
+- b6f5ed3: Accordion contents now scroll when height reaches specified limit
+
 ## 1.3.2
 
 ### Patch Changes
