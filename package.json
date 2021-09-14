@@ -52,7 +52,7 @@
     "@storybook/addon-actions": "^6.4.0-alpha.34",
     "@storybook/addon-essentials": "6.4.0-alpha.32",
     "@storybook/addon-links": "6.4.0-alpha.32",
-    "@storybook/addons": "6.4.0-alpha.32",
+    "@storybook/addons": "6.4.0-alpha.35",
     "@storybook/react": "6.4.0-alpha.32",
     "@storybook/testing-react": "1.0.0--canary.46.4a6c010.0",
     "@storybook/theming": "6.4.0-alpha.32",
