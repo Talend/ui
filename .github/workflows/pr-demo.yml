@@ -31,6 +31,9 @@ jobs:
           yarn test:demo --quiet
           ./.github/workflows/before-surge.sh
 
+      - name: list files for debug purpose
+        run: ls -R .static
+
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
         run: surge --project .static --domain "talend.surge.sh"
