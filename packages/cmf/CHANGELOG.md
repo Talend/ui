@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 6.38.1
+
+### Patch Changes
+
+- 0bd4c26f8: Fix pre-release script: remove display=none option
+
 ## 6.38.0
 
 ### Minor Changes

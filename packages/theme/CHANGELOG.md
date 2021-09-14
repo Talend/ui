@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 6.37.2
+
+### Patch Changes
+
+- 0bd4c26f8: Fix pre-release script: remove display=none option
+
 ## 6.37.1
 
 ### Patch Changes
