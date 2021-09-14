@@ -7,7 +7,7 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "pre-release": "yarn build:dev --display=none && yarn build:prod --display=none",
+    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "start": "start-storybook -p 6010",
     "test": "talend-scripts test --silent",
