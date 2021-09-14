@@ -53,6 +53,7 @@ const Link = React.forwardRef(
 		return (
 			<S.Link
 				rel={isBlank ? 'noopener noreferrer' : null}
+				target={target}
 				{...rest}
 				href={!disabled ? href : null}
 				className={`link ${disabled ? 'link--disabled' : ''} ${className || ''}`}

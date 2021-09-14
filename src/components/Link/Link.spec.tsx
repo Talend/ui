@@ -20,6 +20,8 @@ context('<Link />', () => {
 
 	it('should render external', () => {
 		cy.mount(<External />);
-		cy.get('.link').should('have.attr', 'title', 'Open in a new tab');
+		cy.get('.link')
+			.should('have.attr', 'title', 'Open in a new tab')
+			.should('have.attr', 'target', '_blank');
 	});
 });
