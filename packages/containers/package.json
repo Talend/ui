@@ -32,9 +32,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^6.38.0",
-    "@talend/react-components": "^6.38.0",
-    "@talend/react-forms": "^6.38.0",
+    "@talend/react-cmf": "^6.38.1",
+    "@talend/react-components": "^6.38.1",
+    "@talend/react-forms": "^6.38.1",
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
@@ -52,7 +52,7 @@
     "@storybook/addon-actions": "^6.3.7",
     "@storybook/addons": "^6.3.7",
     "@storybook/react": "^6.3.7",
-    "@talend/bootstrap-theme": "^6.37.0",
+    "@talend/bootstrap-theme": "^6.37.2",
     "@talend/icons": "^6.36.0",
     "@talend/locales-tui": "^6.36.0",
     "@talend/react-storybook-cmf": "^6.36.0",
@@ -80,5 +80,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.37.0"
+  "version": "6.37.1"
 }
