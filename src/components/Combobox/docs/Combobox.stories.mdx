@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink } from '../../../docs';
 import Combobox from '../';
 
@@ -117,9 +117,11 @@ export const fruits = [
 
 <Canvas>
 	<Story name="usage">
-		<Combobox initialValue="" values={fruits} />
+		<Combobox values={fruits} />
 	</Story>
 </Canvas>
+
+<ArgsTable story="usage" />
 
 ## States
 
@@ -167,6 +169,7 @@ If a value is not available in the predefined list options the user may have the
 
 ## Changelog
 
-| Date       | Author           | Description |
-| ---------- | ---------------- | ----------- |
-| 09/30/2020 | Fabien Rassinier | Init page   |
+| Date       | Author           | Description  |
+| ---------- | ---------------- | ------------ |
+| 09/09/2021 | Benoit Rajalu    | Edited props |
+| 09/30/2020 | Fabien Rassinier | Init page    |

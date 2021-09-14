@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyledProps } from 'styled-components';
 import {
 	unstable_useComboboxState as useReakitComboboxState,
 	unstable_Combobox as ReakitCombobox,
@@ -9,11 +8,12 @@ import {
 
 import * as S from './Combobox.style';
 
-export type ComboboxProps = StyledProps<any> & {
+export type ComboboxProps = {
 	values?: string[];
+	initialValue?: string;
 };
 
-const Combobox: React.FC<ComboboxProps> = ({ values, ...rest }: ComboboxProps) => {
+const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	const combobox = useReakitComboboxState({
 		autoSelect: true,
 		inline: true,

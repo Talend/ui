@@ -19,4 +19,11 @@ ButtonComponent.Secondary = ButtonSecondary;
 ButtonComponent.Tertiary = ButtonTertiary;
 ButtonComponent.Icon = ButtonIcon;
 
+export type ButtonComponentType =
+	| typeof ButtonPrimary
+	| typeof ButtonDestructive
+	| typeof ButtonIcon
+	| typeof ButtonSecondary
+	| typeof ButtonTertiary;
+
 export default ButtonComponent;

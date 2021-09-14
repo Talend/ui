@@ -1,9 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { StyledFunction } from 'styled-components';
 import Button, { ButtonProps } from '../Button';
 import tokens from '../../../tokens';
 
-const ButtonBase: React.FC<ButtonProps> = styled(Button)`
+const button: StyledFunction<typeof Button> = styled(Button);
+
+const ButtonBase: React.FC<ButtonProps> = button`
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -50,5 +52,7 @@ const ButtonBase: React.FC<ButtonProps> = styled(Button)`
 		}
 	}
 `;
+
+ButtonBase.displayName = 'Button.Base';
 
 export default ButtonBase;

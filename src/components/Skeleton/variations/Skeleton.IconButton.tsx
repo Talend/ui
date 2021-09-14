@@ -9,4 +9,6 @@ const IconButtonSkeleton = styled(ButtonSkeleton)`
 	border-radius: ${tokens.radii.roundedRadius};
 `;
 
+IconButtonSkeleton.displayName = 'Skeleton.Icon';
+
 export default IconButtonSkeleton;

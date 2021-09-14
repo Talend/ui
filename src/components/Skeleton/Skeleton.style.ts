@@ -16,3 +16,5 @@ export const Skeleton = styled(ThemedSkeleton).attrs({
 	cursor: progress;
 	animation: ${tokens.animations.heartbeat};
 `;
+
+Skeleton.displayName = 'Skeleton';

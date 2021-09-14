@@ -1,9 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { StyledFunction } from 'styled-components';
 import ButtonBase from './Button.base';
 import { ButtonProps } from '../Button';
 
-const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase).attrs({
+const button: StyledFunction<typeof ButtonBase> = styled(ButtonBase);
+
+const ButtonPrimary: React.FC<ButtonProps> = button.attrs({
 	className: 'btn--primary',
 })`
 	--t-button-color: ${({ theme }) => theme.colors?.buttonPrimaryColor};
@@ -20,5 +22,7 @@ const ButtonPrimary: React.FC<ButtonProps> = styled(ButtonBase).attrs({
 		--t-button-border-color: ${({ theme }) => theme.colors?.buttonPrimaryActiveBackgroundColor};
 	}
 `;
+
+ButtonPrimary.displayName = 'Button.Primary';
 
 export default ButtonPrimary;

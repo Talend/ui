@@ -52,6 +52,10 @@ It aims to display extra information while keeping the navigation enabled on the
 	<Story story={Stories.Simple} height="500px" />
 </Canvas>
 
+<Canvas withSource="none">
+	<Story story={Stories.WithToggleButton} height="500px" />
+</Canvas>
+
 ## States
 
 Drawers are either visible or hidden.
@@ -113,3 +117,5 @@ When Drawer is visible, disclosure has `aria-expanded` set to `true`. When Drawe
 </Canvas>
 
 <ArgsTable story="usage" />
+
+`toggleButton` should always be one of the buttons provided by the Design System.

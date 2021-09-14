@@ -80,7 +80,7 @@ module.exports = {
 		'storybook-addon-mdx-embed',
 	],
 	typescript: {
-		check: false,
+		check: true,
 		checkOptions: {},
 		reactDocgen: 'react-docgen-typescript',
 		reactDocgenTypescriptOptions: {

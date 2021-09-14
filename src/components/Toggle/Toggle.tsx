@@ -1,8 +1,8 @@
 import React from 'react';
-import { ButtonProps } from '../Button/Button';
 import * as S from './Toggle.style';
+import { ButtonIconProps } from '../Button/variations/Button.icon';
 
-export type ToggleProps = ButtonProps & {
+export type ToggleProps = ButtonIconProps & {
 	/** if the toggle is active or not */
 	isActive?: boolean;
 	/** onChange handler */

@@ -1,10 +1,7 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { action } from '@storybook/addon-actions';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
 import Button from '../';
 import * as Stories from '../Button.stories';
-import Skeleton from '../../Skeleton';
-import Tooltip from '../../Tooltip';
 import { IconsProvider } from '../../IconsProvider';
 
 <Meta title="Components/Button" component={Button} />
@@ -49,139 +46,55 @@ Icon buttons can be used as dropdown but without the caret icon.
 
 #### Primary
 
-<Canvas>
-	<Story name="primary">
-		<Button.Primary onClick={action('clicked')}>Basic Button</Button.Primary>
-	</Story>
-	<Story name="primary--icon">
-		<Button.Primary onClick={action('clicked')} icon="talend-plus">
-			Button with icon
-		</Button.Primary>
-	</Story>
-	<Story name="primary--small">
-		<Button.Primary small onClick={action('clicked')}>
-			Small Button
-		</Button.Primary>
-	</Story>
-	<Story name="primary--disabled">
-		<Button.Primary disabled onClick={action('clicked')}>
-			Disabled Button
-		</Button.Primary>
-	</Story>
-	<Story name="primary--disabled-focusable">
-		<Button.Primary disabled focusable onClick={action('clicked')}>
-			Disabled Focusable Button
-		</Button.Primary>
-	</Story>
+<Canvas withSource="open">
+	<Story story={Stories.Primary} />
+	<Story story={Stories.PrimaryIcon} />
+	<Story story={Stories.PrimarySmall} />
+	<Story story={Stories.PrimaryDisabled} />
+	<Story story={Stories.PrimaryDisabledFocusable} />
+	<Story story={Stories.PrimaryAsLink} />
 </Canvas>
 
 #### Destructive
 
 <Canvas>
-	<Story name="destructive">
-		<Button.Destructive onClick={action('clicked')}>Basic Button</Button.Destructive>
-	</Story>
-	<Story name="destructive--icon">
-		<Button.Destructive onClick={action('clicked')} icon="talend-plus">
-			Button with icon
-		</Button.Destructive>
-	</Story>
-	<Story name="destructive--small">
-		<Button.Destructive small onClick={action('clicked')}>
-			Small Button
-		</Button.Destructive>
-	</Story>
-	<Story name="destructive--disabled">
-		<Button.Destructive disabled onClick={action('clicked')}>
-			Disabled Button
-		</Button.Destructive>
-	</Story>
-	<Story name="destructive--disabled-focusable">
-		<Button.Destructive disabled focusable onClick={action('clicked')}>
-			Disabled Focusable Button
-		</Button.Destructive>
-	</Story>
+	<Story story={Stories.Destructive} />
+	<Story story={Stories.DestructiveIcon} />
+	<Story story={Stories.DestructiveSmall} />
+	<Story story={Stories.DestructiveDisabled} />
+	<Story story={Stories.DestructiveDisabledFocusable} />
+	<Story story={Stories.DestructiveAsLink} />
 </Canvas>
 
 #### Secondary
 
 <Canvas>
-	<Story name="secondary">
-		<Button.Secondary onClick={action('clicked')}>Basic Button</Button.Secondary>
-	</Story>
-	<Story name="secondary--icon">
-		<Button.Secondary onClick={action('clicked')} icon="talend-plus">
-			Button with icon
-		</Button.Secondary>
-	</Story>
-	<Story name="secondary--small">
-		<Button.Secondary small onClick={action('clicked')}>
-			Small Button
-		</Button.Secondary>
-	</Story>
-	<Story name="secondary--disabled">
-		<Button.Secondary disabled onClick={action('clicked')}>
-			Disabled Button
-		</Button.Secondary>
-	</Story>
-	<Story name="secondary--disabled-focusable">
-		<Button.Secondary disabled focusable onClick={action('clicked')}>
-			Disabled Focusable Button
-		</Button.Secondary>
-	</Story>
+	<Story story={Stories.Secondary} />
+	<Story story={Stories.SecondaryIcon} />
+	<Story story={Stories.SecondarySmall} />
+	<Story story={Stories.SecondaryDisabled} />
+	<Story story={Stories.SecondaryDisabledFocusable} />
+	<Story story={Stories.SecondaryAsLink} />
 </Canvas>
 
 #### Tertiary
 
 <Canvas>
-	<Story name="tertiary">
-		<Button.Tertiary onClick={action('clicked')}>Basic Button</Button.Tertiary>
-	</Story>
-	<Story name="tertiary--icon">
-		<Button.Tertiary onClick={action('clicked')} icon="talend-plus">
-			Button with icon
-		</Button.Tertiary>
-	</Story>
-	<Story name="tertiary--small">
-		<Button.Tertiary small onClick={action('clicked')}>
-			Small Button
-		</Button.Tertiary>
-	</Story>
-	<Story name="tertiary--disabled">
-		<Button.Tertiary disabled onClick={action('clicked')}>
-			Disabled Button
-		</Button.Tertiary>
-	</Story>
-	<Story name="tertiary--disabled-focusable">
-		<Button.Tertiary disabled focusable onClick={action('clicked')}>
-			Disabled Focusable Button
-		</Button.Tertiary>
-	</Story>
+	<Story story={Stories.Tertiary} />
+	<Story story={Stories.TertiaryIcon} />
+	<Story story={Stories.TertiarySmall} />
+	<Story story={Stories.TertiaryDisabled} />
+	<Story story={Stories.TertiaryDisabledFocusable} />
+	<Story story={Stories.TertiaryAsLink} />
 </Canvas>
 
 #### Icon button
 
 <Canvas>
-	<Story name="icon">
-		<Button.Icon onClick={action('clicked')} icon={'talend-plus'}>
-			Basic Button
-		</Button.Icon>
-	</Story>
-	<Story name="icon--small">
-		<Button.Icon small onClick={action('clicked')} icon={'talend-plus'}>
-			Small Button
-		</Button.Icon>
-	</Story>
-	<Story name="icon--disabled">
-		<Button.Icon disabled onClick={action('clicked')} icon={'talend-plus'}>
-			Disabled Button
-		</Button.Icon>
-	</Story>
-	<Story name="icon--disabled-focusable">
-		<Button.Icon disabled focusable onClick={action('clicked')} icon={'talend-plus'}>
-			Disabled Focusable Button
-		</Button.Icon>
-	</Story>
+	<Story story={Stories.Icon} />
+	<Story story={Stories.IconDisabled} />
+	<Story story={Stories.IconDisabledFocusable} />
+	<Story story={Stories.IconAsLink} />
 </Canvas>
 
 ## Interactions
@@ -189,15 +102,9 @@ Icon buttons can be used as dropdown but without the caret icon.
 ### Button skeletons
 
 <Canvas>
-	<Story name="skeleton">
-		<Skeleton.Button />
-	</Story>
-	<Story name="skeleton--small">
-		<Skeleton.Button small />
-	</Story>
-	<Story name="skeleton--icon">
-		<Skeleton.Icon />
-	</Story>
+	<Story story={Stories.SkeletonButton} />
+	<Story story={Stories.SkeletonButtonSmall} />
+	<Story story={Stories.SkeletonButtonIcon} />
 </Canvas>
 
 ### Button tooltips
@@ -205,19 +112,13 @@ Icon buttons can be used as dropdown but without the caret icon.
 Buttons should all have a tooltip on hover displaying the description.
 
 <Canvas>
-	<Story name="basic">
-		<Tooltip title="Relevant information about contacting the support">
-			<Button.Primary onClick={action('clicked')} icon={'talend-bubbles'}>
-				Contact support
-			</Button.Primary>
-		</Tooltip>
-	</Story>
+	<Story story={Stories.TooltipButton} />
 </Canvas>
 
 ### Async buttons
 
 When the user clicks on the button, and the action is asynchronous, a spinner will appear on the left of the label.
-If the button has an icon, the spinner will temporary replace this icon as long as it's loading.
+If the button has an icon, the spinner will temporarily replace this icon as long as it's loading.
 No action will be possible until it's done.
 
 <Canvas>
@@ -244,7 +145,7 @@ Name that action instead.
 			</li>
 			<li>
 				Choose specific words over vague words: “Try it now” for example is a common call to action
-				(CTA), but doesn’t really tell the user what will happen next. It might be too vague. Use
+				(CTA), but it doesn't really tell the user what will happen next. It might be too vague. Use
 				your judgment according to what the user should be doing when they click the button.
 			</li>
 			<li>
@@ -311,7 +212,7 @@ Name that action instead.
 	>
 		{props => {
 			const Component = Button[props.variant] || Button;
-			return <Component {...props} onClick={action('clicked')} />;
+			return <Component {...props} />;
 		}}
 	</Story>
 </Canvas>

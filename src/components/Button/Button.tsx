@@ -1,13 +1,13 @@
 import React from 'react';
-import { StyledProps } from 'styled-components';
 import { IconName } from '@talend/icons';
+import { ClickableProps } from 'reakit';
 
 import { Icon } from '../Icon/Icon';
 import Loading from '../Loading';
 
 import * as S from './Button.style';
 
-export type ButtonProps = StyledProps<any> & {
+type BaseProps = {
 	/** The icon of the button */
 	icon?: IconName | React.ReactElement;
 	/** If the button is small or not */
@@ -16,10 +16,21 @@ export type ButtonProps = StyledProps<any> & {
 	loading?: boolean;
 	/** If the button should not display text */
 	hideText?: boolean;
+	/** All buttons must have contents */
+	children: React.ReactNode | React.ReactNodeArray;
+	/** Use these if the button should be an anchor or router link */
+	as?: React.ElementType;
+	href?: string;
+	target?: string;
 };
 
-const Button: React.FC<ButtonProps> = React.forwardRef(
-	({ className, icon, small, hideText, loading, children, ...rest }: ButtonProps, ref) => (
+export type ButtonProps = ClickableProps & BaseProps;
+
+const Button = React.forwardRef(
+	(
+		{ className, icon, small, hideText, loading, children, ...rest }: ButtonProps,
+		ref: React.Ref<any>,
+	) => (
 		<S.Button
 			ref={ref}
 			{...rest}
@@ -44,5 +55,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(
 		</S.Button>
 	),
 );
+
+Button.displayName = 'Button';
 
 export default Button;

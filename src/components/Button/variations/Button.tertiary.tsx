@@ -1,10 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { StyledFunction } from 'styled-components';
 import ButtonSecondary from './Button.secondary';
 import { ButtonProps } from '../Button';
 import tokens from '../../../tokens';
 
-const ButtonTertiary: React.FC<ButtonProps> = styled(ButtonSecondary).attrs({
+const button: StyledFunction<typeof ButtonSecondary> = styled(ButtonSecondary);
+
+const ButtonTertiary: React.FC<ButtonProps> = button.attrs({
 	className: 'btn--tertiary',
 })`
 	&,
@@ -13,5 +15,7 @@ const ButtonTertiary: React.FC<ButtonProps> = styled(ButtonSecondary).attrs({
 		--t-button-border-color: ${tokens.colors?.transparent};
 	}
 `;
+
+ButtonTertiary.displayName = 'Button.Tertiary';
 
 export default ButtonTertiary;

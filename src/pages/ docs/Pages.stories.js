@@ -85,7 +85,9 @@ const ItemWithDetails = ({ itemId, isActive, onClick }) => {
 	return (
 		<>
 			<Drawer
-				disclosure={<Button onClick={() => onClick(itemId)}>Item {itemId + 1}</Button>}
+				toggleButton={
+					<Button.Primary onClick={() => onClick(itemId)}>Item {itemId + 1}</Button.Primary>
+				}
 				heading={<h3>Item {itemId + 1}</h3>}
 				footer={<Button.Secondary onClick={() => setVisible(false)}>Close</Button.Secondary>}
 				visible={visible}
