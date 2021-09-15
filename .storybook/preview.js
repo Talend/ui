@@ -1,4 +1,5 @@
 import React from 'react';
+import { I18nextProvider } from 'react-i18next';
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 
@@ -9,6 +10,8 @@ import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 import { useLocalStorage } from 'react-use';
 
 import 'focus-outline-manager';
+
+import i18n from './i18n';
 
 import Divider from '../src/components/Divider';
 import Form from '../src/components/Form';
@@ -26,6 +29,20 @@ export const globalTypes = {
 			items: [
 				{ value: 'light', left: '⚪️', title: 'Default theme' },
 				{ value: 'dark', left: '⚫️', title: 'Dark theme' },
+			],
+		},
+	},
+	locale: {
+		name: 'Locale',
+		defaultValue: 'en',
+		toolbar: {
+			icon: 'globe',
+			items: [
+				{ value: 'zh', title: 'Chinese' },
+				{ value: 'en', title: 'English' },
+				{ value: 'fr', title: 'French' },
+				{ value: 'de', title: 'German' },
+				{ value: 'ja', title: 'Japanese' },
 			],
 		},
 	},
@@ -172,16 +189,19 @@ export const parameters = {
 
 export const decorators = [
 	(Story, context) => {
+		i18n.changeLanguage(context.globals.locale);
 		const theme = getTheme(context.globals.theme);
 		return (
-			<>
+			<I18nextProvider i18n={i18n}>
 				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 				<ThemeProvider theme={theme}>
 					<ThemeProvider.GlobalStyle />
 					<StorybookGlobalStyle />
-					<Story {...context} />
+					<React.Suspense fallback={null}>
+						<Story {...context} />
+					</React.Suspense>
 				</ThemeProvider>
-			</>
+			</I18nextProvider>
 		);
 	},
 ];

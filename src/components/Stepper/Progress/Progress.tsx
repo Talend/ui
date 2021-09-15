@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import VisuallyHidden from '../../VisuallyHidden';
 
 import { StepperOrientation } from '../Stepper';
@@ -13,6 +15,7 @@ export type ProgressProps = React.PropsWithChildren<any> & {
 };
 
 const Progress = ({ min = 1, value, max, orientation, children, ...rest }: ProgressProps) => {
+	const { t } = useTranslation();
 	const size = `${(value - 1) * (100 / (max - 1))}%`;
 	return (
 		<S.Progress
@@ -24,7 +27,7 @@ const Progress = ({ min = 1, value, max, orientation, children, ...rest }: Progr
 		>
 			<div aria-hidden style={orientation === 'vertical' ? { height: size } : { width: size }} />
 			<VisuallyHidden>
-				{value}/{max}
+				{t('PROGRESS_ACTIVE_STEP', { defaultValue: 'Step {{value}} of {{max}}', value, max })}
 			</VisuallyHidden>
 			{children}
 		</S.Progress>
