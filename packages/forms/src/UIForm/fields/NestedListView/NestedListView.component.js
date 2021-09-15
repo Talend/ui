@@ -1,16 +1,15 @@
+import ListView from '@talend/react-components/lib/ListView';
+import keycode from 'keycode';
+import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
 import React from 'react';
-import keycode from 'keycode';
-import ListView from '@talend/react-components/lib/ListView';
 import { withTranslation } from 'react-i18next';
-
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
-
 import theme from './NestedListView.scss';
+import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -58,6 +57,19 @@ class NestedListViewWidget extends React.Component {
 			searchCriteria: null,
 			displayedItems: getDisplayedItems(this.items, this.value),
 		};
+	}
+
+	/**
+	 * Detect changes of props
+	 * @param { Object } prevProps The new props
+	 */
+	componentDidUpdate(prevProps) {
+		// If props.value if different from previous prop and this.value, refresh the displayed items
+		if (!isEqual(prevProps.value, this.props.value) && !isEqual(this.value, this.props.value)) {
+			this.value = this.props.value;
+			// eslint-disable-next-line react/no-did-update-set-state
+			this.setState({ displayedItems: getDisplayedItems(this.items, this.value) });
+		}
 	}
 
 	/**

@@ -6,7 +6,7 @@
     "i18next-scanner": "^3.0.0"
   },
   "scripts": {
-    "prepare": "yarn workspaces run prepare",
+    "postinstall": "node workspace-run.js build:lib",
     "pre-release": "node workspace-run.js pre-release",
     "info": "yarn workspaces --silent info > info.json",
     "release": "yarn changeset publish",
@@ -38,7 +38,8 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "fork/*"
   ],
   "resolutions": {
     "dot-prop": "^5.2.0",
