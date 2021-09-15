@@ -1,9 +1,3 @@
 .timezone-tooltip {
-	height: 3.2rem;
-	display: flex;
-	align-items: center;
-
-	:global(.tc-svg-icon) {
-		display: block;
-	}
+	margin: 0 $padding-smaller;
 }
