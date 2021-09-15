@@ -2145,18 +2145,17 @@
     date-fns "^1.27.2"
     figures "^1.7.0"
 
-"@cypress/mount-utils@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@cypress/mount-utils/-/mount-utils-1.0.1.tgz#04a3b9c73add3daf2f0ba38a610dc49de9e8a252"
-  integrity sha512-mfY3W/5gJpXEgONguawAeTdI0n2wNvM0oW1aP4UyYLkTK6RhSS+95CU2tvW3RNuA3xJzpfOCDODtOgLBZI4obg==
+"@cypress/mount-utils@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@cypress/mount-utils/-/mount-utils-1.0.2.tgz#afbc4f8c350b7cd86edc5ad0db0cbe1e0181edc8"
+  integrity sha512-Fn3fdTiyayHoy8Ol0RSu4MlBH2maQ2ZEXeEVKl/zHHXEQpld5HX3vdNLhK5YLij8cLynA4DxOT/nO9iEnIiOXw==
 
 "@cypress/react@^5.4.0":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@cypress/react/-/react-5.4.0.tgz#4008e64c7b3970961b13d8ff1315b2592139e351"
-  integrity sha512-/pFtT1IojtchMFWswlZUbtqgjGcnp47PlS5MS3xf/eAPNUv7fGOTlw3+C++GSa+3nW30yFgIaF09y6eI9VbQ2w==
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@cypress/react/-/react-5.10.0.tgz#0b7ff42681a47a75e91c34e82ef3fb2858cfd2ff"
+  integrity sha512-OglTE8C7iHplyg8frKxy5yJkAF0+eR7qxtCbYZSnhhxeEn97NEBeHjqzpMLgtQoTE12jEYZkXiq6HDxZBc5rQg==
   dependencies:
-    "@cypress/mount-utils" "1.0.1"
-    "@cypress/webpack-preprocessor" "5.7.0"
+    "@cypress/mount-utils" "1.0.2"
     debug "4.3.2"
     find-webpack "2.2.1"
     find-yarn-workspace-root "2.0.0"
@@ -2195,15 +2194,6 @@
     debug "4.3.2"
     semver "^7.3.4"
     webpack-merge "^5.4.0"
-
-"@cypress/webpack-preprocessor@5.7.0":
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/@cypress/webpack-preprocessor/-/webpack-preprocessor-5.7.0.tgz#653c92662fe885260f176f5a1bd630dfd2cee8ca"
-  integrity sha512-E60lsdMoIJFR36t7J2yjcAH3vrxF1WecoTIz4PL7Km/LrIEx1/qafEeyGuHTBynr/RBd4kCaS2XLJW75hOeLSw==
-  dependencies:
-    bluebird "^3.7.1"
-    debug "4.3.2"
-    lodash "^4.17.20"
 
 "@cypress/xvfb@^1.2.4":
   version "1.2.4"
@@ -6104,7 +6094,7 @@ blob@0.0.5:
   resolved "https://registry.yarnpkg.com/blob/-/blob-0.0.5.tgz#d680eeef25f8cd91ad533f5b01eed48e64caf683"
   integrity sha512-gaqbzQPqOoamawKg0LGVd7SzLgXS+JH61oWprSLH+P+abTczqJbhTR8CmJ2u9/bUYNmHTGJx/UEmn6doAvvuig==
 
-bluebird@^3.3.5, bluebird@^3.5.5, bluebird@^3.7.1, bluebird@^3.7.2:
+bluebird@^3.3.5, bluebird@^3.5.5, bluebird@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
@@ -14433,9 +14423,9 @@ prettier@^1.19.1:
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
 
 prettier@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
-  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.4.0.tgz#85bdfe0f70c3e777cf13a4ffff39713ca6f64cba"
+  integrity sha512-DsEPLY1dE5HF3BxCRBmD4uYZ+5DCbvatnolqTqcxEgKVZnL2kUfyu7b8pPQ5+hTBkdhU9SLUmK0/pHb07RE4WQ==
 
 pretty-bytes@^5.6.0:
   version "5.6.0"
