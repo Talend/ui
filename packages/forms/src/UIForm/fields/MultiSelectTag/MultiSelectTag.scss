@@ -1,4 +1,3 @@
-@import '~@talend/bootstrap-theme/src/theme/forms.guideline';
 $tf-datalist-items-background-color: $white !default;
 $tf-datalist-items-shadow-color: $shadow !default;
 $tf-typeahead-input-width: 135px !default;
@@ -10,23 +9,17 @@ $tc-badge-margin: $padding-smaller !default;
 	flex-wrap: wrap;
 	align-items: flex-end;
 
-	border: 0;
-	border-radius: 0;
-	box-shadow: $form-shadow;
+	border: 1px solid $input-border;
 	height: auto;
 	padding: 0;
+
+	input {
+		border: none;
+	}
 
 	.focus-manager {
 		flex-grow: 1;
 		outline: none;
-
-		&:focus input {
-			box-shadow: $form-focus-shadow;
-		}
-	}
-
-	&:focus-within {
-		box-shadow: $form-focus-shadow;
 	}
 
 	.typeahead {
@@ -34,11 +27,6 @@ $tc-badge-margin: $padding-smaller !default;
 
 		> div {
 			width: 100%;
-		}
-
-		:global(input) {
-			border: 0;
-			padding-left: $tc-badge-margin;
 		}
 
 		.items-container {
