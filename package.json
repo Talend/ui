@@ -103,8 +103,11 @@
     "styled-components": "^5.2.1"
   },
   "resolutions": {
+    "axios": "^0.21.2",
+    "set-value": "^4.0.1",
     "browserslist": "^4.16.5",
     "glob-parent": "^5.1.2",
+    "immer": "^9.0.6",
     "trim": "^0.0.3",
     "underscore": "^1.12.1"
   }
