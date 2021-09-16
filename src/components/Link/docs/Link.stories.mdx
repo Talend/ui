@@ -64,6 +64,16 @@ When the link targets a new domain, we add an external-link icon right after.
 
 The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 
+### As a button
+
+You may need the style of a link but the behavior of a button.
+
+For this, use the provided `as` props.
+
+<Canvas>
+	<Story story={Stories.AsButton} />
+</Canvas>
+
 ## Content
 
 Link labels should be specific and clear enough to increase the likelihood that users will quickly understand the link as they scan and process the page. There's no maximum word count for links, but the best practice is to be as succinct as possible.
@@ -145,6 +155,11 @@ Press <kbd>ENTER</kbd> to open a link
 				control: {
 					type: 'boolean',
 				},
+			},
+			as: {
+				description:
+					'Polymorphic prop to give this style to a button. `string` `ReactComponentType`.',
+				control: false,
 			},
 		}}
 	>

@@ -5,6 +5,7 @@ import Button from '../Button';
 import Link from '../Link';
 
 import tokens from '../../tokens';
+import { StyledLink } from '../Link/Link';
 
 export const Nav = styled.nav.attrs({
 	className: 'c-menu',
@@ -80,7 +81,7 @@ export const Menu = styled.div`
 	}
 `;
 
-export const MenuItem = styled(Link).attrs(({ active }) => ({
+export const MenuItem = styled(Link).attrs(({ active }: StyledLink & { active: boolean }) => ({
 	'aria-current': active ? 'page' : null,
 }))`
 	display: flex;
