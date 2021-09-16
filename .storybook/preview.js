@@ -81,7 +81,7 @@ export const parameters = {
 
 			const channel = addons.getChannel();
 
-			const hasDarkMode = props.context.globals.theme === 'dark';
+			const hasDarkMode = props.context.globals?.theme === 'dark';
 
 			return (
 				<>
@@ -92,7 +92,7 @@ export const parameters = {
 					</ThemeProvider>
 					<TableOfContents>
 						{['component', 'template', 'page'].find(term =>
-							props.context.kind.split('/')[0].toLocaleLowerCase().includes(term),
+							props.context.kind?.split('/')[0].toLocaleLowerCase().includes(term),
 						) && (
 							<ThemeProvider>
 								<Divider />
@@ -189,8 +189,8 @@ export const parameters = {
 
 export const decorators = [
 	(Story, context) => {
-		i18n.changeLanguage(context.globals.locale);
-		const theme = getTheme(context.globals.theme);
+		i18n.changeLanguage(context.globals?.locale);
+		const theme = getTheme(context.globals?.theme);
 		return (
 			<I18nextProvider i18n={i18n}>
 				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
