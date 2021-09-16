@@ -103,9 +103,9 @@
     "styled-components": "^5.2.1"
   },
   "resolutions": {
-    "axios": "^0.21.1",
-    "is-svg": "^4.2.2",
-    "prismjs": "^1.23.0",
-    "ssri": "^8.0.1"
+    "browserslist": "^4.16.5",
+    "glob-parent": "^5.1.2",
+    "trim": "^0.0.3",
+    "underscore": "^1.12.1"
   }
 }
