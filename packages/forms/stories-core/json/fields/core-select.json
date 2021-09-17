@@ -6,55 +6,49 @@
     "properties": {
       "simpleChoiceList": {
         "type": "string",
-        "enum": [
-          "foo",
-          "bar",
-          "fuzz",
-          "qux"
-        ]
+        "enum": ["foo", "bar", "fuzz", "qux"]
+      },
+      "disabledChoiceList": {
+        "type": "string",
+        "enum": ["foo", "bar", "fuzz", "qux"]
       },
       "choiceListWithTitles": {
         "type": "string",
-        "enum": [
-          "foo",
-          "bar",
-          "fuzz",
-          "qux"
-        ]
+        "enum": ["foo", "bar", "fuzz", "qux"]
       },
       "choiceListWithPlaceholder": {
         "type": "string",
-        "enum": [
-          "foo",
-          "bar",
-          "fuzz",
-          "qux"
-        ]
+        "enum": ["foo", "bar", "fuzz", "qux"]
       },
       "multipleChoicesList": {
         "type": "array",
         "items": {
           "type": "string",
-          "enum": [
-            "foo",
-            "bar",
-            "fuzz",
-            "qux"
-          ]
+          "enum": ["foo", "bar", "fuzz", "qux"]
+        },
+        "uniqueItems": true
+      },
+      "multipleDisabledChoicesList": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": ["foo", "bar", "fuzz", "qux"]
         },
         "uniqueItems": true
       }
     },
-    "required": [
-      "simpleChoiceList",
-      "multipleChoicesList"
-    ]
+    "required": ["simpleChoiceList", "multipleChoicesList"]
   },
   "uiSchema": [
     {
       "key": "simpleChoiceList",
       "title": "Simple choice list",
       "data-test": "simple.list"
+    },
+    {
+      "key": "disabledChoiceList",
+      "title": "Disabled choice list",
+      "disabled": true
     },
     {
       "key": "choiceListWithTitles",
@@ -75,13 +69,18 @@
       "key": "multipleChoicesList",
       "title": "Multiple choices list",
       "widget": "select"
+    },
+    {
+      "key": "multipleDisabledChoicesList",
+      "title": "Multiple disabled choices list",
+      "widget": "select",
+      "disabled": true
     }
   ],
   "properties": {
     "simpleChoiceList": "bar",
-    "multipleChoicesList": [
-      "foo",
-      "bar"
-    ]
+    "disabledChoiceList": "bar",
+    "multipleChoicesList": ["foo", "bar"],
+    "multipleDisabledChoicesList": ["foo", "bar"]
   }
 }

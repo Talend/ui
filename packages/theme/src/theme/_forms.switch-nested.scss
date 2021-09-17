@@ -7,8 +7,7 @@
 		justify-content: flex-end;
 
 		.btn.btn-link {
-			line-height: 20px;
-			min-height: auto;
+			min-height: $padding-large;
 
 			svg {
 				width: 10px;
@@ -120,6 +119,6 @@
 	}
 
 	.checkbox-nested {
-		margin-left: 40px;
+		margin-left: $padding-large;
 	}
 }

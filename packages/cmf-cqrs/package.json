@@ -6,7 +6,7 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "pre-release": "yarn build:dev --display=none && yarn build:prod --display=none",
+    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
@@ -55,5 +55,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.36.0"
+  "version": "6.36.1"
 }

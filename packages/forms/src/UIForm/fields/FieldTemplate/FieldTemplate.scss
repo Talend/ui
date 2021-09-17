@@ -1,22 +1,23 @@
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 .template:global(.required) {
-	> :global(.checkbox:after) {
-		position: static;
-		display: inline;
+	> :global(.checkbox::after) {
 		content: '*';
 	}
+
 	:global {
-		.control-label:after {
+		.control-label::after {
 			content: '*';
 		}
+
 		.checkbox {
-			.control-label:after {
+			.control-label::after {
 				content: '';
 			}
 		}
+
 		// Remove required stars for multi selection
-		.control-label ~ .checkbox:after {
+		.control-label ~ .checkbox::after {
 			content: '';
 		}
 	}
@@ -37,7 +38,7 @@
 		}
 
 		.tc-svg-icon {
-			fill: #1476be;
+			fill: #1476BE;
 		}
 	}
 }

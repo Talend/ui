@@ -1,6 +1,6 @@
 {
   "name": "@talend/http",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "HTTP helper",
   "license": "Apache-2.0",
   "repository": {
@@ -19,7 +19,7 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "pre-release": "yarn build:dev --display=none && yarn build:prod --display=none",
+    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",

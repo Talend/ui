@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "6.36.0",
+  "version": "6.36.1",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "pre-release": "yarn build:dev --display=none && yarn build:prod --display=none",
+    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",

@@ -1,0 +1,46 @@
+.radio input[type='radio'],
+.radio-inline input[type='radio'],
+.checkbox input[type='checkbox'],
+.checkbox-inline input[type='checkbox'] {
+	margin-left: 0;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+.form-control {
+	padding: 0 10px;
+	margin-bottom: $padding-smaller;
+	color: var(--t-form-color);
+	background-color: var(--t-form-background-color);
+	border: 1px solid var(--t-form-border-color);
+	font-weight: normal;
+	box-shadow: none;
+
+	&:hover {
+		border-color: var(--t-form-border-color--hover);
+	}
+
+	&:focus {
+		border-width: 2px;
+		border-color: var(--t-form-border-color--focus);
+		box-shadow: none;
+	}
+
+	&[disabled] {
+		border-color: var(--t-form-border-color--disabled);
+	}
+
+	&[readonly],
+	&[readonly]:focus {
+		border-width: 0;
+		color: var(--t-form-color--readonly);
+		background-color: var(--t-form-background-color--readonly);
+		border-color: var(--t-form-border-color--readonly);
+	}
+
+	&::placeholder {
+		color: var(--t-form-placeholder-color);
+	}
+}
