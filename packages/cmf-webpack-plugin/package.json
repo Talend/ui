@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/react-cmf": "^6.38.0",
+    "@talend/react-cmf": "^6.38.1",
     "lodash": "^4.17.15"
   },
   "devDependencies": {

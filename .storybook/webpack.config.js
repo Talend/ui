@@ -1,4 +1,4 @@
-const SASS_DATA = "@import '~@talend/bootstrap-theme/src/theme/guidelines';";
+const SASS_DATA = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;";
 const autoprefixer = require.main.require('autoprefixer');
 const path = require('path');
 const webpack = require.main.require('webpack');
