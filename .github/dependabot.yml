@@ -4,6 +4,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: "@storybook/*"
+      - dependency-name: "@talend/*"
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-minor" ]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
