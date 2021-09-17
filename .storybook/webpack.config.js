@@ -52,7 +52,16 @@ module.exports = ({ config }) => {
 			exclude: /theme.scss/,
 			use: [
 				'style-loader',
-				'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+				{
+					loader: 'css-loader',
+					options: {
+						sourceMap: true,
+						modules: {
+							localIdentName: '[name]__[local]___[hash:base64:5]',
+						},
+						importLoaders: 1,
+					}
+				},
 				{
 					loader: 'postcss-loader',
 					options: {
@@ -63,6 +72,7 @@ module.exports = ({ config }) => {
 					loader: 'sass-loader',
 					options: {
 						prependData: SASS_DATA,
+						sourceMap: true,
 					},
 				},
 			],
