@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $tc-guidedtour-accent-color: $scooter !default;
 $tc-guidedtour-tooltip-padding: $padding-large !default;
 $tc-guidedtour-mask-opactiy: 0.25 !default;
@@ -6,10 +8,12 @@ $tc-guidedtour-nav-button-size: $svg-md-size !default;
 $tc-guidedtour-controls-color: $dove-gray !default;
 $tc-guidedtour-width: 40rem !default;
 
+/* stylelint-disable-next-line selector-id-pattern*/
 :global(#___reactour) {
 	> div {
 		z-index: $zindex-guidedtour;
 	}
+
 	.tc-guided-tour {
 		--reactour-accent: #{$tc-guidedtour-accent-color};
 		padding: $tc-guidedtour-tooltip-padding (2 * $tc-guidedtour-tooltip-padding) $tc-guidedtour-tooltip-padding $tc-guidedtour-tooltip-padding;
@@ -50,7 +54,7 @@ $tc-guidedtour-width: 40rem !default;
 
 			[data-tour-elem='dot'] {
 				padding: 0;
-				margin: 0 ($padding-small / 2);
+				margin: 0 math.div($padding-small, 2);
 				width: $padding-small;
 				height: $padding-small;
 			}

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $tc-slider-thumb-shadow: 0 1px 2px 0 rgba(117, 132, 149, 0.5); //$slate-gray;
 $tc-slider-thumb-shadow-focused: 0 3px 4px 0.5px rgba(0, 0, 0, 0.25);
 $tc-slider-font-size: $font-size-base;
@@ -20,7 +22,8 @@ $tc-slider-line-height: 24px;
 }
 
 .tc-slider {
-	padding: 0 ($tc-slider-line-height / 2);
+	padding: 0 math.div($tc-slider-line-height, 2);
+
 	:global(.rc-slider-disabled) {
 		background-color: transparent;
 		opacity: 0.4;
@@ -33,6 +36,7 @@ $tc-slider-line-height: 24px;
 		margin-top: $padding-small;
 		color: $gray;
 		font-size: $tc-slider-font-size;
+
 		&-element {
 			height: $tc-slider-line-height;
 			width: $tc-slider-line-height;
@@ -41,19 +45,23 @@ $tc-slider-line-height: 24px;
 			display: flex;
 			justify-content: center;
 		}
+
 		:global(.btn) {
 			padding: 0;
+
 			&.selected {
 				:global(.tc-svg-icon) {
 					fill: $brand-primary;
 				}
 			}
 		}
+
 		:global(svg) {
 			height: $tc-slider-line-height;
 			width: $tc-slider-line-height;
 			margin: 0;
 			fill: $gray;
+
 			&.selected {
 				fill: $brand-primary;
 			}
@@ -68,12 +76,15 @@ $tc-slider-line-height: 24px;
 		:global(.rc-slider-track) {
 			height: 7px;
 		}
+
 		:global(.rc-slider-rail) {
 			background-color: $alto;
 		}
+
 		:global(.rc-slider-track) {
 			background-color: $brand-primary;
 		}
+
 		:global(.rc-slider-handle) {
 			border: 1px solid $alto;
 			box-shadow: $tc-slider-thumb-shadow;
@@ -92,6 +103,7 @@ $tc-slider-line-height: 24px;
 				.rc-slider-rail {
 					background-color: $brand-primary;
 				}
+
 				.rc-slider-track {
 					background-color: $alto;
 				}

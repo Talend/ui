@@ -2794,10 +2794,10 @@
   dependencies:
     semver "^7.3.5"
 
-"@talend/design-system@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-1.3.2.tgz#31975597e448dcc38941426f2dd93e28d4b0504a"
-  integrity sha512-IIJKzRsqo8F5rIpHLh10BbWXlagQ2eCoic6H/YGAhfpUrqeVk9XVtNX1hVcocaUCqrge9GTrmg6FiLian0imKQ==
+"@talend/design-system@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-1.4.0.tgz#e4e42db437db27e6a5f8d6a3469b4a1ba98520cd"
+  integrity sha512-8UoZpzChd15DFWYpheEwnX8lzFNp+zP6y0ksVRRDmMt84h9k0PvbDiCzllFrriml3rdllaneY4RadRmFQA/ccA==
   dependencies:
     classnames "^2.2.6"
     i18next "^20.2.2"
@@ -2914,9 +2914,9 @@
   integrity sha512-lqNU8kB4PDR4tTDIZ0OMF0PfSAnNk5guS11UHn3ktiac0hy6/ENeD5qEJ2POJeTh7IP4l0Vxs0WwOkj20UkRCA==
 
 "@talend/scripts-config-react-webpack@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.0.0.tgz#fc1efe4dbc018e8e51586a7e2f4174a13654c5b2"
-  integrity sha512-CJpCRW4a1GwZIjDGrQQXcdZ6/fFavrOsVnobs/80L5jB8jo7qb42GJAKMAXMDJSAvDluKVm3UzJ3XD743Wvp6Q==
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.0.2.tgz#a6826e5d265f137cee06c8ec47f802ec6d536f15"
+  integrity sha512-+LeUJIgXeG+6PwcEKVyUtnmnwSrqb/kn0gXcqOXXJ1p9LiODnqnc5Ftej1kCdqthlrW0rCwBI1cDsTUsE0uc0A==
   dependencies:
     "@talend/react-cmf-webpack-plugin" "^6.36.0"
     "@talend/scripts-config-babel" "^9.7.1"

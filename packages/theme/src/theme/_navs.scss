@@ -1,4 +1,5 @@
-@use "sass:math";
+@use 'sass:math';
+/* stylelint-disable selector-no-qualifying-type */
 
 $tc-tabbar-active-border-size: 0.2rem !default;
 $tc-tabbar-active-color: $lochmara;
@@ -28,7 +29,7 @@ $tc-tabbar-active-color: $lochmara;
 	&-pills {
 		> li {
 			&,
-			& + li {
+			+ li {
 				margin: 0;
 			}
 
@@ -134,7 +135,7 @@ $tc-tabbar-active-color: $lochmara;
 
 					position: relative;
 
-					&:after {
+					&::after {
 						position: absolute;
 						content: '';
 
@@ -148,6 +149,7 @@ $tc-tabbar-active-color: $lochmara;
 					&:focus {
 						color: $scooter;
 					}
+
 					&:hover {
 						color: $lochmara;
 					}

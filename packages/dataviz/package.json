@@ -36,7 +36,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-components": "^6.38.0",
+    "@talend/react-components": "^6.38.1",
     "classnames": "^2.2.6",
     "d3": "^6.5.0",
     "date-fns": "^2.16.1",
@@ -51,11 +51,11 @@
     "@storybook/addon-links": "^6.3.7",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.3.7",
-    "@talend/bootstrap-theme": "^6.37.0",
+    "@talend/bootstrap-theme": "^6.37.2",
     "@talend/icons": "^6.36.0",
     "@talend/locales-tui": "^6.36.0",
     "@talend/locales-tui-dataviz": "^0.4.4",
-    "@talend/react-components": "^6.38.0",
+    "@talend/react-components": "^6.38.1",
     "@talend/scripts-core": "^11.0.1",
     "@talend/scripts-preset-react-lib": "^9.9.1",
     "@types/classnames": "^2.2.11",

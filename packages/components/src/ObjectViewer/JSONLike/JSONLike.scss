@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @mixin chevron($color) {
 	border: 1px solid $scooter;
 	padding: 3px;
@@ -138,7 +140,7 @@
 			background-color: rgba($brand-primary, 0.3);
 			color: $brand-primary;
 			font-size: 1rem;
-			padding: ($padding-smaller / 2) $padding-smaller;
+			padding: math.div($padding-smaller, 2) $padding-smaller;
 			display: inline-table;
 		}
 	}
