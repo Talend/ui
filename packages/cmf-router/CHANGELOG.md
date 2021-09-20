@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.5.4
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+  - @talend/react-cmf@6.38.2
+
 ## 3.5.3
 
 ### Patch Changes

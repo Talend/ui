@@ -1,6 +1,6 @@
 {
   "name": "@talend/json-schema-form-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/index.js",
   "mainSrc": "src/index.js",

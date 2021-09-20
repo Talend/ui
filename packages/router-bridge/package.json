@@ -1,6 +1,6 @@
 {
   "name": "@talend/router-bridge",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Bridge on top of cmf-router or react-router v5 + connected-react-router",
   "main": "lib/index.js",
   "scripts": {

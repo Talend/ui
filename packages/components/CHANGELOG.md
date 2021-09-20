@@ -1,5 +1,16 @@
 # @talend/react-components
 
+## 6.39.1
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- 80ca14323: chore: use sass math.div
+- Updated dependencies [3e9121287]
+  - @talend/icons@6.36.1
+  - @talend/bootstrap-theme@6.38.1
+  - @talend/utils@1.4.3
+
 ## 6.39.0
 
 ### Minor Changes
