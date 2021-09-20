@@ -149,6 +149,7 @@ $tc-badge-disabled-opacity: 0.62;
 					color: $lochmara;
 				}
 			}
+
 			&:hover,
 			&:focus,
 			&:global(.ally-focus-within) {
@@ -296,6 +297,7 @@ $tc-badge-disabled-opacity: 0.62;
 				}
 			}
 		}
+
 		&:hover:not(.tc-badge-disabled) {
 			.tc-badge-button {
 				border-color: rgba($lochmara, 1);
