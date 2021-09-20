@@ -2,4 +2,4 @@
 '@talend/react-components': patch
 ---
 
-chore: remove sass warnings
+chore: use sass math.div
