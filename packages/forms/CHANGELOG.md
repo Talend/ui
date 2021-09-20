@@ -1,5 +1,16 @@
 # @talend/react-forms
 
+## 6.39.1
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+- Updated dependencies [80ca14323]
+  - @talend/react-components@6.39.1
+  - @talend/json-schema-form-core@1.0.1
+  - @talend/utils@1.4.3
+
 ## 6.39.0
 
 ### Minor Changes

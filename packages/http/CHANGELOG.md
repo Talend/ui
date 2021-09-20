@@ -1,5 +1,11 @@
 # @talend/http
 
+## 1.1.3
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+
 ## 1.1.2
 
 ### Patch Changes

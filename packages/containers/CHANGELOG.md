@@ -1,5 +1,16 @@
 # @talend/react-containers
 
+## 6.37.2
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+- Updated dependencies [80ca14323]
+  - @talend/react-cmf@6.38.2
+  - @talend/react-components@6.39.1
+  - @talend/react-forms@6.39.1
+
 ## 6.37.1
 
 ### Patch Changes

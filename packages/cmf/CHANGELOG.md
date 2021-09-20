@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 6.38.2
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+
 ## 6.38.1
 
 ### Patch Changes

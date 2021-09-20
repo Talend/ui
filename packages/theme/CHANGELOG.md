@@ -1,5 +1,14 @@
 # @talend/bootstrap-theme
 
+## 6.38.1
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+  - @talend/bootstrap-sass@3.4.5
+  - @talend/icons@6.36.1
+
 ## 6.38.0
 
 ### Minor Changes
