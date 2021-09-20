@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 6.39.0
+
+### Minor Changes
+
+- 274771710: Forms style to be more readable
+
+### Patch Changes
+
+- Updated dependencies [f9c1acb3e]
+- Updated dependencies [274771710]
+  - @talend/react-components@6.39.0
+
 ## 6.38.1
 
 ### Patch Changes

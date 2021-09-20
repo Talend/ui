@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 6.38.0
+
+### Minor Changes
+
+- 274771710: Forms style to be more readable
+
 ## 6.37.2
 
 ### Patch Changes
