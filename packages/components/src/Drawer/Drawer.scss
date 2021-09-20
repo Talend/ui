@@ -123,8 +123,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			bottom: math.div($tc-drawer-padding, 2);
 		}
 
-		/* stylelint-disable-nextline scss/selector-no-redundant-nesting-selector */
-		& > .tc-editable-text {
+		> .tc-editable-text {
 			width: unset;
 		}
 	}
