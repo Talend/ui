@@ -33,7 +33,6 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 in your app index.js file
 
 ```javascript
-import '@talend/bootstrap-theme/src/theme/theme.scss';
 import containersModule from '@talend/react-containers';
 import cmf from '@talend/react-cmf';
 import components from './components';

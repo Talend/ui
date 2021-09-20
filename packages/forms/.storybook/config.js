@@ -5,7 +5,7 @@ import { ThemeProvider } from '@talend/design-system';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
-import '@talend/bootstrap-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));

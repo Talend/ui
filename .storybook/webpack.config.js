@@ -1,12 +1,6 @@
 const SASS_DATA = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;";
 const autoprefixer = require.main.require('autoprefixer');
-const path = require('path');
-const webpack = require.main.require('webpack');
 const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] });
-const CopyPlugin = require('copy-webpack-plugin');
-const icons = require.resolve('@talend/icons/dist/info');
-const iconsDist = path.dirname(icons);
-const iconsSrc = path.join(iconsDist, '../src');
 
 module.exports = ({ config }) => {
 	// Override css part to apply custom postcss config
@@ -29,27 +23,7 @@ module.exports = ({ config }) => {
 
 	config.module.rules.push(
 		{
-			test: /theme.scss$/,
-			use: [
-				'style-loader',
-				'css-loader',
-				{
-					loader: 'postcss-loader',
-					options: {
-						plugins: [autoPrefixerPlugin],
-					},
-				},
-				{
-					loader: 'sass-loader',
-					options: {
-						prependData: SASS_DATA,
-					},
-				},
-			],
-		},
-		{
 			test: /\.scss$/,
-			exclude: /theme.scss/,
 			use: [
 				'style-loader',
 				{
@@ -77,14 +51,6 @@ module.exports = ({ config }) => {
 				},
 			],
 		},
-	);
-	config.plugins = config.plugins.concat(
-		new CopyPlugin({
-			patterns: [{ from: path.join(iconsDist, 'svg-bundle') }, { from: iconsSrc, to: 'svg' }],
-		}),
-		new webpack.DefinePlugin({
-			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
-		}),
 	);
 
 	const progressPluginIndex = config.plugins.findIndex(

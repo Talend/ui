@@ -1,4 +1,4 @@
-import '@talend/bootstrap-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 
 import React from 'react';
 import { ThemeProvider } from '@talend/design-system';
