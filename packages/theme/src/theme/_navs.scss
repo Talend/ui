@@ -134,7 +134,7 @@ $tc-tabbar-active-color: $lochmara;
 
 					position: relative;
 
-					&:after {
+					&::after {
 						position: absolute;
 						content: '';
 
