@@ -59,7 +59,7 @@ const scriptArgs = process.argv.slice(3);
 
 function consume(cmds) {
 	if (cmds.length > 0) {
-		const cmd = cmds.pop();
+		const cmd = cmds.shift();
 		run(cmd, { verbose: true })
 			.then(() => consume(cmds))
 			.catch(() => {
@@ -94,9 +94,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 					// to do that, we find the dependencies index, and put the command after the last dependency (max index)
 					let packagePlace = 0;
 					if (workspaceDependencies.length) {
-						const depsIndexes = workspaceDependencies.map(dep =>
-							Math.max(packages.indexOf(dep), 0),
-						);
+						const depsIndexes = workspaceDependencies.map(dep => packages.indexOf(dep));
 						packagePlace = Math.max(...depsIndexes) + 1;
 					}
 
@@ -108,6 +106,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 			},
 			{ commands: [], packages: [] },
 		);
+		console.log(orderedWorkspaceInfo);
 		consume(orderedWorkspaceInfo.commands);
 	})
 	.catch(e => {
