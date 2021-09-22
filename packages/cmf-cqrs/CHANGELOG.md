@@ -1,5 +1,13 @@
 # @talend/react-cmf-cqrs
 
+## 6.36.3
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-cmf@6.38.3
+
 ## 6.36.2
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @talend/react-datagrid
 
+## 6.36.3
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-cmf@6.38.3
+  - @talend/react-components@6.39.2
+  - @talend/icons@6.36.2
+
 ## 6.36.2
 
 ### Patch Changes

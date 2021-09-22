@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.0.2
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+
 ## 1.0.1
 
 ### Patch Changes

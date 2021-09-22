@@ -1,5 +1,14 @@
 # @talend/bootstrap-theme
 
+## 6.38.2
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/bootstrap-sass@3.4.6
+  - @talend/icons@6.36.2
+
 ## 6.38.1
 
 ### Patch Changes

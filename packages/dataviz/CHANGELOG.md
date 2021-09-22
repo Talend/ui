@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.7
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-components@6.39.2
+
 ## 0.4.6
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/router-bridge
 
+## 1.0.5
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+
 ## 1.0.4
 
 ### Patch Changes

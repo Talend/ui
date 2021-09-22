@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 6.39.2
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/icons@6.36.2
+  - @talend/bootstrap-theme@6.38.2
+  - @talend/utils@1.4.4
+
 ## 6.39.1
 
 ### Patch Changes
