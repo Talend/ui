@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "3.5.4",
+  "version": "3.5.5",
   "description": "",
   "main": "lib/index.js",
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
@@ -19,7 +19,7 @@
     "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "dependencies": {
-    "@talend/react-cmf": "^6.38.2",
+    "@talend/react-cmf": "^6.38.3",
     "lodash": "^4.17.15",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",

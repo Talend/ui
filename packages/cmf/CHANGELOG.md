@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 6.38.3
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+
 ## 6.38.2
 
 ### Patch Changes

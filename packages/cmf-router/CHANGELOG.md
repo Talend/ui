@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.5.5
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-cmf@6.38.3
+
 ## 3.5.4
 
 ### Patch Changes

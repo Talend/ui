@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.6
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+
 ## 3.4.5
 
 ### Patch Changes
@@ -144,7 +150,7 @@ Fixed a number of bugs: [Issues closed in v3.2.0.1](https://github.com/twbs/boot
 
 ## 2.3.1.1 (yanked)
 
-- Change how image_url is handled internally - _Tristan Harward_
+- Change how image*url is handled internally - \_Tristan Harward*
 - Fix some font variables not having `!default` - _Thomas McDonald_
 
 ## 2.3.0.0
