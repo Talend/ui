@@ -106,7 +106,6 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 			},
 			{ commands: [], packages: [] },
 		);
-		console.log(orderedWorkspaceInfo);
 		consume(orderedWorkspaceInfo.commands);
 	})
 	.catch(e => {
