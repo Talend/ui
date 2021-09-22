@@ -86,6 +86,11 @@
     "react-dom": "^16.8.6",
     "react-i18next": "^11.8.13"
   },
+  "peerDependenciesMeta": {
+    "react-ace": {
+      "optional": true
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
