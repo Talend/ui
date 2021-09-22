@@ -4,7 +4,7 @@ import { configure, addDecorator, addParameters } from '@storybook/react';
 import { ThemeProvider } from '@talend/design-system';
 import { withA11y } from '@storybook/addon-a11y';
 
-import '@talend/bootstrap-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 
 
 function withIconsProvider(storyFn) {

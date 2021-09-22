@@ -6,91 +6,71 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 
 // needed to increase its weight
 .switch.switch {
+	label {
+		padding: 0;
+	}
+
 	input[type='checkbox'] {
 		position: absolute;
-		clip: rect(1px, 1px, 1px, 1px);
-		padding: 0;
-		border: none;
-		height: 1px;
-		width: 1px;
-		overflow: hidden;
+		margin-left: -9999px;
 
 		+ * {
-			margin-left: $padding-normal;
-			color: tint($black, 50);
+			position: relative;
+			padding: 0 0 0 calc(1rem + 3.2rem);
+			cursor: pointer;
 		}
 
-		+ *:before,
-		+ *:after,
-		&:checked + *:before,
-		&:checked + *:after {
-			top: 0.4rem;
-			transition: background 0.2s ease, transform 0.2s ease;
-			border-radius: 13rem;
-		}
-
-		+ *:before,
-		&:checked + *:before {
-			width: 2.7rem;
-			height: 0.6rem;
-			background: $alto;
+		+ *::before,
+		+ *::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
 			border: none;
-			box-shadow: $switch-track-shadow;
+			// stylelint-disable-next-line declaration-property-value-disallowed-list
+			transition: all 250ms ease-in-out;
+			border-radius: 9999px;
 		}
 
-		+ *:after,
-		&:checked + *:after {
-			margin-top: -0.5rem;
-			width: 1.5rem;
-			height: 1.5rem;
-			background: $wild-sand;
-			border: 1px solid $silver;
-			box-shadow: $switch-thumb-shadow;
-			z-index: 1;
+		+ *::before {
+			width: 3.2rem;
+			height: 1.6rem;
+			background: $gray75;
+			box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 		}
 
-		&:checked {
-			+ * {
-				color: $text-color;
-			}
-
-			+ *:before {
-				background-color: $scooter;
-			}
-
-			+ *:after {
-				transform: translate(1.2rem, 0);
-			}
-		}
-
-		&:hover,
-		&:focus {
-			+ *:after {
-				background-color: $white;
-				box-shadow: $switch-thumb-shadow-focused;
-			}
+		+ *::after {
+			margin: calc((1.2rem - 0.8rem) / 2);
+			width: 1.2rem;
+			height: 1.2rem;
+			background-color: $white;
 		}
 
 		&:disabled {
-			+ *:before {
-				background-color: tint($gallery, 70);
-				box-shadow: $switch-track-shadow-disabled;
+			+ * {
+				opacity: 0.54;
+				pointer-events: none;
+			}
+		}
+
+		&:not(:disabled):hover {
+			+ *::before {
+				background: $gray200;
+			}
+		}
+
+		&:checked {
+			+ *::before {
+				background: $lochmara;
 			}
 
-			+ *:after {
-				background-color: $wild-sand;
-				border: $switch-thumb-border-disabled;
-				box-shadow: $switch-thumb-shadow;
+			+ *::after {
+				transform: translate(1.5rem, 0);
 			}
 
-			&:checked {
-				+ *:before {
-					background-color: tint($scooter, 70);
-				}
-
-				+ *:after {
-					background-color: $wild-sand;
-					border: $switch-thumb-border-disabled;
+			&:not(:disabled):hover {
+				+ *::before {
+					background: $lochmara600;
 				}
 			}
 		}

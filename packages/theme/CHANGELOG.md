@@ -1,5 +1,35 @@
 # @talend/bootstrap-theme
 
+## 6.38.2
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/bootstrap-sass@3.4.6
+  - @talend/icons@6.36.2
+
+## 6.38.1
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+  - @talend/bootstrap-sass@3.4.5
+  - @talend/icons@6.36.1
+
+## 6.38.0
+
+### Minor Changes
+
+- 274771710: Forms style to be more readable
+
+## 6.37.2
+
+### Patch Changes
+
+- 0bd4c26f8: Fix pre-release script: remove display=none option
+
 ## 6.37.1
 
 ### Patch Changes

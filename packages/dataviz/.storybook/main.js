@@ -1,4 +1,4 @@
-const SASS_DATA = "@import '~@talend/bootstrap-theme/src/theme/guidelines';";
+const SASS_DATA = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;";
 
 module.exports = {
 	stories: ['../src/**/*.stories.@(ts|tsx)'],

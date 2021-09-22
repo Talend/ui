@@ -40,7 +40,6 @@ export default function TextArea({
 			isValid={isValid}
 			label={title}
 			labelProps={labelProps}
-			labelAfter
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
