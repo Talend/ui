@@ -26,5 +26,17 @@
     "history": "^5.0.0",
     "react": "^16.0.0",
     "react-router-dom": "^5.2.0"
+  },
+  "peerDependencies": {
+    "connected-react-router": "^6.9.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "peerDependenciesMeta": {
+    "connected-react-router": {
+      "optional": true
+    },
+    "react-router-dom": {
+      "optional": true
+    }
   }
 }
