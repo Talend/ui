@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo "Prepare demo folder before execute surge"
+rm -rf .static
 mkdir .static
 mkdir .static/cmf
 mkdir .static/components
