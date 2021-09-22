@@ -41,7 +41,6 @@ export default function Text(props) {
 			id={id}
 			isValid={isValid}
 			label={title}
-			labelAfter
 			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}

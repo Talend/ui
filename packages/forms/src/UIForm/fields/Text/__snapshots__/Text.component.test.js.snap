@@ -9,7 +9,6 @@ exports[`Text field should render disabled input 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <input
@@ -47,7 +46,6 @@ exports[`Text field should render input 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <input
@@ -76,7 +74,6 @@ exports[`Text field should render input with max attribute 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <input
@@ -106,7 +103,6 @@ exports[`Text field should render input with min attribute 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <input
@@ -136,7 +132,6 @@ exports[`Text field should render password input 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <ForwardRef
@@ -165,7 +160,6 @@ exports[`Text field should render readonly input 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <input

@@ -1,5 +1,3 @@
-import get from 'lodash/get';
-
 /**
  * Storage point for the doc setup using `setDefaultConfig`
  */
@@ -43,7 +41,7 @@ export function getDefaultConfig() {
  * @param {String} language
  */
 export function setDefaultLanguage(language) {
-	if (get(HTTP, 'defaultConfig.headers')) {
+	if (HTTP.defaultConfig?.headers) {
 		HTTP.defaultConfig.headers['Accept-Language'] = language;
 	} else {
 		// eslint-disable-next-line no-console

@@ -1,5 +1,3 @@
-@use "sass:math";
-
 //
 // Jumbotron
 // --------------------------------------------------
@@ -18,7 +16,7 @@
   }
 
   p {
-    margin-bottom: math.div($jumbotron-padding, 2);
+    margin-bottom: calc(#{$jumbotron-padding} / 2);
     font-size: $jumbotron-font-size;
     font-weight: 200;
   }
@@ -29,8 +27,8 @@
 
   .container &,
   .container-fluid & {
-    padding-right: math.div($grid-gutter-width, 2);
-    padding-left: math.div($grid-gutter-width, 2);
+    padding-right: calc(#{$grid-gutter-width} / 2);
+    padding-left: calc(#{$grid-gutter-width} / 2);
     border-radius: $border-radius-large; // Only round corners at higher resolutions if contained in a container
   }
 

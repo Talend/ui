@@ -1,7 +1,5 @@
-// Drawer styles
-
 $tc-drawer-initial-offset: 1000px !default;
-$tc-drawer-bgcolor: #fff !default;
+$tc-drawer-bgcolor: white !default;
 $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
 $tc-drawer-padding: $padding-large !default;
@@ -83,6 +81,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		.tc-editable-text {
 			min-width: 0;
 		}
+
 		.tc-editable-text-pencil {
 			color: $tc-drawer-header-color;
 		}
@@ -119,10 +118,10 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		.drawer-close-action-tooltip {
 			position: absolute;
 			right: 0;
-			bottom: $tc-drawer-padding / 2;
+			bottom: calc($tc-drawer-padding / 2);
 		}
 
-		& > .tc-editable-text {
+		> .tc-editable-text {
 			width: unset;
 		}
 	}

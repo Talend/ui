@@ -4,10 +4,6 @@
  * and then merge it if available into a http config.
  */
 
-import merge from 'lodash/merge';
-import flow from 'lodash/flow';
-import curry from 'lodash/curry';
-
 /**
  * @typedef {Object} HTTPConfig
  * @property {string} body
@@ -57,12 +53,12 @@ function parseCookie(cookie) {
  * @param {Object.CSRFTokenCookieKey} CSRFTokenCookieKey - default `csrfToken`
  * @param {Map.<string, string>} cookieValues
  */
-const findCSRFToken = curry(({ CSRFTokenCookieKey = 'csrfToken' }, cookieValues) => {
+const findCSRFToken = ({ CSRFTokenCookieKey = 'csrfToken' }) => cookieValues => {
 	if (cookieValues instanceof Map) {
 		return cookieValues.get(CSRFTokenCookieKey);
 	}
 	return undefined;
-});
+};
 
 /**
  * effectively merge the csrf token into the http configuration
@@ -71,14 +67,18 @@ const findCSRFToken = curry(({ CSRFTokenCookieKey = 'csrfToken' }, cookieValues)
  * @param {string} csrfToken
  * @return {function}
  */
-const mergeCSRFTokenConfig = curry(
-	({ CSRFTokenHeaderKey = 'X-CSRF-Token' }, httpConfig, csrfToken) => {
-		if (csrfToken) {
-			return merge({}, httpConfig, { headers: { [CSRFTokenHeaderKey]: csrfToken } });
-		}
-		return httpConfig;
-	},
-);
+const mergeCSRFTokenConfig = ({ CSRFTokenHeaderKey = 'X-CSRF-Token' }, httpConfig) => csrfToken => {
+	if (csrfToken) {
+		return {
+			...httpConfig,
+			headers: {
+				...httpConfig.headers,
+				[CSRFTokenHeaderKey]: csrfToken,
+			},
+		};
+	}
+	return httpConfig;
+};
 
 /**
  * if a CSRF token is found in csrfToken cookie, merge it in the headers
@@ -89,10 +89,10 @@ const mergeCSRFTokenConfig = curry(
  */
 export function mergeCSRFToken({ security = {} }) {
 	return httpConfig =>
-		flow([
+		[
 			getCookie,
 			parseCookie,
 			findCSRFToken(security),
 			mergeCSRFTokenConfig(security, httpConfig),
-		])();
+		].reduce((prev, fct) => fct(prev), null);
 }
