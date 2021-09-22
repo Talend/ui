@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.7
+
+### Patch Changes
+
+- ca60841df: revert usage of @use sass:math
+
 ## 3.4.6
 
 ### Patch Changes
