@@ -43,37 +43,6 @@ module.exports = {
 		'../src/pages/**/*.stories.@(js|tsx|mdx)',
 	],
 	addons: [
-		{
-			name: '@storybook/addon-docs',
-			options: {
-				transcludeMarkdown: true,
-				sourceLoaderOptions: {
-					prettierConfig: {
-						arrowParens: 'avoid',
-						printWidth: 100,
-						singleQuote: true,
-						trailingComma: 'all',
-						semi: true,
-						useTabs: true,
-						overrides: [
-							{
-								files: '**/*.json',
-								options: {
-									tabWidth: 2,
-									useTabs: false,
-								},
-							},
-							{
-								files: '**/*.scss',
-								options: {
-									printWidth: 1000,
-								},
-							},
-						],
-					},
-				},
-			},
-		},
 		'@storybook/addon-a11y',
 		'@storybook/addon-essentials',
 		'@storybook/addon-links',
