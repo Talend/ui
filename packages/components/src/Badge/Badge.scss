@@ -1,10 +1,8 @@
-@use 'sass:math';
-
 $tc-badge-large-label-font-size: 1.4rem !default;
 $tc-badge-large-label-font-weight: normal !default;
 $tc-badge-large-label-with-categ-font-weight: $font-weight-semi-bold !default;
 $tc-badge-large-height: 2.4rem !default;
-$tc-badge-large-vertical-padding: math.div($tc-badge-large-height - $tc-badge-large-label-font-size * $line-height-base, 2) !default;
+$tc-badge-large-vertical-padding: calc((#{$tc-badge-large-height} - #{$tc-badge-large-label-font-size} * #{$line-height-base}) / 2) !default; // $line-height-base / 2
 $tc-badge-large-margin: $padding-smaller !default;
 $tc-badge-large-delete-icon-size: $svg-xs-size !default;
 $tc-badge-large-icon-size: $svg-xs-size !default;
@@ -14,9 +12,9 @@ $tc-badge-small-label-font-size: 1.2rem !default;
 $tc-badge-small-label-font-weight: normal !default;
 $tc-badge-small-label-with-categ-font-weight: $font-weight-semi-bold !default;
 $tc-badge-small-height: 2rem !default;
-$tc-badge-small-vertical-padding: math.div($tc-badge-small-height - $tc-badge-small-label-font-size * $line-height-base, 2) !default;
+$tc-badge-small-vertical-padding: calc((#{$tc-badge-small-height} - #{$tc-badge-small-label-font-size} * #{$line-height-base}) / 2) !default; // $line-height-base / 2
 $tc-badge-small-margin: $padding-smaller !default;
-$tc-badge-small-delete-icon-size: math.div($svg-sm-size, 2) !default;
+$tc-badge-small-delete-icon-size: calc(#{$svg-sm-size} / 2) !default;
 $tc-badge-small-icon-size: $svg-xs-size !default;
 $tc-badge-small-padding: 0.8rem;
 
@@ -195,8 +193,8 @@ $tc-badge-disabled-opacity: 0.62;
 			}
 
 			.tc-badge-delete-icon {
-				height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
-				min-height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+				height: calc(#{$tc-badge-large-height} - 2 * #{$tc-badge-large-vertical-padding});
+				min-height: calc(#{$tc-badge-large-height} - 2 * #{$tc-badge-large-vertical-padding});
 
 				svg {
 					height: $tc-badge-large-delete-icon-size;
@@ -205,8 +203,8 @@ $tc-badge-disabled-opacity: 0.62;
 			}
 
 			.tc-badge-dropdown {
-				height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
-				min-height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+				height: calc(#{$tc-badge-large-height} - 2 * #{$tc-badge-large-vertical-padding});
+				min-height: calc(#{$tc-badge-large-height} - 2 * #{$tc-badge-large-vertical-padding});
 				font-size: $tc-badge-large-label-font-size;
 				font-weight: $tc-badge-large-label-with-categ-font-weight;
 
@@ -255,8 +253,8 @@ $tc-badge-disabled-opacity: 0.62;
 			}
 
 			.tc-badge-delete-icon {
-				height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
-				min-height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+				height: calc(#{$tc-badge-small-height} - 2 * #{$tc-badge-small-vertical-padding});
+				min-height: calc(#{$tc-badge-small-height} - 2 * #{$tc-badge-small-vertical-padding});
 
 				svg {
 					height: $tc-badge-small-delete-icon-size;
@@ -265,8 +263,8 @@ $tc-badge-disabled-opacity: 0.62;
 			}
 
 			.tc-badge-dropdown {
-				height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
-				min-height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+				height: calc(#{$tc-badge-small-height} - 2 * #{$tc-badge-small-vertical-padding});
+				min-height: calc(#{$tc-badge-small-height} - 2 * #{$tc-badge-small-vertical-padding});
 				font-size: $tc-badge-small-label-font-size;
 				font-weight: $tc-badge-small-label-with-categ-font-weight;
 

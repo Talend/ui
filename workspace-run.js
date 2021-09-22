@@ -30,13 +30,19 @@ function run(cmd, opts = {}) {
 		out.on('close', () => {
 			resolve(stdout);
 		});
-		out.on('exit', () => {
+		out.on('exit', code => {
 			if (opts.verbose && stderr) {
-				console.error(`RUNNER: Child Process STDERR: ${stderr}`);
+				console.error(`#### RUNNER: Child Process STDERR: ${stderr}`);
 			}
 			if (opts.verbose && stdout) {
-				console.error(`RUNNER: Child Process STDOUT: ${stdout}`);
+				console.error(`#### RUNNER: Child Process STDOUT: ${stdout}`);
 			}
+			if (code > 0) {
+				console.error(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
+				reject(stderr);
+				return;
+			}
+			console.log(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
 			resolve(stdout);
 		});
 		out.stdout.on('data', data => {

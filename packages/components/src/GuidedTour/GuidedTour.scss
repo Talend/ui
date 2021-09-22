@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 $tc-guidedtour-accent-color: $scooter !default;
 $tc-guidedtour-tooltip-padding: $padding-large !default;
 $tc-guidedtour-mask-opactiy: 0.25 !default;
@@ -54,7 +52,7 @@ $tc-guidedtour-width: 40rem !default;
 
 			[data-tour-elem='dot'] {
 				padding: 0;
-				margin: 0 math.div($padding-small, 2);
+				margin: 0 $padding-smaller;
 				width: $padding-small;
 				height: $padding-small;
 			}

@@ -87,11 +87,11 @@ module.exports = (env, argv) => {
 		],
 		devServer: {
 			port: 1234,
-			stats: 'errors-only',
 			historyApiFallback: true,
-			contentBase: path.join(process.cwd(), 'dist'),
+			static: {
+				directory: path.join(process.cwd(), 'dist'),
+			},
 			compress: true,
-			inline: true,
 			hot: true,
 		},
 	};

@@ -1,4 +1,3 @@
-@use 'sass:math';
 /* stylelint-disable selector-no-qualifying-type */
 
 $tc-tabbar-active-border-size: 0.2rem !default;
@@ -64,7 +63,7 @@ $tc-tabbar-active-color: $lochmara;
 				.caret {
 					position: absolute;
 					right: $padding-large;
-					margin-top: math.div($dropdown-caret-size, 2);
+					margin-top: calc(#{$dropdown-caret-size} / 2);
 				}
 			}
 		}
