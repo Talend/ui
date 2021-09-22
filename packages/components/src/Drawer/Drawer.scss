@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: white !default;
 $tc-drawer-transition-duration: 230ms !default;
@@ -120,7 +118,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		.drawer-close-action-tooltip {
 			position: absolute;
 			right: 0;
-			bottom: math.div($tc-drawer-padding, 2);
+			bottom: calc($tc-drawer-padding / 2);
 		}
 
 		> .tc-editable-text {

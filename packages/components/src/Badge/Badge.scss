@@ -1,10 +1,8 @@
-@use 'sass:math';
-
 $tc-badge-large-label-font-size: 1.4rem !default;
 $tc-badge-large-label-font-weight: normal !default;
 $tc-badge-large-label-with-categ-font-weight: $font-weight-semi-bold !default;
 $tc-badge-large-height: 2.4rem !default;
-$tc-badge-large-vertical-padding: math.div($tc-badge-large-height - $tc-badge-large-label-font-size * $line-height-base, 2) !default;
+$tc-badge-large-vertical-padding: $tc-badge-large-height - $tc-badge-large-label-font-size * 0.7142857145 !default; // $line-height-base / 2
 $tc-badge-large-margin: $padding-smaller !default;
 $tc-badge-large-delete-icon-size: $svg-xs-size !default;
 $tc-badge-large-icon-size: $svg-xs-size !default;
@@ -14,9 +12,9 @@ $tc-badge-small-label-font-size: 1.2rem !default;
 $tc-badge-small-label-font-weight: normal !default;
 $tc-badge-small-label-with-categ-font-weight: $font-weight-semi-bold !default;
 $tc-badge-small-height: 2rem !default;
-$tc-badge-small-vertical-padding: math.div($tc-badge-small-height - $tc-badge-small-label-font-size * $line-height-base, 2) !default;
+$tc-badge-small-vertical-padding: $tc-badge-small-height - $tc-badge-small-label-font-size * 0.7142857145 !default; // $line-height-base / 2
 $tc-badge-small-margin: $padding-smaller !default;
-$tc-badge-small-delete-icon-size: math.div($svg-sm-size, 2) !default;
+$tc-badge-small-delete-icon-size: svg-sm-size / 2 !default;
 $tc-badge-small-icon-size: $svg-xs-size !default;
 $tc-badge-small-padding: 0.8rem;
 
