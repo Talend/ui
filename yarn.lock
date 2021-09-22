@@ -2810,9 +2810,9 @@
     typeface-source-sans-pro "^1.1.13"
 
 "@talend/dynamic-cdn-webpack-plugin@^9.7.7":
-  version "9.7.9"
-  resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.9.tgz#8b495372ee2aecb17cee8274522370ea9f3da62a"
-  integrity sha512-83q/SvglnmV+zmzHxFFcbWB7PyYyiA9/DfjkR9VohuWAm82YecEB8NKH8Qb6t/TghLXKZrtdJP0fy2gy9+dyfg==
+  version "9.7.11"
+  resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.11.tgz#18a55b5bd88076b9eac1009be7aea42c049e0fad"
+  integrity sha512-beSq/3TBW2ClGsvtelNKDXaAIINKlSn8bFhFtK5HZTac84y/M+H0Qp7xtO/ov3Pm1YGu3d2momdrNz/logMokA==
   dependencies:
     "@talend/module-to-cdn" "^9.7.1"
     read-pkg-up "^7.0.1"
