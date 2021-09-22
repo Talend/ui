@@ -16,7 +16,7 @@
 // Creates a wrapper for a series of columns
 @mixin make-row($gutter: $grid-gutter-width) {
   margin-right: calc(#{$gutter} / -2);
-  margin-left: calc(#{$gutter} / -2))
+  margin-left: calc(#{$gutter} / -2);
   @include clearfix;
 }
 
