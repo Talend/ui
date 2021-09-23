@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "pre-release": "node ./scripts/typescript.js",
-    "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env.production",
+    "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env production",
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
     "docs": "node ./scripts/docs.js",
