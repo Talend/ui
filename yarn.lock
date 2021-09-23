@@ -2794,19 +2794,6 @@
   dependencies:
     semver "^7.3.5"
 
-"@talend/bootstrap-sass@^3.4.7":
-  version "3.4.7"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-sass/-/bootstrap-sass-3.4.7.tgz#07eab24c5d0823de35d46868f31fb53d70b38da1"
-  integrity sha512-jD/r+x9tXVQw85HPukJ9x5NEiI45ro+y10P1Exqf1tc/PDaQYxssgASasJJVMgwCxwix14/Wa55a12cBbG393A==
-
-"@talend/bootstrap-theme@^6.38.3":
-  version "6.38.3"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-6.38.3.tgz#884d07a97424d2b335657cd0d28b9f006b33dd4d"
-  integrity sha512-bIx3RuKRK9jlyDyTjGFgxu/NcjnLOv7MNEz3J+e16ay9gyiYRGeJbA7HAvPNwF8VzQPSc3gBWQiYxp9zWZef8g==
-  dependencies:
-    "@talend/bootstrap-sass" "^3.4.7"
-    "@talend/icons" "^6.36.2"
-
 "@talend/design-system@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-1.4.0.tgz#e4e42db437db27e6a5f8d6a3469b4a1ba98520cd"
@@ -2857,45 +2844,6 @@
     execa "^4.1.0"
     mkdirp "^1.0.4"
     semver "^7.3.5"
-
-"@talend/react-components@^6.39.3":
-  version "6.39.3"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-6.39.3.tgz#7202600e63a7f2ee92adca1c6e2cb2e9fb7611e3"
-  integrity sha512-l7H9qajNPwmrebHg2q0R6RC3/UUm7kB3gezeQHaV529E2CaSMwwhdx7kcVpgWsNp6YRpRYL2SPFgxIqMLXKrQQ==
-  dependencies:
-    "@popperjs/core" "^2.6.0"
-    "@talend/bootstrap-theme" "^6.38.3"
-    "@talend/design-system" "^1.4.0"
-    "@talend/icons" "^6.36.2"
-    "@talend/utils" "^1.4.4"
-    ally.js "^1.4.1"
-    classnames "^2.2.5"
-    d3 "^6.3.0"
-    date-fns "^1.27.2"
-    focus-outline-manager "^1.0.2"
-    immutable "^3.8.1"
-    invariant "^2.2.2"
-    keycode "^2.2.0"
-    lodash "^4.17.15"
-    memoize-one "^5.0.0"
-    rc-slider "8.6.3"
-    rc-tooltip "3.7.3"
-    react-autowhatever "10.2.0"
-    react-bootstrap "0.32.4"
-    react-debounce-input "3.2.0"
-    react-draggable "^3.3.0"
-    react-grid-layout "0.16.6"
-    react-immutable-proptypes "^2.1.0"
-    react-popper "^2.2.4"
-    react-transition-group "^2.3.1"
-    react-use "^13.27.0"
-    react-virtualized "9.21.0"
-    reactour "^1.13.4"
-    recharts "^1.8.5"
-    simplebar "^4.2.2"
-    simplebar-react "^1.2.2"
-    styled-components "^4.4.1"
-    uuid "^3.4.0"
 
 "@talend/scripts-config-babel@^9.6.3", "@talend/scripts-config-babel@^9.7.0", "@talend/scripts-config-babel@^9.7.1":
   version "9.7.2"
