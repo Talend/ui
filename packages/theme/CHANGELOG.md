@@ -1,5 +1,13 @@
 # @talend/bootstrap-theme
 
+## 6.38.4
+
+### Patch Changes
+
+- 809c30848: fix(boostrap-sass): use calc instead of math.div
+- Updated dependencies [809c30848]
+  - @talend/bootstrap-sass@3.4.8
+
 ## 6.38.3
 
 ### Patch Changes
