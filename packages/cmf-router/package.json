@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.0.1",
-    "@talend/scripts-preset-react-lib": "^9.9.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
     "enzyme": "^3.11.0",
     "node-fetch": "^2.6.1",
     "react": "^16.13.1",

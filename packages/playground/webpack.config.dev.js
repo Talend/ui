@@ -4,7 +4,7 @@ const config = require('./webpack.config');
 const webpackConfig = {
 	...config,
 	devServer: {
-		before: mockBackend,
+		onBeforeSetupMiddleware: mockBackend,
 	},
 };
 
