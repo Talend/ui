@@ -1,5 +1,13 @@
 # @talend/bootstrap-theme
 
+## 6.38.3
+
+### Patch Changes
+
+- ca60841df: revert usage of @use sass:math
+- Updated dependencies [ca60841df]
+  - @talend/bootstrap-sass@3.4.7
+
 ## 6.38.2
 
 ### Patch Changes

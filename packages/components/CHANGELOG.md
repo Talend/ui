@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 6.39.3
+
+### Patch Changes
+
+- ca60841df: revert usage of @use sass:math
+- Updated dependencies [ca60841df]
+  - @talend/bootstrap-theme@6.38.3
+
 ## 6.39.2
 
 ### Patch Changes
