@@ -21,7 +21,7 @@
   "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
   "devDependencies": {
     "@talend/scripts-core": "^11.0.1",
-    "@talend/scripts-preset-react-lib": "^9.9.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
     "connected-react-router": "^6.9.1",
     "history": "^5.0.0",
     "react": "^16.0.0",

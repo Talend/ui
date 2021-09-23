@@ -5,20 +5,32 @@
  */
 import getRouter from '@talend/react-cmf-router';
 import cmf from '@talend/react-cmf';
+import { AppLoader } from '@talend/react-components';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
-import ComponentFormSandbox from './ComponentFormSandbox';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import ComponentFormSandbox from './components/ComponentFormSandbox';
+import { LeaguesList } from './components/List';
+
 import actions from './actions';
 
 const router = getRouter();
 
+i18n.use(initReactI18next).init({
+	react: {
+		useSuspense: false,
+	},
+});
+
 const app = {
-	components: { ComponentForm, ComponentFormSandbox },
+	components: { ComponentForm, ComponentFormSandbox, LeaguesList },
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [],
 	modules: [router.cmfModule, containersModule],
 	RootComponent: router.RootComponent,
+	AppLoader,
 };
 
 /**

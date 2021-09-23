@@ -41,8 +41,7 @@ jobs:
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: |
-          mkdir -p ".static/${{ github.event.number }}"
-          cp -Rf .static/@talend ".static/${{ github.event.number }}"
+          mv .static/@talend ".static/${{ github.event.number }}"
           surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}

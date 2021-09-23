@@ -8,6 +8,7 @@
   "scripts": {
     "postinstall": "node workspace-run.js build:lib",
     "pre-release": "node workspace-run.js pre-release",
+    "start": "yarn workspace @talend/ui-playground run start",
     "info": "yarn workspaces --silent info > info.json",
     "release": "yarn changeset publish",
     "lint:es": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:es",
@@ -48,7 +49,6 @@
     "mixin-deep": "^1.3.2",
     "handlebars": "^4.7.6",
     "websocket-driver": "^0.7.3",
-    "webpack-dev-middleware": "^3.7.2",
     "elliptic": "^6.5.2"
   }
 }

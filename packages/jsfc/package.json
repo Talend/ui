@@ -41,7 +41,7 @@
   ],
   "devDependencies": {
     "@talend/scripts-core": "^11.0.1",
-    "@talend/scripts-preset-react-lib": "^9.9.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.33",
     "@types/node": "^6.0.42",
