@@ -30,13 +30,19 @@ function run(cmd, opts = {}) {
 		out.on('close', () => {
 			resolve(stdout);
 		});
-		out.on('exit', () => {
+		out.on('exit', code => {
 			if (opts.verbose && stderr) {
-				console.error(`RUNNER: Child Process STDERR: ${stderr}`);
+				console.error(`#### RUNNER: Child Process STDERR: ${stderr}`);
 			}
 			if (opts.verbose && stdout) {
-				console.error(`RUNNER: Child Process STDOUT: ${stdout}`);
+				console.error(`#### RUNNER: Child Process STDOUT: ${stdout}`);
 			}
+			if (code > 0) {
+				console.error(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
+				reject(stderr);
+				return;
+			}
+			console.log(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
 			resolve(stdout);
 		});
 		out.stdout.on('data', data => {
@@ -59,7 +65,7 @@ const scriptArgs = process.argv.slice(3);
 
 function consume(cmds) {
 	if (cmds.length > 0) {
-		const cmd = cmds.pop();
+		const cmd = cmds.shift();
 		run(cmd, { verbose: true })
 			.then(() => consume(cmds))
 			.catch(() => {
@@ -75,22 +81,38 @@ function consume(cmds) {
 }
 
 run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
-	.then(infoOutput => {
-		let info = {};
-		try {
-			info = JSON.parse(infoOutput);
-		} catch (e) {
-			console.error(e);
-		}
-		// now we have all the info
-		const commands = Object.keys(info).reduce((acc, pkg) => {
-			const packageJson = require(`./${info[pkg].location}/package.json`);
-			if (packageJson.scripts[script]) {
-				acc.push({ name: 'yarn', args: ['workspace', '--silent', pkg, 'run', script].concat(scriptArgs) });
-			}
-			return acc;
-		}, []);
-		consume(commands);
+	.then(info => JSON.parse(info))
+	.then(workspaceInfo => {
+		const orderedWorkspaceInfo = Object.entries(workspaceInfo).reduce(
+			(accu, [packageName, packageInfo]) => {
+				const { commands, packages } = accu;
+				const { location, workspaceDependencies } = packageInfo;
+
+				const packageJson = require(`./${location}/package.json`);
+				if (packageJson.scripts[script]) {
+					const cmd = {
+						name: 'yarn',
+						args: ['workspace', '--silent', packageName, 'run', script].concat(scriptArgs),
+					};
+
+					// package must be built after its workspace dependencies
+					// let's place the command, after the dependencies in the commands list
+					// to do that, we find the dependencies index, and put the command after the last dependency (max index)
+					let packagePlace = 0;
+					if (workspaceDependencies.length) {
+						const depsIndexes = workspaceDependencies.map(dep => packages.indexOf(dep));
+						packagePlace = Math.max(...depsIndexes) + 1;
+					}
+
+					packages.splice(packagePlace, 0, packageName);
+					commands.splice(packagePlace, 0, cmd);
+				}
+
+				return accu;
+			},
+			{ commands: [], packages: [] },
+		);
+		consume(orderedWorkspaceInfo.commands);
 	})
 	.catch(e => {
 		console.error(e);

@@ -18,21 +18,6 @@ describe('InputSizer', () => {
 		// then
 		expect(children).toHaveBeenCalledWith(47);
 	});
-	it('should apply placeholder style when no input', () => {
-		// given
-		const children = jest.fn();
-		// when
-		const wrapper = shallow(<InputSizer placeholder="HH:mm">{children}</InputSizer>);
-		// then
-		const style = wrapper.find('span').prop('style');
-		expect(style).toEqual({
-			fontSize: '1.6rem',
-			fontStyle: 'oblique',
-			fontWeight: 400,
-			visibility: 'hidden',
-			position: 'absolute',
-		});
-	});
 	it('should apply inputText style when there is input', () => {
 		// given
 		const children = jest.fn();
@@ -44,6 +29,11 @@ describe('InputSizer', () => {
 		);
 		// then
 		const style = wrapper.find('span').prop('style');
-		expect(style).toEqual({ fontSize: '1.6rem', fontWeight: 400, visibility: 'hidden', position: 'absolute' });
+		expect(style).toEqual({
+			padding: '0 1rem',
+			fontSize: '1.4rem',
+			visibility: 'hidden',
+			position: 'absolute',
+		});
 	});
 });

@@ -1,6 +1,6 @@
 {
   "name": "@talend/utils",
-  "version": "1.4.2",
+  "version": "1.4.4",
   "description": "Various utilities",
   "main": "lib/index.js",
   "repository": {
@@ -21,8 +21,8 @@
     "extends": "talend-scripts extends"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^9.13.1",
-    "@talend/scripts-preset-react-lib": "^9.9.0",
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.1",
     "@typescript-eslint/parser": "^4.26.1",
     "cross-env": "^7.0.3"
   },

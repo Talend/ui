@@ -138,7 +138,7 @@
 			background-color: rgba($brand-primary, 0.3);
 			color: $brand-primary;
 			font-size: 1rem;
-			padding: ($padding-smaller / 2) $padding-smaller;
+			padding: calc($padding-smaller / 2) $padding-smaller;
 			display: inline-table;
 		}
 	}

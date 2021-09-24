@@ -11,6 +11,7 @@ import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
 import { IconsProvider } from '@talend/react-components';
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 import i18n from './../../../.storybook/i18n';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';

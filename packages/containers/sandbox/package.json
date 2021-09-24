@@ -20,7 +20,7 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-core": "^9.13.1",
+    "@talend/scripts-core": "^11.0.1",
     "@talend/scripts-preset-react": "^9.8.7",
     "compression": "^1.7.3",
     "express": "^4.16.4"

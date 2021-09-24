@@ -101,8 +101,8 @@ exports[`InputDateTimePicker should render 1`] = `
                     <span
                       style={
                         Object {
-                          "fontSize": "1.6rem",
-                          "fontWeight": 400,
+                          "fontSize": "1.4rem",
+                          "padding": "0 1rem",
                           "position": "absolute",
                           "visibility": "hidden",
                         }
@@ -158,7 +158,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       value="15:27:00"
                     />
                     <span
-                      style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                      style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
                     >
                       HH:mm:ss
                     </span>
@@ -228,8 +228,8 @@ exports[`InputDateTimePicker should render 1`] = `
                     <span
                       style={
                         Object {
-                          "fontSize": "1.6rem",
-                          "fontWeight": 400,
+                          "fontSize": "1.4rem",
+                          "padding": "0 1rem",
                           "position": "absolute",
                           "visibility": "hidden",
                         }

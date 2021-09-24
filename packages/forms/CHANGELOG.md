@@ -1,5 +1,46 @@
 # @talend/react-forms
 
+## 6.39.2
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-components@6.39.2
+  - @talend/json-schema-form-core@1.0.2
+  - @talend/utils@1.4.4
+
+## 6.39.1
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+- Updated dependencies [80ca14323]
+  - @talend/react-components@6.39.1
+  - @talend/json-schema-form-core@1.0.1
+  - @talend/utils@1.4.3
+
+## 6.39.0
+
+### Minor Changes
+
+- 274771710: Forms style to be more readable
+
+### Patch Changes
+
+- Updated dependencies [f9c1acb3e]
+- Updated dependencies [274771710]
+  - @talend/react-components@6.39.0
+
+## 6.38.1
+
+### Patch Changes
+
+- 0bd4c26f8: Fix pre-release script: remove display=none option
+- Updated dependencies [0bd4c26f8]
+  - @talend/react-components@6.38.1
+
 ## 6.38.0
 
 ### Minor Changes

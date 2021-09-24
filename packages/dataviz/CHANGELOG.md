@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.4.7
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-components@6.39.2
+
+## 0.4.6
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+- Updated dependencies [80ca14323]
+  - @talend/react-components@6.39.1
+
 ## 0.4.5
 
 ### Fixed
@@ -79,7 +96,6 @@
 ### Fixed
 
 - [Reset tooltip line margin](https://github.com/Talend/ui/pull/3158):
-
 
 ## [0.1.3]
 
