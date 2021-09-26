@@ -182,6 +182,7 @@ export class ItemsComponent extends React.PureComponent {
 				item={item}
 				isSwitchBox={this.props.isSwitchBox && !item.children}
 				searchCriteria={this.props.searchCriteria}
+				dataTest={`${this.props.dataTest}-${index}`}
 			>
 				{item.children &&
 					item.children.map((nestedItem, nestedIndex) => (
@@ -191,6 +192,7 @@ export class ItemsComponent extends React.PureComponent {
 							item={nestedItem}
 							parentItem={item}
 							searchCriteria={this.props.searchCriteria}
+							dataTest={`${this.props.dataTest}.nested-${nestedIndex}`}
 						/>
 					))}
 			</Item>
@@ -247,6 +249,7 @@ ItemsComponent.propTypes = {
 	toggleAllChecked: PropTypes.bool,
 	showToggleAll: PropTypes.bool,
 	onToggleAll: PropTypes.func,
+	dataTest: PropTypes.string,
 	t: PropTypes.func,
 };
 

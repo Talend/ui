@@ -21,7 +21,7 @@ class Item extends Component {
 	}
 
 	render() {
-		const { id, item, parentItem, isSwitchBox, searchCriteria, children, t } = this.props;
+		const { id, item, parentItem, isSwitchBox, searchCriteria, children, dataTest, t } = this.props;
 
 		/**
 		 * This function allow to get component rendering based on searchCriteria
@@ -53,7 +53,6 @@ class Item extends Component {
 				? t('TC_LISTVIEW_COLLAPSE', { defaultValue: 'Collapse {{ value }}', value: item.label })
 				: t('TC_LISTVIEW_EXPAND', { defaultValue: 'Expand {{ value }}', value: item.label });
 		}
-
 		return (
 			<div
 				id={id}
@@ -61,6 +60,7 @@ class Item extends Component {
 				key={item.index}
 				role="option"
 				aria-selected={item.checked}
+				data-test={dataTest}
 			>
 				<Checkbox
 					id={itemId}
@@ -79,9 +79,10 @@ class Item extends Component {
 						</>
 					}
 					aria-label={ariaLabel}
+					data-test={`${dataTest}.checkbox`}
 				/>
 				{children && (
-					<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })}>
+					<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })} data-test={`${dataTest}.checkbox-nested-expand`}>
 						<Action
 							bsStyle="link"
 							icon="talend-caret-down"
