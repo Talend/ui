@@ -3,6 +3,7 @@
 '@talend/react-cmf-cqrs': major
 '@talend/react-cmf-router': major
 '@talend/react-components': major
+'@talend/react-forms': major
 '@talend/react-containers': major
 '@talend/react-datagrid': major
 '@talend/react-sagas': major
