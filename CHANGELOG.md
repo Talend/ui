@@ -1,5 +1,18 @@
 # @talend/design-system
 
+## 1.5.0
+
+### Minor Changes
+
+- 5f4f3f4: Fixing combobox types
+- 5f4f3f4: Button components now have strict typings
+- 3e83ac7: Links props are now restrictive
+
+### Patch Changes
+
+- 996e16e: add i18next support
+- 77006d2: Link target attribute should be preserved on subcomponent
+
 ## 1.4.0
 
 ### Minor Changes
