@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.39.4
+
+### Patch Changes
+
+- 603785022: chore(components+forms): Bump @talend/design-system
+
 ## 6.39.3
 
 ### Patch Changes
