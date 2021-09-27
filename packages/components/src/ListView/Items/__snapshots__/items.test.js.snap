@@ -273,6 +273,7 @@ exports[`Items should render 1`] = `
                     }
                   >
                     <withI18nextTranslation(Item)
+                      dataTest="undefined-0"
                       isSwitchBox={false}
                       item={
                         Object {
@@ -284,10 +285,12 @@ exports[`Items should render 1`] = `
                     >
                       <div
                         className="checkbox"
+                        data-test="undefined-0"
                         role="option"
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor sit amet 0"
+                          data-test="undefined-0.checkbox"
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 0
@@ -302,6 +305,7 @@ exports[`Items should render 1`] = `
                               <input
                                 aria-label="Select Lorem ipsum dolor sit amet 0"
                                 data-checked={0}
+                                data-test="undefined-0.checkbox"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -368,6 +372,7 @@ exports[`Items should render 1`] = `
                     }
                   >
                     <withI18nextTranslation(Item)
+                      dataTest="undefined-1"
                       isSwitchBox={false}
                       item={
                         Object {
@@ -381,11 +386,13 @@ exports[`Items should render 1`] = `
                       <div
                         aria-selected={true}
                         className="checkbox"
+                        data-test="undefined-1"
                         role="option"
                       >
                         <Checkbox
                           aria-label="Deselect Lorem ipsum dolor sit amet 1"
                           checked={true}
+                          data-test="undefined-1.checkbox"
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 1
@@ -401,6 +408,7 @@ exports[`Items should render 1`] = `
                                 aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                 checked={true}
                                 data-checked={2}
+                                data-test="undefined-1.checkbox"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -467,6 +475,7 @@ exports[`Items should render 1`] = `
                     }
                   >
                     <withI18nextTranslation(Item)
+                      dataTest="undefined-2"
                       isSwitchBox={false}
                       item={
                         Object {
@@ -478,10 +487,12 @@ exports[`Items should render 1`] = `
                     >
                       <div
                         className="checkbox"
+                        data-test="undefined-2"
                         role="option"
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor sit amet 2"
+                          data-test="undefined-2.checkbox"
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 2
@@ -496,6 +507,7 @@ exports[`Items should render 1`] = `
                               <input
                                 aria-label="Select Lorem ipsum dolor sit amet 2"
                                 data-checked={0}
+                                data-test="undefined-2.checkbox"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -813,6 +825,7 @@ exports[`Items should render with nested items 1`] = `
                     }
                   >
                     <withI18nextTranslation(Item)
+                      dataTest="undefined-0"
                       isSwitchBox={false}
                       item={
                         Object {
@@ -824,10 +837,12 @@ exports[`Items should render with nested items 1`] = `
                     >
                       <div
                         className="checkbox"
+                        data-test="undefined-0"
                         role="option"
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor default"
+                          data-test="undefined-0.checkbox"
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor default
@@ -842,6 +857,7 @@ exports[`Items should render with nested items 1`] = `
                               <input
                                 aria-label="Select Lorem ipsum dolor default"
                                 data-checked={0}
+                                data-test="undefined-0.checkbox"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -905,6 +921,7 @@ exports[`Items should render with nested items 1`] = `
                     }
                   >
                     <withI18nextTranslation(Item)
+                      dataTest="undefined-1"
                       isSwitchBox={false}
                       item={
                         Object {
@@ -930,11 +947,13 @@ exports[`Items should render with nested items 1`] = `
                       <div
                         aria-selected={true}
                         className="checkbox switch-nested"
+                        data-test="undefined-1"
                         role="option"
                       >
                         <Checkbox
                           aria-label="Deselect Lorem ipsum dolor Parent"
                           checked={true}
+                          data-test="undefined-1.checkbox"
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor Parent
@@ -950,6 +969,7 @@ exports[`Items should render with nested items 1`] = `
                                 aria-label="Deselect Lorem ipsum dolor Parent"
                                 checked={true}
                                 data-checked={2}
+                                data-test="undefined-1.checkbox"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -961,6 +981,7 @@ exports[`Items should render with nested items 1`] = `
                         </Checkbox>
                         <div
                           className="checkbox-nested-expand"
+                          data-test="undefined-1.checkbox-nested-expand"
                         >
                           <Action
                             bsStyle="link"
@@ -1322,6 +1343,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   >
                     <withI18nextTranslation(Item)
+                      dataTest="undefined-0"
                       id="my-widget-1-item"
                       isSwitchBox={false}
                       item={
@@ -1335,11 +1357,13 @@ exports[`Items should render with provided id 1`] = `
                     >
                       <div
                         className="checkbox"
+                        data-test="undefined-0"
                         id="my-widget-1-item"
                         role="option"
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor sit amet 0"
+                          data-test="undefined-0.checkbox"
                           id="checkbox-my-widget-1-item"
                           label={
                             <React.Fragment>
@@ -1357,6 +1381,7 @@ exports[`Items should render with provided id 1`] = `
                               <input
                                 aria-label="Select Lorem ipsum dolor sit amet 0"
                                 data-checked={0}
+                                data-test="undefined-0.checkbox"
                                 id="checkbox-my-widget-1-item"
                                 onChange={[Function]}
                                 type="checkbox"
@@ -1424,6 +1449,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   >
                     <withI18nextTranslation(Item)
+                      dataTest="undefined-1"
                       id="my-widget-2-item"
                       isSwitchBox={false}
                       item={
@@ -1439,12 +1465,14 @@ exports[`Items should render with provided id 1`] = `
                       <div
                         aria-selected={true}
                         className="checkbox"
+                        data-test="undefined-1"
                         id="my-widget-2-item"
                         role="option"
                       >
                         <Checkbox
                           aria-label="Deselect Lorem ipsum dolor sit amet 1"
                           checked={true}
+                          data-test="undefined-1.checkbox"
                           id="checkbox-my-widget-2-item"
                           label={
                             <React.Fragment>
@@ -1463,6 +1491,7 @@ exports[`Items should render with provided id 1`] = `
                                 aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                 checked={true}
                                 data-checked={2}
+                                data-test="undefined-1.checkbox"
                                 id="checkbox-my-widget-2-item"
                                 onChange={[Function]}
                                 type="checkbox"
@@ -1530,6 +1559,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   >
                     <withI18nextTranslation(Item)
+                      dataTest="undefined-2"
                       id="my-widget-3-item"
                       isSwitchBox={false}
                       item={
@@ -1543,11 +1573,13 @@ exports[`Items should render with provided id 1`] = `
                     >
                       <div
                         className="checkbox"
+                        data-test="undefined-2"
                         id="my-widget-3-item"
                         role="option"
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor sit amet 2"
+                          data-test="undefined-2.checkbox"
                           id="checkbox-my-widget-3-item"
                           label={
                             <React.Fragment>
@@ -1565,6 +1597,7 @@ exports[`Items should render with provided id 1`] = `
                               <input
                                 aria-label="Select Lorem ipsum dolor sit amet 2"
                                 data-checked={0}
+                                data-test="undefined-2.checkbox"
                                 id="checkbox-my-widget-3-item"
                                 onChange={[Function]}
                                 type="checkbox"

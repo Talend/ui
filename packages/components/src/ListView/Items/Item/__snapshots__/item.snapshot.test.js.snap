@@ -17,6 +17,7 @@ exports[`Item should display a selected item 1`] = `
         aria-label="Deselect toto"
         checked={true}
         data-checked={2}
+        data-test="undefined.checkbox"
         id="checkbox-0-item"
         onChange={[Function]}
         type="checkbox"
