@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@talend/json-schema-form-core": "1.0.2",
-    "@talend/react-components": "^6.39.2",
+    "@talend/react-components": "^6.39.4",
     "@talend/utils": "^1.4.4",
     "ajv": "^6.2.1",
     "classnames": "^2.2.5",
@@ -61,7 +61,7 @@
     "@talend/design-system": "^1.5.0",
     "@talend/icons": "^6.36.2",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-components": "^6.39.2",
+    "@talend/react-components": "^6.39.4",
     "@talend/scripts-core": "^11.0.1",
     "@talend/scripts-preset-react-lib": "^9.9.1",
     "autoprefixer": "^7.1.4",
@@ -94,5 +94,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.39.2"
+  "version": "6.39.3"
 }

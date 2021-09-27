@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 6.39.3
+
+### Patch Changes
+
+- 603785022: chore(components+forms): Bump @talend/design-system
+- Updated dependencies [603785022]
+  - @talend/react-components@6.39.4
+
 ## 6.39.2
 
 ### Patch Changes
