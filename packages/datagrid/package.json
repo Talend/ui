@@ -36,7 +36,7 @@
   "dependencies": {
     "@talend/icons": "^6.36.2",
     "@talend/react-cmf": "^6.38.3",
-    "@talend/react-components": "^6.39.2",
+    "@talend/react-components": "^6.39.4",
     "ag-grid-community": "^25.1.0",
     "ag-grid-react": "^25.1.0",
     "classnames": "^2.3.1",
@@ -51,7 +51,7 @@
     "@talend/icons": "^6.36.2",
     "@talend/locales-tui": "^6.36.0",
     "@talend/react-cmf": "^6.38.3",
-    "@talend/react-components": "^6.39.2",
+    "@talend/react-components": "^6.39.4",
     "@talend/react-storybook-cmf": "^6.36.2",
     "@talend/scripts-core": "^11.0.1",
     "@talend/scripts-preset-react-lib": "^9.9.1",
