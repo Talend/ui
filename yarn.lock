@@ -2846,16 +2846,14 @@
   dependencies:
     semver "^7.3.5"
 
-"@talend/design-system@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-1.4.0.tgz#e4e42db437db27e6a5f8d6a3469b4a1ba98520cd"
-  integrity sha512-8UoZpzChd15DFWYpheEwnX8lzFNp+zP6y0ksVRRDmMt84h9k0PvbDiCzllFrriml3rdllaneY4RadRmFQA/ccA==
+"@talend/design-system@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-1.5.0.tgz#c3c6db8957f0ddf8837ce98516dd2d3d604a249e"
+  integrity sha512-4FbHhXaSMMf7y10lsuWY9gsREkwzuoU+TQMJhs/hiuft5rInnPzpQlYWjcQolnOxgWAU900F27RCX+kutw3hog==
   dependencies:
     classnames "^2.2.6"
-    i18next "^20.2.2"
     modern-css-reset "^1.4.0"
     polished "^4.1.2"
-    react-i18next "^11.8.13"
     react-use "^17.2.4"
     reakit "^1.3.8"
     typeface-inconsolata "^1.1.13"
@@ -10168,7 +10166,7 @@ i18next-scanner@^3.0.0:
     vinyl "^2.2.0"
     vinyl-fs "^3.0.1"
 
-i18next@*, i18next@^20.1.0, i18next@^20.2.1, i18next@^20.2.2:
+i18next@*, i18next@^20.1.0, i18next@^20.2.1:
   version "20.4.0"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.4.0.tgz#6897229a7898e23f3c4885f10315c978b594d3b9"
   integrity sha512-89iWWJudmaHJwzIdJ/1eu98GtsJnwBhOUWwlAre70itPMuTE/NTPtgVeaS1CGaB8Q3XrYBGpEqlq4jsScDx9kg==
