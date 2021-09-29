@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 10 * * WED"
+  push:
+    branches: [jmfrancois/chore/ci-pr-upgrade-deps]
 
 jobs:
   upgrade:
@@ -27,6 +29,7 @@ jobs:
           yarn
           yarn talend-scripts upgrade:deps
           yarn talend-scripts upgrade:deps --scope=@talend --latest
+          node .github/workflows/dependencies-changeset.js
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
