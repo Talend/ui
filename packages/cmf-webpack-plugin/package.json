@@ -30,11 +30,11 @@
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
     "@talend/react-cmf": "^6.38.3",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.0.1",
-    "@talend/scripts-preset-react-lib": "^9.9.1"
+    "@talend/scripts-preset-react-lib": "^9.9.2"
   },
   "publishConfig": {
     "access": "public"
