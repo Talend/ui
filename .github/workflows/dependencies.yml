@@ -27,8 +27,8 @@ jobs:
       - name: Upgrade dependencies
         run: |
           yarn
-          yarn talend-scripts upgrade:deps
           yarn talend-scripts upgrade:deps --scope=@talend --latest
+          yarn talend-scripts upgrade:deps
           node .github/workflows/dependencies-changeset.js
 
       - name: Create Pull Request
