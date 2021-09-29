@@ -41,6 +41,16 @@ class Datalist extends Component {
 
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
+		if (this.hasTitleMap()) {
+			const titleMap = this.getTitleMap();
+			titleMap.forEach(tm => {
+				if (tm.suggestions && tm.suggestions.length) {
+					if (!tm.suggestions.some(el => el.value === this.props.value)) {
+						this.setState({ isValid: false, errorMessage: 'error' });
+					}
+				}
+			});
+		}
 	}
 
 	/**
@@ -165,9 +175,9 @@ class Datalist extends Component {
 				description={this.props.schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
-				errorMessage={this.props.errorMessage}
+				errorMessage={this.state.errorMessage || this.props.errorMessage}
 				id={this.props.id}
-				isValid={this.props.isValid}
+				isValid={this.state.isValid !== undefined ? this.state.isValid : this.props.isValid}
 				label={this.props.schema.title}
 				labelProps={this.props.schema.labelProps}
 				required={this.props.schema.required}
