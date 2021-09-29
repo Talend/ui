@@ -25,7 +25,8 @@ jobs:
       - name: Upgrade dependencies
         run: |
           yarn
-          talend-scripts upgrade:deps
+          yarn talend-scripts upgrade:deps
+          yarn talend-scripts upgrade:deps --scope=@talend --latest
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
@@ -34,6 +35,6 @@ jobs:
           reviewers: jmfrancois
           commit-message: "chore: upgrade dependencies"
           title: "chore: upgrade dependencies"
-          body: "Upgrade dependencies using `talend-scripts upgrade:deps`"
+          body: "Upgrade dependencies using `talend-scripts upgrade:deps` and --scope=@talend --latest"
           branch: ci/chore/upgrade-dependencies
           branch-suffix: timestamp
