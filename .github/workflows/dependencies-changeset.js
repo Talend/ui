@@ -6,7 +6,7 @@ const fs = require('fs');
 async function getModifiedPackage() {
 	let output;
 	try {
-		output = execSync('git st -s --untracked-files=no');
+		output = execSync('git status -s --untracked-files=no');
 		// we try to keep only lines with
 		// M packages/cmf/package.json
 		return (
@@ -23,6 +23,7 @@ async function getModifiedPackage() {
 	} catch (e) {
 		console.error(e);
 	}
+	return [];
 }
 
 const pkgs = getModifiedPackage();
