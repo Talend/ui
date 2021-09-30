@@ -30,6 +30,7 @@ jobs:
           yarn talend-scripts upgrade:deps
           node .github/workflows/dependencies-changeset.js
           yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.log
+          git add dependencies-latest.log
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
