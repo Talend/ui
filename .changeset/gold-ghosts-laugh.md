@@ -2,4 +2,4 @@
 '@talend/react-components': patch
 ---
 
-fix(IconToggle): calc with sass vars
+fix(IconToggle/Drawer/Slider/ObjectViewer): calc with sass vars
