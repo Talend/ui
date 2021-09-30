@@ -38,5 +38,5 @@ jobs:
           reviewers: jmfrancois
           commit-message: "chore: upgrade dependencies"
           title: "chore: upgrade dependencies"
-          body: "Upgrade dependencies using `talend-scripts upgrade:deps` and --scope=@talend --latest"
+          body: "Upgrade dependencies using `talend-scripts upgrade:deps` and `--scope=@talend --latest`"
           branch: ci/chore/upgrade-dependencies

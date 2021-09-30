@@ -16,9 +16,10 @@ function getModifiedPackage() {
 				.filter(l => l.endsWith('package.json'))
 				// keep only the path
 				.map(l => l.split(' ')[2])
-				// read the package.json to get the package name
-				.map(p => require(path.join(process.cwd(), p)).name)
-				.filter(Boolean)
+				// filter
+				.map(p => require(path.join(process.cwd(), p)))
+				.filter(p => p.name && !p.private && !p.workspaces)
+				.map(p => p.name)
 		);
 	} catch (e) {
 		console.error(e);
@@ -38,4 +39,5 @@ ${content.trim()}
 ---
 
 chore: upgrade dependencies and align @talend scoped packages to latest
-`);
+`,
+);
