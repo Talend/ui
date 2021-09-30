@@ -9,18 +9,16 @@ function getModifiedPackage() {
 		output = execSync('git status -s --untracked-files=no');
 		// we try to keep only lines with
 		// M packages/cmf/package.json
-		return (
-			output
-				.toString()
-				.split(os.EOL)
-				.filter(l => l.endsWith('package.json'))
-				// keep only the path
-				.map(l => l.split(' ')[2])
-				// filter
-				.map(p => require(path.join(process.cwd(), p)))
-				.filter(p => p.name && !p.private && !p.workspaces)
-				.map(p => p.name)
-		);
+		return output
+			.toString()
+			.split(os.EOL)
+			.filter(l => l.endsWith('package.json'))
+			// keep only the path
+			.map(l => l.split(' ')[2])
+			// filter
+			.map(p => require(path.join(process.cwd(), p)))
+			.filter(p => p.name && !p.private && !p.workspaces)
+			.map(p => p.name);
 	} catch (e) {
 		console.error(e);
 	}
