@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "@talend/react-cmf": "^6.38.3",
-    "immutable": "^3.8.1",
-    "redux-saga": "^0.15.4"
+    "immutable": "^3.8.2",
+    "redux-saga": "^0.15.6"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
@@ -44,10 +44,10 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.0.1",
-    "@talend/scripts-preset-react-lib": "^9.9.1",
-    "prop-types": "^15.5.10",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "publishConfig": {
     "access": "public"
