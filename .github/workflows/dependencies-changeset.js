@@ -26,9 +26,7 @@ function getModifiedPackage() {
 }
 
 const pkgs = getModifiedPackage();
-let content = pkgs.reduce((acc, pkg) => {
-	return `${acc}${os.EOL}'${pkg}': patch`;
-}, '');
+const content = pkgs.map(pkg => `'${pkg}': patch`).join(os.EOL);
 
 fs.writeFileSync(
 	`${process.cwd()}/.changeset/ci-dependencies.md`,
