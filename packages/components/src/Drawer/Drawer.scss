@@ -118,7 +118,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		.drawer-close-action-tooltip {
 			position: absolute;
 			right: 0;
-			bottom: calc($tc-drawer-padding / 2);
+			bottom: calc(#{$tc-drawer-padding} / 2);
 		}
 
 		> .tc-editable-text {
