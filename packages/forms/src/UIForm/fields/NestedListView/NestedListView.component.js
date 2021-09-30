@@ -230,7 +230,7 @@ class NestedListViewWidget extends React.Component {
 						labelProps={schema.labelProps}
 						required={schema.required}
 						searchPlaceholder={schema.placeholder}
-						dataTest={schema.dataTest}
+						dataTest={schema.dataTest || 'listView'}
 						showToggleAll={false}
 					/>
 				</FieldTemplate>
