@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 10 * * WED"
-  push:
-    branches: [jmfrancois/chore/ci-pr-upgrade-deps]
 
 jobs:
   upgrade:
