@@ -3,7 +3,7 @@ const os = require('os');
 const path = require('path');
 const fs = require('fs');
 
-async function getModifiedPackage() {
+function getModifiedPackage() {
 	let output;
 	try {
 		output = execSync('git status -s --untracked-files=no');
@@ -34,8 +34,8 @@ let content = pkgs.reduce((acc, pkg) => {
 fs.writeFileSync(
 	`${process.cwd()}/.changeset/ci-dependencies.md`,
 	`---
-${content}
+${content.trim()}
 ---
 
-chore: upgrade dependencies and align @talend scoped packages to latest`,
-);
+chore: upgrade dependencies and align @talend scoped packages to latest
+`);
