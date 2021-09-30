@@ -29,6 +29,7 @@ jobs:
           yarn
           yarn talend-scripts upgrade:deps
           node .github/workflows/dependencies-changeset.js
+          yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.log
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
@@ -39,17 +40,4 @@ jobs:
           title: "chore: upgrade dependencies"
           body: "Upgrade dependencies using `talend-scripts upgrade:deps`"
           branch: ci/chore/upgrade-dependencies
-
-      - name: Upgrade to latest
-        run: |
-          yarn talend-scripts upgrade:deps --latest
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          assignees: jmfrancois
-          reviewers: jmfrancois
-          commit-message: "chore: upgrade dependencies to latest"
-          title: "chore: upgrade dependencies to latest DONOTMERGE"
-          body: "Upgrade dependencies using `talend-scripts upgrade:deps --latest`"
-          branch: ci/chore/upgrade-dependencies-latest
+          
