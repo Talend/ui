@@ -41,15 +41,8 @@ class Datalist extends Component {
 
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
-		if (this.hasTitleMap()) {
-			const titleMap = this.getTitleMap();
-			titleMap.forEach(tm => {
-				if (tm.suggestions && tm.suggestions.length) {
-					if (!tm.suggestions.some(el => el.value === this.props.value)) {
-						this.setState({ isValid: false, errorMessage: 'error' });
-					}
-				}
-			});
+		if (this.props.checkIfValueIsInTitleMap) {
+			this.isValueInTitleMap();
 		}
 	}
 
@@ -60,6 +53,7 @@ class Datalist extends Component {
 	 * @param payload
 	 */
 	onChange(event, payload) {
+		this.setState({ isValid: true, errorMessage: undefined });
 		let mergedSchema = this.props.schema;
 		// with the possibility to have async suggestions, on restricted values inputs
 		// the validation doesn't have the enum list as it is not in the jsonSchema
@@ -142,6 +136,33 @@ class Datalist extends Component {
 			has(this.props, 'schema.options.titleMap') ||
 			has(this.props, 'schema.titleMap')
 		);
+	}
+
+	/**
+	 *
+	 */
+	isValueInTitleMap() {
+		if (this.hasTitleMap()) {
+			const isMultiSection = get(this.props, 'schema.options.isMultiSection', false);
+			const titleMap = this.getTitleMap();
+			if (!isMultiSection) {
+				if (!titleMap.some(el => el.value === this.props.value)) {
+					this.setState({ isValid: false, errorMessage: 'error' });
+				}
+			} else {
+				let found = false;
+				titleMap.forEach(tm => {
+					if (tm.suggestions && tm.suggestions.length) {
+						if (tm.suggestions.some(el => el.value === this.props.value)) {
+							found = true;
+						}
+					}
+				});
+				if (!found) {
+					this.setState({ isValid: false, errorMessage: 'error' });
+				}
+			}
+		}
 	}
 
 	addCustomValue(value, isMultiSection) {
@@ -277,6 +298,7 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.string,
 		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
+		checkIfValueIsInTitleMap: PropTypes.bool,
 	};
 }
 
