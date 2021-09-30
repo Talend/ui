@@ -44,11 +44,10 @@ hs_err_pid*
 
 # Talend web apps build directory
 build/
-/i18n/
+/packages/*/i18n/
 tmp/
 lib/
 storybook-static/
 dist/
-i18n-extract/
 eslint-report.json
 stylelint-report.json
