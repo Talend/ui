@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.39.5
+
+### Patch Changes
+
+- a2dee6afb: fix(IconToggle/Drawer/Slider/ObjectViewer): calc with sass vars
+
 ## 6.39.4
 
 ### Patch Changes
