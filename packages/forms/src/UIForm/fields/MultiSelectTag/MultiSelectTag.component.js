@@ -244,7 +244,7 @@ export default class MultiSelectTag extends React.Component {
 				<div className={`${theme.wrapper} form-control`}>
 					{this.props.value.map((val, index) => {
 						const label = getLabel(this.getTitleMap(), val, names[index]);
-						const badgeProps = { label, key: index, dataTest: `${this.schema.dataTest}.${index}` };
+						const badgeProps = { label, key: index, dataTest: `${schema.dataTest}.${index}` };
 						if (!schema.readOnly && !schema.disabled) {
 							badgeProps.onDelete = event => this.onRemoveTag(event, index);
 						}
@@ -305,6 +305,7 @@ if (process.env.NODE_ENV !== 'production') {
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
 			labelProps: PropTypes.object,
+			dataTest: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
 					name: PropTypes.string.isRequired,

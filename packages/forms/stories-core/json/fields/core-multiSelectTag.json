@@ -100,6 +100,7 @@
       "restricted": true,
       "title": "Select your favorite movies from the list",
       "widget": "multiSelectTag",
+      "dataTest": "item",
       "titleMap": [
         {
           "name": "The Dark Knight",
