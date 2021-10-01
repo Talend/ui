@@ -77,7 +77,7 @@
     "i18next": "^21.2.0",
     "i18next-scanner": "^3.0.0",
     "i18next-scanner-typescript": "^1.0.6",
-    "mdx-embed": "^0.0.19",
+    "mdx-embed": "^0.0.22",
     "prettier": "2.3.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
