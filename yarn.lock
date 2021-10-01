@@ -15067,10 +15067,10 @@ store2@^2.12.0:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-mdx-embed@^0.0.19:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/storybook-addon-mdx-embed/-/storybook-addon-mdx-embed-0.0.19.tgz#200307ffcf700b776ffb8146085f035ca3d883bd"
-  integrity sha512-xYvLALtxPl21rony/ODBs4RFhjMBEHKCBxYyALbzcM8vUwoM0HsvjhMFFfh1pqH+tKfp+as5Ool3fBF+mggSdw==
+storybook-addon-mdx-embed@^0.0.20:
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/storybook-addon-mdx-embed/-/storybook-addon-mdx-embed-0.0.20.tgz#26a38219416124befe0e377eb39e9288335c2b14"
+  integrity sha512-nw71MA0Nt77MlkU6gPKTaCSsdBBzLglmWXrZA90yWkCVVjPt7xlopN1sOUw3I5P4XmfRIRY6LhyG2cXKDxxdOQ==
 
 storybook-docs-toc@^1.6.0:
   version "1.6.0"
