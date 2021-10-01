@@ -13,6 +13,7 @@ describe('Item', () => {
 		const props = {
 			id: '0-item',
 			item: selectedItem,
+			dataTest: 'item',
 		};
 
 		// when
