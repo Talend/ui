@@ -28,6 +28,7 @@ module.exports = {
 	stories: [
 		'../src/Welcome.stories.@(js|tsx|mdx)',
 		'../src/GettingStarted.stories.@(js|tsx|mdx)',
+		'../src/DesignSystem.stories.@(js|tsx|mdx)',
 		'../src/Status.stories.@(js|tsx|mdx)',
 		'../src/Catalog.stories.@(js|tsx|mdx)',
 		'../src/tokens/docs/*.stories.@(js|tsx|mdx)',
