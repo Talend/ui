@@ -4,7 +4,6 @@ import { mount } from 'enzyme';
 import ErrorBoundary from './ErrorBoundary.component';
 
 // missing in jsdom: https://github.com/jsdom/jsdom/issues/1721
-global.window.URL.createObjectURL = jest.fn();
 
 function TestChildren(props) {
 	if (props.breaking) {
@@ -17,6 +16,13 @@ TestChildren.propTypes = {
 };
 
 describe('Component ErrorBoundary', () => {
+	beforeEach(() => {
+		global.window.URL.createObjectURL = jest.fn();
+		global.console = {
+			log: jest.fn(),
+			error: jest.fn(),
+		};
+	});
 	it('should render children', () => {
 		const wrapper = mount(
 			<ErrorBoundary>
@@ -34,5 +40,6 @@ describe('Component ErrorBoundary', () => {
 		);
 		expect(wrapper.text()).not.toEqual('hello world');
 		expect(wrapper.find('ErrorPanel').length).toBe(1);
+		expect(global.console.error).toHaveBeenCalled();
 	});
 });

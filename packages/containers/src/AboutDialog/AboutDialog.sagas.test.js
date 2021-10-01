@@ -57,22 +57,22 @@ describe('AboutDialog sagas', () => {
 			// Toggle loading flag
 			let effect = gen.next().value;
 			let expected = Connected.setStateAction({ loading: true });
-			expect(effect.PUT.action).toEqual(expected);
+			expect(effect.payload.action).toEqual(expected);
 
 			// HTTP call
 			effect = gen.next().value;
-			expect(effect.CALL.fn).toEqual(cmf.sagas.http.get);
-			expect(effect.CALL.args).toEqual([url]);
+			expect(effect.payload.fn).toEqual(cmf.sagas.http.get);
+			expect(effect.payload.args).toEqual([url]);
 
 			// Update CMF collections
 			effect = gen.next(httpResponse).value;
 			expected = cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, converted);
-			expect(effect.PUT.action).toEqual(expected);
+			expect(effect.payload.action).toEqual(expected);
 
 			// Toggle fetching flag
 			effect = gen.next().value;
 			expected = Connected.setStateAction({ loading: false });
-			expect(effect.PUT.action).toEqual(expected);
+			expect(effect.payload.action).toEqual(expected);
 
 			const { done } = gen.next();
 
@@ -85,7 +85,7 @@ describe('AboutDialog sagas', () => {
 
 		const effect = gen.next().value;
 		const expected = Connected.setStateAction({ show: false });
-		expect(effect.PUT.action).toEqual(expected);
+		expect(effect.payload.action).toEqual(expected);
 
 		expect(gen.next().done).toBe(true);
 	});
@@ -96,9 +96,9 @@ describe('AboutDialog sagas', () => {
 		const effect = gen.next().value;
 
 		const expected = Connected.setStateAction({ show: true });
-		expect(effect.ALL[0].PUT.action).toEqual(expected);
+		expect(effect.payload[0].payload.action).toEqual(expected);
 
-		expect(effect.ALL[1].CALL.args).toEqual([{ payload: { url: 'hey' } }]);
+		expect(effect.payload[1].payload.args).toEqual([{ payload: { url: 'hey' } }]);
 
 		expect(gen.next().done).toBe(true);
 	});
