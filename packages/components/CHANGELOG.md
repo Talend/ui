@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.39.6
+
+### Patch Changes
+
+- cbb98bdc9: fix(list): align checkbox in list component
+
 ## 6.39.5
 
 ### Patch Changes
