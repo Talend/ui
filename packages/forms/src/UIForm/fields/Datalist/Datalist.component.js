@@ -37,6 +37,7 @@ class Datalist extends Component {
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
+		this.isValueInTitleMap = this.isValueInTitleMap.bind(this);
 	}
 
 	componentDidMount() {
@@ -145,21 +146,29 @@ class Datalist extends Component {
 		if (this.hasTitleMap()) {
 			const isMultiSection = get(this.props, 'schema.options.isMultiSection', false);
 			const titleMap = this.getTitleMap();
+			const customErrorMessage = this.props.t('TF_DATALIST_CUSTOM_ERROR_MESSAGE', {
+				default:
+					'This semantic type previously selected in the processor is no longer used for validation.',
+			});
 			if (!isMultiSection) {
 				if (!titleMap.some(el => el.value === this.props.value)) {
-					this.setState({ isValid: false, errorMessage: 'error' });
+					this.setState({
+						isValid: false,
+						errorMessage: customErrorMessage,
+					});
 				}
 			} else {
 				let found = false;
 				titleMap.forEach(tm => {
 					if (tm.suggestions && tm.suggestions.length) {
-						if (tm.suggestions.some(el => el.value === this.props.value)) {
-							found = true;
-						}
+						found = tm.suggestions.some(el => el.value === this.props.value);
 					}
 				});
 				if (!found) {
-					this.setState({ isValid: false, errorMessage: 'error' });
+					this.setState({
+						isValid: false,
+						errorMessage: customErrorMessage,
+					});
 				}
 			}
 		}

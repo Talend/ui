@@ -414,4 +414,73 @@ describe('Datalist component', () => {
 			]);
 		});
 	});
+
+	describe('isValueInTitleMap', () => {
+		it('should set a state with custom "errorMessage" and "isValid", given multisection schema', () => {
+			// given
+			const props = {
+				id: 'my-datalist',
+				isValid: true,
+				errorMessage: 'a custom error message',
+				onChange: jest.fn(),
+				onFinish: jest.fn(),
+				onTrigger: jest.fn(),
+				schema: schemaMultiSection,
+				value: 'a not existing value',
+			};
+			// when
+			const wrapper = shallow(<Datalist {...props} checkIfValueIsInTitleMap />);
+			// then
+			expect(wrapper.state('isValid')).toBe(false);
+		});
+		it('should not set a state, given a multisection schema', () => {
+			const wrapper = shallow(
+				<Datalist onChange={jest.fn()} onFinish={jest.fn()} schema={schemaMultiSection} />,
+			);
+			expect(wrapper.state('isValid')).toBe(undefined);
+			expect(wrapper.state('customErrorMessage')).toBe(undefined);
+		});
+		it('should set a state with custom "errorMessage" and "isValid", given simple schema', () => {
+			const props = {
+				id: 'my-datalist',
+				isValid: true,
+				errorMessage: 'a custom error message',
+				onChange: jest.fn(),
+				onFinish: jest.fn(),
+				onTrigger: jest.fn(),
+				schema,
+				value: 'a not existing value',
+			};
+			const wrapper = shallow(<Datalist {...props} checkIfValueIsInTitleMap />);
+			expect(wrapper.state('isValid')).toBe(false);
+		});
+		it('should not set a state, given a simple schema', () => {
+			const wrapper = shallow(
+				<Datalist onChange={jest.fn()} onFinish={jest.fn()} schema={schema} />,
+			);
+			expect(wrapper.state('isValid')).toBe(undefined);
+			expect(wrapper.state('customErrorMessage')).toBe(undefined);
+		});
+		it('onChange', () => {
+			// given
+			const props = {
+				id: 'my-datalist',
+				isValid: true,
+				errorMessage: 'a custom error message',
+				onChange: jest.fn(),
+				onFinish: jest.fn(),
+				onTrigger: jest.fn(),
+				schema: schemaMultiSection,
+				value: 'a not existing value',
+			};
+			// when
+			const selectedValue = { label: 'Bar', value: 'bar' };
+			const event = { type: 'change' };
+			const wrapper = shallow(<Datalist {...props} checkIfValueIsInTitleMap />);
+			// then
+			expect(wrapper.state('isValid')).toBe(false);
+			wrapper.instance().onChange(event, selectedValue);
+			expect(wrapper.state('isValid')).toBe(true);
+		});
+	});
 });
