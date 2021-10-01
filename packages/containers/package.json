@@ -14,7 +14,8 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "build-storybook",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
     "react",
