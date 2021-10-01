@@ -55,7 +55,7 @@
     "@talend/bootstrap-theme": "^6.38.2",
     "@talend/icons": "^6.36.2",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-storybook-cmf": "^6.39.2",
+    "@talend/react-storybook-cmf": "^6.36.2",
     "@talend/scripts-core": "^11.0.1",
     "@talend/scripts-preset-react-lib": "^9.9.1",
     "babel-loader": "^8.1.0",
