@@ -2881,11 +2881,6 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-dataviz/-/locales-tui-dataviz-0.4.4.tgz#7be8e151a94847be99e06f1deec0143528a18464"
   integrity sha512-bUGVCxUvaQFD/9bps4FsvJxM/LEAHm8ARxAEnrAJtxeptM4fnAfHdfihsq39WpB4PZG/smw3NQOnJUOygmE5vQ==
 
-"@talend/locales-tui@^5.6.0":
-  version "5.29.0"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-5.29.0.tgz#fa398c6c4381d8e56f526fead6cd7898776e5d49"
-  integrity sha512-N/1cwMMNsT0PFWDlbwiDFsjxuSiLT4NMSbvTFLN00LUv7l5BiVXZtq5Xiig+G9swa6dy4QzeHJ2rQ1ZNoKNW5A==
-
 "@talend/locales-tui@^6.36.0":
   version "6.36.0"
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-6.36.0.tgz#727311ca5f8fa220dba18a5069ae403256a384ca"
