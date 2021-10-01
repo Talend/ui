@@ -11,6 +11,7 @@ exports[`NestedListView component should render component 1`] = `
     isValid={true}
   >
     <ListView
+      dataTest="listView"
       displayedItems={
         Array [
           Object {
