@@ -168,6 +168,7 @@ export class ItemsComponent extends React.PureComponent {
 	}
 
 	renderItem(item, index, measure) {
+		const { dataTest } = this.props;
 		let computedId;
 		if (this.props.id) {
 			const computedIndex = this.hasToggleAll ? index + 1 : index;
@@ -182,7 +183,7 @@ export class ItemsComponent extends React.PureComponent {
 				item={item}
 				isSwitchBox={this.props.isSwitchBox && !item.children}
 				searchCriteria={this.props.searchCriteria}
-				dataTest={`${this.props.dataTest}-${index}`}
+				dataTest={dataTest && `${dataTest}-${index}`}
 			>
 				{item.children &&
 					item.children.map((nestedItem, nestedIndex) => (
@@ -192,7 +193,7 @@ export class ItemsComponent extends React.PureComponent {
 							item={nestedItem}
 							parentItem={item}
 							searchCriteria={this.props.searchCriteria}
-							dataTest={`${this.props.dataTest}.nested-${nestedIndex}`}
+							dataTest={dataTest && `${dataTest}.nested-${nestedIndex}`}
 						/>
 					))}
 			</Item>

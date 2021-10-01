@@ -79,10 +79,13 @@ class Item extends Component {
 						</>
 					}
 					aria-label={ariaLabel}
-					data-test={`${dataTest}.checkbox`}
+					data-test={dataTest && `${dataTest}.checkbox`}
 				/>
 				{children && (
-					<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })} data-test={`${dataTest}.checkbox-nested-expand`}>
+					<div
+						className={classNames('checkbox-nested-expand', { expanded: item.expanded })}
+						data-test={dataTest && `${dataTest}.checkbox-nested-expand`}
+					>
 						<Action
 							bsStyle="link"
 							icon="talend-caret-down"
