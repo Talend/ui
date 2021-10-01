@@ -37,13 +37,13 @@ class Datalist extends Component {
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
-		this.isValueInTitleMap = this.isValueInTitleMap.bind(this);
+		this.isValueInTitleMap = this.checkValueInTitleMap.bind(this);
 	}
 
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
-		if (this.props.checkIfValueIsInTitleMap) {
-			this.isValueInTitleMap();
+		if (this.props.checkValueInTitleMap) {
+			this.checkValueInTitleMap();
 		}
 	}
 
@@ -140,16 +140,16 @@ class Datalist extends Component {
 	}
 
 	/**
-	 *
+	 * isValueInTitleMaps checks if the current value exists in the given titleMap.
+	 *   If the value is not found it sets a new state for the 'isValid' and
+	 *   'errorMessage' values .
 	 */
-	isValueInTitleMap() {
+	checkValueInTitleMap() {
 		if (this.hasTitleMap()) {
 			const isMultiSection = get(this.props, 'schema.options.isMultiSection', false);
 			const titleMap = this.getTitleMap();
-			const customErrorMessage = this.props.t('TF_DATALIST_CUSTOM_ERROR_MESSAGE', {
-				default:
-					'This semantic type previously selected in the processor is no longer used for validation.',
-			});
+			const customErrorMessage =
+				'This semantic type previously selected in the processor is no longer used for validation.';
 			if (!isMultiSection) {
 				if (!titleMap.some(el => el.value === this.props.value)) {
 					this.setState({
@@ -158,7 +158,7 @@ class Datalist extends Component {
 					});
 				}
 			} else {
-				let found = false;
+				let found;
 				titleMap.forEach(tm => {
 					if (tm.suggestions && tm.suggestions.length) {
 						found = tm.suggestions.some(el => el.value === this.props.value);
@@ -307,7 +307,7 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.string,
 		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
-		checkIfValueIsInTitleMap: PropTypes.bool,
+		checkValueInTitleMap: PropTypes.bool,
 	};
 }
 

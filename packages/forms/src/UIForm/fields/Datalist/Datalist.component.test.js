@@ -415,72 +415,51 @@ describe('Datalist component', () => {
 		});
 	});
 
-	describe('isValueInTitleMap', () => {
-		it('should set a state with custom "errorMessage" and "isValid", given multisection schema', () => {
-			// given
-			const props = {
-				id: 'my-datalist',
-				isValid: true,
-				errorMessage: 'a custom error message',
-				onChange: jest.fn(),
-				onFinish: jest.fn(),
-				onTrigger: jest.fn(),
-				schema: schemaMultiSection,
-				value: 'a not existing value',
-			};
-			// when
-			const wrapper = shallow(<Datalist {...props} checkIfValueIsInTitleMap />);
-			// then
+	describe('checkValueInTitleMap', () => {
+		const props = {
+			id: 'my-datalist',
+			isValid: true,
+			onChange: jest.fn(),
+			onFinish: jest.fn(),
+			onTrigger: jest.fn(),
+			schema: schemaMultiSection,
+			value: 'a not existing value',
+		};
+
+		const customErrorMessage =
+			'This semantic type previously selected in the processor is no longer used for validation.';
+
+		it('should set a state, given multisection schema', () => {
+			const wrapper = shallow(<Datalist {...props} checkValueInTitleMap />);
+
 			expect(wrapper.state('isValid')).toBe(false);
+			expect(wrapper.state('errorMessage')).toBe(customErrorMessage);
 		});
-		it('should not set a state, given a multisection schema', () => {
-			const wrapper = shallow(
-				<Datalist onChange={jest.fn()} onFinish={jest.fn()} schema={schemaMultiSection} />,
-			);
+		it('should NOT set a state, given a multisection schema', () => {
+			const wrapper = shallow(<Datalist {...props} schema={schemaMultiSection} />);
 			expect(wrapper.state('isValid')).toBe(undefined);
-			expect(wrapper.state('customErrorMessage')).toBe(undefined);
+			expect(wrapper.state('errorMessage')).toBe(undefined);
 		});
-		it('should set a state with custom "errorMessage" and "isValid", given simple schema', () => {
-			const props = {
-				id: 'my-datalist',
-				isValid: true,
-				errorMessage: 'a custom error message',
-				onChange: jest.fn(),
-				onFinish: jest.fn(),
-				onTrigger: jest.fn(),
-				schema,
-				value: 'a not existing value',
-			};
-			const wrapper = shallow(<Datalist {...props} checkIfValueIsInTitleMap />);
+		it('should set a state, given simple schema', () => {
+			const wrapper = shallow(<Datalist {...props} checkValueInTitleMap />);
 			expect(wrapper.state('isValid')).toBe(false);
+			expect(wrapper.state('errorMessage')).toBe(customErrorMessage);
 		});
-		it('should not set a state, given a simple schema', () => {
-			const wrapper = shallow(
-				<Datalist onChange={jest.fn()} onFinish={jest.fn()} schema={schema} />,
-			);
+		it('should NOT set a state, given a simple schema', () => {
+			const wrapper = shallow(<Datalist {...props} schema={schema} />);
 			expect(wrapper.state('isValid')).toBe(undefined);
-			expect(wrapper.state('customErrorMessage')).toBe(undefined);
+			expect(wrapper.state('errorMessage')).toBe(undefined);
 		});
-		it('onChange', () => {
-			// given
-			const props = {
-				id: 'my-datalist',
-				isValid: true,
-				errorMessage: 'a custom error message',
-				onChange: jest.fn(),
-				onFinish: jest.fn(),
-				onTrigger: jest.fn(),
-				schema: schemaMultiSection,
-				value: 'a not existing value',
-			};
-			// when
+		it('should change value and the check should pass', () => {
 			const selectedValue = { label: 'Bar', value: 'bar' };
 			const event = { type: 'change' };
-			const wrapper = shallow(<Datalist {...props} checkIfValueIsInTitleMap />);
-			// then
+			const wrapper = shallow(<Datalist {...props} checkValueInTitleMap />);
+
 			expect(wrapper.state('isValid')).toBe(false);
+			expect(wrapper.state('errorMessage')).toBe(customErrorMessage);
 			wrapper.instance().onChange(event, selectedValue);
 			expect(wrapper.state('isValid')).toBe(true);
+			expect(wrapper.state('errorMessage')).toBe(undefined);
 		});
 	});
 });
