@@ -1,4 +1,3 @@
-import Password from '@talend/design-system/lib/components/Form/Field/Input/Input.Password';
+import { Form } from '@talend/design-system';
 
-
-export default Password;
+export default Form.Password;
