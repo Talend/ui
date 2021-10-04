@@ -5,7 +5,8 @@
     "target": "./i18n"
   },
   "load": {
-    "project": "TUI"
+    "project": "TUI-containers",
+    "template": "TUI"
   },
   "github": {
     "url": "https://github.com/Talend/i18n-product.git"

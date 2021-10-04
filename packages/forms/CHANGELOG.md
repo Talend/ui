@@ -1,5 +1,16 @@
 # @talend/react-forms
 
+## 6.40.0
+
+### Minor Changes
+
+- a048eaa78: add password widget from the design system
+
+### Patch Changes
+
+- Updated dependencies [cbb98bdc9]
+  - @talend/react-components@6.39.6
+
 ## 6.39.3
 
 ### Patch Changes

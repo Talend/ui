@@ -16,7 +16,8 @@
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
     "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
     "lint": "yarn run lint:es && yarn run lint:style",
-    "start": "start-storybook -p 6008"
+    "start": "start-storybook -p 6008",
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
     "react",
@@ -36,7 +37,7 @@
   },
   "dependencies": {
     "@talend/json-schema-form-core": "1.0.2",
-    "@talend/react-components": "^6.39.4",
+    "@talend/react-components": "^6.39.6",
     "@talend/utils": "^1.4.4",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
@@ -61,7 +62,7 @@
     "@talend/design-system": "^1.5.0",
     "@talend/icons": "^6.36.2",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-components": "^6.39.4",
+    "@talend/react-components": "^6.39.6",
     "@talend/scripts-core": "^11.0.1",
     "@talend/scripts-preset-react-lib": "^9.9.2",
     "autoprefixer": "^7.2.6",
@@ -94,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.39.3"
+  "version": "6.40.0"
 }

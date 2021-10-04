@@ -8,4 +8,5 @@ export default {
 	onChange: PropTypes.func,
 	measure: PropTypes.func,
 	icon: PropTypes.shape(Icon.propTypes),
+	dataTest: PropTypes.string,
 };

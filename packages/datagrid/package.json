@@ -17,7 +17,8 @@
     "test:demo": "build-storybook",
     "lint": "yarn lint:es && yarn lint:style",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
-    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json"
+    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
     "react",

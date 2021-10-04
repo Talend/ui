@@ -40,6 +40,7 @@
 			"title": "Food",
 			"widget": "nestedListView",
 			"autosize": true,
+			"dataTest": "item",
 			"items": [
 				{
 					"key": "food.fruits",
