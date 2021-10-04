@@ -146,6 +146,10 @@ export class TCompForm extends React.Component {
 		}
 	}
 
+	onErrors(_, errors) {
+		this.setState({ errors });
+	}
+
 	onTrigger(event, payload) {
 		this.props.dispatch({
 			type: TCompForm.ON_TRIGGER_BEGIN,
@@ -218,6 +222,7 @@ export class TCompForm extends React.Component {
 			properties: this.state.properties,
 			jsonSchema: this.getMemoizedJsonSchema(this.props.state.get('jsonSchema')),
 			uiSchema: this.getMemoizedUiSchema(this.props.state.get('uiSchema')),
+			errors: this.state.errors,
 		};
 	}
 
@@ -238,6 +243,7 @@ export class TCompForm extends React.Component {
 			initialData: this.getMemoizedInitialState(this.props.state.get('initialState')),
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
+			onErrors: this.onErrors,
 			onSubmit: this.onSubmit,
 			onReset: this.onReset,
 			widgets: { ...tcompFieldsWidgets, ...this.props.widgets },
