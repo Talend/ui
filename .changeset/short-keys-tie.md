@@ -1,5 +1,5 @@
 ---
-'@talend/react-forms': minor
+'@talend/react-forms': patch
 ---
 
 fix import for password widget
