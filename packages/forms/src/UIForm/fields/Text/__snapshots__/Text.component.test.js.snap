@@ -134,7 +134,7 @@ exports[`Text field should render password input 1`] = `
   label="My input title"
   required={true}
 >
-  <ForwardRef
+  <Form.Password
     aria-describedby="myForm-description myForm-error"
     aria-invalid={false}
     aria-required={true}
