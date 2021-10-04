@@ -42,7 +42,7 @@ class Datalist extends Component {
 
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
-		if (this.props.checkValueInTitleMap) {
+		if (this.props.initialCheckValue) {
 			this.checkValueInTitleMap();
 		}
 	}
@@ -142,19 +142,17 @@ class Datalist extends Component {
 	/**
 	 * isValueInTitleMaps checks if the current value exists in the given titleMap.
 	 *   If the value is not found it sets a new state for the 'isValid' and
-	 *   'errorMessage' values .
+	 *   'errorMessage' values.
 	 */
 	checkValueInTitleMap() {
-		if (this.hasTitleMap()) {
+		if (this.hasTitleMap() && this.props.schema.restricted) {
 			const isMultiSection = get(this.props, 'schema.options.isMultiSection', false);
 			const titleMap = this.getTitleMap();
-			const customErrorMessage =
-				'This semantic type previously selected in the processor is no longer used for validation.';
 			if (!isMultiSection) {
 				if (!titleMap.some(el => el.value === this.props.value)) {
 					this.setState({
 						isValid: false,
-						errorMessage: customErrorMessage,
+						errorMessage: this.props.missingValueErrorMessage,
 					});
 				}
 			} else {
@@ -167,7 +165,7 @@ class Datalist extends Component {
 				if (!found) {
 					this.setState({
 						isValid: false,
-						errorMessage: customErrorMessage,
+						errorMessage: this.props.missingValueErrorMessage,
 					});
 				}
 			}
@@ -207,7 +205,7 @@ class Datalist extends Component {
 				errorId={errorId}
 				errorMessage={this.state.errorMessage || this.props.errorMessage}
 				id={this.props.id}
-				isValid={this.state.isValid !== undefined ? this.state.isValid : this.props.isValid}
+				isValid={this.state.isValid && this.props.isValid}
 				label={this.props.schema.title}
 				labelProps={this.props.schema.labelProps}
 				required={this.props.schema.required}
@@ -307,7 +305,8 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.string,
 		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
-		checkValueInTitleMap: PropTypes.bool,
+		initialCheckValue: PropTypes.bool,
+		missingValueErrorMessage: PropTypes.string,
 	};
 }
 
